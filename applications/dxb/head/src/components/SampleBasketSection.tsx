@@ -1,6 +1,6 @@
-import { Button, Section } from "@bmi/components";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
-import ShoppingCart from "@material-ui/icons/ShoppingCart";
+import { Button, Section } from "@bmi-digital/components";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import ShoppingCart from "@mui/icons-material/ShoppingCart";
 import React, { useEffect, useState } from "react";
 import { microCopy } from "../constants/microCopies";
 import {
@@ -84,6 +84,7 @@ const SampleBasketSection = ({
       <Section
         backgroundColor="white"
         className={styles["SampleBasketSection"]}
+        data-testid="sample-basket-section"
       >
         <RichText document={description} />
         <SampleBasketSectionProducts />

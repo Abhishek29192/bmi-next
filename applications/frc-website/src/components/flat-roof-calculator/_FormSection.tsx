@@ -1,4 +1,4 @@
-import { Typography } from "@bmi/components";
+import { Typography } from "@bmi-digital/components";
 import classnames from "classnames";
 import React from "react";
 import styles from "./FlatRoofCalculator.module.scss";

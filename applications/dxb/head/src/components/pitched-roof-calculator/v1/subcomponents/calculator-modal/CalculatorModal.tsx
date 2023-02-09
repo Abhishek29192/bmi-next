@@ -1,14 +1,16 @@
-import React, { useContext } from "react";
-import classnames from "classnames";
-import { Button } from "@bmi/components";
-import { Container } from "@bmi/components";
+import {
+  BMI as brandLogo,
+  Button,
+  Container,
+  DialogClassNameContext,
+  Icon
+} from "@bmi-digital/components";
 import { SVGImport } from "@bmi-digital/svg-import";
-import { BMI as brandLogo } from "@bmi/components";
-import { Icon } from "@bmi/components";
-import { DialogClassNameContext } from "@bmi/components";
-import Modal, { ModalProps } from "@material-ui/core/Modal";
-import CloseIcon from "@material-ui/icons/Close";
-import Fade from "@material-ui/core/Fade";
+import Fade from "@mui/material/Fade";
+import Modal, { ModalProps } from "@mui/material/Modal";
+import CloseIcon from "@mui/icons-material/Close";
+import classnames from "classnames";
+import React, { useContext } from "react";
 import styles from "./CalculatorModal.module.scss";
 
 type Props = {

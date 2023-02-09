@@ -20,16 +20,19 @@
     "test": "jest --coverage --reporters=default --reporters=jest-junit"
   },
   "dependencies": {
-    "@bmi/components": "1.2.0-monorepo",
+    "@bmi-digital/components": "^1.17.7",
+    "@bmi-digital/react-pdf-maker": "^1.4.0",
     "@bmi-digital/styles": "^1.3.3",
-    "@material-ui/core": "^4.10.2",
-    "@material-ui/styles": "^4.10.0",
+    "@bmi/gatsby-plugin-material-ui": "^0.0.0",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/material": "^5.11.0",
+    "@mui/styles": "^5.11.0",
     "babel-eslint": "^10.1.0",
     "cookieconsent": "^3.1.1",
     "dotenv": "^8.2.0",
     "find-up": "^4.1.0",
-    "gatsby": "^4.7.1",
-    "gatsby-plugin-material-ui": "^3.0.1",
+    "gatsby": "^4.10.1",
     "gatsby-plugin-react-helmet": "^5.7.0",
     "gatsby-plugin-react-svg": "^3.1.0",
     "gatsby-plugin-sass": "^5.7.0",
@@ -38,9 +41,11 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.0.0",
+    "sass": "^1.56.1",
     "tsconfig-paths-webpack-plugin": "^3.5.2"
   },
   "devDependencies": {
-    "@types/react-helmet": "^6.1.5"
+    "@types/react-helmet": "^6.1.5",
+    "@types/gtag.js": "^0.0.12"
   }
 }

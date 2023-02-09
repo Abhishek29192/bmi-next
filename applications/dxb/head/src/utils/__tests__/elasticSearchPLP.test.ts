@@ -1,4 +1,4 @@
-import { Filter } from "@bmi/components";
+import { Filter } from "@bmi-digital/components";
 import { ProductFilter } from "../../types/pim";
 import { xferFilterValue } from "../elasticSearchPLP";
 

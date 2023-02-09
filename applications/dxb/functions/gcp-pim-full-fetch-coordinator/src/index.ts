@@ -3,7 +3,7 @@ import fetchRetry from "@bmi/fetch-retry";
 import { fetchData } from "@bmi/pim-api";
 import { PimTypes } from "@bmi/pim-types";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
-import fetch, { Response } from "node-fetch";
+import { Response } from "node-fetch";
 import { getNumberOfDocuments } from "./contentful";
 import {
   createElasticSearchIndex,
@@ -52,7 +52,7 @@ const triggerFullFetch = async (
       numberOfPages: numberOfPages
     })
   });
-  logger.info({ message: `Success triggerFullFetch: ${response}.` });
+  logger.info({ message: `Success triggerFullFetch: ${response.status}.` });
   return response;
 };
 
@@ -180,17 +180,19 @@ const handleRequest: HttpFunction = async (req, res) => {
   await triggerFullFetchBatch(PimTypes.Systems);
   await triggerDocumentsFullFetchBatch();
 
-  fetch(BUILD_TRIGGER_ENDPOINT, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({ foo: "bar" })
-  }).catch((error) => {
+  try {
+    await fetchRetry(BUILD_TRIGGER_ENDPOINT!, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ foo: "bar" })
+    });
+  } catch (error) {
     logger.error({
       message: `Error whilst trying to trigger the build. ${error}`
     });
-  });
+  }
   logger.info({ message: "Build triggered successfully" });
   res.status(200).send("ok");
 };

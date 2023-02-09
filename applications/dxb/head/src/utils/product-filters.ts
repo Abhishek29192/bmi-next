@@ -254,26 +254,26 @@ export const extractAllowedCategories = (
   if (!allowedFilters) {
     return new Map();
   }
-  const allowedCategoryFiltersWithoutPipe = new Set(
-    allowedFilters
-      .filter(
-        (allowedFilter) =>
-          allowedFilter.indexOf("|") === -1 &&
-          allowedFilter.indexOf(QUERY_FILTER_DELIMITER) === -1
-      )
-      .map((filter) => filter)
+  const exclusiveAllowedFilterWithPipe = Array.from(
+    new Set(
+      allowedFilters.filter((allowedFilter) => allowedFilter.indexOf("|") > -1)
+    )
   );
 
-  const exclusiveAllowedFilterWithPipe = new Set(
-    allowedFilters
-      .filter(
-        (allowedFilter) =>
-          allowedFilter.indexOf("|") > -1 &&
-          !allowedCategoryFiltersWithoutPipe.has(
-            allowedFilter.split("|")[0].trim()
-          )
-      )
-      .map((allowedFilter) => allowedFilter)
+  // );
+  // JIRA:4726 make sure that if, `Category` and `Category | SOME_SUB_CATEGORY` is specified
+  // then `Category | SOME_SUB_CATEGORY` takes precedence
+  // i.e remove any full categories from the allowed filters if it has been already
+  // specified with piped version!
+  const allowedCategoryFiltersWithoutPipe = new Set(
+    allowedFilters.filter(
+      (allowedFilter) =>
+        allowedFilter.indexOf("|") === -1 &&
+        allowedFilter.indexOf(QUERY_FILTER_DELIMITER) === -1 &&
+        !exclusiveAllowedFilterWithPipe.some((value: string) =>
+          value.startsWith(allowedFilter)
+        )
+    )
   );
 
   const eligibleFilterCategories = new Map<string, string[]>();

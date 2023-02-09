@@ -13,6 +13,7 @@ import createVideo from "./VideoHelper";
 import createWeight from "./WeightHelper";
 
 const createProduct = (product?: Partial<Product>): Product => ({
+  approvalStatus: "approved",
   awardsAndCertificateDocuments: [
     createAsset(),
     createAsset({

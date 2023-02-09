@@ -5,15 +5,11 @@ test_head:
     - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - applications/dxb/head/**/*
-        - components/**/*
-        - libraries/**/*
         - jest/**/*
         - yarn.lock
     - if: !reference [.run_for_changes_on_mr, rules, if]
       changes:
         - applications/dxb/head/**/*
-        - components/**/*
-        - libraries/**/*
         - jest/**/*
         - yarn.lock
   variables:
@@ -41,14 +37,10 @@ compile_head_mr:
     - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - applications/dxb/head/**/*
-        - components/**/*
-        - libraries/**/*
         - yarn.lock
     - if: !reference [.run_for_changes_on_mr, rules, if]
       changes:
         - applications/dxb/head/**/*
-        - components/**/*
-        - libraries/**/*
         - yarn.lock
   variables:
     WORKSPACE: "@bmi/head"
@@ -66,33 +58,11 @@ wait_until_head_deployed_to_gatsby:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
         - applications/dxb/head/**/*
-        - components/**/*
-        - libraries/**/*
   needs: []
   cache: {}
   timeout: 15m
   script:
-    - |
-      apt-get update
-      apt-get install -y jq
-      commit_time=$(date -u +%s --date=$(git show -s --format=%cd --date=iso-strict $CI_COMMIT_SHA))
-      while true; do
-        notes=$(curl --header "PRIVATE-TOKEN: ${NETLIFY_GITLAB_TOKEN}" -H "Content-Type: application/json" \
-          "$CI_API_V4_URL/projects/19163612/merge_requests/${CI_MERGE_REQUEST_IID}/notes?sort=asc&order_by=created_at&page=1")
-        note=$(echo $notes | jq '.[] | select(.body | test("95883ff6-e265-4416-917c-77929cc9970b/sites/527b7de1-e2b0-46fe-91f3-fb65b841a3fd")?)')
-        updated_at=$(date -u +%s --date=$(echo $note | jq -r '.updated_at'))
-        body=$(echo $note | jq '.body')
-        if [[ $(($updated_at - $commit_time)) -gt 0 ]]; then
-          if [[ $body == *"## :white_check_mark: DXB/QA deploy preview ready"* ]]; then
-            sed -n 's/.*\[Deploy preview\](\(.*\))\\n\*.*/\1/p' <<< $body > deploy_head
-            exit 0
-          fi
-          echo "Latest Gatsby build failed to build."
-          exit 1
-        fi
-        echo "Latest Gatsby build has not been completed yet."
-        sleep 30
-      done
+    - applications/dxb/head/scripts/gatsby-cloud-mr-url.sh
   artifacts:
     paths:
       - deploy_head
@@ -154,8 +124,6 @@ baseline_scan_head_preview:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
         - applications/dxb/head/**/*
-        - components/**/*
-        - libraries/**/*
   needs:
     - wait_until_head_deployed_to_gatsby
   allow_failure: true
@@ -228,8 +196,6 @@ lighthouseci_scan_head_preview:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
         - applications/dxb/head/**/*
-        - components/**/*
-        - libraries/**/*
   needs:
     - job: install_yarn
       optional: true
@@ -248,8 +214,8 @@ lighthouseci_scan_head_preview:
         "${base_url}/no/metal-tiles/"
         "${base_url}/no/roof-products/"
         "${base_url}/no/p/zanda-arktis-normalstein-svart-betong-289333998/"
-        "${base_url}/no/s/test-no-zanda-system-282193240/"
-        "${base_url}/no/documentation-landing-page/technical-product-catalogues/"
+        "${base_url}/no/s/thermaweld-firesmart-warm-roof-ply-osb-safe2torch-282193240/"
+        "${base_url}/no/documentation-landing-page/technical-product-catalogues-for-automation/"
         "${base_url}/no/find-a-merchant/"
         "${base_url}/no/search/?q=zanda"
       )
@@ -261,3 +227,212 @@ lighthouseci_scan_head:
   extends: .lighthouse_scan
   rules:
     - if: "$WHICH_SCHEDULE == 'lighthouseci_scan_head'"
+
+.clear_gatsby_cloud_cache:
+  image: !reference [.curl, image]
+  rules:
+    - if: '$WHICH_SCHEDULE == "clear_gatsby_cloud_cache"'
+  needs: []
+  cache: {}
+  script:
+    - "curl -X POST https://webhook.gatsbyjs.com/hooks/builds/trigger/${SITE_ID} --header 'x-gatsby-cache: false' --header 'x-runner-type: PREVIEW'"
+
+clear_gatsby_cloud_cache_albania:
+  extends: .clear_gatsby_cloud_cache
+  variables:
+    SITE_ID: 75fa181c-c6ee-4acd-8ebc-560d7b5bf5ee
+
+clear_gatsby_cloud_cache_austria:
+  extends: .clear_gatsby_cloud_cache
+  variables:
+    SITE_ID: 5082bfbb-1d30-4c97-a8f2-cf6f0e1f4ca1
+
+clear_gatsby_cloud_cache_belgium_fr:
+  extends: .clear_gatsby_cloud_cache
+  variables:
+    SITE_ID: 80810ef7-8adb-423f-885e-aabaea6139f5
+
+clear_gatsby_cloud_cache_belgium_nl:
+  extends: .clear_gatsby_cloud_cache
+  variables:
+    SITE_ID: a21f34bc-8a90-41ca-ac33-1fcfee45b54c
+
+clear_gatsby_cloud_cache_bosnia:
+  extends: .clear_gatsby_cloud_cache
+  variables:
+    SITE_ID: 658ac335-d688-453c-8dd8-08f7370254d2
+
+clear_gatsby_cloud_cache_bulgaria:
+  extends: .clear_gatsby_cloud_cache
+  variables:
+    SITE_ID: 3ccd661b-244d-4412-b358-0f6a2b70ed61
+
+clear_gatsby_cloud_cache_china:
+  extends: .clear_gatsby_cloud_cache
+  variables:
+    SITE_ID: 911657f3-72cc-4ccd-805f-4de3fb37ac81
+
+clear_gatsby_cloud_cache_croatia:
+  extends: .clear_gatsby_cloud_cache
+  variables:
+    SITE_ID: 21ddd56b-42d5-43e2-b2be-4ec0f629d357
+
+clear_gatsby_cloud_cache_czechia:
+  extends: .clear_gatsby_cloud_cache
+  variables:
+    SITE_ID: a294e7ee-4860-4146-ae8d-e1211509cf1e
+
+clear_gatsby_cloud_cache_denmark:
+  extends: .clear_gatsby_cloud_cache
+  variables:
+    SITE_ID: 078e0d46-4b43-4e3a-b724-69e4a14b6ffb
+
+clear_gatsby_cloud_cache_estonia:
+  extends: .clear_gatsby_cloud_cache
+  variables:
+    SITE_ID: 621bb286-d9cc-40d0-b677-f239502337fd
+
+clear_gatsby_cloud_cache_finland:
+  extends: .clear_gatsby_cloud_cache
+  variables:
+    SITE_ID: fc634535-92fa-4d1c-bf22-6bb04e1bbb17
+
+clear_gatsby_cloud_cache_france:
+  extends: .clear_gatsby_cloud_cache
+  variables:
+    SITE_ID: 58082730-33bd-428a-84e0-d5905f89ebc2
+
+clear_gatsby_cloud_cache_germany:
+  extends: .clear_gatsby_cloud_cache
+  variables:
+    SITE_ID: 1cf8dff0-86e0-49b7-b402-26196aa10252
+
+clear_gatsby_cloud_cache_group:
+  extends: .clear_gatsby_cloud_cache
+  variables:
+    SITE_ID: ab6e44e9-2b4c-4b23-96ac-2f092d8355ac
+
+clear_gatsby_cloud_cache_hungary:
+  extends: .clear_gatsby_cloud_cache
+  variables:
+    SITE_ID: b874a1c5-0644-4463-ac57-360ccbdbce7c
+
+clear_gatsby_cloud_cache_india:
+  extends: .clear_gatsby_cloud_cache
+  variables:
+    SITE_ID: ba051863-0efa-4fab-b3f4-84c17b5228d3
+
+clear_gatsby_cloud_cache_indonesia:
+  extends: .clear_gatsby_cloud_cache
+  variables:
+    SITE_ID: 12dc0972-1f04-4bec-b2df-79a55947a390
+
+clear_gatsby_cloud_cache_ireland:
+  extends: .clear_gatsby_cloud_cache
+  variables:
+    SITE_ID: 98d27ac8-9a45-48ac-a98e-72a4cdbcc6d4
+
+clear_gatsby_cloud_cache_italy:
+  extends: .clear_gatsby_cloud_cache
+  variables:
+    SITE_ID: 8dd7e0b4-b17b-487d-860e-90067b33872a
+
+clear_gatsby_cloud_cache_latvia:
+  extends: .clear_gatsby_cloud_cache
+  variables:
+    SITE_ID: feb02e7c-a897-4d19-9622-252786a1cef7
+
+clear_gatsby_cloud_cache_lithuania:
+  extends: .clear_gatsby_cloud_cache
+  variables:
+    SITE_ID: 6bc36ff1-3015-4c58-b584-1d3834f7ef0b
+
+clear_gatsby_cloud_cache_malaysia:
+  extends: .clear_gatsby_cloud_cache
+  variables:
+    SITE_ID: 7a5de5cc-61e5-4b37-b816-bac405bf67ee
+
+clear_gatsby_cloud_cache_netherlands:
+  extends: .clear_gatsby_cloud_cache
+  variables:
+    SITE_ID: 0129ddd4-517c-4cc3-8b0c-086dd3a706ea
+
+clear_gatsby_cloud_cache_norway:
+  extends: .clear_gatsby_cloud_cache
+  variables:
+    SITE_ID: ad0cca44-d3be-410c-a70d-1fdc9c361037
+
+clear_gatsby_cloud_cache_poland:
+  extends: .clear_gatsby_cloud_cache
+  variables:
+    SITE_ID: 2128292b-223a-4ffe-bc58-e99458c60de2
+
+clear_gatsby_cloud_cache_portugal:
+  extends: .clear_gatsby_cloud_cache
+  variables:
+    SITE_ID: 4b56913d-9ddc-4608-b6a7-c04a932da079
+
+clear_gatsby_cloud_cache_romania:
+  extends: .clear_gatsby_cloud_cache
+  variables:
+    SITE_ID: d7ed9cb9-61de-4a9f-8080-3dc41497cacd
+
+clear_gatsby_cloud_cache_saudi_arabia:
+  extends: .clear_gatsby_cloud_cache
+  variables:
+    SITE_ID: 92c3697e-e456-4158-913c-bb38eb1f1b75
+
+clear_gatsby_cloud_cache_serbia:
+  extends: .clear_gatsby_cloud_cache
+  variables:
+    SITE_ID: 1ed0ab15-f8b1-46cb-bae6-a4c090bb9296
+
+clear_gatsby_cloud_cache_slovakia:
+  extends: .clear_gatsby_cloud_cache
+  variables:
+    SITE_ID: a22e4971-f9c5-4e60-a2cd-b987872e15e8
+
+clear_gatsby_cloud_cache_slovenia:
+  extends: .clear_gatsby_cloud_cache
+  variables:
+    SITE_ID: a9c8a927-1647-4ad8-b01d-de8ffb1d801b
+
+clear_gatsby_cloud_cache_south_africa:
+  extends: .clear_gatsby_cloud_cache
+  variables:
+    SITE_ID: 7459f657-4563-4757-a7ce-35428d48cf6a
+
+clear_gatsby_cloud_cache_spain:
+  extends: .clear_gatsby_cloud_cache
+  variables:
+    SITE_ID: 1879d6c9-3707-4e0f-8e63-716f942e3dda
+
+clear_gatsby_cloud_cache_sweden:
+  extends: .clear_gatsby_cloud_cache
+  variables:
+    SITE_ID: 387c388a-6000-4538-bfad-0f5aeaee5aaf
+
+clear_gatsby_cloud_cache_switzerland_de:
+  extends: .clear_gatsby_cloud_cache
+  variables:
+    SITE_ID: 12a2d7e4-7c1c-4906-b48e-6478ff85c2f4
+
+clear_gatsby_cloud_cache_switzerland_fr:
+  extends: .clear_gatsby_cloud_cache
+  variables:
+    SITE_ID: 8730642c-999e-45ca-82c6-d773e9b77d01
+
+clear_gatsby_cloud_cache_turkey:
+  extends: .clear_gatsby_cloud_cache
+  variables:
+    SITE_ID: 65c3e3c1-7148-408f-b337-aa5c14d60478
+
+clear_gatsby_cloud_cache_united_arab_emirates:
+  extends: .clear_gatsby_cloud_cache
+  variables:
+    SITE_ID: fa66148b-500a-44e3-9e21-210f2451610b
+
+clear_gatsby_cloud_cache_united_kingdom:
+  extends: .clear_gatsby_cloud_cache
+  variables:
+    SITE_ID: f314ace5-e035-4a8f-b986-3b50f6e0f454

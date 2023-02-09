@@ -1,5 +1,5 @@
-import { useTheme } from "@material-ui/core/styles";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import React from "react";
 import DocumentResultsFooter from "../../../components/DocumentResultsFooter";
 import { useSiteContext } from "../../../components/Site";

@@ -464,7 +464,7 @@ describe("video resolver", () => {
   it("should return video data from product", async () => {
     const source: FirestoreProduct = createProduct();
 
-    const result = await Product.video.resolve(source, null, context);
+    const result = await Product.videos.resolve(source, null, context);
 
     expect(result).toEqual([
       {

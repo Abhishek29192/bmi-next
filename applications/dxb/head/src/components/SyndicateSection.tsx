@@ -1,17 +1,21 @@
-import React from "react";
+import {
+  Button,
+  Section,
+  transformHyphens,
+  Villain,
+  VillainProps
+} from "@bmi-digital/components";
 import { graphql } from "gatsby";
-import { Button } from "@bmi/components";
-import { Section } from "@bmi/components";
-import { Villain, VillainProps, transformHyphens } from "@bmi/components";
+import React from "react";
 import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
-import { renderVideo } from "./Video";
-import { Data as PromoData } from "./Promo";
-import { useSiteContext } from "./Site";
+import { renderImage } from "./Image";
 import Link, { getCTA } from "./Link";
 import { Data as PageInfoData } from "./PageInfo";
+import { Data as PromoData } from "./Promo";
 import RichText from "./RichText";
-import { renderImage } from "./Image";
+import { useSiteContext } from "./Site";
+import { renderVideo } from "./Video";
 
 export type Data = {
   __typename: "ContentfulSyndicateSection";

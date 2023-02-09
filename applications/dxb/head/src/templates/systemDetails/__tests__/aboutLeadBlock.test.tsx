@@ -1,7 +1,8 @@
+import { ThemeProvider } from "@bmi-digital/components";
 import { cleanup, render } from "@testing-library/react";
 import React from "react";
-import { Data as TitleWithContentData } from "../../../components/TitleWithContent";
 import createSystem from "../../../__tests__/helpers/SystemHelper";
+import { Data as TitleWithContentData } from "../../../components/TitleWithContent";
 import AboutLeadBlock from "../aboutLeadBlock";
 
 const guaranteesWarrantiesMicroCopy = "pdp.leadBlock.guaranteesWarranties";
@@ -26,10 +27,12 @@ describe("AboutLeadBlock tests", () => {
     const systemDetailsMockData = createSystem();
 
     const { container, queryByText } = render(
-      <AboutLeadBlock
-        system={systemDetailsMockData}
-        sidebarItem={sidebarItem}
-      />
+      <ThemeProvider>
+        <AboutLeadBlock
+          system={systemDetailsMockData}
+          sidebarItem={sidebarItem}
+        />
+      </ThemeProvider>
     );
     const guaranteesWarrantiesTitle = queryByText(
       guaranteesWarrantiesMicroCopy,
@@ -64,10 +67,12 @@ describe("AboutLeadBlock tests", () => {
       systemDetailsMockData.awardsAndCertificateDocuments = null;
       systemDetailsMockData.awardsAndCertificateImages = null;
       const { container, queryByText } = render(
-        <AboutLeadBlock
-          system={systemDetailsMockData}
-          sidebarItem={sidebarItem}
-        />
+        <ThemeProvider>
+          <AboutLeadBlock
+            system={systemDetailsMockData}
+            sidebarItem={sidebarItem}
+          />
+        </ThemeProvider>
       );
       const text = queryByText("sdp.leadBlock.guaranteesWarranties", {
         exact: false
@@ -81,10 +86,12 @@ describe("AboutLeadBlock tests", () => {
       systemDetailsMockData.awardsAndCertificateImages = null;
       systemDetailsMockData.awardsAndCertificateDocuments = null;
       const { container, queryByText } = render(
-        <AboutLeadBlock
-          system={systemDetailsMockData}
-          sidebarItem={sidebarItem}
-        />
+        <ThemeProvider>
+          <AboutLeadBlock
+            system={systemDetailsMockData}
+            sidebarItem={sidebarItem}
+          />
+        </ThemeProvider>
       );
       const text = queryByText(awardsCertificatesMicroCopy, {
         exact: false
@@ -97,10 +104,12 @@ describe("AboutLeadBlock tests", () => {
       const systemDetailsMockData = createSystem();
       systemDetailsMockData.keyFeatures = null;
       const { container, queryByText } = render(
-        <AboutLeadBlock
-          system={systemDetailsMockData}
-          sidebarItem={sidebarItem}
-        />
+        <ThemeProvider>
+          <AboutLeadBlock
+            system={systemDetailsMockData}
+            sidebarItem={sidebarItem}
+          />
+        </ThemeProvider>
       );
       const text = queryByText("Key Features", {
         exact: false
@@ -113,10 +122,12 @@ describe("AboutLeadBlock tests", () => {
       const systemDetailsMockData = createSystem();
       systemDetailsMockData.systemBenefits = null;
       const { container, queryByText } = render(
-        <AboutLeadBlock
-          system={systemDetailsMockData}
-          sidebarItem={sidebarItem}
-        />
+        <ThemeProvider>
+          <AboutLeadBlock
+            system={systemDetailsMockData}
+            sidebarItem={sidebarItem}
+          />
+        </ThemeProvider>
       );
 
       const text = queryByText(systemBenefitsMicroCopy, {
@@ -131,10 +142,12 @@ describe("AboutLeadBlock tests", () => {
       systemDetailsMockData.keyFeatures = null;
       systemDetailsMockData.systemBenefits = null;
       const { container, queryByTestId } = render(
-        <AboutLeadBlock
-          system={systemDetailsMockData}
-          sidebarItem={sidebarItem}
-        />
+        <ThemeProvider>
+          <AboutLeadBlock
+            system={systemDetailsMockData}
+            sidebarItem={sidebarItem}
+          />
+        </ThemeProvider>
       );
       const sidebar = queryByTestId("sidebar");
       expect(container).toMatchSnapshot();
@@ -148,7 +161,9 @@ describe("AboutLeadBlock tests", () => {
       systemDetailsMockData.keyFeatures = null;
       systemDetailsMockData.systemBenefits = null;
       const { container, queryByTestId } = render(
-        <AboutLeadBlock system={systemDetailsMockData} sidebarItem={null} />
+        <ThemeProvider>
+          <AboutLeadBlock system={systemDetailsMockData} sidebarItem={null} />
+        </ThemeProvider>
       );
 
       expect(container).toMatchSnapshot();
@@ -159,10 +174,12 @@ describe("AboutLeadBlock tests", () => {
       const systemDetailsMockData = createSystem();
       systemDetailsMockData.specification = null;
       const { container, queryByText } = render(
-        <AboutLeadBlock
-          system={systemDetailsMockData}
-          sidebarItem={sidebarItem}
-        />
+        <ThemeProvider>
+          <AboutLeadBlock
+            system={systemDetailsMockData}
+            sidebarItem={sidebarItem}
+          />
+        </ThemeProvider>
       );
 
       const text = queryByText(specificationMicroCopy, {
@@ -181,10 +198,12 @@ describe("AboutLeadBlock tests", () => {
     it("Button should open new tab", () => {
       const systemDetailsMockData = createSystem();
       const { container } = render(
-        <AboutLeadBlock
-          system={systemDetailsMockData}
-          sidebarItem={sidebarItem}
-        />
+        <ThemeProvider>
+          <AboutLeadBlock
+            system={systemDetailsMockData}
+            sidebarItem={sidebarItem}
+          />
+        </ThemeProvider>
       );
 
       const specificationButton = container.querySelector(
@@ -203,21 +222,24 @@ describe("AboutLeadBlock tests", () => {
       systemDetailsMockData.guaranteesAndWarrantiesLinks = null;
       systemDetailsMockData.awardsAndCertificateImages = null;
       systemDetailsMockData.awardsAndCertificateDocuments = null;
-      const { container, queryByText } = render(
-        <AboutLeadBlock
-          system={systemDetailsMockData}
-          sidebarItem={sidebarItem}
-        />
+      const { container, getByTestId, queryByTestId } = render(
+        <ThemeProvider>
+          <AboutLeadBlock
+            system={systemDetailsMockData}
+            sidebarItem={sidebarItem}
+          />
+        </ThemeProvider>
       );
       expect(container).toMatchSnapshot();
-      const leadBlockSections = container.querySelectorAll(
-        ".LeadBlockContentSection"
-      );
-
-      const specificationSection = queryByText(specificationMicroCopy, {
-        exact: false
-      }).closest(".LeadBlockContentSection");
-      expect(leadBlockSections[1]).toBe(specificationSection);
+      //
+      const leadBlockGridItem = getByTestId("grid-item");
+      expect(leadBlockGridItem).toBeInTheDocument();
+      const guarenteesSection = queryByTestId("guarentees-section");
+      expect(guarenteesSection).toBeNull();
+      const awardsSection = queryByTestId("awards-section");
+      expect(awardsSection).toBeNull();
+      const leadBlockSection = getByTestId("specification-section");
+      expect(leadBlockSection).toBeInTheDocument();
     });
   });
 });

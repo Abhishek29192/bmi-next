@@ -1,4 +1,4 @@
-import { BackToTop, MicroCopy } from "@bmi/components";
+import { BackToTop, MicroCopy } from "@bmi-digital/components";
 import { graphql, navigate } from "gatsby";
 import React from "react";
 import { ErrorBoundary, withErrorBoundary } from "react-error-boundary";

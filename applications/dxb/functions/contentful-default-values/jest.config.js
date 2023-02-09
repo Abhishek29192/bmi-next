@@ -1,12 +1,16 @@
 "use strict";
 
-const sharedConfig = require("../jest.config");
+const sharedConfig = require("../../../../jest.config");
+
+// eslint-disable-next-line no-unused-vars
+const { projects, ...extendedConfig } = sharedConfig;
 
 module.exports = {
-  ...sharedConfig,
+  ...extendedConfig,
   rootDir: "../../../../",
   roots: ["<rootDir>/applications/dxb/functions/contentful-default-values/src"],
   collectCoverageFrom: [
     "<rootDir>/applications/dxb/functions/contentful-default-values/src/**/*.{ts,tsx,js}"
-  ]
+  ],
+  testEnvironment: "node"
 };

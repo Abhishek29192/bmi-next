@@ -1,6 +1,6 @@
-import React from "react";
+import { ExploreBar } from "@bmi-digital/components";
 import { graphql } from "gatsby";
-import { ExploreBar } from "@bmi/components";
+import React from "react";
 import { Data as LinkData, getClickableActionFromUrl } from "./Link";
 import { useSiteContext } from "./Site";
 

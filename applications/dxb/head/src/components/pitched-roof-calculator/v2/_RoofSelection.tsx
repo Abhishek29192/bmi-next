@@ -3,7 +3,7 @@ import {
   Grid,
   withFormControl,
   WithFormControlProps
-} from "@bmi/components";
+} from "@bmi-digital/components";
 import React, { useContext, useMemo } from "react";
 import { microCopy } from "../../../constants/microCopies";
 import { useSiteContext } from "../../Site";
@@ -41,7 +41,7 @@ const RoofSelectionRow = ({
           });
 
           return (
-            <Grid item xs={6} md={4} lg={2} key={roof.id}>
+            <Grid xs={6} md={4} lg={2} key={roof.id}>
               <CardRadioGroup.Item
                 value={roof.id}
                 checked={values.roof === roof.id}

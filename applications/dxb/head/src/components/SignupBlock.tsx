@@ -1,6 +1,10 @@
-/* eslint-disable no-unreachable */
-import { Button, ButtonProps, Dialog, SignupBlock } from "@bmi/components";
-import { SignupBlockTheme } from "@bmi/components/src/signup-block/SignupBlock";
+import {
+  Button,
+  ButtonProps,
+  Dialog,
+  SignupBlock,
+  SignupBlockColor
+} from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React, { useState } from "react";
 import { microCopy } from "../constants/microCopies";
@@ -24,7 +28,7 @@ const IntegratedSignupBlock = ({
   theme
 }: {
   data?: Data;
-  theme?: SignupBlockTheme;
+  theme?: SignupBlockColor;
 }) => {
   if (!data) {
     return null;
@@ -79,7 +83,7 @@ const IntegratedSignupBlock = ({
         title={title}
         description={description?.description}
         inputCallToAction={signupLabel}
-        theme={theme || "blue-800"}
+        color={theme || "blue800"}
         buttonComponent={(props: ButtonProps) => (
           <GTMButton
             gtm={{
@@ -88,6 +92,7 @@ const IntegratedSignupBlock = ({
               action: "sign up started"
             }}
             {...props}
+            data-testid="signup-button"
           />
         )}
         onSubmit={() => {
@@ -97,14 +102,15 @@ const IntegratedSignupBlock = ({
       {dialogOpen && (
         <Dialog open={dialogOpen} onCloseClick={handleDialogClose}>
           <Dialog.Title hasUnderline> {title} </Dialog.Title>
-          <FormSection
-            data={signupDialogContent}
-            backgroundColor="white"
-            isDialog
-            onSuccess={onSuccess}
-            onFormReady={onFormReady}
-          />
-
+          <Dialog.Content>
+            <FormSection
+              data={signupDialogContent}
+              backgroundColor="white"
+              isDialog
+              onSuccess={onSuccess}
+              onFormReady={onFormReady}
+            />
+          </Dialog.Content>
           <Dialog.Actions
             cancelLabel={
               !formSubmitted

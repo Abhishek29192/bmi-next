@@ -1,18 +1,19 @@
-import { Button, ButtonProps, Section } from "@bmi/components";
-import { Add, Remove, ShoppingCart } from "@material-ui/icons";
+import { Button, ButtonProps, Section } from "@bmi-digital/components";
+import { Add, Remove, ShoppingCart } from "@mui/icons-material";
 import React, { useEffect, useState } from "react";
-import { Product } from "../types/pim";
+import { microCopy } from "../constants/microCopies";
 import {
   ACTION_TYPES,
   createSample,
   useBasketContext
 } from "../contexts/SampleBasketContext";
+import { Product } from "../types/pim";
+import { createActionLabel } from "../utils/createActionLabelForAnalytics";
 import withGTM from "../utils/google-tag-manager";
-import { microCopy } from "../constants/microCopies";
-import styles from "./styles/SampleOrderSection.module.scss";
-import { useSiteContext } from "./Site";
 import { getCTA } from "./Link";
 import { Data as PageInfoData } from "./PageInfo";
+import { useSiteContext } from "./Site";
+import styles from "./styles/SampleOrderSection.module.scss";
 
 const SampleOrderSection = ({
   isSampleOrderAllowed,
@@ -73,6 +74,15 @@ const SampleOrderSection = ({
     getCTA(sampleBasketLinkInfo, countryCode, sampleBasketLinkInfo.slug);
   const GTMButton = withGTM<ButtonProps>(Button);
 
+  const gtmAction =
+    actionLabel ||
+    createActionLabel(
+      product.name,
+      product.colour,
+      product.textureFamily,
+      product.measurements?.label
+    );
+
   return (
     (isSampleOrderAllowed || basketHasProducts) && (
       <div className={styles["SampleOrderSection"]}>
@@ -90,6 +100,7 @@ const SampleOrderSection = ({
                     endIcon={<Remove />}
                     onClick={() => removeFromBasket(product)}
                     variant="text"
+                    data-testid={"remove-from-basket-button"}
                   >
                     {getMicroCopy(microCopy.PDP_OVERVIEW_REMOVE_SAMPLE)}
                   </Button>
@@ -101,8 +112,9 @@ const SampleOrderSection = ({
                     gtm={{
                       id: "cta-click1-samples-ordering",
                       label: getMicroCopy(microCopy.PDP_OVERVIEW_ADD_SAMPLE),
-                      action: actionLabel
+                      action: gtmAction
                     }}
+                    data-testid={"add-to-basket-button"}
                   >
                     {getMicroCopy(microCopy.PDP_OVERVIEW_ADD_SAMPLE)}
                   </GTMButton>

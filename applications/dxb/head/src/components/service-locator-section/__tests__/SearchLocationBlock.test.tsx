@@ -1,5 +1,5 @@
+import { GoogleApi, ThemeProvider } from "@bmi-digital/components";
 import { act, fireEvent, render } from "@testing-library/react";
-import { GoogleApi } from "@bmi/components";
 import React from "react";
 import { SearchLocationBlock } from "../components";
 import { googleMock } from "../__mocks__/google";
@@ -8,19 +8,21 @@ afterEach(() => jest.clearAllMocks());
 
 describe("SearchLocationBlock component", () => {
   it("should renders correctly with CircularProgress component if google === undefined", () => {
-    const { getByRole } = render(
-      <SearchLocationBlock
-        autocompleteLabel={"MC: findARoofer.companyFieldLabel"}
-        handleAutocompleteOnChange={jest.fn}
-        handlePlaceChange={jest.fn}
-        options={[]}
-        getPosition={jest.fn}
-        userPosition={null}
-      />
+    const { getByRole, getByLabelText } = render(
+      <ThemeProvider>
+        <SearchLocationBlock
+          autocompleteLabel={"MC: findARoofer.companyFieldLabel"}
+          handleAutocompleteOnChange={jest.fn}
+          handlePlaceChange={jest.fn}
+          options={[]}
+          getPosition={jest.fn}
+          userPosition={null}
+        />
+      </ThemeProvider>
     );
-    const autoCompleteField = getByRole("textbox", {
-      name: /MC: findARoofer.companyFieldLabel/i
-    });
+    const autoCompleteField = getByLabelText(
+      "MC: findARoofer.companyFieldLabel"
+    );
     const circularProgress = getByRole("progressbar");
     const geolocationButton = getByRole("button", {
       name: /MC: findARoofer.geolocationButton/i
@@ -32,19 +34,21 @@ describe("SearchLocationBlock component", () => {
   it("should renders autocomplete options list if prop options provided", () => {
     const options = ["test1", "test2", "test3"];
     const testValue = "test2";
-    const { getByRole } = render(
-      <SearchLocationBlock
-        autocompleteLabel={"MC: findARoofer.companyFieldLabel"}
-        handleAutocompleteOnChange={jest.fn}
-        handlePlaceChange={jest.fn}
-        options={["test1", "test2", "test3"]}
-        getPosition={jest.fn}
-        userPosition={null}
-      />
+    const { getByRole, getByLabelText } = render(
+      <ThemeProvider>
+        <SearchLocationBlock
+          autocompleteLabel={"MC: findARoofer.companyFieldLabel"}
+          handleAutocompleteOnChange={jest.fn}
+          handlePlaceChange={jest.fn}
+          options={["test1", "test2", "test3"]}
+          getPosition={jest.fn}
+          userPosition={null}
+        />
+      </ThemeProvider>
     );
-    const autoCompleteField = getByRole("textbox", {
-      name: /MC: findARoofer.companyFieldLabel/i
-    });
+    const autoCompleteField = getByLabelText(
+      "MC: findARoofer.companyFieldLabel"
+    );
     fireEvent.change(autoCompleteField, { target: { value: testValue } });
     const resultList = getByRole("listbox");
     expect(resultList.childElementCount).toEqual(
@@ -52,21 +56,23 @@ describe("SearchLocationBlock component", () => {
     );
   });
   it("should renders GoogleAutocomplete if google !== undefined", () => {
-    const { getByRole } = render(
-      <GoogleApi.Provider value={googleMock}>
-        <SearchLocationBlock
-          autocompleteLabel={"MC: findARoofer.companyFieldLabel"}
-          handleAutocompleteOnChange={jest.fn}
-          handlePlaceChange={jest.fn}
-          options={[]}
-          getPosition={jest.fn}
-          userPosition={null}
-        />
-      </GoogleApi.Provider>
+    const { getByLabelText } = render(
+      <ThemeProvider>
+        <GoogleApi.Provider value={googleMock}>
+          <SearchLocationBlock
+            autocompleteLabel={"MC: findARoofer.companyFieldLabel"}
+            handleAutocompleteOnChange={jest.fn}
+            handlePlaceChange={jest.fn}
+            options={[]}
+            getPosition={jest.fn}
+            userPosition={null}
+          />
+        </GoogleApi.Provider>
+      </ThemeProvider>
     );
-    const googleAutoCompleteField = getByRole("textbox", {
-      name: /MC: findARoofer.locationFieldLabel/i
-    });
+    const googleAutoCompleteField = getByLabelText(
+      "MC: findARoofer.locationFieldLabel"
+    );
     expect(googleAutoCompleteField).toBeInTheDocument();
   });
   it("should sets current location", () => {
@@ -87,16 +93,18 @@ describe("SearchLocationBlock component", () => {
     });
     const getPosition = jest.fn();
     const { getByRole } = render(
-      <GoogleApi.Provider value={googleMock}>
-        <SearchLocationBlock
-          autocompleteLabel={"MC: findARoofer.companyFieldLabel"}
-          handleAutocompleteOnChange={jest.fn}
-          handlePlaceChange={jest.fn}
-          options={[]}
-          getPosition={getPosition}
-          userPosition={null}
-        />
-      </GoogleApi.Provider>
+      <ThemeProvider>
+        <GoogleApi.Provider value={googleMock}>
+          <SearchLocationBlock
+            autocompleteLabel={"MC: findARoofer.companyFieldLabel"}
+            handleAutocompleteOnChange={jest.fn}
+            handlePlaceChange={jest.fn}
+            options={[]}
+            getPosition={getPosition}
+            userPosition={null}
+          />
+        </GoogleApi.Provider>
+      </ThemeProvider>
     );
     const geolocationButton = getByRole("button", {
       name: `MC: findARoofer.geolocationButton`
@@ -106,19 +114,21 @@ describe("SearchLocationBlock component", () => {
     expect(getPosition).toHaveBeenCalled();
   });
   it("should render autocomplete input with label merchantNameSearchLabel if sectionType === EntryTypeEnum.MERCHANT_TYPE", () => {
-    const { getByRole } = render(
-      <SearchLocationBlock
-        autocompleteLabel={"MC: findARoofer.merchantNameSearchLabel"}
-        handleAutocompleteOnChange={jest.fn}
-        handlePlaceChange={jest.fn}
-        options={["test1", "test2", "test3"]}
-        getPosition={jest.fn}
-        userPosition={null}
-      />
+    const { getByLabelText } = render(
+      <ThemeProvider>
+        <SearchLocationBlock
+          autocompleteLabel={"MC: findARoofer.merchantNameSearchLabel"}
+          handleAutocompleteOnChange={jest.fn}
+          handlePlaceChange={jest.fn}
+          options={["test1", "test2", "test3"]}
+          getPosition={jest.fn}
+          userPosition={null}
+        />
+      </ThemeProvider>
     );
-    const autoCompleteField = getByRole("textbox", {
-      name: /MC: findARoofer.merchantNameSearchLabel/i
-    });
+    const autoCompleteField = getByLabelText(
+      "MC: findARoofer.merchantNameSearchLabel"
+    );
     expect(autoCompleteField).toBeInTheDocument();
   });
 });

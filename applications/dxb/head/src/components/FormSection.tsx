@@ -1,5 +1,4 @@
 import { useHubspotForm } from "@aaronhayes/react-use-hubspot-form";
-import logger from "@bmi-digital/functions-logger";
 import {
   AnchorLink,
   Button,
@@ -16,28 +15,35 @@ import {
   TextField,
   Typography,
   Upload
-} from "@bmi/components";
-import CircularProgress from "@material-ui/core/CircularProgress";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+} from "@bmi-digital/components";
+import logger from "@bmi-digital/functions-logger";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import classNames from "classnames";
 import { graphql, navigate } from "gatsby";
 import fetch from "node-fetch";
 import React, { FormEvent, useEffect, useState } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import matchAll from "string.prototype.matchall";
+import { QA_AUTH_TOKEN } from "../constants/cookieConstants";
 import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
 import { isValidEmail } from "../utils/emailUtils";
+import getCookie from "../utils/getCookie";
 import withGTM, { GTM } from "../utils/google-tag-manager";
 import { isRichText } from "../utils/isRichText";
 import { getPathWithCountryCode } from "../utils/path";
 import ControlledCheckboxGroup from "./CheckboxGroup";
 import HiddenInput from "./HiddenInput";
 import { Data as LinkData, isExternalUrl } from "./Link";
+import ProgressIndicator from "./ProgressIndicator";
 import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
 import RichText, { RichTextData } from "./RichText";
 import { useSiteContext } from "./Site";
-import styles from "./styles/FormSection.module.scss";
+import {
+  classes,
+  HubspotFormWrapper,
+  StyledForm
+} from "./styles/FormSectionStyles";
 import { SourceType } from "./types/FormSectionTypes";
 
 export type Data = {
@@ -55,15 +61,19 @@ export type Data = {
   emailSubjectFormat?: string;
 };
 
-const InputTypes = [
-  "text",
-  "email",
-  "phone",
-  "textarea",
-  "checkbox",
-  "select",
-  "upload"
-];
+type InputTypes =
+  | "text"
+  | "email"
+  | "phone"
+  | "textarea"
+  | "checkbox"
+  | "checkboxGroup"
+  | "radio"
+  | "select"
+  | "upload"
+  | "hubspot-text"
+  | "hubspot-checkbox"
+  | "hubspot-hidden";
 
 export type InputWidthType = "full" | "half";
 
@@ -72,7 +82,7 @@ export type InputType = {
   name: string;
   options?: string;
   required?: boolean;
-  type: typeof InputTypes[number];
+  type: InputTypes;
   width?: InputWidthType;
   accept?: string;
   maxSize?: number;
@@ -125,6 +135,7 @@ const Input = ({
   } = useConfig();
   const { getMicroCopy } = useSiteContext();
   const { executeRecaptcha } = useGoogleReCaptcha();
+  const qaAuthToken = getCookie(QA_AUTH_TOKEN);
 
   const mapBody = (file: File) => file;
   const mapValue = ({ name, type }, upload) => ({
@@ -186,13 +197,15 @@ const Input = ({
           mapBody={mapBody}
           mapValue={mapValue}
           onUploadRequest={async () => {
-            const token = await executeRecaptcha();
-
-            return {
-              headers: {
-                "X-Recaptcha-Token": token
-              }
+            const token = qaAuthToken ? undefined : await executeRecaptcha();
+            let headers: HeadersInit = {
+              "X-Recaptcha-Token": token
             };
+            if (qaAuthToken) {
+              headers = { ...headers, authorization: `Bearer ${qaAuthToken}` };
+            }
+
+            return { headers: { ...headers } };
           }}
           microcopyProvider={{
             "upload.instructions.drop": getMicroCopy(
@@ -315,7 +328,7 @@ export const FormInputs = ({ inputs }: FormInputs) => {
   return (
     <>
       {inputs.map(({ width, ...props }, $i) => (
-        <Grid key={$i} item xs={12} md={width === "full" ? 12 : 6}>
+        <Grid key={$i} xs={12} md={width === "full" ? 12 : 6}>
           <Input {...props} />
         </Grid>
       ))}
@@ -433,12 +446,9 @@ const HubspotForm = ({
           )}
         </>
       )}
-      <div
+      <HubspotFormWrapper
         id={hubSpotFormID}
-        className={classNames(
-          styles["Form--hubSpot"],
-          isDialog && styles["Form--dialog"]
-        )}
+        className={classNames(isDialog && classes.dialog)}
       />
     </Section>
   );
@@ -492,6 +502,7 @@ const FormSection = ({
   const { countryCode, getMicroCopy, node_locale } = useSiteContext();
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const { executeRecaptcha } = useGoogleReCaptcha();
+  const qaAuthToken = getCookie(QA_AUTH_TOKEN);
   const GTMButton = withGTM<ButtonProps>(Button, {
     label: "aria-label",
     action: "data-action"
@@ -523,7 +534,7 @@ const FormSection = ({
       recipientsFromValues && isEmailPresent ? recipientEmail : recipients;
 
     try {
-      const token = await executeRecaptcha();
+      const token = qaAuthToken ? undefined : await executeRecaptcha();
 
       // remove all blank values
       const valuesToSent = Object.entries(values).reduce(
@@ -536,6 +547,13 @@ const FormSection = ({
         {}
       );
 
+      let headers: HeadersInit = {
+        "Content-Type": "application/json",
+        "X-Recaptcha-Token": token
+      };
+      if (qaAuthToken) {
+        headers = { ...headers, authorization: `Bearer ${qaAuthToken}` };
+      }
       const response = await fetch(gcpFormSubmitEndpoint, {
         method: "POST",
         body: JSON.stringify({
@@ -545,10 +563,7 @@ const FormSection = ({
           values: valuesToSent,
           emailSubjectFormat
         }),
-        headers: {
-          "X-Recaptcha-Token": token,
-          "Content-Type": "application/json"
-        }
+        headers
       });
 
       if (!response.ok) {
@@ -707,14 +722,13 @@ const FormSection = ({
         </>
       )}
       {inputs ? (
-        <Form
+        <StyledForm
           onSubmit={
             // TODO Handle/remove after HubSpot mapping has been decided
             source === SourceType.HubSpot && hubSpotFormGuid
               ? handleHubSpotSubmit
               : handleSubmit
           }
-          className={styles["Form"]}
           rightAlignButton
         >
           <Grid container spacing={3}>
@@ -740,10 +754,15 @@ const FormSection = ({
               }}
               endIcon={
                 isSubmitting ? (
-                  <CircularProgress
+                  <ProgressIndicator
                     size={24}
                     color="inherit"
-                    style={{ marginLeft: "0.5rem" }}
+                    style={{
+                      position: "relative",
+                      left: 0,
+                      right: 0,
+                      marginLeft: "0.5rem"
+                    }}
                   />
                 ) : (
                   <ArrowForwardIcon />
@@ -754,7 +773,7 @@ const FormSection = ({
               {submitText || getMicroCopy(microCopy.FORM_SUBMIT)}
             </Form.SubmitButton>
           </Form.ButtonWrapper>
-        </Form>
+        </StyledForm>
       ) : (
         "Form contains no fields"
       )}

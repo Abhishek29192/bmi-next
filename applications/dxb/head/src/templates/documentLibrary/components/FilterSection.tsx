@@ -9,7 +9,7 @@ import {
   FilterProps,
   Filters,
   Typography
-} from "@bmi/components";
+} from "@bmi-digital/components";
 import React from "react";
 import { useSiteContext } from "../../../components/Site";
 import filterStyles from "../../../components/styles/Filters.module.scss";
@@ -34,12 +34,16 @@ const DocumentLibraryFilter = ({
   const { getMicroCopy } = useSiteContext();
 
   return (
-    <div className={filterStyles["scroll-bar"]}>
+    <div data-testid="document-library-filters">
       <div className={filterStyles["box"]}>
         <Typography variant="h5">
           {getMicroCopy("documentLibrary.filters.title")}
         </Typography>
-        <Button variant="text" onClick={clearFilters}>
+        <Button
+          variant="text"
+          onClick={clearFilters}
+          data-testid="filters-clear-all"
+        >
           {getMicroCopy("documentLibrary.filters.clearAll")}
         </Button>
       </div>

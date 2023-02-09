@@ -9,10 +9,11 @@ import {
   MediaGallery,
   Tabs,
   Typography
-} from "@bmi/components";
-import Tab, { TabProps } from "@material-ui/core/Tab";
-import { Launch } from "@material-ui/icons";
-import CheckIcon from "@material-ui/icons/Check";
+} from "@bmi-digital/components";
+import { Launch } from "@mui/icons-material";
+import CheckIcon from "@mui/icons-material/Check";
+import { styled } from "@mui/material/styles";
+import Tab, { TabProps } from "@mui/material/Tab";
 import React, { useRef, useState } from "react";
 import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
@@ -29,9 +30,13 @@ import RichText, { RichTextData } from "./RichText";
 import { useSiteContext } from "./Site";
 import styles from "./styles/ProductLeadBlock.module.scss";
 
-const BlueCheckIcon = (
-  <Icon source={CheckIcon} style={{ color: "var(--color-theme-accent-300)" }} />
-);
+const StyledBlueCheckIcon = styled(Icon)(({ theme }) => ({
+  color: theme.colours.accent300
+}));
+
+const BlueCheckIcon = () => {
+  return <StyledBlueCheckIcon source={CheckIcon} />;
+};
 type Props = {
   product: Product;
   sidebarItems?: {
@@ -109,9 +114,7 @@ const ProductLeadBlock = ({
 
               {(product.guaranteesAndWarrantiesImages.length > 0 ||
                 product.guaranteesAndWarrantiesLinks.length > 0) && (
-                <LeadBlock.Content.Section
-                  className={styles["GuaranteesAndAwardsAsset"]}
-                >
+                <LeadBlock.Content.Section>
                   <LeadBlock.Content.Heading>
                     {getMicroCopy(
                       microCopy.PDP_LEAD_BLOCK_GUARANTEES_WARRANTIES
@@ -120,10 +123,13 @@ const ProductLeadBlock = ({
                   {product.guaranteesAndWarrantiesImages.length > 0 &&
                     product.guaranteesAndWarrantiesImages.map((item, i) => (
                       <img
-                        key={`guarentee-img-${i}`}
+                        key={`guarantee-img-${i}`}
                         src={item.url}
                         alt={item.name}
                         className={styles["image"]}
+                        data-testid={`guarantee-image${
+                          item.name ? `-${item.name.replace(/ /g, "-")}` : ""
+                        }`}
                       />
                     ))}
                   {product.guaranteesAndWarrantiesLinks.length > 0 &&
@@ -145,6 +151,9 @@ const ProductLeadBlock = ({
                           iconEnd
                           isExternal={isExternalUrl(item.url)}
                           className={styles["inline-link"]}
+                          data-testid={`guarantee-inline-link${
+                            item.name ? `-${item.name.replace(/ /g, "-")}` : ""
+                          }`}
                         >
                           {item.name}
                         </GTMAnchorLink>
@@ -154,9 +163,7 @@ const ProductLeadBlock = ({
               )}
               {(product.awardsAndCertificateDocuments.length > 0 ||
                 product.awardsAndCertificateImages.length > 0) && (
-                <LeadBlock.Content.Section
-                  className={styles["GuaranteesAndAwardsAsset"]}
-                >
+                <LeadBlock.Content.Section>
                   <LeadBlock.Content.Heading>
                     {getMicroCopy(microCopy.PDP_LEAD_BLOCK_AWARDS_CERTIFICATES)}
                   </LeadBlock.Content.Heading>
@@ -195,7 +202,10 @@ const ProductLeadBlock = ({
               )}
             </LeadBlock.Content>
             {(product.productBenefits || sidebarItems?.length) && (
-              <LeadBlock.Card theme="blue-900">
+              <LeadBlock.Card
+                color="blue900"
+                data-testid="product-benefits-post-it-card"
+              >
                 {product.productBenefits ? (
                   <LeadBlock.Card.Section>
                     <LeadBlock.Card.Heading>
@@ -206,7 +216,7 @@ const ProductLeadBlock = ({
                         {product.productBenefits.map((feature, index) => (
                           <IconList.Item
                             key={index}
-                            icon={BlueCheckIcon}
+                            icon={BlueCheckIcon()}
                             title={feature}
                             isCompact
                           />
@@ -252,7 +262,10 @@ const ProductLeadBlock = ({
               <ProductTechnicalSpec product={product} />
             </LeadBlock.Content>
             {sidebarItems && sidebarItems.length > 1 && (
-              <LeadBlock.Card theme="blue-900">
+              <LeadBlock.Card
+                color="blue900"
+                data-testid="technical-spec-post-it-card"
+              >
                 {sidebarItems.slice(1).map(({ title, content }, index) => {
                   return (
                     <LeadBlock.Card.Section key={`sidebar-item-${index}`}>

@@ -1,7 +1,0 @@
-{
-  "daysRemaining": "Antal dage tilbage",
-  "projectInsight": "Projektoplysninger",
-  "certifiedInstallers": "BMI certificerede installatører",
-  "noCertifiedInstallers": "Ingen installatører har en gyldig BMI-certificering",
-  "projectsInsightCertifiedInstallers": "Der er et {{count}} BMI-certificeret installatør på dette projekt"
-}

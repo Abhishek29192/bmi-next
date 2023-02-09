@@ -12,8 +12,6 @@ Monorepo for BMI websites that includes a component library.
 
 ## Contents
 
-- [Components](components/README.md)
 - [Contentful Migrations](doc/contentful-migrations.md)
 - [DXB](applications/dxb/README.md)
-- [InTouch](applications/intouch/README.md)
 - [License Finder](doc/license-finder.md)

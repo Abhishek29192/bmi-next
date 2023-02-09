@@ -679,7 +679,7 @@
 
 [[redirects]]
  from="/wp-content/uploads/2020/05/FDES-Tuile-à-emboitement-terre-cuite.pdf"
- to="https://www.bmigroup.com/fr/documentation/fdes/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ to="https://assets.ctfassets.net/h1lj96ycs4pf/2mBV0QtQ81GTC2KpZfK9G6/d5bd4f86f6df5ebff65a32d6e452e687/FDES_Tuile_a___emboitement_Terre_Cuite.pdf"
  force=true
 
 [[redirects]]
@@ -699,7 +699,7 @@
 
 [[redirects]]
  from="/wp-content/uploads/2020/03/FDES_Tuile_beton.pdf"
- to="https://www.bmigroup.com/fr/documentation/fdes/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ to="https://assets.ctfassets.net/h1lj96ycs4pf/7b6IVtGJUJRSflGEN0C8PF/16f716b4ebccec39d6681d27dfcfa8c7/FDES_Tuile_be__ton.pdf"
  force=true
 
 [[redirects]]
@@ -2206,11 +2206,6 @@
  from="/categorie-produit/tuiles/tuiles-beton/"
  to="https://www.bmigroup.com/fr/produits-et-solutions/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
  force=true
-
-
-
-
-
 
 # if no redirects are found, fall back to relevant brand page
 

@@ -1,10 +1,14 @@
-import { Grid, RadioPane, RadioPaneProps, Section } from "@bmi/components";
+import {
+  Grid,
+  RadioPane,
+  RadioPaneProps,
+  Section
+} from "@bmi-digital/components";
 import { System as EsSystem } from "@bmi/elasticsearch-types";
 import { navigate, useLocation } from "@reach/router";
 import { graphql } from "gatsby";
 import fetch, { Response } from "node-fetch";
 import React, {
-  ChangeEvent,
   createContext,
   useCallback,
   useContext,
@@ -13,10 +17,12 @@ import React, {
   useState
 } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import { QA_AUTH_TOKEN } from "../constants/cookieConstants";
 import { SYSTEM_CONFIG_QUERY_KEY_REFERER } from "../constants/queryConstants";
 import { useConfig } from "../contexts/ConfigProvider";
 import { devLog } from "../utils/devLog";
 import { queryElasticSearch } from "../utils/elasticSearch";
+import getCookie from "../utils/getCookie";
 import withGTM, { pushToDataLayer } from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
 import * as storage from "../utils/storage";
@@ -123,6 +129,7 @@ const SystemConfiguratorQuestion = ({
   const [myStoredAnswerId, ...remainingStoredAnswers] = storedAnswers;
   const [nextId, setNextId] = useState<string>(myStoredAnswerId);
   const { executeRecaptcha } = useGoogleReCaptcha();
+  const qaAuthToken = getCookie(QA_AUTH_TOKEN);
   const [nextStep, setNextStep] = useState<NextStepData>({});
   const { locale, openIndex, setState } = useContext(SystemConfiguratorContext);
   const ref = useScrollToOnLoad(index === 0, ACCORDION_TRANSITION);
@@ -143,16 +150,20 @@ const SystemConfiguratorQuestion = ({
 
     const controller = new AbortController();
 
-    const recaptchaToken = await executeRecaptcha();
+    const recaptchaToken = qaAuthToken ? undefined : await executeRecaptcha();
 
+    let headers: HeadersInit = {
+      "X-Recaptcha-Token": recaptchaToken
+    };
+    if (qaAuthToken) {
+      headers = { ...headers, authorization: `Bearer ${qaAuthToken}` };
+    }
     try {
       const response: Response = await fetch(
         `${gcpSystemConfiguratorEndpoint}?answerId=${answerId}&locale=${locale}`,
         {
           method: "GET",
-          headers: {
-            "X-Recaptcha-Token": recaptchaToken
-          },
+          headers,
           signal: controller.signal
         }
       );
@@ -218,10 +229,7 @@ const SystemConfiguratorQuestion = ({
     }
   }, [selectedAnswer, locale, isReload]);
 
-  const handleOnChange = (
-    event: ChangeEvent<Record<string, unknown>>,
-    isExpanded: boolean
-  ) => {
+  const handleOnChange = (event: React.SyntheticEvent, isExpanded: boolean) => {
     if (!isExpanded) {
       setState((state) => ({ ...state, openIndex: null }));
       return;
@@ -372,7 +380,7 @@ const SystemConfiguratorResult = ({
   }, [recommendedSystems]);
 
   return (
-    <div ref={ref}>
+    <div ref={ref} data-testid="system-config-result">
       <Section
         backgroundColor="pearl"
         className={styles["SystemConfigurator-result"]}
@@ -469,7 +477,11 @@ const SystemConfiguratorSection = ({ data }: { data: Data }) => {
           <ProgressIndicator theme="light" />
         </Scrim>
       ) : null}
-      <Section backgroundColor="white" className={styles["SystemConfigurator"]}>
+      <Section
+        backgroundColor="white"
+        className={styles["SystemConfigurator"]}
+        data-testid="system-config-section"
+      >
         <Section.Title>{title}</Section.Title>
         {description && <RichText document={description} />}
         {storedAnswers ? (

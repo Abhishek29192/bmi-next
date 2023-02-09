@@ -6,6 +6,9 @@ export const isRichText = (data: unknown): data is RichTextData => {
   }
 
   return (
-    "raw" in data && "references" in data && Object.keys(data).length === 2
+    !!data &&
+    "raw" in data &&
+    "references" in data &&
+    Object.keys(data).length === 2
   );
 };

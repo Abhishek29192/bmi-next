@@ -1,5 +1,3 @@
-import React from "react";
-import { graphql } from "gatsby";
 import {
   Grid,
   MediaGallery,
@@ -7,11 +5,13 @@ import {
   Thumbnail,
   ThumbnailProps,
   Typography
-} from "@bmi/components";
+} from "@bmi-digital/components";
+import { graphql } from "gatsby";
+import React from "react";
 import withGTM from "../utils/google-tag-manager";
 import { GallerySectionMedias, transformMediaSrc } from "../utils/media";
-import styles from "./styles/MediaGallerySection.module.scss";
 import RichText, { RichTextData } from "./RichText";
+import styles from "./styles/MediaGallerySection.module.scss";
 
 export type Data = {
   __typename: "ContentfulMediaGallerySection";
@@ -34,7 +34,7 @@ const IntegratedMediaGallerySection = ({ data }: { data: Data }) => {
       className={styles["MediaGallerySection"]}
     >
       <Grid container>
-        <Grid item xs={12} lg={8}>
+        <Grid xs={12} lg={8}>
           {title && (
             <Typography variant="h2" hasUnderline>
               {title}
@@ -46,7 +46,7 @@ const IntegratedMediaGallerySection = ({ data }: { data: Data }) => {
             </div>
           )}
         </Grid>
-        <Grid item xs={12}>
+        <Grid xs={12}>
           <MediaGallery
             media={transformMediaSrc(medias)}
             mediaSize="cover"

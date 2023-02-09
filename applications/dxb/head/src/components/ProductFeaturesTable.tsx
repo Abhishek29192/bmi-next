@@ -1,4 +1,4 @@
-import { Table } from "@bmi/components";
+import { Table } from "@bmi-digital/components";
 import { Feature } from "@bmi/firestore-types";
 import React from "react";
 

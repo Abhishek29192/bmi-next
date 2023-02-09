@@ -3,57 +3,68 @@
 exports[`NextBestActions component renders correctly 1`] = `
 <div>
   <div
-    class="Section Section--alabaster"
+    class="Section-root Section-alabaster css-cxq310"
+    data-testid="section"
   >
     <div
-      class="Container"
+      class=" css-ze8cyt"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+        class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          data-testid="typography"
         >
           MC: nba.title
         </h2>
         <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+          data-testid="grid-container"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-4 MuiGrid2-grid-lg-3 Grid-item css-4oasfm-MuiGrid2-root"
+            data-testid="grid-item"
           >
             <a
-              aria-disabled="false"
-              class="MuiButtonBase-root NBACard NBACard--clickable ColorPair ColorPair--color-theme-secondary-1"
+              class="MuiButtonBase-root NBACard-clickable ColorPair-secondary1 css-bkdr6q-MuiButtonBase-root"
               data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/somewhere/\\",\\"label\\":\\"test\\"}"
               href="/en/somewhere/"
-              role="button"
               tabindex="0"
+              type="button"
             >
               <h4
-                class="MuiTypography-root title Typography MuiTypography-h4"
+                class="MuiTypography-root MuiTypography-h4 css-xmpqba-MuiTypography-root"
+                data-testid="typography"
               >
                 test
               </h4>
               <div
-                class="body"
+                class="css-4osezd"
               />
               <div
-                class="footer"
+                class="css-8xl60i"
               >
                 <div
                   style="font-size: 1rem;"
                 >
                   <span
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink Anchorlink--white MuiTypography-colorPrimary"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink AnchorLink-white css-1m0txtt-MuiTypography-root-MuiLink-root"
+                    data-testid="anchor-link"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="icon"
+                      class=" css-em5iqk"
                       data-testid="internal"
                       focusable="false"
-                    />
+                      viewBox="0 0 16 16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
+                      />
+                    </svg>
                     <span>
                       test
                     </span>
@@ -61,48 +72,57 @@ exports[`NextBestActions component renders correctly 1`] = `
                 </div>
               </div>
               <span
-                class="MuiTouchRipple-root"
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
             </a>
           </div>
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-4 MuiGrid2-grid-lg-3 Grid-item css-4oasfm-MuiGrid2-root"
+            data-testid="grid-item"
           >
             <a
-              aria-disabled="false"
-              class="MuiButtonBase-root NBACard NBACard--clickable ColorPair ColorPair--color-theme-secondary-2"
+              class="MuiButtonBase-root NBACard-clickable ColorPair-secondary2 css-bkdr6q-MuiButtonBase-root"
               data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"https://www.external.co.uk\\",\\"label\\":\\"string\\"}"
               href="https://www.external.co.uk"
               rel="noopener noreferrer"
               tabindex="0"
               target="_blank"
+              type="button"
             >
               <h4
-                class="MuiTypography-root title Typography MuiTypography-h4"
+                class="MuiTypography-root MuiTypography-h4 css-xmpqba-MuiTypography-root"
+                data-testid="typography"
               >
                 test
               </h4>
               <div
-                class="body"
+                class="css-4osezd"
               >
                 I am a subtitle
               </div>
               <div
-                class="footer"
+                class="css-8xl60i"
               >
                 <div
                   style="font-size: 1rem;"
                 >
                   <span
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink Anchorlink--white MuiTypography-colorPrimary"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink AnchorLink-white css-1m0txtt-MuiTypography-root-MuiLink-root"
+                    data-testid="anchor-link"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="icon"
+                      class=" css-em5iqk"
                       data-testid="internal"
                       focusable="false"
-                    />
+                      viewBox="0 0 16 16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
+                      />
+                    </svg>
                     <span>
                       string
                     </span>
@@ -110,7 +130,7 @@ exports[`NextBestActions component renders correctly 1`] = `
                 </div>
               </div>
               <span
-                class="MuiTouchRipple-root"
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
             </a>
           </div>
@@ -124,60 +144,72 @@ exports[`NextBestActions component renders correctly 1`] = `
 exports[`NextBestActions component renders name with no title 1`] = `
 <div>
   <div
-    class="Section Section--alabaster"
+    class="Section-root Section-alabaster css-cxq310"
+    data-testid="section"
   >
     <div
-      class="Container"
+      class=" css-ze8cyt"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+        class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          data-testid="typography"
         >
           MC: nba.title
         </h2>
         <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+          data-testid="grid-container"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-4 MuiGrid2-grid-lg-3 Grid-item css-4oasfm-MuiGrid2-root"
+            data-testid="grid-item"
           >
             <a
-              aria-disabled="false"
-              class="MuiButtonBase-root NBACard NBACard--clickable ColorPair ColorPair--color-theme-secondary-1"
+              class="MuiButtonBase-root NBACard-clickable ColorPair-secondary1 css-bkdr6q-MuiButtonBase-root"
               data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"https://www.external.co.uk\\",\\"label\\":\\"string\\"}"
               href="https://www.external.co.uk"
               rel="noopener noreferrer"
               tabindex="0"
               target="_blank"
+              type="button"
             >
               <h4
-                class="MuiTypography-root title Typography MuiTypography-h4"
+                class="MuiTypography-root MuiTypography-h4 css-xmpqba-MuiTypography-root"
+                data-testid="typography"
               >
                 test name
               </h4>
               <div
-                class="body"
+                class="css-4osezd"
               >
                 I am a subtitle
               </div>
               <div
-                class="footer"
+                class="css-8xl60i"
               >
                 <div
                   style="font-size: 1rem;"
                 >
                   <span
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink Anchorlink--white MuiTypography-colorPrimary"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink AnchorLink-white css-1m0txtt-MuiTypography-root-MuiLink-root"
+                    data-testid="anchor-link"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="icon"
+                      class=" css-em5iqk"
                       data-testid="internal"
                       focusable="false"
-                    />
+                      viewBox="0 0 16 16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
+                      />
+                    </svg>
                     <span>
                       string
                     </span>
@@ -185,7 +217,7 @@ exports[`NextBestActions component renders name with no title 1`] = `
                 </div>
               </div>
               <span
-                class="MuiTouchRipple-root"
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
             </a>
           </div>
@@ -199,36 +231,41 @@ exports[`NextBestActions component renders name with no title 1`] = `
 exports[`NextBestActions component renders with no promo cta 1`] = `
 <div>
   <div
-    class="Section Section--alabaster"
+    class="Section-root Section-alabaster css-cxq310"
+    data-testid="section"
   >
     <div
-      class="Container"
+      class=" css-ze8cyt"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+        class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          data-testid="typography"
         >
           MC: nba.title
         </h2>
         <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+          data-testid="grid-container"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-4 MuiGrid2-grid-lg-3 Grid-item css-4oasfm-MuiGrid2-root"
+            data-testid="grid-item"
           >
             <div
-              class="NBACard ColorPair ColorPair--color-theme-secondary-1"
+              class=" ColorPair-secondary1 css-137fghv"
               type="button"
             >
               <h4
-                class="MuiTypography-root title Typography MuiTypography-h4"
+                class="MuiTypography-root MuiTypography-h4 css-xmpqba-MuiTypography-root"
+                data-testid="typography"
               >
                 test
               </h4>
               <div
-                class="body"
+                class="css-4osezd"
               >
                 I am a subtitle
               </div>
@@ -244,46 +281,51 @@ exports[`NextBestActions component renders with no promo cta 1`] = `
 exports[`NextBestActions component renders with no promo cta label 1`] = `
 <div>
   <div
-    class="Section Section--alabaster"
+    class="Section-root Section-alabaster css-cxq310"
+    data-testid="section"
   >
     <div
-      class="Container"
+      class=" css-ze8cyt"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+        class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          data-testid="typography"
         >
           MC: nba.title
         </h2>
         <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+          data-testid="grid-container"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-4 MuiGrid2-grid-lg-3 Grid-item css-4oasfm-MuiGrid2-root"
+            data-testid="grid-item"
           >
             <a
-              aria-disabled="false"
-              class="MuiButtonBase-root NBACard NBACard--clickable ColorPair ColorPair--color-theme-secondary-1"
+              class="MuiButtonBase-root NBACard-clickable ColorPair-secondary1 css-bkdr6q-MuiButtonBase-root"
               data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"https://www.external.co.uk\\",\\"label\\":null}"
               href="https://www.external.co.uk"
               rel="noopener noreferrer"
               tabindex="0"
               target="_blank"
+              type="button"
             >
               <h4
-                class="MuiTypography-root title Typography MuiTypography-h4"
+                class="MuiTypography-root MuiTypography-h4 css-xmpqba-MuiTypography-root"
+                data-testid="typography"
               >
                 test
               </h4>
               <div
-                class="body"
+                class="css-4osezd"
               >
                 I am a subtitle
               </div>
               <span
-                class="MuiTouchRipple-root"
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
             </a>
           </div>

@@ -1,10 +1,11 @@
-import { render } from "@testing-library/react";
-import React from "react";
+import { ThemeProvider } from "@bmi-digital/components";
 import {
   createFullyPopulatedPimProductDocument,
   createPimProductDocument,
   PimProductDocument
 } from "@bmi/elasticsearch-types";
+import { render } from "@testing-library/react";
+import React from "react";
 import fileIconsMap from "../../../../components/FileIconsMap";
 import { ContentfulAssetType as AssetTypeData } from "../../../../types/AssetType";
 import createAssetType, {
@@ -22,11 +23,13 @@ describe("MobileDocumentTechnicalTableResults component", () => {
       ];
 
       const wrapper = render(
-        <MobileDocumentTechnicalTableResults
-          documentsByProduct={documentsByProduct}
-          assetTypes={assetTypes}
-          fileIconsMap={fileIconsMap}
-        />
+        <ThemeProvider>
+          <MobileDocumentTechnicalTableResults
+            documentsByProduct={documentsByProduct}
+            assetTypes={assetTypes}
+            fileIconsMap={fileIconsMap}
+          />
+        </ThemeProvider>
       );
 
       expect(wrapper.baseElement).toMatchSnapshot();
@@ -46,11 +49,13 @@ describe("MobileDocumentTechnicalTableResults component", () => {
       ];
 
       const wrapper = render(
-        <MobileDocumentTechnicalTableResults
-          documentsByProduct={documentsByProduct}
-          assetTypes={assetTypes}
-          fileIconsMap={fileIconsMap}
-        />
+        <ThemeProvider>
+          <MobileDocumentTechnicalTableResults
+            documentsByProduct={documentsByProduct}
+            assetTypes={assetTypes}
+            fileIconsMap={fileIconsMap}
+          />
+        </ThemeProvider>
       );
 
       expect(wrapper.baseElement).toMatchSnapshot();
@@ -91,11 +96,13 @@ describe("MobileDocumentTechnicalTableResults component", () => {
       ];
 
       const wrapper = render(
-        <MobileDocumentTechnicalTableResults
-          documentsByProduct={documentsByProduct}
-          assetTypes={assetTypes}
-          fileIconsMap={fileIconsMap}
-        />
+        <ThemeProvider>
+          <MobileDocumentTechnicalTableResults
+            documentsByProduct={documentsByProduct}
+            assetTypes={assetTypes}
+            fileIconsMap={fileIconsMap}
+          />
+        </ThemeProvider>
       );
 
       expect(wrapper.baseElement).toMatchSnapshot();
@@ -131,17 +138,18 @@ describe("MobileDocumentTechnicalTableResults component", () => {
       ];
 
       const wrapper = render(
-        <MobileDocumentTechnicalTableResults
-          documentsByProduct={documentsByProduct}
-          assetTypes={assetTypes}
-          fileIconsMap={fileIconsMap}
-        />
+        <ThemeProvider>
+          <MobileDocumentTechnicalTableResults
+            documentsByProduct={documentsByProduct}
+            assetTypes={assetTypes}
+            fileIconsMap={fileIconsMap}
+          />
+        </ThemeProvider>
       );
+      const svg = wrapper.container.querySelector(".format-icon");
 
       expect(wrapper.baseElement).toMatchSnapshot();
-      expect(wrapper.baseElement.innerHTML).toContain(
-        '<svg class="format-icon"></svg>'
-      );
+      expect(svg).toBeTruthy();
     });
 
     it("when invalid asset types are used", () => {
@@ -173,17 +181,18 @@ describe("MobileDocumentTechnicalTableResults component", () => {
       documentsByProduct[0][1]["format"] = "onlv";
 
       const wrapper = render(
-        <MobileDocumentTechnicalTableResults
-          documentsByProduct={documentsByProduct}
-          assetTypes={assetTypes}
-          fileIconsMap={fileIconsMap}
-        />
+        <ThemeProvider>
+          <MobileDocumentTechnicalTableResults
+            documentsByProduct={documentsByProduct}
+            assetTypes={assetTypes}
+            fileIconsMap={fileIconsMap}
+          />
+        </ThemeProvider>
       );
+      const svg = wrapper.container.querySelector(".format-icon");
 
       expect(wrapper.baseElement).toMatchSnapshot();
-      expect(wrapper.baseElement.innerHTML).toContain(
-        '<svg class="format-icon"></svg>'
-      );
+      expect(svg).toBeTruthy();
     });
   });
 });

@@ -2,13 +2,13 @@ import {
   Accordion,
   AccordionSummaryProps,
   Button,
+  ButtonProps,
   Grid,
   LeadBlock,
   PostItCard,
   Table,
   Typography
-} from "@bmi/components";
-import { ButtonProps } from "@bmi/components/src";
+} from "@bmi-digital/components";
 import React from "react";
 import { Data as SDPSpecificationNotesData } from "../../components/ContentfulSpecificationNotes";
 import Link from "../../components/Link";
@@ -98,8 +98,8 @@ const TechnicalSpecificationLeadBlock = ({
         </LeadBlock.Content.Section>
       </LeadBlock.Content>
       {specificationNotes && (
-        <Grid item lg={4} xs={12} data-testid="specificationNotes">
-          <PostItCard theme="pearl">
+        <Grid lg={4} xs={12} data-testid="specificationNotes">
+          <PostItCard color="pearl">
             <PostItCard.Section>
               <PostItCard.Heading hasUnderline>
                 {specificationNotes.title}

@@ -1,4 +1,11 @@
-import { Button, Hero, HeroItem, Section } from "@bmi/components";
+import {
+  Button,
+  ButtonProps,
+  CarouselHero,
+  CarouselHeroItem,
+  Search,
+  Section
+} from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
 import BackToResults from "../components/BackToResults";
@@ -20,9 +27,11 @@ import { renderVideo } from "../components/Video";
 import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
 import { updateBreadcrumbTitleFromContentful } from "../utils/breadcrumbUtils";
+import withGTM from "../utils/google-tag-manager";
+import { getPathWithCountryCode } from "../utils/path";
 
-type BrandLandingPageData = PageInfoData &
-  PageData & {
+type BrandLandingPageData = Omit<PageInfoData, "sections"> &
+  Omit<PageData, "breadcrumbs"> & {
     description: null | { description: string };
     slides: (SlideData | PageInfoData)[];
     overlapCards: OverlapCardData | null;
@@ -44,7 +53,7 @@ export type Props = {
 const getHeroItemsWithContext = (
   { getMicroCopy },
   slides: BrandLandingPageData["slides"]
-): HeroItem[] => {
+): CarouselHeroItem[] => {
   return slides.map(
     ({ title, subtitle, featuredMedia, featuredVideo, ...rest }) => {
       return {
@@ -99,9 +108,15 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
     config: { isBrandProviderEnabled }
   } = useConfig();
 
-  const firstSlide: HeroItem = {
+  const GTMButton = withGTM<ButtonProps>(Button);
+  const firstSlide: CarouselHeroItem = {
     title: <BrandLogo brandName={brandLogo} brandWhiteBox={true} />,
-    children: description?.description,
+    //DXB-2102 truncate description to 400 characters
+    children: description?.description
+      ? `${description?.description.substring(0, 400)}${
+          description?.description.length > 400 ? "..." : ""
+        }`
+      : null,
     media: featuredVideo
       ? renderVideo(featuredVideo)
       : renderImage(featuredMedia, { size: "cover" }),
@@ -124,11 +139,11 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
     >
       {({ siteContext }) => {
         const heroItems = getHeroItemsWithContext(siteContext, slides);
+        const { countryCode, getMicroCopy } = siteContext;
 
         return (
           <>
-            <Hero
-              level={0}
+            <CarouselHero
               breadcrumbs={
                 <BackToResults isDarkThemed>
                   <Breadcrumbs data={enhancedBreadcrumbs} isDarkThemed />
@@ -137,8 +152,24 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
               heroes={[firstSlide, ...heroItems]}
               hasSpaceBottom
               isHeroKeyLine={Boolean(isBrandProviderEnabled && brandLogo)}
-            />
-
+            >
+              <Search
+                buttonComponent={(props) => (
+                  <GTMButton
+                    gtm={{
+                      id: "search2",
+                      label: getMicroCopy(microCopy.SEARCH_LABEL)
+                    }}
+                    {...props}
+                    data-testid={"brand-search-button"}
+                  />
+                )}
+                action={getPathWithCountryCode(countryCode, "search")}
+                label={getMicroCopy(microCopy.SEARCH_LABEL)}
+                placeholder={getMicroCopy(microCopy.SEARCH_PLACEHOLDER_HERO)}
+                data-testid={"brand-search-form"}
+              />
+            </CarouselHero>
             {overlapCards && <OverlapCards data={overlapCards} />}
             {sections && <Sections data={sections} />}
             <Section backgroundColor="alabaster" isSlim>

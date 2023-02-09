@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@bmi-digital/components";
 import {
   ContentfulDocument,
   createContentfulDocument,
@@ -14,15 +15,23 @@ describe("Brands component", () => {
   ];
 
   it("renders correctly", () => {
-    const { container } = render(<DocumentCardsResults documents={docs} />);
+    const { container } = render(
+      <ThemeProvider>
+        <DocumentCardsResults documents={docs} />
+      </ThemeProvider>
+    );
     expect(container).toMatchSnapshot();
   });
 
   it("renders correctly for mobile", () => {
-    jest.mock("@material-ui/core", () => ({
+    jest.mock("@mui/material", () => ({
       useMediaQuery: jest.fn().mockRejectedValue(true)
     }));
-    const { container } = render(<DocumentCardsResults documents={docs} />);
+    const { container } = render(
+      <ThemeProvider>
+        <DocumentCardsResults documents={docs} />
+      </ThemeProvider>
+    );
     expect(container).toMatchSnapshot();
   });
 });

@@ -1,10 +1,11 @@
+import { TextField, ThemeProvider } from "@bmi-digital/components";
 import { mockResponses } from "@bmi-digital/fetch-mocks";
-import { TextField } from "@bmi/components";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import fetchMockJest from "fetch-mock-jest";
 import mockConsole from "jest-mock-console";
 import React, { useEffect, useRef } from "react";
 import { renderToString } from "react-dom/server";
+import { useIsMobileDevice } from "../../../../utils/useIsMobileDevice";
 import { MicroCopy } from "../../helpers/microCopy";
 import { createProduct } from "../../helpers/products";
 import en from "../../samples/copy/en.json";
@@ -22,7 +23,6 @@ import {
 } from "../../types/v2";
 import { Props } from "../subcomponents/quantity-table/QuantityTable";
 import Results, { replaceImageURLWithImage, ResultProps } from "../_Results";
-import { useIsMobileDevice } from "../../../../utils/useIsMobileDevice";
 
 jest.mock("../../../../utils/useIsMobileDevice", () => ({
   useIsMobileDevice: jest.fn().mockReturnValue(false)
@@ -60,28 +60,30 @@ jest.mock("../../../FormSection", () => {
     }, []);
 
     const HSForm = () => (
-      <div>
-        {props.title}
-        {props.description}
-        <form>
-          <TextField
-            name="name"
-            variant="outlined"
-            isRequired
-            placeholder="name"
-          />
-          <TextField
-            name="email"
-            variant="outlined"
-            isRequired
-            placeholder="email"
-          />
-          <div className="hs-file">
-            <input type="file" name="file" />
-          </div>
-          <button id="submit-button">Submit button</button>
-        </form>
-      </div>
+      <ThemeProvider>
+        <div>
+          {props.title}
+          {props.description}
+          <form>
+            <TextField
+              name="name"
+              variant="outlined"
+              isRequired
+              placeholder="name"
+            />
+            <TextField
+              name="email"
+              variant="outlined"
+              isRequired
+              placeholder="email"
+            />
+            <div className="hs-file">
+              <input type="file" name="file" />
+            </div>
+            <button id="submit-button">Submit button</button>
+          </form>
+        </div>
+      </ThemeProvider>
     );
 
     return <iframe ref={ref} title="HubSpot Form" />;
@@ -539,11 +541,25 @@ const resultsProps: ResultProps = {
 };
 
 describe("PitchedRoofCalculator Results component", () => {
+  it("renders correctly", () => {
+    const { container } = render(
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <Results {...resultsProps} />
+        </MicroCopy.Provider>
+      </ThemeProvider>
+    );
+
+    expect(container).toMatchSnapshot();
+  });
+
   it("renders with debugging mode on", () => {
     const { container } = render(
-      <MicroCopy.Provider values={en}>
-        <Results {...resultsProps} isDebugging />
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <Results {...resultsProps} isDebugging />
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
@@ -551,9 +567,45 @@ describe("PitchedRoofCalculator Results component", () => {
 
   it("renders with no guttering", () => {
     const { container } = render(
-      <MicroCopy.Provider values={en}>
-        <Results {...{ ...resultsProps, guttering: undefined }} />
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <Results {...{ ...resultsProps, guttering: undefined }} />
+        </MicroCopy.Provider>
+      </ThemeProvider>
+    );
+
+    expect(container).toMatchSnapshot();
+  });
+
+  it("renders with main tile as verge", () => {
+    const { container } = render(
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <Results
+            {...{
+              ...resultsProps,
+              tileOptions: { ...resultsProps.tileOptions, verge: "none" }
+            }}
+          />
+        </MicroCopy.Provider>
+      </ThemeProvider>
+    );
+
+    expect(container).toMatchSnapshot();
+  });
+
+  it("renders with default ridge", () => {
+    const { container } = render(
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <Results
+            {...{
+              ...resultsProps,
+              tileOptions: { ...resultsProps.tileOptions, verge: "none" }
+            }}
+          />
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
@@ -561,9 +613,11 @@ describe("PitchedRoofCalculator Results component", () => {
 
   it("opens PDF report", async () => {
     render(
-      <MicroCopy.Provider values={en}>
-        <Results {...resultsProps} />
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <Results {...resultsProps} />
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     const hsForm = screen.getByTitle<HTMLIFrameElement>("HubSpot Form");
@@ -575,24 +629,28 @@ describe("PitchedRoofCalculator Results component", () => {
     fireEvent.change(nameInput, { target: { value: "Test Name" } });
 
     fireEvent.click(hsForm.contentDocument.getElementById("submit-button"));
-    waitFor(() => expect(openPdfMock).toHaveBeenCalledTimes(1));
+    await waitFor(() => expect(openPdfMock).toHaveBeenCalledTimes(1));
   });
 
-  it("inserts PDF report into form", () => {
+  it("inserts PDF report into form", async () => {
     render(
-      <MicroCopy.Provider values={en}>
-        <Results {...resultsProps} />
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <Results {...resultsProps} />
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
-    waitFor(() => expect(getBlobMock).toBeCalledTimes(1));
+    await waitFor(() => expect(getBlobMock).toBeCalledTimes(1));
   });
 
   it("renders with final report", () => {
     render(
-      <MicroCopy.Provider values={en}>
-        <Results {...resultsProps} />
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <Results {...resultsProps} />
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     expect(
@@ -614,9 +672,11 @@ describe("PitchedRoofCalculator Results component", () => {
 
   it("Moves product to 'extra section' when user tries to delete it", () => {
     render(
-      <MicroCopy.Provider values={en}>
-        <Results {...resultsProps} />
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <Results {...resultsProps} />
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     expect(
@@ -630,11 +690,13 @@ describe("PitchedRoofCalculator Results component", () => {
     ).toBeInTheDocument();
   });
 
-  it("Moves product to 'extra section' and change quantity if user clicks on '+' button", () => {
+  it("Moves product to 'extra section' and change quantity if user clicks on '+' button", async () => {
     render(
-      <MicroCopy.Provider values={en}>
-        <Results {...resultsProps} />
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <Results {...resultsProps} />
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     const quantityNode = screen.getByLabelText(
@@ -656,14 +718,21 @@ describe("PitchedRoofCalculator Results component", () => {
         `Increase quantity of ${resultsProps.variant.clip.name}`
       )
     );
-    waitFor(() => expect(quantityNode.textContent).toBe(initialQuantity + 2));
+    expect(
+      Number(
+        screen.getByLabelText(`Quantity for ${resultsProps.variant.clip.name}`)
+          .textContent
+      )
+    ).toBe(initialQuantity + 2);
   });
 
   it("Removes product if user removes it from 'extra section'", () => {
     render(
-      <MicroCopy.Provider values={en}>
-        <Results {...resultsProps} />
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <Results {...resultsProps} />
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     fireEvent.click(
@@ -683,9 +752,11 @@ describe("PitchedRoofCalculator Results component", () => {
 
   it("resets products and removes 'extra section'", () => {
     render(
-      <MicroCopy.Provider values={en}>
-        <Results {...resultsProps} />
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <Results {...resultsProps} />
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     fireEvent.click(
@@ -702,9 +773,11 @@ describe("PitchedRoofCalculator Results component", () => {
 
   it("renders correctly without HubSpot form", () => {
     render(
-      <MicroCopy.Provider values={en}>
-        <Results {...resultsProps} isHubSpotFormAvailable={false} />
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <Results {...resultsProps} isHubSpotFormAvailable={false} />
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     expect(
@@ -712,28 +785,32 @@ describe("PitchedRoofCalculator Results component", () => {
     ).toBeInTheDocument();
   });
 
-  it("renders need help section with title", () => {
+  it("renders need help section with title", async () => {
     const title = "Need help title";
     render(
-      <MicroCopy.Provider values={en}>
-        <Results
-          {...resultsProps}
-          isHubSpotFormAvailable
-          needHelpSection={{ ...resultsProps.needHelpSection, title }}
-        />
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <Results
+            {...resultsProps}
+            isHubSpotFormAvailable={false}
+            needHelpSection={{ ...resultsProps.needHelpSection, title }}
+          />
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
-    waitFor(() => expect(screen.getByText(title)).toBeInTheDocument());
+    expect(screen.getByText(title)).toBeInTheDocument();
   });
 
   it("opens report correctly for mobile devices", async () => {
     (useIsMobileDevice as jest.MockedFn<() => boolean>).mockReturnValue(true);
 
     render(
-      <MicroCopy.Provider values={en}>
-        <Results {...resultsProps} isHubSpotFormAvailable={false} />
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <Results {...resultsProps} isHubSpotFormAvailable={false} />
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     fireEvent.click(screen.getByText("MC: results.downloadPdfLabel"));
@@ -742,16 +819,18 @@ describe("PitchedRoofCalculator Results component", () => {
 
   it("renders correctly without ventilationHood and verge tile", () => {
     render(
-      <MicroCopy.Provider values={en}>
-        <Results
-          {...resultsProps}
-          tileOptions={{
-            ...resultsProps.tileOptions,
-            ventilationHoods: "none",
-            verge: "none"
-          }}
-        />
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <Results
+            {...resultsProps}
+            tileOptions={{
+              ...resultsProps.tileOptions,
+              ventilationHoods: "none",
+              verge: "none"
+            }}
+          />
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
     expect(
       screen.queryByText("MC: results.categories.ventilation")

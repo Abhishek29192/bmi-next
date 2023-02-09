@@ -1,9 +1,0 @@
-{
-  "name": "@bmi/intouch-api-types",
-  "version": "0.0.0",
-  "description": "BMI InTouch GraphQL API type definitions",
-  "private": true,
-  "license": "UNLICENSED",
-  "main": "",
-  "types": "index.d.ts"
-}

@@ -4,18 +4,20 @@ import {
   DownloadList,
   DownloadListContext,
   Pagination
-} from "@bmi/components";
-import { useMediaQuery } from "@material-ui/core";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+} from "@bmi-digital/components";
+import { useMediaQuery } from "@mui/material";
+import { styled, useTheme } from "@mui/material/styles";
 import classnames from "classnames";
 import fetch, { Response } from "node-fetch";
 import React, { useContext } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import { QA_AUTH_TOKEN } from "../constants/cookieConstants";
 import { microCopy } from "../constants/microCopies";
 import { EnvConfig, useConfig } from "../contexts/ConfigProvider";
 import { DocumentResultData } from "../templates/documentLibrary/components/DocumentResults";
 import { downloadAs, getDownloadLink } from "../utils/client-download";
 import { devLog } from "../utils/devLog";
+import getCookie from "../utils/getCookie";
 import withGTM from "../utils/google-tag-manager";
 import createAssetFileCountMap, {
   AssetUniqueFileCountMap,
@@ -25,16 +27,18 @@ import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
 import { useSiteContext } from "./Site";
 import styles from "./styles/DocumentResultsFooter.module.scss";
 
-export const useGlobalDocResFooterStyles = makeStyles(
-  () => ({
-    paginationRoot: {
-      "& ul": {
-        justifyContent: "flex-end"
-      }
+const PREFIX = "docResultsFooterStyles";
+const classes = {
+  paginationRoot: `${PREFIX}-paginationRoot`
+};
+
+const StyledPagination = styled(Pagination)(({ theme }) => ({
+  [`&.${classes.paginationRoot}`]: {
+    "& ul": {
+      justifyContent: "flex-end"
     }
-  }),
-  { classNamePrefix: "docResultsFooterStyles" }
-);
+  }
+}));
 
 type Props = {
   page: number;
@@ -47,9 +51,10 @@ const GTMButton = withGTM<ButtonProps>(Button);
 
 export const handleDownloadClick = async (
   list: Record<string, any>,
-  token: string,
   config: EnvConfig["config"],
-  callback?: () => void
+  token?: string,
+  callback?: () => void,
+  qaAuthToken?: string
 ) => {
   const { isPreviewMode, documentDownloadEndpoint } = config;
   const listValues = Object.values(list).filter(Boolean);
@@ -95,12 +100,16 @@ export const handleDownloadClick = async (
       }
     );
 
+    let headers: HeadersInit = {
+      "Content-Type": "application/json",
+      "X-Recaptcha-Token": token
+    };
+    if (qaAuthToken) {
+      headers = { ...headers, authorization: `Bearer ${qaAuthToken}` };
+    }
     const response: Response = await fetch(documentDownloadEndpoint, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "X-Recaptcha-Token": token
-      },
+      headers,
       body: JSON.stringify({ documents })
     });
 
@@ -157,24 +166,21 @@ const DocumentResultsFooter = ({
   onPageChange,
   isDownloadButton = true
 }: Props) => {
-  const globalClasses = useGlobalDocResFooterStyles();
   const { getMicroCopy } = useSiteContext();
   const { resetList, list } = useContext(DownloadListContext);
   const { config } = useConfig();
   const { executeRecaptcha } = useGoogleReCaptcha();
+  const qaAuthToken = getCookie(QA_AUTH_TOKEN);
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 
   return (
     <div className={styles["DocumentResultsFooter"]}>
-      <Pagination
+      <StyledPagination
         page={page}
         onChange={onPageChange}
         count={count}
-        className={classnames(
-          styles["pagination"],
-          globalClasses.paginationRoot
-        )}
+        className={classnames(styles["pagination"], classes.paginationRoot)}
       />
       {isDownloadButton && !isMobile && (
         <>
@@ -197,10 +203,16 @@ const DocumentResultsFooter = ({
               microCopy.DOWNLOAD_LIST_DOWNLOAD
             )} ({{count}})`}
             onClick={async (list) => {
-              const token = await executeRecaptcha();
-
-              await handleDownloadClick(list, token, config, resetList);
+              const token = qaAuthToken ? undefined : await executeRecaptcha();
+              await handleDownloadClick(
+                list,
+                config,
+                token,
+                resetList,
+                qaAuthToken
+              );
             }}
+            data-testid="document-table-download-button"
           />
           <RecaptchaPrivacyLinks />
         </>

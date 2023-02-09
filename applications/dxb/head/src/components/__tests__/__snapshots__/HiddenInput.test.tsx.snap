@@ -3,11 +3,11 @@
 exports[`HiddenInput component renders correctly 1`] = `
 <div>
   <div
-    class="MuiInputBase-root"
+    class="MuiInputBase-root MuiInputBase-colorPrimary css-1nsbbih-MuiInputBase-root"
   >
     <input
       aria-invalid="false"
-      class="MuiInputBase-input"
+      class="MuiInputBase-input css-yz9k0d-MuiInputBase-input"
       name="Test"
       type="hidden"
       value="test"

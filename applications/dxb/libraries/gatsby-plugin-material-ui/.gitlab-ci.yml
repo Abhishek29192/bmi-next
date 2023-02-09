@@ -1,0 +1,17 @@
+test_gatsby-plugin-material-ui:
+  extends: .test_yarn_workspace
+  rules:
+    - !reference [.ingore_release_mrs, rules]
+    - if: !reference [.run_for_changes_on_main, rules, if]
+      changes:
+        - applications/dxb/libraries/gatsby-plugin-material-ui/**/*
+        - jest/**/*
+        - yarn.lock
+    - if: !reference [.run_for_changes_on_mr, rules, if]
+      changes:
+        - applications/dxb/libraries/gatsby-plugin-material-ui/**/*
+        - jest/**/*
+        - yarn.lock
+  variables:
+    WORKSPACE: "@bmi/gatsby-plugin-material-ui"
+    ROOT_DIR: "applications/dxb/libraries/gatsby-plugin-material-ui"

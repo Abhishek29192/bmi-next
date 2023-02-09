@@ -1,14 +1,17 @@
-import React from "react";
+import {
+  AnchorLink,
+  Colors,
+  Grid,
+  NBACard,
+  Section,
+  transformHyphens,
+  withClickable
+} from "@bmi-digital/components";
+import ButtonBase, { ButtonBaseProps } from "@mui/material/ButtonBase";
 import { graphql } from "gatsby";
-import { Section, transformHyphens } from "@bmi/components";
-import { Grid } from "@bmi/components";
-import { NBACard } from "@bmi/components";
-import { AnchorLink } from "@bmi/components";
-import { Colors } from "@bmi/components";
-import { withClickable } from "@bmi/components";
-import ButtonBase, { ButtonBaseProps } from "@material-ui/core/ButtonBase";
-import { Data as PromoData } from "../components/Promo";
+import React from "react";
 import { Data as PageInfoData } from "../components/PageInfo";
+import { Data as PromoData } from "../components/Promo";
 import { microCopy } from "../constants/microCopies";
 import { getCTA } from "./Link";
 import { useSiteContext } from "./Site";
@@ -16,10 +19,10 @@ import { useSiteContext } from "./Site";
 export type Data = (PromoData | PageInfoData)[];
 
 const indexToBackgroundMap: Colors[] = [
-  "color-theme-secondary-1",
-  "color-theme-secondary-2",
-  "color-theme-secondary-3",
-  "color-theme-secondary-4"
+  "secondary1",
+  "secondary2",
+  "secondary3",
+  "secondary4"
 ];
 
 const NextBestActions = ({ data }: { data: Data }) => {
@@ -44,10 +47,10 @@ const NextBestActions = ({ data }: { data: Data }) => {
               : undefined;
 
           return (
-            <Grid item xs={12} md={4} lg={3} key={`nba-${index}`}>
+            <Grid xs={12} md={4} lg={3} key={`nba-${index}`}>
               <NBACard
                 // eslint-disable-next-line security/detect-object-injection
-                theme={indexToBackgroundMap[index]}
+                color={indexToBackgroundMap[index]}
                 title={title || name}
                 footer={
                   cta && cta.label ? (

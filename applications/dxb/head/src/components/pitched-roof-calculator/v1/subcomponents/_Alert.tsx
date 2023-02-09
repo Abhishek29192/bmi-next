@@ -1,6 +1,6 @@
-import React from "react";
-import { AlertBanner } from "@bmi/components";
+import { AlertBanner } from "@bmi-digital/components";
 import classnames from "classnames";
+import React from "react";
 import styles from "./_Alert.module.scss";
 
 type AlertProps = {

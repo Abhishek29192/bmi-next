@@ -1,4 +1,4 @@
-import { FormProps } from "@bmi/components";
+import { FormProps } from "@bmi-digital/components";
 import {
   parse as queryString,
   stringify as stringifyQueryString

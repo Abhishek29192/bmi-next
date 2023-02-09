@@ -1,7 +1,7 @@
-import { YoutubeVideoProps } from "@bmi/components/src";
+import { YoutubeVideoProps } from "@bmi-digital/components";
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
-import { Data } from "../Image";
+import { Data as ContentfulImageData } from "../Image";
 import * as Video from "../Video";
 
 const VideoRenderComponent = Video.renderVideo;
@@ -20,7 +20,7 @@ jest.mock("../Image", () => ({
   default: () => <div data-testid="image"></div>
 }));
 
-jest.mock("@bmi/components", () => ({
+jest.mock("@bmi-digital/components", () => ({
   YoutubeVideo: (props: YoutubeVideoProps) => (
     <div
       data-testid="wrapper"
@@ -73,7 +73,7 @@ describe("renderVideo", () => {
 
   describe("when previewMedia is passed", () => {
     it("should render previewImageSource", () => {
-      const imageData = {} as Data;
+      const imageData = {} as ContentfulImageData;
       render(<VideoRenderComponent {...mockData} previewMedia={imageData} />);
       expect(screen.queryByTestId("image")).toBeInTheDocument();
     });

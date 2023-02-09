@@ -3,24 +3,29 @@
 exports[`QuantityTable component renders correctly 1`] = `
 <div>
   <div
-    class="QuantityTable"
+    class="css-1xy3nqy"
   >
-    <div>
+    <div
+      class="css-ya57aw"
+    >
       <table
-        class="MuiTable-root displayIfSmall"
+        class="MuiTable-root Table-evenColor css-wsrw3a-MuiTable-root"
+        data-testid="table"
       >
         <thead
-          class="MuiTableHead-root ColorPair ColorPair--pearl"
+          class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
+          data-testid="table-head"
         >
           <tr
-            class="MuiTableRow-root MuiTableRow-head"
+            class="MuiTableRow-root MuiTableRow-head css-47w8l6-MuiTableRow-root"
           >
             <th
-              class="MuiTableCell-root MuiTableCell-head"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
               scope="col"
             >
               <h6
-                class="MuiTypography-root Typography MuiTypography-h6"
+                class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                data-testid="typography"
               >
                 Product
               </h6>
@@ -28,81 +33,85 @@ exports[`QuantityTable component renders correctly 1`] = `
           </tr>
         </thead>
         <tbody
-          class="MuiTableBody-root"
+          class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
         >
-          <tr
-            class="MuiTableRow-root"
+          <div
+            class="css-lqtj8e"
           >
-            <td
-              class="MuiTableCell-root MuiTableCell-body smallCell"
+            <tr
+              class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
             >
-              <div
-                class="rowParent"
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-smallCell css-1xv4y7i-MuiTableCell-root"
               >
-                <div
-                  class="cellRow"
-                >
-                  <img
-                    class="picture"
-                    src="path-to-image"
-                  />
-                  <p
-                    class="MuiTypography-root smallDescription Typography MuiTypography-body1"
-                  >
-                    First item
-                  </p>
-                </div>
-                <div
-                  class="cellRow"
-                >
-                  <h6
-                    class="MuiTypography-root Typography MuiTypography-subtitle1"
-                  >
-                    Nobb no
-                    :
-                  </h6>
-                  <p
-                    class="MuiTypography-root boldText Typography MuiTypography-body1"
-                  >
-                    123456789
-                  </p>
-                </div>
-                <div
-                  class="cellRow"
-                >
-                  <h6
-                    class="MuiTypography-root Typography MuiTypography-subtitle1"
-                  >
-                    Pack size
-                    :
-                  </h6>
-                  <p
-                    class="MuiTypography-root boldText Typography MuiTypography-body1"
-                  >
-                    22 x 42
-                  </p>
-                </div>
-                <div
-                  class="cellRow cellRowLast"
-                >
+                <div>
                   <div
-                    class="iteratorCellSmall"
+                    class="quantityTableStyles-cellRow"
+                  >
+                    <img
+                      class="quantityTableStyles-picture"
+                      src="path-to-image"
+                    />
+                    <p
+                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-smallDescription css-87ejlm-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      Lorem ipsum dolor sit amet memento mori
+                    </p>
+                  </div>
+                  <div
+                    class="quantityTableStyles-cellRow"
+                  >
+                    <h6
+                      class="MuiTypography-root MuiTypography-subtitle1  css-1nfxde2-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      Nobb no
+                      :
+                    </h6>
+                    <p
+                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-boldText css-87ejlm-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      1232342346789
+                    </p>
+                  </div>
+                  <div
+                    class="quantityTableStyles-cellRow"
+                  >
+                    <h6
+                      class="MuiTypography-root MuiTypography-subtitle1  css-1nfxde2-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      Pack size
+                      :
+                    </h6>
+                    <p
+                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-boldText css-87ejlm-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      22 x 42
+                    </p>
+                  </div>
+                  <div
+                    class="quantityTableStyles-cellRow quantityTableStyles-cellRowLast"
                   >
                     <div
-                      class="UpDownSimpleNumericInput UpDownSimpleNumericInput--locked-xs"
+                      class="quantityTableStyles-iteratorCellSmall"
                     >
-                      <button
-                        aria-label="Down"
-                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 button-sides"
-                        tabindex="0"
-                        type="button"
+                      <div
+                        class="css-l441l2"
                       >
-                        <span
-                          class="MuiIconButton-label"
+                        <button
+                          aria-label="Down"
+                          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button-sides css-17xy7b6-MuiButtonBase-root-MuiIconButton-root"
+                          tabindex="0"
+                          type="button"
                         >
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                            data-testid="RemoveIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -110,37 +119,35 @@ exports[`QuantityTable component renders correctly 1`] = `
                               d="M19 13H5v-2h14v2z"
                             />
                           </svg>
-                        </span>
-                        <span
-                          class="MuiTouchRipple-root"
-                        />
-                      </button>
-                      <div
-                        class="MuiFormControl-root MuiTextField-root RawTextField input input-in-middle"
-                      >
-                        <div
-                          class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
-                        >
-                          <input
-                            aria-invalid="false"
-                            class="MuiInputBase-input MuiFilledInput-input"
-                            type="text"
-                            value="43"
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                           />
+                        </button>
+                        <div
+                          class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                        >
+                          <div
+                            class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
+                          >
+                            <input
+                              aria-invalid="false"
+                              class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
+                              id="mui-1"
+                              type="text"
+                              value="43"
+                            />
+                          </div>
                         </div>
-                      </div>
-                      <button
-                        aria-label="Up"
-                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 button"
-                        tabindex="0"
-                        type="button"
-                      >
-                        <span
-                          class="MuiIconButton-label"
+                        <button
+                          aria-label="Up"
+                          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button css-12vmduj-MuiButtonBase-root-MuiIconButton-root"
+                          tabindex="0"
+                          type="button"
                         >
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                            data-testid="AddIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -148,102 +155,103 @@ exports[`QuantityTable component renders correctly 1`] = `
                               d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
                             />
                           </svg>
-                        </span>
-                        <span
-                          class="MuiTouchRipple-root"
-                        />
-                      </button>
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          />
+                        </button>
+                      </div>
                     </div>
+                    <svg
+                      aria-hidden="true"
+                      aria-label="Remove Lorem ipsum dolor sit amet memento mori"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium quantityTableStyles-icon css-i4bv87-MuiSvgIcon-root"
+                      data-testid="DeleteIcon"
+                      focusable="false"
+                      role="button"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                      />
+                    </svg>
                   </div>
-                  <svg
-                    aria-hidden="true"
-                    aria-label="Remove First item"
-                    class="MuiSvgIcon-root icon"
-                    focusable="false"
-                    role="button"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
-                    />
-                  </svg>
                 </div>
-              </div>
-            </td>
-          </tr>
-          <tr
-            class="MuiTableRow-root greyBack"
-          >
-            <td
-              class="MuiTableCell-root MuiTableCell-body smallCell"
+              </td>
+            </tr>
+            <tr
+              class="MuiTableRow-root quantityTableStyles-greyBack css-wgfdj2-MuiTableRow-root"
             >
-              <div
-                class="rowParent"
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-smallCell css-1xv4y7i-MuiTableCell-root"
               >
-                <div
-                  class="cellRow"
-                >
-                  <img
-                    class="picture"
-                    src="path-to-image"
-                  />
-                  <p
-                    class="MuiTypography-root smallDescription Typography MuiTypography-body1"
-                  >
-                    Second item
-                  </p>
-                </div>
-                <div
-                  class="cellRow"
-                >
-                  <h6
-                    class="MuiTypography-root Typography MuiTypography-subtitle1"
-                  >
-                    Nobb no
-                    :
-                  </h6>
-                  <p
-                    class="MuiTypography-root boldText Typography MuiTypography-body1"
-                  >
-                    123456789
-                  </p>
-                </div>
-                <div
-                  class="cellRow"
-                >
-                  <h6
-                    class="MuiTypography-root Typography MuiTypography-subtitle1"
-                  >
-                    Pack size
-                    :
-                  </h6>
-                  <p
-                    class="MuiTypography-root boldText Typography MuiTypography-body1"
-                  >
-                    22 x 42
-                  </p>
-                </div>
-                <div
-                  class="cellRow cellRowLast"
-                >
+                <div>
                   <div
-                    class="iteratorCellSmall"
+                    class="quantityTableStyles-cellRow"
+                  >
+                    <img
+                      class="quantityTableStyles-picture"
+                      src="path-to-image"
+                    />
+                    <p
+                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-smallDescription css-87ejlm-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      Lorem ipsum dolor sit amet memento mori
+                    </p>
+                  </div>
+                  <div
+                    class="quantityTableStyles-cellRow"
+                  >
+                    <h6
+                      class="MuiTypography-root MuiTypography-subtitle1  css-1nfxde2-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      Nobb no
+                      :
+                    </h6>
+                    <p
+                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-boldText css-87ejlm-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      123456789
+                    </p>
+                  </div>
+                  <div
+                    class="quantityTableStyles-cellRow"
+                  >
+                    <h6
+                      class="MuiTypography-root MuiTypography-subtitle1  css-1nfxde2-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      Pack size
+                      :
+                    </h6>
+                    <p
+                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-boldText css-87ejlm-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      22 x 42
+                    </p>
+                  </div>
+                  <div
+                    class="quantityTableStyles-cellRow quantityTableStyles-cellRowLast"
                   >
                     <div
-                      class="UpDownSimpleNumericInput UpDownSimpleNumericInput--locked-xs"
+                      class="quantityTableStyles-iteratorCellSmall"
                     >
-                      <button
-                        aria-label="Down"
-                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 button-sides"
-                        tabindex="0"
-                        type="button"
+                      <div
+                        class="css-l441l2"
                       >
-                        <span
-                          class="MuiIconButton-label"
+                        <button
+                          aria-label="Down"
+                          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button-sides css-17xy7b6-MuiButtonBase-root-MuiIconButton-root"
+                          tabindex="0"
+                          type="button"
                         >
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                            data-testid="RemoveIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -251,37 +259,35 @@ exports[`QuantityTable component renders correctly 1`] = `
                               d="M19 13H5v-2h14v2z"
                             />
                           </svg>
-                        </span>
-                        <span
-                          class="MuiTouchRipple-root"
-                        />
-                      </button>
-                      <div
-                        class="MuiFormControl-root MuiTextField-root RawTextField input input-in-middle"
-                      >
-                        <div
-                          class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
-                        >
-                          <input
-                            aria-invalid="false"
-                            class="MuiInputBase-input MuiFilledInput-input"
-                            type="text"
-                            value="43"
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                           />
+                        </button>
+                        <div
+                          class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                        >
+                          <div
+                            class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
+                          >
+                            <input
+                              aria-invalid="false"
+                              class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
+                              id="mui-2"
+                              type="text"
+                              value="43"
+                            />
+                          </div>
                         </div>
-                      </div>
-                      <button
-                        aria-label="Up"
-                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 button"
-                        tabindex="0"
-                        type="button"
-                      >
-                        <span
-                          class="MuiIconButton-label"
+                        <button
+                          aria-label="Up"
+                          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button css-12vmduj-MuiButtonBase-root-MuiIconButton-root"
+                          tabindex="0"
+                          type="button"
                         >
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                            data-testid="AddIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -289,102 +295,103 @@ exports[`QuantityTable component renders correctly 1`] = `
                               d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
                             />
                           </svg>
-                        </span>
-                        <span
-                          class="MuiTouchRipple-root"
-                        />
-                      </button>
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          />
+                        </button>
+                      </div>
                     </div>
+                    <svg
+                      aria-hidden="true"
+                      aria-label="Remove Lorem ipsum dolor sit amet memento mori"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium quantityTableStyles-icon css-i4bv87-MuiSvgIcon-root"
+                      data-testid="DeleteIcon"
+                      focusable="false"
+                      role="button"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                      />
+                    </svg>
                   </div>
-                  <svg
-                    aria-hidden="true"
-                    aria-label="Remove Second item"
-                    class="MuiSvgIcon-root icon"
-                    focusable="false"
-                    role="button"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
-                    />
-                  </svg>
                 </div>
-              </div>
-            </td>
-          </tr>
-          <tr
-            class="MuiTableRow-root"
-          >
-            <td
-              class="MuiTableCell-root MuiTableCell-body smallCell"
+              </td>
+            </tr>
+            <tr
+              class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
             >
-              <div
-                class="rowParent"
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-smallCell css-1xv4y7i-MuiTableCell-root"
               >
-                <div
-                  class="cellRow"
-                >
-                  <img
-                    class="picture"
-                    src="path-to-image"
-                  />
-                  <p
-                    class="MuiTypography-root smallDescription Typography MuiTypography-body1"
-                  >
-                    Third item
-                  </p>
-                </div>
-                <div
-                  class="cellRow"
-                >
-                  <h6
-                    class="MuiTypography-root Typography MuiTypography-subtitle1"
-                  >
-                    Nobb no
-                    :
-                  </h6>
-                  <p
-                    class="MuiTypography-root boldText Typography MuiTypography-body1"
-                  >
-                    123456789
-                  </p>
-                </div>
-                <div
-                  class="cellRow"
-                >
-                  <h6
-                    class="MuiTypography-root Typography MuiTypography-subtitle1"
-                  >
-                    Pack size
-                    :
-                  </h6>
-                  <p
-                    class="MuiTypography-root boldText Typography MuiTypography-body1"
-                  >
-                    22 x 42
-                  </p>
-                </div>
-                <div
-                  class="cellRow cellRowLast"
-                >
+                <div>
                   <div
-                    class="iteratorCellSmall"
+                    class="quantityTableStyles-cellRow"
+                  >
+                    <img
+                      class="quantityTableStyles-picture"
+                      src="path-to-image"
+                    />
+                    <p
+                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-smallDescription css-87ejlm-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      Lorem ipsum dolor sit amet memento mori
+                    </p>
+                  </div>
+                  <div
+                    class="quantityTableStyles-cellRow"
+                  >
+                    <h6
+                      class="MuiTypography-root MuiTypography-subtitle1  css-1nfxde2-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      Nobb no
+                      :
+                    </h6>
+                    <p
+                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-boldText css-87ejlm-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      123452346789
+                    </p>
+                  </div>
+                  <div
+                    class="quantityTableStyles-cellRow"
+                  >
+                    <h6
+                      class="MuiTypography-root MuiTypography-subtitle1  css-1nfxde2-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      Pack size
+                      :
+                    </h6>
+                    <p
+                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-boldText css-87ejlm-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      22 x 42
+                    </p>
+                  </div>
+                  <div
+                    class="quantityTableStyles-cellRow quantityTableStyles-cellRowLast"
                   >
                     <div
-                      class="UpDownSimpleNumericInput UpDownSimpleNumericInput--locked-xs"
+                      class="quantityTableStyles-iteratorCellSmall"
                     >
-                      <button
-                        aria-label="Down"
-                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 button-sides"
-                        tabindex="0"
-                        type="button"
+                      <div
+                        class="css-l441l2"
                       >
-                        <span
-                          class="MuiIconButton-label"
+                        <button
+                          aria-label="Down"
+                          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button-sides css-17xy7b6-MuiButtonBase-root-MuiIconButton-root"
+                          tabindex="0"
+                          type="button"
                         >
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                            data-testid="RemoveIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -392,37 +399,35 @@ exports[`QuantityTable component renders correctly 1`] = `
                               d="M19 13H5v-2h14v2z"
                             />
                           </svg>
-                        </span>
-                        <span
-                          class="MuiTouchRipple-root"
-                        />
-                      </button>
-                      <div
-                        class="MuiFormControl-root MuiTextField-root RawTextField input input-in-middle"
-                      >
-                        <div
-                          class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
-                        >
-                          <input
-                            aria-invalid="false"
-                            class="MuiInputBase-input MuiFilledInput-input"
-                            type="text"
-                            value="43"
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                           />
+                        </button>
+                        <div
+                          class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                        >
+                          <div
+                            class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
+                          >
+                            <input
+                              aria-invalid="false"
+                              class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
+                              id="mui-3"
+                              type="text"
+                              value="43"
+                            />
+                          </div>
                         </div>
-                      </div>
-                      <button
-                        aria-label="Up"
-                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 button"
-                        tabindex="0"
-                        type="button"
-                      >
-                        <span
-                          class="MuiIconButton-label"
+                        <button
+                          aria-label="Up"
+                          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button css-12vmduj-MuiButtonBase-root-MuiIconButton-root"
+                          tabindex="0"
+                          type="button"
                         >
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                            data-testid="AddIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -430,102 +435,103 @@ exports[`QuantityTable component renders correctly 1`] = `
                               d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
                             />
                           </svg>
-                        </span>
-                        <span
-                          class="MuiTouchRipple-root"
-                        />
-                      </button>
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          />
+                        </button>
+                      </div>
                     </div>
+                    <svg
+                      aria-hidden="true"
+                      aria-label="Remove Lorem ipsum dolor sit amet memento mori"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium quantityTableStyles-icon css-i4bv87-MuiSvgIcon-root"
+                      data-testid="DeleteIcon"
+                      focusable="false"
+                      role="button"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                      />
+                    </svg>
                   </div>
-                  <svg
-                    aria-hidden="true"
-                    aria-label="Remove Third item"
-                    class="MuiSvgIcon-root icon"
-                    focusable="false"
-                    role="button"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
-                    />
-                  </svg>
                 </div>
-              </div>
-            </td>
-          </tr>
-          <tr
-            class="MuiTableRow-root greyBack"
-          >
-            <td
-              class="MuiTableCell-root MuiTableCell-body smallCell"
+              </td>
+            </tr>
+            <tr
+              class="MuiTableRow-root quantityTableStyles-greyBack css-wgfdj2-MuiTableRow-root"
             >
-              <div
-                class="rowParent"
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-smallCell css-1xv4y7i-MuiTableCell-root"
               >
-                <div
-                  class="cellRow"
-                >
-                  <img
-                    class="picture"
-                    src="path-to-image"
-                  />
-                  <p
-                    class="MuiTypography-root smallDescription Typography MuiTypography-body1"
-                  >
-                    Fourth item
-                  </p>
-                </div>
-                <div
-                  class="cellRow"
-                >
-                  <h6
-                    class="MuiTypography-root Typography MuiTypography-subtitle1"
-                  >
-                    Nobb no
-                    :
-                  </h6>
-                  <p
-                    class="MuiTypography-root boldText Typography MuiTypography-body1"
-                  >
-                    123456789
-                  </p>
-                </div>
-                <div
-                  class="cellRow"
-                >
-                  <h6
-                    class="MuiTypography-root Typography MuiTypography-subtitle1"
-                  >
-                    Pack size
-                    :
-                  </h6>
-                  <p
-                    class="MuiTypography-root boldText Typography MuiTypography-body1"
-                  >
-                    22 x 42
-                  </p>
-                </div>
-                <div
-                  class="cellRow cellRowLast"
-                >
+                <div>
                   <div
-                    class="iteratorCellSmall"
+                    class="quantityTableStyles-cellRow"
+                  >
+                    <img
+                      class="quantityTableStyles-picture"
+                      src="path-to-image"
+                    />
+                    <p
+                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-smallDescription css-87ejlm-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      Lorem ipsum dolor sit amet memento mori
+                    </p>
+                  </div>
+                  <div
+                    class="quantityTableStyles-cellRow"
+                  >
+                    <h6
+                      class="MuiTypography-root MuiTypography-subtitle1  css-1nfxde2-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      Nobb no
+                      :
+                    </h6>
+                    <p
+                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-boldText css-87ejlm-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      12345677889
+                    </p>
+                  </div>
+                  <div
+                    class="quantityTableStyles-cellRow"
+                  >
+                    <h6
+                      class="MuiTypography-root MuiTypography-subtitle1  css-1nfxde2-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      Pack size
+                      :
+                    </h6>
+                    <p
+                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-boldText css-87ejlm-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      22 x 42
+                    </p>
+                  </div>
+                  <div
+                    class="quantityTableStyles-cellRow quantityTableStyles-cellRowLast"
                   >
                     <div
-                      class="UpDownSimpleNumericInput UpDownSimpleNumericInput--locked-xs"
+                      class="quantityTableStyles-iteratorCellSmall"
                     >
-                      <button
-                        aria-label="Down"
-                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 button-sides"
-                        tabindex="0"
-                        type="button"
+                      <div
+                        class="css-l441l2"
                       >
-                        <span
-                          class="MuiIconButton-label"
+                        <button
+                          aria-label="Down"
+                          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button-sides css-17xy7b6-MuiButtonBase-root-MuiIconButton-root"
+                          tabindex="0"
+                          type="button"
                         >
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                            data-testid="RemoveIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -533,37 +539,35 @@ exports[`QuantityTable component renders correctly 1`] = `
                               d="M19 13H5v-2h14v2z"
                             />
                           </svg>
-                        </span>
-                        <span
-                          class="MuiTouchRipple-root"
-                        />
-                      </button>
-                      <div
-                        class="MuiFormControl-root MuiTextField-root RawTextField input input-in-middle"
-                      >
-                        <div
-                          class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
-                        >
-                          <input
-                            aria-invalid="false"
-                            class="MuiInputBase-input MuiFilledInput-input"
-                            type="text"
-                            value="43"
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                           />
+                        </button>
+                        <div
+                          class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                        >
+                          <div
+                            class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
+                          >
+                            <input
+                              aria-invalid="false"
+                              class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
+                              id="mui-4"
+                              type="text"
+                              value="43"
+                            />
+                          </div>
                         </div>
-                      </div>
-                      <button
-                        aria-label="Up"
-                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 button"
-                        tabindex="0"
-                        type="button"
-                      >
-                        <span
-                          class="MuiIconButton-label"
+                        <button
+                          aria-label="Up"
+                          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button css-12vmduj-MuiButtonBase-root-MuiIconButton-root"
+                          tabindex="0"
+                          type="button"
                         >
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                            data-testid="AddIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -571,102 +575,103 @@ exports[`QuantityTable component renders correctly 1`] = `
                               d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
                             />
                           </svg>
-                        </span>
-                        <span
-                          class="MuiTouchRipple-root"
-                        />
-                      </button>
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          />
+                        </button>
+                      </div>
                     </div>
+                    <svg
+                      aria-hidden="true"
+                      aria-label="Remove Lorem ipsum dolor sit amet memento mori"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium quantityTableStyles-icon css-i4bv87-MuiSvgIcon-root"
+                      data-testid="DeleteIcon"
+                      focusable="false"
+                      role="button"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                      />
+                    </svg>
                   </div>
-                  <svg
-                    aria-hidden="true"
-                    aria-label="Remove Fourth item"
-                    class="MuiSvgIcon-root icon"
-                    focusable="false"
-                    role="button"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
-                    />
-                  </svg>
                 </div>
-              </div>
-            </td>
-          </tr>
-          <tr
-            class="MuiTableRow-root"
-          >
-            <td
-              class="MuiTableCell-root MuiTableCell-body smallCell"
+              </td>
+            </tr>
+            <tr
+              class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
             >
-              <div
-                class="rowParent"
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-smallCell css-1xv4y7i-MuiTableCell-root"
               >
-                <div
-                  class="cellRow"
-                >
-                  <img
-                    class="picture"
-                    src="path-to-image"
-                  />
-                  <p
-                    class="MuiTypography-root smallDescription Typography MuiTypography-body1"
-                  >
-                    Fifth item
-                  </p>
-                </div>
-                <div
-                  class="cellRow"
-                >
-                  <h6
-                    class="MuiTypography-root Typography MuiTypography-subtitle1"
-                  >
-                    Nobb no
-                    :
-                  </h6>
-                  <p
-                    class="MuiTypography-root boldText Typography MuiTypography-body1"
-                  >
-                    123456789
-                  </p>
-                </div>
-                <div
-                  class="cellRow"
-                >
-                  <h6
-                    class="MuiTypography-root Typography MuiTypography-subtitle1"
-                  >
-                    Pack size
-                    :
-                  </h6>
-                  <p
-                    class="MuiTypography-root boldText Typography MuiTypography-body1"
-                  >
-                    22 x 42
-                  </p>
-                </div>
-                <div
-                  class="cellRow cellRowLast"
-                >
+                <div>
                   <div
-                    class="iteratorCellSmall"
+                    class="quantityTableStyles-cellRow"
+                  >
+                    <img
+                      class="quantityTableStyles-picture"
+                      src="path-to-image"
+                    />
+                    <p
+                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-smallDescription css-87ejlm-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      Lorem ipsum dolor sit amet memento mori
+                    </p>
+                  </div>
+                  <div
+                    class="quantityTableStyles-cellRow"
+                  >
+                    <h6
+                      class="MuiTypography-root MuiTypography-subtitle1  css-1nfxde2-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      Nobb no
+                      :
+                    </h6>
+                    <p
+                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-boldText css-87ejlm-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      123456789
+                    </p>
+                  </div>
+                  <div
+                    class="quantityTableStyles-cellRow"
+                  >
+                    <h6
+                      class="MuiTypography-root MuiTypography-subtitle1  css-1nfxde2-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      Pack size
+                      :
+                    </h6>
+                    <p
+                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-boldText css-87ejlm-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      22 x 42
+                    </p>
+                  </div>
+                  <div
+                    class="quantityTableStyles-cellRow quantityTableStyles-cellRowLast"
                   >
                     <div
-                      class="UpDownSimpleNumericInput UpDownSimpleNumericInput--locked-xs"
+                      class="quantityTableStyles-iteratorCellSmall"
                     >
-                      <button
-                        aria-label="Down"
-                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 button-sides"
-                        tabindex="0"
-                        type="button"
+                      <div
+                        class="css-l441l2"
                       >
-                        <span
-                          class="MuiIconButton-label"
+                        <button
+                          aria-label="Down"
+                          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button-sides css-17xy7b6-MuiButtonBase-root-MuiIconButton-root"
+                          tabindex="0"
+                          type="button"
                         >
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                            data-testid="RemoveIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -674,37 +679,35 @@ exports[`QuantityTable component renders correctly 1`] = `
                               d="M19 13H5v-2h14v2z"
                             />
                           </svg>
-                        </span>
-                        <span
-                          class="MuiTouchRipple-root"
-                        />
-                      </button>
-                      <div
-                        class="MuiFormControl-root MuiTextField-root RawTextField input input-in-middle"
-                      >
-                        <div
-                          class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
-                        >
-                          <input
-                            aria-invalid="false"
-                            class="MuiInputBase-input MuiFilledInput-input"
-                            type="text"
-                            value="43"
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                           />
+                        </button>
+                        <div
+                          class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                        >
+                          <div
+                            class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
+                          >
+                            <input
+                              aria-invalid="false"
+                              class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
+                              id="mui-5"
+                              type="text"
+                              value="43"
+                            />
+                          </div>
                         </div>
-                      </div>
-                      <button
-                        aria-label="Up"
-                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 button"
-                        tabindex="0"
-                        type="button"
-                      >
-                        <span
-                          class="MuiIconButton-label"
+                        <button
+                          aria-label="Up"
+                          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button css-12vmduj-MuiButtonBase-root-MuiIconButton-root"
+                          tabindex="0"
+                          type="button"
                         >
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                            data-testid="AddIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -712,68 +715,76 @@ exports[`QuantityTable component renders correctly 1`] = `
                               d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
                             />
                           </svg>
-                        </span>
-                        <span
-                          class="MuiTouchRipple-root"
-                        />
-                      </button>
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          />
+                        </button>
+                      </div>
                     </div>
+                    <svg
+                      aria-hidden="true"
+                      aria-label="Remove Lorem ipsum dolor sit amet memento mori"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium quantityTableStyles-icon css-i4bv87-MuiSvgIcon-root"
+                      data-testid="DeleteIcon"
+                      focusable="false"
+                      role="button"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                      />
+                    </svg>
                   </div>
-                  <svg
-                    aria-hidden="true"
-                    aria-label="Remove Fifth item"
-                    class="MuiSvgIcon-root icon"
-                    focusable="false"
-                    role="button"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
-                    />
-                  </svg>
                 </div>
-              </div>
-            </td>
-          </tr>
+              </td>
+            </tr>
+          </div>
         </tbody>
       </table>
     </div>
-    <div>
+    <div
+      class="css-ya57aw"
+    >
       <table
-        class="MuiTable-root displayIfMedium"
+        class="MuiTable-root Table-evenColor css-wsrw3a-MuiTable-root"
+        data-testid="table"
       >
         <thead
-          class="MuiTableHead-root ColorPair ColorPair--pearl"
+          class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
+          data-testid="table-head"
         >
           <tr
-            class="MuiTableRow-root MuiTableRow-head"
+            class="MuiTableRow-root MuiTableRow-head css-47w8l6-MuiTableRow-root"
           >
             <th
-              class="MuiTableCell-root MuiTableCell-head mediumHeaderFirstCell"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium quantityTableStyles-mediumHeaderFirstCell css-1tbee56-MuiTableCell-root"
               scope="col"
             >
               <h6
-                class="MuiTypography-root Typography MuiTypography-h6"
+                class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                data-testid="typography"
               >
                 Product
               </h6>
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head mediumHeaderCell"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium quantityTableStyles-mediumHeaderCell css-1tbee56-MuiTableCell-root"
               scope="col"
             >
               <h6
-                class="MuiTypography-root Typography MuiTypography-h6"
+                class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                data-testid="typography"
               >
                 Pack size
               </h6>
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head mediumHeaderCell"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium quantityTableStyles-mediumHeaderCell css-1tbee56-MuiTableCell-root"
               scope="col"
             >
               <h6
-                class="MuiTypography-root Typography MuiTypography-h6"
+                class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                data-testid="typography"
               >
                 Nobb no
               </h6>
@@ -781,45 +792,47 @@ exports[`QuantityTable component renders correctly 1`] = `
           </tr>
         </thead>
         <tbody
-          class="MuiTableBody-root"
+          class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
         >
-          <tr
-            class="MuiTableRow-root mediumTableRow"
+          <div
+            class="css-1wvfec1"
           >
-            <td
-              class="MuiTableCell-root MuiTableCell-body"
+            <tr
+              class="MuiTableRow-root quantityTableStyles-mediumTableRow css-wgfdj2-MuiTableRow-root"
             >
-              <div
-                class="cellRow"
-              >
-                <img
-                  class="picture"
-                  src="path-to-image"
-                />
-                <p
-                  class="MuiTypography-root largeDescription Typography MuiTypography-body1"
-                >
-                  First item
-                </p>
-              </div>
-              <div
-                class="iteratorCellMedium"
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
               >
                 <div
-                  class="UpDownSimpleNumericInput UpDownSimpleNumericInput--locked-xs"
+                  class="quantityTableStyles-cellRow"
                 >
-                  <button
-                    aria-label="Down"
-                    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 button-sides"
-                    tabindex="0"
-                    type="button"
+                  <img
+                    class="quantityTableStyles-picture"
+                    src="path-to-image"
+                  />
+                  <p
+                    class="MuiTypography-root MuiTypography-body1 quantityTableStyles-largeDescription css-87ejlm-MuiTypography-root"
+                    data-testid="typography"
                   >
-                    <span
-                      class="MuiIconButton-label"
+                    Lorem ipsum dolor sit amet memento mori
+                  </p>
+                </div>
+                <div
+                  class="quantityTableStyles-iteratorCellMedium"
+                >
+                  <div
+                    class="css-l441l2"
+                  >
+                    <button
+                      aria-label="Down"
+                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button-sides css-17xy7b6-MuiButtonBase-root-MuiIconButton-root"
+                      tabindex="0"
+                      type="button"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="RemoveIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -827,37 +840,35 @@ exports[`QuantityTable component renders correctly 1`] = `
                           d="M19 13H5v-2h14v2z"
                         />
                       </svg>
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </button>
-                  <div
-                    class="MuiFormControl-root MuiTextField-root RawTextField input input-in-middle"
-                  >
-                    <div
-                      class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
-                    >
-                      <input
-                        aria-invalid="false"
-                        class="MuiInputBase-input MuiFilledInput-input"
-                        type="text"
-                        value="43"
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
+                    </button>
+                    <div
+                      class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                    >
+                      <div
+                        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
+                      >
+                        <input
+                          aria-invalid="false"
+                          class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
+                          id="mui-6"
+                          type="text"
+                          value="43"
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <button
-                    aria-label="Up"
-                    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 button"
-                    tabindex="0"
-                    type="button"
-                  >
-                    <span
-                      class="MuiIconButton-label"
+                    <button
+                      aria-label="Up"
+                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button css-12vmduj-MuiButtonBase-root-MuiIconButton-root"
+                      tabindex="0"
+                      type="button"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="AddIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -865,82 +876,82 @@ exports[`QuantityTable component renders correctly 1`] = `
                           d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
                         />
                       </svg>
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </button>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
                 </div>
-              </div>
-            </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body mediumCell"
-            >
-              22 x 42
-            </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body mediumCell"
-            >
-              <div
-                class="mediumCellBasketIconWrapper"
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-mediumCell css-1xv4y7i-MuiTableCell-root"
               >
-                <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
-                >
-                  123456789
-                </p>
-                <svg
-                  aria-hidden="true"
-                  aria-label="Remove First item"
-                  class="MuiSvgIcon-root icon"
-                  focusable="false"
-                  role="button"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
-                  />
-                </svg>
-              </div>
-            </td>
-          </tr>
-          <tr
-            class="MuiTableRow-root greyBack mediumTableRow"
-          >
-            <td
-              class="MuiTableCell-root MuiTableCell-body"
-            >
-              <div
-                class="cellRow"
-              >
-                <img
-                  class="picture"
-                  src="path-to-image"
-                />
-                <p
-                  class="MuiTypography-root largeDescription Typography MuiTypography-body1"
-                >
-                  Second item
-                </p>
-              </div>
-              <div
-                class="iteratorCellMedium"
+                22 x 42
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-mediumCell css-1xv4y7i-MuiTableCell-root"
               >
                 <div
-                  class="UpDownSimpleNumericInput UpDownSimpleNumericInput--locked-xs"
+                  class="quantityTableStyles-mediumCellBasketIconWrapper"
                 >
-                  <button
-                    aria-label="Down"
-                    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 button-sides"
-                    tabindex="0"
-                    type="button"
+                  <p
+                    class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                    data-testid="typography"
                   >
-                    <span
-                      class="MuiIconButton-label"
+                    1232342346789
+                  </p>
+                  <svg
+                    aria-hidden="true"
+                    aria-label="Remove Lorem ipsum dolor sit amet memento mori"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium quantityTableStyles-icon css-i4bv87-MuiSvgIcon-root"
+                    data-testid="DeleteIcon"
+                    focusable="false"
+                    role="button"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                    />
+                  </svg>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="MuiTableRow-root quantityTableStyles-greyBack quantityTableStyles-mediumTableRow css-wgfdj2-MuiTableRow-root"
+            >
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
+              >
+                <div
+                  class="quantityTableStyles-cellRow"
+                >
+                  <img
+                    class="quantityTableStyles-picture"
+                    src="path-to-image"
+                  />
+                  <p
+                    class="MuiTypography-root MuiTypography-body1 quantityTableStyles-largeDescription css-87ejlm-MuiTypography-root"
+                    data-testid="typography"
+                  >
+                    Lorem ipsum dolor sit amet memento mori
+                  </p>
+                </div>
+                <div
+                  class="quantityTableStyles-iteratorCellMedium"
+                >
+                  <div
+                    class="css-l441l2"
+                  >
+                    <button
+                      aria-label="Down"
+                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button-sides css-17xy7b6-MuiButtonBase-root-MuiIconButton-root"
+                      tabindex="0"
+                      type="button"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="RemoveIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -948,37 +959,35 @@ exports[`QuantityTable component renders correctly 1`] = `
                           d="M19 13H5v-2h14v2z"
                         />
                       </svg>
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </button>
-                  <div
-                    class="MuiFormControl-root MuiTextField-root RawTextField input input-in-middle"
-                  >
-                    <div
-                      class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
-                    >
-                      <input
-                        aria-invalid="false"
-                        class="MuiInputBase-input MuiFilledInput-input"
-                        type="text"
-                        value="43"
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
+                    </button>
+                    <div
+                      class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                    >
+                      <div
+                        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
+                      >
+                        <input
+                          aria-invalid="false"
+                          class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
+                          id="mui-7"
+                          type="text"
+                          value="43"
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <button
-                    aria-label="Up"
-                    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 button"
-                    tabindex="0"
-                    type="button"
-                  >
-                    <span
-                      class="MuiIconButton-label"
+                    <button
+                      aria-label="Up"
+                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button css-12vmduj-MuiButtonBase-root-MuiIconButton-root"
+                      tabindex="0"
+                      type="button"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="AddIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -986,82 +995,82 @@ exports[`QuantityTable component renders correctly 1`] = `
                           d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
                         />
                       </svg>
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </button>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
                 </div>
-              </div>
-            </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body mediumCell"
-            >
-              22 x 42
-            </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body mediumCell"
-            >
-              <div
-                class="mediumCellBasketIconWrapper"
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-mediumCell css-1xv4y7i-MuiTableCell-root"
               >
-                <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
-                >
-                  123456789
-                </p>
-                <svg
-                  aria-hidden="true"
-                  aria-label="Remove Second item"
-                  class="MuiSvgIcon-root icon"
-                  focusable="false"
-                  role="button"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
-                  />
-                </svg>
-              </div>
-            </td>
-          </tr>
-          <tr
-            class="MuiTableRow-root mediumTableRow"
-          >
-            <td
-              class="MuiTableCell-root MuiTableCell-body"
-            >
-              <div
-                class="cellRow"
-              >
-                <img
-                  class="picture"
-                  src="path-to-image"
-                />
-                <p
-                  class="MuiTypography-root largeDescription Typography MuiTypography-body1"
-                >
-                  Third item
-                </p>
-              </div>
-              <div
-                class="iteratorCellMedium"
+                22 x 42
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-mediumCell css-1xv4y7i-MuiTableCell-root"
               >
                 <div
-                  class="UpDownSimpleNumericInput UpDownSimpleNumericInput--locked-xs"
+                  class="quantityTableStyles-mediumCellBasketIconWrapper"
                 >
-                  <button
-                    aria-label="Down"
-                    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 button-sides"
-                    tabindex="0"
-                    type="button"
+                  <p
+                    class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                    data-testid="typography"
                   >
-                    <span
-                      class="MuiIconButton-label"
+                    123456789
+                  </p>
+                  <svg
+                    aria-hidden="true"
+                    aria-label="Remove Lorem ipsum dolor sit amet memento mori"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium quantityTableStyles-icon css-i4bv87-MuiSvgIcon-root"
+                    data-testid="DeleteIcon"
+                    focusable="false"
+                    role="button"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                    />
+                  </svg>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="MuiTableRow-root quantityTableStyles-mediumTableRow css-wgfdj2-MuiTableRow-root"
+            >
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
+              >
+                <div
+                  class="quantityTableStyles-cellRow"
+                >
+                  <img
+                    class="quantityTableStyles-picture"
+                    src="path-to-image"
+                  />
+                  <p
+                    class="MuiTypography-root MuiTypography-body1 quantityTableStyles-largeDescription css-87ejlm-MuiTypography-root"
+                    data-testid="typography"
+                  >
+                    Lorem ipsum dolor sit amet memento mori
+                  </p>
+                </div>
+                <div
+                  class="quantityTableStyles-iteratorCellMedium"
+                >
+                  <div
+                    class="css-l441l2"
+                  >
+                    <button
+                      aria-label="Down"
+                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button-sides css-17xy7b6-MuiButtonBase-root-MuiIconButton-root"
+                      tabindex="0"
+                      type="button"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="RemoveIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -1069,37 +1078,35 @@ exports[`QuantityTable component renders correctly 1`] = `
                           d="M19 13H5v-2h14v2z"
                         />
                       </svg>
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </button>
-                  <div
-                    class="MuiFormControl-root MuiTextField-root RawTextField input input-in-middle"
-                  >
-                    <div
-                      class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
-                    >
-                      <input
-                        aria-invalid="false"
-                        class="MuiInputBase-input MuiFilledInput-input"
-                        type="text"
-                        value="43"
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
+                    </button>
+                    <div
+                      class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                    >
+                      <div
+                        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
+                      >
+                        <input
+                          aria-invalid="false"
+                          class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
+                          id="mui-8"
+                          type="text"
+                          value="43"
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <button
-                    aria-label="Up"
-                    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 button"
-                    tabindex="0"
-                    type="button"
-                  >
-                    <span
-                      class="MuiIconButton-label"
+                    <button
+                      aria-label="Up"
+                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button css-12vmduj-MuiButtonBase-root-MuiIconButton-root"
+                      tabindex="0"
+                      type="button"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="AddIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -1107,82 +1114,82 @@ exports[`QuantityTable component renders correctly 1`] = `
                           d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
                         />
                       </svg>
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </button>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
                 </div>
-              </div>
-            </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body mediumCell"
-            >
-              22 x 42
-            </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body mediumCell"
-            >
-              <div
-                class="mediumCellBasketIconWrapper"
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-mediumCell css-1xv4y7i-MuiTableCell-root"
               >
-                <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
-                >
-                  123456789
-                </p>
-                <svg
-                  aria-hidden="true"
-                  aria-label="Remove Third item"
-                  class="MuiSvgIcon-root icon"
-                  focusable="false"
-                  role="button"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
-                  />
-                </svg>
-              </div>
-            </td>
-          </tr>
-          <tr
-            class="MuiTableRow-root greyBack mediumTableRow"
-          >
-            <td
-              class="MuiTableCell-root MuiTableCell-body"
-            >
-              <div
-                class="cellRow"
-              >
-                <img
-                  class="picture"
-                  src="path-to-image"
-                />
-                <p
-                  class="MuiTypography-root largeDescription Typography MuiTypography-body1"
-                >
-                  Fourth item
-                </p>
-              </div>
-              <div
-                class="iteratorCellMedium"
+                22 x 42
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-mediumCell css-1xv4y7i-MuiTableCell-root"
               >
                 <div
-                  class="UpDownSimpleNumericInput UpDownSimpleNumericInput--locked-xs"
+                  class="quantityTableStyles-mediumCellBasketIconWrapper"
                 >
-                  <button
-                    aria-label="Down"
-                    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 button-sides"
-                    tabindex="0"
-                    type="button"
+                  <p
+                    class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                    data-testid="typography"
                   >
-                    <span
-                      class="MuiIconButton-label"
+                    123452346789
+                  </p>
+                  <svg
+                    aria-hidden="true"
+                    aria-label="Remove Lorem ipsum dolor sit amet memento mori"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium quantityTableStyles-icon css-i4bv87-MuiSvgIcon-root"
+                    data-testid="DeleteIcon"
+                    focusable="false"
+                    role="button"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                    />
+                  </svg>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="MuiTableRow-root quantityTableStyles-greyBack quantityTableStyles-mediumTableRow css-wgfdj2-MuiTableRow-root"
+            >
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
+              >
+                <div
+                  class="quantityTableStyles-cellRow"
+                >
+                  <img
+                    class="quantityTableStyles-picture"
+                    src="path-to-image"
+                  />
+                  <p
+                    class="MuiTypography-root MuiTypography-body1 quantityTableStyles-largeDescription css-87ejlm-MuiTypography-root"
+                    data-testid="typography"
+                  >
+                    Lorem ipsum dolor sit amet memento mori
+                  </p>
+                </div>
+                <div
+                  class="quantityTableStyles-iteratorCellMedium"
+                >
+                  <div
+                    class="css-l441l2"
+                  >
+                    <button
+                      aria-label="Down"
+                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button-sides css-17xy7b6-MuiButtonBase-root-MuiIconButton-root"
+                      tabindex="0"
+                      type="button"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="RemoveIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -1190,37 +1197,35 @@ exports[`QuantityTable component renders correctly 1`] = `
                           d="M19 13H5v-2h14v2z"
                         />
                       </svg>
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </button>
-                  <div
-                    class="MuiFormControl-root MuiTextField-root RawTextField input input-in-middle"
-                  >
-                    <div
-                      class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
-                    >
-                      <input
-                        aria-invalid="false"
-                        class="MuiInputBase-input MuiFilledInput-input"
-                        type="text"
-                        value="43"
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
+                    </button>
+                    <div
+                      class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                    >
+                      <div
+                        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
+                      >
+                        <input
+                          aria-invalid="false"
+                          class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
+                          id="mui-9"
+                          type="text"
+                          value="43"
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <button
-                    aria-label="Up"
-                    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 button"
-                    tabindex="0"
-                    type="button"
-                  >
-                    <span
-                      class="MuiIconButton-label"
+                    <button
+                      aria-label="Up"
+                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button css-12vmduj-MuiButtonBase-root-MuiIconButton-root"
+                      tabindex="0"
+                      type="button"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="AddIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -1228,82 +1233,82 @@ exports[`QuantityTable component renders correctly 1`] = `
                           d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
                         />
                       </svg>
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </button>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
                 </div>
-              </div>
-            </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body mediumCell"
-            >
-              22 x 42
-            </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body mediumCell"
-            >
-              <div
-                class="mediumCellBasketIconWrapper"
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-mediumCell css-1xv4y7i-MuiTableCell-root"
               >
-                <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
-                >
-                  123456789
-                </p>
-                <svg
-                  aria-hidden="true"
-                  aria-label="Remove Fourth item"
-                  class="MuiSvgIcon-root icon"
-                  focusable="false"
-                  role="button"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
-                  />
-                </svg>
-              </div>
-            </td>
-          </tr>
-          <tr
-            class="MuiTableRow-root mediumTableRow"
-          >
-            <td
-              class="MuiTableCell-root MuiTableCell-body"
-            >
-              <div
-                class="cellRow"
-              >
-                <img
-                  class="picture"
-                  src="path-to-image"
-                />
-                <p
-                  class="MuiTypography-root largeDescription Typography MuiTypography-body1"
-                >
-                  Fifth item
-                </p>
-              </div>
-              <div
-                class="iteratorCellMedium"
+                22 x 42
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-mediumCell css-1xv4y7i-MuiTableCell-root"
               >
                 <div
-                  class="UpDownSimpleNumericInput UpDownSimpleNumericInput--locked-xs"
+                  class="quantityTableStyles-mediumCellBasketIconWrapper"
                 >
-                  <button
-                    aria-label="Down"
-                    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 button-sides"
-                    tabindex="0"
-                    type="button"
+                  <p
+                    class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                    data-testid="typography"
                   >
-                    <span
-                      class="MuiIconButton-label"
+                    12345677889
+                  </p>
+                  <svg
+                    aria-hidden="true"
+                    aria-label="Remove Lorem ipsum dolor sit amet memento mori"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium quantityTableStyles-icon css-i4bv87-MuiSvgIcon-root"
+                    data-testid="DeleteIcon"
+                    focusable="false"
+                    role="button"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                    />
+                  </svg>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="MuiTableRow-root quantityTableStyles-mediumTableRow css-wgfdj2-MuiTableRow-root"
+            >
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
+              >
+                <div
+                  class="quantityTableStyles-cellRow"
+                >
+                  <img
+                    class="quantityTableStyles-picture"
+                    src="path-to-image"
+                  />
+                  <p
+                    class="MuiTypography-root MuiTypography-body1 quantityTableStyles-largeDescription css-87ejlm-MuiTypography-root"
+                    data-testid="typography"
+                  >
+                    Lorem ipsum dolor sit amet memento mori
+                  </p>
+                </div>
+                <div
+                  class="quantityTableStyles-iteratorCellMedium"
+                >
+                  <div
+                    class="css-l441l2"
+                  >
+                    <button
+                      aria-label="Down"
+                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button-sides css-17xy7b6-MuiButtonBase-root-MuiIconButton-root"
+                      tabindex="0"
+                      type="button"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="RemoveIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -1311,37 +1316,35 @@ exports[`QuantityTable component renders correctly 1`] = `
                           d="M19 13H5v-2h14v2z"
                         />
                       </svg>
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </button>
-                  <div
-                    class="MuiFormControl-root MuiTextField-root RawTextField input input-in-middle"
-                  >
-                    <div
-                      class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
-                    >
-                      <input
-                        aria-invalid="false"
-                        class="MuiInputBase-input MuiFilledInput-input"
-                        type="text"
-                        value="43"
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
+                    </button>
+                    <div
+                      class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                    >
+                      <div
+                        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
+                      >
+                        <input
+                          aria-invalid="false"
+                          class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
+                          id="mui-10"
+                          type="text"
+                          value="43"
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <button
-                    aria-label="Up"
-                    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 button"
-                    tabindex="0"
-                    type="button"
-                  >
-                    <span
-                      class="MuiIconButton-label"
+                    <button
+                      aria-label="Up"
+                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button css-12vmduj-MuiButtonBase-root-MuiIconButton-root"
+                      tabindex="0"
+                      type="button"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="AddIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -1349,104 +1352,115 @@ exports[`QuantityTable component renders correctly 1`] = `
                           d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
                         />
                       </svg>
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </button>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
                 </div>
-              </div>
-            </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body mediumCell"
-            >
-              22 x 42
-            </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body mediumCell"
-            >
-              <div
-                class="mediumCellBasketIconWrapper"
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-mediumCell css-1xv4y7i-MuiTableCell-root"
               >
-                <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                22 x 42
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-mediumCell css-1xv4y7i-MuiTableCell-root"
+              >
+                <div
+                  class="quantityTableStyles-mediumCellBasketIconWrapper"
                 >
-                  123456789
-                </p>
-                <svg
-                  aria-hidden="true"
-                  aria-label="Remove Fifth item"
-                  class="MuiSvgIcon-root icon"
-                  focusable="false"
-                  role="button"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
-                  />
-                </svg>
-              </div>
-            </td>
-          </tr>
+                  <p
+                    class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                    data-testid="typography"
+                  >
+                    123456789
+                  </p>
+                  <svg
+                    aria-hidden="true"
+                    aria-label="Remove Lorem ipsum dolor sit amet memento mori"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium quantityTableStyles-icon css-i4bv87-MuiSvgIcon-root"
+                    data-testid="DeleteIcon"
+                    focusable="false"
+                    role="button"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                    />
+                  </svg>
+                </div>
+              </td>
+            </tr>
+          </div>
         </tbody>
       </table>
     </div>
-    <div>
+    <div
+      class="css-ya57aw"
+    >
       <table
-        class="MuiTable-root displayIfLarge"
+        class="MuiTable-root Table-evenColor css-wsrw3a-MuiTable-root"
+        data-testid="table"
       >
         <thead
-          class="MuiTableHead-root ColorPair ColorPair--pearl"
+          class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
+          data-testid="table-head"
         >
           <tr
-            class="MuiTableRow-root MuiTableRow-head"
+            class="MuiTableRow-root MuiTableRow-head css-47w8l6-MuiTableRow-root"
           >
             <th
-              class="MuiTableCell-root MuiTableCell-head largeHeaderFirstCell"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium quantityTableStyles-largeHeaderFirstCell css-1tbee56-MuiTableCell-root"
               scope="col"
             >
               <h6
-                class="MuiTypography-root Typography MuiTypography-h6"
+                class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                data-testid="typography"
               >
                 Product
               </h6>
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head header"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium quantityTableStyles-header css-1tbee56-MuiTableCell-root"
               scope="col"
             >
               <h6
-                class="MuiTypography-root Typography MuiTypography-h6"
+                class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                data-testid="typography"
               >
                 Pack size
               </h6>
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head header"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium quantityTableStyles-header css-1tbee56-MuiTableCell-root"
               scope="col"
             >
               <h6
-                class="MuiTypography-root Typography MuiTypography-h6"
+                class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                data-testid="typography"
               >
                 Nobb no
               </h6>
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head header"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium quantityTableStyles-header css-1tbee56-MuiTableCell-root"
               scope="col"
             >
               <h6
-                class="MuiTypography-root Typography MuiTypography-h6"
+                class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                data-testid="typography"
               >
                 Quantity
               </h6>
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head header"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium quantityTableStyles-header css-1tbee56-MuiTableCell-root"
               scope="col"
             >
               <h6
-                class="MuiTypography-root Typography MuiTypography-h6"
+                class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                data-testid="typography"
               >
                 Remove
               </h6>
@@ -1454,67 +1468,71 @@ exports[`QuantityTable component renders correctly 1`] = `
           </tr>
         </thead>
         <tbody
-          class="MuiTableBody-root"
+          class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
         >
-          <tr
-            class="MuiTableRow-root"
+          <div
+            class="css-1lkdjya"
           >
-            <td
-              class="MuiTableCell-root MuiTableCell-body"
+            <tr
+              class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
             >
-              <div
-                class="cellRow"
-              >
-                <img
-                  class="picture"
-                  src="path-to-image"
-                />
-                <p
-                  class="MuiTypography-root largeDescription Typography MuiTypography-body1"
-                >
-                  First item
-                </p>
-              </div>
-            </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body largeCell"
-            >
-              <p
-                class="MuiTypography-root Typography MuiTypography-body1"
-              >
-                22 x 42
-              </p>
-            </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body largeCell"
-            >
-              <p
-                class="MuiTypography-root Typography MuiTypography-body1"
-              >
-                123456789
-              </p>
-            </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body largeCell iteratorCellLarge"
-            >
-              <div
-                class="iteratorCellLarge"
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
               >
                 <div
-                  class="UpDownSimpleNumericInput UpDownSimpleNumericInput--locked-xs"
+                  class="quantityTableStyles-cellRow"
                 >
-                  <button
-                    aria-label="Down"
-                    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 button-sides"
-                    tabindex="0"
-                    type="button"
+                  <img
+                    class="quantityTableStyles-picture"
+                    src="path-to-image"
+                  />
+                  <p
+                    class="MuiTypography-root MuiTypography-body1 quantityTableStyles-largeDescription css-87ejlm-MuiTypography-root"
+                    data-testid="typography"
                   >
-                    <span
-                      class="MuiIconButton-label"
+                    Lorem ipsum dolor sit amet memento mori
+                  </p>
+                </div>
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-largeCell css-1xv4y7i-MuiTableCell-root"
+              >
+                <p
+                  class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                  data-testid="typography"
+                >
+                  22 x 42
+                </p>
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-largeCell css-1xv4y7i-MuiTableCell-root"
+              >
+                <p
+                  class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                  data-testid="typography"
+                >
+                  1232342346789
+                </p>
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-largeCell quantityTableStyles-iteratorCellLarge css-1xv4y7i-MuiTableCell-root"
+              >
+                <div
+                  class="quantityTableStyles-iteratorCellLarge"
+                >
+                  <div
+                    class="css-l441l2"
+                  >
+                    <button
+                      aria-label="Down"
+                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button-sides css-17xy7b6-MuiButtonBase-root-MuiIconButton-root"
+                      tabindex="0"
+                      type="button"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="RemoveIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -1522,37 +1540,35 @@ exports[`QuantityTable component renders correctly 1`] = `
                           d="M19 13H5v-2h14v2z"
                         />
                       </svg>
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </button>
-                  <div
-                    class="MuiFormControl-root MuiTextField-root RawTextField input input-in-middle"
-                  >
-                    <div
-                      class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
-                    >
-                      <input
-                        aria-invalid="false"
-                        class="MuiInputBase-input MuiFilledInput-input"
-                        type="text"
-                        value="43"
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
+                    </button>
+                    <div
+                      class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                    >
+                      <div
+                        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
+                      >
+                        <input
+                          aria-invalid="false"
+                          class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
+                          id="mui-11"
+                          type="text"
+                          value="43"
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <button
-                    aria-label="Up"
-                    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 button"
-                    tabindex="0"
-                    type="button"
-                  >
-                    <span
-                      class="MuiIconButton-label"
+                    <button
+                      aria-label="Up"
+                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button css-12vmduj-MuiButtonBase-root-MuiIconButton-root"
+                      tabindex="0"
+                      type="button"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="AddIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -1560,90 +1576,91 @@ exports[`QuantityTable component renders correctly 1`] = `
                           d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
                         />
                       </svg>
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </button>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
                 </div>
-              </div>
-            </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body largeCell"
-            >
-              <svg
-                aria-hidden="true"
-                aria-label="Remove First item"
-                class="MuiSvgIcon-root icon"
-                focusable="false"
-                role="button"
-                viewBox="0 0 24 24"
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-largeCell css-1xv4y7i-MuiTableCell-root"
               >
-                <path
-                  d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
-                />
-              </svg>
-            </td>
-          </tr>
-          <tr
-            class="MuiTableRow-root greyBack"
-          >
-            <td
-              class="MuiTableCell-root MuiTableCell-body"
-            >
-              <div
-                class="cellRow"
-              >
-                <img
-                  class="picture"
-                  src="path-to-image"
-                />
-                <p
-                  class="MuiTypography-root largeDescription Typography MuiTypography-body1"
+                <svg
+                  aria-hidden="true"
+                  aria-label="Remove Lorem ipsum dolor sit amet memento mori"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium quantityTableStyles-icon css-i4bv87-MuiSvgIcon-root"
+                  data-testid="DeleteIcon"
+                  focusable="false"
+                  role="button"
+                  viewBox="0 0 24 24"
                 >
-                  Second item
-                </p>
-              </div>
-            </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body largeCell"
+                  <path
+                    d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                  />
+                </svg>
+              </td>
+            </tr>
+            <tr
+              class="MuiTableRow-root quantityTableStyles-greyBack css-wgfdj2-MuiTableRow-root"
             >
-              <p
-                class="MuiTypography-root Typography MuiTypography-body1"
-              >
-                22 x 42
-              </p>
-            </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body largeCell"
-            >
-              <p
-                class="MuiTypography-root Typography MuiTypography-body1"
-              >
-                123456789
-              </p>
-            </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body largeCell iteratorCellLarge"
-            >
-              <div
-                class="iteratorCellLarge"
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
               >
                 <div
-                  class="UpDownSimpleNumericInput UpDownSimpleNumericInput--locked-xs"
+                  class="quantityTableStyles-cellRow"
                 >
-                  <button
-                    aria-label="Down"
-                    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 button-sides"
-                    tabindex="0"
-                    type="button"
+                  <img
+                    class="quantityTableStyles-picture"
+                    src="path-to-image"
+                  />
+                  <p
+                    class="MuiTypography-root MuiTypography-body1 quantityTableStyles-largeDescription css-87ejlm-MuiTypography-root"
+                    data-testid="typography"
                   >
-                    <span
-                      class="MuiIconButton-label"
+                    Lorem ipsum dolor sit amet memento mori
+                  </p>
+                </div>
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-largeCell css-1xv4y7i-MuiTableCell-root"
+              >
+                <p
+                  class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                  data-testid="typography"
+                >
+                  22 x 42
+                </p>
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-largeCell css-1xv4y7i-MuiTableCell-root"
+              >
+                <p
+                  class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                  data-testid="typography"
+                >
+                  123456789
+                </p>
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-largeCell quantityTableStyles-iteratorCellLarge css-1xv4y7i-MuiTableCell-root"
+              >
+                <div
+                  class="quantityTableStyles-iteratorCellLarge"
+                >
+                  <div
+                    class="css-l441l2"
+                  >
+                    <button
+                      aria-label="Down"
+                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button-sides css-17xy7b6-MuiButtonBase-root-MuiIconButton-root"
+                      tabindex="0"
+                      type="button"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="RemoveIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -1651,37 +1668,35 @@ exports[`QuantityTable component renders correctly 1`] = `
                           d="M19 13H5v-2h14v2z"
                         />
                       </svg>
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </button>
-                  <div
-                    class="MuiFormControl-root MuiTextField-root RawTextField input input-in-middle"
-                  >
-                    <div
-                      class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
-                    >
-                      <input
-                        aria-invalid="false"
-                        class="MuiInputBase-input MuiFilledInput-input"
-                        type="text"
-                        value="43"
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
+                    </button>
+                    <div
+                      class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                    >
+                      <div
+                        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
+                      >
+                        <input
+                          aria-invalid="false"
+                          class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
+                          id="mui-12"
+                          type="text"
+                          value="43"
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <button
-                    aria-label="Up"
-                    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 button"
-                    tabindex="0"
-                    type="button"
-                  >
-                    <span
-                      class="MuiIconButton-label"
+                    <button
+                      aria-label="Up"
+                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button css-12vmduj-MuiButtonBase-root-MuiIconButton-root"
+                      tabindex="0"
+                      type="button"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="AddIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -1689,90 +1704,91 @@ exports[`QuantityTable component renders correctly 1`] = `
                           d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
                         />
                       </svg>
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </button>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
                 </div>
-              </div>
-            </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body largeCell"
-            >
-              <svg
-                aria-hidden="true"
-                aria-label="Remove Second item"
-                class="MuiSvgIcon-root icon"
-                focusable="false"
-                role="button"
-                viewBox="0 0 24 24"
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-largeCell css-1xv4y7i-MuiTableCell-root"
               >
-                <path
-                  d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
-                />
-              </svg>
-            </td>
-          </tr>
-          <tr
-            class="MuiTableRow-root"
-          >
-            <td
-              class="MuiTableCell-root MuiTableCell-body"
-            >
-              <div
-                class="cellRow"
-              >
-                <img
-                  class="picture"
-                  src="path-to-image"
-                />
-                <p
-                  class="MuiTypography-root largeDescription Typography MuiTypography-body1"
+                <svg
+                  aria-hidden="true"
+                  aria-label="Remove Lorem ipsum dolor sit amet memento mori"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium quantityTableStyles-icon css-i4bv87-MuiSvgIcon-root"
+                  data-testid="DeleteIcon"
+                  focusable="false"
+                  role="button"
+                  viewBox="0 0 24 24"
                 >
-                  Third item
-                </p>
-              </div>
-            </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body largeCell"
+                  <path
+                    d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                  />
+                </svg>
+              </td>
+            </tr>
+            <tr
+              class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
             >
-              <p
-                class="MuiTypography-root Typography MuiTypography-body1"
-              >
-                22 x 42
-              </p>
-            </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body largeCell"
-            >
-              <p
-                class="MuiTypography-root Typography MuiTypography-body1"
-              >
-                123456789
-              </p>
-            </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body largeCell iteratorCellLarge"
-            >
-              <div
-                class="iteratorCellLarge"
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
               >
                 <div
-                  class="UpDownSimpleNumericInput UpDownSimpleNumericInput--locked-xs"
+                  class="quantityTableStyles-cellRow"
                 >
-                  <button
-                    aria-label="Down"
-                    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 button-sides"
-                    tabindex="0"
-                    type="button"
+                  <img
+                    class="quantityTableStyles-picture"
+                    src="path-to-image"
+                  />
+                  <p
+                    class="MuiTypography-root MuiTypography-body1 quantityTableStyles-largeDescription css-87ejlm-MuiTypography-root"
+                    data-testid="typography"
                   >
-                    <span
-                      class="MuiIconButton-label"
+                    Lorem ipsum dolor sit amet memento mori
+                  </p>
+                </div>
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-largeCell css-1xv4y7i-MuiTableCell-root"
+              >
+                <p
+                  class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                  data-testid="typography"
+                >
+                  22 x 42
+                </p>
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-largeCell css-1xv4y7i-MuiTableCell-root"
+              >
+                <p
+                  class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                  data-testid="typography"
+                >
+                  123452346789
+                </p>
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-largeCell quantityTableStyles-iteratorCellLarge css-1xv4y7i-MuiTableCell-root"
+              >
+                <div
+                  class="quantityTableStyles-iteratorCellLarge"
+                >
+                  <div
+                    class="css-l441l2"
+                  >
+                    <button
+                      aria-label="Down"
+                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button-sides css-17xy7b6-MuiButtonBase-root-MuiIconButton-root"
+                      tabindex="0"
+                      type="button"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="RemoveIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -1780,37 +1796,35 @@ exports[`QuantityTable component renders correctly 1`] = `
                           d="M19 13H5v-2h14v2z"
                         />
                       </svg>
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </button>
-                  <div
-                    class="MuiFormControl-root MuiTextField-root RawTextField input input-in-middle"
-                  >
-                    <div
-                      class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
-                    >
-                      <input
-                        aria-invalid="false"
-                        class="MuiInputBase-input MuiFilledInput-input"
-                        type="text"
-                        value="43"
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
+                    </button>
+                    <div
+                      class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                    >
+                      <div
+                        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
+                      >
+                        <input
+                          aria-invalid="false"
+                          class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
+                          id="mui-13"
+                          type="text"
+                          value="43"
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <button
-                    aria-label="Up"
-                    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 button"
-                    tabindex="0"
-                    type="button"
-                  >
-                    <span
-                      class="MuiIconButton-label"
+                    <button
+                      aria-label="Up"
+                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button css-12vmduj-MuiButtonBase-root-MuiIconButton-root"
+                      tabindex="0"
+                      type="button"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="AddIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -1818,90 +1832,91 @@ exports[`QuantityTable component renders correctly 1`] = `
                           d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
                         />
                       </svg>
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </button>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
                 </div>
-              </div>
-            </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body largeCell"
-            >
-              <svg
-                aria-hidden="true"
-                aria-label="Remove Third item"
-                class="MuiSvgIcon-root icon"
-                focusable="false"
-                role="button"
-                viewBox="0 0 24 24"
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-largeCell css-1xv4y7i-MuiTableCell-root"
               >
-                <path
-                  d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
-                />
-              </svg>
-            </td>
-          </tr>
-          <tr
-            class="MuiTableRow-root greyBack"
-          >
-            <td
-              class="MuiTableCell-root MuiTableCell-body"
-            >
-              <div
-                class="cellRow"
-              >
-                <img
-                  class="picture"
-                  src="path-to-image"
-                />
-                <p
-                  class="MuiTypography-root largeDescription Typography MuiTypography-body1"
+                <svg
+                  aria-hidden="true"
+                  aria-label="Remove Lorem ipsum dolor sit amet memento mori"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium quantityTableStyles-icon css-i4bv87-MuiSvgIcon-root"
+                  data-testid="DeleteIcon"
+                  focusable="false"
+                  role="button"
+                  viewBox="0 0 24 24"
                 >
-                  Fourth item
-                </p>
-              </div>
-            </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body largeCell"
+                  <path
+                    d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                  />
+                </svg>
+              </td>
+            </tr>
+            <tr
+              class="MuiTableRow-root quantityTableStyles-greyBack css-wgfdj2-MuiTableRow-root"
             >
-              <p
-                class="MuiTypography-root Typography MuiTypography-body1"
-              >
-                22 x 42
-              </p>
-            </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body largeCell"
-            >
-              <p
-                class="MuiTypography-root Typography MuiTypography-body1"
-              >
-                123456789
-              </p>
-            </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body largeCell iteratorCellLarge"
-            >
-              <div
-                class="iteratorCellLarge"
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
               >
                 <div
-                  class="UpDownSimpleNumericInput UpDownSimpleNumericInput--locked-xs"
+                  class="quantityTableStyles-cellRow"
                 >
-                  <button
-                    aria-label="Down"
-                    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 button-sides"
-                    tabindex="0"
-                    type="button"
+                  <img
+                    class="quantityTableStyles-picture"
+                    src="path-to-image"
+                  />
+                  <p
+                    class="MuiTypography-root MuiTypography-body1 quantityTableStyles-largeDescription css-87ejlm-MuiTypography-root"
+                    data-testid="typography"
                   >
-                    <span
-                      class="MuiIconButton-label"
+                    Lorem ipsum dolor sit amet memento mori
+                  </p>
+                </div>
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-largeCell css-1xv4y7i-MuiTableCell-root"
+              >
+                <p
+                  class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                  data-testid="typography"
+                >
+                  22 x 42
+                </p>
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-largeCell css-1xv4y7i-MuiTableCell-root"
+              >
+                <p
+                  class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                  data-testid="typography"
+                >
+                  12345677889
+                </p>
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-largeCell quantityTableStyles-iteratorCellLarge css-1xv4y7i-MuiTableCell-root"
+              >
+                <div
+                  class="quantityTableStyles-iteratorCellLarge"
+                >
+                  <div
+                    class="css-l441l2"
+                  >
+                    <button
+                      aria-label="Down"
+                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button-sides css-17xy7b6-MuiButtonBase-root-MuiIconButton-root"
+                      tabindex="0"
+                      type="button"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="RemoveIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -1909,37 +1924,35 @@ exports[`QuantityTable component renders correctly 1`] = `
                           d="M19 13H5v-2h14v2z"
                         />
                       </svg>
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </button>
-                  <div
-                    class="MuiFormControl-root MuiTextField-root RawTextField input input-in-middle"
-                  >
-                    <div
-                      class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
-                    >
-                      <input
-                        aria-invalid="false"
-                        class="MuiInputBase-input MuiFilledInput-input"
-                        type="text"
-                        value="43"
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
+                    </button>
+                    <div
+                      class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                    >
+                      <div
+                        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
+                      >
+                        <input
+                          aria-invalid="false"
+                          class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
+                          id="mui-14"
+                          type="text"
+                          value="43"
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <button
-                    aria-label="Up"
-                    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 button"
-                    tabindex="0"
-                    type="button"
-                  >
-                    <span
-                      class="MuiIconButton-label"
+                    <button
+                      aria-label="Up"
+                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button css-12vmduj-MuiButtonBase-root-MuiIconButton-root"
+                      tabindex="0"
+                      type="button"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="AddIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -1947,90 +1960,91 @@ exports[`QuantityTable component renders correctly 1`] = `
                           d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
                         />
                       </svg>
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </button>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
                 </div>
-              </div>
-            </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body largeCell"
-            >
-              <svg
-                aria-hidden="true"
-                aria-label="Remove Fourth item"
-                class="MuiSvgIcon-root icon"
-                focusable="false"
-                role="button"
-                viewBox="0 0 24 24"
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-largeCell css-1xv4y7i-MuiTableCell-root"
               >
-                <path
-                  d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
-                />
-              </svg>
-            </td>
-          </tr>
-          <tr
-            class="MuiTableRow-root"
-          >
-            <td
-              class="MuiTableCell-root MuiTableCell-body"
-            >
-              <div
-                class="cellRow"
-              >
-                <img
-                  class="picture"
-                  src="path-to-image"
-                />
-                <p
-                  class="MuiTypography-root largeDescription Typography MuiTypography-body1"
+                <svg
+                  aria-hidden="true"
+                  aria-label="Remove Lorem ipsum dolor sit amet memento mori"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium quantityTableStyles-icon css-i4bv87-MuiSvgIcon-root"
+                  data-testid="DeleteIcon"
+                  focusable="false"
+                  role="button"
+                  viewBox="0 0 24 24"
                 >
-                  Fifth item
-                </p>
-              </div>
-            </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body largeCell"
+                  <path
+                    d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                  />
+                </svg>
+              </td>
+            </tr>
+            <tr
+              class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
             >
-              <p
-                class="MuiTypography-root Typography MuiTypography-body1"
-              >
-                22 x 42
-              </p>
-            </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body largeCell"
-            >
-              <p
-                class="MuiTypography-root Typography MuiTypography-body1"
-              >
-                123456789
-              </p>
-            </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body largeCell iteratorCellLarge"
-            >
-              <div
-                class="iteratorCellLarge"
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
               >
                 <div
-                  class="UpDownSimpleNumericInput UpDownSimpleNumericInput--locked-xs"
+                  class="quantityTableStyles-cellRow"
                 >
-                  <button
-                    aria-label="Down"
-                    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 button-sides"
-                    tabindex="0"
-                    type="button"
+                  <img
+                    class="quantityTableStyles-picture"
+                    src="path-to-image"
+                  />
+                  <p
+                    class="MuiTypography-root MuiTypography-body1 quantityTableStyles-largeDescription css-87ejlm-MuiTypography-root"
+                    data-testid="typography"
                   >
-                    <span
-                      class="MuiIconButton-label"
+                    Lorem ipsum dolor sit amet memento mori
+                  </p>
+                </div>
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-largeCell css-1xv4y7i-MuiTableCell-root"
+              >
+                <p
+                  class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                  data-testid="typography"
+                >
+                  22 x 42
+                </p>
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-largeCell css-1xv4y7i-MuiTableCell-root"
+              >
+                <p
+                  class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                  data-testid="typography"
+                >
+                  123456789
+                </p>
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-largeCell quantityTableStyles-iteratorCellLarge css-1xv4y7i-MuiTableCell-root"
+              >
+                <div
+                  class="quantityTableStyles-iteratorCellLarge"
+                >
+                  <div
+                    class="css-l441l2"
+                  >
+                    <button
+                      aria-label="Down"
+                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button-sides css-17xy7b6-MuiButtonBase-root-MuiIconButton-root"
+                      tabindex="0"
+                      type="button"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="RemoveIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -2038,37 +2052,35 @@ exports[`QuantityTable component renders correctly 1`] = `
                           d="M19 13H5v-2h14v2z"
                         />
                       </svg>
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </button>
-                  <div
-                    class="MuiFormControl-root MuiTextField-root RawTextField input input-in-middle"
-                  >
-                    <div
-                      class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
-                    >
-                      <input
-                        aria-invalid="false"
-                        class="MuiInputBase-input MuiFilledInput-input"
-                        type="text"
-                        value="43"
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
+                    </button>
+                    <div
+                      class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                    >
+                      <div
+                        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
+                      >
+                        <input
+                          aria-invalid="false"
+                          class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
+                          id="mui-15"
+                          type="text"
+                          value="43"
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <button
-                    aria-label="Up"
-                    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 button"
-                    tabindex="0"
-                    type="button"
-                  >
-                    <span
-                      class="MuiIconButton-label"
+                    <button
+                      aria-label="Up"
+                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button css-12vmduj-MuiButtonBase-root-MuiIconButton-root"
+                      tabindex="0"
+                      type="button"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="AddIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -2076,31 +2088,32 @@ exports[`QuantityTable component renders correctly 1`] = `
                           d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
                         />
                       </svg>
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </button>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
                 </div>
-              </div>
-            </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body largeCell"
-            >
-              <svg
-                aria-hidden="true"
-                aria-label="Remove Fifth item"
-                class="MuiSvgIcon-root icon"
-                focusable="false"
-                role="button"
-                viewBox="0 0 24 24"
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-largeCell css-1xv4y7i-MuiTableCell-root"
               >
-                <path
-                  d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
-                />
-              </svg>
-            </td>
-          </tr>
+                <svg
+                  aria-hidden="true"
+                  aria-label="Remove Lorem ipsum dolor sit amet memento mori"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium quantityTableStyles-icon css-i4bv87-MuiSvgIcon-root"
+                  data-testid="DeleteIcon"
+                  focusable="false"
+                  role="button"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                  />
+                </svg>
+              </td>
+            </tr>
+          </div>
         </tbody>
       </table>
     </div>

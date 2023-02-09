@@ -15,7 +15,9 @@ export const transformSystem = (
     {
       variantCode: system.code,
       catalog: process.env.PIM_CATALOG_NAME,
-      url: `/s/${generateUrl([name, hashedCode])}`
+      url: `${process.env.GATSBY_SITE_URL}/${
+        process.env.COUNTRY_CODE
+      }/s/${generateUrl([name, hashedCode])}`
     }
   ];
 };

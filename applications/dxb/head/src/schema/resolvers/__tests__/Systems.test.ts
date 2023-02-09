@@ -270,4 +270,26 @@ describe("ContentfulServiceLocatorSection resolver", () => {
       });
     });
   });
+
+  describe("video resolver", () => {
+    it("should return video data from product", async () => {
+      const source = createSystem();
+
+      const result = await Systems.videos.resolve(source, null, context);
+
+      expect(result).toEqual([
+        {
+          __typename: "PimVideo",
+          defaultYouTubePreviewImage:
+            "https://i.ytimg.com/vi/3901c0ds7oo/maxresdefault.jpg",
+          label: "name",
+          previewMedia: null,
+          subtitle: null,
+          title: "",
+          videoRatio: null,
+          videoUrl: "https://www.youtube.com/watch?v=3901c0ds7oo"
+        }
+      ]);
+    });
+  });
 });

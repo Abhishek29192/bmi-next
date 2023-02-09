@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@bmi-digital/components";
 import { render } from "@testing-library/react";
 import React from "react";
 import IframeSection, { Data } from "../IframeSection";
@@ -16,7 +17,11 @@ describe("IframeSection component", () => {
       allowCookieClasses: null
     };
 
-    const { container } = render(<IframeSection data={data} />);
+    const { container } = render(
+      <ThemeProvider>
+        <IframeSection data={data} />
+      </ThemeProvider>
+    );
     expect(container).toMatchSnapshot();
     expect(
       container.getElementsByClassName("optanon-category-C0002-C0004").length
@@ -37,7 +42,11 @@ describe("IframeSection component", () => {
           allowCookieClasses: ["Performance"]
         };
 
-        const { container } = render(<IframeSection data={data} />);
+        const { container } = render(
+          <ThemeProvider>
+            <IframeSection data={data} />
+          </ThemeProvider>
+        );
         expect(
           container.getElementsByClassName("optanon-category-C0007").length
         ).toEqual(1);
@@ -58,7 +67,11 @@ describe("IframeSection component", () => {
           allowCookieClasses: ["Analytics", "Targeting"]
         };
 
-        const { container } = render(<IframeSection data={data} />);
+        const { container } = render(
+          <ThemeProvider>
+            <IframeSection data={data} />
+          </ThemeProvider>
+        );
         expect(
           container.getElementsByClassName("optanon-category-C0002-C0004")
             .length

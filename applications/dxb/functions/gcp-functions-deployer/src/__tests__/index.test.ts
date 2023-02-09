@@ -229,7 +229,7 @@ describe("When function is called with a valid file", () => {
 
     mockResponses(fetchMock, {
       method: "POST",
-      url: `https://cloudbuild.googleapis.com/v1/projects/${process.env.GCP_PROJECT_NAME}/triggers/${triggerName}:webhook?key=${apiSecret}&secret=${trigger_secret}`,
+      url: `https://${process.env.LOCATION}cloudbuild.googleapis.com/v1/projects/${process.env.GCP_PROJECT_NAME}/triggers/${triggerName}:webhook?key=${apiSecret}&secret=${trigger_secret}`,
       body: "{}",
       headers: { "Content-Type": "application/json" },
       status: 404
@@ -243,7 +243,7 @@ describe("When function is called with a valid file", () => {
     expect(filterFunctionMetadata).toBeCalledWith(fileContents, validFile);
     expect(fetchMock).toHaveFetchedTimes(
       1,
-      `https://cloudbuild.googleapis.com/v1/projects/${process.env.GCP_PROJECT_NAME}/triggers/${triggerName}:webhook?key=${apiSecret}&secret=${trigger_secret}`,
+      `https://${process.env.LOCATION}cloudbuild.googleapis.com/v1/projects/${process.env.GCP_PROJECT_NAME}/triggers/${triggerName}:webhook?key=${apiSecret}&secret=${trigger_secret}`,
       {
         method: "POST",
         body: function2Metadata,
@@ -252,7 +252,7 @@ describe("When function is called with a valid file", () => {
     );
     expect(fetchMock).toHaveFetchedTimes(
       1,
-      `https://cloudbuild.googleapis.com/v1/projects/${process.env.GCP_PROJECT_NAME}/triggers/${triggerName}:webhook?key=${apiSecret}&secret=${trigger_secret}`,
+      `https://${process.env.LOCATION}cloudbuild.googleapis.com/v1/projects/${process.env.GCP_PROJECT_NAME}/triggers/${triggerName}:webhook?key=${apiSecret}&secret=${trigger_secret}`,
       {
         method: "POST",
         body: function3Metadata,
@@ -272,7 +272,7 @@ describe("When function is called with a valid file", () => {
 
     mockResponses(fetchMock, {
       method: "POST",
-      url: `https://cloudbuild.googleapis.com/v1/projects/${process.env.GCP_PROJECT_NAME}/triggers/${triggerName}:webhook?key=${apiSecret}&secret=${trigger_secret}`,
+      url: `https://${process.env.LOCATION}cloudbuild.googleapis.com/v1/projects/${process.env.GCP_PROJECT_NAME}/triggers/${triggerName}:webhook?key=${apiSecret}&secret=${trigger_secret}`,
       body: "{}",
       headers: { "Content-Type": "application/json" }
     });
@@ -285,7 +285,7 @@ describe("When function is called with a valid file", () => {
     expect(filterFunctionMetadata).toBeCalledWith(fileContents, validFile);
     expect(fetchMock).toHaveFetchedTimes(
       1,
-      `https://cloudbuild.googleapis.com/v1/projects/${process.env.GCP_PROJECT_NAME}/triggers/${triggerName}:webhook?key=${apiSecret}&secret=${trigger_secret}`,
+      `https://${process.env.LOCATION}cloudbuild.googleapis.com/v1/projects/${process.env.GCP_PROJECT_NAME}/triggers/${triggerName}:webhook?key=${apiSecret}&secret=${trigger_secret}`,
       {
         method: "POST",
         body: function2Metadata,
@@ -294,7 +294,7 @@ describe("When function is called with a valid file", () => {
     );
     expect(fetchMock).toHaveFetchedTimes(
       1,
-      `https://cloudbuild.googleapis.com/v1/projects/${process.env.GCP_PROJECT_NAME}/triggers/${triggerName}:webhook?key=${apiSecret}&secret=${trigger_secret}`,
+      `https://${process.env.LOCATION}cloudbuild.googleapis.com/v1/projects/${process.env.GCP_PROJECT_NAME}/triggers/${triggerName}:webhook?key=${apiSecret}&secret=${trigger_secret}`,
       {
         method: "POST",
         body: function3Metadata,

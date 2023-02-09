@@ -3,35 +3,38 @@
 exports[`ServiceLocatorSection resulst list pannel component should render results list panel on page load if at list one chip exists in query params 1`] = `
 <div>
   <div
-    class="ServiceLocationSection Section Section--white"
+    class="ServiceLocationSection Section-root Section-white css-cxq310"
+    data-testid="section"
   >
     <div
-      class="Container"
+      class=" css-ze8cyt"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+        class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          data-testid="typography"
         >
           Main
         </h2>
         <div
-          class="MuiGrid-root controls MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-align-items-xs-flex-end"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-vvjsjl-MuiGrid2-root"
+          data-testid="grid-container"
         >
           <div
-            class="MuiGrid-root search MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 search css-1uqv6el-MuiGrid2-root"
+            data-testid="grid-item"
           >
             <div
-              aria-expanded="false"
-              class="MuiAutocomplete-root company-autocomplete MuiAutocomplete-hasClearIcon"
-              role="combobox"
+              class="MuiAutocomplete-root company-autocomplete css-1qqsdnr-MuiAutocomplete-root"
             >
               <div
-                class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
+                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                data-testid="text-field-company-autocomplete"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-taxj8h-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="true"
                   for="company-autocomplete"
                   id="company-autocomplete-label"
@@ -39,58 +42,45 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                   MC: findARoofer.companyFieldLabel
                 </label>
                 <div
-                  class="MuiInputBase-root MuiOutlinedInput-root MuiAutocomplete-inputRoot MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiOutlinedInput-adornedStart MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
                 >
                   <svg
-                    class="start-adornment-icon"
-                  />
+                    class="css-vhaxby"
+                    viewBox="0 0 16 16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0 0h16v16H0z"
+                      fill="none"
+                    />
+                    <g
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M1.384 9.581A44 44 0 0 0 8 10.086a44 44 0 0 0 6.616-.505 1.063 1.063 0 0 0 .869-1.227 1.148 1.148 0 0 0-.027-.116 1.6 1.6 0 0 0-.683-.945c-.069-.045-.076-.223-.079-.34a7.773 7.773 0 0 0-1.148-4A6.184 6.184 0 0 0 11.132.741c-.39-.2-.388-.2-.561.2l-.426 5.467L9.6 6.2S9.578.375 9.6.336a.244.244 0 0 0-.188-.288.294.294 0 0 0-.042 0A7.414 7.414 0 0 0 8-.086a7.413 7.413 0 0 0-1.362.132.243.243 0 0 0-.238.248V.3a.294.294 0 0 0 0 .042c.022.039 0 5.864 0 5.864l-.55.206L5.429.941c-.173-.4-.171-.4-.561-.2A6.19 6.19 0 0 0 2.452 2.95a7.753 7.753 0 0 0-1.147 4c0 .117-.011.295-.08.34a1.6 1.6 0 0 0-.683.945 1.064 1.064 0 0 0 .726 1.317.925.925 0 0 0 .116.026ZM8 11.086a45.359 45.359 0 0 1-5.815-.386C2.836 13.741 5.189 16 8 16s5.164-2.259 5.815-5.3A45.108 45.108 0 0 1 8 11.086Z"
+                      />
+                    </g>
+                  </svg>
                   <input
                     aria-autocomplete="list"
+                    aria-expanded="false"
                     aria-invalid="false"
                     autocapitalize="none"
                     autocomplete="off"
-                    class="MuiInputBase-input MuiOutlinedInput-input MuiAutocomplete-input MuiAutocomplete-inputFocused MuiInputBase-inputAdornedStart MuiOutlinedInput-inputAdornedStart MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                    class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiAutocomplete-input MuiAutocomplete-inputFocused css-1o9s3wi-MuiInputBase-input-MuiOutlinedInput-input"
                     id="company-autocomplete"
                     name="autocomplete-field"
+                    role="combobox"
                     spellcheck="false"
                     type="text"
                     value=""
                   />
-                  <div
-                    class="MuiAutocomplete-endAdornment"
-                  >
-                    <button
-                      aria-label="Clear"
-                      class="MuiButtonBase-root MuiIconButton-root MuiAutocomplete-clearIndicator"
-                      tabindex="-1"
-                      title="Clear"
-                      type="button"
-                    >
-                      <span
-                        class="MuiIconButton-label"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-                          />
-                        </svg>
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </button>
-                  </div>
                   <fieldset
                     aria-hidden="true"
-                    class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+                    class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
                   >
                     <legend
-                      class="PrivateNotchedOutline-legendLabelled-3 PrivateNotchedOutline-legendNotched-4"
+                      class="css-14lo706"
                     >
                       <span>
                         MC: findARoofer.companyFieldLabel
@@ -101,7 +91,8 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
               </div>
             </div>
             <p
-              class="MuiTypography-root and-or-label Typography MuiTypography-body1"
+              class="MuiTypography-root MuiTypography-body1 and-or-label css-87ejlm-MuiTypography-root"
+              data-testid="typography"
             >
               <span>
                 MC: findARoofer.andOr
@@ -110,17 +101,17 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
             <div
               style="text-align: center;"
             >
-              <div
-                class="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+              <span
+                class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-1kcdtbk-MuiCircularProgress-root"
                 role="progressbar"
                 style="width: 40px; height: 40px;"
               >
                 <svg
-                  class="MuiCircularProgress-svg"
+                  class="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
                   viewBox="22 22 44 44"
                 >
                   <circle
-                    class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+                    class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-176wh8e-MuiCircularProgress-circle"
                     cx="44"
                     cy="44"
                     fill="none"
@@ -128,37 +119,35 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                     stroke-width="3.6"
                   />
                 </svg>
-              </div>
+              </span>
             </div>
             <button
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-5 MuiButton-text buttonStyles-text-6 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
+              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-v9qqu-MuiButtonBase-root-MuiButton-root"
               disabled=""
               tabindex="-1"
               type="button"
             >
               <span
-                class="MuiButton-label buttonStyles-label-8"
+                class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
               >
-                <span
-                  class="MuiButton-startIcon buttonStyles-startIcon-9 MuiButton-iconSizeMedium"
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  data-testid="NearMeIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M21 3L3 10.53v.98l6.84 2.65L12.48 21h.98L21 3z"
-                    />
-                  </svg>
-                </span>
-                MC: findARoofer.geolocationButton
+                  <path
+                    d="M21 3 3 10.53v.98l6.84 2.65L12.48 21h.98L21 3z"
+                  />
+                </svg>
               </span>
+              MC: findARoofer.geolocationButton
             </button>
           </div>
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-8"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-8 Grid-item css-13kpa5n-MuiGrid2-root"
+            data-testid="grid-item"
           >
             <div
               class="filters"
@@ -167,68 +156,73 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                 class="chips"
               >
                 <h6
-                  class="MuiTypography-root chips-label Typography MuiTypography-h6"
+                  class="MuiTypography-root MuiTypography-h6 chips-label css-1le86ss-MuiTypography-root"
+                  data-testid="typography"
                 >
                   MC: findARoofer.filtersLabel
                 </h6>
                 <div
-                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-testid="service-locator-chip-Flat-Roof"
                   role="button"
                   tabindex="0"
                 >
                   <span
-                    class="MuiChip-label"
+                    class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
                   >
                     Flat Roof
                   </span>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorPrimary MuiChip-clickable MuiChip-clickableColorPrimary MuiChip-filledPrimary  css-1qhn9w6-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Pitched Roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-testid="service-locator-chip-Pitched-Roof"
                   role="button"
                   tabindex="0"
                 >
                   <span
-                    class="MuiChip-label"
+                    class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
                   >
                     Pitched Roof
                   </span>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof 1\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-testid="service-locator-chip-Flat-Roof-1"
                   role="button"
                   tabindex="0"
                 >
                   <span
-                    class="MuiChip-label"
+                    class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
                   >
                     Flat Roof 1
                   </span>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Pitched Roof 2\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-testid="service-locator-chip-Pitched-Roof-2"
                   role="button"
                   tabindex="0"
                 >
                   <span
-                    class="MuiChip-label"
+                    class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
                   >
                     Pitched Roof 2
                   </span>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </div>
               </div>
@@ -236,70 +230,63 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
           </div>
         </div>
         <div
-          class="Tabs Tabs--secondary Tabs--visible-until-md tabs"
+          class="Tabs-secondary Tabs-visibleUntillg tabs css-fpjlvn"
+          data-testid="tabs"
         >
           <div
-            class="TabsBar"
+            class="Tabs-tabsBar"
           >
             <div
-              class="Container"
+              class=" css-ze8cyt"
             >
               <div
-                class="MuiContainer-root tabStyles-ContainerRoot-25 MuiContainer-maxWidthXl"
+                class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
-                  class="MuiTabs-root tabStyles-TabsRoot-26"
+                  class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                 >
                   <div
-                    class="MuiTabs-scroller MuiTabs-fixed"
-                    style="overflow: hidden;"
+                    class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
+                    style="overflow: hidden; margin-bottom: 0px;"
                   >
                     <div
                       aria-label="tabs"
-                      class="MuiTabs-flexContainer"
+                      class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
                       role="tablist"
                     >
                       <button
                         aria-controls="tabpanel-list"
                         aria-selected="true"
-                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-27 Mui-selected MuiTab-fullWidth"
+                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary MuiTab-fullWidth Mui-selected Tabs-tabRoot css-xs12v4-MuiButtonBase-root-MuiTab-root"
                         data-testid="tab-list"
                         id="tab-list"
                         role="tab"
                         tabindex="0"
                         type="button"
                       >
+                        MC: findARoofer.listLabel
                         <span
-                          class="MuiTab-wrapper"
-                        >
-                          MC: findARoofer.listLabel
-                        </span>
-                        <span
-                          class="MuiTouchRipple-root"
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
                       </button>
                       <button
                         aria-controls="tabpanel-map"
                         aria-selected="false"
-                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-27 MuiTab-fullWidth"
+                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary MuiTab-fullWidth Tabs-tabRoot css-xs12v4-MuiButtonBase-root-MuiTab-root"
                         data-testid="tab-map"
                         id="tab-map"
                         role="tab"
                         tabindex="-1"
                         type="button"
                       >
+                        MC: findARoofer.mapLabel
                         <span
-                          class="MuiTab-wrapper"
-                        >
-                          MC: findARoofer.mapLabel
-                        </span>
-                        <span
-                          class="MuiTouchRipple-root"
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
                       </button>
                     </div>
                     <span
-                      class="PrivateTabIndicator-root-29 PrivateTabIndicator-colorPrimary-30 MuiTabs-indicator"
+                      class="MuiTabs-indicator css-tv859c-MuiTabs-indicator"
                       style="left: 0px; width: 0px;"
                     />
                   </div>
@@ -309,184 +296,195 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
           </div>
           <div
             aria-labelledby="tab-list"
-            class="MuiGrid-root TabPanel tab-panel MuiGrid-item MuiGrid-grid-md-12 MuiGrid-grid-lg-4"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1rk7w2f"
             data-testid="tabpanel-list"
             heading="MC: findARoofer.listLabel"
             id="tabpanel-list"
             role="tabpanel"
           >
             <div
-              class="MuiBox-root MuiBox-root-33 TabPanelBox"
+              class=""
             >
               <div
-                class=""
+                class="list"
               >
                 <div
-                  class="list"
+                  class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
+                  data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
-                    class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
-                    data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
-                    data-testid="GTMIntegratedLinkCard-test-id"
+                    class="css-c9b8pn"
+                    data-testid="linkCard-item"
+                  >
+                    <h6
+                      class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom  css-1vyiy8g-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      roofer 1
+                    </h6>
+                    <p
+                      class="MuiTypography-root MuiTypography-body1 css-sd7cbl-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      address 1
+                    </p>
+                  </div>
+                  <div
+                    class="LinkCard-icon"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                      data-testid="KeyboardArrowRightIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-9xrx3v-MuiCollapse-root"
+                    style="min-height: 0px;"
                   >
                     <div
-                      class="item"
-                    >
-                      <h6
-                        class="MuiTypography-root Typography MuiTypography-h6 MuiTypography-gutterBottom"
-                      >
-                        roofer 1
-                      </h6>
-                      <p
-                        class="MuiTypography-root subtitle Typography MuiTypography-body1"
-                      >
-                        address 1
-                      </p>
-                    </div>
-                    <div
-                      class="icon"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
-                        />
-                      </svg>
-                    </div>
-                    <div
-                      class="MuiCollapse-root details MuiCollapse-hidden"
-                      style="min-height: 0px;"
+                      class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
                     >
                       <div
-                        class="MuiCollapse-wrapper"
+                        class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                       >
                         <div
-                          class="MuiCollapse-wrapperInner"
+                          class="css-hvci11"
+                          data-testid="company-details-root"
                         >
-                          <div
-                            class="CompanyDetails"
-                          >
-                            <div
-                              class="scrollbar"
+                          <div>
+                            <dl
+                              class="css-axlavq"
                             >
-                              <dl
-                                class="list"
+                              <div
+                                class="CompanyDetails-row"
+                                data-testid="company-details-phone"
                               >
-                                <div
-                                  class="row"
+                                <dt
+                                  class="css-10edjq1"
                                 >
-                                  <dt
-                                    class="term"
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1ylmdkn-MuiSvgIcon-root"
+                                    data-testid="PhoneIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root icon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
-                                      />
-                                    </svg>
-                                    <span
-                                      class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
-                                    >
-                                      MC: global.telephone
-                                    </span>
-                                  </dt>
-                                  <dd
-                                    class="description"
+                                    <path
+                                      d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+                                    />
+                                  </svg>
+                                  <span
+                                    class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-87ejlm-MuiTypography-root"
+                                    data-testid="typography"
                                   >
-                                    phone 1
-                                  </dd>
-                                </div>
-                                <div
-                                  class="row"
+                                    MC: global.telephone
+                                  </span>
+                                </dt>
+                                <dd
+                                  class="css-bp47jm"
                                 >
-                                  <dt
-                                    class="term"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root icon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
-                                      />
-                                    </svg>
-                                    <span
-                                      class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
-                                    >
-                                      MC: global.email
-                                    </span>
-                                  </dt>
-                                  <dd
-                                    class="description"
-                                  >
-                                    test@test.com
-                                  </dd>
-                                </div>
-                                <div
-                                  class="row"
-                                >
-                                  <dt
-                                    class="term"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root icon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"
-                                      />
-                                    </svg>
-                                    <span
-                                      class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
-                                    >
-                                      MC: global.website
-                                    </span>
-                                  </dt>
-                                  <dd
-                                    class="description"
-                                  >
-                                    www.test.com
-                                  </dd>
-                                </div>
-                                <div
-                                  class="row"
-                                >
-                                  <dt
-                                    class="term"
-                                  >
-                                    <span
-                                      class="MuiTypography-root label Typography MuiTypography-body1"
-                                    >
-                                      MC: findARoofer.roofTypeLabel
-                                    </span>
-                                  </dt>
-                                  <dd
-                                    class="description"
-                                  >
-                                    <b>
-                                      Flat Roof, Pitched Roof, Flat Roof 1, Pitched Roof 2
-                                    </b>
-                                  </dd>
-                                </div>
-                              </dl>
-                              <p
-                                class="MuiTypography-root Typography MuiTypography-body1"
+                                  phone 1
+                                </dd>
+                              </div>
+                              <div
+                                class="CompanyDetails-row"
+                                data-testid="company-details-email"
                               >
-                                roofer summary
-                              </p>
-                            </div>
+                                <dt
+                                  class="css-10edjq1"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1ylmdkn-MuiSvgIcon-root"
+                                    data-testid="MailIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"
+                                    />
+                                  </svg>
+                                  <span
+                                    class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-87ejlm-MuiTypography-root"
+                                    data-testid="typography"
+                                  >
+                                    MC: global.email
+                                  </span>
+                                </dt>
+                                <dd
+                                  class="css-bp47jm"
+                                >
+                                  test@test.com
+                                </dd>
+                              </div>
+                              <div
+                                class="CompanyDetails-row"
+                                data-testid="company-details-website"
+                              >
+                                <dt
+                                  class="css-10edjq1"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1ylmdkn-MuiSvgIcon-root"
+                                    data-testid="PublicIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"
+                                    />
+                                  </svg>
+                                  <span
+                                    class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-87ejlm-MuiTypography-root"
+                                    data-testid="typography"
+                                  >
+                                    MC: global.website
+                                  </span>
+                                </dt>
+                                <dd
+                                  class="css-bp47jm"
+                                >
+                                  www.test.com
+                                </dd>
+                              </div>
+                              <div
+                                class="CompanyDetails-row"
+                                data-testid="company-details-content"
+                              >
+                                <dt
+                                  class="css-10edjq1"
+                                >
+                                  <span
+                                    class="MuiTypography-root MuiTypography-body1 CompanyDetails-label css-87ejlm-MuiTypography-root"
+                                    data-testid="typography"
+                                  >
+                                    MC: findARoofer.roofTypeLabel
+                                  </span>
+                                </dt>
+                                <dd
+                                  class="css-bp47jm"
+                                >
+                                  <b>
+                                    Flat Roof, Pitched Roof, Flat Roof 1, Pitched Roof 2
+                                  </b>
+                                </dd>
+                              </div>
+                            </dl>
+                            <p
+                              class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                              data-testid="typography"
+                            >
+                              roofer summary
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -498,7 +496,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
           </div>
           <div
             aria-labelledby="tab-map"
-            class="MuiGrid-root TabPanel tab-panel MuiGrid-item MuiGrid-grid-md-12 MuiGrid-grid-lg-8"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-71osed"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -506,37 +504,33 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
             role="tabpanel"
           >
             <div
-              class="MuiBox-root MuiBox-root-28 TabPanelBox"
+              class="map"
             >
               <div
-                class="map"
+                class="css-1b4gbon"
               >
                 <div
-                  class="GoogleMap"
+                  class="css-1ylb8pi"
                 >
-                  <div
-                    class="map"
+                  <span
+                    class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-1kcdtbk-MuiCircularProgress-root"
+                    role="progressbar"
+                    style="width: 40px; height: 40px;"
                   >
-                    <div
-                      class="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
-                      role="progressbar"
-                      style="width: 40px; height: 40px;"
+                    <svg
+                      class="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
+                      viewBox="22 22 44 44"
                     >
-                      <svg
-                        class="MuiCircularProgress-svg"
-                        viewBox="22 22 44 44"
-                      >
-                        <circle
-                          class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
-                          cx="44"
-                          cy="44"
-                          fill="none"
-                          r="20.2"
-                          stroke-width="3.6"
-                        />
-                      </svg>
-                    </div>
-                  </div>
+                      <circle
+                        class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-176wh8e-MuiCircularProgress-circle"
+                        cx="44"
+                        cy="44"
+                        fill="none"
+                        r="20.2"
+                        stroke-width="3.6"
+                      />
+                    </svg>
+                  </span>
                 </div>
               </div>
             </div>

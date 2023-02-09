@@ -1,11 +1,11 @@
-import { useTheme } from "@material-ui/core/styles";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
-import React, { useMemo } from "react";
 import { PimProductDocument } from "@bmi/elasticsearch-types";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import React, { useMemo } from "react";
 import fileIconsMap from "../../../components/FileIconsMap";
 import { groupDistinctBy } from "../../../utils/product-filters";
 import { AssetType } from "../types";
-import styles from "./styles/DocumentTechnicalTableResults.module.scss";
+import { Root } from "./DocumentTechnicalTableResultsStyles";
 import DesktopDocumentTechnicalTableResults from "./_DesktopDocumentTechnicalTableResults";
 import MobileDocumentTechnicalTableResults from "./_MobileDocumentTechnicalTableResults";
 
@@ -36,7 +36,7 @@ const DocumentTechnicalTableResults = ({ documents, assetTypes }: Props) => {
   const matches = useMediaQuery(theme.breakpoints.up("lg"));
 
   return (
-    <div className={styles["DocumentTechnicalTableResults"]}>
+    <Root data-testid="tech-results-table">
       {matches ? (
         <DesktopDocumentTechnicalTableResults
           documentsByProduct={allDocumentsGrouped}
@@ -50,7 +50,7 @@ const DocumentTechnicalTableResults = ({ documents, assetTypes }: Props) => {
           fileIconsMap={fileIconsMap}
         />
       )}
-    </div>
+    </Root>
   );
 };
 

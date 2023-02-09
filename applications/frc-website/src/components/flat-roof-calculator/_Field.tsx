@@ -1,5 +1,5 @@
-import { Button, Dialog, Grid, Typography } from "@bmi/components";
-import HelpIcon from "@material-ui/icons/Help";
+import { Button, Dialog, Grid, Typography } from "@bmi-digital/components";
+import HelpIcon from "@mui/icons-material/Help";
 import classnames from "classnames";
 import React, { useState } from "react";
 import styles from "./FlatRoofCalculator.module.scss";
@@ -64,7 +64,7 @@ const Field = ({
       </div>
       {description ? (
         <Grid container>
-          <Grid item lg={9}>
+          <Grid lg={9}>
             <Typography variant="body1" className={styles["fieldDescription"]}>
               {description}
             </Typography>

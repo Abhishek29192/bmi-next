@@ -312,7 +312,7 @@ describe("filters tests", () => {
   });
 
   describe("convertToURLFilters tests", () => {
-    const input = (firstValue: string[]): ProductFilter[] => [
+    const input = (firstValue: string[] = []): ProductFilter[] => [
       {
         filterCode: "colour",
         label: "Colour",

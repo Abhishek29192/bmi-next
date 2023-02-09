@@ -5,6 +5,7 @@ import { createSchemaOrgDataForPdpPage } from "../schemaOrgPDPpage";
 describe("createSchemaOrgDataForPdpPage", () => {
   it("should return minimal information for SchemaOrg", () => {
     const product: Product = {
+      approvalStatus: "approved",
       awardsAndCertificateDocuments: [],
       awardsAndCertificateImages: [],
       baseCode: "base-code",

@@ -1,15 +1,15 @@
+import { ThemeProvider } from "@bmi-digital/components";
 import { History } from "@reach/router";
 import { screen, waitFor } from "@testing-library/dom";
 import React from "react";
-
-import ProvideStyles from "../../../components/__tests__/utils/StylesProvider";
-import { ConfigProvider, EnvConfig } from "../../../contexts/ConfigProvider";
-import { createMockSiteData } from "../../../test/mockSiteData";
-import { renderWithRouter } from "../../../test/renderWithRouter";
 import createProduct from "../../../__tests__/helpers/ProductHelper";
 import createRelatedSystem from "../../../__tests__/helpers/RelatedSystemHelper";
 import createSystem from "../../../__tests__/helpers/SystemHelper";
 import createSystemLayer from "../../../__tests__/helpers/SystemLayerHelper";
+import ProvideStyles from "../../../components/__tests__/utils/StylesProvider";
+import { ConfigProvider, EnvConfig } from "../../../contexts/ConfigProvider";
+import { createMockSiteData } from "../../../test/mockSiteData";
+import { renderWithRouter } from "../../../test/renderWithRouter";
 import SystemDetailsPage from "../systemDetailsPage";
 
 const systemCode = "1234";
@@ -47,9 +47,11 @@ const withProviders = ({
   renderComponent: React.ReactElement;
 }) => {
   return renderWithRouter(
-    <ConfigProvider configObject={customConfig}>
-      <ProvideStyles>{renderComponent}</ProvideStyles>
-    </ConfigProvider>,
+    <ThemeProvider>
+      <ConfigProvider configObject={customConfig}>
+        <ProvideStyles>{renderComponent}</ProvideStyles>
+      </ConfigProvider>
+    </ThemeProvider>,
     routerObject
   );
 };
@@ -96,7 +98,7 @@ describe("SystemDetailsPage template component", () => {
   });
 
   it("should render without BrandProvider", () => {
-    const { container } = withProviders({
+    const { container, getByTestId } = withProviders({
       customConfig: { spaceMarketCode: "no" },
       renderComponent: (
         <SystemDetailsPage
@@ -113,10 +115,10 @@ describe("SystemDetailsPage template component", () => {
         />
       )
     });
-    const tabSection = container.querySelector(".TabsBar");
+
+    expect(getByTestId("tabs")).toBeInTheDocument();
 
     expect(container).toMatchSnapshot();
-    expect(tabSection).toBeInTheDocument();
   });
 
   it("should render without systemLayers", async () => {

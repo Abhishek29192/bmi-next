@@ -1,9 +1,9 @@
-import {
-  updateBreadcrumbTitleFromContentful,
-  checkIfActiveLabelInParentNode
-} from "../breadcrumbUtils";
 import { Data as BreadcrumbsData } from "../../components/Breadcrumbs";
 import { DataTypeEnum, NavigationData } from "../../components/Link";
+import {
+  checkIfActiveLabelInParentNode,
+  updateBreadcrumbTitleFromContentful
+} from "../breadcrumbUtils";
 
 describe("updateBreadcrumbTitleFromContentful function", () => {
   it("should update title of breadcrumb by contentful if updated title exist and should not be truncated if the length less than 20 characters", () => {

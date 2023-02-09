@@ -1,12 +1,10 @@
-import React from "react";
+import { AnchorLink, MasonryGrid, Typography } from "@bmi-digital/components";
 import classnames from "classnames";
-import { AnchorLink } from "@bmi/components";
-import { MasonryGrid } from "@bmi/components";
-import { Typography } from "@bmi/components";
+import React from "react";
 import {
   Data as LinkData,
-  NavigationData,
   getClickableActionFromUrl,
+  NavigationData,
   NavigationItem
 } from "./Link";
 import { useSiteContext } from "./Site";

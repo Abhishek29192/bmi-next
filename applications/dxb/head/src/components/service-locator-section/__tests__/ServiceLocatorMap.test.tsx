@@ -1,10 +1,11 @@
+import { ThemeProvider } from "@bmi-digital/components";
 import { fireEvent, render } from "@testing-library/react";
 import React from "react";
 import { MapProps, ServiceLocatorMap } from "../components";
-import { selectedRooferMock } from "../__mocks__/markers";
+import { imageData, selectedRooferMock } from "../__mocks__/markers";
 
-jest.mock("@bmi/components", () => {
-  const originalModule = jest.requireActual("@bmi/components");
+jest.mock("@bmi-digital/components", () => {
+  const originalModule = jest.requireActual("@bmi-digital/components");
   const GoogleMap = jest.fn().mockImplementation(({ children }) => {
     return (
       <div className="GoogleMap">
@@ -31,16 +32,18 @@ const renderWithGoogleProvider = ({
   zoom = 2
 }: Partial<MapProps>) => {
   return render(
-    <ServiceLocatorMap
-      selectedRoofer={selectedRoofer}
-      getCompanyDetails={getCompanyDetails}
-      initialMapCentre={initialMapCentre}
-      centre={centre}
-      clearRooferAndResetMap={clearRooferAndResetMap}
-      handleMarkerClick={handleMarkerClick}
-      markers={markers}
-      zoom={zoom}
-    />
+    <ThemeProvider>
+      <ServiceLocatorMap
+        selectedRoofer={selectedRoofer}
+        getCompanyDetails={getCompanyDetails}
+        initialMapCentre={initialMapCentre}
+        centre={centre}
+        clearRooferAndResetMap={clearRooferAndResetMap}
+        handleMarkerClick={handleMarkerClick}
+        markers={markers}
+        zoom={zoom}
+      />
+    </ThemeProvider>
   );
 };
 
@@ -49,6 +52,15 @@ describe("ServiceLocatorMap component", () => {
     const { container } = renderWithGoogleProvider({});
     const popupContainer = container.querySelector("popup");
     expect(popupContainer).not.toBeInTheDocument();
+  });
+  it("should render company logo inside card", () => {
+    const { getByAltText } = renderWithGoogleProvider({
+      selectedRoofer: {
+        ...selectedRooferMock,
+        companyLogo: { ...imageData }
+      }
+    });
+    expect(getByAltText(imageData.altText)).toBeInTheDocument();
   });
   it("should render popup with card if user select a roofer in list", () => {
     const clearRooferAndResetMap = jest.fn();

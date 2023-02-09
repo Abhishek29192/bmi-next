@@ -1,4 +1,4 @@
-import { Filter } from "@bmi/components";
+import { Filter } from "@bmi-digital/components";
 import { removePLPFilterPrefix } from "./product-filters";
 
 export const getCollapseVariantsByBaseProductCodeQuery = (

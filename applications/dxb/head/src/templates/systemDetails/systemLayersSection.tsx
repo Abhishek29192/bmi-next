@@ -4,7 +4,7 @@ import {
   AnchorLinkProps,
   Grid,
   Typography
-} from "@bmi/components";
+} from "@bmi-digital/components";
 import React from "react";
 import { useSiteContext } from "../../components/Site";
 import { microCopy } from "../../constants/microCopies";
@@ -60,6 +60,7 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
                   }`,
                   action: "Selector - Accordion"
                 }}
+                data-testid="system-layer-summary"
               >
                 <Typography variant="default">
                   {`${layer.layerNumber}.${layerLabel} ${layer.name || ""}`}
@@ -68,9 +69,13 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
 
               {hasAccordionItemDetailsData && (
                 <Accordion.Details>
-                  <Grid container spacing={3}>
+                  <Grid
+                    container
+                    spacing={3}
+                    data-testid="system-layer-details"
+                  >
                     {relatedProduct && (
-                      <Grid item xs={12} md={12} lg={12}>
+                      <Grid xs={12} md={12} lg={12}>
                         <GTMAnchorLink
                           gtm={{
                             id: "cta-click1",
@@ -84,14 +89,14 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
                       </Grid>
                     )}
 
-                    <Grid item xs={12} md={12} lg={12}>
+                    <Grid xs={12} md={12} lg={12}>
                       <Typography variant="default">
                         {layer.shortDescription}
                       </Typography>
                     </Grid>
 
                     {optionalRelatedProducts.length > 0 && (
-                      <Grid item xs={12} md={12} lg={12}>
+                      <Grid xs={12} md={12} lg={12}>
                         <Typography variant="h5">
                           {getMicroCopy(microCopy.SDP_OPTIONAL_PRODUCTS_TITLE)}
                         </Typography>
@@ -105,7 +110,6 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
                       );
                       return (
                         <Grid
-                          item
                           xs={12}
                           md={12}
                           lg={12}

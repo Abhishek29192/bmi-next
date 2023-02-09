@@ -12,7 +12,8 @@ const {
   FUNCTIONS_METADATA_FOLDER,
   FUNCTIONS_METADATA_FILE,
   FUNCTIONS_SOURCE_FOLDER,
-  GCP_PROJECT_NAME
+  GCP_PROJECT_NAME,
+  LOCATION
 } = process.env;
 const bucket = GCP_STORAGE_NAME && storage.bucket(GCP_STORAGE_NAME);
 const triggerNameRegex = `${FUNCTIONS_SOURCE_FOLDER}/(.*).zip`;
@@ -22,7 +23,7 @@ const triggerCloudBuild = async (
   source: string
 ) => {
   const triggerName = `${source}-trigger`;
-  const url = `https://cloudbuild.googleapis.com/v1/projects/${GCP_PROJECT_NAME}/triggers/${triggerName}:webhook?key=${TRIGGER_API_KEY}&secret=${TRIGGER_CB_SECRET}`;
+  const url = `https://${LOCATION}cloudbuild.googleapis.com/v1/projects/${GCP_PROJECT_NAME}/triggers/${triggerName}:webhook?key=${TRIGGER_API_KEY}&secret=${TRIGGER_CB_SECRET}`;
 
   for (const key in requests) {
     const response = await fetch(url, {

@@ -1,6 +1,7 @@
 import { Product, System } from "@bmi/firestore-types";
 import { AssetType } from "../../types/pim";
 import { Context, Node, ResolveArgs } from "./types/Gatsby";
+import { getDefaultYoutubePreviewImage } from "./utils/getDefaultYoutubePreviewImage";
 
 const createResolver = (field: keyof Node) => ({
   type: ["Product"],
@@ -124,6 +125,22 @@ export default {
 
           return weightB - weightA;
         });
+    }
+  },
+  videos: {
+    type: ["PimVideo"],
+    async resolve(source: System, args: ResolveArgs, context: Context) {
+      return await Promise.all(
+        source.videos.map(async (video) => {
+          const defaultYouTubePreviewImage =
+            await getDefaultYoutubePreviewImage(video.videoUrl);
+          return {
+            __typename: "PimVideo",
+            defaultYouTubePreviewImage,
+            ...video
+          };
+        })
+      );
     }
   }
 };

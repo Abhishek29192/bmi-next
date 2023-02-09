@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import { Button, Icon, withFormControl } from "@bmi-digital/components";
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
 import classnames from "classnames";
-import { Button } from "@bmi/components";
-import { Icon } from "@bmi/components";
-import { withFormControl } from "@bmi/components";
-import AddIcon from "@material-ui/icons/Add";
-import RemoveIcon from "@material-ui/icons/Remove";
+import React, { useState } from "react";
 import RawTextField from "../raw-text-field/RawTextField";
-import styles from "./UpDownSimpleNumericInput.module.scss";
+import { StyledComponentWithButtons, classes } from "./styles";
 
 type Props = {
   name: string;
@@ -54,7 +52,7 @@ const UpDownSimpleNumericInput = ({
   const UpButton = (
     <Button
       isIconButton
-      className={styles["button"]}
+      className="button"
       onClick={handleIncrement}
       accessibilityLabel={"Up"}
     >
@@ -65,7 +63,7 @@ const UpDownSimpleNumericInput = ({
   const DownButton = (
     <Button
       isIconButton
-      className={styles[`button-${buttonPlacement}`]}
+      className={`button-${buttonPlacement}`}
       onClick={handleDecrement}
       accessibilityLabel={"Down"}
     >
@@ -78,8 +76,8 @@ const UpDownSimpleNumericInput = ({
       name={name}
       variant="hybrid"
       className={classnames(
-        styles["input"],
-        buttonPlacement === "sides" && styles["input-in-middle"]
+        "input",
+        buttonPlacement === "sides" && "in-middle"
       )}
       value={count.toString()}
       onChange={handleInputChange}
@@ -87,31 +85,29 @@ const UpDownSimpleNumericInput = ({
   );
 
   const ComponentWithButtonsOnEitherSide = (
-    <div
+    <StyledComponentWithButtons
       className={classnames(
-        styles["UpDownSimpleNumericInput"],
-        lockBreakpoint &&
-          styles[`UpDownSimpleNumericInput--locked-${lockBreakpoint}`]
+        classes.root,
+        lockBreakpoint && `locked-${lockBreakpoint}`
       )}
     >
       {DownButton}
       {InputComponent}
       {UpButton}
-    </div>
+    </StyledComponentWithButtons>
   );
 
   const ComponentWithButtonsOnTheRight = (
-    <div
+    <StyledComponentWithButtons
       className={classnames(
-        styles["UpDownSimpleNumericInput"],
-        lockBreakpoint &&
-          styles[`UpDownSimpleNumericInput--locked-${lockBreakpoint}`]
+        classes.root,
+        lockBreakpoint && `locked-${lockBreakpoint}`
       )}
     >
       {InputComponent}
       {DownButton}
       {UpButton}
-    </div>
+    </StyledComponentWithButtons>
   );
 
   const CounterComponent =

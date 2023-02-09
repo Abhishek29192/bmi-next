@@ -1,16 +1,25 @@
 import React from "react";
-import CircularProgress from "@material-ui/core/CircularProgress";
+import CircularProgress from "@mui/material/CircularProgress";
+import { CircularProgressProps } from "@mui/material/CircularProgress/CircularProgress";
+import classnames from "classnames";
 import styles from "./styles/ProgressIndicator.module.scss";
 
-const ProgressIndicator = ({ theme }: { theme: "light" | "dark" }) => (
+type Props = CircularProgressProps & {
+  theme?: "light" | "dark";
+};
+
+const ProgressIndicator = ({ className, theme, ...rest }: Props) => (
   <CircularProgress
     size={72}
     // NOTE: Intended thickness is 6px for large spinner, but MUI apears twice as thicc
     thickness={3}
-    className={[
+    className={classnames(
       styles["ProgressIndicator"],
-      styles[`ProgressIndicator--${theme}`]
-    ].join(" ")}
+      theme && styles[`ProgressIndicator--${theme}`],
+      className
+    )}
+    data-testid="progress-indicator"
+    {...rest}
   />
 );
 

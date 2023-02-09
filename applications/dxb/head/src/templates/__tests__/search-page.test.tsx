@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@bmi-digital/components";
 import { fireEvent, waitFor } from "@testing-library/react";
 import React from "react";
 import * as SearchTabDocuments from "../../components/SearchTabDocuments";
@@ -43,27 +44,30 @@ describe("Search Page Template", () => {
     jest.clearAllMocks();
   });
 
-  it("render correctly", () => {
+  it("render correctly", async () => {
     const { container, getByTestId, getByText } = renderWithRouter(
-      <SearchPage data={data} pageContext={null} />
+      <ThemeProvider>
+        <SearchPage data={data} pageContext={null} />
+      </ThemeProvider>
     );
 
-    // expect(container).toMatchSnapshot();
     expect(container.querySelector("header")).toBeTruthy();
-    expect(container.querySelector(".Footer")).toBeTruthy();
+    expect(getByTestId("footer")).toBeTruthy();
     expect(getByTestId("brand-colors-provider")).toBeTruthy();
-    expect(container.querySelector(".Hero")).toBeTruthy();
-    expect(container.querySelector(".Breadcrumbs")).toBeTruthy();
+    expect(container.querySelector("[class*='Hero']")).toBeTruthy();
+    expect(container.querySelector("[class*='Breadcrumbs']")).toBeTruthy();
     expect(getByText("Home")).toBeTruthy();
-    expect(container.querySelector(".content .title").textContent).toBe(
-      "MC: searchPage.title"
-    );
     expect(
-      container.querySelector(".Section.Section--white.Section--slim")
+      container.querySelector("[class*='content'] [class*='title']").textContent
+    ).toBe("MC: searchPage.title");
+    expect(
+      container.querySelector(
+        "[class*='Section'][class*='white'][class*='slim']"
+      )
     ).toBeTruthy();
     expect(container.querySelector(".SearchBlock")).toBeTruthy();
     expect(
-      container.querySelector("[type='submit'] .MuiButton-label").textContent
+      container.querySelector("[type='submit'].MuiButton-root").textContent
     ).toBe("MC: searchPage.title");
     expect(getByText("MC: searchPage.helperText")).toBeTruthy();
     expect(getByText("MC: searchPage.placeholder")).toBeTruthy();
@@ -79,15 +83,17 @@ describe("Search Page Template", () => {
     jest.spyOn(SearchTabDocuments, "getCount").mockResolvedValueOnce(null);
     jest.spyOn(SearchTabPages, "getCount").mockResolvedValueOnce(3);
     const { getByText, container } = renderWithRouter(
-      <SearchPage
-        data={data}
-        pageContext={{
-          variantCodeToPathMap: null,
-          siteId: "siteId",
-          countryCode: "en",
-          categoryCode: "categoryCode"
-        }}
-      />
+      <ThemeProvider>
+        <SearchPage
+          data={data}
+          pageContext={{
+            variantCodeToPathMap: null,
+            siteId: "siteId",
+            countryCode: "en",
+            categoryCode: "categoryCode"
+          }}
+        />
+      </ThemeProvider>
     );
 
     await waitFor(() =>
@@ -135,15 +141,17 @@ describe("Search Page Template", () => {
 
     window.history.replaceState = jest.fn();
     const { getByText, container } = renderWithRouter(
-      <SearchPage
-        data={data}
-        pageContext={{
-          variantCodeToPathMap: null,
-          siteId: "siteId",
-          countryCode: "en",
-          categoryCode: "categoryCode"
-        }}
-      />
+      <ThemeProvider>
+        <SearchPage
+          data={data}
+          pageContext={{
+            variantCodeToPathMap: null,
+            siteId: "siteId",
+            countryCode: "en",
+            categoryCode: "categoryCode"
+          }}
+        />
+      </ThemeProvider>
     );
 
     await waitFor(() =>
@@ -195,15 +203,17 @@ describe("Search Page Template", () => {
     window.history.replaceState = jest.fn();
     const consoleSpy = jest.spyOn(console, "error");
     const { getByText } = renderWithRouter(
-      <SearchPage
-        data={data}
-        pageContext={{
-          variantCodeToPathMap: null,
-          siteId: "siteId",
-          countryCode: "en",
-          categoryCode: "categoryCode"
-        }}
-      />
+      <ThemeProvider>
+        <SearchPage
+          data={data}
+          pageContext={{
+            variantCodeToPathMap: null,
+            siteId: "siteId",
+            countryCode: "en",
+            categoryCode: "categoryCode"
+          }}
+        />
+      </ThemeProvider>
     );
 
     await waitFor(() =>
@@ -250,15 +260,17 @@ describe("Search Page Template", () => {
       });
 
     const { getByText, container } = renderWithRouter(
-      <SearchPage
-        data={data}
-        pageContext={{
-          variantCodeToPathMap: null,
-          siteId: "siteId",
-          countryCode: "en",
-          categoryCode: "categoryCode"
-        }}
-      />
+      <ThemeProvider>
+        <SearchPage
+          data={data}
+          pageContext={{
+            variantCodeToPathMap: null,
+            siteId: "siteId",
+            countryCode: "en",
+            categoryCode: "categoryCode"
+          }}
+        />
+      </ThemeProvider>
     );
 
     await waitFor(() =>
@@ -293,15 +305,17 @@ describe("Search Page Template", () => {
       .mockResolvedValueOnce("1");
 
     const { container, getByText } = renderWithRouter(
-      <SearchPage
-        data={data}
-        pageContext={{
-          variantCodeToPathMap: null,
-          siteId: "siteId",
-          countryCode: "en",
-          categoryCode: "categoryCode"
-        }}
-      />
+      <ThemeProvider>
+        <SearchPage
+          data={data}
+          pageContext={{
+            variantCodeToPathMap: null,
+            siteId: "siteId",
+            countryCode: "en",
+            categoryCode: "categoryCode"
+          }}
+        />
+      </ThemeProvider>
     );
 
     expect(spyOnGetProductsCount).toHaveBeenCalledTimes(1);
@@ -311,12 +325,11 @@ describe("Search Page Template", () => {
     await waitFor(() =>
       expect(getByText("MC: searchPage.title.withQuery")).toBeTruthy()
     );
-    // expect(container).toMatchSnapshot();
-    expect(container.querySelectorAll(".TabPanel").length).toBe(3);
+
+    expect(container.querySelectorAll("[role=tabpanel]").length).toBe(3);
     expect(getByText("MC: search.tabHeadings.products (3)")).toBeTruthy();
     expect(getByText("MC: search.tabHeadings.documents (2)")).toBeTruthy();
     expect(getByText("MC: search.tabHeadings.pages (1)")).toBeTruthy();
-    // expect(elasticSearchSpy).toHaveBeenCalledTimes();
   });
 
   it("should not render tab when result count is null", async () => {
@@ -334,15 +347,17 @@ describe("Search Page Template", () => {
       .spyOn(SearchTabPages, "getCount")
       .mockResolvedValueOnce(1);
     const { container, getByText } = renderWithRouter(
-      <SearchPage
-        data={data}
-        pageContext={{
-          variantCodeToPathMap: null,
-          siteId: "siteId",
-          countryCode: "en",
-          categoryCode: "categoryCode"
-        }}
-      />
+      <ThemeProvider>
+        <SearchPage
+          data={data}
+          pageContext={{
+            variantCodeToPathMap: null,
+            siteId: "siteId",
+            countryCode: "en",
+            categoryCode: "categoryCode"
+          }}
+        />
+      </ThemeProvider>
     );
 
     expect(spyOnGetProductsCount).toHaveBeenCalledTimes(1);
@@ -352,8 +367,8 @@ describe("Search Page Template", () => {
     await waitFor(() =>
       expect(getByText("MC: search.tabHeadings.documents (2)")).toBeTruthy()
     );
-    // expect(container).toMatchSnapshot();
-    expect(container.querySelectorAll(".TabPanel").length).toBe(2);
+
+    expect(container.querySelectorAll("[role=tabpanel]").length).toBe(2);
     expect(getByText("MC: search.tabHeadings.pages (1)")).toBeTruthy();
   });
 
@@ -366,24 +381,25 @@ describe("Search Page Template", () => {
     jest.spyOn(SearchTabDocuments, "getCount").mockResolvedValueOnce(null);
     jest.spyOn(SearchTabPages, "getCount").mockResolvedValueOnce(null);
     const { container, getByText } = renderWithRouter(
-      <SearchPage
-        data={data}
-        pageContext={{
-          variantCodeToPathMap: null,
-          siteId: "siteId",
-          countryCode: "en",
-          categoryCode: "categoryCode"
-        }}
-      />
+      <ThemeProvider>
+        <SearchPage
+          data={data}
+          pageContext={{
+            variantCodeToPathMap: null,
+            siteId: "siteId",
+            countryCode: "en",
+            categoryCode: "categoryCode"
+          }}
+        />
+      </ThemeProvider>
     );
 
     await waitFor(() =>
       expect(getByText("MC: searchPage.noResultsTitle")).toBeTruthy()
     );
 
-    // expect(container).toMatchSnapshot();
     expect(container.querySelector(".Tab")).toBeFalsy();
-    expect(container.querySelectorAll(".TabPanel").length).toBe(0);
+    expect(container.querySelectorAll("[role=tabpanel]").length).toBe(0);
   });
 
   it("should switch Tab when click on tab title", async () => {
@@ -394,27 +410,29 @@ describe("Search Page Template", () => {
     jest.spyOn(SearchTabProducts, "getCount").mockResolvedValueOnce(1);
     jest.spyOn(SearchTabDocuments, "getCount").mockResolvedValueOnce(1);
     jest.spyOn(SearchTabPages, "getCount").mockResolvedValueOnce(1);
-    const { container, getByText } = renderWithRouter(
-      <SearchPage
-        data={data}
-        pageContext={{
-          variantCodeToPathMap: null,
-          siteId: "siteId",
-          countryCode: "en",
-          categoryCode: "categoryCode"
-        }}
-      />
+    const { container, getByText, getByTestId } = renderWithRouter(
+      <ThemeProvider>
+        <SearchPage
+          data={data}
+          pageContext={{
+            variantCodeToPathMap: null,
+            siteId: "siteId",
+            countryCode: "en",
+            categoryCode: "categoryCode"
+          }}
+        />
+      </ThemeProvider>
     );
 
     await waitFor(() =>
       expect(getByText("MC: searchPage.helperText")).toBeTruthy()
     );
-    const documentTabButton = container.querySelector("#tab-documents");
+    const documentTabButton = getByTestId("tab-documents");
 
     fireEvent.click(documentTabButton);
     expect(
       container.querySelector(
-        "[heading='MC: search.tabHeadings.documents (1)'] .Container"
+        "[heading='MC: search.tabHeadings.documents (1)'] [class*='Container']"
       )
     ).toBeTruthy();
   });
@@ -428,22 +446,22 @@ describe("Search Page Template", () => {
     jest.spyOn(SearchTabDocuments, "getCount").mockResolvedValueOnce(null);
     jest.spyOn(SearchTabPages, "getCount").mockResolvedValueOnce(null);
     const { getByText } = renderWithRouter(
-      <SearchPage
-        data={data}
-        pageContext={{
-          variantCodeToPathMap: null,
-          siteId: "siteId",
-          countryCode: "en",
-          categoryCode: "categoryCode"
-        }}
-      />
+      <ThemeProvider>
+        <SearchPage
+          data={data}
+          pageContext={{
+            variantCodeToPathMap: null,
+            siteId: "siteId",
+            countryCode: "en",
+            categoryCode: "categoryCode"
+          }}
+        />
+      </ThemeProvider>
     );
 
     await waitFor(() =>
       expect(getByText("MC: search.tabHeadings.products (2)")).toBeTruthy()
     );
-
-    // expect(container).toMatchSnapshot();
 
     const elasticSearchSpy = jest
       .spyOn(elasticSearch, "queryElasticSearch")
@@ -478,18 +496,20 @@ describe("Search Page Template", () => {
     jest.spyOn(SearchTabProducts, "getCount").mockResolvedValueOnce(null);
     jest.spyOn(SearchTabDocuments, "getCount").mockResolvedValueOnce(2);
     jest.spyOn(SearchTabPages, "getCount").mockResolvedValueOnce(1);
-    const { container, getByText } = renderWithRouter(
-      <ConfigProvider configObject={{ isPreviewMode: true }}>
-        <SearchPage
-          data={data}
-          pageContext={{
-            variantCodeToPathMap: null,
-            siteId: "siteId",
-            countryCode: "en",
-            categoryCode: "categoryCode"
-          }}
-        />
-      </ConfigProvider>
+    const { getByText, getByTestId } = renderWithRouter(
+      <ThemeProvider>
+        <ConfigProvider configObject={{ isPreviewMode: true }}>
+          <SearchPage
+            data={data}
+            pageContext={{
+              variantCodeToPathMap: null,
+              siteId: "siteId",
+              countryCode: "en",
+              categoryCode: "categoryCode"
+            }}
+          />
+        </ConfigProvider>
+      </ThemeProvider>
     );
 
     const alertSpy = jest.spyOn(window, "alert");
@@ -498,7 +518,7 @@ describe("Search Page Template", () => {
       expect(getByText("MC: searchPage.helperText")).toBeTruthy()
     );
 
-    const form = container.querySelector(".Search");
+    const form = getByTestId("search-form");
 
     fireEvent.submit(form);
     expect(alertSpy).toHaveBeenCalledWith(
@@ -515,15 +535,17 @@ describe("Search Page Template", () => {
     jest.spyOn(SearchTabDocuments, "getCount").mockResolvedValueOnce(2);
     jest.spyOn(SearchTabPages, "getCount").mockResolvedValueOnce(1);
     const { container, getByText } = renderWithRouter(
-      <SearchPage
-        data={data}
-        pageContext={{
-          variantCodeToPathMap: null,
-          siteId: "siteId",
-          countryCode: "en",
-          categoryCode: "categoryCode"
-        }}
-      />
+      <ThemeProvider>
+        <SearchPage
+          data={data}
+          pageContext={{
+            variantCodeToPathMap: null,
+            siteId: "siteId",
+            countryCode: "en",
+            categoryCode: "categoryCode"
+          }}
+        />
+      </ThemeProvider>
     );
 
     const alertSpy = jest.spyOn(window, "alert");
@@ -532,7 +554,7 @@ describe("Search Page Template", () => {
     await waitFor(() =>
       expect(getByText("MC: searchPage.helperText")).toBeTruthy()
     );
-    const form = container.querySelector(".Search");
+    const form = container.querySelector("[class*='Search']");
 
     fireEvent.submit(form);
     expect(alertSpy).toHaveBeenCalledTimes(0);
@@ -547,15 +569,17 @@ describe("Search Page Template", () => {
     jest.spyOn(SearchTabDocuments, "getCount").mockResolvedValueOnce(2);
     jest.spyOn(SearchTabPages, "getCount").mockResolvedValueOnce(1);
     const { container, getByText } = renderWithRouter(
-      <SearchPage
-        data={data}
-        pageContext={{
-          variantCodeToPathMap: null,
-          siteId: "siteId",
-          countryCode: "en",
-          categoryCode: "categoryCode"
-        }}
-      />
+      <ThemeProvider>
+        <SearchPage
+          data={data}
+          pageContext={{
+            variantCodeToPathMap: null,
+            siteId: "siteId",
+            countryCode: "en",
+            categoryCode: "categoryCode"
+          }}
+        />
+      </ThemeProvider>
     );
 
     process.env.GATSBY_PREVIEW = "true";
@@ -578,15 +602,17 @@ describe("Search Page Template", () => {
     jest.spyOn(SearchTabDocuments, "getCount").mockResolvedValueOnce(1);
     jest.spyOn(SearchTabPages, "getCount").mockResolvedValueOnce(1);
     const { container, getByText } = renderWithRouter(
-      <SearchPage
-        data={data}
-        pageContext={{
-          variantCodeToPathMap: null,
-          siteId: "siteId",
-          countryCode: "en",
-          categoryCode: "categoryCode"
-        }}
-      />
+      <ThemeProvider>
+        <SearchPage
+          data={data}
+          pageContext={{
+            variantCodeToPathMap: null,
+            siteId: "siteId",
+            countryCode: "en",
+            categoryCode: "categoryCode"
+          }}
+        />
+      </ThemeProvider>
     );
 
     await waitFor(() =>
@@ -619,18 +645,19 @@ describe("Search Page Template", () => {
       search: "q="
     });
     const { queryByText } = renderWithRouter(
-      <SearchPage
-        data={newData}
-        pageContext={{
-          variantCodeToPathMap: null,
-          siteId: "siteId",
-          countryCode: "en",
-          categoryCode: "categoryCode"
-        }}
-      />
+      <ThemeProvider>
+        <SearchPage
+          data={newData}
+          pageContext={{
+            variantCodeToPathMap: null,
+            siteId: "siteId",
+            countryCode: "en",
+            categoryCode: "categoryCode"
+          }}
+        />
+      </ThemeProvider>
     );
 
-    // expect(container).toMatchSnapshot();
     await waitFor(() =>
       expect(queryByText("searchPageNextBestActionsTitle")).toBeTruthy()
     );
@@ -650,20 +677,21 @@ describe("Search Page Template", () => {
     jest.spyOn(SearchTabDocuments, "getCount").mockResolvedValueOnce(null);
     jest.spyOn(SearchTabPages, "getCount").mockResolvedValueOnce(1);
     const { queryByText } = renderWithRouter(
-      <SearchPage
-        data={newData}
-        pageContext={{
-          variantCodeToPathMap: null,
-          siteId: "siteId",
-          countryCode: "en",
-          categoryCode: "categoryCode"
-        }}
-      />
+      <ThemeProvider>
+        <SearchPage
+          data={newData}
+          pageContext={{
+            variantCodeToPathMap: null,
+            siteId: "siteId",
+            countryCode: "en",
+            categoryCode: "categoryCode"
+          }}
+        />
+      </ThemeProvider>
     );
 
     await waitFor(() =>
       expect(queryByText("searchPageExploreBarTitle")).toBeTruthy()
     );
-    // expect(container).toMatchSnapshot();
   });
 });

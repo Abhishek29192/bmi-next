@@ -1,4 +1,4 @@
-import { transformHyphens } from "@bmi/components";
+import { transformHyphens } from "@bmi-digital/components";
 import React from "react";
 import { Helmet, HelmetProps } from "react-helmet";
 import EffraBold from "../../static/fonts/Effra_W_Bold.woff2";
@@ -51,7 +51,7 @@ export const Head = ({
   return (
     <Helmet
       htmlAttributes={htmlAttributes}
-      title={seo?.metaTitle || transformHyphens(title)}
+      title={seo?.metaTitle || (transformHyphens(title) as string)}
       defer={defer}
     >
       <script>{`
@@ -136,6 +136,7 @@ export const Head = ({
         <script
           src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"
           type="text/javascript"
+          // eslint-disable-next-line react/no-unknown-property
           charSet="UTF-8"
           data-domain-script={oneTrustId}
         />

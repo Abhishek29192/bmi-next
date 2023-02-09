@@ -3,16 +3,18 @@
 exports[`SitemapSection component renders correctly 1`] = `
 <div>
   <div
-    class="Section"
+    class="Section-root css-cxq310"
+    data-testid="section"
   >
     <div
-      class="Container"
+      class=" css-ze8cyt"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+        class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          data-testid="typography"
         >
           Main
         </h2>
@@ -20,15 +22,16 @@ exports[`SitemapSection component renders correctly 1`] = `
           class="SitemapBlock"
         >
           <div
-            class="MasonryGrid"
+            class="MasonryGrid-root css-1a7a0ef"
           >
             <div
-              class="column"
+              class="MasonryGrid-column"
               style="width: 33.333333333333336%;"
             >
               <div>
                 <h4
-                  class="MuiTypography-root Typography MuiTypography-h4 MuiTypography-gutterBottom"
+                  class="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom  css-uqas8j-MuiTypography-root"
+                  data-testid="typography"
                 >
                   Get in touch
                 </h4>
@@ -37,10 +40,12 @@ exports[`SitemapSection component renders correctly 1`] = `
                 >
                   <div>
                     <h6
-                      class="MuiTypography-root Typography MuiTypography-h6 MuiTypography-gutterBottom"
+                      class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom  css-1vyiy8g-MuiTypography-root"
+                      data-testid="typography"
                     >
                       <a
-                        class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                        data-testid="anchor-link"
                         type="button"
                       >
                         <span>
@@ -53,12 +58,13 @@ exports[`SitemapSection component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="column"
+              class="MasonryGrid-column"
               style="width: 33.333333333333336%;"
             >
               <div>
                 <h4
-                  class="MuiTypography-root Typography MuiTypography-h4 MuiTypography-gutterBottom"
+                  class="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom  css-uqas8j-MuiTypography-root"
+                  data-testid="typography"
                 >
                   About BMI
                 </h4>
@@ -67,10 +73,12 @@ exports[`SitemapSection component renders correctly 1`] = `
                 >
                   <div>
                     <h6
-                      class="MuiTypography-root Typography MuiTypography-h6 MuiTypography-gutterBottom"
+                      class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom  css-1vyiy8g-MuiTypography-root"
+                      data-testid="typography"
                     >
                       <a
-                        class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                        data-testid="anchor-link"
                         type="button"
                       >
                         <span>
@@ -93,16 +101,18 @@ exports[`SitemapSection component renders correctly 1`] = `
 exports[`SitemapSection component renders correctly 2 levels deep 1`] = `
 <div>
   <div
-    class="Section"
+    class="Section-root css-cxq310"
+    data-testid="section"
   >
     <div
-      class="Container"
+      class=" css-ze8cyt"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+        class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          data-testid="typography"
         >
           Main
         </h2>
@@ -110,15 +120,16 @@ exports[`SitemapSection component renders correctly 2 levels deep 1`] = `
           class="SitemapBlock"
         >
           <div
-            class="MasonryGrid"
+            class="MasonryGrid-root css-1a7a0ef"
           >
             <div
-              class="column"
+              class="MasonryGrid-column"
               style="width: 33.333333333333336%;"
             >
               <div>
                 <h4
-                  class="MuiTypography-root Typography MuiTypography-h4 MuiTypography-gutterBottom"
+                  class="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom  css-uqas8j-MuiTypography-root"
+                  data-testid="typography"
                 >
                   Get in touch
                 </h4>
@@ -127,10 +138,12 @@ exports[`SitemapSection component renders correctly 2 levels deep 1`] = `
                 >
                   <div>
                     <h6
-                      class="MuiTypography-root Typography MuiTypography-h6 MuiTypography-gutterBottom"
+                      class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom  css-1vyiy8g-MuiTypography-root"
+                      data-testid="typography"
                     >
                       <a
-                        class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                        data-testid="anchor-link"
                         type="button"
                       >
                         <span>
@@ -140,7 +153,8 @@ exports[`SitemapSection component renders correctly 2 levels deep 1`] = `
                     </h6>
                     <div>
                       <h5
-                        class="MuiTypography-root Typography MuiTypography-h5 MuiTypography-gutterBottom"
+                        class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom  css-1svxg7-MuiTypography-root"
+                        data-testid="typography"
                       >
                         About BMI 2
                       </h5>
@@ -149,10 +163,12 @@ exports[`SitemapSection component renders correctly 2 levels deep 1`] = `
                       >
                         <div>
                           <h6
-                            class="MuiTypography-root Typography MuiTypography-h6 MuiTypography-gutterBottom"
+                            class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom  css-1vyiy8g-MuiTypography-root"
+                            data-testid="typography"
                           >
                             <a
-                              class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                              data-testid="anchor-link"
                               type="button"
                             >
                               <span>
@@ -162,7 +178,8 @@ exports[`SitemapSection component renders correctly 2 levels deep 1`] = `
                           </h6>
                           <div>
                             <h6
-                              class="MuiTypography-root Typography MuiTypography-h6 MuiTypography-gutterBottom"
+                              class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom  css-1vyiy8g-MuiTypography-root"
+                              data-testid="typography"
                             >
                               About BMI 2
                             </h6>
@@ -171,10 +188,12 @@ exports[`SitemapSection component renders correctly 2 levels deep 1`] = `
                             >
                               <div>
                                 <h6
-                                  class="MuiTypography-root Typography MuiTypography-h6 MuiTypography-gutterBottom"
+                                  class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom  css-1vyiy8g-MuiTypography-root"
+                                  data-testid="typography"
                                 >
                                   <a
-                                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                                    data-testid="anchor-link"
                                     type="button"
                                   >
                                     <span>
@@ -193,12 +212,13 @@ exports[`SitemapSection component renders correctly 2 levels deep 1`] = `
               </div>
             </div>
             <div
-              class="column"
+              class="MasonryGrid-column"
               style="width: 33.333333333333336%;"
             >
               <div>
                 <h4
-                  class="MuiTypography-root Typography MuiTypography-h4 MuiTypography-gutterBottom"
+                  class="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom  css-uqas8j-MuiTypography-root"
+                  data-testid="typography"
                 >
                   About BMI
                 </h4>
@@ -207,10 +227,12 @@ exports[`SitemapSection component renders correctly 2 levels deep 1`] = `
                 >
                   <div>
                     <h6
-                      class="MuiTypography-root Typography MuiTypography-h6 MuiTypography-gutterBottom"
+                      class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom  css-1vyiy8g-MuiTypography-root"
+                      data-testid="typography"
                     >
                       <a
-                        class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                        data-testid="anchor-link"
                         type="button"
                       >
                         <span>
@@ -233,22 +255,24 @@ exports[`SitemapSection component renders correctly 2 levels deep 1`] = `
 exports[`SitemapSection component renders correctly if incomplete 1`] = `
 <div>
   <div
-    class="Section"
+    class="Section-root css-cxq310"
+    data-testid="section"
   >
     <div
-      class="Container"
+      class=" css-ze8cyt"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+        class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          data-testid="typography"
         />
         <div
           class="SitemapBlock"
         >
           <div
-            class="MasonryGrid"
+            class="MasonryGrid-root css-1a7a0ef"
           />
         </div>
       </div>

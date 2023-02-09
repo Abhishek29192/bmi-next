@@ -3,7 +3,8 @@
 exports[`ProductsGridView component renders correctly when empty 1`] = `
 <div>
   <p
-    class="MuiTypography-root Typography MuiTypography-body1"
+    class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+    data-testid="typography"
   >
     MC: plp.product.noResultsFound
   </p>
@@ -13,40 +14,42 @@ exports[`ProductsGridView component renders correctly when empty 1`] = `
 exports[`ProductsGridView component renders correctly when not empty 1`] = `
 <div>
   <div
-    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4"
+    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 Grid-item css-1uqv6el-MuiGrid2-root"
+    data-testid="grid-item"
   >
     <a
-      aria-disabled="false"
-      class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+      class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
       data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/no/name-code/?pathname=%2F\\"}"
       href="/no/name-code/?pathname=%2F"
-      role="button"
       tabindex="0"
     >
       <img
         alt=" name"
-        class="header-picture Media Media--contain"
+        class="OverviewCard-headerPicture css-10hd0hb-Media"
         src="http://localhost:8000"
       />
       <div
-        class="body"
+        class="OverviewCard-body"
       >
         <h5
-          class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+          class="MuiTypography-root MuiTypography-h5 OverviewCard-title OverviewCard-noBrandLogo css-10q7alf-MuiTypography-root"
+          data-testid="overview-card-body-title"
         >
           name
         </h5>
         
         <div
-          class="children text"
+          class="OverviewCard-text css-fm25tm"
         >
           short-description
         </div>
         <div
-          class="footer"
+          class="css-1tho2wt"
+          data-testid="overview-card-body-footer"
         >
           <span
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+            data-testid="anchor-link"
             type="button"
           >
             <span>
@@ -54,15 +57,21 @@ exports[`ProductsGridView component renders correctly when not empty 1`] = `
             </span>
             <svg
               aria-hidden="true"
-              class="icon"
+              class=" css-em5iqk"
               data-testid="internal"
               focusable="false"
-            />
+              viewBox="0 0 16 16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
+              />
+            </svg>
           </span>
         </div>
       </div>
       <span
-        class="MuiTouchRipple-root"
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
       />
     </a>
   </div>
@@ -72,40 +81,42 @@ exports[`ProductsGridView component renders correctly when not empty 1`] = `
 exports[`ProductsGridView component renders correctly when not empty with filters from url 1`] = `
 <div>
   <div
-    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4"
+    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 Grid-item css-1uqv6el-MuiGrid2-root"
+    data-testid="grid-item"
   >
     <a
-      aria-disabled="false"
-      class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+      class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
       data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/no/name-code/?filters=%5B%7B%22name%22%3A%22brand%22%2C%22value%22%3A%5B%22BMI_Components%22%5D%7D%5D&pathname=search&q=query\\"}"
       href="/no/name-code/?filters=%5B%7B%22name%22%3A%22brand%22%2C%22value%22%3A%5B%22BMI_Components%22%5D%7D%5D&pathname=search&q=query"
-      role="button"
       tabindex="0"
     >
       <img
         alt=" name"
-        class="header-picture Media Media--contain"
+        class="OverviewCard-headerPicture css-10hd0hb-Media"
         src="http://localhost:8000"
       />
       <div
-        class="body"
+        class="OverviewCard-body"
       >
         <h5
-          class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+          class="MuiTypography-root MuiTypography-h5 OverviewCard-title OverviewCard-noBrandLogo css-10q7alf-MuiTypography-root"
+          data-testid="overview-card-body-title"
         >
           name
         </h5>
         
         <div
-          class="children text"
+          class="OverviewCard-text css-fm25tm"
         >
           short-description
         </div>
         <div
-          class="footer"
+          class="css-1tho2wt"
+          data-testid="overview-card-body-footer"
         >
           <span
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+            data-testid="anchor-link"
             type="button"
           >
             <span>
@@ -113,15 +124,21 @@ exports[`ProductsGridView component renders correctly when not empty with filter
             </span>
             <svg
               aria-hidden="true"
-              class="icon"
+              class=" css-em5iqk"
               data-testid="internal"
               focusable="false"
-            />
+              viewBox="0 0 16 16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
+              />
+            </svg>
           </span>
         </div>
       </div>
       <span
-        class="MuiTouchRipple-root"
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
       />
     </a>
   </div>

@@ -1,19 +1,22 @@
 import {
   Accordion,
   AccordionSummaryProps,
+  AnchorLink,
+  AnchorLinkProps,
   Button,
-  Clickable,
-  ClickableProps,
+  Download,
+  External,
+  FileUniversal,
   Icon,
-  IconButtonProps,
-  iconMap
-} from "@bmi/components";
-import React from "react";
+  IconButtonProps
+} from "@bmi-digital/components";
 import { PimProductDocument } from "@bmi/elasticsearch-types";
+import classnames from "classnames";
+import React from "react";
 import { Format } from "../../../components/types";
 import withGTM from "../../../utils/google-tag-manager";
 import { AssetType } from "../types";
-import styles from "./styles/DocumentTechnicalTableResults.module.scss";
+import { classes, Root } from "./DocumentTechnicalTableResultsStyles";
 import AssetHeader from "./_AssetHeader";
 
 interface Props {
@@ -23,7 +26,7 @@ interface Props {
 }
 
 const GTMAccordionSummary = withGTM<AccordionSummaryProps>(Accordion.Summary);
-const GTMClickable = withGTM<ClickableProps>(Clickable);
+const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
 const GTMButton = withGTM<IconButtonProps>(Button);
 
 const MobileDocumentTechnicalTableResults = ({
@@ -32,7 +35,10 @@ const MobileDocumentTechnicalTableResults = ({
   fileIconsMap
 }: Props) => {
   return (
-    <div className={styles["accordion-div"]}>
+    <Root
+      className={classes["accordion-div"]}
+      data-testid="mobile-tech-results-table"
+    >
       <Accordion>
         {documentsByProduct.map(([productName, assets], index) => {
           const key = `${
@@ -65,33 +71,33 @@ const MobileDocumentTechnicalTableResults = ({
                 return filteredAssets.map((asset, assetIndex) => (
                   <Accordion.Details
                     key={`${productName}-asset-${asset.id}-${index}-${assetIndex}`}
-                    className={styles["accordion-details"]}
+                    className={classes.accordionDetails}
                   >
-                    <div className={styles["icon-container"]}>
+                    <div className={classes.iconContainer}>
                       {!asset.isLinkDocument ? (
                         <Icon
-                          source={
-                            fileIconsMap[asset.format] || iconMap.FileUniversal
-                          }
-                          className={styles["format-icon"]}
+                          source={fileIconsMap[asset.format] || FileUniversal}
+                          className={classnames(
+                            classes.formatIcon,
+                            "format-icon"
+                          )}
                         />
                       ) : (
                         <Icon
-                          source={iconMap.External}
-                          className={styles["external-link-icon"]}
+                          source={External}
+                          className={classes.externalLinkIcon}
                         />
                       )}
                     </div>
-                    <div className={styles["icon-container"]}>
+                    <div className={classes.iconContainer}>
                       {assetType.code}
                     </div>
-                    <div className={styles["info-icon-container"]}>
+                    <div className={classes.infoIconContainer}>
                       <AssetHeader assetType={assetType} />
                     </div>
-                    <div className={styles["download-icon-container"]}>
+                    <div className={classes.downloadIconContainer}>
                       {!asset.isLinkDocument ? (
-                        <GTMClickable
-                          model="download"
+                        <GTMAnchorLink
                           href={asset.url}
                           download={asset.title}
                           gtm={{
@@ -101,10 +107,10 @@ const MobileDocumentTechnicalTableResults = ({
                           }}
                         >
                           <Icon
-                            source={iconMap.Download}
-                            className={styles["all-files-icon"]}
+                            source={Download}
+                            className={classes.allFilesIcon}
                           />
-                        </GTMClickable>
+                        </GTMAnchorLink>
                       ) : (
                         <GTMButton
                           isIconButton
@@ -123,8 +129,8 @@ const MobileDocumentTechnicalTableResults = ({
                           }}
                         >
                           <Icon
-                            source={iconMap.Download}
-                            className={styles["all-files-icon"]}
+                            source={Download}
+                            className={classes.allFilesIcon}
                           />
                         </GTMButton>
                       )}
@@ -136,7 +142,7 @@ const MobileDocumentTechnicalTableResults = ({
           );
         })}
       </Accordion>
-    </div>
+    </Root>
   );
 };
 

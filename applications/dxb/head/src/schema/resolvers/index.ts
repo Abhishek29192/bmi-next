@@ -49,7 +49,8 @@ export default {
   Query,
   System: {
     documents: System.documents,
-    relatedSystems: System.relatedSystems
+    relatedSystems: System.relatedSystems,
+    videos: System.videos
   },
   SystemLayer: {
     relatedProducts: System.relatedProducts,

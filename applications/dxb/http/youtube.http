@@ -1,0 +1,16 @@
+###
+
+# @name Get YouTube Video data
+
+@videoId=zmO4F_FfwFI
+GET https://www.googleapis.com/youtube/v3/videos?id={{videoId}}&key={{youtubeApiKey}}&part=snippet,contentDetails,statistics,status
+
+###
+
+# @name Get YouTube Video data with limited fields
+
+@videoId=1jZNCexngNQ
+GET https://www.googleapis.com/youtube/v3/videos?id={{videoId}}&key={{youtubeApiKey}}&maxWidth=9999&fields=items(id,player(embedHeight,embedWidth),snippet(thumbnails),status(uploadStatus))&part=snippet,status,player
+
+
+  

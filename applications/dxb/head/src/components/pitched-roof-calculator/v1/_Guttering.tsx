@@ -1,9 +1,7 @@
+import { CardRadioGroup, FormContext, Grid } from "@bmi-digital/components";
 import React, { useContext } from "react";
-import { CardRadioGroup } from "@bmi/components";
-import { Grid } from "@bmi/components";
-import { FormContext } from "@bmi/components";
-import { getMicroCopy, MicroCopyContext } from "../helpers/microCopy";
 import { AnalyticsContext } from "../helpers/analytics";
+import { getMicroCopy, MicroCopyContext } from "../helpers/microCopy";
 import {
   Guttering as GutteringType,
   GutteringVariant,
@@ -160,7 +158,7 @@ const DownPipeSelection = ({
     <>
       <FieldContainer title={getMicroCopy(copy, "guttering.downPipe.title")}>
         <Grid container>
-          <Grid item xs={12} md={3}>
+          <Grid xs={12} md={3}>
             <NumericInput
               name="downPipes"
               defaultValue={downPipes}
@@ -180,7 +178,7 @@ const DownPipeSelection = ({
         title={getMicroCopy(copy, "guttering.downPipeConnectors.title")}
       >
         <Grid container>
-          <Grid item xs={12} md={3}>
+          <Grid xs={12} md={3}>
             <NumericInput
               name="downPipeConnectors"
               defaultValue={downPipeConnectors}

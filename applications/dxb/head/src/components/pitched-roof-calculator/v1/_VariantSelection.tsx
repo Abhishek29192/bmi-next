@@ -1,8 +1,8 @@
+import { CardRadioGroup } from "@bmi-digital/components";
 import React, { useContext } from "react";
-import { CardRadioGroup } from "@bmi/components";
-import validateRangesAgainstPitchValues from "../helpers/validateRangesAgainstPitchValues";
-import getPitchValues from "../helpers/getPitchValues";
 import { AnalyticsContext } from "../helpers/analytics";
+import getPitchValues from "../helpers/getPitchValues";
+import validateRangesAgainstPitchValues from "../helpers/validateRangesAgainstPitchValues";
 import { MainTile, MainTileVariant, RangeValue } from "../types";
 import { DimensionsValues } from "../types/roof";
 import FieldContainer from "./subcomponents/_FieldContainer";

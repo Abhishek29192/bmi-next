@@ -40,6 +40,8 @@ jest.mock("@google-cloud/pubsub", () => {
 beforeEach(() => {
   process.env.GCP_PROJECT_ID = "TEST_GCP_PROJECT_ID";
   process.env.NON_PROD_ENV_NAME = "qa";
+  process.env.GATSBY_SITE_URL = "http://localhost:8000";
+  process.env.COUNTRY_CODE = "no";
   jest.resetAllMocks();
   jest.resetModules();
 });
@@ -57,27 +59,22 @@ describe("handleMessage", () => {
         item: product
       })
     );
-
     const transformedProduct = {
       catalog: "pim-catalog-name",
-      url: "/p/name-shadow-black-gloss-concrete-3464354221",
+      url: "http://localhost:8000/no/p/name-shadow-black-gloss-concrete-3464354221",
       variantCode: "variant-code"
     };
     transformProduct.mockReturnValue([transformedProduct]);
 
     await handleMessage(data, {});
     expect(publishMessage).toHaveBeenCalledWith({
-      json: {
-        type: "UPDATED",
-        itemType: "PRODUCTS",
-        item: [
-          {
-            catalog: "pim-catalog-name",
-            url: "/p/name-shadow-black-gloss-concrete-3464354221",
-            variantCode: "variant-code"
-          }
-        ]
-      }
+      json: [
+        {
+          catalog: "pim-catalog-name",
+          url: "http://localhost:8000/no/p/name-shadow-black-gloss-concrete-3464354221",
+          variantCode: "variant-code"
+        }
+      ]
     });
   });
   it("should execute correctly if type is UPDATED and itemType is SYSTEM", async () => {
@@ -90,24 +87,20 @@ describe("handleMessage", () => {
 
     const transformedSystem = {
       catalog: "pim-catalog-name",
-      url: "/s/name-1853176582",
+      url: "http://localhost:8000/no/s/name-1853176582",
       variantCode: "code"
     };
     transformProduct.mockReturnValue([transformedSystem]);
 
     await handleMessage(data, {});
     expect(publishMessage).toHaveBeenCalledWith({
-      json: {
-        type: "UPDATED",
-        itemType: "SYSTEMS",
-        item: [
-          {
-            catalog: "pim-catalog-name",
-            url: "/s/name-1853176582",
-            variantCode: "code"
-          }
-        ]
-      }
+      json: [
+        {
+          catalog: "pim-catalog-name",
+          url: "http://localhost:8000/no/s/name-1853176582",
+          variantCode: "code"
+        }
+      ]
     });
   });
   it("should execute correctly if type is DELETE and itemType is PRODUCTS", async () => {
@@ -122,24 +115,20 @@ describe("handleMessage", () => {
 
     const transformedProduct = {
       catalog: "pim-catalog-name",
-      url: "/p/name-shadow-black-gloss-concrete-3464354221",
+      url: "http://localhost:8000/no/p/name-shadow-black-gloss-concrete-3464354221",
       variantCode: "variant-code"
     };
     transformProduct.mockReturnValue([transformedProduct]);
 
     await handleMessage(data, {});
     expect(publishMessage).toHaveBeenCalledWith({
-      json: {
-        type: "DELETED",
-        itemType: "PRODUCTS",
-        item: [
-          {
-            catalog: "pim-catalog-name",
-            url: "/p/name-shadow-black-gloss-concrete-3464354221",
-            variantCode: "variant-code"
-          }
-        ]
-      }
+      json: [
+        {
+          catalog: "pim-catalog-name",
+          url: "http://localhost:8000/no/p/name-shadow-black-gloss-concrete-3464354221",
+          variantCode: "variant-code"
+        }
+      ]
     });
   });
   it("should execute correctly if type is DELETE and itemType is SYSTEM", async () => {
@@ -154,24 +143,20 @@ describe("handleMessage", () => {
 
     const transformedSystem = {
       catalog: "pim-catalog-name",
-      url: "/s/name-1853176582",
+      url: "http://localhost:8000/no/s/name-1853176582",
       variantCode: "code"
     };
     transformProduct.mockReturnValue([transformedSystem]);
 
     await handleMessage(data, {});
     expect(publishMessage).toHaveBeenCalledWith({
-      json: {
-        type: "DELETED",
-        itemType: "SYSTEMS",
-        item: [
-          {
-            catalog: "pim-catalog-name",
-            url: "/s/name-1853176582",
-            variantCode: "code"
-          }
-        ]
-      }
+      json: [
+        {
+          catalog: "pim-catalog-name",
+          url: "http://localhost:8000/no/s/name-1853176582",
+          variantCode: "code"
+        }
+      ]
     });
   });
 });

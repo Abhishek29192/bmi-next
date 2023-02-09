@@ -3,14 +3,15 @@
 exports[`Brands component renders correctly 1`] = `
 <div>
   <div
-    class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+    data-testid="grid-container"
   >
     <div
-      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-lg-6 MuiGrid-grid-xl-4"
+      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-12 MuiGrid2-grid-lg-6 MuiGrid2-grid-xl-4 Grid-item css-kslbn3-MuiGrid2-root"
+      data-testid="grid-item"
     >
       <a
-        aria-disabled="false"
-        class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+        class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
         data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: documentLibrary.card.download\\",\\"action\\":\\"http://localhost:9000/asset-filename.jpg\\"}"
         href="https:http://localhost:9000/asset-filename.jpg"
         rel="noopener noreferrer"
@@ -19,52 +20,50 @@ exports[`Brands component renders correctly 1`] = `
       >
         <img
           alt="contentful image alt text"
-          class="header-picture Media"
+          class="OverviewCard-headerPicture css-7mgsqw-Media"
           src="http://localhost:9000/image-filname.jpg"
           style="object-fit: cover; object-position: center;"
         />
         <div
-          class="body"
+          class="OverviewCard-body"
         >
           <h4
-            class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+            class="MuiTypography-root MuiTypography-h4 OverviewCard-title OverviewCard-noBrandLogo css-1ekntu4-MuiTypography-root"
+            data-testid="overview-card-body-title"
           >
             contentful document title
           </h4>
           <div
-            class="children text"
+            class="OverviewCard-text css-fm25tm"
           />
           <div
-            class="footer"
+            class="css-1tho2wt"
+            data-testid="overview-card-body-footer"
           >
             <span
-              aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 MuiButton-containedPrimary"
+              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
               role="button"
               tabindex="0"
+              type="button"
             >
+              MC: documentLibrary.card.download
               <span
-                class="MuiButton-label buttonStyles-label-4"
-              >
-                MC: documentLibrary.card.download
-              </span>
-              <span
-                class="MuiTouchRipple-root"
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
             </span>
           </div>
         </div>
         <span
-          class="MuiTouchRipple-root"
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
       </a>
     </div>
     <div
-      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-lg-6 MuiGrid-grid-xl-4"
+      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-12 MuiGrid2-grid-lg-6 MuiGrid2-grid-xl-4 Grid-item css-kslbn3-MuiGrid2-root"
+      data-testid="grid-item"
     >
       <a
-        aria-disabled="false"
-        class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+        class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
         data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: documentLibrary.card.download\\",\\"action\\":\\"http://localhost:9000/asset-filename.jpg\\"}"
         href="https:http://localhost:9000/asset-filename.jpg"
         rel="noopener noreferrer"
@@ -72,38 +71,36 @@ exports[`Brands component renders correctly 1`] = `
         target="_blank"
       >
         <div
-          class="body"
+          class="OverviewCard-body"
         >
           <h4
-            class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+            class="MuiTypography-root MuiTypography-h4 OverviewCard-title OverviewCard-noBrandLogo css-1ekntu4-MuiTypography-root"
+            data-testid="overview-card-body-title"
           >
             contentful document title
           </h4>
           <div
-            class="children text"
+            class="OverviewCard-text css-fm25tm"
           />
           <div
-            class="footer"
+            class="css-1tho2wt"
+            data-testid="overview-card-body-footer"
           >
             <span
-              aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 MuiButton-containedPrimary"
+              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
               role="button"
               tabindex="0"
+              type="button"
             >
+              MC: documentLibrary.card.download
               <span
-                class="MuiButton-label buttonStyles-label-4"
-              >
-                MC: documentLibrary.card.download
-              </span>
-              <span
-                class="MuiTouchRipple-root"
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
             </span>
           </div>
         </div>
         <span
-          class="MuiTouchRipple-root"
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
       </a>
     </div>
@@ -114,14 +111,15 @@ exports[`Brands component renders correctly 1`] = `
 exports[`Brands component renders correctly for mobile 1`] = `
 <div>
   <div
-    class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+    data-testid="grid-container"
   >
     <div
-      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-lg-6 MuiGrid-grid-xl-4"
+      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-12 MuiGrid2-grid-lg-6 MuiGrid2-grid-xl-4 Grid-item css-kslbn3-MuiGrid2-root"
+      data-testid="grid-item"
     >
       <a
-        aria-disabled="false"
-        class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+        class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
         data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: documentLibrary.card.download\\",\\"action\\":\\"http://localhost:9000/asset-filename.jpg\\"}"
         href="https:http://localhost:9000/asset-filename.jpg"
         rel="noopener noreferrer"
@@ -130,52 +128,50 @@ exports[`Brands component renders correctly for mobile 1`] = `
       >
         <img
           alt="contentful image alt text"
-          class="header-picture Media"
+          class="OverviewCard-headerPicture css-7mgsqw-Media"
           src="http://localhost:9000/image-filname.jpg"
           style="object-fit: cover; object-position: center;"
         />
         <div
-          class="body"
+          class="OverviewCard-body"
         >
           <h4
-            class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+            class="MuiTypography-root MuiTypography-h4 OverviewCard-title OverviewCard-noBrandLogo css-1ekntu4-MuiTypography-root"
+            data-testid="overview-card-body-title"
           >
             contentful document title
           </h4>
           <div
-            class="children text"
+            class="OverviewCard-text css-fm25tm"
           />
           <div
-            class="footer"
+            class="css-1tho2wt"
+            data-testid="overview-card-body-footer"
           >
             <span
-              aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-contained buttonStyles-contained-23 MuiButton-containedPrimary"
+              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
               role="button"
               tabindex="0"
+              type="button"
             >
+              MC: documentLibrary.card.download
               <span
-                class="MuiButton-label buttonStyles-label-24"
-              >
-                MC: documentLibrary.card.download
-              </span>
-              <span
-                class="MuiTouchRipple-root"
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
             </span>
           </div>
         </div>
         <span
-          class="MuiTouchRipple-root"
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
       </a>
     </div>
     <div
-      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-lg-6 MuiGrid-grid-xl-4"
+      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-12 MuiGrid2-grid-lg-6 MuiGrid2-grid-xl-4 Grid-item css-kslbn3-MuiGrid2-root"
+      data-testid="grid-item"
     >
       <a
-        aria-disabled="false"
-        class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+        class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
         data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: documentLibrary.card.download\\",\\"action\\":\\"http://localhost:9000/asset-filename.jpg\\"}"
         href="https:http://localhost:9000/asset-filename.jpg"
         rel="noopener noreferrer"
@@ -183,38 +179,36 @@ exports[`Brands component renders correctly for mobile 1`] = `
         target="_blank"
       >
         <div
-          class="body"
+          class="OverviewCard-body"
         >
           <h4
-            class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+            class="MuiTypography-root MuiTypography-h4 OverviewCard-title OverviewCard-noBrandLogo css-1ekntu4-MuiTypography-root"
+            data-testid="overview-card-body-title"
           >
             contentful document title
           </h4>
           <div
-            class="children text"
+            class="OverviewCard-text css-fm25tm"
           />
           <div
-            class="footer"
+            class="css-1tho2wt"
+            data-testid="overview-card-body-footer"
           >
             <span
-              aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-contained buttonStyles-contained-23 MuiButton-containedPrimary"
+              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
               role="button"
               tabindex="0"
+              type="button"
             >
+              MC: documentLibrary.card.download
               <span
-                class="MuiButton-label buttonStyles-label-24"
-              >
-                MC: documentLibrary.card.download
-              </span>
-              <span
-                class="MuiTouchRipple-root"
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
             </span>
           </div>
         </div>
         <span
-          class="MuiTouchRipple-root"
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
       </a>
     </div>

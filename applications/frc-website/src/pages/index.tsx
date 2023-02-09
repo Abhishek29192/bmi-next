@@ -1,6 +1,6 @@
-import { Button, Grid, Hero, Typography } from "@bmi/components";
-import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
-import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
+import { Button, Grid, Hero, Typography } from "@bmi-digital/components";
+import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
+import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import { Link } from "gatsby";
 import {
   parse as queryString,
@@ -49,7 +49,7 @@ const Home = () => (
           "BMI Icopal SBS Bitumen Systems are suitable for new build and refurbishment projects, they are available in a variety of colours finishes and offer 15 and 20 year guarantee options."
         }
       >
-        <Grid item>
+        <Grid>
           <Link
             to={getLink("sbs", { guarantee: "20" })}
             className={pageStyles.link}
@@ -57,7 +57,7 @@ const Home = () => (
             <Button>20 Year System</Button>
           </Link>
         </Grid>
-        <Grid item>
+        <Grid>
           <Link
             to={getLink("sbs", { guarantee: "15" })}
             className={pageStyles.link}

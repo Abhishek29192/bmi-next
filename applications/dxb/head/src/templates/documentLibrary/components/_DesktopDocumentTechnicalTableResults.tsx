@@ -2,18 +2,21 @@ import {
   Button,
   Clickable,
   ClickableProps,
+  Cross,
+  Download,
   DownloadList,
-  DownloadListContext,
+  External,
+  FileUniversal,
+  FileZIP,
   Icon,
   IconButtonProps,
-  iconMap,
   Table
-} from "@bmi/components";
+} from "@bmi-digital/components";
+import { PimProductDocument } from "@bmi/elasticsearch-types";
 import classnames from "classnames";
 import fetch, { Response } from "node-fetch";
-import React, { useContext } from "react";
+import React from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
-import { PimProductDocument } from "@bmi/elasticsearch-types";
 import createAssetFileCountMap, {
   AssetUniqueFileCountMap,
   generateFilenameByRealFileName,
@@ -21,12 +24,14 @@ import createAssetFileCountMap, {
 } from "../../../components/DocumentFileUtils";
 import { useSiteContext } from "../../../components/Site";
 import { Format } from "../../../components/types";
+import { QA_AUTH_TOKEN } from "../../../constants/cookieConstants";
 import { microCopy } from "../../../constants/microCopies";
 import { useConfig } from "../../../contexts/ConfigProvider";
 import { downloadAs } from "../../../utils/client-download";
+import getCookie from "../../../utils/getCookie";
 import withGTM from "../../../utils/google-tag-manager";
 import { AssetType } from "../types";
-import styles from "./styles/DocumentTechnicalTableResults.module.scss";
+import { classes, Root, Title } from "./DocumentTechnicalTableResultsStyles";
 import AssetHeader from "./_AssetHeader";
 
 interface Props {
@@ -44,8 +49,8 @@ const DesktopDocumentTechnicalTableResults = ({
     config: { documentDownloadEndpoint }
   } = useConfig();
   const { getMicroCopy } = useSiteContext();
-  const { list } = useContext(DownloadListContext);
   const { executeRecaptcha } = useGoogleReCaptcha();
+  const qaAuthToken = getCookie(QA_AUTH_TOKEN);
 
   const GTMClickable = withGTM<ClickableProps>(Clickable);
   const GTMButton = withGTM<IconButtonProps>(Button);
@@ -63,8 +68,8 @@ const DesktopDocumentTechnicalTableResults = ({
         }}
       >
         <Icon
-          source={fileIconsMap[asset.format] || iconMap.FileUniversal}
-          className={styles["format-icon"]}
+          source={fileIconsMap[asset.format] || FileUniversal}
+          className={classnames(classes.formatIcon, "format-icon")}
         />
       </GTMClickable>
     ) : (
@@ -83,13 +88,10 @@ const DesktopDocumentTechnicalTableResults = ({
           label: "Download",
           action: asset.url
         }}
-        className={styles["external-download-button"]}
+        className={classes.externalDownloadButton}
         disableTouchRipple={true}
       >
-        <Icon
-          source={iconMap.External}
-          className={styles["external-link-icon"]}
-        />
+        <Icon source={External} className={classes.externalLinkIcon} />
       </GTMButton>
     );
 
@@ -113,7 +115,7 @@ const DesktopDocumentTechnicalTableResults = ({
           zipFileName = `${assets[0].productName} ${assets[0].assetType.name}.zip`;
         }
 
-        const token = await executeRecaptcha();
+        const token = qaAuthToken ? undefined : await executeRecaptcha();
         const assetFileCountMap: AssetUniqueFileCountMap =
           createAssetFileCountMap(assets);
         const documents = assets.map((asset, index) => ({
@@ -129,12 +131,16 @@ const DesktopDocumentTechnicalTableResults = ({
                 )
         }));
 
+        let headers: HeadersInit = {
+          "Content-Type": "application/json",
+          "X-Recaptcha-Token": token
+        };
+        if (qaAuthToken) {
+          headers = { ...headers, authorization: `Bearer ${qaAuthToken}` };
+        }
         const response: Response = await fetch(documentDownloadEndpoint, {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "X-Recaptcha-Token": token
-          },
+          headers,
           body: JSON.stringify({ documents })
         });
 
@@ -166,18 +172,18 @@ const DesktopDocumentTechnicalTableResults = ({
           action: JSON.stringify(assets.map((asset) => asset.url))
         }}
         disableTouchRipple={true}
-        className={styles["external-download-button"]}
+        className={classes.externalDownloadButton}
       >
-        <Icon source={iconMap.FileZIP} className={styles["format-icon"]} />
+        <Icon source={FileZIP} className={classes.formatIcon} />
       </GTMButton>
     );
   };
 
   return (
-    <div className={styles["table-div"]}>
+    <Root data-testid="desktop-tech-results-table">
       <Table rowBgColorPattern="none">
         <Table.Head>
-          <Table.Row className={styles["header-row"]}>
+          <Table.Row className={classes.headerRow}>
             <Table.Cell>
               {getMicroCopy(microCopy.DOCUMENT_LIBRARY_HEADERS_PRODUCT)}
             </Table.Cell>
@@ -185,19 +191,19 @@ const DesktopDocumentTechnicalTableResults = ({
               return (
                 <Table.Cell
                   key={`asset-type-${assetType.code}-${index}`}
-                  className={styles["asset-type-cell"]}
+                  className={classes.assetTypeCell}
                 >
                   {assetType.code}
                   <AssetHeader assetType={assetType} />
                 </Table.Cell>
               );
             })}
-            <Table.Cell className={styles["all-files-header"]}>
-              <span className={styles["all-files-header-wrapper"]}>
-                <Icon
-                  source={iconMap.Download}
-                  className={styles["all-files-icon"]}
-                />
+            <Table.Cell
+              className={classes.allFilesHeader}
+              data-testid="download-file"
+            >
+              <span className={classes.allFilesHeaderWrapper}>
+                <Icon source={Download} className={classes.allFilesIcon} />
                 <span>
                   {getMicroCopy(microCopy.DOCUMENT_LIBRARY_HEADERS_ALL_FILES)}
                 </span>
@@ -214,16 +220,10 @@ const DesktopDocumentTechnicalTableResults = ({
               (asset) => asset.isLinkDocument
             );
             return (
-              <Table.Row
-                key={key}
-                className={classnames(styles["row"], {
-                  // eslint-disable-next-line security/detect-object-injection
-                  [styles["row--checked"]]: !!list[key]
-                })}
-              >
-                <Table.Cell>
+              <Table.Row key={key}>
+                <Title>
                   {assets.length > 0 ? assets[0].productName : productName}
-                </Table.Cell>
+                </Title>
                 {assetTypes.map((assetType, index) => {
                   const filteredAssets = assets.filter(
                     ({ assetType: { code } }) => code === assetType.code
@@ -233,11 +233,12 @@ const DesktopDocumentTechnicalTableResults = ({
                     return (
                       <Table.Cell
                         key={`${productName}-missing-asset-${index}`}
-                        className={styles["align-center"]}
+                        className={classes.alignCenter}
+                        data-testid={`file-does-not-exist-${productName}-missing-asset-${index}`}
                       >
                         <Icon
-                          source={iconMap.Cross}
-                          className={styles["no-document-icon"]}
+                          source={Cross}
+                          className={classes.noDocumentIcon}
                         />
                       </Table.Cell>
                     );
@@ -246,7 +247,8 @@ const DesktopDocumentTechnicalTableResults = ({
                   return (
                     <Table.Cell
                       key={`${productName}-asset-${assetType.code}`}
-                      className={styles["align-center"]}
+                      className={classes.alignCenter}
+                      data-testid={`download-file-icon-${productName}-asset-${assetType.code}`}
                     >
                       {filteredAssets.length === 1
                         ? singleDocument(filteredAssets[0])
@@ -254,7 +256,7 @@ const DesktopDocumentTechnicalTableResults = ({
                     </Table.Cell>
                   );
                 })}
-                <Table.Cell className={styles["align-center"]}>
+                <Table.Cell className={classes.alignCenter}>
                   {!hasOnlyExternalAssets && (
                     <DownloadList.Checkbox
                       name={key}
@@ -271,6 +273,7 @@ const DesktopDocumentTechnicalTableResults = ({
                         }
                         return acc + (curr.fileSize || 0);
                       }, 0)}
+                      data-testid={`download-file-checkbox-${key}`}
                     />
                   )}
                 </Table.Cell>
@@ -279,7 +282,7 @@ const DesktopDocumentTechnicalTableResults = ({
           })}
         </Table.Body>
       </Table>
-    </div>
+    </Root>
   );
 };
 
