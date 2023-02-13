@@ -16,11 +16,11 @@ exports[`Footer component renders correctly 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-mzs61s-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1ofaggo-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -67,7 +67,7 @@ exports[`Footer component renders correctly 1`] = `
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -203,11 +203,11 @@ exports[`Footer component renders without brand logo Icon if it is presented in 
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-mzs61s-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1ofaggo-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -254,7 +254,7 @@ exports[`Footer component renders without brand logo Icon if it is presented in 
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4

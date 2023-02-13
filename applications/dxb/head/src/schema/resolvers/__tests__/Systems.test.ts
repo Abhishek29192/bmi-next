@@ -119,7 +119,12 @@ describe("ContentfulServiceLocatorSection resolver", () => {
           realFileName: "real-file-name.pdf",
           title: "title",
           url: "http://localhost:8000/real-file-name.pdf",
-          assetType: "AWARDS"
+          assetType: {
+            pimCode: "AWARDS",
+            code: "AWRD",
+            id: "AWARD_ID",
+            name: "Awards"
+          }
         }
       ]);
     });

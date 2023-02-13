@@ -170,11 +170,11 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
         >
           <div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-odkohr-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1x7xhe2-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-hqxazy-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h6
@@ -2840,11 +2840,11 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-i24bwq-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-kjem04-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15vo8q2-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15wolfl-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -2937,7 +2937,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
               </div>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15vo8q2-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15wolfl-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -3135,11 +3135,11 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-mzs61s-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1ofaggo-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -3150,7 +3150,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
               </h4>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -3227,7 +3227,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -3304,7 +3304,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -3653,11 +3653,11 @@ exports[`Brand Landing Page Template render correctly 1`] = `
         >
           <div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-odkohr-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1x7xhe2-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-hqxazy-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h6
@@ -6370,11 +6370,11 @@ exports[`Brand Landing Page Template render correctly 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-mzs61s-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1ofaggo-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -6385,7 +6385,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
               </h4>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -6462,7 +6462,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -6539,7 +6539,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -6888,11 +6888,11 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
         >
           <div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-odkohr-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1x7xhe2-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-hqxazy-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h6
@@ -9539,11 +9539,11 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-i24bwq-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-kjem04-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15vo8q2-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15wolfl-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -9636,7 +9636,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
               </div>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15vo8q2-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15wolfl-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -9834,11 +9834,11 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-mzs61s-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1ofaggo-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -9849,7 +9849,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
               </h4>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -9926,7 +9926,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -10003,7 +10003,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -10352,11 +10352,11 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
         >
           <div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-odkohr-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1x7xhe2-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-hqxazy-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h6
@@ -12972,11 +12972,11 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-i24bwq-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-kjem04-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15vo8q2-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15wolfl-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -13069,7 +13069,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
               </div>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15vo8q2-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15wolfl-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -13267,11 +13267,11 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-mzs61s-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1ofaggo-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -13282,7 +13282,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
               </h4>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -13359,7 +13359,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -13436,7 +13436,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -13785,11 +13785,11 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
         >
           <div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-odkohr-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1x7xhe2-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-hqxazy-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h6
@@ -16434,11 +16434,11 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-i24bwq-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-kjem04-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15vo8q2-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15wolfl-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -16531,7 +16531,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
               </div>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15vo8q2-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15wolfl-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -16729,11 +16729,11 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-mzs61s-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1ofaggo-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -16744,7 +16744,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
               </h4>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -16821,7 +16821,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -16898,7 +16898,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -17247,11 +17247,11 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
         >
           <div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-odkohr-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1x7xhe2-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-hqxazy-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h6
@@ -19902,11 +19902,11 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-i24bwq-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-kjem04-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15vo8q2-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15wolfl-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -19999,7 +19999,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15vo8q2-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15wolfl-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -20167,11 +20167,11 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-mzs61s-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1ofaggo-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -20182,7 +20182,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
               </h4>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -20259,7 +20259,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -20336,7 +20336,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -20685,11 +20685,11 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
         >
           <div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-odkohr-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1x7xhe2-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-hqxazy-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h6
@@ -23340,11 +23340,11 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-i24bwq-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-kjem04-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15vo8q2-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15wolfl-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -23437,7 +23437,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15vo8q2-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15wolfl-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -23635,11 +23635,11 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-mzs61s-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1ofaggo-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -23650,7 +23650,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
               </h4>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -23727,7 +23727,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -23804,7 +23804,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -24153,11 +24153,11 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
         >
           <div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-odkohr-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1x7xhe2-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-hqxazy-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h6
@@ -26804,11 +26804,11 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-i24bwq-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-kjem04-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15vo8q2-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15wolfl-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -26901,7 +26901,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
               </div>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15vo8q2-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15wolfl-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -27099,11 +27099,11 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-mzs61s-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1ofaggo-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -27114,7 +27114,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
               </h4>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -27191,7 +27191,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -27268,7 +27268,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -27617,11 +27617,11 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
         >
           <div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-odkohr-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1x7xhe2-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-hqxazy-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h6
@@ -30280,11 +30280,11 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-i24bwq-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-kjem04-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15vo8q2-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15wolfl-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -30377,7 +30377,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
               </div>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15vo8q2-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15wolfl-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -30575,11 +30575,11 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-mzs61s-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1ofaggo-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -30590,7 +30590,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
               </h4>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -30667,7 +30667,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -30744,7 +30744,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -31093,11 +31093,11 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
         >
           <div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-odkohr-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1x7xhe2-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-hqxazy-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h6
@@ -33754,11 +33754,11 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-i24bwq-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-kjem04-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15vo8q2-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15wolfl-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -33851,7 +33851,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
               </div>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15vo8q2-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15wolfl-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -34049,11 +34049,11 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-mzs61s-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1ofaggo-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -34064,7 +34064,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
               </h4>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -34141,7 +34141,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -34218,7 +34218,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -34567,11 +34567,11 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
         >
           <div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-odkohr-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1x7xhe2-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-hqxazy-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h6
@@ -37230,11 +37230,11 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-i24bwq-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-kjem04-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15vo8q2-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15wolfl-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -37327,7 +37327,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
               </div>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15vo8q2-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15wolfl-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -37525,11 +37525,11 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-mzs61s-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1ofaggo-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -37540,7 +37540,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
               </h4>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -37617,7 +37617,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -37694,7 +37694,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -38043,11 +38043,11 @@ exports[`Brand Landing Page Template when description is more than 400 character
         >
           <div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-odkohr-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1x7xhe2-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-hqxazy-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h6
@@ -40706,11 +40706,11 @@ exports[`Brand Landing Page Template when description is more than 400 character
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-i24bwq-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-kjem04-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15vo8q2-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15wolfl-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -40803,7 +40803,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
               </div>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15vo8q2-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15wolfl-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -41001,11 +41001,11 @@ exports[`Brand Landing Page Template when description is more than 400 character
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-mzs61s-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1ofaggo-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -41016,7 +41016,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
               </h4>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -41093,7 +41093,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -41170,7 +41170,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4

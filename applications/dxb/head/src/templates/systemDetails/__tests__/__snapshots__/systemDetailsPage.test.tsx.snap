@@ -170,11 +170,11 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
         >
           <div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-odkohr-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1x7xhe2-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-hqxazy-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h6
@@ -2703,11 +2703,11 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-g1cazy-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
             data-testid="grid-item"
           >
             <p
@@ -2798,11 +2798,11 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1tv6qug-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-8 Grid-item css-1naspqc-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-8 Grid-item css-ec875g-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
@@ -2965,11 +2965,11 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-11fgxps-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-9e78s5-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <p
@@ -3062,7 +3062,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                 </p>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-abxfb-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-2kchrv-MuiGrid2-root"
                 data-testid="sidebar"
               >
                 <div
@@ -3116,11 +3116,11 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-g1cazy-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <p
@@ -3580,11 +3580,11 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
             MC: sdp.recommendedSystemsTitle
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1tv6qug-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-vb4yt3-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1wp0z7h-MuiGrid2-root"
               data-testid="grid-item"
             >
               <a
@@ -3709,11 +3709,11 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-mzs61s-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1ofaggo-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -3724,7 +3724,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
               </h4>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -3801,7 +3801,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -3878,7 +3878,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -4227,11 +4227,11 @@ exports[`SystemDetailsPage template component should render 1`] = `
         >
           <div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-odkohr-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1x7xhe2-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-hqxazy-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h6
@@ -6760,11 +6760,11 @@ exports[`SystemDetailsPage template component should render 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-g1cazy-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
             data-testid="grid-item"
           >
             <p
@@ -6827,11 +6827,11 @@ exports[`SystemDetailsPage template component should render 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1tv6qug-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-8 Grid-item css-1naspqc-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-8 Grid-item css-ec875g-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
@@ -6994,11 +6994,11 @@ exports[`SystemDetailsPage template component should render 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-11fgxps-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-9e78s5-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <p
@@ -7091,7 +7091,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                 </p>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-abxfb-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-2kchrv-MuiGrid2-root"
                 data-testid="sidebar"
               >
                 <div
@@ -7145,11 +7145,11 @@ exports[`SystemDetailsPage template component should render 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-g1cazy-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <p
@@ -7609,11 +7609,11 @@ exports[`SystemDetailsPage template component should render 1`] = `
             MC: sdp.recommendedSystemsTitle
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1tv6qug-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-vb4yt3-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1wp0z7h-MuiGrid2-root"
               data-testid="grid-item"
             >
               <a
@@ -7738,11 +7738,11 @@ exports[`SystemDetailsPage template component should render 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-mzs61s-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1ofaggo-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -7753,7 +7753,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
               </h4>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -7830,7 +7830,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -7907,7 +7907,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -8256,11 +8256,11 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
         >
           <div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-odkohr-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1x7xhe2-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-hqxazy-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h6
@@ -10793,11 +10793,11 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-g1cazy-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
               data-testid="grid-item"
             >
               <p
@@ -10860,11 +10860,11 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1tv6qug-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-8 Grid-item css-1naspqc-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-8 Grid-item css-ec875g-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -11027,11 +11027,11 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
               class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-11fgxps-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-9e78s5-MuiGrid2-root"
                 data-testid="grid-container"
               >
                 <div
-                  class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+                  class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
                   data-testid="grid-item"
                 >
                   <p
@@ -11124,7 +11124,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                   </p>
                 </div>
                 <div
-                  class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-abxfb-MuiGrid2-root"
+                  class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-2kchrv-MuiGrid2-root"
                   data-testid="sidebar"
                 >
                   <div
@@ -11178,11 +11178,11 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
               class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-g1cazy-MuiGrid2-root"
                 data-testid="grid-container"
               >
                 <div
-                  class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+                  class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
                   data-testid="grid-item"
                 >
                   <p
@@ -11642,11 +11642,11 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
               MC: sdp.recommendedSystemsTitle
             </h2>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1tv6qug-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-vb4yt3-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1wp0z7h-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <a
@@ -11772,11 +11772,11 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-mzs61s-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1ofaggo-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -11787,7 +11787,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
               </h4>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -11864,7 +11864,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -11941,7 +11941,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -12290,11 +12290,11 @@ exports[`SystemDetailsPage template component should render without BrandProvide
         >
           <div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-odkohr-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1x7xhe2-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-hqxazy-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h6
@@ -14823,11 +14823,11 @@ exports[`SystemDetailsPage template component should render without BrandProvide
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-g1cazy-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
             data-testid="grid-item"
           >
             <p
@@ -14890,11 +14890,11 @@ exports[`SystemDetailsPage template component should render without BrandProvide
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1tv6qug-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-8 Grid-item css-1naspqc-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-8 Grid-item css-ec875g-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
@@ -15057,11 +15057,11 @@ exports[`SystemDetailsPage template component should render without BrandProvide
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-11fgxps-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-9e78s5-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <p
@@ -15154,7 +15154,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                 </p>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-abxfb-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-2kchrv-MuiGrid2-root"
                 data-testid="sidebar"
               >
                 <div
@@ -15208,11 +15208,11 @@ exports[`SystemDetailsPage template component should render without BrandProvide
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-g1cazy-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <p
@@ -15672,11 +15672,11 @@ exports[`SystemDetailsPage template component should render without BrandProvide
             MC: sdp.recommendedSystemsTitle
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1tv6qug-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-vb4yt3-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1wp0z7h-MuiGrid2-root"
               data-testid="grid-item"
             >
               <a
@@ -15801,11 +15801,11 @@ exports[`SystemDetailsPage template component should render without BrandProvide
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-mzs61s-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1ofaggo-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -15816,7 +15816,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
               </h4>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -15893,7 +15893,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -15970,7 +15970,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -16319,11 +16319,11 @@ exports[`SystemDetailsPage template component should render without specificatio
         >
           <div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-odkohr-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1x7xhe2-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-hqxazy-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h6
@@ -18852,11 +18852,11 @@ exports[`SystemDetailsPage template component should render without specificatio
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-g1cazy-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
             data-testid="grid-item"
           >
             <p
@@ -18919,11 +18919,11 @@ exports[`SystemDetailsPage template component should render without specificatio
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1tv6qug-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-8 Grid-item css-1naspqc-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-8 Grid-item css-ec875g-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
@@ -19086,11 +19086,11 @@ exports[`SystemDetailsPage template component should render without specificatio
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-11fgxps-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-9e78s5-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <p
@@ -19144,7 +19144,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                 </p>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-abxfb-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-2kchrv-MuiGrid2-root"
                 data-testid="sidebar"
               >
                 <div
@@ -19198,11 +19198,11 @@ exports[`SystemDetailsPage template component should render without specificatio
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-g1cazy-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <p
@@ -19662,11 +19662,11 @@ exports[`SystemDetailsPage template component should render without specificatio
             MC: sdp.recommendedSystemsTitle
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1tv6qug-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-vb4yt3-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1wp0z7h-MuiGrid2-root"
               data-testid="grid-item"
             >
               <a
@@ -19791,11 +19791,11 @@ exports[`SystemDetailsPage template component should render without specificatio
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-mzs61s-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1ofaggo-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -19806,7 +19806,7 @@ exports[`SystemDetailsPage template component should render without specificatio
               </h4>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -19883,7 +19883,7 @@ exports[`SystemDetailsPage template component should render without specificatio
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -19960,7 +19960,7 @@ exports[`SystemDetailsPage template component should render without specificatio
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -20309,11 +20309,11 @@ exports[`SystemDetailsPage template component should render without systemLayers
         >
           <div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-odkohr-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1x7xhe2-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-hqxazy-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h6
@@ -22842,11 +22842,11 @@ exports[`SystemDetailsPage template component should render without systemLayers
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-g1cazy-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
             data-testid="grid-item"
           >
             <p
@@ -22909,11 +22909,11 @@ exports[`SystemDetailsPage template component should render without systemLayers
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1tv6qug-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-8 Grid-item css-1naspqc-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-8 Grid-item css-ec875g-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
@@ -23076,11 +23076,11 @@ exports[`SystemDetailsPage template component should render without systemLayers
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-11fgxps-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-9e78s5-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <p
@@ -23173,7 +23173,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                 </p>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-abxfb-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-2kchrv-MuiGrid2-root"
                 data-testid="sidebar"
               >
                 <div
@@ -23227,11 +23227,11 @@ exports[`SystemDetailsPage template component should render without systemLayers
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-g1cazy-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <p
@@ -23691,11 +23691,11 @@ exports[`SystemDetailsPage template component should render without systemLayers
             MC: sdp.recommendedSystemsTitle
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1tv6qug-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-vb4yt3-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1wp0z7h-MuiGrid2-root"
               data-testid="grid-item"
             >
               <a
@@ -23820,11 +23820,11 @@ exports[`SystemDetailsPage template component should render without systemLayers
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-mzs61s-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1ofaggo-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -23835,7 +23835,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
               </h4>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -23912,7 +23912,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -23989,7 +23989,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -24338,11 +24338,11 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
         >
           <div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-odkohr-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1x7xhe2-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-hqxazy-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h6
@@ -26871,11 +26871,11 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-g1cazy-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
             data-testid="grid-item"
           >
             <p
@@ -26938,11 +26938,11 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1tv6qug-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-8 Grid-item css-1naspqc-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-8 Grid-item css-ec875g-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
@@ -26960,7 +26960,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
             </div>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-4 Grid-item css-1abcfcq-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-4 Grid-item css-1vjtodw-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
@@ -27021,11 +27021,11 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                           class="MuiAccordionDetails-root  css-1r7u8wy-MuiAccordionDetails-root"
                         >
                           <div
-                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1f87dag-MuiGrid2-root"
+                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-6fxwz5-MuiGrid2-root"
                             data-testid="system-layer-details"
                           >
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-bg7cqz-MuiGrid2-root"
+                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-11yvfv9-MuiGrid2-root"
                               data-testid="grid-item"
                             >
                               <a
@@ -27040,7 +27040,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                               </a>
                             </div>
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-bg7cqz-MuiGrid2-root"
+                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-11yvfv9-MuiGrid2-root"
                               data-testid="grid-item"
                             >
                               <p
@@ -27051,7 +27051,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                               </p>
                             </div>
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-bg7cqz-MuiGrid2-root"
+                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-11yvfv9-MuiGrid2-root"
                               data-testid="grid-item"
                             >
                               <h5
@@ -27062,7 +27062,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                               </h5>
                             </div>
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-bg7cqz-MuiGrid2-root"
+                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-11yvfv9-MuiGrid2-root"
                               data-testid="grid-item"
                             >
                               <a
@@ -27231,11 +27231,11 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-11fgxps-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-9e78s5-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <p
@@ -27328,7 +27328,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                 </p>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-abxfb-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-2kchrv-MuiGrid2-root"
                 data-testid="sidebar"
               >
                 <div
@@ -27382,11 +27382,11 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-g1cazy-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <p
@@ -27846,11 +27846,11 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
             MC: sdp.recommendedSystemsTitle
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1tv6qug-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-vb4yt3-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1wp0z7h-MuiGrid2-root"
               data-testid="grid-item"
             >
               <a
@@ -27975,11 +27975,11 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-mzs61s-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1ofaggo-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -27990,7 +27990,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
               </h4>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -28067,7 +28067,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -28144,7 +28144,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -28493,11 +28493,11 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
         >
           <div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-odkohr-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1x7xhe2-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-hqxazy-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h6
@@ -31026,11 +31026,11 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-g1cazy-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
             data-testid="grid-item"
           >
             <p
@@ -31093,11 +31093,11 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1tv6qug-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-8 Grid-item css-1naspqc-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-8 Grid-item css-ec875g-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
@@ -31115,7 +31115,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
             </div>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-4 Grid-item css-1abcfcq-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-4 Grid-item css-1vjtodw-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
@@ -31176,11 +31176,11 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                           class="MuiAccordionDetails-root  css-1r7u8wy-MuiAccordionDetails-root"
                         >
                           <div
-                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1f87dag-MuiGrid2-root"
+                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-6fxwz5-MuiGrid2-root"
                             data-testid="system-layer-details"
                           >
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-bg7cqz-MuiGrid2-root"
+                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-11yvfv9-MuiGrid2-root"
                               data-testid="grid-item"
                             >
                               <a
@@ -31195,7 +31195,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                               </a>
                             </div>
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-bg7cqz-MuiGrid2-root"
+                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-11yvfv9-MuiGrid2-root"
                               data-testid="grid-item"
                             >
                               <p
@@ -31206,7 +31206,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                               </p>
                             </div>
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-bg7cqz-MuiGrid2-root"
+                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-11yvfv9-MuiGrid2-root"
                               data-testid="grid-item"
                             >
                               <h5
@@ -31217,7 +31217,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                               </h5>
                             </div>
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-bg7cqz-MuiGrid2-root"
+                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-11yvfv9-MuiGrid2-root"
                               data-testid="grid-item"
                             >
                               <a
@@ -31386,11 +31386,11 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-11fgxps-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-9e78s5-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <p
@@ -31483,7 +31483,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                 </p>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-abxfb-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-2kchrv-MuiGrid2-root"
                 data-testid="sidebar"
               >
                 <div
@@ -31537,11 +31537,11 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-g1cazy-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <p
@@ -32001,11 +32001,11 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
             MC: sdp.recommendedSystemsTitle
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1tv6qug-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-vb4yt3-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1wp0z7h-MuiGrid2-root"
               data-testid="grid-item"
             >
               <a
@@ -32130,11 +32130,11 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-mzs61s-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1ofaggo-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -32145,7 +32145,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
               </h4>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -32222,7 +32222,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -32299,7 +32299,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
