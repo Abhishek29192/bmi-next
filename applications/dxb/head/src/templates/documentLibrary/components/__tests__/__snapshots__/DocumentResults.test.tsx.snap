@@ -315,11 +315,11 @@ exports[`DocumentResults component cards: renders correctly 1`] = `
 exports[`DocumentResults component technicalTable: renders correctly 1`] = `
 <div>
   <div
-    class="css-ft346i"
+    class="css-upplgl"
     data-testid="tech-results-table"
   >
     <div
-      class="css-ft346i"
+      class="css-upplgl"
       data-testid="mobile-tech-results-table"
     >
       <div
@@ -397,7 +397,7 @@ exports[`DocumentResults component technicalTable: renders correctly 1`] = `
                       class="DocumentTechnicalTableResults-infoIconContainer"
                     >
                       <div
-                        class="css-ft346i"
+                        class="css-upplgl"
                         data-testid="asset-header-tech-results-table"
                       >
                         <div
