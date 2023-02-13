@@ -4,7 +4,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when in
 <body>
   <div>
     <div
-      class="css-ft346i"
+      class="css-upplgl"
       data-testid="mobile-tech-results-table"
     >
       <div
@@ -104,7 +104,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when in
                       class="DocumentTechnicalTableResults-infoIconContainer"
                     >
                       <div
-                        class="css-ft346i"
+                        class="css-upplgl"
                         data-testid="asset-header-tech-results-table"
                       >
                         <div
@@ -175,7 +175,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
 <body>
   <div>
     <div
-      class="css-ft346i"
+      class="css-upplgl"
       data-testid="mobile-tech-results-table"
     >
       <div
@@ -275,7 +275,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                       class="DocumentTechnicalTableResults-infoIconContainer"
                     >
                       <div
-                        class="css-ft346i"
+                        class="css-upplgl"
                         data-testid="asset-header-tech-results-table"
                       >
                         <div
@@ -380,7 +380,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                       class="DocumentTechnicalTableResults-infoIconContainer"
                     >
                       <div
-                        class="css-ft346i"
+                        class="css-upplgl"
                         data-testid="asset-header-tech-results-table"
                       >
                         <div
@@ -500,7 +500,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
 <body>
   <div>
     <div
-      class="css-ft346i"
+      class="css-upplgl"
       data-testid="mobile-tech-results-table"
     >
       <div
@@ -578,7 +578,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
                       class="DocumentTechnicalTableResults-infoIconContainer"
                     >
                       <div
-                        class="css-ft346i"
+                        class="css-upplgl"
                         data-testid="asset-header-tech-results-table"
                       >
                         <div
@@ -661,7 +661,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
                       class="DocumentTechnicalTableResults-infoIconContainer"
                     >
                       <div
-                        class="css-ft346i"
+                        class="css-upplgl"
                         data-testid="asset-header-tech-results-table"
                       >
                         <div
@@ -781,7 +781,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when on
 <body>
   <div>
     <div
-      class="css-ft346i"
+      class="css-upplgl"
       data-testid="mobile-tech-results-table"
     >
       <div
@@ -895,7 +895,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when va
 <body>
   <div>
     <div
-      class="css-ft346i"
+      class="css-upplgl"
       data-testid="mobile-tech-results-table"
     >
       <div
@@ -995,7 +995,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when va
                       class="DocumentTechnicalTableResults-infoIconContainer"
                     >
                       <div
-                        class="css-ft346i"
+                        class="css-upplgl"
                         data-testid="asset-header-tech-results-table"
                       >
                         <div
