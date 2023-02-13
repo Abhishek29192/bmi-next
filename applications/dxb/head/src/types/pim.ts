@@ -306,3 +306,17 @@ export type PLPFilterResponse = {
   filters: ProductFilter[];
   allowFilterBy: string[] | undefined;
 };
+
+export type ProductDocumentWithAssetType = Omit<
+  FirestoreProductDocument,
+  "assetType"
+> & {
+  assetType: AssetType;
+};
+
+export type SystemDocumentWithAssetType = Omit<
+  FirestoreSystemDocument,
+  "assetType"
+> & {
+  assetType: AssetType;
+};

@@ -1,13 +1,10 @@
-import {
-  Product,
-  ProductDocument as FirestoreProductDocument
-} from "../../../../libraries/firestore-types/src";
+import { Product } from "../../../../libraries/firestore-types/src";
 import {
   generateHashFromString,
   isDefined
 } from "../../../../libraries/utils/src";
 import { Data } from "../../components/Resources";
-import { AssetType } from "../../types/pim";
+import { AssetType, ProductDocumentWithAssetType } from "../../types/pim";
 import groupBy from "../../utils/groupBy";
 import { Resource } from "./types/Contentful";
 import { Context, Node, ResolveArgs } from "./types/Gatsby";
@@ -105,14 +102,16 @@ export default {
         { connectionType: "ContentfulAssetType" }
       );
 
-      const assetTypes = [...entries]
-        .filter(
-          (assetType) =>
-            !["BIM", "FIXING_TOOL", "SPECIFICATION", "VIDEO"].find(
-              (pimCode) => pimCode === assetType.pimCode
-            )
-        )
-        .map((assetType) => assetType.pimCode);
+      const marketAssetTypes = [...entries].filter(
+        (assetType) =>
+          !["BIM", "FIXING_TOOL", "SPECIFICATION", "VIDEO"].find(
+            (pimCode) => pimCode === assetType.pimCode
+          )
+      );
+
+      const validPimCodes = marketAssetTypes.map(
+        (assetType) => assetType.pimCode
+      );
       const { documentDisplayFormat } = await context.nodeModel.findOne<Data>(
         {
           query: { filter: marketFilters },
@@ -120,39 +119,42 @@ export default {
         },
         { connectionType: `ContentfulResources` }
       );
-      const documents: FirestoreProductDocument[] = source.documents
+      const documents: ProductDocumentWithAssetType[] = source.documents
         .filter(
           (document) =>
             document.assetType &&
-            assetTypes.some((assetType) => assetType === document.assetType)
+            validPimCodes.some((assetType) => assetType === document.assetType)
         )
         .map((doc) => ({
           ...doc,
-          internal: { type: "PIMDocument", owner: "@bmi/resolvers" }
+          internal: { type: "PIMDocument", owner: "@bmi/resolvers" },
+          assetType: marketAssetTypes.find(
+            (fullAssetType) => fullAssetType.pimCode === doc.assetType
+          )
         }));
 
       if (documentDisplayFormat === "Asset name") {
         return documents;
       }
 
-      const groupedDocuments: Record<string, FirestoreProductDocument[]> =
+      const groupedDocuments: Record<string, ProductDocumentWithAssetType[]> =
         documents.reduce((documents, document) => {
           return {
             ...documents,
-            [document.assetType]: [
-              ...(documents[document.assetType] || []),
+            [document.assetType.pimCode]: [
+              ...(documents[document.assetType.pimCode] || []),
               document
             ]
           };
         }, {});
       return Object.entries(groupedDocuments).flatMap(
-        ([assetType, documents]: [string, FirestoreProductDocument[]]) => {
+        ([pimcode, documents]: [string, ProductDocumentWithAssetType[]]) => {
           if (documents.length === 1) {
             return documents;
           }
-          const filterZipDocument: FirestoreProductDocument[] =
+          const filterZipDocument: ProductDocumentWithAssetType[] =
             documents.filter(
-              (document: FirestoreProductDocument) =>
+              (document) =>
                 !(
                   document.isLinkDocument ||
                   document.format === "application/zip"
@@ -163,7 +165,6 @@ export default {
               ? {
                   __typename: "PIMDocumentWithPseudoZip",
                   id: generateHashFromString(JSON.stringify(filterZipDocument)),
-                  assetType: filterZipDocument[0].assetType,
                   format: "application/zip",
                   fileSize: filterZipDocument.reduce(
                     (a, doc) => a + doc.fileSize,
@@ -177,9 +178,13 @@ export default {
                     type: "PIMDocumentWithPseudoZip",
                     owner: "@bmi/resolvers"
                   },
-                  title: filterZipDocument[0].assetType
+                  title: filterZipDocument[0].assetType.pimCode,
+                  assetType: marketAssetTypes.find(
+                    (fullAssetType) => fullAssetType.pimCode === pimcode
+                  )
                 }
               : filterZipDocument[0];
+
           return [
             ...documents.filter(
               (document) =>

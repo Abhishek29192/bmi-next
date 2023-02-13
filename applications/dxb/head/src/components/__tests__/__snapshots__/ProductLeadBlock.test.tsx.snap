@@ -201,11 +201,11 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
         role="tabpanel"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-g1cazy-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
             data-testid="grid-item"
           >
             <p
@@ -372,7 +372,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
             </p>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-abxfb-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-2kchrv-MuiGrid2-root"
             data-testid="product-benefits-post-it-card"
           >
             <div
@@ -443,11 +443,11 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
         role="tabpanel"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-g1cazy-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
@@ -1156,11 +1156,11 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
         role="tabpanel"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-180ih2o-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-19wrrnd-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
             data-testid="grid-item"
           >
             <p
@@ -1420,11 +1420,11 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
         role="tabpanel"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-g1cazy-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
             data-testid="grid-item"
           >
             <p
@@ -1591,7 +1591,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
             </p>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-abxfb-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-2kchrv-MuiGrid2-root"
             data-testid="product-benefits-post-it-card"
           >
             <div
@@ -1662,11 +1662,11 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
         role="tabpanel"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-g1cazy-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
@@ -2137,11 +2137,11 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
         role="tabpanel"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-180ih2o-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-19wrrnd-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
             data-testid="grid-item"
           >
             <p
@@ -2385,11 +2385,11 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
         role="tabpanel"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-g1cazy-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
             data-testid="grid-item"
           >
             <p
@@ -2556,7 +2556,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
             </p>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-abxfb-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-2kchrv-MuiGrid2-root"
             data-testid="product-benefits-post-it-card"
           >
             <div
@@ -2627,11 +2627,11 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
         role="tabpanel"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-g1cazy-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
@@ -2712,11 +2712,11 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
         role="tabpanel"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-180ih2o-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-19wrrnd-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
             data-testid="grid-item"
           >
             <p
@@ -3400,11 +3400,11 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
   role="tabpanel"
 >
   <div
-    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-g1cazy-MuiGrid2-root"
     data-testid="grid-container"
   >
     <div
-      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
       data-testid="grid-item"
     >
       <p
@@ -3571,7 +3571,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
       </p>
     </div>
     <div
-      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-abxfb-MuiGrid2-root"
+      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-2kchrv-MuiGrid2-root"
       data-testid="product-benefits-post-it-card"
     >
       <div
@@ -4326,11 +4326,11 @@ exports[`ProductLeadBlock tests should render the technical draws tab 1`] = `
   role="tabpanel"
 >
   <div
-    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-180ih2o-MuiGrid2-root"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-19wrrnd-MuiGrid2-root"
     data-testid="grid-container"
   >
     <div
-      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
       data-testid="grid-item"
     >
       <p

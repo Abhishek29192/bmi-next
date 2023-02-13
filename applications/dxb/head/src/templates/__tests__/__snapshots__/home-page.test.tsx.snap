@@ -170,11 +170,11 @@ exports[`Home Page Template render correctly with all data 1`] = `
         >
           <div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-odkohr-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1x7xhe2-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-hqxazy-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h6
@@ -2749,11 +2749,11 @@ exports[`Home Page Template render correctly with all data 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-i24bwq-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-kjem04-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15vo8q2-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15wolfl-MuiGrid2-root"
               data-testid="grid-item"
             >
               <a
@@ -2841,7 +2841,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
               </a>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15vo8q2-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15wolfl-MuiGrid2-root"
               data-testid="grid-item"
             >
               <a
@@ -2929,7 +2929,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
               </a>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15vo8q2-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-15wolfl-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -3084,11 +3084,11 @@ exports[`Home Page Template render correctly with all data 1`] = `
             MC: homepage.brands
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-i24bwq-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-kjem04-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-xl-3 Grid-item css-107cc4i-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-xl-3 Grid-item css-1beze55-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -3287,11 +3287,11 @@ exports[`Home Page Template render correctly with all data 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-mzs61s-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1ofaggo-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -3302,7 +3302,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
               </h4>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -3379,7 +3379,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -3456,7 +3456,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
