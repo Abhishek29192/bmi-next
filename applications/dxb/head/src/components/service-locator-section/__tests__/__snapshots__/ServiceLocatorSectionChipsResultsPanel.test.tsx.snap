@@ -19,11 +19,11 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1lim8s8-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-vvjsjl-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 search css-5h5sw-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 search css-xrsztz-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
@@ -146,7 +146,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
             </button>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-8 Grid-item css-1leinif-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-8 Grid-item css-on85h4-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
