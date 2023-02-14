@@ -13,11 +13,11 @@ exports[`MediaGallerySection component renders correctly 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1tv6qug-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-lg-8 Grid-item css-yk1k49-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-lg-8 Grid-item css-wuqcfn-MuiGrid2-root"
             data-testid="grid-item"
           >
             <h2
@@ -28,7 +28,7 @@ exports[`MediaGallerySection component renders correctly 1`] = `
             </h2>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 Grid-item css-1yxaa8s-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 Grid-item css-16fnxy3-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
@@ -245,11 +245,11 @@ exports[`MediaGallerySection component renders correctly with long description 1
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1tv6qug-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-lg-8 Grid-item css-yk1k49-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-lg-8 Grid-item css-wuqcfn-MuiGrid2-root"
             data-testid="grid-item"
           >
             <h2
@@ -280,7 +280,7 @@ exports[`MediaGallerySection component renders correctly with long description 1
             </div>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 Grid-item css-1yxaa8s-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 Grid-item css-16fnxy3-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div

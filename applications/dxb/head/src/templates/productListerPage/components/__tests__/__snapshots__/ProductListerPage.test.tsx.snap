@@ -103,11 +103,11 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
           >
             <div>
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-odkohr-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
                 data-testid="grid-container"
               >
                 <div
-                  class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-hqxazy-MuiGrid2-root"
+                  class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1n3tg82-MuiGrid2-root"
                   data-testid="grid-item"
                 >
                   <h6
@@ -636,15 +636,15 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-g1cazy-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               />
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-2kchrv-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
                 data-testid="key-features-post-it-card"
               >
                 <div
@@ -718,20 +718,20 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1tv6qug-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-11yvfv9-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-erfmfi-MuiGrid2-root"
                 data-testid="grid-item"
                 style="padding-top: 60px;"
               >
                 <div
-                  class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-d9pehl-MuiGrid2-root"
+                  class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-4qoxog-MuiGrid2-root"
                   data-testid="grid-container"
                 >
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-3 Grid-item css-ox4z8r-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-3 Grid-item css-1wis2jr-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -943,11 +943,11 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1ofaggo-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-mzs61s-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h4
@@ -1177,11 +1177,11 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
           >
             <div>
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-odkohr-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
                 data-testid="grid-container"
               >
                 <div
-                  class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-hqxazy-MuiGrid2-root"
+                  class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1n3tg82-MuiGrid2-root"
                   data-testid="grid-item"
                 >
                   <h6
@@ -1710,15 +1710,15 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-g1cazy-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               />
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-2kchrv-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
                 data-testid="key-features-post-it-card"
               >
                 <div
@@ -1798,20 +1798,20 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
               category-code-2
             </h2>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1tv6qug-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-11yvfv9-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-erfmfi-MuiGrid2-root"
                 data-testid="grid-item"
                 style="padding-top: 60px;"
               >
                 <div
-                  class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-d9pehl-MuiGrid2-root"
+                  class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-4qoxog-MuiGrid2-root"
                   data-testid="grid-container"
                 >
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-3 Grid-item css-ox4z8r-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-3 Grid-item css-1wis2jr-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -2023,11 +2023,11 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1ofaggo-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-mzs61s-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h4
@@ -2257,11 +2257,11 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
           >
             <div>
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-odkohr-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
                 data-testid="grid-container"
               >
                 <div
-                  class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-hqxazy-MuiGrid2-root"
+                  class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1n3tg82-MuiGrid2-root"
                   data-testid="grid-item"
                 >
                   <h6
@@ -2798,15 +2798,15 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-g1cazy-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               />
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-2kchrv-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
                 data-testid="key-features-post-it-card"
               >
                 <div
@@ -2880,11 +2880,11 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1tv6qug-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-3 Grid-item css-1dwccj9-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-3 Grid-item css-1wq2hvv-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <div>
@@ -3070,16 +3070,16 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 </div>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-9 Grid-item css-bytld4-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-9 Grid-item css-hwt01p-MuiGrid2-root"
                 data-testid="grid-item"
                 style="padding-top: 60px;"
               >
                 <div
-                  class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-d9pehl-MuiGrid2-root"
+                  class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-4qoxog-MuiGrid2-root"
                   data-testid="grid-container"
                 >
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -3291,11 +3291,11 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1ofaggo-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-mzs61s-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h4
@@ -3525,11 +3525,11 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
           >
             <div>
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-odkohr-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
                 data-testid="grid-container"
               >
                 <div
-                  class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-hqxazy-MuiGrid2-root"
+                  class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1n3tg82-MuiGrid2-root"
                   data-testid="grid-item"
                 >
                   <h6
@@ -4066,15 +4066,15 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-g1cazy-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               />
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-2kchrv-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
                 data-testid="key-features-post-it-card"
               >
                 <div
@@ -4148,11 +4148,11 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1tv6qug-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-3 Grid-item css-1dwccj9-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-3 Grid-item css-1wq2hvv-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <div>
@@ -4332,16 +4332,16 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 </div>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-9 Grid-item css-bytld4-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-9 Grid-item css-hwt01p-MuiGrid2-root"
                 data-testid="grid-item"
                 style="padding-top: 60px;"
               >
                 <div
-                  class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-d9pehl-MuiGrid2-root"
+                  class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-4qoxog-MuiGrid2-root"
                   data-testid="grid-container"
                 >
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -4553,11 +4553,11 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1ofaggo-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-mzs61s-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h4
@@ -4787,11 +4787,11 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
           >
             <div>
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-odkohr-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
                 data-testid="grid-container"
               >
                 <div
-                  class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-hqxazy-MuiGrid2-root"
+                  class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1n3tg82-MuiGrid2-root"
                   data-testid="grid-item"
                 >
                   <h6
@@ -5304,15 +5304,15 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-g1cazy-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               />
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-2kchrv-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
                 data-testid="key-features-post-it-card"
               >
                 <div
@@ -5386,11 +5386,11 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1tv6qug-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-3 Grid-item css-1dwccj9-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-3 Grid-item css-1wq2hvv-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <div>
@@ -5576,16 +5576,16 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 </div>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-9 Grid-item css-bytld4-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-9 Grid-item css-hwt01p-MuiGrid2-root"
                 data-testid="grid-item"
                 style="padding-top: 60px;"
               >
                 <div
-                  class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-d9pehl-MuiGrid2-root"
+                  class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-4qoxog-MuiGrid2-root"
                   data-testid="grid-container"
                 >
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -5797,11 +5797,11 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1ofaggo-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-mzs61s-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h4
@@ -6031,11 +6031,11 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
           >
             <div>
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-odkohr-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
                 data-testid="grid-container"
               >
                 <div
-                  class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-hqxazy-MuiGrid2-root"
+                  class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1n3tg82-MuiGrid2-root"
                   data-testid="grid-item"
                 >
                   <h6
@@ -6564,15 +6564,15 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-g1cazy-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               />
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-2kchrv-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
                 data-testid="key-features-post-it-card"
               >
                 <div
@@ -6646,16 +6646,16 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1tv6qug-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-11yvfv9-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-erfmfi-MuiGrid2-root"
                 data-testid="grid-item"
                 style="padding-top: 60px;"
               >
                 <div
-                  class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-d9pehl-MuiGrid2-root"
+                  class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-4qoxog-MuiGrid2-root"
                   data-testid="grid-container"
                 >
                   <p
@@ -6800,11 +6800,11 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1ofaggo-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-mzs61s-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h4
@@ -7034,11 +7034,11 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
           >
             <div>
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-odkohr-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
                 data-testid="grid-container"
               >
                 <div
-                  class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-hqxazy-MuiGrid2-root"
+                  class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1n3tg82-MuiGrid2-root"
                   data-testid="grid-item"
                 >
                   <h6
@@ -7567,15 +7567,15 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-g1cazy-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               />
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-2kchrv-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
                 data-testid="key-features-post-it-card"
               >
                 <div
@@ -7649,16 +7649,16 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1tv6qug-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-11yvfv9-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-erfmfi-MuiGrid2-root"
                 data-testid="grid-item"
                 style="padding-top: 60px;"
               >
                 <div
-                  class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-d9pehl-MuiGrid2-root"
+                  class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-4qoxog-MuiGrid2-root"
                   data-testid="grid-container"
                 >
                   <p
@@ -7803,11 +7803,11 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1ofaggo-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-mzs61s-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h4
@@ -8037,11 +8037,11 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
           >
             <div>
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-odkohr-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
                 data-testid="grid-container"
               >
                 <div
-                  class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-hqxazy-MuiGrid2-root"
+                  class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1n3tg82-MuiGrid2-root"
                   data-testid="grid-item"
                 >
                   <h6
@@ -8554,15 +8554,15 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-g1cazy-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               />
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-2kchrv-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
                 data-testid="key-features-post-it-card"
               >
                 <div
@@ -8636,20 +8636,20 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1tv6qug-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-11yvfv9-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-erfmfi-MuiGrid2-root"
                 data-testid="grid-item"
                 style="padding-top: 60px;"
               >
                 <div
-                  class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-d9pehl-MuiGrid2-root"
+                  class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-4qoxog-MuiGrid2-root"
                   data-testid="grid-container"
                 >
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-3 Grid-item css-ox4z8r-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-3 Grid-item css-1wis2jr-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -8861,11 +8861,11 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1ofaggo-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-mzs61s-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h4
@@ -9095,11 +9095,11 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
           >
             <div>
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-odkohr-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
                 data-testid="grid-container"
               >
                 <div
-                  class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-hqxazy-MuiGrid2-root"
+                  class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1n3tg82-MuiGrid2-root"
                   data-testid="grid-item"
                 >
                   <h6
@@ -9628,15 +9628,15 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-g1cazy-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               />
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-2kchrv-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
                 data-testid="key-features-post-it-card"
               >
                 <div
@@ -9710,11 +9710,11 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1tv6qug-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-3 Grid-item css-1dwccj9-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-3 Grid-item css-1wq2hvv-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <div>
@@ -9894,16 +9894,16 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                 </div>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-9 Grid-item css-bytld4-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-9 Grid-item css-hwt01p-MuiGrid2-root"
                 data-testid="grid-item"
                 style="padding-top: 60px;"
               >
                 <div
-                  class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-d9pehl-MuiGrid2-root"
+                  class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-4qoxog-MuiGrid2-root"
                   data-testid="grid-container"
                 >
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -10115,11 +10115,11 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1ofaggo-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-mzs61s-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h4
@@ -10349,11 +10349,11 @@ exports[`ProductListerPage template renders an default image if there is no imag
           >
             <div>
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-odkohr-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
                 data-testid="grid-container"
               >
                 <div
-                  class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-hqxazy-MuiGrid2-root"
+                  class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1n3tg82-MuiGrid2-root"
                   data-testid="grid-item"
                 >
                   <h6
@@ -10882,15 +10882,15 @@ exports[`ProductListerPage template renders an default image if there is no imag
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-g1cazy-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               />
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-2kchrv-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
                 data-testid="key-features-post-it-card"
               >
                 <div
@@ -10964,11 +10964,11 @@ exports[`ProductListerPage template renders an default image if there is no imag
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1tv6qug-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-3 Grid-item css-1dwccj9-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-3 Grid-item css-1wq2hvv-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <div>
@@ -11148,16 +11148,16 @@ exports[`ProductListerPage template renders an default image if there is no imag
                 </div>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-9 Grid-item css-bytld4-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-9 Grid-item css-hwt01p-MuiGrid2-root"
                 data-testid="grid-item"
                 style="padding-top: 60px;"
               >
                 <div
-                  class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-d9pehl-MuiGrid2-root"
+                  class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-4qoxog-MuiGrid2-root"
                   data-testid="grid-container"
                 >
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -11369,11 +11369,11 @@ exports[`ProductListerPage template renders an default image if there is no imag
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1ofaggo-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-mzs61s-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h4
@@ -11603,11 +11603,11 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
           >
             <div>
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-odkohr-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
                 data-testid="grid-container"
               >
                 <div
-                  class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-hqxazy-MuiGrid2-root"
+                  class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1n3tg82-MuiGrid2-root"
                   data-testid="grid-item"
                 >
                   <h6
@@ -12144,15 +12144,15 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-g1cazy-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               />
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-2kchrv-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
                 data-testid="key-features-post-it-card"
               >
                 <div
@@ -12226,11 +12226,11 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1tv6qug-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-3 Grid-item css-1dwccj9-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-3 Grid-item css-1wq2hvv-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <div>
@@ -12410,16 +12410,16 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                 </div>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-9 Grid-item css-bytld4-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-9 Grid-item css-hwt01p-MuiGrid2-root"
                 data-testid="grid-item"
                 style="padding-top: 60px;"
               >
                 <div
-                  class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-d9pehl-MuiGrid2-root"
+                  class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-4qoxog-MuiGrid2-root"
                   data-testid="grid-container"
                 >
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -12631,11 +12631,11 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1ofaggo-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-mzs61s-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h4
@@ -12865,11 +12865,11 @@ exports[`ProductListerPage template test handle change url by click on filters a
           >
             <div>
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-odkohr-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
                 data-testid="grid-container"
               >
                 <div
-                  class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-hqxazy-MuiGrid2-root"
+                  class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1n3tg82-MuiGrid2-root"
                   data-testid="grid-item"
                 >
                   <h6
@@ -13406,15 +13406,15 @@ exports[`ProductListerPage template test handle change url by click on filters a
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-g1cazy-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               />
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-2kchrv-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
                 data-testid="key-features-post-it-card"
               >
                 <div
@@ -13488,11 +13488,11 @@ exports[`ProductListerPage template test handle change url by click on filters a
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1tv6qug-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-3 Grid-item css-1dwccj9-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-3 Grid-item css-1wq2hvv-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <div>
@@ -13678,16 +13678,16 @@ exports[`ProductListerPage template test handle change url by click on filters a
                 </div>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-9 Grid-item css-bytld4-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-9 Grid-item css-hwt01p-MuiGrid2-root"
                 data-testid="grid-item"
                 style="padding-top: 60px;"
               >
                 <div
-                  class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-d9pehl-MuiGrid2-root"
+                  class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-4qoxog-MuiGrid2-root"
                   data-testid="grid-container"
                 >
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -13904,11 +13904,11 @@ exports[`ProductListerPage template test handle change url by click on filters a
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1ofaggo-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-mzs61s-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h4
@@ -14138,11 +14138,11 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
           >
             <div>
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-odkohr-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
                 data-testid="grid-container"
               >
                 <div
-                  class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-hqxazy-MuiGrid2-root"
+                  class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1n3tg82-MuiGrid2-root"
                   data-testid="grid-item"
                 >
                   <h6
@@ -14679,15 +14679,15 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-g1cazy-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               />
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-2kchrv-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
                 data-testid="key-features-post-it-card"
               >
                 <div
@@ -14761,11 +14761,11 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1tv6qug-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-3 Grid-item css-1dwccj9-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-3 Grid-item css-1wq2hvv-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <div>
@@ -14945,16 +14945,16 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                 </div>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-9 Grid-item css-bytld4-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-9 Grid-item css-hwt01p-MuiGrid2-root"
                 data-testid="grid-item"
                 style="padding-top: 60px;"
               >
                 <div
-                  class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-d9pehl-MuiGrid2-root"
+                  class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-4qoxog-MuiGrid2-root"
                   data-testid="grid-container"
                 >
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -15016,7 +15016,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -15078,7 +15078,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -15140,7 +15140,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -15202,7 +15202,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -15264,7 +15264,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -15326,7 +15326,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -15388,7 +15388,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -15450,7 +15450,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -15512,7 +15512,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -15574,7 +15574,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -15636,7 +15636,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -15698,7 +15698,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -15760,7 +15760,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -15822,7 +15822,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -15884,7 +15884,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -15946,7 +15946,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -16008,7 +16008,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -16070,7 +16070,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -16132,7 +16132,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -16194,7 +16194,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -16256,7 +16256,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -16318,7 +16318,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -16380,7 +16380,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -16442,7 +16442,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -16504,7 +16504,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -16566,7 +16566,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -16628,7 +16628,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -16690,7 +16690,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -16752,7 +16752,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -16980,11 +16980,11 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1ofaggo-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-mzs61s-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h4
@@ -17214,11 +17214,11 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
           >
             <div>
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-odkohr-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
                 data-testid="grid-container"
               >
                 <div
-                  class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-hqxazy-MuiGrid2-root"
+                  class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1n3tg82-MuiGrid2-root"
                   data-testid="grid-item"
                 >
                   <h6
@@ -17755,15 +17755,15 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-g1cazy-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-yk1k49-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               />
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-2kchrv-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
                 data-testid="key-features-post-it-card"
               >
                 <div
@@ -17837,11 +17837,11 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1tv6qug-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-3 Grid-item css-1dwccj9-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-3 Grid-item css-1wq2hvv-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <div>
@@ -18021,16 +18021,16 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                 </div>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-9 Grid-item css-bytld4-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-9 Grid-item css-hwt01p-MuiGrid2-root"
                 data-testid="grid-item"
                 style="padding-top: 60px;"
               >
                 <div
-                  class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-d9pehl-MuiGrid2-root"
+                  class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-4qoxog-MuiGrid2-root"
                   data-testid="grid-container"
                 >
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -18092,7 +18092,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -18154,7 +18154,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -18216,7 +18216,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -18278,7 +18278,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -18340,7 +18340,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -18402,7 +18402,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -18464,7 +18464,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -18526,7 +18526,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -18588,7 +18588,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -18650,7 +18650,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -18712,7 +18712,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -18774,7 +18774,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -18836,7 +18836,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -18898,7 +18898,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -18960,7 +18960,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -19022,7 +19022,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -19084,7 +19084,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -19146,7 +19146,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -19208,7 +19208,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -19270,7 +19270,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -19332,7 +19332,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -19394,7 +19394,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -19456,7 +19456,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -19518,7 +19518,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -19580,7 +19580,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -19642,7 +19642,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -19704,7 +19704,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -19766,7 +19766,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -19828,7 +19828,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     </a>
                   </div>
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-67r27b-MuiGrid2-root"
+                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-4 Grid-item css-1iodty4-MuiGrid2-root"
                     data-testid="grid-item"
                   >
                     <a
@@ -20056,11 +20056,11 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1ofaggo-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-mzs61s-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1lmqwpa-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h4
