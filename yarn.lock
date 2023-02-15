@@ -1156,10 +1156,10 @@
     react-swipeable-views-core "^0.14.0"
     react-swipeable-views-utils "^0.14.0"
 
-"@bmi-digital/components@^1.18.4":
-  version "1.18.4"
-  resolved "https://registry.yarnpkg.com/@bmi-digital/components/-/components-1.18.4.tgz#fef9e13bda897c24f80344ad3e20b375ada3559d"
-  integrity sha512-SClBCYjRHMfPO6oL9nENRRtunfniGb5WLzmOeQ8Ihl8RKQ20SlyTU1dIRVuoEhOhPut3qsqoc5wVtHy3avTSsg==
+"@bmi-digital/components@^1.18.5":
+  version "1.18.5"
+  resolved "https://registry.yarnpkg.com/@bmi-digital/components/-/components-1.18.5.tgz#a4eba40784f9391f374bbb2cb4094535ad0ef272"
+  integrity sha512-D7DsH48d+kVahsEsWaV7qQtT6Gs6JoqxPLGV7kn5nwN6Ca1toybwu7Uo/drkiME8psf6QoBqomhnZ8Kzbzu4PA==
   dependencies:
     "@bmi-digital/styles" "^1.4.0"
     "@bmi-digital/svg-import" "^1.4.0"
