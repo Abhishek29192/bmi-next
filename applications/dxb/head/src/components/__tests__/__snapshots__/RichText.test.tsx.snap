@@ -146,11 +146,27 @@ exports[`RichText component closes dialog 1`] = `
         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
       />
     </button>
-    <img
-      alt="Customer Support"
-      class="embedded-asset"
-      src="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png"
-    />
+    <picture>
+      <source
+        sizes="(max-width: 600px) 561px, (max-width: 720px) 665px, (max-width: 840px) 785px, (max-width: 1440px) 916px, 920px"
+        srcset="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=webp&q=50&w=561 561w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=webp&q=50&w=665 665w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=webp&q=50&w=785 785w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=webp&q=50&w=916 916w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=webp&q=50&w=920 920w"
+        type="image/webp"
+      />
+      <source
+        sizes="(max-width: 600px) 561px, (max-width: 720px) 665px, (max-width: 840px) 785px, (max-width: 1440px) 916px, 920px"
+        srcset="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?q=50&w=561 561w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?q=50&w=665 665w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?q=50&w=785 785w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?q=50&w=916 916w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?q=50&w=920 920w"
+      />
+      <img
+        alt="Customer Support"
+        class="embedded-asset"
+        data-main-image="true"
+        decoding="async"
+        draggable="false"
+        loading="lazy"
+        src="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=png&q=50&fl=progressive&w=920"
+        srcset="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=png&q=50&w=561 561w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=png&q=50&w=665 665w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=png&q=50&w=785 785w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=png&q=50&w=916 916w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=png&q=50&w=920 920w"
+      />
+    </picture>
     <p
       class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
       data-testid="typography"
@@ -336,11 +352,27 @@ exports[`RichText component renders correctly 1`] = `
         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
       />
     </button>
-    <img
-      alt="Customer Support"
-      class="embedded-asset"
-      src="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png"
-    />
+    <picture>
+      <source
+        sizes="(max-width: 600px) 561px, (max-width: 720px) 665px, (max-width: 840px) 785px, (max-width: 1440px) 916px, 920px"
+        srcset="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=webp&q=50&w=561 561w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=webp&q=50&w=665 665w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=webp&q=50&w=785 785w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=webp&q=50&w=916 916w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=webp&q=50&w=920 920w"
+        type="image/webp"
+      />
+      <source
+        sizes="(max-width: 600px) 561px, (max-width: 720px) 665px, (max-width: 840px) 785px, (max-width: 1440px) 916px, 920px"
+        srcset="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?q=50&w=561 561w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?q=50&w=665 665w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?q=50&w=785 785w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?q=50&w=916 916w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?q=50&w=920 920w"
+      />
+      <img
+        alt="Customer Support"
+        class="embedded-asset"
+        data-main-image="true"
+        decoding="async"
+        draggable="false"
+        loading="lazy"
+        src="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=png&q=50&fl=progressive&w=920"
+        srcset="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=png&q=50&w=561 561w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=png&q=50&w=665 665w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=png&q=50&w=785 785w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=png&q=50&w=916 916w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=png&q=50&w=920 920w"
+      />
+    </picture>
     <p
       class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
       data-testid="typography"
@@ -515,11 +547,27 @@ exports[`RichText component renders when dialog clicked 1`] = `
         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
       />
     </button>
-    <img
-      alt="Customer Support"
-      class="embedded-asset"
-      src="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png"
-    />
+    <picture>
+      <source
+        sizes="(max-width: 600px) 561px, (max-width: 720px) 665px, (max-width: 840px) 785px, (max-width: 1440px) 916px, 920px"
+        srcset="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=webp&q=50&w=561 561w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=webp&q=50&w=665 665w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=webp&q=50&w=785 785w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=webp&q=50&w=916 916w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=webp&q=50&w=920 920w"
+        type="image/webp"
+      />
+      <source
+        sizes="(max-width: 600px) 561px, (max-width: 720px) 665px, (max-width: 840px) 785px, (max-width: 1440px) 916px, 920px"
+        srcset="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?q=50&w=561 561w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?q=50&w=665 665w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?q=50&w=785 785w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?q=50&w=916 916w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?q=50&w=920 920w"
+      />
+      <img
+        alt="Customer Support"
+        class="embedded-asset"
+        data-main-image="true"
+        decoding="async"
+        draggable="false"
+        loading="lazy"
+        src="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=png&q=50&fl=progressive&w=920"
+        srcset="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=png&q=50&w=561 561w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=png&q=50&w=665 665w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=png&q=50&w=785 785w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=png&q=50&w=916 916w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=png&q=50&w=920 920w"
+      />
+    </picture>
     <p
       class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
       data-testid="typography"

@@ -1,6 +1,6 @@
 import { CTACard, Grid, GridSize, Section } from "@bmi-digital/components";
 import React from "react";
-import { renderImage } from "../../../components/Image";
+import Image from "../../../components/Image";
 import { getCTA } from "../../../components/Link";
 import { Data as SiteData } from "../../../components/Site";
 import { renderVideo } from "../../../components/Video";
@@ -37,9 +37,11 @@ export const PdpCardsSection = ({
               <CTACard
                 title={title}
                 media={
-                  featuredVideo
-                    ? renderVideo(featuredVideo)
-                    : renderImage(featuredMedia)
+                  featuredVideo ? (
+                    renderVideo(featuredVideo)
+                  ) : (
+                    <Image data={featuredMedia} />
+                  )
                 }
                 clickableArea={featuredVideo ? "heading" : "full"}
                 action={cta?.action}

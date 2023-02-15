@@ -5,6 +5,7 @@ import { DataTypeEnum } from "../../components/Link";
 import { Data as SlideData } from "../../components/Promo";
 import { createMockSiteData } from "../../test/mockSiteData";
 import { renderWithRouter } from "../../test/renderWithRouter";
+import createImageData from "../../__tests__/helpers/ImageDataHelper";
 import BrandLandingPage, {
   Props as BrandLandingPageData
 } from "../brand-landing-page";
@@ -206,47 +207,8 @@ describe("Brand Landing Page Template", () => {
   it("render firstslide featuredMedia instead when no featuredVideo", () => {
     const newData = { ...data };
     newData.contentfulBrandLandingPage.featuredVideo = null;
-    newData.contentfulBrandLandingPage.featuredMedia = {
-      type: null,
-      altText: "featuredMediaAltText",
-      focalPoint: null,
-      image: {
-        gatsbyImageData: {
-          images: {
-            sources: [
-              {
-                srcSet:
-                  "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w",
-                sizes: "(min-width: 948px) 948px, 100vw",
-                type: "image/webp"
-              }
-            ],
-            fallback: {
-              src: "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png",
-              srcSet:
-                "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w",
-              sizes: "(min-width: 948px) 948px, 100vw"
-            }
-          },
-          layout: "constrained",
-          backgroundColor: "#484848",
-          width: 948,
-          height: 720
-        },
-        file: {
-          fileName: "Lorem ipsum",
-          url: "//images.asset.jpg"
-        }
-      },
-      thumbnail: {
-        src: "//images.asset.jpg",
-        file: {
-          fileName: "Lorem ipsum",
-          url: "//images.asset.jpg"
-        }
-      }
-    };
-    const { container } = renderWithRouter(
+    newData.contentfulBrandLandingPage.featuredMedia = createImageData();
+    const { container, getByAltText } = renderWithRouter(
       <ThemeProvider>
         <BrandLandingPage
           data={newData}
@@ -257,7 +219,7 @@ describe("Brand Landing Page Template", () => {
 
     expect(container).toMatchSnapshot();
     expect(
-      container.querySelector("[alt='featuredMediaAltText']")
+      getByAltText(newData.contentfulBrandLandingPage.featuredMedia.altText)
     ).toBeTruthy();
   });
 
@@ -267,49 +229,10 @@ describe("Brand Landing Page Template", () => {
       {
         ...slide,
         featuredVideo: null,
-        featuredMedia: {
-          type: null,
-          altText: "featuredMediaAltText",
-          focalPoint: null,
-          image: {
-            gatsbyImageData: {
-              images: {
-                sources: [
-                  {
-                    srcSet:
-                      "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w",
-                    sizes: "(min-width: 948px) 948px, 100vw",
-                    type: "image/webp"
-                  }
-                ],
-                fallback: {
-                  src: "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png",
-                  srcSet:
-                    "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w",
-                  sizes: "(min-width: 948px) 948px, 100vw"
-                }
-              },
-              layout: "constrained",
-              backgroundColor: "#484848",
-              width: 948,
-              height: 720
-            },
-            file: {
-              fileName: "Lorem ipsum",
-              url: "//images.asset.jpg"
-            }
-          },
-          thumbnail: {
-            src: "//images.asset.jpg",
-            file: {
-              fileName: "Lorem ipsum",
-              url: "//images.asset.jpg"
-            }
-          }
-        }
+        featuredMedia: createImageData()
       }
     ];
-    const { container } = renderWithRouter(
+    const { container, getByAltText } = renderWithRouter(
       <ThemeProvider>
         <BrandLandingPage
           data={newData}
@@ -320,7 +243,7 @@ describe("Brand Landing Page Template", () => {
 
     expect(container).toMatchSnapshot();
     expect(
-      container.querySelector("[alt='featuredMediaAltText']")
+      getByAltText(newData.contentfulBrandLandingPage.featuredMedia.altText)
     ).toBeTruthy();
   });
 

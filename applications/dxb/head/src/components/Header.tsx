@@ -350,8 +350,8 @@ export const query = graphql`
         promos {
           ... on ContentfulPromoOrPage {
             __typename
-            ...PromoFragment
-            ...PageInfoFragment
+            ...PromoHeaderFragment
+            ...PageInfoHeaderFragment
           }
         }
         links {

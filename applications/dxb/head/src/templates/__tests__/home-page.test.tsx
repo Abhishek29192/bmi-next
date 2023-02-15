@@ -6,6 +6,7 @@ import { Data as SlideData } from "../../components/Promo";
 import { Data as SectionsData } from "../../components/Sections";
 import { createMockSiteData } from "../../test/mockSiteData";
 import { renderWithRouter } from "../../test/renderWithRouter";
+import createImageData from "../../__tests__/helpers/ImageDataHelper";
 import HomePage, { Props as HomePageData } from "../home-page";
 
 let isSpaEnabled: boolean;
@@ -79,138 +80,21 @@ describe("Home Page Template", () => {
       __typename: "ContentfulSimplePage",
       title: "Call to action",
       path: "some-page",
-      featuredMedia: {
-        type: null,
-        altText: "Lorem ipsum",
-        focalPoint: null,
-        image: {
-          gatsbyImageData: {
-            images: {
-              sources: [
-                {
-                  srcSet:
-                    "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w",
-                  sizes: "(min-width: 948px) 948px, 100vw",
-                  type: "image/webp"
-                }
-              ],
-              fallback: {
-                src: "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png",
-                srcSet:
-                  "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w",
-                sizes: "(min-width: 948px) 948px, 100vw"
-              }
-            },
-            layout: "constrained",
-            backgroundColor: "#484848",
-            width: 948,
-            height: 720
-          },
-          file: {
-            fileName: "Lorem ipsum",
-            url: "//images.asset.jpg"
-          }
-        },
-        thumbnail: {
-          src: "//images.asset.jpg",
-          file: {
-            fileName: "Lorem ipsum",
-            url: "//images.asset.jpg"
-          }
-        }
-      },
+      featuredMedia: createImageData(),
       featuredVideo: null
     },
     {
       __typename: "ContentfulSimplePage",
       title: "Call to action",
       path: "some-page",
-      featuredMedia: {
-        type: null,
-        altText: "Lorem ipsum",
-        focalPoint: null,
-        image: {
-          gatsbyImageData: {
-            images: {
-              sources: [
-                {
-                  srcSet:
-                    "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w",
-                  sizes: "(min-width: 948px) 948px, 100vw",
-                  type: "image/webp"
-                }
-              ],
-              fallback: {
-                src: "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png",
-                srcSet:
-                  "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w",
-                sizes: "(min-width: 948px) 948px, 100vw"
-              }
-            },
-            layout: "constrained",
-            backgroundColor: "#484848",
-            width: 948,
-            height: 720
-          },
-          file: {
-            fileName: "Lorem ipsum",
-            url: "//images.asset.jpg"
-          }
-        },
-        thumbnail: {
-          src: "//images.asset.jpg",
-          file: {
-            fileName: "Lorem ipsum",
-            url: "//images.asset.jpg"
-          }
-        }
-      },
+      featuredMedia: createImageData(),
       featuredVideo: null
     },
     {
       __typename: "ContentfulSimplePage",
       title: "Card with Video",
       path: "some-page",
-      featuredMedia: {
-        type: null,
-        altText: "Lorem ipsum",
-        focalPoint: null,
-        image: {
-          gatsbyImageData: {
-            images: {
-              sources: [
-                {
-                  srcSet:
-                    "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w",
-                  sizes: "(min-width: 948px) 948px, 100vw",
-                  type: "image/webp"
-                }
-              ],
-              fallback: {
-                src: "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png",
-                srcSet:
-                  "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w",
-                sizes: "(min-width: 948px) 948px, 100vw"
-              }
-            },
-            layout: "constrained",
-            backgroundColor: "#484848",
-            width: 948,
-            height: 720
-          },
-          file: {
-            fileName: "Lorem ipsum",
-            url: "//images.asset.jpg"
-          }
-        },
-        thumbnail: {
-          src: "//images.asset.jpg",
-          file: {
-            fileName: "Lorem ipsum",
-            url: "//images.asset.jpg"
-          }
-        }
-      },
+      featuredMedia: createImageData(),
       featuredVideo: {
         __typename: "ContentfulVideo",
         title: "video title",
@@ -364,53 +248,16 @@ describe("Home Page Template", () => {
     isSpaEnabled = true;
     isGatsbyDisabledElasticSearch = false;
     slide.__typename = null;
-    slide.featuredMedia = {
-      type: null,
-      altText: "Lorem ipsum ContentfulImage",
-      focalPoint: null,
-      image: {
-        gatsbyImageData: {
-          images: {
-            sources: [
-              {
-                srcSet:
-                  "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w",
-                sizes: "(min-width: 948px) 948px, 100vw",
-                type: "image/webp"
-              }
-            ],
-            fallback: {
-              src: "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png",
-              srcSet:
-                "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w",
-              sizes: "(min-width: 948px) 948px, 100vw"
-            }
-          },
-          layout: "constrained",
-          backgroundColor: "#484848",
-          width: 948,
-          height: 720
-        },
-        file: {
-          fileName: "Lorem ipsum",
-          url: "//images.asset.jpg"
-        }
-      },
-      thumbnail: {
-        src: "//images.asset.jpg",
-        file: {
-          fileName: "Lorem ipsum",
-          url: "//images.asset.jpg"
-        }
-      }
-    };
+    slide.featuredMedia = createImageData({
+      altText: "Lorem ipsum ContentfulImage"
+    });
 
     slide.featuredVideo = null;
     slide.cta = null;
     data.contentfulSite.resources = null;
     data.contentfulHomePage.spaBrands = [];
 
-    const { container, getByAltText } = renderWithRouter(
+    const { container, queryByAltText } = renderWithRouter(
       <ThemeProvider>
         <HomePage data={data} pageContext={null} />
       </ThemeProvider>
@@ -419,7 +266,7 @@ describe("Home Page Template", () => {
     expect(
       container.querySelector("[class*=Hero-root] [class*=YoutubeVideo-root]")
     ).not.toBeInTheDocument();
-    expect(getByAltText("Lorem ipsum ContentfulImage")).toBeInTheDocument();
+    expect(queryByAltText(slide.featuredMedia.altText)).toBeInTheDocument();
   });
 
   it("render page with brands", () => {

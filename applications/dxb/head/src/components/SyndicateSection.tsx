@@ -9,10 +9,10 @@ import { graphql } from "gatsby";
 import React from "react";
 import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
-import { renderImage } from "./Image";
+import Image from "./Image";
 import Link, { getCTA } from "./Link";
-import { Data as PageInfoData } from "./PageInfo";
-import { Data as PromoData } from "./Promo";
+import type { Data as PageInfoData } from "./PageInfo";
+import type { Data as PromoData } from "./Promo";
 import RichText from "./RichText";
 import { useSiteContext } from "./Site";
 import { renderVideo } from "./Video";
@@ -73,9 +73,11 @@ const SyndicateSection = ({
       ) : (
         transformHyphens(data.subtitle)
       ),
-      media: data.featuredVideo
-        ? renderVideo(data.featuredVideo)
-        : renderImage(data.featuredMedia, { size: "cover" }),
+      media: data.featuredVideo ? (
+        renderVideo(data.featuredVideo)
+      ) : (
+        <Image data={data.featuredMedia} size="cover" />
+      ),
       cta: callToAction
     };
   });
@@ -123,8 +125,8 @@ export const query = graphql`
     title
     villains {
       ... on ContentfulPromoOrPage {
-        ...PromoFragment
-        ...PageInfoFragment
+        ...PromoVillainFragment
+        ...PageInfoVillainFragment
       }
     }
     isReversed

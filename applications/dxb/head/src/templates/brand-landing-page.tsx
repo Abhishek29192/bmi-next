@@ -13,16 +13,16 @@ import BrandLogo from "../components/BrandLogo";
 import Breadcrumbs, {
   Data as BreadcrumbsData
 } from "../components/Breadcrumbs";
-import { renderImage } from "../components/Image";
+import Image from "../components/Image";
 import Link from "../components/Link";
 import OverlapCards, {
   Data as OverlapCardData
 } from "../components/OverlapCards";
 import Page, { Data as PageData } from "../components/Page";
-import { Data as PageInfoData } from "../components/PageInfo";
-import { Data as SlideData } from "../components/Promo";
+import type { Data as PageInfoData } from "../components/PageInfo";
+import type { Data as SlideData } from "../components/Promo";
 import Sections, { Data as SectionsData } from "../components/Sections";
-import { Data as SiteData } from "../components/Site";
+import type { Data as SiteData } from "../components/Site";
 import { renderVideo } from "../components/Video";
 import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
@@ -59,9 +59,11 @@ const getHeroItemsWithContext = (
       return {
         title,
         children: subtitle,
-        media: featuredVideo
-          ? renderVideo(featuredVideo)
-          : renderImage(featuredMedia, { size: "cover" }),
+        media: featuredVideo ? (
+          renderVideo(featuredVideo)
+        ) : (
+          <Image data={featuredMedia} size="cover" />
+        ),
         cta:
           rest.__typename === "ContentfulPromo" ? (
             <Link component={Button} data={rest.cta}>
@@ -117,9 +119,11 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
           description?.description.length > 400 ? "..." : ""
         }`
       : null,
-    media: featuredVideo
-      ? renderVideo(featuredVideo)
-      : renderImage(featuredMedia, { size: "cover" }),
+    media: featuredVideo ? (
+      renderVideo(featuredVideo)
+    ) : (
+      <Image data={featuredMedia} size="cover" />
+    ),
     hasUnderline: false,
     cta: cta ? (
       <Link component={Button} data={cta}>
@@ -196,7 +200,7 @@ export const pageQuery = graphql`
       slides {
         ... on ContentfulPromoOrPage {
           ...PromoFragment
-          ...PageInfoFragment
+          ...BasePageInfoFragment
         }
       }
       overlapCards {
@@ -206,9 +210,9 @@ export const pageQuery = graphql`
         ...SectionsFragment
       }
       parentPage {
-        ...PageInfoFragment
+        ...BasePageInfoFragment
       }
-      ...PageInfoFragment
+      ...BasePageInfoFragment
       ...PageFragment
       ...BreadcrumbsFragment
     }

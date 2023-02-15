@@ -65,7 +65,7 @@ export const query = graphql`
     documentDisplayFormat
     sampleBasketLink {
       ... on ContentfulSimplePage {
-        ...PageInfoFragment
+        ...BasePageInfoFragment
         sections {
           ... on ContentfulSampleBasketSection {
             title
@@ -75,8 +75,8 @@ export const query = graphql`
     }
     pdpCards {
       ... on ContentfulPromoOrPage {
-        ...PromoFragment
-        ...PageInfoFragment
+        ...PromoCardFragment
+        ...PageInfoCardFragment
       }
     }
     pdpExploreBar {

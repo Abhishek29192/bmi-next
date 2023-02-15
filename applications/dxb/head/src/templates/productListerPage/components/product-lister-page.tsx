@@ -506,7 +506,7 @@ export const pageQuery = graphql`
     $allowFilterBy: [String!]
   ) {
     contentfulProductListerPage(id: { eq: $pageId }) {
-      ...PageInfoFragment
+      ...PageInfoHeroFragment
       ...PageFragment
       ...BreadcrumbsFragment
       content {

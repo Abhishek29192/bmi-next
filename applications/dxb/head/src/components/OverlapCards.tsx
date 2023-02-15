@@ -3,7 +3,7 @@ import ButtonBase, { ButtonBaseProps } from "@mui/material/ButtonBase";
 import { graphql } from "gatsby";
 import React from "react";
 import withGTM from "../utils/google-tag-manager";
-import { renderImage } from "./Image";
+import Image from "./Image";
 import { getCTA } from "./Link";
 import { Data as PageInfoData } from "./PageInfo";
 import { Data as PromoData } from "./Promo";
@@ -49,9 +49,11 @@ const IntegratedOverlapCards = ({ data }: { data?: Data }) => {
                     />
                   )}
                   media={
-                    featuredVideo
-                      ? renderVideo(featuredVideo)
-                      : renderImage(featuredMedia)
+                    featuredVideo ? (
+                      renderVideo(featuredVideo)
+                    ) : (
+                      <Image data={featuredMedia} />
+                    )
                   }
                   clickableArea={featuredVideo ? "heading" : "full"}
                   action={cta?.action}

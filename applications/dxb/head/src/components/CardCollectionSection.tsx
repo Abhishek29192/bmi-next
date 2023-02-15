@@ -12,14 +12,14 @@ import {
   Typography,
   withClickable
 } from "@bmi-digital/components";
-import ButtonBase, { ButtonBaseProps } from "@mui/material/ButtonBase";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import ButtonBase, { ButtonBaseProps } from "@mui/material/ButtonBase";
 import { graphql } from "gatsby";
 import React, { memo, useMemo, useState } from "react";
 import { microCopy } from "../constants/microCopies";
 import withGTM from "../utils/google-tag-manager";
 import { iconMap } from "./Icon";
-import { renderImage } from "./Image";
+import Image from "./Image";
 import Link, { Data as LinkData } from "./Link";
 import { Data as PageInfoData } from "./PageInfo";
 import { Data as PromoData } from "./Promo";
@@ -96,11 +96,13 @@ const CardCollectionItem = ({
     <OverviewCard
       title={title || name}
       media={
-        type !== "Text Card"
-          ? featuredVideo
-            ? renderVideo(featuredVideo)
-            : renderImage(featuredMedia)
-          : undefined
+        type !== "Text Card" ? (
+          featuredVideo ? (
+            renderVideo(featuredVideo)
+          ) : (
+            <Image data={featuredMedia} />
+          )
+        ) : undefined
       }
       isFlat={isFlat}
       // eslint-disable-next-line security/detect-object-injection
