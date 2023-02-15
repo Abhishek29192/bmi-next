@@ -92,10 +92,10 @@ export const tagAndUpdate = async (environment: Environment) => {
   }
 };
 
-export const publishAll = async (environment: Environment) => {
+export const publishAll = async (environment: Environment, tag?: string) => {
   const iterators = [
-    fetchAllEntries(environment, MAX_BULK_ITEMS),
-    fetchAllAssets(environment, MAX_BULK_ITEMS)
+    fetchAllEntries(environment, MAX_BULK_ITEMS, tag),
+    fetchAllAssets(environment, MAX_BULK_ITEMS, tag)
   ];
 
   let runs = 0;
@@ -176,7 +176,9 @@ export const fillDefaultValues = async (
     throw new Error("Could not find irrelevant locales");
   }
 
-  console.log(`Populating these locales: ${localesToBePopulated}`);
+  console.log(
+    `Populating these locales: ${JSON.stringify(localesToBePopulated)}`
+  );
 
   for (const iterator of iterators) {
     let itrResult = await iterator.next();

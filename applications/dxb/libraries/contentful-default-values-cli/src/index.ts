@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { fillDefaultValues } from "@bmi/cms-consolidation-utility";
+import { fillDefaultValues, publishAll } from "@bmi/cms-consolidation-utility";
 import { createClient } from "contentful-management";
 import { config } from "dotenv";
 
@@ -31,6 +31,9 @@ export async function main(tag: string, ...locales: string[]): Promise<void> {
   );
 
   await fillDefaultValues(environment, tag, locales);
+  if (process.env.PUBLISH_ALL === "true") {
+    await publishAll(environment, tag);
+  }
 }
 
 main(process.argv[2], ...process.argv.slice(3));
