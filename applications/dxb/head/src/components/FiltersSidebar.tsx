@@ -37,7 +37,7 @@ const FiltersSidebar = ({
   );
 
   return (
-    <div>
+    <div data-testid="filter-sidebar-main">
       <div
         style={{
           display: "flex",
@@ -45,8 +45,9 @@ const FiltersSidebar = ({
           justifyContent: "space-between",
           marginBottom: 4
         }}
+        data-testid="filter-sidebar-header"
       >
-        <Typography variant="h5">
+        <Typography variant="h5" data-testid="filter-sidebar-header-text">
           {getMicroCopy(microCopy.PLP_FILTERS_TITLE)}
         </Typography>
         <Button
@@ -90,6 +91,7 @@ const FiltersSidebar = ({
             {...props}
           />
         )}
+        data-testid="filter-sidebar-filters"
       />
     </div>
   );

@@ -4,6 +4,11 @@ import { Context, Node } from "../types/Gatsby";
 
 jest.mock("../../../utils/systems");
 
+jest.mock("../utils/getDefaultYoutubePreviewImage", () => ({
+  getDefaultYoutubePreviewImage: () =>
+    "https://i.ytimg.com/vi/3901c0ds7oo/maxresdefault.jpg"
+}));
+
 const context: Context = {
   nodeModel: {
     getNodeById: jest.fn().mockResolvedValue({ subtitle: "subtitle" }),
