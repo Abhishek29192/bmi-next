@@ -16,7 +16,7 @@ const Locations = ({ data }: { data: Data }) => {
   const [numberVisible, setNumberVisible] = useState(LOCATIONS_PER_PAGE);
 
   const locationCards = (
-    <Grid spacing={3}>
+    <Grid container={data.length > 1} spacing={3}>
       {data.slice(0, numberVisible).map((data, index) => {
         const locationKey = `locations-card-${index}`;
         return (
