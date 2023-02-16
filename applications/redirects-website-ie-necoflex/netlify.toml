@@ -1,0 +1,540 @@
+# Settings in the [build] context are global and are applied to all contexts
+# unless otherwise overridden by more specific contexts.
+
+[build]
+  # nothing to build here, this instance is for redirects only
+  ignore = "git diff --quiet HEAD^ HEAD sub_dir/"
+
+  publish = "public/"
+
+  # Default build command.
+
+[[redirects]]
+ from="/ie"
+ to="https://www.bmigroup.com/ie"
+ force=true
+
+[[redirects]]
+ from="/about-necoflex.aspx"
+ to="https://www.bmigroup.com/ie/about-us"
+ force=true
+
+
+ #[[redirects]]
+ #from="/"
+ #to="https://www.bmigroup.com/ie/"
+ #force=true
+
+[[redirects]]
+ from="/about-necoflex.aspx"
+ to="https://www.bmigroup.com/ie/about-us"
+ force=true
+
+[[redirects]]
+ from="/about-necoflex/our-services.aspx"
+ to="https://www.bmigroup.com/ie/support"
+ force=true
+
+[[redirects]]
+ from="/support.aspx"
+ to="https://www.bmigroup.com/ie/support"
+ force=true
+
+[[redirects]]
+ from="/support/architects.aspx"
+ to="https://www.bmigroup.com/ie/about-us/partner-with-us/architects"
+ force=true
+
+[[redirects]]
+ from="/support/CPD_Seminars.aspx"
+ to="https://www.bmigroup.com/ie/bmi-academy/training-courses-and-cpd"
+ force=true
+
+[[redirects]]
+ from="/support/contractors.aspx"
+ to="https://www.bmigroup.com/ie/about-us/partner-with-us/main-contractors"
+ force=true
+
+[[redirects]]
+ from="/support/distributors.aspx"
+ to="https://www.bmigroup.com/ie/about-us/partner-with-us/distribution-partners"
+ force=true
+
+[[redirects]]
+ from="/support/owners.aspx"
+ to="https://www.bmigroup.com/ie/about-us/partner-with-us/building-owners"
+ force=true
+
+[[redirects]]
+ from="/products.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products"
+ force=true
+
+[[redirects]]
+ from="/products/radon-barrier.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/monarflex-structural-waterproofing"
+ force=true
+
+[[redirects]]
+ from="/products/radon-barrier/monarflex-rac.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/structural-waterproofing/monarflex-radon-air-moisture-protection-systems/"
+ force=true
+
+[[redirects]]
+ from="/products/radon-barrier/monarflex-reflex-super.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/structural-waterproofing/monarflex-radon-air-moisture-protection-systems/"
+ force=true
+
+[[redirects]]
+ from="/products/radon-barrier/monarflex-rmb400.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/structural-waterproofing/monarflex-radon-air-moisture-protection-systems/"
+ force=true
+
+[[redirects]]
+ from="/products/radon-barrier/monarflex-rmb350.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/structural-waterproofing/monarflex-radon-air-moisture-protection-systems/"
+ force=true
+
+[[redirects]]
+ from="/products/radon-barrier/necoseal.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/structural-waterproofing/monarflex-radon-air-moisture-protection-systems/"
+ force=true
+
+[[redirects]]
+ from="/products/radon-barrier/xtra-seal-grm.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/structural-waterproofing/monarflex-radon-air-moisture-protection-systems/"
+ force=true
+
+[[redirects]]
+ from="/products/radon-barrier/easi-load-radon-dpc.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/structural-waterproofing/xtra-load-damp-proof-courses/"
+ force=true
+
+[[redirects]]
+ from="/products/radon-barrier/xtra-load-alumite-dpc.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/structural-waterproofing/xtra-load-damp-proof-courses/"
+ force=true
+
+[[redirects]]
+ from="/products/radon-barrier/accessories.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/monarflex-structural-waterproofing"
+ force=true
+
+[[redirects]]
+ from="/products/radon-barrier/accessories/monobond-rt-tape.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/structural-waterproofing/monarflex-radon-air-moisture-protection-systems/"
+ force=true
+
+[[redirects]]
+ from="/products/radon-barrier/accessories/necobond-tape.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/structural-waterproofing/monarflex-radon-air-moisture-protection-systems/"
+ force=true
+
+[[redirects]]
+ from="/products/radon-barrier/accessories/icopal-sa-bitumen-primer.aspx"
+ to="https://www.bmigroup.com/ie/icopal-flat-roofing/liquid-waterproofing"
+ force=true
+
+[[redirects]]
+ from="/products/radon-barrier/accessories/monarflex-top-hat.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/structural-waterproofing/monarflex-radon-air-moisture-protection-systems/"
+ force=true
+
+[[redirects]]
+ from="/products/radon-barrier/accessories/easi-pour-liquid-radon-sealant.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/structural-waterproofing/monarflex-radon-air-moisture-protection-systems/"
+ force=true
+
+[[redirects]]
+ from="/products/radon-barrier/accessories/easi-pour-flexi-mould.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/structural-waterproofing/monarflex-radon-air-moisture-protection-systems/"
+ force=true
+
+[[redirects]]
+ from="/products/radon-barrier/accessories/easi-pour-flexi-mould.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/structural-waterproofing/monarflex-radon-air-moisture-protection-systems/"
+ force=true
+
+[[redirects]]
+ from="/products/radon-barrier/accessories/easi-load-radon-corner-assembly.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/structural-waterproofing/xtra-load-damp-proof-courses/"
+ force=true
+
+[[redirects]]
+ from="/products/radon-barrier/accessories/easi-flash-self-adhesive-gas-membrane.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/structural-waterproofing/monarflex-radon-air-moisture-protection-systems/"
+ force=true
+
+[[redirects]]
+ from="/products/radon-barrier/accessories/easi-sump.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/structural-waterproofing/monarflex-radon-air-moisture-protection-systems/"
+ force=true
+
+[[redirects]]
+ from="/products/radon-barrier/membrane-selector.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/monarflex-structural-waterproofing/"
+ force=true
+
+[[redirects]]
+ from="/products/scaffold-sheeting.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/scaffold-sheeting-temporary-roof-covering/"
+ force=true
+
+[[redirects]]
+ from="/products/scaffold-sheeting/product-selector.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/scaffold-sheeting-temporary-roof-covering/"
+ force=true
+
+[[redirects]]
+ from="/products/scaffold-sheeting/product-range.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/scaffold-sheeting-temporary-roof-covering/"
+ force=true
+
+[[redirects]]
+ from="/products/scaffold-sheeting/product-range/super-t-plus-scaffold-sheeting.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/scaffold-sheeting-temporary-roof-covering/scaffold-sheeting/"
+ force=true
+
+[[redirects]]
+ from="/products/scaffold-sheeting/product-range/super-t-plus-firesmart-scaffold-sheeting.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/scaffold-sheeting-temporary-roof-covering/scaffold-sheeting/"
+ force=true
+
+[[redirects]]
+ from="/products/scaffold-sheeting/product-range/scaffband-scaffold-sheeting.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/scaffold-sheeting-temporary-roof-covering/scaffold-sheeting/"
+ force=true
+
+[[redirects]]
+ from="/products/scaffold-sheeting/product-range/icoscaff-scaffold-sheeting.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/scaffold-sheeting-temporary-roof-covering/scaffold-sheeting/"
+ force=true
+
+[[redirects]]
+ from="/products/scaffold-sheeting/product-range/icoscaff-flame-retardant-scaffold-sheeting.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/scaffold-sheeting-temporary-roof-covering/scaffold-sheeting/"
+ force=true
+
+[[redirects]]
+ from="/products/scaffold-sheeting/product-range/monarsound-scaffold-sheeting.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/scaffold-sheeting-temporary-roof-covering/scaffold-sheeting/"
+ force=true
+
+[[redirects]]
+ from="/products/scaffold-sheeting/fixing-accessories.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/scaffold-sheeting-temporary-roof-covering/scaffold-sheeting/scaffold-sheeting-accessories/"
+ force=true
+
+[[redirects]]
+ from="/products/scaffold-sheeting/temporary-roof-covers.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/scaffold-sheeting-temporary-roof-covering/temporary-roof-covering/"
+ force=true
+
+[[redirects]]
+ from="/products/scaffold-sheeting/temporary-roof-covers/monarflex-trc-temporary-roof-covers.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/scaffold-sheeting-temporary-roof-covering/temporary-roof-covering/"
+ force=true
+
+[[redirects]]
+ from="/products/scaffold-sheeting/temporary-roof-covers/kederflex-clear.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/scaffold-sheeting-temporary-roof-covering/temporary-roof-covering/"
+ force=true
+
+[[redirects]]
+ from="/products/scaffold-sheeting/temporary-roof-covers/kederflex-hffr.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/scaffold-sheeting-temporary-roof-covering/temporary-roof-covering/"
+ force=true
+
+[[redirects]]
+ from="/products/scaffold-sheeting/containment-netting.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/scaffold-sheeting-temporary-roof-covering/"
+ force=true
+
+[[redirects]]
+ from="/products/scaffold-sheeting/fixing-accessories.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/scaffold-sheeting-temporary-roof-covering/scaffold-sheeting/scaffold-sheeting-accessories/"
+ force=true
+
+[[redirects]]
+ from="/products/scaffold-sheeting/fixing-accessories/anchor-strap.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/scaffold-sheeting-temporary-roof-covering/scaffold-sheeting/scaffold-sheeting-accessories/"
+ force=true
+
+[[redirects]]
+ from="/products/scaffold-sheeting/fixing-accessories/flexitie.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/scaffold-sheeting-temporary-roof-covering/scaffold-sheeting/scaffold-sheeting-accessories/"
+ force=true
+
+[[redirects]]
+ from="/products/scaffold-sheeting/fixing-accessories/eurostrap.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/scaffold-sheeting-temporary-roof-covering/scaffold-sheeting/scaffold-sheeting-accessories/"
+ force=true
+
+[[redirects]]
+ from="/products/scaffold-sheeting/fixing-accessories/kederflex-repair-kit-hffr.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/scaffold-sheeting-temporary-roof-covering/scaffold-sheeting/scaffold-sheeting-accessories/"
+ force=true
+
+[[redirects]]
+ from="/products/scaffold-sheeting/fixing-accessories/polytoggle.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/scaffold-sheeting-temporary-roof-covering/scaffold-sheeting/scaffold-sheeting-accessories/"
+ force=true
+
+[[redirects]]
+ from="/products/scaffold-sheeting/fixing-accessories/self-adhesive-eyelet.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/scaffold-sheeting-temporary-roof-covering/scaffold-sheeting/scaffold-sheeting-accessories/"
+ force=true
+
+[[redirects]]
+ from="/products/scaffold-sheeting/fixing-accessories/zip-door.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/scaffold-sheeting-temporary-roof-covering/scaffold-sheeting/scaffold-sheeting-accessories/"
+ force=true
+
+[[redirects]]
+ from="/products/scaffold-sheeting/fixing-accessories/icopal-jointing-tape.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/scaffold-sheeting-temporary-roof-covering/scaffold-sheeting/scaffold-sheeting-accessories/"
+ force=true
+
+[[redirects]]
+ from="/products/scaffold-sheeting/scaffold-sheeting-installation.aspx"
+ to="https://www.bmigroup.com/ie/support"
+ force=true
+
+[[redirects]]
+ from="/products/scaffold-sheeting/british-standards.aspx"
+ to="https://www.bmigroup.com/ie/support/industry-standards"
+ force=true
+
+[[redirects]]
+ from="/products/scaffold-sheeting/case-studies.aspx"
+ to="https://www.bmigroup.com/ie/bmi-blog"
+ force=true
+
+[[redirects]]
+ from="/products/scaffold-sheeting/case-studies/ics1101-marlborough-college-wiltshire.aspx"
+ to="https://www.bmigroup.com/ie/bmi-blog"
+ force=true
+
+[[redirects]]
+ from="/products/scaffold-sheeting/case-studies/ics1081-centre-point-london.aspx"
+ to="https://www.bmigroup.com/ie/bmi-blog"
+ force=true
+
+[[redirects]]
+ from="/products/scaffold-sheeting/case-studies/ics1082-embassy-gardens-battersea.aspx"
+ to="https://www.bmigroup.com/ie/bmi-blog"
+ force=true
+
+[[redirects]]
+ from="/products/monarfloor-acoustic.aspx"
+ to="https://www.bmigroup.com/ie/necoflex-construction-products/acoustic-systems"
+ force=true
+
+[[redirects]]
+ from="/download.aspx"
+ to="https://www.bmigroup.com/ie/downloads"
+ force=true
+
+[[redirects]]
+ from="/download/radon-barrier-system-downloads.aspx"
+ to="https://www.bmigroup.com/ie/downloads"
+ force=true
+
+[[redirects]]
+ from="/download/scaffold-sheeting-downloads.aspx"
+ to="https://www.bmigroup.com/ie/downloads"
+ force=true
+
+[[redirects]]
+ from="/download/ce-marking.aspx"
+ to="https://www.bmigroup.com/ie/downloads"
+ force=true
+
+[[redirects]]
+ from="/press-centre/news.aspx"
+ to="https://www.bmigroup.com/ie/about-us/news"
+ force=true
+
+[[redirects]]
+ from="/press-centre/news/Radon-in-workplaces-epa-article.aspx"
+ to="https://www.bmigroup.com/ie/about-us/news"
+ force=true
+
+[[redirects]]
+ from="/press-centre/news/minister-denis-naughten-announces-new-radon-testing.aspx"
+ to="https://www.bmigroup.com/ie/about-us/news"
+ force=true
+
+[[redirects]]
+ from="/press-centre/news/radon-inspection-checklist.aspx"
+ to="https://www.bmigroup.com/ie/about-us/news"
+ force=true
+
+[[redirects]]
+ from="/press-centre/news/settle-for-a-reduction.aspx"
+ to="https://www.bmigroup.com/ie/about-us/news"
+ force=true
+
+[[redirects]]
+ from="/contact-us.aspx"
+ to="https://www.bmigroup.com/ie/contact-us"
+ force=true
+
+[[redirects]]
+ from="/contact-us/customer-support-technical.aspx"
+ to="https://www.bmigroup.com/ie/contact-us"
+ force=true
+
+[[redirects]]
+ from="/contact-us/directions-to-necoflex.aspx"
+ to="https://www.bmigroup.com/ie/contact-us"
+ force=true
+
+[[redirects]]
+ from="/contact-us/radon-membrane-installers.aspx"
+ to="https://www.bmigroup.com/ie/contact-us"
+ force=true
+
+[[redirects]]
+ from="/contact-us/privacy.aspx"
+ to="https://www.bmigroup.com/ie/third-party-site-privacy-notice"
+ force=true
+
+[[redirects]]
+ from="/contact-us/privacy/website-privacy-policy.aspx"
+ to="https://www.bmigroup.com/ie/third-party-site-privacy-notice"
+ force=true
+
+[[redirects]]
+ from="/contact-us/privacy/cookie-policy.aspx"
+ to="https://www.bmigroup.com/ie/third-party-site-privacy-notice"
+ force=true
+
+[[redirects]]
+ from="/support/radon-barrier-solution-finder.aspx"
+ to="https://www.bmigroup.com/ie/bmi-blog/knowledge-library-and-inspiration/radon-barrier-protection-strategy"
+ force=true
+
+[[redirects]]
+ from="/support/radon-barrier-solution-finder/best-practice-1.aspx"
+ to="https://www.bmigroup.com/ie/bmi-blog/knowledge-library-and-inspiration/radon-barrier-protection-strategy"
+ force=true
+
+[[redirects]]
+ from="/support/radon-barrier-solution-finder/best-practice-2.aspx"
+ to="https://www.bmigroup.com/ie/bmi-blog/knowledge-library-and-inspiration/radon-barrier-protection-strategy"
+ force=true
+
+[[redirects]]
+ from="/support/radon-barrier-solution-finder/best-practice-3.aspx"
+ to="https://www.bmigroup.com/ie/bmi-blog/knowledge-library-and-inspiration/radon-barrier-protection-strategy"
+ force=true
+
+[[redirects]]
+ from="/support/radon-barrier-solution-finder/best-practice-4.aspx"
+ to="https://www.bmigroup.com/ie/bmi-blog/knowledge-library-and-inspiration/radon-barrier-protection-strategy"
+ force=true
+
+[[redirects]]
+ from="/support/radon-barrier-solution-finder/easi-sump-radon-sump.aspx"
+ to="https://www.bmigroup.com/ie/bmi-blog/knowledge-library-and-inspiration/how-to-remove-radon-from-the-foundations-of-a-building"
+ force=true
+
+[[redirects]]
+ from="/support/radon-barrier-solution-finder/easi-sump-radon-sump/easi-sump-step-01.aspx"
+ to="https://www.bmigroup.com/ie/bmi-blog/knowledge-library-and-inspiration/how-to-remove-radon-from-the-foundations-of-a-building"
+ force=true
+
+[[redirects]]
+ from="/support/radon-barrier-solution-finder/easi-sump-radon-sump/easi-sump-step-02.aspx"
+ to="https://www.bmigroup.com/ie/bmi-blog/knowledge-library-and-inspiration/how-to-remove-radon-from-the-foundations-of-a-building"
+ force=true
+
+[[redirects]]
+ from="/support/radon-barrier-solution-finder/easi-sump-radon-sump/easi-sump-step-03.aspx"
+ to="https://www.bmigroup.com/ie/bmi-blog/knowledge-library-and-inspiration/how-to-remove-radon-from-the-foundations-of-a-building"
+ force=true
+
+[[redirects]]
+ from="/support/radon-barrier-solution-finder/easi-sump-radon-sump/easi-sump-step-04.aspx"
+ to="https://www.bmigroup.com/ie/bmi-blog/knowledge-library-and-inspiration/how-to-remove-radon-from-the-foundations-of-a-building"
+ force=true
+
+[[redirects]]
+ from="/support/radon-barrier-solution-finder/ram-system.aspx"
+ to="https://www.bmigroup.com/ie/bmi-blog/knowledge-library-and-inspiration/how-to-form-a-radon-barrier"
+ force=true
+
+[[redirects]]
+ from="/support/radon-barrier-solution-finder/ram-system/design-considerations.aspx"
+ to="https://www.bmigroup.com/ie/bmi-blog/knowledge-library-and-inspiration/how-to-form-a-radon-barrier"
+ force=true
+
+[[redirects]]
+ from="/support/radon-barrier-solution-finder/ram-system/design.aspx"
+ to="https://www.bmigroup.com/ie/bmi-blog/knowledge-library-and-inspiration/how-to-form-a-radon-barrier"
+ force=true
+
+[[redirects]]
+ from="/support/radon-barrier-solution-finder/ram-system/design/seal-walls-and-cavities.aspx"
+ to="https://www.bmigroup.com/ie/bmi-blog/knowledge-library-and-inspiration/how-to-form-a-radon-barrier"
+ force=true
+
+[[redirects]]
+ from="/support/radon-barrier-solution-finder/ram-system/design/seal-floor-area.aspx"
+ to="https://www.bmigroup.com/ie/bmi-blog/knowledge-library-and-inspiration/how-to-form-a-radon-barrier"
+ force=true
+
+[[redirects]]
+ from="/support/radon-barrier-solution-finder/ram-system/design/membrane-selector.aspx"
+ to="https://www.bmigroup.com/ie/bmi-blog/knowledge-library-and-inspiration/how-to-form-a-radon-barrier"
+ force=true
+
+[[redirects]]
+ from="/support/radon-barrier-solution-finder/ram-system/design/sealing-penetrations.aspx"
+ to="https://www.bmigroup.com/ie/bmi-blog/knowledge-library-and-inspiration/how-to-form-a-radon-barrier"
+ force=true
+
+[[redirects]]
+ from="/support/radon-barrier-solution-finder/ram-system/design/construction-detailing.aspx"
+ to="https://www.bmigroup.com/ie/bmi-blog/knowledge-library-and-inspiration/how-to-form-a-radon-barrier"
+ force=true
+
+[[redirects]]
+ from="/support/radon-barrier-solution-finder/ram-system/design/construction-detailing/construction-detailing-01.aspx"
+ to="https://www.bmigroup.com/ie/bmi-blog/knowledge-library-and-inspiration/how-to-form-a-radon-barrier"
+ force=true
+
+[[redirects]]
+ from="/support/radon-barrier-solution-finder/ram-system/design/construction-detailing/construction-detailing-02.aspx"
+ to="https://www.bmigroup.com/ie/bmi-blog/knowledge-library-and-inspiration/how-to-form-a-radon-barrier"
+ force=true
+
+[[redirects]]
+ from="/support/radon-barrier-solution-finder/ram-system/design/construction-detailing/construction-detailing-03.aspx"
+ to="https://www.bmigroup.com/ie/bmi-blog/knowledge-library-and-inspiration/how-to-form-a-radon-barrier"
+ force=true
+
+[[redirects]]
+ from="/support/radon-barrier-solution-finder/ram-system/design/construction-detailing/construction-detailing-04.aspx"
+ to="https://www.bmigroup.com/ie/bmi-blog/knowledge-library-and-inspiration/how-to-form-a-radon-barrier"
+ force=true
+
+[[redirects]]
+ from="/support/radon-barrier-solution-finder/ram-system/design/construction-detailing/construction-detailing-05.aspx"
+ to="https://www.bmigroup.com/ie/bmi-blog/knowledge-library-and-inspiration/how-to-form-a-radon-barrier"
+ force=true
+
+[[redirects]]
+ from="/support/radon-barrier-solution-finder/ram-system/design/construction-detailing/construction-detailing-06.aspx"
+ to="https://www.bmigroup.com/ie/bmi-blog/knowledge-library-and-inspiration/how-to-form-a-radon-barrier"
+ force=true
+
+[[redirects]]
+ from="/support/radon-barrier-solution-finder/ram-system/design/construction-detailing/construction-detailing-07.aspx"
+ to="https://www.bmigroup.com/ie/bmi-blog/knowledge-library-and-inspiration/how-to-form-a-radon-barrier"
+ force=true
+
+[[redirects]]
+ from="/support/radon-barrier-solution-finder/ram-system/ram-video.aspx"
+ to="https://www.bmigroup.com/ie/bmi-blog/knowledge-library-and-inspiration/how-to-form-a-radon-barrier"

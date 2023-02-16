@@ -15,6 +15,7 @@ include:
   - local: "/applications/redirects-website-nl-monier/.gitlab-ci.yml"
   - local: "/applications/redirects-website-uk-redland/.gitlab-ci.yml"
   - local: "/applications/redirects-website-uk-icopal/.gitlab-ci.yml"
+  - local: "/applications/redirects-website-ie-necoflex/.gitlab-ci.yml"
 
 variables:
   ARTIFACT_COMPRESSION_LEVEL: fastest
