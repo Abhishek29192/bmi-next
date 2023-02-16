@@ -3315,8 +3315,8 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
               class="Locations"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+                data-testid="grid-container"
               >
                 <div
                   class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-lg-6 Grid-item css-aexawh-MuiGrid2-root"
@@ -7622,8 +7622,8 @@ exports[`Contact us page render Sections correctly 1`] = `
               class="Locations"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+                data-testid="grid-container"
               >
                 <div
                   class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-lg-6 Grid-item css-aexawh-MuiGrid2-root"
@@ -11925,8 +11925,8 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
               class="Locations"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+                data-testid="grid-container"
               >
                 <div
                   class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-lg-6 Grid-item css-aexawh-MuiGrid2-root"
@@ -16232,8 +16232,8 @@ exports[`Contact us page render iframe correctly 1`] = `
               class="Locations"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+                data-testid="grid-container"
               >
                 <div
                   class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-lg-6 Grid-item css-aexawh-MuiGrid2-root"
@@ -20539,8 +20539,8 @@ exports[`Contact us page render location correctly 1`] = `
               class="Locations"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+                data-testid="grid-container"
               >
                 <div
                   class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-lg-6 Grid-item css-aexawh-MuiGrid2-root"
@@ -24846,8 +24846,8 @@ exports[`Contact us page renders correctly 1`] = `
               class="Locations"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+                data-testid="grid-container"
               >
                 <div
                   class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-lg-6 Grid-item css-aexawh-MuiGrid2-root"
