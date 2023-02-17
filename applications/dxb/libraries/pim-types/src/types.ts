@@ -98,6 +98,7 @@ export type Asset = {
   realFileName?: string; // includes file extension
   url: string;
   format?: string;
+  validUntil?: string;
 };
 
 export type CategoryImage = {

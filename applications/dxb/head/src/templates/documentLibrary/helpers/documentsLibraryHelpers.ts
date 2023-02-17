@@ -57,16 +57,19 @@ export const resultTypeFormatMap: Record<
 > = {
   PIM: {
     Simple: "simpleTable",
+    "Simple Archive": "simpleArchiveTable",
     Technical: "technicalTable",
     "Card Collection": "simpleTable"
   },
   CMS: {
     Simple: "simpleTable",
+    "Simple Archive": null,
     Technical: "simpleTable",
     "Card Collection": "cards"
   },
   ALL: {
     Simple: "simpleTable",
+    "Simple Archive": "simpleArchiveTable",
     Technical: "simpleTable",
     "Card Collection": "simpleTable"
   }
@@ -81,6 +84,26 @@ export const sourceMapToDocumentType: Record<
   ALL: undefined
 };
 
+const getDocumentTypes = (
+  resultType: ResultType,
+  source: Source
+): DocumentType[] => {
+  switch (resultType) {
+    case "Simple":
+      // eslint-disable-next-line security/detect-object-injection
+      return sourceMapToDocumentType[source];
+      break;
+    case "Simple Archive":
+      return ["PIMSystemDocument", "PIMDocument"];
+      break;
+    case "Technical":
+      return ["PIMDocument"];
+      break;
+    default:
+      return ["ContentfulDocument"];
+  }
+};
+
 export const compileESQuery = (
   filters: Filter[],
   page: number,
@@ -89,13 +112,7 @@ export const compileESQuery = (
   assetTypes: AssetType[]
 ) => {
   const userSelectedFilterTerms = generateUserSelectedFilterTerms(filters);
-  const documentType: DocumentType[] =
-    resultType === "Simple"
-      ? // eslint-disable-next-line security/detect-object-injection
-        sourceMapToDocumentType[source]
-      : resultType === "Technical"
-      ? ["PIMDocument"]
-      : ["ContentfulDocument"];
+  const documentTypes: DocumentType[] = getDocumentTypes(resultType, source);
   const assetTypeCodes = (assetTypes || [])
     .filter((item) => item.code)
     .map((item) => item.code);
@@ -114,10 +131,13 @@ export const compileESQuery = (
     query: {
       bool: {
         must: [
-          documentType && {
+          documentTypes && {
             terms: {
-              "__typename.keyword": documentType
+              "__typename.keyword": documentTypes
             }
+          },
+          resultType === "Simple Archive" && {
+            match: { "approvalStatus.keyword": "discontinued" }
           },
           assetTypeCodes.length && {
             terms: {

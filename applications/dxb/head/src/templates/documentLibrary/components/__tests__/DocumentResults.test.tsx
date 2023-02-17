@@ -3,7 +3,7 @@ import {
   createContentfulDocument,
   createPimProductDocument
 } from "@bmi/elasticsearch-types";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import React from "react";
 import createAssetType from "../../../../__tests__/helpers/AssetTypeHelper";
 import DocumentResults, {
@@ -98,5 +98,27 @@ describe("DocumentResults component", () => {
       </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
+  });
+
+  it("should render simpleArchive table", () => {
+    const pimDocument = createPimProductDocument();
+    const assetTypes = [createAssetType({ code: pimDocument.assetType.code })];
+
+    render(
+      <ThemeProvider>
+        <DocumentResults
+          data={[pimDocument]}
+          format="simpleArchiveTable"
+          assetTypes={assetTypes}
+        />
+      </ThemeProvider>
+    );
+
+    expect(
+      screen.getByText("MC: documentLibrary.headers.productStatus")
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("MC: documentLibrary.headers.validityDate")
+    ).toBeInTheDocument();
   });
 });

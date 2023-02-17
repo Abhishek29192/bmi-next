@@ -28,6 +28,7 @@ const createPimProductDocument = (
   extension: "pdf",
   realFileName: "document.pdf",
   titleAndSize: "pim document title_1",
+  approvalStatus: "approved",
   ...pimProductDocument
 });
 

@@ -12,7 +12,11 @@ export type URLFilter = {
 
 export type URLProductFilter = URLFilter;
 
-export type ResultType = "Simple" | "Technical" | "Card Collection";
+export type ResultType =
+  | "Simple"
+  | "Simple Archive"
+  | "Technical"
+  | "Card Collection";
 
 export type Source = "PIM" | "CMS" | "ALL";
 

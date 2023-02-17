@@ -16,6 +16,7 @@ import React from "react";
 import { PseudoZipPIMDocument } from "../types/pim";
 import { getDownloadLink } from "../utils/client-download";
 import withGTM from "../utils/google-tag-manager";
+import { microCopy } from "../constants/microCopies";
 import {
   Document,
   FileDownloadButtonProps,
@@ -23,6 +24,7 @@ import {
   MultipleAssetToFileDownload
 } from "./DocumentSimpleTableResults";
 import fileIconsMap from "./FileIconsMap";
+import { useSiteContext } from "./Site";
 
 type ListProps = {
   documents: readonly Document[];
@@ -58,6 +60,13 @@ const StyledListItem = styled("div")(({ theme }) => ({
 
 const StyledListTitleRow = styled("div")(({ theme }) => ({
   display: "flex",
+  position: "relative"
+}));
+
+const StyledListRow = styled("div")(({ theme }) => ({
+  color: theme.colours.slate,
+  fontSize: "16px",
+  padding: "8px 0",
   position: "relative"
 }));
 
@@ -127,6 +136,7 @@ const MultipleDocumentsToZipFile = ({
 };
 
 const ListItem = ({ asset }: { asset: FileDownloadButtonProps }) => {
+  const { getMicroCopy } = useSiteContext();
   return (
     <StyledListItem>
       <StyledListTitleRow>
@@ -140,6 +150,14 @@ const ListItem = ({ asset }: { asset: FileDownloadButtonProps }) => {
         )}
         <StyledDocumentTitle>{asset.title}</StyledDocumentTitle>
       </StyledListTitleRow>
+      <StyledListRow>
+        {getMicroCopy(microCopy.DOCUMENT_LIBRARY_HEADERS_PRODUCT_STATUS)}:{" "}
+        {asset.productStatus}
+      </StyledListRow>
+      <StyledListRow>
+        {getMicroCopy(microCopy.DOCUMENT_LIBRARY_HEADERS_VALIDITY_DATE)}:{" "}
+        {asset.validUntil}
+      </StyledListRow>
       <StyledListDownloadRow>
         <StyledDocumentType>{asset.assetTypeName}</StyledDocumentType>
         {!asset.isLinkDocument ? (
@@ -181,13 +199,18 @@ const ListItem = ({ asset }: { asset: FileDownloadButtonProps }) => {
 export const DocumentSimpleTableResultsMobile = ({
   documents
 }: ListProps): React.ReactElement => {
+  const { getMicroCopy } = useSiteContext();
+
   const list = documents.map((document, index) => {
     if (document.__typename === "PIMDocumentWithPseudoZip") {
       const key = `${document.__typename}-${index}`;
       return <MultipleDocumentsToZipFile key={key} document={document} />;
     }
     return (
-      <ListItem asset={mapAssetToFileDownload(document)} key={document.id} />
+      <ListItem
+        asset={mapAssetToFileDownload(document, getMicroCopy)}
+        key={document.id}
+      />
     );
   });
 

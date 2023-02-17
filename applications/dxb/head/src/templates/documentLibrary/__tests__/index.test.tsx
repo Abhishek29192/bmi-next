@@ -1,6 +1,11 @@
 /* eslint-disable prefer-spread */
 import { ThemeProvider } from "@bmi-digital/components";
-import { fireEvent, RenderResult, waitFor } from "@testing-library/react";
+import {
+  RenderResult,
+  fireEvent,
+  waitFor,
+  screen
+} from "@testing-library/react";
 import React from "react";
 import DocumentLibraryPage, { PAGE_SIZE } from "../";
 import * as documentResultsFooter from "../../../components/DocumentResultsFooter";
@@ -84,6 +89,7 @@ jest.setTimeout(30000);
 describe("Document Library page", () => {
   beforeEach(() => {
     jest.resetModules();
+    jest.clearAllMocks();
   });
 
   it("renders correctly ", async () => {
@@ -455,5 +461,20 @@ describe("Document Library page", () => {
         "You cannot search on the preview environment."
       );
     });
+  });
+
+  it("should not fetch documents and show Simple Archive table if source===CMS", async () => {
+    renderWithProviders({
+      pageData: createData(filtersMock(), {
+        resultsType: "Simple Archive",
+        title: "Document library page",
+        source: "CMS"
+      })
+    });
+
+    expect(
+      screen.queryByText("MC: documentLibrary.filters.title")
+    ).not.toBeInTheDocument();
+    expect(mockQueryES).not.toHaveBeenCalled();
   });
 });

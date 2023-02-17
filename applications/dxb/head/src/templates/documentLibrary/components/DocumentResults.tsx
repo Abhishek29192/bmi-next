@@ -12,7 +12,11 @@ import DocumentTechnicalTableResults from "./DocumentTechnicalTableResults";
 
 export type DocumentResultData = ContentfulDocument | PimProductDocument;
 
-export type Format = "simpleTable" | "technicalTable" | "cards";
+export type Format =
+  | "simpleTable"
+  | "simpleArchiveTable"
+  | "technicalTable"
+  | "cards";
 
 type Props = {
   data: DocumentResultData[];
@@ -20,14 +24,26 @@ type Props = {
   format: Format;
 };
 
+const tableHeadersConfig: Record<
+  "simpleTable" | "simpleArchiveTable",
+  AvailableHeader[]
+> = {
+  simpleTable: ["typeCode", "title", "download", "add"],
+  simpleArchiveTable: [
+    "title",
+    "productStatus",
+    "validityDate",
+    "download",
+    "add"
+  ]
+};
+
 const DocumentResults = ({ data, assetTypes, format }: Props) => {
-  if (format === "simpleTable") {
-    const tableHeaders: AvailableHeader[] = [
-      "typeCode" as const,
-      "title" as const,
-      "download" as const,
-      "add" as const
-    ].filter((header) => !(assetTypes.length < 2 && header.includes("type")));
+  if (format === "simpleTable" || format === "simpleArchiveTable") {
+    // eslint-disable-next-line security/detect-object-injection
+    const tableHeaders = tableHeadersConfig[format].filter(
+      (header) => !(assetTypes.length < 2 && header.includes("type"))
+    );
     return (
       <DocumentSimpleTableResults documents={data} headers={tableHeaders} />
     );

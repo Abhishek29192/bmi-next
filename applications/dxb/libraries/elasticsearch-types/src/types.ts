@@ -115,6 +115,7 @@ export type ContentfulDocument = {
 
 type PimDocumentBase = {
   id: string;
+  approvalStatus: ApprovalStatus;
   title: string;
   url: string;
   assetType: {
@@ -129,6 +130,7 @@ type PimDocumentBase = {
   realFileName: string;
   titleAndSize: string;
   noIndex: boolean;
+  validUntil?: number;
 } & {
   [extractedFilter: string]: any;
 };

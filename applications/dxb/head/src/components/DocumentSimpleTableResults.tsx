@@ -51,9 +51,11 @@ import {
   NoDocumentIcon,
   StyledSimpleTableResults,
   StyledTableCell,
+  DocumentStatus,
   StyledTitleTableCell,
   Title
 } from "./styles/DocumentSimpleTableResultsStyles";
+import { GetMicroCopy } from "./MicroCopy";
 
 export type AvailableHeader =
   | "typeCode"
@@ -61,7 +63,9 @@ export type AvailableHeader =
   | "name"
   | "title"
   | "download"
-  | "add";
+  | "add"
+  | "productStatus"
+  | "validityDate";
 
 export type Document =
   | ContentfulDocument
@@ -89,6 +93,38 @@ const isLinkDocument = (document: Document): boolean =>
 const getUniqueId = (document: Document): string =>
   `${document.id}-${document.title}`.replace(/ /g, "_");
 
+export const getProductStatus = (
+  document: Document,
+  getMicroCopy: GetMicroCopy
+): string => {
+  if (!("approvalStatus" in document)) {
+    return "-";
+  }
+
+  return getMicroCopy(
+    document.approvalStatus === "discontinued"
+      ? microCopy.DOCUMENT_STATUS_DISCONTINUED
+      : microCopy.DOCUMENT_STATUS_AVAILABLE
+  );
+};
+
+export const formatDate = (document: Document): string => {
+  if (!("validUntil" in document) || !document.validUntil) {
+    return "-";
+  }
+
+  const dateObj = new Date(document.validUntil);
+  const day =
+    dateObj.getDate().toString().length === 1
+      ? `0${dateObj.getDate()}`
+      : dateObj.getDate();
+
+  let month = `${dateObj.getMonth() + 1}`;
+  month = month.length === 1 ? `0${month}` : month;
+
+  return `${day}.${month}.${dateObj.getFullYear()}`;
+};
+
 const getDocument = (document: Document, headers: AvailableHeader[]) => {
   const { getMicroCopy } = useSiteContext();
   const { __typename } = document;
@@ -114,6 +150,26 @@ const getDocument = (document: Document, headers: AvailableHeader[]) => {
         >
           {document.assetType.name}
         </StyledTableCell>
+      );
+    }
+
+    if (header === "productStatus") {
+      return (
+        <StyledTableCell key={key}>
+          {"approvalStatus" in document ? (
+            <DocumentStatus status={document.approvalStatus}>
+              {getProductStatus(document, getMicroCopy)}
+            </DocumentStatus>
+          ) : (
+            "-"
+          )}
+        </StyledTableCell>
+      );
+    }
+
+    if (header === "validityDate") {
+      return (
+        <StyledTableCell key={key}>{formatDate(document)}</StyledTableCell>
       );
     }
 
@@ -155,7 +211,9 @@ const getDocument = (document: Document, headers: AvailableHeader[]) => {
             document.__typename === "PIMDocumentWithPseudoZip" ? (
               <MultipleAssetToFileDownload document={document} />
             ) : (
-              <FileDownloadButton {...mapAssetToFileDownload(document)} />
+              <FileDownloadButton
+                {...mapAssetToFileDownload(document, getMicroCopy)}
+              />
             )
           ) : (
             <Button
@@ -238,7 +296,8 @@ export const mapAssetToFileDownload = (
     | FsPimSystemDocument
     | EsContentfulDocument
     | EsPimDocument
-    | EsPimSystemDocument
+    | EsPimSystemDocument,
+  getMicroCopy: GetMicroCopy
 ): FileDownloadButtonProps => {
   if (
     data.__typename === "PIMDocument" ||
@@ -252,7 +311,9 @@ export const mapAssetToFileDownload = (
       size,
       assetTypeName: data.assetType.name,
       title: data.title,
-      isLinkDocument: data.isLinkDocument
+      isLinkDocument: data.isLinkDocument,
+      productStatus: getProductStatus(data, getMicroCopy),
+      validUntil: formatDate(data)
     };
   }
 
@@ -266,7 +327,9 @@ export const mapAssetToFileDownload = (
     size: file.details.size,
     assetTypeName: data.assetType.name,
     title: data.title,
-    isLinkDocument: false
+    isLinkDocument: false,
+    productStatus: "-",
+    validUntil: "-"
   };
 };
 
@@ -402,6 +465,8 @@ export type FileDownloadButtonProps = {
   assetTypeName: string;
   title: string;
   isLinkDocument: boolean;
+  productStatus: string;
+  validUntil: string;
 };
 
 const FileDownloadButton = ({ url, format, size }: FileDownloadButtonProps) => {
