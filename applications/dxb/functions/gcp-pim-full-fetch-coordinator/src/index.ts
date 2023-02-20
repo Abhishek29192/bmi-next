@@ -3,7 +3,7 @@ import fetchRetry from "@bmi/fetch-retry";
 import { fetchData } from "@bmi/pim-api";
 import { PimTypes } from "@bmi/pim-types";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
-import { Response } from "node-fetch";
+import fetch, { Response } from "node-fetch";
 import { getNumberOfDocuments } from "./contentful";
 import {
   createElasticSearchIndex,
@@ -181,10 +181,23 @@ const handleRequest: HttpFunction = async (req, res) => {
   await triggerDocumentsFullFetchBatch();
 
   try {
+    // Constants for setting up metadata server request
+    // See https://cloud.google.com/compute/docs/instances/verifying-instance-identity#request_signature
+    const tokenUrl = `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${BUILD_TRIGGER_ENDPOINT!}`;
+
+    // fetch the auth token
+    const tokenResponse = await fetch(tokenUrl, {
+      headers: {
+        "Metadata-Flavor": "Google"
+      }
+    });
+    const token = await tokenResponse.text();
+
     await fetchRetry(BUILD_TRIGGER_ENDPOINT!, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: `bearer ${token}`
       },
       body: JSON.stringify({ foo: "bar" })
     });
