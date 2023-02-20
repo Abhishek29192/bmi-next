@@ -85,6 +85,14 @@ export const Head = ({
         />
       )}
       <link
+        rel="alternate"
+        href={`${process.env.GATSBY_SITE_URL}${getPathWithCountryCode(
+          countryCode,
+          path
+        )}`}
+        hrefLang="x-default"
+      />
+      <link
         rel="preload"
         href={EffraRegular}
         as="font"
