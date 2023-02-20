@@ -63,7 +63,7 @@ describe("Home Page Template", () => {
       title: "Smilex brand",
       path: "/smilex-brand",
       subtitle: "Uh-oh. He don't look happy. He's been using brand X",
-      brandLogo: "BMI"
+      brandLogo: "Icopal"
     }
   ];
   const spaBrandsData = [
@@ -71,7 +71,7 @@ describe("Home Page Template", () => {
       title: "Smilex spa brand",
       path: "/smilex-spa-brand",
       subtitle: "Uh-oh. He don't look happy. He's been using spa brand X",
-      brandLogo: "BMI"
+      brandLogo: "Icopal"
     }
   ];
   const overlapCardsData: OverlapCardData = [

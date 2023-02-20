@@ -89,7 +89,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
         promotionalContent={system.promotionalContent}
         uniqueSellingPropositions={system.uniqueSellingPropositions}
         // eslint-disable-next-line security/detect-object-injection
-        brandLogo={iconMap[system.brand?.code]}
+        brandLogo={iconMap[`${system.brand?.code}Isolated`]}
       />
       <Section
         backgroundColor="alabaster"

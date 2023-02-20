@@ -44,7 +44,7 @@ export const renderProducts = (
   products.flatMap((variant) => {
     const brandLogoCode = variant.brandCode;
     // eslint-disable-next-line security/detect-object-injection
-    const brandLogo = iconMap[brandLogoCode];
+    const brandLogo = iconMap[`${brandLogoCode}Isolated`];
     const mainImage = variant.mainImage;
     const product = variant.baseProduct;
     const productUrl = `${getPathWithCountryCode(

@@ -134,7 +134,7 @@ const ProductOverview = ({
         <Grid xs={12} md={12} lg={4}>
           <ProductOverviewPane
             // eslint-disable-next-line security/detect-object-injection
-            brandLogo={iconMap[brandCode]}
+            brandLogo={iconMap[`${brandCode}Isolated`]}
             name={name}
             nobb={nobb}
             thumbnailComponent={(props: ThumbnailProps) => (
