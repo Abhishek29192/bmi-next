@@ -1,16 +1,20 @@
 import {
   Container,
   Hero,
+  Icon,
   PLPFilterResponse,
   QUERY_KEY,
   Section,
   Tabs,
-  useIsClient
+  useIsClient,
+  Tile
 } from "@bmi-digital/components";
 import { useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
+import { Folder, Article } from "@mui/icons-material";
 import { graphql } from "gatsby";
 import React, { FormEvent, useEffect, useMemo, useState } from "react";
+import SvgIcon from "@mui/material/SvgIcon";
 import Breadcrumbs from "../components/Breadcrumbs";
 import ExploreBar from "../components/ExploreBar";
 import { generateGetMicroCopy } from "../components/MicroCopy";
@@ -98,6 +102,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
         heading: string;
         count?: number;
         hasBeenDisplayed?: boolean;
+        icon?: React.ReactNode;
       }
     >
   >({
@@ -106,19 +111,22 @@ const SearchPage = ({ pageContext, data }: Props) => {
       component: SearchTabPanelProducts,
       heading: getMicroCopy(microCopy.SEARCH_TAB_HEADINGS_PRODUCTS),
       count: 0,
-      hasBeenDisplayed: false
+      hasBeenDisplayed: false,
+      icon: <SvgIcon component={Tile} />
     },
     documents: {
       component: SearchTabPanelDocuments,
       heading: getMicroCopy(microCopy.SEARCH_TAB_HEADINGS_DOCUMENTS),
       count: 0,
-      hasBeenDisplayed: false
+      hasBeenDisplayed: false,
+      icon: <Icon source={Folder} />
     },
     pages: {
       component: SearchTabPanelPages,
       heading: getMicroCopy(microCopy.SEARCH_TAB_HEADINGS_PAGES),
       count: 0,
-      hasBeenDisplayed: false
+      hasBeenDisplayed: false,
+      icon: <Icon source={Article} />
     }
   });
 
@@ -255,13 +263,19 @@ const SearchPage = ({ pageContext, data }: Props) => {
           return null;
         }
 
-        const { component: Component, hasBeenDisplayed, heading, count } = data;
-
+        const {
+          component: Component,
+          hasBeenDisplayed,
+          heading,
+          count,
+          icon
+        } = data;
         return (
           <Tabs.TabPanel
             key={tabKey}
             heading={`${heading} (${count})`}
             index={tabKey}
+            icon={icon}
           >
             {hasBeenDisplayed ? (
               <Container data-testid={`container-${tabKey}`}>
