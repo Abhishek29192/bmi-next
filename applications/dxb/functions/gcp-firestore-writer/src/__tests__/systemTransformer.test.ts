@@ -47,7 +47,8 @@ describe("transformSystem", () => {
         guaranteesAndWarrantiesImages: [],
         guaranteesAndWarrantiesLinks: [],
         hashedCode: "1853176582",
-        images: [],
+        galleryImages: [],
+        masterImage: undefined,
         keyFeatures: undefined,
         layerCodes: [],
         name: "name",
@@ -238,16 +239,16 @@ describe("transformSystem", () => {
               "url": "https://www.youtube.com/watch?v=3901c0ds7oo",
             },
           ],
-          "guaranteesAndWarrantiesImages": Array [],
-          "guaranteesAndWarrantiesLinks": Array [],
-          "hashedCode": "1853176582",
-          "images": Array [
+          "galleryImages": Array [
             Object {
               "altText": "name",
               "mainSource": "http://localhost:8000",
               "thumbnail": "http://localhost:8000",
             },
           ],
+          "guaranteesAndWarrantiesImages": Array [],
+          "guaranteesAndWarrantiesLinks": Array [],
+          "hashedCode": "1853176582",
           "keyFeatures": Object {
             "name": "System Attributes",
             "values": Array [
@@ -258,6 +259,11 @@ describe("transformSystem", () => {
           "layerCodes": Array [
             "Layer_19",
           ],
+          "masterImage": Object {
+            "altText": "name",
+            "mainSource": "http://localhost:8000",
+            "thumbnail": "http://localhost:8000",
+          },
           "name": "name",
           "path": "/s/name-1853176582",
           "promotionalContent": "Promotional content value",
@@ -488,16 +494,16 @@ describe("transformSystem", () => {
               "url": "https://www.youtube.com/watch?v=3901c0ds7oo",
             },
           ],
-          "guaranteesAndWarrantiesImages": Array [],
-          "guaranteesAndWarrantiesLinks": Array [],
-          "hashedCode": "1853176582",
-          "images": Array [
+          "galleryImages": Array [
             Object {
               "altText": "name",
               "mainSource": "http://localhost:8000",
               "thumbnail": "http://localhost:8000",
             },
           ],
+          "guaranteesAndWarrantiesImages": Array [],
+          "guaranteesAndWarrantiesLinks": Array [],
+          "hashedCode": "1853176582",
           "keyFeatures": Object {
             "name": "System Attributes",
             "values": Array [
@@ -509,6 +515,11 @@ describe("transformSystem", () => {
             "layer 1",
             "layer 2",
           ],
+          "masterImage": Object {
+            "altText": "name",
+            "mainSource": "http://localhost:8000",
+            "thumbnail": "http://localhost:8000",
+          },
           "name": "name",
           "path": "/s/name-1853176582",
           "promotionalContent": "Promotional content value",
@@ -630,15 +641,12 @@ describe("transformSystem", () => {
           assetType: "GALLERY",
           format: "Product-Hero-Small-Desktop-Tablet"
         }),
-        createImage({
-          assetType: "GALLERY",
-          format: "Product-Color-Selector-Mobile"
-        }),
         createImage({ assetType: "GALLERY", format: undefined })
       ]
     });
     const transformedSystems = transformSystem(system);
-    expect(transformedSystems[0].images).toEqual([]);
+    expect(transformedSystems[0].galleryImages.length).toEqual(1);
+    expect(transformedSystems[0].masterImage).toBeUndefined();
   });
 
   it("ignores Channel categories", () => {
@@ -782,7 +790,8 @@ describe("transformSystem", () => {
       images: undefined
     });
     const transformedSystems = transformSystem(system);
-    expect(transformedSystems[0].images).toEqual([]);
+    expect(transformedSystems[0].galleryImages).toEqual([]);
+    expect(transformedSystems[0].masterImage).toBeUndefined();
   });
 
   // TODO: Remove test case - DXB-3449
@@ -997,16 +1006,16 @@ describe("transformSystem", () => {
               "url": "https://www.youtube.com/watch?v=3901c0ds7oo",
             },
           ],
-          "guaranteesAndWarrantiesImages": Array [],
-          "guaranteesAndWarrantiesLinks": Array [],
-          "hashedCode": "1853176582",
-          "images": Array [
+          "galleryImages": Array [
             Object {
               "altText": "name",
               "mainSource": "http://localhost:8000",
               "thumbnail": "http://localhost:8000",
             },
           ],
+          "guaranteesAndWarrantiesImages": Array [],
+          "guaranteesAndWarrantiesLinks": Array [],
+          "hashedCode": "1853176582",
           "keyFeatures": Object {
             "name": "System Attributes",
             "values": Array [
@@ -1017,6 +1026,11 @@ describe("transformSystem", () => {
           "layerCodes": Array [
             "Layer_19",
           ],
+          "masterImage": Object {
+            "altText": "name",
+            "mainSource": "http://localhost:8000",
+            "thumbnail": "http://localhost:8000",
+          },
           "name": "name",
           "path": "/s/name-1853176582",
           "promotionalContent": "Promotional content value",

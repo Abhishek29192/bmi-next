@@ -60,7 +60,8 @@ export type System = {
   brand?: PimCategory;
   code: string;
   hashedCode: string;
-  images: readonly Image[];
+  galleryImages: readonly Image[];
+  masterImage?: Image;
   name: string;
   path: string;
   scoringWeight: number;

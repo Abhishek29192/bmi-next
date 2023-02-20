@@ -55,6 +55,7 @@ export const transformSystem = (system: PimSystem): System[] => {
   const code = system.code;
   const hashedCode = generateHashFromString(system.code);
   const name = system.name;
+  const groupedImages = groupImages(system.images || []);
   return [
     {
       awardsAndCertificateDocuments: getAwardAndCertificateAsset(
@@ -81,7 +82,8 @@ export const transformSystem = (system: PimSystem): System[] => {
         system.assets
       ),
       hashedCode,
-      images: mapImages(groupImages(system.images || []), "MASTER_IMAGE"),
+      galleryImages: mapImages(groupedImages, "GALLERY"),
+      masterImage: mapImages(groupedImages, "MASTER_IMAGE")?.[0],
       keyFeatures: mapKeyFeatures(system),
       layerCodes: (system.systemLayers || []).map((layer) => layer.code),
       name,
