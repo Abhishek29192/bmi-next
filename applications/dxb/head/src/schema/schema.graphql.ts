@@ -702,7 +702,8 @@ type System implements Node @dontInfer {
   guaranteesAndWarrantiesImages: [PIMAsset]!
   guaranteesAndWarrantiesLinks: [PIMAsset]!
   keyFeatures: KeyFeatures
-  images: [PIMImage]!
+  galleryImages: [PIMImage]!
+  masterImage: PIMImage
   layerCodes: [String]!
   name: String!
   path: String!

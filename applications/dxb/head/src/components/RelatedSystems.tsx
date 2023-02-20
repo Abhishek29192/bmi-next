@@ -47,7 +47,8 @@ export const SystemCard = ({
       }Isolated`
     ];
   const systemUrl = getSystemUrl(countryCode, path);
-  const mainImage = system.images[0]?.mainSource;
+  const mainImage =
+    system.masterImage?.mainSource || system.galleryImages[0]?.mainSource;
   const GTMOverviewCard = withGTM<OverviewCardProps>(OverviewCard);
 
   return (
@@ -167,7 +168,10 @@ export const query = graphql`
       code
     }
     code
-    images {
+    galleryImages {
+      ...PIMImageFragment
+    }
+    masterImage {
       ...PIMImageFragment
     }
     name

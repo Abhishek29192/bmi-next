@@ -153,9 +153,9 @@ const pimSystem = {
     hashedCode: "efgh",
     shortDescription: "efgh description",
     path: "/s/efgh-name-efgh",
-    images: [
+    galleryImages: [
       {
-        assetType: "MASTER_IMAGE",
+        assetType: "GALLERY",
         format: "Product-Listing-Card-Large-Desktop",
         url: "product-listing-card-large-desktop-url",
         allowedToDownload: true,
@@ -166,7 +166,7 @@ const pimSystem = {
         realFileName: "Product-Hero-Large-Desktop_490189 wireløper.jpg"
       },
       {
-        assetType: "MASTER_IMAGE",
+        assetType: "GALLERY",
         format: "Product-Listing-Card-Small-Desktop-Tablet",
         url: "product-listing-card-small-desktop-tablet",
         allowedToDownload: true,

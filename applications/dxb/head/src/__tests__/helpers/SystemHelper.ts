@@ -76,7 +76,7 @@ export const createSystem = (system?: Partial<System>): System => ({
   ],
   hashedCode: "1234567890",
   keyFeatures: null,
-  images: [createImage()],
+  galleryImages: [createImage()],
   layerCodes: [],
   name: "system-Name",
   promotionalContent: "",
