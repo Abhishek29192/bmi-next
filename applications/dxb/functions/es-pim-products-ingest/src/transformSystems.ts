@@ -102,7 +102,7 @@ export const transformSystem = (system: PimSystem): EsSystem | undefined => {
   }
   const brand = getBrand(system.categories);
   const hashedCode = generateHashFromString(code);
-  const images = mapImages(groupImages(system.images || []), "MASTER_IMAGE");
+  const groupedImages = groupImages(system.images || []);
   const path = `/s/${generateUrl([name, hashedCode])}`;
   const scoringWeight = getScoringWeight(system.classifications);
   logger.info({
@@ -113,7 +113,8 @@ export const transformSystem = (system: PimSystem): EsSystem | undefined => {
     brand,
     code,
     hashedCode,
-    images,
+    masterImage: mapImages(groupedImages, "MASTER_IMAGE")?.[0],
+    galleryImages: mapImages(groupedImages, "GALLERY"),
     name,
     path,
     scoringWeight,

@@ -12,7 +12,7 @@ const createSystem = (esSystem?: Partial<System>): System => ({
   brand: createCategory({}),
   code: "code",
   hashedCode: "hashed-code",
-  images: [createSystemImage()],
+  galleryImages: [createSystemImage()],
   name: "name",
   path: "/s/code-name-hashed-code",
   scoringWeight: 1,
