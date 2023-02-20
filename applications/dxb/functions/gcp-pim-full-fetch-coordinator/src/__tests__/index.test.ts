@@ -1358,6 +1358,7 @@ describe("handleRequest", () => {
       .mockResolvedValueOnce(createSystemsApiResponse({ totalPageCount: 10 }));
     getNumberOfDocuments.mockResolvedValueOnce(1000);
 
+    const token = "authentication-token";
     mockResponses(
       fetchMock,
       {
@@ -1386,6 +1387,11 @@ describe("handleRequest", () => {
           startPage: 0,
           numberOfPages: 1
         }
+      },
+      {
+        method: "GET",
+        url: `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
+        body: token
       },
       {
         url: process.env.BUILD_TRIGGER_ENDPOINT,
@@ -1449,8 +1455,22 @@ describe("handleRequest", () => {
         numberOfPages: 1
       }
     });
+    expect(fetchMock).toHaveFetched(
+      `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
+      {
+        method: "GET",
+        headers: {
+          "Metadata-Flavor": "Google"
+        }
+      }
+    );
     expect(fetchMock).toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT, {
-      method: "POST"
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `bearer ${token}`
+      },
+      body: { foo: "bar" }
     });
     expect(response.status).toHaveBeenCalledWith(200);
   });
@@ -1461,6 +1481,7 @@ describe("handleRequest", () => {
       .mockResolvedValueOnce(createSystemsApiResponse({ totalPageCount: 10 }));
     getNumberOfDocuments.mockResolvedValueOnce(1000);
 
+    const token = "authentication-token";
     mockResponses(
       fetchMock,
       {
@@ -1489,6 +1510,11 @@ describe("handleRequest", () => {
           startPage: 0,
           numberOfPages: 1
         }
+      },
+      {
+        method: "GET",
+        url: `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
+        body: token
       },
       {
         url: process.env.BUILD_TRIGGER_ENDPOINT,
@@ -1553,8 +1579,22 @@ describe("handleRequest", () => {
         numberOfPages: 1
       }
     });
+    expect(fetchMock).toHaveFetched(
+      `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
+      {
+        method: "GET",
+        headers: {
+          "Metadata-Flavor": "Google"
+        }
+      }
+    );
     expect(fetchMock).toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT, {
-      method: "POST"
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `bearer ${token}`
+      },
+      body: { foo: "bar" }
     });
     expect(response.status).toHaveBeenCalledWith(200);
   });
@@ -1565,6 +1605,7 @@ describe("handleRequest", () => {
       .mockResolvedValueOnce(createSystemsApiResponse({ totalPageCount: 10 }));
     getNumberOfDocuments.mockResolvedValueOnce(1000);
 
+    const token = "authentication-token";
     mockResponses(
       fetchMock,
       {
@@ -1593,6 +1634,11 @@ describe("handleRequest", () => {
           startPage: 0,
           numberOfPages: 1
         }
+      },
+      {
+        method: "GET",
+        url: `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
+        body: token
       },
       {
         url: process.env.BUILD_TRIGGER_ENDPOINT,
@@ -1657,8 +1703,22 @@ describe("handleRequest", () => {
         numberOfPages: 1
       }
     });
+    expect(fetchMock).toHaveFetched(
+      `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
+      {
+        method: "GET",
+        headers: {
+          "Metadata-Flavor": "Google"
+        }
+      }
+    );
     expect(fetchMock).toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT, {
-      method: "POST"
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `bearer ${token}`
+      },
+      body: { foo: "bar" }
     });
     expect(response.status).toHaveBeenCalledWith(200);
   });
@@ -1669,6 +1729,7 @@ describe("handleRequest", () => {
       .mockResolvedValueOnce(createSystemsApiResponse({ totalPageCount: 12 }));
     getNumberOfDocuments.mockResolvedValueOnce(1357);
 
+    const token = "authentication-token";
     mockResponses(
       fetchMock,
       {
@@ -1724,6 +1785,11 @@ describe("handleRequest", () => {
           startPage: 1,
           numberOfPages: 1
         }
+      },
+      {
+        method: "GET",
+        url: `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
+        body: token
       },
       {
         url: process.env.BUILD_TRIGGER_ENDPOINT,
@@ -1809,8 +1875,22 @@ describe("handleRequest", () => {
         numberOfPages: 1
       }
     });
+    expect(fetchMock).toHaveFetched(
+      `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
+      {
+        method: "GET",
+        headers: {
+          "Metadata-Flavor": "Google"
+        }
+      }
+    );
     expect(fetchMock).toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT, {
-      method: "POST"
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `bearer ${token}`
+      },
+      body: { foo: "bar" }
     });
     expect(response.status).toHaveBeenCalledWith(200);
   });
@@ -1825,6 +1905,7 @@ describe("handleRequest", () => {
       .mockResolvedValueOnce(createSystemsApiResponse({ totalPageCount: 10 }));
     getNumberOfDocuments.mockResolvedValueOnce(1000);
 
+    const token = "authentication-token";
     mockResponses(
       fetchMock,
       {
@@ -1844,6 +1925,11 @@ describe("handleRequest", () => {
           startPage: 0,
           numberOfPages: 1
         }
+      },
+      {
+        method: "GET",
+        url: `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
+        body: token
       },
       {
         url: process.env.BUILD_TRIGGER_ENDPOINT,
@@ -1907,8 +1993,22 @@ describe("handleRequest", () => {
         numberOfPages: 1
       }
     });
+    expect(fetchMock).toHaveFetched(
+      `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
+      {
+        method: "GET",
+        headers: {
+          "Metadata-Flavor": "Google"
+        }
+      }
+    );
     expect(fetchMock).toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT, {
-      method: "POST"
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `bearer ${token}`
+      },
+      body: { foo: "bar" }
     });
     expect(response.status).toHaveBeenCalledWith(200);
   });
@@ -1919,6 +2019,7 @@ describe("handleRequest", () => {
       .mockResolvedValueOnce(createSystemsApiResponse({ totalPageCount: 10 }));
     getNumberOfDocuments.mockResolvedValueOnce(1000);
 
+    const token = "authentication-token";
     mockResponses(
       fetchMock,
       {
@@ -1938,6 +2039,11 @@ describe("handleRequest", () => {
           startPage: 0,
           numberOfPages: 1
         }
+      },
+      {
+        method: "GET",
+        url: `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
+        body: token
       },
       {
         url: process.env.BUILD_TRIGGER_ENDPOINT,
@@ -2001,8 +2107,22 @@ describe("handleRequest", () => {
         numberOfPages: 1
       }
     });
+    expect(fetchMock).toHaveFetched(
+      `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
+      {
+        method: "GET",
+        headers: {
+          "Metadata-Flavor": "Google"
+        }
+      }
+    );
     expect(fetchMock).toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT, {
-      method: "POST"
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `bearer ${token}`
+      },
+      body: { foo: "bar" }
     });
     expect(response.status).toHaveBeenCalledWith(200);
   });
@@ -2016,7 +2136,7 @@ describe("handleRequest", () => {
         )
       );
     getNumberOfDocuments.mockResolvedValueOnce(1000);
-
+    const token = "authentication-token";
     mockResponses(
       fetchMock,
       {
@@ -2036,6 +2156,11 @@ describe("handleRequest", () => {
           startPage: 0,
           numberOfPages: 1
         }
+      },
+      {
+        method: "GET",
+        url: `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
+        body: token
       },
       {
         url: process.env.BUILD_TRIGGER_ENDPOINT,
@@ -2100,7 +2225,12 @@ describe("handleRequest", () => {
       }
     });
     expect(fetchMock).toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT, {
-      method: "POST"
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `bearer ${token}`
+      },
+      body: { foo: "bar" }
     });
     expect(response.status).toHaveBeenCalledWith(200);
   });
@@ -2111,6 +2241,7 @@ describe("handleRequest", () => {
       .mockResolvedValueOnce(createSystemsApiResponse({ totalPageCount: 0 }));
     getNumberOfDocuments.mockResolvedValueOnce(1000);
 
+    const token = "authentication-token";
     mockResponses(
       fetchMock,
       {
@@ -2130,6 +2261,11 @@ describe("handleRequest", () => {
           startPage: 0,
           numberOfPages: 1
         }
+      },
+      {
+        method: "GET",
+        url: `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
+        body: token
       },
       {
         url: process.env.BUILD_TRIGGER_ENDPOINT,
@@ -2193,8 +2329,22 @@ describe("handleRequest", () => {
         numberOfPages: 1
       }
     });
+    expect(fetchMock).toHaveFetched(
+      `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
+      {
+        method: "GET",
+        headers: {
+          "Metadata-Flavor": "Google"
+        }
+      }
+    );
     expect(fetchMock).toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT, {
-      method: "POST"
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `bearer ${token}`
+      },
+      body: { foo: "bar" }
     });
     expect(response.status).toHaveBeenCalledWith(200);
   });
@@ -2205,6 +2355,7 @@ describe("handleRequest", () => {
       .mockResolvedValueOnce(createSystemsApiResponse({ totalPageCount: 10 }));
     getNumberOfDocuments.mockResolvedValueOnce(0);
 
+    const token = "authentication-token";
     mockResponses(
       fetchMock,
       {
@@ -2226,6 +2377,11 @@ describe("handleRequest", () => {
         }
       },
       {
+        method: "GET",
+        url: `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
+        body: token
+      },
+      {
         url: process.env.BUILD_TRIGGER_ENDPOINT,
         method: "POST"
       }
@@ -2287,8 +2443,22 @@ describe("handleRequest", () => {
         numberOfPages: 1
       }
     });
+    expect(fetchMock).toHaveFetched(
+      `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
+      {
+        method: "GET",
+        headers: {
+          "Metadata-Flavor": "Google"
+        }
+      }
+    );
     expect(fetchMock).toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT, {
-      method: "POST"
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `bearer ${token}`
+      },
+      body: { foo: "bar" }
     });
     expect(response.status).toHaveBeenCalledWith(200);
   });
@@ -2301,6 +2471,7 @@ describe("handleRequest", () => {
       .mockResolvedValueOnce(createSystemsApiResponse({ totalPageCount: 10 }));
     getNumberOfDocuments.mockResolvedValueOnce(1000);
 
+    const token = "authentication-token";
     mockResponses(
       fetchMock,
       {
@@ -2329,6 +2500,11 @@ describe("handleRequest", () => {
           startPage: 0,
           numberOfPages: 1
         }
+      },
+      {
+        method: "GET",
+        url: `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
+        body: token
       },
       {
         url: process.env.BUILD_TRIGGER_ENDPOINT,
@@ -2392,9 +2568,26 @@ describe("handleRequest", () => {
         numberOfPages: 1
       }
     });
+
+    expect(fetchMock).toHaveFetched(
+      `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
+      {
+        method: "GET",
+        headers: {
+          "Metadata-Flavor": "Google"
+        }
+      }
+    );
+
     expect(fetchMock).toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT, {
-      method: "POST"
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `bearer ${token}`
+      },
+      body: { foo: "bar" }
     });
+
     expect(response.status).toHaveBeenCalledWith(200);
 
     delete process.env.TAG;
