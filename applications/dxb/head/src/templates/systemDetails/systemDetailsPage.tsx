@@ -63,7 +63,9 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
   );
 
   const media = [
-    ...transformImages(system.images),
+    ...transformImages(
+      [system.masterImage, ...system.galleryImages].filter(Boolean)
+    ),
     //TODO: check if it doesnt work on system detals page!!!
     ...transformMediaSrc(system.videos)
   ];
@@ -173,7 +175,10 @@ export const systemQuery = graphql`
         name
         values
       }
-      images {
+      galleryImages {
+        ...PIMImageFragment
+      }
+      masterImage {
         ...PIMImageFragment
       }
       layerCodes

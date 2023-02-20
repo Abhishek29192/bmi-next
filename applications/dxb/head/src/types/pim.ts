@@ -51,7 +51,8 @@ export type System = Omit<
   description: string | null;
   documents: readonly SystemDocument[];
   keyFeatures: KeyFeatures | null;
-  images: readonly Image[];
+  galleryImages: readonly Image[];
+  masterImage?: Image;
   promotionalContent: string | null;
   shortDescription: string | null;
   specification: Asset | null;
@@ -279,7 +280,13 @@ export type Video = FirestoreVideo & {
 
 export type RelatedSystem = Pick<
   System,
-  "code" | "images" | "name" | "path" | "scoringWeight" | "shortDescription"
+  | "code"
+  | "galleryImages"
+  | "masterImage"
+  | "name"
+  | "path"
+  | "scoringWeight"
+  | "shortDescription"
 > & {
   brand: Pick<Brand, "code"> | null;
 };
