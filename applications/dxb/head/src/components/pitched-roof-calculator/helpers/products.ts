@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   createProduct as createESProduct,
   Product as ESProduct,

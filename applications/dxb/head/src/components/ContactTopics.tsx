@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   Card,
   CardProps,
@@ -22,9 +23,9 @@ import React from "react";
 import withGTM from "../utils/google-tag-manager";
 import ContactDetails, { Data as ContactDetailsData } from "./ContactDetails";
 import RichText from "./RichText";
-import { Data as TitleWithContentData } from "./TitleWithContent";
 import borderedItemStyles from "./styles/BorderedItem.module.scss";
 import styles from "./styles/ContactTopics.module.scss";
+import { Data as TitleWithContentData } from "./TitleWithContent";
 
 const StyledEmojiOutlinedIcon = styled(EmojiObjectsOutlinedIcon)(
   ({ theme }) => ({

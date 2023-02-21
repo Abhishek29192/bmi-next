@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { ClickableAction } from "@bmi-digital/components";
 import { ButtonBaseActions } from "@mui/material/ButtonBase";
 import React, { createContext, useContext } from "react";

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { graphql } from "gatsby";
 import { Data as ImageData } from "./Image";
 import { Data as LinkData } from "./Link";

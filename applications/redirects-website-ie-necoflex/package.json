@@ -3,7 +3,7 @@
   "private": true,
   "description": "BMI Redirects Website IE necoflex",
   "version": "0.0.0",
-  "license": "UNLICENSED",
+  "license": "BMI-DXB",
   "repository": {
     "type": "git",
     "url": "https://github.com/gatsbyjs/gatsby-starter-default"
@@ -15,8 +15,8 @@
     "build": "gatsby build --prefix-paths",
     "debug": "node --nolazy --inspect node_modules/.bin/gatsby develop",
     "dev": "gatsby clean && gatsby develop",
-    "lint": "eslint \"**/*.{js,ts,tsx}\"",
-    "start": "gatsby build && gatsby serve"
+    "start": "gatsby build && gatsby serve",
+    "build:debug": "node --nolazy --inspect node_modules/.bin/gatsby build"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
