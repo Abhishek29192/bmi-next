@@ -56,7 +56,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
               </h5>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -141,7 +141,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
               </h5>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -225,7 +225,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
               </h5>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -329,7 +329,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
               </button>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -478,7 +478,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
             </button>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -581,7 +581,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
             </button>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -716,7 +716,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
             </h5>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -851,7 +851,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
             </h5>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -986,7 +986,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
             </h5>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -1118,7 +1118,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
           Project information (optional)
         </h3>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -1167,7 +1167,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div

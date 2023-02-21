@@ -19,7 +19,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-vvjsjl-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -27,7 +27,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
             data-testid="grid-item"
           >
             <div
-              class="MuiAutocomplete-root company-autocomplete css-1qqsdnr-MuiAutocomplete-root"
+              class="MuiAutocomplete-root company-autocomplete css-l3ln04-MuiAutocomplete-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"

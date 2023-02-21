@@ -7,7 +7,7 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
     data-testid="product-overview"
   >
     <div
-      class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+      class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
       data-testid="grid-container"
     >
       <div
@@ -214,7 +214,7 @@ exports[`ProductOverview component renders correctly without Recaptcha 1`] = `
     data-testid="product-overview"
   >
     <div
-      class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+      class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
       data-testid="grid-container"
     >
       <div
@@ -391,7 +391,7 @@ exports[`ProductOverview component renders with default image if there are no im
     data-testid="product-overview"
   >
     <div
-      class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+      class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
       data-testid="grid-container"
     >
       <div

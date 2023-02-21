@@ -19,7 +19,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-vvjsjl-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -27,7 +27,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
             data-testid="grid-item"
           >
             <div
-              class="MuiAutocomplete-root company-autocomplete css-1qqsdnr-MuiAutocomplete-root"
+              class="MuiAutocomplete-root company-autocomplete css-l3ln04-MuiAutocomplete-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -558,7 +558,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
             Main
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-vvjsjl-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -566,7 +566,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
               data-testid="grid-item"
             >
               <div
-                class="MuiAutocomplete-root company-autocomplete css-1qqsdnr-MuiAutocomplete-root"
+                class="MuiAutocomplete-root company-autocomplete css-l3ln04-MuiAutocomplete-root"
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -1363,7 +1363,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-vvjsjl-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -1371,7 +1371,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
             data-testid="grid-item"
           >
             <div
-              class="MuiAutocomplete-root company-autocomplete css-1qqsdnr-MuiAutocomplete-root"
+              class="MuiAutocomplete-root company-autocomplete css-l3ln04-MuiAutocomplete-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -2618,7 +2618,7 @@ exports[`ServiceLocatorSection component close button 1`] = `
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-vvjsjl-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -2626,7 +2626,7 @@ exports[`ServiceLocatorSection component close button 1`] = `
             data-testid="grid-item"
           >
             <div
-              class="MuiAutocomplete-root company-autocomplete css-1qqsdnr-MuiAutocomplete-root"
+              class="MuiAutocomplete-root company-autocomplete css-l3ln04-MuiAutocomplete-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -3197,7 +3197,7 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
             Main
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-vvjsjl-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -3205,7 +3205,7 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
               data-testid="grid-item"
             >
               <div
-                class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon company-autocomplete css-1qqsdnr-MuiAutocomplete-root"
+                class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon company-autocomplete css-l3ln04-MuiAutocomplete-root"
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -3653,7 +3653,7 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-vvjsjl-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -4161,7 +4161,7 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-vvjsjl-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -4169,7 +4169,7 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
             data-testid="grid-item"
           >
             <div
-              class="MuiAutocomplete-root company-autocomplete css-1qqsdnr-MuiAutocomplete-root"
+              class="MuiAutocomplete-root company-autocomplete css-l3ln04-MuiAutocomplete-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -4748,7 +4748,7 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-vvjsjl-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -4756,7 +4756,7 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
             data-testid="grid-item"
           >
             <div
-              class="MuiAutocomplete-root company-autocomplete css-1qqsdnr-MuiAutocomplete-root"
+              class="MuiAutocomplete-root company-autocomplete css-l3ln04-MuiAutocomplete-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -5576,7 +5576,7 @@ exports[`ServiceLocatorSection component renders correctly with NO service 1`] =
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-vvjsjl-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -5584,7 +5584,7 @@ exports[`ServiceLocatorSection component renders correctly with NO service 1`] =
             data-testid="grid-item"
           >
             <div
-              class="MuiAutocomplete-root company-autocomplete css-1qqsdnr-MuiAutocomplete-root"
+              class="MuiAutocomplete-root company-autocomplete css-l3ln04-MuiAutocomplete-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -5840,7 +5840,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-vvjsjl-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
           data-testid="grid-container"
         />
         <div
@@ -6302,7 +6302,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-vvjsjl-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
           data-testid="grid-container"
         />
         <div
@@ -6764,7 +6764,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-vvjsjl-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -6772,7 +6772,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
             data-testid="grid-item"
           >
             <div
-              class="MuiAutocomplete-root company-autocomplete css-1qqsdnr-MuiAutocomplete-root"
+              class="MuiAutocomplete-root company-autocomplete css-l3ln04-MuiAutocomplete-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -7306,7 +7306,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-vvjsjl-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -7314,7 +7314,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
             data-testid="grid-item"
           >
             <div
-              class="MuiAutocomplete-root company-autocomplete css-1qqsdnr-MuiAutocomplete-root"
+              class="MuiAutocomplete-root company-autocomplete css-l3ln04-MuiAutocomplete-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -7848,7 +7848,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-vvjsjl-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -7856,7 +7856,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
             data-testid="grid-item"
           >
             <div
-              class="MuiAutocomplete-root company-autocomplete css-1qqsdnr-MuiAutocomplete-root"
+              class="MuiAutocomplete-root company-autocomplete css-l3ln04-MuiAutocomplete-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -8390,7 +8390,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-vvjsjl-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -8398,7 +8398,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
             data-testid="grid-item"
           >
             <div
-              class="MuiAutocomplete-root company-autocomplete css-1qqsdnr-MuiAutocomplete-root"
+              class="MuiAutocomplete-root company-autocomplete css-l3ln04-MuiAutocomplete-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -9159,7 +9159,7 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-vvjsjl-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -9167,7 +9167,7 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
             data-testid="grid-item"
           >
             <div
-              class="MuiAutocomplete-root company-autocomplete css-1qqsdnr-MuiAutocomplete-root"
+              class="MuiAutocomplete-root company-autocomplete css-l3ln04-MuiAutocomplete-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -9737,7 +9737,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-vvjsjl-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -9745,7 +9745,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
             data-testid="grid-item"
           >
             <div
-              class="MuiAutocomplete-root company-autocomplete css-1qqsdnr-MuiAutocomplete-root"
+              class="MuiAutocomplete-root company-autocomplete css-l3ln04-MuiAutocomplete-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -10442,7 +10442,7 @@ exports[`ServiceLocatorSection component renders multiple services with single s
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-vvjsjl-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -10450,7 +10450,7 @@ exports[`ServiceLocatorSection component renders multiple services with single s
             data-testid="grid-item"
           >
             <div
-              class="MuiAutocomplete-root company-autocomplete css-1qqsdnr-MuiAutocomplete-root"
+              class="MuiAutocomplete-root company-autocomplete css-l3ln04-MuiAutocomplete-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -11064,7 +11064,7 @@ exports[`ServiceLocatorSection component renders single service with No service 
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-vvjsjl-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -11072,7 +11072,7 @@ exports[`ServiceLocatorSection component renders single service with No service 
             data-testid="grid-item"
           >
             <div
-              class="MuiAutocomplete-root company-autocomplete css-1qqsdnr-MuiAutocomplete-root"
+              class="MuiAutocomplete-root company-autocomplete css-l3ln04-MuiAutocomplete-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -11481,7 +11481,7 @@ exports[`ServiceLocatorSection component renders single service with empty servi
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-vvjsjl-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -11489,7 +11489,7 @@ exports[`ServiceLocatorSection component renders single service with empty servi
             data-testid="grid-item"
           >
             <div
-              class="MuiAutocomplete-root company-autocomplete css-1qqsdnr-MuiAutocomplete-root"
+              class="MuiAutocomplete-root company-autocomplete css-l3ln04-MuiAutocomplete-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -11898,7 +11898,7 @@ exports[`ServiceLocatorSection component renders single service with multiple se
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-vvjsjl-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -11906,7 +11906,7 @@ exports[`ServiceLocatorSection component renders single service with multiple se
             data-testid="grid-item"
           >
             <div
-              class="MuiAutocomplete-root company-autocomplete css-1qqsdnr-MuiAutocomplete-root"
+              class="MuiAutocomplete-root company-autocomplete css-l3ln04-MuiAutocomplete-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -12388,7 +12388,7 @@ exports[`ServiceLocatorSection component renders single service with single serv
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-vvjsjl-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -12396,7 +12396,7 @@ exports[`ServiceLocatorSection component renders single service with single serv
             data-testid="grid-item"
           >
             <div
-              class="MuiAutocomplete-root company-autocomplete css-1qqsdnr-MuiAutocomplete-root"
+              class="MuiAutocomplete-root company-autocomplete css-l3ln04-MuiAutocomplete-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -12828,7 +12828,7 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered main li
             Main
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-vvjsjl-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -12836,7 +12836,7 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered main li
               data-testid="grid-item"
             >
               <div
-                class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon company-autocomplete css-1qqsdnr-MuiAutocomplete-root"
+                class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon company-autocomplete css-l3ln04-MuiAutocomplete-root"
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -13273,7 +13273,7 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered option 
             Main
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-vvjsjl-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -13282,7 +13282,7 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered option 
             >
               <div
                 aria-owns="company-autocomplete-listbox"
-                class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon company-autocomplete css-1qqsdnr-MuiAutocomplete-root"
+                class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon company-autocomplete css-l3ln04-MuiAutocomplete-root"
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -13911,7 +13911,7 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-vvjsjl-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -13919,7 +13919,7 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
             data-testid="grid-item"
           >
             <div
-              class="MuiAutocomplete-root company-autocomplete css-1qqsdnr-MuiAutocomplete-root"
+              class="MuiAutocomplete-root company-autocomplete css-l3ln04-MuiAutocomplete-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -14328,7 +14328,7 @@ exports[`ServiceLocatorSection component selects service 1`] = `
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-vvjsjl-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -14336,7 +14336,7 @@ exports[`ServiceLocatorSection component selects service 1`] = `
             data-testid="grid-item"
           >
             <div
-              class="MuiAutocomplete-root company-autocomplete css-1qqsdnr-MuiAutocomplete-root"
+              class="MuiAutocomplete-root company-autocomplete css-l3ln04-MuiAutocomplete-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -14941,7 +14941,7 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
             Main
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-vvjsjl-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -14949,7 +14949,7 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
               data-testid="grid-item"
             >
               <div
-                class="MuiAutocomplete-root company-autocomplete css-1qqsdnr-MuiAutocomplete-root"
+                class="MuiAutocomplete-root company-autocomplete css-l3ln04-MuiAutocomplete-root"
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -15367,7 +15367,7 @@ exports[`ServiceLocatorSection component when showDefaultResultList is false sho
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-vvjsjl-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -15375,7 +15375,7 @@ exports[`ServiceLocatorSection component when showDefaultResultList is false sho
             data-testid="grid-item"
           >
             <div
-              class="MuiAutocomplete-root company-autocomplete css-1qqsdnr-MuiAutocomplete-root"
+              class="MuiAutocomplete-root company-autocomplete css-l3ln04-MuiAutocomplete-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -15636,7 +15636,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-vvjsjl-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -15644,7 +15644,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
             data-testid="grid-item"
           >
             <div
-              class="MuiAutocomplete-root company-autocomplete css-1qqsdnr-MuiAutocomplete-root"
+              class="MuiAutocomplete-root company-autocomplete css-l3ln04-MuiAutocomplete-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -15716,7 +15716,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
               </span>
             </p>
             <div
-              class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon location-autocomplete css-1qqsdnr-MuiAutocomplete-root"
+              class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon location-autocomplete css-l3ln04-MuiAutocomplete-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -16385,7 +16385,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-vvjsjl-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -16393,7 +16393,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
             data-testid="grid-item"
           >
             <div
-              class="MuiAutocomplete-root company-autocomplete css-1qqsdnr-MuiAutocomplete-root"
+              class="MuiAutocomplete-root company-autocomplete css-l3ln04-MuiAutocomplete-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -16465,7 +16465,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
               </span>
             </p>
             <div
-              class="MuiAutocomplete-root location-autocomplete css-1qqsdnr-MuiAutocomplete-root"
+              class="MuiAutocomplete-root location-autocomplete css-l3ln04-MuiAutocomplete-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -16687,7 +16687,7 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-vvjsjl-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -16695,7 +16695,7 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
             data-testid="grid-item"
           >
             <div
-              class="MuiAutocomplete-root company-autocomplete css-1qqsdnr-MuiAutocomplete-root"
+              class="MuiAutocomplete-root company-autocomplete css-l3ln04-MuiAutocomplete-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
