@@ -12,7 +12,7 @@ exports[`OverlapCards component IntegratedOverlapCards component renders correct
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-111ndel-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-i24bwq-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -344,7 +344,7 @@ exports[`OverlapCards component renders correctly 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-111ndel-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-i24bwq-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div

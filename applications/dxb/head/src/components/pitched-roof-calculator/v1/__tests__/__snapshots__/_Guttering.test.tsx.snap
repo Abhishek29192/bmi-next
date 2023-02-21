@@ -20,7 +20,7 @@ exports[`PitchedRoofCalculator Guttering component renders correctly 1`] = `
         class="css-klihbg"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-2 css-wohhz8-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-2 css-1xqc8d-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -90,7 +90,7 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
         class="css-klihbg"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-2 css-wohhz8-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-2 css-1xqc8d-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -154,7 +154,7 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
         class="css-klihbg"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-2 css-wohhz8-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-2 css-1xqc8d-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -276,7 +276,7 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
         class="css-klihbg"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-2 css-wohhz8-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-2 css-1xqc8d-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -395,7 +395,7 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
         </h6>
       </div>
       <div
-        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
         data-testid="grid-container"
       >
         <div
@@ -480,7 +480,7 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
         </h6>
       </div>
       <div
-        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
         data-testid="grid-container"
       >
         <div

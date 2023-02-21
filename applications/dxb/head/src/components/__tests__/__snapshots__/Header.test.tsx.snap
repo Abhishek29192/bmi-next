@@ -102,7 +102,7 @@ exports[`Header component renders correctly 1`] = `
         >
           <div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-1you7td-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -767,7 +767,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
         >
           <div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-1you7td-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -1434,7 +1434,7 @@ exports[`Header component shows sample basket icon 1`] = `
         >
           <div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-1you7td-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -1642,7 +1642,7 @@ exports[`Header component shows sample basket icon 1`] = `
                 type="button"
               >
                 <span
-                  class="MuiBadge-root css-anxmnr-MuiBadge-root"
+                  class="MuiBadge-root MuiBadge-root css-anxmnr-MuiBadge-root"
                 >
                   <svg
                     aria-hidden="true"
@@ -1656,7 +1656,7 @@ exports[`Header component shows sample basket icon 1`] = `
                     />
                   </svg>
                   <span
-                    class="MuiBadge-badge MuiBadge-standard MuiBadge-anchorOriginTopRight MuiBadge-anchorOriginTopRightRectangular MuiBadge-overlapRectangular MuiBadge-colorError css-12zkn4t-MuiBadge-badge"
+                    class="MuiBadge-badge MuiBadge-standard MuiBadge-anchorOriginTopRight MuiBadge-anchorOriginTopRightRectangular MuiBadge-overlapRectangular MuiBadge-colorError MuiBadge-badge css-12zkn4t-MuiBadge-badge"
                   >
                     1
                   </span>
@@ -2288,7 +2288,7 @@ exports[`Header component toggles search 1`] = `
         >
           <div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-1you7td-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div

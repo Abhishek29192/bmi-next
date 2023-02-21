@@ -170,7 +170,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
         >
           <div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-1you7td-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -2681,7 +2681,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
             Mer informasjon
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -2807,7 +2807,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
               class="css-lkf985"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
                 data-testid="grid-container"
               >
                 <div
@@ -2885,7 +2885,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-12nbjhz-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-mzs61s-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -3403,7 +3403,7 @@ exports[`Simple page renders correctly with full data 1`] = `
         >
           <div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-1you7td-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -5882,7 +5882,7 @@ exports[`Simple page renders correctly with full data 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-oet5y7-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -5993,7 +5993,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                 </p>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
                 data-testid="grid-container"
               >
                 <div
@@ -6171,7 +6171,7 @@ exports[`Simple page renders correctly with full data 1`] = `
             Mer informasjon
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -6297,7 +6297,7 @@ exports[`Simple page renders correctly with full data 1`] = `
               class="css-lkf985"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
                 data-testid="grid-container"
               >
                 <div
@@ -6375,7 +6375,7 @@ exports[`Simple page renders correctly with full data 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-12nbjhz-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-mzs61s-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
