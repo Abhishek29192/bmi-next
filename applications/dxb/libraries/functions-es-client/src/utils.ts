@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import logger from "@bmi-digital/functions-logger";
 import { Client } from "@elastic/elasticsearch";
 import { BulkApiResponse, DeleteOperation, IndexOperation } from "./types";

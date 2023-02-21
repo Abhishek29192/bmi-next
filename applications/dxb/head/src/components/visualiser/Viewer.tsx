@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Icon, Tooltip } from "@bmi-digital/components";
 import {
   Add,

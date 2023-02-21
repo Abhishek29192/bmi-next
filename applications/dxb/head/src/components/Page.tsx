@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { BackToTop, MicroCopy } from "@bmi-digital/components";
 import { graphql, navigate } from "gatsby";
 import React from "react";
