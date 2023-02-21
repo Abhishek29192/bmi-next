@@ -1,7 +1,7 @@
 import { Button, Form, FormProps, Typography } from "@bmi-digital/components";
-import Divider from "@mui/material/Divider";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import Divider from "@mui/material/Divider";
 import React from "react";
 import styles from "./FlatRoofCalculator.module.scss";
 import { Tree as CalculatorDataTree } from "./types/CalculatorData";
@@ -79,7 +79,7 @@ const InputView = ({
   calculateButtonLabel
 }: Props) => (
   <>
-    <Section>
+    <Section data-testid="flat-roof-calculator-input-view-section">
       <Typography variant="h1" hasUnderline className={styles["header"]}>
         {inputContent.header}
       </Typography>
@@ -98,7 +98,7 @@ const InputView = ({
       <ProjectInformationSection
         {...{ ...projectInformationProps, defaultValues }}
       />
-      <Section>
+      <Section data-testid="flat-roof-calculator-help-descriptio-section">
         <Typography variant="h5" className={styles["helpHeader"]}>
           {inputContent.helpHeader}
         </Typography>

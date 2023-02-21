@@ -4,7 +4,7 @@ exports[`Brands component renders correctly 1`] = `
 <div>
   <div
     class="Brands Section-root Section-pearl css-cxq310"
-    data-testid="section"
+    data-testid="brands"
   >
     <div
       class=" css-ze8cyt"

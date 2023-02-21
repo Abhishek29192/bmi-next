@@ -21,6 +21,7 @@ import { Data as ContentfulTitleWithContent } from "../../components/TitleWithCo
 import { microCopy } from "../../constants/microCopies";
 import { System } from "../../types/pim";
 import withGTM from "../../utils/google-tag-manager";
+import { replaceSpaces } from "../../utils/transformHyphens";
 import { classes, StyledLeadBlock } from "./styles/aboutLeadBlockStyles";
 
 const GTMButton = withGTM<ButtonProps>(Button);
@@ -105,7 +106,7 @@ const AboutLeadBlock = ({ system, sidebarItem }: Props) => {
                 alt={item.name}
                 className={classes.image}
                 data-testid={`guarantee-image${
-                  item.name ? `-${item.name.replace(/ /g, "-")}` : ""
+                  item.name ? `-${replaceSpaces(item.name)}` : ""
                 }`}
               />
             ))}

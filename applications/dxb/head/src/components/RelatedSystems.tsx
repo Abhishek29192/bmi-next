@@ -15,6 +15,7 @@ import { RelatedSystem } from "../types/pim";
 import withGTM, { GTM } from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
 import { renderMedia } from "../utils/renderMedia";
+import { replaceSpaces } from "../utils/transformHyphens";
 import BrandLogo from "./BrandLogo";
 import { useSiteContext } from "./Site";
 import styles from "./styles/RelatedSystems.module.scss";
@@ -25,6 +26,7 @@ export type SystemCardProps = {
   path: string;
   gtm: GTM;
   isHighlighted?: boolean;
+  "data-testid"?: string;
 };
 
 const getSystemUrl = (countryCode, path) =>
@@ -36,6 +38,7 @@ export const SystemCard = ({
   path,
   gtm,
   isHighlighted = false,
+  "data-testid": dataTestId,
   ...rest
 }: SystemCardProps) => {
   const { getMicroCopy } = useSiteContext();
@@ -45,7 +48,14 @@ export const SystemCard = ({
   const GTMOverviewCard = withGTM<OverviewCardProps>(OverviewCard);
 
   return (
-    <Grid xs={12} md={6} lg={3}>
+    <Grid
+      xs={12}
+      md={6}
+      lg={3}
+      data-testid={
+        dataTestId ? dataTestId : `system-card-${replaceSpaces(system.code)}`
+      }
+    >
       <GTMOverviewCard
         title={system.name}
         titleVariant="h5"
@@ -149,7 +159,10 @@ const RelatedSystems = ({
   const { getMicroCopy } = useSiteContext();
 
   return (
-    <Section backgroundColor={sectionBackgroundColor || "alabaster"}>
+    <Section
+      backgroundColor={sectionBackgroundColor || "alabaster"}
+      data-testid={`related-systems-section`}
+    >
       <div className={styles["RelatedSystems"]}>
         <Section.Title className={styles["title"]}>
           {sectionTitle ||

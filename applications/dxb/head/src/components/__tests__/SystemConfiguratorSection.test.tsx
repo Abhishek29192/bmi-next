@@ -733,9 +733,9 @@ describe("SystemConfiguratorSection component", () => {
     expect(container).toMatchSnapshot();
     expect(mockQueryES).toBeCalledTimes(1);
 
-    expect(queryByTestId("ijkl")).not.toBeNull();
-    expect(queryByTestId("efgh")).not.toBeNull();
-    expect(queryByTestId("abcd")).toBeNull();
+    expect(queryByTestId("system-card-ijkl")).not.toBeNull();
+    expect(queryByTestId("system-card-efgh")).not.toBeNull();
+    expect(queryByTestId("system-card-abcd")).toBeNull();
   });
 
   it("renders only max of 4 recommendedSystems", async () => {
@@ -807,11 +807,11 @@ describe("SystemConfiguratorSection component", () => {
     expect(container).toMatchSnapshot();
     expect(mockQueryES).toBeCalledTimes(1);
 
-    expect(queryByTestId("ijkl")).not.toBeNull();
-    expect(queryByTestId("efgh")).not.toBeNull();
-    expect(queryByTestId("abcd")).not.toBeNull();
-    expect(queryByTestId("mnop")).not.toBeNull();
-    expect(queryByTestId("qrst")).toBeNull();
+    expect(queryByTestId("system-card-ijkl")).not.toBeNull();
+    expect(queryByTestId("system-card-efgh")).not.toBeNull();
+    expect(queryByTestId("system-card-abcd")).not.toBeNull();
+    expect(queryByTestId("system-card-mnop")).not.toBeNull();
+    expect(queryByTestId("system-card-qrst")).toBeNull();
   });
 
   it("redirect to 404 page if no matches to pimSystem code", async () => {

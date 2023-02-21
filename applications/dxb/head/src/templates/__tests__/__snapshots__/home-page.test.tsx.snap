@@ -3210,7 +3210,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
     </div>
     <div
       class="Brands Section-root Section-pearl css-cxq310"
-      data-testid="section"
+      data-testid="brands"
     >
       <div
         class=" css-ze8cyt"
@@ -3305,7 +3305,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
     >
       <div
         class="Section-root Section-white css-cxq310"
-        data-testid="section"
+        data-testid="tabs-or-accordion-section-string"
       >
         <div
           class=" css-ze8cyt"

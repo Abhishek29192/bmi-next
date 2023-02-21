@@ -2056,6 +2056,7 @@ exports[`Header component shows sample basket icon 1`] = `
       >
         <div
           class="css-1g1g7av"
+          data-testid="shopping-cart-dialog-header-container"
         >
           <button
             aria-label="MC: dialog.close"
@@ -2081,7 +2082,7 @@ exports[`Header component shows sample basket icon 1`] = `
           </button>
           <h3
             class="MuiTypography-root MuiTypography-h3 Typography-underline css-d7brak-MuiTypography-root"
-            data-testid="typography"
+            data-testid="shopping-cart-dialog-title"
           >
             Basket title
           </h3>

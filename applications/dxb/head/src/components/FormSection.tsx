@@ -32,6 +32,7 @@ import getCookie from "../utils/getCookie";
 import withGTM, { GTM } from "../utils/google-tag-manager";
 import { isRichText } from "../utils/isRichText";
 import { getPathWithCountryCode } from "../utils/path";
+import { replaceSpaces } from "../utils/transformHyphens";
 import ControlledCheckboxGroup from "./CheckboxGroup";
 import HiddenInput from "./HiddenInput";
 import { Data as LinkData, isExternalUrl } from "./Link";
@@ -435,6 +436,7 @@ const HubspotForm = ({
       backgroundColor={backgroundColor}
       className={className}
       isDialog={isDialog}
+      data-testid={`hubspot-form-section-${replaceSpaces(title)}`}
     >
       {showTitle && <Section.Title>{title}</Section.Title>}
       {description && (
@@ -710,7 +712,11 @@ const FormSection = ({
     );
   }
   return (
-    <Section backgroundColor={backgroundColor} className={className}>
+    <Section
+      backgroundColor={backgroundColor}
+      className={className}
+      data-testid={`contentful-form-section-${replaceSpaces(title)}`}
+    >
       {showTitle && <Section.Title>{title}</Section.Title>}
       {description && (
         <>

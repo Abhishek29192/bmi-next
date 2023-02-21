@@ -4,7 +4,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
 <div>
   <div
     class="SystemConfigurator Section-root Section-white css-cxq310"
-    data-testid="system-config-section"
+    data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
       class=" css-ze8cyt"
@@ -203,7 +203,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
   >
     <div
       class="SystemConfigurator-result Section-root Section-pearl css-cxq310"
-      data-testid="section"
+      data-testid="system-configuration-section-Result-Title"
     >
       <div
         class=" css-ze8cyt"
@@ -239,16 +239,15 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
           </div>
           <div
             class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
-            data-testid="grid-container"
+            data-testid="system-configuration-results-grid"
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
               data-testid="grid-item"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"efgh name\\",\\"action\\":\\"/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details\\"}"
-                data-testid="efgh"
                 href="/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
               >
@@ -303,7 +302,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
 <div>
   <div
     class="SystemConfigurator Section-root Section-white css-cxq310"
-    data-testid="system-config-section"
+    data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
       class=" css-ze8cyt"
@@ -502,7 +501,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
   >
     <div
       class="SystemConfigurator-result Section-root Section-pearl css-cxq310"
-      data-testid="section"
+      data-testid="system-configuration-section-Result-Title"
     >
       <div
         class=" css-ze8cyt"
@@ -538,16 +537,15 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
           </div>
           <div
             class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
-            data-testid="grid-container"
+            data-testid="system-configuration-results-grid"
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
               data-testid="grid-item"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"efgh name\\",\\"action\\":\\"/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details\\"}"
-                data-testid="efgh"
                 href="/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
               >
@@ -602,7 +600,7 @@ exports[`SystemConfiguratorSection component redirect to 404 page if no matches 
 <div>
   <div
     class="SystemConfigurator Section-root Section-white css-cxq310"
-    data-testid="system-config-section"
+    data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
       class=" css-ze8cyt"
@@ -801,7 +799,7 @@ exports[`SystemConfiguratorSection component redirect to 404 page if no matches 
   >
     <div
       class="SystemConfigurator-result Section-root Section-pearl css-cxq310"
-      data-testid="section"
+      data-testid="system-configuration-section-Result-Title"
     >
       <div
         class=" css-ze8cyt"
@@ -846,7 +844,7 @@ exports[`SystemConfiguratorSection component renders System Configurator Block w
 <div>
   <div
     class="SystemConfigurator Section-root Section-white css-cxq310"
-    data-testid="system-config-section"
+    data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
       class=" css-ze8cyt"
@@ -1042,7 +1040,7 @@ exports[`SystemConfiguratorSection component renders a no result section when an
 <div>
   <div
     class="SystemConfigurator Section-root Section-white css-cxq310"
-    data-testid="system-config-section"
+    data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
       class=" css-ze8cyt"
@@ -1239,7 +1237,7 @@ exports[`SystemConfiguratorSection component renders a no result section when an
   <div>
     <div
       class="Section-root Section-alabaster css-cxq310"
-      data-testid="section"
+      data-testid="system-configuration-section-No-Result-Title"
     >
       <div
         class=" css-ze8cyt"
@@ -1280,7 +1278,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
 <div>
   <div
     class="SystemConfigurator Section-root Section-white css-cxq310"
-    data-testid="system-config-section"
+    data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
       class=" css-ze8cyt"
@@ -1479,7 +1477,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
   >
     <div
       class="SystemConfigurator-result Section-root Section-pearl css-cxq310"
-      data-testid="section"
+      data-testid="system-configuration-section-Result-Title"
     >
       <div
         class=" css-ze8cyt"
@@ -1515,16 +1513,15 @@ exports[`SystemConfiguratorSection component renders a result section when answe
           </div>
           <div
             class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
-            data-testid="grid-container"
+            data-testid="system-configuration-results-grid"
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
               data-testid="grid-item"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"efgh name\\",\\"action\\":\\"/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details\\"}"
-                data-testid="efgh"
                 href="/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
               >
@@ -1579,7 +1576,7 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
 <div>
   <div
     class="SystemConfigurator Section-root Section-white css-cxq310"
-    data-testid="system-config-section"
+    data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
       class=" css-ze8cyt"
@@ -1952,7 +1949,7 @@ exports[`SystemConfiguratorSection component renders correctly 1`] = `
 <div>
   <div
     class="SystemConfigurator Section-root Section-white css-cxq310"
-    data-testid="system-config-section"
+    data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
       class=" css-ze8cyt"
@@ -2148,7 +2145,7 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
 <div>
   <div
     class="SystemConfigurator Section-root Section-white css-cxq310"
-    data-testid="system-config-section"
+    data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
       class=" css-ze8cyt"
@@ -2521,7 +2518,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
 <div>
   <div
     class="SystemConfigurator Section-root Section-white css-cxq310"
-    data-testid="system-config-section"
+    data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
       class=" css-ze8cyt"
@@ -2718,7 +2715,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
   <div>
     <div
       class="Section-root Section-alabaster css-cxq310"
-      data-testid="section"
+      data-testid="system-configuration-section-No-Result-Title"
     >
       <div
         class=" css-ze8cyt"
@@ -2746,7 +2743,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
 <div>
   <div
     class="SystemConfigurator Section-root Section-white css-cxq310"
-    data-testid="system-config-section"
+    data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
       class=" css-ze8cyt"
@@ -2943,7 +2940,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
   <div>
     <div
       class="Section-root Section-alabaster css-cxq310"
-      data-testid="section"
+      data-testid="system-configuration-section-No-Result-Title"
     >
       <div
         class=" css-ze8cyt"
@@ -2971,7 +2968,7 @@ exports[`SystemConfiguratorSection component renders no result section with the 
 <div>
   <div
     class="SystemConfigurator Section-root Section-white css-cxq310"
-    data-testid="system-config-section"
+    data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
       class=" css-ze8cyt"
@@ -3168,7 +3165,7 @@ exports[`SystemConfiguratorSection component renders no result section with the 
   <div>
     <div
       class="Section-root Section-alabaster css-cxq310"
-      data-testid="section"
+      data-testid="system-configuration-section-No-Result-Title"
     >
       <div
         class=" css-ze8cyt"
@@ -3218,7 +3215,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
 <div>
   <div
     class="SystemConfigurator Section-root Section-white css-cxq310"
-    data-testid="system-config-section"
+    data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
       class=" css-ze8cyt"
@@ -3417,7 +3414,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
   >
     <div
       class="SystemConfigurator-result Section-root Section-pearl css-cxq310"
-      data-testid="section"
+      data-testid="system-configuration-section-Result-Title"
     >
       <div
         class=" css-ze8cyt"
@@ -3453,16 +3450,15 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
           </div>
           <div
             class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
-            data-testid="grid-container"
+            data-testid="system-configuration-results-grid"
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
               data-testid="grid-item"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"ijkl name\\",\\"action\\":\\"/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details\\"}"
-                data-testid="ijkl"
                 href="/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
               >
@@ -3515,9 +3511,8 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
               data-testid="grid-item"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"efgh name\\",\\"action\\":\\"/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details\\"}"
-                data-testid="efgh"
                 href="/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
               >
@@ -3570,9 +3565,8 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
               data-testid="grid-item"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"abcd name\\",\\"action\\":\\"/no/related-system-path/?selected_system=abcd&prev_page=/test-path&referer=sys_details\\"}"
-                data-testid="abcd"
                 href="/no/related-system-path/?selected_system=abcd&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
               >
@@ -3625,9 +3619,8 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
               data-testid="grid-item"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"mnop name\\",\\"action\\":\\"/no/related-system-path/?selected_system=mnop&prev_page=/test-path&referer=sys_details\\"}"
-                data-testid="mnop"
                 href="/no/related-system-path/?selected_system=mnop&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
               >
@@ -3687,7 +3680,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
 <div>
   <div
     class="SystemConfigurator Section-root Section-white css-cxq310"
-    data-testid="system-config-section"
+    data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
       class=" css-ze8cyt"
@@ -3886,7 +3879,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
   >
     <div
       class="SystemConfigurator-result Section-root Section-pearl css-cxq310"
-      data-testid="section"
+      data-testid="system-configuration-section-Result-Title"
     >
       <div
         class=" css-ze8cyt"
@@ -3922,16 +3915,15 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
           </div>
           <div
             class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
-            data-testid="grid-container"
+            data-testid="system-configuration-results-grid"
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
               data-testid="grid-item"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"ijkl name\\",\\"action\\":\\"/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details\\"}"
-                data-testid="ijkl"
                 href="/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
               >
@@ -3984,9 +3976,8 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
               data-testid="grid-item"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"efgh name\\",\\"action\\":\\"/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details\\"}"
-                data-testid="efgh"
                 href="/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
               >
@@ -4046,7 +4037,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
 <div>
   <div
     class="SystemConfigurator Section-root Section-white css-cxq310"
-    data-testid="system-config-section"
+    data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
       class=" css-ze8cyt"
@@ -4543,7 +4534,7 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
 <div>
   <div
     class="SystemConfigurator Section-root Section-white css-cxq310"
-    data-testid="system-config-section"
+    data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
       class=" css-ze8cyt"
@@ -4916,7 +4907,7 @@ exports[`SystemConfiguratorSection component renders with description rich text 
 <div>
   <div
     class="SystemConfigurator Section-root Section-white css-cxq310"
-    data-testid="system-config-section"
+    data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
       class=" css-ze8cyt"

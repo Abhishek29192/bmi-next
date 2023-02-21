@@ -6,6 +6,7 @@ import fileIconsMap from "../components/FileIconsMap";
 import { microCopy } from "../constants/microCopies";
 import { ContentfulDocument as DocumentData } from "../types/Document";
 import withGTM from "../utils/google-tag-manager";
+import { replaceSpaces } from "../utils/transformHyphens";
 import Icon from "./Icon";
 import { getClickableActionFromUrl } from "./Link";
 import RichText, { RichTextData } from "./RichText";
@@ -35,7 +36,10 @@ const DocumentDownloadSection = ({
   });
 
   return (
-    <Section backgroundColor="white">
+    <Section
+      backgroundColor="white"
+      data-testid={`document-download-section-${replaceSpaces(title)}`}
+    >
       {title && <Section.Title>{title}</Section.Title>}
       {description && (
         <div style={{ marginBottom: "40px" }}>

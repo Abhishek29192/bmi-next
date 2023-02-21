@@ -247,13 +247,20 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
         level={2}
         title={title}
         breadcrumbs={
-          <BackToResults isDarkThemed>
-            <Breadcrumbs data={enhancedBreadcrumbs} isDarkThemed />
+          <BackToResults isDarkThemed data-testid="breadcrumbs-section-top">
+            <Breadcrumbs
+              data={enhancedBreadcrumbs}
+              isDarkThemed
+              data-testid="document-library-page-breadcrumbs-top"
+            />
           </BackToResults>
         }
       />
       {description && (
-        <Section backgroundColor="white">
+        <Section
+          backgroundColor="white"
+          data-testid={`document-library-description-section`}
+        >
           <RichText document={description} />
         </Section>
       )}
@@ -268,7 +275,7 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
           }}
         </DownloadListContext.Consumer>
         {!(resultsType === "Simple Archive" && source === "CMS") && (
-          <Section backgroundColor="white">
+          <Section backgroundColor="white" id={`document-library-filters`}>
             <div className={filterStyles["Filters"]}>
               <Grid container spacing={3} ref={resultsElement}>
                 <Grid xs={12} md={12} lg={3}>
@@ -295,8 +302,15 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
           </Section>
         )}
       </DownloadList>
-      <Section backgroundColor="alabaster" isSlim>
-        <Breadcrumbs data={enhancedBreadcrumbs} />
+      <Section
+        backgroundColor="alabaster"
+        isSlim
+        data-testid="breadcrumbs-section-bottom"
+      >
+        <Breadcrumbs
+          data={enhancedBreadcrumbs}
+          data-testid="document-library-page-breadcrumbs-bottom"
+        />
       </Section>
     </Page>
   );

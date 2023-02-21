@@ -10,6 +10,7 @@ import { graphql } from "gatsby";
 import React from "react";
 import withGTM from "../utils/google-tag-manager";
 import { GallerySectionMedias, transformMediaSrc } from "../utils/media";
+import { replaceSpaces } from "../utils/transformHyphens";
 import RichText, { RichTextData } from "./RichText";
 import styles from "./styles/MediaGallerySection.module.scss";
 
@@ -32,6 +33,7 @@ const IntegratedMediaGallerySection = ({ data }: { data: Data }) => {
     <Section
       backgroundColor="alabaster"
       className={styles["MediaGallerySection"]}
+      data-testid={`media-gallery-section-${replaceSpaces(data.title)}`}
     >
       <Grid container>
         <Grid xs={12} lg={8}>

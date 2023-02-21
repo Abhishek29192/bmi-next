@@ -87,7 +87,12 @@ const SampleOrderSection = ({
     (isSampleOrderAllowed || basketHasProducts) && (
       <div className={styles["SampleOrderSection"]}>
         <div className={styles["container"]}>
-          <Section backgroundColor="white" spacing="none" hasNoPadding>
+          <Section
+            backgroundColor="white"
+            spacing="none"
+            hasNoPadding
+            id={`sample-order`}
+          >
             {basketHasProducts && (
               <div className={styles["sample-message"]}>{sampleMessage()}</div>
             )}

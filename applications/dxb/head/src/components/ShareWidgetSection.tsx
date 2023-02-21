@@ -40,10 +40,12 @@ const ShareWidgetSection = ({
     isLeftAligned,
     ...channels
   },
-  hasNoPadding
+  hasNoPadding,
+  "data-testid": dataTestId
 }: {
   data: Data;
   hasNoPadding?: boolean;
+  "data-testid"?: string;
 }) => {
   const { getMicroCopy } = useSiteContext();
   const availableChannels = [
@@ -77,7 +79,12 @@ const ShareWidgetSection = ({
   ];
 
   return (
-    <Section backgroundColor="white" spacing="none" hasNoPadding={hasNoPadding}>
+    <Section
+      backgroundColor="white"
+      spacing="none"
+      hasNoPadding={hasNoPadding}
+      data-testid={dataTestId ? dataTestId : "share-widget-section"}
+    >
       <ShareWidget
         title={title}
         message={message}

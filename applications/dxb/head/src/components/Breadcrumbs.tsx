@@ -2,6 +2,7 @@ import { Breadcrumbs, BreadcrumbsProps } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
 import { BreadcrumbItem } from "../types/pim";
+import { replaceSpaces } from "../utils/transformHyphens";
 import { getClickableActionFromUrl } from "./Link";
 import { useSiteContext } from "./Site";
 
@@ -39,15 +40,21 @@ const getBreadcrumbsItem = (
 
 const IntegratedBreadcrumbs = ({
   data,
+  "data-testid": dataTestId,
   ...rest
 }: {
   data: Data;
-} & BreadcrumbsProps) => {
+} & BreadcrumbsProps & {
+    "data-testid"?: string;
+  }) => {
   const { countryCode, homePage } = useSiteContext();
   const [breadcrumbsItems, currentBreadcrumb] = getBreadcrumbsItem(data);
 
   return (
-    <Breadcrumbs {...rest}>
+    <Breadcrumbs
+      {...rest}
+      data-testid={dataTestId ? dataTestId : "breadcrumbs"}
+    >
       <Breadcrumbs.Item
         action={getClickableActionFromUrl(
           { path: "" },
@@ -56,7 +63,7 @@ const IntegratedBreadcrumbs = ({
           null,
           homePage.title
         )}
-        data-testid={`breadcrumb-${homePage.title.replace(/ /g, "-")}`}
+        data-testid={`breadcrumb-${replaceSpaces(homePage.title)}`}
       >
         {homePage.title}
       </Breadcrumbs.Item>
@@ -70,7 +77,7 @@ const IntegratedBreadcrumbs = ({
             null,
             label
           )}
-          data-testid={`breadcrumb-${label.replace(/ /g, "-")}`}
+          data-testid={`breadcrumb-${replaceSpaces(label)}`}
         >
           {label}
         </Breadcrumbs.Item>

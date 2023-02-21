@@ -4,7 +4,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
 <div>
   <div
     class="ServiceLocationSection Section-root Section-white css-cxq310"
-    data-testid="section"
+    data-testid="service-locator-section-Main"
   >
     <div
       class=" css-ze8cyt"

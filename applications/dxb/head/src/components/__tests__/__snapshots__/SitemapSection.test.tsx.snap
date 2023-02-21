@@ -4,7 +4,8 @@ exports[`SitemapSection component renders correctly 1`] = `
 <div>
   <div
     class="Section-root css-cxq310"
-    data-testid="section"
+    data-testid="sitemap-section"
+    id="site-map"
   >
     <div
       class=" css-ze8cyt"
@@ -102,7 +103,8 @@ exports[`SitemapSection component renders correctly 2 levels deep 1`] = `
 <div>
   <div
     class="Section-root css-cxq310"
-    data-testid="section"
+    data-testid="sitemap-section"
+    id="site-map"
   >
     <div
       class=" css-ze8cyt"
@@ -256,7 +258,8 @@ exports[`SitemapSection component renders correctly if incomplete 1`] = `
 <div>
   <div
     class="Section-root css-cxq310"
-    data-testid="section"
+    data-testid="sitemap-section"
+    id="site-map"
   >
     <div
       class=" css-ze8cyt"

@@ -32,7 +32,11 @@ const Brands = ({
   const GTMButton = withGTM<ButtonProps>(Button);
 
   return (
-    <Section backgroundColor={"pearl"} className={styles["Brands"]}>
+    <Section
+      backgroundColor={"pearl"}
+      className={styles["Brands"]}
+      data-testid="brands"
+    >
       <Section.Title> {getMicroCopy(microCopy.HOMEPAGE_BRANDS)}</Section.Title>
       <Grid container justifyContent="center">
         {data.map((brand, index) => {

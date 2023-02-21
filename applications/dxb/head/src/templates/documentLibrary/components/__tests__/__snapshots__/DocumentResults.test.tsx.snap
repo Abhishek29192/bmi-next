@@ -267,7 +267,7 @@ exports[`DocumentResults component cards: renders correctly 1`] = `
       data-testid="grid-item"
     >
       <a
-        class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+        class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
         data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: documentLibrary.card.download\\",\\"action\\":\\"http://localhost:9000/asset-filename.jpg\\"}"
         href="https:http://localhost:9000/asset-filename.jpg"
         rel="noopener noreferrer"

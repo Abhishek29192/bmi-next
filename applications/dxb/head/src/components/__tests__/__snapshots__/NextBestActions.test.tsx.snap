@@ -4,7 +4,7 @@ exports[`NextBestActions component renders correctly 1`] = `
 <div>
   <div
     class="Section-root Section-alabaster css-cxq310"
-    data-testid="section"
+    data-testid="next-best-actions-section"
   >
     <div
       class=" css-ze8cyt"
@@ -145,7 +145,7 @@ exports[`NextBestActions component renders name with no title 1`] = `
 <div>
   <div
     class="Section-root Section-alabaster css-cxq310"
-    data-testid="section"
+    data-testid="next-best-actions-section"
   >
     <div
       class=" css-ze8cyt"
@@ -232,7 +232,7 @@ exports[`NextBestActions component renders with no promo cta 1`] = `
 <div>
   <div
     class="Section-root Section-alabaster css-cxq310"
-    data-testid="section"
+    data-testid="next-best-actions-section"
   >
     <div
       class=" css-ze8cyt"
@@ -282,7 +282,7 @@ exports[`NextBestActions component renders with no promo cta label 1`] = `
 <div>
   <div
     class="Section-root Section-alabaster css-cxq310"
-    data-testid="section"
+    data-testid="next-best-actions-section"
   >
     <div
       class=" css-ze8cyt"

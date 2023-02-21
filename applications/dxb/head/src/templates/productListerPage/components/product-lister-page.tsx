@@ -57,6 +57,7 @@ import {
 } from "../../../utils/heroLevelUtils";
 import { renderHero } from "../../../utils/heroTypesUI";
 import { removePLPFilterPrefix } from "../../../utils/product-filters";
+import { replaceSpaces } from "../../../utils/transformHyphens";
 import { ProductListWrapperGrid } from "../styles";
 import {
   renderProducts,
@@ -363,6 +364,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     <Breadcrumbs
       data={enhancedBreadcrumbs}
       isDarkThemed={heroType === "Spotlight" || heroLevel !== 3}
+      data-testid="product-lister-page-breadcrumbs-top"
     />
   );
 
@@ -389,7 +391,10 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
             isHeroKeyLine: isHeroKeyLine,
             isSpotlightHeroKeyLine: isHeroKeyLine
           })}
-          <Section backgroundColor="white">
+          <Section
+            backgroundColor="white"
+            data-testid={`product-lister-page-lead-block-section`}
+          >
             <LeadBlock>
               <LeadBlock.Content>
                 <RichText
@@ -444,7 +449,11 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
               ) : null}
             </LeadBlock>
           </Section>
-          <Section backgroundColor="pearl" overflowVisible>
+          <Section
+            backgroundColor="pearl"
+            overflowVisible
+            data-testid={`product-lister-page-section-${replaceSpaces(title)}`}
+          >
             {pageTitle && (
               <Section.Title hasUnderline>{pageTitle}</Section.Title>
             )}
@@ -487,8 +496,15 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
               </Grid>
             </Grid>
           </Section>
-          <Section backgroundColor="alabaster" isSlim>
-            <Breadcrumbs data={enhancedBreadcrumbs} />
+          <Section
+            backgroundColor="alabaster"
+            isSlim
+            data-testid={`product-lister-page-breadcrumb-bottom`}
+          >
+            <Breadcrumbs
+              data={enhancedBreadcrumbs}
+              data-testid="product-lister-page-breadcrumbs-bottom"
+            />
           </Section>
         </>
       )}

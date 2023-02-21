@@ -2616,7 +2616,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
   </header>
   <div
     class="Section-root Section-pearl Section-slim css-cxq310"
-    data-testid="section"
+    data-testid="system-details-page-breadcrumbs-sectiontop"
   >
     <div
       class=" css-ze8cyt"
@@ -2627,6 +2627,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
         <nav
           aria-label="breadcrumbs"
           class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+          data-testid="system-details-page-breadcrumbs-top"
         >
           <ol
             class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -2673,7 +2674,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
   </div>
   <div
     class="Section-root Section-white Section-noSpacing css-cxq310"
-    data-testid="section"
+    data-testid="share-widget-section"
   >
     <div
       class=" css-ze8cyt"
@@ -2935,7 +2936,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
   </div>
   <div
     class="imageGallery-systemLayers-section Section-root Section-alabaster css-cxq310"
-    data-testid="system-details-image-gallary-section"
+    data-testid="system-details-page-image-gallary-section"
   >
     <div
       class=" css-ze8cyt"
@@ -3104,7 +3105,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
     >
       <div
         class="section Section-root Section-white css-cxq310"
-        data-testid="section"
+        data-testid="tab-system-about-lead-block-section"
       >
         <div
           class=" css-ze8cyt"
@@ -3255,7 +3256,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
     >
       <div
         class="section Section-root Section-white css-cxq310"
-        data-testid="section"
+        data-testid="tab-system-tech-spec-lead-block-section"
       >
         <div
           class=" css-ze8cyt"
@@ -3343,7 +3344,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
     >
       <div
         class="section Section-root Section-white css-cxq310"
-        data-testid="section"
+        data-testid="tab-system-documents-section"
       >
         <div
           class=" css-ze8cyt"
@@ -3710,7 +3711,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
   </div>
   <div
     class="Section-root Section-alabaster css-cxq310"
-    data-testid="section"
+    data-testid="related-systems-section"
   >
     <div
       class=" css-ze8cyt"
@@ -3733,10 +3734,10 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="system-card-related-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"related-system-1 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/related-path/\\"}"
                 href="/en/related-path/"
                 tabindex="0"
@@ -3792,7 +3793,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
   </div>
   <div
     class="Section-root Section-pearl Section-slim css-cxq310"
-    data-testid="section"
+    data-testid="system-details-page-breadcrumbs-sectionbottom"
   >
     <div
       class=" css-ze8cyt"
@@ -3803,6 +3804,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
         <nav
           aria-label="breadcrumbs"
           class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+          data-testid="system-details-page-breadcrumbs-bottom"
         >
           <ol
             class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -6826,7 +6828,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
   </header>
   <div
     class="Section-root Section-pearl Section-slim css-cxq310"
-    data-testid="section"
+    data-testid="system-details-page-breadcrumbs-sectiontop"
   >
     <div
       class=" css-ze8cyt"
@@ -6837,6 +6839,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
         <nav
           aria-label="breadcrumbs"
           class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+          data-testid="system-details-page-breadcrumbs-top"
         >
           <ol
             class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -6883,7 +6886,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
   </div>
   <div
     class="Section-root Section-white Section-noSpacing css-cxq310"
-    data-testid="section"
+    data-testid="share-widget-section"
   >
     <div
       class=" css-ze8cyt"
@@ -7117,7 +7120,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
   </div>
   <div
     class="imageGallery-systemLayers-section Section-root Section-alabaster css-cxq310"
-    data-testid="system-details-image-gallary-section"
+    data-testid="system-details-page-image-gallary-section"
   >
     <div
       class=" css-ze8cyt"
@@ -7286,7 +7289,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
     >
       <div
         class="section Section-root Section-white css-cxq310"
-        data-testid="section"
+        data-testid="tab-system-about-lead-block-section"
       >
         <div
           class=" css-ze8cyt"
@@ -7437,7 +7440,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
     >
       <div
         class="section Section-root Section-white css-cxq310"
-        data-testid="section"
+        data-testid="tab-system-tech-spec-lead-block-section"
       >
         <div
           class=" css-ze8cyt"
@@ -7525,7 +7528,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
     >
       <div
         class="section Section-root Section-white css-cxq310"
-        data-testid="section"
+        data-testid="tab-system-documents-section"
       >
         <div
           class=" css-ze8cyt"
@@ -7892,7 +7895,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
   </div>
   <div
     class="Section-root Section-alabaster css-cxq310"
-    data-testid="section"
+    data-testid="related-systems-section"
   >
     <div
       class=" css-ze8cyt"
@@ -7915,10 +7918,10 @@ exports[`SystemDetailsPage template component should render 1`] = `
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="system-card-related-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"related-system-1 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/related-path/\\"}"
                 href="/en/related-path/"
                 tabindex="0"
@@ -7974,7 +7977,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
   </div>
   <div
     class="Section-root Section-pearl Section-slim css-cxq310"
-    data-testid="section"
+    data-testid="system-details-page-breadcrumbs-sectionbottom"
   >
     <div
       class=" css-ze8cyt"
@@ -7985,6 +7988,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
         <nav
           aria-label="breadcrumbs"
           class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+          data-testid="system-details-page-breadcrumbs-bottom"
         >
           <ol
             class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -11012,7 +11016,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
   >
     <div
       class="Section-root Section-pearl Section-slim css-cxq310"
-      data-testid="section"
+      data-testid="system-details-page-breadcrumbs-sectiontop"
     >
       <div
         class=" css-ze8cyt"
@@ -11023,6 +11027,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
           <nav
             aria-label="breadcrumbs"
             class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+            data-testid="system-details-page-breadcrumbs-top"
           >
             <ol
               class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -11069,7 +11074,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
     </div>
     <div
       class="Section-root Section-white Section-noSpacing css-cxq310"
-      data-testid="section"
+      data-testid="share-widget-section"
     >
       <div
         class=" css-ze8cyt"
@@ -11303,7 +11308,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
     </div>
     <div
       class="imageGallery-systemLayers-section Section-root Section-alabaster css-cxq310"
-      data-testid="system-details-image-gallary-section"
+      data-testid="system-details-page-image-gallary-section"
     >
       <div
         class=" css-ze8cyt"
@@ -11472,7 +11477,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
       >
         <div
           class="section Section-root Section-white css-cxq310"
-          data-testid="section"
+          data-testid="tab-system-about-lead-block-section"
         >
           <div
             class=" css-ze8cyt"
@@ -11623,7 +11628,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
       >
         <div
           class="section Section-root Section-white css-cxq310"
-          data-testid="section"
+          data-testid="tab-system-tech-spec-lead-block-section"
         >
           <div
             class=" css-ze8cyt"
@@ -11711,7 +11716,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
       >
         <div
           class="section Section-root Section-white css-cxq310"
-          data-testid="section"
+          data-testid="tab-system-documents-section"
         >
           <div
             class=" css-ze8cyt"
@@ -12078,7 +12083,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
     </div>
     <div
       class="Section-root Section-alabaster css-cxq310"
-      data-testid="section"
+      data-testid="related-systems-section"
     >
       <div
         class=" css-ze8cyt"
@@ -12101,10 +12106,10 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
             >
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="system-card-related-system-1"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"related-ssytem-name - MC: sdp.system.readMore\\",\\"action\\":\\"/en/related-system-path/\\"}"
                   href="/en/related-system-path/"
                   tabindex="0"
@@ -12160,7 +12165,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
     </div>
     <div
       class="Section-root Section-pearl Section-slim css-cxq310"
-      data-testid="section"
+      data-testid="system-details-page-breadcrumbs-sectionbottom"
     >
       <div
         class=" css-ze8cyt"
@@ -12171,6 +12176,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
           <nav
             aria-label="breadcrumbs"
             class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+            data-testid="system-details-page-breadcrumbs-bottom"
           >
             <ol
               class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -15195,7 +15201,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
   </header>
   <div
     class="Section-root Section-pearl Section-slim css-cxq310"
-    data-testid="section"
+    data-testid="system-details-page-breadcrumbs-sectiontop"
   >
     <div
       class=" css-ze8cyt"
@@ -15206,6 +15212,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
         <nav
           aria-label="breadcrumbs"
           class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+          data-testid="system-details-page-breadcrumbs-top"
         >
           <ol
             class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -15252,7 +15259,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
   </div>
   <div
     class="Section-root Section-white Section-noSpacing css-cxq310"
-    data-testid="section"
+    data-testid="share-widget-section"
   >
     <div
       class=" css-ze8cyt"
@@ -15486,7 +15493,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
   </div>
   <div
     class="imageGallery-systemLayers-section Section-root Section-alabaster css-cxq310"
-    data-testid="system-details-image-gallary-section"
+    data-testid="system-details-page-image-gallary-section"
   >
     <div
       class=" css-ze8cyt"
@@ -15655,7 +15662,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
     >
       <div
         class="section Section-root Section-white css-cxq310"
-        data-testid="section"
+        data-testid="tab-system-about-lead-block-section"
       >
         <div
           class=" css-ze8cyt"
@@ -15806,7 +15813,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
     >
       <div
         class="section Section-root Section-white css-cxq310"
-        data-testid="section"
+        data-testid="tab-system-tech-spec-lead-block-section"
       >
         <div
           class=" css-ze8cyt"
@@ -15894,7 +15901,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
     >
       <div
         class="section Section-root Section-white css-cxq310"
-        data-testid="section"
+        data-testid="tab-system-documents-section"
       >
         <div
           class=" css-ze8cyt"
@@ -16261,7 +16268,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
   </div>
   <div
     class="Section-root Section-alabaster css-cxq310"
-    data-testid="section"
+    data-testid="related-systems-section"
   >
     <div
       class=" css-ze8cyt"
@@ -16284,10 +16291,10 @@ exports[`SystemDetailsPage template component should render without BrandProvide
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="system-card-related-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"related-system-1 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/related-path/\\"}"
                 href="/en/related-path/"
                 tabindex="0"
@@ -16343,7 +16350,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
   </div>
   <div
     class="Section-root Section-pearl Section-slim css-cxq310"
-    data-testid="section"
+    data-testid="system-details-page-breadcrumbs-sectionbottom"
   >
     <div
       class=" css-ze8cyt"
@@ -16354,6 +16361,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
         <nav
           aria-label="breadcrumbs"
           class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+          data-testid="system-details-page-breadcrumbs-bottom"
         >
           <ol
             class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -19377,7 +19385,7 @@ exports[`SystemDetailsPage template component should render without specificatio
   </header>
   <div
     class="Section-root Section-pearl Section-slim css-cxq310"
-    data-testid="section"
+    data-testid="system-details-page-breadcrumbs-sectiontop"
   >
     <div
       class=" css-ze8cyt"
@@ -19388,6 +19396,7 @@ exports[`SystemDetailsPage template component should render without specificatio
         <nav
           aria-label="breadcrumbs"
           class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+          data-testid="system-details-page-breadcrumbs-top"
         >
           <ol
             class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -19434,7 +19443,7 @@ exports[`SystemDetailsPage template component should render without specificatio
   </div>
   <div
     class="Section-root Section-white Section-noSpacing css-cxq310"
-    data-testid="section"
+    data-testid="share-widget-section"
   >
     <div
       class=" css-ze8cyt"
@@ -19668,7 +19677,7 @@ exports[`SystemDetailsPage template component should render without specificatio
   </div>
   <div
     class="imageGallery-systemLayers-section Section-root Section-alabaster css-cxq310"
-    data-testid="system-details-image-gallary-section"
+    data-testid="system-details-page-image-gallary-section"
   >
     <div
       class=" css-ze8cyt"
@@ -19837,7 +19846,7 @@ exports[`SystemDetailsPage template component should render without specificatio
     >
       <div
         class="section Section-root Section-white css-cxq310"
-        data-testid="section"
+        data-testid="tab-system-about-lead-block-section"
       >
         <div
           class=" css-ze8cyt"
@@ -19949,7 +19958,7 @@ exports[`SystemDetailsPage template component should render without specificatio
     >
       <div
         class="section Section-root Section-white css-cxq310"
-        data-testid="section"
+        data-testid="tab-system-tech-spec-lead-block-section"
       >
         <div
           class=" css-ze8cyt"
@@ -20037,7 +20046,7 @@ exports[`SystemDetailsPage template component should render without specificatio
     >
       <div
         class="section Section-root Section-white css-cxq310"
-        data-testid="section"
+        data-testid="tab-system-documents-section"
       >
         <div
           class=" css-ze8cyt"
@@ -20404,7 +20413,7 @@ exports[`SystemDetailsPage template component should render without specificatio
   </div>
   <div
     class="Section-root Section-alabaster css-cxq310"
-    data-testid="section"
+    data-testid="related-systems-section"
   >
     <div
       class=" css-ze8cyt"
@@ -20427,10 +20436,10 @@ exports[`SystemDetailsPage template component should render without specificatio
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="system-card-related-system-1"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"related-ssytem-name - MC: sdp.system.readMore\\",\\"action\\":\\"/en/related-system-path/\\"}"
                 href="/en/related-system-path/"
                 tabindex="0"
@@ -20486,7 +20495,7 @@ exports[`SystemDetailsPage template component should render without specificatio
   </div>
   <div
     class="Section-root Section-pearl Section-slim css-cxq310"
-    data-testid="section"
+    data-testid="system-details-page-breadcrumbs-sectionbottom"
   >
     <div
       class=" css-ze8cyt"
@@ -20497,6 +20506,7 @@ exports[`SystemDetailsPage template component should render without specificatio
         <nav
           aria-label="breadcrumbs"
           class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+          data-testid="system-details-page-breadcrumbs-bottom"
         >
           <ol
             class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -23520,7 +23530,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
   </header>
   <div
     class="Section-root Section-pearl Section-slim css-cxq310"
-    data-testid="section"
+    data-testid="system-details-page-breadcrumbs-sectiontop"
   >
     <div
       class=" css-ze8cyt"
@@ -23531,6 +23541,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
         <nav
           aria-label="breadcrumbs"
           class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+          data-testid="system-details-page-breadcrumbs-top"
         >
           <ol
             class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -23577,7 +23588,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
   </div>
   <div
     class="Section-root Section-white Section-noSpacing css-cxq310"
-    data-testid="section"
+    data-testid="share-widget-section"
   >
     <div
       class=" css-ze8cyt"
@@ -23811,7 +23822,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
   </div>
   <div
     class="imageGallery-systemLayers-section Section-root Section-alabaster css-cxq310"
-    data-testid="system-details-image-gallary-section"
+    data-testid="system-details-page-image-gallary-section"
   >
     <div
       class=" css-ze8cyt"
@@ -23980,7 +23991,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
     >
       <div
         class="section Section-root Section-white css-cxq310"
-        data-testid="section"
+        data-testid="tab-system-about-lead-block-section"
       >
         <div
           class=" css-ze8cyt"
@@ -24131,7 +24142,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
     >
       <div
         class="section Section-root Section-white css-cxq310"
-        data-testid="section"
+        data-testid="tab-system-tech-spec-lead-block-section"
       >
         <div
           class=" css-ze8cyt"
@@ -24219,7 +24230,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
     >
       <div
         class="section Section-root Section-white css-cxq310"
-        data-testid="section"
+        data-testid="tab-system-documents-section"
       >
         <div
           class=" css-ze8cyt"
@@ -24586,7 +24597,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
   </div>
   <div
     class="Section-root Section-alabaster css-cxq310"
-    data-testid="section"
+    data-testid="related-systems-section"
   >
     <div
       class=" css-ze8cyt"
@@ -24609,10 +24620,10 @@ exports[`SystemDetailsPage template component should render without systemLayers
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="system-card-related-system-1"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"related-ssytem-name - MC: sdp.system.readMore\\",\\"action\\":\\"/en/related-system-path/\\"}"
                 href="/en/related-system-path/"
                 tabindex="0"
@@ -24668,7 +24679,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
   </div>
   <div
     class="Section-root Section-pearl Section-slim css-cxq310"
-    data-testid="section"
+    data-testid="system-details-page-breadcrumbs-sectionbottom"
   >
     <div
       class=" css-ze8cyt"
@@ -24679,6 +24690,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
         <nav
           aria-label="breadcrumbs"
           class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+          data-testid="system-details-page-breadcrumbs-bottom"
         >
           <ol
             class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -27702,7 +27714,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
   </header>
   <div
     class="Section-root Section-pearl Section-slim css-cxq310"
-    data-testid="section"
+    data-testid="system-details-page-breadcrumbs-sectiontop"
   >
     <div
       class=" css-ze8cyt"
@@ -27713,6 +27725,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
         <nav
           aria-label="breadcrumbs"
           class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+          data-testid="system-details-page-breadcrumbs-top"
         >
           <ol
             class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -27759,7 +27772,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
   </div>
   <div
     class="Section-root Section-white Section-noSpacing css-cxq310"
-    data-testid="section"
+    data-testid="share-widget-section"
   >
     <div
       class=" css-ze8cyt"
@@ -27993,7 +28006,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
   </div>
   <div
     class="imageGallery-systemLayers-section Section-root Section-alabaster css-cxq310"
-    data-testid="system-details-image-gallary-section"
+    data-testid="system-details-page-image-gallary-section"
   >
     <div
       class=" css-ze8cyt"
@@ -28288,7 +28301,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
     >
       <div
         class="section Section-root Section-white css-cxq310"
-        data-testid="section"
+        data-testid="tab-system-about-lead-block-section"
       >
         <div
           class=" css-ze8cyt"
@@ -28439,7 +28452,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
     >
       <div
         class="section Section-root Section-white css-cxq310"
-        data-testid="section"
+        data-testid="tab-system-tech-spec-lead-block-section"
       >
         <div
           class=" css-ze8cyt"
@@ -28527,7 +28540,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
     >
       <div
         class="section Section-root Section-white css-cxq310"
-        data-testid="section"
+        data-testid="tab-system-documents-section"
       >
         <div
           class=" css-ze8cyt"
@@ -28894,7 +28907,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
   </div>
   <div
     class="Section-root Section-alabaster css-cxq310"
-    data-testid="section"
+    data-testid="related-systems-section"
   >
     <div
       class=" css-ze8cyt"
@@ -28917,10 +28930,10 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="system-card-related-system-1"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"related-ssytem-name - MC: sdp.system.readMore\\",\\"action\\":\\"/en/related-system-path/\\"}"
                 href="/en/related-system-path/"
                 tabindex="0"
@@ -28976,7 +28989,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
   </div>
   <div
     class="Section-root Section-pearl Section-slim css-cxq310"
-    data-testid="section"
+    data-testid="system-details-page-breadcrumbs-sectionbottom"
   >
     <div
       class=" css-ze8cyt"
@@ -28987,6 +29000,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
         <nav
           aria-label="breadcrumbs"
           class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+          data-testid="system-details-page-breadcrumbs-bottom"
         >
           <ol
             class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -32010,7 +32024,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
   </header>
   <div
     class="Section-root Section-pearl Section-slim css-cxq310"
-    data-testid="section"
+    data-testid="system-details-page-breadcrumbs-sectiontop"
   >
     <div
       class=" css-ze8cyt"
@@ -32021,6 +32035,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
         <nav
           aria-label="breadcrumbs"
           class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+          data-testid="system-details-page-breadcrumbs-top"
         >
           <ol
             class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -32067,7 +32082,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
   </div>
   <div
     class="Section-root Section-white Section-noSpacing css-cxq310"
-    data-testid="section"
+    data-testid="share-widget-section"
   >
     <div
       class=" css-ze8cyt"
@@ -32301,7 +32316,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
   </div>
   <div
     class="imageGallery-systemLayers-section Section-root Section-alabaster css-cxq310"
-    data-testid="system-details-image-gallary-section"
+    data-testid="system-details-page-image-gallary-section"
   >
     <div
       class=" css-ze8cyt"
@@ -32596,7 +32611,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
     >
       <div
         class="section Section-root Section-white css-cxq310"
-        data-testid="section"
+        data-testid="tab-system-about-lead-block-section"
       >
         <div
           class=" css-ze8cyt"
@@ -32747,7 +32762,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
     >
       <div
         class="section Section-root Section-white css-cxq310"
-        data-testid="section"
+        data-testid="tab-system-tech-spec-lead-block-section"
       >
         <div
           class=" css-ze8cyt"
@@ -32835,7 +32850,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
     >
       <div
         class="section Section-root Section-white css-cxq310"
-        data-testid="section"
+        data-testid="tab-system-documents-section"
       >
         <div
           class=" css-ze8cyt"
@@ -33202,7 +33217,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
   </div>
   <div
     class="Section-root Section-alabaster css-cxq310"
-    data-testid="section"
+    data-testid="related-systems-section"
   >
     <div
       class=" css-ze8cyt"
@@ -33225,10 +33240,10 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="system-card-related-system-1"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"related-ssytem-name - MC: sdp.system.readMore\\",\\"action\\":\\"/en/related-system-path/\\"}"
                 href="/en/related-system-path/"
                 tabindex="0"
@@ -33284,7 +33299,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
   </div>
   <div
     class="Section-root Section-pearl Section-slim css-cxq310"
-    data-testid="section"
+    data-testid="system-details-page-breadcrumbs-sectionbottom"
   >
     <div
       class=" css-ze8cyt"
@@ -33295,6 +33310,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
         <nav
           aria-label="breadcrumbs"
           class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+          data-testid="system-details-page-breadcrumbs-bottom"
         >
           <ol
             class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"

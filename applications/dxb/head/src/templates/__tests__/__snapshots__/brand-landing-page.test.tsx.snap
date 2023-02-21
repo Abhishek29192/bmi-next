@@ -2635,6 +2635,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
             <nav
               aria-label="breadcrumbs"
               class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+              data-testid="brand-landing-page-breadcrumbs-top"
             >
               <ol
                 class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -3181,7 +3182,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
     >
       <div
         class="Section-root css-cxq310"
-        data-testid="section"
+        data-testid="explorer-bar-section-sectionTitle"
       >
         <div
           class=" css-ze8cyt"
@@ -3207,7 +3208,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
     </div>
     <div
       class="Section-root Section-alabaster Section-slim css-cxq310"
-      data-testid="section"
+      data-testid="breadcrumbs-section-bottom"
     >
       <div
         class=" css-ze8cyt"
@@ -3218,6 +3219,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
           <nav
             aria-label="breadcrumbs"
             class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+            data-testid="brand-landing-page-breadcrumbs-bottom"
           >
             <ol
               class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -6261,6 +6263,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
             <nav
               aria-label="breadcrumbs"
               class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+              data-testid="brand-landing-page-breadcrumbs-top"
             >
               <ol
                 class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -6585,7 +6588,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
     </div>
     <div
       class="Section-root Section-alabaster Section-slim css-cxq310"
-      data-testid="section"
+      data-testid="breadcrumbs-section-bottom"
     >
       <div
         class=" css-ze8cyt"
@@ -6596,6 +6599,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
           <nav
             aria-label="breadcrumbs"
             class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+            data-testid="brand-landing-page-breadcrumbs-bottom"
           >
             <ol
               class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -9639,6 +9643,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
             <nav
               aria-label="breadcrumbs"
               class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+              data-testid="brand-landing-page-breadcrumbs-top"
             >
               <ol
                 class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -10166,7 +10171,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
     >
       <div
         class="Section-root css-cxq310"
-        data-testid="section"
+        data-testid="explorer-bar-section-sectionTitle"
       >
         <div
           class=" css-ze8cyt"
@@ -10192,7 +10197,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
     </div>
     <div
       class="Section-root Section-alabaster Section-slim css-cxq310"
-      data-testid="section"
+      data-testid="breadcrumbs-section-bottom"
     >
       <div
         class=" css-ze8cyt"
@@ -10203,6 +10208,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
           <nav
             aria-label="breadcrumbs"
             class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+            data-testid="brand-landing-page-breadcrumbs-bottom"
           >
             <ol
               class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -13246,6 +13252,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
             <nav
               aria-label="breadcrumbs"
               class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+              data-testid="brand-landing-page-breadcrumbs-top"
             >
               <ol
                 class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -13742,7 +13749,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
     >
       <div
         class="Section-root css-cxq310"
-        data-testid="section"
+        data-testid="explorer-bar-section-sectionTitle"
       >
         <div
           class=" css-ze8cyt"
@@ -13768,7 +13775,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
     </div>
     <div
       class="Section-root Section-alabaster Section-slim css-cxq310"
-      data-testid="section"
+      data-testid="breadcrumbs-section-bottom"
     >
       <div
         class=" css-ze8cyt"
@@ -13779,6 +13786,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
           <nav
             aria-label="breadcrumbs"
             class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+            data-testid="brand-landing-page-breadcrumbs-bottom"
           >
             <ol
               class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -16822,6 +16830,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
             <nav
               aria-label="breadcrumbs"
               class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+              data-testid="brand-landing-page-breadcrumbs-top"
             >
               <ol
                 class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -17347,7 +17356,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
     >
       <div
         class="Section-root css-cxq310"
-        data-testid="section"
+        data-testid="explorer-bar-section-sectionTitle"
       >
         <div
           class=" css-ze8cyt"
@@ -17373,7 +17382,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
     </div>
     <div
       class="Section-root Section-alabaster Section-slim css-cxq310"
-      data-testid="section"
+      data-testid="breadcrumbs-section-bottom"
     >
       <div
         class=" css-ze8cyt"
@@ -17384,6 +17393,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
           <nav
             aria-label="breadcrumbs"
             class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+            data-testid="brand-landing-page-breadcrumbs-bottom"
           >
             <ol
               class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -20427,6 +20437,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
             <nav
               aria-label="breadcrumbs"
               class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+              data-testid="brand-landing-page-breadcrumbs-top"
             >
               <ol
                 class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -20954,7 +20965,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
     </div>
     <div
       class="Section-root Section-alabaster Section-slim css-cxq310"
-      data-testid="section"
+      data-testid="breadcrumbs-section-bottom"
     >
       <div
         class=" css-ze8cyt"
@@ -20965,6 +20976,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
           <nav
             aria-label="breadcrumbs"
             class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+            data-testid="brand-landing-page-breadcrumbs-bottom"
           >
             <ol
               class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -24008,6 +24020,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
             <nav
               aria-label="breadcrumbs"
               class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+              data-testid="brand-landing-page-breadcrumbs-top"
             >
               <ol
                 class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -24539,7 +24552,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
     >
       <div
         class="Section-root css-cxq310"
-        data-testid="section"
+        data-testid="explorer-bar-section-sectionTitle"
       >
         <div
           class=" css-ze8cyt"
@@ -24565,7 +24578,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
     </div>
     <div
       class="Section-root Section-alabaster Section-slim css-cxq310"
-      data-testid="section"
+      data-testid="breadcrumbs-section-bottom"
     >
       <div
         class=" css-ze8cyt"
@@ -24576,6 +24589,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
           <nav
             aria-label="breadcrumbs"
             class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+            data-testid="brand-landing-page-breadcrumbs-bottom"
           >
             <ol
               class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -27619,6 +27633,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
             <nav
               aria-label="breadcrumbs"
               class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+              data-testid="brand-landing-page-breadcrumbs-top"
             >
               <ol
                 class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -28146,7 +28161,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
     >
       <div
         class="Section-root css-cxq310"
-        data-testid="section"
+        data-testid="explorer-bar-section-sectionTitle"
       >
         <div
           class=" css-ze8cyt"
@@ -28172,7 +28187,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
     </div>
     <div
       class="Section-root Section-alabaster Section-slim css-cxq310"
-      data-testid="section"
+      data-testid="breadcrumbs-section-bottom"
     >
       <div
         class=" css-ze8cyt"
@@ -28183,6 +28198,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
           <nav
             aria-label="breadcrumbs"
             class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+            data-testid="brand-landing-page-breadcrumbs-bottom"
           >
             <ol
               class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -31226,6 +31242,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
             <nav
               aria-label="breadcrumbs"
               class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+              data-testid="brand-landing-page-breadcrumbs-top"
             >
               <ol
                 class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -31765,7 +31782,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
     >
       <div
         class="Section-root css-cxq310"
-        data-testid="section"
+        data-testid="explorer-bar-section-sectionTitle"
       >
         <div
           class=" css-ze8cyt"
@@ -31791,7 +31808,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
     </div>
     <div
       class="Section-root Section-alabaster Section-slim css-cxq310"
-      data-testid="section"
+      data-testid="breadcrumbs-section-bottom"
     >
       <div
         class=" css-ze8cyt"
@@ -31802,6 +31819,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
           <nav
             aria-label="breadcrumbs"
             class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+            data-testid="brand-landing-page-breadcrumbs-bottom"
           >
             <ol
               class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -34845,6 +34863,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
             <nav
               aria-label="breadcrumbs"
               class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+              data-testid="brand-landing-page-breadcrumbs-top"
             >
               <ol
                 class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -35382,7 +35401,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
     >
       <div
         class="Section-root css-cxq310"
-        data-testid="section"
+        data-testid="explorer-bar-section-sectionTitle"
       >
         <div
           class=" css-ze8cyt"
@@ -35408,7 +35427,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
     </div>
     <div
       class="Section-root Section-alabaster Section-slim css-cxq310"
-      data-testid="section"
+      data-testid="breadcrumbs-section-bottom"
     >
       <div
         class=" css-ze8cyt"
@@ -35419,6 +35438,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
           <nav
             aria-label="breadcrumbs"
             class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+            data-testid="brand-landing-page-breadcrumbs-bottom"
           >
             <ol
               class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -38462,6 +38482,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
             <nav
               aria-label="breadcrumbs"
               class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+              data-testid="brand-landing-page-breadcrumbs-top"
             >
               <ol
                 class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -39001,7 +39022,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
     >
       <div
         class="Section-root css-cxq310"
-        data-testid="section"
+        data-testid="explorer-bar-section-sectionTitle"
       >
         <div
           class=" css-ze8cyt"
@@ -39027,7 +39048,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
     </div>
     <div
       class="Section-root Section-alabaster Section-slim css-cxq310"
-      data-testid="section"
+      data-testid="breadcrumbs-section-bottom"
     >
       <div
         class=" css-ze8cyt"
@@ -39038,6 +39059,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
           <nav
             aria-label="breadcrumbs"
             class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+            data-testid="brand-landing-page-breadcrumbs-bottom"
           >
             <ol
               class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -42081,6 +42103,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
             <nav
               aria-label="breadcrumbs"
               class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+              data-testid="brand-landing-page-breadcrumbs-top"
             >
               <ol
                 class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -42620,7 +42643,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
     >
       <div
         class="Section-root css-cxq310"
-        data-testid="section"
+        data-testid="explorer-bar-section-sectionTitle"
       >
         <div
           class=" css-ze8cyt"
@@ -42646,7 +42669,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
     </div>
     <div
       class="Section-root Section-alabaster Section-slim css-cxq310"
-      data-testid="section"
+      data-testid="breadcrumbs-section-bottom"
     >
       <div
         class=" css-ze8cyt"
@@ -42657,6 +42680,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
           <nav
             aria-label="breadcrumbs"
             class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+            data-testid="brand-landing-page-breadcrumbs-bottom"
           >
             <ol
               class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"

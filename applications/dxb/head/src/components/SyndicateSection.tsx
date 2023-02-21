@@ -9,6 +9,7 @@ import { graphql } from "gatsby";
 import React from "react";
 import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
+import { replaceSpaces } from "../utils/transformHyphens";
 import Image from "./Image";
 import Link, { getCTA } from "./Link";
 import type { Data as PageInfoData } from "./PageInfo";
@@ -87,7 +88,10 @@ const SyndicateSection = ({
 
     if (position === 0) {
       return (
-        <Section backgroundColor="white">
+        <Section
+          backgroundColor="white"
+          data-testid={`syndicate-section-${replaceSpaces(title)}`}
+        >
           {title && <Section.Title>{title}</Section.Title>}
           <Villain {...villainProperties} isReversed={isReversed} />
         </Section>
@@ -104,7 +108,10 @@ const SyndicateSection = ({
   }
 
   return (
-    <Section backgroundColor="white">
+    <Section
+      backgroundColor="white"
+      data-testid={`syndicate-section-${replaceSpaces(title)}`}
+    >
       {title && <Section.Title>{title}</Section.Title>}
       {villainsData?.map((villainProperties: VillainProps, index) => (
         <Villain

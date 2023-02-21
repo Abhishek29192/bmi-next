@@ -2,6 +2,7 @@ import { ExploreBar, Section } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
 import { devLog } from "../utils/devLog";
+import { replaceSpaces } from "../utils/transformHyphens";
 import { Data as LinkData, getClickableActionFromUrl } from "./Link";
 import { useSiteContext } from "./Site";
 
@@ -25,7 +26,7 @@ const ExploreBarSection = ({ data }: { data: Data }) => {
   });
 
   return (
-    <Section>
+    <Section data-testid={`explorer-bar-section-${replaceSpaces(label)}`}>
       <ExploreBar
         heading={label}
         links={links.map(({ label, linkedPage, url, asset }) => ({

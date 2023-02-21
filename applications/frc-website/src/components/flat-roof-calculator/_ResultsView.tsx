@@ -5,6 +5,9 @@ import {
   Grid,
   Typography
 } from "@bmi-digital/components";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
+import SaveAltIcon from "@mui/icons-material/SaveAlt";
 import Divider from "@mui/material/Divider";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -12,9 +15,6 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
-import SaveAltIcon from "@mui/icons-material/SaveAlt";
 import classnames from "classnames";
 import React, { useState } from "react";
 import { fieldLabels } from "./FlatRoofCalculator";
@@ -60,7 +60,7 @@ const ResultsView = ({
   const [pdfLoading, setPdfLoading] = useState(false);
   return (
     <>
-      <Section>
+      <Section data-testid="flat-roof-calculator-results-view-section">
         <Typography variant="h1" hasUnderline className={styles["header"]}>
           {resultsContent.header}
         </Typography>
@@ -90,7 +90,10 @@ const ResultsView = ({
           </Grid>
         </Grid>
       </Section>
-      <Section lessMargin>
+      <Section
+        lessMargin
+        data-testid="flat-roof-calculator-results-view-content-section"
+      >
         <Typography hasUnderline variant="h4" className={styles["systemName"]}>
           {resultsContent.systemContentHeader}
         </Typography>
@@ -153,7 +156,10 @@ const ResultsView = ({
           </Table>
         </TableContainer>
       </Section>
-      <Section xLessMargin>
+      <Section
+        xLessMargin
+        data-testid="flat-roof-calculator-results-view-extra-items-section"
+      >
         <Typography variant="h5" className={styles["helpHeader"]}>
           {resultsContent.extraItemsHeader}
         </Typography>
@@ -176,7 +182,10 @@ const ResultsView = ({
           ))}
         </Bullets>
       </Section>
-      <Section xLessMargin>
+      <Section
+        xLessMargin
+        data-testid="flat-roof-calculator-results-view-inputs-section"
+      >
         <Typography variant="h5" className={styles["helpHeader"]}>
           {resultsContent.inputHeader}
         </Typography>
@@ -196,7 +205,10 @@ const ResultsView = ({
           </Grid>
         </Grid>
       </Section>
-      <Section lessMargin>
+      <Section
+        lessMargin
+        data-testid="flat-roof-calculator-results-view-disclaimer-section"
+      >
         <Typography variant="h5" className={styles["helpHeader"]}>
           {resultsContent.disclaimerHeader}
         </Typography>
@@ -208,7 +220,10 @@ const ResultsView = ({
       </Section>
       {submittedValues &&
       (submittedValues.companyName || submittedValues.projectName) ? (
-        <Section xLessMargin>
+        <Section
+          xLessMargin
+          data-testid="flat-roof-calculator-results-view-project-information-section"
+        >
           <Typography variant="h5" className={styles["helpHeader"]}>
             {resultsContent.projectInformationHeader}
           </Typography>
@@ -254,7 +269,7 @@ const ResultsView = ({
           </Grid>
         </Section>
       ) : null}
-      <Section>
+      <Section data-testid="flat-roof-calculator-results-view-share-link-section">
         <Typography
           variant="h4"
           hasUnderline

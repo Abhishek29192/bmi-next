@@ -18,7 +18,7 @@ import { graphql } from "gatsby";
 import React, { memo, useMemo, useState } from "react";
 import { microCopy } from "../constants/microCopies";
 import withGTM from "../utils/google-tag-manager";
-import BrandLogo from "./BrandLogo";
+import { replaceSpaces } from "../utils/transformHyphens";
 import Image from "./Image";
 import Link, { Data as LinkData } from "./Link";
 import { Data as PageInfoData } from "./PageInfo";
@@ -314,7 +314,7 @@ const CardCollectionSection = ({
   return (
     <div
       className={styles["CardCollectionSection"]}
-      data-testid={`card-collection-section-${title?.replace(/ /g, "-")}`}
+      data-testid={`card-collection-section-${replaceSpaces(title)}`}
     >
       <Section backgroundColor={cardType === "Story Card" ? "white" : "pearl"}>
         {title && (

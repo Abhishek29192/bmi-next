@@ -26,6 +26,31 @@ describe("Breadcrumbs component", () => {
     expect(container).toMatchSnapshot();
   });
 
+  it("renders correctly with test id", () => {
+    const breadcrumbs = [
+      {
+        id: "test",
+        label: "test",
+        slug: "/test"
+      },
+      {
+        id: "test2",
+        label: "test2",
+        slug: "/test2"
+      }
+    ];
+
+    const { container } = render(
+      <ThemeProvider>
+        <IntegratedBreadcrumbs
+          data={breadcrumbs}
+          data-testid="custom-test-id"
+        />
+      </ThemeProvider>
+    );
+    expect(container).toMatchSnapshot();
+  });
+
   it("renders correctly only one item", () => {
     const breadcrumbs = [
       {

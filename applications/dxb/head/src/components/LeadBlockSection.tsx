@@ -38,7 +38,7 @@ const LeadBlockSection = ({
   } = useConfig();
 
   return (
-    <Section backgroundColor="white">
+    <Section backgroundColor="white" data-testid={`lead-block-section}`}>
       <LeadBlock>
         <LeadBlock.Content>
           <LeadBlock.Content.Section>

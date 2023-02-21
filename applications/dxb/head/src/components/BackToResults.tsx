@@ -18,11 +18,13 @@ const CTABackToResults = withGTM<ButtonProps>(Button);
 interface Props {
   children: ReactChild;
   isDarkThemed?: boolean;
+  "data-testid"?: string;
 }
 
 const BackToResults: FC<Props> = ({
   children,
-  isDarkThemed = false
+  isDarkThemed = false,
+  "data-testid": dataTestId
 }: Props) => {
   const { countryCode, getMicroCopy } = useSiteContext();
 
@@ -42,7 +44,10 @@ const BackToResults: FC<Props> = ({
   }
 
   return (
-    <div className={styles["BackToResults"]}>
+    <div
+      className={styles["BackToResults"]}
+      data-testid={dataTestId ? dataTestId : "back-to-results-section"}
+    >
       <CTABackToResults
         startIcon={<ArrowBackIcon />}
         variant="text"

@@ -149,8 +149,15 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
           <>
             <CarouselHero
               breadcrumbs={
-                <BackToResults isDarkThemed>
-                  <Breadcrumbs data={enhancedBreadcrumbs} isDarkThemed />
+                <BackToResults
+                  isDarkThemed
+                  data-testid="breadcrumbs-section-top"
+                >
+                  <Breadcrumbs
+                    data={enhancedBreadcrumbs}
+                    isDarkThemed
+                    data-testid="brand-landing-page-breadcrumbs-top"
+                  />
                 </BackToResults>
               }
               heroes={[firstSlide, ...heroItems]}
@@ -176,8 +183,15 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
             </CarouselHero>
             {overlapCards && <OverlapCards data={overlapCards} />}
             {sections && <Sections data={sections} />}
-            <Section backgroundColor="alabaster" isSlim>
-              <Breadcrumbs data={enhancedBreadcrumbs} />
+            <Section
+              backgroundColor="alabaster"
+              isSlim
+              data-testid="breadcrumbs-section-bottom"
+            >
+              <Breadcrumbs
+                data={enhancedBreadcrumbs}
+                data-testid="brand-landing-page-breadcrumbs-bottom"
+              />
             </Section>
           </>
         );

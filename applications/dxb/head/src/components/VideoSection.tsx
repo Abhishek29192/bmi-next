@@ -1,6 +1,7 @@
 import { Section } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
+import { replaceSpaces } from "../utils/transformHyphens";
 import RichText, { RichTextData } from "./RichText";
 import styles from "./styles/VideoSection.module.scss";
 import { ContentfulVideoData, renderVideo } from "./Video";
@@ -23,7 +24,10 @@ const VideoSection = ({
   });
 
   return (
-    <Section className={styles["VideoSection"]}>
+    <Section
+      className={styles["VideoSection"]}
+      data-testid={`video-section-${replaceSpaces(title)}`}
+    >
       {title && (
         <Section.Title className={styles["heading"]}>{title}</Section.Title>
       )}

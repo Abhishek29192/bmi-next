@@ -59,7 +59,7 @@ const SampleBasketDialog = ({
 
   return title && productsInBasket.length > 0 ? (
     <StyledBasketDialogContainer data-testid={"shopping-cart-dialog"}>
-      <TopContainer>
+      <TopContainer data-testid={"shopping-cart-dialog-header-container"}>
         <CloseButton
           accessibilityLabel={getMicroCopy(microCopy.DIALOG_CLOSE)}
           isIconButton
@@ -68,7 +68,11 @@ const SampleBasketDialog = ({
         >
           <Icon source={Close} />
         </CloseButton>
-        <Typography variant="h3" hasUnderline>
+        <Typography
+          variant="h3"
+          hasUnderline
+          data-testid={"shopping-cart-dialog-title"}
+        >
           {title}
         </Typography>
 

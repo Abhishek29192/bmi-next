@@ -16,6 +16,7 @@ import { graphql } from "gatsby";
 import React, { useEffect, useMemo, useReducer, useState } from "react";
 import { microCopy } from "../../constants/microCopies";
 import { pushToDataLayer } from "../../utils/google-tag-manager";
+import { replaceSpaces } from "../../utils/transformHyphens";
 import RichText, { RichTextData } from "../RichText";
 import {
   Data as ServiceData,
@@ -350,6 +351,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     <Section
       backgroundColor="white"
       className={styles["ServiceLocationSection"]}
+      data-testid={`service-locator-section-${replaceSpaces(label)}`}
     >
       <GoogleApi.Provider value={googleApi}>
         {(position > 0 || isBranchLocator) && (

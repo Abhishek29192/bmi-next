@@ -48,7 +48,11 @@ const TabLeadBlock = ({
         heading={getMicroCopy(microCopy.SDP_LEAD_BLOCK_ABOUT)}
         index="one"
       >
-        <Section className={styles["section"]} backgroundColor="white">
+        <Section
+          className={styles["section"]}
+          backgroundColor="white"
+          data-testid="tab-system-about-lead-block-section"
+        >
           <AboutLeadBlock
             system={system}
             sidebarItem={aboutLeadBlockGenericContent}
@@ -62,7 +66,11 @@ const TabLeadBlock = ({
           )}
           index="two"
         >
-          <Section className={styles["section"]} backgroundColor="white">
+          <Section
+            className={styles["section"]}
+            backgroundColor="white"
+            data-testid="tab-system-tech-spec-lead-block-section"
+          >
             <TechnicalSpecificationLeadBlock
               specificationNotes={specificationNotes}
               technicalSpecClassifications={system.classifications}
@@ -77,7 +85,11 @@ const TabLeadBlock = ({
           )}
           index="three"
         >
-          <Section className={styles["section"]} backgroundColor="white">
+          <Section
+            className={styles["section"]}
+            backgroundColor="white"
+            data-testid="tab-system-documents-section"
+          >
             <DocumentLeadBlock documents={system.documents} />
           </Section>
         </Tabs.TabPanel>
@@ -88,7 +100,11 @@ const TabLeadBlock = ({
           index="four"
         >
           <div className={styles["bimLeadBlock"]}>
-            <Section className={styles["section"]} backgroundColor="pearl">
+            <Section
+              className={styles["section"]}
+              backgroundColor="pearl"
+              data-testid="tab-system-bim-lead-block-section"
+            >
               <LeadBlock>
                 <LeadBlock.Content>
                   <LeadBlock.Content.Section>
