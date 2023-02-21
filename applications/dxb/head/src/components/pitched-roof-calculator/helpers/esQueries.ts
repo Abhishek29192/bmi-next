@@ -1,5 +1,5 @@
 import { ProductReference } from "@bmi/elasticsearch-types";
-import { ProductType } from "../types/v2";
+import { ProductType } from "../types";
 
 const sharedESRules = [
   { match: { "CHANNEL.code": "CALCULATOR" } },
