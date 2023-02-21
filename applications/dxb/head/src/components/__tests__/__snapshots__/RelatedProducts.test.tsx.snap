@@ -123,7 +123,7 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
               role="tabpanel"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
                 data-testid="grid-container"
               >
                 <div
@@ -332,7 +332,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
               role="tabpanel"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
                 data-testid="grid-container"
               >
                 <div
@@ -671,7 +671,7 @@ exports[`RelatedProducts component renders with correct gtmLabel 1`] = `
               role="tabpanel"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
                 data-testid="grid-container"
               >
                 <div

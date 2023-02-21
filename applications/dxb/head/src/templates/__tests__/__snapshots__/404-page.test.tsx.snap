@@ -170,7 +170,7 @@ exports[`404 page tests When error page data is partially populated renders plac
         >
           <div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-1you7td-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -2487,7 +2487,7 @@ exports[`404 page tests When error page data is partially populated renders plac
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 PromoSection-grid css-fbenth-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 PromoSection-grid css-1149tz3-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -2558,7 +2558,7 @@ exports[`404 page tests When error page data is partially populated renders plac
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-12nbjhz-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-mzs61s-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -3076,7 +3076,7 @@ exports[`404 page tests When site data and error page data are fully populated r
         >
           <div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-1you7td-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -5393,7 +5393,7 @@ exports[`404 page tests When site data and error page data are fully populated r
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 PromoSection-grid css-fbenth-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 PromoSection-grid css-1149tz3-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -5464,7 +5464,7 @@ exports[`404 page tests When site data and error page data are fully populated r
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-12nbjhz-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-mzs61s-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
