@@ -92,7 +92,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
         Print this list
       </h4>
       <div
-        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 help css-1149tz3-MuiGrid2-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 help css-fbenth-MuiGrid2-root"
         data-testid="grid-container"
       >
         <div
@@ -108,7 +108,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-column MuiGrid2-spacing-xs-2 fieldsContainer css-rl75jk-MuiGrid2-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-column MuiGrid2-spacing-xs-2 fieldsContainer css-fkwo12-MuiGrid2-root"
         data-testid="grid-container"
       >
         <div
@@ -217,7 +217,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-column MuiGrid2-spacing-xs-6 gdprContainer css-xj0zr9-MuiGrid2-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-column MuiGrid2-spacing-xs-6 gdprContainer css-1dbzsvx-MuiGrid2-root"
         data-testid="grid-container"
       >
         <div
@@ -425,7 +425,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
         Print this list
       </h4>
       <div
-        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 help css-1149tz3-MuiGrid2-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 help css-fbenth-MuiGrid2-root"
         data-testid="grid-container"
       >
         <div
@@ -441,7 +441,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
         </div>
       </div>
       <div
-        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-column MuiGrid2-spacing-xs-2 fieldsContainer css-rl75jk-MuiGrid2-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-column MuiGrid2-spacing-xs-2 fieldsContainer css-fkwo12-MuiGrid2-root"
         data-testid="grid-container"
       >
         <div
@@ -550,7 +550,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
         </div>
       </div>
       <div
-        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-column MuiGrid2-spacing-xs-6 gdprContainer css-xj0zr9-MuiGrid2-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-column MuiGrid2-spacing-xs-6 gdprContainer css-1dbzsvx-MuiGrid2-root"
         data-testid="grid-container"
       >
         <div
@@ -834,7 +834,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
         Print this list
       </h4>
       <div
-        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 help css-1149tz3-MuiGrid2-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 help css-fbenth-MuiGrid2-root"
         data-testid="grid-container"
       >
         <div
@@ -850,7 +850,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
         </div>
       </div>
       <div
-        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-column MuiGrid2-spacing-xs-2 fieldsContainer css-rl75jk-MuiGrid2-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-column MuiGrid2-spacing-xs-2 fieldsContainer css-fkwo12-MuiGrid2-root"
         data-testid="grid-container"
       >
         <div
@@ -959,7 +959,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
         </div>
       </div>
       <div
-        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-column MuiGrid2-spacing-xs-6 gdprContainer css-xj0zr9-MuiGrid2-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-column MuiGrid2-spacing-xs-6 gdprContainer css-1dbzsvx-MuiGrid2-root"
         data-testid="grid-container"
       >
         <div
@@ -1167,7 +1167,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
         Print this list
       </h4>
       <div
-        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 help css-1149tz3-MuiGrid2-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 help css-fbenth-MuiGrid2-root"
         data-testid="grid-container"
       >
         <div
@@ -1183,7 +1183,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
         </div>
       </div>
       <div
-        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-column MuiGrid2-spacing-xs-2 fieldsContainer css-rl75jk-MuiGrid2-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-column MuiGrid2-spacing-xs-2 fieldsContainer css-fkwo12-MuiGrid2-root"
         data-testid="grid-container"
       >
         <div
@@ -1292,7 +1292,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
         </div>
       </div>
       <div
-        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-column MuiGrid2-spacing-xs-6 gdprContainer css-xj0zr9-MuiGrid2-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-column MuiGrid2-spacing-xs-6 gdprContainer css-1dbzsvx-MuiGrid2-root"
         data-testid="grid-container"
       >
         <div
@@ -1500,7 +1500,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
         Print this list
       </h4>
       <div
-        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 help css-1149tz3-MuiGrid2-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 help css-fbenth-MuiGrid2-root"
         data-testid="grid-container"
       >
         <div
@@ -1516,7 +1516,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
         </div>
       </div>
       <div
-        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-column MuiGrid2-spacing-xs-2 fieldsContainer css-rl75jk-MuiGrid2-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-column MuiGrid2-spacing-xs-2 fieldsContainer css-fkwo12-MuiGrid2-root"
         data-testid="grid-container"
       >
         <div
@@ -1625,7 +1625,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
         </div>
       </div>
       <div
-        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-column MuiGrid2-spacing-xs-6 gdprContainer css-xj0zr9-MuiGrid2-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-column MuiGrid2-spacing-xs-6 gdprContainer css-1dbzsvx-MuiGrid2-root"
         data-testid="grid-container"
       >
         <div
