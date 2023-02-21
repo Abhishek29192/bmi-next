@@ -1126,40 +1126,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@bmi-digital/components@^1.17.7":
-  version "1.17.7"
-  resolved "https://registry.yarnpkg.com/@bmi-digital/components/-/components-1.17.7.tgz#f7a64aec93cdfe5362d72e0e999f2a472feed44b"
-  integrity sha512-u64D1tqaMom4+uxhUowy5keMC603r1k5fpKCOxsLFNwlnxOBCxBVeFr8zJdCq4OLV5g6jk0HAS8d2UQxe2q2vg==
-  dependencies:
-    "@bmi-digital/styles" "^1.4.0"
-    "@bmi-digital/svg-import" "^1.4.0"
-    "@bmi-digital/use-dimensions" "^1.4.0"
-    "@emotion/react" "^11.10.5"
-    "@emotion/styled" "^11.10.5"
-    "@googlemaps/js-api-loader" "^1.15.1"
-    "@googlemaps/markerclusterer" "^1.0.27"
-    "@mui/icons-material" "^5.11.0"
-    "@mui/lab" "^5.0.0-alpha.113"
-    "@mui/material" "^5.11.1"
-    "@mui/styles" "^5.11.1"
-    "@mui/system" "^5.11.1"
-    autosuggest-highlight "^3.1.1"
-    axios "^0.26.0"
-    classnames "^2.2.6"
-    csstype "^3.0.7"
-    escape-string-regexp "^4.0.0"
-    react-is "^16.13.1"
-    react-lines-ellipsis "^0.14.1"
-    react-masonry-css "^1.0.14"
-    react-player "^2.9.0"
-    react-swipeable-views "^0.14.0"
-    react-swipeable-views-core "^0.14.0"
-    react-swipeable-views-utils "^0.14.0"
-
-"@bmi-digital/components@^1.18.5":
-  version "1.18.5"
-  resolved "https://registry.yarnpkg.com/@bmi-digital/components/-/components-1.18.5.tgz#a4eba40784f9391f374bbb2cb4094535ad0ef272"
-  integrity sha512-D7DsH48d+kVahsEsWaV7qQtT6Gs6JoqxPLGV7kn5nwN6Ca1toybwu7Uo/drkiME8psf6QoBqomhnZ8Kzbzu4PA==
+"@bmi-digital/components@^1.21.0":
+  version "1.21.0"
+  resolved "https://registry.yarnpkg.com/@bmi-digital/components/-/components-1.21.0.tgz#a325a38987213f49ed1e1133759d3f290ccc6fbe"
+  integrity sha512-/Ygxez1i2miALm/7YFUqwI2a5TYlt+MJPQCNEHBr1k1G//o2IAgOGfnuFu48NdrsB6VQ3Lk+QBnkYmOefnj4kA==
   dependencies:
     "@bmi-digital/styles" "^1.4.0"
     "@bmi-digital/svg-import" "^1.4.0"

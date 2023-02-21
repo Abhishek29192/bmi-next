@@ -3165,7 +3165,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                   data-testid="grid-item"
                 >
                   <a
-                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                     data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"News article page 2 - Testing \\",\\"action\\":\\"/en/frequently-asked-questions/news-article-page/\\"}"
                     data-testid="card-collection-section-item-News-article-page-2"
                     href="/en/frequently-asked-questions/news-article-page/"
@@ -3214,7 +3214,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                   data-testid="grid-item"
                 >
                   <div
-                    class=" MuiBox-root css-i0obkw"
+                    class=" MuiBox-root css-n8s3uj"
                     data-testid="card-collection-section-item-BMI-test-video-on-PROMO"
                     type="button"
                   >
@@ -7472,7 +7472,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                   data-testid="grid-item"
                 >
                   <a
-                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                     data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"News article page 2 - Testing \\",\\"action\\":\\"/en/frequently-asked-questions/news-article-page/\\"}"
                     data-testid="card-collection-section-item-News-article-page-2"
                     href="/en/frequently-asked-questions/news-article-page/"
@@ -7521,7 +7521,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                   data-testid="grid-item"
                 >
                   <div
-                    class=" MuiBox-root css-i0obkw"
+                    class=" MuiBox-root css-n8s3uj"
                     data-testid="card-collection-section-item-BMI-test-video-on-PROMO"
                     type="button"
                   >
@@ -11775,7 +11775,7 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
                   data-testid="grid-item"
                 >
                   <a
-                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                     data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"News article page 2 - Testing \\",\\"action\\":\\"/en/frequently-asked-questions/news-article-page/\\"}"
                     data-testid="card-collection-section-item-News-article-page-2"
                     href="/en/frequently-asked-questions/news-article-page/"
@@ -11824,7 +11824,7 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
                   data-testid="grid-item"
                 >
                   <div
-                    class=" MuiBox-root css-i0obkw"
+                    class=" MuiBox-root css-n8s3uj"
                     data-testid="card-collection-section-item-BMI-test-video-on-PROMO"
                     type="button"
                   >
@@ -16082,7 +16082,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                   data-testid="grid-item"
                 >
                   <a
-                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                     data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"News article page 2 - Testing \\",\\"action\\":\\"/en/frequently-asked-questions/news-article-page/\\"}"
                     data-testid="card-collection-section-item-News-article-page-2"
                     href="/en/frequently-asked-questions/news-article-page/"
@@ -16131,7 +16131,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                   data-testid="grid-item"
                 >
                   <div
-                    class=" MuiBox-root css-i0obkw"
+                    class=" MuiBox-root css-n8s3uj"
                     data-testid="card-collection-section-item-BMI-test-video-on-PROMO"
                     type="button"
                   >
@@ -20389,7 +20389,7 @@ exports[`Contact us page render location correctly 1`] = `
                   data-testid="grid-item"
                 >
                   <a
-                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                     data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"News article page 2 - Testing \\",\\"action\\":\\"/en/frequently-asked-questions/news-article-page/\\"}"
                     data-testid="card-collection-section-item-News-article-page-2"
                     href="/en/frequently-asked-questions/news-article-page/"
@@ -20438,7 +20438,7 @@ exports[`Contact us page render location correctly 1`] = `
                   data-testid="grid-item"
                 >
                   <div
-                    class=" MuiBox-root css-i0obkw"
+                    class=" MuiBox-root css-n8s3uj"
                     data-testid="card-collection-section-item-BMI-test-video-on-PROMO"
                     type="button"
                   >
@@ -24696,7 +24696,7 @@ exports[`Contact us page renders correctly 1`] = `
                   data-testid="grid-item"
                 >
                   <a
-                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                     data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"News article page 2 - Testing \\",\\"action\\":\\"/en/frequently-asked-questions/news-article-page/\\"}"
                     data-testid="card-collection-section-item-News-article-page-2"
                     href="/en/frequently-asked-questions/news-article-page/"
@@ -24745,7 +24745,7 @@ exports[`Contact us page renders correctly 1`] = `
                   data-testid="grid-item"
                 >
                   <div
-                    class=" MuiBox-root css-i0obkw"
+                    class=" MuiBox-root css-n8s3uj"
                     data-testid="card-collection-section-item-BMI-test-video-on-PROMO"
                     type="button"
                   >
