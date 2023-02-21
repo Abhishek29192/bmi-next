@@ -2824,7 +2824,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
     </div>
   </div>
   <div
-    class="sdpTabLeadBlock css-fpjlvn"
+    class="sdpTabLeadBlock css-15j8w5i"
     data-testid="tabs"
   >
     <div
@@ -2873,7 +2873,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                 <button
                   aria-controls="tabpanel-one"
                   aria-selected="true"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-one"
                   id="tab-one"
@@ -2889,7 +2889,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                 <button
                   aria-controls="tabpanel-two"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.technicalSpecification\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-two"
                   id="tab-two"
@@ -2905,7 +2905,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                 <button
                   aria-controls="tabpanel-three"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.documentsAndDownloads\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-three"
                   id="tab-three"
@@ -3588,7 +3588,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
               data-testid="grid-item"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"related-system-1 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/related-path/\\"}"
                 href="/en/related-path/"
                 tabindex="0"
@@ -6853,7 +6853,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
     </div>
   </div>
   <div
-    class="sdpTabLeadBlock css-fpjlvn"
+    class="sdpTabLeadBlock css-15j8w5i"
     data-testid="tabs"
   >
     <div
@@ -6902,7 +6902,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                 <button
                   aria-controls="tabpanel-one"
                   aria-selected="true"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-one"
                   id="tab-one"
@@ -6918,7 +6918,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                 <button
                   aria-controls="tabpanel-two"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.technicalSpecification\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-two"
                   id="tab-two"
@@ -6934,7 +6934,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                 <button
                   aria-controls="tabpanel-three"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.documentsAndDownloads\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-three"
                   id="tab-three"
@@ -7617,7 +7617,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
               data-testid="grid-item"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"related-system-1 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/related-path/\\"}"
                 href="/en/related-path/"
                 tabindex="0"
@@ -10886,7 +10886,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
       </div>
     </div>
     <div
-      class="sdpTabLeadBlock css-fpjlvn"
+      class="sdpTabLeadBlock css-15j8w5i"
       data-testid="tabs"
     >
       <div
@@ -10935,7 +10935,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                   <button
                     aria-controls="tabpanel-one"
                     aria-selected="true"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                     data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
                     data-testid="tab-one"
                     id="tab-one"
@@ -10951,7 +10951,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                   <button
                     aria-controls="tabpanel-two"
                     aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                     data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.technicalSpecification\\",\\"action\\":\\"Selector – Tabs\\"}"
                     data-testid="tab-two"
                     id="tab-two"
@@ -10967,7 +10967,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                   <button
                     aria-controls="tabpanel-three"
                     aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                     data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.documentsAndDownloads\\",\\"action\\":\\"Selector – Tabs\\"}"
                     data-testid="tab-three"
                     id="tab-three"
@@ -11650,7 +11650,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                 data-testid="grid-item"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"related-ssytem-name - MC: sdp.system.readMore\\",\\"action\\":\\"/en/related-system-path/\\"}"
                   href="/en/related-system-path/"
                   tabindex="0"
@@ -14916,7 +14916,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
     </div>
   </div>
   <div
-    class="sdpTabLeadBlock css-fpjlvn"
+    class="sdpTabLeadBlock css-15j8w5i"
     data-testid="tabs"
   >
     <div
@@ -14965,7 +14965,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                 <button
                   aria-controls="tabpanel-one"
                   aria-selected="true"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-one"
                   id="tab-one"
@@ -14981,7 +14981,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                 <button
                   aria-controls="tabpanel-two"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.technicalSpecification\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-two"
                   id="tab-two"
@@ -14997,7 +14997,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                 <button
                   aria-controls="tabpanel-three"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.documentsAndDownloads\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-three"
                   id="tab-three"
@@ -15680,7 +15680,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
               data-testid="grid-item"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"related-system-1 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/related-path/\\"}"
                 href="/en/related-path/"
                 tabindex="0"
@@ -18945,7 +18945,7 @@ exports[`SystemDetailsPage template component should render without specificatio
     </div>
   </div>
   <div
-    class="sdpTabLeadBlock css-fpjlvn"
+    class="sdpTabLeadBlock css-15j8w5i"
     data-testid="tabs"
   >
     <div
@@ -18994,7 +18994,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                 <button
                   aria-controls="tabpanel-one"
                   aria-selected="true"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-one"
                   id="tab-one"
@@ -19010,7 +19010,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                 <button
                   aria-controls="tabpanel-two"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.technicalSpecification\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-two"
                   id="tab-two"
@@ -19026,7 +19026,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                 <button
                   aria-controls="tabpanel-three"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.documentsAndDownloads\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-three"
                   id="tab-three"
@@ -19670,7 +19670,7 @@ exports[`SystemDetailsPage template component should render without specificatio
               data-testid="grid-item"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"related-ssytem-name - MC: sdp.system.readMore\\",\\"action\\":\\"/en/related-system-path/\\"}"
                 href="/en/related-system-path/"
                 tabindex="0"
@@ -22935,7 +22935,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
     </div>
   </div>
   <div
-    class="sdpTabLeadBlock css-fpjlvn"
+    class="sdpTabLeadBlock css-15j8w5i"
     data-testid="tabs"
   >
     <div
@@ -22984,7 +22984,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                 <button
                   aria-controls="tabpanel-one"
                   aria-selected="true"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-one"
                   id="tab-one"
@@ -23000,7 +23000,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                 <button
                   aria-controls="tabpanel-two"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.technicalSpecification\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-two"
                   id="tab-two"
@@ -23016,7 +23016,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                 <button
                   aria-controls="tabpanel-three"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.documentsAndDownloads\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-three"
                   id="tab-three"
@@ -23699,7 +23699,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
               data-testid="grid-item"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"related-ssytem-name - MC: sdp.system.readMore\\",\\"action\\":\\"/en/related-system-path/\\"}"
                 href="/en/related-system-path/"
                 tabindex="0"
@@ -27090,7 +27090,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
     </div>
   </div>
   <div
-    class="sdpTabLeadBlock css-fpjlvn"
+    class="sdpTabLeadBlock css-15j8w5i"
     data-testid="tabs"
   >
     <div
@@ -27139,7 +27139,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                 <button
                   aria-controls="tabpanel-one"
                   aria-selected="true"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-one"
                   id="tab-one"
@@ -27155,7 +27155,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                 <button
                   aria-controls="tabpanel-two"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.technicalSpecification\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-two"
                   id="tab-two"
@@ -27171,7 +27171,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                 <button
                   aria-controls="tabpanel-three"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.documentsAndDownloads\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-three"
                   id="tab-three"
@@ -27854,7 +27854,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
               data-testid="grid-item"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"related-ssytem-name - MC: sdp.system.readMore\\",\\"action\\":\\"/en/related-system-path/\\"}"
                 href="/en/related-system-path/"
                 tabindex="0"
@@ -31245,7 +31245,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
     </div>
   </div>
   <div
-    class="sdpTabLeadBlock css-fpjlvn"
+    class="sdpTabLeadBlock css-15j8w5i"
     data-testid="tabs"
   >
     <div
@@ -31294,7 +31294,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                 <button
                   aria-controls="tabpanel-one"
                   aria-selected="true"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-one"
                   id="tab-one"
@@ -31310,7 +31310,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                 <button
                   aria-controls="tabpanel-two"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.technicalSpecification\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-two"
                   id="tab-two"
@@ -31326,7 +31326,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                 <button
                   aria-controls="tabpanel-three"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.documentsAndDownloads\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-three"
                   id="tab-three"
@@ -32009,7 +32009,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
               data-testid="grid-item"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"related-ssytem-name - MC: sdp.system.readMore\\",\\"action\\":\\"/en/related-system-path/\\"}"
                 href="/en/related-system-path/"
                 tabindex="0"
