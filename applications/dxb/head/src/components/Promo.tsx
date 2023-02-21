@@ -14,13 +14,7 @@ export type Data = {
   body: RichTextData | null;
   brandLogo: string | null;
   tags: TagData[] | null;
-  featuredMedia:
-    | (ImageData & {
-        thumbnail: {
-          src: string;
-        };
-      })
-    | null;
+  featuredMedia: ImageData | null;
   cta: LinkData | null;
   featuredVideo: ContentfulVideoData | null;
   backgroundColor: "White" | "Alabaster" | null;
@@ -44,15 +38,42 @@ export const promoQuery = graphql`
     cta {
       ...LinkFragment
     }
-    featuredVideo {
-      ...VideoFragment
-    }
     backgroundColor
   }
   fragment PromoFragment on ContentfulPromo {
     ...BasePromoFragment
     featuredMedia {
-      ...ImageFragment
+      ...ImageVillainFragment
+    }
+    featuredVideo {
+      ...VideoVillainFragment
+    }
+  }
+  fragment PromoVillainFragment on ContentfulPromo {
+    ...BasePromoFragment
+    featuredMedia {
+      ...ImageVillainFragment
+    }
+    featuredVideo {
+      ...VideoVillainFragment
+    }
+  }
+  fragment PromoHeaderFragment on ContentfulPromo {
+    ...BasePromoFragment
+    featuredMedia {
+      ...ImageHeaderFragment
+    }
+    featuredVideo {
+      ...VideoHeaderFragment
+    }
+  }
+  fragment PromoHeroFragment on ContentfulPromo {
+    ...BasePromoFragment
+    featuredMedia {
+      ...ImageHeroFragment
+    }
+    featuredVideo {
+      ...VideoHeroFragment
     }
   }
   fragment PromoCardFragment on ContentfulPromo {
@@ -60,11 +81,17 @@ export const promoQuery = graphql`
     featuredMedia {
       ...ImageCardFragment
     }
+    featuredVideo {
+      ...VideoCardFragment
+    }
   }
   fragment PromoSlideFragment on ContentfulPromo {
     ...BasePromoFragment
     featuredMedia {
       ...ImageSlideFragment
+    }
+    featuredVideo {
+      ...VideoSlideFragment
     }
   }
 `;

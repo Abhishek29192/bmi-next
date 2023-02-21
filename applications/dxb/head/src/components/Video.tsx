@@ -64,15 +64,12 @@ export const renderVideo = (data: Data) => {
 };
 
 export const query = graphql`
-  fragment VideoFragment on ContentfulVideo {
+  fragment BaseVideoFragment on ContentfulVideo {
     __typename
     title
     label
     subtitle
     videoUrl: youtubeId
-    previewMedia {
-      ...ImageFragment
-    }
     videoRatio {
       width
       height
@@ -80,8 +77,53 @@ export const query = graphql`
     defaultYouTubePreviewImage
   }
 
+  fragment VideoFragment on ContentfulVideo {
+    ...BaseVideoFragment
+    previewMedia {
+      ...VideoImageFragment
+    }
+  }
+
+  fragment VideoHeroFragment on ContentfulVideo {
+    ...BaseVideoFragment
+    previewMedia {
+      ...ImageHeroFragment
+    }
+  }
+
+  fragment VideoHeaderFragment on ContentfulVideo {
+    ...BaseVideoFragment
+    previewMedia {
+      ...ImageHeaderFragment
+    }
+  }
+
+  fragment VideoVillainFragment on ContentfulVideo {
+    ...BaseVideoFragment
+    previewMedia {
+      ...ImageVillainFragment
+    }
+  }
+
+  fragment VideoCardFragment on ContentfulVideo {
+    ...BaseVideoFragment
+    previewMedia {
+      ...ImageCardFragment
+    }
+  }
+
+  fragment VideoSlideFragment on ContentfulVideo {
+    ...BaseVideoFragment
+    previewMedia {
+      ...ImageSlideFragment
+    }
+  }
+
   fragment VideoGallerySlideFragment on ContentfulVideo {
-    ...VideoFragment
+    ...BaseVideoFragment
+    previewMedia {
+      ...ImageGallerySlideFragment
+    }
   }
 `;
 

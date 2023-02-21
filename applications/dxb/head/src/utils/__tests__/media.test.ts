@@ -1,3 +1,7 @@
+import createGalleryPimVideo from "../../__tests__/helpers/GalleryPimVideoHelper";
+import createGallerySectionImage from "../../__tests__/helpers/GallerySectionImageHelper";
+import createGallerySectionVideo from "../../__tests__/helpers/GallerySectionVideo";
+import createGatsbyImageData from "../../__tests__/helpers/GatsbyImageDataHelper";
 import { GallerySectionMedias, getJpgImage, transformMediaSrc } from "../media";
 
 jest.mock("../../components/Video", () => ({
@@ -40,67 +44,16 @@ describe("getJpgImage function", () => {
 
 describe("transformMediaSrc function", () => {
   it("should return correct data", () => {
-    const mockMedia: GallerySectionMedias[] = [
-      {
-        __typename: "ContentfulImage",
-        altText: "alt text",
-        type: null,
-        image: {
-          file: {
-            fileName: "file",
-            url: "//images.asset.jpg"
-          },
-          thumbnail: {
-            src: "//images.asset.jpg"
-          }
-        },
-        caption: {
-          caption: "CAPTION"
-        },
-        focalPoint: null
-      },
-      {
-        __typename: "ContentfulVideo",
-        title: "featuredVideo",
-        label: "label",
-        subtitle: "ContentfulVideoSubtitle",
-        videoUrl: "https://youtu.be/01SUXJmB9Ik",
-        previewMedia: {
-          altText: "ContentfulVideoAltText",
-          type: "Descriptive",
-          image: {
-            thumbnail: {
-              src: "//images.asset.jpg"
-            },
-            file: {
-              fileName: "fileName",
-              url: "fileNameURL"
-            }
-          },
-          focalPoint: null
-        },
-        defaultYouTubePreviewImage:
-          "https://i.ytimg.com/vi/01SUXJmB9Ik/maxresdefault.jpg",
-        videoRatio: null
-      },
+    const image = createGallerySectionImage();
+    const video = createGallerySectionVideo();
+    const pimVideo = createGalleryPimVideo();
+    const mockMedia: GallerySectionMedias[] = [image, video, pimVideo];
 
-      {
-        __typename: "PimVideo",
-        videoUrl: "https://www.youtube.com/watch?v=AGVIbPFLDcI",
-        title: "PimVideoTitle",
-        label: "PimVideoLabel",
-        subtitle: "subtitle",
-        previewMedia: null,
-        videoRatio: null,
-        defaultYouTubePreviewImage:
-          "https://i.ytimg.com/vi/AGVIbPFLDcI/maxresdefault.jpg"
-      }
-    ];
     const expectResult = transformMediaSrc(mockMedia);
 
     expect(expectResult[0]).toEqual(
       expect.objectContaining({
-        thumbnail: "//images.asset.jpg",
+        thumbnail: image.image.thumbnail.images.fallback.src,
         isVideo: false,
         caption: "CAPTION",
         altText: "alt text"
@@ -108,7 +61,7 @@ describe("transformMediaSrc function", () => {
     );
     expect(expectResult[1]).toEqual(
       expect.objectContaining({
-        thumbnail: "//images.asset.jpg",
+        thumbnail: video.previewMedia.image.thumbnail.images.fallback.src,
         isVideo: true,
         caption: "ContentfulVideoSubtitle",
         altText: "label",
@@ -117,7 +70,7 @@ describe("transformMediaSrc function", () => {
     );
     expect(expectResult[2]).toEqual(
       expect.objectContaining({
-        thumbnail: "https://i.ytimg.com/vi/AGVIbPFLDcI/maxresdefault.jpg",
+        thumbnail: pimVideo.defaultYouTubePreviewImage,
         isVideo: true,
         caption: "PimVideoTitle"
       })
@@ -152,37 +105,12 @@ describe("transformMediaSrc function", () => {
   });
 
   it("should return correct object if typeName === ContentfulVideo and subtitle is null", () => {
-    const mockMedia: GallerySectionMedias[] = [
-      {
-        __typename: "ContentfulVideo",
-        title: "featuredVideo",
-        label: "label",
-        subtitle: null,
-        videoUrl: "https://youtu.be/01SUXJmB9Ik",
-        previewMedia: {
-          altText: "ContentfulVideoAltText",
-          type: "Descriptive",
-          image: {
-            thumbnail: {
-              src: "//images.asset.jpg"
-            },
-            file: {
-              fileName: "fileName",
-              url: "fileNameURL"
-            }
-          },
-          focalPoint: null
-        },
-        defaultYouTubePreviewImage:
-          "https://i.ytimg.com/vi/01SUXJmB9Ik/maxresdefault.jpg",
-        videoRatio: null
-      }
-    ];
-    const expectResult = transformMediaSrc(mockMedia);
+    const video = createGallerySectionVideo({ subtitle: null });
+    const expectResult = transformMediaSrc([video]);
 
     expect(expectResult[0]).toEqual(
       expect.objectContaining({
-        thumbnail: "//images.asset.jpg",
+        thumbnail: video.previewMedia.image.thumbnail.images.fallback.src,
         isVideo: true,
         caption: undefined,
         altText: "label",
@@ -192,27 +120,17 @@ describe("transformMediaSrc function", () => {
   });
 
   it("should return correct object  if typeName === ContentfulImage and image.thumbnail.src is empty string", () => {
-    const mockMedia: GallerySectionMedias[] = [
-      {
-        __typename: "ContentfulImage",
-        altText: "alt text",
-        type: null,
-        image: {
-          file: {
-            fileName: "file",
-            url: "//images.asset.jpg"
-          },
-          thumbnail: {
-            src: ""
-          }
+    const image = createGallerySectionImage({
+      image: {
+        file: {
+          fileName: "Lorem ipsum",
+          url: "//images.asset.jpg"
         },
-        caption: {
-          caption: "CAPTION"
-        },
-        focalPoint: null
+        gatsbyImageData: createGatsbyImageData(),
+        thumbnail: undefined
       }
-    ];
-    const expectResult = transformMediaSrc(mockMedia);
+    });
+    const expectResult = transformMediaSrc([image]);
 
     expect(expectResult[0]).toEqual(
       expect.objectContaining({
@@ -225,29 +143,14 @@ describe("transformMediaSrc function", () => {
   });
 
   it("should return correct object if typeName === ContentfulImage and item caption is null", () => {
-    const mockMedia: GallerySectionMedias[] = [
-      {
-        __typename: "ContentfulImage",
-        altText: "alt text",
-        type: null,
-        image: {
-          file: {
-            fileName: "file",
-            url: "//images.asset.jpg"
-          },
-          thumbnail: {
-            src: "//images.asset.jpg"
-          }
-        },
-        caption: null,
-        focalPoint: null
-      }
-    ];
-    const expectResult = transformMediaSrc(mockMedia);
+    const image = createGallerySectionImage({
+      caption: null
+    });
+    const expectResult = transformMediaSrc([image]);
 
     expect(expectResult[0]).toEqual(
       expect.objectContaining({
-        thumbnail: "//images.asset.jpg",
+        thumbnail: image.image.thumbnail.images.fallback.src,
         isVideo: false,
         caption: undefined,
         altText: "alt text"
@@ -256,31 +159,14 @@ describe("transformMediaSrc function", () => {
   });
 
   it("should return correct object if typeName === ContentfulImage and item altText is empty string", () => {
-    const mockMedia: GallerySectionMedias[] = [
-      {
-        __typename: "ContentfulImage",
-        altText: "",
-        type: null,
-        image: {
-          file: {
-            fileName: "file",
-            url: "//images.asset.jpg"
-          },
-          thumbnail: {
-            src: "//images.asset.jpg"
-          }
-        },
-        caption: {
-          caption: "CAPTION"
-        },
-        focalPoint: null
-      }
-    ];
-    const expectResult = transformMediaSrc(mockMedia);
+    const image = createGallerySectionImage({
+      altText: ""
+    });
+    const expectResult = transformMediaSrc([image]);
 
     expect(expectResult[0]).toEqual(
       expect.objectContaining({
-        thumbnail: "//images.asset.jpg",
+        thumbnail: image.image.thumbnail.images.fallback.src,
         isVideo: false,
         caption: "CAPTION",
         altText: undefined

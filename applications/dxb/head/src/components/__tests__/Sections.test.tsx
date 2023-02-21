@@ -3,6 +3,8 @@ import { render } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
 import React from "react";
 import { renderWithRouter } from "../../test/renderWithRouter";
+import createGallerySectionImage from "../../__tests__/helpers/GallerySectionImageHelper";
+import createImageData from "../../__tests__/helpers/ImageDataHelper";
 import createService from "../../__tests__/helpers/ServiceHelper";
 import { DataTypeEnum } from "../Link";
 import Sections, { Data } from "../Sections";
@@ -203,46 +205,7 @@ describe("Sections component", () => {
             brandLogo: null,
             subtitle: "page subtitle",
             date: null,
-            featuredMedia: {
-              type: null,
-              altText: "Lorem ipsum",
-              focalPoint: null,
-              image: {
-                gatsbyImageData: {
-                  images: {
-                    sources: [
-                      {
-                        srcSet:
-                          "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w",
-                        sizes: "(min-width: 948px) 948px, 100vw",
-                        type: "image/webp"
-                      }
-                    ],
-                    fallback: {
-                      src: "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png",
-                      srcSet:
-                        "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w",
-                      sizes: "(min-width: 948px) 948px, 100vw"
-                    }
-                  },
-                  layout: "constrained",
-                  backgroundColor: "#484848",
-                  width: 948,
-                  height: 720
-                },
-                file: {
-                  fileName: "Lorem ipsum",
-                  url: "//images.asset.jpg"
-                }
-              },
-              thumbnail: {
-                src: "//images.asset.jpg",
-                file: {
-                  fileName: "Lorem ipsum",
-                  url: "//images.asset.jpg"
-                }
-              }
-            },
+            featuredMedia: createImageData(),
             featuredVideo: null
           }
         ]
@@ -292,46 +255,7 @@ describe("Sections component", () => {
         body: null,
         brandLogo: null,
         tags: null,
-        featuredMedia: {
-          altText: null,
-          type: null,
-          image: {
-            gatsbyImageData: {
-              images: {
-                sources: [
-                  {
-                    srcSet:
-                      "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w",
-                    sizes: "(min-width: 948px) 948px, 100vw",
-                    type: "image/webp"
-                  }
-                ],
-                fallback: {
-                  src: "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png",
-                  srcSet:
-                    "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w",
-                  sizes: "(min-width: 948px) 948px, 100vw"
-                }
-              },
-              layout: "constrained",
-              backgroundColor: "#484848",
-              width: 948,
-              height: 720
-            },
-            file: {
-              fileName: "image",
-              url: "image.png"
-            }
-          },
-          focalPoint: null,
-          thumbnail: {
-            src: "//images.asset.jpg",
-            file: {
-              fileName: "Lorem ipsum",
-              url: "//images.asset.jpg"
-            }
-          }
-        },
+        featuredMedia: createImageData(),
         cta: null,
         featuredVideo: null,
         backgroundColor: null
@@ -340,46 +264,7 @@ describe("Sections component", () => {
         __typename: "ContentfulMediaGallerySection",
         title: "Gallery title",
         longDescription: null,
-        medias: [
-          {
-            __typename: "ContentfulImage",
-            type: null,
-            altText: "Lorem ipsum",
-            caption: null,
-            focalPoint: null,
-            image: {
-              thumbnail: {
-                src: "//images.asset.jpg"
-              },
-              gatsbyImageData: {
-                images: {
-                  sources: [
-                    {
-                      srcSet:
-                        "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w",
-                      sizes: "(min-width: 948px) 948px, 100vw",
-                      type: "image/webp"
-                    }
-                  ],
-                  fallback: {
-                    src: "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png",
-                    srcSet:
-                      "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w",
-                    sizes: "(min-width: 948px) 948px, 100vw"
-                  }
-                },
-                layout: "constrained",
-                backgroundColor: "#484848",
-                width: 948,
-                height: 720
-              },
-              file: {
-                fileName: "Lorem ipsum",
-                url: "//images.asset.jpg"
-              }
-            }
-          }
-        ]
+        medias: [createGallerySectionImage()]
       },
       {
         __typename: "ContentfulDocumentDownloadSection",

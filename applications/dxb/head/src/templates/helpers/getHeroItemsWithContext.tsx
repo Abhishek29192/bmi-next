@@ -1,6 +1,6 @@
 import { Button, CarouselHeroItem } from "@bmi-digital/components";
 import React from "react";
-import { renderImage } from "../../components/Image";
+import Image from "../../components/Image";
 import Link from "../../components/Link";
 import { renderVideo } from "../../components/Video";
 import { microCopy } from "../../constants/microCopies";
@@ -29,9 +29,11 @@ export const getHeroItemsWithContext = (
       return {
         title,
         children: subtitle,
-        media: featuredVideo
-          ? renderVideo(featuredVideo)
-          : renderImage(featuredMedia, { size: "cover" }),
+        media: featuredVideo ? (
+          renderVideo(featuredVideo)
+        ) : (
+          <Image data={featuredMedia} size="cover" />
+        ),
         cta: rest["cta"] || rest["path"] ? callToAction : null
       };
     }

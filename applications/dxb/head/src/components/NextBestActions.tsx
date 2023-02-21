@@ -10,8 +10,8 @@ import {
 import ButtonBase, { ButtonBaseProps } from "@mui/material/ButtonBase";
 import { graphql } from "gatsby";
 import React from "react";
-import { Data as PageInfoData } from "../components/PageInfo";
-import { Data as PromoData } from "../components/Promo";
+import type { Data as PageInfoData } from "../components/PageInfo";
+import type { Data as PromoData } from "../components/Promo";
 import { microCopy } from "../constants/microCopies";
 import { getCTA } from "./Link";
 import { useSiteContext } from "./Site";
@@ -78,7 +78,7 @@ export default NextBestActions;
 
 export const query = graphql`
   fragment NextBestActionsFragment on ContentfulPromoOrPage {
-    ...PromoFragment
-    ...PageInfoFragment
+    ...PromoCardFragment
+    ...PageInfoCardFragment
   }
 `;

@@ -7,7 +7,7 @@ import {
 import { ContentfulDocument } from "@bmi/elasticsearch-types";
 import React from "react";
 import { iconMap } from "../../../components/Icon";
-import { renderImage } from "../../../components/Image";
+import Image from "../../../components/Image";
 import { useSiteContext } from "../../../components/Site";
 import { microCopy } from "../../../constants/microCopies";
 import withGTM from "../../../utils/google-tag-manager";
@@ -34,7 +34,7 @@ const DocumentCardsResults = ({ documents }: Props) => {
           >
             <GTMOverviewCard
               title={document.title}
-              media={renderImage(document.featuredMedia)}
+              media={<Image data={document.featuredMedia} />}
               // eslint-disable-next-line security/detect-object-injection
               brandImageSource={iconMap[`${document.BRAND?.name}Isolated`]}
               action={{

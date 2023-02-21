@@ -99,12 +99,7 @@ describe("generateHeroProps test", () => {
       })
     );
 
-    expect(result.media.props).toEqual(
-      expect.objectContaining({
-        src: "//images.asset.jpg",
-        alt: "Lorem ipsum"
-      })
-    );
+    expect(result.media.props).toEqual({ data: featuredMedia, size: "cover" });
 
     expect((result.cta as React.ReactElement).props).toEqual(
       expect.objectContaining({

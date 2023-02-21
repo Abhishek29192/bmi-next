@@ -2,7 +2,7 @@ import { Button, PromoSection, Typography } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
 import FallbackComponent from "../components/FallbackComponent";
-import { renderImage } from "../components/Image";
+import Image from "../components/Image";
 import { getClickableActionFromUrl } from "../components/Link";
 import Page from "../components/Page";
 import { renderVideo } from "../components/Video";
@@ -33,9 +33,11 @@ const FourOFour = ({ data }: { data: Data }) => {
         <PromoSection
           title={errorFourOFour.title || placeholderTitle}
           media={
-            errorFourOFour.featuredVideo
-              ? renderVideo(errorFourOFour.featuredVideo)
-              : renderImage(errorFourOFour.featuredMedia)
+            errorFourOFour.featuredVideo ? (
+              renderVideo(errorFourOFour.featuredVideo)
+            ) : (
+              <Image data={errorFourOFour.featuredMedia} />
+            )
           }
         >
           <Typography variant="body2" gutterBottom>

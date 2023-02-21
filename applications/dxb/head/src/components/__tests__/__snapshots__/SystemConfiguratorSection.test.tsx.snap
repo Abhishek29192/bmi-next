@@ -3173,11 +3173,27 @@ exports[`SystemConfiguratorSection component renders no result section with the 
           <div
             class="RichText-root css-17t4j5c"
           >
-            <img
-              alt="image 2"
-              class="embedded-asset"
-              src="https:// path to image.jpg"
-            />
+            <picture>
+              <source
+                sizes="(max-width: 600px) 561px, (max-width: 720px) 665px, (max-width: 840px) 785px, (max-width: 1440px) 916px, 920px"
+                srcset="https:// path to image.jpg?fm=webp&q=50&w=561 561w, https:// path to image.jpg?fm=webp&q=50&w=665 665w, https:// path to image.jpg?fm=webp&q=50&w=785 785w, https:// path to image.jpg?fm=webp&q=50&w=916 916w, https:// path to image.jpg?fm=webp&q=50&w=920 920w"
+                type="image/webp"
+              />
+              <source
+                sizes="(max-width: 600px) 561px, (max-width: 720px) 665px, (max-width: 840px) 785px, (max-width: 1440px) 916px, 920px"
+                srcset="https:// path to image.jpg?q=50&w=561 561w, https:// path to image.jpg?q=50&w=665 665w, https:// path to image.jpg?q=50&w=785 785w, https:// path to image.jpg?q=50&w=916 916w, https:// path to image.jpg?q=50&w=920 920w"
+              />
+              <img
+                alt="image 2"
+                class="embedded-asset"
+                data-main-image="true"
+                decoding="async"
+                draggable="false"
+                loading="lazy"
+                src="https:// path to image.jpg?fm=jpg&q=50&fl=progressive&w=920"
+                srcset="https:// path to image.jpg?fm=jpg&q=50&w=561 561w, https:// path to image.jpg?fm=jpg&q=50&w=665 665w, https:// path to image.jpg?fm=jpg&q=50&w=785 785w, https:// path to image.jpg?fm=jpg&q=50&w=916 916w, https:// path to image.jpg?fm=jpg&q=50&w=920 920w"
+              />
+            </picture>
           </div>
         </div>
       </div>

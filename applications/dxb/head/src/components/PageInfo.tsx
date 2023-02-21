@@ -5,12 +5,6 @@ import { Data as SampleBasketSectionData } from "./SampleBasketBase";
 import { TagData } from "./Tag";
 import { ContentfulVideoData } from "./Video";
 
-export type ImageWithThumbnail = ImageData & {
-  thumbnail: {
-    src: string;
-  };
-};
-
 export type Data = {
   __typename:
     | "ContentfulSimplePage"
@@ -27,7 +21,7 @@ export type Data = {
   date: string | null;
   tags: TagData[] | null;
   // TODO: Move Video as option of Media.
-  featuredMedia: ImageWithThumbnail | null;
+  featuredMedia: ImageData | null;
   featuredVideo: ContentfulVideoData | null;
   heroType?: string | null;
   cta?: LinkData | null;
@@ -57,20 +51,41 @@ export const query = graphql`
       title
       type
     }
-    featuredVideo {
-      ...VideoFragment
-    }
   }
-  fragment PageInfoFragment on ContentfulPage {
+  fragment PageInfoVillainFragment on ContentfulPage {
     ...BasePageInfoFragment
     featuredMedia {
-      ...ImageFragment
+      ...ImageVillainFragment
+    }
+    featuredVideo {
+      ...VideoVillainFragment
+    }
+  }
+  fragment PageInfoHeaderFragment on ContentfulPage {
+    ...BasePageInfoFragment
+    featuredMedia {
+      ...ImageHeaderFragment
+    }
+    featuredVideo {
+      ...VideoHeaderFragment
+    }
+  }
+  fragment PageInfoHeroFragment on ContentfulPage {
+    ...BasePageInfoFragment
+    featuredMedia {
+      ...ImageHeroFragment
+    }
+    featuredVideo {
+      ...VideoHeroFragment
     }
   }
   fragment PageInfoCardFragment on ContentfulPage {
     ...BasePageInfoFragment
     featuredMedia {
       ...ImageCardFragment
+    }
+    featuredVideo {
+      ...VideoCardFragment
     }
     ... on ContentfulSimplePage {
       date
@@ -80,6 +95,9 @@ export const query = graphql`
     ...BasePageInfoFragment
     featuredMedia {
       ...ImageSlideFragment
+    }
+    featuredVideo {
+      ...VideoSlideFragment
     }
   }
 `;

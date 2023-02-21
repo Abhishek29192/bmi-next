@@ -11,8 +11,8 @@ import OverlapCards, {
   Data as OverlapCardData
 } from "../components/OverlapCards";
 import Page, { Data as PageData } from "../components/Page";
-import { Data as PageInfoData } from "../components/PageInfo";
-import { Data as SlideData } from "../components/Promo";
+import type { Data as PageInfoData } from "../components/PageInfo";
+import type { Data as SlideData } from "../components/Promo";
 import Sections, { Data as SectionsData } from "../components/Sections";
 import { Data as SiteData } from "../components/Site";
 import WelcomeDialog from "../components/WelcomeDialog";
@@ -135,8 +135,8 @@ export const pageQuery = graphql`
       title
       slides {
         ... on ContentfulPromoOrPage {
-          ...PromoFragment
-          ...PageInfoFragment
+          ...PromoHeroFragment
+          ...PageInfoHeroFragment
         }
       }
       overlapCards {

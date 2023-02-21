@@ -307,7 +307,7 @@ export default DocumentLibraryPage;
 export const pageQuery = graphql`
   query DocumentLibraryPageById($pageId: String!, $siteId: String!) {
     contentfulDocumentLibraryPage(id: { eq: $pageId }) {
-      ...PageInfoFragment
+      ...PageInfoHeroFragment
       ...PageFragment
       ...BreadcrumbsFragment
       description {

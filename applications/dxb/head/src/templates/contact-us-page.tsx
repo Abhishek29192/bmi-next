@@ -11,7 +11,7 @@ import ContactTopics, {
 import IframeSection, {
   Data as IframeSectionData
 } from "../components/IframeSection";
-import { renderImage } from "../components/Image";
+import Image from "../components/Image";
 import Locations, { Data as LocationsData } from "../components/Locations";
 import NextBestActions, {
   Data as NextBestActionsData
@@ -90,9 +90,11 @@ const ContactUsPage = ({ data, pageContext }: Props) => {
         level={1}
         title={title}
         media={
-          featuredVideo
-            ? renderVideo(featuredVideo)
-            : renderImage(featuredMedia, { size: "cover" })
+          featuredVideo ? (
+            renderVideo(featuredVideo)
+          ) : (
+            <Image data={featuredMedia} size="cover" />
+          )
         }
         breadcrumbs={
           <BackToResults isDarkThemed>
@@ -136,7 +138,7 @@ export default ContactUsPage;
 export const pageQuery = graphql`
   query ContactUsPageById($pageId: String!, $siteId: String!) {
     contentfulContactUsPage(id: { eq: $pageId }) {
-      ...PageInfoFragment
+      ...PageInfoHeroFragment
       ...BreadcrumbsFragment
       queriesTitle
       queriesSubtitle

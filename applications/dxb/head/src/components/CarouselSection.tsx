@@ -7,15 +7,15 @@ import {
   VerticalRoller,
   VerticalRollerSlide
 } from "@bmi-digital/components";
-import ButtonBase, { ButtonBaseProps } from "@mui/material/ButtonBase";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import ButtonBase, { ButtonBaseProps } from "@mui/material/ButtonBase";
 import { graphql } from "gatsby";
 import React, { useContext } from "react";
 import { Data as PromoData } from "../components/Promo";
 import { microCopy } from "../constants/microCopies";
 import withGTM from "../utils/google-tag-manager";
 import { iconMap } from "./Icon";
-import { renderImage } from "./Image";
+import Image from "./Image";
 import { Data as LinkData, getClickableActionFromUrl, getCTA } from "./Link";
 import { Data as PageInfoData } from "./PageInfo";
 import { CalculatorContext } from "./PitchedRoofCalcualtor";
@@ -60,9 +60,11 @@ const parseSlides = (
       title,
       // eslint-disable-next-line security/detect-object-injection
       brandIcon: brandLogoIcons,
-      media: featuredVideo
-        ? renderVideo(featuredVideo)
-        : renderImage(featuredMedia),
+      media: featuredVideo ? (
+        renderVideo(featuredVideo)
+      ) : (
+        <Image data={featuredMedia} />
+      ),
       description: subtitle || undefined,
       cta
     };
