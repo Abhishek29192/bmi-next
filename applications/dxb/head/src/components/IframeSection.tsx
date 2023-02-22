@@ -1,7 +1,6 @@
-import { Section } from "@bmi-digital/components";
+import { replaceSpaces, Section } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
-import { replaceSpaces } from "../utils/transformHyphens";
 import RichText, { RichTextData } from "./RichText";
 import styles from "./styles/IframeSection.module.scss";
 

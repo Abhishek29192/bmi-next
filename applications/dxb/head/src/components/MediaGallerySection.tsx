@@ -1,6 +1,7 @@
 import {
   Grid,
   MediaGallery,
+  replaceSpaces,
   Section,
   Thumbnail,
   ThumbnailProps,
@@ -10,7 +11,6 @@ import { graphql } from "gatsby";
 import React from "react";
 import withGTM from "../utils/google-tag-manager";
 import { GallerySectionMedias, transformMediaSrc } from "../utils/media";
-import { replaceSpaces } from "../utils/transformHyphens";
 import RichText, { RichTextData } from "./RichText";
 import styles from "./styles/MediaGallerySection.module.scss";
 

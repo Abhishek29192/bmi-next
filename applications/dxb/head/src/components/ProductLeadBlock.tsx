@@ -7,6 +7,7 @@ import {
   IconList,
   LeadBlock,
   MediaGallery,
+  replaceSpaces,
   Tabs,
   Typography
 } from "@bmi-digital/components";
@@ -19,7 +20,6 @@ import { useConfig } from "../contexts/ConfigProvider";
 import { Product } from "../types/pim";
 import withGTM from "../utils/google-tag-manager";
 import { transformImages } from "../utils/product-details-transforms";
-import { replaceSpaces } from "../utils/transformHyphens";
 import AssetsIframe from "./AssetsIframe";
 import DocumentResultsFooter from "./DocumentResultsFooter";
 import DocumentSimpleTableResults from "./DocumentSimpleTableResults";

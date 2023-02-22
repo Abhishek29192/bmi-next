@@ -1,8 +1,7 @@
-import { TableOfContent } from "@bmi-digital/components";
+import { replaceSpaces, TableOfContent } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React, { createContext, useMemo } from "react";
 import { useConfig } from "../contexts/ConfigProvider";
-import { replaceSpaces } from "../utils/transformHyphens";
 import CardCollectionSection, {
   Data as CardCollectionSectionData
 } from "./CardCollectionSection";

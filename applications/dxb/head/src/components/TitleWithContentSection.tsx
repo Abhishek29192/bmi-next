@@ -1,7 +1,6 @@
-import { Grid, Section } from "@bmi-digital/components";
+import { Grid, replaceSpaces, Section } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
-import { replaceSpaces } from "../utils/transformHyphens";
 import RichText from "./RichText";
 import { Data as TitleWithContentData } from "./TitleWithContent";
 

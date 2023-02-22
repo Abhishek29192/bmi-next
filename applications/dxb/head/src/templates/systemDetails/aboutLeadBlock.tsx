@@ -5,6 +5,7 @@ import {
   ButtonProps,
   IconList,
   LeadBlock,
+  replaceSpaces,
   transformHyphens,
   Typography
 } from "@bmi-digital/components";
@@ -21,7 +22,6 @@ import { Data as ContentfulTitleWithContent } from "../../components/TitleWithCo
 import { microCopy } from "../../constants/microCopies";
 import { System } from "../../types/pim";
 import withGTM from "../../utils/google-tag-manager";
-import { replaceSpaces } from "../../utils/transformHyphens";
 import { classes, StyledLeadBlock } from "./styles/aboutLeadBlockStyles";
 
 const GTMButton = withGTM<ButtonProps>(Button);

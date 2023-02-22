@@ -3,6 +3,7 @@ import {
   Grid,
   OverviewCard,
   OverviewCardProps,
+  replaceSpaces,
   Section,
   SectionBackgroundColor
 } from "@bmi-digital/components";
@@ -15,7 +16,6 @@ import { RelatedSystem } from "../types/pim";
 import withGTM, { GTM } from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
 import { renderMedia } from "../utils/renderMedia";
-import { replaceSpaces } from "../utils/transformHyphens";
 import BrandLogo from "./BrandLogo";
 import { useSiteContext } from "./Site";
 import styles from "./styles/RelatedSystems.module.scss";

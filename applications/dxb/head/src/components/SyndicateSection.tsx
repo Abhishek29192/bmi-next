@@ -1,5 +1,6 @@
 import {
   Button,
+  replaceSpaces,
   Section,
   transformHyphens,
   Villain,
@@ -9,7 +10,6 @@ import { graphql } from "gatsby";
 import React from "react";
 import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
-import { replaceSpaces } from "../utils/transformHyphens";
 import Image from "./Image";
 import Link, { getCTA } from "./Link";
 import type { Data as PageInfoData } from "./PageInfo";

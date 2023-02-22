@@ -9,6 +9,7 @@ import {
   Grid,
   InputValue,
   RadioGroup,
+  replaceSpaces,
   Section,
   Select,
   SelectMenuItem,
@@ -32,7 +33,6 @@ import getCookie from "../utils/getCookie";
 import withGTM, { GTM } from "../utils/google-tag-manager";
 import { isRichText } from "../utils/isRichText";
 import { getPathWithCountryCode } from "../utils/path";
-import { replaceSpaces } from "../utils/transformHyphens";
 import ControlledCheckboxGroup from "./CheckboxGroup";
 import HiddenInput from "./HiddenInput";
 import { Data as LinkData, isExternalUrl } from "./Link";

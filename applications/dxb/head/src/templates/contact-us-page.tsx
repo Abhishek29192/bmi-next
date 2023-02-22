@@ -1,4 +1,9 @@
-import { Hero, Section, Typography } from "@bmi-digital/components";
+import {
+  Hero,
+  replaceSpaces,
+  Section,
+  Typography
+} from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
 import BackToResults from "../components/BackToResults";
@@ -22,7 +27,6 @@ import Sections, { Data as SectionsData } from "../components/Sections";
 import { Data as SiteData } from "../components/Site";
 import { renderVideo } from "../components/Video";
 import { updateBreadcrumbTitleFromContentful } from "../utils/breadcrumbUtils";
-import { replaceSpaces } from "../utils/transformHyphens";
 
 export type Data = PageInfoData &
   PageData & {

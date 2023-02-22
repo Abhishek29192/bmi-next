@@ -1,6 +1,7 @@
 import {
   Accordion,
   AccordionSummaryProps,
+  replaceSpaces,
   Section,
   Tabs,
   transformHyphens,
@@ -11,7 +12,6 @@ import { graphql } from "gatsby";
 import React from "react";
 import RichText from "../components/RichText";
 import withGTM from "../utils/google-tag-manager";
-import { replaceSpaces } from "../utils/transformHyphens";
 import { Data as TitleWithContentData } from "./TitleWithContent";
 
 const GTMAccordionSummary = withGTM<AccordionSummaryProps>(Accordion.Summary);

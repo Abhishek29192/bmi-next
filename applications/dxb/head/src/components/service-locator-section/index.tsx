@@ -6,6 +6,7 @@ import {
   Grid,
   LatLngLiteral as GoogleLatLngLiteral,
   loadGoogleApi,
+  replaceSpaces,
   Section,
   Tabs
 } from "@bmi-digital/components";
@@ -16,7 +17,6 @@ import { graphql } from "gatsby";
 import React, { useEffect, useMemo, useReducer, useState } from "react";
 import { microCopy } from "../../constants/microCopies";
 import { pushToDataLayer } from "../../utils/google-tag-manager";
-import { replaceSpaces } from "../../utils/transformHyphens";
 import RichText, { RichTextData } from "../RichText";
 import {
   Data as ServiceData,

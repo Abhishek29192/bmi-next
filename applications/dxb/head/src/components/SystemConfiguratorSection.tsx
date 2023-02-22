@@ -2,6 +2,7 @@ import {
   Grid,
   RadioPane,
   RadioPaneProps,
+  replaceSpaces,
   Section
 } from "@bmi-digital/components";
 import { System as EsSystem } from "@bmi/elasticsearch-types";
@@ -26,7 +27,6 @@ import getCookie from "../utils/getCookie";
 import withGTM, { pushToDataLayer } from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
 import * as storage from "../utils/storage";
-import { replaceSpaces } from "../utils/transformHyphens";
 import { useScrollToOnLoad } from "../utils/useScrollToOnLoad";
 import ConfiguratorPanel from "./configurator-panel/ConfiguratorPanel";
 import ProgressIndicator from "./ProgressIndicator";

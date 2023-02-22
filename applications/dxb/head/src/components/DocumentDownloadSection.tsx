@@ -6,8 +6,6 @@ import fileIconsMap from "../components/FileIconsMap";
 import { microCopy } from "../constants/microCopies";
 import { ContentfulDocument as DocumentData } from "../types/Document";
 import withGTM from "../utils/google-tag-manager";
-import { replaceSpaces } from "../utils/transformHyphens";
-import Icon from "./Icon";
 import { getClickableActionFromUrl } from "./Link";
 import RichText, { RichTextData } from "./RichText";
 import { useSiteContext } from "./Site";
