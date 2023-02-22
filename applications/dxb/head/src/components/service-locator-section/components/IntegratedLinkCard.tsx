@@ -1,13 +1,14 @@
+import { LinkCard, LinkCardProps } from "@bmi-digital/components";
 import React, { useRef } from "react";
-import { LinkCard, LinkCardProps } from "@bmi/components";
 import withGTM from "../../../utils/google-tag-manager";
 import { useScrollTo } from "./useScrollTo";
 
 export const IntegratedLinkCard = ({
   isOpen,
+  children,
   ...rest
 }: LinkCardProps): JSX.Element => {
-  const linkCardElement = useRef<HTMLElement>(null);
+  const linkCardElement = useRef<HTMLDivElement>(null);
   const [setCardExpansionCompleted] = useScrollTo(isOpen, linkCardElement);
 
   return (
@@ -18,7 +19,9 @@ export const IntegratedLinkCard = ({
       onExpandCompleted={() => {
         setCardExpansionCompleted(true);
       }}
-    />
+    >
+      {children}
+    </LinkCard>
   );
 };
 

@@ -6,6 +6,7 @@ import {
   reset,
   value as clientIndices
 } from "@elastic/elasticsearch";
+import { BuildArgs } from "gatsby";
 import report from "gatsby-cli/lib/reporter";
 import { onPostBuild } from "../gatsby-node";
 
@@ -60,7 +61,13 @@ describe("gatsby-plugin-elasicsearch gatsby-node", () => {
 
   it("should create client with specific props and procceed indices", async () => {
     jest.spyOn(report, "activityTimer");
-    await onPostBuild(graphql, params);
+    await onPostBuild!(
+      {
+        graphql: graphql.graphql
+      } as unknown as BuildArgs,
+      { plugins: [], ...params },
+      () => {}
+    );
     expect(report.activityTimer).toBeCalledWith("Indexing to ElasticSearch");
 
     expect(clientIndices).toEqual({ "alias-1_2": { name: "alias-1" } });
@@ -157,7 +164,13 @@ describe("gatsby-plugin-elasicsearch gatsby-node", () => {
   });
 
   it("should create reporter and collect statuses", async () => {
-    await onPostBuild(graphql, params);
+    await onPostBuild!(
+      {
+        graphql: graphql.graphql
+      } as unknown as BuildArgs,
+      { plugins: [], ...params },
+      () => {}
+    );
 
     expect(reporterStatuses).toEqual([
       "activityTimer.start",
@@ -174,26 +187,44 @@ describe("gatsby-plugin-elasicsearch gatsby-node", () => {
   });
 
   it("should use auth param if provided to create elastic client", async () => {
-    await onPostBuild(graphql, { ...params, auth: "auth" });
+    await onPostBuild!(
+      {
+        graphql: graphql.graphql
+      } as unknown as BuildArgs,
+      { plugins: [], ...params, auth: "auth" },
+      () => {}
+    );
     expect(config).toEqual({ auth: "auth", node: "node" });
   });
 
   it("should execute queries if it is function", async () => {
     const queriesRequest = jest.fn(() => queries.map(async (query) => query));
-    await onPostBuild(graphql, {
-      ...params,
-      queries: queriesRequest
-    });
+
+    await onPostBuild!(
+      {
+        ...params,
+        graphql: graphql.graphql
+      } as unknown as BuildArgs,
+      { plugins: [], queries: queriesRequest },
+      () => {}
+    );
 
     expect(queriesRequest).toBeCalledWith(graphql.graphql);
   });
 
   it("should notify if no 'query' in queries found", async () => {
     await expect(
-      onPostBuild(graphql, {
-        ...params,
-        queries: queries.map((query) => ({ ...query, query: null }))
-      })
+      onPostBuild!(
+        {
+          graphql: graphql.graphql
+        } as unknown as BuildArgs,
+        {
+          plugins: [],
+          ...params,
+          queries: queries.map((query) => ({ ...query, query: null }))
+        },
+        () => {}
+      )
     ).rejects.toThrow(
       // eslint-disable-next-line prettier/prettier
       'failed to index to Elasticsearch. You did not give "query" to this query'
@@ -208,10 +239,20 @@ describe("gatsby-plugin-elasicsearch gatsby-node", () => {
 
   it("should notify if no 'alias' in queries found", async () => {
     await expect(
-      onPostBuild(graphql, {
-        ...params,
-        queries: queries.map((query) => ({ ...query, indexName: null }))
-      })
+      onPostBuild!(
+        {
+          graphql: graphql.graphql
+        } as unknown as BuildArgs,
+        {
+          ...params,
+          plugins: [],
+          queries: queries.map((query) => ({
+            ...query,
+            indexName: null
+          }))
+        },
+        () => {}
+      )
     ).rejects.toThrow('"null" is not a valid indexName.');
 
     expect(reporterStatuses).toEqual([
@@ -223,9 +264,15 @@ describe("gatsby-plugin-elasicsearch gatsby-node", () => {
 
   it("should notify if graphql request fails", async () => {
     await expect(
-      onPostBuild(
-        { graphql: jest.fn().mockResolvedValue({ errors: ["error-1"] }) },
-        params
+      onPostBuild!(
+        {
+          graphql: jest.fn().mockResolvedValue({ errors: ["error-1"] })
+        } as unknown as BuildArgs,
+        {
+          ...params,
+          plugins: []
+        },
+        () => {}
       )
     ).rejects.toThrow("failed to index to ElasticSearch");
 
@@ -255,7 +302,17 @@ describe("gatsby-plugin-elasicsearch gatsby-node", () => {
         ]
       }
     });
-    await onPostBuild(graphql, params);
+
+    await onPostBuild!(
+      {
+        graphql: graphql.graphql
+      } as unknown as BuildArgs,
+      {
+        plugins: [],
+        ...params
+      },
+      () => {}
+    );
 
     expect(reporterStatuses).toEqual([
       "activityTimer.start",
@@ -277,31 +334,43 @@ describe("gatsby-plugin-elasicsearch gatsby-node", () => {
       "alias-0_2\nalias-1_0\nalias-1_1\nalias-1_not-existing-alias"
     );
     jest.spyOn(console, "warn");
-    await onPostBuild(graphql, {
-      ...params,
-      queries: [
-        {
-          indexName: jest.fn().mockReturnValue("alias-2"),
-          query: jest.fn().mockReturnValue("query-2"),
-          transformer: jest
-            .fn()
-            .mockResolvedValue(
-              new Array(10).fill(1).map((_, i: number) => `doc-${i}`)
-            ),
-          indexConfig: {
-            mappings: { mapping: "alias-2-mapping" },
-            settings: { setting: "alias-2-setting" }
+
+    await onPostBuild!(
+      {
+        graphql: graphql.graphql
+      } as unknown as BuildArgs,
+      {
+        ...params,
+        plugins: [],
+        queries: [
+          {
+            indexName: jest.fn().mockReturnValue("alias-2"),
+            query: jest.fn().mockReturnValue("query-2"),
+            transformer: jest
+              .fn()
+              .mockResolvedValue(
+                new Array(10).fill(1).map((_, i: number) => `doc-${i}`)
+              ),
+            indexConfig: {
+              mappings: { mapping: "alias-2-mapping" },
+              settings: { setting: "alias-2-setting" }
+            }
           }
-        }
-      ]
-    });
+        ]
+      },
+      () => {}
+    );
 
     // eslint-disable-next-line no-console
     expect(console.warn).toBeCalledWith(Error("Alias with alias-2 not found"));
   });
 
   it("should use default chunk size if no provided", async () => {
-    await onPostBuild(graphql, { ...params, chunkSize: undefined });
+    await onPostBuild!(
+      { graphql: graphql.graphql } as unknown as BuildArgs,
+      { plugins: [], ...params, chunkSize: undefined },
+      () => {}
+    );
 
     expect(reporterStatuses).toEqual([
       "activityTimer.start",
@@ -318,23 +387,34 @@ describe("gatsby-plugin-elasicsearch gatsby-node", () => {
   });
 
   it("should create client without auth if no provided", async () => {
-    await onPostBuild(graphql, { ...params, apiKey: undefined });
+    await onPostBuild!(
+      {
+        graphql: graphql.graphql
+      } as unknown as BuildArgs,
+      { ...params, apiKey: undefined, plugins: [] },
+      () => {}
+    );
 
     expect(config).toEqual({ node: "node" });
   });
 
   it("should use default transformer if not provided", async () => {
-    await onPostBuild(
+    await onPostBuild!(
       {
         graphql: jest
           .fn()
           .mockResolvedValue(["gql-doc-0", "gql-doc-1", "gql-doc-2"])
-      },
+      } as unknown as BuildArgs,
       {
         ...params,
         chunkSize: 2,
-        queries: queries.map((query) => ({ ...query, transformer: undefined }))
-      }
+        plugins: [],
+        queries: queries.map((query) => ({
+          ...query,
+          transformer: undefined
+        }))
+      },
+      () => {}
     );
 
     expect(reporterStatuses).toEqual([
@@ -352,19 +432,33 @@ describe("gatsby-plugin-elasicsearch gatsby-node", () => {
   });
 
   it("should skip executing 'query' in query if not a function", async () => {
-    await onPostBuild(graphql, {
-      ...params,
-      queries: queries.map((query) => ({ ...query, query: "query" }))
-    });
+    await onPostBuild!(
+      {
+        graphql: graphql.graphql
+      } as unknown as BuildArgs,
+      {
+        plugins: [],
+        ...params,
+        queries: queries.map((query) => ({ ...query, query: "query" }))
+      },
+      () => {}
+    );
 
     expect(graphql.graphql).toBeCalledWith("query");
   });
 
   it("should skip settings set if no indexConfig provided", async () => {
-    await onPostBuild(graphql, {
-      ...params,
-      queries: queries.map((query) => ({ ...query, indexConfig: null }))
-    });
+    await onPostBuild!(
+      {
+        graphql: graphql.graphql
+      } as unknown as BuildArgs,
+      {
+        ...params,
+        plugins: [],
+        queries: queries.map((query) => ({ ...query, indexConfig: null }))
+      },
+      () => {}
+    );
 
     expect(callstack).toEqual([
       { name: "getAlias", props: { name: "alias-1" } },
@@ -444,24 +538,32 @@ describe("gatsby-plugin-elasicsearch gatsby-node", () => {
 
   it("should skip delete orphan indices if found", async () => {
     cat.indices.mockResolvedValueOnce({ body: "alias-3_1" });
-    await onPostBuild(graphql, {
-      ...params,
-      queries: [
-        {
-          indexName: jest.fn().mockReturnValue("alias-3"),
-          query: jest.fn().mockReturnValue("query-3"),
-          transformer: jest
-            .fn()
-            .mockResolvedValue(
-              new Array(10).fill(1).map((_, i: number) => `doc-${i}`)
-            ),
-          indexConfig: {
-            mappings: { mapping: "alias-3-mapping" },
-            settings: { setting: "alias-3-setting" }
+
+    await onPostBuild!(
+      {
+        graphql: graphql.graphql
+      } as unknown as BuildArgs,
+      {
+        ...params,
+        plugins: [],
+        queries: [
+          {
+            indexName: jest.fn().mockReturnValue("alias-3"),
+            query: jest.fn().mockReturnValue("query-3"),
+            transformer: jest
+              .fn()
+              .mockResolvedValue(
+                new Array(10).fill(1).map((_, i: number) => `doc-${i}`)
+              ),
+            indexConfig: {
+              mappings: { mapping: "alias-3-mapping" },
+              settings: { setting: "alias-3-setting" }
+            }
           }
-        }
-      ]
-    });
+        ]
+      },
+      () => {}
+    );
 
     expect(callstack).toEqual([
       { name: "getAlias", props: { name: "alias-3" } },
@@ -536,15 +638,22 @@ describe("gatsby-plugin-elasicsearch gatsby-node", () => {
   });
 
   it("should skip putSettings if no indexConfig.settings provided", async () => {
-    await onPostBuild(graphql, {
-      ...params,
-      queries: queries.map((query) => ({
-        ...query,
-        indexConfig: {
-          mappings: { mapping: "alias-1-mapping" }
-        }
-      }))
-    });
+    await onPostBuild!(
+      {
+        graphql: graphql.graphql
+      } as unknown as BuildArgs,
+      {
+        ...params,
+        plugins: [],
+        queries: queries.map((query) => ({
+          ...query,
+          indexConfig: {
+            mappings: { mapping: "alias-1-mapping" }
+          }
+        }))
+      },
+      () => {}
+    );
 
     expect(callstack).toEqual([
       { name: "getAlias", props: { name: "alias-1" } },

@@ -49,7 +49,7 @@ const hubSpotFieldtoBMIFieldMap = {
 } as const;
 
 export type HubspotFieldTypes =
-  typeof hubSpotFieldtoBMIFieldMap[keyof typeof hubSpotFieldtoBMIFieldMap];
+  (typeof hubSpotFieldtoBMIFieldMap)[keyof typeof hubSpotFieldtoBMIFieldMap];
 
 export type HubspotFieldNames = "mobilephone" | "email" | string;
 

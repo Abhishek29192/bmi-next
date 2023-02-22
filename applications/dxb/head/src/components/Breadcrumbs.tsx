@@ -1,6 +1,6 @@
-import React from "react";
+import { Breadcrumbs, BreadcrumbsProps } from "@bmi-digital/components";
 import { graphql } from "gatsby";
-import { Breadcrumbs, BreadcrumbsProps } from "@bmi/components";
+import React from "react";
 import { BreadcrumbItem } from "../types/pim";
 import { getClickableActionFromUrl } from "./Link";
 import { useSiteContext } from "./Site";
@@ -56,6 +56,7 @@ const IntegratedBreadcrumbs = ({
           null,
           homePage.title
         )}
+        data-testid={`breadcrumb-${homePage.title.replace(/ /g, "-")}`}
       >
         {homePage.title}
       </Breadcrumbs.Item>
@@ -69,6 +70,7 @@ const IntegratedBreadcrumbs = ({
             null,
             label
           )}
+          data-testid={`breadcrumb-${label.replace(/ /g, "-")}`}
         >
           {label}
         </Breadcrumbs.Item>

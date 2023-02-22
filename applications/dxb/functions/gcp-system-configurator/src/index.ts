@@ -1,4 +1,5 @@
 import logger from "@bmi-digital/functions-logger";
+import { verifyRecaptchaToken } from "@bmi/functions-recaptcha";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import fetch from "node-fetch";
 import { Answer, NextStep, Response, TransformedAnswer } from "./types";
@@ -275,6 +276,7 @@ export const nextStep: HttpFunction = async (request, response) => {
   if (request.method === "OPTIONS") {
     response.set("Access-Control-Allow-Methods", "GET");
     response.set("Access-Control-Allow-Headers", [
+      "Authorization",
       "Content-Type",
       recaptchaTokenHeader
     ]);
@@ -286,39 +288,39 @@ export const nextStep: HttpFunction = async (request, response) => {
   if (request.method !== "GET") {
     return response.status(400).send(generateError(`Method is forbidden.`));
   }
+  const authorizationToken = request.headers.authorization;
+  const qaAuthToken = process.env.QA_AUTH_TOKEN;
+  if (
+    authorizationToken &&
+    authorizationToken.substring("Bearer ".length) !== qaAuthToken
+  ) {
+    logger.error({ message: "QaAuthToken failed." });
+    return response.status(400).send(generateError("QaAuthToken failed."));
+  }
 
   const recaptchaToken =
     // eslint-disable-next-line security/detect-object-injection
     request.headers[recaptchaTokenHeader] ||
     request.headers[recaptchaTokenHeader.toLowerCase()];
 
-  if (!recaptchaToken) {
+  if (
+    (!authorizationToken && !recaptchaToken) ||
+    Array.isArray(recaptchaToken)
+  ) {
     return response
       .status(400)
       .send(generateError("Recaptcha token not provided."));
   }
 
-  try {
-    const recaptchaResponse = await fetch(
-      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${RECAPTCHA_KEY}&response=${recaptchaToken}`,
-      { method: "POST" }
-    );
-    if (!recaptchaResponse.ok) {
-      return response
-        .status(400)
-        .send(generateError("Recaptcha check failed."));
-    }
-    const json = await recaptchaResponse.json();
-    if (!json.success || json.score < minimumScore) {
+  if (!authorizationToken && recaptchaToken) {
+    try {
+      await verifyRecaptchaToken(recaptchaToken, RECAPTCHA_KEY, minimumScore);
+    } catch (error) {
       logger.error({
-        message: `Recaptcha check failed with error ${JSON.stringify(json)}.`
+        message: `Recaptcha check failed with error ${error}.`
       });
       return response.status(400).send(Error("Recaptcha check failed."));
     }
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  } catch (error: any) {
-    logger.error({ message: `Recaptcha request failed with error ${error}.` });
-    return response.status(500).send(Error("Recaptcha request failed."));
   }
   const { answerId, locale } = request.query;
 

@@ -4,7 +4,7 @@ import {
   Grid,
   OverviewCard,
   OverviewCardProps
-} from "@bmi/components";
+} from "@bmi-digital/components";
 import type { Product as EsProduct } from "@bmi/elasticsearch-types";
 import { Link as GatsbyLink } from "gatsby";
 import React from "react";
@@ -57,7 +57,6 @@ export const renderProducts = (
       getMicroCopy("plp.product.moreOptionsAvailable");
     return (
       <Grid
-        item
         key={`${product.code}-${variant.code}`}
         xs={12}
         md={6}

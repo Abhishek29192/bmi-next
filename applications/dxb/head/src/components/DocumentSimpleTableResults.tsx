@@ -1,27 +1,29 @@
-import logger from "@bmi-digital/functions-logger";
 import {
   Button,
   ButtonProps,
   ClickableAction,
   DownloadList,
   DownloadListContext,
-  Icon,
-  iconMap,
+  External,
+  FileUniversal,
+  FileZIP,
   Table
-} from "@bmi/components";
-import { useMediaQuery } from "@material-ui/core";
-import { useTheme } from "@material-ui/core/styles";
-import { GetApp } from "@material-ui/icons";
-import classnames from "classnames";
-import filesize from "filesize";
-import fetch, { Response } from "node-fetch";
-import React, { useContext } from "react";
-import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+} from "@bmi-digital/components";
+import logger from "@bmi-digital/functions-logger";
 import {
   ContentfulDocument as EsContentfulDocument,
   PimProductDocument as EsPimDocument,
   PimSystemDocument as EsPimSystemDocument
 } from "@bmi/elasticsearch-types";
+import { GetApp } from "@mui/icons-material";
+import { useMediaQuery } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import classnames from "classnames";
+import filesize from "filesize";
+import fetch, { Response } from "node-fetch";
+import React, { useContext } from "react";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import { QA_AUTH_TOKEN } from "../constants/cookieConstants";
 import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
 import { ContentfulDocument } from "../types/Document";
@@ -31,6 +33,7 @@ import {
   SystemDocument as FsPimSystemDocument
 } from "../types/pim";
 import { downloadAs, getDownloadLink } from "../utils/client-download";
+import getCookie from "../utils/getCookie";
 import withGTM from "../utils/google-tag-manager";
 import createAssetFileCountMap, {
   AssetUniqueFileCountMap,
@@ -40,7 +43,17 @@ import createAssetFileCountMap, {
 import { DocumentSimpleTableResultsMobile } from "./DocumentSimpleTableResultsMobile";
 import fileIconsMap from "./FileIconsMap";
 import { useSiteContext } from "./Site";
-import styles from "./styles/DocumentSimpleTableResults.module.scss";
+import {
+  classes,
+  DocumentRow,
+  DownloadIcon,
+  ExternalLinkIcon,
+  NoDocumentIcon,
+  StyledSimpleTableResults,
+  StyledTableCell,
+  StyledTitleTableCell,
+  Title
+} from "./styles/DocumentSimpleTableResultsStyles";
 
 export type AvailableHeader =
   | "typeCode"
@@ -84,17 +97,23 @@ const getDocument = (document: Document, headers: AvailableHeader[]) => {
 
     if (header === "typeCode") {
       return (
-        <Table.Cell className={styles["table-cell"]} key={key}>
+        <StyledTableCell
+          key={key}
+          data-testid={`document-table-title-${document.id}`}
+        >
           <abbr title={document.assetType.name}>{document.assetType.code}</abbr>
-        </Table.Cell>
+        </StyledTableCell>
       );
     }
 
     if (header === "type") {
       return (
-        <Table.Cell className={styles["table-cell"]} key={key}>
+        <StyledTableCell
+          key={key}
+          data-testid={`document-table-type-${document.id}`}
+        >
           {document.assetType.name}
-        </Table.Cell>
+        </StyledTableCell>
       );
     }
 
@@ -104,24 +123,34 @@ const getDocument = (document: Document, headers: AvailableHeader[]) => {
         document.__typename === "PIMSystemDocument"
       ) {
         return (
-          <Table.Cell className={styles["table-cell"]} key={key}>
+          <StyledTableCell
+            key={key}
+            data-testid={`document-table-name-${document.id}`}
+          >
             {document.title}
-          </Table.Cell>
+          </StyledTableCell>
         );
       }
     }
 
     if (header === "title") {
       return (
-        <Table.Cell className={styles["title-table-cell"]} key={key}>
-          <p className={styles["title"]}>{document.title}</p>
-        </Table.Cell>
+        <StyledTitleTableCell
+          key={key}
+          data-testid={`document-table-title-${document.id}`}
+        >
+          <Title>{document.title}</Title>
+        </StyledTitleTableCell>
       );
     }
 
     if (header === "download") {
       return (
-        <Table.Cell className={styles["table-cell"]} align="left" key={key}>
+        <StyledTableCell
+          align="left"
+          key={key}
+          data-testid={`document-table-download-${document.id}`}
+        >
           {!isLinkDocument(document) ? (
             document.__typename === "PIMDocumentWithPseudoZip" ? (
               <MultipleAssetToFileDownload document={document} />
@@ -138,20 +167,22 @@ const getDocument = (document: Document, headers: AvailableHeader[]) => {
                 target: "_blank",
                 rel: "noopener noreferrer"
               }}
+              data-testid="document-table-external-link-button"
             >
-              <Icon
-                source={iconMap.External}
-                className={styles["external-link-icon"]}
-              />
+              <ExternalLinkIcon source={External} />
             </Button>
           )}
-        </Table.Cell>
+        </StyledTableCell>
       );
     }
 
     if (header === "add") {
       return !(document.__typename === "PIMDocumentWithPseudoZip") ? (
-        <Table.Cell className={styles["table-cell"]} align="center" key={key}>
+        <StyledTableCell
+          align="center"
+          key={key}
+          data-testid={`document-table-add-${document.id}`}
+        >
           {!isLinkDocument(document) ? (
             <DownloadList.Checkbox
               name={getUniqueId(document)}
@@ -165,11 +196,15 @@ const getDocument = (document: Document, headers: AvailableHeader[]) => {
               fileSize={document[typenameToSizeMap[document.__typename]] || 0}
             />
           ) : (
-            <span className={styles["no-document-icon"]}>-</span>
+            <NoDocumentIcon>-</NoDocumentIcon>
           )}
-        </Table.Cell>
+        </StyledTableCell>
       ) : (
-        <Table.Cell className={styles["table-cell"]} align="center" key={key}>
+        <StyledTableCell
+          align="center"
+          key={key}
+          data-testid={`document-table-add-${document.id}`}
+        >
           <DownloadList.Checkbox
             name={getUniqueId(document)}
             maxLimitReachedLabel={getMicroCopy(
@@ -181,14 +216,17 @@ const getDocument = (document: Document, headers: AvailableHeader[]) => {
             value={document.documentList}
             fileSize={document.fileSize}
           />
-        </Table.Cell>
+        </StyledTableCell>
       );
     }
 
     return (
-      <Table.Cell className={styles["table-cell"]} key={key}>
+      <StyledTableCell
+        key={key}
+        data-testid={`document-table-unknown-${document.id}`}
+      >
         n/d
-      </Table.Cell>
+      </StyledTableCell>
     );
   });
 };
@@ -243,6 +281,7 @@ export const MultipleAssetToFileDownload = ({
     config: { documentDownloadEndpoint }
   } = useConfig();
   const { executeRecaptcha } = useGoogleReCaptcha();
+  const qaAuthToken = getCookie(QA_AUTH_TOKEN);
   const downloadMultipleFiles = async () => {
     try {
       if (!documentDownloadEndpoint) {
@@ -261,7 +300,7 @@ export const MultipleAssetToFileDownload = ({
         }${document.assetType.name}.zip`;
       }
 
-      const token = await executeRecaptcha();
+      const token = qaAuthToken ? undefined : await executeRecaptcha();
       const assetFileCountMap: AssetUniqueFileCountMap =
         createAssetFileCountMap(document.documentList);
       const documents = document.documentList.map((asset, index) => ({
@@ -277,12 +316,16 @@ export const MultipleAssetToFileDownload = ({
               )
       }));
 
+      let headers: HeadersInit = {
+        "Content-Type": "application/json",
+        "X-Recaptcha-Token": token
+      };
+      if (qaAuthToken) {
+        headers = { ...headers, authorization: `Bearer ${qaAuthToken}` };
+      }
       const response: Response = await fetch(documentDownloadEndpoint, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "X-Recaptcha-Token": token
-        },
+        headers,
         body: JSON.stringify({ documents })
       });
 
@@ -313,6 +356,7 @@ export const MultipleAssetToFileDownload = ({
           model: "default",
           onClick: downloadMultipleFiles
         }}
+        data-testid={`document-table-download-zip-button`}
       >
         {filesize(document.fileSize)}
       </GTMButton>
@@ -337,13 +381,14 @@ export const MultipleAssetToFileDownload = ({
       startIcon={
         // eslint-disable-next-line security/detect-object-injection
         document.format && (
-          <Icon
+          <DownloadIcon
             // eslint-disable-next-line security/detect-object-injection
-            source={fileIconsMap[document.format] || iconMap.FileUniversal}
-            className={styles["download-icon"]}
+            source={FileZIP}
+            className={"download-icon"}
           />
         )
       }
+      data-testid={`document-table-download-zip-button`}
     >
       {filesize(document.fileSize)}
     </GTMButton>
@@ -359,8 +404,8 @@ export type FileDownloadButtonProps = {
   isLinkDocument: boolean;
 };
 
-const FileDownloadButton = ({ url, format, size }: FileDownloadButtonProps) =>
-  format && url ? (
+const FileDownloadButton = ({ url, format, size }: FileDownloadButtonProps) => {
+  return format && url ? (
     <GTMButton
       gtm={{ id: "download1", label: "Download", action: url }}
       action={{
@@ -371,17 +416,19 @@ const FileDownloadButton = ({ url, format, size }: FileDownloadButtonProps) =>
       startIcon={
         // eslint-disable-next-line security/detect-object-injection
         format && (
-          <Icon
+          <DownloadIcon
             // eslint-disable-next-line security/detect-object-injection
-            source={fileIconsMap[format] || iconMap.FileUniversal}
-            className={styles["download-icon"]}
+            source={fileIconsMap[format] || FileUniversal}
+            className={"download-icon"}
           />
         )
       }
+      data-testid={`document-table-download-${format}-button`}
     >
       {filesize(size)}
     </GTMButton>
   ) : null;
+};
 
 const typenameToSizeMap: Record<
   (
@@ -405,7 +452,7 @@ const DocumentSimpleTableResults = ({
 }: Props): React.ReactElement => {
   const { getMicroCopy } = useSiteContext();
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
   const { list } = useContext(DownloadListContext);
 
   if (isMobile) {
@@ -413,16 +460,18 @@ const DocumentSimpleTableResults = ({
   }
 
   return (
-    <div className={styles["DocumentSimpleTableResults"]}>
+    <StyledSimpleTableResults
+      className={classnames("DocumentSimpleTableResults")}
+    >
       <Table rowBgColorPattern="none">
         <Table.Head>
           <Table.Row>
             {headers.map((header) => (
               <Table.Cell
                 key={`header-${header}`}
-                className={classnames({
-                  [styles["table-header"]]: ["download", "add"].includes(header)
-                })}
+                className={classnames(
+                  ["download", "add"].includes(header) && classes.tableHeader
+                )}
               >
                 {getMicroCopy(`documentLibrary.headers.${header}`)}
               </Table.Cell>
@@ -437,22 +486,24 @@ const DocumentSimpleTableResults = ({
             const { __typename } = document;
 
             return (
-              <Table.Row
+              <DocumentRow
                 key={`${__typename}-${index}`}
-                className={classnames(styles["row"], {
+                className={classnames(
+                  "row",
                   // eslint-disable-next-line security/detect-object-injection
-                  [styles["row--checked"]]: !!list[getUniqueId(document)]
-                })}
+                  !!list[getUniqueId(document)] && classes.checked
+                )}
                 // eslint-disable-next-line security/detect-object-injection
                 selected={!!list[getUniqueId(document)]}
+                data-test-id={`document-table-row-${document.id}`}
               >
                 {getDocument(document, headers)}
-              </Table.Row>
+              </DocumentRow>
             );
           })}
         </Table.Body>
       </Table>
-    </div>
+    </StyledSimpleTableResults>
   );
 };
 

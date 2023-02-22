@@ -1,4 +1,4 @@
-import * as GoogleMockApi from "@bmi/components";
+import * as GoogleMockApi from "@bmi-digital/components";
 import * as devLog from "../../../utils/devLog";
 import createService from "../../../__tests__/helpers/ServiceHelper";
 import { ServiceTypeFilter } from "../../Service";
@@ -139,12 +139,33 @@ describe("helpers functions", () => {
         const sortResult = sortServices(null)(mockServiceA, mockServiceB);
         expect(sortResult).toStrictEqual(-1);
       });
+      it("should return -1 if serviceNameA < serviceNameB for name with umlauts", () => {
+        const sortResult = sortServices(null)(
+          {
+            ...mockServiceA,
+            ...{
+              name: "Çanakkale"
+            }
+          },
+          mockServiceB
+        );
+        expect(sortResult).toStrictEqual(-1);
+      });
       it("should return 1 if serviceNameA > serviceNameB", () => {
         const sortResult = sortServices(null)(mockServiceA, {
           ...mockServiceB,
           ...{ name: "AServiceB_name" }
         });
         expect(sortResult).toStrictEqual(1);
+      });
+      it("should return 1 if serviceNameA > serviceNameB for name with umlauts", () => {
+        const sortResult = sortServices(null)(mockServiceA, {
+          ...mockServiceB,
+          ...{
+            name: "Şırnak"
+          }
+        });
+        expect(sortResult).toStrictEqual(-1);
       });
     });
   });
@@ -297,6 +318,7 @@ describe("helpers functions", () => {
             ? ` - ${serviceTypes[0].name}`
             : ` - ${entryType}`
         } - selected`,
+        event: "dxb.button_click",
         action: "Expanded company details"
       };
       expect(result).toEqual(expectResult);
@@ -310,6 +332,7 @@ describe("helpers functions", () => {
             ? ` - ${serviceTypes[0].name}`
             : ` - ${entryType}`
         } - selected`,
+        event: "dxb.button_click",
         action: "Expanded company details"
       };
       expect(result).toEqual(expectResult);
@@ -323,6 +346,7 @@ describe("helpers functions", () => {
             ? ` - ${serviceTypes[0].name}`
             : ` - ${entryType}`
         } - selected`,
+        event: "dxb.button_click",
         action: "Expanded company details"
       };
       expect(result).toEqual(expectResult);

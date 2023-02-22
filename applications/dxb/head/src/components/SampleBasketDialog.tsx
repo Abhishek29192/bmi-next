@@ -1,11 +1,14 @@
-import { Button, Icon, Typography } from "@bmi/components";
+import {
+  Button,
+  ClickableAction,
+  Icon,
+  Typography
+} from "@bmi-digital/components";
 import {
   ArrowForward as ArrowForwardIcon,
   Close,
   Delete as DeleteIcon
-} from "@material-ui/icons";
-import classnames from "classnames";
-import { ClickableAction } from "components/src/anchor-link";
+} from "@mui/icons-material";
 import React from "react";
 import { microCopy } from "../constants/microCopies";
 import {
@@ -14,7 +17,22 @@ import {
   useBasketContext
 } from "../contexts/SampleBasketContext";
 import { useSiteContext } from "./Site";
-import styles from "./styles/SampleBasketDialog.module.scss";
+import {
+  CartActions,
+  CartImage,
+  CartInfo,
+  CloseButton,
+  ImageContainer,
+  InfoContainer,
+  Product,
+  ProductButtonContainer,
+  ProductColour,
+  ProductList,
+  ProductSize,
+  ProductTitle,
+  StyledBasketDialogContainer,
+  TopContainer
+} from "./styles/SampleBasketDialogStyles";
 
 const SampleBasketDialog = ({
   title,
@@ -24,7 +42,7 @@ const SampleBasketDialog = ({
 }: {
   title?: string;
   basketAction?: ClickableAction;
-  maximumSamples?: number;
+  maximumSamples: number | null;
   toggleCart?: () => void;
 }) => {
   const {
@@ -43,25 +61,23 @@ const SampleBasketDialog = ({
   };
 
   return title && productsInBasket.length > 0 ? (
-    <div className={styles["cart-drawer"]}>
-      <div
-        className={classnames(styles["cart-drawer--pad"], styles["pad-b-24"])}
-      >
-        <Button
+    <StyledBasketDialogContainer data-testid={"shopping-cart-dialog"}>
+      <TopContainer>
+        <CloseButton
           accessibilityLabel={getMicroCopy(microCopy.DIALOG_CLOSE)}
-          className={styles["close-button"]}
           isIconButton
           onClick={toggleCart}
+          data-testid={"shopping-cart-dialog-close-button"}
         >
           <Icon source={Close} />
-        </Button>
+        </CloseButton>
         <Typography variant="h3" hasUnderline>
           {title}
         </Typography>
 
-        <div className={styles["cart-info"]}>
+        <CartInfo data-testid={"shopping-cart-dialog-info"}>
           <p>
-            {productsInBasket.length < maximumSamples
+            {productsInBasket.length < (maximumSamples || 0)
               ? getMicroCopy(
                   microCopy.PDP_OVERVIEW_SAMPLE_DIALOG_MESSAGE
                 ).replace(":N", `${maximumSamples}`)
@@ -74,29 +90,46 @@ const SampleBasketDialog = ({
               microCopy.PDP_OVERVIEW_SAMPLE_DELIVERY_DIALOG_MESSAGE
             )}
           </p>
-        </div>
-      </div>
+        </CartInfo>
+      </TopContainer>
 
       {/*Product List */}
 
-      <div className={styles["product-list"]}>
+      <ProductList data-testid={"shopping-cart-dialog-product-list"}>
         {productsInBasket.map((product) => (
-          <div key={product.code} className={styles["row"]}>
-            <div className={styles["image-container"]}>
-              <img src={product.image} className={styles["cart-image"]} />
-            </div>
-            <div className={styles["info-container"]}>
-              <Typography variant="h6" className={styles["product-title"]}>
+          <Product key={product.code}>
+            <ImageContainer>
+              <CartImage src={product.image} />
+            </ImageContainer>
+            <InfoContainer>
+              <ProductTitle
+                variant="h6"
+                data-testid={`shopping-cart-dialog-product-title-${product.name.replace(
+                  / /g,
+                  "-"
+                )}`}
+              >
                 {product.name}
-              </Typography>
-              <Typography variant="h6" className={styles["product-color"]}>
+              </ProductTitle>
+              <ProductColour
+                variant="h6"
+                data-testid={`shopping-cart-dialog-product-colour-${product.colour?.replace(
+                  / /g,
+                  "-"
+                )}`}
+              >
                 {product.colour}
-              </Typography>
-              <Typography className={styles["product-size"]}>
+              </ProductColour>
+              <ProductSize
+                data-testid={`shopping-cart-dialog-product-size-${product.measurements?.replace(
+                  / /g,
+                  "-"
+                )}`}
+              >
                 {product.measurements}
-              </Typography>
-            </div>
-            <div className={styles["button-container"]}>
+              </ProductSize>
+            </InfoContainer>
+            <ProductButtonContainer>
               <Button
                 accessibilityLabel={getMicroCopy(
                   microCopy.PDP_OVERVIEW_REMOVE_SAMPLE
@@ -104,27 +137,36 @@ const SampleBasketDialog = ({
                 variant="text"
                 isIconButton
                 onClick={(event: Event) => removeFromBasket(event, product)}
+                data-testid={`shopping-cart-dialog-remove-product-${product.name.replace(
+                  / /g,
+                  "-"
+                )}`}
               >
                 <Icon source={DeleteIcon} />
               </Button>
-            </div>
-          </div>
+            </ProductButtonContainer>
+          </Product>
         ))}
-      </div>
-      <div
-        className={classnames(
-          styles["cart-actions"],
-          styles["cart-drawer--pad"]
-        )}
-      >
-        <Button action={basketAction} endIcon={<ArrowForwardIcon />}>
+      </ProductList>
+      <CartActions data-testid={"shopping-cart-dialog-actions"}>
+        <Button
+          action={basketAction}
+          endIcon={<ArrowForwardIcon />}
+          data-testid={"shopping-cart-dialog-complete-order-button"}
+        >
           {getMicroCopy(microCopy.PDP_OVERVIEW_COMPLETE_SAMPLE_ORDER)}
         </Button>
-        <Button variant="outlined" onClick={() => toggleCart()}>
-          {getMicroCopy(microCopy.PDP_OVERVIEW_CONTINUE_BROWSING)}
-        </Button>
-      </div>
-    </div>
+        {toggleCart && (
+          <Button
+            variant="outlined"
+            onClick={() => toggleCart()}
+            data-testid={"shopping-cart-dialog-continue-browsing-button"}
+          >
+            {getMicroCopy(microCopy.PDP_OVERVIEW_CONTINUE_BROWSING)}
+          </Button>
+        )}
+      </CartActions>
+    </StyledBasketDialogContainer>
   ) : null;
 };
 

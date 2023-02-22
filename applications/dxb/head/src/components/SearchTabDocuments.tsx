@@ -3,7 +3,7 @@ import {
   DownloadListContext,
   Filter,
   Grid
-} from "@bmi/components";
+} from "@bmi-digital/components";
 import React, { useEffect, useRef, useState } from "react";
 import FiltersSidebar from "../components/FiltersSidebar";
 import { microCopy } from "../constants/microCopies";
@@ -224,7 +224,7 @@ const SearchTabPanelDocuments = (props: Props) => {
   return (
     <DownloadList maxSize={maxSize}>
       <Grid container spacing={3} ref={resultsElement}>
-        <Grid item xs={12} md={12} lg={3}>
+        <Grid xs={12} md={12} lg={3}>
           <DownloadListContext.Consumer>
             {({ resetList }) => (
               <FiltersSidebar
@@ -235,7 +235,7 @@ const SearchTabPanelDocuments = (props: Props) => {
             )}
           </DownloadListContext.Consumer>
         </Grid>
-        <Grid item xs={12} md={12} lg={9} style={{ paddingTop: 0 }}>
+        <Grid xs={12} md={12} lg={9} style={{ paddingTop: 0 }}>
           <DocumentSimpleTableResults documents={results} />
           <div>
             <DocumentResultsFooter

@@ -2,7 +2,7 @@ import {
   computeDistanceBetween,
   LatLngLiteral,
   MarkerOptionsWithData
-} from "@bmi/components";
+} from "@bmi-digital/components";
 import uniqBy from "lodash-es/uniqBy";
 import { ServiceTypeFilter } from "../Service";
 import { Data as ServiceType } from "../ServiceType";
@@ -65,7 +65,8 @@ export const sortServices = (centre: LatLngLiteral | null) => {
       if (serviceNameA === serviceNameB) {
         return 0;
       } else {
-        return serviceNameA < serviceNameB ? -1 : 1;
+        // according to the issue (https://bmigroup.atlassian.net/browse/DXB-3542) with special characters Ç Ş changed rule for sorting to localeCompare
+        return serviceNameA.localeCompare(serviceNameB);
       }
     }
 
@@ -144,7 +145,7 @@ export const getResultDataGtm = (
   service: Service,
   matches: boolean,
   isMarker = false
-): { id: string; label: string; action: string } => {
+): { id: string; label: string; action: string; event: string } => {
   const { name, address, certification, serviceTypes, entryType } = service;
   const label = `${name} - ${address}${
     matches && certification ? ` - ${certification}` : ""
@@ -157,6 +158,7 @@ export const getResultDataGtm = (
     id: isMarker
       ? EVENT_CAT_ID_SELECTOR_CARDS_MAP_PIN
       : EVENT_CAT_ID_SELECTOR_CARDS,
+    event: "dxb.button_click",
     label: label,
     action: "Expanded company details"
   };

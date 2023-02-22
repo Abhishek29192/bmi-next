@@ -9,6 +9,7 @@ include:
   - local: "/applications/dxb/libraries/functions-contentful-client/.gitlab-ci.yml"
   - local: "/applications/dxb/libraries/functions-es-client/.gitlab-ci.yml"
   - local: "/applications/dxb/libraries/functions-firestore/.gitlab-ci.yml"
+  - local: "/applications/dxb/libraries/functions-recaptcha/.gitlab-ci.yml"
   - local: "/applications/dxb/libraries/gatsby-plugin-elasticsearch/.gitlab-ci.yml"
   - local: "/applications/dxb/libraries/gatsby-plugin-firestore/.gitlab-ci.yml"
   - local: "/applications/dxb/libraries/gatsby-plugin-meta-redirect/.gitlab-ci.yml"

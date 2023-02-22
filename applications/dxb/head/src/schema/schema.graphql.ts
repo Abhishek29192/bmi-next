@@ -489,7 +489,7 @@ type ContentfulMicroCopy implements ContentfulObject & Node @dontInfer {
 
 type ContentfulResources implements ContentfulObject & Node @dontInfer {
   metadata: ContentfulMetadata!
-  microCopy: [ContentfulMicroCopy] @link(by: "id", from: "microCopy___NODE")
+  microCopy: [ContentfulMicroCopy] @link(from: "microCopy___NODE")
   pdpSidebarItems: [ContentfulTitleWithContent] @link(from: "pdpSidebarItems___NODE")
   maximumSamples: Int
   pdpCardsTitle: String
@@ -727,7 +727,7 @@ type PIMSystemDocument @dontInfer {
   title: String!
   url: String!
   isLinkDocument: Boolean!
-  assetType: ContentfulAssetType! @link(by: "pimCode", from: "assetType")
+  assetType: ContentfulAssetType!
   realFileName: String
   fileSize: Int
   format: String
@@ -797,7 +797,7 @@ type CategoryGroup @dontInfer {
 }
 
 type PIMDocumentWithPseudoZip @dontInfer {
-  assetType: ContentfulAssetType! @link(by: "pimCode", from: "assetType")
+  assetType: ContentfulAssetType!
   documentList: [PIMDocument]!
   fileSize: Int
   format: String
@@ -811,6 +811,7 @@ type PIMDocumentWithPseudoZip @dontInfer {
 union ProductDocumentResponse = PIMDocument | PIMDocumentWithPseudoZip
 
 type Product implements Node @dontInfer {
+  approvalStatus: String!
   awardsAndCertificateDocuments: [PIMAsset]!
   awardsAndCertificateImages: [PIMAsset]!
   baseCode: String!
@@ -916,7 +917,7 @@ type PIMDocument @dontInfer {
   title: String!
   url: String!
   isLinkDocument: Boolean!
-  assetType: ContentfulAssetType! @link(by: "pimCode", from: "assetType")
+  assetType: ContentfulAssetType!
   realFileName: String
   fileSize: Int
   format: String
@@ -972,6 +973,7 @@ type PimVideo @dontInfer {
   previewMedia: String # Always null
   videoRatio: String # Always null
   videoUrl: String
+  defaultYouTubePreviewImage: String
 }
 
 type Weight @dontInfer {
@@ -1060,6 +1062,7 @@ type ContentfulService implements ContentfulObject & Node @dontInfer {
   website: String
   websiteLinkAsLabel: Boolean
   fax: String
+  companyLogo: ContentfulImage @link(by: "id", from: "companyLogo___NODE")
   serviceTypes: [ContentfulServiceType] @link(from: "serviceTypes___NODE")
   certification: String
   summary: String
@@ -1138,6 +1141,7 @@ type CountryJSON @dontInfer {
 
 type RegionJson implements Node @dontInfer {
   label: String!
+  regionCode: String!
   menu: [CountryJSON]!
 }
 

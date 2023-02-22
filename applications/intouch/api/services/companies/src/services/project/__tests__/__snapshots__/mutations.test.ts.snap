@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Project mutations updateProject should throw error if project has guarantee in SUBMITTED, APPROVED, or REVIEW state 1`] = `"Cannot update these fields once guarantee on project is SUBMITTED, REVIEW, or APPROVED: name, description, roofArea, startDate, endDate, addressToSiteAddressId, siteAddressId, buildingOwnerAddressId, buildingOwnerMail, buildingOwnerFirstname, buildingOwnerLastname, buildingOwnerCompany"`;
-
-exports[`Project mutations updateProject should throw error if project has guarantee in SUBMITTED, APPROVED, or REVIEW state 2`] = `"Cannot update these fields once guarantee on project is SUBMITTED, REVIEW, or APPROVED: name, description, roofArea, startDate, endDate, addressToSiteAddressId, siteAddressId, buildingOwnerAddressId, buildingOwnerMail, buildingOwnerFirstname, buildingOwnerLastname, buildingOwnerCompany"`;
-
-exports[`Project mutations updateProject should throw error if project has guarantee in SUBMITTED, APPROVED, or REVIEW state 3`] = `"Cannot update these fields once guarantee on project is SUBMITTED, REVIEW, or APPROVED: name, description, roofArea, startDate, endDate, addressToSiteAddressId, siteAddressId, buildingOwnerAddressId, buildingOwnerMail, buildingOwnerFirstname, buildingOwnerLastname, buildingOwnerCompany"`;

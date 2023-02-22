@@ -1,12 +1,16 @@
-import React from "react";
+import {
+  Accordion,
+  AccordionSummaryProps,
+  Section,
+  Tabs,
+  transformHyphens,
+  Typography
+} from "@bmi-digital/components";
+import Tab, { TabProps } from "@mui/material/Tab";
 import { graphql } from "gatsby";
-import { Accordion, AccordionSummaryProps } from "@bmi/components";
-import { Section } from "@bmi/components";
-import { Tabs } from "@bmi/components";
-import { Typography, transformHyphens } from "@bmi/components";
-import Tab, { TabProps } from "@material-ui/core/Tab";
-import withGTM from "../utils/google-tag-manager";
+import React from "react";
 import RichText from "../components/RichText";
+import withGTM from "../utils/google-tag-manager";
 import { Data as TitleWithContentData } from "./TitleWithContent";
 
 const GTMAccordionSummary = withGTM<AccordionSummaryProps>(Accordion.Summary);
@@ -65,7 +69,7 @@ const SectionTabs = ({ items }: { items: readonly TitleWithContentData[] }) => {
           {...props}
         />
       )}
-      theme="primary"
+      color="primary"
       initialValue={items.length > 0 ? items[0].title || items[0].name : null}
     >
       {items.length > 0 &&

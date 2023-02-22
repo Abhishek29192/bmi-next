@@ -1,25 +1,36 @@
-import React from "react";
+import {
+  Card,
+  CardProps,
+  ExpandableCard,
+  Grid,
+  GridProps,
+  IconList,
+  Typography
+} from "@bmi-digital/components";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import BuildIcon from "@mui/icons-material/Build";
+import EmojiObjectsOutlinedIcon from "@mui/icons-material/EmojiObjectsOutlined";
+import FindReplaceIcon from "@mui/icons-material/FindReplace";
+import HelpIcon from "@mui/icons-material/Help";
+import InfoIcon from "@mui/icons-material/Info";
+import LocalShippingIcon from "@mui/icons-material/LocalShipping";
+import ReportProblemIcon from "@mui/icons-material/ReportProblem";
+import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
+import { styled } from "@mui/material/styles";
 import { graphql } from "gatsby";
-import { ExpandableCard } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import { Grid, GridProps } from "@bmi/components";
-import { IconList } from "@bmi/components";
-import { Card, CardProps } from "@bmi/components";
-import BuildIcon from "@material-ui/icons/Build";
-import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
-import LocalShippingIcon from "@material-ui/icons/LocalShipping";
-import ReportProblemIcon from "@material-ui/icons/ReportProblem";
-import InfoIcon from "@material-ui/icons/Info";
-import FindReplaceIcon from "@material-ui/icons/FindReplace";
-import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
-import HelpIcon from "@material-ui/icons/Help";
-import EmojiObjectsOutlinedIcon from "@material-ui/icons/EmojiObjectsOutlined";
+import React from "react";
 import withGTM from "../utils/google-tag-manager";
-import { Data as TitleWithContentData } from "./TitleWithContent";
-import RichText from "./RichText";
 import ContactDetails, { Data as ContactDetailsData } from "./ContactDetails";
+import RichText from "./RichText";
+import { Data as TitleWithContentData } from "./TitleWithContent";
 import borderedItemStyles from "./styles/BorderedItem.module.scss";
 import styles from "./styles/ContactTopics.module.scss";
+
+const StyledEmojiOutlinedIcon = styled(EmojiObjectsOutlinedIcon)(
+  ({ theme }) => ({
+    color: theme.colours.accent
+  })
+);
 
 export const iconMap = {
   build: BuildIcon,
@@ -66,11 +77,7 @@ const Body = ({ bodyTitle, bodyList }: BodyProps) => {
           {bodyList.map(({ title, content }, index) => (
             <IconList.Item
               key={index}
-              icon={
-                <EmojiObjectsOutlinedIcon
-                  style={{ color: "var(--color-theme-accent)" }}
-                />
-              }
+              icon={<StyledEmojiOutlinedIcon />}
               title={title}
               component="h5"
             >
@@ -107,8 +114,7 @@ const Footer = ({
             const gridItemProps: GridProps = {
               xs: 12,
               sm: 6,
-              lg: 4,
-              item: true
+              lg: 4
             };
 
             const gtmLabel = `${parentSectionTitle}${
@@ -173,6 +179,7 @@ const ContactTopics = ({ topics }: { topics: Data[] }) => {
       items={items}
       className={styles["ContactTopics"]}
       cardComponent={(props) => <GTMCard {...props} />}
+      data-testid={"contact-topics"}
     />
   );
 };

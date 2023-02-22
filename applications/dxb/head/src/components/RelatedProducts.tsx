@@ -6,10 +6,10 @@ import {
   OverviewCardProps,
   Section,
   Tabs
-} from "@bmi/components";
-import Tab, { TabProps } from "@material-ui/core/Tab";
-import AddIcon from "@material-ui/icons/Add";
-import { graphql, Link } from "gatsby";
+} from "@bmi-digital/components";
+import AddIcon from "@mui/icons-material/Add";
+import Tab, { TabProps } from "@mui/material/Tab";
+import { Link, graphql } from "gatsby";
 import React, { useMemo, useState } from "react";
 import { microCopy } from "../constants/microCopies";
 import DefaultImage from "../images/DefaultImage.svg";
@@ -78,7 +78,6 @@ const ProductListing = ({
 
           return (
             <Grid
-              item
               key={`${product.baseCode}-${product.code}`}
               xs={12}
               md={6}
@@ -90,6 +89,7 @@ const ProductListing = ({
                 subtitle={uniqueClassifications}
                 subtitleVariant="h6"
                 imageSize="contain"
+                data-testid="GTMOverviewCard"
                 media={
                   renderMedia(product.masterImage?.mainSource, altText) || (
                     <DefaultImage />
@@ -166,7 +166,7 @@ const RelatedProducts = ({ countryCode, products }: Props) => {
       </Section.Title>
       <div className={styles["RelatedProducts"]}>
         <Tabs
-          theme="secondary"
+          color="secondary"
           initialValue={Object.keys(productGroups)[0]}
           tabComponent={(props: TabProps) => (
             <GTMTab

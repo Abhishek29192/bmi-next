@@ -5,7 +5,7 @@ import {
   Grid,
   InputValue,
   RawTextField
-} from "@bmi/components";
+} from "@bmi-digital/components";
 import React, { useContext, useEffect, useState } from "react";
 import { microCopy } from "../../../constants/microCopies";
 import { useSiteContext } from "../../Site";
@@ -40,7 +40,7 @@ const SelectProtrusion = ({
     <FieldContainer className={styles["fieldsContainer"]}>
       <Grid container justifyContent="center">
         {Object.entries(protrusionTypes).map(([type, { illustration }]) => (
-          <Grid key={type} item xs={6} lg={2} className={styles["card"]}>
+          <Grid key={type} xs={6} lg={2} className={styles["card"]}>
             <CardInput
               name={`select-protrusion-${id}`}
               value={type}
@@ -158,7 +158,7 @@ const ProtrusionDimensions = ({
         <DimensionsIllustration className={styles["dimensionsIllustration"]} />
         <Grid container justifyContent="center">
           {fields.map(({ name, type }: { name: string; type: Type }) => (
-            <Grid key={`protrusion-${id}-${name}`} item xs={12} lg={3}>
+            <Grid key={`protrusion-${id}-${name}`} xs={12} lg={3}>
               <Input
                 key={`${protrusionType}-${name}`} // make sure to reset the state everytime the protrusionType changes
                 label={name}
@@ -171,7 +171,7 @@ const ProtrusionDimensions = ({
           ))}
         </Grid>
       </Grid>
-      <Grid item xs={12}>
+      <Grid xs={12}>
         <Button
           variant="text"
           onClick={() => {

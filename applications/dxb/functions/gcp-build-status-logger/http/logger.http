@@ -1,0 +1,141 @@
+### successful build payload
+
+POST {{"http://localhost:9061"}}
+Content-Type: application/json
+
+
+{"body":"# [Gatsby Cloud](https://www.gatsbyjs.com) Build Report\n**DXB-Sandpit**\n\n:tada: Your build was successful! [See the Deploy preview here.](https://bmidxbsandpit.gtsb.io)\n\n## Build Details\n\n[View the build logs here.](https://gatsbyjs.com/dashboard/95883ff6-e265-4416-917c-77929cc9970b/sites/74634df6-ee46-4ac5-b444-e87cb58a8050/builds/9d54d8de-92c8-4c8e-9edd-280210d87553/details)\n\n:clock1: Build time: **3m**\n","buildId":"9d54d8de-92c8-4c8e-9edd-280210d87553","workspaceName":"Stacey.card.bmigroup.com","siteName":"DXB-Sandpit","deployPreviewUrl":"https://bmidxbsandpit.gtsb.io","logsUrl":"https://gatsbyjs.com/dashboard/95883ff6-e265-4416-917c-77929cc9970b/sites/74634df6-ee46-4ac5-b444-e87cb58a8050/builds/9d54d8de-92c8-4c8e-9edd-280210d87553/details","duration":"157","resourceId":"74634df6-ee46-4ac5-b444-e87cb58a8050","resourceType":"SITE","event":"BUILD_SUCCEEDED"}
+
+### failed preview payload
+
+POST {{"http://localhost:9061"}}
+Content-Type: application/json
+
+{
+  "body": "# [Gatsby Cloud](https://www.gatsbyjs.com) Build Report\n\n:triangular_flag_on_post: Your build failed. [See the build logs here](https://gatsbyjs.com/dashboard/95883ff6-e265-4416-917c-77929cc9970b/sites/74634df6-ee46-4ac5-b444-e87cb58a8050/builds/380881f6-f162-40aa-92f7-7215290be18e/details)\n\n**Errors**\n<pre>\"gatsby-node.js\" threw an error while running the createPages lifecycle:\n\nCannot read property 'map' of undefined\n\nGraphQL request:16:15\n15 |               id\n16 |               path\n   |               ^\n17 |               title,Cannot read property 'map' of undefined\n\nGraphQL request:16:15\n15 |               id\n16 |               path\n   |               ^\n17 |               title,Cannot read property 'map' of undefined\n\nGraphQL request:16:15\n15 |               id\n16 |               path\n   |               ^\n17 |               title,Cannot read property 'map' of undefined\n\nGraphQL request:16:15\n15 |               id\n16 |               path\n   |               ^\n17 |               title,Cannot read property 'map' of undefined\n\nGraphQL request:16:15\n15 |               id\n16 |               path\n   |               ^\n17 |               title,Cannot read property 'map' of undefined\n\nGraphQL request:16:15\n15 |               id\n16 |               path\n   |               ^\n17 |               title,Cannot read property 'map' of undefined\n\nGraphQL request:16:15\n15 |               id\n16 |               path\n   |               ^\n17 |               title,Cannot read property 'map' of undefined\n\nGraphQL request:16:15\n15 |               id\n16 |               path\n   |               ^\n17 |               title,Cannot read property 'map' of undefined\n\nGraphQL request:16:15\n15 |               id\n16 |               path\n   |               ^\n17 |               title,Cannot read property 'map' of undefined\n\nGraphQL request:16:15\n15 |               id\n16 |               path\n   |               ^\n17 |               title,Cannot read property 'map' of undefined\n\nGraphQL request:16:15\n15 |               id\n16 |               path\n   |               ^\n17 |               title,Cannot read property 'map' of undefined\n\nGraphQL request:16:15\n15 |               id\n16 |               path\n   |               ^\n17 |               title,Cannot read property 'map' of undefined\n\nGraphQL request:16:15\n15 </pre>",
+  "buildId": "380881f6-f162-40aa-92f7-7215290be18e",
+  "workspaceName": "Stacey.card.bmigroup.com",
+  "siteName": "DXB-Sandpit",
+  "deployPreviewUrl": "https://bmidxbsandpit.gtsb.io",
+  "logsUrl": "https://gatsbyjs.com/dashboard/95883ff6-e265-4416-917c-77929cc9970b/sites/74634df6-ee46-4ac5-b444-e87cb58a8050/builds/380881f6-f162-40aa-92f7-7215290be18e/details",
+  "duration": "34",
+  "resourceId": "74634df6-ee46-4ac5-b444-e87cb58a8050",
+  "resourceType": "SITE",
+  "event": "PREVIEW_FAILED"
+}
+
+### successful preview payload
+
+POST {{"http://localhost:9061"}}
+Content-Type: application/json
+
+{
+  "body": "# [Gatsby Cloud](https://www.gatsbyjs.com) Build Report\n**DXB/QA**\n\n:tada: Your build was successful! [See the Deploy preview here.](https://dxbqa.gtsb.io)\n\n## Build Details\n\n[View the build logs here.](https://gatsbyjs.com/dashboard/95883ff6-e265-4416-917c-77929cc9970b/sites/527b7de1-e2b0-46fe-91f3-fb65b841a3fd/builds/11837bc0-c36c-4341-b762-bcfe66a51f34/details)\n\n:clock1: Build time: **10s**\n",
+  "buildId": "11837bc0-c36c-4341-b762-bcfe66a51f34",
+  "workspaceName": "Stacey.card.bmigroup.com",
+  "siteName": "DXB/QA",
+  "deployPreviewUrl": "https://dxbqa.gtsb.io",
+  "logsUrl": "https://gatsbyjs.com/dashboard/95883ff6-e265-4416-917c-77929cc9970b/sites/527b7de1-e2b0-46fe-91f3-fb65b841a3fd/builds/11837bc0-c36c-4341-b762-bcfe66a51f34/details",
+  "duration": "10",
+  "resourceId": "527b7de1-e2b0-46fe-91f3-fb65b841a3fd",
+  "resourceType": "SITE",
+  "event": "PREVIEW_SUCCEEDED"
+}
+
+### failed preview payload with body
+
+POST {{"http://localhost:9061"}}
+Content-Type: application/json
+
+{
+  "body": "# [Gatsby Cloud](https://www.gatsbyjs.com) Build Report\n\n:triangular_flag_on_post: Your build failed. [See the build logs here](https://gatsbyjs.com/dashboard/95883ff6-e265-4416-917c-77929cc9970b/sites/74634df6-ee46-4ac5-b444-e87cb58a8050/builds/873cbbef-4147-45df-a58a-c1b986f75ea9/details)\n\n**Errors**\n<pre>There was an error in your GraphQL query:\n\nAPI key not valid. Please pass a valid API key.\n\n  24 |\n  25 | fragment VideoFragment on ContentfulVideo {\n  26 |   __typename\n  27 |   title\n  28 |   label\n  29 |   subtitle\n  30 |   videoUrl: youtubeId\n  31 |   previewMedia {\n  32 |     ...ImageFragment\n  33 |   }\n> 34 |   videoRatio {\n     |   ^\n  35 |     width\n  36 |     height\n  37 |   }\n  38 | }\n  39 |\n  40 | fragment ImageFragment on ContentfulImage {\n  41 |   ...BaseImageFragment\n  42 |   image {\n  43 |     ...AssetFragment\n  44 |     gatsbyImageData(placeholder: DOMINANT_COLOR, width: 1000, formats: [WEBP, AUTO])\n\nFile path: /usr/src/app/www/applications/dxb/head/src/templates/simplePage/components/simple-page.tsx\nUrl path: /en/news-article-page/\nPlugin: none</pre>\n<pre>An error occurred during parallel query running.\nGo here for troubleshooting tips: https://gatsby.dev/pqr-feedback</pre>",
+  "buildId": "873cbbef-4147-45df-a58a-c1b986f75ea9",
+  "workspaceName": "Stacey.card.bmigroup.com",
+  "siteName": "DXB-Sandpit",
+  "deployPreviewUrl": "https://bmidxbsandpit.gtsb.io",
+  "logsUrl": "https://gatsbyjs.com/dashboard/95883ff6-e265-4416-917c-77929cc9970b/sites/74634df6-ee46-4ac5-b444-e87cb58a8050/builds/873cbbef-4147-45df-a58a-c1b986f75ea9/details",
+  "duration": "198",
+  "resourceId": "74634df6-ee46-4ac5-b444-e87cb58a8050",
+  "resourceType": "SITE",
+  "event": "PREVIEW_FAILED"
+}
+### contentful webhook payload
+
+POST {{"http://localhost:9061"}}
+Content-Type: application/json
+
+{
+  "metadata": {
+    "tags": []
+  },
+  "sys": {
+    "type": "Entry",
+    "id": "3oUbAIuJObWTDCHsAH4oeO",
+    "space": {
+      "sys": {
+        "type": "Link",
+        "linkType": "Space",
+        "id": "xd0cdgm332jz"
+      }
+    },
+    "environment": {
+      "sys": {
+        "id": "master",
+        "type": "Link",
+        "linkType": "Environment"
+      }
+    },
+    "contentType": {
+      "sys": {
+        "type": "Link",
+        "linkType": "ContentType",
+        "id": "assetType"
+      }
+    },
+    "createdBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "1sd3GwOA3yrrBidGsrHZwL"
+      }
+    },
+    "updatedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "3ICqOUAOY3CGwyfPTaQPHT"
+      }
+    },
+    "revision": 13,
+    "createdAt": "2021-10-21T07:41:30.022Z",
+    "updatedAt": "2022-08-17T09:48:00.258Z"
+  },
+  "fields": {
+    "name": {
+      "en-GB": "PDF test"
+    },
+    "code": {
+      "en-GB": "BRON"
+    },
+    "description": {
+      "en-GB": {
+        "data": {},
+        "content": [
+          {
+            "data": {},
+            "content": [
+              {
+                "data": {},
+                "marks": [],
+                "value": "Test desc",
+                "nodeType": "text"
+              }
+            ],
+            "nodeType": "paragraph"
+          }
+        ],
+        "nodeType": "document"
+      }
+    }
+  }
+}

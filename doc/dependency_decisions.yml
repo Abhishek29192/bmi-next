@@ -235,12 +235,6 @@
     :versions: []
     :when: 2022-02-17 10:58:39.296731000 Z
 - - :approve
-  - "@bmi/components"
-  - :who: Benjamin Sproule
-    :why: Our own common components library
-    :versions: []
-    :when: 2022-02-22 18:24:13.432143100 Z
-- - :approve
   - "@gatsbyjs/parcel-namer-relative-to-cwd"
   - :who: Hitesh Khatri
     :why: Gatsby 4 brings in `gatsby-parcel-config` which brings this in
@@ -751,3 +745,63 @@
     :why: Our own project
     :versions: []
     :when: 2022-10-18 16:56:20.322652000 Z
+- - :approve
+  - "@bmi/gcp-build-status-logger"
+  - :who: Eugene Stepanenko
+    :why: Our own project
+    :versions: []
+    :when: 2022-10-17 17:15:03.988615000 Z
+- - :approve
+  - msgpackr-extract-darwin-arm64
+  - :who: Eugene Stepanenko
+    :why: Needed for gcp-build-status-logger
+    :versions: []
+    :when: 2022-10-19 17:15:03.988615000 Z
+- - :approve
+  - msgpackr-extract-darwin-x64
+  - :who: Eugene Stepanenko
+    :why: Needed for gcp-build-status-logger
+    :versions: []
+    :when: 2022-10-19 17:15:03.988615000 Z
+- - :approve
+  - msgpackr-extract-linux-arm
+  - :who: Eugene Stepanenko
+    :why: Needed for gcp-build-status-logger
+    :versions: []
+    :when: 2022-10-19 17:15:03.988615000 Z
+- - :approve
+  - msgpackr-extract-linux-arm64
+  - :who: Eugene Stepanenko
+    :why: Needed for gcp-build-status-logger
+    :versions: []
+    :when: 2022-10-19 17:15:03.988615000 Z
+- - :approve
+  - msgpackr-extract-win32-x64
+  - :who: Eugene Stepanenko
+    :why: Needed for gcp-build-status-logger
+    :versions: []
+    :when: 2022-10-19 17:15:03.988615000 Z
+- - :approve
+  - "@bmi-digital/use-dimensions"
+  - :who: Benjamin Sproule
+    :why: Our own project
+    :versions: []
+    :when: 2022-11-14 16:32:16.823639000 Z
+- - :approve
+  - "@bmi-digital/react-pdf-maker"
+  - :who: Benjamin Sproule
+    :why: Our own project
+    :versions: []
+    :when: 2022-12-19 11:51:34.676435000 Z
+- - :approve
+  - "@bmi/gcp-url-generator"
+  - :who: Benjamin Sproule
+    :why: Our own project
+    :versions: []
+    :when: 2022-12-19 11:51:38.147478000 Z
+- - :approve
+  - "@bmi/functions-recaptcha"
+  - :who: Benjamin Sproule
+    :why: Our own project
+    :versions: []
+    :when: 2023-01-09 18:37:26.085415000 Z

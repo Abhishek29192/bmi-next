@@ -494,22 +494,35 @@ deploy_gatsby_cloud_denmark:
     DXB_MARKET_ID: "DK"
     ROOT_DIR: "applications/dxb/contentful-migrate"
 
-migrate_content_poland:
+
+migrate_content_space_5:
   extends: .migrate_content
   rules:
     - if: "$CI_COMMIT_TAG"
   variables:
-    DXB_MARKET_ID: "PL"
+    DXB_MARKET_ID: "space_5"
     ROOT_DIR: "applications/dxb/contentful-migrate"
+
+# TODO: Add Netherlands here when consolidated
 
 deploy_gatsby_cloud_poland:
   extends: .deploy_gatsby_cloud
   rules:
     - if: "$CI_COMMIT_TAG"
   needs:
-    - migrate_content_poland
+    - migrate_content_space_5
   variables:
     DXB_MARKET_ID: "PL"
+    ROOT_DIR: "applications/dxb/contentful-migrate"
+
+deploy_gatsby_cloud_latvia:
+  extends: .deploy_gatsby_cloud
+  rules:
+    - if: "$CI_COMMIT_TAG"
+  needs:
+    - migrate_content_space_5
+  variables:
+    DXB_MARKET_ID: "LV"
     ROOT_DIR: "applications/dxb/contentful-migrate"
 
 migrate_content_space_6:
@@ -888,10 +901,11 @@ update_mc_space_4:
     DXB_MARKET_ID: "space_4"
     IS_CONSOLIDATED: "true"
 
-update_mc_poland:
+update_mc_space_5:
   extends: .update_mc
   variables:
-    DXB_MARKET_ID: "PL"
+    DXB_MARKET_ID: "space_5"
+    IS_CONSOLIDATED: "true"
 
 update_mc_space_6:
   extends: .update_mc

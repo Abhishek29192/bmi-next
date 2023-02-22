@@ -1,4 +1,3 @@
-import { SVGImport } from "@bmi-digital/svg-import";
 import {
   Button,
   ButtonProps,
@@ -6,12 +5,14 @@ import {
   LeadBlock,
   Section,
   Typography
-} from "@bmi/components";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
-import CheckIcon from "@material-ui/icons/Check";
+} from "@bmi-digital/components";
+import { SVGImport } from "@bmi-digital/svg-import";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import CheckIcon from "@mui/icons-material/Check";
 import { useLocation } from "@reach/router";
 import React, { useEffect, useState } from "react";
+import { StyledBlueCheckIconInter } from "../../components/CommonIcons";
 import Link, { Data as LinkData } from "../../components/Link";
 import { useSiteContext } from "../../components/Site";
 import { microCopy } from "../../constants/microCopies";
@@ -21,12 +22,11 @@ import {
   SYSTEM_CONFIG_QUERY_KEY_SELECTED_SYSTEM
 } from "../../constants/queryConstants";
 import withGTM from "../../utils/google-tag-manager";
-
 import styles from "./styles/leadBlockSection.module.scss";
 
-const BlueCheckIcon = (
-  <CheckIcon style={{ color: "var(--color-theme-accent)" }} />
-);
+const BlueCheckIcon = () => {
+  return <StyledBlueCheckIconInter source={CheckIcon} />;
+};
 
 type Props = {
   name: string;
@@ -67,7 +67,11 @@ const LeadBlockSection = ({
   );
   const backToYourSelectionBtnHref = `${prevPagePath}?referer=${referer}`;
   return (
-    <Section backgroundColor="white" className={styles["LeadBlockSection"]}>
+    <Section
+      backgroundColor="white"
+      className={styles["LeadBlockSection"]}
+      data-testid="system-details-lead-block-section"
+    >
       <LeadBlock>
         <LeadBlock.Content>
           {BrandLogo && (
@@ -77,14 +81,20 @@ const LeadBlockSection = ({
           )}
 
           <LeadBlock.Content.Section>
-            <Typography variant="h1" hasUnderline>
+            <Typography
+              variant="h1"
+              hasUnderline
+              data-testid="system-lead-block-title"
+            >
               {name}
             </Typography>
           </LeadBlock.Content.Section>
 
           {promotionalContent && (
             <LeadBlock.Content.Section>
-              <Typography variant="body2">{promotionalContent}</Typography>
+              <Typography variant="body2" data-testid="system-lead-block-desc">
+                {promotionalContent}
+              </Typography>
             </LeadBlock.Content.Section>
           )}
           <LeadBlock.Content.Section className={styles["ctaContainer"]}>
@@ -104,6 +114,7 @@ const LeadBlockSection = ({
                   action: backToYourSelectionBtnHref
                 }}
                 startIcon={<ArrowBackIcon />}
+                data-testid="system-lead-block-prev-page"
               >
                 {backToYourSelectionText}
               </GTMButton>
@@ -128,6 +139,7 @@ const LeadBlockSection = ({
                     {children}
                   </GTMButton>
                 )}
+                data-testid="system-lead-block-cta-action"
               >
                 {cta.label}
               </Link>
@@ -137,7 +149,7 @@ const LeadBlockSection = ({
         {uniqueSellingPropositions && uniqueSellingPropositions.length > 0 && (
           <LeadBlock.Card
             className={styles["card"]}
-            theme="pearl"
+            color="pearl"
             data-testid="system-attributes-card"
           >
             <LeadBlock.Card.Section>
@@ -146,7 +158,7 @@ const LeadBlockSection = ({
                   {uniqueSellingPropositions.map((value, id) => (
                     <IconList.Item
                       isCompact
-                      icon={BlueCheckIcon}
+                      icon={BlueCheckIcon()}
                       title={value}
                       key={`unique-selling-proposition-${id}`}
                     />

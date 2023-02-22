@@ -1,1 +1,5 @@
-export { MicroCopy, MicroCopyContext, getMicroCopy } from "@bmi/components";
+export {
+  getMicroCopy,
+  MicroCopy,
+  MicroCopyContext
+} from "@bmi-digital/components";

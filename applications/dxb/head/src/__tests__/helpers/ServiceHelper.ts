@@ -15,6 +15,7 @@ const createRoofer = (service?: Partial<Service>): Service => ({
   email: "test@test.com",
   website: "www.test.com",
   fax: "fax 1",
+  companyLogo: null,
   serviceTypes: null,
   certification: null,
   summary: "roofer summary",

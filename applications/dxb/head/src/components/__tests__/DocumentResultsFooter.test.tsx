@@ -1,4 +1,4 @@
-import { DownloadListContext } from "@bmi/components";
+import { DownloadListContext, ThemeProvider } from "@bmi-digital/components";
 import { fireEvent, render, waitFor } from "@testing-library/react";
 import MockDate from "mockdate";
 import React from "react";
@@ -52,6 +52,8 @@ const list = {
 };
 const token = "token";
 const ENV = process.env;
+const mockedWindowDocumentCookie = jest.spyOn(window.document, "cookie", "get");
+const qaAuthToken = "qaAuthToken";
 
 describe("DocumentResultsFooter component", () => {
   beforeEach(() => {
@@ -66,23 +68,25 @@ describe("DocumentResultsFooter component", () => {
   it("renders correctly", () => {
     const handlePageChange = jest.fn();
     const { container } = render(
-      <DownloadListContext.Provider
-        value={{
-          list,
-          updateList: jest.fn(),
-          resetList: jest.fn(),
-          count: 4,
-          remainingSize: Infinity,
-          isLoading: false,
-          setIsLoading: jest.fn()
-        }}
-      >
-        <DocumentResultsFooter
-          page={1}
-          count={1}
-          onPageChange={handlePageChange}
-        />
-      </DownloadListContext.Provider>
+      <ThemeProvider>
+        <DownloadListContext.Provider
+          value={{
+            list,
+            updateList: jest.fn(),
+            resetList: jest.fn(),
+            count: 4,
+            remainingSize: Infinity,
+            isLoading: false,
+            setIsLoading: jest.fn()
+          }}
+        >
+          <DocumentResultsFooter
+            page={1}
+            count={1}
+            onPageChange={handlePageChange}
+          />
+        </DownloadListContext.Provider>
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
@@ -94,23 +98,25 @@ describe("DocumentResultsFooter component", () => {
       name2: [createPimDocument({ id: "pim-document-id" })]
     };
     const { container } = render(
-      <DownloadListContext.Provider
-        value={{
-          list: customList,
-          updateList: jest.fn(),
-          resetList: jest.fn(),
-          count: 2,
-          remainingSize: Infinity,
-          isLoading: false,
-          setIsLoading: jest.fn()
-        }}
-      >
-        <DocumentResultsFooter
-          page={1}
-          count={1}
-          onPageChange={handlePageChange}
-        />
-      </DownloadListContext.Provider>
+      <ThemeProvider>
+        <DownloadListContext.Provider
+          value={{
+            list: customList,
+            updateList: jest.fn(),
+            resetList: jest.fn(),
+            count: 2,
+            remainingSize: Infinity,
+            isLoading: false,
+            setIsLoading: jest.fn()
+          }}
+        >
+          <DocumentResultsFooter
+            page={1}
+            count={1}
+            onPageChange={handlePageChange}
+          />
+        </DownloadListContext.Provider>
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
@@ -118,24 +124,26 @@ describe("DocumentResultsFooter component", () => {
   it("renders correctly if onDownloadClick not passed", () => {
     const handlePageChange = jest.fn();
     const { container } = render(
-      <DownloadListContext.Provider
-        value={{
-          list,
-          updateList: jest.fn(),
-          resetList: jest.fn(),
-          count: 4,
-          remainingSize: Infinity,
-          isLoading: false,
-          setIsLoading: jest.fn()
-        }}
-      >
-        <DocumentResultsFooter
-          page={1}
-          count={1}
-          onPageChange={handlePageChange}
-          isDownloadButton={false}
-        />
-      </DownloadListContext.Provider>
+      <ThemeProvider>
+        <DownloadListContext.Provider
+          value={{
+            list,
+            updateList: jest.fn(),
+            resetList: jest.fn(),
+            count: 4,
+            remainingSize: Infinity,
+            isLoading: false,
+            setIsLoading: jest.fn()
+          }}
+        >
+          <DocumentResultsFooter
+            page={1}
+            count={1}
+            onPageChange={handlePageChange}
+            isDownloadButton={false}
+          />
+        </DownloadListContext.Provider>
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
@@ -144,29 +152,66 @@ describe("DocumentResultsFooter component", () => {
     const handleDownloadClickMock = jest.fn();
     const handlePageChange = jest.fn();
     const { findByText } = render(
-      <DownloadListContext.Provider
-        value={{
-          list,
-          updateList: jest.fn(),
-          resetList: jest.fn(),
-          count: 3,
-          remainingSize: Infinity,
-          isLoading: false,
-          setIsLoading: jest.fn()
-        }}
-      >
-        <DocumentResultsFooter
-          page={1}
-          count={1}
-          onPageChange={handlePageChange}
-        />
-      </DownloadListContext.Provider>
+      <ThemeProvider>
+        <DownloadListContext.Provider
+          value={{
+            list,
+            updateList: jest.fn(),
+            resetList: jest.fn(),
+            count: 3,
+            remainingSize: Infinity,
+            isLoading: false,
+            setIsLoading: jest.fn()
+          }}
+        >
+          <DocumentResultsFooter
+            page={1}
+            count={1}
+            onPageChange={handlePageChange}
+          />
+        </DownloadListContext.Provider>
+      </ThemeProvider>
     );
 
     executeRecaptcha.mockReturnValue("token");
     const downloadButton = await findByText("MC: downloadList.download (3)");
     fireEvent.click(downloadButton);
     expect(executeRecaptcha).toBeCalledTimes(1);
+    waitFor(() => expect(handleDownloadClickMock).toBeCalledTimes(1));
+  });
+
+  it("should not call executeRecaptcha if qaAuthToken exists", async () => {
+    const handlePageChange = jest.fn();
+    const handleDownloadClickMock = jest.fn();
+    mockedWindowDocumentCookie.mockReturnValueOnce(
+      `qaAuthToken=${qaAuthToken}`
+    );
+
+    const { findByText } = render(
+      <ThemeProvider>
+        <DownloadListContext.Provider
+          value={{
+            list,
+            updateList: jest.fn(),
+            resetList: jest.fn(),
+            count: 3,
+            remainingSize: Infinity,
+            isLoading: false,
+            setIsLoading: jest.fn()
+          }}
+        >
+          <DocumentResultsFooter
+            page={1}
+            count={1}
+            onPageChange={handlePageChange}
+          />
+        </DownloadListContext.Provider>
+      </ThemeProvider>
+    );
+
+    const downloadButton = await findByText("MC: downloadList.download (3)");
+    fireEvent.click(downloadButton);
+    expect(executeRecaptcha).not.toHaveBeenCalled();
     waitFor(() => expect(handleDownloadClickMock).toBeCalledTimes(1));
   });
 
@@ -178,8 +223,8 @@ describe("DocumentResultsFooter component", () => {
 
       await handleDownloadClick(
         list,
-        token,
         { isPreviewMode: false, documentDownloadEndpoint: undefined },
+        token,
         resetList
       );
 
@@ -196,11 +241,11 @@ describe("DocumentResultsFooter component", () => {
 
       await handleDownloadClick(
         list,
-        token,
         {
           isPreviewMode: false,
           documentDownloadEndpoint: "GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT"
         },
+        token,
         resetList
       );
 
@@ -227,7 +272,62 @@ describe("DocumentResultsFooter component", () => {
             }),
             headers: {
               "Content-Type": "application/json",
-              "X-Recaptcha-Token": "token"
+              "X-Recaptcha-Token": "token",
+              authorization: undefined
+            }
+          }
+        )
+      );
+
+      await waitFor(() =>
+        expect(ClientDownloadUtils.downloadAs).toHaveBeenCalledWith(
+          "url",
+          "BMI_19700101000000.zip"
+        )
+      );
+
+      expect(resetList).toHaveBeenCalledTimes(1);
+    });
+
+    it("should download files if qaAuthToken exists", async () => {
+      fetchMock.mockResolvedValueOnce(getFetchResponse({ url: "url" }));
+
+      await handleDownloadClick(
+        list,
+        {
+          isPreviewMode: false,
+          documentDownloadEndpoint: "GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT"
+        },
+        undefined,
+        resetList,
+        qaAuthToken
+      );
+
+      await waitFor(() =>
+        expect(fetchMock).toHaveBeenLastCalledWith(
+          "GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT",
+          {
+            method: "POST",
+            body: JSON.stringify({
+              documents: [
+                {
+                  href: "http://doesnot-exist.com/fileName",
+                  name: "contentful-document-title.fileName"
+                },
+                {
+                  href: "http://pimDocument",
+                  name: "Pim Document-1.pdf"
+                },
+                {
+                  href: "http://pimDocument",
+                  name: "Pim Document-2.pdf"
+                }
+              ]
+            }),
+            headers: {
+              "Content-Type": "application/json",
+              "X-Recaptcha-Token": undefined,
+              authorization: `Bearer ${qaAuthToken}`
             }
           }
         )
@@ -246,11 +346,11 @@ describe("DocumentResultsFooter component", () => {
     it("should not download empty list", async () => {
       await handleDownloadClick(
         {},
-        token,
         {
           isPreviewMode: false,
           documentDownloadEndpoint: "GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT"
         },
+        token,
         resetList
       );
       expect(ClientDownloadUtils.downloadAs).toHaveBeenCalledTimes(0);
@@ -261,11 +361,11 @@ describe("DocumentResultsFooter component", () => {
 
       await handleDownloadClick(
         list,
-        token,
         {
           isPreviewMode: true,
           documentDownloadEndpoint: "GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT"
         },
+        token,
         resetList
       );
 

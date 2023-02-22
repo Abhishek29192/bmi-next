@@ -1,4 +1,4 @@
-import { Section } from "@bmi/components";
+import { Section } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
 import RichText, { RichTextData } from "./RichText";
@@ -27,7 +27,7 @@ const VideoSection = ({
       {title && (
         <Section.Title className={styles["heading"]}>{title}</Section.Title>
       )}
-      <RichText document={description} />
+      {description && <RichText document={description} />}
       <div className={styles["video"]}>{videoNode}</div>
     </Section>
   );

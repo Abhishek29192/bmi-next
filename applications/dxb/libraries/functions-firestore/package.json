@@ -11,7 +11,7 @@
     "test": "jest --coverage --reporters=default --reporters=jest-junit"
   },
   "dependencies": {
-    "firebase-admin": "^10.0.2"
+    "firebase-admin": "^11.4.1"
   },
   "devDependencies": {
     "jest-node-exports-resolver": "^1.1.6"

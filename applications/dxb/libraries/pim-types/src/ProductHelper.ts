@@ -217,7 +217,6 @@ const createProduct = (product?: Partial<Product>): Product => ({
   code: "base-code",
   externalProductCode: "external-product-code",
   description: "<p>Some description</p>",
-  assets: [createAsset()],
   categories: [
     createCategory({ parentCategoryCode: "", code: "parent-category-code" }),
     createCategory(),

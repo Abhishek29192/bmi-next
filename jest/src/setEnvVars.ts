@@ -1,6 +1,7 @@
 process.env.SECRET_MAN_GCP_PROJECT_NAME = "TEST_SECRET_MAN_GCP_PROJECT_NAME";
 process.env.CONTENTFUL_MANAGEMENT_TOKEN = "management-token-secret";
 process.env.CONTENTFUL_SPACE_ID = "TEST_CONTENTFUL_SPACE_ID";
+process.env.CONTENTFUL_ENVIRONMENT = "TEST_CONTENTFUL_ENVIRONMENT";
 process.env.CONTENTFUL_DELIVERY_TOKEN = "contentful-delivery-token";
 
 process.env.APSIS_API_BASE_URL = "https://api.apsis.one";
@@ -34,6 +35,7 @@ process.env.GCP_CLOUD_BUILD_TRIGGER_URL = "https://google.com";
 process.env.TRIGGER_CB_SECRET = "trigger_secret";
 process.env.TRIGGER_API_KEY = "api_secret";
 process.env.GCP_PROJECT_NAME = "dxb-gcp-project";
+process.env.LOCATION = "europe-west3-";
 
 process.env.PIM_CLASSIFICATION_CATALOGUE_NAMESPACE =
   "bmiClassificationCatalog/1.0";
@@ -51,7 +53,7 @@ process.env.DXB_FIRESTORE_HANDLER_FUNCTION = "handler_function";
 process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID = "handler_subscription_id";
 process.env.NETLIFY_BUILD_HOOK = "http://localhost:9090";
 process.env.TIMEOUT_LIMIT = "3000";
-process.env.DELAY_MILLISECONDS = "1000";
+process.env.DELAY_MILLISECONDS = "0";
 process.env.GATSBY_ENABLE_BRAND_PROVIDER = "true";
 
 process.env.BUILD_TRIGGER_ENDPOINT = "http://localhost:9057";
@@ -86,8 +88,10 @@ process.env.MARKET_LOCALE = "en-GB";
 
 process.env.DEFAULT_VALUES_REQUEST = "some secret";
 process.env.MARKET_LOCALES = JSON.stringify({ uk: ["en-GB"] });
-process.env.LOCALE = "en-US";
 process.env.ES_DOCUMENTS_INGEST_SECRET = "some secret";
+process.env.LOCALE = "en-US";
+
+process.env.BEARER_TOKEN_SECRET = "bearerToken";
 
 process.env.SPACE_MARKET_CODE = "no";
 process.env.GATSBY_MARKET_LOCALE_CODE = "nb-NO";

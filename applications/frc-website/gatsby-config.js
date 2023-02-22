@@ -1,6 +1,12 @@
 "use strict";
 
-require("dotenv").config({
+const dotenv = require("dotenv");
+
+/**
+ * @typedef { import("gatsby").GatsbyConfig } GatsbyConfig
+ */
+
+dotenv.config({
   path: `./.env.${process.env.NODE_ENV}`
 });
 
@@ -9,7 +15,10 @@ require("dotenv").config({
  * and they should be kept in sync as much as possible in case of any changes to the build process.
  */
 
-module.exports = {
+/**
+ * @type {GatsbyConfig}
+ */
+const config = {
   siteMetadata: {
     title: `BMI Flat Roof Calculator`,
     description: ``,
@@ -17,6 +26,7 @@ module.exports = {
   },
   pathPrefix: process.env.GATSBY_FRC_URL_PREFIX,
   plugins: [
+    `@bmi/gatsby-plugin-material-ui`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-typescript`,
@@ -35,14 +45,6 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-plugin-material-ui`,
-      options: {
-        stylesProvider: {
-          injectFirst: true
-        }
-      }
-    },
-    {
       resolve: `gatsby-plugin-sass`,
       options: {
         cssLoaderOptions: {
@@ -57,3 +59,5 @@ module.exports = {
     }
   ]
 };
+
+module.exports = config;

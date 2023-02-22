@@ -1,4 +1,4 @@
-import { TableOfContent } from "@bmi/components";
+import { TableOfContent } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React, { createContext, useMemo } from "react";
 import { useConfig } from "../contexts/ConfigProvider";
@@ -175,9 +175,10 @@ const Sections = ({
             position={startIndex + index}
             theme={
               // eslint-disable-next-line security/detect-object-injection
-              pageTypenameToThemeMap[pageTypename] || {}
+              (pageTypename && pageTypenameToThemeMap[pageTypename]) || {}
             }
             key={`section-${index}`}
+            data-testid={`section-${title ? title.replace(/ /g, "-") : index}`}
           />
         );
 

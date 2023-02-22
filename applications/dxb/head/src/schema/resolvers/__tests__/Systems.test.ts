@@ -4,6 +4,11 @@ import { Context, Node } from "../types/Gatsby";
 
 jest.mock("../../../utils/systems");
 
+jest.mock("../utils/getDefaultYoutubePreviewImage", () => ({
+  getDefaultYoutubePreviewImage: () =>
+    "https://i.ytimg.com/vi/3901c0ds7oo/maxresdefault.jpg"
+}));
+
 const context: Context = {
   nodeModel: {
     getNodeById: jest.fn().mockResolvedValue({ subtitle: "subtitle" }),
@@ -98,13 +103,14 @@ describe("ContentfulServiceLocatorSection resolver", () => {
       const source = createSystem({
         documents: [createSystemDocument({ assetType: "AWARDS" })]
       });
-      context.nodeModel.findAll = jest
-        .fn()
-        .mockResolvedValueOnce({ entries: [{ pimCode: "AWARDS" }] });
+      context.nodeModel.findAll = jest.fn().mockResolvedValueOnce({
+        entries: [
+          { pimCode: "AWARDS", code: "AWRD", name: "Awards", id: "AWARD_ID" }
+        ]
+      });
 
       expect(await Systems.documents.resolve(source, null, context)).toEqual([
         {
-          assetType: "AWARDS",
           extension: "pdf",
           fileSize: 10,
           format: "application/pdf",
@@ -112,7 +118,13 @@ describe("ContentfulServiceLocatorSection resolver", () => {
           isLinkDocument: false,
           realFileName: "real-file-name.pdf",
           title: "title",
-          url: "http://localhost:8000/real-file-name.pdf"
+          url: "http://localhost:8000/real-file-name.pdf",
+          assetType: {
+            pimCode: "AWARDS",
+            code: "AWRD",
+            id: "AWARD_ID",
+            name: "Awards"
+          }
         }
       ]);
     });
@@ -268,6 +280,28 @@ describe("ContentfulServiceLocatorSection resolver", () => {
           }
         ]);
       });
+    });
+  });
+
+  describe("video resolver", () => {
+    it("should return video data from product", async () => {
+      const source = createSystem();
+
+      const result = await Systems.videos.resolve(source, null, context);
+
+      expect(result).toEqual([
+        {
+          __typename: "PimVideo",
+          defaultYouTubePreviewImage:
+            "https://i.ytimg.com/vi/3901c0ds7oo/maxresdefault.jpg",
+          label: "name",
+          previewMedia: null,
+          subtitle: null,
+          title: "",
+          videoRatio: null,
+          videoUrl: "https://www.youtube.com/watch?v=3901c0ds7oo"
+        }
+      ]);
     });
   });
 });

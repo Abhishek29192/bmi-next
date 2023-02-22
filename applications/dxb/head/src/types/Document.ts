@@ -21,7 +21,7 @@ export type ContentfulDocument = {
   } | null;
   // TODO: add validations for this Rich Text field in CMS
   description: RichTextData | null;
-  brand: string;
+  brand: string | null;
   noIndex: boolean;
 };
 

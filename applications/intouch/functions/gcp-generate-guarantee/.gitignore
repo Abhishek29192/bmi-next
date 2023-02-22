@@ -1,8 +1,0 @@
-.env
-!.env.example
-.env.yaml
-!.env.example.yaml
-pdf/*.pdf
-.npmrc
-.yarnrc
-gcp.json

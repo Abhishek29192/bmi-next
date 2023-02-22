@@ -1,18 +1,18 @@
-import React, { MouseEvent } from "react";
 import {
+  Autocomplete,
   GeocoderResult as GoogleGeocoderResult,
-  LatLngLiteral as GoogleLatLngLiteral
-} from "@bmi/components";
-import { Grid } from "@bmi/components";
-import { Autocomplete } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import { GoogleAutocomplete } from "@bmi/components";
-import { GeolocationButton } from "@bmi/components";
+  GeolocationButton,
+  GoogleAutocomplete,
+  Grid,
+  LatLngLiteral as GoogleLatLngLiteral,
+  Typography
+} from "@bmi-digital/components";
+import React, { MouseEvent } from "react";
 import { microCopy } from "../../../constants/microCopies";
 import AutoCompleteCountryMap from "../../../countries/GoogleCountryCodeMap";
-import styles from "../styles/ServiceLocatorSection.module.scss";
 import { useSiteContext } from "../../Site";
 import { getFilterOptions } from "../helpers";
+import styles from "../styles/ServiceLocatorSection.module.scss";
 
 interface SearchLocationBlockProps {
   autocompleteLabel: string;
@@ -35,9 +35,9 @@ export const SearchLocationBlock = ({
   userPosition
 }: SearchLocationBlockProps) => {
   const { getMicroCopy, countryCode } = useSiteContext();
-
+  const formattedCountryCode = countryCode.split("/")[0];
   return (
-    <Grid item xs={12} md={6} lg={4} className={styles["search"]}>
+    <Grid xs={12} md={6} lg={4} className={styles["search"]}>
       <>
         <Autocomplete
           id="company-autocomplete"
@@ -62,12 +62,16 @@ export const SearchLocationBlock = ({
           freeSolo
           startAdornmentIcon="LocationOn"
           controlledValue={userPosition}
-          googleAutocompleteOptions={{
-            componentRestrictions: {
-              // eslint-disable-next-line security/detect-object-injection
-              country: AutoCompleteCountryMap[countryCode] || [countryCode]
+          googleAutocompleteOptions={
+            countryCode !== "grp" && {
+              componentRestrictions: {
+                // eslint-disable-next-line security/detect-object-injection
+                country: AutoCompleteCountryMap[formattedCountryCode] || [
+                  formattedCountryCode
+                ]
+              }
             }
-          }}
+          }
         />
         <GeolocationButton onPosition={getPosition()}>
           {getMicroCopy(microCopy.FIND_A_ROOFER_GEOLOCATION_BUTTON)}

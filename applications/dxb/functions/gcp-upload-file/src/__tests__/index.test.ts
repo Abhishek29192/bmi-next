@@ -1,10 +1,10 @@
+/* eslint-disable security/detect-non-literal-fs-filename */
 import { readFileSync } from "fs";
 import { IncomingHttpHeaders } from "http";
 import path from "path";
 import {
   mockRequest as fetchMockRequest,
-  mockResponse,
-  mockResponses
+  mockResponse
 } from "@bmi-digital/fetch-mocks";
 import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
@@ -16,6 +16,11 @@ jest.mock("node-fetch", () => fetchMock);
 const resourcesBasePath = `${path.resolve(__dirname)}/resources`;
 const validToken = "valid-token";
 const recaptchaSecret = "recaptcha-secret";
+
+const verifyRecaptchaToken = jest.fn();
+jest.mock("@bmi/functions-recaptcha", () => ({
+  verifyRecaptchaToken: verifyRecaptchaToken
+}));
 
 const mockRequest = (
   body: Buffer | Record<string, unknown> = readFileSync(
@@ -147,6 +152,7 @@ describe("Making an OPTIONS request as part of CORS", () => {
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.set).toBeCalledWith("Access-Control-Allow-Methods", "POST");
     expect(res.set).toBeCalledWith("Access-Control-Allow-Headers", [
+      "Authorization",
       "Content-Type",
       "X-Recaptcha-Token"
     ]);
@@ -226,88 +232,18 @@ describe("Making a POST request", () => {
     );
   });
 
-  it("returns status code 500 when an error is returned from Secret Manager when getting recaptcha key", async () => {
-    const req = mockRequest();
-    const res = mockResponse();
-
-    await upload(req, res);
-
-    expect(fetchMock).toBeCalledTimes(0);
-    expect(getSpace).toBeCalledTimes(0);
-    expect(getEnvironment).toBeCalledTimes(0);
-    expect(createUpload).toBeCalledTimes(0);
-    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
-    expect(res.status).toBeCalledWith(500);
-    expect(res.send).toBeCalledWith(Error("Recaptcha request failed."));
-  });
-
-  it("returns status code 500 when the recaptcha request fails", async () => {
-    const req = mockRequest();
-    const res = mockResponse();
-
-    mockResponses(fetchMock, {
-      method: "POST",
-      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      error: new Error("Expected error")
-    });
-
-    await upload(req, res);
-
-    expect(fetchMock).toHaveFetched(
-      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      { method: "POST" }
-    );
-    expect(getSpace).toBeCalledTimes(0);
-    expect(getEnvironment).toBeCalledTimes(0);
-    expect(createUpload).toBeCalledTimes(0);
-    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
-    expect(res.status).toBeCalledWith(500);
-    expect(res.send).toBeCalledWith(Error("Recaptcha request failed."));
-  });
-
-  it("returns status code 400 when the recaptcha request returns a non-ok response", async () => {
-    const req = mockRequest();
-    const res = mockResponse();
-
-    mockResponses(fetchMock, {
-      method: "POST",
-      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      body: "{}",
-      status: 400
-    });
-
-    await upload(req, res);
-
-    expect(fetchMock).toHaveFetched(
-      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      { method: "POST" }
-    );
-    expect(getSpace).toBeCalledTimes(0);
-    expect(getEnvironment).toBeCalledTimes(0);
-    expect(createUpload).toBeCalledTimes(0);
-    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
-    expect(res.status).toBeCalledWith(400);
-    expect(res.send).toBeCalledWith(Error("Recaptcha check failed."));
-  });
-
   it("returns status code 400 when the recaptcha check fails", async () => {
     const req = mockRequest();
     const res = mockResponse();
 
-    mockResponses(fetchMock, {
-      method: "POST",
-      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      body: JSON.stringify({
-        success: false,
-        score: process.env.RECAPTCHA_MINIMUM_SCORE
-      })
-    });
+    verifyRecaptchaToken.mockRejectedValueOnce(Error("Expected error"));
 
     await upload(req, res);
 
-    expect(fetchMock).toHaveFetched(
-      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      { method: "POST" }
+    expect(verifyRecaptchaToken).toBeCalledWith(
+      validToken,
+      recaptchaSecret,
+      parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!)
     );
     expect(getSpace).toBeCalledTimes(0);
     expect(getEnvironment).toBeCalledTimes(0);
@@ -317,80 +253,38 @@ describe("Making a POST request", () => {
     expect(res.send).toBeCalledWith(Error("Recaptcha check failed."));
   });
 
-  it("returns status code 400 when the recaptcha score is less than minimum score", async () => {
-    const req = mockRequest();
-    const res = mockResponse();
-
-    mockResponses(fetchMock, {
-      method: "POST",
-      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      body: JSON.stringify({
-        success: true,
-        score: parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!) - 0.1
-      })
-    });
-
-    await upload(req, res);
-
-    expect(fetchMock).toHaveFetched(
-      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      { method: "POST" }
-    );
-    expect(getSpace).toBeCalledTimes(0);
-    expect(getEnvironment).toBeCalledTimes(0);
-    expect(createUpload).toBeCalledTimes(0);
-    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
-    expect(res.status).toBeCalledWith(400);
-    expect(res.send).toBeCalledWith(Error("Recaptcha check failed."));
-  });
-
-  it("returns status code 400 when the token is invalid", async () => {
+  it("returns status code 400 when the qaAuthToken is invalid", async () => {
+    process.env.QA_AUTH_TOKEN = "qaAuthToken";
     const req = mockRequest(readFileSync(`${resourcesBasePath}/blank.jpeg`), {
-      "X-Recaptcha-Token": "invalid-token"
+      "X-Recaptcha-Token": undefined,
+      authorization: "Bearer qaAuthTokenFailed"
     });
     const res = mockResponse();
 
-    mockResponses(fetchMock, {
-      method: "POST",
-      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=invalid-token`,
-      body: JSON.stringify({
-        success: false,
-        score: process.env.RECAPTCHA_MINIMUM_SCORE
-      })
-    });
-
     await upload(req, res);
 
-    expect(fetchMock).toHaveFetched(
-      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=invalid-token`,
-      { method: "POST" }
-    );
+    expect(verifyRecaptchaToken).not.toBeCalled();
     expect(getSpace).toBeCalledTimes(0);
     expect(getEnvironment).toBeCalledTimes(0);
     expect(createUpload).toBeCalledTimes(0);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.status).toBeCalledWith(400);
-    expect(res.send).toBeCalledWith(Error("Recaptcha check failed."));
+    expect(res.send).toBeCalledWith(Error("QaAuthToken failed."));
+    process.env.QA_AUTH_TOKEN = undefined;
   });
 
   it("returns status code 406 when the type of file to be uploaded is not allowed", async () => {
     const req = mockRequest(readFileSync(`${resourcesBasePath}/blank.gif`));
     const res = mockResponse();
 
-    mockResponses(fetchMock, {
-      method: "POST",
-      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      body: JSON.stringify({
-        success: true,
-        score: process.env.RECAPTCHA_MINIMUM_SCORE
-      })
-    });
+    verifyRecaptchaToken.mockResolvedValueOnce(undefined);
 
     await upload(req, res);
 
-    expect(fetchMock).toHaveFetched(
-      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      { method: "POST" }
+    expect(verifyRecaptchaToken).toBeCalledWith(
+      validToken,
+      recaptchaSecret,
+      parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!)
     );
     expect(getSpace).toBeCalledTimes(0);
     expect(getEnvironment).toBeCalledTimes(0);
@@ -406,20 +300,14 @@ describe("Making a POST request", () => {
     const req = mockRequest(readFileSync(`${resourcesBasePath}/not-png.png`));
     const res = mockResponse();
 
-    mockResponses(fetchMock, {
-      method: "POST",
-      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      body: JSON.stringify({
-        success: true,
-        score: process.env.RECAPTCHA_MINIMUM_SCORE
-      })
-    });
+    verifyRecaptchaToken.mockResolvedValueOnce(undefined);
 
     await upload(req, res);
 
-    expect(fetchMock).toHaveFetched(
-      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      { method: "POST" }
+    expect(verifyRecaptchaToken).toBeCalledWith(
+      validToken,
+      recaptchaSecret,
+      parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!)
     );
     expect(getSpace).toBeCalledTimes(0);
     expect(getEnvironment).toBeCalledTimes(0);
@@ -435,14 +323,7 @@ describe("Making a POST request", () => {
     const req = mockRequest();
     const res = mockResponse();
 
-    mockResponses(fetchMock, {
-      method: "POST",
-      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      body: JSON.stringify({
-        success: true,
-        score: process.env.RECAPTCHA_MINIMUM_SCORE
-      })
-    });
+    verifyRecaptchaToken.mockResolvedValueOnce(undefined);
 
     getSpace.mockImplementationOnce(() => {
       throw new Error("Expected Error");
@@ -450,9 +331,10 @@ describe("Making a POST request", () => {
 
     await upload(req, res);
 
-    expect(fetchMock).toHaveFetched(
-      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      { method: "POST" }
+    expect(verifyRecaptchaToken).toBeCalledWith(
+      validToken,
+      recaptchaSecret,
+      parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!)
     );
     expect(getSpace).toBeCalledWith(process.env.CONTENTFUL_SPACE_ID);
     expect(getEnvironment).toBeCalledTimes(0);
@@ -465,14 +347,7 @@ describe("Making a POST request", () => {
     const req = mockRequest();
     const res = mockResponse();
 
-    mockResponses(fetchMock, {
-      method: "POST",
-      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      body: JSON.stringify({
-        success: true,
-        score: process.env.RECAPTCHA_MINIMUM_SCORE
-      })
-    });
+    verifyRecaptchaToken.mockResolvedValueOnce(undefined);
 
     getEnvironment.mockImplementationOnce(() => {
       throw new Error("Expected Error");
@@ -480,9 +355,10 @@ describe("Making a POST request", () => {
 
     await upload(req, res);
 
-    expect(fetchMock).toHaveFetched(
-      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      { method: "POST" }
+    expect(verifyRecaptchaToken).toBeCalledWith(
+      validToken,
+      recaptchaSecret,
+      parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!)
     );
     expect(getSpace).toBeCalledWith(process.env.CONTENTFUL_SPACE_ID);
     expect(getEnvironment).toBeCalledWith(process.env.CONTENTFUL_ENVIRONMENT);
@@ -495,14 +371,7 @@ describe("Making a POST request", () => {
     const req = mockRequest(readFileSync(`${resourcesBasePath}/blank.pdf`));
     const res = mockResponse();
 
-    mockResponses(fetchMock, {
-      method: "POST",
-      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      body: JSON.stringify({
-        success: true,
-        score: process.env.RECAPTCHA_MINIMUM_SCORE
-      })
-    });
+    verifyRecaptchaToken.mockResolvedValueOnce(undefined);
 
     const uploadResponse = {
       expected: "response"
@@ -511,9 +380,10 @@ describe("Making a POST request", () => {
 
     await upload(req, res);
 
-    expect(fetchMock).toHaveFetched(
-      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      { method: "POST" }
+    expect(verifyRecaptchaToken).toBeCalledWith(
+      validToken,
+      recaptchaSecret,
+      parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!)
     );
     expect(getSpace).toBeCalledWith(process.env.CONTENTFUL_SPACE_ID);
     expect(getEnvironment).toBeCalledWith(process.env.CONTENTFUL_ENVIRONMENT);
@@ -526,14 +396,7 @@ describe("Making a POST request", () => {
     const req = mockRequest(readFileSync(`${resourcesBasePath}/blank.jpg`));
     const res = mockResponse();
 
-    mockResponses(fetchMock, {
-      method: "POST",
-      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      body: JSON.stringify({
-        success: true,
-        score: process.env.RECAPTCHA_MINIMUM_SCORE
-      })
-    });
+    verifyRecaptchaToken.mockResolvedValueOnce(undefined);
 
     const uploadResponse = {
       expected: "response"
@@ -542,9 +405,10 @@ describe("Making a POST request", () => {
 
     await upload(req, res);
 
-    expect(fetchMock).toHaveFetched(
-      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      { method: "POST" }
+    expect(verifyRecaptchaToken).toBeCalledWith(
+      validToken,
+      recaptchaSecret,
+      parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!)
     );
     expect(getSpace).toBeCalledWith(process.env.CONTENTFUL_SPACE_ID);
     expect(getEnvironment).toBeCalledWith(process.env.CONTENTFUL_ENVIRONMENT);
@@ -557,14 +421,7 @@ describe("Making a POST request", () => {
     const req = mockRequest(readFileSync(`${resourcesBasePath}/blank.jpeg`));
     const res = mockResponse();
 
-    mockResponses(fetchMock, {
-      method: "POST",
-      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      body: JSON.stringify({
-        success: true,
-        score: process.env.RECAPTCHA_MINIMUM_SCORE
-      })
-    });
+    verifyRecaptchaToken.mockResolvedValueOnce(undefined);
 
     const uploadResponse = {
       expected: "response"
@@ -573,9 +430,10 @@ describe("Making a POST request", () => {
 
     await upload(req, res);
 
-    expect(fetchMock).toHaveFetched(
-      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      { method: "POST" }
+    expect(verifyRecaptchaToken).toBeCalledWith(
+      validToken,
+      recaptchaSecret,
+      parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!)
     );
     expect(getSpace).toBeCalledWith(process.env.CONTENTFUL_SPACE_ID);
     expect(getEnvironment).toBeCalledWith(process.env.CONTENTFUL_ENVIRONMENT);
@@ -588,14 +446,7 @@ describe("Making a POST request", () => {
     const req = mockRequest(readFileSync(`${resourcesBasePath}/blank.png`));
     const res = mockResponse();
 
-    mockResponses(fetchMock, {
-      method: "POST",
-      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      body: JSON.stringify({
-        success: true,
-        score: process.env.RECAPTCHA_MINIMUM_SCORE
-      })
-    });
+    verifyRecaptchaToken.mockResolvedValueOnce(undefined);
 
     const uploadResponse = {
       expected: "response"
@@ -604,9 +455,10 @@ describe("Making a POST request", () => {
 
     await upload(req, res);
 
-    expect(fetchMock).toHaveFetched(
-      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      { method: "POST" }
+    expect(verifyRecaptchaToken).toBeCalledWith(
+      validToken,
+      recaptchaSecret,
+      parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!)
     );
     expect(getSpace).toBeCalledWith(process.env.CONTENTFUL_SPACE_ID);
     expect(getEnvironment).toBeCalledWith(process.env.CONTENTFUL_ENVIRONMENT);
@@ -619,14 +471,7 @@ describe("Making a POST request", () => {
     const req = mockRequest(readFileSync(`${resourcesBasePath}/blank-png.txt`));
     const res = mockResponse();
 
-    mockResponses(fetchMock, {
-      method: "POST",
-      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      body: JSON.stringify({
-        success: true,
-        score: process.env.RECAPTCHA_MINIMUM_SCORE
-      })
-    });
+    verifyRecaptchaToken.mockResolvedValueOnce(undefined);
 
     const uploadResponse = {
       expected: "response"
@@ -635,9 +480,10 @@ describe("Making a POST request", () => {
 
     await upload(req, res);
 
-    expect(fetchMock).toHaveFetched(
-      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      { method: "POST" }
+    expect(verifyRecaptchaToken).toBeCalledWith(
+      validToken,
+      recaptchaSecret,
+      parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!)
     );
     expect(getSpace).toBeCalledWith(process.env.CONTENTFUL_SPACE_ID);
     expect(getEnvironment).toBeCalledWith(process.env.CONTENTFUL_ENVIRONMENT);
@@ -652,14 +498,7 @@ describe("Making a POST request", () => {
     });
     const res = mockResponse();
 
-    mockResponses(fetchMock, {
-      method: "POST",
-      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      body: JSON.stringify({
-        success: true,
-        score: process.env.RECAPTCHA_MINIMUM_SCORE
-      })
-    });
+    verifyRecaptchaToken.mockResolvedValueOnce(undefined);
 
     const uploadResponse = {
       expected: "response"
@@ -668,9 +507,10 @@ describe("Making a POST request", () => {
 
     await upload(req, res);
 
-    expect(fetchMock).toHaveFetched(
-      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      { method: "POST" }
+    expect(verifyRecaptchaToken).toBeCalledWith(
+      validToken,
+      recaptchaSecret,
+      parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!)
     );
     expect(getSpace).toBeCalledWith(process.env.CONTENTFUL_SPACE_ID);
     expect(getEnvironment).toBeCalledWith(process.env.CONTENTFUL_ENVIRONMENT);
@@ -686,14 +526,7 @@ describe("Making a POST request", () => {
     const req = mockRequest();
     const res = mockResponse();
 
-    mockResponses(fetchMock, {
-      method: "POST",
-      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      body: JSON.stringify({
-        success: true,
-        score: process.env.RECAPTCHA_MINIMUM_SCORE
-      })
-    });
+    verifyRecaptchaToken.mockResolvedValueOnce(undefined);
 
     const uploadResponse = {
       expected: "response"
@@ -702,9 +535,10 @@ describe("Making a POST request", () => {
 
     await upload(req, res);
 
-    expect(fetchMock).toHaveFetched(
-      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      { method: "POST" }
+    expect(verifyRecaptchaToken).toBeCalledWith(
+      validToken,
+      recaptchaSecret,
+      1.0
     );
     expect(getSpace).toBeCalledWith(process.env.CONTENTFUL_SPACE_ID);
     expect(getEnvironment).toBeCalledWith(process.env.CONTENTFUL_ENVIRONMENT);
@@ -719,14 +553,7 @@ describe("Making a POST request", () => {
     const req = mockRequest();
     const res = mockResponse();
 
-    mockResponses(fetchMock, {
-      method: "POST",
-      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      body: JSON.stringify({
-        success: true,
-        score: process.env.RECAPTCHA_MINIMUM_SCORE
-      })
-    });
+    verifyRecaptchaToken.mockResolvedValueOnce(undefined);
 
     const uploadResponse = {
       expected: "response"
@@ -736,9 +563,10 @@ describe("Making a POST request", () => {
     await upload(req, res);
     await upload(req, res);
 
-    expect(fetchMock).toHaveFetched(
-      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      { method: "POST" }
+    expect(verifyRecaptchaToken).toBeCalledWith(
+      validToken,
+      recaptchaSecret,
+      parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!)
     );
     expect(getSpace).toBeCalledWith(process.env.CONTENTFUL_SPACE_ID);
     expect(getSpace).toBeCalledTimes(1);
@@ -750,5 +578,30 @@ describe("Making a POST request", () => {
     expect(res.set).toBeCalledTimes(2);
     expect(res.send).toBeCalledWith(uploadResponse);
     expect(res.send).toBeCalledTimes(2);
+  });
+
+  it("returns status 200 when authorization header is used", async () => {
+    process.env.QA_AUTH_TOKEN = "qaAuthToken";
+    const req = mockRequest(readFileSync(`${resourcesBasePath}/blank.jpeg`), {
+      "x-recaptcha-token": undefined,
+      authorization: "Bearer qaAuthToken"
+    });
+    const res = mockResponse();
+
+    verifyRecaptchaToken.mockResolvedValueOnce(undefined);
+
+    const uploadResponse = {
+      expected: "response"
+    };
+    createUpload.mockResolvedValueOnce(uploadResponse);
+
+    await upload(req, res);
+
+    expect(verifyRecaptchaToken).not.toBeCalled();
+    expect(getSpace).toBeCalledWith(process.env.CONTENTFUL_SPACE_ID);
+    expect(getEnvironment).toBeCalledWith(process.env.CONTENTFUL_ENVIRONMENT);
+    expect(createUpload).toBeCalledWith({ file: req.body });
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
+    expect(res.send).toBeCalledWith(uploadResponse);
   });
 });

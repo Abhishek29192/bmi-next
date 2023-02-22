@@ -1,11 +1,10 @@
+import { Button, Grid } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React, { useState } from "react";
-import { Grid } from "@bmi/components";
-import { Button } from "@bmi/components";
 import { microCopy } from "../constants/microCopies";
+import ContactDetails, { Data as ContactDetailsData } from "./ContactDetails";
 import { useSiteContext } from "./Site";
 import styles from "./styles/Locations.module.scss";
-import ContactDetails, { Data as ContactDetailsData } from "./ContactDetails";
 
 export type Data = ContactDetailsData[];
 
@@ -17,10 +16,11 @@ const Locations = ({ data }: { data: Data }) => {
   const [numberVisible, setNumberVisible] = useState(LOCATIONS_PER_PAGE);
 
   const locationCards = (
-    <Grid container spacing={3}>
+    <Grid container={data.length > 1} spacing={3}>
       {data.slice(0, numberVisible).map((data, index) => {
+        const locationKey = `locations-card-${index}`;
         return (
-          <Grid item key={`locations-card-${index}`} xs={12} lg={6}>
+          <Grid key={locationKey} xs={12} lg={6} data-testid={locationKey}>
             <ContactDetails data={data} gtmLabel={data.title} />
           </Grid>
         );

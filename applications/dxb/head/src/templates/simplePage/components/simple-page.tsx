@@ -1,4 +1,9 @@
-import { HeroItem, Section, TableOfContent } from "@bmi/components";
+import {
+  HeroProps,
+  Section,
+  SpotlightHeroProps,
+  TableOfContent
+} from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
 import BackToResults from "../../../components/BackToResults";
@@ -8,6 +13,9 @@ import Breadcrumbs, {
 import ExploreBar, {
   Data as ExploreBarData
 } from "../../../components/ExploreBar";
+import LeadBlockSection, {
+  Data as LeadBlockSectionData
+} from "../../../components/LeadBlockSection";
 import { Data as LinkData } from "../../../components/Link";
 import LinkColumnsSection, {
   Data as LinkColumnsSectionData
@@ -29,9 +37,6 @@ import {
   generateHeroProps
 } from "../../../utils/heroLevelUtils";
 import { renderHero } from "../../../utils/heroTypesUI";
-import LeadBlockSection, {
-  Data as LeadBlockSectionData
-} from "../../../components/LeadBlockSection";
 
 export type Data = PageInfoData &
   PageData & {
@@ -91,14 +96,16 @@ const SimplePage = ({ data, pageContext }: Props) => {
   const {
     config: { isBrandProviderEnabled }
   } = useConfig();
-  const heroProps: HeroItem = generateHeroProps(
+
+  const heroLevel = generateHeroLevel(heroType, enhancedBreadcrumbs);
+  const heroProps: HeroProps | SpotlightHeroProps = generateHeroProps(
     title,
+    heroLevel,
     subtitle,
     featuredVideo,
     featuredMedia,
     cta
   );
-  const heroLevel = generateHeroLevel(heroType, enhancedBreadcrumbs);
 
   const isDarkThemed = heroType === "Spotlight" || heroLevel !== 3;
   const breadcrumbsNode = (
@@ -125,7 +132,7 @@ const SimplePage = ({ data, pageContext }: Props) => {
       variantCodeToPathMap={pageContext.variantCodeToPathMap}
       ogImageUrl={featuredMedia?.image?.file.url}
     >
-      {renderHero(heroProps, breadcrumbsNode, heroLevel, heroType, {
+      {renderHero(heroProps, breadcrumbsNode, heroType, {
         isHeroKeyLine: isHeroKeyLine
       })}
       <TableOfContent>

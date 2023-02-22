@@ -52,7 +52,7 @@ const triggerFullFetch = async (
       numberOfPages: numberOfPages
     })
   });
-  logger.info({ message: `Success triggerFullFetch: ${response}.` });
+  logger.info({ message: `Success triggerFullFetch: ${response.status}.` });
   return response;
 };
 
@@ -180,17 +180,32 @@ const handleRequest: HttpFunction = async (req, res) => {
   await triggerFullFetchBatch(PimTypes.Systems);
   await triggerDocumentsFullFetchBatch();
 
-  fetch(BUILD_TRIGGER_ENDPOINT, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({ foo: "bar" })
-  }).catch((error) => {
+  try {
+    // Constants for setting up metadata server request
+    // See https://cloud.google.com/compute/docs/instances/verifying-instance-identity#request_signature
+    const tokenUrl = `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${BUILD_TRIGGER_ENDPOINT!}`;
+
+    // fetch the auth token
+    const tokenResponse = await fetch(tokenUrl, {
+      headers: {
+        "Metadata-Flavor": "Google"
+      }
+    });
+    const token = await tokenResponse.text();
+
+    await fetchRetry(BUILD_TRIGGER_ENDPOINT!, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `bearer ${token}`
+      },
+      body: JSON.stringify({ foo: "bar" })
+    });
+  } catch (error) {
     logger.error({
       message: `Error whilst trying to trigger the build. ${error}`
     });
-  });
+  }
   logger.info({ message: "Build triggered successfully" });
   res.status(200).send("ok");
 };

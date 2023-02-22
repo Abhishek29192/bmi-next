@@ -1,4 +1,4 @@
-import { Container } from "@bmi/components";
+import { Container } from "@bmi-digital/components";
 import React from "react";
 import styles from "./Container.module.scss";
 

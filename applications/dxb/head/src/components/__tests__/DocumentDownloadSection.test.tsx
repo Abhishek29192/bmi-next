@@ -7,6 +7,7 @@ jest.mock("../Link", () => {
     getClickableActionFromUrl: mockGetClickableActionFromUrl
   };
 });
+import { ThemeProvider } from "@bmi-digital/components";
 import { fireEvent, render } from "@testing-library/react";
 import React from "react";
 import createContentfulDocument from "../../__tests__/helpers/ContentfulDocumentHelper";
@@ -51,21 +52,26 @@ const title = "Document Downloads title";
 
 describe("DocumentDownloadSection component", () => {
   it("renders correctly with all data", () => {
-    const { container, getByText } = render(
-      <DocumentDownloadSection
-        data={{
-          __typename: "ContentfulDocumentDownloadSection",
-          title,
-          description: {
-            raw: mockDescription,
-            references: []
-          },
-          documents: [document]
-        }}
-      />
+    const { container, getByText, getByTestId } = render(
+      <ThemeProvider>
+        <DocumentDownloadSection
+          data={{
+            __typename: "ContentfulDocumentDownloadSection",
+            title,
+            description: {
+              raw: mockDescription,
+              references: []
+            },
+            documents: [document]
+          }}
+        />
+      </ThemeProvider>
     );
 
-    const downloadButtons = container.querySelectorAll("table tbody button");
+    expect(container).toMatchSnapshot();
+    const downloadButtons = getByTestId(
+      "docment-download-section-download-button"
+    );
 
     expect(getByText(title)).toBeInTheDocument();
     expect(getByText(mockDescriptionText)).toBeInTheDocument();
@@ -76,9 +82,9 @@ describe("DocumentDownloadSection component", () => {
       getByText("MC: documentDownloadSection.download")
     ).toBeInTheDocument();
     expect(getByText(document.title)).toBeInTheDocument();
-    expect(downloadButtons.length).toBe(1);
+    expect(downloadButtons).toBeInTheDocument();
 
-    fireEvent.click(downloadButtons[0]);
+    fireEvent.click(getByTestId("docment-download-section-download-button"));
 
     expect(mockGetClickableActionFromUrl).toHaveBeenCalledWith(
       null,
@@ -91,14 +97,16 @@ describe("DocumentDownloadSection component", () => {
 
   it("renders correctly without data", () => {
     const { container } = render(
-      <DocumentDownloadSection
-        data={{
-          __typename: "ContentfulDocumentDownloadSection",
-          title: null,
-          description: null,
-          documents: []
-        }}
-      />
+      <ThemeProvider>
+        <DocumentDownloadSection
+          data={{
+            __typename: "ContentfulDocumentDownloadSection",
+            title: null,
+            description: null,
+            documents: []
+          }}
+        />
+      </ThemeProvider>
     );
 
     expect(container.querySelectorAll("table").length).toBe(0);
@@ -118,18 +126,22 @@ describe("DocumentDownloadSection component", () => {
       },
       __typename: "ContentfulDocument"
     });
-    const { container } = render(
-      <DocumentDownloadSection
-        data={{
-          __typename: "ContentfulDocumentDownloadSection",
-          title: null,
-          description: null,
-          documents: [documentWithUnknownContentType]
-        }}
-      />
+    const { container, getByTestId } = render(
+      <ThemeProvider>
+        <DocumentDownloadSection
+          data={{
+            __typename: "ContentfulDocumentDownloadSection",
+            title: null,
+            description: null,
+            documents: [documentWithUnknownContentType]
+          }}
+        />
+      </ThemeProvider>
     );
 
-    expect(container.querySelectorAll("table tbody button").length).toBe(1);
+    expect(
+      getByTestId("docment-download-section-download-button")
+    ).toBeInTheDocument();
     expect(container.querySelectorAll("table tbody svg").length).toBe(1);
   });
 });

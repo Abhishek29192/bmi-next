@@ -2,6 +2,11 @@ import firebase from "firebase-admin";
 import report from "gatsby-cli/lib/reporter";
 import { sourceNodes } from "../gatsby-node";
 
+const warn = jest.fn();
+jest.mock("gatsby-cli/lib/reporter", () => ({
+  warn: (text?: string) => warn(text)
+}));
+
 describe("getsby plugin firestore", () => {
   jest.spyOn(firebase, "initializeApp").mockImplementation();
   const settingsFn = jest.fn();

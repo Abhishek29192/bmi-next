@@ -1,9 +1,0 @@
-{
-  "title": "Coś poszło nie tak",
-  "body": "Wystąpił błąd, skontaktuj się z administratorem",
-  "user_blocked": "Użytkownik jest zablokowany",
-  "errorAlreadyMember": "Użytkownik jest już członkiem innej firmy",
-  "errorInvitationNotFound": "Nie znaleziono zaproszenia",
-  "errorUserBlocked": "Użytkownik jest zablokowany",
-  "errorAuthentication": "Błąd uwierzytelniania"
-}

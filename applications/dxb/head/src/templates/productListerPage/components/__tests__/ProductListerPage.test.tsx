@@ -1,5 +1,5 @@
+import { Filter, RegionCode, ThemeProvider } from "@bmi-digital/components";
 import * as all from "@bmi-digital/use-dimensions";
-import { Filter } from "@bmi/components";
 import type { Product as ESProduct } from "@bmi/elasticsearch-types";
 import { createProduct as createESProduct } from "@bmi/elasticsearch-types";
 import {
@@ -134,6 +134,7 @@ const siteData: SiteData = {
   regions: [
     {
       label: "Europe",
+      regionCode: RegionCode.Europe,
       menu: [
         { code: "al", label: "Albania", icon: "/icons/flags/al.svg" },
         { code: "at", label: "Österreich", icon: "/icons/flags/at.svg" },
@@ -186,6 +187,7 @@ function mockUseDimensions({
       .mockImplementationOnce(getDimensionHookFn(mediumTableWidth));
   }
 }
+
 const route = "/jest-test-page";
 const history = createHistory(createMemorySource(route));
 
@@ -212,15 +214,17 @@ const renderWithStylesAndLocationProvider = (
   } as Partial<EnvConfig["config"]>;
 
   return render(
-    <ConfigProvider
-      configObject={{ ...defaultPageEnvVars, ...mockEnvVariables }}
-    >
-      <ProvideStyles>
-        <LocationProvider history={history}>
-          <ProductListerPage data={pageData} pageContext={pageContext} />
-        </LocationProvider>
-      </ProvideStyles>
-    </ConfigProvider>
+    <ThemeProvider>
+      <ConfigProvider
+        configObject={{ ...defaultPageEnvVars, ...mockEnvVariables }}
+      >
+        <ProvideStyles>
+          <LocationProvider history={history}>
+            <ProductListerPage data={pageData} pageContext={pageContext} />
+          </LocationProvider>
+        </ProvideStyles>
+      </ConfigProvider>
+    </ThemeProvider>
   );
 };
 
@@ -357,15 +361,11 @@ describe("ProductListerPage template", () => {
         pageData.initialProducts = [productWithVariantAndBase];
         pageData.contentfulProductListerPage.heroType = "Level 1";
 
-        const { container } = renderWithStylesAndLocationProvider(
+        const { container, getByTestId } = renderWithStylesAndLocationProvider(
           pageData,
           pageContext
         );
-        await waitFor(() =>
-          expect(
-            container.querySelectorAll("[class*='Hero--lvl-1']").length
-          ).toBe(1)
-        );
+        await waitFor(() => expect(getByTestId("hero")).toBeInTheDocument());
         await waitFor(() => expect(container.parentElement).toMatchSnapshot());
       });
     });
@@ -394,7 +394,7 @@ describe("ProductListerPage template", () => {
           };
           const { container, getByLabelText, queryByText } =
             renderWithStylesAndLocationProvider(pageData, pageContext);
-          await getByLabelText(color1Label);
+          getByLabelText(color1Label);
           expect(queryByText(color2Label)).not.toBeNull();
           expect(container.parentElement).toMatchSnapshot();
         });
@@ -405,15 +405,9 @@ describe("ProductListerPage template", () => {
           pageData.initialProducts = [productWithVariantAndBase];
           pageData.contentfulProductListerPage.heroType = "Level 1";
 
-          const { container } = renderWithStylesAndLocationProvider(
-            pageData,
-            pageContext
-          );
-          await waitFor(() =>
-            expect(
-              container.querySelectorAll("[class*='Hero--lvl-1']").length
-            ).toBe(1)
-          );
+          const { container, getByTestId } =
+            renderWithStylesAndLocationProvider(pageData, pageContext);
+          await waitFor(() => expect(getByTestId("hero")).toBeInTheDocument());
           await waitFor(() =>
             expect(container.parentElement).toMatchSnapshot()
           );
@@ -440,7 +434,7 @@ describe("ProductListerPage template", () => {
           pageData.plpFilters.filters = productFilters;
           const { container, getByLabelText, queryByText } =
             renderWithStylesAndLocationProvider(pageData, pageContext);
-          await getByLabelText(size1Label);
+          getByLabelText(size1Label);
           expect(queryByText(size2Label)).not.toBeNull();
           expect(container.parentElement).toMatchSnapshot();
         });
@@ -612,7 +606,7 @@ describe("ProductListerPage template", () => {
     };
     const { container, queryByText, getByText } =
       renderWithStylesAndLocationProvider(pageData, pageContext);
-    expect(container.parentElement).toMatchSnapshot();
+    await waitFor(() => expect(container.parentElement).toMatchSnapshot());
     fireEvent.click(queryByText(color2Label));
     expect(window.history.replaceState).toHaveBeenCalledTimes(1);
     fireEvent.click(getByText("MC: plp.filters.clearAll"));
@@ -643,7 +637,7 @@ describe("ProductListerPage template", () => {
       pageData,
       pageContext
     );
-    expect(container.parentElement).toMatchSnapshot();
+    await waitFor(() => expect(container.parentElement).toMatchSnapshot());
   });
 
   it("should prevent fetch products on GATSBY_PREVIEW", async () => {

@@ -1,4 +1,4 @@
-import { Filter, Grid } from "@bmi/components";
+import { Filter, Grid } from "@bmi-digital/components";
 import React, { useEffect, useRef, useState } from "react";
 import FiltersSidebar from "../components/FiltersSidebar";
 import { microCopy } from "../constants/microCopies";
@@ -210,7 +210,7 @@ const SearchTabPanelPages = (props: Props) => {
   return (
     <Grid container spacing={3} ref={resultsElement}>
       {showSidebar ? (
-        <Grid item xs={12} md={12} lg={3}>
+        <Grid xs={12} md={12} lg={3}>
           <FiltersSidebar
             filters={filters}
             onFiltersChange={handleFiltersChange}
@@ -218,13 +218,7 @@ const SearchTabPanelPages = (props: Props) => {
           />
         </Grid>
       ) : null}
-      <Grid
-        item
-        xs={12}
-        md={12}
-        lg={showSidebar ? 9 : 12}
-        style={{ paddingTop: 0 }}
-      >
+      <Grid xs={12} md={12} lg={showSidebar ? 9 : 12} style={{ paddingTop: 0 }}>
         {results
           .filter(({ path }) => path)
           .map((result, index) => (

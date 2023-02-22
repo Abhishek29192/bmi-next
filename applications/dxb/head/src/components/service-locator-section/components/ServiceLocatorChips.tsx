@@ -1,16 +1,14 @@
-import { Grid } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import { Chip, ChipProps } from "@bmi/components";
+import { Chip, ChipProps, Grid, Typography } from "@bmi-digital/components";
 import React from "react";
-import styles from "../styles/ServiceLocatorSection.module.scss";
-import { useSiteContext } from "../../Site";
-import { ServiceTypesPrefixesEnum, ServiceTypeFilter } from "../../Service";
-import { Data as ServiceType } from "../../ServiceType";
 import withGTM from "../../../utils/google-tag-manager";
+import { ServiceTypeFilter, ServiceTypesPrefixesEnum } from "../../Service";
+import { Data as ServiceType } from "../../ServiceType";
+import { useSiteContext } from "../../Site";
+import styles from "../styles/ServiceLocatorSection.module.scss";
 
 interface ServiceLocatorChipsProps {
   microCopyPrefix: ServiceTypesPrefixesEnum;
-  onChipClick: (serviceType) => void;
+  onChipClick: (serviceType: ServiceType) => void;
   activeFilters: ServiceTypeFilter;
   uniqueRoofTypeByData: ServiceType[];
 }
@@ -25,7 +23,7 @@ export const ServiceLocatorChips = ({
   const GTMChip = withGTM<ChipProps>(Chip);
 
   return (
-    <Grid item xs={12} md={6} lg={8}>
+    <Grid xs={12} md={6} lg={8}>
       <div className={styles["filters"]}>
         <div className={styles["chips"]}>
           <Typography variant="h6" className={styles["chips-label"]}>
@@ -44,6 +42,10 @@ export const ServiceLocatorChips = ({
                   label: serviceType.name,
                   action: "Selector - Cards Filter"
                 }}
+                data-testid={`service-locator-chip-${serviceType.name.replace(
+                  / /g,
+                  "-"
+                )}`}
               >
                 {serviceType.name}
               </GTMChip>

@@ -101,7 +101,7 @@ export type ContentfulPromoCard = Node & {
   body: RichTextData | null;
   cta___NODE: string | null;
   cta: CTAType | null;
-  featuredVideo: ContentfulVideo;
+  featuredVideo: ContentfulVideo | null;
   featuredMedia: ContentfulImage;
   resources___NODE: string[];
   metadata: ContentfulTag;

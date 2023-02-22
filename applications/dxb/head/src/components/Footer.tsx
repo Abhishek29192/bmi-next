@@ -1,15 +1,21 @@
-import { Button, ButtonProps, logoIconMap } from "@bmi/components";
-import { Footer, FooterMenuItem, BMI as BmiIcon } from "@bmi/components";
-import { HidePrint } from "@bmi/components";
+import {
+  BMI as BmiIcon,
+  Button,
+  ButtonProps,
+  Footer,
+  FooterMenuItem,
+  HidePrint,
+  logoIconMap
+} from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
-import withGTM from "../utils/google-tag-manager";
 import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
+import withGTM from "../utils/google-tag-manager";
 import { iconMap } from "./Icon";
 import {
-  getClickableActionFromUrl,
   Data as LinkData,
+  getClickableActionFromUrl,
   NavigationData
 } from "./Link";
 import { useSiteContext } from "./Site";

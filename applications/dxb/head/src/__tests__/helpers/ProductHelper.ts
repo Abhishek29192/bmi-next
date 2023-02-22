@@ -15,6 +15,7 @@ import createVideo from "./VideoHelper";
 import createWeight from "./WeightHelper";
 
 export const createProduct = (product?: Partial<Product>): Product => ({
+  approvalStatus: "approved",
   awardsAndCertificateDocuments: [
     createAsset({ assetType: "AWARDS" }),
     createAsset({ assetType: "CERTIFICATES" })

@@ -1,23 +1,27 @@
 /* eslint-disable react/display-name */
-import React from "react";
+import {
+  AnchorLink,
+  AnchorLinkProps,
+  Typography,
+  transformHyphens
+} from "@bmi-digital/components";
+import { Options } from "@contentful/rich-text-react-renderer";
 import {
   BLOCKS,
-  MARKS,
-  INLINES,
   Block,
-  Inline
+  INLINES,
+  Inline,
+  MARKS
 } from "@contentful/rich-text-types";
-import { Options } from "@contentful/rich-text-react-renderer";
-import { Typography } from "@bmi/components";
-import { AnchorLink, AnchorLinkProps, transformHyphens } from "@bmi/components";
-import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { graphql } from "gatsby";
+import { renderRichText } from "gatsby-source-contentful/rich-text";
+import React from "react";
 import withGTM from "../utils/google-tag-manager";
+import EmbeddedAssetBlock from "./EmbeddedAssetBlock";
 import EmbeddedBlock from "./EmbeddedBlock";
 import EmbeddedInline from "./EmbeddedInline";
-import EmbeddedAssetBlock from "./EmbeddedAssetBlock";
 import InlineHyperlink from "./InlineHyperlink";
-import styles from "./styles/RichText.module.scss";
+import { StyledRichText, classes } from "./styles/RichTextStyles";
 
 export type RichTextData = Parameters<typeof renderRichText>[0];
 
@@ -52,7 +56,7 @@ const getOptions = (settings: Settings): Options => {
       },
       [BLOCKS.HEADING_2]: (_node, children) => (
         <Typography
-          className={styles["title"]}
+          className={classes.title}
           variant="h2"
           hasUnderline={underlineHeadings.includes("h2")}
         >
@@ -61,7 +65,7 @@ const getOptions = (settings: Settings): Options => {
       ),
       [BLOCKS.HEADING_3]: (_node, children) => (
         <Typography
-          className={styles["title"]}
+          className={classes.title}
           variant="h3"
           hasUnderline={underlineHeadings.includes("h3")}
         >
@@ -70,7 +74,7 @@ const getOptions = (settings: Settings): Options => {
       ),
       [BLOCKS.HEADING_4]: (_node, children) => (
         <Typography
-          className={styles["title"]}
+          className={classes.title}
           variant="h4"
           hasUnderline={underlineHeadings.includes("h4")}
         >
@@ -79,7 +83,7 @@ const getOptions = (settings: Settings): Options => {
       ),
       [BLOCKS.HEADING_5]: (_node, children) => (
         <Typography
-          className={styles["title"]}
+          className={classes.title}
           variant="h5"
           hasUnderline={underlineHeadings.includes("h5")}
         >
@@ -88,7 +92,7 @@ const getOptions = (settings: Settings): Options => {
       ),
       [BLOCKS.HEADING_6]: (_node, children) => (
         <Typography
-          className={styles["title"]}
+          className={classes.title}
           variant="h6"
           hasUnderline={underlineHeadings.includes("h6")}
         >
@@ -99,7 +103,7 @@ const getOptions = (settings: Settings): Options => {
         <EmbeddedBlock node={node} {...settings} />
       ),
       [BLOCKS.EMBEDDED_ASSET]: (node: Block) => (
-        <EmbeddedAssetBlock node={node} className={styles["embedded-asset"]} />
+        <EmbeddedAssetBlock node={node} className="embedded-asset" />
       ),
       [INLINES.ENTRY_HYPERLINK]: (node: Inline, children: React.ReactNode) => (
         <InlineHyperlink node={node} gtmLabel={gtmLabel}>
@@ -159,9 +163,9 @@ const RichText = ({
   }
 
   return (
-    <div className={styles["RichText"]}>
+    <StyledRichText className={classes.root}>
       {renderRichText(document, getOptions(rest))}
-    </div>
+    </StyledRichText>
   );
 };
 

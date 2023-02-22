@@ -1,16 +1,19 @@
+import {
+  Button,
+  CardInput,
+  FormContext,
+  Grid,
+  InputValue,
+  RawTextField
+} from "@bmi-digital/components";
 import React, { useContext, useEffect, useMemo, useState } from "react";
-import { Grid } from "@bmi/components";
-import { Button } from "@bmi/components";
-import { RawTextField } from "@bmi/components";
-import { FormContext, InputValue } from "@bmi/components";
-import { CardInput } from "@bmi/components";
-import { getMicroCopy, MicroCopyContext } from "../helpers/microCopy";
-import { getFieldTypes, Type } from "../helpers/fieldTypes";
 import { AnalyticsContext } from "../helpers/analytics";
-import FieldContainer from "./subcomponents/_FieldContainer";
-import styles from "./_Protrusions.module.scss";
-import inputStyles from "./subcomponents/_InputTextField.module.scss";
+import { getFieldTypes, Type } from "../helpers/fieldTypes";
+import { getMicroCopy, MicroCopyContext } from "../helpers/microCopy";
 import protrusionTypes from "./calculation/protrusions";
+import FieldContainer from "./subcomponents/_FieldContainer";
+import inputStyles from "./subcomponents/_InputTextField.module.scss";
+import styles from "./_Protrusions.module.scss";
 
 type SelectProtrusionProps = {
   id: string;
@@ -41,7 +44,7 @@ const SelectProtrusion = ({
     <FieldContainer>
       <Grid container>
         {Object.entries(protrusionTypes).map(([type, { illustration }]) => (
-          <Grid key={type} item xs={6} lg={2}>
+          <Grid key={type} xs={6} lg={2}>
             <CardInput
               name={`select-protrusion-${id}`}
               value={type}
@@ -156,14 +159,14 @@ const ProtrusionDimensions = ({
       title={getMicroCopy(copy, "roofDimensions.protrusions.prompt")}
     >
       <Grid container className={styles["dimensions"]}>
-        <Grid item xs={12} lg={3}>
+        <Grid xs={12} lg={3}>
           <DimensionsIllustration />
         </Grid>
-        <Grid item md={1} className={styles["showOnLarge"]}></Grid>
-        <Grid item xs={12} lg={3}>
+        <Grid md={1} className={styles["showOnLarge"]}></Grid>
+        <Grid xs={12} lg={3}>
           <Grid container>
             {fields.map(({ name, type }: { name: string; type: Type }) => (
-              <Grid key={`protrusion-${id}-${name}`} item xs={12}>
+              <Grid key={`protrusion-${id}-${name}`} xs={12}>
                 <Input
                   key={`${protrusionType}-${name}`} // make sure to reset the state everytime the protrusionType changes
                   label={name}
@@ -174,7 +177,7 @@ const ProtrusionDimensions = ({
                 />
               </Grid>
             ))}
-            <Grid item xs={12}>
+            <Grid xs={12}>
               {onAddAnother ? (
                 <Button
                   variant="text"

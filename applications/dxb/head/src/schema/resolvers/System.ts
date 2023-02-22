@@ -1,6 +1,7 @@
 import { Product, System } from "@bmi/firestore-types";
-import { AssetType } from "../../types/pim";
+import { AssetType, SystemDocumentWithAssetType } from "../../types/pim";
 import { Context, Node, ResolveArgs } from "./types/Gatsby";
+import { getDefaultYoutubePreviewImage } from "./utils/getDefaultYoutubePreviewImage";
 
 const createResolver = (field: keyof Node) => ({
   type: ["Product"],
@@ -71,20 +72,29 @@ export default {
         { connectionType: "ContentfulAssetType" }
       );
 
-      const assetTypes = [...entries]
-        .filter(
-          (assetType) =>
-            !["BIM", "FIXING_TOOL", "SPECIFICATION", "VIDEO"].find(
-              (pimCode) => pimCode === assetType.pimCode
-            )
-        )
-        .map((assetType) => assetType.pimCode);
-
-      return source.documents.filter(
-        (document) =>
-          document.assetType &&
-          assetTypes.some((assetType) => assetType === document.assetType)
+      const marketAssetTypes = [...entries].filter(
+        (assetType) =>
+          !["BIM", "FIXING_TOOL", "SPECIFICATION", "VIDEO"].find(
+            (pimCode) => pimCode === assetType.pimCode
+          )
       );
+
+      const validPimCodes = marketAssetTypes.map(
+        (assetType) => assetType.pimCode
+      );
+
+      return source.documents
+        .filter(
+          (document) =>
+            document.assetType &&
+            validPimCodes.some((assetType) => assetType === document.assetType)
+        )
+        .map((doc) => ({
+          ...doc,
+          assetType: marketAssetTypes.find(
+            (fullAssetType) => fullAssetType.pimCode === doc.assetType
+          )
+        })) as SystemDocumentWithAssetType[];
     }
   },
   relatedOptionalProducts: createResolver("relatedOptionalProducts"),
@@ -124,6 +134,22 @@ export default {
 
           return weightB - weightA;
         });
+    }
+  },
+  videos: {
+    type: ["PimVideo"],
+    async resolve(source: System, args: ResolveArgs, context: Context) {
+      return await Promise.all(
+        source.videos.map(async (video) => {
+          const defaultYouTubePreviewImage =
+            await getDefaultYoutubePreviewImage(video.videoUrl);
+          return {
+            __typename: "PimVideo",
+            defaultYouTubePreviewImage,
+            ...video
+          };
+        })
+      );
     }
   }
 };

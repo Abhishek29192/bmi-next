@@ -1,4 +1,4 @@
-import { Filter, FilterProps, Grid } from "@bmi/components";
+import { Filter, FilterProps, Grid } from "@bmi-digital/components";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import FiltersSidebar from "../components/FiltersSidebar";
 import ProductsGridView from "../components/ProductsGridView";
@@ -19,6 +19,7 @@ import {
 } from "../utils/filters";
 import { enhanceColourFilterWithSwatches } from "../utils/filtersUI";
 import ResultsPagination from "./ResultsPagination";
+import { ProductListWrapperGrid } from "./styles/SearchTabProductsStyles";
 
 const PAGE_SIZE = 24;
 const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_PRODUCTS;
@@ -237,21 +238,21 @@ const SearchTabPanelProducts = (props: Props) => {
 
   return (
     <Grid container spacing={3} ref={resultsElement}>
-      <Grid item xs={12} md={12} lg={3}>
+      <Grid xs={12} md={12} lg={3}>
         <FiltersSidebar
           filters={filters}
           onFiltersChange={handleFiltersChange}
           onClearFilters={clearFilters}
         />
       </Grid>
-      <Grid item xs={12} md={12} lg={9} style={{ paddingTop: 60 }}>
-        <Grid container spacing={3}>
+      <Grid xs={12} md={12} lg={9} style={{ paddingTop: 60 }}>
+        <ProductListWrapperGrid container spacing={3}>
           <ProductsGridView
             isLoading={isLoading}
             products={products}
             pageContext={pageContext}
           />
-        </Grid>
+        </ProductListWrapperGrid>
         <div style={{ marginTop: 48, marginBottom: 48 }}>
           <ResultsPagination
             page={page + 1}

@@ -1,12 +1,14 @@
-import { Button, ButtonProps, ClickableAction } from "@bmi/components";
-import { GetApp } from "@material-ui/icons";
+import { Button, ButtonProps, ClickableAction } from "@bmi-digital/components";
+import { GetApp } from "@mui/icons-material";
 import fetch, { Response } from "node-fetch";
 import React from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import { QA_AUTH_TOKEN } from "../constants/cookieConstants";
 import { useConfig } from "../contexts/ConfigProvider";
 import { KeyAssetDocument, ProductDocument } from "../types/pim";
 import { downloadAs, getDownloadLink } from "../utils/client-download";
 import { devLog } from "../utils/devLog";
+import getCookie from "../utils/getCookie";
 import withGTM from "../utils/google-tag-manager";
 import Icon from "./Icon";
 import styles from "./styles/KeyAssetTypesDownloadSection.module.scss";
@@ -23,8 +25,9 @@ const GTMButton = withGTM<
 
 const handleDownloadClick = async (
   list: readonly ProductDocument[],
-  token: string,
-  documentDownloadEndpoint: string
+  documentDownloadEndpoint: string,
+  token?: string,
+  qaAuthToken?: string
 ) => {
   const [currentTime] = new Date().toJSON().replace(/[-:T]/g, "").split(".");
 
@@ -34,12 +37,16 @@ const handleDownloadClick = async (
       name: item.title
     }));
 
+    let headers: HeadersInit = {
+      "Content-Type": "application/json",
+      "X-Recaptcha-Token": token
+    };
+    if (qaAuthToken) {
+      headers = { ...headers, authorization: `Bearer ${qaAuthToken}` };
+    }
     const response: Response = await fetch(documentDownloadEndpoint, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "X-Recaptcha-Token": token
-      },
+      headers,
       body: JSON.stringify({ documents })
     });
 
@@ -58,6 +65,7 @@ const handleDownloadClick = async (
 const KeyAssetTypesDownloadSection = ({ keyAssetDocuments }: Props) => {
   const { executeRecaptcha } = useGoogleReCaptcha();
   const { config } = useConfig();
+  const qaAuthToken = getCookie(QA_AUTH_TOKEN);
 
   return (
     <div className={styles["container"]}>
@@ -102,11 +110,14 @@ const KeyAssetTypesDownloadSection = ({ keyAssetDocuments }: Props) => {
                         return;
                       }
 
-                      const token = await executeRecaptcha();
+                      const token = qaAuthToken
+                        ? undefined
+                        : await executeRecaptcha();
                       await handleDownloadClick(
                         documents,
+                        documentDownloadEndpoint,
                         token,
-                        documentDownloadEndpoint
+                        qaAuthToken
                       );
                     }
                   : undefined

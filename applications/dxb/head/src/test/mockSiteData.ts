@@ -1,7 +1,8 @@
+import { RegionCode } from "@bmi-digital/components";
 import { DataTypeEnum } from "../components/Link";
 import { Data as SiteData } from "../components/Site";
 
-export const createMockSiteData = (): SiteData => ({
+export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
   node_locale: "en-GB",
   homePage: {
     title: "Home"
@@ -1542,6 +1543,7 @@ export const createMockSiteData = (): SiteData => ({
   regions: [
     {
       label: "Europe",
+      regionCode: RegionCode.Europe,
       menu: [
         { code: "al", label: "Albania", icon: "/icons/flags/al.svg" },
         { code: "at", label: "Österreich", icon: "/icons/flags/at.svg" },
@@ -1551,5 +1553,6 @@ export const createMockSiteData = (): SiteData => ({
     }
   ],
   pitchedRoofCalculatorConfig: null,
-  visualiserHouseTypes: null
+  visualiserHouseTypes: null,
+  ...siteData
 });

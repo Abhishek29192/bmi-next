@@ -3,12 +3,7 @@
 module.exports = {
   coverageDirectory: "coverage",
   coverageReporters: ["json", "lcov", "text", "text-summary", "cobertura"],
-  coveragePathIgnorePatterns: [
-    "node_modules/",
-    "coverage/",
-    "coverage-ts/",
-    "__tests__/"
-  ],
+  coveragePathIgnorePatterns: ["node_modules/", "coverage/", "__tests__/"],
   collectCoverageFrom: [
     "**/*.{ts,tsx,js}",
     "!**/node_modules/**",
@@ -18,14 +13,12 @@ module.exports = {
     "!**/.*.js",
     "!coverage/**",
     "!jest/**",
-    "!libraries/fetch-mocks/**",
     "!tmp/**",
     "!**/.cache/**",
     "!**/dist/**"
   ],
   preset: "ts-jest",
-  testEnvironment: "jsdom",
-  roots: ["<rootDir>/applications"],
+  projects: ["./applications/**/jest.config.js"],
   testMatch: ["**/__tests__/**/*.+(test).(ts|tsx|js)"],
   testPathIgnorePatterns: ["node_modules", "dist"],
   moduleNameMapper: {
@@ -42,7 +35,9 @@ module.exports = {
     "^.+\\.(ts|tsx)$": "ts-jest",
     "^.+\\.(js|jsx)$": "babel-jest"
   },
-  transformIgnorePatterns: ["node_modules/(?!(three|lodash-es)/)"],
+  transformIgnorePatterns: [
+    "node_modules/(?!(three|lodash-es|@bmi-digital/components)/)"
+  ],
   setupFiles: ["<rootDir>/jest/src/setEnvVars.ts"],
   setupFilesAfterEnv: [
     "jest-mock-console/dist/setupTestFramework.js",

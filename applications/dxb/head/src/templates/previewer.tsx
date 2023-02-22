@@ -1,6 +1,6 @@
-import React, { useEffect, useMemo } from "react";
 import { graphql, navigate } from "gatsby";
 import queryString from "query-string";
+import React, { useEffect, useMemo } from "react";
 
 type Data = {
   contentfulSite: {
@@ -41,7 +41,13 @@ const Previewer = ({ data }: { data: Data }) => {
 
   useEffect(() => {
     if (pageData) {
-      navigate(`/${data.contentfulSite.countryCode}/${pageData.path}`);
+      navigate(
+        `/${
+          process.env.GATSBY_DONT_USE_COUNTRY_CODE
+            ? ""
+            : `${data.contentfulSite.countryCode}/`
+        }${pageData.path}`
+      );
     }
   }, [pageData]);
 

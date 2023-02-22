@@ -2,11 +2,14 @@ import {
   Button,
   ButtonProps,
   ClickableAction,
+  External,
+  ExternalMobile,
+  FileZIP,
   Icon,
-  iconMap,
   Typography
-} from "@bmi/components";
-import { GetApp } from "@material-ui/icons";
+} from "@bmi-digital/components";
+import { GetApp } from "@mui/icons-material";
+import { styled } from "@mui/material/styles";
 import classnames from "classnames";
 import filesize from "filesize";
 import React from "react";
@@ -20,8 +23,6 @@ import {
   MultipleAssetToFileDownload
 } from "./DocumentSimpleTableResults";
 import fileIconsMap from "./FileIconsMap";
-import styles from "./styles/DocumentSimpleTableResults.module.scss";
-import stylesMobile from "./styles/DocumentSimpleTableResultsMobile.module.scss";
 
 type ListProps = {
   documents: readonly Document[];
@@ -33,55 +34,114 @@ const GTMButton = withGTM<
   }
 >(Button);
 
+const StyledListItem = styled("div")(({ theme }) => ({
+  padding: "20px 0 12px",
+  position: "relative",
+  minHeight: "126px",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "space-between",
+
+  "&:nth-child(2n + 1)": {
+    "&::before": {
+      content: "''",
+      display: "block",
+      position: "absolute",
+      left: "-20px",
+      right: "-20px",
+      bottom: 0,
+      top: 0,
+      "background-color": theme.colours.pearl
+    }
+  }
+}));
+
+const StyledListTitleRow = styled("div")(({ theme }) => ({
+  display: "flex",
+  position: "relative"
+}));
+
+const StyledListDownloadRow = styled("div")(({ theme }) => ({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+  position: "relative"
+}));
+
+const StyledDocumentTitle = styled(Typography)(({ theme }) => ({
+  lineHeight: "31px",
+  color: theme.colours.slate,
+  paddingTop: "5px",
+  fontFamily: "Effra Medium",
+  display: "-webkit-box",
+  WebkitLineClamp: 3,
+  WebkitBoxOrient: "vertical",
+  overflow: "hidden"
+}));
+
+const StyledDocumentType = styled(Typography)(({ theme }) => ({
+  color: theme.colours.slate,
+  lineHeight: "19px"
+}));
+
+const StyledListIcon = styled("div")(({ theme }) => ({
+  marginRight: "12px",
+  display: "flex"
+}));
+
+const StyledExternalLinkIcon = styled(Icon)(({ theme }) => ({
+  fill: theme.colours.inter,
+  width: "16px",
+  height: "16px",
+  margin: "6px 8px"
+}));
+
+const StyledDownloadIcon = styled(Icon)(({ theme }) => ({
+  width: "32px",
+  height: "32px"
+}));
+
 const MultipleDocumentsToZipFile = ({
   document
 }: {
   document: PseudoZipPIMDocument;
 }) => {
   return (
-    <div className={stylesMobile["list-item"]}>
-      <div className={stylesMobile["list-title-row"]}>
-        <div className={stylesMobile["list-icon"]}>
-          <Icon
+    <StyledListItem>
+      <StyledListTitleRow>
+        <StyledListIcon>
+          <StyledDownloadIcon
             // eslint-disable-next-line security/detect-object-injection
-            source={iconMap.FileZIP}
-            className={styles["download-icon"]}
+            source={FileZIP}
+            className={classnames("download-icon")}
           />
-        </div>
-        <Typography className={stylesMobile["document-title"]}>
-          {document.assetType.name}
-        </Typography>
-      </div>
-      <div className={stylesMobile["list-download-row"]}>
-        <Typography className={stylesMobile["document-type"]}>
-          {document.assetType.name}
-        </Typography>
+        </StyledListIcon>
+        <StyledDocumentTitle>{document.assetType.name}</StyledDocumentTitle>
+      </StyledListTitleRow>
+      <StyledListDownloadRow>
+        <StyledDocumentType>{document.assetType.name}</StyledDocumentType>
         <MultipleAssetToFileDownload document={document} isMobile />
-      </div>
-    </div>
+      </StyledListDownloadRow>
+    </StyledListItem>
   );
 };
 
 const ListItem = ({ asset }: { asset: FileDownloadButtonProps }) => {
   return (
-    <div className={stylesMobile["list-item"]}>
-      <div className={stylesMobile["list-title-row"]}>
+    <StyledListItem>
+      <StyledListTitleRow>
         {!asset.isLinkDocument && (
-          <div className={stylesMobile["list-icon"]}>
-            <Icon
-              source={fileIconsMap[asset.format] || iconMap.External}
-              className={styles["download-icon"]}
+          <StyledListIcon>
+            <StyledDownloadIcon
+              source={fileIconsMap[asset.format] || External}
+              className={classnames("download-icon")}
             />
-          </div>
+          </StyledListIcon>
         )}
-        <Typography className={stylesMobile["document-title"]}>
-          {asset.title}
-        </Typography>
-      </div>
-      <div className={stylesMobile["list-download-row"]}>
-        <Typography className={stylesMobile["document-type"]}>
-          {asset.assetTypeName}
-        </Typography>
+        <StyledDocumentTitle>{asset.title}</StyledDocumentTitle>
+      </StyledListTitleRow>
+      <StyledListDownloadRow>
+        <StyledDocumentType>{asset.assetTypeName}</StyledDocumentType>
         {!asset.isLinkDocument ? (
           <GTMButton
             gtm={{
@@ -110,14 +170,11 @@ const ListItem = ({ asset }: { asset: FileDownloadButtonProps }) => {
               rel: "noopener noreferrer"
             }}
           >
-            <Icon
-              source={iconMap.ExternalMobile}
-              className={stylesMobile["external-link-icon"]}
-            />
+            <StyledExternalLinkIcon source={ExternalMobile} />
           </Button>
         )}
-      </div>
-    </div>
+      </StyledListDownloadRow>
+    </StyledListItem>
   );
 };
 
@@ -134,14 +191,5 @@ export const DocumentSimpleTableResultsMobile = ({
     );
   });
 
-  return (
-    <div
-      className={classnames(
-        stylesMobile["DocumentSimpleTableResultsMobile"],
-        styles["DocumentSimpleTableResults"]
-      )}
-    >
-      {list}
-    </div>
-  );
+  return <div>{list}</div>;
 };

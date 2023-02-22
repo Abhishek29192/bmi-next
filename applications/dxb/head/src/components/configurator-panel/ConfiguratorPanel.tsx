@@ -1,10 +1,15 @@
-import React, { ChangeEvent, ReactNode } from "react";
-import { Typography } from "@bmi/components";
-import Accordion, { AccordionProps } from "@material-ui/core/Accordion";
-import AccordionDetails from "@material-ui/core/AccordionDetails";
-import AccordionSummary from "@material-ui/core/AccordionSummary";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import styles from "./ConfiguratorPanel.module.scss";
+import { Typography } from "@bmi-digital/components";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { AccordionProps } from "@mui/material";
+import React, { ReactNode } from "react";
+import {
+  classes,
+  Content,
+  Root,
+  StyledAccordion,
+  StyledAccordionDetails,
+  StyledAccordionSummary
+} from "./styles";
 
 export type ConfiguratorPanelProps = {
   title: string;
@@ -12,10 +17,7 @@ export type ConfiguratorPanelProps = {
   isExpanded?: boolean;
   options?: ReactNode[];
   children?: ReactNode;
-  handleOnChange?: (
-    event: ChangeEvent<Record<string, unknown>>,
-    expanded: boolean
-  ) => void;
+  handleOnChange?: (event: React.SyntheticEvent, expanded: boolean) => void;
 } & Partial<AccordionProps>;
 
 const ConfiguratorPanel = (
@@ -31,29 +33,30 @@ const ConfiguratorPanel = (
   forwardedRef?: React.Ref<HTMLDivElement>
 ) => {
   return (
-    <div ref={forwardedRef} className={styles["ConfiguratorPanel"]}>
-      <Accordion
+    <Root ref={forwardedRef}>
+      <StyledAccordion
         square
-        className={styles["panel"]}
         elevation={0}
         expanded={isExpanded}
         onChange={handleOnChange}
+        data-testid="configurator-panel-accordion"
         {...rest}
       >
-        <AccordionSummary
-          className={styles["summary"]}
+        <StyledAccordionSummary
           expandIcon={<ExpandMoreIcon />}
+          data-testid="configurator-panel-accordion-summary"
         >
           <Typography
             color="inherit"
             component="h3"
             variant="h3"
-            className={styles["title"]}
+            className={classes.title}
+            data-testid="configurator-panel-accordion-summary-title"
           >
             {selectedOptionTitle ? (
               <>
                 {`${title}: `}
-                <span className={styles["selected-title"]}>
+                <span className={classes.selectedTitle}>
                   {selectedOptionTitle}
                 </span>
               </>
@@ -61,13 +64,17 @@ const ConfiguratorPanel = (
               title
             )}
           </Typography>
-        </AccordionSummary>
-        <AccordionDetails className={styles["details"]}>
-          {children && <div className={styles["content"]}>{children}</div>}
+        </StyledAccordionSummary>
+        <StyledAccordionDetails data-testid="configurator-panel-accordion-details">
+          {children && (
+            <Content data-testid="configurator-panel-accordion-details-content">
+              {children}
+            </Content>
+          )}
           {options}
-        </AccordionDetails>
-      </Accordion>
-    </div>
+        </StyledAccordionDetails>
+      </StyledAccordion>
+    </Root>
   );
 };
 

@@ -5,9 +5,9 @@ import {
   OverviewCardProps,
   Section,
   SectionBackgroundColor
-} from "@bmi/components";
+} from "@bmi-digital/components";
 import { System as EsSystem } from "@bmi/elasticsearch-types";
-import { Add as AddIcon } from "@material-ui/icons";
+import { Add as AddIcon } from "@mui/icons-material";
 import { graphql, Link } from "gatsby";
 import React, { useState } from "react";
 import { microCopy } from "../constants/microCopies";
@@ -49,7 +49,7 @@ export const SystemCard = ({
   const GTMOverviewCard = withGTM<OverviewCardProps>(OverviewCard);
 
   return (
-    <Grid item xs={12} md={6} lg={3}>
+    <Grid xs={12} md={6} lg={3}>
       <GTMOverviewCard
         title={system.name}
         titleVariant="h5"

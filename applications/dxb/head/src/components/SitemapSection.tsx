@@ -1,7 +1,7 @@
+import { Section } from "@bmi-digital/components";
 import React from "react";
-import { Section } from "@bmi/components";
-import SitemapBlock from "./SitemapBlock";
 import { NavigationData } from "./Link";
+import SitemapBlock from "./SitemapBlock";
 
 type Props = {
   data: NavigationData;

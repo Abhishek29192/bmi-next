@@ -3,19 +3,20 @@ import {
   ButtonProps,
   Header as HeaderComponent,
   HidePrint,
-  Tab,
+  RegionCode,
   TabProps
-} from "@bmi/components";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+} from "@bmi-digital/components";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import Tab from "@mui/material/Tab";
 import { graphql, Link, withPrefix } from "gatsby";
 import React, { useMemo } from "react";
 import Image from "../components/Image";
 import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
 import { useBasketContext } from "../contexts/SampleBasketContext";
+import { checkIfActiveLabelInParentNode } from "../utils/breadcrumbUtils";
 import withGTM, { pushToDataLayer, useGTM } from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
-import { checkIfActiveLabelInParentNode } from "../utils/breadcrumbUtils";
 import { iconMap } from "./Icon";
 import {
   Data as LinkData,
@@ -154,6 +155,7 @@ const onCountrySelection = (label: string, code: string) =>
 
 export type Region = {
   label: string;
+  regionCode: RegionCode;
   menu: Array<{
     code: string;
     label: string;
@@ -181,7 +183,7 @@ const Header = ({
   countryNavigationIntroduction?: RichTextData | null;
   regions: Region[];
   sampleBasketLink?: PageInfoData;
-  maximumSamples?: number;
+  maximumSamples: number | null;
   lastNavigationLabel?: string;
 }) => {
   const languages = useMemo(
@@ -271,6 +273,7 @@ const Header = ({
             />
           )}
           isBasketEmpty={productsInBasket.length === 0}
+          shoppingCartCount={productsInBasket.length}
           basketLabel={getMicroCopy(microCopy.BASKET_LABEL)}
           SampleBasketDialog={(props: () => void) => (
             <SampleBasketDialog
@@ -428,6 +431,7 @@ export const query = graphql`
   }
   fragment RegionFragment on RegionJson {
     label
+    regionCode
     menu {
       code
       label

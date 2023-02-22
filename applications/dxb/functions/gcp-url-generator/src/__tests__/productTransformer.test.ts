@@ -14,6 +14,11 @@ jest.mock("@bmi-digital/functions-logger");
 const transformProduct = async (product: Product) =>
   (await import("../productTransformer")).transformProduct(product);
 
+beforeEach(() => {
+  process.env.GATSBY_SITE_URL = "http://localhost:8000";
+  process.env.COUNTRY_CODE = "no";
+});
+
 describe("transformProduct", () => {
   it("transforms a product with no variants", async () => {
     const product = createProduct({ variantOptions: undefined });
@@ -61,7 +66,7 @@ describe("transformProduct", () => {
     expect(transformedProducts).toEqual([
       {
         catalog: "pim-catalog-name",
-        url: "/p/name-3464354221",
+        url: "http://localhost:8000/no/p/name-3464354221",
         variantCode: "variant-code"
       }
     ]);
@@ -74,7 +79,7 @@ describe("transformProduct", () => {
       Array [
         Object {
           "catalog": "pim-catalog-name",
-          "url": "/p/name-shadow-black-gloss-concrete-3464354221",
+          "url": "http://localhost:8000/no/p/name-shadow-black-gloss-concrete-3464354221",
           "variantCode": "variant-code",
         },
       ]
@@ -174,47 +179,11 @@ describe("transformProduct", () => {
       Array [
         Object {
           "catalog": "pim-catalog-name",
-          "url": "/p/name-shadow-black-gloss-concrete-3464354221",
+          "url": "http://localhost:8000/no/p/name-shadow-black-gloss-concrete-3464354221",
           "variantCode": "variant-code",
         },
       ]
     `);
-  });
-
-  it("ignores check approval status base products", async () => {
-    const product = createProduct({
-      approvalStatus: "check",
-      variantOptions: [createVariantOption()]
-    });
-    const transformedProducts = await transformProduct(product);
-    expect(transformedProducts).toHaveLength(0);
-  });
-
-  it("ignores unapproved approval status base products", async () => {
-    const product = createProduct({
-      approvalStatus: "unapproved",
-      variantOptions: [createVariantOption()]
-    });
-    const transformedProducts = await transformProduct(product);
-    expect(transformedProducts).toHaveLength(0);
-  });
-
-  it("handles classifications not being present on the related variants", async () => {
-    const product = createProduct({
-      classifications: undefined,
-      variantOptions: [
-        createVariantOption({
-          code: "variant1",
-          classifications: undefined
-        }),
-        createVariantOption({
-          code: "variant2",
-          classifications: undefined
-        })
-      ]
-    });
-    const transformedProducts = await transformProduct(product);
-    expect(transformedProducts).toHaveLength(2);
   });
 
   it("creates path from variant attribute if variant attrubite present and ENABLE_PDP_VARIANT_ATTRIBUTE_URL is true", async () => {
@@ -264,10 +233,10 @@ describe("transformProduct", () => {
     });
     const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].url).toEqual(
-      `/p/product-name-diameter-40mm-2526773877`
+      `http://localhost:8000/no/p/product-name-diameter-40mm-2526773877`
     );
     expect(transformedProducts[1].url).toEqual(
-      `/p/product-name-diameter-40mm-2669911658`
+      `http://localhost:8000/no/p/product-name-diameter-40mm-2669911658`
     );
     process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL =
       originalEnablePdpVariantAttributeUrl;
@@ -315,10 +284,10 @@ describe("transformProduct", () => {
     });
     const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].url).toEqual(
-      `/p/product-name-black-gloss-clay-2526773877`
+      `http://localhost:8000/no/p/product-name-black-gloss-clay-2526773877`
     );
     expect(transformedProducts[1].url).toEqual(
-      `/p/product-name-black-gloss-clay-2669911658`
+      `http://localhost:8000/no/p/product-name-black-gloss-clay-2669911658`
     );
 
     process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL =
@@ -372,10 +341,10 @@ describe("transformProduct", () => {
     });
     const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].url).toEqual(
-      `/p/product-name-black-gloss-clay-2526773877`
+      `http://localhost:8000/no/p/product-name-black-gloss-clay-2526773877`
     );
     expect(transformedProducts[1].url).toEqual(
-      `/p/product-name-black-gloss-clay-2669911658`
+      `http://localhost:8000/no/p/product-name-black-gloss-clay-2669911658`
     );
 
     process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL =
@@ -429,10 +398,10 @@ describe("transformProduct", () => {
     });
     const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].url).toEqual(
-      `/p/product-name-black-gloss-clay-2526773877`
+      `http://localhost:8000/no/p/product-name-black-gloss-clay-2526773877`
     );
     expect(transformedProducts[1].url).toEqual(
-      `/p/product-name-black-gloss-clay-2669911658`
+      `http://localhost:8000/no/p/product-name-black-gloss-clay-2669911658`
     );
 
     process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL =
@@ -466,10 +435,10 @@ describe("transformProduct", () => {
     });
     const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].url).toEqual(
-      `/p/product-name-black-2526773877`
+      `http://localhost:8000/no/p/product-name-black-2526773877`
     );
     expect(transformedProducts[1].url).toEqual(
-      `/p/product-name-black-2669911658`
+      `http://localhost:8000/no/p/product-name-black-2669911658`
     );
 
     process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL =
@@ -503,10 +472,10 @@ describe("transformProduct", () => {
     });
     const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].url).toEqual(
-      `/p/product-name-gloss-2526773877`
+      `http://localhost:8000/no/p/product-name-gloss-2526773877`
     );
     expect(transformedProducts[1].url).toEqual(
-      `/p/product-name-gloss-2669911658`
+      `http://localhost:8000/no/p/product-name-gloss-2669911658`
     );
 
     process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL =
@@ -540,10 +509,10 @@ describe("transformProduct", () => {
     });
     const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].url).toEqual(
-      `/p/product-name-clay-2526773877`
+      `http://localhost:8000/no/p/product-name-clay-2526773877`
     );
     expect(transformedProducts[1].url).toEqual(
-      `/p/product-name-clay-2669911658`
+      `http://localhost:8000/no/p/product-name-clay-2669911658`
     );
 
     process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL =
@@ -597,10 +566,10 @@ describe("transformProduct", () => {
     });
     const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].url).toEqual(
-      `/p/product-name-black-gloss-clay-2526773877`
+      `http://localhost:8000/no/p/product-name-black-gloss-clay-2526773877`
     );
     expect(transformedProducts[1].url).toEqual(
-      `/p/product-name-black-gloss-clay-2669911658`
+      `http://localhost:8000/no/p/product-name-black-gloss-clay-2669911658`
     );
 
     process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL =
@@ -654,10 +623,10 @@ describe("transformProduct", () => {
     });
     const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].url).toEqual(
-      `/p/product-name-black-gloss-clay-2526773877`
+      `http://localhost:8000/no/p/product-name-black-gloss-clay-2526773877`
     );
     expect(transformedProducts[1].url).toEqual(
-      `/p/product-name-black-gloss-clay-2669911658`
+      `http://localhost:8000/no/p/product-name-black-gloss-clay-2669911658`
     );
 
     process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL =

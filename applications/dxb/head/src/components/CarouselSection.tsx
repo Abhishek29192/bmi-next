@@ -6,9 +6,9 @@ import {
   TwoPaneCarouselSlide,
   VerticalRoller,
   VerticalRollerSlide
-} from "@bmi/components";
-import ButtonBase, { ButtonBaseProps } from "@material-ui/core/ButtonBase";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+} from "@bmi-digital/components";
+import ButtonBase, { ButtonBaseProps } from "@mui/material/ButtonBase";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { graphql } from "gatsby";
 import React, { useContext } from "react";
 import { Data as PromoData } from "../components/Promo";

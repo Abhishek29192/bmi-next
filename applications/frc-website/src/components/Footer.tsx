@@ -1,4 +1,8 @@
-import { Button, Container, Icopal as IcopalLogoSVG } from "@bmi/components";
+import {
+  Button,
+  Container,
+  Icopal as IcopalLogoSVG
+} from "@bmi-digital/components";
 import classnames from "classnames";
 import React from "react";
 import styles from "./Footer.module.scss";

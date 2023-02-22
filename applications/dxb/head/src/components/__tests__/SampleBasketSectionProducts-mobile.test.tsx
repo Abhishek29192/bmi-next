@@ -1,12 +1,13 @@
-import React from "react";
+import { ThemeProvider } from "@bmi-digital/components";
 import { render } from "@testing-library/react";
-import { local } from "../../utils/storage";
-import SampleBasketSectionProducts from "../SampleBasketSectionProducts";
+import React from "react";
 import {
   BasketContextProvider,
   Sample
 } from "../../contexts/SampleBasketContext";
+import { local } from "../../utils/storage";
 import createImage from "../../__tests__/helpers/ImageHelper";
+import SampleBasketSectionProducts from "../SampleBasketSectionProducts";
 
 const samples: Sample[] = [
   {
@@ -37,7 +38,7 @@ const samples: Sample[] = [
     image: createImage().mainSource
   }
 ];
-jest.mock("@material-ui/core/useMediaQuery", () => () => true);
+jest.mock("@mui/material/useMediaQuery", () => () => true);
 describe("SampleBasketSectionProducts component render correctly on mobile devices", () => {
   beforeAll(() => {
     jest.spyOn(local, "getItem").mockReturnValue(JSON.stringify(samples));
@@ -45,9 +46,11 @@ describe("SampleBasketSectionProducts component render correctly on mobile devic
 
   it("renders correctly for mobile", () => {
     const { container } = render(
-      <BasketContextProvider>
-        <SampleBasketSectionProducts />
-      </BasketContextProvider>
+      <ThemeProvider>
+        <BasketContextProvider>
+          <SampleBasketSectionProducts />
+        </BasketContextProvider>
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });

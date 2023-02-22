@@ -4,7 +4,7 @@ import {
   OverviewCard,
   OverviewCardProps,
   Typography
-} from "@bmi/components";
+} from "@bmi-digital/components";
 import { Product as ESProduct } from "@bmi/elasticsearch-types";
 import { Link } from "gatsby";
 import React from "react";
@@ -66,13 +66,7 @@ const ProductsGridView = ({
           variant.all_variants?.length > 1 &&
           getMicroCopy("plp.product.moreOptionsAvailable");
         return (
-          <Grid
-            item
-            key={`${product.code}-${variant.code}`}
-            xs={12}
-            md={6}
-            lg={4}
-          >
+          <Grid key={`${product.code}-${variant.code}`} xs={12} md={6} lg={4}>
             <GTMOverviewCard
               title={product.name}
               titleVariant="h5"

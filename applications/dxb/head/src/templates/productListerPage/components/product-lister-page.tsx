@@ -2,15 +2,17 @@ import {
   AnchorLink,
   AnchorLinkProps,
   Grid,
-  HeroItem,
+  HeroProps,
   IconList,
   LeadBlock,
   PLPFilterResponse,
   Section,
+  SpotlightHeroProps,
   Typography
-} from "@bmi/components";
+} from "@bmi-digital/components";
 import type { Product as ESProduct } from "@bmi/elasticsearch-types";
-import CheckIcon from "@material-ui/icons/Check";
+import CheckIcon from "@mui/icons-material/Check";
+import { styled } from "@mui/material/styles";
 import { useLocation } from "@reach/router";
 import { graphql } from "gatsby";
 import queryString from "query-string";
@@ -55,6 +57,7 @@ import {
 } from "../../../utils/heroLevelUtils";
 import { renderHero } from "../../../utils/heroTypesUI";
 import { removePLPFilterPrefix } from "../../../utils/product-filters";
+import { ProductListWrapperGrid } from "../styles";
 import {
   renderProducts,
   resolveFilters
@@ -105,9 +108,13 @@ export type Props = {
   };
 };
 
-const BlueCheckIcon = (
-  <CheckIcon style={{ color: "var(--color-theme-accent)" }} />
-);
+const StyledBlueCheckIcon = styled(CheckIcon)(({ theme }) => ({
+  color: theme.colours.inter
+}));
+
+const BlueCheckIcon = () => {
+  return <StyledBlueCheckIcon />;
+};
 
 const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
 
@@ -138,8 +145,10 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     config: { isPreviewMode, isBrandProviderEnabled }
   } = useConfig();
 
-  const heroProps: HeroItem = generateHeroProps(
+  const heroLevel = generateHeroLevel(heroType, enhancedBreadcrumbs);
+  const heroProps: HeroProps | SpotlightHeroProps = generateHeroProps(
     title,
+    heroLevel,
     subtitle,
     featuredVideo,
     featuredMedia,
@@ -350,8 +359,6 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     path: data.contentfulProductListerPage.path
   };
 
-  const heroLevel = generateHeroLevel(heroType, enhancedBreadcrumbs);
-
   const breadcrumbsNode = (
     <Breadcrumbs
       data={enhancedBreadcrumbs}
@@ -378,7 +385,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
               <ProgressIndicator theme="light" />
             </Scrim>
           ) : null}
-          {renderHero(heroProps, breadcrumbsNode, heroLevel, heroType, {
+          {renderHero(heroProps, breadcrumbsNode, heroType, {
             isHeroKeyLine: isHeroKeyLine,
             isSpotlightHeroKeyLine: isHeroKeyLine
           })}
@@ -391,7 +398,10 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                 />
               </LeadBlock.Content>
               {isKeyFeatureBlockVisible ? (
-                <LeadBlock.Card theme="pearl">
+                <LeadBlock.Card
+                  color="pearl"
+                  data-testid="key-features-post-it-card"
+                >
                   <LeadBlock.Card.Section>
                     <LeadBlock.Card.Heading hasUnderline>
                       {getMicroCopy(microCopy.PLP_KEY_FEATURES_TITLE)}
@@ -402,7 +412,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                           {features.map((feature, index) => (
                             <IconList.Item
                               key={index}
-                              icon={BlueCheckIcon}
+                              icon={BlueCheckIcon()}
                               title={feature}
                               isCompact
                             />
@@ -440,7 +450,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
             )}
             <Grid container spacing={3}>
               {filters && filters.length ? (
-                <Grid item xs={12} md={12} lg={3}>
+                <Grid xs={12} md={12} lg={3}>
                   <FiltersSidebar
                     filters={filters}
                     onFiltersChange={handleFiltersChange}
@@ -449,14 +459,13 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                 </Grid>
               ) : null}
               <Grid
-                item
                 xs={12}
                 md={12}
                 lg={filters.length ? 9 : 12}
                 style={{ paddingTop: 60 }}
                 ref={resultsElement}
               >
-                <Grid container spacing={3}>
+                <ProductListWrapperGrid container spacing={3}>
                   {!isLoading && products.length === 0 && (
                     <Typography>
                       {getMicroCopy(microCopy.PLP_PRODUCT_NO_RESULTS_FOUND)}
@@ -469,7 +478,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                     getMicroCopy,
                     filters
                   )}
-                </Grid>
+                </ProductListWrapperGrid>
                 <ResultsPagination
                   page={page + 1}
                   onPageChange={handlePageChange}

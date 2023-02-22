@@ -1,5 +1,5 @@
-import { ClickableAction } from "@bmi/components";
-import { ButtonBaseActions } from "@material-ui/core/ButtonBase";
+import { ClickableAction } from "@bmi-digital/components";
+import { ButtonBaseActions } from "@mui/material/ButtonBase";
 import React, { createContext, useContext } from "react";
 
 export type GTM = {

@@ -11,9 +11,9 @@ import {
   transformHyphens,
   Typography,
   withClickable
-} from "@bmi/components";
-import ButtonBase, { ButtonBaseProps } from "@material-ui/core/ButtonBase";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+} from "@bmi-digital/components";
+import ButtonBase, { ButtonBaseProps } from "@mui/material/ButtonBase";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { graphql } from "gatsby";
 import React, { memo, useMemo, useState } from "react";
 import { microCopy } from "../constants/microCopies";
@@ -56,7 +56,7 @@ const CardCollectionItem = ({
   date
 }: {
   card: Card;
-  label: string;
+  label?: string;
   type: Data["cardType"];
   date?: string;
 }) => {
@@ -143,6 +143,10 @@ const CardCollectionItem = ({
           ) : undefined}
         </>
       }
+      data-testid={`card-collection-section-item-${(title || name)?.replace(
+        / /g,
+        "-"
+      )}`}
     >
       {subtitle}
     </OverviewCard>
@@ -306,7 +310,10 @@ const CardCollectionSection = ({
   });
 
   return (
-    <div className={styles["CardCollectionSection"]}>
+    <div
+      className={styles["CardCollectionSection"]}
+      data-testid={`card-collection-section-${title?.replace(/ /g, "-")}`}
+    >
       <Section backgroundColor={cardType === "Story Card" ? "white" : "pearl"}>
         {title && (
           <Typography className={styles["title"]} variant="h2" hasUnderline>
@@ -333,7 +340,7 @@ const CardCollectionSection = ({
                       type="selectable"
                       // eslint-disable-next-line security/detect-object-injection
                       isSelected={activeGroups[tagTitle]}
-                      theme={cardType === "Story Card" ? "pearl" : "white"}
+                      color={cardType === "Story Card" ? "pearl" : "white"}
                       gtm={{
                         id: "selector-cards1",
                         label,
@@ -405,7 +412,6 @@ const CardCollectionSection = ({
               const cardIsVisible = i >= numberOfCardsToShow;
               return (
                 <Grid
-                  item
                   key={`${id}-${i}`}
                   xs={12}
                   sm={6}
@@ -428,7 +434,7 @@ const CardCollectionSection = ({
               );
             })}
             {sortedIterableCards.length > numberOfCardsToShow && (
-              <Grid item xs={12} className={styles["show-more-block"]}>
+              <Grid xs={12} className={styles["show-more-block"]}>
                 <Button variant="outlined" onClick={handleShowMoreClick}>
                   {getMicroCopy(microCopy.GLOBAL_SHOW_MORE)}
                 </Button>

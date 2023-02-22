@@ -1,5 +1,10 @@
-import { Grid, MediaGallery, Section, Thumbnail } from "@bmi/components";
-import { ThumbnailProps } from "@bmi/components/src";
+import {
+  Grid,
+  MediaGallery,
+  Section,
+  Thumbnail,
+  ThumbnailProps
+} from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
 import Breadcrumbs from "../../components/Breadcrumbs";
@@ -89,9 +94,10 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
       <Section
         backgroundColor="alabaster"
         className={styles["imageGallery-systemLayers-section"]}
+        data-testid="system-details-image-gallary-section"
       >
         <Grid container spacing={3}>
-          <Grid item xs={12} md={12} lg={8}>
+          <Grid xs={12} md={12} lg={8}>
             <MediaGallery
               className={styles["gallery"]}
               media={media}
@@ -102,7 +108,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
             />
           </Grid>
           {system && system.systemLayers && system.systemLayers.length > 0 && (
-            <Grid item xs={12} md={12} lg={4}>
+            <Grid xs={12} md={12} lg={4}>
               <SystemLayersSection systemLayers={system.systemLayers} />
             </Grid>
           )}

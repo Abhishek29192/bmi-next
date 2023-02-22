@@ -50,7 +50,11 @@ export type System = {
   description?: HTML;
 };
 
-export type ApprovalStatus = "approved" | "check" | "unapproved";
+export type ApprovalStatus =
+  | "approved"
+  | "check"
+  | "unapproved"
+  | "discontinued";
 
 type HTML = string;
 

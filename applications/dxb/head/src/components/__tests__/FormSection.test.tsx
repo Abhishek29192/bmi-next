@@ -1,8 +1,14 @@
+import { ThemeProvider } from "@bmi-digital/components";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import * as Gatsby from "gatsby";
 import React from "react";
 import { ConfigProvider } from "../../contexts/ConfigProvider";
-import FormSection, { Data, FormInputs, InputWidthType } from "../FormSection";
+import FormSection, {
+  Data,
+  FormInputs,
+  InputType,
+  InputWidthType
+} from "../FormSection";
 import { DataTypeEnum } from "../Link";
 import { SiteContextProvider } from "../Site";
 import { SourceType } from "../types/FormSectionTypes";
@@ -10,15 +16,17 @@ import { getMockSiteContext } from "./utils/SiteContextProvider";
 
 const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
   return (
-    <SiteContextProvider
-      value={{
-        ...getMockSiteContext("no"),
-        reCaptchaKey: "1234",
-        reCaptchaNet: false
-      }}
-    >
-      {children}
-    </SiteContextProvider>
+    <ThemeProvider>
+      <SiteContextProvider
+        value={{
+          ...getMockSiteContext("no"),
+          reCaptchaKey: "1234",
+          reCaptchaNet: false
+        }}
+      >
+        {children}
+      </SiteContextProvider>
+    </ThemeProvider>
   );
 };
 const submitText = "Submit";
@@ -150,7 +158,7 @@ jest.mock("react-google-recaptcha-v3", () => ({
 const onSuccess = jest.fn();
 jest.spyOn(Gatsby, "navigate").mockImplementation();
 
-const fetchMock = jest.fn();
+const fetchMock = jest.fn().mockReturnValue({ ok: true });
 jest.mock("node-fetch", () => {
   const original = jest.requireActual("node-fetch");
   return {
@@ -168,7 +176,9 @@ afterEach(() => {
 describe("FormSection component", () => {
   it("renders correctly", () => {
     const { container } = render(
-      <FormSection data={data} backgroundColor="white" />
+      <ThemeProvider>
+        <FormSection data={data} backgroundColor="white" />
+      </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
@@ -176,14 +186,16 @@ describe("FormSection component", () => {
 
   it("test flow when gtm data passed from outside", () => {
     const { container } = render(
-      <FormSection
-        data={data}
-        backgroundColor="white"
-        gtmOverride={{
-          label: "GTM-label",
-          action: "GTM-action"
-        }}
-      />
+      <ThemeProvider>
+        <FormSection
+          data={data}
+          backgroundColor="white"
+          gtmOverride={{
+            label: "GTM-label",
+            action: "GTM-action"
+          }}
+        />
+      </ThemeProvider>
     );
 
     const specificationButton = container.querySelector(
@@ -194,7 +206,7 @@ describe("FormSection component", () => {
   });
 
   it("test handleEmailValidation with incorrect email", () => {
-    const specificData = {
+    const specificData: Data = {
       ...data,
       inputs: [
         {
@@ -207,9 +219,11 @@ describe("FormSection component", () => {
       ]
     };
     const { container } = render(
-      <FormSection data={specificData} backgroundColor="white" />
+      <ThemeProvider>
+        <FormSection data={specificData} backgroundColor="white" />
+      </ThemeProvider>
     );
-    const emailInput = container.querySelector(`input[name="email"]`);
+    const emailInput = container.querySelector(`input[id="email"]`);
     fireEvent.change(emailInput, {
       target: { value: "test-email" }
     });
@@ -218,7 +232,7 @@ describe("FormSection component", () => {
   });
 
   it("test handleEmailValidation with correct email", () => {
-    const specificData = {
+    const specificData: Data = {
       ...data,
       inputs: [
         {
@@ -231,9 +245,11 @@ describe("FormSection component", () => {
       ]
     };
     const { container } = render(
-      <FormSection data={specificData} backgroundColor="white" />
+      <ThemeProvider>
+        <FormSection data={specificData} backgroundColor="white" />
+      </ThemeProvider>
     );
-    const emailInput = container.querySelector(`input[name="email"]`);
+    const emailInput = container.querySelector(`input[id="email"]`);
     fireEvent.change(emailInput, {
       target: { value: "test@gmail.com" }
     });
@@ -242,7 +258,7 @@ describe("FormSection component", () => {
   });
 
   it("test upload input with large file", async () => {
-    const specificData = {
+    const specificData: Data = {
       ...data,
       inputs: [
         {
@@ -255,7 +271,9 @@ describe("FormSection component", () => {
       ]
     };
     const { container, getByTestId } = render(
-      <FormSection data={specificData} backgroundColor="white" />
+      <ThemeProvider>
+        <FormSection data={specificData} backgroundColor="white" />
+      </ThemeProvider>
     );
     const upload = getByTestId("upload");
     fireEvent.change(upload, {
@@ -267,7 +285,7 @@ describe("FormSection component", () => {
   });
 
   it("test upload input with small file", async () => {
-    const specificData = {
+    const specificData: Data = {
       ...data,
       inputs: [
         {
@@ -280,7 +298,9 @@ describe("FormSection component", () => {
       ]
     };
     const { container, getByTestId } = render(
-      <FormSection data={specificData} backgroundColor="white" />
+      <ThemeProvider>
+        <FormSection data={specificData} backgroundColor="white" />
+      </ThemeProvider>
     );
     const upload = getByTestId("upload");
     fireEvent.change(upload, {
@@ -292,7 +312,7 @@ describe("FormSection component", () => {
   });
 
   it("test upload input with no maxSize", () => {
-    const specificData = {
+    const specificData: Data = {
       ...data,
       inputs: [
         {
@@ -305,7 +325,9 @@ describe("FormSection component", () => {
       ]
     };
     const { container } = render(
-      <FormSection data={specificData} backgroundColor="white" />
+      <ThemeProvider>
+        <FormSection data={specificData} backgroundColor="white" />
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
@@ -313,9 +335,11 @@ describe("FormSection component", () => {
   it("test submit when preview is on", () => {
     jest.spyOn(window, "alert").mockImplementation();
     const { container } = render(
-      <ConfigProvider configObject={{ isPreviewMode: true }}>
-        <FormSection data={data} backgroundColor="white" />
-      </ConfigProvider>
+      <ThemeProvider>
+        <ConfigProvider configObject={{ isPreviewMode: true }}>
+          <FormSection data={data} backgroundColor="white" />
+        </ConfigProvider>
+      </ThemeProvider>
     );
     fireEvent.submit(container.querySelector("form"));
     expect(window.alert).toHaveBeenCalledWith(
@@ -324,7 +348,75 @@ describe("FormSection component", () => {
   });
 
   it("test submit form with redirect url", async () => {
-    const specificData = {
+    const specificData: Data = {
+      ...data,
+      inputs: [
+        {
+          label: "Text",
+          name: "text",
+          type: "text"
+        }
+      ]
+    };
+    jest.spyOn(Gatsby, "navigate").mockImplementation();
+    const { container } = render(
+      <ConfigProvider
+        configObject={{
+          gcpFormSubmitEndpoint: "GATSBY_GCP_FORM_SUBMIT_ENDPOINT"
+        }}
+      >
+        <MockSiteContext>
+          <FormSection
+            data={specificData}
+            backgroundColor="white"
+            onSuccess={onSuccess}
+          />
+        </MockSiteContext>
+      </ConfigProvider>
+    );
+
+    const textInput = container.querySelector(`input[id="text"]`);
+    fireEvent.change(textInput, {
+      target: { value: "text value" }
+    });
+    fireEvent.submit(container.querySelector("form"));
+
+    await waitFor(() =>
+      expect(fetchMock).toHaveBeenCalledWith(
+        "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            locale: "en-GB",
+            title: "Test form",
+            recipients: "recipient@mail.com",
+            values: { text: "text value" },
+            emailSubjectFormat: "emailSubjectFormat"
+          }),
+          headers: {
+            "X-Recaptcha-Token": "RECAPTCHA",
+            "Content-Type": "application/json",
+            authorization: undefined
+          }
+        }
+      )
+    );
+
+    expect(onSuccess).toHaveBeenCalled();
+    expect(Gatsby.navigate).toBeCalledWith("link-to-page");
+  });
+
+  it("test submit form with redirect url without recaptcha call", async () => {
+    const mockedWindowDocumentCookie = jest.spyOn(
+      window.document,
+      "cookie",
+      "get"
+    );
+    const qaAuthToken = "qaAuthToken";
+    mockedWindowDocumentCookie.mockReturnValueOnce(
+      `qaAuthToken=${qaAuthToken}`
+    );
+    const specificData: Data = {
       ...data,
       inputs: [
         {
@@ -357,8 +449,6 @@ describe("FormSection component", () => {
     });
     fireEvent.submit(container.querySelector("form"));
 
-    fetchMock.mockReturnValueOnce({ ok: true });
-
     await waitFor(() =>
       expect(fetchMock).toHaveBeenCalledWith(
         "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
@@ -372,8 +462,9 @@ describe("FormSection component", () => {
             emailSubjectFormat: "emailSubjectFormat"
           }),
           headers: {
-            "X-Recaptcha-Token": "RECAPTCHA",
-            "Content-Type": "application/json"
+            "X-Recaptcha-Token": undefined,
+            "Content-Type": "application/json",
+            authorization: `Bearer ${qaAuthToken}`
           }
         }
       )
@@ -384,7 +475,73 @@ describe("FormSection component", () => {
   });
 
   it("test submit form with no redirect url", async () => {
-    const specificData = {
+    const specificData: Data = {
+      ...data,
+      inputs: [
+        {
+          label: "Text",
+          name: "text",
+          type: "text"
+        }
+      ],
+      successRedirect: null
+    };
+    jest.spyOn(Gatsby, "navigate").mockImplementation();
+    const { container } = render(
+      <ConfigProvider
+        configObject={{
+          gcpFormSubmitEndpoint: "GATSBY_GCP_FORM_SUBMIT_ENDPOINT"
+        }}
+      >
+        <MockSiteContext>
+          <FormSection
+            data={specificData}
+            backgroundColor="white"
+            onSuccess={jest.fn()}
+          />
+        </MockSiteContext>
+      </ConfigProvider>
+    );
+
+    const textInput = container.querySelector(`input[id="text"]`);
+    fireEvent.change(textInput, {
+      target: { value: "text value" }
+    });
+    fireEvent.submit(container.querySelector("form"));
+
+    expect(await waitFor(() => fetchMock)).toHaveBeenCalledWith(
+      "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          locale: "en-GB",
+          title: "Test form",
+          recipients: "recipient@mail.com",
+          values: { text: "text value" },
+          emailSubjectFormat: "emailSubjectFormat"
+        }),
+        headers: {
+          "X-Recaptcha-Token": "RECAPTCHA",
+          "Content-Type": "application/json",
+          authorization: undefined
+        }
+      }
+    );
+
+    expect(Gatsby.navigate).toBeCalledWith("/");
+  });
+
+  it("test submit form with no redirect url without recaptcha call", async () => {
+    const mockedWindowDocumentCookie = jest.spyOn(
+      window.document,
+      "cookie",
+      "get"
+    );
+    const qaAuthToken = "qaAuthToken";
+    mockedWindowDocumentCookie.mockReturnValueOnce(
+      `qaAuthToken=${qaAuthToken}`
+    );
+    const specificData: Data = {
       ...data,
       inputs: [
         {
@@ -417,32 +574,32 @@ describe("FormSection component", () => {
       target: { value: "text value" }
     });
     fireEvent.submit(container.querySelector("form"));
-
-    fetchMock.mockReturnValueOnce({ ok: true });
-
-    expect(await waitFor(() => fetchMock)).toHaveBeenCalledWith(
-      "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
-      {
-        method: "POST",
-        body: JSON.stringify({
-          locale: "en-GB",
-          title: "Test form",
-          recipients: "recipient@mail.com",
-          values: { text: "text value" },
-          emailSubjectFormat: "emailSubjectFormat"
-        }),
-        headers: {
-          "X-Recaptcha-Token": "RECAPTCHA",
-          "Content-Type": "application/json"
+    await waitFor(() =>
+      expect(fetchMock).toHaveBeenCalledWith(
+        "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            locale: "en-GB",
+            title: "Test form",
+            recipients: "recipient@mail.com",
+            values: { text: "text value" },
+            emailSubjectFormat: "emailSubjectFormat"
+          }),
+          headers: {
+            "X-Recaptcha-Token": undefined,
+            "Content-Type": "application/json",
+            authorization: `Bearer ${qaAuthToken}`
+          }
         }
-      }
+      )
     );
 
     expect(Gatsby.navigate).toBeCalledWith("/");
   });
 
   it("test submit form with error", async () => {
-    const specificData = {
+    const specificData: Data = {
       ...data,
       inputs: [
         {
@@ -459,7 +616,7 @@ describe("FormSection component", () => {
       </MockSiteContext>
     );
 
-    const textInput = container.querySelector(`input[name="text"]`);
+    const textInput = container.querySelector(`input[id="text"]`);
     fireEvent.change(textInput, {
       target: { value: "text value" }
     });
@@ -473,7 +630,7 @@ describe("FormSection component", () => {
   });
 
   it("test convertMarkdownLinksToAnchorLinks function with no label", () => {
-    const specificData = {
+    const specificData: Data = {
       ...data,
       inputs: [
         {
@@ -484,13 +641,15 @@ describe("FormSection component", () => {
       ]
     };
     const { container } = render(
-      <FormSection data={specificData} backgroundColor="white" />
+      <ThemeProvider>
+        <FormSection data={specificData} backgroundColor="white" />
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
 
   it("test convertMarkdownLinksToAnchorLinks function with link in label", () => {
-    const specificData = {
+    const specificData: Data = {
       ...data,
       inputs: [
         {
@@ -508,7 +667,9 @@ describe("FormSection component", () => {
       ]
     };
     const { container } = render(
-      <FormSection data={specificData} backgroundColor="white" />
+      <ThemeProvider>
+        <FormSection data={specificData} backgroundColor="white" />
+      </ThemeProvider>
     );
     const ExternalLinkLabel = container.querySelector(
       `a[href="https://google.co.uk"]`
@@ -522,7 +683,7 @@ describe("FormSection component", () => {
   });
 
   it("test options in a Select", () => {
-    const specificData = [
+    const specificData: InputType[] = [
       {
         label: "Select",
         name: "select",
@@ -530,7 +691,11 @@ describe("FormSection component", () => {
         type: "select"
       }
     ];
-    render(<FormInputs inputs={specificData} />);
+    render(
+      <ThemeProvider>
+        <FormInputs inputs={specificData} />
+      </ThemeProvider>
+    );
     const select = screen.getByRole("button");
     fireEvent.mouseDown(select);
 
@@ -541,7 +706,7 @@ describe("FormSection component", () => {
   });
 
   it("test multiply options in a checkbox group", async () => {
-    const specificData = [
+    const specificData: InputType[] = [
       {
         label: "Pizza",
         name: "pizza",
@@ -584,60 +749,129 @@ describe("FormSection component", () => {
         }),
         headers: {
           "X-Recaptcha-Token": "RECAPTCHA",
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          authorization: undefined
         }
       }
     );
   });
-});
+  it("test multiply options in a checkbox group without recaptcha call", async () => {
+    const mockedWindowDocumentCookie = jest.spyOn(
+      window.document,
+      "cookie",
+      "get"
+    );
+    const qaAuthToken = "qaAuthToken";
+    mockedWindowDocumentCookie.mockReturnValueOnce(
+      `qaAuthToken=${qaAuthToken}`
+    );
+    const specificData: InputType[] = [
+      {
+        label: "Pizza",
+        name: "pizza",
+        options: "Parma, Caprize, Margarita",
+        type: "checkboxGroup"
+      }
+    ];
 
-describe("Hubspot FormSection component", () => {
-  it("renders correctly", () => {
     const { container } = render(
-      <FormSection data={dataHubSpot} backgroundColor="white" />
+      <ConfigProvider
+        configObject={{
+          gcpFormSubmitEndpoint: "GATSBY_GCP_FORM_SUBMIT_ENDPOINT"
+        }}
+      >
+        <MockSiteContext>
+          <FormSection
+            data={{ ...data, inputs: specificData }}
+            backgroundColor="white"
+            onSuccess={jest.fn()}
+          />
+        </MockSiteContext>
+      </ConfigProvider>
     );
 
+    const checkboxes = container.querySelectorAll(`input[type="checkbox"]`);
     expect(container).toMatchSnapshot();
+    fireEvent.click(checkboxes[2]);
+    fireEvent.click(checkboxes[0]);
+    fireEvent.submit(container.querySelector("form"));
+    expect(await waitFor(() => fetchMock)).toHaveBeenCalledWith(
+      "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          locale: "en-GB",
+          title: "Test form",
+          recipients: "recipient@mail.com",
+          values: { pizza: ["Margarita", "Parma"] },
+          emailSubjectFormat: "emailSubjectFormat"
+        }),
+        headers: {
+          "X-Recaptcha-Token": undefined,
+          "Content-Type": "application/json",
+          authorization: `Bearer ${qaAuthToken}`
+        }
+      }
+    );
   });
 
-  it("renders correctly with sampleIds", () => {
-    const sampleIds = "0945848_test_prod_variant1, 0945849_test_prod_variant2";
+  describe("Hubspot FormSection component", () => {
+    it("renders correctly", () => {
+      const { container } = render(
+        <ThemeProvider>
+          <FormSection data={dataHubSpot} backgroundColor="white" />
+        </ThemeProvider>
+      );
 
-    const onFormReadyEvent = new MessageEvent("message", {
-      data: {
-        type: "hsFormCallback",
-        eventName: "onFormReady"
-      }
+      expect(container).toMatchSnapshot();
     });
 
-    const { container } = render(
-      <FormSection
-        data={dataHubSpot}
-        sampleIds={sampleIds}
-        backgroundColor="white"
-      />
-    );
-    window.dispatchEvent(onFormReadyEvent);
+    it("renders correctly with sampleIds", () => {
+      const sampleIds =
+        "0945848_test_prod_variant1, 0945849_test_prod_variant2";
 
-    expect(container).toMatchSnapshot();
-  });
+      const onFormReadyEvent = new MessageEvent("message", {
+        data: {
+          type: "hsFormCallback",
+          eventName: "onFormReady"
+        }
+      });
 
-  it("test submit when preview is on", () => {
-    process.env.GATSBY_PREVIEW = "GATSBY_PREVIEW";
-    jest.spyOn(window, "alert").mockImplementation();
-    const { container } = render(
-      <FormSection data={dataHubSpot} backgroundColor="white" />
-    );
-    expect(container).toMatchSnapshot();
+      const { container } = render(
+        <ThemeProvider>
+          <FormSection
+            data={dataHubSpot}
+            sampleIds={sampleIds}
+            backgroundColor="white"
+          />
+        </ThemeProvider>
+      );
+      window.dispatchEvent(onFormReadyEvent);
+
+      expect(container).toMatchSnapshot();
+    });
+
+    it("test submit when preview is on", () => {
+      process.env.GATSBY_PREVIEW = "GATSBY_PREVIEW";
+      jest.spyOn(window, "alert").mockImplementation();
+      const { container } = render(
+        <ThemeProvider>
+          <FormSection data={dataHubSpot} backgroundColor="white" />
+        </ThemeProvider>
+      );
+      expect(container).toMatchSnapshot();
+    });
   });
 
   it("calls onSuccess function", () => {
     render(
-      <FormSection
-        data={dataHubSpot}
-        backgroundColor="white"
-        onSuccess={onSuccess}
-      />
+      <ThemeProvider>
+        <FormSection
+          data={dataHubSpot}
+          backgroundColor="white"
+          onSuccess={onSuccess}
+        />
+      </ThemeProvider>
     );
 
     const onFormSubmittedEvent = new MessageEvent("message", {
@@ -659,11 +893,13 @@ describe("Hubspot FormSection component", () => {
     });
 
     render(
-      <FormSection
-        data={dataHubSpot}
-        backgroundColor="white"
-        onFormReady={onFormReady}
-      />
+      <ThemeProvider>
+        <FormSection
+          data={dataHubSpot}
+          backgroundColor="white"
+          onFormReady={onFormReady}
+        />
+      </ThemeProvider>
     );
     window.dispatchEvent(onFormReadyEvent);
     expect(onFormReady).toHaveBeenCalledTimes(1);
@@ -679,11 +915,13 @@ describe("Hubspot FormSection component", () => {
     });
 
     render(
-      <FormSection
-        data={dataHubSpot}
-        backgroundColor="white"
-        onFormLoadError={onFormLoadError}
-      />
+      <ThemeProvider>
+        <FormSection
+          data={dataHubSpot}
+          backgroundColor="white"
+          onFormLoadError={onFormLoadError}
+        />
+      </ThemeProvider>
     );
     window.dispatchEvent(onFormLoadErrorEvent);
     expect(onFormLoadError).toHaveBeenCalledTimes(1);
@@ -691,7 +929,9 @@ describe("Hubspot FormSection component", () => {
 
   it("renders correctly for dialog", () => {
     const { container } = render(
-      <FormSection data={dataHubSpot} backgroundColor="white" isDialog />
+      <ThemeProvider>
+        <FormSection data={dataHubSpot} backgroundColor="white" isDialog />
+      </ThemeProvider>
     );
     expect(container.querySelector(".Section")).toBeNull();
     expect(container).toMatchSnapshot();

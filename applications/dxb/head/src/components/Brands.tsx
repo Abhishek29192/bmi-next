@@ -5,7 +5,7 @@ import {
   Grid,
   logoIconMap,
   Section
-} from "@bmi/components";
+} from "@bmi-digital/components";
 import { graphql, Link } from "gatsby";
 import React from "react";
 import { microCopy } from "../constants/microCopies";
@@ -34,13 +34,13 @@ const Brands = ({
   return (
     <Section backgroundColor={"pearl"} className={styles["Brands"]}>
       <Section.Title> {getMicroCopy(microCopy.HOMEPAGE_BRANDS)}</Section.Title>
-      <Grid container justify="center">
+      <Grid container justifyContent="center">
         {data.map((brand, index) => {
           const buttonLabel = getMicroCopy(microCopy.HOMEPAGE_BRANDS_LEARN, {
             title: brand.title
           });
           return (
-            <Grid item xs={12} md={6} xl={3} key={`${brand.path}-${index}`}>
+            <Grid xs={12} md={6} xl={3} key={`${brand.path}-${index}`}>
               {brand.path ? (
                 <BrandIntroCard
                   name={brand.brandLogo}
@@ -73,12 +73,20 @@ const Brands = ({
                           linkComponent: Link
                         }
                   }
+                  data-testid={`brand-intro-card-${brand.title.replace(
+                    / /g,
+                    "-"
+                  )}`}
                 />
               ) : (
                 <BrandIntroCard
                   name={brand.brandLogo}
                   logoIcon={logoIconMap[brand.brandLogo]}
                   description={brand.subtitle ? brand.subtitle : undefined}
+                  data-testid={`brand-intro-card-${brand.title.replace(
+                    / /g,
+                    "-"
+                  )}`}
                 />
               )}
             </Grid>

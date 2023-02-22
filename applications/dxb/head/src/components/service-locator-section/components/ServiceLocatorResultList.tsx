@@ -1,23 +1,25 @@
-import React from "react";
-import { CompanyDetailProps, RoofProLevel } from "@bmi/components";
 import {
+  CompanyDetailProps,
+  CompanyDetails,
   Logo,
+  Pagination,
   RoofProElite,
   RoofProExpert,
-  RoofProPartnerSmall
-} from "@bmi/components";
-import { CompanyDetails } from "@bmi/components";
-import { Pagination } from "@bmi/components";
-import { Typography } from "@bmi/components";
+  RoofProLevel,
+  RoofProPartnerSmall,
+  Typography
+} from "@bmi-digital/components";
 import { SVGImport } from "@bmi-digital/svg-import";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { useTheme } from "@material-ui/core/styles";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import classnames from "classnames";
-import { Service } from "../index";
+import React from "react";
 import { microCopy } from "../../../constants/microCopies";
-import styles from "../styles/ServiceLocatorSection.module.scss";
+import Image from "../../Image";
 import { useSiteContext } from "../../Site";
 import { getResultDataGtm } from "../helpers";
+import { Service } from "../index";
+import styles from "../styles/ServiceLocatorSection.module.scss";
 import { GTMIntegratedLinkCard } from "./IntegratedLinkCard";
 
 interface ResultListProps {
@@ -70,8 +72,14 @@ export const ServiceLocatorResultList = ({
             onCloseClick={onCloseCard}
             isOpen={selectedRoofer && selectedRoofer.id === service.id}
             title={service.name}
+            logo={
+              <Image
+                data={service.companyLogo}
+                className={styles["company-logo"]}
+              />
+            }
             gtm={getResultDataGtm(service, matches)}
-            data-testId={"GTMIntegratedLinkCard-test-id"}
+            data-testid={"GTMIntegratedLinkCard-test-id"}
             subtitle={
               <>
                 {service.address}

@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@bmi-digital/components";
 import { fireEvent, render, waitFor } from "@testing-library/react";
 import MockDate from "mockdate";
 import React from "react";
@@ -53,9 +54,12 @@ jest.mock("../../utils/devLog", () => ({
   devLog: (...args) => devLog(...args)
 }));
 
+const mockedWindowDocumentCookie = jest.spyOn(window.document, "cookie", "get");
+const qaAuthToken = "qaAuthToken";
+
 beforeEach(() => {
+  jest.clearAllMocks();
   jest.resetModules();
-  jest.resetAllMocks();
   isPreviewMode = false;
   documentDownloadEndpoint = "GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT";
 });
@@ -83,7 +87,9 @@ describe("KeyAssetTypesDownloadSection component", () => {
       }
     ];
     const { container } = render(
-      <KeyAssetTypesDownloadSection keyAssetDocuments={assetDocuments} />
+      <ThemeProvider>
+        <KeyAssetTypesDownloadSection keyAssetDocuments={assetDocuments} />
+      </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
@@ -108,7 +114,9 @@ describe("KeyAssetTypesDownloadSection component", () => {
       ];
 
       const { getByTestId } = render(
-        <KeyAssetTypesDownloadSection keyAssetDocuments={assetDocuments} />
+        <ThemeProvider>
+          <KeyAssetTypesDownloadSection keyAssetDocuments={assetDocuments} />
+        </ThemeProvider>
       );
 
       const downloadButton = getByTestId(
@@ -140,7 +148,9 @@ describe("KeyAssetTypesDownloadSection component", () => {
         }
       ];
       const { getByTestId } = render(
-        <KeyAssetTypesDownloadSection keyAssetDocuments={assetDocuments} />
+        <ThemeProvider>
+          <KeyAssetTypesDownloadSection keyAssetDocuments={assetDocuments} />
+        </ThemeProvider>
       );
 
       const downloadButton = getByTestId(
@@ -176,7 +186,9 @@ describe("KeyAssetTypesDownloadSection component", () => {
       fetchMock.mockReturnValueOnce(getFetchResponse({ url: "url" }));
 
       const { getByTestId } = render(
-        <KeyAssetTypesDownloadSection keyAssetDocuments={assetDocuments} />
+        <ThemeProvider>
+          <KeyAssetTypesDownloadSection keyAssetDocuments={assetDocuments} />
+        </ThemeProvider>
       );
 
       const downloadButton = getByTestId(
@@ -204,7 +216,73 @@ describe("KeyAssetTypesDownloadSection component", () => {
             }),
             headers: {
               "Content-Type": "application/json",
-              "X-Recaptcha-Token": "token"
+              "X-Recaptcha-Token": "token",
+              authorization: undefined
+            }
+          }
+        )
+      );
+      expect(ClientDownloadUtils.downloadAs).toHaveBeenCalledWith(
+        "url",
+        "BMI_19700101000000.zip"
+      );
+      expect(window.alert).not.toHaveBeenCalled();
+      expect(devLog).not.toHaveBeenCalled();
+    });
+
+    it("should download documents without recaptcha with qa token", async () => {
+      mockedWindowDocumentCookie.mockReturnValueOnce(
+        `qaAuthToken=${qaAuthToken}`
+      );
+      const document1 = createPimDocument({
+        assetType: createAssetType({ pimCode: "SAT", name: "Some Asset Type" })
+      });
+      const document2 = createPimDocument({
+        assetType: createAssetType({ pimCode: "SAT", name: "Some Asset Type" })
+      });
+
+      const assetDocuments = [
+        {
+          assetType: document1.assetType.pimCode,
+          documents: [document1, document2]
+        }
+      ];
+
+      fetchMock.mockReturnValueOnce(getFetchResponse({ url: "url" }));
+
+      const { getByTestId } = render(
+        <ThemeProvider>
+          <KeyAssetTypesDownloadSection keyAssetDocuments={assetDocuments} />
+        </ThemeProvider>
+      );
+
+      const downloadButton = getByTestId(
+        `${document1.assetType.pimCode}Download`
+      );
+      fireEvent.click(downloadButton);
+
+      expect(executeRecaptcha).not.toHaveBeenCalled();
+      await waitFor(() =>
+        expect(fetchMock).toHaveBeenLastCalledWith(
+          "GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT",
+          {
+            method: "POST",
+            body: JSON.stringify({
+              documents: [
+                {
+                  href: document1.url,
+                  name: document1.title
+                },
+                {
+                  href: document2.url,
+                  name: document2.title
+                }
+              ]
+            }),
+            headers: {
+              "Content-Type": "application/json",
+              "X-Recaptcha-Token": undefined,
+              authorization: `Bearer ${qaAuthToken}`
             }
           }
         )
@@ -234,7 +312,9 @@ describe("KeyAssetTypesDownloadSection component", () => {
       isPreviewMode = true;
 
       const { getByTestId } = render(
-        <KeyAssetTypesDownloadSection keyAssetDocuments={assetDocuments} />
+        <ThemeProvider>
+          <KeyAssetTypesDownloadSection keyAssetDocuments={assetDocuments} />
+        </ThemeProvider>
       );
 
       const downloadButton = getByTestId(
@@ -268,7 +348,9 @@ describe("KeyAssetTypesDownloadSection component", () => {
       documentDownloadEndpoint = undefined;
 
       const { getByTestId } = render(
-        <KeyAssetTypesDownloadSection keyAssetDocuments={assetDocuments} />
+        <ThemeProvider>
+          <KeyAssetTypesDownloadSection keyAssetDocuments={assetDocuments} />
+        </ThemeProvider>
       );
 
       const downloadButton = getByTestId(
@@ -300,7 +382,9 @@ describe("KeyAssetTypesDownloadSection component", () => {
       fetchMock.mockRejectedValue(Error("Expected Error"));
 
       const { getByTestId } = render(
-        <KeyAssetTypesDownloadSection keyAssetDocuments={assetDocuments} />
+        <ThemeProvider>
+          <KeyAssetTypesDownloadSection keyAssetDocuments={assetDocuments} />
+        </ThemeProvider>
       );
 
       const downloadButton = getByTestId(
@@ -328,7 +412,72 @@ describe("KeyAssetTypesDownloadSection component", () => {
             }),
             headers: {
               "Content-Type": "application/json",
-              "X-Recaptcha-Token": "token"
+              "X-Recaptcha-Token": "token",
+              authorization: undefined
+            }
+          }
+        )
+      );
+
+      expect(ClientDownloadUtils.downloadAs).not.toHaveBeenCalled();
+      expect(window.alert).not.toHaveBeenCalled();
+      expect(devLog).toHaveBeenCalledWith(
+        "KeyAssetTypesDownloadSection",
+        Error("Expected Error")
+      );
+    });
+
+    it("should log error if download fails without recapthca call", async () => {
+      mockedWindowDocumentCookie.mockReturnValueOnce(
+        `qaAuthToken=${qaAuthToken}`
+      );
+      const document1 = createPimDocument({
+        assetType: createAssetType({ pimCode: "SAT", name: "Some Asset Type" })
+      });
+      const document2 = createPimDocument({
+        assetType: createAssetType({ pimCode: "SAT", name: "Some Asset Type" })
+      });
+      const assetDocuments = [
+        {
+          assetType: document1.assetType.pimCode,
+          documents: [document1, document2]
+        }
+      ];
+      fetchMock.mockRejectedValue(Error("Expected Error"));
+
+      const { getByTestId } = render(
+        <ThemeProvider>
+          <KeyAssetTypesDownloadSection keyAssetDocuments={assetDocuments} />
+        </ThemeProvider>
+      );
+
+      const downloadButton = getByTestId(
+        `${document1.assetType.pimCode}Download`
+      );
+      fireEvent.click(downloadButton);
+
+      expect(executeRecaptcha).not.toHaveBeenCalled();
+      await waitFor(() =>
+        expect(fetchMock).toHaveBeenLastCalledWith(
+          "GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT",
+          {
+            method: "POST",
+            body: JSON.stringify({
+              documents: [
+                {
+                  href: document1.url,
+                  name: document1.title
+                },
+                {
+                  href: document2.url,
+                  name: document2.title
+                }
+              ]
+            }),
+            headers: {
+              "Content-Type": "application/json",
+              "X-Recaptcha-Token": undefined,
+              authorization: `Bearer ${qaAuthToken}`
             }
           }
         )

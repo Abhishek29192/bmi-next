@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DownloadListAlertBanner should render correctly 1`] = `
+<div>
+  <div
+    class="ColorPair-alabaster css-18zndtv"
+    data-testid="alert-banner"
+  >
+    <div
+      class="css-1lz8t7d"
+    />
+    <div
+      class=" css-ze8cyt"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
+      >
+        <h5
+          class="MuiTypography-root MuiTypography-h5 css-16m68f8-MuiTypography-root"
+          data-testid="alert-banner-title"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium AlertBanner-icon css-i4bv87-MuiSvgIcon-root"
+            data-testid="alert-banner-title-icon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+            />
+          </svg>
+          MC: downloadList.info.title
+        </h5>
+        MC: downloadList.info.message
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,4 +1,5 @@
 import logger from "@bmi-digital/functions-logger";
+import { YoutubeDetails } from "@bmi/firestore-types";
 import { getFirestore } from "@bmi/functions-firestore";
 import { youtube } from "googleapis/build/src/apis/youtube";
 import { youtube_v3 } from "googleapis/build/src/apis/youtube/v3";
@@ -27,26 +28,43 @@ export const getById = async (
 
 export const getYoutubeDetails = async (
   youtubeId: string
-): Promise<youtube_v3.Schema$VideoListResponse> => {
+): Promise<YoutubeDetails | undefined> => {
   logger.info({ message: `Getting details for ${youtubeId} from YouTube` });
   const youtubeClient = youtube({
     version: "v3",
     auth: GOOGLE_YOUTUBE_API_KEY
   });
   const { data } = await youtubeClient.videos.list({
-    part: ["player"],
+    part: ["snippet", "player", "status"],
+    fields:
+      "items(id,player(embedHeight,embedWidth),snippet(thumbnails),status(uploadStatus))",
     id: [youtubeId],
     maxHeight: 9999
   });
   logger.info({
-    message: `Receivede ${JSON.stringify(data)} for ${youtubeId} from YouTube`
+    message: `Received ${JSON.stringify(data)} for ${youtubeId} from YouTube`
   });
-  return data;
+
+  if (!data.items?.length) {
+    return undefined;
+  }
+
+  const { embedHeight, embedWidth } = data.items[0].player!;
+  if (!embedHeight || !embedWidth) {
+    return undefined;
+  }
+
+  return {
+    uploadStatus: data.items[0].status!.uploadStatus!,
+    thumbnails: data.items[0].snippet!.thumbnails!,
+    embedWidth: parseFloat(embedWidth),
+    embedHeight: parseFloat(embedHeight)
+  };
 };
 
 export const saveById = async (
   youtubeId: string,
-  youtubeDetails: youtube_v3.Schema$VideoListResponse
+  youtubeDetails: YoutubeDetails
 ): Promise<void> => {
   logger.info({ message: `Saving details for ${youtubeId} into the cache` });
   const youtubeIdRef = getYoutubeIdRef(youtubeId);

@@ -53,7 +53,7 @@ export const handleMessage: EventFunction = async ({ data }: any) => {
     }]: ${JSON.stringify(message.item)}`
   });
 
-  const { type, itemType, item } = message;
+  const { itemType, item } = message;
 
   const collectionPath =
     itemType in COLLECTIONS &&
@@ -76,9 +76,5 @@ export const handleMessage: EventFunction = async ({ data }: any) => {
     message: `Final transformedItems: ${JSON.stringify(transformedItems)}`
   });
 
-  await publishMessage({
-    type: type,
-    itemType: itemType,
-    item: transformedItems
-  });
+  await publishMessage(transformedItems);
 };

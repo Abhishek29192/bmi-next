@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@bmi-digital/components";
 import { LocationProvider } from "@reach/router";
 import { act, fireEvent, screen, waitFor } from "@testing-library/react";
 import mediaQuery from "css-mediaquery";
@@ -13,8 +14,8 @@ import { googleMock } from "../__mocks__/google";
 
 let callMarkerOnClick;
 
-jest.mock("@bmi/components", () => {
-  const originalModule = jest.requireActual("@bmi/components");
+jest.mock("@bmi-digital/components", () => {
+  const originalModule = jest.requireActual("@bmi-digital/components");
 
   const GoogleMap = jest
     .fn()
@@ -58,9 +59,11 @@ describe("ServiceLocatorSection component", () => {
     };
 
     const { container } = renderWithRouter(
-      <LocationProvider>
-        <ServiceLocatorSection data={data} />
-      </LocationProvider>
+      <ThemeProvider>
+        <LocationProvider>
+          <ServiceLocatorSection data={data} />
+        </LocationProvider>
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
@@ -81,9 +84,11 @@ describe("ServiceLocatorSection component", () => {
       };
 
       const { container } = renderWithRouter(
-        <LocationProvider>
-          <ServiceLocatorSection data={data} />
-        </LocationProvider>
+        <ThemeProvider>
+          <LocationProvider>
+            <ServiceLocatorSection data={data} />
+          </LocationProvider>
+        </ThemeProvider>
       );
       expect(container).toMatchSnapshot();
     });
@@ -103,7 +108,9 @@ describe("ServiceLocatorSection component", () => {
       };
 
       const { container } = renderWithRouter(
-        <ServiceLocatorSection data={data} />
+        <ThemeProvider>
+          <ServiceLocatorSection data={data} />
+        </ThemeProvider>
       );
       expect(container).toMatchSnapshot();
     });
@@ -129,7 +136,9 @@ describe("ServiceLocatorSection component", () => {
       };
 
       const { container } = renderWithRouter(
-        <ServiceLocatorSection data={data} />
+        <ThemeProvider>
+          <ServiceLocatorSection data={data} />
+        </ThemeProvider>
       );
       expect(container).toMatchSnapshot();
     });
@@ -156,7 +165,9 @@ describe("ServiceLocatorSection component", () => {
       };
 
       const { container } = renderWithRouter(
-        <ServiceLocatorSection data={data} />
+        <ThemeProvider>
+          <ServiceLocatorSection data={data} />
+        </ThemeProvider>
       );
       expect(container).toMatchSnapshot();
     });
@@ -181,7 +192,9 @@ describe("ServiceLocatorSection component", () => {
       };
 
       const { container } = renderWithRouter(
-        <ServiceLocatorSection data={data} />
+        <ThemeProvider>
+          <ServiceLocatorSection data={data} />
+        </ThemeProvider>
       );
       expect(container).toMatchSnapshot();
     });
@@ -216,7 +229,9 @@ describe("ServiceLocatorSection component", () => {
       };
 
       const { container } = renderWithRouter(
-        <ServiceLocatorSection data={data} />
+        <ThemeProvider>
+          <ServiceLocatorSection data={data} />
+        </ThemeProvider>
       );
       expect(container).toMatchSnapshot();
     });
@@ -254,7 +269,9 @@ describe("ServiceLocatorSection component", () => {
       };
 
       const { container } = renderWithRouter(
-        <ServiceLocatorSection data={data} />
+        <ThemeProvider>
+          <ServiceLocatorSection data={data} />
+        </ThemeProvider>
       );
       expect(container).toMatchSnapshot();
     });
@@ -298,7 +315,9 @@ describe("ServiceLocatorSection component", () => {
       };
 
       const { container } = renderWithRouter(
-        <ServiceLocatorSection data={data} />
+        <ThemeProvider>
+          <ServiceLocatorSection data={data} />
+        </ThemeProvider>
       );
       expect(container).toMatchSnapshot();
     });
@@ -330,7 +349,9 @@ describe("ServiceLocatorSection component", () => {
       };
 
       const { container } = renderWithRouter(
-        <ServiceLocatorSection data={data} />
+        <ThemeProvider>
+          <ServiceLocatorSection data={data} />
+        </ThemeProvider>
       );
       expect(container).toMatchSnapshot();
     });
@@ -362,7 +383,9 @@ describe("ServiceLocatorSection component", () => {
       };
 
       const { container } = renderWithRouter(
-        <ServiceLocatorSection data={data} />
+        <ThemeProvider>
+          <ServiceLocatorSection data={data} />
+        </ThemeProvider>
       );
       expect(container).toMatchSnapshot();
     });
@@ -405,7 +428,9 @@ describe("ServiceLocatorSection component", () => {
       };
 
       const { container } = renderWithRouter(
-        <ServiceLocatorSection data={data} />
+        <ThemeProvider>
+          <ServiceLocatorSection data={data} />
+        </ThemeProvider>
       );
       expect(container).toMatchSnapshot();
     });
@@ -442,7 +467,9 @@ describe("ServiceLocatorSection component", () => {
       };
 
       const { container } = renderWithRouter(
-        <ServiceLocatorSection data={data} />
+        <ThemeProvider>
+          <ServiceLocatorSection data={data} />
+        </ThemeProvider>
       );
       expect(container).toMatchSnapshot();
     });
@@ -483,7 +510,9 @@ describe("ServiceLocatorSection component", () => {
       };
 
       const { container } = renderWithRouter(
-        <ServiceLocatorSection data={data} />
+        <ThemeProvider>
+          <ServiceLocatorSection data={data} />
+        </ThemeProvider>
       );
       expect(container).toMatchSnapshot();
     });
@@ -509,7 +538,11 @@ describe("ServiceLocatorSection component", () => {
         )
       };
 
-      const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
+      const wrapper = renderWithRouter(
+        <ThemeProvider>
+          <ServiceLocatorSection data={data} />
+        </ThemeProvider>
+      );
 
       const paginationButton = wrapper.getByRole("button", {
         name: `Go to page 2`
@@ -540,7 +573,11 @@ describe("ServiceLocatorSection component", () => {
       ]
     };
 
-    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(
+      <ThemeProvider>
+        <ServiceLocatorSection data={data} />
+      </ThemeProvider>
+    );
     const nameInput = wrapper.container.querySelector("#company-autocomplete");
 
     fireEvent.change(nameInput, {
@@ -576,7 +613,11 @@ describe("ServiceLocatorSection component", () => {
       services: [createService({ name: "roofer 1" })]
     };
 
-    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(
+      <ThemeProvider>
+        <ServiceLocatorSection data={data} />
+      </ThemeProvider>
+    );
     const nameInput = wrapper.container.querySelector("#company-autocomplete");
 
     fireEvent.change(nameInput, { target: { value: "r" } });
@@ -606,7 +647,9 @@ describe("ServiceLocatorSection component", () => {
     };
 
     const { container, findByRole } = renderWithRouter(
-      <ServiceLocatorSection data={data} />
+      <ThemeProvider>
+        <ServiceLocatorSection data={data} />
+      </ThemeProvider>
     );
     const nameInput = container.querySelector("#company-autocomplete");
 
@@ -648,7 +691,9 @@ describe("ServiceLocatorSection component", () => {
       configurable: true
     });
     const { container } = renderWithRouter(
-      <ServiceLocatorSection data={data} />
+      <ThemeProvider>
+        <ServiceLocatorSection data={data} />
+      </ThemeProvider>
     );
     const nameInput = container.querySelector("#company-autocomplete");
 
@@ -690,7 +735,11 @@ describe("ServiceLocatorSection component", () => {
       services: [createService({ name: "roofer 1" })]
     };
 
-    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(
+      <ThemeProvider>
+        <ServiceLocatorSection data={data} />
+      </ThemeProvider>
+    );
 
     const geolocationButton = wrapper.getByRole("button", {
       name: `MC: findARoofer.geolocationButton`
@@ -723,7 +772,11 @@ describe("ServiceLocatorSection component", () => {
       services: [roofer1, roofer2]
     };
 
-    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(
+      <ThemeProvider>
+        <ServiceLocatorSection data={data} />
+      </ThemeProvider>
+    );
 
     act(() => {
       callMarkerOnClick(roofer2);
@@ -746,7 +799,11 @@ describe("ServiceLocatorSection component", () => {
       services: [createService({ name: "roofer 1" })]
     };
 
-    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(
+      <ThemeProvider>
+        <ServiceLocatorSection data={data} />
+      </ThemeProvider>
+    );
     const rooferButton = wrapper.getByText("roofer 1");
     rooferButton.click();
     expect(wrapper.container).toMatchSnapshot();
@@ -766,7 +823,11 @@ describe("ServiceLocatorSection component", () => {
       services: [createService({ name: "roofer 1" })]
     };
 
-    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(
+      <ThemeProvider>
+        <ServiceLocatorSection data={data} />
+      </ThemeProvider>
+    );
     const rooferButton = wrapper.getByText("roofer 1");
     rooferButton.click();
     rooferButton.click();
@@ -809,7 +870,11 @@ describe("ServiceLocatorSection component", () => {
       ]
     };
 
-    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(
+      <ThemeProvider>
+        <ServiceLocatorSection data={data} />
+      </ThemeProvider>
+    );
     const chipButton = wrapper.getByRole("button", {
       name: `Flat Roof`
     });
@@ -850,7 +915,11 @@ describe("ServiceLocatorSection component", () => {
       ]
     };
 
-    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(
+      <ThemeProvider>
+        <ServiceLocatorSection data={data} />
+      </ThemeProvider>
+    );
     const chipButton = wrapper.getByRole("button", {
       name: `Country Offices`
     });
@@ -894,7 +963,11 @@ describe("ServiceLocatorSection component", () => {
       ]
     };
 
-    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(
+      <ThemeProvider>
+        <ServiceLocatorSection data={data} />
+      </ThemeProvider>
+    );
     const chipButton = wrapper.getByRole("button", {
       name: `Merchant type 2`
     });
@@ -931,7 +1004,11 @@ describe("ServiceLocatorSection component", () => {
       ]
     };
 
-    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(
+      <ThemeProvider>
+        <ServiceLocatorSection data={data} />
+      </ThemeProvider>
+    );
     const chipButton = wrapper.getByRole("button", {
       name: `Flat Roof`
     });
@@ -990,7 +1067,11 @@ describe("ServiceLocatorSection component", () => {
       ]
     };
 
-    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(
+      <ThemeProvider>
+        <ServiceLocatorSection data={data} />
+      </ThemeProvider>
+    );
     const chipButton1 = wrapper.getByRole("button", {
       name: `Flat Roof 1`
     });
@@ -1045,9 +1126,14 @@ describe("ServiceLocatorSection component", () => {
       ]
     };
 
-    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />, {
-      route: "/something/?chip=Pitched+roof"
-    });
+    const wrapper = renderWithRouter(
+      <ThemeProvider>
+        <ServiceLocatorSection data={data} />
+      </ThemeProvider>,
+      {
+        route: "/something/?chip=Pitched+roof"
+      }
+    );
     expect(wrapper.queryByText("roofer 1")).toBeTruthy();
     expect(wrapper.queryByText("roofer 2")).toBeFalsy();
   });
@@ -1081,7 +1167,11 @@ describe("ServiceLocatorSection component", () => {
       ]
     };
 
-    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(
+      <ThemeProvider>
+        <ServiceLocatorSection data={data} />
+      </ThemeProvider>
+    );
     expect(wrapper.container).toMatchSnapshot();
   });
 
@@ -1129,7 +1219,11 @@ describe("ServiceLocatorSection component", () => {
       ]
     };
 
-    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(
+      <ThemeProvider>
+        <ServiceLocatorSection data={data} />
+      </ThemeProvider>
+    );
     expect(wrapper.container).toMatchSnapshot();
   });
 
@@ -1164,7 +1258,11 @@ describe("ServiceLocatorSection component", () => {
       ]
     };
 
-    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(
+      <ThemeProvider>
+        <ServiceLocatorSection data={data} />
+      </ThemeProvider>
+    );
     const input = wrapper.getByLabelText("MC: findARoofer.companyFieldLabel");
 
     expect(wrapper.getAllByText("roofer 1")).toHaveLength(1);
@@ -1196,7 +1294,11 @@ describe("ServiceLocatorSection component", () => {
       services: [roofer1, roofer2]
     };
 
-    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(
+      <ThemeProvider>
+        <ServiceLocatorSection data={data} />
+      </ThemeProvider>
+    );
 
     act(() => {
       callMarkerOnClick("MC: global.close");
@@ -1238,7 +1340,11 @@ describe("ServiceLocatorSection component", () => {
 
     it("should show result list after searched by name/company", async () => {
       const { queryByText, container, getAllByText, getByTitle } =
-        renderWithRouter(<ServiceLocatorSection data={data} />);
+        renderWithRouter(
+          <ThemeProvider>
+            <ServiceLocatorSection data={data} />
+          </ThemeProvider>
+        );
 
       expect(queryByText(roofer1.name)).toBeFalsy();
       expect(queryByText(roofer2.name)).toBeFalsy();
@@ -1261,7 +1367,9 @@ describe("ServiceLocatorSection component", () => {
 
     it("should show result list after filtered by chip filter", () => {
       const { queryByText, getByRole, getAllByText } = renderWithRouter(
-        <ServiceLocatorSection data={data} />
+        <ThemeProvider>
+          <ServiceLocatorSection data={data} />
+        </ThemeProvider>
       );
 
       expect(queryByText(roofer1.name)).toBeFalsy();
@@ -1278,7 +1386,11 @@ describe("ServiceLocatorSection component", () => {
     });
 
     it("should not render results list panel on page load if selected chips do not exist in query params", () => {
-      const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
+      const wrapper = renderWithRouter(
+        <ThemeProvider>
+          <ServiceLocatorSection data={data} />
+        </ThemeProvider>
+      );
       const text = wrapper.queryByText("MC: findARoofer.listLabel");
       expect(
         wrapper.container.querySelector(".tabs .tab-panel .list")
@@ -1307,7 +1419,9 @@ describe("ServiceLocatorSection component", () => {
       };
 
       const { findByLabelText, container } = renderWithRouter(
-        <ServiceLocatorSection data={data} />
+        <ThemeProvider>
+          <ServiceLocatorSection data={data} />
+        </ThemeProvider>
       );
       const googleAutoCompleteInput = await findByLabelText(
         "MC: findARoofer.locationFieldLabel"
@@ -1327,83 +1441,30 @@ describe("ServiceLocatorSection component", () => {
         centre: null,
         zoom: 8,
         services: [
-          {
-            __typename: "ContentfulService",
+          createService({
             id: "beef212f-8cbc-542d-9fd7-d9e5c0d3a467",
-            websiteLinkAsLabel: false,
-            entryType: EntryTypeEnum.ROOFER_TYPE,
             name: "FK Bygg as",
-            location: {
-              lat: 59.14346,
-              lon: 10.27727
-            },
-            address: "Helgerødveien 130, 3233 Sandefjord, Norway",
-            phone: "41102177",
-            email: "post@fasade-teknikk.no",
-            website: "https://www.fkbygg.no",
-            fax: null,
-            serviceTypes: [
-              { __typename: "ContentfulServiceType", name: "Flat Roof" },
-              { __typename: "ContentfulServiceType", name: "Pitched Roof" }
-            ],
-            certification: null,
-            summary: null
-          },
-          {
-            __typename: "ContentfulService",
+            address: "Helgerødveien 130, 3233 Sandefjord, Norway"
+          }),
+          createService({
             id: "c2ebbf9e-d2c1-554f-a12f-6a13f8d87e2c",
-            entryType: EntryTypeEnum.ROOFER_TYPE,
-            websiteLinkAsLabel: false,
             name: "GL Bygg AS",
-            location: {
-              lat: 60.80971,
-              lon: 11.0292
-            },
-            address: "Lundvegen 8, 2316 Hamar, Norway",
-            phone: "91757971",
-            email: "ole@glbygg.no",
-            website: "https://www.glbygg.no",
-            fax: null,
-            serviceTypes: [
-              { __typename: "ContentfulServiceType", name: "Flachdach system" }
-            ],
-            certification: null,
-            summary:
-              "GL Bygg AS har i dag 20 ansatte, 17 tømrere/snekkere, og 2 murere og 1 maler,tapetserer, gulvlegger. Av disse er en byggmester og en murmester. Alle håndverkerne har fagbrev på sine respektive fagområder",
-            distance: 22.054402996325027
-          },
-          {
-            __typename: "ContentfulService",
+            address: "Lundvegen 8, 2316 Hamar, Norwa"
+          }),
+          createService({
             id: "36e43b38-652a-5f5a-89c2-2d7028f1132c",
-            entryType: EntryTypeEnum.ROOFER_TYPE,
-            websiteLinkAsLabel: false,
-            name: "Harviken Bygg AS",
-            location: {
-              lat: 60.87807,
-              lon: 11.54679
-            },
-            address: "Vindheiavegen 27, 2406 Elverum, Norway",
-            phone: "93092064",
-            email: "post@harviken-bygg.no",
-            website: null,
-            fax: null,
-            serviceTypes: [
-              {
-                __typename: "ContentfulServiceType",
-                name: "Pitched roof Bitumen roofs"
-              }
-            ],
-            certification: null,
-            summary: null,
-            distance: 29097.647859248013
-          }
+            name: "GL Bygg AS",
+            address: "Vindheiavegen 27, 2406 Elverum, Norway"
+          })
         ]
       };
       const { findByRole, container } = renderWithRouter(
-        <ServiceLocatorSection data={data} />
+        <ThemeProvider>
+          <ServiceLocatorSection data={data} />
+        </ThemeProvider>
       );
 
-      const googleAutoCompleteInput = (await screen.findByRole("textbox", {
+      const googleAutoCompleteInput = (await screen.findByRole("combobox", {
         name: "MC: findARoofer.locationFieldLabel"
       })) as HTMLInputElement;
       act(() => {
@@ -1451,7 +1512,11 @@ describe("ServiceLocatorSection component", () => {
       services: [roofer1, roofer2]
     };
 
-    renderWithRouter(<ServiceLocatorSection data={data} />);
+    renderWithRouter(
+      <ThemeProvider>
+        <ServiceLocatorSection data={data} />
+      </ThemeProvider>
+    );
 
     act(() => {
       callMarkerOnClick(roofer2);
@@ -1460,6 +1525,7 @@ describe("ServiceLocatorSection component", () => {
       {
         action: "Expanded company details",
         id: "selector-cards6-map-pin",
+        event: "dxb.button_click",
         label: "roofer 2 - address 1 - Roofer - selected"
       }
     ]);

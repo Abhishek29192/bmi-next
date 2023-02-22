@@ -89,6 +89,33 @@ describe("Error responses", () => {
     process.env.BUILD_WEBHOOKS = buildWebhooks;
     process.env.PREVIEW_BUILD = IsPreview;
   });
+  it("Return error, when CONTENTFUL_ENVIRONMENT is not set and build webhooks are not set", async () => {
+    const contentfulEnviroment = process.env.CONTENTFUL_ENVIRONMENT;
+    delete process.env.CONTENTFUL_ENVIRONMENT;
+
+    const mockReq = mockRequest("POST");
+    const mockRes = mockResponse();
+
+    await build(mockReq, mockRes);
+
+    expect(mockRes.sendStatus).toBeCalledWith(500);
+
+    process.env.CONTENTFUL_ENVIRONMENT = contentfulEnviroment;
+  });
+
+  it("Return error, when MANAGEMENT_ACCESS_TOKEN is not set and build webhooks are not set", async () => {
+    const magementAccessToken = process.env.MANAGEMENT_ACCESS_TOKEN;
+    delete process.env.MANAGEMENT_ACCESS_TOKEN;
+
+    const mockReq = mockRequest("POST");
+    const mockRes = mockResponse();
+
+    await build(mockReq, mockRes);
+
+    expect(mockRes.sendStatus).toBeCalledWith(500);
+
+    process.env.MANAGEMENT_ACCESS_TOKEN = magementAccessToken;
+  });
 
   it("Returns 500 when request secret is not provided", async () => {
     const buildRequestSecret = process.env.BUILD_REQUEST;

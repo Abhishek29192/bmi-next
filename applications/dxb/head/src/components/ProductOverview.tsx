@@ -6,12 +6,12 @@ import {
   ProductOverviewPaneProps,
   Thumbnail,
   ThumbnailProps
-} from "@bmi/components";
+} from "@bmi-digital/components";
 import React, { useContext } from "react";
 import { microCopy } from "../constants/microCopies";
+import { useConfig } from "../contexts/ConfigProvider";
 import DefaultImage from "../images/DefaultImage.svg";
 import withGTM from "../utils/google-tag-manager";
-import { useConfig } from "../contexts/ConfigProvider";
 import { iconMap } from "./Icon";
 import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
 import { useSiteContext } from "./Site";
@@ -120,9 +120,9 @@ const ProductOverview = ({
   }
 
   return (
-    <div className={styles["ProductOverview"]}>
+    <div className={styles["ProductOverview"]} data-testid={"product-overview"}>
       <Grid container spacing={3}>
-        <Grid item xs={12} md={12} lg={8}>
+        <Grid xs={12} md={12} lg={8}>
           <MediaGallery
             media={media}
             thumbnailComponent={(props: ThumbnailProps) => (
@@ -131,7 +131,7 @@ const ProductOverview = ({
             layout="short"
           />
         </Grid>
-        <Grid item xs={12} md={12} lg={4}>
+        <Grid xs={12} md={12} lg={4}>
           <ProductOverviewPane
             // eslint-disable-next-line security/detect-object-injection
             brandLogo={iconMap[brandCode]}

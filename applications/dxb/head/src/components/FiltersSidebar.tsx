@@ -1,11 +1,16 @@
+import {
+  Accordion,
+  AccordionSummaryProps,
+  Button,
+  Checkbox,
+  CheckboxProps,
+  FilterProps,
+  Filters,
+  Typography
+} from "@bmi-digital/components";
 import React from "react";
-import { Accordion, AccordionSummaryProps } from "@bmi/components";
-import { Button } from "@bmi/components";
-import { Checkbox, CheckboxProps } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import { Filters, FilterProps } from "@bmi/components";
-import withGTM from "../utils/google-tag-manager";
 import { microCopy } from "../constants/microCopies";
+import withGTM from "../utils/google-tag-manager";
 import { useSiteContext } from "./Site";
 
 type Props = {
@@ -32,15 +37,7 @@ const FiltersSidebar = ({
   );
 
   return (
-    <div
-      style={{
-        position: "sticky",
-        top: "180px",
-        maxHeight: "calc(100vh - 200px)",
-        overflow: "hidden auto",
-        touchAction: "auto"
-      }}
-    >
+    <div data-testid="filter-sidebar-main">
       <div
         style={{
           display: "flex",
@@ -48,11 +45,16 @@ const FiltersSidebar = ({
           justifyContent: "space-between",
           marginBottom: 4
         }}
+        data-testid="filter-sidebar-header"
       >
-        <Typography variant="h5">
+        <Typography variant="h5" data-testid="filter-sidebar-header-text">
           {getMicroCopy(microCopy.PLP_FILTERS_TITLE)}
         </Typography>
-        <Button variant="text" onClick={onClearFilters}>
+        <Button
+          variant="text"
+          onClick={onClearFilters}
+          data-testid="filter-sidebar-clear-all-button"
+        >
           {getMicroCopy(microCopy.PLP_FILTERS_CLEAR_ALL)}
         </Button>
       </div>
@@ -89,6 +91,7 @@ const FiltersSidebar = ({
             {...props}
           />
         )}
+        data-testid="filter-sidebar-filters"
       />
     </div>
   );

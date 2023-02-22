@@ -5,12 +5,17 @@ import mockConsole from "jest-mock-console";
 import { Answer, NextStep } from "../types";
 
 const contentfulDeliveryToken = "contentful-delivery-token";
-const recaptchaSiteKey = "recaptcha-site-key";
+const recaptchaToken = "recaptcha-site-key";
 const recaptchaTokenHeader = "X-Recaptcha-Token";
 
 const fetchMock = fetchMockJest.sandbox();
 fetchMock.config.overwriteRoutes = false;
 jest.mock("node-fetch", () => fetchMock);
+
+const verifyRecaptchaToken = jest.fn();
+jest.mock("@bmi/functions-recaptcha", () => ({
+  verifyRecaptchaToken: verifyRecaptchaToken
+}));
 
 const nextStep = async (
   request: Partial<Request>,
@@ -120,9 +125,7 @@ describe("HTTP function:", () => {
 
     expect(res.set).not.toHaveBeenCalled();
     expect(res.sendStatus).toBeCalledWith(500);
-    expect(fetchMock).not.toHaveFetched(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify"
-    );
+    expect(verifyRecaptchaToken).not.toHaveBeenCalled();
     expect(fetchMock).not.toHaveFetched("begin:https://graphql.contentful.com");
 
     process.env.CONTENTFUL_DELIVERY_TOKEN =
@@ -139,9 +142,7 @@ describe("HTTP function:", () => {
 
     expect(res.set).not.toHaveBeenCalled();
     expect(res.sendStatus).toBeCalledWith(500);
-    expect(fetchMock).not.toHaveFetched(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify"
-    );
+    expect(verifyRecaptchaToken).not.toHaveBeenCalled();
     expect(fetchMock).not.toHaveFetched("begin:https://graphql.contentful.com");
 
     process.env.CONTENTFUL_ENVIRONMENT = originalContentfulEnvironment;
@@ -157,9 +158,7 @@ describe("HTTP function:", () => {
 
     expect(res.set).not.toHaveBeenCalled();
     expect(res.sendStatus).toBeCalledWith(500);
-    expect(fetchMock).not.toHaveFetched(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify"
-    );
+    expect(verifyRecaptchaToken).not.toHaveBeenCalled();
     expect(fetchMock).not.toHaveFetched("begin:https://graphql.contentful.com");
 
     process.env.CONTENTFUL_SPACE_ID = originalContentfulSpaceId;
@@ -175,9 +174,7 @@ describe("HTTP function:", () => {
 
     expect(res.set).not.toHaveBeenCalled();
     expect(res.sendStatus).toBeCalledWith(500);
-    expect(fetchMock).not.toHaveFetched(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify"
-    );
+    expect(verifyRecaptchaToken).not.toHaveBeenCalled();
     expect(fetchMock).not.toHaveFetched("begin:https://graphql.contentful.com");
 
     process.env.RECAPTCHA_KEY = originalRecaptchaSecretKey;
@@ -191,9 +188,7 @@ describe("HTTP function:", () => {
     expect(res.set).toBeCalledWith("Access-Control-Allow-Methods", "GET");
     expect(res.status).toBeCalledWith(204);
     expect(res.send).toBeCalledWith("");
-    expect(fetchMock).not.toHaveFetched(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify"
-    );
+    expect(verifyRecaptchaToken).not.toHaveBeenCalled();
     expect(fetchMock).not.toHaveFetched("begin:https://graphql.contentful.com");
   });
 
@@ -207,9 +202,7 @@ describe("HTTP function:", () => {
     expect(res.set).toBeCalledWith("Access-Control-Allow-Methods", "GET");
     expect(res.status).toBeCalledWith(400);
     expect(res.send).toBeCalledWith(Error("Method is forbidden."));
-    expect(fetchMock).not.toHaveFetched(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify"
-    );
+    expect(verifyRecaptchaToken).not.toHaveBeenCalled();
     expect(fetchMock).not.toHaveFetched("begin:https://graphql.contentful.com");
   });
 
@@ -230,16 +223,14 @@ describe("HTTP function:", () => {
     expect(res.set).toBeCalledWith("Access-Control-Allow-Methods", "GET");
     expect(res.status).toBeCalledWith(400);
     expect(res.send).toBeCalledWith(Error("Recaptcha token not provided."));
-    expect(fetchMock).not.toHaveFetched(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify"
-    );
+    expect(verifyRecaptchaToken).not.toHaveBeenCalled();
     expect(fetchMock).not.toHaveFetched("begin:https://graphql.contentful.com");
   });
 
-  it("nextStep: returns a 500 response when Recaptcha check fails", async () => {
+  it("nextStep: returns a 400 response when Recaptcha check fails", async () => {
     const req = getMockReq({
       headers: {
-        [recaptchaTokenHeader]: recaptchaSiteKey
+        [recaptchaTokenHeader]: recaptchaToken
       },
       method: "GET",
       query: {
@@ -248,59 +239,27 @@ describe("HTTP function:", () => {
       }
     });
 
-    fetchMock.post(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify",
-      {
-        throws: new Error("Expected error")
-      }
-    );
-
-    await nextStep(req, res);
-
-    expect(res.set).toBeCalledWith("Access-Control-Allow-Methods", "GET");
-    expect(res.status).toBeCalledWith(500);
-    expect(res.send).toBeCalledWith(Error("Recaptcha request failed."));
-    expect(fetchMock).toHaveFetched(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify"
-    );
-    expect(fetchMock).not.toHaveFetched("begin:https://graphql.contentful.com");
-  });
-
-  it("nextStep: returns a 400 response when Recaptcha check response is not ok", async () => {
-    const req = getMockReq({
-      headers: {
-        [recaptchaTokenHeader]: recaptchaSiteKey
-      },
-      method: "GET",
-      query: {
-        answerId: "1234",
-        locale: "en-US"
-      }
-    });
-
-    fetchMock.post(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify",
-      {
-        status: 400,
-        body: ""
-      }
-    );
+    verifyRecaptchaToken.mockRejectedValueOnce(Error("Expected error"));
 
     await nextStep(req, res);
 
     expect(res.set).toBeCalledWith("Access-Control-Allow-Methods", "GET");
     expect(res.status).toBeCalledWith(400);
     expect(res.send).toBeCalledWith(Error("Recaptcha check failed."));
-    expect(fetchMock).toHaveFetched(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify"
+    expect(verifyRecaptchaToken).toHaveBeenCalledWith(
+      recaptchaToken,
+      process.env.RECAPTCHA_KEY,
+      parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!)
     );
     expect(fetchMock).not.toHaveFetched("begin:https://graphql.contentful.com");
   });
 
-  it("nextStep: returns a 400 response when the recaptcha check fails", async () => {
+  it("nextStep: returns a 400 response when the qaAuthToken is invalid", async () => {
+    process.env.QA_AUTH_TOKEN = "qaAuthToken";
     const req = getMockReq({
       headers: {
-        [recaptchaTokenHeader]: recaptchaSiteKey
+        [recaptchaTokenHeader]: undefined,
+        authorization: "Bearer qaAuthTokenFailed"
       },
       method: "GET",
       query: {
@@ -309,79 +268,26 @@ describe("HTTP function:", () => {
       }
     });
 
-    fetchMock.post(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify",
-      {
-        status: 200,
-        body: JSON.stringify({
-          success: false
-        })
-      }
-    );
-
     await nextStep(req, res);
 
     expect(res.set).toBeCalledWith("Access-Control-Allow-Methods", "GET");
     expect(res.status).toBeCalledWith(400);
-    expect(res.send).toBeCalledWith(Error("Recaptcha check failed."));
-    expect(fetchMock).toHaveFetched(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify"
-    );
+    expect(res.send).toBeCalledWith(Error("QaAuthToken failed."));
+    expect(verifyRecaptchaToken).not.toHaveBeenCalled();
     expect(fetchMock).not.toHaveFetched("begin:https://graphql.contentful.com");
-  });
-
-  it("nextStep: returns a 400 response when the recaptcha score is less than minimum score", async () => {
-    const req = getMockReq({
-      headers: {
-        [recaptchaTokenHeader]: recaptchaSiteKey
-      },
-      method: "GET",
-      query: {
-        answerId: "1234",
-        locale: "en-US"
-      }
-    });
-
-    fetchMock.post(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify",
-      {
-        status: 200,
-        body: JSON.stringify({
-          success: true,
-          score: parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!) - 0.1
-        })
-      }
-    );
-
-    await nextStep(req, res);
-
-    expect(res.set).toBeCalledWith("Access-Control-Allow-Methods", "GET");
-    expect(res.status).toBeCalledWith(400);
-    expect(res.send).toBeCalledWith(Error("Recaptcha check failed."));
-    expect(fetchMock).toHaveFetched(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify"
-    );
-    expect(fetchMock).not.toHaveFetched("begin:https://graphql.contentful.com");
+    process.env.QA_AUTH_TOKEN = undefined;
   });
 
   it("nextStep: returns a 400 response status when answerId query is not provided", async () => {
     const req = getMockReq({
       headers: {
-        [recaptchaTokenHeader]: recaptchaSiteKey
+        [recaptchaTokenHeader]: recaptchaToken
       },
       method: "GET",
       query: {}
     });
 
-    fetchMock.post(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify",
-      {
-        status: 200,
-        body: JSON.stringify({
-          success: true
-        })
-      }
-    );
+    verifyRecaptchaToken.mockResolvedValueOnce(undefined);
 
     await nextStep(req, res);
 
@@ -390,8 +296,10 @@ describe("HTTP function:", () => {
     expect(res.send).toBeCalledWith(
       Error("Query parameter 'answerId' and/or 'locale' not provided.")
     );
-    expect(fetchMock).toHaveFetched(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify"
+    expect(verifyRecaptchaToken).toHaveBeenCalledWith(
+      recaptchaToken,
+      process.env.RECAPTCHA_KEY,
+      parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!)
     );
     expect(fetchMock).not.toHaveFetched("begin:https://graphql.contentful.com");
   });
@@ -399,21 +307,13 @@ describe("HTTP function:", () => {
   it("nextStep: returns a 400 response status when locale query is not provided", async () => {
     const req = getMockReq({
       headers: {
-        [recaptchaTokenHeader]: recaptchaSiteKey
+        [recaptchaTokenHeader]: recaptchaToken
       },
       method: "GET",
       query: { answerId: "1234" }
     });
 
-    fetchMock.post(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify",
-      {
-        status: 200,
-        body: JSON.stringify({
-          success: true
-        })
-      }
-    );
+    verifyRecaptchaToken.mockResolvedValueOnce(undefined);
 
     await nextStep(req, res);
 
@@ -422,8 +322,10 @@ describe("HTTP function:", () => {
     expect(res.send).toBeCalledWith(
       Error("Query parameter 'answerId' and/or 'locale' not provided.")
     );
-    expect(fetchMock).toHaveFetched(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify"
+    expect(verifyRecaptchaToken).toHaveBeenCalledWith(
+      recaptchaToken,
+      process.env.RECAPTCHA_KEY,
+      parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!)
     );
     expect(fetchMock).not.toHaveFetched("begin:https://graphql.contentful.com");
   });
@@ -431,7 +333,7 @@ describe("HTTP function:", () => {
   it("nextStep: returns a 404 response status when answer is not found", async () => {
     const req = getMockReq({
       headers: {
-        [recaptchaTokenHeader]: recaptchaSiteKey
+        [recaptchaTokenHeader]: recaptchaToken
       },
       method: "GET",
       query: {
@@ -440,15 +342,7 @@ describe("HTTP function:", () => {
       }
     });
 
-    fetchMock.post(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify",
-      {
-        status: 200,
-        body: JSON.stringify({
-          success: true
-        })
-      }
-    );
+    verifyRecaptchaToken.mockResolvedValueOnce(undefined);
 
     const addContentfulResponseMock = async (
       mockResponse: ContentfulResponse,
@@ -491,8 +385,10 @@ describe("HTTP function:", () => {
     expect(res.send).toBeCalledWith(
       Error(`System Configurator entry 1234 not found.`)
     );
-    expect(fetchMock).toHaveFetched(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify"
+    expect(verifyRecaptchaToken).toHaveBeenCalledWith(
+      recaptchaToken,
+      process.env.RECAPTCHA_KEY,
+      parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!)
     );
     expect(fetchMock).toHaveFetched("begin:https://graphql.contentful.com");
   });
@@ -500,7 +396,7 @@ describe("HTTP function:", () => {
   it("nextStep: returns a 500 response status when the query fails", async () => {
     const req = getMockReq({
       headers: {
-        [recaptchaTokenHeader]: recaptchaSiteKey
+        [recaptchaTokenHeader]: recaptchaToken
       },
       method: "GET",
       query: {
@@ -509,15 +405,7 @@ describe("HTTP function:", () => {
       }
     });
 
-    fetchMock.post(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify",
-      {
-        status: 200,
-        body: JSON.stringify({
-          success: true
-        })
-      }
-    );
+    verifyRecaptchaToken.mockResolvedValueOnce(undefined);
 
     const addContentfulResponseMock = async (
       mockResponse: ContentfulResponse,
@@ -566,8 +454,10 @@ describe("HTTP function:", () => {
         "Query execution error. Requested locale 'en-GB' does not exist in the space"
       )
     );
-    expect(fetchMock).toHaveFetched(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify"
+    expect(verifyRecaptchaToken).toHaveBeenCalledWith(
+      recaptchaToken,
+      process.env.RECAPTCHA_KEY,
+      parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!)
     );
     expect(fetchMock).toHaveFetched("begin:https://graphql.contentful.com");
   });
@@ -575,7 +465,7 @@ describe("HTTP function:", () => {
   it("nextStep: returns a 500 response status when the query responses with an error", async () => {
     const req = getMockReq({
       headers: {
-        [recaptchaTokenHeader]: recaptchaSiteKey
+        [recaptchaTokenHeader]: recaptchaToken
       },
       method: "GET",
       query: {
@@ -584,15 +474,7 @@ describe("HTTP function:", () => {
       }
     });
 
-    fetchMock.post(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify",
-      {
-        status: 200,
-        body: JSON.stringify({
-          success: true
-        })
-      }
-    );
+    verifyRecaptchaToken.mockResolvedValueOnce(undefined);
 
     const addContentfulResponseMock = async (
       mockResponse: ContentfulResponse,
@@ -631,8 +513,10 @@ describe("HTTP function:", () => {
     expect(res.set).toBeCalledWith("Access-Control-Allow-Methods", "GET");
     expect(res.status).toBeCalledWith(500);
     expect(res.send).toBeCalledWith(Error("Rejected!"));
-    expect(fetchMock).toHaveFetched(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify"
+    expect(verifyRecaptchaToken).toHaveBeenCalledWith(
+      recaptchaToken,
+      process.env.RECAPTCHA_KEY,
+      parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!)
     );
     expect(fetchMock).toHaveFetched("begin:https://graphql.contentful.com");
   });
@@ -640,7 +524,7 @@ describe("HTTP function:", () => {
   it("nextStep: returns a 404 response status when answer has no next step.", async () => {
     const req = getMockReq({
       headers: {
-        [recaptchaTokenHeader]: recaptchaSiteKey
+        [recaptchaTokenHeader]: recaptchaToken
       },
       method: "GET",
       query: {
@@ -649,15 +533,7 @@ describe("HTTP function:", () => {
       }
     });
 
-    fetchMock.post(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify",
-      {
-        status: 200,
-        body: JSON.stringify({
-          success: true
-        })
-      }
-    );
+    verifyRecaptchaToken.mockResolvedValueOnce(undefined);
 
     const addContentfulResponseMock = async (
       mockResponse: ContentfulResponse,
@@ -715,8 +591,10 @@ describe("HTTP function:", () => {
     expect(res.send).toBeCalledWith(
       Error(`System Configurator next step not found for entry 1234.`)
     );
-    expect(fetchMock).toHaveFetched(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify"
+    expect(verifyRecaptchaToken).toHaveBeenCalledWith(
+      recaptchaToken,
+      process.env.RECAPTCHA_KEY,
+      parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!)
     );
     expect(fetchMock).toHaveFetched("begin:https://graphql.contentful.com");
   });
@@ -727,7 +605,7 @@ describe("HTTP function:", () => {
 
     const req = getMockReq({
       headers: {
-        [recaptchaTokenHeader]: recaptchaSiteKey
+        [recaptchaTokenHeader]: recaptchaToken
       },
       method: "GET",
       query: {
@@ -736,16 +614,7 @@ describe("HTTP function:", () => {
       }
     });
 
-    fetchMock.post(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify",
-      {
-        status: 200,
-        body: JSON.stringify({
-          success: true,
-          score: 0.9
-        })
-      }
-    );
+    verifyRecaptchaToken.mockResolvedValueOnce(undefined);
 
     const addContentfulResponseMock = async (
       mockResponse: ContentfulResponse,
@@ -835,25 +704,42 @@ describe("HTTP function:", () => {
     await nextStep(req, res);
 
     expect(res.set).toBeCalledWith("Access-Control-Allow-Methods", "GET");
-    expect(res.status).toBeCalledWith(400);
-    expect(res.send).toBeCalledWith(Error("Recaptcha check failed."));
-    expect(fetchMock).toHaveFetched(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify"
+    expect(res.status).toBeCalledWith(200);
+    expect(res.send).toBeCalledWith({
+      __typename: "ContentfulSystemConfiguratorQuestion",
+      contentful_id: "question2",
+      id: "question2",
+      title: "Question 2",
+      description: {
+        raw: JSON.stringify({
+          data: {},
+          content: [
+            {
+              data: {},
+              marks: [],
+              content: [
+                {
+                  data: {},
+                  marks: [],
+                  value: "Question 2a rich text.",
+                  nodeType: "text"
+                }
+              ],
+              nodeType: "paragraph"
+            }
+          ],
+          nodeType: "document"
+        }),
+        references: []
+      },
+      answers: []
+    });
+    expect(verifyRecaptchaToken).toHaveBeenCalledWith(
+      recaptchaToken,
+      process.env.RECAPTCHA_KEY,
+      1.0
     );
-    expect(fetchMock).not.toHaveFetched("begin:https://graphql.contentful.com");
-
-    fetchMock.reset();
-
-    fetchMock.post(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify",
-      {
-        status: 200,
-        body: JSON.stringify({
-          success: true,
-          score: 1.0
-        })
-      }
-    );
+    expect(fetchMock).toHaveFetched("begin:https://graphql.contentful.com");
 
     process.env.RECAPTCHA_MINIMUM_SCORE = originalRecaptchaMinimumScore;
   });
@@ -861,7 +747,7 @@ describe("HTTP function:", () => {
   it("nextStep: returns a 200 response status when answer next step is type 'Question'.", async () => {
     const req = getMockReq({
       headers: {
-        [recaptchaTokenHeader]: recaptchaSiteKey
+        [recaptchaTokenHeader]: recaptchaToken
       },
       method: "GET",
       query: {
@@ -870,15 +756,7 @@ describe("HTTP function:", () => {
       }
     });
 
-    fetchMock.post(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify",
-      {
-        status: 200,
-        body: JSON.stringify({
-          success: true
-        })
-      }
-    );
+    verifyRecaptchaToken.mockResolvedValueOnce(undefined);
 
     const addContentfulResponseMock = async (
       mockResponse: ContentfulResponse,
@@ -1019,8 +897,10 @@ describe("HTTP function:", () => {
       },
       answers: [answerResponse]
     });
-    expect(fetchMock).toHaveFetched(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify"
+    expect(verifyRecaptchaToken).toHaveBeenCalledWith(
+      recaptchaToken,
+      process.env.RECAPTCHA_KEY,
+      parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!)
     );
     expect(fetchMock).toHaveFetched("begin:https://graphql.contentful.com");
   });
@@ -1028,7 +908,7 @@ describe("HTTP function:", () => {
   it("nextStep: returns a 200 response status when answer next step is type 'Question' and has more than 9 answers.", async () => {
     const req = getMockReq({
       headers: {
-        [recaptchaTokenHeader]: recaptchaSiteKey
+        [recaptchaTokenHeader]: recaptchaToken
       },
       method: "GET",
       query: {
@@ -1037,15 +917,7 @@ describe("HTTP function:", () => {
       }
     });
 
-    fetchMock.post(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify",
-      {
-        status: 200,
-        body: JSON.stringify({
-          success: true
-        })
-      }
-    );
+    verifyRecaptchaToken.mockResolvedValueOnce(undefined);
 
     const addContentfulResponseMock = async (
       mockResponse: ContentfulResponse,
@@ -1255,8 +1127,10 @@ describe("HTTP function:", () => {
       },
       answers: new Array(12).fill(answerResponse)
     });
-    expect(fetchMock).toHaveFetched(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify"
+    expect(verifyRecaptchaToken).toHaveBeenCalledWith(
+      recaptchaToken,
+      process.env.RECAPTCHA_KEY,
+      parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!)
     );
     expect(fetchMock).toHaveFetched("begin:https://graphql.contentful.com");
   });
@@ -1264,7 +1138,7 @@ describe("HTTP function:", () => {
   it("nextStep: returns a 200 response status when answer next step is type 'Result'.", async () => {
     const req = getMockReq({
       headers: {
-        [recaptchaTokenHeader]: recaptchaSiteKey
+        [recaptchaTokenHeader]: recaptchaToken
       },
       method: "GET",
       query: {
@@ -1273,15 +1147,7 @@ describe("HTTP function:", () => {
       }
     });
 
-    fetchMock.post(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify",
-      {
-        status: 200,
-        body: JSON.stringify({
-          success: true
-        })
-      }
-    );
+    verifyRecaptchaToken.mockResolvedValueOnce(undefined);
 
     const addContentfulResponseMock = async (
       mockResponse: ContentfulResponse,
@@ -1419,8 +1285,10 @@ describe("HTTP function:", () => {
       },
       recommendedSystems: ["ReccomendedSystem_1", "ReccomendedSystem_2"]
     });
-    expect(fetchMock).toHaveFetched(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify"
+    expect(verifyRecaptchaToken).toHaveBeenCalledWith(
+      recaptchaToken,
+      process.env.RECAPTCHA_KEY,
+      parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!)
     );
     expect(fetchMock).toHaveFetched("begin:https://graphql.contentful.com");
   });
@@ -1428,7 +1296,7 @@ describe("HTTP function:", () => {
   it("nextStep: returns a 200 response status when answer next step has no result.", async () => {
     const req = getMockReq({
       headers: {
-        [recaptchaTokenHeader]: recaptchaSiteKey
+        [recaptchaTokenHeader]: recaptchaToken
       },
       method: "GET",
       query: {
@@ -1437,15 +1305,7 @@ describe("HTTP function:", () => {
       }
     });
 
-    fetchMock.post(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify",
-      {
-        status: 200,
-        body: JSON.stringify({
-          success: true
-        })
-      }
-    );
+    verifyRecaptchaToken.mockResolvedValueOnce(undefined);
 
     const addContentfulResponseMock = async (
       mockResponse: ContentfulResponse,
@@ -1553,8 +1413,10 @@ describe("HTTP function:", () => {
         })
       }
     });
-    expect(fetchMock).toHaveFetched(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify"
+    expect(verifyRecaptchaToken).toHaveBeenCalledWith(
+      recaptchaToken,
+      process.env.RECAPTCHA_KEY,
+      parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!)
     );
     expect(fetchMock).toHaveFetched("begin:https://graphql.contentful.com");
   });
@@ -1565,7 +1427,7 @@ describe("HTTP function:", () => {
 
     const req = getMockReq({
       headers: {
-        [recaptchaTokenHeader]: recaptchaSiteKey
+        [recaptchaTokenHeader]: recaptchaToken
       },
       method: "GET",
       query: {
@@ -1574,15 +1436,7 @@ describe("HTTP function:", () => {
       }
     });
 
-    fetchMock.post(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify",
-      {
-        status: 200,
-        body: JSON.stringify({
-          success: true
-        })
-      }
-    );
+    verifyRecaptchaToken.mockResolvedValueOnce(undefined);
 
     const addContentfulResponseMock = async (
       mockResponse: ContentfulResponse,
@@ -1723,9 +1577,10 @@ describe("HTTP function:", () => {
       },
       answers: [answerResponse]
     });
-    expect(fetchMock).toHaveFetched(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify",
-      { method: "POST" }
+    expect(verifyRecaptchaToken).toHaveBeenCalledWith(
+      recaptchaToken,
+      process.env.RECAPTCHA_KEY,
+      parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!)
     );
     expect(fetchMock).toHaveFetched(
       `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/${process.env.CONTENTFUL_ENVIRONMENT}`,
@@ -1853,7 +1708,7 @@ query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
 
     const req = getMockReq({
       headers: {
-        [recaptchaTokenHeader]: recaptchaSiteKey
+        [recaptchaTokenHeader]: recaptchaToken
       },
       method: "GET",
       query: {
@@ -1862,15 +1717,7 @@ query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
       }
     });
 
-    fetchMock.post(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify",
-      {
-        status: 200,
-        body: JSON.stringify({
-          success: true
-        })
-      }
-    );
+    verifyRecaptchaToken.mockResolvedValueOnce(undefined);
 
     const addContentfulResponseMock = async (
       mockResponse: ContentfulResponse,
@@ -2011,9 +1858,10 @@ query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
       },
       answers: [answerResponse]
     });
-    expect(fetchMock).toHaveFetched(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify",
-      { method: "POST" }
+    expect(verifyRecaptchaToken).toHaveBeenCalledWith(
+      recaptchaToken,
+      process.env.RECAPTCHA_KEY,
+      parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!)
     );
     expect(fetchMock).toHaveFetched(
       `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/${process.env.CONTENTFUL_ENVIRONMENT}`,
@@ -2141,7 +1989,7 @@ query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
 
     const req = getMockReq({
       headers: {
-        [recaptchaTokenHeader]: recaptchaSiteKey
+        [recaptchaTokenHeader]: recaptchaToken
       },
       method: "GET",
       query: {
@@ -2150,15 +1998,7 @@ query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
       }
     });
 
-    fetchMock.post(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify",
-      {
-        status: 200,
-        body: JSON.stringify({
-          success: true
-        })
-      }
-    );
+    verifyRecaptchaToken.mockResolvedValueOnce(undefined);
 
     const addContentfulResponseMock = async (
       mockResponse: ContentfulResponse,
@@ -2299,9 +2139,10 @@ query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
       },
       answers: [answerResponse]
     });
-    expect(fetchMock).toHaveFetched(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify",
-      { method: "POST" }
+    expect(verifyRecaptchaToken).toHaveBeenCalledWith(
+      recaptchaToken,
+      process.env.RECAPTCHA_KEY,
+      parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!)
     );
     expect(fetchMock).toHaveFetched(
       `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/${process.env.CONTENTFUL_ENVIRONMENT}`,
@@ -2421,5 +2262,162 @@ query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
     );
 
     process.env.PREVIEW_API = originalPreviewApi;
+  });
+
+  it("nextStep: returns a 200 response status when the authorization header is used", async () => {
+    process.env.QA_AUTH_TOKEN = "qaAuthToken";
+    const req = getMockReq({
+      headers: {
+        [recaptchaTokenHeader]: undefined,
+        authorization: "Bearer qaAuthToken"
+      },
+      method: "GET",
+      query: {
+        answerId: "1234",
+        locale: "en-US"
+      }
+    });
+
+    const addContentfulResponseMock = async (
+      mockResponse: ContentfulResponse,
+      index: number
+    ) => {
+      fetchMock.mock(
+        {
+          method: "POST",
+          url: "begin:https://graphql.contentful.com",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${contentfulDeliveryToken}`
+          },
+          body: {
+            query: await query(index),
+            variables: {
+              answerId: "1234",
+              locale: "en-US"
+            }
+          },
+          matchPartialBody: true
+        },
+        mockResponse
+      );
+    };
+
+    await addContentfulResponseMock(
+      {
+        data: {
+          systemConfiguratorAnswer: {
+            __typename: "SystemConfiguratorAnswer",
+            sys: {
+              id: "id"
+            },
+            title: "title",
+            description: {
+              json: { data: {}, content: [], nodeType: "document" },
+              links: {
+                assets: {
+                  block: []
+                }
+              }
+            },
+            nextStep: {
+              __typename: "SystemConfiguratorQuestion",
+              sys: {
+                id: "question2"
+              },
+              title: "Question 2",
+              description: {
+                json: {
+                  data: {},
+                  content: [
+                    {
+                      data: {},
+                      marks: [],
+                      content: [
+                        {
+                          data: {},
+                          marks: [],
+                          value: "Question 2a rich text.",
+                          nodeType: "text"
+                        }
+                      ],
+                      nodeType: "paragraph"
+                    }
+                  ],
+                  nodeType: "document"
+                },
+                links: {
+                  assets: {
+                    block: [
+                      {
+                        __typename: "Asset",
+                        sys: {
+                          id: "block1"
+                        },
+                        title: "Image title",
+                        url: "/image",
+                        contentType: "image/jpg"
+                      }
+                    ]
+                  }
+                }
+              },
+              answersCollection: {
+                total: 1,
+                items: [answer as Omit<Answer, "nextStep">]
+              }
+            }
+          }
+        }
+      },
+      0
+    );
+
+    await nextStep(req, res);
+
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Methods", "GET");
+    expect(res.status).toBeCalledWith(200);
+    expect(res.send).toBeCalledWith({
+      __typename: "ContentfulSystemConfiguratorQuestion",
+      contentful_id: "question2",
+      id: "question2",
+      title: "Question 2",
+      description: {
+        raw: JSON.stringify({
+          data: {},
+          content: [
+            {
+              data: {},
+              marks: [],
+              content: [
+                {
+                  data: {},
+                  marks: [],
+                  value: "Question 2a rich text.",
+                  nodeType: "text"
+                }
+              ],
+              nodeType: "paragraph"
+            }
+          ],
+          nodeType: "document"
+        }),
+        references: [
+          {
+            __typename: "ContentfulAsset",
+            contentful_id: "block1",
+            id: "block1",
+            title: "Image title",
+            file: {
+              url: "/image",
+              contentType: "image/jpg"
+            }
+          }
+        ]
+      },
+      answers: [answerResponse]
+    });
+    expect(verifyRecaptchaToken).not.toHaveBeenCalled();
+    expect(fetchMock).toHaveFetched("begin:https://graphql.contentful.com");
   });
 });

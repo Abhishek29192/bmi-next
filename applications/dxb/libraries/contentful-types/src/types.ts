@@ -5,6 +5,7 @@ export type Brand =
   | "Awak"
   | "Braas"
   | "Bramac"
+  | "Canopia"
   | "Cobert"
   | "Coverland"
   | "Esha"
