@@ -6,6 +6,7 @@ import {
   IconList,
   LeadBlock,
   PLPFilterResponse,
+  replaceSpaces,
   Section,
   SpotlightHeroProps,
   Typography
@@ -57,7 +58,6 @@ import {
 } from "../../../utils/heroLevelUtils";
 import { renderHero } from "../../../utils/heroTypesUI";
 import { removePLPFilterPrefix } from "../../../utils/product-filters";
-import { replaceSpaces } from "../../../utils/transformHyphens";
 import { ProductListWrapperGrid } from "../styles";
 import {
   renderProducts,

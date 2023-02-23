@@ -1,4 +1,9 @@
-import { Button, Section, Typography } from "@bmi-digital/components";
+import {
+  Button,
+  replaceSpaces,
+  Section,
+  Typography
+} from "@bmi-digital/components";
 import React, {
   useCallback,
   useContext,
@@ -8,7 +13,6 @@ import React, {
 } from "react";
 import { microCopy } from "../../../constants/microCopies";
 import { devLog } from "../../../utils/devLog";
-import { replaceSpaces } from "../../../utils/transformHyphens";
 import { useIsMobileDevice } from "../../../utils/useIsMobileDevice";
 import FormSection from "../../FormSection";
 import ProgressIndicator from "../../ProgressIndicator";
