@@ -298,7 +298,7 @@ HTMLCollection [
             style="margin-top: 40px;"
           >
             <div
-              class=" css-fpjlvn"
+              class=" css-15j8w5i"
               data-testid="tabs"
             >
               <div
@@ -347,7 +347,7 @@ HTMLCollection [
                           <button
                             aria-controls="tabpanel-hello"
                             aria-selected="true"
-                            class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                            class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                             data-gtm="{\\"id\\":\\"selector-tabs2\\",\\"label\\":\\"hello\\",\\"action\\":\\"Selector – Tabs\\"}"
                             data-testid="tab-hello"
                             id="tab-hello"
@@ -532,7 +532,7 @@ HTMLCollection [
                 data-testid="grid-item"
               >
                 <div
-                  class="OverviewCard-flat MuiBox-root css-i0obkw"
+                  class="OverviewCard-flat MuiBox-root css-n8s3uj"
                 >
                   <div
                     class="OverviewCard-body"
@@ -678,7 +678,7 @@ HTMLCollection [
                 data-testid="grid-item"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"page title - Go to page title\\",\\"action\\":\\"/uk/path/\\"}"
                   data-testid="card-collection-section-item-page-title"
                   href="/uk/path/"
@@ -1260,7 +1260,7 @@ HTMLCollection [
             </div>
           </div>
           <div
-            class="Tabs-secondary Tabs-visibleUntillg tabs css-fpjlvn"
+            class="Tabs-secondary Tabs-visibleUntillg tabs css-15j8w5i"
             data-testid="tabs"
           >
             <div
@@ -1287,7 +1287,7 @@ HTMLCollection [
                         <button
                           aria-controls="tabpanel-list"
                           aria-selected="true"
-                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary MuiTab-fullWidth Mui-selected Tabs-tabRoot css-xs12v4-MuiButtonBase-root-MuiTab-root"
+                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary MuiTab-fullWidth Mui-selected Tabs-tabRoot css-1qqdwy9-MuiButtonBase-root-MuiTab-root"
                           data-testid="tab-list"
                           id="tab-list"
                           role="tab"
@@ -1302,7 +1302,7 @@ HTMLCollection [
                         <button
                           aria-controls="tabpanel-map"
                           aria-selected="false"
-                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary MuiTab-fullWidth Tabs-tabRoot css-xs12v4-MuiButtonBase-root-MuiTab-root"
+                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary MuiTab-fullWidth Tabs-tabRoot css-1qqdwy9-MuiButtonBase-root-MuiTab-root"
                           data-testid="tab-map"
                           id="tab-map"
                           role="tab"
@@ -1589,7 +1589,7 @@ HTMLCollection [
             </div>
           </div>
           <div
-            class="Tabs-secondary Tabs-visibleUntillg tabs css-fpjlvn"
+            class="Tabs-secondary Tabs-visibleUntillg tabs css-15j8w5i"
             data-testid="tabs"
           >
             <div
@@ -1616,7 +1616,7 @@ HTMLCollection [
                         <button
                           aria-controls="tabpanel-list"
                           aria-selected="true"
-                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary MuiTab-fullWidth Mui-selected Tabs-tabRoot css-xs12v4-MuiButtonBase-root-MuiTab-root"
+                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary MuiTab-fullWidth Mui-selected Tabs-tabRoot css-1qqdwy9-MuiButtonBase-root-MuiTab-root"
                           data-testid="tab-list"
                           id="tab-list"
                           role="tab"
@@ -1631,7 +1631,7 @@ HTMLCollection [
                         <button
                           aria-controls="tabpanel-map"
                           aria-selected="false"
-                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary MuiTab-fullWidth Tabs-tabRoot css-xs12v4-MuiButtonBase-root-MuiTab-root"
+                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary MuiTab-fullWidth Tabs-tabRoot css-1qqdwy9-MuiButtonBase-root-MuiTab-root"
                           data-testid="tab-map"
                           id="tab-map"
                           role="tab"
@@ -2263,7 +2263,7 @@ HTMLCollection [
                 Team Section - alabaster
               </h2>
               <div
-                class="TeamSection-tabs css-fpjlvn"
+                class="TeamSection-tabs css-15j8w5i"
                 data-testid="tabs"
               >
                 <div
@@ -2315,7 +2315,7 @@ HTMLCollection [
                               <button
                                 aria-controls="tabpanel-0"
                                 aria-selected="true"
-                                class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                                class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                                 data-gtm="{\\"id\\":\\"selector-tabs2\\",\\"label\\":\\"Team Category 1\\",\\"action\\":\\"Selector – Tabs\\"}"
                                 data-testid="tab-0"
                                 id="tab-0"
@@ -2488,7 +2488,7 @@ HTMLCollection [
                 Team Section - undefined colour (2 categories)
               </h2>
               <div
-                class="TeamSection-tabs css-fpjlvn"
+                class="TeamSection-tabs css-15j8w5i"
                 data-testid="tabs"
               >
                 <div
@@ -2540,7 +2540,7 @@ HTMLCollection [
                               <button
                                 aria-controls="tabpanel-0"
                                 aria-selected="true"
-                                class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                                class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                                 data-gtm="{\\"id\\":\\"selector-tabs2\\",\\"label\\":\\"Team Category 1\\",\\"action\\":\\"Selector – Tabs\\"}"
                                 data-testid="tab-0"
                                 id="tab-0"
@@ -2556,7 +2556,7 @@ HTMLCollection [
                               <button
                                 aria-controls="tabpanel-1"
                                 aria-selected="false"
-                                class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                                class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                                 data-gtm="{\\"id\\":\\"selector-tabs2\\",\\"label\\":\\"Team Category 2\\",\\"action\\":\\"Selector – Tabs\\"}"
                                 data-testid="tab-1"
                                 id="tab-1"
@@ -3677,7 +3677,7 @@ HTMLCollection [
             style="margin-top: 40px;"
           >
             <div
-              class=" css-fpjlvn"
+              class=" css-15j8w5i"
               data-testid="tabs"
             >
               <div
@@ -3726,7 +3726,7 @@ HTMLCollection [
                           <button
                             aria-controls="tabpanel-hello"
                             aria-selected="true"
-                            class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                            class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                             data-gtm="{\\"id\\":\\"selector-tabs2\\",\\"label\\":\\"hello\\",\\"action\\":\\"Selector – Tabs\\"}"
                             data-testid="tab-hello"
                             id="tab-hello"
@@ -3958,7 +3958,7 @@ HTMLCollection [
             style="margin-top: 40px;"
           >
             <div
-              class=" css-fpjlvn"
+              class=" css-15j8w5i"
               data-testid="tabs"
             >
               <div
@@ -4007,7 +4007,7 @@ HTMLCollection [
                           <button
                             aria-controls="tabpanel-hello"
                             aria-selected="true"
-                            class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                            class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                             data-gtm="{\\"id\\":\\"selector-tabs2\\",\\"label\\":\\"hello\\",\\"action\\":\\"Selector – Tabs\\"}"
                             data-testid="tab-hello"
                             id="tab-hello"
