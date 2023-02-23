@@ -2807,9 +2807,11 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
           >
             <div
               class="gallery css-2bw4l8"
+              data-testid="media-gallery-root"
             >
               <div
                 class=" css-79elbk"
+                data-testid="media-gallery-media-wrapper"
               >
                 <img
                   alt="Alt text"
@@ -2824,7 +2826,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
     </div>
   </div>
   <div
-    class="sdpTabLeadBlock css-15j8w5i"
+    class="sdpTabLeadBlock css-nxi0jm"
     data-testid="tabs"
   >
     <div
@@ -3609,6 +3611,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                   </h5>
                   <div
                     class="OverviewCard-text css-fm25tm"
+                    data-testid="overview-card-body-description"
                   >
                     related-short-desc
                   </div>
@@ -6836,9 +6839,11 @@ exports[`SystemDetailsPage template component should render 1`] = `
           >
             <div
               class="gallery css-2bw4l8"
+              data-testid="media-gallery-root"
             >
               <div
                 class=" css-79elbk"
+                data-testid="media-gallery-media-wrapper"
               >
                 <img
                   alt="Alt text"
@@ -6853,7 +6858,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
     </div>
   </div>
   <div
-    class="sdpTabLeadBlock css-15j8w5i"
+    class="sdpTabLeadBlock css-nxi0jm"
     data-testid="tabs"
   >
     <div
@@ -7638,6 +7643,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                   </h5>
                   <div
                     class="OverviewCard-text css-fm25tm"
+                    data-testid="overview-card-body-description"
                   >
                     related-short-desc
                   </div>
@@ -10869,9 +10875,11 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
             >
               <div
                 class="gallery css-2bw4l8"
+                data-testid="media-gallery-root"
               >
                 <div
                   class=" css-79elbk"
+                  data-testid="media-gallery-media-wrapper"
                 >
                   <img
                     alt="Alt text"
@@ -10886,7 +10894,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
       </div>
     </div>
     <div
-      class="sdpTabLeadBlock css-15j8w5i"
+      class="sdpTabLeadBlock css-nxi0jm"
       data-testid="tabs"
     >
       <div
@@ -11671,6 +11679,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                     </h5>
                     <div
                       class="OverviewCard-text css-fm25tm"
+                      data-testid="overview-card-body-description"
                     >
                       related-short-desc
                     </div>
@@ -14899,9 +14908,11 @@ exports[`SystemDetailsPage template component should render without BrandProvide
           >
             <div
               class="gallery css-2bw4l8"
+              data-testid="media-gallery-root"
             >
               <div
                 class=" css-79elbk"
+                data-testid="media-gallery-media-wrapper"
               >
                 <img
                   alt="Alt text"
@@ -14916,7 +14927,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
     </div>
   </div>
   <div
-    class="sdpTabLeadBlock css-15j8w5i"
+    class="sdpTabLeadBlock css-nxi0jm"
     data-testid="tabs"
   >
     <div
@@ -15701,6 +15712,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                   </h5>
                   <div
                     class="OverviewCard-text css-fm25tm"
+                    data-testid="overview-card-body-description"
                   >
                     related-short-desc
                   </div>
@@ -18928,9 +18940,11 @@ exports[`SystemDetailsPage template component should render without specificatio
           >
             <div
               class="gallery css-2bw4l8"
+              data-testid="media-gallery-root"
             >
               <div
                 class=" css-79elbk"
+                data-testid="media-gallery-media-wrapper"
               >
                 <img
                   alt="Alt text"
@@ -18945,7 +18959,7 @@ exports[`SystemDetailsPage template component should render without specificatio
     </div>
   </div>
   <div
-    class="sdpTabLeadBlock css-15j8w5i"
+    class="sdpTabLeadBlock css-nxi0jm"
     data-testid="tabs"
   >
     <div
@@ -19691,6 +19705,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                   </h5>
                   <div
                     class="OverviewCard-text css-fm25tm"
+                    data-testid="overview-card-body-description"
                   >
                     related-short-desc
                   </div>
@@ -22918,9 +22933,11 @@ exports[`SystemDetailsPage template component should render without systemLayers
           >
             <div
               class="gallery css-2bw4l8"
+              data-testid="media-gallery-root"
             >
               <div
                 class=" css-79elbk"
+                data-testid="media-gallery-media-wrapper"
               >
                 <img
                   alt="Alt text"
@@ -22935,7 +22952,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
     </div>
   </div>
   <div
-    class="sdpTabLeadBlock css-15j8w5i"
+    class="sdpTabLeadBlock css-nxi0jm"
     data-testid="tabs"
   >
     <div
@@ -23720,6 +23737,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                   </h5>
                   <div
                     class="OverviewCard-text css-fm25tm"
+                    data-testid="overview-card-body-description"
                   >
                     related-short-desc
                   </div>
@@ -26947,9 +26965,11 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
           >
             <div
               class="gallery css-2bw4l8"
+              data-testid="media-gallery-root"
             >
               <div
                 class=" css-79elbk"
+                data-testid="media-gallery-media-wrapper"
               >
                 <img
                   alt="Alt text"
@@ -27090,7 +27110,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
     </div>
   </div>
   <div
-    class="sdpTabLeadBlock css-15j8w5i"
+    class="sdpTabLeadBlock css-nxi0jm"
     data-testid="tabs"
   >
     <div
@@ -27875,6 +27895,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                   </h5>
                   <div
                     class="OverviewCard-text css-fm25tm"
+                    data-testid="overview-card-body-description"
                   >
                     related-short-desc
                   </div>
@@ -31102,9 +31123,11 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
           >
             <div
               class="gallery css-2bw4l8"
+              data-testid="media-gallery-root"
             >
               <div
                 class=" css-79elbk"
+                data-testid="media-gallery-media-wrapper"
               >
                 <img
                   alt="Alt text"
@@ -31245,7 +31268,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
     </div>
   </div>
   <div
-    class="sdpTabLeadBlock css-15j8w5i"
+    class="sdpTabLeadBlock css-nxi0jm"
     data-testid="tabs"
   >
     <div
@@ -32030,6 +32053,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                   </h5>
                   <div
                     class="OverviewCard-text css-fm25tm"
+                    data-testid="overview-card-body-description"
                   >
                     related-short-desc
                   </div>

@@ -51,6 +51,7 @@ exports[`RelatedSystems component renders correctly when scoringweight equal & n
                   </h5>
                   <div
                     class="OverviewCard-text css-fm25tm"
+                    data-testid="overview-card-body-description"
                   >
                     system-desc
                   </div>
@@ -101,6 +102,7 @@ exports[`RelatedSystems component renders correctly when scoringweight equal & n
                   </h5>
                   <div
                     class="OverviewCard-text css-fm25tm"
+                    data-testid="overview-card-body-description"
                   >
                     system-desc
                   </div>
@@ -216,6 +218,7 @@ exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
                   </h5>
                   <div
                     class="OverviewCard-text css-fm25tm"
+                    data-testid="overview-card-body-description"
                   >
                     system-desc
                   </div>
@@ -266,6 +269,7 @@ exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
                   </h5>
                   <div
                     class="OverviewCard-text css-fm25tm"
+                    data-testid="overview-card-body-description"
                   >
                     system-desc
                   </div>
@@ -349,6 +353,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal & n
                   </h5>
                   <div
                     class="OverviewCard-text css-fm25tm"
+                    data-testid="overview-card-body-description"
                   >
                     system-desc
                   </div>
@@ -399,6 +404,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal & n
                   </h5>
                   <div
                     class="OverviewCard-text css-fm25tm"
+                    data-testid="overview-card-body-description"
                   >
                     system-desc
                   </div>
@@ -482,6 +488,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal 1`]
                   </h5>
                   <div
                     class="OverviewCard-text css-fm25tm"
+                    data-testid="overview-card-body-description"
                   >
                     system-desc
                   </div>
@@ -532,6 +539,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal 1`]
                   </h5>
                   <div
                     class="OverviewCard-text css-fm25tm"
+                    data-testid="overview-card-body-description"
                   >
                     system-desc
                   </div>
@@ -615,6 +623,7 @@ exports[`RelatedSystems component renders correctly with systems 1`] = `
                   </h5>
                   <div
                     class="OverviewCard-text css-fm25tm"
+                    data-testid="overview-card-body-description"
                   >
                     system-desc
                   </div>
@@ -698,6 +707,7 @@ exports[`RelatedSystems component renders correctly without categories 1`] = `
                   </h5>
                   <div
                     class="OverviewCard-text css-fm25tm"
+                    data-testid="overview-card-body-description"
                   >
                     system-desc
                   </div>
@@ -781,6 +791,7 @@ exports[`RelatedSystems component renders systems correctly without classificati
                   </h5>
                   <div
                     class="OverviewCard-text css-fm25tm"
+                    data-testid="overview-card-body-description"
                   >
                     system-desc
                   </div>
@@ -841,6 +852,7 @@ exports[`SystemCard renders correctly with related system 1`] = `
         </h5>
         <div
           class="OverviewCard-text css-fm25tm"
+          data-testid="overview-card-body-description"
         >
           related-short-desc
         </div>
@@ -896,6 +908,7 @@ exports[`SystemCard renders correctly with system from elasticsearch 1`] = `
         </h5>
         <div
           class="OverviewCard-text css-fm25tm"
+          data-testid="overview-card-body-description"
         >
           Short description
         </div>

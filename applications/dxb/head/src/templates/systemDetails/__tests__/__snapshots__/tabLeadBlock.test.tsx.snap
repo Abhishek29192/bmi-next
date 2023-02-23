@@ -3,7 +3,7 @@
 exports[`TabLeadBlock tests should not render technical Specification tab 1`] = `
 <div>
   <div
-    class="sdpTabLeadBlock css-15j8w5i"
+    class="sdpTabLeadBlock css-nxi0jm"
     data-testid="tabs"
   >
     <div
@@ -250,7 +250,7 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
 exports[`TabLeadBlock tests should render 1`] = `
 <div>
   <div
-    class="sdpTabLeadBlock css-15j8w5i"
+    class="sdpTabLeadBlock css-nxi0jm"
     data-testid="tabs"
   >
     <div

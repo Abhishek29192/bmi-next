@@ -33,9 +33,11 @@ exports[`MediaGallerySection component renders correctly 1`] = `
           >
             <div
               class="css-2bw4l8"
+              data-testid="media-gallery-root"
             >
               <div
                 class=" css-79elbk"
+                data-testid="media-gallery-media-wrapper"
               >
                 <div
                   class="gatsby-image-wrapper gatsby-image-wrapper-constrained MediaGallery-mainImageWrapperCover MediaGallery-mainImageWrapperdefault css-1kr98xg-Media"
@@ -285,9 +287,11 @@ exports[`MediaGallerySection component renders correctly with long description 1
           >
             <div
               class="css-2bw4l8"
+              data-testid="media-gallery-root"
             >
               <div
                 class=" css-79elbk"
+                data-testid="media-gallery-media-wrapper"
               >
                 <div
                   class="gatsby-image-wrapper gatsby-image-wrapper-constrained MediaGallery-mainImageWrapperCover MediaGallery-mainImageWrapperdefault css-1kr98xg-Media"

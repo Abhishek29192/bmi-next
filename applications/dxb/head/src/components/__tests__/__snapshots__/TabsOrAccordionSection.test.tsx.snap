@@ -242,7 +242,7 @@ exports[`TabsOrAccordionSection Tabs default to name if title is null 1`] = `
           style="margin-top: 40px;"
         >
           <div
-            class=" css-15j8w5i"
+            class=" css-nxi0jm"
             data-testid="tabs"
           >
             <div
@@ -387,7 +387,7 @@ exports[`TabsOrAccordionSection Tabs renders Correctly  1`] = `
           style="margin-top: 40px;"
         >
           <div
-            class=" css-15j8w5i"
+            class=" css-nxi0jm"
             data-testid="tabs"
           >
             <div
@@ -532,7 +532,7 @@ exports[`TabsOrAccordionSection not render tab panel if item array is empty 1`] 
           style="margin-top: 40px;"
         >
           <div
-            class=" css-15j8w5i"
+            class=" css-nxi0jm"
             data-testid="tabs"
           >
             <div
@@ -641,7 +641,7 @@ exports[`TabsOrAccordionSection title attribute is rendered if both name and tit
           style="margin-top: 40px;"
         >
           <div
-            class=" css-15j8w5i"
+            class=" css-nxi0jm"
             data-testid="tabs"
           >
             <div

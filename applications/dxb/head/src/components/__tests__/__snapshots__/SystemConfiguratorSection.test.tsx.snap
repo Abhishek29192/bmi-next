@@ -263,6 +263,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
                   </h5>
                   <div
                     class="OverviewCard-text css-fm25tm"
+                    data-testid="overview-card-body-description"
                   >
                     efgh description
                   </div>
@@ -558,6 +559,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
                   </h5>
                   <div
                     class="OverviewCard-text css-fm25tm"
+                    data-testid="overview-card-body-description"
                   >
                     efgh description
                   </div>
@@ -1531,6 +1533,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
                   </h5>
                   <div
                     class="OverviewCard-text css-fm25tm"
+                    data-testid="overview-card-body-description"
                   >
                     efgh description
                   </div>
@@ -3454,6 +3457,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                   </h5>
                   <div
                     class="OverviewCard-text css-fm25tm"
+                    data-testid="overview-card-body-description"
                   >
                     related-short-desc
                   </div>
@@ -3505,6 +3509,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                   </h5>
                   <div
                     class="OverviewCard-text css-fm25tm"
+                    data-testid="overview-card-body-description"
                   >
                     related-short-desc
                   </div>
@@ -3556,6 +3561,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                   </h5>
                   <div
                     class="OverviewCard-text css-fm25tm"
+                    data-testid="overview-card-body-description"
                   >
                     related-short-desc
                   </div>
@@ -3607,6 +3613,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                   </h5>
                   <div
                     class="OverviewCard-text css-fm25tm"
+                    data-testid="overview-card-body-description"
                   >
                     related-short-desc
                   </div>
@@ -3907,6 +3914,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
                   </h5>
                   <div
                     class="OverviewCard-text css-fm25tm"
+                    data-testid="overview-card-body-description"
                   >
                     related-short-desc
                   </div>
@@ -3958,6 +3966,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
                   </h5>
                   <div
                     class="OverviewCard-text css-fm25tm"
+                    data-testid="overview-card-body-description"
                   >
                     related-short-desc
                   </div>
