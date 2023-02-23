@@ -46,6 +46,7 @@ exports[`SampleBasketSection component renders correctly 1`] = `
               />
               <div
                 class="OverviewCard-text OverviewCard-withoutMargin css-fm25tm"
+                data-testid="overview-card-body-description"
               >
                 <div
                   class="product"
@@ -191,6 +192,7 @@ exports[`SampleBasketSection component should render form after complete button 
               />
               <div
                 class="OverviewCard-text OverviewCard-withoutMargin css-fm25tm"
+                data-testid="overview-card-body-description"
               >
                 <div
                   class="product"

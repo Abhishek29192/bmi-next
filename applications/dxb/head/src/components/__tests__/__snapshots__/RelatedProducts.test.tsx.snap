@@ -24,7 +24,7 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
           class="RelatedProducts"
         >
           <div
-            class="Tabs-secondary css-15j8w5i"
+            class="Tabs-secondary css-nxi0jm"
             data-testid="tabs"
           >
             <div
@@ -159,6 +159,7 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
                       </h6>
                       <div
                         class="OverviewCard-text css-fm25tm"
+                        data-testid="overview-card-body-description"
                       >
                         MC: pdp.nobb.label
                         :
@@ -233,7 +234,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
           class="RelatedProducts"
         >
           <div
-            class="Tabs-secondary css-15j8w5i"
+            class="Tabs-secondary css-nxi0jm"
             data-testid="tabs"
           >
             <div
@@ -368,6 +369,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                       </h6>
                       <div
                         class="OverviewCard-text css-fm25tm"
+                        data-testid="overview-card-body-description"
                       >
                         MC: pdp.nobb.label
                         :
@@ -441,6 +443,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                       </h6>
                       <div
                         class="OverviewCard-text css-fm25tm"
+                        data-testid="overview-card-body-description"
                       />
                       <div
                         class="css-1tho2wt"
@@ -507,6 +510,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                       </h6>
                       <div
                         class="OverviewCard-text css-fm25tm"
+                        data-testid="overview-card-body-description"
                       />
                       <div
                         class="css-1tho2wt"
@@ -572,7 +576,7 @@ exports[`RelatedProducts component renders with correct gtmLabel 1`] = `
           class="RelatedProducts"
         >
           <div
-            class="Tabs-secondary css-15j8w5i"
+            class="Tabs-secondary css-nxi0jm"
             data-testid="tabs"
           >
             <div
@@ -707,6 +711,7 @@ exports[`RelatedProducts component renders with correct gtmLabel 1`] = `
                       </h6>
                       <div
                         class="OverviewCard-text css-fm25tm"
+                        data-testid="overview-card-body-description"
                       >
                         MC: pdp.nobb.label
                         :

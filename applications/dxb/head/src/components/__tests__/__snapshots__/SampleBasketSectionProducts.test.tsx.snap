@@ -26,6 +26,7 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
         />
         <div
           class="OverviewCard-text OverviewCard-withoutMargin css-fm25tm"
+          data-testid="overview-card-body-description"
         >
           <div
             class="product"
@@ -106,6 +107,7 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
         />
         <div
           class="OverviewCard-text OverviewCard-withoutMargin css-fm25tm"
+          data-testid="overview-card-body-description"
         >
           <div
             class="product"
@@ -190,6 +192,7 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
         />
         <div
           class="OverviewCard-text OverviewCard-withoutMargin css-fm25tm"
+          data-testid="overview-card-body-description"
         >
           <div
             class="product"

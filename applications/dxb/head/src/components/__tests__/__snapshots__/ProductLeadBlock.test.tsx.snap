@@ -6,7 +6,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
     class="ProductLeadBlock"
   >
     <div
-      class=" css-15j8w5i"
+      class=" css-nxi0jm"
       data-testid="tabs"
     >
       <div
@@ -1169,9 +1169,11 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
             >
               <div
                 class="css-2bw4l8"
+                data-testid="media-gallery-root"
               >
                 <div
                   class=" css-79elbk"
+                  data-testid="media-gallery-media-wrapper"
                 >
                   <img
                     alt="Alt text"
@@ -1225,7 +1227,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
     class="ProductLeadBlock"
   >
     <div
-      class=" css-15j8w5i"
+      class=" css-nxi0jm"
       data-testid="tabs"
     >
       <div
@@ -2150,9 +2152,11 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
             >
               <div
                 class="css-2bw4l8"
+                data-testid="media-gallery-root"
               >
                 <div
                   class=" css-79elbk"
+                  data-testid="media-gallery-media-wrapper"
                 >
                   <img
                     alt="Alt text"
@@ -2206,7 +2210,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
     class="ProductLeadBlock"
   >
     <div
-      class=" css-15j8w5i"
+      class=" css-nxi0jm"
       data-testid="tabs"
     >
       <div
@@ -2725,9 +2729,11 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
             >
               <div
                 class="css-2bw4l8"
+                data-testid="media-gallery-root"
               >
                 <div
                   class=" css-79elbk"
+                  data-testid="media-gallery-media-wrapper"
                 >
                   <img
                     alt="Alt text"
@@ -4339,9 +4345,11 @@ exports[`ProductLeadBlock tests should render the technical draws tab 1`] = `
       >
         <div
           class="css-2bw4l8"
+          data-testid="media-gallery-root"
         >
           <div
             class=" css-79elbk"
+            data-testid="media-gallery-media-wrapper"
           >
             <img
               alt="Alt text"

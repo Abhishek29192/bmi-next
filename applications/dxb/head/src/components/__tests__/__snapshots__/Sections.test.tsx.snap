@@ -298,7 +298,7 @@ HTMLCollection [
             style="margin-top: 40px;"
           >
             <div
-              class=" css-15j8w5i"
+              class=" css-nxi0jm"
               data-testid="tabs"
             >
               <div
@@ -575,6 +575,7 @@ HTMLCollection [
                     </h4>
                     <div
                       class="OverviewCard-text css-fm25tm"
+                      data-testid="overview-card-body-description"
                     >
                       promo subtitle
                     </div>
@@ -743,6 +744,7 @@ HTMLCollection [
                     </h4>
                     <div
                       class="OverviewCard-text css-fm25tm"
+                      data-testid="overview-card-body-description"
                     >
                       page subtitle
                     </div>
@@ -1020,9 +1022,11 @@ HTMLCollection [
             >
               <div
                 class="css-2bw4l8"
+                data-testid="media-gallery-root"
               >
                 <div
                   class=" css-79elbk"
+                  data-testid="media-gallery-media-wrapper"
                 >
                   <div
                     class="gatsby-image-wrapper gatsby-image-wrapper-constrained MediaGallery-mainImageWrapperCover MediaGallery-mainImageWrapperdefault css-1kr98xg-Media"
@@ -1260,7 +1264,7 @@ HTMLCollection [
             </div>
           </div>
           <div
-            class="Tabs-secondary Tabs-visibleUntillg tabs css-15j8w5i"
+            class="Tabs-secondary Tabs-visibleUntillg tabs css-nxi0jm"
             data-testid="tabs"
           >
             <div
@@ -1589,7 +1593,7 @@ HTMLCollection [
             </div>
           </div>
           <div
-            class="Tabs-secondary Tabs-visibleUntillg tabs css-15j8w5i"
+            class="Tabs-secondary Tabs-visibleUntillg tabs css-nxi0jm"
             data-testid="tabs"
           >
             <div
@@ -2263,7 +2267,7 @@ HTMLCollection [
                 Team Section - alabaster
               </h2>
               <div
-                class="TeamSection-tabs css-15j8w5i"
+                class="TeamSection-tabs css-nxi0jm"
                 data-testid="tabs"
               >
                 <div
@@ -2488,7 +2492,7 @@ HTMLCollection [
                 Team Section - undefined colour (2 categories)
               </h2>
               <div
-                class="TeamSection-tabs css-15j8w5i"
+                class="TeamSection-tabs css-nxi0jm"
                 data-testid="tabs"
               >
                 <div
@@ -3677,7 +3681,7 @@ HTMLCollection [
             style="margin-top: 40px;"
           >
             <div
-              class=" css-15j8w5i"
+              class=" css-nxi0jm"
               data-testid="tabs"
             >
               <div
@@ -3958,7 +3962,7 @@ HTMLCollection [
             style="margin-top: 40px;"
           >
             <div
-              class=" css-15j8w5i"
+              class=" css-nxi0jm"
               data-testid="tabs"
             >
               <div

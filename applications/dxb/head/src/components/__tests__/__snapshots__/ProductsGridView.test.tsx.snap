@@ -40,6 +40,7 @@ exports[`ProductsGridView component renders correctly when not empty 1`] = `
         
         <div
           class="OverviewCard-text css-fm25tm"
+          data-testid="overview-card-body-description"
         >
           short-description
         </div>
@@ -107,6 +108,7 @@ exports[`ProductsGridView component renders correctly when not empty with filter
         
         <div
           class="OverviewCard-text css-fm25tm"
+          data-testid="overview-card-body-description"
         >
           short-description
         </div>

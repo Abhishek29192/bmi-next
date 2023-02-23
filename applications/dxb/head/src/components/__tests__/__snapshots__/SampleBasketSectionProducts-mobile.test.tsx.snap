@@ -26,6 +26,7 @@ exports[`SampleBasketSectionProducts component render correctly on mobile device
         />
         <div
           class="OverviewCard-text OverviewCard-withoutMargin css-fm25tm"
+          data-testid="overview-card-body-description"
         >
           <div
             class="product"
@@ -96,6 +97,7 @@ exports[`SampleBasketSectionProducts component render correctly on mobile device
         />
         <div
           class="OverviewCard-text OverviewCard-withoutMargin css-fm25tm"
+          data-testid="overview-card-body-description"
         >
           <div
             class="product"
@@ -170,6 +172,7 @@ exports[`SampleBasketSectionProducts component render correctly on mobile device
         />
         <div
           class="OverviewCard-text OverviewCard-withoutMargin css-fm25tm"
+          data-testid="overview-card-body-description"
         >
           <div
             class="product"
