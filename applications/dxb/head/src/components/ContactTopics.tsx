@@ -7,24 +7,26 @@ import {
   IconList,
   Typography
 } from "@bmi-digital/components";
-import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import BuildIcon from "@mui/icons-material/Build";
-import EmojiObjectsOutlinedIcon from "@mui/icons-material/EmojiObjectsOutlined";
-import FindReplaceIcon from "@mui/icons-material/FindReplace";
-import HelpIcon from "@mui/icons-material/Help";
-import InfoIcon from "@mui/icons-material/Info";
-import LocalShippingIcon from "@mui/icons-material/LocalShipping";
-import ReportProblemIcon from "@mui/icons-material/ReportProblem";
-import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
+import { QuestionMark as HelpIcon } from "@bmi-digital/components/icon";
+import {
+  AddShoppingCart as AddShoppingCartIcon,
+  Build as BuildIcon,
+  EmojiObjectsOutlined as EmojiObjectsOutlinedIcon,
+  FindReplace as FindReplaceIcon,
+  Info as InfoIcon,
+  LocalShipping as LocalShippingIcon,
+  ReportProblem as ReportProblemIcon,
+  VerifiedUser as VerifiedUserIcon
+} from "@mui/icons-material";
 import { styled } from "@mui/material/styles";
 import { graphql } from "gatsby";
 import React from "react";
 import withGTM from "../utils/google-tag-manager";
 import ContactDetails, { Data as ContactDetailsData } from "./ContactDetails";
 import RichText from "./RichText";
-import { Data as TitleWithContentData } from "./TitleWithContent";
 import borderedItemStyles from "./styles/BorderedItem.module.scss";
 import styles from "./styles/ContactTopics.module.scss";
+import { Data as TitleWithContentData } from "./TitleWithContent";
 
 const StyledEmojiOutlinedIcon = styled(EmojiObjectsOutlinedIcon)(
   ({ theme }) => ({

@@ -131,7 +131,7 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
                   data-testid="grid-item"
                 >
                   <a
-                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                     data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/path/\\"}"
                     data-testid="GTMOverviewCard"
                     href="/en/path/"
@@ -145,8 +145,11 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
                     <div
                       class="OverviewCard-body"
                     >
+                      <div
+                        class="OverviewCard-brandLogo OverviewCard-negative"
+                      />
                       <h5
-                        class="MuiTypography-root MuiTypography-h5 OverviewCard-title OverviewCard-noBrandLogo css-10q7alf-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-10q7alf-MuiTypography-root"
                         data-testid="overview-card-body-title"
                       >
                         name
@@ -341,7 +344,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                   data-testid="grid-item"
                 >
                   <a
-                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                     data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/path/\\"}"
                     data-testid="GTMOverviewCard"
                     href="/en/path/"
@@ -355,8 +358,11 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                     <div
                       class="OverviewCard-body"
                     >
+                      <div
+                        class="OverviewCard-brandLogo OverviewCard-negative"
+                      />
                       <h5
-                        class="MuiTypography-root MuiTypography-h5 OverviewCard-title OverviewCard-noBrandLogo css-10q7alf-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-10q7alf-MuiTypography-root"
                         data-testid="overview-card-body-title"
                       >
                         name
@@ -415,7 +421,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                   data-testid="grid-item"
                 >
                   <a
-                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                     data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/path/\\"}"
                     data-testid="GTMOverviewCard"
                     href="/en/path/"
@@ -429,8 +435,11 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                     <div
                       class="OverviewCard-body"
                     >
+                      <div
+                        class="OverviewCard-brandLogo OverviewCard-negative"
+                      />
                       <h5
-                        class="MuiTypography-root MuiTypography-h5 OverviewCard-title OverviewCard-noBrandLogo css-10q7alf-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-10q7alf-MuiTypography-root"
                         data-testid="overview-card-body-title"
                       >
                         name
@@ -482,7 +491,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                   data-testid="grid-item"
                 >
                   <a
-                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                     data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/path/\\"}"
                     data-testid="GTMOverviewCard"
                     href="/en/path/"
@@ -496,8 +505,11 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                     <div
                       class="OverviewCard-body"
                     >
+                      <div
+                        class="OverviewCard-brandLogo OverviewCard-negative"
+                      />
                       <h5
-                        class="MuiTypography-root MuiTypography-h5 OverviewCard-title OverviewCard-noBrandLogo css-10q7alf-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-10q7alf-MuiTypography-root"
                         data-testid="overview-card-body-title"
                       >
                         name
@@ -683,7 +695,7 @@ exports[`RelatedProducts component renders with correct gtmLabel 1`] = `
                   data-testid="grid-item"
                 >
                   <a
-                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                     data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/path/\\"}"
                     data-testid="GTMOverviewCard"
                     href="/en/path/"
@@ -697,8 +709,11 @@ exports[`RelatedProducts component renders with correct gtmLabel 1`] = `
                     <div
                       class="OverviewCard-body"
                     >
+                      <div
+                        class="OverviewCard-brandLogo OverviewCard-negative"
+                      />
                       <h5
-                        class="MuiTypography-root MuiTypography-h5 OverviewCard-title OverviewCard-noBrandLogo css-10q7alf-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-10q7alf-MuiTypography-root"
                         data-testid="overview-card-body-title"
                       >
                         name

@@ -1,6 +1,6 @@
 import { Button, Dialog } from "@bmi-digital/components";
+import { ArrowForward as ArrowForwardIcon } from "@bmi-digital/components/icon";
 import { ErrorOutlineOutlined } from "@mui/icons-material";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { graphql } from "gatsby";
 import React from "react";
 import { Head } from "../../components/Head";

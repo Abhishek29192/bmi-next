@@ -15,7 +15,7 @@ import { RelatedSystem } from "../types/pim";
 import withGTM, { GTM } from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
 import { renderMedia } from "../utils/renderMedia";
-import { iconMap } from "./Icon";
+import BrandLogo from "./BrandLogo";
 import { useSiteContext } from "./Site";
 import styles from "./styles/RelatedSystems.module.scss";
 
@@ -39,11 +39,6 @@ export const SystemCard = ({
   ...rest
 }: SystemCardProps) => {
   const { getMicroCopy } = useSiteContext();
-  // eslint-disable-next-line security/detect-object-injection
-  const brandLogo =
-    iconMap[
-      typeof system.brand === "string" ? system.brand : system.brand?.code
-    ];
   const systemUrl = getSystemUrl(countryCode, path);
   const mainImage = system.images[0]?.mainSource;
   const GTMOverviewCard = withGTM<OverviewCardProps>(OverviewCard);
@@ -55,7 +50,15 @@ export const SystemCard = ({
         titleVariant="h5"
         imageSize="contain"
         media={renderMedia(mainImage, system.name)}
-        brandImageSource={brandLogo}
+        brandImageSource={
+          <BrandLogo
+            brandName={
+              typeof system.brand === "string"
+                ? system.brand
+                : system.brand?.code
+            }
+          />
+        }
         action={{
           model: "routerLink",
           linkComponent: Link,

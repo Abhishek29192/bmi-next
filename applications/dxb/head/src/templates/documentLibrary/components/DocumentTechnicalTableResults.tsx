@@ -2,7 +2,6 @@ import { PimProductDocument } from "@bmi/elasticsearch-types";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import React, { useMemo } from "react";
-import fileIconsMap from "../../../components/FileIconsMap";
 import { groupDistinctBy } from "../../../utils/product-filters";
 import { AssetType } from "../types";
 import { Root } from "./DocumentTechnicalTableResultsStyles";
@@ -41,13 +40,11 @@ const DocumentTechnicalTableResults = ({ documents, assetTypes }: Props) => {
         <DesktopDocumentTechnicalTableResults
           documentsByProduct={allDocumentsGrouped}
           assetTypes={assetTypes}
-          fileIconsMap={fileIconsMap}
         />
       ) : (
         <MobileDocumentTechnicalTableResults
           documentsByProduct={allDocumentsGrouped}
           assetTypes={assetTypes}
-          fileIconsMap={fileIconsMap}
         />
       )}
     </Root>

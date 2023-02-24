@@ -1,5 +1,5 @@
 import { Typography } from "@bmi-digital/components";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { ExpandMore as ExpandMoreIcon } from "@mui/icons-material";
 import { AccordionProps } from "@mui/material";
 import React, { ReactNode } from "react";
 import {

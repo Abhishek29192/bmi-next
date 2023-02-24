@@ -6,7 +6,7 @@ import {
 } from "@bmi-digital/components";
 import { ContentfulDocument } from "@bmi/elasticsearch-types";
 import React from "react";
-import { iconMap } from "../../../components/Icon";
+import BrandLogo from "../../../components/BrandLogo";
 import { renderImage } from "../../../components/Image";
 import { useSiteContext } from "../../../components/Site";
 import { microCopy } from "../../../constants/microCopies";
@@ -35,8 +35,7 @@ const DocumentCardsResults = ({ documents }: Props) => {
             <GTMOverviewCard
               title={document.title}
               media={renderImage(document.featuredMedia)}
-              // eslint-disable-next-line security/detect-object-injection
-              brandImageSource={iconMap[document.BRAND?.name]}
+              brandImageSource={<BrandLogo brandName={document.BRAND?.name} />}
               action={{
                 model: "download",
                 href: `https:${document.asset.file.url}`,

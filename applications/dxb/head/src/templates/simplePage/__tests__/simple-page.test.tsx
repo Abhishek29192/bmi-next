@@ -56,7 +56,7 @@ const data: { contentfulSimplePage: Data; contentfulSite: SiteData } = {
     id: "simplePage",
     title: "Simple page",
     subtitle: "Simple page subtitle",
-    brandLogo: "brandLogo",
+    brandLogo: "Icopal",
     slug: "simple-page",
     date: "2021-06-02T00:00:00",
     tags: [{ type: "Page type", title: "PSimple page type" }],
