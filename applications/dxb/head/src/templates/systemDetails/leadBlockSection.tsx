@@ -6,10 +6,11 @@ import {
   Section,
   Typography
 } from "@bmi-digital/components";
-import { SVGImport } from "@bmi-digital/svg-import";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import CheckIcon from "@mui/icons-material/Check";
+import {
+  ArrowBack as ArrowBackIcon,
+  ArrowForward as ArrowForwardIcon
+} from "@bmi-digital/components/icon";
+import { Check as CheckIcon } from "@mui/icons-material";
 import { useLocation } from "@reach/router";
 import React, { useEffect, useState } from "react";
 import { StyledBlueCheckIconInter } from "../../components/CommonIcons";
@@ -33,7 +34,7 @@ type Props = {
   cta?: LinkData;
   promotionalContent?: string;
   uniqueSellingPropositions?: readonly string[];
-  brandLogo?: SVGImport;
+  brandLogo?: React.ReactElement;
 };
 
 const LeadBlockSection = ({
@@ -41,7 +42,7 @@ const LeadBlockSection = ({
   cta,
   promotionalContent,
   uniqueSellingPropositions,
-  brandLogo: BrandLogo
+  brandLogo
 }: Props) => {
   const { getMicroCopy } = useSiteContext();
   const [selectedSystemId, setSelectedSystemId] = useState("");
@@ -74,9 +75,11 @@ const LeadBlockSection = ({
     >
       <LeadBlock>
         <LeadBlock.Content>
-          {BrandLogo && (
+          {brandLogo && (
             <LeadBlock.Content.Section>
-              <BrandLogo className={styles["brandLogo"]} />
+              {React.cloneElement(brandLogo, {
+                className: styles["brandLogo"]
+              })}
             </LeadBlock.Content.Section>
           )}
 

@@ -246,7 +246,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
               data-testid="grid-item"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"efgh name\\",\\"action\\":\\"/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details\\"}"
                 data-testid="efgh"
                 href="/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
@@ -255,8 +255,11 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
                 <div
                   class="OverviewCard-body"
                 >
+                  <div
+                    class="OverviewCard-brandLogo"
+                  />
                   <h5
-                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title OverviewCard-noBrandLogo css-10q7alf-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-10q7alf-MuiTypography-root"
                     data-testid="overview-card-body-title"
                   >
                     efgh name
@@ -542,7 +545,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
               data-testid="grid-item"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"efgh name\\",\\"action\\":\\"/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details\\"}"
                 data-testid="efgh"
                 href="/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
@@ -551,8 +554,11 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
                 <div
                   class="OverviewCard-body"
                 >
+                  <div
+                    class="OverviewCard-brandLogo"
+                  />
                   <h5
-                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title OverviewCard-noBrandLogo css-10q7alf-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-10q7alf-MuiTypography-root"
                     data-testid="overview-card-body-title"
                   >
                     efgh name
@@ -1516,7 +1522,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
               data-testid="grid-item"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"efgh name\\",\\"action\\":\\"/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details\\"}"
                 data-testid="efgh"
                 href="/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
@@ -1525,8 +1531,11 @@ exports[`SystemConfiguratorSection component renders a result section when answe
                 <div
                   class="OverviewCard-body"
                 >
+                  <div
+                    class="OverviewCard-brandLogo"
+                  />
                   <h5
-                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title OverviewCard-noBrandLogo css-10q7alf-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-10q7alf-MuiTypography-root"
                     data-testid="overview-card-body-title"
                   >
                     efgh name
@@ -3435,7 +3444,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
               data-testid="grid-item"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"ijkl name\\",\\"action\\":\\"/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details\\"}"
                 data-testid="ijkl"
                 href="/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details"
@@ -3449,8 +3458,11 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                 <div
                   class="OverviewCard-body"
                 >
+                  <div
+                    class="OverviewCard-brandLogo OverviewCard-negative"
+                  />
                   <h5
-                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title OverviewCard-noBrandLogo css-10q7alf-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-10q7alf-MuiTypography-root"
                     data-testid="overview-card-body-title"
                   >
                     ijkl name
@@ -3487,7 +3499,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
               data-testid="grid-item"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"efgh name\\",\\"action\\":\\"/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details\\"}"
                 data-testid="efgh"
                 href="/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
@@ -3501,8 +3513,11 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                 <div
                   class="OverviewCard-body"
                 >
+                  <div
+                    class="OverviewCard-brandLogo OverviewCard-negative"
+                  />
                   <h5
-                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title OverviewCard-noBrandLogo css-10q7alf-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-10q7alf-MuiTypography-root"
                     data-testid="overview-card-body-title"
                   >
                     efgh name
@@ -3539,7 +3554,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
               data-testid="grid-item"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"abcd name\\",\\"action\\":\\"/no/related-system-path/?selected_system=abcd&prev_page=/test-path&referer=sys_details\\"}"
                 data-testid="abcd"
                 href="/no/related-system-path/?selected_system=abcd&prev_page=/test-path&referer=sys_details"
@@ -3553,8 +3568,11 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                 <div
                   class="OverviewCard-body"
                 >
+                  <div
+                    class="OverviewCard-brandLogo OverviewCard-negative"
+                  />
                   <h5
-                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title OverviewCard-noBrandLogo css-10q7alf-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-10q7alf-MuiTypography-root"
                     data-testid="overview-card-body-title"
                   >
                     abcd name
@@ -3591,7 +3609,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
               data-testid="grid-item"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"mnop name\\",\\"action\\":\\"/no/related-system-path/?selected_system=mnop&prev_page=/test-path&referer=sys_details\\"}"
                 data-testid="mnop"
                 href="/no/related-system-path/?selected_system=mnop&prev_page=/test-path&referer=sys_details"
@@ -3605,8 +3623,11 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                 <div
                   class="OverviewCard-body"
                 >
+                  <div
+                    class="OverviewCard-brandLogo OverviewCard-negative"
+                  />
                   <h5
-                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title OverviewCard-noBrandLogo css-10q7alf-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-10q7alf-MuiTypography-root"
                     data-testid="overview-card-body-title"
                   >
                     mnop name
@@ -3892,7 +3913,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
               data-testid="grid-item"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"ijkl name\\",\\"action\\":\\"/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details\\"}"
                 data-testid="ijkl"
                 href="/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details"
@@ -3906,8 +3927,11 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
                 <div
                   class="OverviewCard-body"
                 >
+                  <div
+                    class="OverviewCard-brandLogo OverviewCard-negative"
+                  />
                   <h5
-                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title OverviewCard-noBrandLogo css-10q7alf-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-10q7alf-MuiTypography-root"
                     data-testid="overview-card-body-title"
                   >
                     ijkl name
@@ -3944,7 +3968,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
               data-testid="grid-item"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"efgh name\\",\\"action\\":\\"/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details\\"}"
                 data-testid="efgh"
                 href="/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
@@ -3958,8 +3982,11 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
                 <div
                   class="OverviewCard-body"
                 >
+                  <div
+                    class="OverviewCard-brandLogo OverviewCard-negative"
+                  />
                   <h5
-                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title OverviewCard-noBrandLogo css-10q7alf-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-10q7alf-MuiTypography-root"
                     data-testid="overview-card-body-title"
                   >
                     efgh name

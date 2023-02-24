@@ -10,7 +10,7 @@ import { graphql } from "gatsby";
 import React, { useState } from "react";
 import { microCopy } from "../constants/microCopies";
 import withGTM from "../utils/google-tag-manager";
-import { iconMap } from "./Icon";
+import Icon from "./Icon";
 import Image, { Data as ImageData } from "./Image";
 import { Data as LinkData, getClickableActionFromUrl } from "./Link";
 import { useSiteContext } from "./Site";
@@ -77,7 +77,7 @@ const TeamList = ({ data }: { data: Data | null }) => {
                           {...props}
                         />
                       )}
-                      icon={iconMap[link.icon]}
+                      icon={<Icon name={link.icon} />}
                     >
                       {link.label}
                     </ProfileCard.Row>

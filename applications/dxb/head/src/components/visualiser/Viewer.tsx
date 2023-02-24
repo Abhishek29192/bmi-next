@@ -1,15 +1,15 @@
 import { Icon, Tooltip } from "@bmi-digital/components";
-import ClickAwayListener from "@mui/material/ClickAwayListener";
+import { ArrowBack } from "@bmi-digital/components/icon";
+import { ArrowForward } from "@bmi-digital/components/icon";
 import {
   Add,
-  ArrowBack,
   ArrowDownward,
-  ArrowForward,
   ArrowUpward,
   Home,
   Remove,
   ThreeDRotation
 } from "@mui/icons-material";
+import ClickAwayListener from "@mui/material/ClickAwayListener";
 import clamp from "lodash/clamp";
 import React from "react";
 import {

@@ -1,6 +1,7 @@
-import { Icon, Table } from "@bmi-digital/components";
+import { Table } from "@bmi-digital/components";
 import { alpha, formControlLabelClasses } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import Icon from "../Icon";
 
 const PREFIX = "documentSimpleTableResultsStyles";
 export const classes = {

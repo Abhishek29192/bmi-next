@@ -4,7 +4,7 @@ import { graphql } from "gatsby";
 import React from "react";
 import { microCopy } from "../constants/microCopies";
 import useStickyState from "../utils/sticky-state";
-import BrandLogo from "./BrandLogo";
+import BrandLogo, { Logo } from "./BrandLogo";
 import RichText, { RichTextData } from "./RichText";
 import { useSiteContext } from "./Site";
 import styles from "./styles/WelcomeDialog.module.scss";
@@ -12,7 +12,7 @@ import styles from "./styles/WelcomeDialog.module.scss";
 export type Data = {
   welcomeDialogTitle: string | null;
   welcomeDialogBody: RichTextData | null;
-  welcomeDialogBrands: string[] | null;
+  welcomeDialogBrands: Logo[] | null;
 };
 
 const WelcomeDialog = ({ data }: { data: Data }) => {

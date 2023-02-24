@@ -13,7 +13,7 @@ import DefaultImage from "../images/DefaultImage.svg";
 import { useSearchParams } from "../utils/filters";
 import withGTM from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
-import { iconMap } from "./Icon";
+import BrandLogo from "./BrandLogo";
 import { useSiteContext } from "./Site";
 
 export type Props = {
@@ -51,9 +51,7 @@ const ProductsGridView = ({
   return (
     <>
       {products.flatMap((variant) => {
-        const brandLogoCode = variant.brandCode;
-        // eslint-disable-next-line security/detect-object-injection
-        const brandLogo = iconMap[brandLogoCode];
+        const brandLogo = <BrandLogo brandName={variant.brandCode} />;
         const mainImage = variant.mainImage;
         const product = variant.baseProduct;
         const productUrl = `${getPathWithCountryCode(

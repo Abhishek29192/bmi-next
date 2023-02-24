@@ -5,14 +5,14 @@ import {
   Icon,
   Tooltip
 } from "@bmi-digital/components";
-import InfoIcon from "@mui/icons-material/Info";
+import { Info as InfoIcon } from "@mui/icons-material";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
 import React, { useState } from "react";
 import RichText from "../../../components/RichText";
 import { useSiteContext } from "../../../components/Site";
 import { microCopy } from "../../../constants/microCopies";
 import { AssetType } from "../types";
-import { Root, classes } from "./DocumentTechnicalTableResultsStyles";
+import { classes, Root } from "./DocumentTechnicalTableResultsStyles";
 
 const AssetHeader = ({ assetType }: { assetType: AssetType }) => {
   const { name, code, description } = assetType;

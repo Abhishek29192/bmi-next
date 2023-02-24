@@ -16,8 +16,8 @@ import {
   Typography,
   Upload
 } from "@bmi-digital/components";
+import { ArrowForward as ArrowForwardIcon } from "@bmi-digital/components/icon";
 import logger from "@bmi-digital/functions-logger";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import classNames from "classnames";
 import { graphql, navigate } from "gatsby";
 import fetch from "node-fetch";

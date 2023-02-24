@@ -8,8 +8,7 @@ import {
   transformHyphens,
   Typography
 } from "@bmi-digital/components";
-import { Launch } from "@mui/icons-material";
-import CheckIcon from "@mui/icons-material/Check";
+import { Check as CheckIcon, Launch } from "@mui/icons-material";
 import React from "react";
 import { StyledBlueCheckIconInter } from "../../components/CommonIcons";
 import {

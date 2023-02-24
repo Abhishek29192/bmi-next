@@ -5,7 +5,6 @@ import {
 } from "@bmi/elasticsearch-types";
 import { render } from "@testing-library/react";
 import React from "react";
-import fileIconsMap from "../../../../components/FileIconsMap";
 import { ContentfulAssetType as AssetTypeData } from "../../../../types/AssetType";
 import createAssetType from "../../../../__tests__/helpers/AssetTypeHelper";
 import DesktopDocumentTechnicalTableResults from "../_DesktopDocumentTechnicalTableResults";
@@ -24,7 +23,6 @@ describe("DesktopDocumentTechnicalTableResults component", () => {
           <DesktopDocumentTechnicalTableResults
             documentsByProduct={documentsByProduct}
             assetTypes={assetTypes}
-            fileIconsMap={fileIconsMap}
           />
         </ThemeProvider>
       );
@@ -49,7 +47,6 @@ describe("DesktopDocumentTechnicalTableResults component", () => {
           <DesktopDocumentTechnicalTableResults
             documentsByProduct={documentsByProduct}
             assetTypes={assetTypes}
-            fileIconsMap={fileIconsMap}
           />
         </ThemeProvider>
       );
@@ -69,7 +66,6 @@ describe("DesktopDocumentTechnicalTableResults component", () => {
           <DesktopDocumentTechnicalTableResults
             documentsByProduct={documentsByProduct}
             assetTypes={assetTypes}
-            fileIconsMap={fileIconsMap}
           />
         </ThemeProvider>
       );

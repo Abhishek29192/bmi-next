@@ -232,7 +232,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
               href="/en/"
             >
               <svg
-                class="Header-logo"
+                class="Header-logo css-87lb9q"
                 viewBox="0 0 250 250"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -401,6 +401,13 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
                 target="_blank"
               >
                 menuNavigationLinkLabel
+                <span
+                  class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
+                >
+                  <span
+                    class="Navigation-iconWrapper"
+                  />
+                </span>
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
@@ -733,6 +740,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
               class="css-5shjl0"
             >
               <svg
+                class="css-87lb9q"
                 viewBox="0 0 250 250"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -1073,7 +1081,7 @@ exports[`Sitemap renders correctly 1`] = `
               href="/en/"
             >
               <svg
-                class="Header-logo"
+                class="Header-logo css-87lb9q"
                 viewBox="0 0 250 250"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -1242,6 +1250,13 @@ exports[`Sitemap renders correctly 1`] = `
                 target="_blank"
               >
                 menuNavigationLinkLabel
+                <span
+                  class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
+                >
+                  <span
+                    class="Navigation-iconWrapper"
+                  />
+                </span>
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
@@ -1574,6 +1589,7 @@ exports[`Sitemap renders correctly 1`] = `
               class="css-5shjl0"
             >
               <svg
+                class="css-87lb9q"
                 viewBox="0 0 250 250"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -1914,7 +1930,7 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
               href="/en/"
             >
               <svg
-                class="Header-logo"
+                class="Header-logo css-87lb9q"
                 viewBox="0 0 250 250"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -2083,6 +2099,13 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
                 target="_blank"
               >
                 menuNavigationLinkLabel
+                <span
+                  class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
+                >
+                  <span
+                    class="Navigation-iconWrapper"
+                  />
+                </span>
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
@@ -2352,6 +2375,7 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
               class="css-5shjl0"
             >
               <svg
+                class="css-87lb9q"
                 viewBox="0 0 250 250"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -2692,7 +2716,7 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
               href="/en/"
             >
               <svg
-                class="Header-logo"
+                class="Header-logo css-87lb9q"
                 viewBox="0 0 250 250"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -2861,6 +2885,13 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
                 target="_blank"
               >
                 menuNavigationLinkLabel
+                <span
+                  class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
+                >
+                  <span
+                    class="Navigation-iconWrapper"
+                  />
+                </span>
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
@@ -3146,6 +3177,7 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
               class="css-5shjl0"
             >
               <svg
+                class="css-87lb9q"
                 viewBox="0 0 250 250"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -3423,6 +3455,7 @@ exports[`Sitemap renders correctly when menuNavigation is falsy 1`] = `
               class="css-5shjl0"
             >
               <svg
+                class="css-87lb9q"
                 viewBox="0 0 250 250"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -3715,6 +3748,7 @@ exports[`Sitemap renders correctly when menuUtilities is falsy 1`] = `
               class="css-5shjl0"
             >
               <svg
+                class="css-87lb9q"
                 viewBox="0 0 250 250"
                 xmlns="http://www.w3.org/2000/svg"
               >

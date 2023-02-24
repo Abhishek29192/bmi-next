@@ -1,5 +1,4 @@
 import {
-  BMI,
   Button,
   Card,
   CardActions,
@@ -14,8 +13,9 @@ import {
   ToggleCard,
   Typography
 } from "@bmi-digital/components";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import ShareIcon from "@mui/icons-material/Share";
+import { ArrowForward as ArrowForwardIcon } from "@bmi-digital/components/icon";
+import { BMI } from "@bmi-digital/components/logo";
+import { Share as ShareIcon } from "@mui/icons-material";
 import Popover from "@mui/material/Popover";
 import SvgIcon from "@mui/material/SvgIcon";
 import classnames from "classnames";
@@ -487,7 +487,15 @@ const Visualiser = ({
   };
 
   const handleOnClick = useCallback(
-    ({ type, label, data }) => {
+    ({
+      type,
+      label,
+      data
+    }: {
+      type: string;
+      label: string;
+      data?: Record<string, any>;
+    }) => {
       const { tileId, colourId, sidingId, viewMode } = stateRef.current;
 
       onClick({

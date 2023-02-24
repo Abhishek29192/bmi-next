@@ -1,14 +1,14 @@
 import {
-  BMI as brandLogo,
   Button,
   Container,
   DialogClassNameContext,
-  Icon
+  Logo
 } from "@bmi-digital/components";
+import { BMI as brandLogo } from "@bmi-digital/components/logo";
 import { SVGImport } from "@bmi-digital/svg-import";
+import { Close as CloseIcon } from "@mui/icons-material";
 import Fade from "@mui/material/Fade";
 import Modal, { ModalProps } from "@mui/material/Modal";
-import CloseIcon from "@mui/icons-material/Close";
 import classnames from "classnames";
 import React, { useContext } from "react";
 import styles from "./CalculatorModal.module.scss";
@@ -68,7 +68,7 @@ const CalculatorModal = ({
             )}
           >
             <Container className={styles["headerContainer"]} fullWidth>
-              <Icon
+              <Logo
                 source={logo}
                 className={classnames(styles["headerSide"], styles["logo"])}
               />

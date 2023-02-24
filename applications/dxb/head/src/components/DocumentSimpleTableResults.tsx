@@ -4,18 +4,15 @@ import {
   ClickableAction,
   DownloadList,
   DownloadListContext,
-  External,
-  FileUniversal,
-  FileZIP,
   Table
 } from "@bmi-digital/components";
+import { GetApp } from "@bmi-digital/components/icon";
 import logger from "@bmi-digital/functions-logger";
 import {
   ContentfulDocument as EsContentfulDocument,
   PimProductDocument as EsPimDocument,
   PimSystemDocument as EsPimSystemDocument
 } from "@bmi/elasticsearch-types";
-import { GetApp } from "@mui/icons-material";
 import { useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import classnames from "classnames";
@@ -169,7 +166,7 @@ const getDocument = (document: Document, headers: AvailableHeader[]) => {
               }}
               data-testid="document-table-external-link-button"
             >
-              <ExternalLinkIcon source={External} />
+              <ExternalLinkIcon name={"External"} />
             </Button>
           )}
         </StyledTableCell>
@@ -379,13 +376,8 @@ export const MultipleAssetToFileDownload = ({
       variant="text"
       accessibilityLabel="Download"
       startIcon={
-        // eslint-disable-next-line security/detect-object-injection
         document.format && (
-          <DownloadIcon
-            // eslint-disable-next-line security/detect-object-injection
-            source={FileZIP}
-            className={"download-icon"}
-          />
+          <DownloadIcon name={"FileZIP"} className={"download-icon"} />
         )
       }
       data-testid={`document-table-download-zip-button`}
@@ -418,7 +410,7 @@ const FileDownloadButton = ({ url, format, size }: FileDownloadButtonProps) => {
         format && (
           <DownloadIcon
             // eslint-disable-next-line security/detect-object-injection
-            source={fileIconsMap[format] || FileUniversal}
+            name={fileIconsMap[format] || "FileUniversal"}
             className={"download-icon"}
           />
         )
