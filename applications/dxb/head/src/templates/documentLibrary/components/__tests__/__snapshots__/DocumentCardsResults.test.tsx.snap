@@ -7,11 +7,11 @@ exports[`Brands component renders correctly 1`] = `
     data-testid="grid-container"
   >
     <div
-      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-12 MuiGrid2-grid-lg-6 MuiGrid2-grid-xl-4 Grid-item css-kslbn3-MuiGrid2-root"
+      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-12 MuiGrid2-grid-lg-6 MuiGrid2-grid-xl-4 Grid-item css-8c4xmf-MuiGrid2-root"
       data-testid="grid-item"
     >
       <a
-        class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+        class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
         data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: documentLibrary.card.download\\",\\"action\\":\\"http://localhost:9000/asset-filename.jpg\\"}"
         href="https:http://localhost:9000/asset-filename.jpg"
         rel="noopener noreferrer"
@@ -59,11 +59,11 @@ exports[`Brands component renders correctly 1`] = `
       </a>
     </div>
     <div
-      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-12 MuiGrid2-grid-lg-6 MuiGrid2-grid-xl-4 Grid-item css-kslbn3-MuiGrid2-root"
+      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-12 MuiGrid2-grid-lg-6 MuiGrid2-grid-xl-4 Grid-item css-8c4xmf-MuiGrid2-root"
       data-testid="grid-item"
     >
       <a
-        class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+        class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
         data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: documentLibrary.card.download\\",\\"action\\":\\"http://localhost:9000/asset-filename.jpg\\"}"
         href="https:http://localhost:9000/asset-filename.jpg"
         rel="noopener noreferrer"
@@ -115,11 +115,11 @@ exports[`Brands component renders correctly for mobile 1`] = `
     data-testid="grid-container"
   >
     <div
-      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-12 MuiGrid2-grid-lg-6 MuiGrid2-grid-xl-4 Grid-item css-kslbn3-MuiGrid2-root"
+      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-12 MuiGrid2-grid-lg-6 MuiGrid2-grid-xl-4 Grid-item css-8c4xmf-MuiGrid2-root"
       data-testid="grid-item"
     >
       <a
-        class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+        class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
         data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: documentLibrary.card.download\\",\\"action\\":\\"http://localhost:9000/asset-filename.jpg\\"}"
         href="https:http://localhost:9000/asset-filename.jpg"
         rel="noopener noreferrer"
@@ -167,11 +167,11 @@ exports[`Brands component renders correctly for mobile 1`] = `
       </a>
     </div>
     <div
-      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-12 MuiGrid2-grid-lg-6 MuiGrid2-grid-xl-4 Grid-item css-kslbn3-MuiGrid2-root"
+      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-12 MuiGrid2-grid-lg-6 MuiGrid2-grid-xl-4 Grid-item css-8c4xmf-MuiGrid2-root"
       data-testid="grid-item"
     >
       <a
-        class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+        class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
         data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: documentLibrary.card.download\\",\\"action\\":\\"http://localhost:9000/asset-filename.jpg\\"}"
         href="https:http://localhost:9000/asset-filename.jpg"
         rel="noopener noreferrer"

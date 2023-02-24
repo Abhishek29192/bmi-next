@@ -39,7 +39,8 @@ export const Root = styled("div")(({ theme }) => ({
   [`.${accordionDetailsClasses.root}`]: {
     padding: "0px 15px"
   },
-  [`.${classes.assetTypeCell}`]: {
+  //&& - allows to override default styles
+  [`&& .${classes.assetTypeCell}`]: {
     textAlign: "center",
     paddingLeft: "6px",
     paddingRight: "6px",

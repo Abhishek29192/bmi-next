@@ -9,7 +9,7 @@ exports[`TeamList component renders correctly 1`] = `
         data-testid="grid-container"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-s2ozv1-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-vmc4ev-MuiGrid2-root"
           data-testid="grid-item"
         >
           <div
@@ -113,7 +113,7 @@ exports[`TeamList component renders correctly when incomplete 1`] = `
         data-testid="grid-container"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-s2ozv1-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-vmc4ev-MuiGrid2-root"
           data-testid="grid-item"
         >
           <div
@@ -173,7 +173,7 @@ exports[`TeamList component renders correctly with links 1`] = `
         data-testid="grid-container"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-s2ozv1-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-vmc4ev-MuiGrid2-root"
           data-testid="grid-item"
         >
           <div
@@ -288,7 +288,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
         data-testid="grid-container"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-s2ozv1-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-vmc4ev-MuiGrid2-root"
           data-testid="grid-item"
         >
           <div
@@ -378,7 +378,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-s2ozv1-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-vmc4ev-MuiGrid2-root"
           data-testid="grid-item"
         >
           <div
@@ -468,7 +468,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-s2ozv1-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-vmc4ev-MuiGrid2-root"
           data-testid="grid-item"
         >
           <div
@@ -558,7 +558,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-s2ozv1-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-vmc4ev-MuiGrid2-root"
           data-testid="grid-item"
         >
           <div
@@ -648,7 +648,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-s2ozv1-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-vmc4ev-MuiGrid2-root"
           data-testid="grid-item"
         >
           <div
@@ -738,7 +738,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-s2ozv1-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-vmc4ev-MuiGrid2-root"
           data-testid="grid-item"
         >
           <div
@@ -828,7 +828,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-s2ozv1-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-vmc4ev-MuiGrid2-root"
           data-testid="grid-item"
         >
           <div
@@ -918,7 +918,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-s2ozv1-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-vmc4ev-MuiGrid2-root"
           data-testid="grid-item"
         >
           <div
@@ -1008,7 +1008,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-s2ozv1-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-vmc4ev-MuiGrid2-root"
           data-testid="grid-item"
         >
           <div

@@ -24,7 +24,7 @@ exports[`PitchedRoofCalculator VariantSelection component renders correctly 1`] 
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-6 MuiGrid2-grid-md-4 MuiGrid2-grid-lg-2 Grid-item css-1sc1eqi-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-6 MuiGrid2-grid-md-4 MuiGrid2-grid-lg-2 Grid-item css-3tptus-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
@@ -71,7 +71,7 @@ exports[`PitchedRoofCalculator VariantSelection component renders correctly 1`] 
             </div>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-6 MuiGrid2-grid-md-4 MuiGrid2-grid-lg-2 Grid-item css-1sc1eqi-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-6 MuiGrid2-grid-md-4 MuiGrid2-grid-lg-2 Grid-item css-3tptus-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div

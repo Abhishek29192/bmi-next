@@ -17,7 +17,7 @@ exports[`LeadBlockSection tests When user navigates with selected systems query 
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
             data-testid="grid-item"
           >
             <p
@@ -135,7 +135,7 @@ exports[`LeadBlockSection tests should not render systemAttributes Card with emp
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
             data-testid="grid-item"
           >
             <p
@@ -225,7 +225,7 @@ exports[`LeadBlockSection tests should render 1`] = `
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
             data-testid="grid-item"
           >
             <p
@@ -315,7 +315,7 @@ exports[`LeadBlockSection tests should render with uniqueSellingPropositions 1`]
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
             data-testid="grid-item"
           >
             <p
@@ -382,7 +382,7 @@ exports[`LeadBlockSection tests should render with uniqueSellingPropositions 1`]
             </p>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 card css-abxfb-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 card css-1fx28h6-MuiGrid2-root"
             data-testid="system-attributes-card"
           >
             <div

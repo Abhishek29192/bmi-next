@@ -174,7 +174,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1x7xhe2-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1n3tg82-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h6
@@ -2707,7 +2707,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
             data-testid="grid-item"
           >
             <p
@@ -2802,7 +2802,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-8 Grid-item css-1naspqc-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-8 Grid-item css-q3jl1y-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
@@ -2824,7 +2824,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
     </div>
   </div>
   <div
-    class="sdpTabLeadBlock css-fpjlvn"
+    class="sdpTabLeadBlock css-15j8w5i"
     data-testid="tabs"
   >
     <div
@@ -2873,7 +2873,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                 <button
                   aria-controls="tabpanel-one"
                   aria-selected="true"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-one"
                   id="tab-one"
@@ -2889,7 +2889,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                 <button
                   aria-controls="tabpanel-two"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.technicalSpecification\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-two"
                   id="tab-two"
@@ -2905,7 +2905,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                 <button
                   aria-controls="tabpanel-three"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.documentsAndDownloads\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-three"
                   id="tab-three"
@@ -2969,7 +2969,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <p
@@ -3062,7 +3062,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                 </p>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-abxfb-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
                 data-testid="sidebar"
               >
                 <div
@@ -3120,7 +3120,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <p
@@ -3584,11 +3584,11 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-vb4yt3-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
               data-testid="grid-item"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"related-system-1 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/related-path/\\"}"
                 href="/en/related-path/"
                 tabindex="0"
@@ -3713,7 +3713,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -3724,7 +3724,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
               </h4>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -3801,7 +3801,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -3878,7 +3878,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -4231,7 +4231,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1x7xhe2-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1n3tg82-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h6
@@ -6764,7 +6764,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
             data-testid="grid-item"
           >
             <p
@@ -6831,7 +6831,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-8 Grid-item css-1naspqc-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-8 Grid-item css-q3jl1y-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
@@ -6853,7 +6853,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
     </div>
   </div>
   <div
-    class="sdpTabLeadBlock css-fpjlvn"
+    class="sdpTabLeadBlock css-15j8w5i"
     data-testid="tabs"
   >
     <div
@@ -6902,7 +6902,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                 <button
                   aria-controls="tabpanel-one"
                   aria-selected="true"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-one"
                   id="tab-one"
@@ -6918,7 +6918,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                 <button
                   aria-controls="tabpanel-two"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.technicalSpecification\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-two"
                   id="tab-two"
@@ -6934,7 +6934,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                 <button
                   aria-controls="tabpanel-three"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.documentsAndDownloads\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-three"
                   id="tab-three"
@@ -6998,7 +6998,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <p
@@ -7091,7 +7091,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                 </p>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-abxfb-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
                 data-testid="sidebar"
               >
                 <div
@@ -7149,7 +7149,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <p
@@ -7613,11 +7613,11 @@ exports[`SystemDetailsPage template component should render 1`] = `
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-vb4yt3-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
               data-testid="grid-item"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"related-system-1 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/related-path/\\"}"
                 href="/en/related-path/"
                 tabindex="0"
@@ -7742,7 +7742,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -7753,7 +7753,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
               </h4>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -7830,7 +7830,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -7907,7 +7907,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -8260,7 +8260,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1x7xhe2-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1n3tg82-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h6
@@ -10797,7 +10797,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
               data-testid="grid-item"
             >
               <p
@@ -10864,7 +10864,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-8 Grid-item css-1naspqc-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-8 Grid-item css-q3jl1y-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -10886,7 +10886,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
       </div>
     </div>
     <div
-      class="sdpTabLeadBlock css-fpjlvn"
+      class="sdpTabLeadBlock css-15j8w5i"
       data-testid="tabs"
     >
       <div
@@ -10935,7 +10935,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                   <button
                     aria-controls="tabpanel-one"
                     aria-selected="true"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                     data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
                     data-testid="tab-one"
                     id="tab-one"
@@ -10951,7 +10951,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                   <button
                     aria-controls="tabpanel-two"
                     aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                     data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.technicalSpecification\\",\\"action\\":\\"Selector – Tabs\\"}"
                     data-testid="tab-two"
                     id="tab-two"
@@ -10967,7 +10967,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                   <button
                     aria-controls="tabpanel-three"
                     aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                     data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.documentsAndDownloads\\",\\"action\\":\\"Selector – Tabs\\"}"
                     data-testid="tab-three"
                     id="tab-three"
@@ -11031,7 +11031,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                 data-testid="grid-container"
               >
                 <div
-                  class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+                  class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                   data-testid="grid-item"
                 >
                   <p
@@ -11124,7 +11124,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                   </p>
                 </div>
                 <div
-                  class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-abxfb-MuiGrid2-root"
+                  class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
                   data-testid="sidebar"
                 >
                   <div
@@ -11182,7 +11182,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                 data-testid="grid-container"
               >
                 <div
-                  class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+                  class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                   data-testid="grid-item"
                 >
                   <p
@@ -11646,11 +11646,11 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-vb4yt3-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"related-ssytem-name - MC: sdp.system.readMore\\",\\"action\\":\\"/en/related-system-path/\\"}"
                   href="/en/related-system-path/"
                   tabindex="0"
@@ -11776,7 +11776,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -11787,7 +11787,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
               </h4>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -11864,7 +11864,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -11941,7 +11941,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -12294,7 +12294,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1x7xhe2-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1n3tg82-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h6
@@ -14827,7 +14827,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
             data-testid="grid-item"
           >
             <p
@@ -14894,7 +14894,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-8 Grid-item css-1naspqc-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-8 Grid-item css-q3jl1y-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
@@ -14916,7 +14916,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
     </div>
   </div>
   <div
-    class="sdpTabLeadBlock css-fpjlvn"
+    class="sdpTabLeadBlock css-15j8w5i"
     data-testid="tabs"
   >
     <div
@@ -14965,7 +14965,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                 <button
                   aria-controls="tabpanel-one"
                   aria-selected="true"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-one"
                   id="tab-one"
@@ -14981,7 +14981,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                 <button
                   aria-controls="tabpanel-two"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.technicalSpecification\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-two"
                   id="tab-two"
@@ -14997,7 +14997,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                 <button
                   aria-controls="tabpanel-three"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.documentsAndDownloads\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-three"
                   id="tab-three"
@@ -15061,7 +15061,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <p
@@ -15154,7 +15154,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                 </p>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-abxfb-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
                 data-testid="sidebar"
               >
                 <div
@@ -15212,7 +15212,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <p
@@ -15676,11 +15676,11 @@ exports[`SystemDetailsPage template component should render without BrandProvide
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-vb4yt3-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
               data-testid="grid-item"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"related-system-1 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/related-path/\\"}"
                 href="/en/related-path/"
                 tabindex="0"
@@ -15805,7 +15805,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -15816,7 +15816,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
               </h4>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -15893,7 +15893,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -15970,7 +15970,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -16323,7 +16323,7 @@ exports[`SystemDetailsPage template component should render without specificatio
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1x7xhe2-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1n3tg82-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h6
@@ -18856,7 +18856,7 @@ exports[`SystemDetailsPage template component should render without specificatio
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
             data-testid="grid-item"
           >
             <p
@@ -18923,7 +18923,7 @@ exports[`SystemDetailsPage template component should render without specificatio
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-8 Grid-item css-1naspqc-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-8 Grid-item css-q3jl1y-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
@@ -18945,7 +18945,7 @@ exports[`SystemDetailsPage template component should render without specificatio
     </div>
   </div>
   <div
-    class="sdpTabLeadBlock css-fpjlvn"
+    class="sdpTabLeadBlock css-15j8w5i"
     data-testid="tabs"
   >
     <div
@@ -18994,7 +18994,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                 <button
                   aria-controls="tabpanel-one"
                   aria-selected="true"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-one"
                   id="tab-one"
@@ -19010,7 +19010,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                 <button
                   aria-controls="tabpanel-two"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.technicalSpecification\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-two"
                   id="tab-two"
@@ -19026,7 +19026,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                 <button
                   aria-controls="tabpanel-three"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.documentsAndDownloads\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-three"
                   id="tab-three"
@@ -19090,7 +19090,7 @@ exports[`SystemDetailsPage template component should render without specificatio
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <p
@@ -19144,7 +19144,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                 </p>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-abxfb-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
                 data-testid="sidebar"
               >
                 <div
@@ -19202,7 +19202,7 @@ exports[`SystemDetailsPage template component should render without specificatio
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <p
@@ -19666,11 +19666,11 @@ exports[`SystemDetailsPage template component should render without specificatio
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-vb4yt3-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
               data-testid="grid-item"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"related-ssytem-name - MC: sdp.system.readMore\\",\\"action\\":\\"/en/related-system-path/\\"}"
                 href="/en/related-system-path/"
                 tabindex="0"
@@ -19795,7 +19795,7 @@ exports[`SystemDetailsPage template component should render without specificatio
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -19806,7 +19806,7 @@ exports[`SystemDetailsPage template component should render without specificatio
               </h4>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -19883,7 +19883,7 @@ exports[`SystemDetailsPage template component should render without specificatio
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -19960,7 +19960,7 @@ exports[`SystemDetailsPage template component should render without specificatio
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -20313,7 +20313,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1x7xhe2-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1n3tg82-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h6
@@ -22846,7 +22846,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
             data-testid="grid-item"
           >
             <p
@@ -22913,7 +22913,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-8 Grid-item css-1naspqc-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-8 Grid-item css-q3jl1y-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
@@ -22935,7 +22935,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
     </div>
   </div>
   <div
-    class="sdpTabLeadBlock css-fpjlvn"
+    class="sdpTabLeadBlock css-15j8w5i"
     data-testid="tabs"
   >
     <div
@@ -22984,7 +22984,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                 <button
                   aria-controls="tabpanel-one"
                   aria-selected="true"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-one"
                   id="tab-one"
@@ -23000,7 +23000,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                 <button
                   aria-controls="tabpanel-two"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.technicalSpecification\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-two"
                   id="tab-two"
@@ -23016,7 +23016,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                 <button
                   aria-controls="tabpanel-three"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.documentsAndDownloads\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-three"
                   id="tab-three"
@@ -23080,7 +23080,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <p
@@ -23173,7 +23173,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                 </p>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-abxfb-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
                 data-testid="sidebar"
               >
                 <div
@@ -23231,7 +23231,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <p
@@ -23695,11 +23695,11 @@ exports[`SystemDetailsPage template component should render without systemLayers
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-vb4yt3-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
               data-testid="grid-item"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"related-ssytem-name - MC: sdp.system.readMore\\",\\"action\\":\\"/en/related-system-path/\\"}"
                 href="/en/related-system-path/"
                 tabindex="0"
@@ -23824,7 +23824,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -23835,7 +23835,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
               </h4>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -23912,7 +23912,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -23989,7 +23989,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -24342,7 +24342,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1x7xhe2-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1n3tg82-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h6
@@ -26875,7 +26875,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
             data-testid="grid-item"
           >
             <p
@@ -26942,7 +26942,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-8 Grid-item css-1naspqc-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-8 Grid-item css-q3jl1y-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
@@ -26960,7 +26960,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
             </div>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-4 Grid-item css-1abcfcq-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-4 Grid-item css-s496v0-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
@@ -27025,7 +27025,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                             data-testid="system-layer-details"
                           >
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-bg7cqz-MuiGrid2-root"
+                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-erfmfi-MuiGrid2-root"
                               data-testid="grid-item"
                             >
                               <a
@@ -27040,7 +27040,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                               </a>
                             </div>
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-bg7cqz-MuiGrid2-root"
+                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-erfmfi-MuiGrid2-root"
                               data-testid="grid-item"
                             >
                               <p
@@ -27051,7 +27051,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                               </p>
                             </div>
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-bg7cqz-MuiGrid2-root"
+                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-erfmfi-MuiGrid2-root"
                               data-testid="grid-item"
                             >
                               <h5
@@ -27062,7 +27062,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                               </h5>
                             </div>
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-bg7cqz-MuiGrid2-root"
+                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-erfmfi-MuiGrid2-root"
                               data-testid="grid-item"
                             >
                               <a
@@ -27090,7 +27090,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
     </div>
   </div>
   <div
-    class="sdpTabLeadBlock css-fpjlvn"
+    class="sdpTabLeadBlock css-15j8w5i"
     data-testid="tabs"
   >
     <div
@@ -27139,7 +27139,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                 <button
                   aria-controls="tabpanel-one"
                   aria-selected="true"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-one"
                   id="tab-one"
@@ -27155,7 +27155,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                 <button
                   aria-controls="tabpanel-two"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.technicalSpecification\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-two"
                   id="tab-two"
@@ -27171,7 +27171,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                 <button
                   aria-controls="tabpanel-three"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.documentsAndDownloads\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-three"
                   id="tab-three"
@@ -27235,7 +27235,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <p
@@ -27328,7 +27328,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                 </p>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-abxfb-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
                 data-testid="sidebar"
               >
                 <div
@@ -27386,7 +27386,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <p
@@ -27850,11 +27850,11 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-vb4yt3-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
               data-testid="grid-item"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"related-ssytem-name - MC: sdp.system.readMore\\",\\"action\\":\\"/en/related-system-path/\\"}"
                 href="/en/related-system-path/"
                 tabindex="0"
@@ -27979,7 +27979,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -27990,7 +27990,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
               </h4>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -28067,7 +28067,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -28144,7 +28144,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -28497,7 +28497,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1x7xhe2-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1n3tg82-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h6
@@ -31030,7 +31030,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
             data-testid="grid-item"
           >
             <p
@@ -31097,7 +31097,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-8 Grid-item css-1naspqc-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-8 Grid-item css-q3jl1y-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
@@ -31115,7 +31115,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
             </div>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-4 Grid-item css-1abcfcq-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-4 Grid-item css-s496v0-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
@@ -31180,7 +31180,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                             data-testid="system-layer-details"
                           >
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-bg7cqz-MuiGrid2-root"
+                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-erfmfi-MuiGrid2-root"
                               data-testid="grid-item"
                             >
                               <a
@@ -31195,7 +31195,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                               </a>
                             </div>
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-bg7cqz-MuiGrid2-root"
+                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-erfmfi-MuiGrid2-root"
                               data-testid="grid-item"
                             >
                               <p
@@ -31206,7 +31206,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                               </p>
                             </div>
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-bg7cqz-MuiGrid2-root"
+                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-erfmfi-MuiGrid2-root"
                               data-testid="grid-item"
                             >
                               <h5
@@ -31217,7 +31217,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                               </h5>
                             </div>
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-bg7cqz-MuiGrid2-root"
+                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-erfmfi-MuiGrid2-root"
                               data-testid="grid-item"
                             >
                               <a
@@ -31245,7 +31245,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
     </div>
   </div>
   <div
-    class="sdpTabLeadBlock css-fpjlvn"
+    class="sdpTabLeadBlock css-15j8w5i"
     data-testid="tabs"
   >
     <div
@@ -31294,7 +31294,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                 <button
                   aria-controls="tabpanel-one"
                   aria-selected="true"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-one"
                   id="tab-one"
@@ -31310,7 +31310,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                 <button
                   aria-controls="tabpanel-two"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.technicalSpecification\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-two"
                   id="tab-two"
@@ -31326,7 +31326,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                 <button
                   aria-controls="tabpanel-three"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.documentsAndDownloads\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-three"
                   id="tab-three"
@@ -31390,7 +31390,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <p
@@ -31483,7 +31483,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                 </p>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-abxfb-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
                 data-testid="sidebar"
               >
                 <div
@@ -31541,7 +31541,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <p
@@ -32005,11 +32005,11 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-vb4yt3-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
               data-testid="grid-item"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"related-ssytem-name - MC: sdp.system.readMore\\",\\"action\\":\\"/en/related-system-path/\\"}"
                 href="/en/related-system-path/"
                 tabindex="0"
@@ -32134,7 +32134,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -32145,7 +32145,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
               </h4>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -32222,7 +32222,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -32299,7 +32299,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4

@@ -242,7 +242,7 @@ exports[`TabsOrAccordionSection Tabs default to name if title is null 1`] = `
           style="margin-top: 40px;"
         >
           <div
-            class=" css-fpjlvn"
+            class=" css-15j8w5i"
             data-testid="tabs"
           >
             <div
@@ -291,7 +291,7 @@ exports[`TabsOrAccordionSection Tabs default to name if title is null 1`] = `
                         <button
                           aria-controls="tabpanel-name"
                           aria-selected="true"
-                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                           data-gtm="{\\"id\\":\\"selector-tabs2\\",\\"label\\":\\"name\\",\\"action\\":\\"Selector – Tabs\\"}"
                           data-testid="tab-name"
                           id="tab-name"
@@ -387,7 +387,7 @@ exports[`TabsOrAccordionSection Tabs renders Correctly  1`] = `
           style="margin-top: 40px;"
         >
           <div
-            class=" css-fpjlvn"
+            class=" css-15j8w5i"
             data-testid="tabs"
           >
             <div
@@ -436,7 +436,7 @@ exports[`TabsOrAccordionSection Tabs renders Correctly  1`] = `
                         <button
                           aria-controls="tabpanel-hello"
                           aria-selected="true"
-                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                           data-gtm="{\\"id\\":\\"selector-tabs2\\",\\"label\\":\\"hello\\",\\"action\\":\\"Selector – Tabs\\"}"
                           data-testid="tab-hello"
                           id="tab-hello"
@@ -532,7 +532,7 @@ exports[`TabsOrAccordionSection not render tab panel if item array is empty 1`] 
           style="margin-top: 40px;"
         >
           <div
-            class=" css-fpjlvn"
+            class=" css-15j8w5i"
             data-testid="tabs"
           >
             <div
@@ -641,7 +641,7 @@ exports[`TabsOrAccordionSection title attribute is rendered if both name and tit
           style="margin-top: 40px;"
         >
           <div
-            class=" css-fpjlvn"
+            class=" css-15j8w5i"
             data-testid="tabs"
           >
             <div
@@ -690,7 +690,7 @@ exports[`TabsOrAccordionSection title attribute is rendered if both name and tit
                         <button
                           aria-controls="tabpanel-title"
                           aria-selected="true"
-                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                           data-gtm="{\\"id\\":\\"selector-tabs2\\",\\"label\\":\\"title\\",\\"action\\":\\"Selector – Tabs\\"}"
                           data-testid="tab-title"
                           id="tab-title"

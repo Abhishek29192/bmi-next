@@ -6,7 +6,7 @@ exports[`SampleBasketSectionProducts component render correctly on mobile device
     class="SampleBasketSectionProducts"
   >
     <button
-      class="MuiButtonBase-root OverviewCard-clickable product-wrapper MuiBox-root css-c35yjo-MuiButtonBase-root"
+      class="MuiButtonBase-root OverviewCard-clickable product-wrapper MuiBox-root css-gr2yor-MuiButtonBase-root"
       data-testid="shopping-cart-product"
       tabindex="0"
       type="button"
@@ -76,7 +76,7 @@ exports[`SampleBasketSectionProducts component render correctly on mobile device
       />
     </button>
     <button
-      class="MuiButtonBase-root OverviewCard-clickable product-wrapper MuiBox-root css-c35yjo-MuiButtonBase-root"
+      class="MuiButtonBase-root OverviewCard-clickable product-wrapper MuiBox-root css-gr2yor-MuiButtonBase-root"
       data-testid="shopping-cart-product"
       tabindex="0"
       type="button"
@@ -150,7 +150,7 @@ exports[`SampleBasketSectionProducts component render correctly on mobile device
       />
     </button>
     <button
-      class="MuiButtonBase-root OverviewCard-clickable product-wrapper MuiBox-root css-c35yjo-MuiButtonBase-root"
+      class="MuiButtonBase-root OverviewCard-clickable product-wrapper MuiBox-root css-gr2yor-MuiButtonBase-root"
       data-testid="shopping-cart-product"
       tabindex="0"
       type="button"

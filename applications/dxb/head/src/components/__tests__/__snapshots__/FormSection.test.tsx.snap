@@ -87,7 +87,7 @@ exports[`FormSection component renders correctly 1`] = `
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-1l9c8tu-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-8jwz8r-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -129,7 +129,7 @@ exports[`FormSection component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-1l9c8tu-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-8jwz8r-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -178,7 +178,7 @@ exports[`FormSection component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-1l9c8tu-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-8jwz8r-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -230,7 +230,7 @@ exports[`FormSection component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-1l9c8tu-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-8jwz8r-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -272,7 +272,7 @@ exports[`FormSection component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-1l9c8tu-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-8jwz8r-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -398,7 +398,7 @@ exports[`FormSection component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-1l9c8tu-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-8jwz8r-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div>
@@ -491,7 +491,7 @@ exports[`FormSection component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-1l9c8tu-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-8jwz8r-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -558,7 +558,7 @@ exports[`FormSection component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 Grid-item css-1x80qc7-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 Grid-item css-cvaek2-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -610,7 +610,7 @@ exports[`FormSection component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-1l9c8tu-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-8jwz8r-MuiGrid2-root"
               data-testid="grid-item"
             >
               <p
@@ -634,7 +634,7 @@ exports[`FormSection component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-1l9c8tu-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-8jwz8r-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -650,7 +650,7 @@ exports[`FormSection component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-1l9c8tu-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-8jwz8r-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -694,7 +694,7 @@ exports[`FormSection component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-1l9c8tu-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-8jwz8r-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -848,7 +848,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-1l9c8tu-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-8jwz8r-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -902,7 +902,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
               </div>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-1l9c8tu-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-8jwz8r-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -1045,7 +1045,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-1l9c8tu-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-8jwz8r-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -1172,7 +1172,7 @@ exports[`FormSection component test handleEmailValidation with correct email 1`]
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-1l9c8tu-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-8jwz8r-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -1314,7 +1314,7 @@ exports[`FormSection component test handleEmailValidation with incorrect email 1
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 Grid-item css-1x80qc7-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 Grid-item css-cvaek2-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -1477,7 +1477,7 @@ exports[`FormSection component test multiply options in a checkbox group 1`] = `
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-1l9c8tu-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-8jwz8r-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -1693,7 +1693,7 @@ exports[`FormSection component test multiply options in a checkbox group without
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-1l9c8tu-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-8jwz8r-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -1909,7 +1909,7 @@ exports[`FormSection component test upload input with large file 1`] = `
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-1l9c8tu-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-8jwz8r-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -2106,7 +2106,7 @@ exports[`FormSection component test upload input with no maxSize 1`] = `
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-1l9c8tu-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-8jwz8r-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -2248,7 +2248,7 @@ exports[`FormSection component test upload input with small file 1`] = `
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-1l9c8tu-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-8jwz8r-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div

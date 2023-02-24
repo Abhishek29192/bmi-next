@@ -106,7 +106,7 @@ exports[`General Error render correctly 1`] = `
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1x7xhe2-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1n3tg82-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h6
@@ -501,7 +501,7 @@ exports[`General Error render correctly 1`] = `
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 Grid-item css-i86fpj-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 Grid-item css-y6fwcd-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -526,7 +526,7 @@ exports[`General Error render correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 Grid-item css-i86fpj-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 Grid-item css-y6fwcd-MuiGrid2-root"
               data-testid="grid-item"
             />
           </div>
@@ -552,7 +552,7 @@ exports[`General Error render correctly 1`] = `
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -786,7 +786,7 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1x7xhe2-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1n3tg82-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h6
@@ -1181,7 +1181,7 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 Grid-item css-i86fpj-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 Grid-item css-y6fwcd-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -1218,7 +1218,7 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 Grid-item css-i86fpj-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 Grid-item css-y6fwcd-MuiGrid2-root"
               data-testid="grid-item"
             />
           </div>
@@ -1244,7 +1244,7 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4

@@ -263,11 +263,11 @@ exports[`DocumentResults component cards: renders correctly 1`] = `
     data-testid="grid-container"
   >
     <div
-      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-12 MuiGrid2-grid-lg-6 MuiGrid2-grid-xl-4 Grid-item css-kslbn3-MuiGrid2-root"
+      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-12 MuiGrid2-grid-lg-6 MuiGrid2-grid-xl-4 Grid-item css-8c4xmf-MuiGrid2-root"
       data-testid="grid-item"
     >
       <a
-        class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+        class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
         data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: documentLibrary.card.download\\",\\"action\\":\\"http://localhost:9000/asset-filename.jpg\\"}"
         href="https:http://localhost:9000/asset-filename.jpg"
         rel="noopener noreferrer"
@@ -315,11 +315,11 @@ exports[`DocumentResults component cards: renders correctly 1`] = `
 exports[`DocumentResults component technicalTable: renders correctly 1`] = `
 <div>
   <div
-    class="css-ft346i"
+    class="css-upplgl"
     data-testid="tech-results-table"
   >
     <div
-      class="css-ft346i"
+      class="css-upplgl"
       data-testid="mobile-tech-results-table"
     >
       <div
@@ -397,7 +397,7 @@ exports[`DocumentResults component technicalTable: renders correctly 1`] = `
                       class="DocumentTechnicalTableResults-infoIconContainer"
                     >
                       <div
-                        class="css-ft346i"
+                        class="css-upplgl"
                         data-testid="asset-header-tech-results-table"
                       >
                         <div

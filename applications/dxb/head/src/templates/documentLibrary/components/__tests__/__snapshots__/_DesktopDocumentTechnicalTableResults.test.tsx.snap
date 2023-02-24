@@ -4,7 +4,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when m
 <body>
   <div>
     <div
-      class="css-ft346i"
+      class="css-upplgl"
       data-testid="desktop-tech-results-table"
     >
       <div
@@ -33,7 +33,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when m
               >
                 asset-code
                 <div
-                  class="css-ft346i"
+                  class="css-upplgl"
                   data-testid="asset-header-tech-results-table"
                 >
                   <div
@@ -206,7 +206,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when n
 <body>
   <div>
     <div
-      class="css-ft346i"
+      class="css-upplgl"
       data-testid="desktop-tech-results-table"
     >
       <div
@@ -235,7 +235,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when n
               >
                 asset-code
                 <div
-                  class="css-ft346i"
+                  class="css-upplgl"
                   data-testid="asset-header-tech-results-table"
                 >
                   <div
@@ -271,7 +271,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when n
               >
                 asset-code
                 <div
-                  class="css-ft346i"
+                  class="css-upplgl"
                   data-testid="asset-header-tech-results-table"
                 >
                   <div
@@ -492,7 +492,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when o
 <body>
   <div>
     <div
-      class="css-ft346i"
+      class="css-upplgl"
       data-testid="desktop-tech-results-table"
     >
       <div
@@ -521,7 +521,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when o
               >
                 asset-code
                 <div
-                  class="css-ft346i"
+                  class="css-upplgl"
                   data-testid="asset-header-tech-results-table"
                 >
                   <div

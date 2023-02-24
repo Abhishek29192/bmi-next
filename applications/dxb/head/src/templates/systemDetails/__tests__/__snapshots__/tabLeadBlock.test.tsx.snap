@@ -3,7 +3,7 @@
 exports[`TabLeadBlock tests should not render technical Specification tab 1`] = `
 <div>
   <div
-    class="sdpTabLeadBlock css-fpjlvn"
+    class="sdpTabLeadBlock css-15j8w5i"
     data-testid="tabs"
   >
     <div
@@ -52,7 +52,7 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
                 <button
                   aria-controls="tabpanel-one"
                   aria-selected="true"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-one"
                   id="tab-one"
@@ -116,7 +116,7 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <p
@@ -209,7 +209,7 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
                 </p>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-abxfb-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
                 data-testid="sidebar"
               >
                 <div
@@ -250,7 +250,7 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
 exports[`TabLeadBlock tests should render 1`] = `
 <div>
   <div
-    class="sdpTabLeadBlock css-fpjlvn"
+    class="sdpTabLeadBlock css-15j8w5i"
     data-testid="tabs"
   >
     <div
@@ -299,7 +299,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                 <button
                   aria-controls="tabpanel-one"
                   aria-selected="true"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-one"
                   id="tab-one"
@@ -315,7 +315,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                 <button
                   aria-controls="tabpanel-two"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.technicalSpecification\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-two"
                   id="tab-two"
@@ -331,7 +331,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                 <button
                   aria-controls="tabpanel-three"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                   data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.documentsAndDownloads\\",\\"action\\":\\"Selector – Tabs\\"}"
                   data-testid="tab-three"
                   id="tab-three"
@@ -395,7 +395,7 @@ exports[`TabLeadBlock tests should render 1`] = `
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <p
@@ -488,7 +488,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                 </p>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-abxfb-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
                 data-testid="sidebar"
               >
                 <div
@@ -546,7 +546,7 @@ exports[`TabLeadBlock tests should render 1`] = `
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <p
@@ -1423,7 +1423,7 @@ exports[`TabLeadBlock tests should render the bimIframe tab 1`] = `
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
               data-testid="grid-item"
             >
               <p

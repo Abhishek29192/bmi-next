@@ -21,7 +21,7 @@ exports[`PitchedRoofCalculator Protrusions component renders correctly 1`] = `
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-6 MuiGrid2-grid-lg-2 card css-1uk69vu-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-6 MuiGrid2-grid-lg-2 card css-10sqo8t-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
@@ -54,7 +54,7 @@ exports[`PitchedRoofCalculator Protrusions component renders correctly 1`] = `
             </div>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-6 MuiGrid2-grid-lg-2 card css-1uk69vu-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-6 MuiGrid2-grid-lg-2 card css-10sqo8t-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
@@ -87,7 +87,7 @@ exports[`PitchedRoofCalculator Protrusions component renders correctly 1`] = `
             </div>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-6 MuiGrid2-grid-lg-2 card css-1uk69vu-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-6 MuiGrid2-grid-lg-2 card css-10sqo8t-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div

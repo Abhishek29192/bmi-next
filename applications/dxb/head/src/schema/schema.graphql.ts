@@ -728,7 +728,7 @@ type PIMSystemDocument @dontInfer {
   title: String!
   url: String!
   isLinkDocument: Boolean!
-  assetType: ContentfulAssetType! @link(by: "pimCode", from: "assetType")
+  assetType: ContentfulAssetType!
   realFileName: String
   fileSize: Int
   format: String
@@ -798,7 +798,7 @@ type CategoryGroup @dontInfer {
 }
 
 type PIMDocumentWithPseudoZip @dontInfer {
-  assetType: ContentfulAssetType! @link(by: "pimCode", from: "assetType")
+  assetType: ContentfulAssetType!
   documentList: [PIMDocument]!
   fileSize: Int
   format: String
@@ -918,7 +918,7 @@ type PIMDocument @dontInfer {
   title: String!
   url: String!
   isLinkDocument: Boolean!
-  assetType: ContentfulAssetType! @link(by: "pimCode", from: "assetType")
+  assetType: ContentfulAssetType!
   realFileName: String
   fileSize: Int
   format: String

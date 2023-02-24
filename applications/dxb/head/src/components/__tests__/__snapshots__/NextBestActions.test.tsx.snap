@@ -23,7 +23,7 @@ exports[`NextBestActions component renders correctly 1`] = `
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-4 MuiGrid2-grid-lg-3 Grid-item css-4oasfm-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-4 MuiGrid2-grid-lg-3 Grid-item css-gyr80o-MuiGrid2-root"
             data-testid="grid-item"
           >
             <a
@@ -77,7 +77,7 @@ exports[`NextBestActions component renders correctly 1`] = `
             </a>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-4 MuiGrid2-grid-lg-3 Grid-item css-4oasfm-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-4 MuiGrid2-grid-lg-3 Grid-item css-gyr80o-MuiGrid2-root"
             data-testid="grid-item"
           >
             <a
@@ -164,7 +164,7 @@ exports[`NextBestActions component renders name with no title 1`] = `
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-4 MuiGrid2-grid-lg-3 Grid-item css-4oasfm-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-4 MuiGrid2-grid-lg-3 Grid-item css-gyr80o-MuiGrid2-root"
             data-testid="grid-item"
           >
             <a
@@ -251,7 +251,7 @@ exports[`NextBestActions component renders with no promo cta 1`] = `
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-4 MuiGrid2-grid-lg-3 Grid-item css-4oasfm-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-4 MuiGrid2-grid-lg-3 Grid-item css-gyr80o-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
@@ -301,7 +301,7 @@ exports[`NextBestActions component renders with no promo cta label 1`] = `
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-4 MuiGrid2-grid-lg-3 Grid-item css-4oasfm-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-4 MuiGrid2-grid-lg-3 Grid-item css-gyr80o-MuiGrid2-root"
             data-testid="grid-item"
           >
             <a

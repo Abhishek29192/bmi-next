@@ -20,7 +20,7 @@ exports[`Footer component renders correctly 1`] = `
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -67,7 +67,7 @@ exports[`Footer component renders correctly 1`] = `
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -207,7 +207,7 @@ exports[`Footer component renders without brand logo Icon if it is presented in 
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4
@@ -254,7 +254,7 @@ exports[`Footer component renders without brand logo Icon if it is presented in 
               </nav>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-1szx94r-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h4

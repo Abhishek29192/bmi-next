@@ -70,7 +70,12 @@ export const StyledContainerDialog = styled(ContainerDialog)(({ theme }) => ({
     top: "70px",
     left: "30px",
     pointerEvents: "none",
-    right: "30px"
+    right: "30px",
+    "[class*=MuiPaper-root]": {
+      pointerEvents: "all",
+      backgroundColor: "rgba(255, 255, 255, 0.75)",
+      boxShadow: "none"
+    }
   },
   [`& .${classes.detailsLogo}`]: {
     marginBottom: "0.5rem"
@@ -134,13 +139,6 @@ export const StyledContainerDialog = styled(ContainerDialog)(({ theme }) => ({
         display: "flex",
         flexFlow: "column"
       }
-    }
-  },
-  "& $details": {
-    "[class*=MuiPaper-root]": {
-      pointerEvents: "all",
-      backgroundColor: "rgba(255, 255, 255, 0.75)",
-      boxShadow: "none"
     }
   }
 }));

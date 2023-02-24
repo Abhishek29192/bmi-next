@@ -32,6 +32,410 @@ const context: Context = {
   }
 };
 
+beforeEach(() => {
+  jest.clearAllMocks();
+  jest.resetModules();
+});
+
+describe("resolve productDocuments", () => {
+  describe("When product's documents are null", () => {
+    it("returns empty list", async () => {
+      const productFamily = createCategory({ categoryType: "ProductFamily" });
+      const relatedDocuments = [];
+      const source: FirestoreProduct = createProduct({
+        categories: [productFamily],
+        documents: null
+      });
+
+      findOne.mockReturnValue({ keyAssetTypes: ["ASSEMBLY_INSTRUCTIONS"] });
+
+      const returnedProductDocuments = await Product.productDocuments.resolve(
+        source,
+        null,
+        context
+      );
+
+      expect(returnedProductDocuments).toEqual(relatedDocuments);
+
+      expect(findOne).not.toHaveBeenCalled();
+    });
+  });
+  describe("When product's documents are NOT null", () => {
+    describe("And document display format is 'Asset name'", () => {
+      describe("And document has invalid pimcodes", () => {
+        it("returns empty documents list", async () => {
+          findAll.mockResolvedValueOnce({
+            entries: [
+              { pimCode: "BMI" },
+              { pimCode: "ASSEMBLY_INSTRUCTIONS" },
+              { pimCode: "CERTIFICATES" }
+            ]
+          });
+          findOne.mockResolvedValueOnce({
+            documentDisplayFormat: "Asset name"
+          });
+          const productFamily = createCategory({
+            categoryType: "ProductFamily"
+          });
+
+          const relatedDoc1 = createProductDocument({ assetType: "BIM" });
+          const relatedDoc2 = createProductDocument({
+            assetType: "FIXING_TOOL"
+          });
+          const relatedDoc3 = createProductDocument({
+            assetType: "SPECIFICATION"
+          });
+          const relatedDoc4 = createProductDocument({
+            assetType: "VIDEO"
+          });
+          const source: FirestoreProduct = createProduct({
+            categories: [productFamily],
+            documents: [relatedDoc1, relatedDoc2, relatedDoc3, relatedDoc4]
+          });
+
+          const returnedProductDocuments =
+            await Product.productDocuments.resolve(source, null, context);
+
+          expect(returnedProductDocuments).toEqual([]);
+
+          expect(findOne).toHaveBeenCalledWith(
+            {
+              query: { filter: {} },
+              type: "ContentfulResources"
+            },
+            { connectionType: "ContentfulResources" }
+          );
+        });
+      });
+      describe("And document has valid pimcodes", () => {
+        it("returns filtered documents list", async () => {
+          findAll.mockResolvedValueOnce({
+            entries: [
+              { pimCode: "BMI" },
+              { pimCode: "ASSEMBLY_INSTRUCTIONS" },
+              { pimCode: "CERTIFICATES" }
+            ]
+          });
+          findOne.mockResolvedValueOnce({
+            documentDisplayFormat: "Asset name"
+          });
+          const productFamily = createCategory({
+            categoryType: "ProductFamily"
+          });
+
+          const relatedDoc1 = createProductDocument({ assetType: "BIM" });
+          const relatedDoc2 = createProductDocument({
+            assetType: "FIXING_TOOL"
+          });
+          const relatedDoc3 = createProductDocument({
+            assetType: "SPECIFICATION"
+          });
+          const relatedDoc4 = createProductDocument({
+            assetType: "VIDEO"
+          });
+          const relatedDoc5 = createProductDocument({
+            assetType: "ASSEMBLY_INSTRUCTIONS"
+          });
+          const relatedDoc6 = createProductDocument({
+            assetType: "CERTIFICATES"
+          });
+          const source: FirestoreProduct = createProduct({
+            categories: [productFamily],
+            documents: [
+              relatedDoc1,
+              relatedDoc2,
+              relatedDoc3,
+              relatedDoc4,
+              relatedDoc5,
+              relatedDoc6
+            ]
+          });
+
+          const returnedProductDocuments =
+            await Product.productDocuments.resolve(source, null, context);
+
+          expect(returnedProductDocuments).toEqual([
+            {
+              assetType: {
+                pimCode: "ASSEMBLY_INSTRUCTIONS"
+              },
+              extension: "pdf",
+              fileSize: 10,
+              format: "application/pdf",
+              id: "id-1",
+              internal: {
+                owner: "@bmi/resolvers",
+                type: "PIMDocument"
+              },
+              isLinkDocument: false,
+              productBaseCode: "product-base-code",
+              productName: "Product Name",
+              realFileName: "real-file-name.pdf",
+              title: "title",
+              url: "http://localhost:8000/real-file-name.pdf"
+            },
+            {
+              assetType: {
+                pimCode: "CERTIFICATES"
+              },
+              extension: "pdf",
+              fileSize: 10,
+              format: "application/pdf",
+              id: "id-1",
+              internal: {
+                owner: "@bmi/resolvers",
+                type: "PIMDocument"
+              },
+              isLinkDocument: false,
+              productBaseCode: "product-base-code",
+              productName: "Product Name",
+              realFileName: "real-file-name.pdf",
+              title: "title",
+              url: "http://localhost:8000/real-file-name.pdf"
+            }
+          ]);
+
+          expect(findOne).toHaveBeenCalledWith(
+            {
+              query: { filter: {} },
+              type: "ContentfulResources"
+            },
+            { connectionType: "ContentfulResources" }
+          );
+        });
+      });
+    });
+    describe("And document display format is 'Asset Type'", () => {
+      describe("And document has invalid pimcodes", () => {
+        it("returns empty documents list", async () => {
+          findAll.mockResolvedValueOnce({
+            entries: [
+              { pimCode: "BMI" },
+              { pimCode: "ASSEMBLY_INSTRUCTIONS" },
+              { pimCode: "CERTIFICATES" }
+            ]
+          });
+          findOne.mockResolvedValueOnce({
+            documentDisplayFormat: "Asset Type"
+          });
+          const productFamily = createCategory({
+            categoryType: "ProductFamily"
+          });
+
+          const relatedDoc1 = createProductDocument({ assetType: "BIM" });
+          const relatedDoc2 = createProductDocument({
+            assetType: "FIXING_TOOL"
+          });
+          const relatedDoc3 = createProductDocument({
+            assetType: "SPECIFICATION"
+          });
+          const relatedDoc4 = createProductDocument({
+            assetType: "VIDEO"
+          });
+          const source: FirestoreProduct = createProduct({
+            categories: [productFamily],
+            documents: [relatedDoc1, relatedDoc2, relatedDoc3, relatedDoc4]
+          });
+
+          const returnedProductDocuments =
+            await Product.productDocuments.resolve(source, null, context);
+
+          expect(returnedProductDocuments).toEqual([]);
+
+          expect(findOne).toHaveBeenCalledWith(
+            {
+              query: { filter: {} },
+              type: "ContentfulResources"
+            },
+            { connectionType: "ContentfulResources" }
+          );
+        });
+      });
+      describe("And document has valid pimcodes", () => {
+        describe("And there are multiple documents with same pim codes", () => {
+          it("returns filtered grouped documents list", async () => {
+            findAll.mockResolvedValueOnce({
+              entries: [
+                { pimCode: "BMI" },
+                { pimCode: "ASSEMBLY_INSTRUCTIONS" },
+                { pimCode: "CERTIFICATES" }
+              ]
+            });
+            findOne.mockResolvedValueOnce({
+              documentDisplayFormat: "Asset Type"
+            });
+            const productFamily = createCategory({
+              categoryType: "ProductFamily"
+            });
+
+            const relatedDoc1 = createProductDocument({
+              assetType: "BIM"
+            });
+            const relatedDoc2 = createProductDocument({
+              assetType: "FIXING_TOOL"
+            });
+            const relatedDoc3 = createProductDocument({
+              assetType: "SPECIFICATION"
+            });
+            const relatedDoc4 = createProductDocument({
+              assetType: "VIDEO"
+            });
+            const relatedDoc5 = createProductDocument({
+              assetType: "ASSEMBLY_INSTRUCTIONS"
+            });
+            const relatedDoc6 = createProductDocument({
+              assetType: "CERTIFICATES"
+            });
+            const relatedDoc7 = createProductDocument({
+              assetType: "CERTIFICATES"
+            });
+            const source: FirestoreProduct = createProduct({
+              categories: [productFamily],
+              documents: [
+                relatedDoc1,
+                relatedDoc2,
+                relatedDoc3,
+                relatedDoc5,
+                relatedDoc4,
+                relatedDoc5,
+                relatedDoc6,
+                relatedDoc7
+              ]
+            });
+
+            const returnedProductDocuments =
+              await Product.productDocuments.resolve(source, null, context);
+
+            expect(returnedProductDocuments).toEqual([
+              {
+                __typename: "PIMDocumentWithPseudoZip",
+                assetType: {
+                  pimCode: "ASSEMBLY_INSTRUCTIONS"
+                },
+                documentList: [
+                  {
+                    assetType: {
+                      pimCode: "ASSEMBLY_INSTRUCTIONS"
+                    },
+                    extension: "pdf",
+                    fileSize: 10,
+                    format: "application/pdf",
+                    id: "id-1",
+                    internal: {
+                      owner: "@bmi/resolvers",
+                      type: "PIMDocument"
+                    },
+                    isLinkDocument: false,
+                    productBaseCode: "product-base-code",
+                    productName: "Product Name",
+                    realFileName: "real-file-name.pdf",
+                    title: "title",
+                    url: "http://localhost:8000/real-file-name.pdf"
+                  },
+                  {
+                    assetType: {
+                      pimCode: "ASSEMBLY_INSTRUCTIONS"
+                    },
+                    extension: "pdf",
+                    fileSize: 10,
+                    format: "application/pdf",
+                    id: "id-1",
+                    internal: {
+                      owner: "@bmi/resolvers",
+                      type: "PIMDocument"
+                    },
+                    isLinkDocument: false,
+                    productBaseCode: "product-base-code",
+                    productName: "Product Name",
+                    realFileName: "real-file-name.pdf",
+                    title: "title",
+                    url: "http://localhost:8000/real-file-name.pdf"
+                  }
+                ],
+                fileSize: 20,
+                format: "application/zip",
+                id: "3674450835",
+                internal: {
+                  owner: "@bmi/resolvers",
+                  type: "PIMDocumentWithPseudoZip"
+                },
+                isLinkDocument: false,
+                productBaseCode: "product-base-code",
+                productName: "Product Name",
+                title: "ASSEMBLY_INSTRUCTIONS"
+              },
+              {
+                __typename: "PIMDocumentWithPseudoZip",
+                assetType: {
+                  pimCode: "CERTIFICATES"
+                },
+                documentList: [
+                  {
+                    assetType: {
+                      pimCode: "CERTIFICATES"
+                    },
+                    extension: "pdf",
+                    fileSize: 10,
+                    format: "application/pdf",
+                    id: "id-1",
+                    internal: {
+                      owner: "@bmi/resolvers",
+                      type: "PIMDocument"
+                    },
+                    isLinkDocument: false,
+                    productBaseCode: "product-base-code",
+                    productName: "Product Name",
+                    realFileName: "real-file-name.pdf",
+                    title: "title",
+                    url: "http://localhost:8000/real-file-name.pdf"
+                  },
+                  {
+                    assetType: {
+                      pimCode: "CERTIFICATES"
+                    },
+                    extension: "pdf",
+                    fileSize: 10,
+                    format: "application/pdf",
+                    id: "id-1",
+                    internal: {
+                      owner: "@bmi/resolvers",
+                      type: "PIMDocument"
+                    },
+                    isLinkDocument: false,
+                    productBaseCode: "product-base-code",
+                    productName: "Product Name",
+                    realFileName: "real-file-name.pdf",
+                    title: "title",
+                    url: "http://localhost:8000/real-file-name.pdf"
+                  }
+                ],
+                fileSize: 20,
+                format: "application/zip",
+                id: "2833580601",
+                internal: {
+                  owner: "@bmi/resolvers",
+                  type: "PIMDocumentWithPseudoZip"
+                },
+                isLinkDocument: false,
+                productBaseCode: "product-base-code",
+                productName: "Product Name",
+                title: "CERTIFICATES"
+              }
+            ]);
+
+            expect(findOne).toHaveBeenCalledWith(
+              {
+                query: { filter: {} },
+                type: "ContentfulResources"
+              },
+              { connectionType: "ContentfulResources" }
+            );
+          });
+        });
+      });
+    });
+  });
+});
 describe("resolve key asset documents", () => {
   describe("When product's documents are null", () => {
     it("returns empty list", async () => {
@@ -90,6 +494,9 @@ describe("resolve key asset documents", () => {
         documents: [relatedDoc1, relatedDoc2, relatedDoc3]
       });
 
+      findAll.mockResolvedValueOnce({
+        entries: []
+      });
       findOne.mockReturnValue({ keyAssetTypes: [] });
 
       const returnedKeyAssetDocuments = await Product.keyAssetDocuments.resolve(
@@ -119,7 +526,53 @@ describe("resolve key asset documents", () => {
       const relatedDocuments = [
         {
           assetType: "ASSEMBLY_INSTRUCTIONS",
-          documents: [relatedDoc1, relatedDoc2, relatedDoc3]
+          documents: [
+            {
+              assetType: {
+                pimCode: "ASSEMBLY_INSTRUCTIONS"
+              },
+              extension: "pdf",
+              fileSize: 10,
+              format: "application/pdf",
+              id: "id-1",
+              isLinkDocument: false,
+              productBaseCode: "product-base-code",
+              productName: "Product Name",
+              realFileName: "real-file-name.pdf",
+              title: "title",
+              url: "http://localhost:8000/real-file-name.pdf"
+            },
+            {
+              assetType: {
+                pimCode: "ASSEMBLY_INSTRUCTIONS"
+              },
+              extension: "pdf",
+              fileSize: 10,
+              format: "application/pdf",
+              id: "id-1",
+              isLinkDocument: false,
+              productBaseCode: "product-base-code",
+              productName: "Product Name",
+              realFileName: "real-file-name.pdf",
+              title: "title",
+              url: "http://localhost:8000/real-file-name.pdf"
+            },
+            {
+              assetType: {
+                pimCode: "ASSEMBLY_INSTRUCTIONS"
+              },
+              extension: "pdf",
+              fileSize: 10,
+              format: "application/pdf",
+              id: "id-1",
+              isLinkDocument: false,
+              productBaseCode: "product-base-code",
+              productName: "Product Name",
+              realFileName: "real-file-name.pdf",
+              title: "title",
+              url: "http://localhost:8000/real-file-name.pdf"
+            }
+          ]
         }
       ];
       const source: FirestoreProduct = createProduct({
@@ -127,6 +580,13 @@ describe("resolve key asset documents", () => {
         documents: [relatedDoc1, relatedDoc2, relatedDoc3]
       });
 
+      findAll.mockResolvedValueOnce({
+        entries: [
+          { pimCode: "BMI" },
+          { pimCode: "ASSEMBLY_INSTRUCTIONS" },
+          { pimCode: "SPECIFICATION" }
+        ]
+      });
       findOne.mockReturnValue({ keyAssetTypes: ["ASSEMBLY_INSTRUCTIONS"] });
 
       const returnedKeyAssetDocuments = await Product.keyAssetDocuments.resolve(
@@ -156,18 +616,73 @@ describe("resolve key asset documents", () => {
       const relatedDocuments = [
         {
           assetType: "ASSEMBLY_INSTRUCTIONS",
-          documents: [relatedDoc1, relatedDoc3]
+          documents: [
+            {
+              assetType: {
+                pimCode: "ASSEMBLY_INSTRUCTIONS"
+              },
+              extension: "pdf",
+              fileSize: 10,
+              format: "application/pdf",
+              id: "id-1",
+              isLinkDocument: false,
+              productBaseCode: "product-base-code",
+              productName: "Product Name",
+              realFileName: "real-file-name.pdf",
+              title: "title",
+              url: "http://localhost:8000/real-file-name.pdf"
+            },
+            {
+              assetType: {
+                pimCode: "ASSEMBLY_INSTRUCTIONS"
+              },
+              extension: "pdf",
+              fileSize: 10,
+              format: "application/pdf",
+              id: "id-1",
+              isLinkDocument: false,
+              productBaseCode: "product-base-code",
+              productName: "Product Name",
+              realFileName: "real-file-name.pdf",
+              title: "title",
+              url: "http://localhost:8000/real-file-name.pdf"
+            }
+          ]
         },
         {
           assetType: "SPECIFICATION",
-          documents: [relatedDoc2]
+          documents: [
+            {
+              assetType: {
+                pimCode: "SPECIFICATION"
+              },
+              extension: "pdf",
+              fileSize: 10,
+              format: "application/pdf",
+              id: "id-1",
+              isLinkDocument: false,
+              productBaseCode: "product-base-code",
+              productName: "Product Name",
+              realFileName: "real-file-name.pdf",
+              title: "title",
+              url: "http://localhost:8000/real-file-name.pdf"
+            }
+          ]
         }
       ];
+
       const source: FirestoreProduct = createProduct({
         categories: [productFamily],
         documents: [relatedDoc1, relatedDoc2, relatedDoc3]
       });
 
+      findAll.mockResolvedValueOnce({
+        entries: [
+          { pimCode: "BMI" },
+          { pimCode: "ASSEMBLY_INSTRUCTIONS" },
+          { pimCode: "SPECIFICATION" }
+        ]
+      });
       findOne.mockReturnValue({
         keyAssetTypes: ["ASSEMBLY_INSTRUCTIONS", "SPECIFICATION"]
       });
@@ -356,7 +871,7 @@ describe("resolve related products", () => {
       relatedProduct3
     ];
 
-    findAll.mockReturnValue({ entries: relatedProducts });
+    findAll.mockReturnValueOnce({ entries: relatedProducts });
 
     const returnedRelatedProducts = await Product.relatedProducts.resolve(
       source,

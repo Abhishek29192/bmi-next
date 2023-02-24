@@ -242,11 +242,11 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-vb4yt3-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
               data-testid="grid-item"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"efgh name\\",\\"action\\":\\"/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details\\"}"
                 data-testid="efgh"
                 href="/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
@@ -537,11 +537,11 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-vb4yt3-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
               data-testid="grid-item"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"efgh name\\",\\"action\\":\\"/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details\\"}"
                 data-testid="efgh"
                 href="/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
@@ -1510,11 +1510,11 @@ exports[`SystemConfiguratorSection component renders a result section when answe
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-vb4yt3-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
               data-testid="grid-item"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"efgh name\\",\\"action\\":\\"/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details\\"}"
                 data-testid="efgh"
                 href="/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
@@ -3444,11 +3444,11 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-vb4yt3-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
               data-testid="grid-item"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"ijkl name\\",\\"action\\":\\"/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details\\"}"
                 data-testid="ijkl"
                 href="/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details"
@@ -3495,11 +3495,11 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
               </a>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-vb4yt3-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
               data-testid="grid-item"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"efgh name\\",\\"action\\":\\"/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details\\"}"
                 data-testid="efgh"
                 href="/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
@@ -3546,11 +3546,11 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
               </a>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-vb4yt3-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
               data-testid="grid-item"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"abcd name\\",\\"action\\":\\"/no/related-system-path/?selected_system=abcd&prev_page=/test-path&referer=sys_details\\"}"
                 data-testid="abcd"
                 href="/no/related-system-path/?selected_system=abcd&prev_page=/test-path&referer=sys_details"
@@ -3597,11 +3597,11 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
               </a>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-vb4yt3-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
               data-testid="grid-item"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"mnop name\\",\\"action\\":\\"/no/related-system-path/?selected_system=mnop&prev_page=/test-path&referer=sys_details\\"}"
                 data-testid="mnop"
                 href="/no/related-system-path/?selected_system=mnop&prev_page=/test-path&referer=sys_details"
@@ -3897,11 +3897,11 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-vb4yt3-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
               data-testid="grid-item"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"ijkl name\\",\\"action\\":\\"/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details\\"}"
                 data-testid="ijkl"
                 href="/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details"
@@ -3948,11 +3948,11 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
               </a>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-vb4yt3-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
               data-testid="grid-item"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"efgh name\\",\\"action\\":\\"/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details\\"}"
                 data-testid="efgh"
                 href="/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details"

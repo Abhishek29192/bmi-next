@@ -106,7 +106,7 @@ exports[`Header component renders correctly 1`] = `
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1x7xhe2-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1n3tg82-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h6
@@ -771,7 +771,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1x7xhe2-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1n3tg82-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h6
@@ -1438,7 +1438,7 @@ exports[`Header component shows sample basket icon 1`] = `
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1x7xhe2-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1n3tg82-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h6
@@ -2292,7 +2292,7 @@ exports[`Header component toggles search 1`] = `
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1x7xhe2-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1n3tg82-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <h6
