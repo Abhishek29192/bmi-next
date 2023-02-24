@@ -12,7 +12,7 @@ import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
 import DefaultImage from "../images/DefaultImage.svg";
 import withGTM from "../utils/google-tag-manager";
-import { iconMap } from "./Icon";
+import BrandLogo from "./BrandLogo";
 import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
 import { useSiteContext } from "./Site";
 import styles from "./styles/ProductOverview.module.scss";
@@ -133,8 +133,7 @@ const ProductOverview = ({
         </Grid>
         <Grid xs={12} md={12} lg={4}>
           <ProductOverviewPane
-            // eslint-disable-next-line security/detect-object-injection
-            brandLogo={iconMap[`${brandCode}Isolated`]}
+            brandLogo={<BrandLogo brandName={brandCode} />}
             name={name}
             nobb={nobb}
             thumbnailComponent={(props: ThumbnailProps) => (

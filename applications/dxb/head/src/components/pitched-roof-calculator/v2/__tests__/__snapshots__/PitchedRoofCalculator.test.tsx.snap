@@ -44,7 +44,7 @@ exports[`PitchedRoofCalculator component renders closed 1`] = `
         class="ModalHeader css-1wp1i2i"
       >
         <svg
-          class="logo"
+          class="logo css-87lb9q"
           viewBox="0 0 250 250"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -144,7 +144,7 @@ exports[`PitchedRoofCalculator component renders correctly 1`] = `
         class="ModalHeader css-1wp1i2i"
       >
         <svg
-          class="logo"
+          class="logo css-87lb9q"
           viewBox="0 0 250 250"
           xmlns="http://www.w3.org/2000/svg"
         >

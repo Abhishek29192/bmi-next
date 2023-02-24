@@ -26,7 +26,7 @@ exports[`SampleBasketSection component renders correctly 1`] = `
           class="SampleBasketSectionProducts"
         >
           <button
-            class="MuiButtonBase-root OverviewCard-clickable product-wrapper MuiBox-root css-gr2yor-MuiButtonBase-root"
+            class="MuiButtonBase-root OverviewCard-clickable product-wrapper MuiBox-root css-c35yjo-MuiButtonBase-root"
             data-testid="shopping-cart-product"
             tabindex="0"
             type="button"
@@ -46,6 +46,7 @@ exports[`SampleBasketSection component renders correctly 1`] = `
               />
               <div
                 class="OverviewCard-text OverviewCard-withoutMargin css-fm25tm"
+                data-testid="overview-card-body-description"
               >
                 <div
                   class="product"
@@ -171,7 +172,7 @@ exports[`SampleBasketSection component should render form after complete button 
           class="SampleBasketSectionProducts"
         >
           <button
-            class="MuiButtonBase-root OverviewCard-clickable product-wrapper MuiBox-root css-gr2yor-MuiButtonBase-root"
+            class="MuiButtonBase-root OverviewCard-clickable product-wrapper MuiBox-root css-c35yjo-MuiButtonBase-root"
             data-testid="shopping-cart-product"
             tabindex="0"
             type="button"
@@ -191,6 +192,7 @@ exports[`SampleBasketSection component should render form after complete button 
               />
               <div
                 class="OverviewCard-text OverviewCard-withoutMargin css-fm25tm"
+                data-testid="overview-card-body-description"
               >
                 <div
                   class="product"

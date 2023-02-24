@@ -1126,10 +1126,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@bmi-digital/components@^1.21.0":
-  version "1.21.0"
-  resolved "https://registry.yarnpkg.com/@bmi-digital/components/-/components-1.21.0.tgz#a325a38987213f49ed1e1133759d3f290ccc6fbe"
-  integrity sha512-/Ygxez1i2miALm/7YFUqwI2a5TYlt+MJPQCNEHBr1k1G//o2IAgOGfnuFu48NdrsB6VQ3Lk+QBnkYmOefnj4kA==
+"@bmi-digital/components@^1.24.0":
+  version "1.24.0"
+  resolved "https://registry.yarnpkg.com/@bmi-digital/components/-/components-1.24.0.tgz#5583b7029e3d6a213add3c6af06c890f3a37a0e6"
+  integrity sha512-lGcI3/pl8y0DFYjCi7aM8U+7x5T5lU0LB4KXhgDQsjVkbi7ZxKXTBGVu+XFE+3vTZ+8PZDFDaUfD3VTC67t1Ew==
   dependencies:
     "@bmi-digital/styles" "^1.4.0"
     "@bmi-digital/svg-import" "^1.4.0"

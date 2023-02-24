@@ -88,7 +88,7 @@ exports[`Visualiser component renders correctly 1`] = `
               class="VisualiserV2-detailsContainer"
             >
               <svg
-                class="VisualiserV2-detailsLogo"
+                class="VisualiserV2-detailsLogo css-v70sib"
                 height="60"
                 viewBox="0 0 250 250"
                 width="60"
@@ -280,7 +280,7 @@ exports[`Visualiser component renders correctly when non-test asset url provided
               class="VisualiserV2-detailsContainer"
             >
               <svg
-                class="VisualiserV2-detailsLogo"
+                class="VisualiserV2-detailsLogo css-v70sib"
                 height="60"
                 viewBox="0 0 250 250"
                 width="60"
@@ -472,7 +472,7 @@ exports[`Visualiser component renders correctly when test asset url provided 1`]
               class="VisualiserV2-detailsContainer"
             >
               <svg
-                class="VisualiserV2-detailsLogo"
+                class="VisualiserV2-detailsLogo css-v70sib"
                 height="60"
                 viewBox="0 0 250 250"
                 width="60"

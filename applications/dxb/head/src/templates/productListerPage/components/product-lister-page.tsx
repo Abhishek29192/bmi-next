@@ -11,7 +11,7 @@ import {
   Typography
 } from "@bmi-digital/components";
 import type { Product as ESProduct } from "@bmi/elasticsearch-types";
-import CheckIcon from "@mui/icons-material/Check";
+import { Check as CheckIcon } from "@mui/icons-material";
 import { styled } from "@mui/material/styles";
 import { useLocation } from "@reach/router";
 import { graphql } from "gatsby";

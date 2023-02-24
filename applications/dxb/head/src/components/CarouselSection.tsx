@@ -7,14 +7,14 @@ import {
   VerticalRoller,
   VerticalRollerSlide
 } from "@bmi-digital/components";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { ArrowForward as ArrowForwardIcon } from "@bmi-digital/components/icon";
 import ButtonBase, { ButtonBaseProps } from "@mui/material/ButtonBase";
 import { graphql } from "gatsby";
 import React, { useContext } from "react";
 import { Data as PromoData } from "../components/Promo";
 import { microCopy } from "../constants/microCopies";
 import withGTM from "../utils/google-tag-manager";
-import { iconMap } from "./Icon";
+import BrandLogo from "./BrandLogo";
 import Image from "./Image";
 import { Data as LinkData, getClickableActionFromUrl, getCTA } from "./Link";
 import { Data as PageInfoData } from "./PageInfo";
@@ -52,10 +52,9 @@ const parseSlides = (
       ...rest
     } = slide;
     const cta = getCTA(rest, countryCode, linkLabel);
-    const brandLogoIcons =
-      brandLogo && variant === "vertical"
-        ? iconMap[`${brandLogo}Boxed`]
-        : iconMap[`${brandLogo}Isolated`];
+    const brandLogoIcons = brandLogo ? (
+      <BrandLogo brandName={brandLogo} brandWhiteBox={variant === "vertical"} />
+    ) : undefined;
     return {
       title,
       // eslint-disable-next-line security/detect-object-injection

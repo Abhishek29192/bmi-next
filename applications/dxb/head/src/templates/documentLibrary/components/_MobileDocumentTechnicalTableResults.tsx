@@ -4,16 +4,16 @@ import {
   AnchorLink,
   AnchorLinkProps,
   Button,
-  Download,
-  External,
-  FileUniversal,
   Icon,
   IconButtonProps
 } from "@bmi-digital/components";
+import { Download } from "@bmi-digital/components/icon";
+import { External } from "@bmi-digital/components/icon";
+import { FileUniversal } from "@bmi-digital/components/icon";
 import { PimProductDocument } from "@bmi/elasticsearch-types";
 import classnames from "classnames";
 import React from "react";
-import { Format } from "../../../components/types";
+import fileIconsMap from "../../../components/FileIconsMap";
 import withGTM from "../../../utils/google-tag-manager";
 import { AssetType } from "../types";
 import { classes, Root } from "./DocumentTechnicalTableResultsStyles";
@@ -22,7 +22,6 @@ import AssetHeader from "./_AssetHeader";
 interface Props {
   documentsByProduct: [string, PimProductDocument[]][];
   assetTypes: AssetType[];
-  fileIconsMap: Record<Format, React.ComponentType>;
 }
 
 const GTMAccordionSummary = withGTM<AccordionSummaryProps>(Accordion.Summary);
@@ -31,8 +30,7 @@ const GTMButton = withGTM<IconButtonProps>(Button);
 
 const MobileDocumentTechnicalTableResults = ({
   documentsByProduct,
-  assetTypes,
-  fileIconsMap
+  assetTypes
 }: Props) => {
   return (
     <Root

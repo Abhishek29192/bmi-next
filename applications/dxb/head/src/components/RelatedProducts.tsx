@@ -7,9 +7,9 @@ import {
   Section,
   Tabs
 } from "@bmi-digital/components";
-import AddIcon from "@mui/icons-material/Add";
+import { Add as AddIcon } from "@mui/icons-material";
 import Tab, { TabProps } from "@mui/material/Tab";
-import { Link, graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import React, { useMemo, useState } from "react";
 import { microCopy } from "../constants/microCopies";
 import DefaultImage from "../images/DefaultImage.svg";
@@ -18,7 +18,7 @@ import withGTM from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
 import { mapClassificationValues } from "../utils/product-details-transforms";
 import { renderMedia } from "../utils/renderMedia";
-import { iconMap } from "./Icon";
+import BrandLogo from "./BrandLogo";
 import { useSiteContext } from "./Site";
 import styles from "./styles/RelatedProducts.module.scss";
 
@@ -65,8 +65,7 @@ const ProductListing = ({
     <>
       <Grid container spacing={3}>
         {products.slice(0, numberShown).map((product) => {
-          // eslint-disable-next-line security/detect-object-injection
-          const brandLogo = iconMap[`${product.brand?.code}Isolated`];
+          const brandLogo = <BrandLogo brandName={product.brand?.code} />;
           const productUrl = getPathWithCountryCode(countryCode, product.path);
 
           const uniqueClassifications = mapClassificationValues(product);

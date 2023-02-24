@@ -4,6 +4,7 @@ import { Data as ImageData } from "./Image";
 import { Data as SampleBasketSectionData } from "./SampleBasketBase";
 import { TagData } from "./Tag";
 import { ContentfulVideoData } from "./Video";
+import { Logo } from "./BrandLogo";
 
 export type Data = {
   __typename:
@@ -15,7 +16,7 @@ export type Data = {
   id: string;
   title: string;
   subtitle: string | null;
-  brandLogo: string | null;
+  brandLogo: Logo | null;
   slug: string;
   path: string;
   date: string | null;

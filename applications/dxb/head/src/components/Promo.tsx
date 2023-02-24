@@ -4,6 +4,7 @@ import { Data as LinkData } from "./Link";
 import { RichTextData } from "./RichText";
 import { TagData } from "./Tag";
 import { ContentfulVideoData } from "./Video";
+import { Logo } from "./BrandLogo";
 
 export type Data = {
   __typename: "ContentfulPromo";
@@ -12,7 +13,7 @@ export type Data = {
   title: string | null;
   subtitle: string | null;
   body: RichTextData | null;
-  brandLogo: string | null;
+  brandLogo: Logo | null;
   tags: TagData[] | null;
   featuredMedia: ImageData | null;
   cta: LinkData | null;

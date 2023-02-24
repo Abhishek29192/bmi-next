@@ -1,9 +1,9 @@
 import { Icon, Tooltip } from "@bmi-digital/components";
+import { ArrowBack } from "@bmi-digital/components/icon";
+import { ArrowForward } from "@bmi-digital/components/icon";
 import {
   Add,
-  ArrowBack,
   ArrowDownward,
-  ArrowForward,
   ArrowUpward,
   Home,
   Remove,

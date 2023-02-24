@@ -7,8 +7,8 @@ import {
 } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
+import BrandLogo from "../../components/BrandLogo";
 import Breadcrumbs from "../../components/Breadcrumbs";
-import { iconMap } from "../../components/Icon";
 import Page from "../../components/Page";
 import RelatedSystems from "../../components/RelatedSystems";
 import ShareWidgetSection, {
@@ -90,8 +90,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
         cta={resources?.sdpLeadBlockCta}
         promotionalContent={system.promotionalContent}
         uniqueSellingPropositions={system.uniqueSellingPropositions}
-        // eslint-disable-next-line security/detect-object-injection
-        brandLogo={iconMap[`${system.brand?.code}Isolated`]}
+        brandLogo={<BrandLogo brandName={system.brand?.code} />}
       />
       <Section
         backgroundColor="alabaster"

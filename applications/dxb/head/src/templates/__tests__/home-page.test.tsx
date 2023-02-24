@@ -1,6 +1,7 @@
 import { ThemeProvider } from "@bmi-digital/components";
 import React from "react";
 import { DataTypeEnum } from "../../components/Link";
+import { Data as BrandData } from "../../components/Brands";
 import { Data as OverlapCardData } from "../../components/OverlapCards";
 import { Data as SlideData } from "../../components/Promo";
 import { Data as SectionsData } from "../../components/Sections";
@@ -59,7 +60,7 @@ describe("Home Page Template", () => {
       type: "Accordion"
     }
   ];
-  const brandsData = [
+  const brandsData: BrandData[] = [
     {
       title: "Smilex brand",
       path: "/smilex-brand",
@@ -67,7 +68,7 @@ describe("Home Page Template", () => {
       brandLogo: "Icopal"
     }
   ];
-  const spaBrandsData = [
+  const spaBrandsData: BrandData[] = [
     {
       title: "Smilex spa brand",
       path: "/smilex-spa-brand",

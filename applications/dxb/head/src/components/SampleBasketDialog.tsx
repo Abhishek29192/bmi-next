@@ -4,11 +4,8 @@ import {
   Icon,
   Typography
 } from "@bmi-digital/components";
-import {
-  ArrowForward as ArrowForwardIcon,
-  Close,
-  Delete as DeleteIcon
-} from "@mui/icons-material";
+import { ArrowForward as ArrowForwardIcon } from "@bmi-digital/components/icon";
+import { Close, Delete as DeleteIcon } from "@mui/icons-material";
 import React from "react";
 import { microCopy } from "../constants/microCopies";
 import {

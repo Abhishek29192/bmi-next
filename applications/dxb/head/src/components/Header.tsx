@@ -6,7 +6,7 @@ import {
   RegionCode,
   TabProps
 } from "@bmi-digital/components";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { ArrowForward as ArrowForwardIcon } from "@bmi-digital/components/icon";
 import Tab from "@mui/material/Tab";
 import { graphql, Link, withPrefix } from "gatsby";
 import React, { useMemo } from "react";
@@ -17,7 +17,7 @@ import { useBasketContext } from "../contexts/SampleBasketContext";
 import { checkIfActiveLabelInParentNode } from "../utils/breadcrumbUtils";
 import withGTM, { pushToDataLayer, useGTM } from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
-import { iconMap } from "./Icon";
+import Icon from "./Icon";
 import {
   Data as LinkData,
   getCTA,
@@ -125,8 +125,7 @@ const parseNavigation = (
 
       return result.concat({
         label,
-        // eslint-disable-next-line security/detect-object-injection
-        icon: iconMap[iconName],
+        icon: <Icon name={iconName} />,
         isLabelHidden,
         action
       });

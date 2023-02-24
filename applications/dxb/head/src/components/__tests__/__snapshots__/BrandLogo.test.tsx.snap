@@ -3,7 +3,7 @@
 exports[`BrandLogo component renders correctly 1`] = `
 <div>
   <svg
-    class="BrandLogo"
+    class="BrandLogo css-8dnw9f"
     viewBox="0 0 278 100"
     xml:space="preserve"
     xmlns="http://www.w3.org/2000/svg"

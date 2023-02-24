@@ -35,7 +35,7 @@ exports[`CalculatorModal component renders closed 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl headerContainer css-15p7r21-MuiContainer-root"
           >
             <svg
-              class="headerSide logo"
+              class="headerSide logo css-8dnw9f"
             />
             <div
               class="headerCentre"
@@ -123,7 +123,7 @@ exports[`CalculatorModal component renders correctly 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl headerContainer css-15p7r21-MuiContainer-root"
           >
             <svg
-              class="headerSide logo"
+              class="headerSide logo css-8dnw9f"
             />
             <div
               class="headerCentre"
@@ -212,7 +212,7 @@ exports[`CalculatorModal component renders with ariaDescribedby props 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl headerContainer css-15p7r21-MuiContainer-root"
           >
             <svg
-              class="headerSide logo"
+              class="headerSide logo css-v70sib"
               viewBox="0 0 250 250"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -313,7 +313,7 @@ exports[`CalculatorModal component renders with ariaLabelledby props 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl headerContainer css-15p7r21-MuiContainer-root"
           >
             <svg
-              class="headerSide logo"
+              class="headerSide logo css-v70sib"
               viewBox="0 0 250 250"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -413,7 +413,7 @@ exports[`CalculatorModal component renders with backdropProps 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl headerContainer css-15p7r21-MuiContainer-root"
           >
             <svg
-              class="headerSide logo"
+              class="headerSide logo css-v70sib"
               viewBox="0 0 250 250"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -513,7 +513,7 @@ exports[`CalculatorModal component renders with className 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl headerContainer css-15p7r21-MuiContainer-root"
           >
             <svg
-              class="headerSide logo"
+              class="headerSide logo css-v70sib"
               viewBox="0 0 250 250"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -613,7 +613,7 @@ exports[`CalculatorModal component renders with disablePortal 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl headerContainer css-15p7r21-MuiContainer-root"
           >
             <svg
-              class="headerSide logo"
+              class="headerSide logo css-v70sib"
               viewBox="0 0 250 250"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -713,7 +713,7 @@ exports[`CalculatorModal component renders with no logo 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl headerContainer css-15p7r21-MuiContainer-root"
           >
             <svg
-              class="headerSide logo"
+              class="headerSide logo css-v70sib"
               viewBox="0 0 250 250"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -815,7 +815,7 @@ exports[`CalculatorModal component renders with pearl background 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl headerContainer css-15p7r21-MuiContainer-root"
           >
             <svg
-              class="headerSide logo"
+              class="headerSide logo css-8dnw9f"
             />
             <div
               class="headerCentre"

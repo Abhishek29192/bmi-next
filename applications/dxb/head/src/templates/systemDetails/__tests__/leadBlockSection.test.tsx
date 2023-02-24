@@ -36,7 +36,7 @@ describe("LeadBlockSection tests", () => {
           <LeadBlockSection
             name={leadBlockSectionName}
             cta={linkData}
-            brandLogo={Icopal}
+            brandLogo={<Icopal />}
           />
         </LocationProvider>
       </ThemeProvider>
@@ -57,7 +57,7 @@ describe("LeadBlockSection tests", () => {
             name={leadBlockSectionName}
             cta={linkData}
             uniqueSellingPropositions={uniqueSellingPropositions}
-            brandLogo={Icopal}
+            brandLogo={<Icopal />}
           />
         </LocationProvider>
       </ThemeProvider>
@@ -81,7 +81,7 @@ describe("LeadBlockSection tests", () => {
           <LeadBlockSection
             name={leadBlockSectionName}
             cta={linkData}
-            brandLogo={Icopal}
+            brandLogo={<Icopal />}
             uniqueSellingPropositions={[]}
           />
         </LocationProvider>
@@ -108,7 +108,7 @@ describe("LeadBlockSection tests", () => {
             <LeadBlockSection
               name={leadBlockSectionName}
               cta={linkData}
-              brandLogo={Icopal}
+              brandLogo={<Icopal />}
             />
           </LocationProvider>
         </ThemeProvider>

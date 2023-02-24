@@ -10,8 +10,7 @@ import {
   Tabs,
   Typography
 } from "@bmi-digital/components";
-import { Launch } from "@mui/icons-material";
-import CheckIcon from "@mui/icons-material/Check";
+import { Check as CheckIcon, Launch } from "@mui/icons-material";
 import { styled } from "@mui/material/styles";
 import Tab, { TabProps } from "@mui/material/Tab";
 import React, { useRef, useState } from "react";

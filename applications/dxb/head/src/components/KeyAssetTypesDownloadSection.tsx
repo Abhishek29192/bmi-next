@@ -1,5 +1,5 @@
 import { Button, ButtonProps, ClickableAction } from "@bmi-digital/components";
-import { GetApp } from "@mui/icons-material";
+import { GetApp } from "@bmi-digital/components/icon";
 import fetch, { Response } from "node-fetch";
 import React from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";

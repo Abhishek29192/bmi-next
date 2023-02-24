@@ -12,13 +12,13 @@ import {
   Typography,
   withClickable
 } from "@bmi-digital/components";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { ArrowForward as ArrowForwardIcon } from "@bmi-digital/components/icon";
 import ButtonBase, { ButtonBaseProps } from "@mui/material/ButtonBase";
 import { graphql } from "gatsby";
 import React, { memo, useMemo, useState } from "react";
 import { microCopy } from "../constants/microCopies";
 import withGTM from "../utils/google-tag-manager";
-import { iconMap } from "./Icon";
+import BrandLogo from "./BrandLogo";
 import Image from "./Image";
 import Link, { Data as LinkData } from "./Link";
 import { Data as PageInfoData } from "./PageInfo";
@@ -105,9 +105,8 @@ const CardCollectionItem = ({
         ) : undefined
       }
       isFlat={isFlat}
-      // eslint-disable-next-line security/detect-object-injection
       brandImageSource={
-        type !== "Text Card" ? iconMap[`${brandLogo}Boxed`] : undefined
+        type !== "Text Card" ? <BrandLogo brandName={brandLogo} /> : undefined
       }
       clickableArea={
         link

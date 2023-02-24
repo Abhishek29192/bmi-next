@@ -1,11 +1,4 @@
-import {
-  Button,
-  ButtonProps,
-  FileUniversal,
-  Icon,
-  Section,
-  Table
-} from "@bmi-digital/components";
+import { Button, ButtonProps, Section, Table } from "@bmi-digital/components";
 import filesize from "filesize";
 import { graphql } from "gatsby";
 import React from "react";
@@ -13,6 +6,7 @@ import fileIconsMap from "../components/FileIconsMap";
 import { microCopy } from "../constants/microCopies";
 import { ContentfulDocument as DocumentData } from "../types/Document";
 import withGTM from "../utils/google-tag-manager";
+import Icon from "./Icon";
 import { getClickableActionFromUrl } from "./Link";
 import RichText, { RichTextData } from "./RichText";
 import { useSiteContext } from "./Site";
@@ -84,11 +78,10 @@ const DocumentDownloadSection = ({
                       )}
                       variant="text"
                       startIcon={
-                        // eslint-disable-next-line security/detect-object-injection
                         <Icon
-                          source={
+                          name={
                             // eslint-disable-next-line security/detect-object-injection
-                            fileIconsMap[contentType] || FileUniversal
+                            fileIconsMap[contentType] || "FileUniversal"
                           }
                           // TODO: consider responsibility of icon styles
                           style={iconStyle}

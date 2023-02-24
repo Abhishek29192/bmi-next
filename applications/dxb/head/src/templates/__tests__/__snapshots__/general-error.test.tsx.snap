@@ -210,7 +210,7 @@ exports[`General Error render correctly 1`] = `
               href="/no/"
             >
               <svg
-                class="Header-logo"
+                class="Header-logo css-87lb9q"
                 viewBox="0 0 250 250"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -379,6 +379,13 @@ exports[`General Error render correctly 1`] = `
                 target="_blank"
               >
                 string
+                <span
+                  class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
+                >
+                  <span
+                    class="Navigation-iconWrapper"
+                  />
+                </span>
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
@@ -570,6 +577,7 @@ exports[`General Error render correctly 1`] = `
               class="css-5shjl0"
             >
               <svg
+                class="css-87lb9q"
                 viewBox="0 0 250 250"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -890,7 +898,7 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
               href="/no/"
             >
               <svg
-                class="Header-logo"
+                class="Header-logo css-87lb9q"
                 viewBox="0 0 250 250"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -1059,6 +1067,13 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
                 target="_blank"
               >
                 string
+                <span
+                  class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
+                >
+                  <span
+                    class="Navigation-iconWrapper"
+                  />
+                </span>
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
@@ -1262,6 +1277,7 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
               class="css-5shjl0"
             >
               <svg
+                class="css-87lb9q"
                 viewBox="0 0 250 250"
                 xmlns="http://www.w3.org/2000/svg"
               >

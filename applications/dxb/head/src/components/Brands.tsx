@@ -3,19 +3,19 @@ import {
   Button,
   ButtonProps,
   Grid,
-  logoIconMap,
   Section
 } from "@bmi-digital/components";
 import { graphql, Link } from "gatsby";
 import React from "react";
 import { microCopy } from "../constants/microCopies";
 import withGTM from "../utils/google-tag-manager";
+import BrandLogo, { Logo } from "./BrandLogo";
 import { useSiteContext } from "./Site";
 import styles from "./styles/Brands.module.scss";
 
 export type Data = {
   title: string;
-  brandLogo: string;
+  brandLogo: Logo;
   path?: string;
   subtitle?: string;
 };
@@ -56,7 +56,7 @@ const Brands = ({
                       {...props}
                     />
                   )}
-                  logoIcon={logoIconMap[`${brand.brandLogo}Isolated`]}
+                  logoIcon={<BrandLogo brandName={brand.brandLogo} />}
                   description={brand.subtitle ? brand.subtitle : undefined}
                   buttonLabel={buttonLabel}
                   action={
@@ -81,7 +81,7 @@ const Brands = ({
               ) : (
                 <BrandIntroCard
                   name={brand.brandLogo}
-                  logoIcon={logoIconMap[`${brand.brandLogo}Isolated`]}
+                  logoIcon={<BrandLogo brandName={brand.brandLogo} />}
                   description={brand.subtitle ? brand.subtitle : undefined}
                   data-testid={`brand-intro-card-${brand.title.replace(
                     / /g,

@@ -1,19 +1,20 @@
 import { ThemeProvider } from "@bmi-digital/components";
 import { render } from "@testing-library/react";
 import React from "react";
-import Brands from "../Brands";
+import Brands, { Data } from "../Brands";
 
 describe("Brands component", () => {
-  const brandData = [
+  const brandData: Data[] = [
     {
       title: "Smilex",
-      path: "/smilex",
+      brandLogo: "Icopal",
       subtitle: "Uh-oh.  He don't look happy. He's been using brand X",
-      brandLogo: "Icopal"
+      path: "/smilex"
     }
   ];
+
   it("renders correctly", () => {
-    const brandData = [
+    const brandData: Data[] = [
       {
         title: "Smilex",
         path: "/smilex",

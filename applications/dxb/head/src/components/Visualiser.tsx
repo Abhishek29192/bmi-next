@@ -3,11 +3,11 @@ import { MicroCopy } from "@bmi-digital/components";
 import { navigate as navigateWithParams, useLocation } from "@reach/router";
 import { graphql, navigate } from "gatsby";
 import queryString from "query-string";
-import React, { createContext, Suspense, useState, useMemo } from "react";
+import React, { createContext, Suspense, useMemo, useState } from "react";
+import { useConfig } from "../contexts/ConfigProvider";
 import { devLog } from "../utils/devLog";
 import { GTMContext, pushToDataLayer } from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
-import { useConfig } from "../contexts/ConfigProvider";
 import ShareWidgetSection, {
   Data as ShareWidgetSectionData
 } from "./ShareWidgetSection";
