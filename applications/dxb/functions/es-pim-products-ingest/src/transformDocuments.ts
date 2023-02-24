@@ -1,13 +1,20 @@
 import path from "path";
 import logger from "@bmi-digital/functions-logger";
 import {
+  PimDocumentBase,
   PimProductDocument,
   PimSystemDocument
 } from "@bmi/elasticsearch-types";
-import { Asset, Product as PIMProduct, System } from "@bmi/pim-types";
+import {
+  Asset,
+  Product as PIMProduct,
+  System,
+  VariantOption
+} from "@bmi/pim-types";
 import { isDefined } from "@bmi/utils";
 import { v4 as uuid } from "uuid";
 import { getAssetTypes, getProductDocumentNameMap } from "./contentfulApi";
+import { ContentfulAssetType, ProductDocumentNameMap } from "./types";
 import {
   getCategoryFilters,
   getClassificationsFilters
@@ -39,6 +46,7 @@ export const transformDocuments = async (
   tag?: string
 ): Promise<(PimProductDocument | PimSystemDocument)[]> => {
   const assetTypes = await getAssetTypes(locale, tag);
+  const isSystemItem = isSystem(item);
 
   if (assetTypes.length === 0) {
     return [];
@@ -46,77 +54,130 @@ export const transformDocuments = async (
 
   const productDocumentNameMap = await getProductDocumentNameMap(locale, tag);
 
-  const esPimDocuments: (PimProductDocument | PimSystemDocument)[] = (
-    item.assets || []
-  )
-    .map((asset) => {
-      const id = uuid();
-      const assetType = assetTypes.find(
-        (assetType) => assetType.pimCode === asset.assetType
-      );
+  const categoryFilters = item.categories
+    ? getCategoryFilters(item.categories)
+    : {};
 
-      if (!assetType || !asset.url || !isDefined(asset.fileSize)) {
-        logger.info({
-          message: `Document ${asset.name} doesn't have assetType or url or fileSize, assetType is: ${asset.assetType}, url is: ${asset.url}, fileSize is: ${asset.fileSize}`
-        });
-        return;
-      }
+  if (isSystemItem) {
+    const systemDocuments = (item.assets || [])
+      .map((asset) => {
+        const doc = getDocument(
+          asset,
+          item,
+          assetTypes,
+          productDocumentNameMap
+        );
 
-      const categoryFilters = item.categories
-        ? getCategoryFilters(item.categories)
-        : {};
-      const classificationFilters =
-        "variantOptions" in item && item.classifications
-          ? getClassificationsFilters(item)
-          : {};
+        if (!doc) {
+          return;
+        }
 
-      const title = {
-        "Product name + asset type": `${item.name} ${assetType.name}`,
-        "Document name": asset.name || `${item.name} ${assetType.name}`
-      }[`${productDocumentNameMap}`];
+        const systemDoc: PimSystemDocument = {
+          ...doc,
+          __typename: "PIMSystemDocument",
+          ...categoryFilters
+        };
+        return systemDoc;
+      })
+      .filter(isDefined);
 
-      const objToReturn = {
-        __typename:
-          "variantOptions" in item ? "PIMDocument" : "PIMSystemDocument",
-        id,
-        title,
-        approvalStatus: item.approvalStatus,
-        url: asset.url,
-        assetType,
-        isLinkDocument: isPimLinkDocument(asset),
+    logger.info({
+      message: `Initial count of assets: ${item.assets?.length}, Count of indexed assets: ${systemDocuments.length}`
+    });
+    return systemDocuments;
+  }
 
-        noIndex: false,
-        fileSize: asset.fileSize,
-        format: asset.mime || getFormatFromFileName(asset.realFileName!),
-        extension: asset.realFileName
-          ? path.extname(asset.realFileName!).substring(1)
-          : "",
-        realFileName: asset.realFileName ? asset.realFileName : "",
-        titleAndSize: `${asset.name}_${asset.fileSize}`,
-        validUntil: asset.validUntil
-          ? new Date(asset.validUntil).getTime()
-          : undefined,
-        ...categoryFilters,
-        ...classificationFilters
-      };
+  const variantDocuments = (item.variantOptions || []).flatMap((variant) => {
+    const classificationFilters = getClassificationsFilters(
+      item.classifications,
+      variant.classifications
+    );
+    return (variant.assets || item.assets || [])
+      .map((asset) => {
+        const doc = getDocument(
+          asset,
+          item,
+          assetTypes,
+          productDocumentNameMap
+        );
 
-      // TODO: may be change this to identify between system and product
-      // with type check or something
-      if ("variantOptions" in item) {
-        return {
-          ...objToReturn,
+        if (!doc) {
+          return;
+        }
+
+        const productDocument: PimProductDocument = {
+          ...doc,
+          __typename: "PIMDocument",
+          productName: (variant.name || item.name)!,
           productBaseCode: item.code,
-          productName: item.name
-        } as PimProductDocument;
-      } else {
-        return objToReturn as PimSystemDocument;
-      }
-    })
-    .filter(isDefined);
+          ...categoryFilters,
+          ...classificationFilters
+        };
 
-  logger.info({
-    message: `Initial count of assets: ${item.assets?.length}, Count of indexed assets: ${esPimDocuments.length}`
+        return productDocument;
+      })
+      .filter(isDefined);
   });
 
-  return esPimDocuments;
+  const assetsCounter = (item.variantOptions || []).reduce((acc, variant) => {
+    if (variant.assets) {
+      return acc + variant.assets.length;
+    }
+    return acc;
+  }, item.assets?.length || 0);
+
+  logger.info({
+    message: `Initial count of assets: ${assetsCounter}, Count of indexed assets: ${variantDocuments.length}`
+  });
+
+  return variantDocuments;
+};
+
+const getDocument = (
+  asset: Asset,
+  item: PIMProduct | System | VariantOption,
+  assetTypes: ContentfulAssetType[],
+  productDocumentNameMap: ProductDocumentNameMap
+): PimDocumentBase | undefined => {
+  const assetType = assetTypes.find(
+    (assetType) => assetType.pimCode === asset.assetType
+  );
+
+  if (!assetType || !asset.url || !isDefined(asset.fileSize)) {
+    logger.info({
+      message: `Document ${asset.name} doesn't have assetType or url or fileSize, assetType is: ${asset.assetType}, url is: ${asset.url}, fileSize is: ${asset.fileSize}`
+    });
+    return;
+  }
+
+  const title = {
+    "Product name + asset type": `${item.name} ${assetType.name}`,
+    "Document name": asset.name || `${item.name} ${assetType.name}`
+  }[`${productDocumentNameMap}`];
+  const id = uuid();
+
+  return {
+    id,
+    title,
+    approvalStatus: item.approvalStatus,
+    url: asset.url,
+    assetType,
+    isLinkDocument: isPimLinkDocument(asset),
+
+    noIndex: false,
+    fileSize: asset.fileSize,
+    format: asset.mime || getFormatFromFileName(asset.realFileName!),
+    extension: asset.realFileName
+      ? path.extname(asset.realFileName!).substring(1)
+      : "",
+    realFileName: asset.realFileName || "",
+    titleAndSize: `${asset.name}_${asset.fileSize}`,
+    validUntil: asset.validUntil
+      ? new Date(asset.validUntil).getTime()
+      : undefined
+  };
+};
+
+const isSystem = (item: System | PIMProduct): item is System => {
+  return !("variantOptions" in item);
 };

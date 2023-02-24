@@ -594,6 +594,7 @@ export type ProductReference = {
 
 export type VariantOption = {
   approvalStatus: ApprovalStatus;
+  assets?: readonly Asset[];
   classifications?: readonly Classification[];
   code: string;
   externalProductCode?: string;
