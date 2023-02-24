@@ -5,7 +5,6 @@ import {
 } from "../../../../libraries/utils/src";
 import { Data } from "../../components/Resources";
 import { AssetType, ProductDocumentWithAssetType } from "../../types/pim";
-import groupBy from "../../utils/groupBy";
 import { Resource } from "./types/Contentful";
 import { Context, Node, ResolveArgs } from "./types/Gatsby";
 import { getDefaultYoutubePreviewImage } from "./utils/getDefaultYoutubePreviewImage";
@@ -216,6 +215,22 @@ export default {
             }
           }
         : {};
+
+      const { entries } = await context.nodeModel.findAll<AssetType>(
+        {
+          query: { filter: marketFilters },
+          type: "ContentfulAssetType"
+        },
+        { connectionType: "ContentfulAssetType" }
+      );
+
+      // all market asset types are valid.
+      // todo: check, if we need to filter out ["BIM", "FIXING_TOOL", "SPECIFICATION", "VIDEO"]
+      const marketAssetTypes = [...entries];
+
+      const validPimCodes = marketAssetTypes.map(
+        (assetType) => assetType.pimCode
+      );
       const resource = await context.nodeModel.findOne<Resource>(
         {
           query: { filter: marketFilters },
@@ -230,14 +245,33 @@ export default {
         return [];
       }
 
-      const groupedDocuments = groupBy(
-        source.documents.filter(
+      const documents: ProductDocumentWithAssetType[] = source.documents
+        .filter(
           (document) =>
             document.assetType &&
-            keyAssetTypes.some((assetType) => assetType === document.assetType)
-        ),
-        "assetType"
-      );
+            keyAssetTypes.some(
+              (assetType) => assetType === document.assetType
+            ) &&
+            validPimCodes.some((assetType) => assetType === document.assetType)
+        )
+        .map((doc) => ({
+          ...doc,
+          assetType: marketAssetTypes.find(
+            (fullAssetType) => fullAssetType.pimCode === doc.assetType
+          )
+        }));
+
+      const groupedDocuments: Record<string, ProductDocumentWithAssetType[]> =
+        documents.reduce((documents, document) => {
+          return {
+            ...documents,
+            [document.assetType.pimCode]: [
+              ...(documents[document.assetType.pimCode] || []),
+              document
+            ]
+          };
+        }, {});
+
       return Object.keys(groupedDocuments).map((key) => {
         return {
           assetType: key,
