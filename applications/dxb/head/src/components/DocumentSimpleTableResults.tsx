@@ -6,13 +6,13 @@ import {
   DownloadListContext,
   Table
 } from "@bmi-digital/components";
-import { GetApp } from "@bmi-digital/components/icon";
 import logger from "@bmi-digital/functions-logger";
 import {
   ContentfulDocument as EsContentfulDocument,
   PimProductDocument as EsPimDocument,
   PimSystemDocument as EsPimSystemDocument
 } from "@bmi/elasticsearch-types";
+import { GetApp } from "@mui/icons-material";
 import { useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import classnames from "classnames";
