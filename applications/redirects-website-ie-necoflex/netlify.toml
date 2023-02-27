@@ -8,6 +8,10 @@
   publish = "public/"
 
   # Default build command.
+[[redirects]]
+ from="/"
+ to="https://www.bmigroup.com/ie"
+ force=true  
 
 [[redirects]]
  from="/ie"
