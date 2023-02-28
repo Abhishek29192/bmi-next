@@ -114,7 +114,7 @@ export type ContentfulDocument = {
   noIndex: boolean;
 };
 
-type PimDocumentBase = {
+export type PimDocumentBase = {
   id: string;
   approvalStatus: ApprovalStatus;
   title: string;

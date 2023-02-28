@@ -2,14 +2,14 @@ import logger from "@bmi-digital/functions-logger";
 import { AssetType, Resources } from "@bmi/contentful-types";
 import { getContentfulClient } from "@bmi/functions-contentful-client";
 import type { Entry } from "contentful";
-import { ProductDocumentNameMap } from "./types";
+import { ContentfulAssetType, ProductDocumentNameMap } from "./types";
 
 const MAX_NUMBER_OF_DOCUMENTS_PER_RESPONSE = 1000;
 
 const getAssetTypes = async (
   locale: string,
   tag?: string
-): Promise<{ code: string; name: string; pimCode: string }[]> => {
+): Promise<ContentfulAssetType[]> => {
   // paginate and get ALL assetTypes from the environment.
   // JIRA: https://bmigroup.atlassian.net/browse/DXB-4313
   // suggests that documents can be excluded from indexing simply because

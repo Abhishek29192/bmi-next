@@ -9,9 +9,11 @@ import {
   createClassification,
   createProduct,
   createSystem,
+  createVariantOption,
   Product,
   System
 } from "@bmi/pim-types";
+import { Classification } from "@bmi/pim-types";
 import { ProductDocumentNameMap } from "../types";
 
 const transformDocuments = async (
@@ -44,12 +46,15 @@ const getClassificationsFilters = jest.fn();
 jest.mock("../utils/filterHelpers", () => ({
   getCategoryFilters: (categories: readonly Category[]) =>
     getCategoryFilters(categories),
-  getClassificationsFilters: (product: Product) =>
-    getClassificationsFilters(product)
+  getClassificationsFilters: (
+    productClassifications?: Classification[],
+    variantClassifications?: Classification[]
+  ) => getClassificationsFilters(productClassifications, variantClassifications)
 }));
 
 beforeEach(() => {
   jest.clearAllMocks();
+  jest.resetAllMocks();
   jest.resetModules();
 });
 
@@ -105,20 +110,19 @@ describe("transformDocuments", () => {
     expect(getClassificationsFilters).not.toHaveBeenCalled();
   });
 
-  it("should return empty array when product has undefined assets", async () => {
+  it("should return empty array when product has undefined assets and no variants", async () => {
     const locale = "en-US";
     getAssetTypes.mockResolvedValueOnce([createAssetType()]);
     getProductDocumentNameMap.mockResolvedValueOnce("Document name");
 
     const transformedDocuments = await transformDocuments(
-      createProduct({ assets: undefined }),
+      createProduct({ assets: undefined, variantOptions: undefined }),
       locale
     );
 
     expect(transformedDocuments).toEqual([]);
     expect(getAssetTypes).toHaveBeenCalledWith(locale, undefined);
     expect(getProductDocumentNameMap).toHaveBeenCalledWith(locale, undefined);
-    expect(getCategoryFilters).not.toHaveBeenCalled();
     expect(getClassificationsFilters).not.toHaveBeenCalled();
   });
 
@@ -135,24 +139,22 @@ describe("transformDocuments", () => {
     expect(transformedDocuments).toEqual([]);
     expect(getAssetTypes).toHaveBeenCalledWith(locale, undefined);
     expect(getProductDocumentNameMap).toHaveBeenCalledWith(locale, undefined);
-    expect(getCategoryFilters).not.toHaveBeenCalled();
     expect(getClassificationsFilters).not.toHaveBeenCalled();
   });
 
-  it("should return empty array when product has empty assets array", async () => {
+  it("should return empty array when product has empty assets array and no variants", async () => {
     const locale = "en-US";
     getAssetTypes.mockResolvedValueOnce([createAssetType()]);
     getProductDocumentNameMap.mockResolvedValueOnce("Document name");
 
     const transformedDocuments = await transformDocuments(
-      createProduct({ assets: [] }),
+      createProduct({ assets: [], variantOptions: undefined }),
       locale
     );
 
     expect(transformedDocuments).toEqual([]);
     expect(getAssetTypes).toHaveBeenCalledWith(locale, undefined);
     expect(getProductDocumentNameMap).toHaveBeenCalledWith(locale, undefined);
-    expect(getCategoryFilters).not.toHaveBeenCalled();
     expect(getClassificationsFilters).not.toHaveBeenCalled();
   });
 
@@ -169,7 +171,25 @@ describe("transformDocuments", () => {
     expect(transformedDocuments).toEqual([]);
     expect(getAssetTypes).toHaveBeenCalledWith(locale, undefined);
     expect(getProductDocumentNameMap).toHaveBeenCalledWith(locale, undefined);
-    expect(getCategoryFilters).not.toHaveBeenCalled();
+    expect(getClassificationsFilters).not.toHaveBeenCalled();
+  });
+
+  it("should return empty array when system does not have a URL", async () => {
+    const locale = "en-US";
+    const pimCode = "ASSEMBLY_INSTRUCTIONS";
+    getAssetTypes.mockResolvedValueOnce([createAssetType({ pimCode })]);
+    getProductDocumentNameMap.mockResolvedValueOnce("Document name");
+
+    const transformedDocuments = await transformDocuments(
+      createSystem({
+        assets: [createAsset({ assetType: pimCode, url: undefined })]
+      }),
+      locale
+    );
+
+    expect(transformedDocuments).toEqual([]);
+    expect(getAssetTypes).toHaveBeenCalledWith(locale, undefined);
+    expect(getProductDocumentNameMap).toHaveBeenCalledWith(locale, undefined);
     expect(getClassificationsFilters).not.toHaveBeenCalled();
   });
 
@@ -181,15 +201,16 @@ describe("transformDocuments", () => {
     getProductDocumentNameMap.mockResolvedValueOnce("Document name");
 
     const transformedDocuments = await transformDocuments(
-      createProduct({ assets: [createAsset({ assetType: "AWARDS" })] }),
+      createProduct({
+        assets: [createAsset({ assetType: "AWARDS" })],
+        variantOptions: [createVariantOption({ assets: [] })]
+      }),
       locale
     );
 
     expect(transformedDocuments).toEqual([]);
     expect(getAssetTypes).toHaveBeenCalledWith(locale, undefined);
     expect(getProductDocumentNameMap).toHaveBeenCalledWith(locale, undefined);
-    expect(getCategoryFilters).not.toHaveBeenCalled();
-    expect(getClassificationsFilters).not.toHaveBeenCalled();
   });
 
   it("should return empty array when product asset doesn't have a URL", async () => {
@@ -200,7 +221,8 @@ describe("transformDocuments", () => {
 
     const transformedDocuments = await transformDocuments(
       createProduct({
-        assets: [createAsset({ assetType: pimCode, url: undefined })]
+        assets: [createAsset({ assetType: pimCode, url: undefined })],
+        variantOptions: [createVariantOption({ assets: [] })]
       }),
       locale
     );
@@ -208,8 +230,6 @@ describe("transformDocuments", () => {
     expect(transformedDocuments).toEqual([]);
     expect(getAssetTypes).toHaveBeenCalledWith(locale, undefined);
     expect(getProductDocumentNameMap).toHaveBeenCalledWith(locale, undefined);
-    expect(getCategoryFilters).not.toHaveBeenCalled();
-    expect(getClassificationsFilters).not.toHaveBeenCalled();
   });
 
   it("should return PIM link document if asset is not allowed to download", async () => {
@@ -254,7 +274,7 @@ describe("transformDocuments", () => {
           "isLinkDocument": true,
           "noIndex": false,
           "productBaseCode": "base-code",
-          "productName": "name",
+          "productName": "variant-name",
           "realFileName": "real-file-name.pdf",
           "title": "name",
           "titleAndSize": "name_10",
@@ -266,7 +286,10 @@ describe("transformDocuments", () => {
     expect(getAssetTypes).toHaveBeenCalledWith(locale, undefined);
     expect(getProductDocumentNameMap).toHaveBeenCalledWith(locale, undefined);
     expect(getCategoryFilters).toHaveBeenCalledWith(product.categories);
-    expect(getClassificationsFilters).toHaveBeenCalledWith(product);
+    expect(getClassificationsFilters).toHaveBeenCalledWith(
+      product.classifications,
+      product.variantOptions?.[0].classifications
+    );
   });
 
   it("should return PIM link document if asset file size is greater than 40MB", async () => {
@@ -311,7 +334,7 @@ describe("transformDocuments", () => {
           "isLinkDocument": true,
           "noIndex": false,
           "productBaseCode": "base-code",
-          "productName": "name",
+          "productName": "variant-name",
           "realFileName": "real-file-name.pdf",
           "title": "name",
           "titleAndSize": "name_41943041",
@@ -323,7 +346,10 @@ describe("transformDocuments", () => {
     expect(getAssetTypes).toHaveBeenCalledWith(locale, undefined);
     expect(getProductDocumentNameMap).toHaveBeenCalledWith(locale, undefined);
     expect(getCategoryFilters).toHaveBeenCalledWith(product.categories);
-    expect(getClassificationsFilters).toHaveBeenCalledWith(product);
+    expect(getClassificationsFilters).toHaveBeenCalledWith(
+      product.classifications,
+      product.variantOptions?.[0].classifications
+    );
   });
 
   it("should return PIM link document if asset file size is 0", async () => {
@@ -368,7 +394,7 @@ describe("transformDocuments", () => {
           "isLinkDocument": true,
           "noIndex": false,
           "productBaseCode": "base-code",
-          "productName": "name",
+          "productName": "variant-name",
           "realFileName": "real-file-name.pdf",
           "title": "name",
           "titleAndSize": "name_0",
@@ -380,7 +406,10 @@ describe("transformDocuments", () => {
     expect(getAssetTypes).toHaveBeenCalledWith(locale, undefined);
     expect(getProductDocumentNameMap).toHaveBeenCalledWith(locale, undefined);
     expect(getCategoryFilters).toHaveBeenCalledWith(product.categories);
-    expect(getClassificationsFilters).toHaveBeenCalledWith(product);
+    expect(getClassificationsFilters).toHaveBeenCalledWith(
+      product.classifications,
+      product.variantOptions?.[0].classifications
+    );
   });
 
   it("should not return PIM link document if asset file size is undefined", async () => {
@@ -403,8 +432,6 @@ describe("transformDocuments", () => {
     expect(transformedDocuments).toEqual([]);
     expect(getAssetTypes).toHaveBeenCalledWith(locale, undefined);
     expect(getProductDocumentNameMap).toHaveBeenCalledWith(locale, undefined);
-    expect(getCategoryFilters).not.toHaveBeenCalled();
-    expect(getClassificationsFilters).not.toHaveBeenCalled();
   });
 
   it("should return PIM link document if asset doesn't have a real file name", async () => {
@@ -449,7 +476,7 @@ describe("transformDocuments", () => {
           "isLinkDocument": true,
           "noIndex": false,
           "productBaseCode": "base-code",
-          "productName": "name",
+          "productName": "variant-name",
           "realFileName": "",
           "title": "name",
           "titleAndSize": "name_10",
@@ -461,7 +488,10 @@ describe("transformDocuments", () => {
     expect(getAssetTypes).toHaveBeenCalledWith(locale, undefined);
     expect(getProductDocumentNameMap).toHaveBeenCalledWith(locale, undefined);
     expect(getCategoryFilters).toHaveBeenCalledWith(product.categories);
-    expect(getClassificationsFilters).toHaveBeenCalledWith(product);
+    expect(getClassificationsFilters).toHaveBeenCalledWith(
+      product.classifications,
+      product.variantOptions?.[0].classifications
+    );
   });
 
   it("should return PIM link document without classifications for system assets", async () => {
@@ -557,7 +587,7 @@ describe("transformDocuments", () => {
           "isLinkDocument": true,
           "noIndex": false,
           "productBaseCode": "base-code",
-          "productName": "name",
+          "productName": "variant-name",
           "realFileName": "real-file-name.pdf",
           "title": "name",
           "titleAndSize": "name_10",
@@ -569,7 +599,10 @@ describe("transformDocuments", () => {
     expect(getAssetTypes).toHaveBeenCalledWith(locale, undefined);
     expect(getProductDocumentNameMap).toHaveBeenCalledWith(locale, undefined);
     expect(getCategoryFilters).not.toHaveBeenCalled();
-    expect(getClassificationsFilters).toHaveBeenCalledWith(product);
+    expect(getClassificationsFilters).toHaveBeenCalledWith(
+      product.classifications,
+      product.variantOptions?.[0].classifications
+    );
   });
 
   it("should return PIM link document without category filters if there are no system categories", async () => {
@@ -619,7 +652,8 @@ describe("transformDocuments", () => {
     const pimCode = "ASSEMBLY_INSTRUCTIONS";
     const product = createProduct({
       assets: [createAsset({ assetType: pimCode, allowedToDownload: false })],
-      classifications: undefined
+      classifications: undefined,
+      variantOptions: [createVariantOption({ classifications: undefined })]
     });
     getAssetTypes.mockResolvedValueOnce([createAssetType({ pimCode })]);
     getProductDocumentNameMap.mockResolvedValueOnce("Document name");
@@ -650,7 +684,7 @@ describe("transformDocuments", () => {
           "isLinkDocument": true,
           "noIndex": false,
           "productBaseCode": "base-code",
-          "productName": "name",
+          "productName": "variant-name",
           "realFileName": "real-file-name.pdf",
           "title": "name",
           "titleAndSize": "name_10",
@@ -662,7 +696,6 @@ describe("transformDocuments", () => {
     expect(getAssetTypes).toHaveBeenCalledWith(locale, undefined);
     expect(getProductDocumentNameMap).toHaveBeenCalledWith(locale, undefined);
     expect(getCategoryFilters).toHaveBeenCalledWith(product.categories);
-    expect(getClassificationsFilters).not.toHaveBeenCalled();
   });
 
   it("should return PIM link document without classifications filters if there are no system classifications", async () => {
@@ -737,7 +770,10 @@ describe("transformDocuments", () => {
     expect(getAssetTypes).toHaveBeenCalledWith(locale, undefined);
     expect(getProductDocumentNameMap).toHaveBeenCalledWith(locale, undefined);
     expect(getCategoryFilters).toHaveBeenCalledWith(product.categories);
-    expect(getClassificationsFilters).toHaveBeenCalledWith(product);
+    expect(getClassificationsFilters).toHaveBeenCalledWith(
+      product.classifications,
+      product.variantOptions?.[0].classifications
+    );
   });
 
   it("should return PIM link document with asset name as the title if productDocumentNameMap is 'Document name'", async () => {
@@ -763,7 +799,10 @@ describe("transformDocuments", () => {
     expect(getAssetTypes).toHaveBeenCalledWith(locale, undefined);
     expect(getProductDocumentNameMap).toHaveBeenCalledWith(locale, undefined);
     expect(getCategoryFilters).toHaveBeenCalledWith(product.categories);
-    expect(getClassificationsFilters).toHaveBeenCalledWith(product);
+    expect(getClassificationsFilters).toHaveBeenCalledWith(
+      product.classifications,
+      product.variantOptions?.[0].classifications
+    );
   });
 
   it("should return PIM link document with product name and asset type as the title if productDocumentNameMap is 'Document name' but is undefined", async () => {
@@ -793,7 +832,10 @@ describe("transformDocuments", () => {
     expect(getAssetTypes).toHaveBeenCalledWith(locale, undefined);
     expect(getProductDocumentNameMap).toHaveBeenCalledWith(locale, undefined);
     expect(getCategoryFilters).toHaveBeenCalledWith(product.categories);
-    expect(getClassificationsFilters).toHaveBeenCalledWith(product);
+    expect(getClassificationsFilters).toHaveBeenCalledWith(
+      product.classifications,
+      product.variantOptions?.[0].classifications
+    );
   });
 
   it("should filter asset types and product name map for link documents by tag if provided", async () => {
@@ -838,7 +880,7 @@ describe("transformDocuments", () => {
           "isLinkDocument": true,
           "noIndex": false,
           "productBaseCode": "base-code",
-          "productName": "name",
+          "productName": "variant-name",
           "realFileName": "real-file-name.pdf",
           "title": "name",
           "titleAndSize": "name_10",
@@ -850,7 +892,10 @@ describe("transformDocuments", () => {
     expect(getAssetTypes).toHaveBeenCalledWith(locale, tag);
     expect(getProductDocumentNameMap).toHaveBeenCalledWith(locale, tag);
     expect(getCategoryFilters).toHaveBeenCalledWith(product.categories);
-    expect(getClassificationsFilters).toHaveBeenCalledWith(product);
+    expect(getClassificationsFilters).toHaveBeenCalledWith(
+      product.classifications,
+      product.variantOptions?.[0].classifications
+    );
   });
 
   it("should return PIM document", async () => {
@@ -895,7 +940,7 @@ describe("transformDocuments", () => {
           "isLinkDocument": false,
           "noIndex": false,
           "productBaseCode": "base-code",
-          "productName": "name",
+          "productName": "variant-name",
           "realFileName": "real-file-name.pdf",
           "title": "name",
           "titleAndSize": "name_10",
@@ -907,7 +952,10 @@ describe("transformDocuments", () => {
     expect(getAssetTypes).toHaveBeenCalledWith(locale, undefined);
     expect(getProductDocumentNameMap).toHaveBeenCalledWith(locale, undefined);
     expect(getCategoryFilters).toHaveBeenCalledWith(product.categories);
-    expect(getClassificationsFilters).toHaveBeenCalledWith(product);
+    expect(getClassificationsFilters).toHaveBeenCalledWith(
+      product.classifications,
+      product.variantOptions?.[0].classifications
+    );
   });
 
   it("should return PIM document using real file name to get pdf format if mime is undefined", async () => {
@@ -937,7 +985,10 @@ describe("transformDocuments", () => {
     expect(getAssetTypes).toHaveBeenCalledWith(locale, undefined);
     expect(getProductDocumentNameMap).toHaveBeenCalledWith(locale, undefined);
     expect(getCategoryFilters).toHaveBeenCalledWith(product.categories);
-    expect(getClassificationsFilters).toHaveBeenCalledWith(product);
+    expect(getClassificationsFilters).toHaveBeenCalledWith(
+      product.classifications,
+      product.variantOptions?.[0].classifications
+    );
   });
 
   it("should return PIM document using real file name to get jpg format if mime is undefined", async () => {
@@ -967,7 +1018,10 @@ describe("transformDocuments", () => {
     expect(getAssetTypes).toHaveBeenCalledWith(locale, undefined);
     expect(getProductDocumentNameMap).toHaveBeenCalledWith(locale, undefined);
     expect(getCategoryFilters).toHaveBeenCalledWith(product.categories);
-    expect(getClassificationsFilters).toHaveBeenCalledWith(product);
+    expect(getClassificationsFilters).toHaveBeenCalledWith(
+      product.classifications,
+      product.variantOptions?.[0].classifications
+    );
   });
 
   it("should return PIM document using real file name to get jpeg format if mime is undefined", async () => {
@@ -997,7 +1051,10 @@ describe("transformDocuments", () => {
     expect(getAssetTypes).toHaveBeenCalledWith(locale, undefined);
     expect(getProductDocumentNameMap).toHaveBeenCalledWith(locale, undefined);
     expect(getCategoryFilters).toHaveBeenCalledWith(product.categories);
-    expect(getClassificationsFilters).toHaveBeenCalledWith(product);
+    expect(getClassificationsFilters).toHaveBeenCalledWith(
+      product.classifications,
+      product.variantOptions?.[0].classifications
+    );
   });
 
   it("should return PIM document using real file name to get png format if mime is undefined", async () => {
@@ -1027,7 +1084,10 @@ describe("transformDocuments", () => {
     expect(getAssetTypes).toHaveBeenCalledWith(locale, undefined);
     expect(getProductDocumentNameMap).toHaveBeenCalledWith(locale, undefined);
     expect(getCategoryFilters).toHaveBeenCalledWith(product.categories);
-    expect(getClassificationsFilters).toHaveBeenCalledWith(product);
+    expect(getClassificationsFilters).toHaveBeenCalledWith(
+      product.classifications,
+      product.variantOptions?.[0].classifications
+    );
   });
 
   it("should return PIM document with undefined format if no mime and the real file name has an unknown type", async () => {
@@ -1057,7 +1117,10 @@ describe("transformDocuments", () => {
     expect(getAssetTypes).toHaveBeenCalledWith(locale, undefined);
     expect(getProductDocumentNameMap).toHaveBeenCalledWith(locale, undefined);
     expect(getCategoryFilters).toHaveBeenCalledWith(product.categories);
-    expect(getClassificationsFilters).toHaveBeenCalledWith(product);
+    expect(getClassificationsFilters).toHaveBeenCalledWith(
+      product.classifications,
+      product.variantOptions?.[0].classifications
+    );
   });
 
   it("should return PIM document without classifications for system assets", async () => {
@@ -1152,7 +1215,7 @@ describe("transformDocuments", () => {
           "isLinkDocument": false,
           "noIndex": false,
           "productBaseCode": "base-code",
-          "productName": "name",
+          "productName": "variant-name",
           "realFileName": "real-file-name.pdf",
           "title": "name",
           "titleAndSize": "name_10",
@@ -1164,7 +1227,10 @@ describe("transformDocuments", () => {
     expect(getAssetTypes).toHaveBeenCalledWith(locale, undefined);
     expect(getProductDocumentNameMap).toHaveBeenCalledWith(locale, undefined);
     expect(getCategoryFilters).not.toHaveBeenCalled();
-    expect(getClassificationsFilters).toHaveBeenCalledWith(product);
+    expect(getClassificationsFilters).toHaveBeenCalledWith(
+      product.classifications,
+      product.variantOptions?.[0].classifications
+    );
   });
 
   it("should return PIM document without category filters if there are no system categories", async () => {
@@ -1214,7 +1280,8 @@ describe("transformDocuments", () => {
     const pimCode = "ASSEMBLY_INSTRUCTIONS";
     const product = createProduct({
       assets: [createAsset({ assetType: pimCode })],
-      classifications: undefined
+      classifications: undefined,
+      variantOptions: [createVariantOption({ classifications: undefined })]
     });
     getAssetTypes.mockResolvedValueOnce([createAssetType({ pimCode })]);
     getProductDocumentNameMap.mockResolvedValueOnce("Document name");
@@ -1245,7 +1312,7 @@ describe("transformDocuments", () => {
           "isLinkDocument": false,
           "noIndex": false,
           "productBaseCode": "base-code",
-          "productName": "name",
+          "productName": "variant-name",
           "realFileName": "real-file-name.pdf",
           "title": "name",
           "titleAndSize": "name_10",
@@ -1257,7 +1324,6 @@ describe("transformDocuments", () => {
     expect(getAssetTypes).toHaveBeenCalledWith(locale, undefined);
     expect(getProductDocumentNameMap).toHaveBeenCalledWith(locale, undefined);
     expect(getCategoryFilters).toHaveBeenCalledWith(product.categories);
-    expect(getClassificationsFilters).not.toHaveBeenCalled();
   });
 
   it("should return PIM document without classifications filters if there are no system classifications", async () => {
@@ -1332,7 +1398,10 @@ describe("transformDocuments", () => {
     expect(getAssetTypes).toHaveBeenCalledWith(locale, undefined);
     expect(getProductDocumentNameMap).toHaveBeenCalledWith(locale, undefined);
     expect(getCategoryFilters).toHaveBeenCalledWith(product.categories);
-    expect(getClassificationsFilters).toHaveBeenCalledWith(product);
+    expect(getClassificationsFilters).toHaveBeenCalledWith(
+      product.classifications,
+      product.variantOptions?.[0].classifications
+    );
   });
 
   it("should return PIM document with asset name as the title if productDocumentNameMap is 'Document name'", async () => {
@@ -1357,7 +1426,10 @@ describe("transformDocuments", () => {
     expect(getAssetTypes).toHaveBeenCalledWith(locale, undefined);
     expect(getProductDocumentNameMap).toHaveBeenCalledWith(locale, undefined);
     expect(getCategoryFilters).toHaveBeenCalledWith(product.categories);
-    expect(getClassificationsFilters).toHaveBeenCalledWith(product);
+    expect(getClassificationsFilters).toHaveBeenCalledWith(
+      product.classifications,
+      product.variantOptions?.[0].classifications
+    );
   });
 
   it("should return PIM document with product name and asset type as the title if productDocumentNameMap is 'Document name' but is undefined", async () => {
@@ -1386,7 +1458,10 @@ describe("transformDocuments", () => {
     expect(getAssetTypes).toHaveBeenCalledWith(locale, undefined);
     expect(getProductDocumentNameMap).toHaveBeenCalledWith(locale, undefined);
     expect(getCategoryFilters).toHaveBeenCalledWith(product.categories);
-    expect(getClassificationsFilters).toHaveBeenCalledWith(product);
+    expect(getClassificationsFilters).toHaveBeenCalledWith(
+      product.classifications,
+      product.variantOptions?.[0].classifications
+    );
   });
 
   it("should filter asset types and product name map for documents by tag if provided", async () => {
@@ -1430,7 +1505,7 @@ describe("transformDocuments", () => {
           "isLinkDocument": false,
           "noIndex": false,
           "productBaseCode": "base-code",
-          "productName": "name",
+          "productName": "variant-name",
           "realFileName": "real-file-name.pdf",
           "title": "name",
           "titleAndSize": "name_10",
@@ -1442,7 +1517,81 @@ describe("transformDocuments", () => {
     expect(getAssetTypes).toHaveBeenCalledWith(locale, tag);
     expect(getProductDocumentNameMap).toHaveBeenCalledWith(locale, tag);
     expect(getCategoryFilters).toHaveBeenCalledWith(product.categories);
-    expect(getClassificationsFilters).toHaveBeenCalledWith(product);
+    expect(getClassificationsFilters).toHaveBeenCalledWith(
+      product.classifications,
+      product.variantOptions?.[0].classifications
+    );
+  });
+
+  it("should return empty array when product does not have variants", async () => {
+    const locale = "en-US";
+    const pimCode = "ASSEMBLY_INSTRUCTIONS";
+    const assetType = createAssetType({ pimCode });
+    getAssetTypes.mockResolvedValueOnce([assetType]);
+    const product = createProduct({
+      variantOptions: undefined
+    });
+
+    const transformedDocuments = await transformDocuments(product, locale);
+    expect(transformedDocuments.length).toBe(0);
+  });
+
+  it("should return an empty array when base product and variants do not have assets", async () => {
+    const locale = "en-US";
+    const pimCode = "ASSEMBLY_INSTRUCTIONS";
+    const assetType = createAssetType({ pimCode });
+    getAssetTypes.mockResolvedValueOnce([assetType]);
+    const product = createProduct({
+      variantOptions: [createVariantOption({ assets: undefined })],
+      assets: undefined
+    });
+
+    const transformedDocuments = await transformDocuments(product, locale);
+    expect(transformedDocuments.length).toBe(0);
+  });
+
+  it("should return assets of base product if variant does not have any assets", async () => {
+    const locale = "en-US";
+    const pimCode = "ASSEMBLY_INSTRUCTIONS";
+    const assetType = createAssetType({ pimCode });
+    getAssetTypes.mockResolvedValueOnce([assetType]);
+    const product = createProduct({
+      variantOptions: [createVariantOption({ assets: undefined })],
+      assets: [
+        createAsset({ assetType: pimCode, realFileName: "Base product asset" })
+      ]
+    });
+
+    const transformedDocuments = await transformDocuments(product, locale);
+    expect(transformedDocuments.length).toBe(1);
+    expect(transformedDocuments[0].realFileName).toBe("Base product asset");
+  });
+
+  it("should return assets with base product's name if variant does not have name field", async () => {
+    const locale = "en-US";
+    const pimCode = "ASSEMBLY_INSTRUCTIONS";
+    getProductDocumentNameMap.mockResolvedValue("Product name + asset type");
+    const assetType = createAssetType({
+      pimCode,
+      name: "ASSEMBLY INSTRUCTIONS"
+    });
+    getAssetTypes.mockResolvedValueOnce([assetType]);
+    const product = createProduct({
+      variantOptions: [
+        createVariantOption({
+          name: undefined,
+          assets: [createAsset({ assetType: pimCode })]
+        })
+      ],
+      name: "Base product name",
+      assets: undefined
+    });
+
+    const transformedDocuments = await transformDocuments(product, locale);
+    expect(transformedDocuments.length).toBe(1);
+    expect(transformedDocuments[0].title).toBe(
+      `${product.name} ASSEMBLY INSTRUCTIONS`
+    );
   });
 
   it("should return validUntil field as timestamp", async () => {
