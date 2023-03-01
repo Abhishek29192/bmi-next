@@ -4,15 +4,15 @@ import {
   ClickableAction,
   Typography
 } from "@bmi-digital/components";
-import { GetApp } from "@bmi-digital/components/icon";
+import { GetApp } from "@mui/icons-material";
 import { styled } from "@mui/material/styles";
 import classnames from "classnames";
 import filesize from "filesize";
 import React from "react";
+import { microCopy } from "../constants/microCopies";
 import { PseudoZipPIMDocument } from "../types/pim";
 import { getDownloadLink } from "../utils/client-download";
 import withGTM from "../utils/google-tag-manager";
-import { microCopy } from "../constants/microCopies";
 import {
   Document,
   FileDownloadButtonProps,
