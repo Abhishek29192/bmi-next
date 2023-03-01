@@ -40,7 +40,7 @@ exports[`Brands component renders correctly 1`] = `
                 tabindex="0"
               >
                 <svg
-                  class="BrandLogo BrandIntroCard-brandLogo css-8dnw9f"
+                  class="BrandLogo BrandIntroCard-brandLogo css-gn1fhj"
                   viewBox="0 0 154 100"
                   xml:space="preserve"
                   xmlns="http://www.w3.org/2000/svg"
