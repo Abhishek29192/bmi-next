@@ -19,6 +19,8 @@ import { graphql } from "gatsby";
 import React, { memo, useMemo, useState } from "react";
 import { microCopy } from "../constants/microCopies";
 import withGTM from "../utils/google-tag-manager";
+import BrandLogo from "./BrandLogo";
+import Image from "./Image";
 import Link, { Data as LinkData } from "./Link";
 import { Data as PageInfoData } from "./PageInfo";
 import { Data as PromoData } from "./Promo";

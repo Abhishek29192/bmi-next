@@ -3737,7 +3737,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
               data-testid="system-card-related-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"related-system-1 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/related-path/\\"}"
                 href="/en/related-path/"
                 tabindex="0"
@@ -7921,7 +7921,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
               data-testid="system-card-related-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"related-system-1 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/related-path/\\"}"
                 href="/en/related-path/"
                 tabindex="0"
@@ -12109,7 +12109,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                 data-testid="system-card-related-system-1"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"related-ssytem-name - MC: sdp.system.readMore\\",\\"action\\":\\"/en/related-system-path/\\"}"
                   href="/en/related-system-path/"
                   tabindex="0"
@@ -16294,7 +16294,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
               data-testid="system-card-related-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"related-system-1 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/related-path/\\"}"
                 href="/en/related-path/"
                 tabindex="0"
@@ -20439,7 +20439,7 @@ exports[`SystemDetailsPage template component should render without specificatio
               data-testid="system-card-related-system-1"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"related-ssytem-name - MC: sdp.system.readMore\\",\\"action\\":\\"/en/related-system-path/\\"}"
                 href="/en/related-system-path/"
                 tabindex="0"
@@ -24623,7 +24623,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
               data-testid="system-card-related-system-1"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"related-ssytem-name - MC: sdp.system.readMore\\",\\"action\\":\\"/en/related-system-path/\\"}"
                 href="/en/related-system-path/"
                 tabindex="0"
@@ -28933,7 +28933,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
               data-testid="system-card-related-system-1"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"related-ssytem-name - MC: sdp.system.readMore\\",\\"action\\":\\"/en/related-system-path/\\"}"
                 href="/en/related-system-path/"
                 tabindex="0"
@@ -33243,7 +33243,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
               data-testid="system-card-related-system-1"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"related-ssytem-name - MC: sdp.system.readMore\\",\\"action\\":\\"/en/related-system-path/\\"}"
                 href="/en/related-system-path/"
                 tabindex="0"

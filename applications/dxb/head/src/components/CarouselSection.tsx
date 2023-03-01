@@ -15,6 +15,7 @@ import React, { useContext } from "react";
 import { Data as PromoData } from "../components/Promo";
 import { microCopy } from "../constants/microCopies";
 import withGTM from "../utils/google-tag-manager";
+import BrandLogo from "./BrandLogo";
 import Image from "./Image";
 import { Data as LinkData, getClickableActionFromUrl, getCTA } from "./Link";
 import { Data as PageInfoData } from "./PageInfo";

@@ -92,7 +92,9 @@ describe("DocumentDownloadSection component", () => {
       null,
       `https:${document.asset.file.url}`
     );
-    expect(container.querySelectorAll("table tbody svg").length).toBe(1);
+    expect(
+      getByTestId("docment-download-section-file-download-icon")
+    ).toBeInTheDocument();
   });
 
   it("renders correctly without data", () => {
@@ -126,7 +128,7 @@ describe("DocumentDownloadSection component", () => {
       },
       __typename: "ContentfulDocument"
     });
-    const { container, getByTestId } = render(
+    const { getByTestId } = render(
       <ThemeProvider>
         <DocumentDownloadSection
           data={{
@@ -142,6 +144,8 @@ describe("DocumentDownloadSection component", () => {
     expect(
       getByTestId("docment-download-section-download-button")
     ).toBeInTheDocument();
-    expect(container.querySelectorAll("table tbody svg").length).toBe(1);
+    expect(
+      getByTestId("docment-download-section-file-download-icon")
+    ).toBeInTheDocument();
   });
 });

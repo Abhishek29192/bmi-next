@@ -41,7 +41,7 @@ exports[`CardCollectionSection component Card label doesn't render button if car
               data-testid="grid-item"
             >
               <button
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test\\",\\"action\\":\\"visualiser\\"}"
                 data-testid="card-collection-section-item-test"
                 tabindex="0"
@@ -148,7 +148,7 @@ exports[`CardCollectionSection component Card label renders as name if title is 
               data-testid="grid-item"
             >
               <div
-                class="OverviewCard-flat MuiBox-root css-n8s3uj"
+                class="OverviewCard-flat MuiBox-root css-i0obkw"
               >
                 <div
                   class="OverviewCard-body"
@@ -364,7 +364,7 @@ exports[`CardCollectionSection component Renders correctly When Title rich text 
                           style="width: 100%;"
                         >
                           <a
-                            class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                            class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                             data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test - a string\\",\\"action\\":\\"/en/\\"}"
                             data-testid="card-collection-section-item-test"
                             href="/en/"
@@ -526,7 +526,7 @@ exports[`CardCollectionSection component Renders correctly When dialogContent li
                 data-testid="grid-item"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test - a string\\",\\"action\\":\\"/en/\\"}"
                   data-testid="card-collection-section-item-test"
                   href="/en/"
@@ -706,7 +706,7 @@ exports[`CardCollectionSection component Renders correctly When entry-hyperlink 
                 data-testid="grid-item"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test - a string\\",\\"action\\":\\"/en/\\"}"
                   data-testid="card-collection-section-item-test"
                   href="/en/"
@@ -863,7 +863,7 @@ exports[`CardCollectionSection component Renders correctly When heading 2 is pre
                 data-testid="grid-item"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test - a string\\",\\"action\\":\\"/en/\\"}"
                   data-testid="card-collection-section-item-test"
                   href="/en/"
@@ -1020,7 +1020,7 @@ exports[`CardCollectionSection component Renders correctly When heading 3 is pre
                 data-testid="grid-item"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test - a string\\",\\"action\\":\\"/en/\\"}"
                   data-testid="card-collection-section-item-test"
                   href="/en/"
@@ -1177,7 +1177,7 @@ exports[`CardCollectionSection component Renders correctly When heading 4 is pre
                 data-testid="grid-item"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test - a string\\",\\"action\\":\\"/en/\\"}"
                   data-testid="card-collection-section-item-test"
                   href="/en/"
@@ -1334,7 +1334,7 @@ exports[`CardCollectionSection component Renders correctly When heading 5 is pre
                 data-testid="grid-item"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test - a string\\",\\"action\\":\\"/en/\\"}"
                   data-testid="card-collection-section-item-test"
                   href="/en/"
@@ -1491,7 +1491,7 @@ exports[`CardCollectionSection component Renders correctly When heading 6 is pre
                 data-testid="grid-item"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test - a string\\",\\"action\\":\\"/en/\\"}"
                   data-testid="card-collection-section-item-test"
                   href="/en/"
@@ -1648,7 +1648,7 @@ exports[`CardCollectionSection component Renders correctly When text length = 0 
                 data-testid="grid-item"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test - a string\\",\\"action\\":\\"/en/\\"}"
                   data-testid="card-collection-section-item-test"
                   href="/en/"
@@ -1825,7 +1825,7 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class=" MuiBox-root css-n8s3uj"
+                  class=" MuiBox-root css-i0obkw"
                   data-testid="card-collection-section-item-Villain-1"
                   type="button"
                 >
@@ -1857,7 +1857,7 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                 data-testid="grid-item"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test - a string\\",\\"action\\":\\"/no/\\"}"
                   data-testid="card-collection-section-item-test"
                   href="/no/"
@@ -1914,7 +1914,7 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                 data-testid="grid-item"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test 2 - a string\\",\\"action\\":\\"/no/\\"}"
                   data-testid="card-collection-section-item-test-2"
                   href="/no/"
@@ -1971,7 +1971,7 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                 data-testid="grid-item"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test 3 - a string\\",\\"action\\":\\"/no/\\"}"
                   data-testid="card-collection-section-item-test-3"
                   href="/no/"
@@ -2148,7 +2148,7 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                 data-testid="grid-item"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test 3 - a string\\",\\"action\\":\\"/no/\\"}"
                   data-testid="card-collection-section-item-test-3"
                   href="/no/"
@@ -2205,7 +2205,7 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                 data-testid="grid-item"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test 2 - a string\\",\\"action\\":\\"/no/\\"}"
                   data-testid="card-collection-section-item-test-2"
                   href="/no/"
@@ -2262,7 +2262,7 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                 data-testid="grid-item"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test - a string\\",\\"action\\":\\"/no/\\"}"
                   data-testid="card-collection-section-item-test"
                   href="/no/"
@@ -2319,7 +2319,7 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                 data-testid="grid-item"
               >
                 <div
-                  class=" MuiBox-root css-n8s3uj"
+                  class=" MuiBox-root css-i0obkw"
                   data-testid="card-collection-section-item-Villain-1"
                   type="button"
                 >
@@ -2471,7 +2471,7 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                 data-testid="grid-item"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test - a string\\",\\"action\\":\\"/no/\\"}"
                   data-testid="card-collection-section-item-test"
                   href="/no/"
@@ -2528,7 +2528,7 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                 data-testid="grid-item"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test 2 - a string\\",\\"action\\":\\"/no/\\"}"
                   data-testid="card-collection-section-item-test-2"
                   href="/no/"
@@ -2585,7 +2585,7 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                 data-testid="grid-item"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test 3 - a string\\",\\"action\\":\\"/no/\\"}"
                   data-testid="card-collection-section-item-test-3"
                   href="/no/"
@@ -2642,7 +2642,7 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                 data-testid="grid-item"
               >
                 <div
-                  class=" MuiBox-root css-n8s3uj"
+                  class=" MuiBox-root css-i0obkw"
                   data-testid="card-collection-section-item-Villain-1"
                   type="button"
                 >
@@ -2794,7 +2794,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                 data-testid="grid-item"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test - a string\\",\\"action\\":\\"/no/\\"}"
                   data-testid="card-collection-section-item-test"
                   href="/no/"
@@ -2851,7 +2851,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                 data-testid="grid-item"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test 2 - a string\\",\\"action\\":\\"/no/\\"}"
                   data-testid="card-collection-section-item-test-2"
                   href="/no/"
@@ -2908,7 +2908,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                 data-testid="grid-item"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test 3 - a string\\",\\"action\\":\\"/no/\\"}"
                   data-testid="card-collection-section-item-test-3"
                   href="/no/"
@@ -2965,7 +2965,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                 data-testid="grid-item"
               >
                 <div
-                  class=" MuiBox-root css-n8s3uj"
+                  class=" MuiBox-root css-i0obkw"
                   data-testid="card-collection-section-item-Villain-1"
                   type="button"
                 >
@@ -3117,7 +3117,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                 data-testid="grid-item"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test - a string\\",\\"action\\":\\"/no/\\"}"
                   data-testid="card-collection-section-item-test"
                   href="/no/"
@@ -3174,7 +3174,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                 data-testid="grid-item"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test 2 - a string\\",\\"action\\":\\"/no/\\"}"
                   data-testid="card-collection-section-item-test-2"
                   href="/no/"
@@ -3231,7 +3231,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                 data-testid="grid-item"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test 3 - a string\\",\\"action\\":\\"/no/\\"}"
                   data-testid="card-collection-section-item-test-3"
                   href="/no/"
@@ -3288,7 +3288,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                 data-testid="grid-item"
               >
                 <div
-                  class=" MuiBox-root css-n8s3uj"
+                  class=" MuiBox-root css-i0obkw"
                   data-testid="card-collection-section-item-Villain-1"
                   type="button"
                 >
@@ -3462,7 +3462,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                           style="width: 100%;"
                         >
                           <a
-                            class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                            class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                             data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test - a string\\",\\"action\\":\\"/no/\\"}"
                             data-testid="card-collection-section-item-test"
                             href="/no/"

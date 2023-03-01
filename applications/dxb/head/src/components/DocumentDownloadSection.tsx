@@ -1,4 +1,11 @@
-import { Button, ButtonProps, Section, Table } from "@bmi-digital/components";
+import {
+  Button,
+  ButtonProps,
+  Icon,
+  replaceSpaces,
+  Section,
+  Table
+} from "@bmi-digital/components";
 import filesize from "filesize";
 import { graphql } from "gatsby";
 import React from "react";
@@ -81,12 +88,13 @@ const DocumentDownloadSection = ({
                       variant="text"
                       startIcon={
                         <Icon
-                          name={
+                          source={
                             // eslint-disable-next-line security/detect-object-injection
                             fileIconsMap[contentType] || "FileUniversal"
                           }
                           // TODO: consider responsibility of icon styles
                           style={iconStyle}
+                          data-testid="docment-download-section-file-download-icon"
                         />
                       }
                       data-testid="docment-download-section-download-button"

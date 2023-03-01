@@ -243,10 +243,10 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="system-card-efgh"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"efgh name\\",\\"action\\":\\"/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details\\"}"
                 href="/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
@@ -541,10 +541,10 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="system-card-efgh"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"efgh name\\",\\"action\\":\\"/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details\\"}"
                 href="/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
@@ -1517,10 +1517,10 @@ exports[`SystemConfiguratorSection component renders a result section when answe
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="system-card-efgh"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"efgh name\\",\\"action\\":\\"/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details\\"}"
                 href="/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
@@ -3454,10 +3454,10 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="system-card-ijkl"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"ijkl name\\",\\"action\\":\\"/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details\\"}"
                 href="/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
@@ -3508,10 +3508,10 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
             </div>
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="system-card-efgh"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"efgh name\\",\\"action\\":\\"/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details\\"}"
                 href="/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
@@ -3562,10 +3562,10 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
             </div>
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="system-card-abcd"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"abcd name\\",\\"action\\":\\"/no/related-system-path/?selected_system=abcd&prev_page=/test-path&referer=sys_details\\"}"
                 href="/no/related-system-path/?selected_system=abcd&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
@@ -3616,10 +3616,10 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
             </div>
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="system-card-mnop"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"mnop name\\",\\"action\\":\\"/no/related-system-path/?selected_system=mnop&prev_page=/test-path&referer=sys_details\\"}"
                 href="/no/related-system-path/?selected_system=mnop&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
@@ -3919,10 +3919,10 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="system-card-ijkl"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"ijkl name\\",\\"action\\":\\"/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details\\"}"
                 href="/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
@@ -3973,10 +3973,10 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
             </div>
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="system-card-efgh"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"efgh name\\",\\"action\\":\\"/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details\\"}"
                 href="/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                 tabindex="0"

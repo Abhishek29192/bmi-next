@@ -27,10 +27,10 @@ exports[`RelatedSystems component renders correctly when scoringweight equal & n
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="system-card-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"system-1 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/s/path/\\"}"
                 href="/en/s/path/"
                 tabindex="0"
@@ -81,10 +81,10 @@ exports[`RelatedSystems component renders correctly when scoringweight equal & n
             </div>
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="system-card-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"system-1 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/s/path/\\"}"
                 href="/en/s/path/"
                 tabindex="0"
@@ -200,10 +200,10 @@ exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="system-card-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"system-Name - MC: sdp.system.readMore\\",\\"action\\":\\"/en/s/path/\\"}"
                 href="/en/s/path/"
                 tabindex="0"
@@ -254,10 +254,10 @@ exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
             </div>
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="system-card-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"system-Name - MC: sdp.system.readMore\\",\\"action\\":\\"/en/s/path/\\"}"
                 href="/en/s/path/"
                 tabindex="0"
@@ -341,10 +341,10 @@ exports[`RelatedSystems component renders correctly with scoringweight equal & n
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="system-card-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"system-1 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/s/path/\\"}"
                 href="/en/s/path/"
                 tabindex="0"
@@ -395,10 +395,10 @@ exports[`RelatedSystems component renders correctly with scoringweight equal & n
             </div>
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="system-card-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"system-2 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/s/path/\\"}"
                 href="/en/s/path/"
                 tabindex="0"
@@ -482,10 +482,10 @@ exports[`RelatedSystems component renders correctly with scoringweight equal 1`]
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="system-card-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"system-Name - MC: sdp.system.readMore\\",\\"action\\":\\"/en/s/path/\\"}"
                 href="/en/s/path/"
                 tabindex="0"
@@ -536,10 +536,10 @@ exports[`RelatedSystems component renders correctly with scoringweight equal 1`]
             </div>
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="system-card-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"system-Name - MC: sdp.system.readMore\\",\\"action\\":\\"/en/s/path/\\"}"
                 href="/en/s/path/"
                 tabindex="0"
@@ -623,10 +623,10 @@ exports[`RelatedSystems component renders correctly with systems 1`] = `
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="system-card-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"system-Name - MC: sdp.system.readMore\\",\\"action\\":\\"/en/s/path/\\"}"
                 href="/en/s/path/"
                 tabindex="0"
@@ -710,10 +710,10 @@ exports[`RelatedSystems component renders correctly without categories 1`] = `
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="system-card-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"system-Name - MC: sdp.system.readMore\\",\\"action\\":\\"/en/s/path/\\"}"
                 href="/en/s/path/"
                 tabindex="0"
@@ -797,10 +797,10 @@ exports[`RelatedSystems component renders systems correctly without classificati
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="system-card-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"system-Name - MC: sdp.system.readMore\\",\\"action\\":\\"/en/s/path/\\"}"
                 href="/en/s/path/"
                 tabindex="0"
@@ -861,10 +861,10 @@ exports[`SystemCard renders correctly with related system 1`] = `
 <div>
   <div
     class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-    data-testid="grid-item"
+    data-testid="system-card-related-system-1"
   >
     <a
-      class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+      class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
       data-gtm="{\\"id\\":\\"gtm-id\\"}"
       href="/en/related-system-path/"
       tabindex="0"
@@ -920,10 +920,10 @@ exports[`SystemCard renders correctly with system from elasticsearch 1`] = `
 <div>
   <div
     class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-    data-testid="grid-item"
+    data-testid="system-card-code"
   >
     <a
-      class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-gr2yor-MuiButtonBase-root"
+      class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
       data-gtm="{\\"id\\":\\"gtm-id\\"}"
       href="/en/s/code-name-hashed-code/"
       tabindex="0"
