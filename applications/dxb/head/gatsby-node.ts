@@ -293,10 +293,10 @@ export const createPages: GatsbyNode["createPages"] = async ({
     `./${redirectsFileName}`,
     contentfulRedirectsFileUrl
   );
-
-  await Promise.all(
-    redirects.map((redirect) => createRedirect(getRedirectConfig(redirect)))
-  );
+  redirects &&
+    (await Promise.all(
+      redirects.map((redirect) => createRedirect(getRedirectConfig(redirect)))
+    ));
 };
 
 const getRedirectConfig = (
