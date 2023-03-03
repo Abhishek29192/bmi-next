@@ -28,7 +28,7 @@ exports[`Brands component renders correctly 1`] = `
             data-testid="grid-item"
           >
             <div
-              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-qiur6r-MuiPaper-root-MuiCard-root"
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-nfeqhz-MuiPaper-root-MuiCard-root"
               data-testid="brand-intro-card-Smilex"
             >
               <a

@@ -532,7 +532,7 @@ HTMLCollection [
                 data-testid="grid-item"
               >
                 <div
-                  class="OverviewCard-flat MuiBox-root css-eokfdr"
+                  class="OverviewCard-flat MuiBox-root css-1x7vu5"
                 >
                   <div
                     class="OverviewCard-body"
@@ -676,7 +676,7 @@ HTMLCollection [
                 data-testid="grid-item"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-z5v8zc-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-iozq77-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"page title - Go to page title\\",\\"action\\":\\"/uk/path/\\"}"
                   data-testid="card-collection-section-item-page-title"
                   href="/uk/path/"
