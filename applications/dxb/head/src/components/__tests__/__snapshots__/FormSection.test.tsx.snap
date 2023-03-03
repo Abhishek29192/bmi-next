@@ -83,7 +83,7 @@ exports[`FormSection component renders correctly 1`] = `
           data-testid="form"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -221,7 +221,7 @@ exports[`FormSection component renders correctly 1`] = `
                     >
                       <span>
                         Email
-                         
+                         
                         *
                       </span>
                     </legend>
@@ -745,7 +745,8 @@ exports[`FormSection component renders correctly 1`] = `
               aria-label="children"
               class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Form-button css-11nrv4h-MuiButtonBase-root-MuiButton-root"
               data-action="Test form"
-              data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"children\\",\\"action\\":\\"Test form\\"}"
+              data-gtm="{"id":"form-button1","label":"children","action":"Test form"}"
+              data-testid="contentful-form-section-Test-form-submit-button"
               disabled=""
               tabindex="-1"
               type="submit"
@@ -776,7 +777,7 @@ exports[`FormSection component renders correctly 1`] = `
           This site is protected by reCAPTCHA and the Google 
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-            data-testid="anchor-link"
+            data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy"
             rel="noreferrer noopener"
             target="_blank"
@@ -788,7 +789,7 @@ exports[`FormSection component renders correctly 1`] = `
            and 
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-            data-testid="anchor-link"
+            data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms"
             rel="noreferrer noopener"
             target="_blank"
@@ -844,7 +845,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
           data-testid="form"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -887,7 +888,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
                     I agree with BMI's 
                     <a
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-                      data-testid="anchor-link"
+                      data-testid="label-Data-Protection-Policy-anchor-link"
                       href="https://google.co.uk"
                       rel="noopener"
                       target="_blank"
@@ -896,7 +897,6 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
                         Data Protection Policy
                       </span>
                     </a>
-                    
                   </span>
                 </label>
               </div>
@@ -941,15 +941,14 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
                     I agree with BMI's 
                     <a
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-                      data-testid="anchor-link"
-                      href="http://www.bmigroup.com"
+                      data-testid="label-Another-Data-Protection-Policy-anchor-link"
+                      href="https://www.bmigroup.com"
                       target="_blank"
                     >
                       <span>
-                        Data Protection Policy
+                        Another Data Protection Policy
                       </span>
                     </a>
-                    
                   </span>
                 </label>
               </div>
@@ -962,7 +961,8 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
               aria-label="children"
               class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Form-button css-11nrv4h-MuiButtonBase-root-MuiButton-root"
               data-action="Test form"
-              data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"children\\",\\"action\\":\\"Test form\\"}"
+              data-gtm="{"id":"form-button1","label":"children","action":"Test form"}"
+              data-testid="contentful-form-section-Test-form-submit-button"
               tabindex="0"
               type="submit"
             >
@@ -995,7 +995,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
           This site is protected by reCAPTCHA and the Google 
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-            data-testid="anchor-link"
+            data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy"
             rel="noreferrer noopener"
             target="_blank"
@@ -1007,7 +1007,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
            and 
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-            data-testid="anchor-link"
+            data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms"
             rel="noreferrer noopener"
             target="_blank"
@@ -1041,7 +1041,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
           data-testid="form"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -1089,7 +1089,8 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
               aria-label="children"
               class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Form-button css-11nrv4h-MuiButtonBase-root-MuiButton-root"
               data-action="Test form"
-              data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"children\\",\\"action\\":\\"Test form\\"}"
+              data-gtm="{"id":"form-button1","label":"children","action":"Test form"}"
+              data-testid="contentful-form-section-Test-form-submit-button"
               tabindex="0"
               type="submit"
             >
@@ -1122,7 +1123,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
           This site is protected by reCAPTCHA and the Google 
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-            data-testid="anchor-link"
+            data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy"
             rel="noreferrer noopener"
             target="_blank"
@@ -1134,7 +1135,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
            and 
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-            data-testid="anchor-link"
+            data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms"
             rel="noreferrer noopener"
             target="_blank"
@@ -1168,7 +1169,7 @@ exports[`FormSection component test handleEmailValidation with correct email 1`]
           data-testid="form"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -1180,7 +1181,7 @@ exports[`FormSection component test handleEmailValidation with correct email 1`]
                 data-testid="text-field-email"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-taxj8h-MuiFormLabel-root-MuiInputLabel-root"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="true"
                   for="email"
                   id="email-label"
@@ -1215,7 +1216,7 @@ exports[`FormSection component test handleEmailValidation with correct email 1`]
                     >
                       <span>
                         Email
-                         
+                         
                         *
                       </span>
                     </legend>
@@ -1231,7 +1232,8 @@ exports[`FormSection component test handleEmailValidation with correct email 1`]
               aria-label="children"
               class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Form-button css-11nrv4h-MuiButtonBase-root-MuiButton-root"
               data-action="Test form"
-              data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"children\\",\\"action\\":\\"Test form\\"}"
+              data-gtm="{"id":"form-button1","label":"children","action":"Test form"}"
+              data-testid="contentful-form-section-Test-form-submit-button"
               tabindex="0"
               type="submit"
             >
@@ -1264,7 +1266,7 @@ exports[`FormSection component test handleEmailValidation with correct email 1`]
           This site is protected by reCAPTCHA and the Google 
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-            data-testid="anchor-link"
+            data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy"
             rel="noreferrer noopener"
             target="_blank"
@@ -1276,7 +1278,7 @@ exports[`FormSection component test handleEmailValidation with correct email 1`]
            and 
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-            data-testid="anchor-link"
+            data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms"
             rel="noreferrer noopener"
             target="_blank"
@@ -1310,7 +1312,7 @@ exports[`FormSection component test handleEmailValidation with incorrect email 1
           data-testid="form"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -1322,7 +1324,7 @@ exports[`FormSection component test handleEmailValidation with incorrect email 1
                 data-testid="text-field-email"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-error MuiFormLabel-filled Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-taxj8h-MuiFormLabel-root-MuiInputLabel-root"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-error MuiFormLabel-filled Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="true"
                   for="email"
                   id="email-label"
@@ -1374,7 +1376,7 @@ exports[`FormSection component test handleEmailValidation with incorrect email 1
                     >
                       <span>
                         Email
-                         
+                         
                         *
                       </span>
                     </legend>
@@ -1396,7 +1398,8 @@ exports[`FormSection component test handleEmailValidation with incorrect email 1
               aria-label="children"
               class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Form-button css-11nrv4h-MuiButtonBase-root-MuiButton-root"
               data-action="Test form"
-              data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"children\\",\\"action\\":\\"Test form\\"}"
+              data-gtm="{"id":"form-button1","label":"children","action":"Test form"}"
+              data-testid="contentful-form-section-Test-form-submit-button"
               disabled=""
               tabindex="-1"
               type="submit"
@@ -1427,7 +1430,7 @@ exports[`FormSection component test handleEmailValidation with incorrect email 1
           This site is protected by reCAPTCHA and the Google 
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-            data-testid="anchor-link"
+            data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy"
             rel="noreferrer noopener"
             target="_blank"
@@ -1439,7 +1442,7 @@ exports[`FormSection component test handleEmailValidation with incorrect email 1
            and 
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-            data-testid="anchor-link"
+            data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms"
             rel="noreferrer noopener"
             target="_blank"
@@ -1470,10 +1473,10 @@ exports[`FormSection component test multiply options in a checkbox group 1`] = `
       >
         <form
           class="Form-rightAlignButton css-yp4v13"
-          data-testid="form"
+          data-testid="test-form"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -1610,7 +1613,8 @@ exports[`FormSection component test multiply options in a checkbox group 1`] = `
               aria-label="children"
               class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Form-button css-11nrv4h-MuiButtonBase-root-MuiButton-root"
               data-action="Test form"
-              data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"children\\",\\"action\\":\\"Test form\\"}"
+              data-gtm="{"id":"form-button1","label":"children","action":"Test form"}"
+              data-testid="contentful-form-section-Test-form-submit-button"
               tabindex="0"
               type="submit"
             >
@@ -1643,7 +1647,7 @@ exports[`FormSection component test multiply options in a checkbox group 1`] = `
           Dette nettstedet er beskyttet av reCAPTCHA og Googles 
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-            data-testid="anchor-link"
+            data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy?hl=no-nb"
             rel="noreferrer noopener"
             target="_blank"
@@ -1655,7 +1659,7 @@ exports[`FormSection component test multiply options in a checkbox group 1`] = `
            og 
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-            data-testid="anchor-link"
+            data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms?hl=no-nb"
             rel="noreferrer noopener"
             target="_blank"
@@ -1686,10 +1690,10 @@ exports[`FormSection component test multiply options in a checkbox group without
       >
         <form
           class="Form-rightAlignButton css-yp4v13"
-          data-testid="form"
+          data-testid="test-form"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -1826,7 +1830,8 @@ exports[`FormSection component test multiply options in a checkbox group without
               aria-label="children"
               class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Form-button css-11nrv4h-MuiButtonBase-root-MuiButton-root"
               data-action="Test form"
-              data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"children\\",\\"action\\":\\"Test form\\"}"
+              data-gtm="{"id":"form-button1","label":"children","action":"Test form"}"
+              data-testid="contentful-form-section-Test-form-submit-button"
               tabindex="0"
               type="submit"
             >
@@ -1859,7 +1864,7 @@ exports[`FormSection component test multiply options in a checkbox group without
           Dette nettstedet er beskyttet av reCAPTCHA og Googles 
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-            data-testid="anchor-link"
+            data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy?hl=no-nb"
             rel="noreferrer noopener"
             target="_blank"
@@ -1871,7 +1876,7 @@ exports[`FormSection component test multiply options in a checkbox group without
            og 
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-            data-testid="anchor-link"
+            data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms?hl=no-nb"
             rel="noreferrer noopener"
             target="_blank"
@@ -1905,7 +1910,7 @@ exports[`FormSection component test upload input with large file 1`] = `
           data-testid="form"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -1982,12 +1987,21 @@ exports[`FormSection component test upload input with large file 1`] = `
                       >
                         fileName
                       </p>
-                      <p
-                        class="MuiTypography-root MuiTypography-body1 css-1qln5zy-MuiTypography-root"
-                        data-testid="typography"
+                      <div
+                        class="css-13fv5in"
                       >
-                        MC: errors.maxSize
-                      </p>
+                        <span
+                          class="MuiLinearProgress-root MuiLinearProgress-colorPrimary MuiLinearProgress-indeterminate css-vgehtg-MuiLinearProgress-root"
+                          role="progressbar"
+                        >
+                          <span
+                            class="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Indeterminate css-1j02hlg-MuiLinearProgress-bar1"
+                          />
+                          <span
+                            class="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar2Indeterminate css-j86yej-MuiLinearProgress-bar2"
+                          />
+                        </span>
+                      </div>
                     </div>
                     <button
                       aria-label="Remove file"
@@ -2023,7 +2037,8 @@ exports[`FormSection component test upload input with large file 1`] = `
               aria-label="children"
               class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Form-button css-11nrv4h-MuiButtonBase-root-MuiButton-root"
               data-action="Test form"
-              data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"children\\",\\"action\\":\\"Test form\\"}"
+              data-gtm="{"id":"form-button1","label":"children","action":"Test form"}"
+              data-testid="contentful-form-section-Test-form-submit-button"
               tabindex="0"
               type="submit"
             >
@@ -2056,7 +2071,7 @@ exports[`FormSection component test upload input with large file 1`] = `
           This site is protected by reCAPTCHA and the Google 
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-            data-testid="anchor-link"
+            data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy"
             rel="noreferrer noopener"
             target="_blank"
@@ -2068,7 +2083,7 @@ exports[`FormSection component test upload input with large file 1`] = `
            and 
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-            data-testid="anchor-link"
+            data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms"
             rel="noreferrer noopener"
             target="_blank"
@@ -2102,7 +2117,7 @@ exports[`FormSection component test upload input with no maxSize 1`] = `
           data-testid="form"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -2165,7 +2180,8 @@ exports[`FormSection component test upload input with no maxSize 1`] = `
               aria-label="children"
               class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Form-button css-11nrv4h-MuiButtonBase-root-MuiButton-root"
               data-action="Test form"
-              data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"children\\",\\"action\\":\\"Test form\\"}"
+              data-gtm="{"id":"form-button1","label":"children","action":"Test form"}"
+              data-testid="contentful-form-section-Test-form-submit-button"
               tabindex="0"
               type="submit"
             >
@@ -2198,7 +2214,7 @@ exports[`FormSection component test upload input with no maxSize 1`] = `
           This site is protected by reCAPTCHA and the Google 
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-            data-testid="anchor-link"
+            data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy"
             rel="noreferrer noopener"
             target="_blank"
@@ -2210,7 +2226,7 @@ exports[`FormSection component test upload input with no maxSize 1`] = `
            and 
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-            data-testid="anchor-link"
+            data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms"
             rel="noreferrer noopener"
             target="_blank"
@@ -2244,7 +2260,7 @@ exports[`FormSection component test upload input with small file 1`] = `
           data-testid="form"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -2321,12 +2337,21 @@ exports[`FormSection component test upload input with small file 1`] = `
                       >
                         fileName
                       </p>
-                      <p
-                        class="MuiTypography-root MuiTypography-body1 css-1767y0z-MuiTypography-root"
-                        data-testid="typography"
+                      <div
+                        class="css-13fv5in"
                       >
-                        0KB
-                      </p>
+                        <span
+                          class="MuiLinearProgress-root MuiLinearProgress-colorPrimary MuiLinearProgress-indeterminate css-vgehtg-MuiLinearProgress-root"
+                          role="progressbar"
+                        >
+                          <span
+                            class="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Indeterminate css-1j02hlg-MuiLinearProgress-bar1"
+                          />
+                          <span
+                            class="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar2Indeterminate css-j86yej-MuiLinearProgress-bar2"
+                          />
+                        </span>
+                      </div>
                     </div>
                     <button
                       aria-label="Remove file"
@@ -2362,7 +2387,8 @@ exports[`FormSection component test upload input with small file 1`] = `
               aria-label="children"
               class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Form-button css-11nrv4h-MuiButtonBase-root-MuiButton-root"
               data-action="Test form"
-              data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"children\\",\\"action\\":\\"Test form\\"}"
+              data-gtm="{"id":"form-button1","label":"children","action":"Test form"}"
+              data-testid="contentful-form-section-Test-form-submit-button"
               tabindex="0"
               type="submit"
             >
@@ -2395,7 +2421,7 @@ exports[`FormSection component test upload input with small file 1`] = `
           This site is protected by reCAPTCHA and the Google 
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-            data-testid="anchor-link"
+            data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy"
             rel="noreferrer noopener"
             target="_blank"
@@ -2407,7 +2433,7 @@ exports[`FormSection component test upload input with small file 1`] = `
            and 
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-            data-testid="anchor-link"
+            data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms"
             rel="noreferrer noopener"
             target="_blank"

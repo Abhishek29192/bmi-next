@@ -1,7 +1,6 @@
 import { getMockReq, getMockRes } from "@jest-mock/express";
 import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
-import mockConsole from "jest-mock-console";
 import { Answer, NextStep } from "../types";
 
 const contentfulDeliveryToken = "contentful-delivery-token";
@@ -34,10 +33,6 @@ type ContentfulResponse = {
 };
 
 const { res, mockClear } = getMockRes();
-
-beforeAll(() => {
-  mockConsole();
-});
 
 beforeEach(() => {
   jest.clearAllMocks();
@@ -209,7 +204,7 @@ describe("HTTP function:", () => {
   it("nextStep: returns a 400 response when Recaptcha header token absent from the request", async () => {
     const req = getMockReq({
       headers: {
-        [recaptchaTokenHeader]: null
+        [recaptchaTokenHeader]: undefined
       },
       method: "GET",
       query: {

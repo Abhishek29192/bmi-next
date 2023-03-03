@@ -1,6 +1,6 @@
 import path from "path";
-import type { Actions, CreatePagesArgs } from "gatsby";
 import { getPathWithCountryCode } from "../utils/path";
+import type { Actions, CreatePagesArgs } from "gatsby";
 
 interface PageContext {
   systemCode: string;

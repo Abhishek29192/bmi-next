@@ -3,7 +3,7 @@ import React from "react";
 import Image from "../../../components/Image";
 import { getCTA } from "../../../components/Link";
 import { Data as SiteData } from "../../../components/Site";
-import { renderVideo } from "../../../components/Video";
+import Video from "../../../components/Video";
 
 interface PdpCardsProps {
   resources: {
@@ -12,6 +12,7 @@ interface PdpCardsProps {
   };
   countryCode: string;
 }
+
 export const PdpCardsSection = ({
   resources: { pdpCards, pdpCardsTitle },
   countryCode
@@ -38,9 +39,9 @@ export const PdpCardsSection = ({
                 title={title}
                 media={
                   featuredVideo ? (
-                    renderVideo(featuredVideo)
+                    <Video {...featuredVideo} />
                   ) : (
-                    <Image data={featuredMedia} />
+                    <Image {...featuredMedia} />
                   )
                 }
                 clickableArea={featuredVideo ? "heading" : "full"}

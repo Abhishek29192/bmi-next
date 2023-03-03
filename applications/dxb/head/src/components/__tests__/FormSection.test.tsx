@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@bmi-digital/components";
+import { replaceSpaces, ThemeProvider } from "@bmi-digital/components";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import * as Gatsby from "gatsby";
 import React from "react";
@@ -158,7 +158,7 @@ jest.mock("react-google-recaptcha-v3", () => ({
 const onSuccess = jest.fn();
 jest.spyOn(Gatsby, "navigate").mockImplementation();
 
-const fetchMock = jest.fn().mockReturnValue({ ok: true });
+const fetchMock = jest.fn();
 jest.mock("node-fetch", () => {
   const original = jest.requireActual("node-fetch");
   return {
@@ -185,7 +185,7 @@ describe("FormSection component", () => {
   });
 
   it("test flow when gtm data passed from outside", () => {
-    const { container } = render(
+    render(
       <ThemeProvider>
         <FormSection
           data={data}
@@ -198,8 +198,8 @@ describe("FormSection component", () => {
       </ThemeProvider>
     );
 
-    const specificationButton = container.querySelector(
-      `button[type="submit"]`
+    const specificationButton = screen.getByTestId(
+      `contentful-form-section-${replaceSpaces(data.title)}-submit-button`
     );
     expect(specificationButton).toHaveAttribute("aria-label", "GTM-label");
     expect(specificationButton).toHaveAttribute("data-action", "GTM-action");
@@ -223,6 +223,8 @@ describe("FormSection component", () => {
         <FormSection data={specificData} backgroundColor="white" />
       </ThemeProvider>
     );
+
+    // eslint-disable-next-line testing-library/no-container,testing-library/no-node-access -- can't set test ID on text field
     const emailInput = container.querySelector(`input[id="email"]`);
     fireEvent.change(emailInput, {
       target: { value: "test-email" }
@@ -249,6 +251,8 @@ describe("FormSection component", () => {
         <FormSection data={specificData} backgroundColor="white" />
       </ThemeProvider>
     );
+
+    // eslint-disable-next-line testing-library/no-container,testing-library/no-node-access -- can't set test ID on text field
     const emailInput = container.querySelector(`input[id="email"]`);
     fireEvent.change(emailInput, {
       target: { value: "test@gmail.com" }
@@ -270,18 +274,18 @@ describe("FormSection component", () => {
         }
       ]
     };
-    const { container, getByTestId } = render(
+    const { container } = render(
       <ThemeProvider>
         <FormSection data={specificData} backgroundColor="white" />
       </ThemeProvider>
     );
-    const upload = getByTestId("upload");
+    const upload = screen.getByTestId("upload");
     fireEvent.change(upload, {
       target: {
         files: [{ name: "fileName", size: 10485761, type: "pdf" }]
       }
     });
-    expect(await waitFor(() => container)).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("test upload input with small file", async () => {
@@ -297,18 +301,18 @@ describe("FormSection component", () => {
         }
       ]
     };
-    const { container, getByTestId } = render(
+    const { container } = render(
       <ThemeProvider>
         <FormSection data={specificData} backgroundColor="white" />
       </ThemeProvider>
     );
-    const upload = getByTestId("upload");
+    const upload = screen.getByTestId("upload");
     fireEvent.change(upload, {
       target: {
         files: [{ name: "fileName", size: 200, type: "pdf" }]
       }
     });
-    expect(await waitFor(() => container)).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("test upload input with no maxSize", () => {
@@ -334,14 +338,18 @@ describe("FormSection component", () => {
 
   it("test submit when preview is on", () => {
     jest.spyOn(window, "alert").mockImplementation();
-    const { container } = render(
+    render(
       <ThemeProvider>
         <ConfigProvider configObject={{ isPreviewMode: true }}>
-          <FormSection data={data} backgroundColor="white" />
+          <FormSection
+            data={data}
+            backgroundColor="white"
+            data-testid={"test-form"}
+          />
         </ConfigProvider>
       </ThemeProvider>
     );
-    fireEvent.submit(container.querySelector("form"));
+    fireEvent.submit(screen.getByTestId("test-form"));
     expect(window.alert).toHaveBeenCalledWith(
       "You cannot submit a form on a preview environment."
     );
@@ -359,6 +367,7 @@ describe("FormSection component", () => {
       ]
     };
     jest.spyOn(Gatsby, "navigate").mockImplementation();
+    fetchMock.mockResolvedValueOnce({ ok: true });
     const { container } = render(
       <ConfigProvider
         configObject={{
@@ -370,16 +379,18 @@ describe("FormSection component", () => {
             data={specificData}
             backgroundColor="white"
             onSuccess={onSuccess}
+            data-testid={"test-form"}
           />
         </MockSiteContext>
       </ConfigProvider>
     );
 
+    // eslint-disable-next-line testing-library/no-container,testing-library/no-node-access -- can't set test ID on text field
     const textInput = container.querySelector(`input[id="text"]`);
     fireEvent.change(textInput, {
       target: { value: "text value" }
     });
-    fireEvent.submit(container.querySelector("form"));
+    fireEvent.submit(screen.getByTestId("test-form"));
 
     await waitFor(() =>
       expect(fetchMock).toHaveBeenCalledWith(
@@ -426,6 +437,7 @@ describe("FormSection component", () => {
         }
       ]
     };
+    fetchMock.mockResolvedValueOnce({ ok: true });
     jest.spyOn(Gatsby, "navigate").mockImplementation();
     const { container } = render(
       <ConfigProvider
@@ -438,16 +450,18 @@ describe("FormSection component", () => {
             data={specificData}
             backgroundColor="white"
             onSuccess={onSuccess}
+            data-testid={"test-form"}
           />
         </MockSiteContext>
       </ConfigProvider>
     );
 
+    // eslint-disable-next-line testing-library/no-container,testing-library/no-node-access -- can't set test ID on text field
     const textInput = container.querySelector(`input[name="text"]`);
     fireEvent.change(textInput, {
       target: { value: "text value" }
     });
-    fireEvent.submit(container.querySelector("form"));
+    fireEvent.submit(screen.getByTestId("test-form"));
 
     await waitFor(() =>
       expect(fetchMock).toHaveBeenCalledWith(
@@ -486,6 +500,7 @@ describe("FormSection component", () => {
       ],
       successRedirect: null
     };
+    fetchMock.mockResolvedValueOnce({ ok: true });
     jest.spyOn(Gatsby, "navigate").mockImplementation();
     const { container } = render(
       <ConfigProvider
@@ -498,34 +513,38 @@ describe("FormSection component", () => {
             data={specificData}
             backgroundColor="white"
             onSuccess={jest.fn()}
+            data-testid={"test-form"}
           />
         </MockSiteContext>
       </ConfigProvider>
     );
 
+    // eslint-disable-next-line testing-library/no-container,testing-library/no-node-access -- can't set test ID on text field
     const textInput = container.querySelector(`input[id="text"]`);
     fireEvent.change(textInput, {
       target: { value: "text value" }
     });
-    fireEvent.submit(container.querySelector("form"));
+    fireEvent.submit(screen.getByTestId("test-form"));
 
-    expect(await waitFor(() => fetchMock)).toHaveBeenCalledWith(
-      "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
-      {
-        method: "POST",
-        body: JSON.stringify({
-          locale: "en-GB",
-          title: "Test form",
-          recipients: "recipient@mail.com",
-          values: { text: "text value" },
-          emailSubjectFormat: "emailSubjectFormat"
-        }),
-        headers: {
-          "X-Recaptcha-Token": "RECAPTCHA",
-          "Content-Type": "application/json",
-          authorization: undefined
+    await waitFor(() =>
+      expect(fetchMock).toHaveBeenCalledWith(
+        "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            locale: "en-GB",
+            title: "Test form",
+            recipients: "recipient@mail.com",
+            values: { text: "text value" },
+            emailSubjectFormat: "emailSubjectFormat"
+          }),
+          headers: {
+            "X-Recaptcha-Token": "RECAPTCHA",
+            "Content-Type": "application/json",
+            authorization: undefined
+          }
         }
-      }
+      )
     );
 
     expect(Gatsby.navigate).toBeCalledWith("/");
@@ -552,6 +571,7 @@ describe("FormSection component", () => {
       ],
       successRedirect: null
     };
+    fetchMock.mockResolvedValueOnce({ ok: true });
     jest.spyOn(Gatsby, "navigate").mockImplementation();
     const { container } = render(
       <ConfigProvider
@@ -564,16 +584,18 @@ describe("FormSection component", () => {
             data={specificData}
             backgroundColor="white"
             onSuccess={jest.fn()}
+            data-testid={"test-form"}
           />
         </MockSiteContext>
       </ConfigProvider>
     );
 
+    // eslint-disable-next-line testing-library/no-container,testing-library/no-node-access -- can't set test ID on text field
     const textInput = container.querySelector(`input[name="text"]`);
     fireEvent.change(textInput, {
       target: { value: "text value" }
     });
-    fireEvent.submit(container.querySelector("form"));
+    fireEvent.submit(screen.getByTestId("test-form"));
     await waitFor(() =>
       expect(fetchMock).toHaveBeenCalledWith(
         "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
@@ -612,15 +634,20 @@ describe("FormSection component", () => {
     };
     const { container } = render(
       <MockSiteContext>
-        <FormSection data={specificData} backgroundColor="white" />
+        <FormSection
+          data={specificData}
+          backgroundColor="white"
+          data-testid={"test-form"}
+        />
       </MockSiteContext>
     );
 
+    // eslint-disable-next-line testing-library/no-container,testing-library/no-node-access -- can't set test ID on text field
     const textInput = container.querySelector(`input[id="text"]`);
     fireEvent.change(textInput, {
       target: { value: "text value" }
     });
-    fireEvent.submit(container.querySelector("form"));
+    fireEvent.submit(screen.getByTestId("test-form"));
 
     fetchMock.mockRejectedValueOnce(new Error("Async error"));
     const consoleSpy = jest
@@ -660,7 +687,7 @@ describe("FormSection component", () => {
         },
         {
           label:
-            "I agree with BMI's [Data Protection Policy](http://www.bmigroup.com)",
+            "I agree with BMI's [Another Data Protection Policy](https://www.bmigroup.com)",
           name: "checkbox-wih-link",
           type: "checkbox"
         }
@@ -671,14 +698,16 @@ describe("FormSection component", () => {
         <FormSection data={specificData} backgroundColor="white" />
       </ThemeProvider>
     );
-    const ExternalLinkLabel = container.querySelector(
-      `a[href="https://google.co.uk"]`
+    const externalLink = screen.getByTestId(
+      "label-Data-Protection-Policy-anchor-link"
     );
-    const InternalLinkLabel = container.querySelector(
-      `a[href="http://www.bmigroup.com"]`
+    const internalLink = screen.getByTestId(
+      "label-Another-Data-Protection-Policy-anchor-link"
     );
-    expect(ExternalLinkLabel).toHaveAttribute("rel");
-    expect(InternalLinkLabel).not.toHaveAttribute("rel");
+    expect(externalLink).toHaveAttribute("href", "https://google.co.uk");
+    expect(externalLink).toHaveAttribute("rel", "noopener");
+    expect(internalLink).toHaveAttribute("href", "https://www.bmigroup.com");
+    expect(internalLink).not.toHaveAttribute("rel");
     expect(container).toMatchSnapshot();
   });
 
@@ -726,35 +755,40 @@ describe("FormSection component", () => {
             data={{ ...data, inputs: specificData }}
             backgroundColor="white"
             onSuccess={jest.fn()}
+            data-testid={"test-form"}
           />
         </MockSiteContext>
       </ConfigProvider>
     );
 
+    // eslint-disable-next-line testing-library/no-container,testing-library/no-node-access -- can't set test ID on checkbox
     const checkboxes = container.querySelectorAll(`input[type="checkbox"]`);
     expect(container).toMatchSnapshot();
     fireEvent.click(checkboxes[2]);
     fireEvent.click(checkboxes[0]);
-    fireEvent.submit(container.querySelector("form"));
-    expect(await waitFor(() => fetchMock)).toHaveBeenCalledWith(
-      "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
-      {
-        method: "POST",
-        body: JSON.stringify({
-          locale: "en-GB",
-          title: "Test form",
-          recipients: "recipient@mail.com",
-          values: { pizza: ["Margarita", "Parma"] },
-          emailSubjectFormat: "emailSubjectFormat"
-        }),
-        headers: {
-          "X-Recaptcha-Token": "RECAPTCHA",
-          "Content-Type": "application/json",
-          authorization: undefined
+    fireEvent.submit(screen.getByTestId("test-form"));
+    await waitFor(() =>
+      expect(fetchMock).toHaveBeenCalledWith(
+        "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            locale: "en-GB",
+            title: "Test form",
+            recipients: "recipient@mail.com",
+            values: { pizza: ["Margarita", "Parma"] },
+            emailSubjectFormat: "emailSubjectFormat"
+          }),
+          headers: {
+            "X-Recaptcha-Token": "RECAPTCHA",
+            "Content-Type": "application/json",
+            authorization: undefined
+          }
         }
-      }
+      )
     );
   });
+
   it("test multiply options in a checkbox group without recaptcha call", async () => {
     const mockedWindowDocumentCookie = jest.spyOn(
       window.document,
@@ -785,33 +819,37 @@ describe("FormSection component", () => {
             data={{ ...data, inputs: specificData }}
             backgroundColor="white"
             onSuccess={jest.fn()}
+            data-testid={"test-form"}
           />
         </MockSiteContext>
       </ConfigProvider>
     );
 
+    // eslint-disable-next-line testing-library/no-container,testing-library/no-node-access -- can't set test ID on checkbox
     const checkboxes = container.querySelectorAll(`input[type="checkbox"]`);
     expect(container).toMatchSnapshot();
     fireEvent.click(checkboxes[2]);
     fireEvent.click(checkboxes[0]);
-    fireEvent.submit(container.querySelector("form"));
-    expect(await waitFor(() => fetchMock)).toHaveBeenCalledWith(
-      "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
-      {
-        method: "POST",
-        body: JSON.stringify({
-          locale: "en-GB",
-          title: "Test form",
-          recipients: "recipient@mail.com",
-          values: { pizza: ["Margarita", "Parma"] },
-          emailSubjectFormat: "emailSubjectFormat"
-        }),
-        headers: {
-          "X-Recaptcha-Token": undefined,
-          "Content-Type": "application/json",
-          authorization: `Bearer ${qaAuthToken}`
+    fireEvent.submit(screen.getByTestId("test-form"));
+    await waitFor(() =>
+      expect(fetchMock).toHaveBeenCalledWith(
+        "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            locale: "en-GB",
+            title: "Test form",
+            recipients: "recipient@mail.com",
+            values: { pizza: ["Margarita", "Parma"] },
+            emailSubjectFormat: "emailSubjectFormat"
+          }),
+          headers: {
+            "X-Recaptcha-Token": undefined,
+            "Content-Type": "application/json",
+            authorization: `Bearer ${qaAuthToken}`
+          }
         }
-      }
+      )
     );
   });
 
@@ -933,7 +971,11 @@ describe("FormSection component", () => {
         <FormSection data={dataHubSpot} backgroundColor="white" isDialog />
       </ThemeProvider>
     );
-    expect(container.querySelector(".Section")).toBeNull();
+    expect(
+      screen.queryByTestId(
+        `contentful-form-section-${replaceSpaces(dataHubSpot.title)}`
+      )
+    ).not.toBeInTheDocument();
     expect(container).toMatchSnapshot();
   });
 });

@@ -2,9 +2,9 @@ import fs from "fs";
 import path from "path";
 import { getLocales } from "@bmi-digital/contentful-migration";
 import { createClient } from "contentful-management";
+import { waitFor } from "@bmi/utils";
 import type Migration from "contentful-migration";
 import type { MigrationContext, MigrationFunction } from "contentful-migration";
-import { waitFor } from "@bmi/utils";
 
 export const description = "upload 1x1px file for place holder image";
 

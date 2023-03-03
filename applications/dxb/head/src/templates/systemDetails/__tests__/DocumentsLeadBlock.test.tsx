@@ -1,5 +1,5 @@
 import { ThemeProvider } from "@bmi-digital/components";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import React from "react";
 import createPimSystemDocument from "../../../__tests__/helpers/PimSystemDocumentHelper";
 import Component from "../documentsLeadBlock";
@@ -8,15 +8,17 @@ const documents = [createPimSystemDocument()];
 
 describe("DocumentsLeadBlock tests", () => {
   it("should render correctly", () => {
-    const { container, queryByText } = render(
+    const { container } = render(
       <ThemeProvider>
         <Component documents={documents} />
       </ThemeProvider>
     );
+
+    // eslint-disable-next-line testing-library/no-container,testing-library/no-node-access
     const tableRows = container.querySelectorAll(".tableContainer tbody tr");
 
     expect(container).toMatchSnapshot();
-    expect(queryByText(documents[0].assetType.name)).toBeTruthy();
+    expect(screen.getByText(documents[0].assetType.name)).toBeTruthy();
     expect(tableRows.length).toBe(1);
   });
 });

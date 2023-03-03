@@ -13,11 +13,11 @@ jest.mock("three", () => {
 describe("Visualiser TextureCache", () => {
   let textureLoader;
 
-  beforeEach(() => {
+  beforeEach(async () => {
     jest.resetAllMocks();
     jest.resetModules();
     // eslint-disable-next-line @typescript-eslint/no-var-requires
-    textureLoader = require("../TextureCache").default;
+    textureLoader = (await import("../TextureCache")).default;
   });
 
   it("calls texture loader", () => {

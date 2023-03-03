@@ -47,6 +47,7 @@ const TabLeadBlock = ({
       <Tabs.TabPanel
         heading={getMicroCopy(microCopy.SDP_LEAD_BLOCK_ABOUT)}
         index="one"
+        data-testid="tab-panel-lead-block-about"
       >
         <Section
           className={styles["section"]}
@@ -65,6 +66,7 @@ const TabLeadBlock = ({
             microCopy.SDP_LEAD_BLOCK_TECHNICAL_SPECIFICATION
           )}
           index="two"
+          data-testid="tab-panel-lead-block-technical-specification"
         >
           <Section
             className={styles["section"]}
@@ -84,6 +86,7 @@ const TabLeadBlock = ({
             microCopy.SDP_LEAD_BLOCK_DOCUMENTS_AND_DOWNLOADS
           )}
           index="three"
+          data-testid="tab-panel-lead-block-documents-and-downloads"
         >
           <Section
             className={styles["section"]}
@@ -98,6 +101,7 @@ const TabLeadBlock = ({
         <Tabs.TabPanel
           heading={getMicroCopy(microCopy.SDP_TABS_BIM)}
           index="four"
+          data-testid="tab-panel-lead-block-bim"
         >
           <div className={styles["bimLeadBlock"]}>
             <Section

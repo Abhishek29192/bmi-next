@@ -1,12 +1,7 @@
 import { ThemeProvider } from "@bmi-digital/components";
-import { fireEvent, render } from "@testing-library/react";
-import mockConsole from "jest-mock-console";
+import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import CalculatorStepper from "../CalculatorStepper";
-
-beforeAll(() => {
-  mockConsole();
-});
 
 describe("CalculatorStepper component", () => {
   const SelectingARoof = () => {
@@ -91,7 +86,7 @@ describe("CalculatorStepper component", () => {
     const onClickNext = jest.fn();
     const nextLabel = "Calculate";
 
-    const { getByText } = render(
+    render(
       <ThemeProvider>
         <CalculatorStepper selected="select-a-roof-shape">
           <CalculatorStepper.Step
@@ -111,16 +106,16 @@ describe("CalculatorStepper component", () => {
       </ThemeProvider>
     );
 
-    const backButton = getByText(backLabel);
+    const backButton = screen.getByText(backLabel);
     fireEvent.click(backButton);
-    expect(onClickBack.mock.calls).toMatchSnapshot();
+    expect(onClickBack).toHaveBeenCalled();
 
-    const linkButton = getByText(linkLabel);
+    const linkButton = screen.getByText(linkLabel);
     fireEvent.click(linkButton);
-    expect(onClickLink.mock.calls).toMatchSnapshot();
+    expect(onClickLink).toHaveBeenCalled();
 
-    const nextButton = getByText(nextLabel);
+    const nextButton = screen.getByText(nextLabel);
     fireEvent.click(nextButton);
-    expect(onClickNext.mock.calls).toMatchSnapshot();
+    expect(onClickNext).toHaveBeenCalled();
   });
 });

@@ -113,6 +113,7 @@ export const convertMarkdownLinksToAnchorLinks = (
           action={{ model: "htmlLink", href: link }}
           target="_blank"
           rel={isExternalUrl(link) && "noopener"}
+          data-testid={`label-${replaceSpaces(label)}-anchor-link`}
         >
           {label}
         </AnchorLink>
@@ -328,9 +329,9 @@ type FormInputs = {
 export const FormInputs = ({ inputs }: FormInputs) => {
   return (
     <>
-      {inputs.map(({ width, ...props }, $i) => (
+      {inputs.map(({ width, name, ...props }, $i) => (
         <Grid key={$i} xs={12} md={width === "full" ? 12 : 6}>
-          <Input {...props} />
+          <Input name={name} data-testid={`form-input-${name}`} {...props} />
         </Grid>
       ))}
     </>
@@ -472,6 +473,7 @@ type FormSectionProps = {
   onFormLoadError?: () => void;
   className?: string;
   isDialog?: boolean;
+  "data-testid"?: string;
 };
 
 const FormSection = ({
@@ -496,7 +498,8 @@ const FormSection = ({
   onFormReady,
   onFormLoadError,
   className,
-  isDialog = false
+  isDialog = false,
+  "data-testid": dataTestId
 }: FormSectionProps) => {
   const {
     config: { isPreviewMode, gcpFormSubmitEndpoint, hubspotApiUrl, hubSpotId }
@@ -708,6 +711,7 @@ const FormSection = ({
         additionalValues={additionalValues}
         className={className}
         isDialog={isDialog}
+        data-testid={dataTestId}
       />
     );
   }
@@ -736,6 +740,7 @@ const FormSection = ({
               : handleSubmit
           }
           rightAlignButton
+          data-testid={dataTestId}
         >
           <Grid container spacing={3}>
             <FormInputs inputs={inputs} />
@@ -775,6 +780,9 @@ const FormSection = ({
                 )
               }
               disabled={isSubmitting || isSubmitDisabled}
+              data-testid={`contentful-form-section-${replaceSpaces(
+                title
+              )}-submit-button`}
             >
               {submitText || getMicroCopy(microCopy.FORM_SUBMIT)}
             </Form.SubmitButton>

@@ -1,9 +1,5 @@
 /* eslint-disable security/detect-object-injection */
 import logger from "@bmi-digital/functions-logger";
-import type {
-  Product as ESProduct,
-  ProductReference as ESProductReference
-} from "@bmi/elasticsearch-types";
 import {
   BaseProduct,
   Classification,
@@ -13,6 +9,10 @@ import {
   VariantOption as PIMVariant
 } from "@bmi/pim-types";
 import { generateHashFromString, generateUrl, isDefined } from "@bmi/utils";
+import type {
+  Product as ESProduct,
+  ProductReference as ESProductReference
+} from "@bmi/elasticsearch-types";
 import {
   ESIndexObject,
   findMainImage,

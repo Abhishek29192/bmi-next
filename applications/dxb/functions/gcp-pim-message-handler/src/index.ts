@@ -7,9 +7,9 @@ import {
   ObjType,
   PimDeltaMessage
 } from "@bmi/pub-sub-types";
-import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import { PubSub, Topic } from "@google-cloud/pubsub";
 import fetch from "node-fetch";
+import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 
 const {
   TRANSITIONAL_TOPIC_NAME,

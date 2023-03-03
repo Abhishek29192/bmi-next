@@ -1,6 +1,5 @@
 import { ThemeProvider } from "@bmi-digital/components";
 import { render } from "@testing-library/react";
-import mockConsole from "jest-mock-console";
 import React from "react";
 import { renderWithRouter } from "../../test/renderWithRouter";
 import createGallerySectionImage from "../../__tests__/helpers/GallerySectionImageHelper";
@@ -49,10 +48,6 @@ const contentMock = JSON.stringify({
       data: {}
     }
   ]
-});
-
-beforeAll(() => {
-  mockConsole();
 });
 
 describe("Sections component", () => {
@@ -570,7 +565,7 @@ describe("Sections component", () => {
         <Sections data={data} />
       </MockSiteContext>
     );
-    expect(container.children).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly when incomplete", () => {
@@ -618,7 +613,7 @@ describe("Sections component", () => {
         <Sections data={data} />
       </MockSiteContext>
     );
-    expect(container.children).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly with 1 villain", () => {
@@ -682,7 +677,7 @@ describe("Sections component", () => {
         <Sections data={data} />
       </MockSiteContext>
     );
-    expect(container.children).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("doesnt render correctly if doesnt resolve to component", () => {
@@ -703,7 +698,7 @@ describe("Sections component", () => {
         <Sections data={data} />
       </MockSiteContext>
     );
-    expect(container.children).toHaveLength(0); // returns empty array
+    expect(container).toMatchInlineSnapshot(`<div />`);
   });
 
   it("renders alternate backgrounds for promos", () => {
@@ -772,6 +767,6 @@ describe("Sections component", () => {
         <Sections data={data} />
       </MockSiteContext>
     );
-    expect(container.children).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

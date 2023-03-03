@@ -1,4 +1,5 @@
 import { isDryRun } from "@bmi-digital/contentful-migration";
+import ora from "ora";
 import type {
   AssetProps,
   ContentTypeProps,
@@ -14,7 +15,6 @@ import type {
   MigrationContext,
   MigrationFunction
 } from "contentful-migration";
-import ora from "ora";
 
 export const description = "Duplicate the Asset fields in a __deprecated field";
 
@@ -130,7 +130,7 @@ const createImageFromAssets = async (
   existingImages: EntryProps[]
 ): Promise<EntryProps[]> => {
   return Promise.all(
-    assets.map(async (asset) => {
+    assets.map(async (asset): Promise<EntryProps> => {
       if (assetToImageMap[asset.sys.id]) {
         return assetToImageMap[asset.sys.id];
       }
@@ -168,7 +168,6 @@ const createImageFromAssets = async (
           sys: {
             id: "1234567890",
             type: "Symbol",
-            linkType: "Symbol",
             version: 1,
             createdAt: "0",
             updatedAt: "0",
@@ -180,7 +179,8 @@ const createImageFromAssets = async (
             },
             environment: {
               sys: { id: "1234567890", type: "Symbol", linkType: "Symbol" }
-            }
+            },
+            automationTags: []
           }
         };
       }
@@ -390,7 +390,7 @@ export const down: MigrationFunction = async (migration: Migration) => {
     );
 
     editingContentType.deleteField(contentTypeMigration.fields.to);
-    // In Theory I should migrate it first. In a seperate migration in theory
+    // In theory, I should migrate it first. In a separate migration in theory
     editingContentType
       .editField(contentTypeMigration.fields.from)
       .disabled(false)

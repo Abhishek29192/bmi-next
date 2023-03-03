@@ -1,7 +1,6 @@
 import { mockResponses } from "@bmi-digital/fetch-mocks";
 import { PimTypes } from "@bmi/pim-types";
 import fetchMockJest from "fetch-mock-jest";
-import mockConsole from "jest-mock-console";
 import {
   createProductsApiResponse,
   createSystemsApiResponse
@@ -45,10 +44,6 @@ const getSystemsByMessageId = async (
     currentPage,
     locale
   );
-
-beforeAll(() => {
-  mockConsole();
-});
 
 beforeEach(() => {
   jest.resetAllMocks();

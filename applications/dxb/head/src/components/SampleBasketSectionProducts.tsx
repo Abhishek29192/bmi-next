@@ -30,17 +30,15 @@ const SampleBasketSectionProducts = () => {
   const sampleCards = basketState.products.map((sample) => {
     const media = (
       <Image
-        data={{
-          type: "Descriptive",
-          altText: sample.name,
-          image: {
-            file: {
-              fileName: sample.name,
-              url: sample.image
-            }
-          },
-          focalPoint: { x: 0, y: 0 }
+        type="Descriptive"
+        altText={sample.name}
+        image={{
+          file: {
+            fileName: sample.name,
+            url: sample.image
+          }
         }}
+        focalPoint={{ x: 0, y: 0 }}
         className={styles["product-image"]}
       />
     );

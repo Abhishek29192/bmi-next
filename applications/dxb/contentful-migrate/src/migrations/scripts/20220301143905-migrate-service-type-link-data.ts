@@ -8,16 +8,16 @@ import {
   getLocales,
   publishEntry
 } from "@bmi-digital/contentful-migration";
-import type Migration from "contentful-migration";
+import { camelCase } from "lodash";
+import branchTypes from "../../variables/branchTypes/20210928085352";
+import merchantTypes from "../../variables/merchantTypes/20210929064001";
+import rooferTypes from "../../variables/roofer/20211124094158";
 import type {
   MakeRequest,
   MigrationContext,
   MigrationFunction
 } from "contentful-migration";
-import { camelCase } from "lodash";
-import branchTypes from "../../variables/branchTypes/20210928085352";
-import merchantTypes from "../../variables/merchantTypes/20210929064001";
-import rooferTypes from "../../variables/roofer/20211124094158";
+import type Migration from "contentful-migration";
 
 export const description = "migrate data between roofer and service type";
 

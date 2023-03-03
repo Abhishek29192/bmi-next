@@ -37,7 +37,7 @@ exports[`DocumentDownloadSection component renders correctly with all data 1`] =
         >
           <table
             class="MuiTable-root Table-evenColor css-wsrw3a-MuiTable-root"
-            data-testid="table"
+            data-testid="document-download-section-table"
           >
             <thead
               class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
@@ -76,8 +76,8 @@ exports[`DocumentDownloadSection component renders correctly with all data 1`] =
                 >
                   <button
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://doesnot-exist.com/fileName\\"}"
-                    data-testid="docment-download-section-download-button"
+                    data-gtm="{"id":"download1","label":"Download","action":"http://doesnot-exist.com/fileName"}"
+                    data-testid="document-download-section-download-button"
                     tabindex="0"
                     type="button"
                   >
@@ -85,7 +85,7 @@ exports[`DocumentDownloadSection component renders correctly with all data 1`] =
                       class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                     >
                       <filejpg
-                        data-testid="docment-download-section-file-download-icon"
+                        data-testid="document-download-section-file-download-icon"
                         style="width: 1em; height: 1em;"
                       />
                     </span>

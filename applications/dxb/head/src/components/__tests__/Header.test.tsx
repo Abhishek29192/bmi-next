@@ -1,6 +1,5 @@
 import { RegionCode, ThemeProvider } from "@bmi-digital/components";
-import { fireEvent, render, waitFor } from "@testing-library/react";
-import mockConsole from "jest-mock-console";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import React from "react";
 import { microCopy } from "../../constants/microCopies";
 import BasketContext from "../../contexts/SampleBasketContext";
@@ -11,8 +10,13 @@ import { fallbackGetMicroCopy as getMicroCopy } from "../MicroCopy";
 import { Data as PageInfoData } from "../PageInfo";
 import { Data as PromoData } from "../Promo";
 
-beforeAll(() => {
-  mockConsole();
+beforeEach(() => {
+  jest.useFakeTimers();
+});
+
+afterEach(() => {
+  jest.runOnlyPendingTimers();
+  jest.useRealTimers();
 });
 
 const regions = [
@@ -230,8 +234,9 @@ describe("Header component", () => {
     );
     expect(container).toMatchSnapshot();
   });
+
   it("toggles search", () => {
-    const { container, getByLabelText } = render(
+    const { container } = render(
       <ThemeProvider>
         <Header
           activeLabel="Main"
@@ -246,17 +251,18 @@ describe("Header component", () => {
 
     const searchLabel = getMicroCopy(microCopy.SEARCH_LABEL);
 
-    const searchButton = getByLabelText(searchLabel);
+    const searchButton = screen.getByLabelText(searchLabel);
 
     expect(searchButton).toBeTruthy();
 
     fireEvent.click(searchButton);
+    jest.runAllTimers();
 
     expect(container).toMatchSnapshot();
   });
 
   it("shows sample basket icon", () => {
-    const { container, queryByLabelText } = render(
+    const { container } = render(
       <ThemeProvider>
         <BasketContext.Provider value={sampleBasketProducts}>
           <Header
@@ -272,14 +278,17 @@ describe("Header component", () => {
       </ThemeProvider>
     );
 
-    const basketButton = queryByLabelText(getMicroCopy(microCopy.BASKET_LABEL));
+    const basketButton = screen.queryByLabelText(
+      getMicroCopy(microCopy.BASKET_LABEL)
+    );
+    jest.runAllTimers();
 
     expect(basketButton).toBeInTheDocument();
     expect(container).toMatchSnapshot();
   });
 
   it("shows sample basket dialog on clicking on basket and hide it clicking on close", async () => {
-    const { container, getByLabelText } = render(
+    render(
       <BasketContext.Provider value={sampleBasketProducts}>
         <ThemeProvider>
           <Header
@@ -294,20 +303,20 @@ describe("Header component", () => {
         </ThemeProvider>
       </BasketContext.Provider>
     );
-    expect(
-      container.querySelector("[class*='cartDrawerContainer']")
-    ).not.toBeVisible();
-    const basketButton = getByLabelText(getMicroCopy(microCopy.BASKET_LABEL));
+    expect(screen.getByTestId("shopping-cart-dialog")).not.toBeVisible();
+    const basketButton = screen.getByLabelText(
+      getMicroCopy(microCopy.BASKET_LABEL)
+    );
     fireEvent.click(basketButton);
+    jest.runAllTimers();
+    expect(screen.getByTestId("shopping-cart-dialog")).toBeVisible();
 
-    expect(
-      container.querySelector("[class*='cartDrawerContainer']")
-    ).toBeVisible();
-    fireEvent.click(getByLabelText(getMicroCopy(microCopy.DIALOG_CLOSE)));
+    fireEvent.click(
+      screen.getByLabelText(getMicroCopy(microCopy.DIALOG_CLOSE))
+    );
+    jest.runAllTimers();
     await waitFor(() =>
-      expect(
-        container.querySelector("[class*='cartDrawerContainer']")
-      ).not.toBeVisible()
+      expect(screen.getByTestId("shopping-cart-dialog")).not.toBeVisible()
     );
   });
 });

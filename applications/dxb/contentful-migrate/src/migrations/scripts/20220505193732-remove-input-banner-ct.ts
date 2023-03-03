@@ -1,13 +1,13 @@
-import type { CollectionResponse } from "@bmi-digital/contentful-migration";
-import type { EntryProps } from "contentful-management";
-import type Migration from "contentful-migration";
-import type { MigrationContext, MigrationFunction } from "contentful-migration";
 import {
   down as inputBannerMigrationDown,
   up as inputBannerMigrationUp
 } from "./20201117005321-create-input-banner-content-type.js";
 import { up as retryFieldMigrationUp } from "./20210301151440-add-retry-fields.js";
 import { up as nameFieldIBMigrationUp } from "./20220419133700-change-source-content-type-for-name-field-for-input-banner.js";
+import type { CollectionResponse } from "@bmi-digital/contentful-migration";
+import type { EntryProps } from "contentful-management";
+import type Migration from "contentful-migration";
+import type { MigrationContext, MigrationFunction } from "contentful-migration";
 
 export const description = "remove input banner content type";
 

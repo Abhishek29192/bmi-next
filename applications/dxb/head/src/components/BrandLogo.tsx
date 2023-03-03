@@ -186,7 +186,12 @@ type Props = {
   brandWhiteBox?: boolean;
 };
 
-const BrandLogo = ({ brandName, className, brandWhiteBox = false }: Props) => {
+const BrandLogo = ({
+  brandName,
+  className,
+  brandWhiteBox = false,
+  ...props
+}: Props) => {
   const iconLogo = getLogo(brandName);
 
   return iconLogo ? (
@@ -196,6 +201,8 @@ const BrandLogo = ({ brandName, className, brandWhiteBox = false }: Props) => {
         [styles["BrandLogo-whiteBox"]]: brandWhiteBox
       })}
       boxed={brandWhiteBox}
+      data-testid={"brand-logo"}
+      {...props}
     />
   ) : null;
 };

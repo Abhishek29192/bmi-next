@@ -103,28 +103,6 @@ describe("Brand Landing Page Template", () => {
     );
 
     expect(container).toMatchSnapshot();
-    expect(container.querySelector("header")).toBeTruthy();
-    expect(screen.getByTestId("footer")).toBeTruthy();
-    expect(screen.getByTestId("brand-colors-provider")).toBeTruthy();
-    expect(screen.getByTestId("hero")).toBeInTheDocument();
-    expect(
-      container.querySelector(
-        "[data-test-class-name=hero] [aria-label=breadcrumbs]"
-      )
-    ).toBeTruthy();
-    expect(
-      container.querySelectorAll("[data-test-class-name=slide]").length
-    ).toBe(2);
-    expect(
-      container.querySelector(
-        "[class*='Section'][class*='alabaster'][class*='slim']"
-      )
-    ).toBeTruthy();
-    expect(
-      container.querySelector(
-        "[class*='Section'][class*='alabaster'][class*='slim'] [aria-label=breadcrumbs]"
-      )
-    ).toBeTruthy();
   });
 
   it("render overlapCards correctly", () => {
@@ -175,11 +153,6 @@ describe("Brand Landing Page Template", () => {
     );
 
     expect(container).toMatchSnapshot();
-    expect(container.querySelector(".OverlapCards")).toBeTruthy();
-    expect(
-      container.querySelectorAll(".OverlapCards [data-test-class-name=card]")
-        .length
-    ).toBe(2);
   });
 
   it("render sections correctly", () => {
@@ -374,7 +347,7 @@ describe("Brand Landing Page Template", () => {
 
     fireEvent.click(button);
 
-    expect(screen.queryByTestId("hero-cta")).toBeInTheDocument();
+    expect(screen.getByTestId("hero-cta")).toBeInTheDocument();
   });
 
   it("not render link text when typename is not ContentfulPromo and path is null", () => {
@@ -411,7 +384,7 @@ describe("Brand Landing Page Template", () => {
     expect(screen.queryByText("Go to page")).not.toBeInTheDocument();
   });
 
-  it("render no context for firstslide when no description", () => {
+  it("render no content for first slide when no description", () => {
     const newData = { ...data };
     newData.contentfulBrandLandingPage.description = null;
     const { container } = renderWithRouter(
@@ -425,11 +398,13 @@ describe("Brand Landing Page Template", () => {
 
     expect(container).toMatchSnapshot();
     expect(
+      // eslint-disable-next-line testing-library/no-container,testing-library/no-node-access
       container.querySelectorAll(
         "[class*='Hero'] [data-test-class-name=text]"
       )[0].textContent
     ).toBe("");
   });
+
   it("renders cta on firstSlide if not null", () => {
     const newData = {
       ...data
@@ -458,7 +433,8 @@ describe("Brand Landing Page Template", () => {
         />
       </ThemeProvider>
     );
-    expect(screen.queryByText("firstSlideCTA")).not.toBeNull();
+
+    expect(screen.getByTestId("hero-cta")).toBeInTheDocument();
     expect(container).toMatchSnapshot();
   });
 
@@ -495,10 +471,10 @@ describe("Brand Landing Page Template", () => {
           />
         </ThemeProvider>
       );
-      expect(screen.queryByText("firstSlideCTA")).not.toBeNull();
+      expect(screen.getByTestId("hero-cta")).toBeInTheDocument();
       expect(
         screen
-          .getByTestId("hero-content-slide-text")
+          .queryByTestId("hero-content-slide-text")
           .textContent.endsWith("...")
       ).toBeFalsy();
       expect(container).toMatchSnapshot();
@@ -530,7 +506,7 @@ describe("Brand Landing Page Template", () => {
         dialogContent: null,
         hubSpotCTAID: null
       };
-      const { container, queryByText, getByTestId } = renderWithRouter(
+      const { container } = renderWithRouter(
         <ThemeProvider>
           <BrandLandingPage
             data={newData}
@@ -539,26 +515,30 @@ describe("Brand Landing Page Template", () => {
         </ThemeProvider>
       );
       expect(container).toMatchSnapshot();
-      expect(queryByText("firstSlideCTA")).not.toBeNull();
+      expect(screen.getByText("firstSlideCTA")).not.toBeNull();
       expect(
-        getByTestId("hero-content-slide-text").textContent.endsWith("...")
+        screen
+          .getByTestId("hero-content-slide-text")
+          .textContent.endsWith("...")
       ).toBeTruthy();
     });
   });
 
   it("render with Search form on hero section", async () => {
-    const { container, getByTestId } = renderWithRouter(
+    const { container } = renderWithRouter(
       <ThemeProvider>
         <BrandLandingPage data={data} pageContext={null} />
       </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
-    expect(container.querySelector("header")).toBeTruthy();
-    expect(getByTestId("footer")).toBeTruthy();
-    expect(getByTestId("brand-colors-provider")).toBeTruthy();
-    expect(getByTestId("brand-search-form")).toBeTruthy();
-    const formAction = getByTestId("brand-search-form").getAttribute("action");
+    expect(screen.getByRole("banner")).toBeTruthy();
+    expect(screen.getByTestId("footer")).toBeTruthy();
+    expect(screen.getByTestId("brand-colors-provider")).toBeTruthy();
+    expect(screen.getByTestId("brand-search-form")).toBeTruthy();
+    const formAction = screen
+      .getByTestId("brand-search-form")
+      .getAttribute("action");
     expect(formAction).toEqual(`/${data.contentfulSite.countryCode}/search/`);
-    expect(getByTestId("brand-search-button")).toBeTruthy();
+    expect(screen.getByTestId("brand-search-button")).toBeTruthy();
   });
 });

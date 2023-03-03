@@ -1,4 +1,5 @@
-import { enc, MD5 } from "crypto-js";
+import EncHex from "crypto-js/enc-hex";
+import MD5 from "crypto-js/md5";
 import MurmurHash3 from "imurmurhash";
 
 export const generateHashFromString = (
@@ -13,4 +14,4 @@ export const generateHashFromString = (
 };
 
 export const generateDigestFromData = (data: unknown): string =>
-  MD5(JSON.stringify(data)).toString(enc.Hex);
+  MD5(JSON.stringify(data)).toString(EncHex);

@@ -27,6 +27,7 @@ export type Props = Omit<TextFieldProps, "variant" | "onChange"> & {
   error?: boolean;
   name: string;
   onChange: (value: string) => void;
+  "data-testid"?: string;
 } & AdornmentProps;
 
 const RawTextField = ({
@@ -42,6 +43,7 @@ const RawTextField = ({
   helperText,
   errorText,
   onChange,
+  "data-testid": dataTestId,
   ...props
 }: Props) => {
   const hasAdornment = error || leftAdornment || rightAdornment;
@@ -65,6 +67,7 @@ const RawTextField = ({
   const handleChange = (
     event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
   ) => onChange(event.target.value);
+
   return (
     <StyledMaterialTextField
       {...props}
@@ -76,6 +79,8 @@ const RawTextField = ({
       variant={variant === "hybrid" ? "filled" : "outlined"}
       className={classnames(leftAdornment && classes.leftAdornment, className)}
       InputProps={inputProps}
+      inputProps={{ "data-testid": `${dataTestId}-input` }}
+      data-testid={dataTestId}
     />
   );
 };

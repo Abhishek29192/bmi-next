@@ -1,12 +1,8 @@
-const mockRenderVideo = jest.fn();
-jest.mock("../../components/Video", () => ({
-  renderVideo: mockRenderVideo
-}));
-
 import React from "react";
 import Image from "../../components/Image";
 import { DataTypeEnum } from "../../components/Link";
 import { Data as SlideData } from "../../components/Promo";
+import Video from "../../components/Video";
 import { microCopy } from "../../constants/microCopies";
 import createImageData from "../../__tests__/helpers/ImageDataHelper";
 import { getHeroItemsWithContext } from "../helpers/getHeroItemsWithContext";
@@ -67,8 +63,9 @@ describe("getHeroItemsWithContext", () => {
     expect(result.length).toBe(1);
     expect(result[0].title).toEqual(slide.title);
     expect(result[0].children).toEqual(slide.subtitle);
-    expect(mockRenderVideo).toHaveBeenCalledTimes(1);
-    expect(mockRenderVideo).toHaveBeenCalledWith(slide.featuredVideo);
+    expect(result[0].media).toEqual(
+      <Video {...slide.featuredVideo} data-testid={"hero-video"} />
+    );
     expect(result[0].cta).toBeTruthy();
   });
 
@@ -82,7 +79,7 @@ describe("getHeroItemsWithContext", () => {
     expect(result[0].title).toEqual(slide.title);
     expect(result[0].children).toEqual(slide.subtitle);
     expect(result[0].media).toEqual(
-      <Image data={slide.featuredMedia} size="cover" />
+      <Image {...slide.featuredMedia} size="cover" data-testid={"hero-image"} />
     );
     expect(result[0].cta).toBeTruthy();
   });

@@ -1,5 +1,5 @@
 import { ThemeProvider } from "@bmi-digital/components";
-import { fireEvent, render } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import RawTextField from "../RawTextField";
 
@@ -184,7 +184,7 @@ describe("RawTextField component", () => {
     const onChange = jest.fn();
     const label = "Email address";
     const value = "value";
-    const { queryByLabelText } = render(
+    render(
       <ThemeProvider>
         <RawTextField
           id="email"
@@ -196,7 +196,7 @@ describe("RawTextField component", () => {
         />
       </ThemeProvider>
     );
-    fireEvent.change(queryByLabelText(label)!, { target: { value } });
+    fireEvent.change(screen.queryByLabelText(label)!, { target: { value } });
     expect(onChange).toBeCalledWith(value);
   });
 });

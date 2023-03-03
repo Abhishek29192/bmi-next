@@ -1,5 +1,5 @@
 import { ThemeProvider } from "@bmi-digital/components";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import React from "react";
 import { renderWithRouter } from "../../../test/renderWithRouter";
 import createRelatedSystem from "../../../__tests__/helpers/RelatedSystemHelper";
@@ -22,46 +22,56 @@ const systemDetailsMockData = createSystem({
 
 describe("TabLeadBlock tests", () => {
   it("should render", () => {
-    const { container, getByText } = render(
+    const { container } = render(
       <ThemeProvider>
         <Component system={systemDetailsMockData} />
       </ThemeProvider>
     );
 
-    const aboutTabButton = getByText("sdp.leadBlock.about", {
-      exact: false
-    });
     expect(container).toMatchSnapshot();
-    expect(aboutTabButton).toBeInTheDocument();
+    expect(
+      screen.getByText("sdp.leadBlock.about", {
+        exact: false
+      })
+    ).toBeInTheDocument();
   });
 
   it("should render documents and downloads", () => {
-    const { container } = renderWithRouter(
+    renderWithRouter(
       <ThemeProvider>
         <Component system={systemDetailsMockData} />
       </ThemeProvider>
     );
-    expect(container.querySelector("#tabpanel-three")).toMatchSnapshot();
+
+    expect(
+      screen.queryByTestId("tab-panel-lead-block-documents-and-downloads")
+    ).toMatchSnapshot();
   });
 
   it("should not render the documents and downloads", () => {
     systemDetailsMockData.documents = null;
-    const { container } = renderWithRouter(
+    renderWithRouter(
       <ThemeProvider>
         <Component system={systemDetailsMockData} />
       </ThemeProvider>
     );
-    expect(container.querySelector("#tabpanel-three")).toBe(null);
+
+    expect(
+      screen.queryByTestId("tab-panel-lead-block-documents-and-downloads")
+    ).not.toBeInTheDocument();
   });
 
   it("should not render the documents and downloads when its empty array", () => {
     systemDetailsMockData.documents = [];
-    const { container } = renderWithRouter(
+    renderWithRouter(
       <ThemeProvider>
         <Component system={systemDetailsMockData} />
       </ThemeProvider>
     );
-    expect(container.querySelector("#tabpanel-three")).toBe(null);
+
+    expect(
+      screen.queryByTestId("tab-panel-lead-block-documents-and-downloads")
+    ).not.toBeInTheDocument();
   });
 
   it("should render the bimIframe tab", () => {
@@ -69,13 +79,14 @@ describe("TabLeadBlock tests", () => {
       name: "BIM_CODE",
       url: "http://nowhere.com"
     };
-    const { container, queryByTestId } = renderWithRouter(
+    renderWithRouter(
       <ThemeProvider>
         <Component system={systemDetailsMockData} />
       </ThemeProvider>
     );
-    expect(container.querySelector("#tabpanel-four")).toMatchSnapshot();
-    expect(queryByTestId("bmi-iframe")).toHaveAttribute(
+
+    expect(screen.queryByTestId("tab-panel-lead-block-bim")).toMatchSnapshot();
+    expect(screen.queryByTestId("bmi-iframe")).toHaveAttribute(
       "src",
       systemDetailsMockData.bim.url
     );
@@ -83,13 +94,15 @@ describe("TabLeadBlock tests", () => {
 
   it("should not render the bimIframe tab", () => {
     systemDetailsMockData.bim = null;
-    const { container } = renderWithRouter(
+    renderWithRouter(
       <ThemeProvider>
         <Component system={systemDetailsMockData} />
       </ThemeProvider>
     );
 
-    expect(container.querySelector("#tabpanel-four")).toBe(null);
+    expect(
+      screen.queryByTestId("tab-panel-lead-block-bim")
+    ).not.toBeInTheDocument();
   });
 
   it("should not render technical Specification tab", () => {
@@ -99,11 +112,12 @@ describe("TabLeadBlock tests", () => {
         <Component system={systemDetailsMockData} />
       </ThemeProvider>
     );
-    const techSepcSection = container.querySelector(
-      ".SystemDetailsTechnicalSpec"
-    );
 
     expect(container).toMatchSnapshot();
-    expect(techSepcSection).not.toBeInTheDocument();
+    expect(
+      screen.queryByTestId(
+        "technical-specification-classifications-table-wrapper"
+      )
+    ).not.toBeInTheDocument();
   });
 });

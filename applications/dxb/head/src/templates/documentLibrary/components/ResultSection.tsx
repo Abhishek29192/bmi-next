@@ -37,7 +37,10 @@ const ResultSection = ({
             assetTypes={assetTypes}
             format={format}
           />
-          <div className={filterStyles["results"]}>
+          <div
+            className={filterStyles["results"]}
+            data-testid="document-results-footer-wrapper"
+          >
             <DocumentResultsFooter
               page={page + 1}
               count={pageCount}

@@ -6,6 +6,7 @@ import { createProduct } from "../../helpers/products";
 import en from "../../samples/copy/en.json";
 import { GroupedTiles, Tile } from "../../types/v2";
 import TileSelection, { TileSelectionProps } from "../_TileSelection";
+import { AnalyticsContext } from "../../helpers/analytics";
 
 const firstTile = createProduct<Tile>({
   baseProduct: {
@@ -42,20 +43,13 @@ const defaultProps: TileSelectionProps = {
 };
 
 const pushEvent = jest.fn();
-jest.mock("../../helpers/analytics", () => {
-  const actual = jest.requireActual("../../helpers/analytics");
-  return {
-    ...actual,
-    useAnalyticsContext: () => pushEvent
-  };
-});
 
 afterEach(() => {
   jest.clearAllMocks();
 });
 
 describe("PitchedRoofCalculator TileSelection component", () => {
-  it("calls analytics event", () => {
+  it("calls analytics event", async () => {
     render(
       <ThemeProvider>
         <MicroCopy.Provider values={en}>
@@ -67,7 +61,9 @@ describe("PitchedRoofCalculator TileSelection component", () => {
               values: {}
             }}
           >
-            <TileSelection {...defaultProps} />
+            <AnalyticsContext.Provider value={pushEvent}>
+              <TileSelection {...defaultProps} />
+            </AnalyticsContext.Provider>
           </FormContext.Provider>
         </MicroCopy.Provider>
       </ThemeProvider>
@@ -76,7 +72,7 @@ describe("PitchedRoofCalculator TileSelection component", () => {
     fireEvent.click(
       screen.getByText(tiles.zanda_minster_main_tile[0].baseProduct.name)
     );
-    waitFor(() => expect(pushEvent).toBeCalledTimes(1));
+    await waitFor(() => expect(pushEvent).toBeCalledTimes(1));
   });
 
   it("renders with no tiles", () => {

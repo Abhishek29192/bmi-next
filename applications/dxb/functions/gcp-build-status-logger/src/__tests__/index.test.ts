@@ -1,6 +1,5 @@
 import { mockRequest, mockResponse } from "@bmi-digital/fetch-mocks";
 import { Request, Response } from "express";
-import mockConsole from "jest-mock-console";
 
 const handleRequest = async (req: Partial<Request>, res: Partial<Response>) =>
   (await import("../index")).buildStatusLogger(req as Request, res as Response);
@@ -23,10 +22,6 @@ jest.mock("../db", () => ({
 jest.useFakeTimers().setSystemTime(new Date("10/10/2022"));
 
 jest.useFakeTimers().setSystemTime(new Date(Date.UTC(2022, 9, 10, 0, 0, 0)));
-
-beforeAll(() => {
-  mockConsole();
-});
 
 beforeEach(() => {
   jest.clearAllMocks();

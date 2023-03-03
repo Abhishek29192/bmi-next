@@ -25,6 +25,5 @@ module.exports = {
       functions: "27",
       lines: "35"
     }
-  },
-  resolver: "jest-node-exports-resolver"
+  }
 };

@@ -187,6 +187,7 @@ exports[`WelcomeDialog component Renders correctly When Title rich text and icon
             >
               <svg
                 class="BrandLogo brand css-gn1fhj"
+                data-testid="welcome-brand-Icopal"
                 viewBox="0 0 154 100"
                 xml:space="preserve"
                 xmlns="http://www.w3.org/2000/svg"
@@ -198,6 +199,7 @@ exports[`WelcomeDialog component Renders correctly When Title rich text and icon
               </svg>
               <svg
                 class="BrandLogo brand css-gn1fhj"
+                data-testid="welcome-brand-Monier"
                 viewBox="0 0 236 101"
                 xml:space="preserve"
                 xmlns="http://www.w3.org/2000/svg"
@@ -209,6 +211,7 @@ exports[`WelcomeDialog component Renders correctly When Title rich text and icon
               </svg>
               <svg
                 class="BrandLogo brand css-gn1fhj"
+                data-testid="welcome-brand-Monarplan"
                 viewBox="0 0 278 100"
                 xml:space="preserve"
                 xmlns="http://www.w3.org/2000/svg"

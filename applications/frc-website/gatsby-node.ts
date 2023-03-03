@@ -1,6 +1,6 @@
 import findUp from "find-up";
-import type { GatsbyNode } from "gatsby";
 import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
+import type { GatsbyNode } from "gatsby";
 
 export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({
   actions

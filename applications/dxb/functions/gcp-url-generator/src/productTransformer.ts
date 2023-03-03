@@ -1,9 +1,9 @@
-import type { Product as PimProduct } from "@bmi/pim-types";
 import { generateHashFromString, generateUrl, isDefined } from "@bmi/utils";
 import {
   Classification as PimClassification,
   Feature
 } from "@bmi/pim-types/src";
+import type { Product as PimProduct } from "@bmi/pim-types";
 import { GeneratedObjectWithUrl } from "./types";
 
 export const transformProduct = (

@@ -1,7 +1,7 @@
-import type Migration from "contentful-migration";
-import type { MigrationFunction } from "contentful-migration";
 import previousIcons from "../../variables/icons/20201110150955";
 import icons from "../../variables/icons/20201111103444";
+import type Migration from "contentful-migration";
+import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Add Monarflex icon";
 

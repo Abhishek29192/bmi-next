@@ -517,7 +517,7 @@ describe("ServiceLocatorSection component", () => {
       expect(container).toMatchSnapshot();
     });
 
-    it("sholud execute handlePageChange correctly", () => {
+    it("should execute handlePageChange correctly", () => {
       const data: serviceLocatorDataType = {
         __typename: "ContentfulServiceLocatorSection",
         type: EntryTypeEnum.ROOFER_TYPE,
@@ -528,7 +528,7 @@ describe("ServiceLocatorSection component", () => {
         position: 1,
         centre: null,
         zoom: 8,
-        services: [...Array(25)].map((x) =>
+        services: [...Array(25)].map(() =>
           createService({
             name: "test name 1",
             serviceTypes: [
@@ -538,25 +538,25 @@ describe("ServiceLocatorSection component", () => {
         )
       };
 
-      const wrapper = renderWithRouter(
+      renderWithRouter(
         <ThemeProvider>
           <ServiceLocatorSection data={data} />
         </ThemeProvider>
       );
 
-      const paginationButton = wrapper.getByRole("button", {
+      const paginationButton = screen.getByRole("button", {
         name: `Go to page 2`
       });
 
-      paginationButton.click();
+      fireEvent.click(paginationButton);
 
-      const roofersCount = wrapper.getAllByText("test name 1");
+      const roofersCount = screen.getAllByText("test name 1");
 
       expect(roofersCount).toHaveLength(1);
     });
   });
 
-  it("searchs for a service", () => {
+  it("searches for a service", () => {
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
       type: EntryTypeEnum.ROOFER_TYPE,
@@ -573,30 +573,26 @@ describe("ServiceLocatorSection component", () => {
       ]
     };
 
-    const wrapper = renderWithRouter(
+    const { baseElement } = renderWithRouter(
       <ThemeProvider>
         <ServiceLocatorSection data={data} />
       </ThemeProvider>
     );
-    const nameInput = wrapper.container.querySelector("#company-autocomplete");
+    // eslint-disable-next-line testing-library/no-node-access -- data-testid can't be set
+    const nameInput = baseElement.querySelector("#company-autocomplete");
 
     fireEvent.change(nameInput, {
       target: { value: EntryTypeEnum.ROOFER_TYPE }
     });
 
-    expect(wrapper.container.parentElement).toMatchSnapshot(
-      "Filtered option list"
-    );
+    expect(baseElement).toMatchSnapshot("Filtered option list");
 
-    const option0 = wrapper.container.parentElement.querySelector(
-      "#company-autocomplete-option-0"
-    );
+    // eslint-disable-next-line testing-library/no-node-access -- data-testid can't be set
+    const option0 = baseElement.querySelector("#company-autocomplete-option-0");
 
     fireEvent.click(option0);
 
-    expect(wrapper.container.parentElement).toMatchSnapshot(
-      "Filtered main list"
-    );
+    expect(baseElement).toMatchSnapshot("Filtered main list");
   });
 
   it("doesn't search on entring the first letter", () => {
@@ -613,16 +609,18 @@ describe("ServiceLocatorSection component", () => {
       services: [createService({ name: "roofer 1" })]
     };
 
-    const wrapper = renderWithRouter(
+    const { baseElement } = renderWithRouter(
       <ThemeProvider>
         <ServiceLocatorSection data={data} />
       </ThemeProvider>
     );
-    const nameInput = wrapper.container.querySelector("#company-autocomplete");
+
+    // eslint-disable-next-line testing-library/no-node-access -- data-testid can't be set
+    const nameInput = baseElement.querySelector("#company-autocomplete");
 
     fireEvent.change(nameInput, { target: { value: "r" } });
 
-    expect(wrapper.container.parentElement).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 
   it("should send analytics event when user interacts with search field and its value not empty", async () => {
@@ -646,20 +644,21 @@ describe("ServiceLocatorSection component", () => {
       ]
     };
 
-    const { container, findByRole } = renderWithRouter(
+    const { baseElement } = renderWithRouter(
       <ThemeProvider>
         <ServiceLocatorSection data={data} />
       </ThemeProvider>
     );
-    const nameInput = container.querySelector("#company-autocomplete");
+
+    // eslint-disable-next-line testing-library/no-node-access -- data-testid can't be set
+    const nameInput = baseElement.querySelector("#company-autocomplete");
 
     fireEvent.change(nameInput, {
       target: { value: EntryTypeEnum.ROOFER_TYPE }
     });
-    const optionList = await findByRole("listbox");
-    act(() => {
-      fireEvent.click(optionList.children[0]);
-    });
+    const optionList = await screen.findByRole("listbox");
+    // eslint-disable-next-line testing-library/no-node-access
+    fireEvent.click(optionList.children[0]);
     expect(global.window["dataLayer"]).toEqual([
       {
         action: "roofer 1",
@@ -690,12 +689,14 @@ describe("ServiceLocatorSection component", () => {
       value: [],
       configurable: true
     });
-    const { container } = renderWithRouter(
+    const { baseElement } = renderWithRouter(
       <ThemeProvider>
         <ServiceLocatorSection data={data} />
       </ThemeProvider>
     );
-    const nameInput = container.querySelector("#company-autocomplete");
+
+    // eslint-disable-next-line testing-library/no-node-access -- data-testid can't be set
+    const nameInput = baseElement.querySelector("#company-autocomplete");
 
     fireEvent.change(nameInput, {
       target: { value: "" }
@@ -735,19 +736,19 @@ describe("ServiceLocatorSection component", () => {
       services: [createService({ name: "roofer 1" })]
     };
 
-    const wrapper = renderWithRouter(
+    const { baseElement } = renderWithRouter(
       <ThemeProvider>
         <ServiceLocatorSection data={data} />
       </ThemeProvider>
     );
 
-    const geolocationButton = wrapper.getByRole("button", {
+    const geolocationButton = screen.getByRole("button", {
       name: `MC: findARoofer.geolocationButton`
     });
 
     fireEvent.click(geolocationButton);
 
-    expect(wrapper.container.parentElement).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
 
     Object.defineProperty(global.navigator, "geolocation", {
       value: undefined,
@@ -772,7 +773,7 @@ describe("ServiceLocatorSection component", () => {
       services: [roofer1, roofer2]
     };
 
-    const wrapper = renderWithRouter(
+    const { baseElement } = renderWithRouter(
       <ThemeProvider>
         <ServiceLocatorSection data={data} />
       </ThemeProvider>
@@ -782,7 +783,7 @@ describe("ServiceLocatorSection component", () => {
       callMarkerOnClick(roofer2);
     });
 
-    expect(wrapper.container.parentElement).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 
   it("selects service", () => {
@@ -799,14 +800,14 @@ describe("ServiceLocatorSection component", () => {
       services: [createService({ name: "roofer 1" })]
     };
 
-    const wrapper = renderWithRouter(
+    const { baseElement } = renderWithRouter(
       <ThemeProvider>
         <ServiceLocatorSection data={data} />
       </ThemeProvider>
     );
-    const rooferButton = wrapper.getByText("roofer 1");
-    rooferButton.click();
-    expect(wrapper.container).toMatchSnapshot();
+    const rooferButton = screen.getByText("roofer 1");
+    fireEvent.click(rooferButton);
+    expect(baseElement).toMatchSnapshot();
   });
 
   it("selects and unselects service", () => {
@@ -823,15 +824,15 @@ describe("ServiceLocatorSection component", () => {
       services: [createService({ name: "roofer 1" })]
     };
 
-    const wrapper = renderWithRouter(
+    const { baseElement } = renderWithRouter(
       <ThemeProvider>
         <ServiceLocatorSection data={data} />
       </ThemeProvider>
     );
-    const rooferButton = wrapper.getByText("roofer 1");
-    rooferButton.click();
-    rooferButton.click();
-    expect(wrapper.container).toMatchSnapshot();
+    const rooferButton = screen.getByText("roofer 1");
+    fireEvent.click(rooferButton);
+    fireEvent.click(rooferButton);
+    expect(baseElement).toMatchSnapshot();
   });
 
   it("filters roofers using chip click", () => {
@@ -870,16 +871,16 @@ describe("ServiceLocatorSection component", () => {
       ]
     };
 
-    const wrapper = renderWithRouter(
+    const { baseElement } = renderWithRouter(
       <ThemeProvider>
         <ServiceLocatorSection data={data} />
       </ThemeProvider>
     );
-    const chipButton = wrapper.getByRole("button", {
+    const chipButton = screen.getByRole("button", {
       name: `Flat Roof`
     });
-    chipButton.click();
-    expect(wrapper.container).toMatchSnapshot();
+    fireEvent.click(chipButton);
+    expect(baseElement).toMatchSnapshot();
   });
 
   it("filters branch using chip click", () => {
@@ -915,16 +916,16 @@ describe("ServiceLocatorSection component", () => {
       ]
     };
 
-    const wrapper = renderWithRouter(
+    const { baseElement } = renderWithRouter(
       <ThemeProvider>
         <ServiceLocatorSection data={data} />
       </ThemeProvider>
     );
-    const chipButton = wrapper.getByRole("button", {
+    const chipButton = screen.getByRole("button", {
       name: `Country Offices`
     });
-    chipButton.click();
-    expect(wrapper.container).toMatchSnapshot();
+    fireEvent.click(chipButton);
+    expect(baseElement).toMatchSnapshot();
   });
 
   it("filters merchant using chip click", () => {
@@ -963,16 +964,16 @@ describe("ServiceLocatorSection component", () => {
       ]
     };
 
-    const wrapper = renderWithRouter(
+    const { baseElement } = renderWithRouter(
       <ThemeProvider>
         <ServiceLocatorSection data={data} />
       </ThemeProvider>
     );
-    const chipButton = wrapper.getByRole("button", {
+    const chipButton = screen.getByRole("button", {
       name: `Merchant type 2`
     });
-    chipButton.click();
-    expect(wrapper.container).toMatchSnapshot();
+    fireEvent.click(chipButton);
+    expect(baseElement).toMatchSnapshot();
   });
 
   it("click and unclick chip", () => {
@@ -1004,17 +1005,17 @@ describe("ServiceLocatorSection component", () => {
       ]
     };
 
-    const wrapper = renderWithRouter(
+    renderWithRouter(
       <ThemeProvider>
         <ServiceLocatorSection data={data} />
       </ThemeProvider>
     );
-    const chipButton = wrapper.getByRole("button", {
+    const chipButton = screen.getByRole("button", {
       name: `Flat Roof`
     });
-    chipButton.click();
-    chipButton.click();
-    expect(wrapper.queryByText("roofer 1")).toBeTruthy();
+    fireEvent.click(chipButton);
+    fireEvent.click(chipButton);
+    expect(screen.getByText("roofer 1")).toBeTruthy();
   });
 
   it("click all roofer chips", () => {
@@ -1067,32 +1068,32 @@ describe("ServiceLocatorSection component", () => {
       ]
     };
 
-    const wrapper = renderWithRouter(
+    const { baseElement } = renderWithRouter(
       <ThemeProvider>
         <ServiceLocatorSection data={data} />
       </ThemeProvider>
     );
-    const chipButton1 = wrapper.getByRole("button", {
+    const chipButton1 = screen.getByRole("button", {
       name: `Flat Roof 1`
     });
-    const chipButton2 = wrapper.getByRole("button", {
+    const chipButton2 = screen.getByRole("button", {
       name: `Flat Roof 2`
     });
-    const chipButton3 = wrapper.getByRole("button", {
+    const chipButton3 = screen.getByRole("button", {
       name: `Flat Roof 3`
     });
-    const chipButton4 = wrapper.getByRole("button", {
+    const chipButton4 = screen.getByRole("button", {
       name: `Flat Roof 4`
     });
-    const chipButton5 = wrapper.getByRole("button", {
+    const chipButton5 = screen.getByRole("button", {
       name: `Flat Roof 5`
     });
-    chipButton1.click();
-    chipButton2.click();
-    chipButton3.click();
-    chipButton4.click();
-    chipButton5.click();
-    expect(wrapper.container).toMatchSnapshot();
+    fireEvent.click(chipButton1);
+    fireEvent.click(chipButton2);
+    fireEvent.click(chipButton3);
+    fireEvent.click(chipButton4);
+    fireEvent.click(chipButton5);
+    expect(baseElement).toMatchSnapshot();
   });
 
   it("filters using pre selected chips", () => {
@@ -1126,7 +1127,7 @@ describe("ServiceLocatorSection component", () => {
       ]
     };
 
-    const wrapper = renderWithRouter(
+    renderWithRouter(
       <ThemeProvider>
         <ServiceLocatorSection data={data} />
       </ThemeProvider>,
@@ -1134,8 +1135,8 @@ describe("ServiceLocatorSection component", () => {
         route: "/something/?chip=Pitched+roof"
       }
     );
-    expect(wrapper.queryByText("roofer 1")).toBeTruthy();
-    expect(wrapper.queryByText("roofer 2")).toBeFalsy();
+    expect(screen.getByText("roofer 1")).toBeTruthy();
+    expect(screen.queryByText("roofer 2")).toBeFalsy();
   });
 
   it("wrong query string filter", () => {
@@ -1167,12 +1168,12 @@ describe("ServiceLocatorSection component", () => {
       ]
     };
 
-    const wrapper = renderWithRouter(
+    const { baseElement } = renderWithRouter(
       <ThemeProvider>
         <ServiceLocatorSection data={data} />
       </ThemeProvider>
     );
-    expect(wrapper.container).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 
   it("can selects all chips by default", () => {
@@ -1219,12 +1220,12 @@ describe("ServiceLocatorSection component", () => {
       ]
     };
 
-    const wrapper = renderWithRouter(
+    const { baseElement } = renderWithRouter(
       <ThemeProvider>
         <ServiceLocatorSection data={data} />
       </ThemeProvider>
     );
-    expect(wrapper.container).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 
   it("filters using autocomplete", () => {
@@ -1258,23 +1259,20 @@ describe("ServiceLocatorSection component", () => {
       ]
     };
 
-    const wrapper = renderWithRouter(
+    renderWithRouter(
       <ThemeProvider>
         <ServiceLocatorSection data={data} />
       </ThemeProvider>
     );
-    const input = wrapper.getByLabelText("MC: findARoofer.companyFieldLabel");
+    const input = screen.getByLabelText("MC: findARoofer.companyFieldLabel");
 
-    expect(wrapper.getAllByText("roofer 1")).toHaveLength(1);
-    expect(wrapper.getAllByText("roofer 2")).toHaveLength(1);
+    expect(screen.getAllByText("roofer 1")).toHaveLength(1);
+    expect(screen.getAllByText("roofer 2")).toHaveLength(1);
 
-    act(() => {
-      fireEvent.change(input, { target: { value: "roofer 1" } });
-      fireEvent.keyDown(input, { key: "Enter", code: "Enter" });
-    });
+    fireEvent.change(input, { target: { value: "roofer 1" } });
 
-    expect(wrapper.getAllByText("roofer 1")).toHaveLength(2);
-    expect(wrapper.getAllByText("roofer 2")).toHaveLength(1);
+    expect(screen.getAllByText("roofer 1")).toHaveLength(2);
+    expect(screen.getAllByText("roofer 2")).toHaveLength(1);
   });
 
   it("close button", () => {
@@ -1294,7 +1292,7 @@ describe("ServiceLocatorSection component", () => {
       services: [roofer1, roofer2]
     };
 
-    const wrapper = renderWithRouter(
+    const { baseElement } = renderWithRouter(
       <ThemeProvider>
         <ServiceLocatorSection data={data} />
       </ThemeProvider>
@@ -1303,10 +1301,10 @@ describe("ServiceLocatorSection component", () => {
     act(() => {
       callMarkerOnClick("MC: global.close");
     });
-    const closeButton = wrapper.getByLabelText("MC: global.close");
-    closeButton.click();
+    const closeButton = screen.getByLabelText("MC: global.close");
+    fireEvent.click(closeButton);
 
-    expect(wrapper.container).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 
   describe("when showDefaultResultList is false", () => {
@@ -1339,64 +1337,64 @@ describe("ServiceLocatorSection component", () => {
     };
 
     it("should show result list after searched by name/company", async () => {
-      const { queryByText, container, getAllByText, getByTitle } =
-        renderWithRouter(
-          <ThemeProvider>
-            <ServiceLocatorSection data={data} />
-          </ThemeProvider>
-        );
+      const { baseElement } = renderWithRouter(
+        <ThemeProvider>
+          <ServiceLocatorSection data={data} />
+        </ThemeProvider>
+      );
 
-      expect(queryByText(roofer1.name)).toBeFalsy();
-      expect(queryByText(roofer2.name)).toBeFalsy();
+      expect(screen.queryByText(roofer1.name)).toBeFalsy();
+      expect(screen.queryByText(roofer2.name)).toBeFalsy();
 
-      const input = container.querySelector("#company-autocomplete");
+      // eslint-disable-next-line testing-library/no-node-access -- data-testid can't be set
+      const input = baseElement.querySelector("#company-autocomplete");
 
       fireEvent.change(input, { target: { value: roofer1.name } });
       fireEvent.keyDown(input, { key: "Enter", code: "Enter" });
 
-      expect(getAllByText(roofer1.name)).toHaveLength(1);
-      expect(queryByText(roofer2.name)).toBeFalsy();
+      expect(screen.getAllByText(roofer1.name)).toHaveLength(1);
+      expect(screen.queryByText(roofer2.name)).toBeFalsy();
 
-      const clearButton = getByTitle("Clear");
+      const clearButton = screen.getByTitle("Clear");
 
-      clearButton.click();
+      fireEvent.click(clearButton);
 
-      expect(queryByText(roofer1.name)).toBeTruthy();
-      expect(queryByText(roofer2.name)).toBeTruthy();
+      expect(screen.getByText(roofer1.name)).toBeTruthy();
+      expect(screen.getByText(roofer2.name)).toBeTruthy();
     });
 
-    it("should show result list after filtered by chip filter", () => {
-      const { queryByText, getByRole, getAllByText } = renderWithRouter(
+    it("should show result list after filtered by chip filter", async () => {
+      renderWithRouter(
         <ThemeProvider>
           <ServiceLocatorSection data={data} />
         </ThemeProvider>
       );
 
-      expect(queryByText(roofer1.name)).toBeFalsy();
-      expect(queryByText(roofer2.name)).toBeFalsy();
+      expect(screen.queryByText(roofer1.name)).toBeFalsy();
+      expect(screen.queryByText(roofer2.name)).toBeFalsy();
 
-      const chipButton = getByRole("button", {
+      const chipButton = screen.getByRole("button", {
         name: `${roofer1.serviceTypes[0].name}`
       });
 
-      chipButton.click();
+      fireEvent.click(chipButton);
 
-      expect(getAllByText(roofer1.name)).toHaveLength(1);
-      waitFor(() => expect(queryByText(roofer2.name)).toBeFalsy());
+      expect(screen.getAllByText(roofer1.name)).toHaveLength(1);
+      await waitFor(() => expect(screen.queryByText(roofer2.name)).toBeFalsy());
     });
 
     it("should not render results list panel on page load if selected chips do not exist in query params", () => {
-      const wrapper = renderWithRouter(
+      const { baseElement } = renderWithRouter(
         <ThemeProvider>
           <ServiceLocatorSection data={data} />
         </ThemeProvider>
       );
-      const text = wrapper.queryByText("MC: findARoofer.listLabel");
+      const text = screen.queryByText("MC: findARoofer.listLabel");
       expect(
-        wrapper.container.querySelector(".tabs .tab-panel .list")
-      ).toBeFalsy();
+        screen.queryByTestId("results-list-section")
+      ).not.toBeInTheDocument();
       expect(text).toBeFalsy();
-      expect(wrapper.container).toMatchSnapshot();
+      expect(baseElement).toMatchSnapshot();
     });
   });
 
@@ -1418,16 +1416,16 @@ describe("ServiceLocatorSection component", () => {
         services: null
       };
 
-      const { findByLabelText, container } = renderWithRouter(
+      const { baseElement } = renderWithRouter(
         <ThemeProvider>
           <ServiceLocatorSection data={data} />
         </ThemeProvider>
       );
-      const googleAutoCompleteInput = await findByLabelText(
+      const googleAutoCompleteInput = await screen.findByLabelText(
         "MC: findARoofer.locationFieldLabel"
       );
       expect(googleAutoCompleteInput).toBeDefined();
-      expect(container).toMatchSnapshot();
+      expect(baseElement).toMatchSnapshot();
     });
     it("should execute GoogleAutocomplete onChange event when location changed", async () => {
       const data: serviceLocatorDataType = {
@@ -1458,7 +1456,7 @@ describe("ServiceLocatorSection component", () => {
           })
         ]
       };
-      const { findByRole, container } = renderWithRouter(
+      const { baseElement } = renderWithRouter(
         <ThemeProvider>
           <ServiceLocatorSection data={data} />
         </ThemeProvider>
@@ -1467,19 +1465,17 @@ describe("ServiceLocatorSection component", () => {
       const googleAutoCompleteInput = (await screen.findByRole("combobox", {
         name: "MC: findARoofer.locationFieldLabel"
       })) as HTMLInputElement;
-      act(() => {
-        fireEvent.change(googleAutoCompleteInput, {
-          target: { value: "Lundvegen" }
-        });
+      fireEvent.change(googleAutoCompleteInput, {
+        target: { value: "Lundvegen" }
       });
       await new Promise((r) => setTimeout(r, 2000));
-      const optionList = await findByRole("listbox");
+      const optionList = await screen.findByRole("listbox");
+      // eslint-disable-next-line testing-library/no-node-access
       expect(optionList.childElementCount).toBe(5);
-      act(() => {
-        fireEvent.click(optionList.children[0]);
-      });
+      // eslint-disable-next-line testing-library/no-node-access
+      fireEvent.click(optionList.children[0]);
       expect(googleAutoCompleteInput.value).toBe("Lundvegen, Hamar, Norway");
-      expect(container).toMatchSnapshot();
+      expect(baseElement).toMatchSnapshot();
     });
   });
   it("triggers analytics on selected service with marker click", () => {

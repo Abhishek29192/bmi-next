@@ -17,7 +17,6 @@ import {
 } from "@bmi/pim-types";
 import { Entry } from "contentful";
 import { Request, Response } from "express";
-import mockConsole from "jest-mock-console";
 import { createFullFetchRequest } from "./helpers/fullFetchHelper";
 
 const fetchData = jest.fn();
@@ -61,10 +60,6 @@ const indexIntoES: jest.Mock<Promise<void>, [ContentfulDocument[]]> = jest.fn();
 jest.mock("../elasticsearch", () => ({
   indexIntoES: (documents: ContentfulDocument[]) => indexIntoES(documents)
 }));
-
-beforeAll(() => {
-  mockConsole();
-});
 
 beforeEach(() => {
   process.env.GCP_PROJECT_ID = "TEST_GCP_PROJECT_ID";

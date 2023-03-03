@@ -53,7 +53,7 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
                   aria-controls="tabpanel-one"
                   aria-selected="true"
                   class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                  data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
+                  data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.about","action":"Selector – Tabs"}"
                   data-testid="tab-one"
                   id="tab-one"
                   role="tab"
@@ -96,7 +96,7 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
     <div
       aria-labelledby="tab-one"
       class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
-      data-testid="tabpanel-one"
+      data-testid="tab-panel-lead-block-about"
       heading="MC: sdp.leadBlock.about"
       id="tabpanel-one"
       role="tabpanel"
@@ -112,7 +112,7 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-11fgxps-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-17g67wa-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -180,7 +180,8 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
                   </h6>
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"asset-name\\",\\"action\\":\\"http://localhost:8000/asset-real-file-name.pdf\\"}"
+                    data-gtm="{"id":"cta-click1","label":"asset-name","action":"http://localhost:8000/asset-real-file-name.pdf"}"
+                    data-testid="specification-button"
                     href="http://localhost:8000/asset-real-file-name.pdf"
                     rel="noopener noreferrer"
                     tabindex="0"
@@ -300,7 +301,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                   aria-controls="tabpanel-one"
                   aria-selected="true"
                   class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                  data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
+                  data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.about","action":"Selector – Tabs"}"
                   data-testid="tab-one"
                   id="tab-one"
                   role="tab"
@@ -316,7 +317,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                   aria-controls="tabpanel-two"
                   aria-selected="false"
                   class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                  data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.technicalSpecification\\",\\"action\\":\\"Selector – Tabs\\"}"
+                  data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.technicalSpecification","action":"Selector – Tabs"}"
                   data-testid="tab-two"
                   id="tab-two"
                   role="tab"
@@ -332,7 +333,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                   aria-controls="tabpanel-three"
                   aria-selected="false"
                   class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                  data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.documentsAndDownloads\\",\\"action\\":\\"Selector – Tabs\\"}"
+                  data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.documentsAndDownloads","action":"Selector – Tabs"}"
                   data-testid="tab-three"
                   id="tab-three"
                   role="tab"
@@ -375,7 +376,7 @@ exports[`TabLeadBlock tests should render 1`] = `
     <div
       aria-labelledby="tab-one"
       class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
-      data-testid="tabpanel-one"
+      data-testid="tab-panel-lead-block-about"
       heading="MC: sdp.leadBlock.about"
       id="tabpanel-one"
       role="tabpanel"
@@ -391,7 +392,7 @@ exports[`TabLeadBlock tests should render 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-11fgxps-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-17g67wa-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -459,7 +460,8 @@ exports[`TabLeadBlock tests should render 1`] = `
                   </h6>
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"asset-name\\",\\"action\\":\\"http://localhost:8000/asset-real-file-name.pdf\\"}"
+                    data-gtm="{"id":"cta-click1","label":"asset-name","action":"http://localhost:8000/asset-real-file-name.pdf"}"
+                    data-testid="specification-button"
                     href="http://localhost:8000/asset-real-file-name.pdf"
                     rel="noopener noreferrer"
                     tabindex="0"
@@ -525,7 +527,7 @@ exports[`TabLeadBlock tests should render 1`] = `
     <div
       aria-labelledby="tab-two"
       class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
-      data-testid="tabpanel-two"
+      data-testid="tab-panel-lead-block-technical-specification"
       heading="MC: sdp.leadBlock.technicalSpecification"
       hidden=""
       id="tabpanel-two"
@@ -542,7 +544,7 @@ exports[`TabLeadBlock tests should render 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-oet5y7-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -555,6 +557,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                 >
                   <div
                     class="SystemDetailsTechnicalSpec"
+                    data-testid="technical-specification-classifications-table-wrapper"
                   >
                     <div
                       class="css-ya57aw"
@@ -613,7 +616,7 @@ exports[`TabLeadBlock tests should render 1`] = `
     <div
       aria-labelledby="tab-three"
       class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
-      data-testid="tabpanel-three"
+      data-testid="tab-panel-lead-block-documents-and-downloads"
       heading="MC: sdp.leadBlock.documentsAndDownloads"
       hidden=""
       id="tabpanel-three"
@@ -641,6 +644,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                   >
                     <div
                       class="DocumentSimpleTableResults css-1iwuinm"
+                      data-testid="document-simple-table-results"
                     >
                       <div
                         class="css-ya57aw"
@@ -687,7 +691,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                           >
                             <tr
                               class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
-                              data-test-id="document-table-row-pim-link-document-id"
+                              data-testid="document-table-row-pim-link-document-id"
                             >
                               <td
                                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
@@ -711,7 +715,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                               >
                                 <a
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                                  data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost/pim-link-document-id\\"}"
+                                  data-gtm="{"id":"download1","label":"Download","action":"http://localhost/pim-link-document-id"}"
                                   data-testid="document-table-download-application/pdf-button"
                                   href="http://localhost/pim-link-document-id"
                                   rel="noopener noreferrer"
@@ -808,7 +812,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                             </tr>
                             <tr
                               class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
-                              data-test-id="document-table-row-pim-link-document-id"
+                              data-testid="document-table-row-pim-link-document-id"
                             >
                               <td
                                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
@@ -870,6 +874,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                   </div>
                   <div
                     class="DocumentResultsFooter"
+                    data-testid="document-results-footer"
                   >
                     <a
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
@@ -882,7 +887,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                     </a>
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{\\"id\\":\\"download3-button1\\",\\"label\\":\\"MC: downloadList.download (0)\\",\\"action\\":\\"[]\\"}"
+                      data-gtm="{"id":"download3-button1","label":"MC: downloadList.download (0)","action":"[]"}"
                       data-testid="document-table-download-button"
                       tabindex="0"
                       type="button"
@@ -899,7 +904,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                       This site is protected by reCAPTCHA and the Google 
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-                        data-testid="anchor-link"
+                        data-testid="recaptcha-privacy-policy-link"
                         href="https://policies.google.com/privacy"
                         rel="noreferrer noopener"
                         target="_blank"
@@ -911,7 +916,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                        and 
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-                        data-testid="anchor-link"
+                        data-testid="recaptcha-terms-of-service-link"
                         href="https://policies.google.com/terms"
                         rel="noreferrer noopener"
                         target="_blank"
@@ -938,7 +943,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
 <div
   aria-labelledby="tab-three"
   class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
-  data-testid="tabpanel-three"
+  data-testid="tab-panel-lead-block-documents-and-downloads"
   heading="MC: sdp.leadBlock.documentsAndDownloads"
   hidden=""
   id="tabpanel-three"
@@ -966,6 +971,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
               >
                 <div
                   class="DocumentSimpleTableResults css-1iwuinm"
+                  data-testid="document-simple-table-results"
                 >
                   <div
                     class="css-ya57aw"
@@ -1012,7 +1018,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                       >
                         <tr
                           class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
-                          data-test-id="document-table-row-pim-link-document-id"
+                          data-testid="document-table-row-pim-link-document-id"
                         >
                           <td
                             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
@@ -1036,7 +1042,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                           >
                             <a
                               class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                              data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost/pim-link-document-id\\"}"
+                              data-gtm="{"id":"download1","label":"Download","action":"http://localhost/pim-link-document-id"}"
                               data-testid="document-table-download-application/pdf-button"
                               href="http://localhost/pim-link-document-id"
                               rel="noopener noreferrer"
@@ -1133,7 +1139,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                         </tr>
                         <tr
                           class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
-                          data-test-id="document-table-row-pim-link-document-id"
+                          data-testid="document-table-row-pim-link-document-id"
                         >
                           <td
                             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
@@ -1195,6 +1201,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
               </div>
               <div
                 class="DocumentResultsFooter"
+                data-testid="document-results-footer"
               >
                 <a
                   class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
@@ -1207,7 +1214,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                 </a>
                 <button
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{\\"id\\":\\"download3-button1\\",\\"label\\":\\"MC: downloadList.download (0)\\",\\"action\\":\\"[]\\"}"
+                  data-gtm="{"id":"download3-button1","label":"MC: downloadList.download (0)","action":"[]"}"
                   data-testid="document-table-download-button"
                   tabindex="0"
                   type="button"
@@ -1224,7 +1231,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                   This site is protected by reCAPTCHA and the Google 
                   <a
                     class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-                    data-testid="anchor-link"
+                    data-testid="recaptcha-privacy-policy-link"
                     href="https://policies.google.com/privacy"
                     rel="noreferrer noopener"
                     target="_blank"
@@ -1236,7 +1243,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                    and 
                   <a
                     class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-                    data-testid="anchor-link"
+                    data-testid="recaptcha-terms-of-service-link"
                     href="https://policies.google.com/terms"
                     rel="noreferrer noopener"
                     target="_blank"
@@ -1261,7 +1268,7 @@ exports[`TabLeadBlock tests should render the bimIframe tab 1`] = `
 <div
   aria-labelledby="tab-four"
   class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
-  data-testid="tabpanel-four"
+  data-testid="tab-panel-lead-block-bim"
   heading="MC: sdp.tabs.bim"
   hidden=""
   id="tabpanel-four"
@@ -1281,7 +1288,7 @@ exports[`TabLeadBlock tests should render the bimIframe tab 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-oet5y7-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div

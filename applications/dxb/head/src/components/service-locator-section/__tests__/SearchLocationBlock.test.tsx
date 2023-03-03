@@ -1,5 +1,5 @@
 import { GoogleApi, ThemeProvider } from "@bmi-digital/components";
-import { act, fireEvent, render } from "@testing-library/react";
+import { act, fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import { SearchLocationBlock } from "../components";
 import { googleMock } from "../__mocks__/google";
@@ -8,7 +8,7 @@ afterEach(() => jest.clearAllMocks());
 
 describe("SearchLocationBlock component", () => {
   it("should renders correctly with CircularProgress component if google === undefined", () => {
-    const { getByRole, getByLabelText } = render(
+    render(
       <ThemeProvider>
         <SearchLocationBlock
           autocompleteLabel={"MC: findARoofer.companyFieldLabel"}
@@ -20,11 +20,11 @@ describe("SearchLocationBlock component", () => {
         />
       </ThemeProvider>
     );
-    const autoCompleteField = getByLabelText(
+    const autoCompleteField = screen.getByLabelText(
       "MC: findARoofer.companyFieldLabel"
     );
-    const circularProgress = getByRole("progressbar");
-    const geolocationButton = getByRole("button", {
+    const circularProgress = screen.getByRole("progressbar");
+    const geolocationButton = screen.getByRole("button", {
       name: /MC: findARoofer.geolocationButton/i
     });
     expect(autoCompleteField).toBeInTheDocument();
@@ -34,7 +34,7 @@ describe("SearchLocationBlock component", () => {
   it("should renders autocomplete options list if prop options provided", () => {
     const options = ["test1", "test2", "test3"];
     const testValue = "test2";
-    const { getByRole, getByLabelText } = render(
+    render(
       <ThemeProvider>
         <SearchLocationBlock
           autocompleteLabel={"MC: findARoofer.companyFieldLabel"}
@@ -46,17 +46,18 @@ describe("SearchLocationBlock component", () => {
         />
       </ThemeProvider>
     );
-    const autoCompleteField = getByLabelText(
+    const autoCompleteField = screen.getByLabelText(
       "MC: findARoofer.companyFieldLabel"
     );
     fireEvent.change(autoCompleteField, { target: { value: testValue } });
-    const resultList = getByRole("listbox");
+    const resultList = screen.getByRole("listbox");
+    // eslint-disable-next-line testing-library/no-node-access
     expect(resultList.childElementCount).toEqual(
       options.filter((item) => item === testValue).length
     );
   });
   it("should renders GoogleAutocomplete if google !== undefined", () => {
-    const { getByLabelText } = render(
+    render(
       <ThemeProvider>
         <GoogleApi.Provider value={googleMock}>
           <SearchLocationBlock
@@ -70,7 +71,7 @@ describe("SearchLocationBlock component", () => {
         </GoogleApi.Provider>
       </ThemeProvider>
     );
-    const googleAutoCompleteField = getByLabelText(
+    const googleAutoCompleteField = screen.getByLabelText(
       "MC: findARoofer.locationFieldLabel"
     );
     expect(googleAutoCompleteField).toBeInTheDocument();
@@ -92,7 +93,7 @@ describe("SearchLocationBlock component", () => {
       configurable: true
     });
     const getPosition = jest.fn();
-    const { getByRole } = render(
+    render(
       <ThemeProvider>
         <GoogleApi.Provider value={googleMock}>
           <SearchLocationBlock
@@ -106,7 +107,7 @@ describe("SearchLocationBlock component", () => {
         </GoogleApi.Provider>
       </ThemeProvider>
     );
-    const geolocationButton = getByRole("button", {
+    const geolocationButton = screen.getByRole("button", {
       name: `MC: findARoofer.geolocationButton`
     });
 
@@ -114,7 +115,7 @@ describe("SearchLocationBlock component", () => {
     expect(getPosition).toHaveBeenCalled();
   });
   it("should render autocomplete input with label merchantNameSearchLabel if sectionType === EntryTypeEnum.MERCHANT_TYPE", () => {
-    const { getByLabelText } = render(
+    render(
       <ThemeProvider>
         <SearchLocationBlock
           autocompleteLabel={"MC: findARoofer.merchantNameSearchLabel"}
@@ -126,7 +127,7 @@ describe("SearchLocationBlock component", () => {
         />
       </ThemeProvider>
     );
-    const autoCompleteField = getByLabelText(
+    const autoCompleteField = screen.getByLabelText(
       "MC: findARoofer.merchantNameSearchLabel"
     );
     expect(autoCompleteField).toBeInTheDocument();

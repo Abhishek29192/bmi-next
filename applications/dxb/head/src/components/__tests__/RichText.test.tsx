@@ -1,5 +1,5 @@
 import { ThemeProvider } from "@bmi-digital/components";
-import { render } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { ContentfulRichTextGatsbyReference } from "gatsby-source-contentful/rich-text";
 import React from "react";
 import RichText, { RichTextData } from "../RichText";
@@ -335,7 +335,7 @@ describe("RichText component", () => {
   });
 
   it("renders correctly with gtmLabel", () => {
-    const { container } = render(
+    render(
       <ThemeProvider>
         <RichText gtmLabel="gtmLabelTest" document={document} />
       </ThemeProvider>
@@ -343,35 +343,36 @@ describe("RichText component", () => {
 
     const expectedDataGtm = JSON.stringify({
       id: "cta-click1",
-      label: "gtmLabelTest - External",
-      action: "https://google.co.uk"
+      label: "gtmLabelTest - Open dialog",
+      action: "Dialog"
     });
 
-    const elemsWithGTM = container.querySelectorAll(".Anchorlink");
-    expect(elemsWithGTM[0].getAttribute("data-gtm")).toEqual(expectedDataGtm);
+    expect(
+      screen.getByTestId("rich-text-entry-hyperlink").getAttribute("data-gtm")
+    ).toEqual(expectedDataGtm);
   });
 
   it("renders when dialog clicked", () => {
-    const { container, getByText } = render(
+    const { container } = render(
       <ThemeProvider>
         <RichText document={document} />
       </ThemeProvider>
     );
-    const openDialogButton = getByText("Open dialog");
-    openDialogButton.click();
+    const openDialogButton = screen.getByText("Open dialog");
+    fireEvent.click(openDialogButton);
     expect(container).toMatchSnapshot();
   });
 
   it("closes dialog", () => {
-    const { container, getByText, getByRole } = render(
+    const { container } = render(
       <ThemeProvider>
         <RichText document={document} />
       </ThemeProvider>
     );
-    const openDialogButton = getByText("Open dialog");
-    openDialogButton.click();
-    const closeDialogButton = getByRole("button", { name: "Close" });
-    closeDialogButton.click();
+    const openDialogButton = screen.getByText("Open dialog");
+    fireEvent.click(openDialogButton);
+    const closeDialogButton = screen.getByRole("button", { name: "Close" });
+    fireEvent.click(closeDialogButton);
     expect(container).toMatchSnapshot();
   });
 

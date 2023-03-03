@@ -1,9 +1,9 @@
-import type Migration from "contentful-migration";
-import type { MigrationFunction } from "contentful-migration";
 import {
   internalName,
   optionalTitle
 } from "../../variables/helpText/20210421160910";
+import type Migration from "contentful-migration";
+import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Add required name field";
 

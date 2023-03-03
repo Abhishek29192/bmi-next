@@ -82,6 +82,7 @@ const SitemapBlock = ({ links, label, level = 0 }: Props) => {
                   null,
                   label
                 )}
+                data-testid={"sitemap-link"}
               >
                 {label}
               </AnchorLink>

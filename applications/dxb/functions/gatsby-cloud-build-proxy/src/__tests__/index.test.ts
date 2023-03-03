@@ -6,7 +6,6 @@ import {
 import { ClientAPI, Environment, Space } from "contentful-management";
 import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
-import mockConsole from "jest-mock-console";
 import * as mockContentfulWebhook from "./resources/contentfulWebhook.json";
 
 const getAsset = jest.fn().mockReturnValue(mockContentfulWebhook);
@@ -54,7 +53,6 @@ const build = async (req: Partial<Request>, res: Partial<Response>) =>
 describe("Error responses", () => {
   beforeEach(() => {
     fetchMock.mockReset();
-    mockConsole();
   });
   it("Return error, when preivew is set but preview build webhooks are not set", async () => {
     const previewBuildWebhooks = process.env.PREVIEW_BUILD_WEBHOOKS;
@@ -301,7 +299,6 @@ describe("Error responses", () => {
 describe("Making an OPTIONS request", () => {
   beforeEach(() => {
     fetchMock.mockReset();
-    mockConsole();
   });
 
   it("Sends CORS headers", async () => {
@@ -340,7 +337,6 @@ describe("Making an OPTIONS request", () => {
 describe("Making a POST request", () => {
   beforeEach(() => {
     fetchMock.mockReset();
-    mockConsole();
   });
 
   it("Sends 204 if preview and request body is empty", async () => {

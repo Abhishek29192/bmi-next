@@ -120,7 +120,13 @@ export const Head = ({
         type="font/woff2"
         crossOrigin="anonymous"
       />
-      {imageUrl && <meta property="og:image" content={imageUrl} />}
+      {imageUrl && (
+        <meta
+          property="og:image"
+          content={imageUrl}
+          data-testid={"meta-og-image"}
+        />
+      )}
 
       {seo?.noIndex && <meta name="robots" content="noindex, nofollow" />}
 
@@ -130,7 +136,11 @@ export const Head = ({
         content="width=device-width, initial-scale=1.0, viewport-fit=cover"
       />
       {seo?.metaDescription && (
-        <meta name="description" content={seo.metaDescription} />
+        <meta
+          name="description"
+          content={seo.metaDescription}
+          data-testid={"meta-description"}
+        />
       )}
 
       {isScriptOnetrustEnabled && (

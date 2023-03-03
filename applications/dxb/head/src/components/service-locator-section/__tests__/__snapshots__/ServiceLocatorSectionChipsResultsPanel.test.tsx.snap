@@ -19,7 +19,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-vvjsjl-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -27,14 +27,14 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
             data-testid="grid-item"
           >
             <div
-              class="MuiAutocomplete-root company-autocomplete css-1qqsdnr-MuiAutocomplete-root"
+              class="MuiAutocomplete-root company-autocomplete css-l3ln04-MuiAutocomplete-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
                 data-testid="text-field-company-autocomplete"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-taxj8h-MuiFormLabel-root-MuiInputLabel-root"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="true"
                   for="company-autocomplete"
                   id="company-autocomplete-label"
@@ -163,7 +163,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                 </h6>
                 <div
                   class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-gtm="{"id":"selector-cards1","label":"Flat Roof","action":"Selector - Cards Filter"}"
                   data-testid="service-locator-chip-Flat-Roof"
                   role="button"
                   tabindex="0"
@@ -179,7 +179,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                 </div>
                 <div
                   class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorPrimary MuiChip-clickable MuiChip-clickableColorPrimary MuiChip-filledPrimary  css-1qhn9w6-MuiButtonBase-root-MuiChip-root"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Pitched Roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-gtm="{"id":"selector-cards1","label":"Pitched Roof","action":"Selector - Cards Filter"}"
                   data-testid="service-locator-chip-Pitched-Roof"
                   role="button"
                   tabindex="0"
@@ -195,7 +195,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                 </div>
                 <div
                   class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof 1\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-gtm="{"id":"selector-cards1","label":"Flat Roof 1","action":"Selector - Cards Filter"}"
                   data-testid="service-locator-chip-Flat-Roof-1"
                   role="button"
                   tabindex="0"
@@ -211,7 +211,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                 </div>
                 <div
                   class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Pitched Roof 2\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-gtm="{"id":"selector-cards1","label":"Pitched Roof 2","action":"Selector - Cards Filter"}"
                   data-testid="service-locator-chip-Pitched-Roof-2"
                   role="button"
                   tabindex="0"
@@ -304,19 +304,24 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
           >
             <div
               class=""
+              data-testid="results-list-section"
             >
               <div
                 class="list"
               >
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
-                  data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-gtm="{"id":"selector-cards6","label":"roofer 1 - address 1 - Roofer - selected","action":"Expanded company details"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="css-c9b8pn"
                     data-testid="linkCard-item"
                   >
+                    <img
+                      class="company-logo"
+                      style="object-fit: cover; object-position: center;"
+                    />
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom  css-1vyiy8g-MuiTypography-root"
                       data-testid="typography"

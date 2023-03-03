@@ -431,9 +431,7 @@ describe("PitchedRoofCalculatorSteps component", () => {
       </MicroCopy.Provider>
     );
 
-    const { rerender, debug } = render(getComponent(selected));
-
-    debug();
+    const { rerender } = render(getComponent(selected));
 
     expect(renderedStep).toBe(CalculatorSteps.SelectRoof);
 

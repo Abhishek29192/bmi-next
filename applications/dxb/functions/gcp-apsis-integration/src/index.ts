@@ -1,8 +1,8 @@
 import { escape } from "querystring";
 import logger from "@bmi-digital/functions-logger";
 import { verifyRecaptchaToken } from "@bmi/functions-recaptcha";
-import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import fetch from "node-fetch";
+import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 
 type RequestRedirect = "error" | "follow" | "manual";
 

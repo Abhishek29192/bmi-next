@@ -1,4 +1,10 @@
-import { Chip, ChipProps, Grid, Typography } from "@bmi-digital/components";
+import {
+  Chip,
+  ChipProps,
+  Grid,
+  replaceSpaces,
+  Typography
+} from "@bmi-digital/components";
 import React from "react";
 import withGTM from "../../../utils/google-tag-manager";
 import { ServiceTypeFilter, ServiceTypesPrefixesEnum } from "../../Service";
@@ -42,9 +48,8 @@ export const ServiceLocatorChips = ({
                   label: serviceType.name,
                   action: "Selector - Cards Filter"
                 }}
-                data-testid={`service-locator-chip-${serviceType.name.replace(
-                  / /g,
-                  "-"
+                data-testid={`service-locator-chip-${replaceSpaces(
+                  serviceType.name
                 )}`}
               >
                 {serviceType.name}

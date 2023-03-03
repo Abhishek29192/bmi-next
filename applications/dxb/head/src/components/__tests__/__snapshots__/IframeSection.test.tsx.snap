@@ -34,6 +34,7 @@ exports[`IframeSection component renders correctly 1`] = `
         </div>
         <iframe
           class="iFrame"
+          data-testid="iframe-section-iFrame-Section-iframe"
           height="450px"
           src="https://google.co.uk"
           title="iFrame Section"

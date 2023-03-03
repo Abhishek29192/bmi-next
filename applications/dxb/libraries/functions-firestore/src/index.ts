@@ -1,3 +1,4 @@
+import { getFirestore } from "./firestore";
 import type {
   DocumentData,
   Firestore,
@@ -5,7 +6,6 @@ import type {
   DocumentReference,
   CollectionReference
 } from "firebase-admin/firestore";
-import { getFirestore } from "./firestore";
 
 export {
   getFirestore,

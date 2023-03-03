@@ -26,6 +26,7 @@ const RecaptchaPrivacyLinks = (props: Props) => {
           }}
           target="_blank"
           rel="noreferrer noopener"
+          data-testid={"recaptcha-privacy-policy-link"}
         >
           {recaptchaContent.privacyPloicyText}
         </AnchorLink>
@@ -37,6 +38,7 @@ const RecaptchaPrivacyLinks = (props: Props) => {
           }}
           target="_blank"
           rel="noreferrer noopener"
+          data-testid={"recaptcha-terms-of-service-link"}
         >
           {recaptchaContent.termsOfServiceText}
         </AnchorLink>

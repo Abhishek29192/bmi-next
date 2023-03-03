@@ -24,11 +24,17 @@ type Props = {
   node: Inline;
   children: React.ReactNode;
   gtmLabel?: React.ReactNode;
+  "data-testid"?: string;
 };
 
 const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
 
-const InlineHyperlink = ({ node, children, gtmLabel }: Props) => {
+const InlineHyperlink = ({
+  node,
+  children,
+  gtmLabel,
+  "data-testid": dataTestId
+}: Props) => {
   const { countryCode } = useSiteContext();
   const { open: openVisualiser } = useContext(VisualiserContext);
   const { open: openCalculator } = useContext(CalculatorContext);
@@ -80,6 +86,7 @@ const InlineHyperlink = ({ node, children, gtmLabel }: Props) => {
           type === "Dialog"
             ? { component: "button" }
             : {})}
+          data-testid={dataTestId}
         >
           {children}
         </GTMAnchorLink>

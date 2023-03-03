@@ -1,7 +1,13 @@
 {
   "metadata": {
     "tags": [
-      { "sys": { "id": "market__uk", "type": "Link", "linkType": "Tag" } }
+      {
+        "sys": {
+          "id": "market__uk",
+          "type": "Link",
+          "linkType": "Tag"
+        }
+      }
     ]
   },
   "sys": {
@@ -45,7 +51,8 @@
         "linkType": "ContentType",
         "id": "roofer"
       }
-    }
+    },
+    "automationTags": []
   },
   "fields": {
     "name": {

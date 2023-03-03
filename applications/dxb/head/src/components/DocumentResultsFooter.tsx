@@ -176,7 +176,10 @@ const DocumentResultsFooter = ({
   const displayPagination = count > 1;
 
   return (
-    <div className={styles["DocumentResultsFooter"]}>
+    <div
+      className={styles["DocumentResultsFooter"]}
+      data-testid="document-results-footer"
+    >
       {displayPagination && (
         <StyledPagination
           page={page}

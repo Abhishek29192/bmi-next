@@ -22,7 +22,7 @@ import { Data as PageInfoData } from "./PageInfo";
 import { CalculatorContext } from "./PitchedRoofCalcualtor";
 import { useSiteContext } from "./Site";
 import styles from "./styles/CarouselSection.module.scss";
-import { renderVideo } from "./Video";
+import Video from "./Video";
 import { VisualiserContext } from "./Visualiser";
 
 type Slide = PromoData | PageInfoData;
@@ -58,12 +58,11 @@ const parseSlides = (
     ) : undefined;
     return {
       title,
-      // eslint-disable-next-line security/detect-object-injection
       brandIcon: brandLogoIcons,
       media: featuredVideo ? (
-        renderVideo(featuredVideo)
+        <Video {...featuredVideo} />
       ) : (
-        <Image data={featuredMedia} />
+        <Image {...featuredMedia} />
       ),
       description: subtitle || undefined,
       cta

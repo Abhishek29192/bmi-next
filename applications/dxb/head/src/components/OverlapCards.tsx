@@ -9,7 +9,7 @@ import { Data as PageInfoData } from "./PageInfo";
 import { Data as PromoData } from "./Promo";
 import { useSiteContext } from "./Site";
 import styles from "./styles/OverlapCards.module.scss";
-import { renderVideo } from "./Video";
+import Video from "./Video";
 
 type Card =
   | Pick<
@@ -30,7 +30,7 @@ const IntegratedOverlapCards = ({ data }: { data?: Data }) => {
   const GTMButton = withGTM<ButtonBaseProps>(ButtonBase, { action: "to" });
 
   return (
-    <div className={styles["OverlapCards"]}>
+    <div className={styles["OverlapCards"]} data-testid="overlap-cards-wrapper">
       <Container>
         <Grid spacing={3} container justifyContent="center">
           {data.map(({ title, featuredMedia, featuredVideo, ...rest }, key) => {
@@ -50,13 +50,14 @@ const IntegratedOverlapCards = ({ data }: { data?: Data }) => {
                   )}
                   media={
                     featuredVideo ? (
-                      renderVideo(featuredVideo)
+                      <Video {...featuredVideo} />
                     ) : (
-                      <Image data={featuredMedia} />
+                      <Image {...featuredMedia} />
                     )
                   }
                   clickableArea={featuredVideo ? "heading" : "full"}
                   action={cta?.action}
+                  data-testid="overlap-card"
                 />
               </Grid>
             );

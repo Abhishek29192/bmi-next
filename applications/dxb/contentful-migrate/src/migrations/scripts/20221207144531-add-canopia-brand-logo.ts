@@ -1,5 +1,3 @@
-import type Migration from "contentful-migration";
-import type { MigrationFunction } from "contentful-migration";
 import prevDocumentBrands from "../../variables/icons/20210512134828";
 import { brands as prevBrandIcons } from "../../variables/icons/20210803135831";
 import prevLinkIcons, {
@@ -10,6 +8,8 @@ import {
   doumentBrands,
   linkIcons
 } from "../../variables/icons/20221208120944";
+import type { MigrationFunction } from "contentful-migration";
+import type Migration from "contentful-migration";
 
 export const description = "Add Canopia brand for all pages";
 

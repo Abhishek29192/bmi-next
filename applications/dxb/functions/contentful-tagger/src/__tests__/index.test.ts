@@ -8,7 +8,6 @@ import {
   Space
 } from "contentful-management";
 import { Request, Response } from "express";
-import mockConsole from "jest-mock-console";
 import SampleAssetWebhook from "./resources/contentfulWebhook_asset.json";
 import SampleEntryWebhook from "./resources/contentfulWebhook_entry.json";
 import SampleContentfulAsset from "./resources/sample_asset.json";
@@ -78,10 +77,6 @@ jest.mock("@bmi/cms-consolidation-utility", () => {
   return {
     tagEntity
   };
-});
-
-beforeEach(() => {
-  mockConsole();
 });
 
 describe("Tag", () => {

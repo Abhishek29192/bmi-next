@@ -7,7 +7,6 @@ import {
 } from "@bmi-digital/fetch-mocks";
 import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
-import mockConsole from "jest-mock-console";
 
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
@@ -62,10 +61,6 @@ const optInEmailMarketing = async (
     request as Request,
     response as Response
   );
-
-beforeAll(() => {
-  mockConsole();
-});
 
 beforeEach(() => {
   jest.clearAllMocks();

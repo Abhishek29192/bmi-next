@@ -1,5 +1,5 @@
 import { MediaGallery, ThemeProvider } from "@bmi-digital/components";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { Link } from "gatsby";
 import React from "react";
 import createClassification, {
@@ -1685,12 +1685,12 @@ describe("product-details-transforms tests", () => {
           }
         ]);
 
-        const wrapper = render(
+        render(
           <ThemeProvider>
             <MediaGallery media={[...result]} />
           </ThemeProvider>
         );
-        const linkResult = wrapper.container.querySelectorAll("img");
+        const linkResult = screen.getAllByRole("img");
         expect(linkResult).toHaveLength(1);
         expect(linkResult[0].getAttribute("src")).toEqual(imgMainSource);
         //unmount();
@@ -1712,12 +1712,12 @@ describe("product-details-transforms tests", () => {
             altText: "alt text 2"
           }
         ]);
-        const wrapper = render(
+        render(
           <ThemeProvider>
             <MediaGallery media={[...result]} />
           </ThemeProvider>
         );
-        const linkResult = wrapper.container.querySelectorAll("img");
+        const linkResult = screen.getAllByRole("img");
         expect(linkResult).toHaveLength(3);
         expect(linkResult[0].getAttribute("src")).toEqual(imgMainSource);
         expect(linkResult[1].getAttribute("src")).toEqual(imgMainSource);
