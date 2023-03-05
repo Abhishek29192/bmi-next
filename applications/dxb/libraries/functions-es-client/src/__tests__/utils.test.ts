@@ -1,11 +1,6 @@
 import { ApiResponse, Client } from "@elastic/elasticsearch";
 import { BulkApiResponse } from "../types";
-import {
-  getChunks,
-  getDeleteOperation,
-  getIndexOperation,
-  performBulkOperations
-} from "../utils";
+import { getChunks, getIndexOperation, performBulkOperations } from "../utils";
 
 const bulk = jest.fn();
 const client = {
@@ -40,21 +35,8 @@ describe("getChunks", () => {
 describe("getIndexOperation", () => {
   it("should return a tuple for indexing", () => {
     const item = { id: "id", some: "value" };
-    const indexOperation = getIndexOperation("index-name", item, item.id);
-    expect(indexOperation).toEqual([
-      { index: { _index: "index-name", _id: item.id } },
-      item
-    ]);
-  });
-});
-
-describe("getDeleteOperation", () => {
-  it("should return a single value array for deleting", () => {
-    const item = { id: "id", some: "value" };
-    const indexOperation = getDeleteOperation("index-name", item.id);
-    expect(indexOperation).toEqual([
-      { delete: { _index: "index-name", _id: item.id } }
-    ]);
+    const indexOperation = getIndexOperation(item, item.id);
+    expect(indexOperation).toEqual([{ index: { _id: item.id } }, item]);
   });
 });
 

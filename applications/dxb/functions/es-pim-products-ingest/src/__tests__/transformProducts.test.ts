@@ -534,6 +534,99 @@ describe("transformProduct", () => {
   });
 
   describe("original transform tests", () => {
+    describe("approval status scenarios", () => {
+      it("should transform full product if both base and varaint approval statuses are approved", async () => {
+        const product = createPimProduct({
+          approvalStatus: "approved",
+          variantOptions: [
+            createVariantOption({
+              approvalStatus: "approved"
+            })
+          ]
+        });
+        const transformedProduct = await transformProduct(product);
+        expect(transformedProduct[0]["approvalStatus"]).toEqual("approved");
+      });
+
+      it("should not transform a full product if the base product's approval status is discontinued, even if the varaint is approved", async () => {
+        const product = createPimProduct({
+          approvalStatus: "discontinued",
+          variantOptions: [
+            createVariantOption({
+              approvalStatus: "approved"
+            })
+          ]
+        });
+        const transformedProduct = await transformProduct(product);
+        expect(transformedProduct).toEqual([]);
+      });
+
+      it("should not transform a full product if the base product's approval status is unapproved, even if the varaint is approved", async () => {
+        const product = createPimProduct({
+          approvalStatus: "unapproved",
+          variantOptions: [
+            createVariantOption({
+              approvalStatus: "approved"
+            })
+          ]
+        });
+        const transformedProduct = await transformProduct(product);
+        expect(transformedProduct).toEqual([]);
+      });
+
+      it("should not transform a full product if the base product's approval status is check, even if the varaint is approved", async () => {
+        const product = createPimProduct({
+          approvalStatus: "check",
+          variantOptions: [
+            createVariantOption({
+              approvalStatus: "approved"
+            })
+          ]
+        });
+        const transformedProduct = await transformProduct(product);
+        expect(transformedProduct).toEqual([]);
+      });
+
+      it("should not transform a full product if the variant's approval status is discontinued, even if the base is approved", async () => {
+        const product = createPimProduct({
+          approvalStatus: "approved",
+          variantOptions: [
+            createVariantOption({
+              approvalStatus: "discontinued"
+            })
+          ]
+        });
+        const transformedProduct = await transformProduct(product);
+        expect(transformedProduct).toEqual([]);
+      });
+
+      it("should not transform a full product if the variant's approval status is unapproved, even if the base is approved", async () => {
+        const product = createPimProduct({
+          approvalStatus: "approved",
+          variantOptions: [
+            createVariantOption({
+              approvalStatus: "unapproved"
+            })
+          ]
+        });
+        const transformedProduct = await transformProduct(product);
+        expect(transformedProduct).toEqual([]);
+      });
+
+      it("should not transform a full product if the variant's approval status is check, even if the base is approved", async () => {
+        const product = createPimProduct({
+          approvalStatus: "approved",
+          variantOptions: [
+            createVariantOption({
+              approvalStatus: "check"
+            })
+          ]
+        });
+        const transformedProduct = await transformProduct(product);
+        expect(transformedProduct).toEqual([]);
+      });
+    });
+
     it("should transform full product with single variant to a single ES product", async () => {
       const product = createPimProduct();
 
@@ -858,21 +951,6 @@ describe("transformProduct", () => {
         )
       );
       expect(actualGeneralInformation).toEqual(expectedGeneralInformation);
-    });
-
-    it("should override product approvalStatus with variant", async () => {
-      const product = createPimProduct({
-        variantOptions: [
-          createVariantOption({
-            approvalStatus: "unapproved"
-          })
-        ]
-      });
-      const actualApprovalStatus = (await transformProduct(product))[0]
-        .approvalStatus;
-      const expectedApprovalStatus = product.variantOptions![0].approvalStatus;
-      expect(expectedApprovalStatus).not.toEqual(product.approvalStatus);
-      expect(actualApprovalStatus).toEqual(expectedApprovalStatus);
     });
 
     it("should handle no classifications", async () => {
@@ -1349,7 +1427,7 @@ describe("transformProduct", () => {
       ],
       variantOptions: [
         createVariantOption({
-          approvalStatus: "unapproved",
+          approvalStatus: "approved",
           productReferences: [
             {
               referenceType: "CLIP",
@@ -1389,7 +1467,7 @@ describe("transformProduct", () => {
       productReferences: undefined,
       variantOptions: [
         createVariantOption({
-          approvalStatus: "unapproved",
+          approvalStatus: "approved",
           productReferences: [
             {
               referenceType: "CLIP",
@@ -1430,7 +1508,7 @@ describe("transformProduct", () => {
       ],
       variantOptions: [
         createVariantOption({
-          approvalStatus: "unapproved",
+          approvalStatus: "approved",
           productReferences: undefined
         })
       ]
@@ -1462,7 +1540,7 @@ describe("transformProduct", () => {
       ],
       variantOptions: [
         createVariantOption({
-          approvalStatus: "unapproved",
+          approvalStatus: "approved",
           productReferences: [
             {
               referenceType: "CLIP",
@@ -1497,7 +1575,7 @@ describe("transformProduct", () => {
       productReferences: undefined,
       variantOptions: [
         createVariantOption({
-          approvalStatus: "unapproved",
+          approvalStatus: "approved",
           productReferences: undefined
         })
       ]

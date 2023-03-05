@@ -29,16 +29,8 @@ export type BulkApiResponse = {
   };
 };
 
-export type DeleteOperation = {
-  delete: {
-    _index: string;
-    _id: string;
-  };
-};
-
 export type IndexOperation = {
   index: {
-    _index: string;
     _id: string;
   };
 };

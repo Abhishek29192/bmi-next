@@ -130,7 +130,7 @@ const combineVariantClassifications = (
 };
 
 export const transformProduct = (product: PIMProduct): ESProduct[] => {
-  if (!product.name) {
+  if (!product.name || product.approvalStatus !== "approved") {
     return [];
   }
 
@@ -145,174 +145,176 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
   logger.info({
     message: `allCategoriesAsProps: ${JSON.stringify(allCategoriesAsProps)}`
   });
-  return (product.variantOptions || []).map((variant) => {
-    const combinedClassifications = combineVariantClassifications(
-      product,
-      variant
-    );
-    logger.info({
-      message: `combinedClassifications: ${JSON.stringify(
-        combinedClassifications
-      )}`
-    });
-    const indexedFeatures = indexFeatures(
-      PIM_CLASSIFICATION_CATALOGUE_NAMESPACE,
-      combinedClassifications
-    );
-
-    // combined classifications does not override 'vairant' 'scoringWeightAttributes'
-    // hence this is 'product' `scoringWeightAttributes` classification
-    const scoringWeight =
-      combinedClassifications.find(
-        ({ code }) => code === "scoringWeightAttributes"
-      )?.features?.[0]?.featureValues?.[0]?.value || "0";
-
-    const variantScoringWeight =
-      (variant.classifications || []).find(
-        ({ code }) => code === "scoringWeightAttributes"
-      )?.features?.[0]?.featureValues?.[0]?.value || "0";
-
-    const baseAttributes = pick(
-      { ...product, ...variant },
-      "approvalStatus",
-      "externalProductCode",
-      "code",
-      "isSampleOrderAllowed",
-      "summary",
-      "description",
-      "longDescription",
-      "shortDescription",
-      "productBenefits",
-      "visualiserAssets"
-    );
-
-    let measurementValue: string;
-
-    const measurementsClassification =
-      mappedClassifications[variant.code]?.measurements;
-    if (measurementsClassification) {
-      measurementValue = getSizeLabel(
-        measurementsClassification as TransformedMeasurementValue
+  return (product.variantOptions || [])
+    .filter((variant) => variant.approvalStatus === "approved")
+    .map((variant) => {
+      const combinedClassifications = combineVariantClassifications(
+        product,
+        variant
       );
-    } else {
-      measurementValue = "";
-    }
-    logger.info({
-      message: `measurementsClassification: ${JSON.stringify(
-        measurementsClassification
-      )}`
-    });
-    const colorTextureSubtitle: string = generateSubtitleValues(
-      combinedClassifications
-    );
-    const subTitle: string =
-      colorTextureSubtitle.length === 0
-        ? measurementValue
-        : colorTextureSubtitle;
+      logger.info({
+        message: `combinedClassifications: ${JSON.stringify(
+          combinedClassifications
+        )}`
+      });
+      const indexedFeatures = indexFeatures(
+        PIM_CLASSIFICATION_CATALOGUE_NAMESPACE,
+        combinedClassifications
+      );
 
-    const baseProduct: BaseProduct = {
-      code: product.code,
-      name: product.name
-    };
+      // combined classifications does not override 'vairant' 'scoringWeightAttributes'
+      // hence this is 'product' `scoringWeightAttributes` classification
+      const scoringWeight =
+        combinedClassifications.find(
+          ({ code }) => code === "scoringWeightAttributes"
+        )?.features?.[0]?.featureValues?.[0]?.value || "0";
 
-    const name = product.name!;
+      const variantScoringWeight =
+        (variant.classifications || []).find(
+          ({ code }) => code === "scoringWeightAttributes"
+        )?.features?.[0]?.featureValues?.[0]?.value || "0";
 
-    const keywords = Array.from(
-      new Set([...(product?.keywords ?? []), ...(variant?.keywords ?? [])])
-    );
+      const baseAttributes = pick(
+        { ...product, ...variant },
+        "externalProductCode",
+        "code",
+        "isSampleOrderAllowed",
+        "summary",
+        "description",
+        "longDescription",
+        "shortDescription",
+        "productBenefits",
+        "visualiserAssets"
+      );
 
-    logger.info({
-      message: `product keywords: ${JSON.stringify(keywords)}`
-    });
+      let measurementValue: string;
 
-    const esProduct: ESProduct = {
-      ...indexedFeatures,
-      ...allCategoriesAsProps,
-      ...baseAttributes,
-      name,
-      externalProductCode: baseAttributes.externalProductCode || "",
-      isSampleOrderAllowed: baseAttributes.isSampleOrderAllowed || false,
-      code: variant.code,
-      baseProduct: { ...baseProduct },
-      brandCode: findProductBrandLogoCode(product),
-      // TODO: Perhaps we're only interested in specific images?
-      images: [...(variant.images || []), ...(product.images || [])],
-      // All cats, PLP could be by any type of cat, Brand and ProductFamily cats here are important
-      allCategories: product.categories
-        ? product.categories.map((cat) => ({
-            code: cat.code,
-            parentCategoryCode: cat.parentCategoryCode || ""
-          }))
-        : [],
-      classifications: combinedClassifications,
-      measurementValue,
-      productScoringWeightInt:
-        scoringWeight && Number.isFinite(Number.parseInt(scoringWeight))
-          ? Number.parseInt(scoringWeight)
-          : 0,
-      variantScoringWeightInt:
-        variantScoringWeight &&
-        Number.isFinite(Number.parseInt(variantScoringWeight))
-          ? Number.parseInt(variantScoringWeight)
-          : 0,
-      totalVariantCount: product.variantOptions!.length,
-      mainImage: findMainImage([
-        ...(variant.images || []),
-        ...(product.images || [])
-      ]),
-      productReferences: combineProductReferences(product, variant),
-      path: `/p/${generateProductUrl(
+      const measurementsClassification =
+        mappedClassifications[variant.code]?.measurements;
+      if (measurementsClassification) {
+        measurementValue = getSizeLabel(
+          measurementsClassification as TransformedMeasurementValue
+        );
+      } else {
+        measurementValue = "";
+      }
+      logger.info({
+        message: `measurementsClassification: ${JSON.stringify(
+          measurementsClassification
+        )}`
+      });
+      const colorTextureSubtitle: string = generateSubtitleValues(
+        combinedClassifications
+      );
+      const subTitle: string =
+        colorTextureSubtitle.length === 0
+          ? measurementValue
+          : colorTextureSubtitle;
+
+      const baseProduct: BaseProduct = {
+        code: product.code,
+        name: product.name
+      };
+
+      const name = product.name!;
+
+      const keywords = Array.from(
+        new Set([...(product?.keywords ?? []), ...(variant?.keywords ?? [])])
+      );
+
+      logger.info({
+        message: `product keywords: ${JSON.stringify(keywords)}`
+      });
+
+      const esProduct: ESProduct = {
+        ...indexedFeatures,
+        ...allCategoriesAsProps,
+        ...baseAttributes,
+        approvalStatus: product.approvalStatus,
         name,
-        generateHashFromString(variant.code, false),
-        combinedClassifications
-          .find(
-            (classification) => classification.code === "appearanceAttributes"
-          )
-          ?.features?.find(
-            (feature) =>
-              //TODO: DXB-3449 - remove `toUpperCase` when case agnostic to be reverted!
-              feature.code.split("/").pop()!.toUpperCase() ===
-              "appearanceAttributes.colour".toUpperCase()
-          )?.featureValues[0].value,
-        combinedClassifications
-          .find(
-            (classification) => classification.code === "generalInformation"
-          )
-          ?.features?.find(
-            (feature) =>
-              //TODO: DXB-3449 - remove `toUpperCase` when case agnostic to be reverted!
-              feature.code.split("/").pop()!.toUpperCase() ===
-              "generalInformation.materials".toUpperCase()
-          )?.featureValues[0].value,
-        combinedClassifications
-          .find(
-            (classification) => classification.code === "appearanceAttributes"
-          )
-          ?.features?.find(
-            (feature) =>
-              //TODO: DXB-3449 - remove `toUpperCase` when case agnostic to be reverted!
-              feature.code.split("/").pop()!.toUpperCase() ===
-              "appearanceAttributes.texturefamily".toUpperCase()
-          )?.featureValues[0].value,
-        combinedClassifications
-          .find(
-            (classification) => classification.code === "appearanceAttributes"
-          )
-          ?.features?.find(
-            (feature) =>
-              //TODO: DXB-3449 - remove `toUpperCase` when case agnostic to be reverted!
-              feature.code.split("/").pop()!.toUpperCase() ===
-              "appearanceAttributes.variantattribute".toUpperCase()
-          )?.featureValues[0].value
-      )}`,
-      subTitle,
-      ...(keywords.length && { keywords: keywords })
-    };
-    logger.info({
-      message: `esProduct: ${JSON.stringify(esProduct)}`
+        externalProductCode: baseAttributes.externalProductCode || "",
+        isSampleOrderAllowed: baseAttributes.isSampleOrderAllowed || false,
+        code: variant.code,
+        baseProduct: { ...baseProduct },
+        brandCode: findProductBrandLogoCode(product),
+        // TODO: Perhaps we're only interested in specific images?
+        images: [...(variant.images || []), ...(product.images || [])],
+        // All cats, PLP could be by any type of cat, Brand and ProductFamily cats here are important
+        allCategories: product.categories
+          ? product.categories.map((cat) => ({
+              code: cat.code,
+              parentCategoryCode: cat.parentCategoryCode || ""
+            }))
+          : [],
+        classifications: combinedClassifications,
+        measurementValue,
+        productScoringWeightInt:
+          scoringWeight && Number.isFinite(Number.parseInt(scoringWeight))
+            ? Number.parseInt(scoringWeight)
+            : 0,
+        variantScoringWeightInt:
+          variantScoringWeight &&
+          Number.isFinite(Number.parseInt(variantScoringWeight))
+            ? Number.parseInt(variantScoringWeight)
+            : 0,
+        totalVariantCount: product.variantOptions!.length,
+        mainImage: findMainImage([
+          ...(variant.images || []),
+          ...(product.images || [])
+        ]),
+        productReferences: combineProductReferences(product, variant),
+        path: `/p/${generateProductUrl(
+          name,
+          generateHashFromString(variant.code, false),
+          combinedClassifications
+            .find(
+              (classification) => classification.code === "appearanceAttributes"
+            )
+            ?.features?.find(
+              (feature) =>
+                //TODO: DXB-3449 - remove `toUpperCase` when case agnostic to be reverted!
+                feature.code.split("/").pop()!.toUpperCase() ===
+                "appearanceAttributes.colour".toUpperCase()
+            )?.featureValues[0].value,
+          combinedClassifications
+            .find(
+              (classification) => classification.code === "generalInformation"
+            )
+            ?.features?.find(
+              (feature) =>
+                //TODO: DXB-3449 - remove `toUpperCase` when case agnostic to be reverted!
+                feature.code.split("/").pop()!.toUpperCase() ===
+                "generalInformation.materials".toUpperCase()
+            )?.featureValues[0].value,
+          combinedClassifications
+            .find(
+              (classification) => classification.code === "appearanceAttributes"
+            )
+            ?.features?.find(
+              (feature) =>
+                //TODO: DXB-3449 - remove `toUpperCase` when case agnostic to be reverted!
+                feature.code.split("/").pop()!.toUpperCase() ===
+                "appearanceAttributes.texturefamily".toUpperCase()
+            )?.featureValues[0].value,
+          combinedClassifications
+            .find(
+              (classification) => classification.code === "appearanceAttributes"
+            )
+            ?.features?.find(
+              (feature) =>
+                //TODO: DXB-3449 - remove `toUpperCase` when case agnostic to be reverted!
+                feature.code.split("/").pop()!.toUpperCase() ===
+                "appearanceAttributes.variantattribute".toUpperCase()
+            )?.featureValues[0].value
+        )}`,
+        subTitle,
+        ...(keywords.length && { keywords: keywords })
+      };
+      logger.info({
+        message: `esProduct: ${JSON.stringify(esProduct)}`
+      });
+      return esProduct;
     });
-    return esProduct;
-  });
 };
 
 const generateProductUrl = (

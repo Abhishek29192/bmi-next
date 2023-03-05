@@ -52,6 +52,13 @@ export const transformDocuments = async (
     return [];
   }
 
+  if (
+    item.approvalStatus !== "approved" &&
+    item.approvalStatus !== "discontinued"
+  ) {
+    return [];
+  }
+
   const productDocumentNameMap = await getProductDocumentNameMap(locale, tag);
 
   const categoryFilters = item.categories

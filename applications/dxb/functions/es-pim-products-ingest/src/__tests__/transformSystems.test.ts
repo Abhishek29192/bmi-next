@@ -28,8 +28,33 @@ describe("transformSystem", () => {
     expect(generateHashFromString).not.toHaveBeenCalled();
     expect(generateUrl).not.toHaveBeenCalled();
   });
-  it("should transform system to object", () => {
-    const system = createSystem();
+
+  it("should return undefined if system has a discontinued approval status", () => {
+    const system = createSystem({ approvalStatus: "discontinued" });
+
+    expect(transformSystem(system)).toBeUndefined();
+    expect(generateHashFromString).not.toHaveBeenCalled();
+    expect(generateUrl).not.toHaveBeenCalled();
+  });
+
+  it("should return undefined if system has an unapproved approval status", () => {
+    const system = createSystem({ approvalStatus: "unapproved" });
+
+    expect(transformSystem(system)).toBeUndefined();
+    expect(generateHashFromString).not.toHaveBeenCalled();
+    expect(generateUrl).not.toHaveBeenCalled();
+  });
+
+  it("should return undefined if system has a check approval status", () => {
+    const system = createSystem({ approvalStatus: "check" });
+
+    expect(transformSystem(system)).toBeUndefined();
+    expect(generateHashFromString).not.toHaveBeenCalled();
+    expect(generateUrl).not.toHaveBeenCalled();
+  });
+
+  it("should transform system to object when approval status is approved", () => {
+    const system = createSystem({ approvalStatus: "approved" });
     const { approvalStatus, type, code, name, shortDescription } = system;
     const brand = getBrand(system);
     const scoringWeight = getScoringWeight(system);
