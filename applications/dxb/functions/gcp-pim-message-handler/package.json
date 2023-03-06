@@ -15,7 +15,7 @@
     "@bmi-digital/functions-logger": "^1.6.0",
     "@bmi/pim-api": "0.0.0",
     "@google-cloud/functions-framework": "^3.0.0",
-    "@google-cloud/pubsub": "^2.5.0",
+    "@google-cloud/pubsub": "^3.4.1",
     "node-fetch": "^2.6.1"
   },
   "devDependencies": {

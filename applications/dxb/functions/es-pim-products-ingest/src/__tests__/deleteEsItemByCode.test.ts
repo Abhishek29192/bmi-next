@@ -42,7 +42,7 @@ describe("deleteESItemByCode", () => {
 
     expect(getEsClient).toBeCalled();
     expect(deleteByQuery).toBeCalledWith({
-      index: "dxb_no_products",
+      index: "dxb_no_products_write",
       body: {
         query: {
           match: {
@@ -52,7 +52,7 @@ describe("deleteESItemByCode", () => {
       }
     });
     expect(deleteByQuery).toBeCalledWith({
-      index: "pim-documents-test",
+      index: "pim-documents-test_write",
       body: {
         query: {
           match: {
@@ -73,7 +73,7 @@ describe("deleteESItemByCode", () => {
 
     expect(getEsClient).toBeCalled();
     expect(deleteByQuery).toBeCalledWith({
-      index: "dxb_no_products",
+      index: "dxb_no_products_write",
       body: {
         query: {
           match: {
@@ -95,7 +95,7 @@ describe("deleteESItemByCode", () => {
 
     expect(getEsClient).toBeCalled();
     expect(deleteByQuery).toBeCalledWith({
-      index: "dxb_no_systems",
+      index: "dxb_no_systems_write",
       body: {
         query: {
           match: {
@@ -105,7 +105,7 @@ describe("deleteESItemByCode", () => {
       }
     });
     expect(deleteByQuery).toBeCalledWith({
-      index: "pim-documents-test",
+      index: "pim-documents-test_write",
       body: {
         query: {
           match: {

@@ -1,5 +1,32 @@
 ###
 
+# @name get all indexes
+GET {{esHost}}/_cat/indices?pretty&s=index&v
+Content-Type: application/json
+Authorization: ApiKey {{esApiKeyFullCatCoOrdinator}}
+
+# @name get all aliases
+GET {{esHost}}/_cat/aliases?v&s=index:desc&h=alias,index
+Content-Type: application/json
+Authorization: ApiKey {{esApiKeyFullCatCoOrdinator}}
+
+
+# @name put alias on product index
+POST {{esHost}}/_aliases?pretty
+Content-Type: application/json
+Authorization: ApiKey {{esApiKeyFullCatCoOrdinator}}
+
+{
+  "actions": [
+    {
+      "add": {
+        "index": "{{productsIndex}}",
+        "alias": "{{productsIndex}}_read"
+      }
+    }
+  ]
+}
+
 # @name search All request
 POST {{esHost}}/{{productsIndex}}/_search
 Content-Type: application/json
