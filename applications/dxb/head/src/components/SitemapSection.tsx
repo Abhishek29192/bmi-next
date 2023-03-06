@@ -11,7 +11,7 @@ const SiteMapSection = ({ data }: Props) => {
   const { label, links } = data;
 
   return (
-    <Section>
+    <Section id="site-map" data-testid="sitemap-section">
       <Section.Title>{label}</Section.Title>
       <SitemapBlock links={links} />
     </Section>

@@ -5,6 +5,7 @@ import {
   ButtonProps,
   IconList,
   LeadBlock,
+  replaceSpaces,
   transformHyphens,
   Typography
 } from "@bmi-digital/components";
@@ -105,7 +106,7 @@ const AboutLeadBlock = ({ system, sidebarItem }: Props) => {
                 alt={item.name}
                 className={classes.image}
                 data-testid={`guarantee-image${
-                  item.name ? `-${item.name.replace(/ /g, "-")}` : ""
+                  item.name ? `-${replaceSpaces(item.name)}` : ""
                 }`}
               />
             ))}

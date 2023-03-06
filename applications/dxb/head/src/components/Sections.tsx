@@ -1,4 +1,4 @@
-import { TableOfContent } from "@bmi-digital/components";
+import { replaceSpaces, TableOfContent } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React, { createContext, useMemo } from "react";
 import { useConfig } from "../contexts/ConfigProvider";
@@ -178,7 +178,7 @@ const Sections = ({
               (pageTypename && pageTypenameToThemeMap[pageTypename]) || {}
             }
             key={`section-${index}`}
-            data-testid={`section-${title ? title.replace(/ /g, "-") : index}`}
+            data-testid={`section-${title ? replaceSpaces(title) : index}`}
           />
         );
 

@@ -305,10 +305,18 @@ const SearchPage = ({ pageContext, data }: Props) => {
         level={3}
         title={pageTitle}
         breadcrumbs={
-          <Breadcrumbs data={[{ id: "", label: pageTitle, slug: "search" }]} />
+          <Breadcrumbs
+            data={[{ id: "", label: pageTitle, slug: "search" }]}
+            data-testid="search-page-breadcrumbs-top"
+          />
         }
       />
-      <Section backgroundColor="white" isSlim>
+      <Section
+        backgroundColor="white"
+        isSlim
+        id={`search-block`}
+        data-testid={`search-page-search-block-section`}
+      >
         <SearchBlock
           buttonText={
             queryString
@@ -340,7 +348,11 @@ const SearchPage = ({ pageContext, data }: Props) => {
             <NextBestActions data={resources.searchPageNextBestActions} />
           )
         : resources.searchPageExploreBar && (
-            <Section backgroundColor="pearl" isSlim>
+            <Section
+              backgroundColor="pearl"
+              isSlim
+              id={`search-block-explorer-bar`}
+            >
               <ExploreBar data={resources.searchPageExploreBar} />
             </Section>
           )}

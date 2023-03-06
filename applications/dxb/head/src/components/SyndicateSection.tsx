@@ -1,5 +1,6 @@
 import {
   Button,
+  replaceSpaces,
   Section,
   transformHyphens,
   Villain,
@@ -87,7 +88,10 @@ const SyndicateSection = ({
 
     if (position === 0) {
       return (
-        <Section backgroundColor="white">
+        <Section
+          backgroundColor="white"
+          data-testid={`syndicate-section-${replaceSpaces(title)}`}
+        >
           {title && <Section.Title>{title}</Section.Title>}
           <Villain {...villainProperties} isReversed={isReversed} />
         </Section>
@@ -104,7 +108,10 @@ const SyndicateSection = ({
   }
 
   return (
-    <Section backgroundColor="white">
+    <Section
+      backgroundColor="white"
+      data-testid={`syndicate-section-${replaceSpaces(title)}`}
+    >
       {title && <Section.Title>{title}</Section.Title>}
       {villainsData?.map((villainProperties: VillainProps, index) => (
         <Villain

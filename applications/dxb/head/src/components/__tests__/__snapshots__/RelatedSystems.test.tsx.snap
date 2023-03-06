@@ -4,7 +4,7 @@ exports[`RelatedSystems component renders correctly when scoringweight equal & n
 <div>
   <div
     class="Section-root Section-alabaster css-cxq310"
-    data-testid="section"
+    data-testid="related-systems-section"
   >
     <div
       class=" css-ze8cyt"
@@ -27,7 +27,7 @@ exports[`RelatedSystems component renders correctly when scoringweight equal & n
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="system-card-system-code"
             >
               <a
                 class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
@@ -81,7 +81,7 @@ exports[`RelatedSystems component renders correctly when scoringweight equal & n
             </div>
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="system-card-system-code"
             >
               <a
                 class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
@@ -145,7 +145,7 @@ exports[`RelatedSystems component renders correctly with no systems 1`] = `
 <div>
   <div
     class="Section-root Section-alabaster css-cxq310"
-    data-testid="section"
+    data-testid="related-systems-section"
   >
     <div
       class=" css-ze8cyt"
@@ -177,7 +177,7 @@ exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
 <div>
   <div
     class="Section-root Section-alabaster css-cxq310"
-    data-testid="section"
+    data-testid="related-systems-section"
   >
     <div
       class=" css-ze8cyt"
@@ -200,7 +200,7 @@ exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="system-card-system-code"
             >
               <a
                 class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
@@ -254,7 +254,7 @@ exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
             </div>
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="system-card-system-code"
             >
               <a
                 class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
@@ -318,7 +318,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal & n
 <div>
   <div
     class="Section-root Section-alabaster css-cxq310"
-    data-testid="section"
+    data-testid="related-systems-section"
   >
     <div
       class=" css-ze8cyt"
@@ -341,7 +341,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal & n
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="system-card-system-code"
             >
               <a
                 class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
@@ -395,7 +395,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal & n
             </div>
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="system-card-system-code"
             >
               <a
                 class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
@@ -459,7 +459,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal 1`]
 <div>
   <div
     class="Section-root Section-alabaster css-cxq310"
-    data-testid="section"
+    data-testid="related-systems-section"
   >
     <div
       class=" css-ze8cyt"
@@ -482,7 +482,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal 1`]
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="system-card-system-code"
             >
               <a
                 class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
@@ -536,7 +536,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal 1`]
             </div>
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="system-card-system-code"
             >
               <a
                 class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
@@ -600,7 +600,7 @@ exports[`RelatedSystems component renders correctly with systems 1`] = `
 <div>
   <div
     class="Section-root Section-alabaster css-cxq310"
-    data-testid="section"
+    data-testid="related-systems-section"
   >
     <div
       class=" css-ze8cyt"
@@ -623,7 +623,7 @@ exports[`RelatedSystems component renders correctly with systems 1`] = `
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="system-card-system-code"
             >
               <a
                 class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
@@ -687,7 +687,7 @@ exports[`RelatedSystems component renders correctly without categories 1`] = `
 <div>
   <div
     class="Section-root Section-alabaster css-cxq310"
-    data-testid="section"
+    data-testid="related-systems-section"
   >
     <div
       class=" css-ze8cyt"
@@ -710,7 +710,7 @@ exports[`RelatedSystems component renders correctly without categories 1`] = `
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="system-card-system-code"
             >
               <a
                 class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
@@ -774,7 +774,7 @@ exports[`RelatedSystems component renders systems correctly without classificati
 <div>
   <div
     class="Section-root Section-alabaster css-cxq310"
-    data-testid="section"
+    data-testid="related-systems-section"
   >
     <div
       class=" css-ze8cyt"
@@ -797,7 +797,7 @@ exports[`RelatedSystems component renders systems correctly without classificati
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="system-card-system-code"
             >
               <a
                 class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
@@ -861,7 +861,7 @@ exports[`SystemCard renders correctly with related system 1`] = `
 <div>
   <div
     class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-    data-testid="grid-item"
+    data-testid="system-card-related-system-1"
   >
     <a
       class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
@@ -920,7 +920,7 @@ exports[`SystemCard renders correctly with system from elasticsearch 1`] = `
 <div>
   <div
     class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-    data-testid="grid-item"
+    data-testid="system-card-code"
   >
     <a
       class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"

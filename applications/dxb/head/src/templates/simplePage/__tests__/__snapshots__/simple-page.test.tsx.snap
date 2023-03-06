@@ -2630,6 +2630,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
           <nav
             aria-label="breadcrumbs"
             class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+            data-testid="simple-page-breadcrumbs-top"
           >
             <ol
               class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -2708,7 +2709,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
   <div>
     <div
       class="Section-root Section-white Section-noSpacing css-cxq310"
-      data-testid="section"
+      data-testid="share-widget-section-top"
     >
       <div
         class=" css-ze8cyt"
@@ -2735,7 +2736,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
     </div>
     <div
       class="Section-root Section-pearl css-cxq310"
-      data-testid="section"
+      data-testid="link-columns-section"
     >
       <div
         class=" css-ze8cyt"
@@ -2781,7 +2782,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
     </div>
     <div
       class="Section-root Section-white Section-noSpacing css-cxq310"
-      data-testid="section"
+      data-testid="share-widget-section-bottom"
     >
       <div
         class=" css-ze8cyt"
@@ -2808,7 +2809,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
     </div>
     <div
       class="Section-root Section-alabaster css-cxq310"
-      data-testid="section"
+      data-testid="next-best-actions-section"
     >
       <div
         class=" css-ze8cyt"
@@ -2851,7 +2852,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
     </div>
     <div
       class="Section-root Section-alabaster css-cxq310"
-      data-testid="section"
+      data-testid="explorer-bar-section"
     >
       <div
         class=" css-ze8cyt"
@@ -2876,7 +2877,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
     </div>
     <div
       class="Section-root Section-alabaster Section-slim css-cxq310"
-      data-testid="section"
+      data-testid="breadcrumbs-section-bottom"
     >
       <div
         class=" css-ze8cyt"
@@ -2887,6 +2888,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
           <nav
             aria-label="breadcrumbs"
             class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+            data-testid="simple-page-breadcrumbs-bottom"
           >
             <ol
               class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -6006,6 +6008,7 @@ exports[`Simple page renders correctly with full data 1`] = `
           <nav
             aria-label="breadcrumbs"
             class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+            data-testid="simple-page-breadcrumbs-top"
           >
             <ol
               class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -6131,7 +6134,7 @@ exports[`Simple page renders correctly with full data 1`] = `
   <div>
     <div
       class="Section-root Section-white Section-noSpacing css-cxq310"
-      data-testid="section"
+      data-testid="share-widget-section-top"
     >
       <div
         class=" css-ze8cyt"
@@ -6158,7 +6161,7 @@ exports[`Simple page renders correctly with full data 1`] = `
     </div>
     <div
       class="Section-root Section-white css-cxq310"
-      data-testid="section"
+      data-testid="lead-block-section}"
     >
       <div
         class=" css-ze8cyt"
@@ -6372,7 +6375,7 @@ exports[`Simple page renders correctly with full data 1`] = `
     </div>
     <div
       class="Section-root Section-pearl css-cxq310"
-      data-testid="section"
+      data-testid="link-columns-section"
     >
       <div
         class=" css-ze8cyt"
@@ -6418,7 +6421,7 @@ exports[`Simple page renders correctly with full data 1`] = `
     </div>
     <div
       class="Section-root Section-white Section-noSpacing css-cxq310"
-      data-testid="section"
+      data-testid="share-widget-section-bottom"
     >
       <div
         class=" css-ze8cyt"
@@ -6445,7 +6448,7 @@ exports[`Simple page renders correctly with full data 1`] = `
     </div>
     <div
       class="Section-root Section-alabaster css-cxq310"
-      data-testid="section"
+      data-testid="next-best-actions-section"
     >
       <div
         class=" css-ze8cyt"
@@ -6488,7 +6491,7 @@ exports[`Simple page renders correctly with full data 1`] = `
     </div>
     <div
       class="Section-root Section-alabaster css-cxq310"
-      data-testid="section"
+      data-testid="explorer-bar-section"
     >
       <div
         class=" css-ze8cyt"
@@ -6513,7 +6516,7 @@ exports[`Simple page renders correctly with full data 1`] = `
     </div>
     <div
       class="Section-root Section-alabaster Section-slim css-cxq310"
-      data-testid="section"
+      data-testid="breadcrumbs-section-bottom"
     >
       <div
         class=" css-ze8cyt"
@@ -6524,6 +6527,7 @@ exports[`Simple page renders correctly with full data 1`] = `
           <nav
             aria-label="breadcrumbs"
             class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+            data-testid="simple-page-breadcrumbs-bottom"
           >
             <ol
               class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"

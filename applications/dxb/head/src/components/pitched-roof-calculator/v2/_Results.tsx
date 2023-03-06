@@ -1,4 +1,9 @@
-import { Button, Section, Typography } from "@bmi-digital/components";
+import {
+  Button,
+  replaceSpaces,
+  Section,
+  Typography
+} from "@bmi-digital/components";
 import React, {
   useCallback,
   useContext,
@@ -10,6 +15,7 @@ import { microCopy } from "../../../constants/microCopies";
 import { devLog } from "../../../utils/devLog";
 import { useIsMobileDevice } from "../../../utils/useIsMobileDevice";
 import FormSection from "../../FormSection";
+import ProgressIndicator from "../../ProgressIndicator";
 import RichText from "../../RichText";
 import { useSiteContext } from "../../Site";
 import { Data as TitleWithContentType } from "../../TitleWithContent";
@@ -23,7 +29,6 @@ import {
   TileOptionSelections,
   Underlay
 } from "../types/v2";
-import ProgressIndicator from "../../ProgressIndicator";
 import { battenCalc } from "./calculation/calculate";
 import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constants";
 import QuantitiesCalculator from "./calculation/QuantitiesCalculator";
@@ -220,6 +225,9 @@ const PrintReportSection = ({
         backgroundColor="pearl"
         hasNoPadding
         className={styles["needHelpSection"]}
+        data-testid={`print-calculcation-report${replaceSpaces(
+          needHelpSection.title
+        )}`}
       >
         {needHelpSection.title && (
           <Section.Title className={styles["needHelpTitle"]}>

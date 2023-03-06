@@ -6,6 +6,7 @@ import {
   Grid,
   LatLngLiteral as GoogleLatLngLiteral,
   loadGoogleApi,
+  replaceSpaces,
   Section,
   Tabs
 } from "@bmi-digital/components";
@@ -350,6 +351,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     <Section
       backgroundColor="white"
       className={styles["ServiceLocationSection"]}
+      data-testid={`service-locator-section-${replaceSpaces(label)}`}
     >
       <GoogleApi.Provider value={googleApi}>
         {(position > 0 || isBranchLocator) && (

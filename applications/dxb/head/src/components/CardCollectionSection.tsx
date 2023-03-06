@@ -7,6 +7,7 @@ import {
   ChipProps,
   Grid,
   OverviewCard,
+  replaceSpaces,
   Section,
   transformHyphens,
   Typography,
@@ -314,7 +315,7 @@ const CardCollectionSection = ({
   return (
     <div
       className={styles["CardCollectionSection"]}
-      data-testid={`card-collection-section-${title?.replace(/ /g, "-")}`}
+      data-testid={`card-collection-section-${replaceSpaces(title)}`}
     >
       <Section backgroundColor={cardType === "Story Card" ? "white" : "pearl"}>
         {title && (

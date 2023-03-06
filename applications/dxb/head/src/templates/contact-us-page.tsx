@@ -1,4 +1,9 @@
-import { Hero, Section, Typography } from "@bmi-digital/components";
+import {
+  Hero,
+  replaceSpaces,
+  Section,
+  Typography
+} from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
 import BackToResults from "../components/BackToResults";
@@ -97,14 +102,24 @@ const ContactUsPage = ({ data, pageContext }: Props) => {
           )
         }
         breadcrumbs={
-          <BackToResults isDarkThemed>
-            <Breadcrumbs data={enhancedBreadcrumbs} isDarkThemed />
+          <BackToResults isDarkThemed data-testid="breadcrumbs-section-top">
+            <Breadcrumbs
+              data={enhancedBreadcrumbs}
+              isDarkThemed
+              data-testid="contact-us-page-breadcrumbs-top"
+            />
           </BackToResults>
         }
       >
         {subtitle}
       </Hero>
-      <Section backgroundColor="pearl" overflowVisible>
+      <Section
+        backgroundColor="pearl"
+        overflowVisible
+        data-testid={`contact-us-page-queries-section-${replaceSpaces(
+          queriesTitle
+        )}`}
+      >
         <Section.Title>{queriesTitle}</Section.Title>
         <Typography variant="h4" component="p">
           {queriesSubtitle}
@@ -118,7 +133,12 @@ const ContactUsPage = ({ data, pageContext }: Props) => {
       {iframe && <IframeSection data={iframe} />}
       {sections && <Sections data={sections} />}
       {locations && (
-        <Section backgroundColor="white">
+        <Section
+          backgroundColor="white"
+          data-testid={`contact-us-page-locations-section-${replaceSpaces(
+            queriesTitle
+          )}`}
+        >
           <Section.Title>{locationsTitle}</Section.Title>
           <div>
             <Locations data={locations} />
@@ -126,8 +146,15 @@ const ContactUsPage = ({ data, pageContext }: Props) => {
         </Section>
       )}
       {nextBestActions && <NextBestActions data={nextBestActions} />}
-      <Section backgroundColor="alabaster" isSlim>
-        <Breadcrumbs data={breadcrumbs} />
+      <Section
+        backgroundColor="alabaster"
+        isSlim
+        data-testid="breadcrumbs-section-bottom"
+      >
+        <Breadcrumbs
+          data={breadcrumbs}
+          data-testid="contact-us-page-breadcrumbs-bottom"
+        />
       </Section>
     </Page>
   );

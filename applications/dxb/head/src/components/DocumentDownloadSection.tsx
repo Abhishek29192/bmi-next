@@ -1,4 +1,11 @@
-import { Button, ButtonProps, Section, Table } from "@bmi-digital/components";
+import {
+  Button,
+  ButtonProps,
+  Icon,
+  replaceSpaces,
+  Section,
+  Table
+} from "@bmi-digital/components";
 import filesize from "filesize";
 import { graphql } from "gatsby";
 import React from "react";
@@ -6,7 +13,6 @@ import fileIconsMap from "../components/FileIconsMap";
 import { microCopy } from "../constants/microCopies";
 import { ContentfulDocument as DocumentData } from "../types/Document";
 import withGTM from "../utils/google-tag-manager";
-import Icon from "./Icon";
 import { getClickableActionFromUrl } from "./Link";
 import RichText, { RichTextData } from "./RichText";
 import { useSiteContext } from "./Site";
@@ -35,7 +41,10 @@ const DocumentDownloadSection = ({
   });
 
   return (
-    <Section backgroundColor="white">
+    <Section
+      backgroundColor="white"
+      data-testid={`document-download-section-${replaceSpaces(title)}`}
+    >
       {title && <Section.Title>{title}</Section.Title>}
       {description && (
         <div style={{ marginBottom: "40px" }}>
@@ -79,12 +88,13 @@ const DocumentDownloadSection = ({
                       variant="text"
                       startIcon={
                         <Icon
-                          name={
+                          source={
                             // eslint-disable-next-line security/detect-object-injection
                             fileIconsMap[contentType] || "FileUniversal"
                           }
                           // TODO: consider responsibility of icon styles
                           style={iconStyle}
+                          data-testid="docment-download-section-file-download-icon"
                         />
                       }
                       data-testid="docment-download-section-download-button"

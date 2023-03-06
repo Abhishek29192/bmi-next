@@ -262,7 +262,7 @@ exports[`SampleBasketSection component should render form after complete button 
   </div>
   <div
     class="Section-root css-cxq310"
-    data-testid="section"
+    data-testid="sample-basket-section-with-samples"
   >
     <div
       class=" css-ze8cyt"

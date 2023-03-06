@@ -29,7 +29,10 @@ const NextBestActions = ({ data }: { data: Data }) => {
   const { getMicroCopy, countryCode } = useSiteContext();
 
   return (
-    <Section backgroundColor="alabaster">
+    <Section
+      backgroundColor="alabaster"
+      data-testid="next-best-actions-section"
+    >
       <Section.Title>{getMicroCopy(microCopy.NBA_TITLE)}</Section.Title>
       <Grid container spacing={3}>
         {data.map(({ title, subtitle, ...rest }, index) => {

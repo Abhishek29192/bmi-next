@@ -9,6 +9,7 @@ import {
   Grid,
   InputValue,
   RadioGroup,
+  replaceSpaces,
   Section,
   Select,
   SelectMenuItem,
@@ -435,6 +436,7 @@ const HubspotForm = ({
       backgroundColor={backgroundColor}
       className={className}
       isDialog={isDialog}
+      data-testid={`hubspot-form-section-${replaceSpaces(title)}`}
     >
       {showTitle && <Section.Title>{title}</Section.Title>}
       {description && (
@@ -710,7 +712,11 @@ const FormSection = ({
     );
   }
   return (
-    <Section backgroundColor={backgroundColor} className={className}>
+    <Section
+      backgroundColor={backgroundColor}
+      className={className}
+      data-testid={`contentful-form-section-${replaceSpaces(title)}`}
+    >
       {showTitle && <Section.Title>{title}</Section.Title>}
       {description && (
         <>

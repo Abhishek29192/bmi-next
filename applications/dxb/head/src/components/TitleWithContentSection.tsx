@@ -1,4 +1,4 @@
-import { Grid, Section } from "@bmi-digital/components";
+import { Grid, replaceSpaces, Section } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
 import RichText from "./RichText";
@@ -12,8 +12,11 @@ type Props = {
 
 const TitleWithContentSection = ({ data }: Props) => {
   return (
-    <Section backgroundColor="white">
-      <Grid lg={8} xs={12}>
+    <Section
+      backgroundColor="white"
+      data-testid={`title-with-content-section-${replaceSpaces(data.title)}`}
+    >
+      <Grid container lg={8} xs={12}>
         {data.title && <Section.Title>{data.title}</Section.Title>}
         <RichText document={data.content} />
       </Grid>

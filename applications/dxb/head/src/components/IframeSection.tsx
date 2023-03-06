@@ -1,4 +1,4 @@
-import { Section } from "@bmi-digital/components";
+import { replaceSpaces, Section } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
 import RichText, { RichTextData } from "./RichText";
@@ -31,7 +31,11 @@ const IframeSection = ({ data }: Props) => {
     .map((item) => cookieTypeToClassMap[item])
     .join("-");
   return (
-    <Section className={styles["IframeSection"]} backgroundColor="pearl">
+    <Section
+      className={styles["IframeSection"]}
+      backgroundColor="pearl"
+      data-testid={`iframe-section-${replaceSpaces(data.title)}`}
+    >
       {data.title && (
         <Section.Title className={styles["title"]}>{data.title}</Section.Title>
       )}

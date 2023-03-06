@@ -1,6 +1,7 @@
 import {
   Accordion,
   AccordionSummaryProps,
+  replaceSpaces,
   Section,
   Tabs,
   transformHyphens,
@@ -101,7 +102,10 @@ const TabsOrAccordionSection = ({ data }: { data: Data }) => {
   const Component = componentMap[type];
 
   return (
-    <Section backgroundColor={backgroundColor}>
+    <Section
+      backgroundColor={backgroundColor}
+      data-testid={`tabs-or-accordion-section-${replaceSpaces(title)}`}
+    >
       {title && <Section.Title>{title}</Section.Title>}
       {description && (
         <Typography variant="body1">{description.description}</Typography>

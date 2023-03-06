@@ -7,6 +7,7 @@ import {
   IconList,
   LeadBlock,
   MediaGallery,
+  replaceSpaces,
   Tabs,
   Typography
 } from "@bmi-digital/components";
@@ -127,7 +128,7 @@ const ProductLeadBlock = ({
                         alt={item.name}
                         className={styles["image"]}
                         data-testid={`guarantee-image${
-                          item.name ? `-${item.name.replace(/ /g, "-")}` : ""
+                          item.name ? `-${replaceSpaces(item.name)}` : ""
                         }`}
                       />
                     ))}
@@ -151,7 +152,7 @@ const ProductLeadBlock = ({
                           isExternal={isExternalUrl(item.url)}
                           className={styles["inline-link"]}
                           data-testid={`guarantee-inline-link${
-                            item.name ? `-${item.name.replace(/ /g, "-")}` : ""
+                            item.name ? `-${replaceSpaces(item.name)}` : ""
                           }`}
                         >
                           {item.name}

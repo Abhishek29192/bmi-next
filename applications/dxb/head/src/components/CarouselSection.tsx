@@ -1,5 +1,6 @@
 import {
   Button,
+  replaceSpaces,
   Section,
   transformHyphens,
   TwoPaneCarousel,
@@ -83,6 +84,7 @@ const CarouselSection = ({
     <Section
       backgroundColor={variant === "vertical" ? "pearl" : "white"}
       className={styles["CarouselSection"]}
+      data-testid={`carousel-section-${replaceSpaces(title)}`}
     >
       {variant === "vertical" ? (
         <VerticalRoller

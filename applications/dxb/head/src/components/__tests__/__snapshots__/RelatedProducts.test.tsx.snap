@@ -6,7 +6,7 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
 <div>
   <div
     class="Section-root Section-alabaster css-cxq310"
-    data-testid="section"
+    data-testid="related-products-section"
   >
     <div
       class=" css-ze8cyt"
@@ -219,7 +219,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
 <div>
   <div
     class="Section-root Section-alabaster css-cxq310"
-    data-testid="section"
+    data-testid="related-products-section"
   >
     <div
       class=" css-ze8cyt"
@@ -570,7 +570,7 @@ exports[`RelatedProducts component renders with correct gtmLabel 1`] = `
 <div>
   <div
     class="Section-root Section-alabaster css-cxq310"
-    data-testid="section"
+    data-testid="related-products-section"
   >
     <div
       class=" css-ze8cyt"

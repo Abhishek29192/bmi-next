@@ -110,7 +110,11 @@ const SimplePage = ({ data, pageContext }: Props) => {
   const isDarkThemed = heroType === "Spotlight" || heroLevel !== 3;
   const breadcrumbsNode = (
     <BackToResults isDarkThemed={isDarkThemed}>
-      <Breadcrumbs data={enhancedBreadcrumbs} isDarkThemed={isDarkThemed} />
+      <Breadcrumbs
+        data={enhancedBreadcrumbs}
+        isDarkThemed={isDarkThemed}
+        data-testid="simple-page-breadcrumbs-top"
+      />
     </BackToResults>
   );
 
@@ -136,20 +140,40 @@ const SimplePage = ({ data, pageContext }: Props) => {
         isHeroKeyLine: isHeroKeyLine
       })}
       <TableOfContent>
-        {shareWidget && <ShareWidgetSection data={shareWidget} />}
+        {shareWidget && (
+          <ShareWidgetSection
+            data={shareWidget}
+            data-testid="share-widget-section-top"
+          />
+        )}
         {leadBlock && <LeadBlockSection data={leadBlock} />}
         {sections && <Sections data={sections} startIndex={+!!leadBlock} />}
         {linkColumns && <LinkColumnsSection data={linkColumns} />}
-        {shareWidget && <ShareWidgetSection data={shareWidget} />}
+        {shareWidget && (
+          <ShareWidgetSection
+            data={shareWidget}
+            data-testid="share-widget-section-bottom"
+          />
+        )}
         {nextBestActions && <NextBestActions data={nextBestActions} />}
         {exploreBar && (
-          <Section backgroundColor="alabaster">
+          <Section
+            backgroundColor="alabaster"
+            data-testid="explorer-bar-section"
+          >
             <ExploreBar data={exploreBar} />
           </Section>
         )}
-        <Section backgroundColor="alabaster" isSlim>
+        <Section
+          backgroundColor="alabaster"
+          isSlim
+          data-testid="breadcrumbs-section-bottom"
+        >
           <BackToResults>
-            <Breadcrumbs data={enhancedBreadcrumbs} />
+            <Breadcrumbs
+              data={enhancedBreadcrumbs}
+              data-testid="simple-page-breadcrumbs-bottom"
+            />
           </BackToResults>
         </Section>
       </TableOfContent>

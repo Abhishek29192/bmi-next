@@ -8,6 +8,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
   >
     <div
       class="section"
+      data-testid="flat-roof-calculator-input-view-section"
     >
       <h1
         class="MuiTypography-root MuiTypography-h1 header Typography-underline css-1stz9tq-MuiTypography-root"
@@ -1218,6 +1219,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
       </div>
       <div
         class="section"
+        data-testid="flat-roof-calculator-help-descriptio-section"
       >
         <h5
           class="MuiTypography-root MuiTypography-h5 helpHeader css-10q7alf-MuiTypography-root"

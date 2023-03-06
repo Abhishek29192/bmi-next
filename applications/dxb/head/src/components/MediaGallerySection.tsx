@@ -1,6 +1,7 @@
 import {
   Grid,
   MediaGallery,
+  replaceSpaces,
   Section,
   Thumbnail,
   ThumbnailProps,
@@ -32,6 +33,7 @@ const IntegratedMediaGallerySection = ({ data }: { data: Data }) => {
     <Section
       backgroundColor="alabaster"
       className={styles["MediaGallerySection"]}
+      data-testid={`media-gallery-section-${replaceSpaces(data.title)}`}
     >
       <Grid container>
         <Grid xs={12} lg={8}>

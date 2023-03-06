@@ -159,7 +159,10 @@ const RelatedProducts = ({ countryCode, products }: Props) => {
   }
 
   return (
-    <Section backgroundColor="alabaster">
+    <Section
+      backgroundColor="alabaster"
+      data-testid={`related-products-section`}
+    >
       <Section.Title>
         {getMicroCopy(microCopy.PDP_RELATED_PRODUCTS_TITLE)}
       </Section.Title>

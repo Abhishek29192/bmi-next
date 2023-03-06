@@ -2,6 +2,7 @@ import {
   Grid,
   RadioPane,
   RadioPaneProps,
+  replaceSpaces,
   Section
 } from "@bmi-digital/components";
 import { System as EsSystem } from "@bmi/elasticsearch-types";
@@ -315,7 +316,10 @@ const SystemConfiguratorNoResult = ({
 
   return (
     <div ref={ref}>
-      <Section backgroundColor="alabaster">
+      <Section
+        backgroundColor="alabaster"
+        data-testid={`system-configuration-section-${replaceSpaces(title)}`}
+      >
         <Section.Title>{title}</Section.Title>
         <RichText document={content} />
       </Section>
@@ -384,6 +388,7 @@ const SystemConfiguratorResult = ({
       <Section
         backgroundColor="pearl"
         className={styles["SystemConfigurator-result"]}
+        data-testid={`system-configuration-section-${replaceSpaces(title)}`}
       >
         <Section.Title className={styles["title"]}>{title}</Section.Title>
         {description && (
@@ -393,12 +398,15 @@ const SystemConfiguratorResult = ({
         )}
         {recommendedSystems.length > 0 &&
           recommendedSystemPimObjects.length > 0 && (
-            <Grid container spacing={3}>
+            <Grid
+              container
+              spacing={3}
+              data-testid="system-configuration-results-grid"
+            >
               {recommendedSystemPimObjects.map((system, id) => {
                 const linkToSDP = `${system.path}/?selected_system=${system.code}&prev_page=${window.location.pathname}&referer=sys_details`;
                 return (
                   <SystemCard
-                    data-testid={system.code}
                     key={`${system.code}-${id}`}
                     system={system}
                     countryCode={countryCode}
@@ -480,7 +488,7 @@ const SystemConfiguratorSection = ({ data }: { data: Data }) => {
       <Section
         backgroundColor="white"
         className={styles["SystemConfigurator"]}
-        data-testid="system-config-section"
+        data-testid={`system-configuration-section-${replaceSpaces(title)}`}
       >
         <Section.Title>{title}</Section.Title>
         {description && <RichText document={description} />}
