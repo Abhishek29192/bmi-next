@@ -4,9 +4,6 @@ import {
   ClickableAction,
   DownloadList,
   DownloadListContext,
-  External,
-  FileUniversal,
-  FileZIP,
   Table
 } from "@bmi-digital/components";
 import logger from "@bmi-digital/functions-logger";
@@ -169,7 +166,7 @@ const getDocument = (document: Document, headers: AvailableHeader[]) => {
               }}
               data-testid="document-table-external-link-button"
             >
-              <ExternalLinkIcon source={External} />
+              <ExternalLinkIcon name={"External"} />
             </Button>
           )}
         </StyledTableCell>
@@ -379,13 +376,8 @@ export const MultipleAssetToFileDownload = ({
       variant="text"
       accessibilityLabel="Download"
       startIcon={
-        // eslint-disable-next-line security/detect-object-injection
         document.format && (
-          <DownloadIcon
-            // eslint-disable-next-line security/detect-object-injection
-            source={FileZIP}
-            className={"download-icon"}
-          />
+          <DownloadIcon name={"FileZIP"} className={"download-icon"} />
         )
       }
       data-testid={`document-table-download-zip-button`}
@@ -418,7 +410,7 @@ const FileDownloadButton = ({ url, format, size }: FileDownloadButtonProps) => {
         format && (
           <DownloadIcon
             // eslint-disable-next-line security/detect-object-injection
-            source={fileIconsMap[format] || FileUniversal}
+            name={fileIconsMap[format] || "FileUniversal"}
             className={"download-icon"}
           />
         )

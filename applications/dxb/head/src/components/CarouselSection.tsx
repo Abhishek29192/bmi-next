@@ -7,14 +7,14 @@ import {
   VerticalRoller,
   VerticalRollerSlide
 } from "@bmi-digital/components";
+import { ArrowForward as ArrowForwardIcon } from "@bmi-digital/components/icon";
 import ButtonBase, { ButtonBaseProps } from "@mui/material/ButtonBase";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { graphql } from "gatsby";
 import React, { useContext } from "react";
 import { Data as PromoData } from "../components/Promo";
 import { microCopy } from "../constants/microCopies";
 import withGTM from "../utils/google-tag-manager";
-import { iconMap } from "./Icon";
+import BrandLogo from "./BrandLogo";
 import { renderImage } from "./Image";
 import { Data as LinkData, getClickableActionFromUrl, getCTA } from "./Link";
 import { Data as PageInfoData } from "./PageInfo";
@@ -39,7 +39,8 @@ const GTMButton = withGTM<ButtonBaseProps>(ButtonBase, { label: "children" });
 const parseSlides = (
   slides: Slide[],
   countryCode: string,
-  linkLabel: string
+  linkLabel: string,
+  variant: string
 ): (TwoPaneCarouselSlide | VerticalRollerSlide)[] => {
   return slides.map((slide) => {
     const {
@@ -51,11 +52,13 @@ const parseSlides = (
       ...rest
     } = slide;
     const cta = getCTA(rest, countryCode, linkLabel);
-
+    const brandLogoIcons = brandLogo ? (
+      <BrandLogo brandName={brandLogo} brandWhiteBox={variant === "vertical"} />
+    ) : undefined;
     return {
       title,
       // eslint-disable-next-line security/detect-object-injection
-      brandIcon: brandLogo && iconMap[brandLogo],
+      brandIcon: brandLogoIcons,
       media: featuredVideo
         ? renderVideo(featuredVideo)
         : renderImage(featuredMedia),
@@ -85,7 +88,8 @@ const CarouselSection = ({
           slides={parseSlides(
             slides,
             countryCode,
-            getMicroCopy(microCopy.PAGE_LINK_LABEL)
+            getMicroCopy(microCopy.PAGE_LINK_LABEL),
+            variant
           )}
           rollerSectionComponent={(props: ButtonBaseProps) => (
             <GTMButton
@@ -103,7 +107,8 @@ const CarouselSection = ({
           slides={parseSlides(
             slides,
             countryCode,
-            getMicroCopy(microCopy.PAGE_LINK_LABEL)
+            getMicroCopy(microCopy.PAGE_LINK_LABEL),
+            variant
           )}
         />
       )}

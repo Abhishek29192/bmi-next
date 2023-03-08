@@ -494,6 +494,9 @@ describe("resolve key asset documents", () => {
         documents: [relatedDoc1, relatedDoc2, relatedDoc3]
       });
 
+      findAll.mockResolvedValueOnce({
+        entries: []
+      });
       findOne.mockReturnValue({ keyAssetTypes: [] });
 
       const returnedKeyAssetDocuments = await Product.keyAssetDocuments.resolve(
@@ -523,7 +526,53 @@ describe("resolve key asset documents", () => {
       const relatedDocuments = [
         {
           assetType: "ASSEMBLY_INSTRUCTIONS",
-          documents: [relatedDoc1, relatedDoc2, relatedDoc3]
+          documents: [
+            {
+              assetType: {
+                pimCode: "ASSEMBLY_INSTRUCTIONS"
+              },
+              extension: "pdf",
+              fileSize: 10,
+              format: "application/pdf",
+              id: "id-1",
+              isLinkDocument: false,
+              productBaseCode: "product-base-code",
+              productName: "Product Name",
+              realFileName: "real-file-name.pdf",
+              title: "title",
+              url: "http://localhost:8000/real-file-name.pdf"
+            },
+            {
+              assetType: {
+                pimCode: "ASSEMBLY_INSTRUCTIONS"
+              },
+              extension: "pdf",
+              fileSize: 10,
+              format: "application/pdf",
+              id: "id-1",
+              isLinkDocument: false,
+              productBaseCode: "product-base-code",
+              productName: "Product Name",
+              realFileName: "real-file-name.pdf",
+              title: "title",
+              url: "http://localhost:8000/real-file-name.pdf"
+            },
+            {
+              assetType: {
+                pimCode: "ASSEMBLY_INSTRUCTIONS"
+              },
+              extension: "pdf",
+              fileSize: 10,
+              format: "application/pdf",
+              id: "id-1",
+              isLinkDocument: false,
+              productBaseCode: "product-base-code",
+              productName: "Product Name",
+              realFileName: "real-file-name.pdf",
+              title: "title",
+              url: "http://localhost:8000/real-file-name.pdf"
+            }
+          ]
         }
       ];
       const source: FirestoreProduct = createProduct({
@@ -531,6 +580,13 @@ describe("resolve key asset documents", () => {
         documents: [relatedDoc1, relatedDoc2, relatedDoc3]
       });
 
+      findAll.mockResolvedValueOnce({
+        entries: [
+          { pimCode: "BMI" },
+          { pimCode: "ASSEMBLY_INSTRUCTIONS" },
+          { pimCode: "SPECIFICATION" }
+        ]
+      });
       findOne.mockReturnValue({ keyAssetTypes: ["ASSEMBLY_INSTRUCTIONS"] });
 
       const returnedKeyAssetDocuments = await Product.keyAssetDocuments.resolve(
@@ -560,18 +616,73 @@ describe("resolve key asset documents", () => {
       const relatedDocuments = [
         {
           assetType: "ASSEMBLY_INSTRUCTIONS",
-          documents: [relatedDoc1, relatedDoc3]
+          documents: [
+            {
+              assetType: {
+                pimCode: "ASSEMBLY_INSTRUCTIONS"
+              },
+              extension: "pdf",
+              fileSize: 10,
+              format: "application/pdf",
+              id: "id-1",
+              isLinkDocument: false,
+              productBaseCode: "product-base-code",
+              productName: "Product Name",
+              realFileName: "real-file-name.pdf",
+              title: "title",
+              url: "http://localhost:8000/real-file-name.pdf"
+            },
+            {
+              assetType: {
+                pimCode: "ASSEMBLY_INSTRUCTIONS"
+              },
+              extension: "pdf",
+              fileSize: 10,
+              format: "application/pdf",
+              id: "id-1",
+              isLinkDocument: false,
+              productBaseCode: "product-base-code",
+              productName: "Product Name",
+              realFileName: "real-file-name.pdf",
+              title: "title",
+              url: "http://localhost:8000/real-file-name.pdf"
+            }
+          ]
         },
         {
           assetType: "SPECIFICATION",
-          documents: [relatedDoc2]
+          documents: [
+            {
+              assetType: {
+                pimCode: "SPECIFICATION"
+              },
+              extension: "pdf",
+              fileSize: 10,
+              format: "application/pdf",
+              id: "id-1",
+              isLinkDocument: false,
+              productBaseCode: "product-base-code",
+              productName: "Product Name",
+              realFileName: "real-file-name.pdf",
+              title: "title",
+              url: "http://localhost:8000/real-file-name.pdf"
+            }
+          ]
         }
       ];
+
       const source: FirestoreProduct = createProduct({
         categories: [productFamily],
         documents: [relatedDoc1, relatedDoc2, relatedDoc3]
       });
 
+      findAll.mockResolvedValueOnce({
+        entries: [
+          { pimCode: "BMI" },
+          { pimCode: "ASSEMBLY_INSTRUCTIONS" },
+          { pimCode: "SPECIFICATION" }
+        ]
+      });
       findOne.mockReturnValue({
         keyAssetTypes: ["ASSEMBLY_INSTRUCTIONS", "SPECIFICATION"]
       });

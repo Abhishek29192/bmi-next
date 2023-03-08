@@ -6,7 +6,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
     class="ProductLeadBlock"
   >
     <div
-      class=" css-fpjlvn"
+      class=" css-nxi0jm"
       data-testid="tabs"
     >
       <div
@@ -55,7 +55,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                   <button
                     aria-controls="tabpanel-one"
                     aria-selected="true"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
                     data-testid="tab-one"
                     id="tab-one"
@@ -71,7 +71,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                   <button
                     aria-controls="tabpanel-two"
                     aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.technicalSpecifications\\",\\"action\\":\\"Selector – Tabs\\"}"
                     data-testid="tab-two"
                     id="tab-two"
@@ -87,7 +87,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                   <button
                     aria-controls="tabpanel-three"
                     aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.documents\\",\\"action\\":\\"Selector – Tabs\\"}"
                     data-testid="tab-three"
                     id="tab-three"
@@ -103,7 +103,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                   <button
                     aria-controls="tabpanel-four"
                     aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.bim\\",\\"action\\":\\"Selector – Tabs\\"}"
                     data-testid="tab-four"
                     id="tab-four"
@@ -119,7 +119,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                   <button
                     aria-controls="tabpanel-five"
                     aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.technicalDrawings\\",\\"action\\":\\"Selector – Tabs\\"}"
                     data-testid="tab-five"
                     id="tab-five"
@@ -135,7 +135,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                   <button
                     aria-controls="tabpanel-seven"
                     aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.specification\\",\\"action\\":\\"Selector – Tabs\\"}"
                     data-testid="tab-seven"
                     id="tab-seven"
@@ -151,7 +151,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                   <button
                     aria-controls="tabpanel-six"
                     aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.fixingTool\\",\\"action\\":\\"Selector – Tabs\\"}"
                     data-testid="tab-six"
                     id="tab-six"
@@ -1169,9 +1169,11 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
             >
               <div
                 class="css-2bw4l8"
+                data-testid="media-gallery-root"
               >
                 <div
                   class=" css-79elbk"
+                  data-testid="media-gallery-media-wrapper"
                 >
                   <img
                     alt="Alt text"
@@ -1225,7 +1227,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
     class="ProductLeadBlock"
   >
     <div
-      class=" css-fpjlvn"
+      class=" css-nxi0jm"
       data-testid="tabs"
     >
       <div
@@ -1274,7 +1276,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                   <button
                     aria-controls="tabpanel-one"
                     aria-selected="true"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
                     data-testid="tab-one"
                     id="tab-one"
@@ -1290,7 +1292,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                   <button
                     aria-controls="tabpanel-two"
                     aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.technicalSpecifications\\",\\"action\\":\\"Selector – Tabs\\"}"
                     data-testid="tab-two"
                     id="tab-two"
@@ -1306,7 +1308,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                   <button
                     aria-controls="tabpanel-three"
                     aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.documents\\",\\"action\\":\\"Selector – Tabs\\"}"
                     data-testid="tab-three"
                     id="tab-three"
@@ -1322,7 +1324,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                   <button
                     aria-controls="tabpanel-four"
                     aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.bim\\",\\"action\\":\\"Selector – Tabs\\"}"
                     data-testid="tab-four"
                     id="tab-four"
@@ -1338,7 +1340,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                   <button
                     aria-controls="tabpanel-five"
                     aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.technicalDrawings\\",\\"action\\":\\"Selector – Tabs\\"}"
                     data-testid="tab-five"
                     id="tab-five"
@@ -1354,7 +1356,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                   <button
                     aria-controls="tabpanel-seven"
                     aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.specification\\",\\"action\\":\\"Selector – Tabs\\"}"
                     data-testid="tab-seven"
                     id="tab-seven"
@@ -1370,7 +1372,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                   <button
                     aria-controls="tabpanel-six"
                     aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.fixingTool\\",\\"action\\":\\"Selector – Tabs\\"}"
                     data-testid="tab-six"
                     id="tab-six"
@@ -2150,9 +2152,11 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
             >
               <div
                 class="css-2bw4l8"
+                data-testid="media-gallery-root"
               >
                 <div
                   class=" css-79elbk"
+                  data-testid="media-gallery-media-wrapper"
                 >
                   <img
                     alt="Alt text"
@@ -2206,7 +2210,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
     class="ProductLeadBlock"
   >
     <div
-      class=" css-fpjlvn"
+      class=" css-nxi0jm"
       data-testid="tabs"
     >
       <div
@@ -2255,7 +2259,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
                   <button
                     aria-controls="tabpanel-one"
                     aria-selected="true"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
                     data-testid="tab-one"
                     id="tab-one"
@@ -2271,7 +2275,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
                   <button
                     aria-controls="tabpanel-two"
                     aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.technicalSpecifications\\",\\"action\\":\\"Selector – Tabs\\"}"
                     data-testid="tab-two"
                     id="tab-two"
@@ -2287,7 +2291,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
                   <button
                     aria-controls="tabpanel-four"
                     aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.bim\\",\\"action\\":\\"Selector – Tabs\\"}"
                     data-testid="tab-four"
                     id="tab-four"
@@ -2303,7 +2307,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
                   <button
                     aria-controls="tabpanel-five"
                     aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.technicalDrawings\\",\\"action\\":\\"Selector – Tabs\\"}"
                     data-testid="tab-five"
                     id="tab-five"
@@ -2319,7 +2323,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
                   <button
                     aria-controls="tabpanel-seven"
                     aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.specification\\",\\"action\\":\\"Selector – Tabs\\"}"
                     data-testid="tab-seven"
                     id="tab-seven"
@@ -2335,7 +2339,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
                   <button
                     aria-controls="tabpanel-six"
                     aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.fixingTool\\",\\"action\\":\\"Selector – Tabs\\"}"
                     data-testid="tab-six"
                     id="tab-six"
@@ -2725,9 +2729,11 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
             >
               <div
                 class="css-2bw4l8"
+                data-testid="media-gallery-root"
               >
                 <div
                   class=" css-79elbk"
+                  data-testid="media-gallery-media-wrapper"
                 >
                   <img
                     alt="Alt text"
@@ -4339,9 +4345,11 @@ exports[`ProductLeadBlock tests should render the technical draws tab 1`] = `
       >
         <div
           class="css-2bw4l8"
+          data-testid="media-gallery-root"
         >
           <div
             class=" css-79elbk"
+            data-testid="media-gallery-media-wrapper"
           >
             <img
               alt="Alt text"

@@ -6,8 +6,8 @@ import {
   Section,
   TableOfContent
 } from "@bmi-digital/components";
+import { ArrowForward as ArrowForwardIcon } from "@bmi-digital/components/icon";
 import { BLOCKS } from "@contentful/rich-text-types";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { graphql } from "gatsby";
 import React from "react";
 import { microCopy } from "../constants/microCopies";

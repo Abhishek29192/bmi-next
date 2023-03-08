@@ -2,13 +2,7 @@ import {
   Button,
   Clickable,
   ClickableProps,
-  Cross,
-  Download,
   DownloadList,
-  External,
-  FileUniversal,
-  FileZIP,
-  Icon,
   IconButtonProps,
   Table
 } from "@bmi-digital/components";
@@ -22,8 +16,9 @@ import createAssetFileCountMap, {
   generateFilenameByRealFileName,
   generateFileNamebyTitle
 } from "../../../components/DocumentFileUtils";
+import fileIconsMap from "../../../components/FileIconsMap";
+import Icon from "../../../components/Icon";
 import { useSiteContext } from "../../../components/Site";
-import { Format } from "../../../components/types";
 import { QA_AUTH_TOKEN } from "../../../constants/cookieConstants";
 import { microCopy } from "../../../constants/microCopies";
 import { useConfig } from "../../../contexts/ConfigProvider";
@@ -37,13 +32,11 @@ import AssetHeader from "./_AssetHeader";
 interface Props {
   documentsByProduct: [string, PimProductDocument[]][];
   assetTypes: AssetType[];
-  fileIconsMap: Record<Format, React.ComponentType>;
 }
 
 const DesktopDocumentTechnicalTableResults = ({
   documentsByProduct,
-  assetTypes,
-  fileIconsMap
+  assetTypes
 }: Props) => {
   const {
     config: { documentDownloadEndpoint }
@@ -68,7 +61,7 @@ const DesktopDocumentTechnicalTableResults = ({
         }}
       >
         <Icon
-          source={fileIconsMap[asset.format] || FileUniversal}
+          name={fileIconsMap[asset.format] || "FileUniversal"}
           className={classnames(classes.formatIcon, "format-icon")}
         />
       </GTMClickable>
@@ -91,7 +84,7 @@ const DesktopDocumentTechnicalTableResults = ({
         className={classes.externalDownloadButton}
         disableTouchRipple={true}
       >
-        <Icon source={External} className={classes.externalLinkIcon} />
+        <Icon name={"External"} className={classes.externalLinkIcon} />
       </GTMButton>
     );
 
@@ -174,7 +167,7 @@ const DesktopDocumentTechnicalTableResults = ({
         disableTouchRipple={true}
         className={classes.externalDownloadButton}
       >
-        <Icon source={FileZIP} className={classes.formatIcon} />
+        <Icon name={"FileZIP"} className={classes.formatIcon} />
       </GTMButton>
     );
   };
@@ -203,7 +196,7 @@ const DesktopDocumentTechnicalTableResults = ({
               data-testid="download-file"
             >
               <span className={classes.allFilesHeaderWrapper}>
-                <Icon source={Download} className={classes.allFilesIcon} />
+                <Icon name={"Download"} className={classes.allFilesIcon} />
                 <span>
                   {getMicroCopy(microCopy.DOCUMENT_LIBRARY_HEADERS_ALL_FILES)}
                 </span>
@@ -237,7 +230,7 @@ const DesktopDocumentTechnicalTableResults = ({
                         data-testid={`file-does-not-exist-${productName}-missing-asset-${index}`}
                       >
                         <Icon
-                          source={Cross}
+                          name={"Cross"}
                           className={classes.noDocumentIcon}
                         />
                       </Table.Cell>

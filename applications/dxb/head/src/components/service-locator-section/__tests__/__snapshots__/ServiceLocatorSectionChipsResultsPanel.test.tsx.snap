@@ -230,7 +230,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
           </div>
         </div>
         <div
-          class="Tabs-secondary Tabs-visibleUntillg tabs css-fpjlvn"
+          class="Tabs-secondary Tabs-visibleUntillg tabs css-nxi0jm"
           data-testid="tabs"
         >
           <div
@@ -257,7 +257,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                       <button
                         aria-controls="tabpanel-list"
                         aria-selected="true"
-                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary MuiTab-fullWidth Mui-selected Tabs-tabRoot css-xs12v4-MuiButtonBase-root-MuiTab-root"
+                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary MuiTab-fullWidth Mui-selected Tabs-tabRoot css-1qqdwy9-MuiButtonBase-root-MuiTab-root"
                         data-testid="tab-list"
                         id="tab-list"
                         role="tab"
@@ -272,7 +272,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                       <button
                         aria-controls="tabpanel-map"
                         aria-selected="false"
-                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary MuiTab-fullWidth Tabs-tabRoot css-xs12v4-MuiButtonBase-root-MuiTab-root"
+                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary MuiTab-fullWidth Tabs-tabRoot css-1qqdwy9-MuiButtonBase-root-MuiTab-root"
                         data-testid="tab-map"
                         id="tab-map"
                         role="tab"

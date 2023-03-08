@@ -8,7 +8,7 @@ import {
 import type { Product as EsProduct } from "@bmi/elasticsearch-types";
 import { Link as GatsbyLink } from "gatsby";
 import React from "react";
-import { iconMap } from "../../../components/Icon";
+import BrandLogo from "../../../components/BrandLogo";
 import type { Context as SiteContext } from "../../../components/Site";
 import DefaultImage from "../../../images/DefaultImage.svg";
 import { getSearchParams } from "../../../utils/filters";
@@ -42,9 +42,6 @@ export const renderProducts = (
   filters: Filter[]
 ) =>
   products.flatMap((variant) => {
-    const brandLogoCode = variant.brandCode;
-    // eslint-disable-next-line security/detect-object-injection
-    const brandLogo = iconMap[brandLogoCode];
     const mainImage = variant.mainImage;
     const product = variant.baseProduct;
     const productUrl = `${getPathWithCountryCode(
@@ -76,7 +73,7 @@ export const renderProducts = (
             )
           }
           imageSize="contain"
-          brandImageSource={brandLogo}
+          brandImageSource={<BrandLogo brandName={variant.brandCode} />}
           action={{
             model: "routerLink",
             linkComponent: GatsbyLink,

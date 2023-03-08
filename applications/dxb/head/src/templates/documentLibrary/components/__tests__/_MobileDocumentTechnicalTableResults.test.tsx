@@ -6,7 +6,6 @@ import {
 } from "@bmi/elasticsearch-types";
 import { render } from "@testing-library/react";
 import React from "react";
-import fileIconsMap from "../../../../components/FileIconsMap";
 import { ContentfulAssetType as AssetTypeData } from "../../../../types/AssetType";
 import createAssetType, {
   createAssetTypeInvalid
@@ -27,7 +26,6 @@ describe("MobileDocumentTechnicalTableResults component", () => {
           <MobileDocumentTechnicalTableResults
             documentsByProduct={documentsByProduct}
             assetTypes={assetTypes}
-            fileIconsMap={fileIconsMap}
           />
         </ThemeProvider>
       );
@@ -53,7 +51,6 @@ describe("MobileDocumentTechnicalTableResults component", () => {
           <MobileDocumentTechnicalTableResults
             documentsByProduct={documentsByProduct}
             assetTypes={assetTypes}
-            fileIconsMap={fileIconsMap}
           />
         </ThemeProvider>
       );
@@ -100,7 +97,6 @@ describe("MobileDocumentTechnicalTableResults component", () => {
           <MobileDocumentTechnicalTableResults
             documentsByProduct={documentsByProduct}
             assetTypes={assetTypes}
-            fileIconsMap={fileIconsMap}
           />
         </ThemeProvider>
       );
@@ -142,7 +138,6 @@ describe("MobileDocumentTechnicalTableResults component", () => {
           <MobileDocumentTechnicalTableResults
             documentsByProduct={documentsByProduct}
             assetTypes={assetTypes}
-            fileIconsMap={fileIconsMap}
           />
         </ThemeProvider>
       );
@@ -185,7 +180,6 @@ describe("MobileDocumentTechnicalTableResults component", () => {
           <MobileDocumentTechnicalTableResults
             documentsByProduct={documentsByProduct}
             assetTypes={assetTypes}
-            fileIconsMap={fileIconsMap}
           />
         </ThemeProvider>
       );

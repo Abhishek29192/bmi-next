@@ -2,10 +2,6 @@ import {
   Button,
   ButtonProps,
   ClickableAction,
-  External,
-  ExternalMobile,
-  FileZIP,
-  Icon,
   Typography
 } from "@bmi-digital/components";
 import { GetApp } from "@mui/icons-material";
@@ -23,6 +19,7 @@ import {
   MultipleAssetToFileDownload
 } from "./DocumentSimpleTableResults";
 import fileIconsMap from "./FileIconsMap";
+import Icon from "./Icon";
 
 type ListProps = {
   documents: readonly Document[];
@@ -111,8 +108,7 @@ const MultipleDocumentsToZipFile = ({
       <StyledListTitleRow>
         <StyledListIcon>
           <StyledDownloadIcon
-            // eslint-disable-next-line security/detect-object-injection
-            source={FileZIP}
+            name={"FileZIP"}
             className={classnames("download-icon")}
           />
         </StyledListIcon>
@@ -133,7 +129,7 @@ const ListItem = ({ asset }: { asset: FileDownloadButtonProps }) => {
         {!asset.isLinkDocument && (
           <StyledListIcon>
             <StyledDownloadIcon
-              source={fileIconsMap[asset.format] || External}
+              name={fileIconsMap[asset.format] || "External"}
               className={classnames("download-icon")}
             />
           </StyledListIcon>
@@ -170,7 +166,7 @@ const ListItem = ({ asset }: { asset: FileDownloadButtonProps }) => {
               rel: "noopener noreferrer"
             }}
           >
-            <StyledExternalLinkIcon source={ExternalMobile} />
+            <StyledExternalLinkIcon name={"ExternalMobile"} />
           </Button>
         )}
       </StyledListDownloadRow>

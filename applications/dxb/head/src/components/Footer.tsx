@@ -1,18 +1,17 @@
 import {
-  BMI as BmiIcon,
   Button,
   ButtonProps,
   Footer,
   FooterMenuItem,
-  HidePrint,
-  logoIconMap
+  HidePrint
 } from "@bmi-digital/components";
+import { BMI as BmiIcon } from "@bmi-digital/components/logo";
 import { graphql } from "gatsby";
 import React from "react";
 import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
 import withGTM from "../utils/google-tag-manager";
-import { iconMap } from "./Icon";
+import Icon from "./Icon";
 import {
   Data as LinkData,
   getClickableActionFromUrl,
@@ -46,8 +45,7 @@ const parseNavigation = (
 
     return {
       label,
-      // eslint-disable-next-line security/detect-object-injection
-      icon: iconName && !logoIconMap[iconName] ? iconMap[iconName] : undefined,
+      icon: iconName && <Icon name={iconName} />,
       isLabelHidden,
       action: getClickableActionFromUrl(
         linkedPage,
@@ -108,7 +106,7 @@ const BmiFooter = ({ mainNavigation, secondaryNavigation }: Props) => {
         )}
         mainNavigation={main}
         secondaryNavigation={secondaryWithSitemap}
-        logo={BmiIcon}
+        logo={<BmiIcon />}
       />
     </HidePrint>
   );

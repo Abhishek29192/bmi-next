@@ -16,9 +16,11 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
       >
         <div
           class="css-2bw4l8"
+          data-testid="media-gallery-root"
         >
           <div
             class=" css-79elbk"
+            data-testid="media-gallery-media-wrapper"
           >
             <img
               class="MediaGallery-mainImageWrappershort css-ztt6nc-Media"
@@ -26,6 +28,7 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
             />
             <div
               class="css-7y46ji"
+              data-testid="media-gallery-caption-text"
             >
               <p
                 class="MuiTypography-root MuiTypography-h6 css-3kzowp-MuiTypography-root"
@@ -223,9 +226,11 @@ exports[`ProductOverview component renders correctly without Recaptcha 1`] = `
       >
         <div
           class="css-2bw4l8"
+          data-testid="media-gallery-root"
         >
           <div
             class=" css-79elbk"
+            data-testid="media-gallery-media-wrapper"
           >
             <img
               class="MediaGallery-mainImageWrappershort css-ztt6nc-Media"
@@ -233,6 +238,7 @@ exports[`ProductOverview component renders correctly without Recaptcha 1`] = `
             />
             <div
               class="css-7y46ji"
+              data-testid="media-gallery-caption-text"
             >
               <p
                 class="MuiTypography-root MuiTypography-h6 css-3kzowp-MuiTypography-root"
@@ -400,9 +406,11 @@ exports[`ProductOverview component renders with default image if there are no im
       >
         <div
           class="css-2bw4l8"
+          data-testid="media-gallery-root"
         >
           <div
             class=" css-79elbk"
+            data-testid="media-gallery-media-wrapper"
           >
             <svg
               class="MediaGallery-mainImageWrappershort css-ztt6nc-Media"
