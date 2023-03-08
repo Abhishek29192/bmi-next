@@ -54,7 +54,7 @@ export const transformMediaSrc = (
       case "ContentfulImage":
         return {
           media: renderImage(item),
-          thumbnail: item.image.thumbnail.src || undefined,
+          thumbnail: item.image?.thumbnail?.src || undefined,
           caption: item.caption?.caption || undefined,
           altText: item.altText || undefined,
           isVideo: false
