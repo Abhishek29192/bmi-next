@@ -42,7 +42,7 @@ import {
 } from "./helpers/documentsLibraryHelpers";
 import { DocumentLibraryProps, QueryParams } from "./types";
 
-export const PAGE_SIZE = 24;
+export const PAGE_SIZE = 25;
 
 const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
   const location = useLocation();

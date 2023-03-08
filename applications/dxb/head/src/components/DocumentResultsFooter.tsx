@@ -173,15 +173,18 @@ const DocumentResultsFooter = ({
   const qaAuthToken = getCookie(QA_AUTH_TOKEN);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
+  const displayPagination = count > 1;
 
   return (
     <div className={styles["DocumentResultsFooter"]}>
-      <StyledPagination
-        page={page}
-        onChange={onPageChange}
-        count={count}
-        className={classnames(styles["pagination"], classes.paginationRoot)}
-      />
+      {displayPagination && (
+        <StyledPagination
+          page={page}
+          onChange={onPageChange}
+          count={count}
+          className={classnames(styles["pagination"], classes.paginationRoot)}
+        />
+      )}
       {isDownloadButton && !isMobile && (
         <>
           <DownloadList.Clear

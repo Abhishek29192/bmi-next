@@ -1,10 +1,10 @@
 /* eslint-disable prefer-spread */
 import { ThemeProvider } from "@bmi-digital/components";
 import {
-  RenderResult,
   fireEvent,
-  waitFor,
-  screen
+  RenderResult,
+  screen,
+  waitFor
 } from "@testing-library/react";
 import React from "react";
 import DocumentLibraryPage, { PAGE_SIZE } from "../";
@@ -330,7 +330,7 @@ describe("Document Library page", () => {
     mockQueryES
       .mockResolvedValueOnce({
         hits: {
-          hits: [...mockESDocumentsList.slice(0, 24)]
+          hits: [...mockESDocumentsList.slice(0, 25)]
         },
         aggregations: {
           unique_documents_count: { value: count + 1 }

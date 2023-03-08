@@ -376,4 +376,59 @@ describe("DocumentResultsFooter component", () => {
       expect(resetList).toHaveBeenCalledTimes(1);
     });
   });
+
+  describe("hide pagination", () => {
+    it("should hide pagination when page size is 25 or less(PageCount=1)", () => {
+      const handlePageChange = jest.fn();
+      const { queryByTestId } = render(
+        <ThemeProvider>
+          <DownloadListContext.Provider
+            value={{
+              list,
+              updateList: jest.fn(),
+              resetList: jest.fn(),
+              count: 3,
+              remainingSize: Infinity,
+              isLoading: false,
+              setIsLoading: jest.fn()
+            }}
+          >
+            <DocumentResultsFooter
+              page={1}
+              count={1}
+              onPageChange={handlePageChange}
+            />
+          </DownloadListContext.Provider>
+        </ThemeProvider>
+      );
+      expect(queryByTestId("pagination-root")).toBeNull();
+    });
+
+    it("should show pagination when page size is more than 25(PageCount>1)", () => {
+      const handlePageChange = jest.fn();
+
+      const { queryByTestId } = render(
+        <ThemeProvider>
+          <DownloadListContext.Provider
+            value={{
+              list,
+              updateList: jest.fn(),
+              resetList: jest.fn(),
+              count: 26,
+              remainingSize: Infinity,
+              isLoading: false,
+              setIsLoading: jest.fn()
+            }}
+          >
+            <DocumentResultsFooter
+              page={1}
+              count={2}
+              onPageChange={handlePageChange}
+            />
+          </DownloadListContext.Provider>
+        </ThemeProvider>
+      );
+      expect(queryByTestId("pagination-root")).not.toBeNull();
+    });
+  });
 });
