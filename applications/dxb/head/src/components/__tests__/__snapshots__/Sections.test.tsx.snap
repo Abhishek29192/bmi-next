@@ -1815,7 +1815,7 @@ exports[`Sections component renders correctly 1`] = `
                                     class="css-bp47jm"
                                   >
                                     <a
-                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kiv9ae-MuiTypography-root-MuiLink-root"
+                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-swxrni-MuiTypography-root-MuiLink-root"
                                       data-gtm="{"id":"cta-click1","label":"roofer 1 - address 1 - Pitched Roof","action":"tel:phone 1"}"
                                       data-testid="anchor-link"
                                       href="tel:phone 1"
@@ -1855,7 +1855,7 @@ exports[`Sections component renders correctly 1`] = `
                                     class="css-bp47jm"
                                   >
                                     <a
-                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kiv9ae-MuiTypography-root-MuiLink-root"
+                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-swxrni-MuiTypography-root-MuiLink-root"
                                       data-gtm="{"id":"cta-click1","label":"roofer 1 - address 1 - Pitched Roof","action":"mailto:test@test.com"}"
                                       data-testid="anchor-link"
                                       href="mailto:test@test.com"
@@ -1895,7 +1895,7 @@ exports[`Sections component renders correctly 1`] = `
                                     class="css-bp47jm"
                                   >
                                     <a
-                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kiv9ae-MuiTypography-root-MuiLink-root"
+                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-swxrni-MuiTypography-root-MuiLink-root"
                                       data-gtm="{"id":"cta-click1","label":"roofer 1 - address 1 - Pitched Roof","action":"https://www.test.com"}"
                                       data-testid="anchor-link"
                                       href="https://www.test.com"
@@ -2031,7 +2031,7 @@ exports[`Sections component renders correctly 1`] = `
                                     class="css-bp47jm"
                                   >
                                     <a
-                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kiv9ae-MuiTypography-root-MuiLink-root"
+                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-swxrni-MuiTypography-root-MuiLink-root"
                                       data-gtm="{"id":"cta-click1","label":"roofer 2 - address 1 - Pitched Roof","action":"tel:phone 1"}"
                                       data-testid="anchor-link"
                                       href="tel:phone 1"
@@ -2071,7 +2071,7 @@ exports[`Sections component renders correctly 1`] = `
                                     class="css-bp47jm"
                                   >
                                     <a
-                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kiv9ae-MuiTypography-root-MuiLink-root"
+                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-swxrni-MuiTypography-root-MuiLink-root"
                                       data-gtm="{"id":"cta-click1","label":"roofer 2 - address 1 - Pitched Roof","action":"mailto:test@test.com"}"
                                       data-testid="anchor-link"
                                       href="mailto:test@test.com"
@@ -2111,7 +2111,7 @@ exports[`Sections component renders correctly 1`] = `
                                     class="css-bp47jm"
                                   >
                                     <a
-                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kiv9ae-MuiTypography-root-MuiLink-root"
+                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-swxrni-MuiTypography-root-MuiLink-root"
                                       data-gtm="{"id":"cta-click1","label":"roofer 2 - address 1 - Pitched Roof","action":"https://www.test.com"}"
                                       data-testid="anchor-link"
                                       href="https://www.test.com"
@@ -3475,7 +3475,7 @@ exports[`Sections component renders correctly 1`] = `
                     >
                       I agree with BMI's 
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                         data-testid="label-Data-Protection-Policy-anchor-link"
                         href="https://google.co.uk"
                         rel="noopener"
@@ -3575,7 +3575,7 @@ exports[`Sections component renders correctly 1`] = `
           >
             This site is protected by reCAPTCHA and the Google 
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
               data-testid="recaptcha-privacy-policy-link"
               href="https://policies.google.com/privacy"
               rel="noreferrer noopener"
@@ -3587,7 +3587,7 @@ exports[`Sections component renders correctly 1`] = `
             </a>
              and 
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
               data-testid="recaptcha-terms-of-service-link"
               href="https://policies.google.com/terms"
               rel="noreferrer noopener"

@@ -1,7 +1,11 @@
+import { SocialMediaLinks } from "@bmi-digital/components";
+import React from "react";
 import * as devLog from "../../../utils/devLog";
 import createService from "../../../__tests__/helpers/ServiceHelper";
 import { EntryTypeEnum } from "../../Service";
 import { createCompanyDetails } from "../components";
+
+const { ROOFER_TYPE, BRANCH_TYPE, MERCHANT_TYPE } = EntryTypeEnum;
 
 jest.spyOn(devLog, "devLog");
 
@@ -16,7 +20,7 @@ describe("createCompanyDetails", () => {
       ]
     });
     const details = createCompanyDetails(
-      EntryTypeEnum.ROOFER_TYPE,
+      ROOFER_TYPE,
       service,
       false,
       "en",
@@ -36,7 +40,7 @@ describe("createCompanyDetails", () => {
   it("should return details array for sectionType = BRANCH_TYPE", () => {
     const service = createService();
     const details = createCompanyDetails(
-      EntryTypeEnum.BRANCH_TYPE,
+      BRANCH_TYPE,
       service,
       false,
       "en",
@@ -54,7 +58,7 @@ describe("createCompanyDetails", () => {
   it("should return details array for sectionType = MERCHANT_TYPE", () => {
     const service = createService();
     const details = createCompanyDetails(
-      EntryTypeEnum.MERCHANT_TYPE,
+      MERCHANT_TYPE,
       service,
       false,
       "en",
@@ -104,7 +108,7 @@ describe("createCompanyDetails", () => {
         summary: null
       });
       const details = createCompanyDetails(
-        EntryTypeEnum.BRANCH_TYPE,
+        BRANCH_TYPE,
         service,
         false,
         "en",
@@ -144,7 +148,7 @@ describe("createCompanyDetails", () => {
         certification: "expert"
       });
       const details = createCompanyDetails(
-        EntryTypeEnum.ROOFER_TYPE,
+        ROOFER_TYPE,
         service,
         false,
         "en",
@@ -169,7 +173,7 @@ describe("createCompanyDetails", () => {
         address: "1 street, PO5T C0DE"
       });
       const details = createCompanyDetails(
-        EntryTypeEnum.ROOFER_TYPE,
+        ROOFER_TYPE,
         service,
         true,
         "en",
@@ -189,7 +193,7 @@ describe("createCompanyDetails", () => {
   describe("Service is null empty fields tests", () => {
     it("should not return empty fields in company details", () => {
       const details = createCompanyDetails(
-        EntryTypeEnum.BRANCH_TYPE,
+        BRANCH_TYPE,
         null,
         false,
         "en",
@@ -229,11 +233,11 @@ describe("createCompanyDetails", () => {
           serviceTypes: [
             { __typename: "ContentfulServiceType", name: "Pitched Roof" }
           ],
-          entryType: EntryTypeEnum.ROOFER_TYPE,
+          entryType: ROOFER_TYPE,
           websiteLinkAsLabel: true
         });
         const details = createCompanyDetails(
-          EntryTypeEnum.ROOFER_TYPE,
+          ROOFER_TYPE,
           service,
           false,
           "en",
@@ -253,11 +257,11 @@ describe("createCompanyDetails", () => {
     describe("and service entry type is MERCHANT", () => {
       it("should return website text as microcopy text", () => {
         const service = createService({
-          entryType: EntryTypeEnum.MERCHANT_TYPE,
+          entryType: MERCHANT_TYPE,
           websiteLinkAsLabel: true
         });
         const details = createCompanyDetails(
-          EntryTypeEnum.MERCHANT_TYPE,
+          MERCHANT_TYPE,
           service,
           false,
           "en",
@@ -279,11 +283,11 @@ describe("createCompanyDetails", () => {
     describe("and service entry type is BRANCH", () => {
       it("should return website text as microcopy text", () => {
         const service = createService({
-          entryType: EntryTypeEnum.BRANCH_TYPE,
+          entryType: BRANCH_TYPE,
           websiteLinkAsLabel: true
         });
         const details = createCompanyDetails(
-          EntryTypeEnum.BRANCH_TYPE,
+          BRANCH_TYPE,
           service,
           false,
           "en",
@@ -298,6 +302,71 @@ describe("createCompanyDetails", () => {
 
         expect(websiteLinkLabelObj).toBeTruthy();
         expect(websiteLinkLabelObj["text"]).toEqual("findABranch.websiteLabel");
+      });
+    });
+  });
+
+  [BRANCH_TYPE, MERCHANT_TYPE, ROOFER_TYPE].forEach((service) => {
+    describe(`When a ${service} service has social-media information`, () => {
+      it("should display social media information", () => {
+        const channels = {
+          facebook: "foo",
+          instagram: "beep",
+          twitter: "bar",
+          linkedIn: "tux"
+        };
+
+        const service = createService(channels);
+
+        const details = createCompanyDetails(
+          ROOFER_TYPE,
+          service,
+          false,
+          "en",
+          getMicroCopyMock,
+          false,
+          "googleURLLatLng"
+        );
+
+        expect(details).toEqual(
+          expect.arrayContaining([
+            expect.objectContaining({
+              type: "content",
+              label: "findARoofer.socialMediaLabel",
+              text: (
+                <SocialMediaLinks
+                  facebook={channels.facebook}
+                  instagram={channels.instagram}
+                  linkedIn={channels.linkedIn}
+                  twitter={channels.twitter}
+                />
+              )
+            })
+          ])
+        );
+      });
+    });
+
+    describe("When service does NOT have social-media information", () => {
+      it("should NOT return social media component", () => {
+        const details = createCompanyDetails(
+          ROOFER_TYPE,
+          createService(),
+          false,
+          "en",
+          getMicroCopyMock,
+          false,
+          "googleURLLatLng"
+        );
+
+        expect(details).not.toEqual(
+          expect.arrayContaining([
+            expect.objectContaining({
+              type: "content",
+              label: "findARoofer.socialMediaLabel"
+            })
+          ])
+        );
       });
     });
   });

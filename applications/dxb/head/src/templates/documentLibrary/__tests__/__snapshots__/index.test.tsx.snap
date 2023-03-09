@@ -5052,7 +5052,7 @@ exports[`Document Library page should render DocumentTechnicalTableResults corre
                     class="DocumentTechnicalTableResults-downloadIconContainer"
                   >
                     <a
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                       data-gtm="{"id":"download1","label":"Download","action":"https://url"}"
                       data-testid="anchor-link"
                       download="pim document title"
