@@ -3594,61 +3594,6 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                   <div
                     class="DocumentResultsFooter"
                   >
-                    <nav
-                      aria-label="pagination navigation"
-                      class="MuiPagination-root MuiPagination-text pagination docResultsFooterStyles-paginationRoot css-ys6i0r-MuiPagination-root"
-                      data-testid="pagination-root"
-                    >
-                      <ul
-                        class="MuiPagination-ul css-wjh20t-MuiPagination-ul"
-                      >
-                        <li>
-                          <button
-                            aria-label="Go to previous page"
-                            class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-disabled MuiPaginationItem-previousNext Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
-                            data-testid="pagination-0-button"
-                            disabled=""
-                            tabindex="-1"
-                            type="button"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiPaginationItem-icon css-g2z002-MuiSvgIcon-root-MuiPaginationItem-icon"
-                              data-testid="NavigateBeforeIcon"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-                              />
-                            </svg>
-                          </button>
-                        </li>
-                        <li />
-                        <li>
-                          <button
-                            aria-label="Go to next page"
-                            class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-disabled MuiPaginationItem-previousNext Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
-                            data-testid="pagination-2-button"
-                            disabled=""
-                            tabindex="-1"
-                            type="button"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiPaginationItem-icon css-g2z002-MuiSvgIcon-root-MuiPaginationItem-icon"
-                              data-testid="NavigateNextIcon"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                              />
-                            </svg>
-                          </button>
-                        </li>
-                      </ul>
-                    </nav>
                     <a
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                       data-testid="anchor-link"
@@ -7778,61 +7723,6 @@ exports[`SystemDetailsPage template component should render 1`] = `
                   <div
                     class="DocumentResultsFooter"
                   >
-                    <nav
-                      aria-label="pagination navigation"
-                      class="MuiPagination-root MuiPagination-text pagination docResultsFooterStyles-paginationRoot css-ys6i0r-MuiPagination-root"
-                      data-testid="pagination-root"
-                    >
-                      <ul
-                        class="MuiPagination-ul css-wjh20t-MuiPagination-ul"
-                      >
-                        <li>
-                          <button
-                            aria-label="Go to previous page"
-                            class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-disabled MuiPaginationItem-previousNext Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
-                            data-testid="pagination-0-button"
-                            disabled=""
-                            tabindex="-1"
-                            type="button"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiPaginationItem-icon css-g2z002-MuiSvgIcon-root-MuiPaginationItem-icon"
-                              data-testid="NavigateBeforeIcon"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-                              />
-                            </svg>
-                          </button>
-                        </li>
-                        <li />
-                        <li>
-                          <button
-                            aria-label="Go to next page"
-                            class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-disabled MuiPaginationItem-previousNext Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
-                            data-testid="pagination-2-button"
-                            disabled=""
-                            tabindex="-1"
-                            type="button"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiPaginationItem-icon css-g2z002-MuiSvgIcon-root-MuiPaginationItem-icon"
-                              data-testid="NavigateNextIcon"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                              />
-                            </svg>
-                          </button>
-                        </li>
-                      </ul>
-                    </nav>
                     <a
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                       data-testid="anchor-link"
@@ -11966,61 +11856,6 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                     <div
                       class="DocumentResultsFooter"
                     >
-                      <nav
-                        aria-label="pagination navigation"
-                        class="MuiPagination-root MuiPagination-text pagination docResultsFooterStyles-paginationRoot css-ys6i0r-MuiPagination-root"
-                        data-testid="pagination-root"
-                      >
-                        <ul
-                          class="MuiPagination-ul css-wjh20t-MuiPagination-ul"
-                        >
-                          <li>
-                            <button
-                              aria-label="Go to previous page"
-                              class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-disabled MuiPaginationItem-previousNext Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
-                              data-testid="pagination-0-button"
-                              disabled=""
-                              tabindex="-1"
-                              type="button"
-                            >
-                              <svg
-                                aria-hidden="true"
-                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiPaginationItem-icon css-g2z002-MuiSvgIcon-root-MuiPaginationItem-icon"
-                                data-testid="NavigateBeforeIcon"
-                                focusable="false"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-                                />
-                              </svg>
-                            </button>
-                          </li>
-                          <li />
-                          <li>
-                            <button
-                              aria-label="Go to next page"
-                              class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-disabled MuiPaginationItem-previousNext Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
-                              data-testid="pagination-2-button"
-                              disabled=""
-                              tabindex="-1"
-                              type="button"
-                            >
-                              <svg
-                                aria-hidden="true"
-                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiPaginationItem-icon css-g2z002-MuiSvgIcon-root-MuiPaginationItem-icon"
-                                data-testid="NavigateNextIcon"
-                                focusable="false"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                                />
-                              </svg>
-                            </button>
-                          </li>
-                        </ul>
-                      </nav>
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                         data-testid="anchor-link"
@@ -16151,61 +15986,6 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                   <div
                     class="DocumentResultsFooter"
                   >
-                    <nav
-                      aria-label="pagination navigation"
-                      class="MuiPagination-root MuiPagination-text pagination docResultsFooterStyles-paginationRoot css-ys6i0r-MuiPagination-root"
-                      data-testid="pagination-root"
-                    >
-                      <ul
-                        class="MuiPagination-ul css-wjh20t-MuiPagination-ul"
-                      >
-                        <li>
-                          <button
-                            aria-label="Go to previous page"
-                            class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-disabled MuiPaginationItem-previousNext Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
-                            data-testid="pagination-0-button"
-                            disabled=""
-                            tabindex="-1"
-                            type="button"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiPaginationItem-icon css-g2z002-MuiSvgIcon-root-MuiPaginationItem-icon"
-                              data-testid="NavigateBeforeIcon"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-                              />
-                            </svg>
-                          </button>
-                        </li>
-                        <li />
-                        <li>
-                          <button
-                            aria-label="Go to next page"
-                            class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-disabled MuiPaginationItem-previousNext Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
-                            data-testid="pagination-2-button"
-                            disabled=""
-                            tabindex="-1"
-                            type="button"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiPaginationItem-icon css-g2z002-MuiSvgIcon-root-MuiPaginationItem-icon"
-                              data-testid="NavigateNextIcon"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                              />
-                            </svg>
-                          </button>
-                        </li>
-                      </ul>
-                    </nav>
                     <a
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                       data-testid="anchor-link"
@@ -20296,61 +20076,6 @@ exports[`SystemDetailsPage template component should render without specificatio
                   <div
                     class="DocumentResultsFooter"
                   >
-                    <nav
-                      aria-label="pagination navigation"
-                      class="MuiPagination-root MuiPagination-text pagination docResultsFooterStyles-paginationRoot css-ys6i0r-MuiPagination-root"
-                      data-testid="pagination-root"
-                    >
-                      <ul
-                        class="MuiPagination-ul css-wjh20t-MuiPagination-ul"
-                      >
-                        <li>
-                          <button
-                            aria-label="Go to previous page"
-                            class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-disabled MuiPaginationItem-previousNext Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
-                            data-testid="pagination-0-button"
-                            disabled=""
-                            tabindex="-1"
-                            type="button"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiPaginationItem-icon css-g2z002-MuiSvgIcon-root-MuiPaginationItem-icon"
-                              data-testid="NavigateBeforeIcon"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-                              />
-                            </svg>
-                          </button>
-                        </li>
-                        <li />
-                        <li>
-                          <button
-                            aria-label="Go to next page"
-                            class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-disabled MuiPaginationItem-previousNext Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
-                            data-testid="pagination-2-button"
-                            disabled=""
-                            tabindex="-1"
-                            type="button"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiPaginationItem-icon css-g2z002-MuiSvgIcon-root-MuiPaginationItem-icon"
-                              data-testid="NavigateNextIcon"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                              />
-                            </svg>
-                          </button>
-                        </li>
-                      </ul>
-                    </nav>
                     <a
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                       data-testid="anchor-link"
@@ -24480,61 +24205,6 @@ exports[`SystemDetailsPage template component should render without systemLayers
                   <div
                     class="DocumentResultsFooter"
                   >
-                    <nav
-                      aria-label="pagination navigation"
-                      class="MuiPagination-root MuiPagination-text pagination docResultsFooterStyles-paginationRoot css-ys6i0r-MuiPagination-root"
-                      data-testid="pagination-root"
-                    >
-                      <ul
-                        class="MuiPagination-ul css-wjh20t-MuiPagination-ul"
-                      >
-                        <li>
-                          <button
-                            aria-label="Go to previous page"
-                            class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-disabled MuiPaginationItem-previousNext Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
-                            data-testid="pagination-0-button"
-                            disabled=""
-                            tabindex="-1"
-                            type="button"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiPaginationItem-icon css-g2z002-MuiSvgIcon-root-MuiPaginationItem-icon"
-                              data-testid="NavigateBeforeIcon"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-                              />
-                            </svg>
-                          </button>
-                        </li>
-                        <li />
-                        <li>
-                          <button
-                            aria-label="Go to next page"
-                            class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-disabled MuiPaginationItem-previousNext Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
-                            data-testid="pagination-2-button"
-                            disabled=""
-                            tabindex="-1"
-                            type="button"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiPaginationItem-icon css-g2z002-MuiSvgIcon-root-MuiPaginationItem-icon"
-                              data-testid="NavigateNextIcon"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                              />
-                            </svg>
-                          </button>
-                        </li>
-                      </ul>
-                    </nav>
                     <a
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                       data-testid="anchor-link"
@@ -28790,61 +28460,6 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                   <div
                     class="DocumentResultsFooter"
                   >
-                    <nav
-                      aria-label="pagination navigation"
-                      class="MuiPagination-root MuiPagination-text pagination docResultsFooterStyles-paginationRoot css-ys6i0r-MuiPagination-root"
-                      data-testid="pagination-root"
-                    >
-                      <ul
-                        class="MuiPagination-ul css-wjh20t-MuiPagination-ul"
-                      >
-                        <li>
-                          <button
-                            aria-label="Go to previous page"
-                            class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-disabled MuiPaginationItem-previousNext Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
-                            data-testid="pagination-0-button"
-                            disabled=""
-                            tabindex="-1"
-                            type="button"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiPaginationItem-icon css-g2z002-MuiSvgIcon-root-MuiPaginationItem-icon"
-                              data-testid="NavigateBeforeIcon"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-                              />
-                            </svg>
-                          </button>
-                        </li>
-                        <li />
-                        <li>
-                          <button
-                            aria-label="Go to next page"
-                            class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-disabled MuiPaginationItem-previousNext Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
-                            data-testid="pagination-2-button"
-                            disabled=""
-                            tabindex="-1"
-                            type="button"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiPaginationItem-icon css-g2z002-MuiSvgIcon-root-MuiPaginationItem-icon"
-                              data-testid="NavigateNextIcon"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                              />
-                            </svg>
-                          </button>
-                        </li>
-                      </ul>
-                    </nav>
                     <a
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                       data-testid="anchor-link"
@@ -33100,61 +32715,6 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                   <div
                     class="DocumentResultsFooter"
                   >
-                    <nav
-                      aria-label="pagination navigation"
-                      class="MuiPagination-root MuiPagination-text pagination docResultsFooterStyles-paginationRoot css-ys6i0r-MuiPagination-root"
-                      data-testid="pagination-root"
-                    >
-                      <ul
-                        class="MuiPagination-ul css-wjh20t-MuiPagination-ul"
-                      >
-                        <li>
-                          <button
-                            aria-label="Go to previous page"
-                            class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-disabled MuiPaginationItem-previousNext Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
-                            data-testid="pagination-0-button"
-                            disabled=""
-                            tabindex="-1"
-                            type="button"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiPaginationItem-icon css-g2z002-MuiSvgIcon-root-MuiPaginationItem-icon"
-                              data-testid="NavigateBeforeIcon"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-                              />
-                            </svg>
-                          </button>
-                        </li>
-                        <li />
-                        <li>
-                          <button
-                            aria-label="Go to next page"
-                            class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-disabled MuiPaginationItem-previousNext Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
-                            data-testid="pagination-2-button"
-                            disabled=""
-                            tabindex="-1"
-                            type="button"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiPaginationItem-icon css-g2z002-MuiSvgIcon-root-MuiPaginationItem-icon"
-                              data-testid="NavigateNextIcon"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                              />
-                            </svg>
-                          </button>
-                        </li>
-                      </ul>
-                    </nav>
                     <a
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                       data-testid="anchor-link"
