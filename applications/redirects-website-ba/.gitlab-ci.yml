@@ -1,4 +1,4 @@
-build_redirects_website_fr_monier:
+build_redirects_website_ba:
   extends: .build_yarn_workspace
   rules:
     - !reference [.ingore_release_mrs, rules]
