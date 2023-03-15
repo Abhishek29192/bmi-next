@@ -1093,6 +1093,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
       >
         <iframe
           class="assetsIframe"
+          data-testid="assets-iframe-element"
           src="http://bimIframUrl"
           title="BIM iFrame"
         />
@@ -1149,6 +1150,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
       >
         <iframe
           class="assetsIframe specification-tab-iframe"
+          data-testid="assets-iframe-element"
           src="http://specificationIframeUrl"
           title="undefined iFrame"
         />
@@ -1164,6 +1166,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
       >
         <iframe
           class="assetsIframe fixing-tool-iframe"
+          data-testid="assets-iframe-element"
           src="http://fixingToolIframeUrl"
           title="undefined iFrame"
         />
@@ -2024,6 +2027,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
       >
         <iframe
           class="assetsIframe"
+          data-testid="assets-iframe-element"
           src="http://bimIframUrl"
           title="BIM iFrame"
         />
@@ -2080,6 +2084,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
       >
         <iframe
           class="assetsIframe specification-tab-iframe"
+          data-testid="assets-iframe-element"
           src="http://specificationIframeUrl"
           title="undefined iFrame"
         />
@@ -2095,6 +2100,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
       >
         <iframe
           class="assetsIframe fixing-tool-iframe"
+          data-testid="assets-iframe-element"
           src="http://fixingToolIframeUrl"
           title="undefined iFrame"
         />
@@ -2602,6 +2608,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
       >
         <iframe
           class="assetsIframe"
+          data-testid="assets-iframe-element"
           src="http://bimIframUrl"
           title="BIM iFrame"
         />
@@ -2658,6 +2665,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
       >
         <iframe
           class="assetsIframe specification-tab-iframe"
+          data-testid="assets-iframe-element"
           src="http://specificationIframeUrl"
           title="undefined iFrame"
         />
@@ -2673,6 +2681,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
       >
         <iframe
           class="assetsIframe fixing-tool-iframe"
+          data-testid="assets-iframe-element"
           src="http://fixingToolIframeUrl"
           title="undefined iFrame"
         />
@@ -4066,6 +4075,7 @@ exports[`ProductLeadBlock tests should render the fixing tool tab 1`] = `
 >
   <iframe
     class="assetsIframe fixing-tool-iframe"
+    data-testid="assets-iframe-element"
     src="https://monier.service.bouwconnect.nl/"
     title="undefined iFrame"
   />
@@ -4090,6 +4100,7 @@ exports[`ProductLeadBlock tests should render the fixing tool tab with title and
   </h5>
   <iframe
     class="assetsIframe fixing-tool-iframe"
+    data-testid="assets-iframe-element"
     src="https://monier.service.bouwconnect.nl/"
     title="Fixing tool title iFrame"
   />
@@ -4114,6 +4125,7 @@ exports[`ProductLeadBlock tests should render the specification tab 1`] = `
   </h5>
   <iframe
     class="assetsIframe specification-tab-iframe"
+    data-testid="assets-iframe-element"
     src="https://monier.service.bouwconnect.nl/"
     title="Specification title iFrame"
   />

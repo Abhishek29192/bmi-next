@@ -10,6 +10,7 @@ type Props = {
 
 const AssetsIframe = ({ url, title, className, ...rest }: Props) => (
   <iframe
+    data-testid="assets-iframe-element"
     className={classnames(styles["assetsIframe"], className)}
     src={url}
     title={title}
