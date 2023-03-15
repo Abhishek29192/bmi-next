@@ -2,10 +2,10 @@
 
 module.exports = {
   siteMetadata: {
-    title: `BMI dxb BA redirects - Bosnia`,
-    description: `Website for BA redirects - Bosnia`,
+    title: `BMI dxb RS redirects - Serbia`,
+    description: `Website for RS redirects - Serbia`,
     author: `bmi`,
-    siteUrl: `https://bmidxbredirectsbosnia.gatsbyjs.io`
+    siteUrl: `https://bmidxbredirectsserbia.gatsbyjs.io`
   },
   plugins: [
     {

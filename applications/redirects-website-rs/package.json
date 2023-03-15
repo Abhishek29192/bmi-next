@@ -1,7 +1,7 @@
 {
-  "name": "@bmi/redirects-website-ba",
+  "name": "@bmi/redirects-website-rs",
   "private": true,
-  "description": "BMI Redirects Website BA Bosnia",
+  "description": "BMI Redirects Website RS Serbia",
   "version": "0.0.0",
   "license": "BMI-DXB",
   "repository": {
