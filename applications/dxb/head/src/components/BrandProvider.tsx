@@ -28,7 +28,8 @@ const BRAND_STYLES: { [key: string]: string | undefined } = {
   Villas: "RoyalBlue",
   Wierer: "BrandRed",
   Wolfin: "BrandGreen",
-  Zanda: "BrandRed"
+  Zanda: "BrandRed",
+  Klober: "BrandRed"
 };
 
 // @deprecated
