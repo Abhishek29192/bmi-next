@@ -66,14 +66,16 @@ const getHeroItemsWithContext = (
         ),
         cta:
           rest.__typename === "ContentfulPromo" ? (
-            <Link component={Button} data={rest.cta}>
-              {rest.cta?.label}
-            </Link>
-          ) : (
+            rest.cta?.label ? (
+              <Link component={Button} data={rest.cta}>
+                {rest.cta?.label}
+              </Link>
+            ) : null
+          ) : rest.path ? (
             <Link component={Button} data={{ linkedPage: { path: rest.path } }}>
               {getMicroCopy(microCopy.PAGE_LINK_LABEL)}
             </Link>
-          )
+          ) : null
       };
     }
   );

@@ -1,5 +1,5 @@
 import { ThemeProvider } from "@bmi-digital/components";
-import { fireEvent } from "@testing-library/react";
+import { fireEvent, screen } from "@testing-library/react";
 import React from "react";
 import { DataTypeEnum } from "../../components/Link";
 import { Data as SlideData } from "../../components/Promo";
@@ -298,7 +298,113 @@ describe("Brand Landing Page Template", () => {
     fireEvent.click(button);
 
     expect(container).toMatchSnapshot();
-    expect(container.querySelector(".cta.MuiButton-root").textContent).toBe("");
+    expect(screen.queryByTestId("hero-cta")).not.toBeInTheDocument();
+  });
+
+  it("not render cta link text when cta label is null", () => {
+    const newData = { ...data };
+    newData.contentfulBrandLandingPage.slides = [
+      {
+        ...slide,
+        cta: {
+          __typename: "ContentfulLink",
+          id: "cta_id",
+          label: null,
+          icon: null,
+          isLabelHidden: false,
+          url: null,
+          type: null,
+          parameters: null,
+          dialogContent: null,
+          linkedPage: null,
+          hubSpotCTAID: null
+        }
+      }
+    ];
+    const { getByLabelText } = renderWithRouter(
+      <ThemeProvider>
+        <BrandLandingPage
+          data={newData}
+          pageContext={{ variantCodeToPathMap: {} }}
+        />
+      </ThemeProvider>
+    );
+
+    const button = getByLabelText("next");
+
+    fireEvent.click(button);
+
+    expect(screen.queryByTestId("hero-cta")).not.toBeInTheDocument();
+  });
+
+  it("renders cta link text when cta label is populated", () => {
+    const newData = { ...data };
+    newData.contentfulBrandLandingPage.slides = [
+      {
+        ...slide,
+        cta: {
+          __typename: "ContentfulLink",
+          id: "cta_id",
+          label: "test CTA",
+          icon: null,
+          isLabelHidden: false,
+          url: null,
+          type: null,
+          parameters: null,
+          dialogContent: null,
+          linkedPage: null,
+          hubSpotCTAID: null
+        }
+      }
+    ];
+    const { getByLabelText } = renderWithRouter(
+      <ThemeProvider>
+        <BrandLandingPage
+          data={newData}
+          pageContext={{ variantCodeToPathMap: {} }}
+        />
+      </ThemeProvider>
+    );
+
+    const button = getByLabelText("next");
+
+    fireEvent.click(button);
+
+    expect(screen.queryByTestId("hero-cta")).toBeInTheDocument();
+  });
+
+  it("not render link text when typename is not ContentfulPromo and path is null", () => {
+    const newData = { ...data };
+    newData.contentfulBrandLandingPage.slides = [
+      {
+        ...slide,
+        __typename: "ContentfulSimplePage",
+        id: "ContentfulSimplePageId",
+        title: "ContentfulSimplePageTitle",
+        subtitle: null,
+        brandLogo: null,
+        slug: "ContentfulSimplePageSlug",
+        path: null,
+        date: null,
+        tags: null,
+        featuredMedia: null,
+        featuredVideo: null
+      }
+    ];
+    const { getByLabelText } = renderWithRouter(
+      <ThemeProvider>
+        <BrandLandingPage
+          data={newData}
+          pageContext={{ variantCodeToPathMap: {} }}
+        />
+      </ThemeProvider>
+    );
+
+    const button = getByLabelText("next");
+
+    fireEvent.click(button);
+
+    expect(screen.queryByText("Go to page")).not.toBeInTheDocument();
   });
 
   it("render no context for firstslide when no description", () => {
