@@ -14,6 +14,7 @@ import Breadcrumbs, {
   Data as BreadcrumbsData
 } from "../components/Breadcrumbs";
 import Image from "../components/Image";
+import type { Data as LinkData } from "../components/Link";
 import Link from "../components/Link";
 import OverlapCards, {
   Data as OverlapCardData
@@ -54,6 +55,22 @@ const getHeroItemsWithContext = (
   { getMicroCopy },
   slides: BrandLandingPageData["slides"]
 ): CarouselHeroItem[] => {
+  const GetCTAButton = (cta: LinkData | null): JSX.Element => {
+    return cta?.label ? (
+      <Link component={Button} data={cta}>
+        {cta?.label}
+      </Link>
+    ) : null;
+  };
+
+  const GetCTALinkFromPath = (getMicroCopy, path: string): JSX.Element => {
+    return path ? (
+      <Link component={Button} data={{ linkedPage: { path: path } }}>
+        {getMicroCopy(microCopy.PAGE_LINK_LABEL)}
+      </Link>
+    ) : null;
+  };
+
   return slides.map(
     ({ title, subtitle, featuredMedia, featuredVideo, ...rest }) => {
       return {
@@ -65,17 +82,9 @@ const getHeroItemsWithContext = (
           <Image data={featuredMedia} size="cover" />
         ),
         cta:
-          rest.__typename === "ContentfulPromo" ? (
-            rest.cta?.label ? (
-              <Link component={Button} data={rest.cta}>
-                {rest.cta?.label}
-              </Link>
-            ) : null
-          ) : rest.path ? (
-            <Link component={Button} data={{ linkedPage: { path: rest.path } }}>
-              {getMicroCopy(microCopy.PAGE_LINK_LABEL)}
-            </Link>
-          ) : null
+          rest.__typename === "ContentfulPromo"
+            ? GetCTAButton(rest.cta)
+            : GetCTALinkFromPath(getMicroCopy, rest.path)
       };
     }
   );

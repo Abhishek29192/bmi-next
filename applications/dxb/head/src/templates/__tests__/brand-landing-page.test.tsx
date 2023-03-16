@@ -96,7 +96,7 @@ describe("Brand Landing Page Template", () => {
   };
 
   it("render correctly", () => {
-    const { container, getByTestId } = renderWithRouter(
+    const { container } = renderWithRouter(
       <ThemeProvider>
         <BrandLandingPage data={data} pageContext={null} />
       </ThemeProvider>
@@ -104,9 +104,9 @@ describe("Brand Landing Page Template", () => {
 
     expect(container).toMatchSnapshot();
     expect(container.querySelector("header")).toBeTruthy();
-    expect(getByTestId("footer")).toBeTruthy();
-    expect(getByTestId("brand-colors-provider")).toBeTruthy();
-    expect(getByTestId("hero")).toBeInTheDocument();
+    expect(screen.getByTestId("footer")).toBeTruthy();
+    expect(screen.getByTestId("brand-colors-provider")).toBeTruthy();
+    expect(screen.getByTestId("hero")).toBeInTheDocument();
     expect(
       container.querySelector(
         "[data-test-class-name=hero] [aria-label=breadcrumbs]"
@@ -191,7 +191,7 @@ describe("Brand Landing Page Template", () => {
         links: []
       }
     ];
-    const { container, getByText } = renderWithRouter(
+    const { container } = renderWithRouter(
       <ThemeProvider>
         <BrandLandingPage
           data={newData}
@@ -201,14 +201,14 @@ describe("Brand Landing Page Template", () => {
     );
 
     expect(container).toMatchSnapshot();
-    expect(getByText("sectionTitle")).toBeTruthy();
+    expect(screen.getByText("sectionTitle")).toBeTruthy();
   });
 
   it("render firstslide featuredMedia instead when no featuredVideo", () => {
     const newData = { ...data };
     newData.contentfulBrandLandingPage.featuredVideo = null;
     newData.contentfulBrandLandingPage.featuredMedia = createImageData();
-    const { container, getByAltText } = renderWithRouter(
+    const { container } = renderWithRouter(
       <ThemeProvider>
         <BrandLandingPage
           data={newData}
@@ -219,7 +219,9 @@ describe("Brand Landing Page Template", () => {
 
     expect(container).toMatchSnapshot();
     expect(
-      getByAltText(newData.contentfulBrandLandingPage.featuredMedia.altText)
+      screen.getByAltText(
+        newData.contentfulBrandLandingPage.featuredMedia.altText
+      )
     ).toBeTruthy();
   });
 
@@ -232,7 +234,7 @@ describe("Brand Landing Page Template", () => {
         featuredMedia: createImageData()
       }
     ];
-    const { container, getByAltText } = renderWithRouter(
+    const { container } = renderWithRouter(
       <ThemeProvider>
         <BrandLandingPage
           data={newData}
@@ -243,7 +245,9 @@ describe("Brand Landing Page Template", () => {
 
     expect(container).toMatchSnapshot();
     expect(
-      getByAltText(newData.contentfulBrandLandingPage.featuredMedia.altText)
+      screen.getByAltText(
+        newData.contentfulBrandLandingPage.featuredMedia.altText
+      )
     ).toBeTruthy();
   });
 
@@ -264,7 +268,7 @@ describe("Brand Landing Page Template", () => {
         featuredVideo: null
       }
     ];
-    const { container, getByText, getByLabelText } = renderWithRouter(
+    const { container } = renderWithRouter(
       <ThemeProvider>
         <BrandLandingPage
           data={newData}
@@ -273,18 +277,18 @@ describe("Brand Landing Page Template", () => {
       </ThemeProvider>
     );
 
-    const button = getByLabelText("next");
+    const button = screen.getByLabelText("next");
 
     fireEvent.click(button);
 
     expect(container).toMatchSnapshot();
-    expect(getByText("Go to page")).toBeTruthy();
+    expect(screen.getByText("Go to page")).toBeTruthy();
   });
 
   it("not render cta link text when cta object is null", () => {
     const newData = { ...data };
     newData.contentfulBrandLandingPage.slides = [{ ...slide, cta: null }];
-    const { container, getByLabelText } = renderWithRouter(
+    const { container } = renderWithRouter(
       <ThemeProvider>
         <BrandLandingPage
           data={newData}
@@ -293,7 +297,7 @@ describe("Brand Landing Page Template", () => {
       </ThemeProvider>
     );
 
-    const button = getByLabelText("next");
+    const button = screen.getByLabelText("next");
 
     fireEvent.click(button);
 
@@ -321,7 +325,7 @@ describe("Brand Landing Page Template", () => {
         }
       }
     ];
-    const { getByLabelText } = renderWithRouter(
+    renderWithRouter(
       <ThemeProvider>
         <BrandLandingPage
           data={newData}
@@ -330,7 +334,7 @@ describe("Brand Landing Page Template", () => {
       </ThemeProvider>
     );
 
-    const button = getByLabelText("next");
+    const button = screen.getByLabelText("next");
 
     fireEvent.click(button);
 
@@ -357,7 +361,7 @@ describe("Brand Landing Page Template", () => {
         }
       }
     ];
-    const { getByLabelText } = renderWithRouter(
+    renderWithRouter(
       <ThemeProvider>
         <BrandLandingPage
           data={newData}
@@ -366,7 +370,7 @@ describe("Brand Landing Page Template", () => {
       </ThemeProvider>
     );
 
-    const button = getByLabelText("next");
+    const button = screen.getByLabelText("next");
 
     fireEvent.click(button);
 
@@ -391,7 +395,7 @@ describe("Brand Landing Page Template", () => {
         featuredVideo: null
       }
     ];
-    const { getByLabelText } = renderWithRouter(
+    renderWithRouter(
       <ThemeProvider>
         <BrandLandingPage
           data={newData}
@@ -400,7 +404,7 @@ describe("Brand Landing Page Template", () => {
       </ThemeProvider>
     );
 
-    const button = getByLabelText("next");
+    const button = screen.getByLabelText("next");
 
     fireEvent.click(button);
 
@@ -446,7 +450,7 @@ describe("Brand Landing Page Template", () => {
       dialogContent: null,
       hubSpotCTAID: null
     };
-    const { container, queryByText } = renderWithRouter(
+    const { container } = renderWithRouter(
       <ThemeProvider>
         <BrandLandingPage
           data={newData}
@@ -454,7 +458,7 @@ describe("Brand Landing Page Template", () => {
         />
       </ThemeProvider>
     );
-    expect(queryByText("firstSlideCTA")).not.toBeNull();
+    expect(screen.queryByText("firstSlideCTA")).not.toBeNull();
     expect(container).toMatchSnapshot();
   });
 
@@ -483,7 +487,7 @@ describe("Brand Landing Page Template", () => {
         dialogContent: null,
         hubSpotCTAID: null
       };
-      const { container, queryByText, getByTestId } = renderWithRouter(
+      const { container } = renderWithRouter(
         <ThemeProvider>
           <BrandLandingPage
             data={newData}
@@ -491,9 +495,11 @@ describe("Brand Landing Page Template", () => {
           />
         </ThemeProvider>
       );
-      expect(queryByText("firstSlideCTA")).not.toBeNull();
+      expect(screen.queryByText("firstSlideCTA")).not.toBeNull();
       expect(
-        getByTestId("hero-content-slide-text").textContent.endsWith("...")
+        screen
+          .getByTestId("hero-content-slide-text")
+          .textContent.endsWith("...")
       ).toBeFalsy();
       expect(container).toMatchSnapshot();
     });
