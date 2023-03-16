@@ -2721,16 +2721,6 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                               data-test-class-name="text"
                               data-testid="hero-content-slide-text"
                             />
-                            <button
-                              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined Button-outlinedDarkBg MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined Button-outlinedDarkBg MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium CarouselHero-cta cta css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                              data-testid="hero-cta"
-                              tabindex="0"
-                              type="button"
-                            >
-                              <span
-                                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                              />
-                            </button>
                           </div>
                         </div>
                       </div>
@@ -17010,8 +17000,8 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
                     <label
                       class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled css-1wb2lss-MuiFormLabel-root-MuiInputLabel-root"
                       data-shrink="false"
-                      for="mui-8"
-                      id="mui-8-label"
+                      for="mui-11"
+                      id="mui-11-label"
                     >
                       MC: search.placeholder.hero
                     </label>
@@ -17021,7 +17011,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
                       <input
                         aria-invalid="false"
                         class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
-                        id="mui-8"
+                        id="mui-11"
                         name="q"
                         type="text"
                         value=""
@@ -31436,8 +31426,8 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                     <label
                       class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled css-1wb2lss-MuiFormLabel-root-MuiInputLabel-root"
                       data-shrink="false"
-                      for="mui-12"
-                      id="mui-12-label"
+                      for="mui-15"
+                      id="mui-15-label"
                     >
                       MC: search.placeholder.hero
                     </label>
@@ -31447,7 +31437,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                       <input
                         aria-invalid="false"
                         class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
-                        id="mui-12"
+                        id="mui-15"
                         name="q"
                         type="text"
                         value=""
@@ -35055,8 +35045,8 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                     <label
                       class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled css-1wb2lss-MuiFormLabel-root-MuiInputLabel-root"
                       data-shrink="false"
-                      for="mui-9"
-                      id="mui-9-label"
+                      for="mui-12"
+                      id="mui-12-label"
                     >
                       MC: search.placeholder.hero
                     </label>
@@ -35066,7 +35056,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                       <input
                         aria-invalid="false"
                         class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
-                        id="mui-9"
+                        id="mui-12"
                         name="q"
                         type="text"
                         value=""
@@ -38676,8 +38666,8 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                     <label
                       class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled css-1wb2lss-MuiFormLabel-root-MuiInputLabel-root"
                       data-shrink="false"
-                      for="mui-10"
-                      id="mui-10-label"
+                      for="mui-13"
+                      id="mui-13-label"
                     >
                       MC: search.placeholder.hero
                     </label>
@@ -38687,7 +38677,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                       <input
                         aria-invalid="false"
                         class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
-                        id="mui-10"
+                        id="mui-13"
                         name="q"
                         type="text"
                         value=""
@@ -42297,8 +42287,8 @@ exports[`Brand Landing Page Template when description is more than 400 character
                     <label
                       class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled css-1wb2lss-MuiFormLabel-root-MuiInputLabel-root"
                       data-shrink="false"
-                      for="mui-11"
-                      id="mui-11-label"
+                      for="mui-14"
+                      id="mui-14-label"
                     >
                       MC: search.placeholder.hero
                     </label>
@@ -42308,7 +42298,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                       <input
                         aria-invalid="false"
                         class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
-                        id="mui-11"
+                        id="mui-14"
                         name="q"
                         type="text"
                         value=""
