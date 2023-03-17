@@ -1,6 +1,5 @@
 import { Button, ButtonProps, QUERY_KEY } from "@bmi-digital/components";
 import { ArrowBack as ArrowBackIcon } from "@bmi-digital/components/icon";
-import { useMediaQuery, useTheme } from "@mui/material";
 import React, { FC, ReactChild } from "react";
 import { microCopy } from "../constants/microCopies";
 import {
@@ -10,6 +9,7 @@ import {
   SEARCHTAB_KEY
 } from "../utils/filters";
 import withGTM from "../utils/google-tag-manager";
+import { useIsMobileDevice } from "../utils/useIsMobileDevice";
 import { useSiteContext } from "./Site";
 import styles from "./styles/BackToResults.module.scss";
 
@@ -31,8 +31,7 @@ const BackToResults: FC<Props> = ({
   const isSSR = typeof window === "undefined";
 
   const urlParams = new URLSearchParams(isSSR ? "" : window.location.search);
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
+  const isMobile = useIsMobileDevice();
 
   if (
     !urlParams.get(QUERY_KEY) &&

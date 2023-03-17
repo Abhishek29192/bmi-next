@@ -723,7 +723,7 @@ exports[`Sections component renders correctly 1`] = `
                   type="button"
                 >
                   <div
-                    class="gatsby-image-wrapper gatsby-image-wrapper-constrained OverviewCard-headerPicture css-7mgsqw-Media"
+                    class="gatsby-image-wrapper gatsby-image-wrapper-constrained OverviewCard-headerPicture css-1hwnyij-Media"
                     data-gatsby-image-wrapper=""
                     style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                   >
@@ -971,7 +971,7 @@ exports[`Sections component renders correctly 1`] = `
               data-testid="grid-item"
             >
               <div
-                class="gatsby-image-wrapper gatsby-image-wrapper-constrained PromoSection-image css-7mgsqw-Media"
+                class="gatsby-image-wrapper gatsby-image-wrapper-constrained PromoSection-image css-1hwnyij-Media"
                 data-gatsby-image-wrapper=""
                 style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
               >
@@ -1065,7 +1065,7 @@ exports[`Sections component renders correctly 1`] = `
                   data-testid="media-gallery-media-wrapper"
                 >
                   <div
-                    class="gatsby-image-wrapper gatsby-image-wrapper-constrained MediaGallery-mainImageWrapperCover MediaGallery-mainImageWrapperdefault css-1kr98xg-Media"
+                    class="gatsby-image-wrapper gatsby-image-wrapper-constrained MediaGallery-mainImageWrapperCover MediaGallery-mainImageWrapperdefault css-k9iym5-Media"
                     data-gatsby-image-wrapper=""
                     style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                   >

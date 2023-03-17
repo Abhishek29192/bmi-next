@@ -2927,7 +2927,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                     </h5>
                   </section>
                   <div
-                    class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-hs4m5t-Media"
+                    class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-17iv773-Media"
                     data-gatsby-image-wrapper=""
                     style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                   >
@@ -3015,7 +3015,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                     </h5>
                   </section>
                   <div
-                    class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-hs4m5t-Media"
+                    class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-17iv773-Media"
                     data-gatsby-image-wrapper=""
                     style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                   >
@@ -3118,7 +3118,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                       type="button"
                     >
                       <div
-                        class="gatsby-image-wrapper gatsby-image-wrapper-constrained YoutubeVideo-previewImage"
+                        class="gatsby-image-wrapper gatsby-image-wrapper-constrained YoutubeVideo-previewImage css-16eddl0"
                         data-gatsby-image-wrapper=""
                         style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                       >

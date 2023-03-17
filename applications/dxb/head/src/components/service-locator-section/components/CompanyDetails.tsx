@@ -13,7 +13,6 @@ import { EVENT_CAT_ID_LINK_CLICKS } from "../constants";
 export const createCompanyDetails = (
   sectionType: EntryTypeEnum | undefined,
   service: Service,
-  matches: boolean,
   countryCode: string,
   localizationCb: (s: string) => string,
   isAddressHidden: boolean,
@@ -49,7 +48,7 @@ export const createCompanyDetails = (
     const label = `${service?.name} - ${service?.address}${
       service?.certification ? ` - ${service?.certification}` : ""
     } - ${serviceType}`;
-    if (matches || sectionType !== EntryTypeEnum.ROOFER_TYPE) {
+    if (sectionType !== EntryTypeEnum.ROOFER_TYPE) {
       return {
         id: EVENT_CAT_ID_LINK_CLICKS,
         label: `${label}${linkOrButtonText ? ` - ${linkOrButtonText}` : ""}`,

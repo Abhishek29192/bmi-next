@@ -76,7 +76,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
     }
 
     return params.get(QUERY_KEY);
-  }, [params]);
+  }, [isPreviewMode, params]);
   const [pageIsLoading, setPageIsLoading] = useState<boolean>(true);
   const [tabsLoading, setTabsLoading] = useState({});
   const [areTabsResolved, setAreTabsResolved] = useState(false);
@@ -185,7 +185,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
     };
 
     getCounts();
-  }, [queryString]);
+  }, [queryString, results]);
 
   const pageTitle = useMemo(() => {
     // If no query, we can't show a title referring to the query
@@ -204,7 +204,13 @@ const SearchPage = ({ pageContext, data }: Props) => {
         query: queryString
       });
     }
-  }, [queryString, pageHasResults, areTabsResolved]);
+  }, [
+    queryString,
+    pageHasResults,
+    areTabsResolved,
+    defaultTitle,
+    getMicroCopy
+  ]);
 
   // If any of the tabs are loading
   const tabIsLoading =

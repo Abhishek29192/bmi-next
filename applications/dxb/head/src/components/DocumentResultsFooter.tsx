@@ -5,8 +5,7 @@ import {
   DownloadListContext,
   Pagination
 } from "@bmi-digital/components";
-import { useMediaQuery } from "@mui/material";
-import { styled, useTheme } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 import classnames from "classnames";
 import fetch, { Response } from "node-fetch";
 import React, { useContext } from "react";
@@ -19,6 +18,7 @@ import { downloadAs, getDownloadLink } from "../utils/client-download";
 import { devLog } from "../utils/devLog";
 import getCookie from "../utils/getCookie";
 import withGTM from "../utils/google-tag-manager";
+import { useIsMobileDevice } from "../utils/useIsMobileDevice";
 import createAssetFileCountMap, {
   AssetUniqueFileCountMap,
   generateFileNamebyTitle
@@ -171,8 +171,7 @@ const DocumentResultsFooter = ({
   const { config } = useConfig();
   const { executeRecaptcha } = useGoogleReCaptcha();
   const qaAuthToken = getCookie(QA_AUTH_TOKEN);
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
+  const isMobile = useIsMobileDevice();
   const displayPagination = count > 1;
 
   return (

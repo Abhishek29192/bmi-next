@@ -548,13 +548,17 @@ const config = {
         ]
       : []),
     // Avoid extra memory consumption as these shouldn't be needed on prod
-    {
-      resolve: "gatsby-plugin-no-sourcemaps"
-    },
+    ...(process.env.NODE_ENV === "production"
+      ? [
+          {
+            resolve: "gatsby-plugin-no-sourcemaps"
+          }
+        ]
+      : []),
     `@bmi/gatsby-plugin-meta-redirect` // make sure to put last in the array
   ],
   flags: {
-    DEV_SSR: false,
+    DEV_SSR: true,
     FAST_DEV: true,
     PARALLEL_SOURCING: true,
     PRESERVE_FILE_DOWNLOAD_CACHE: true,

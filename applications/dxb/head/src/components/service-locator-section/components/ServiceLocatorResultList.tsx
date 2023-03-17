@@ -10,8 +10,6 @@ import {
   Typography
 } from "@bmi-digital/components";
 import { SVGImport } from "@bmi-digital/svg-import";
-import { useTheme } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import classnames from "classnames";
 import React from "react";
 import { microCopy } from "../../../constants/microCopies";
@@ -55,8 +53,6 @@ export const ServiceLocatorResultList = ({
   pageCount
 }: ResultListProps) => {
   const { getMicroCopy } = useSiteContext();
-  const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up("lg"));
 
   return roofersList.length ? (
     <div
@@ -74,12 +70,14 @@ export const ServiceLocatorResultList = ({
             isOpen={selectedRoofer && selectedRoofer.id === service.id}
             title={service.name}
             logo={
-              <Image
-                className={styles["company-logo"]}
-                {...service.companyLogo}
-              />
+              service.companyLogo && (
+                <Image
+                  className={styles["company-logo"]}
+                  {...service.companyLogo}
+                />
+              )
             }
-            gtm={getResultDataGtm(service, matches)}
+            gtm={getResultDataGtm(service)}
             data-testid={"GTMIntegratedLinkCard-test-id"}
             subtitle={
               <>

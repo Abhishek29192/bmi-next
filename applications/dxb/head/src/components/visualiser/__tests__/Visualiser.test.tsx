@@ -12,6 +12,7 @@ const mockChildComponent = jest.fn();
 jest.mock("../HouseViewer", () => ({
   __esModule: true,
   default: (props) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
       props.setIsLoading(false);
     }, []);
@@ -24,6 +25,7 @@ jest.mock("../HouseViewer", () => ({
 jest.mock("../TileViewer", () => ({
   __esModule: true,
   default: (props) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
       props.setIsLoading(false);
     }, []);

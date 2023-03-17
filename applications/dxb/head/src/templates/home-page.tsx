@@ -110,13 +110,18 @@ const HomePage = ({ data, pageContext }: Props) => {
             ) : null}
 
             {sections && <Sections data={sections} pageTypename={__typename} />}
-            <WelcomeDialog
-              data={{
-                welcomeDialogTitle,
-                welcomeDialogBody,
-                welcomeDialogBrands
-              }}
-            />
+            {typeof window !== "undefined" &&
+            welcomeDialogTitle &&
+            welcomeDialogBody &&
+            welcomeDialogBrands ? (
+              <WelcomeDialog
+                data={{
+                  welcomeDialogTitle,
+                  welcomeDialogBody,
+                  welcomeDialogBrands
+                }}
+              />
+            ) : null}
           </>
         );
       }}

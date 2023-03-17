@@ -1,6 +1,7 @@
 import { graphql } from "gatsby";
 import { GatsbyImage as Img, IGatsbyImageData } from "gatsby-plugin-image";
 import React from "react";
+import { styled } from "@mui/material/styles";
 
 type ImageData = {
   file: {
@@ -48,6 +49,10 @@ const getPosition = ({
   return "center";
 };
 
+const StyledImage = styled(Img)({
+  // "[data-placeholder-image]": { position: "relative !important" }
+});
+
 const Image = ({
   altText,
   focalPoint,
@@ -78,20 +83,33 @@ const Image = ({
   }
 
   return (
-    <Img
-      image={image.gatsbyImageData}
-      alt={altText}
-      draggable={false}
-      style={{ position: "relative" }}
-      objectFit={size || typeToObjectFitMap[type || "Decorative"]}
-      objectPosition={getPosition({
-        size,
-        position,
-        focalPoint: focalPoint
-      })}
+    <img
       className={className}
+      src={image?.gatsbyImageData?.images.fallback.src}
+      alt={altText}
+      style={{
+        objectFit: size || typeToObjectFitMap[type || "Decorative"],
+        objectPosition: getPosition({
+          size,
+          position,
+          focalPoint: focalPoint
+        })
+      }}
       {...props}
     />
+    // <StyledImage
+    //   image={image.gatsbyImageData}
+    //   alt={altText}
+    //   draggable={false}
+    //   objectFit={size || typeToObjectFitMap[type || "Decorative"]}
+    //   objectPosition={getPosition({
+    //     size,
+    //     position,
+    //     focalPoint: focalPoint
+    //   })}
+    //   className={className}
+    //   {...props}
+    // />
   );
 };
 
