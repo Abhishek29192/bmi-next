@@ -6,7 +6,6 @@ import {
 import { ObjType } from "@bmi/pub-sub-types";
 import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
-import mockConsole from "jest-mock-console";
 
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
@@ -38,10 +37,6 @@ const createEvent = (message = {}): { data: string } => {
   const objJsonB64 = Buffer.from(objJsonStr).toString("base64");
   return { data: objJsonB64 };
 };
-
-beforeAll(() => {
-  mockConsole();
-});
 
 beforeEach(() => {
   jest.clearAllMocks();

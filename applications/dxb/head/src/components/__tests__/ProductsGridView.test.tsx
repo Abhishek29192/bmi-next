@@ -1,8 +1,8 @@
 import { ThemeProvider } from "@bmi-digital/components";
-import type { Product as ESProduct } from "@bmi/elasticsearch-types";
 import { createProduct as createESProduct } from "@bmi/elasticsearch-types";
 import { render } from "@testing-library/react";
 import React from "react";
+import type { Product as ESProduct } from "@bmi/elasticsearch-types";
 import ProductsGridView, { Props } from "../ProductsGridView";
 
 const products: ESProduct[] = [createESProduct()];

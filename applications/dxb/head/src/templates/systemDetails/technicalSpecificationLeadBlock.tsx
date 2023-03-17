@@ -34,7 +34,10 @@ const TechnicalSpecificationLeadBlock = ({
     if (technicalSpecClassifications.length === 1) {
       const classification = technicalSpecClassifications[0];
       return (
-        <div className={styles["SystemDetailsTechnicalSpec"]}>
+        <div
+          className={styles["SystemDetailsTechnicalSpec"]}
+          data-testid="technical-specification-classifications-table-wrapper"
+        >
           <ProductFeaturesTable
             key={`tech-spec-${classification.name}`}
             features={classification.features}
@@ -46,6 +49,7 @@ const TechnicalSpecificationLeadBlock = ({
               </Table.Row>
             }
             hasNoBorder={false}
+            data-testid="technical-specification-classifications-table"
           />
         </div>
       );
@@ -53,8 +57,14 @@ const TechnicalSpecificationLeadBlock = ({
 
     if (technicalSpecClassifications.length > 1) {
       return (
-        <div className={styles["SystemDetailsTechnicalSpec"]}>
-          <Accordion noInnerPadding>
+        <div
+          className={styles["SystemDetailsTechnicalSpec"]}
+          data-testid="technical-specification-classifications-accordion-wrapper"
+        >
+          <Accordion
+            noInnerPadding
+            data-testid="technical-specification-classifications-accordion"
+          >
             {[...technicalSpecClassifications]
               .sort((a, b) => (a.name > b.name ? 1 : -1))
               .map(({ name, features }, id) => {

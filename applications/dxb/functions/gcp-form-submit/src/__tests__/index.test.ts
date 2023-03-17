@@ -5,7 +5,6 @@ import {
 } from "@bmi-digital/fetch-mocks";
 import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
-import mockConsole from "jest-mock-console";
 
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
@@ -58,10 +57,6 @@ jest.mock("@sendgrid/mail", () => {
 
 const submit = async (request: Partial<Request>, response: Partial<Response>) =>
   (await import("../index")).submit(request as Request, response as Response);
-
-beforeAll(() => {
-  mockConsole();
-});
 
 beforeEach(() => {
   process.env.CONTENTFUL_SPACE_ID = "TEST_CONTENTFUL_SPACE_ID";

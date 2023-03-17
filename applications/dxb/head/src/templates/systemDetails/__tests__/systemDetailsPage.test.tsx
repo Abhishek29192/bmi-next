@@ -1,6 +1,6 @@
 import { ThemeProvider } from "@bmi-digital/components";
 import { History } from "@reach/router";
-import { screen, waitFor } from "@testing-library/dom";
+import { screen, waitFor } from "@testing-library/react";
 import React from "react";
 import createProduct from "../../../__tests__/helpers/ProductHelper";
 import createRelatedSystem from "../../../__tests__/helpers/RelatedSystemHelper";
@@ -98,7 +98,7 @@ describe("SystemDetailsPage template component", () => {
   });
 
   it("should render without BrandProvider", () => {
-    const { container, getByTestId } = withProviders({
+    const { container } = withProviders({
       customConfig: { spaceMarketCode: "no" },
       renderComponent: (
         <SystemDetailsPage
@@ -116,8 +116,7 @@ describe("SystemDetailsPage template component", () => {
       )
     });
 
-    expect(getByTestId("tabs")).toBeInTheDocument();
-
+    expect(screen.getByTestId("tabs")).toBeInTheDocument();
     expect(container).toMatchSnapshot();
   });
 
@@ -141,11 +140,10 @@ describe("SystemDetailsPage template component", () => {
       )
     });
 
-    const layersRelatedProducts = container.querySelector(
-      "Zanda Protector normalstein"
-    );
     expect(container).toMatchSnapshot();
-    expect(layersRelatedProducts).not.toBeInTheDocument();
+    expect(
+      screen.queryByTestId("system-layers-accordion")
+    ).not.toBeInTheDocument();
   });
 
   it("should render without specifications", async () => {
@@ -169,9 +167,8 @@ describe("SystemDetailsPage template component", () => {
     });
 
     expect(
-      await screen.queryByText("MC: sdp.leadBlock.specification")
-    ).toBeNull();
-
+      screen.queryByText("MC: sdp.leadBlock.specification")
+    ).not.toBeInTheDocument();
     expect(container).toMatchSnapshot();
   });
 
@@ -195,8 +192,9 @@ describe("SystemDetailsPage template component", () => {
       )
     });
 
-    const brandLogo = container.querySelector("brandLogo");
-    expect(brandLogo).not.toBeInTheDocument();
+    expect(
+      screen.queryByTestId("lead-block-brand-logo")
+    ).not.toBeInTheDocument();
     expect(container).toMatchSnapshot();
   });
 

@@ -1,5 +1,5 @@
-import { ThemeProvider } from "@bmi-digital/components";
-import { render } from "@testing-library/react";
+import { replaceSpaces, ThemeProvider } from "@bmi-digital/components";
+import { render, screen } from "@testing-library/react";
 import React from "react";
 import IframeSection, { Data } from "../IframeSection";
 
@@ -24,8 +24,8 @@ describe("IframeSection component", () => {
     );
     expect(container).toMatchSnapshot();
     expect(
-      container.getElementsByClassName("optanon-category-C0002-C0004").length
-    ).toEqual(0);
+      screen.getByTestId(`iframe-section-${replaceSpaces(data.title)}-iframe`)
+    ).toHaveAttribute("class", "iFrame");
   });
   describe("when allowCookieClasses are populated", () => {
     describe("and single cookie class is provided", () => {
@@ -42,14 +42,16 @@ describe("IframeSection component", () => {
           allowCookieClasses: ["Performance"]
         };
 
-        const { container } = render(
+        render(
           <ThemeProvider>
             <IframeSection data={data} />
           </ThemeProvider>
         );
         expect(
-          container.getElementsByClassName("optanon-category-C0007").length
-        ).toEqual(1);
+          screen.getByTestId(
+            `iframe-section-${replaceSpaces(data.title)}-iframe`
+          )
+        ).toHaveClass("optanon-category-C0007");
       });
     });
 
@@ -67,15 +69,16 @@ describe("IframeSection component", () => {
           allowCookieClasses: ["Analytics", "Targeting"]
         };
 
-        const { container } = render(
+        render(
           <ThemeProvider>
             <IframeSection data={data} />
           </ThemeProvider>
         );
         expect(
-          container.getElementsByClassName("optanon-category-C0002-C0004")
-            .length
-        ).toEqual(1);
+          screen.getByTestId(
+            `iframe-section-${replaceSpaces(data.title)}-iframe`
+          )
+        ).toHaveClass("optanon-category-C0002-C0004");
       });
     });
   });

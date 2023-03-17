@@ -1,9 +1,9 @@
 import logger from "@bmi-digital/functions-logger";
 import { verifyRecaptchaToken } from "@bmi/functions-recaptcha";
-import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import { MailService } from "@sendgrid/mail";
 import { createClient } from "contentful-management";
 import { Environment } from "contentful-management/dist/typings/entities/environment";
+import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 
 const {
   CONTENTFUL_ENVIRONMENT,

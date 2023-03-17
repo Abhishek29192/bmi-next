@@ -1,5 +1,4 @@
 import { ResponseError } from "@elastic/elasticsearch/lib/errors";
-import mockConsole from "jest-mock-console";
 import {
   createElasticSearchIndex,
   deleteElasticSearchIndex,
@@ -21,10 +20,6 @@ jest.mock("@bmi-digital/functions-logger", () => ({
   info: (message: any) => loggerInfo(message),
   debug: (message: any) => loggerDebug(message)
 }));
-
-beforeAll(() => {
-  mockConsole();
-});
 
 beforeEach(() => {
   jest.resetAllMocks();

@@ -1,12 +1,6 @@
 import React from "react";
 import { render, waitFor } from "@testing-library/react";
-import {
-  MeshStandardMaterial,
-  PerspectiveCamera,
-  Scene,
-  Texture,
-  WebGLRenderer
-} from "three";
+import { MeshStandardMaterial, PerspectiveCamera, Scene, Texture } from "three";
 import TileViewer from "../TileViewer";
 import loadTexture from "../TextureCache";
 import { PIMTile } from "../Types";
@@ -32,18 +26,22 @@ const defaultProps = {
   }
 };
 
-const mockWebGLRenderer = WebGLRenderer as unknown as jest.Mock<WebGLRenderer>;
-
-mockWebGLRenderer.mockReturnValue({
-  domElement: document.createElement("canvas"),
-  setSize: jest.fn(),
-  render: jest.fn(),
-  setClearColor: jest.fn(),
-  setPixelRatio: jest.fn(),
-  shadowMap: {
-    enabled: false
-  }
-} as any);
+jest.mock("three", () => {
+  const THREE = jest.requireActual("three");
+  return {
+    ...THREE,
+    WebGLRenderer: jest.fn().mockImplementation(() => ({
+      domElement: document.createElement("canvas"),
+      setSize: jest.fn(),
+      render: jest.fn(),
+      setClearColor: jest.fn(),
+      setPixelRatio: jest.fn(),
+      shadowMap: {
+        enabled: false
+      }
+    }))
+  };
+});
 
 jest.mock("../TextureCache", () => ({
   __esModule: true,
@@ -65,20 +63,11 @@ jest.mock("../ModelCache", () => ({
   )
 }));
 
-jest.mock("three", () => {
-  const THREE = jest.requireActual("three");
-  return {
-    ...THREE,
-    WebGLRenderer: jest.fn()
-  };
+afterEach(() => {
+  jest.clearAllMocks();
 });
 
 describe("HouseViewer", () => {
-  afterEach(() => {
-    jest.clearAllMocks();
-    jest.restoreAllMocks();
-  });
-
   it("resets controls on rerender", async () => {
     const resetControlsMock = jest.fn();
     let tileViewerInstance;
@@ -102,6 +91,10 @@ describe("HouseViewer", () => {
       jest
         .spyOn(TileViewer.prototype, "loadModel")
         .mockImplementation(jest.fn());
+    });
+
+    afterEach(() => {
+      (TileViewer.prototype.loadModel as jest.Mock).mockReset();
     });
 
     it("should not create a scene if container does not exist", () => {

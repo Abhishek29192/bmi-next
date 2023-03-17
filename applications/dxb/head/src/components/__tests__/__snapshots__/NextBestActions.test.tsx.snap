@@ -19,7 +19,7 @@ exports[`NextBestActions component renders correctly 1`] = `
           MC: nba.title
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -28,7 +28,7 @@ exports[`NextBestActions component renders correctly 1`] = `
           >
             <a
               class="MuiButtonBase-root NBACard-clickable ColorPair-secondary1 css-bkdr6q-MuiButtonBase-root"
-              data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/somewhere/\\",\\"label\\":\\"test\\"}"
+              data-gtm="{"id":"cta-click1","action":"/en/somewhere/","label":"test"}"
               href="/en/somewhere/"
               tabindex="0"
               type="button"
@@ -82,7 +82,7 @@ exports[`NextBestActions component renders correctly 1`] = `
           >
             <a
               class="MuiButtonBase-root NBACard-clickable ColorPair-secondary2 css-bkdr6q-MuiButtonBase-root"
-              data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"https://www.external.co.uk\\",\\"label\\":\\"string\\"}"
+              data-gtm="{"id":"cta-click1","action":"https://www.external.co.uk","label":"string"}"
               href="https://www.external.co.uk"
               rel="noopener noreferrer"
               tabindex="0"
@@ -160,7 +160,7 @@ exports[`NextBestActions component renders name with no title 1`] = `
           MC: nba.title
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -169,7 +169,7 @@ exports[`NextBestActions component renders name with no title 1`] = `
           >
             <a
               class="MuiButtonBase-root NBACard-clickable ColorPair-secondary1 css-bkdr6q-MuiButtonBase-root"
-              data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"https://www.external.co.uk\\",\\"label\\":\\"string\\"}"
+              data-gtm="{"id":"cta-click1","action":"https://www.external.co.uk","label":"string"}"
               href="https://www.external.co.uk"
               rel="noopener noreferrer"
               tabindex="0"
@@ -247,7 +247,7 @@ exports[`NextBestActions component renders with no promo cta 1`] = `
           MC: nba.title
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -297,7 +297,7 @@ exports[`NextBestActions component renders with no promo cta label 1`] = `
           MC: nba.title
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -306,7 +306,7 @@ exports[`NextBestActions component renders with no promo cta label 1`] = `
           >
             <a
               class="MuiButtonBase-root NBACard-clickable ColorPair-secondary1 css-bkdr6q-MuiButtonBase-root"
-              data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"https://www.external.co.uk\\",\\"label\\":null}"
+              data-gtm="{"id":"cta-click1","action":"https://www.external.co.uk","label":null}"
               href="https://www.external.co.uk"
               rel="noopener noreferrer"
               tabindex="0"

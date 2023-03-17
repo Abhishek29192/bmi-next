@@ -1,10 +1,10 @@
 import { ProductDocument } from "@bmi/firestore-types";
 import { Asset, Category, Classification, VariantOption } from "@bmi/pim-types";
 import { Node as GatsbyNode } from "gatsby";
-import type { GatsbyIterable } from "gatsby/dist/datastore/common/iterable";
 import { GraphQLOutputType } from "graphql-compose/lib/graphql";
 import { HubspotFieldNames, HubspotFieldTypes } from "../ContentfulFormSection";
 import { DocumentsFilters } from "./DocumentsFilters";
+import type { GatsbyIterable } from "gatsby/dist/datastore/common/iterable";
 
 export interface MetaData {
   name: string;

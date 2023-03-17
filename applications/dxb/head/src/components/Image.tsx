@@ -48,44 +48,49 @@ const getPosition = ({
   return "center";
 };
 
-const Image = ({ data, ...options }: { data?: Data } & Options) => {
-  if (!data) {
-    return null;
-  }
-
-  const { size, position, className } = options;
-
-  if (!data.image?.gatsbyImageData) {
+const Image = ({
+  altText,
+  focalPoint,
+  image,
+  size,
+  type,
+  position,
+  className,
+  ...props
+}: Data & Options) => {
+  if (!image?.gatsbyImageData) {
     return (
       <img
         className={className}
-        src={data.image?.file.url}
-        alt={data.altText}
+        src={image?.file.url}
+        alt={altText}
         style={{
-          objectFit: size || typeToObjectFitMap[data.type || "Decorative"],
+          objectFit: size || typeToObjectFitMap[type || "Decorative"],
           objectPosition: getPosition({
             size,
             position,
-            focalPoint: data.focalPoint
+            focalPoint: focalPoint
           })
         }}
+        {...props}
       />
     );
   }
 
   return (
     <Img
-      image={data.image.gatsbyImageData}
-      alt={data.altText}
+      image={image.gatsbyImageData}
+      alt={altText}
       draggable={false}
       style={{ position: "relative" }}
-      objectFit={size || typeToObjectFitMap[data.type || "Decorative"]}
+      objectFit={size || typeToObjectFitMap[type || "Decorative"]}
       objectPosition={getPosition({
         size,
         position,
-        focalPoint: data.focalPoint
+        focalPoint: focalPoint
       })}
       className={className}
+      {...props}
     />
   );
 };

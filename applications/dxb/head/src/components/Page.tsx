@@ -55,7 +55,9 @@ type Props = {
 const Content = ({ children }: { children: Children }) => {
   const siteContext = useSiteContext();
 
-  return typeof children === "function" ? children({ siteContext }) : children;
+  return (
+    <>{typeof children === "function" ? children({ siteContext }) : children}</>
+  );
 };
 
 const Page = ({

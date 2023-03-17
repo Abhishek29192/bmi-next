@@ -4,6 +4,7 @@ import {
   ClickableAction,
   DownloadList,
   DownloadListContext,
+  replaceSpaces,
   Table
 } from "@bmi-digital/components";
 import logger from "@bmi-digital/functions-logger";
@@ -88,7 +89,7 @@ const isLinkDocument = (document: Document): boolean =>
   "isLinkDocument" in document && document.isLinkDocument;
 
 const getUniqueId = (document: Document): string =>
-  `${document.id}-${document.title}`.replace(/ /g, "_");
+  replaceSpaces(`${document.id}-${document.title}`);
 
 export const getProductStatus = (
   document: Document,
@@ -519,6 +520,7 @@ const DocumentSimpleTableResults = ({
   return (
     <StyledSimpleTableResults
       className={classnames("DocumentSimpleTableResults")}
+      data-testid="document-simple-table-results"
     >
       <Table rowBgColorPattern="none">
         <Table.Head>
@@ -552,7 +554,7 @@ const DocumentSimpleTableResults = ({
                 )}
                 // eslint-disable-next-line security/detect-object-injection
                 selected={!!list[getUniqueId(document)]}
-                data-test-id={`document-table-row-${document.id}`}
+                data-testid={`document-table-row-${document.id}`}
               >
                 {getDocument(document, headers)}
               </DocumentRow>

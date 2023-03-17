@@ -1,7 +1,7 @@
 import { LocationProvider } from "@reach/router";
 import { render } from "@testing-library/react";
 import React from "react";
-import { RegionCode } from "@bmi-digital/components";
+import { RegionCode, ThemeProvider } from "@bmi-digital/components";
 import { DataTypeEnum, NavigationData } from "../Link";
 import Page, { Data } from "../Page";
 import { Data as SiteData } from "../Site";
@@ -126,52 +126,59 @@ const pageData: Data = {
 describe("Page component", () => {
   it("renders correctly", () => {
     const { container } = render(
-      <LocationProvider>
-        <Page title="Lorem ipsum" pageData={pageData} siteData={siteData}>
-          Lorem ipsum
-        </Page>
-      </LocationProvider>
+      <ThemeProvider>
+        <LocationProvider>
+          <Page title="Lorem ipsum" pageData={pageData} siteData={siteData}>
+            Lorem ipsum
+          </Page>
+        </LocationProvider>
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
 
   it("og:image renders", () => {
     render(
-      <LocationProvider>
-        <Page
-          title="Lorem ipsum"
-          pageData={pageData}
-          siteData={siteData}
-          ogImageUrl="https://example.com/image.png"
-        >
-          Lorem ipsum
-        </Page>
-      </LocationProvider>
+      <ThemeProvider>
+        <LocationProvider>
+          <Page
+            title="Lorem ipsum"
+            pageData={pageData}
+            siteData={siteData}
+            ogImageUrl="https://example.com/image.png"
+          >
+            Lorem ipsum
+          </Page>
+        </LocationProvider>
+      </ThemeProvider>
     );
-    const ogImageTag = Array.from(document.getElementsByTagName("meta")).find(
-      (meta) => meta.getAttribute("property") === "og:image"
-    );
-    expect(ogImageTag.getAttribute("content")).toEqual(
-      "https://example.com/image.png"
-    );
+    expect(
+      // eslint-disable-next-line testing-library/no-node-access -- head components can't be found with screen
+      document.querySelector("[data-testid='meta-og-image']")
+    ).toHaveAttribute("content", "https://example.com/image.png");
   });
 
   it("og:image converts webp to jpeg", () => {
     render(
-      <LocationProvider>
-        <Page
-          title="Lorem ipsum"
-          pageData={pageData}
-          siteData={siteData}
-          ogImageUrl="//images.ctfassets.net/example.webp"
-        >
-          Lorem ipsum
-        </Page>
-      </LocationProvider>
+      <ThemeProvider>
+        <LocationProvider>
+          <Page
+            title="Lorem ipsum"
+            pageData={pageData}
+            siteData={siteData}
+            ogImageUrl="//images.ctfassets.net/example.webp"
+          >
+            Lorem ipsum
+          </Page>
+        </LocationProvider>
+      </ThemeProvider>
     );
-    const ogImageTag = Array.from(document.getElementsByTagName("meta")).find(
-      (meta) => meta.getAttribute("property") === "og:image"
-    );
-    expect(ogImageTag.getAttribute("content")).toContain("fm=jpg");
+
+    expect(
+      document
+        // eslint-disable-next-line testing-library/no-node-access -- head components can't be found with screen
+        .querySelector("[data-testid='meta-og-image']")
+        .getAttribute("content")
+    ).toContain("fm=jpg");
   });
 });

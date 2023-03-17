@@ -43,7 +43,8 @@
         "linkType": "ContentType",
         "id": "roofer"
       }
-    }
+    },
+    "automationTags": []
   },
   "fields": {}
 }

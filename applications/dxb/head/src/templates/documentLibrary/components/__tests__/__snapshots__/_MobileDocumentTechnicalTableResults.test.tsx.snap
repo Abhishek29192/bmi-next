@@ -16,7 +16,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when in
           <div
             aria-expanded="false"
             class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
-            data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"product1\\",\\"action\\":\\"Selector – Accordion\\"}"
+            data-gtm="{"id":"selector-accordion1","label":"product1","action":"Selector – Accordion"}"
             role="button"
             tabindex="0"
           >
@@ -63,6 +63,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when in
                     >
                       <filepdf
                         class="DocumentTechnicalTableResults-formatIcon format-icon"
+                        data-testid="format-icon"
                       />
                     </div>
                     <div
@@ -80,6 +81,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when in
                         <div
                           class=""
                           data-mui-internal-clone-element="true"
+                          data-testid="tooltip"
                         >
                           <button
                             class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-42 Button-text MuiIconButton-sizeLarge css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
@@ -109,7 +111,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when in
                     >
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-                        data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost:9000/document.pdf\\"}"
+                        data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                         data-testid="anchor-link"
                         download="pim document title"
                         href="http://localhost:9000/document.pdf"
@@ -157,7 +159,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
           <div
             aria-expanded="false"
             class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
-            data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"product1\\",\\"action\\":\\"Selector – Accordion\\"}"
+            data-gtm="{"id":"selector-accordion1","label":"product1","action":"Selector – Accordion"}"
             role="button"
             tabindex="0"
           >
@@ -204,6 +206,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                     >
                       <filepdf
                         class="DocumentTechnicalTableResults-formatIcon format-icon"
+                        data-testid="format-icon"
                       />
                     </div>
                     <div
@@ -221,6 +224,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                         <div
                           class=""
                           data-mui-internal-clone-element="true"
+                          data-testid="tooltip"
                         >
                           <button
                             class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-42 Button-text MuiIconButton-sizeLarge css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
@@ -250,7 +254,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                     >
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-                        data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost:9000/document.pdf\\"}"
+                        data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                         data-testid="anchor-link"
                         download="pim document title"
                         href="http://localhost:9000/document.pdf"
@@ -279,6 +283,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                     >
                       <filepdf
                         class="DocumentTechnicalTableResults-formatIcon format-icon"
+                        data-testid="format-icon"
                       />
                     </div>
                     <div
@@ -296,6 +301,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                         <div
                           class=""
                           data-mui-internal-clone-element="true"
+                          data-testid="tooltip"
                         >
                           <button
                             class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-42 Button-text MuiIconButton-sizeLarge css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
@@ -325,7 +331,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                     >
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-                        data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost:9000/document.pdf\\"}"
+                        data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                         data-testid="anchor-link"
                         download="pim document title"
                         href="http://localhost:9000/document.pdf"
@@ -357,7 +363,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
           <div
             aria-expanded="false"
             class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
-            data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"product3\\",\\"action\\":\\"Selector – Accordion\\"}"
+            data-gtm="{"id":"selector-accordion1","label":"product3","action":"Selector – Accordion"}"
             role="button"
             tabindex="0"
           >
@@ -422,7 +428,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
           <div
             aria-expanded="false"
             class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
-            data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"product1\\",\\"action\\":\\"Selector – Accordion\\"}"
+            data-gtm="{"id":"selector-accordion1","label":"product1","action":"Selector – Accordion"}"
             role="button"
             tabindex="0"
           >
@@ -467,17 +473,10 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
                     <div
                       class="DocumentTechnicalTableResults-iconContainer"
                     >
-                      <svg
+                      <filepdf
                         class="DocumentTechnicalTableResults-formatIcon format-icon"
-                        data-name="Layer 2"
-                        viewBox="0 0 32 32"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M19 2H6v28h21V10Zm7 27H7V3h12v7h7Z"
-                          style="fill: #aeb1b1;"
-                        />
-                      </svg>
+                        data-testid="format-icon"
+                      />
                     </div>
                     <div
                       class="DocumentTechnicalTableResults-iconContainer"
@@ -494,6 +493,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
                         <div
                           class=""
                           data-mui-internal-clone-element="true"
+                          data-testid="tooltip"
                         >
                           <button
                             class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-42 Button-text MuiIconButton-sizeLarge css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
@@ -523,7 +523,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
                     >
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-                        data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost:9000/document.pdf\\"}"
+                        data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                         data-testid="anchor-link"
                         download="pim document title"
                         href="http://localhost:9000/document.pdf"
@@ -550,17 +550,10 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
                     <div
                       class="DocumentTechnicalTableResults-iconContainer"
                     >
-                      <svg
+                      <filepdf
                         class="DocumentTechnicalTableResults-formatIcon format-icon"
-                        data-name="Layer 2"
-                        viewBox="0 0 32 32"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M19 2H6v28h21V10Zm7 27H7V3h12v7h7Z"
-                          style="fill: #aeb1b1;"
-                        />
-                      </svg>
+                        data-testid="format-icon"
+                      />
                     </div>
                     <div
                       class="DocumentTechnicalTableResults-iconContainer"
@@ -577,6 +570,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
                         <div
                           class=""
                           data-mui-internal-clone-element="true"
+                          data-testid="tooltip"
                         >
                           <button
                             class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-42 Button-text MuiIconButton-sizeLarge css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
@@ -606,7 +600,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
                     >
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-                        data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost:9000/document.pdf\\"}"
+                        data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                         data-testid="anchor-link"
                         download="pim document title"
                         href="http://localhost:9000/document.pdf"
@@ -638,7 +632,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
           <div
             aria-expanded="false"
             class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
-            data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"product3\\",\\"action\\":\\"Selector – Accordion\\"}"
+            data-gtm="{"id":"selector-accordion1","label":"product3","action":"Selector – Accordion"}"
             role="button"
             tabindex="0"
           >
@@ -703,7 +697,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when on
           <div
             aria-expanded="false"
             class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
-            data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"product1\\",\\"action\\":\\"Selector – Accordion\\"}"
+            data-gtm="{"id":"selector-accordion1","label":"product1","action":"Selector – Accordion"}"
             role="button"
             tabindex="0"
           >
@@ -752,7 +746,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when on
           <div
             aria-expanded="false"
             class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
-            data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"product3\\",\\"action\\":\\"Selector – Accordion\\"}"
+            data-gtm="{"id":"selector-accordion1","label":"product3","action":"Selector – Accordion"}"
             role="button"
             tabindex="0"
           >
@@ -817,7 +811,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when va
           <div
             aria-expanded="false"
             class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
-            data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"product1\\",\\"action\\":\\"Selector – Accordion\\"}"
+            data-gtm="{"id":"selector-accordion1","label":"product1","action":"Selector – Accordion"}"
             role="button"
             tabindex="0"
           >
@@ -864,6 +858,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when va
                     >
                       <filepdf
                         class="DocumentTechnicalTableResults-formatIcon format-icon"
+                        data-testid="format-icon"
                       />
                     </div>
                     <div
@@ -881,6 +876,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when va
                         <div
                           class=""
                           data-mui-internal-clone-element="true"
+                          data-testid="tooltip"
                         >
                           <button
                             class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-42 Button-text MuiIconButton-sizeLarge css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
@@ -910,7 +906,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when va
                     >
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-                        data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost:9000/document.pdf\\"}"
+                        data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                         data-testid="anchor-link"
                         download="pim document title"
                         href="http://localhost:9000/document.pdf"

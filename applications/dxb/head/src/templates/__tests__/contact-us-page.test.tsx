@@ -1,12 +1,14 @@
-import { ThemeProvider } from "@bmi-digital/components";
+import { replaceSpaces, ThemeProvider } from "@bmi-digital/components";
 import React from "react";
+import { screen } from "@testing-library/react";
 import { createMockSiteData } from "../../test/mockSiteData";
 import { renderWithRouter } from "../../test/renderWithRouter";
 import createImageData from "../../__tests__/helpers/ImageDataHelper";
 import ContactUsPage, { Data } from "../contact-us-page";
+import { Data as SiteData } from "../../components/Site";
 
 describe("Contact us page", () => {
-  const data: { contentfulContactUsPage: Data; contentfulSite: any } = {
+  const data: { contentfulContactUsPage: Data; contentfulSite: SiteData } = {
     contentfulContactUsPage: {
       __typename: "ContentfulContactUsPage",
       id: "abc123",
@@ -283,98 +285,82 @@ describe("Contact us page", () => {
   };
 
   it("renders correctly", () => {
-    const { container, getByTestId, getByText } = renderWithRouter(
+    const { container } = renderWithRouter(
       <ThemeProvider>
         <ContactUsPage data={data} pageContext={{ variantCodeToPathMap: {} }} />
       </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
-    expect(container.querySelectorAll("header").length).toBe(1);
-    expect(getByTestId("footer")).toBeTruthy();
-    expect(getByTestId("brand-colors-provider")).toBeTruthy();
-    expect(container.querySelector("[class*='Hero']")).toBeTruthy();
-    expect(
-      container.querySelector("[class*='Hero'] [class*='Breadcrumbs']")
-    ).toBeTruthy();
-    expect(
-      container.querySelector("[class*='Section'][class*='pearl']")
-    ).toBeTruthy();
-    expect(getByText("What do you wish to contact us about?")).toBeTruthy();
-    expect(container.querySelector(".ContactTopics")).toBeTruthy();
-    expect(getByText("No footer")).toBeTruthy();
-    expect(getByText("Did you know?")).toBeTruthy();
-    expect(
-      container.querySelector("[class*='alabaster'][class*='slim']")
-    ).toBeTruthy();
-    expect(
-      container.querySelector(
-        "[class*='alabaster'][class*='slim'] [class*='Breadcrumbs']"
-      )
-    ).toBeTruthy();
   });
 
   it("render iframe correctly", () => {
-    const { container, getByText } = renderWithRouter(
+    const { container } = renderWithRouter(
       <ThemeProvider>
         <ContactUsPage data={data} pageContext={null} />
       </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
-    expect(container.querySelector(".IframeSection")).toBeTruthy();
-    expect(getByText("iFrame section")).toBeTruthy();
-    expect(container.querySelector(".IframeSection .summary")).toBeFalsy();
-    expect(container.querySelector(".IframeSection .iFrame")).toHaveAttribute(
-      "height",
-      "450px"
-    );
+    expect(
+      screen.getByTestId(
+        `iframe-section-${replaceSpaces(
+          data.contentfulContactUsPage.iframe.title
+        )}`
+      )
+    ).toBeInTheDocument();
   });
 
   it("render Sections correctly", () => {
-    const { container, getByText } = renderWithRouter(
+    const { container } = renderWithRouter(
       <ThemeProvider>
         <ContactUsPage data={data} pageContext={{ variantCodeToPathMap: {} }} />
       </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
-    expect(getByText("Testing Card Collection")).toBeTruthy();
+    expect(screen.getByText("Testing Card Collection")).toBeTruthy();
   });
 
   it("render location correctly", () => {
-    const { container, getByText, getByTestId } = renderWithRouter(
+    const { container } = renderWithRouter(
       <ThemeProvider>
         <ContactUsPage data={data} pageContext={{ variantCodeToPathMap: {} }} />
       </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
-    expect(container.querySelector("[class*='white']")).toBeTruthy();
-    expect(getByText("Locations")).toBeTruthy();
+    expect(
+      screen.getByTestId(
+        `contact-us-page-locations-section-${replaceSpaces(
+          data.contentfulContactUsPage.queriesTitle
+        )}`
+      )
+    ).toBeInTheDocument();
+    expect(screen.getByText("Locations")).toBeTruthy();
     data.contentfulContactUsPage.locations.forEach((item, index) => {
-      expect(getByTestId(`locations-card-${index}`)).toBeInTheDocument();
+      expect(screen.getByTestId(`locations-card-${index}`)).toBeInTheDocument();
     });
   });
 
   it("render NextBestActions correctly", () => {
-    const { container, getByText } = renderWithRouter(
+    const { container } = renderWithRouter(
       <ThemeProvider>
         <ContactUsPage data={data} pageContext={{ variantCodeToPathMap: {} }} />
       </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
-    expect(getByText("Mer informasjon")).toBeTruthy();
-    expect(getByText("Action 1")).toBeTruthy();
-    expect(getByText("Action 2")).toBeTruthy();
+    expect(screen.getByText("Mer informasjon")).toBeTruthy();
+    expect(screen.getByText("Action 1")).toBeTruthy();
+    expect(screen.getByText("Action 2")).toBeTruthy();
   });
 
-  it("render firstslide featuredMedia instead when no featuredVideo", () => {
+  it("render first slide featuredMedia instead when no featuredVideo", () => {
     const newData = { ...data };
     newData.contentfulContactUsPage.featuredVideo = null;
     newData.contentfulContactUsPage.featuredMedia = createImageData();
-    const { container, getByAltText } = renderWithRouter(
+    const { container } = renderWithRouter(
       <ThemeProvider>
         <ContactUsPage
           data={newData}
@@ -385,7 +371,7 @@ describe("Contact us page", () => {
 
     expect(container).toMatchSnapshot();
     expect(
-      getByAltText(newData.contentfulContactUsPage.featuredMedia.altText)
+      screen.getByAltText(newData.contentfulContactUsPage.featuredMedia.altText)
     ).toBeTruthy();
   });
 });

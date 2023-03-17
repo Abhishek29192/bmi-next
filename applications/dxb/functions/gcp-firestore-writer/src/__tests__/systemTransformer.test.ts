@@ -70,10 +70,10 @@ describe("transformSystem", () => {
     const system = createFullyPopulatedSystem();
     const transformedSystems = transformSystem(system);
     expect(transformedSystems).toMatchInlineSnapshot(`
-      Array [
-        Object {
-          "awardsAndCertificateDocuments": Array [
-            Object {
+      [
+        {
+          "awardsAndCertificateDocuments": [
+            {
               "allowedToDownload": true,
               "assetType": "AWARDS",
               "fileSize": 10,
@@ -83,7 +83,7 @@ describe("transformSystem", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -93,7 +93,7 @@ describe("transformSystem", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": false,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -103,7 +103,7 @@ describe("transformSystem", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -113,7 +113,7 @@ describe("transformSystem", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 1.7976931348623157e+308,
@@ -123,7 +123,7 @@ describe("transformSystem", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": undefined,
@@ -133,7 +133,7 @@ describe("transformSystem", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -144,8 +144,8 @@ describe("transformSystem", () => {
               "url": undefined,
             },
           ],
-          "awardsAndCertificateImages": Array [
-            Object {
+          "awardsAndCertificateImages": [
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -155,7 +155,7 @@ describe("transformSystem", () => {
               "realFileName": undefined,
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": undefined,
@@ -166,20 +166,20 @@ describe("transformSystem", () => {
               "url": "http://localhost:8000",
             },
           ],
-          "bim": Object {
+          "bim": {
             "name": "name",
             "url": "http://localhost:8000",
           },
-          "brand": Object {
+          "brand": {
             "code": "code",
             "logo": "http://localhost:8000",
             "name": "name",
           },
-          "categories": Array [
-            Object {
+          "categories": [
+            {
               "categoryType": "Brand",
               "code": "code",
-              "image": Object {
+              "image": {
                 "allowedToDownload": true,
                 "fileSize": 10,
                 "mime": "image/png",
@@ -191,10 +191,10 @@ describe("transformSystem", () => {
               "parentCategoryCode": "parent-category-code",
             },
           ],
-          "classifications": Array [
-            Object {
-              "features": Array [
-                Object {
+          "classifications": [
+            {
+              "features": [
+                {
                   "name": "name",
                   "value": "value symbol",
                 },
@@ -204,8 +204,8 @@ describe("transformSystem", () => {
           ],
           "code": "code",
           "description": "<p>Some very long description</p>",
-          "documents": Array [
-            Object {
+          "documents": [
+            {
               "assetType": "ASSEMBLY_INSTRUCTIONS",
               "extension": "pdf",
               "fileSize": 10,
@@ -216,7 +216,7 @@ describe("transformSystem", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "SPECIFICATION",
               "extension": "pdf",
               "fileSize": 10,
@@ -227,7 +227,7 @@ describe("transformSystem", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "VIDEO",
               "extension": "pdf",
               "fileSize": 10,
@@ -239,27 +239,27 @@ describe("transformSystem", () => {
               "url": "https://www.youtube.com/watch?v=3901c0ds7oo",
             },
           ],
-          "galleryImages": Array [
-            Object {
+          "galleryImages": [
+            {
               "altText": "name",
               "mainSource": "http://localhost:8000",
               "thumbnail": "http://localhost:8000",
             },
           ],
-          "guaranteesAndWarrantiesImages": Array [],
-          "guaranteesAndWarrantiesLinks": Array [],
+          "guaranteesAndWarrantiesImages": [],
+          "guaranteesAndWarrantiesLinks": [],
           "hashedCode": "1853176582",
-          "keyFeatures": Object {
+          "keyFeatures": {
             "name": "System Attributes",
-            "values": Array [
+            "values": [
               "KF1",
               "KF2",
             ],
           },
-          "layerCodes": Array [
+          "layerCodes": [
             "Layer_19",
           ],
-          "masterImage": Object {
+          "masterImage": {
             "altText": "name",
             "mainSource": "http://localhost:8000",
             "thumbnail": "http://localhost:8000",
@@ -269,7 +269,7 @@ describe("transformSystem", () => {
           "promotionalContent": "Promotional content value",
           "scoringWeight": 100,
           "shortDescription": "Short description",
-          "specification": Object {
+          "specification": {
             "allowedToDownload": true,
             "assetType": "SPECIFICATION",
             "fileSize": 10,
@@ -279,30 +279,30 @@ describe("transformSystem", () => {
             "realFileName": "real-file-name.pdf",
             "url": "http://localhost:8000",
           },
-          "systemBenefits": Array [],
-          "systemLayers": Array [
-            Object {
+          "systemBenefits": [],
+          "systemLayers": [
+            {
               "layerNumber": "layerNo 1",
               "name": "layer name",
-              "relatedOptionalProducts": Array [
+              "relatedOptionalProducts": [
                 "400120_Monarplan_Outside_corner_anthracite",
               ],
-              "relatedProducts": Array [
+              "relatedProducts": [
                 "300190_Rubber_sheat",
               ],
               "shortDescription": "SDescription 1 NO",
               "type": "LAYER_ACCESSORIES",
             },
           ],
-          "systemReferences": Array [
+          "systemReferences": [
             "Test_PIM_System2",
           ],
-          "uniqueSellingPropositions": Array [
+          "uniqueSellingPropositions": [
             "USP 1",
             "USP 2",
           ],
-          "videos": Array [
-            Object {
+          "videos": [
+            {
               "label": "name",
               "previewMedia": null,
               "subtitle": null,
@@ -325,10 +325,10 @@ describe("transformSystem", () => {
     });
     const transformedSystems = transformSystem(system);
     expect(transformedSystems).toMatchInlineSnapshot(`
-      Array [
-        Object {
-          "awardsAndCertificateDocuments": Array [
-            Object {
+      [
+        {
+          "awardsAndCertificateDocuments": [
+            {
               "allowedToDownload": true,
               "assetType": "AWARDS",
               "fileSize": 10,
@@ -338,7 +338,7 @@ describe("transformSystem", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -348,7 +348,7 @@ describe("transformSystem", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": false,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -358,7 +358,7 @@ describe("transformSystem", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -368,7 +368,7 @@ describe("transformSystem", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 1.7976931348623157e+308,
@@ -378,7 +378,7 @@ describe("transformSystem", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": undefined,
@@ -388,7 +388,7 @@ describe("transformSystem", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -399,8 +399,8 @@ describe("transformSystem", () => {
               "url": undefined,
             },
           ],
-          "awardsAndCertificateImages": Array [
-            Object {
+          "awardsAndCertificateImages": [
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -410,7 +410,7 @@ describe("transformSystem", () => {
               "realFileName": undefined,
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": undefined,
@@ -421,20 +421,20 @@ describe("transformSystem", () => {
               "url": "http://localhost:8000",
             },
           ],
-          "bim": Object {
+          "bim": {
             "name": "name",
             "url": "http://localhost:8000",
           },
-          "brand": Object {
+          "brand": {
             "code": "code",
             "logo": "http://localhost:8000",
             "name": "name",
           },
-          "categories": Array [
-            Object {
+          "categories": [
+            {
               "categoryType": "Brand",
               "code": "code",
-              "image": Object {
+              "image": {
                 "allowedToDownload": true,
                 "fileSize": 10,
                 "mime": "image/png",
@@ -446,10 +446,10 @@ describe("transformSystem", () => {
               "parentCategoryCode": "parent-category-code",
             },
           ],
-          "classifications": Array [
-            Object {
-              "features": Array [
-                Object {
+          "classifications": [
+            {
+              "features": [
+                {
                   "name": "name",
                   "value": "value symbol",
                 },
@@ -459,8 +459,8 @@ describe("transformSystem", () => {
           ],
           "code": "code",
           "description": "<p>Some very long description</p>",
-          "documents": Array [
-            Object {
+          "documents": [
+            {
               "assetType": "ASSEMBLY_INSTRUCTIONS",
               "extension": "pdf",
               "fileSize": 10,
@@ -471,7 +471,7 @@ describe("transformSystem", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "SPECIFICATION",
               "extension": "pdf",
               "fileSize": 10,
@@ -482,7 +482,7 @@ describe("transformSystem", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "VIDEO",
               "extension": "pdf",
               "fileSize": 10,
@@ -494,28 +494,28 @@ describe("transformSystem", () => {
               "url": "https://www.youtube.com/watch?v=3901c0ds7oo",
             },
           ],
-          "galleryImages": Array [
-            Object {
+          "galleryImages": [
+            {
               "altText": "name",
               "mainSource": "http://localhost:8000",
               "thumbnail": "http://localhost:8000",
             },
           ],
-          "guaranteesAndWarrantiesImages": Array [],
-          "guaranteesAndWarrantiesLinks": Array [],
+          "guaranteesAndWarrantiesImages": [],
+          "guaranteesAndWarrantiesLinks": [],
           "hashedCode": "1853176582",
-          "keyFeatures": Object {
+          "keyFeatures": {
             "name": "System Attributes",
-            "values": Array [
+            "values": [
               "KF1",
               "KF2",
             ],
           },
-          "layerCodes": Array [
+          "layerCodes": [
             "layer 1",
             "layer 2",
           ],
-          "masterImage": Object {
+          "masterImage": {
             "altText": "name",
             "mainSource": "http://localhost:8000",
             "thumbnail": "http://localhost:8000",
@@ -525,7 +525,7 @@ describe("transformSystem", () => {
           "promotionalContent": "Promotional content value",
           "scoringWeight": 100,
           "shortDescription": "Short description",
-          "specification": Object {
+          "specification": {
             "allowedToDownload": true,
             "assetType": "SPECIFICATION",
             "fileSize": 10,
@@ -535,42 +535,42 @@ describe("transformSystem", () => {
             "realFileName": "real-file-name.pdf",
             "url": "http://localhost:8000",
           },
-          "systemBenefits": Array [],
-          "systemLayers": Array [
-            Object {
+          "systemBenefits": [],
+          "systemLayers": [
+            {
               "layerNumber": "layerNo 1",
               "name": "layer name",
-              "relatedOptionalProducts": Array [
+              "relatedOptionalProducts": [
                 "400120_Monarplan_Outside_corner_anthracite",
               ],
-              "relatedProducts": Array [
+              "relatedProducts": [
                 "300190_Rubber_sheat",
               ],
               "shortDescription": "SDescription 1 NO",
               "type": "LAYER_ACCESSORIES",
             },
-            Object {
+            {
               "layerNumber": "layerNo 1",
               "name": "layer name",
-              "relatedOptionalProducts": Array [
+              "relatedOptionalProducts": [
                 "400120_Monarplan_Outside_corner_anthracite",
               ],
-              "relatedProducts": Array [
+              "relatedProducts": [
                 "300190_Rubber_sheat",
               ],
               "shortDescription": "SDescription 1 NO",
               "type": "LAYER_ACCESSORIES",
             },
           ],
-          "systemReferences": Array [
+          "systemReferences": [
             "Test_PIM_System2",
           ],
-          "uniqueSellingPropositions": Array [
+          "uniqueSellingPropositions": [
             "USP 1",
             "USP 2",
           ],
-          "videos": Array [
-            Object {
+          "videos": [
+            {
               "label": "name",
               "previewMedia": null,
               "subtitle": null,
@@ -847,10 +847,10 @@ describe("transformSystem", () => {
     });
     const transformedSystems = transformSystem(system);
     expect(transformedSystems).toMatchInlineSnapshot(`
-      Array [
-        Object {
-          "awardsAndCertificateDocuments": Array [
-            Object {
+      [
+        {
+          "awardsAndCertificateDocuments": [
+            {
               "allowedToDownload": true,
               "assetType": "AWARDS",
               "fileSize": 10,
@@ -860,7 +860,7 @@ describe("transformSystem", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -870,7 +870,7 @@ describe("transformSystem", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": false,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -880,7 +880,7 @@ describe("transformSystem", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -890,7 +890,7 @@ describe("transformSystem", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 1.7976931348623157e+308,
@@ -900,7 +900,7 @@ describe("transformSystem", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": undefined,
@@ -910,7 +910,7 @@ describe("transformSystem", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -921,8 +921,8 @@ describe("transformSystem", () => {
               "url": undefined,
             },
           ],
-          "awardsAndCertificateImages": Array [
-            Object {
+          "awardsAndCertificateImages": [
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -932,7 +932,7 @@ describe("transformSystem", () => {
               "realFileName": undefined,
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": undefined,
@@ -943,20 +943,20 @@ describe("transformSystem", () => {
               "url": "http://localhost:8000",
             },
           ],
-          "bim": Object {
+          "bim": {
             "name": "name",
             "url": "http://localhost:8000",
           },
-          "brand": Object {
+          "brand": {
             "code": "code",
             "logo": "http://localhost:8000",
             "name": "name",
           },
-          "categories": Array [
-            Object {
+          "categories": [
+            {
               "categoryType": "Brand",
               "code": "code",
-              "image": Object {
+              "image": {
                 "allowedToDownload": true,
                 "fileSize": 10,
                 "mime": "image/png",
@@ -968,11 +968,11 @@ describe("transformSystem", () => {
               "parentCategoryCode": "parent-category-code",
             },
           ],
-          "classifications": Array [],
+          "classifications": [],
           "code": "code",
           "description": "<p>Some very long description</p>",
-          "documents": Array [
-            Object {
+          "documents": [
+            {
               "assetType": "ASSEMBLY_INSTRUCTIONS",
               "extension": "pdf",
               "fileSize": 10,
@@ -983,7 +983,7 @@ describe("transformSystem", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "SPECIFICATION",
               "extension": "pdf",
               "fileSize": 10,
@@ -994,7 +994,7 @@ describe("transformSystem", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "VIDEO",
               "extension": "pdf",
               "fileSize": 10,
@@ -1006,27 +1006,27 @@ describe("transformSystem", () => {
               "url": "https://www.youtube.com/watch?v=3901c0ds7oo",
             },
           ],
-          "galleryImages": Array [
-            Object {
+          "galleryImages": [
+            {
               "altText": "name",
               "mainSource": "http://localhost:8000",
               "thumbnail": "http://localhost:8000",
             },
           ],
-          "guaranteesAndWarrantiesImages": Array [],
-          "guaranteesAndWarrantiesLinks": Array [],
+          "guaranteesAndWarrantiesImages": [],
+          "guaranteesAndWarrantiesLinks": [],
           "hashedCode": "1853176582",
-          "keyFeatures": Object {
+          "keyFeatures": {
             "name": "System Attributes",
-            "values": Array [
+            "values": [
               "KF1",
               "KF2",
             ],
           },
-          "layerCodes": Array [
+          "layerCodes": [
             "Layer_19",
           ],
-          "masterImage": Object {
+          "masterImage": {
             "altText": "name",
             "mainSource": "http://localhost:8000",
             "thumbnail": "http://localhost:8000",
@@ -1036,7 +1036,7 @@ describe("transformSystem", () => {
           "promotionalContent": "Promotional content value",
           "scoringWeight": 100,
           "shortDescription": "Short description",
-          "specification": Object {
+          "specification": {
             "allowedToDownload": true,
             "assetType": "SPECIFICATION",
             "fileSize": 10,
@@ -1046,30 +1046,30 @@ describe("transformSystem", () => {
             "realFileName": "real-file-name.pdf",
             "url": "http://localhost:8000",
           },
-          "systemBenefits": Array [],
-          "systemLayers": Array [
-            Object {
+          "systemBenefits": [],
+          "systemLayers": [
+            {
               "layerNumber": "layerNo 1",
               "name": "layer name",
-              "relatedOptionalProducts": Array [
+              "relatedOptionalProducts": [
                 "400120_Monarplan_Outside_corner_anthracite",
               ],
-              "relatedProducts": Array [
+              "relatedProducts": [
                 "300190_Rubber_sheat",
               ],
               "shortDescription": "SDescription 1 NO",
               "type": "LAYER_ACCESSORIES",
             },
           ],
-          "systemReferences": Array [
+          "systemReferences": [
             "Test_PIM_System2",
           ],
-          "uniqueSellingPropositions": Array [
+          "uniqueSellingPropositions": [
             "USP 1",
             "USP 2",
           ],
-          "videos": Array [
-            Object {
+          "videos": [
+            {
               "label": "name",
               "previewMedia": null,
               "subtitle": null,

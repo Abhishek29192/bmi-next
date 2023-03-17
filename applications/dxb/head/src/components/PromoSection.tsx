@@ -13,7 +13,7 @@ import { Data as PromoData } from "./Promo";
 import RichText from "./RichText";
 import { SectionsContext } from "./Sections";
 import styles from "./styles/PromoSection.module.scss";
-import { renderVideo } from "./Video";
+import Video from "./Video";
 
 export type Data = PromoData;
 
@@ -47,9 +47,9 @@ const IntegratedPromoSection = ({ data }: { data: Data }) => {
       title={title}
       media={
         featuredVideo ? (
-          renderVideo(featuredVideo)
+          <Video {...featuredVideo} />
         ) : (
-          <Image data={featuredMedia} position="top left" />
+          <Image {...featuredMedia} position="top left" />
         )
       }
       className={styles["PromoSection"]}
@@ -60,6 +60,7 @@ const IntegratedPromoSection = ({ data }: { data: Data }) => {
             backgroundColorMap[backgroundColor]
       }
       isReversed={theme ? theme.isReversed : null}
+      data-testid="promo-section"
     >
       {body ? <RichText document={body} /> : subtitle}
       {cta && (

@@ -2,15 +2,15 @@
 import {
   AnchorLink,
   AnchorLinkProps,
-  Typography,
-  transformHyphens
+  transformHyphens,
+  Typography
 } from "@bmi-digital/components";
 import { Options } from "@contentful/rich-text-react-renderer";
 import {
-  BLOCKS,
   Block,
-  INLINES,
+  BLOCKS,
   Inline,
+  INLINES,
   MARKS
 } from "@contentful/rich-text-types";
 import { graphql } from "gatsby";
@@ -21,7 +21,7 @@ import EmbeddedAssetBlock from "./EmbeddedAssetBlock";
 import EmbeddedBlock from "./EmbeddedBlock";
 import EmbeddedInline from "./EmbeddedInline";
 import InlineHyperlink from "./InlineHyperlink";
-import { StyledRichText, classes } from "./styles/RichTextStyles";
+import { classes, StyledRichText } from "./styles/RichTextStyles";
 
 export type RichTextData = Parameters<typeof renderRichText>[0];
 
@@ -106,7 +106,11 @@ const getOptions = (settings: Settings): Options => {
         <EmbeddedAssetBlock node={node} className="embedded-asset" />
       ),
       [INLINES.ENTRY_HYPERLINK]: (node: Inline, children: React.ReactNode) => (
-        <InlineHyperlink node={node} gtmLabel={gtmLabel}>
+        <InlineHyperlink
+          node={node}
+          gtmLabel={gtmLabel}
+          data-testid={"rich-text-entry-hyperlink"}
+        >
           {children}
         </InlineHyperlink>
       ),

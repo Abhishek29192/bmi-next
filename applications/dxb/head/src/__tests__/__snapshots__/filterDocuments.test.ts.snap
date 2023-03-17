@@ -1,28 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`clearFilterValues tests When clearFilterValues is requested Then: returns correct results 1`] = `Array []`;
+exports[`clearFilterValues tests When clearFilterValues is requested Then: returns correct results 1`] = `[]`;
 
 exports[`updateFilterValue tests When non checked updateFilterValue is requested Then: returns updated filters 1`] = `
-Array [
-  Object {
+[
+  {
     "filterCode": "Brand",
     "label": "Brand",
     "name": "Brand",
-    "options": Array [
-      Object {
+    "options": [
+      {
         "label": "AeroDek",
         "value": "AeroDek",
       },
-      Object {
+      {
         "label": "Icopal",
         "value": "Icopal",
       },
-      Object {
+      {
         "label": "BMI Components",
         "value": "BMI Components",
       },
     ],
-    "value": Array [
+    "value": [
       "AeroDek",
     ],
   },
@@ -30,26 +30,26 @@ Array [
 `;
 
 exports[`updateFilterValue tests When updateFilterValue is requested Then: returns updated filters 1`] = `
-Array [
-  Object {
+[
+  {
     "filterCode": "Brand",
     "label": "Brand",
     "name": "Brand",
-    "options": Array [
-      Object {
+    "options": [
+      {
         "label": "AeroDek",
         "value": "AeroDek",
       },
-      Object {
+      {
         "label": "Icopal",
         "value": "Icopal",
       },
-      Object {
+      {
         "label": "BMI Components",
         "value": "BMI Components",
       },
     ],
-    "value": Array [
+    "value": [
       "AeroDek",
     ],
   },

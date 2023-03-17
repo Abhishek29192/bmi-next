@@ -1,6 +1,5 @@
 import { ThemeProvider } from "@bmi-digital/components";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
-import mockConsole from "jest-mock-console";
 import React from "react";
 import { ConfigProvider, EnvConfig } from "../../contexts/ConfigProvider";
 import * as BasketContextUtils from "../../contexts/SampleBasketContext";
@@ -118,7 +117,6 @@ jest.spyOn(local, "setItem");
 beforeEach(() => {
   jest.clearAllMocks();
   jest.resetModules();
-  mockConsole();
 });
 
 describe("SampleBasketSection component", () => {
@@ -143,16 +141,16 @@ describe("SampleBasketSection component", () => {
       </MockSiteContext>
     );
 
-    expect(screen.queryByText("Complete form")).toBeNull();
+    expect(screen.queryByText("Complete form")).not.toBeInTheDocument();
 
     fireEvent.click(screen.getByText("MC: pdp.overview.completeSampleOrder"));
 
     expect(container).toMatchSnapshot();
 
-    expect(screen.queryByText("Complete form")).not.toBeNull();
+    expect(screen.getByText("Complete form")).toBeInTheDocument();
     expect(
       screen.queryByText("MC: pdp.overview.completeSampleOrder")
-    ).toBeNull();
+    ).not.toBeInTheDocument();
     expect(local.getItem).lastCalledWith("no-basketItems");
     expect(local.setItem).lastCalledWith(
       "no-basketItems",
@@ -163,7 +161,7 @@ describe("SampleBasketSection component", () => {
 
 describe("SampleBasketSection with form", () => {
   it("should submit form with provided samples", async () => {
-    const { container } = render(
+    render(
       <MockSiteContext>
         <BasketContextProvider>
           <SampleBasketSection data={data} />
@@ -179,7 +177,7 @@ describe("SampleBasketSection with form", () => {
       target: { value: "Text" }
     });
 
-    fireEvent.submit(container.querySelector("form"));
+    fireEvent.submit(screen.getByTestId("sample-basket-section-checkout-form"));
 
     await waitFor(() =>
       expect(fetchMock).toHaveBeenCalledWith(
@@ -210,14 +208,16 @@ describe("SampleBasketSection with form", () => {
       { type: BasketContextUtils.ACTION_TYPES.BASKET_CLEAR }
     );
     expect(local.getItem).lastCalledWith("no-basketItems");
-    expect(local.setItem).lastCalledWith("no-basketItems", "[]");
+    await waitFor(() =>
+      expect(local.setItem).lastCalledWith("no-basketItems", "[]")
+    );
   });
 
   it("should submit form with provided samples without recaptcha call", async () => {
     mockedWindowDocumentCookie.mockReturnValueOnce(
       `qaAuthToken=${qaAuthToken}`
     );
-    const { container } = render(
+    render(
       <MockSiteContext>
         <BasketContextProvider>
           <SampleBasketSection data={data} />
@@ -233,7 +233,7 @@ describe("SampleBasketSection with form", () => {
       target: { value: "Text" }
     });
 
-    fireEvent.submit(container.querySelector("form"));
+    fireEvent.submit(screen.getByTestId("sample-basket-section-checkout-form"));
 
     await waitFor(() =>
       expect(fetchMock).toHaveBeenCalledWith(
@@ -264,7 +264,9 @@ describe("SampleBasketSection with form", () => {
       { type: BasketContextUtils.ACTION_TYPES.BASKET_CLEAR }
     );
     expect(local.getItem).lastCalledWith("no-basketItems");
-    expect(local.setItem).lastCalledWith("no-basketItems", "[]");
+    await waitFor(() =>
+      expect(local.setItem).lastCalledWith("no-basketItems", "[]")
+    );
   });
 
   it("should submit form with provided samples, ignoring null values", async () => {
@@ -279,7 +281,7 @@ describe("SampleBasketSection with form", () => {
 
     jest.spyOn(local, "getItem").mockReturnValueOnce(JSON.stringify([sample]));
 
-    const { container } = render(
+    render(
       <MockSiteContext>
         <BasketContextProvider>
           <SampleBasketSection data={data} />
@@ -295,7 +297,7 @@ describe("SampleBasketSection with form", () => {
       target: { value: "Text" }
     });
 
-    fireEvent.submit(container.querySelector("form"));
+    fireEvent.submit(screen.getByTestId("sample-basket-section-checkout-form"));
 
     await waitFor(() =>
       expect(fetchMock).toHaveBeenCalledWith(
@@ -326,7 +328,9 @@ describe("SampleBasketSection with form", () => {
       { type: BasketContextUtils.ACTION_TYPES.BASKET_CLEAR }
     );
     expect(local.getItem).lastCalledWith("no-basketItems");
-    expect(local.setItem).lastCalledWith("no-basketItems", "[]");
+    await waitFor(() =>
+      expect(local.setItem).lastCalledWith("no-basketItems", "[]")
+    );
   });
 
   it("should submit form with provided samples, ignoring null values without recaptcha call", async () => {
@@ -344,7 +348,7 @@ describe("SampleBasketSection with form", () => {
 
     jest.spyOn(local, "getItem").mockReturnValueOnce(JSON.stringify([sample]));
 
-    const { container } = render(
+    render(
       <MockSiteContext>
         <BasketContextProvider>
           <SampleBasketSection data={data} />
@@ -360,7 +364,7 @@ describe("SampleBasketSection with form", () => {
       target: { value: "Text" }
     });
 
-    fireEvent.submit(container.querySelector("form"));
+    fireEvent.submit(screen.getByTestId("sample-basket-section-checkout-form"));
 
     await waitFor(() =>
       expect(fetchMock).toHaveBeenCalledWith(
@@ -391,7 +395,9 @@ describe("SampleBasketSection with form", () => {
       { type: BasketContextUtils.ACTION_TYPES.BASKET_CLEAR }
     );
     expect(local.getItem).lastCalledWith("no-basketItems");
-    expect(local.setItem).lastCalledWith("no-basketItems", "[]");
+    await waitFor(() =>
+      expect(local.setItem).lastCalledWith("no-basketItems", "[]")
+    );
   });
 });
 
@@ -406,20 +412,19 @@ describe("SampleBasketSection remove sample from basket", () => {
         </MockSiteContext>
       );
 
-      await waitFor(() =>
-        fireEvent.click(screen.getByText("MC: pdp.overview.removeSample"))
-      );
+      fireEvent.click(screen.getByText("MC: pdp.overview.removeSample"));
 
       const browseAllButton = screen.getByText("browse all products");
 
-      expect(screen.queryByText("your basket is empty.")).not.toBeNull();
-      expect(browseAllButton).not.toBeNull();
+      expect(screen.getByText("your basket is empty.")).toBeInTheDocument();
       expect(browseAllButton).toHaveAttribute(
         "href",
         "/no/zanda-brand/torvtak/"
       );
       expect(local.getItem).lastCalledWith("no-basketItems");
-      expect(local.setItem).lastCalledWith("no-basketItems", "[]");
+      await waitFor(() =>
+        expect(local.setItem).lastCalledWith("no-basketItems", "[]")
+      );
     });
   });
 });

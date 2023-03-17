@@ -1,11 +1,11 @@
 import { Writable } from "stream";
 import logger from "@bmi-digital/functions-logger";
 import { verifyRecaptchaToken } from "@bmi/functions-recaptcha";
-import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import { File, Storage } from "@google-cloud/storage";
 import archiver from "archiver";
 import fetch from "node-fetch";
 import { verifyOrigins } from "./verify";
+import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 
 const { GCS_NAME, DXB_VALID_HOSTS, RECAPTCHA_KEY, RECAPTCHA_MINIMUM_SCORE } =
   process.env;

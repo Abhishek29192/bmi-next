@@ -10,7 +10,7 @@ exports[`PitchedRoofCalculator UnderlaySelection component renders correctly 1`]
         class="css-klihbg"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-2 css-1xqc8d-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-2 css-wohhz8-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -20,9 +20,12 @@ exports[`PitchedRoofCalculator UnderlaySelection component renders correctly 1`]
             <div
               class="CardRadioGroup-item css-tmrmui"
             >
-              <label>
+              <label
+                data-testid="card-input-label"
+              >
                 <input
                   class="CardInput-input"
+                  data-testid="card-input-input"
                   name="underlay"
                   type="radio"
                   value="45917056"
@@ -73,9 +76,12 @@ exports[`PitchedRoofCalculator UnderlaySelection component renders correctly 1`]
             <div
               class="CardRadioGroup-item css-tmrmui"
             >
-              <label>
+              <label
+                data-testid="card-input-label"
+              >
                 <input
                   class="CardInput-input"
+                  data-testid="card-input-input"
                   name="underlay"
                   type="radio"
                   value="26583450"

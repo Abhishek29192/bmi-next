@@ -14,7 +14,6 @@ import {
   createVariantOption,
   Product
 } from "@bmi/pim-types";
-import mockConsole from "jest-mock-console";
 
 const { PIM_CLASSIFICATION_CATALOGUE_NAMESPACE } = process.env;
 
@@ -22,10 +21,6 @@ const transformProduct = async (
   product: Partial<Product>
 ): Promise<EsProduct[]> =>
   (await import("../transformProducts")).transformProduct(product as Product);
-
-beforeAll(() => {
-  mockConsole();
-});
 
 beforeEach(() => {
   jest.clearAllMocks();

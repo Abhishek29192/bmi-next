@@ -1,5 +1,4 @@
 import type { Entry, Environment, Link } from "contentful-management";
-import mockConsole from "jest-mock-console";
 
 const createTag = async (environment: Partial<Environment>, market: string) =>
   (await import("../tag")).createTag(environment as Environment, market);
@@ -72,7 +71,6 @@ const mockEntry = (): Partial<Entry> => {
 };
 
 beforeEach(() => {
-  mockConsole();
   jest.clearAllMocks();
   jest.resetModules();
 });

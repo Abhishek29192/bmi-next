@@ -1,4 +1,5 @@
 import logger from "@bmi-digital/functions-logger";
+import { generateHashFromString, generateUrl } from "@bmi/utils";
 import type {
   Image as EsImage,
   System as EsSystem
@@ -10,7 +11,6 @@ import type {
   ImageAssetType as PimImageAssetType,
   System as PimSystem
 } from "@bmi/pim-types";
-import { generateHashFromString, generateUrl } from "@bmi/utils";
 
 const getBrand = (
   categories: PimSystem["categories"]

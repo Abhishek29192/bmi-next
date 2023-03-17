@@ -1,8 +1,8 @@
 import logger from "@bmi-digital/functions-logger";
 import { verifyRecaptchaToken } from "@bmi/functions-recaptcha";
-import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import fetch from "node-fetch";
 import { Answer, NextStep, Response, TransformedAnswer } from "./types";
+import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 
 const {
   CONTENTFUL_DELIVERY_TOKEN,

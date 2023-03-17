@@ -1,6 +1,6 @@
+import { brands as icons } from "../../variables/icons/20201111103444";
 import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
-import { brands as icons } from "../../variables/icons/20201111103444";
 
 export const description = "Create content type for Brand Panding Page";
 

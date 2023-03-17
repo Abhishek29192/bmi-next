@@ -9,7 +9,6 @@ import {
 } from "@bmi/pim-types";
 import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
-import mockConsole from "jest-mock-console";
 import { ElasticsearchIndexes } from "../elasticsearch";
 import { FirestoreCollections } from "../firestoreCollections";
 
@@ -57,10 +56,6 @@ jest.mock("../contentful", () => {
 
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
-
-beforeAll(() => {
-  mockConsole();
-});
 
 beforeEach(() => {
   jest.resetAllMocks();

@@ -3,7 +3,6 @@ import fs from "fs";
 import path from "path";
 import { mockResponses } from "@bmi-digital/fetch-mocks";
 import fetchMockJest from "fetch-mock-jest";
-import mockConsole from "jest-mock-console";
 
 jest.mock("@bmi-digital/functions-logger");
 
@@ -55,10 +54,6 @@ jest.doMock("../filter", () => ({
 }));
 
 const deploy = async (file: any) => (await import("../index")).deploy(file);
-
-beforeAll(() => {
-  mockConsole();
-});
 
 beforeEach(() => {
   jest.clearAllMocks();

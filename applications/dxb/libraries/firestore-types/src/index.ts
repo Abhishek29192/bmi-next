@@ -15,6 +15,13 @@ import createMeasurements from "./MeasurementsHelper";
 import createProduct from "./ProductHelper";
 import createRelatedVariant from "./RelatedVariantHelper";
 import createSystem from "./SystemHelper";
+import {
+  AwardAndCertificateAssetType,
+  GuaranteesAndWarrantiesAssetType
+} from "./types";
+import createVideo from "./VideoHelper";
+import createWeight from "./WeightHelper";
+import createYoutubeDetails from "./YoutubeDetailsHelper";
 import type {
   ApprovalStatus,
   Asset,
@@ -45,13 +52,6 @@ import type {
   Weight,
   YoutubeDetails
 } from "./types";
-import {
-  AwardAndCertificateAssetType,
-  GuaranteesAndWarrantiesAssetType
-} from "./types";
-import createVideo from "./VideoHelper";
-import createWeight from "./WeightHelper";
-import createYoutubeDetails from "./YoutubeDetailsHelper";
 
 export type {
   ApprovalStatus,

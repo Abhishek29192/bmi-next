@@ -1,5 +1,5 @@
 import { ThemeProvider } from "@bmi-digital/components";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import React from "react";
 import createGallerySectionImage from "../../__tests__/helpers/GallerySectionImageHelper";
 import createGallerySectionVideo from "../../__tests__/helpers/GallerySectionVideo";
@@ -66,13 +66,13 @@ describe("MediaGallerySection component", () => {
       medias: [createGallerySectionImage()]
     };
 
-    const { container, getByText } = render(
+    const { container } = render(
       <ThemeProvider>
         <MediaGallerySection data={data} />
       </ThemeProvider>
     );
 
-    expect(getByText("this is a test paragraph")).not.toBeNull();
+    expect(screen.getByText("this is a test paragraph")).not.toBeNull();
     expect(container).toMatchSnapshot();
   });
 });

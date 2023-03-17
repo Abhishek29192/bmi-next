@@ -25,7 +25,7 @@ import Page, { Data as PageData } from "../components/Page";
 import { Data as PageInfoData } from "../components/PageInfo";
 import Sections, { Data as SectionsData } from "../components/Sections";
 import { Data as SiteData } from "../components/Site";
-import { renderVideo } from "../components/Video";
+import Video from "../components/Video";
 import { updateBreadcrumbTitleFromContentful } from "../utils/breadcrumbUtils";
 
 export type Data = PageInfoData &
@@ -96,9 +96,9 @@ const ContactUsPage = ({ data, pageContext }: Props) => {
         title={title}
         media={
           featuredVideo ? (
-            renderVideo(featuredVideo)
+            <Video {...featuredVideo} />
           ) : (
-            <Image data={featuredMedia} size="cover" />
+            <Image {...featuredMedia} size="cover" />
           )
         }
         breadcrumbs={

@@ -23,7 +23,7 @@ exports[`Header component renders correctly 1`] = `
             >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/gb/landing-page/\\"}"
+                data-gtm="{"id":"nav-top-utilities-bar","label":"Our story","action":"/gb/landing-page/"}"
                 href="/gb/landing-page/"
                 tabindex="0"
                 target="_blank"
@@ -40,7 +40,7 @@ exports[`Header component renders correctly 1`] = `
               <button
                 aria-label="MC: menu.language"
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"open panel\\",\\"action\\":\\"open panel\\"}"
+                data-gtm="{"id":"nav-country-selector","label":"open panel","action":"open panel"}"
                 data-testid="language-button"
                 tabindex="0"
                 type="button"
@@ -74,7 +74,7 @@ exports[`Header component renders correctly 1`] = `
       <button
         aria-label="MC: global.close"
         class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-extra-small Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-        data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
+        data-gtm="{"id":"nav-country-selector","label":"close panel","action":"close panel"}"
         data-testid="language-close-button"
         tabindex="0"
         type="button"
@@ -102,7 +102,7 @@ exports[`Header component renders correctly 1`] = `
         >
           <div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-1you7td-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -120,7 +120,7 @@ exports[`Header component renders correctly 1`] = `
                 >
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
+                    data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                     href="/al"
                     tabindex="0"
                   >
@@ -142,7 +142,7 @@ exports[`Header component renders correctly 1`] = `
                   </a>
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
+                    data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                     href="/at"
                     tabindex="0"
                   >
@@ -164,7 +164,7 @@ exports[`Header component renders correctly 1`] = `
                   </a>
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/gb/\\"}"
+                    data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/gb/"}"
                     href="/gb"
                     tabindex="0"
                   >
@@ -250,7 +250,7 @@ exports[`Header component renders correctly 1`] = `
                     <a
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
-                      data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
+                      data-gtm="{"id":"nav-main-menu"}"
                       data-testid="header-navigation-tab-0"
                       href="tel:+4401234567890"
                       role="tab"
@@ -264,7 +264,7 @@ exports[`Header component renders correctly 1`] = `
                     <a
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
-                      data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
+                      data-gtm="{"id":"nav-main-menu"}"
                       data-testid="header-navigation-tab-1"
                       href="/gb/landing-page/"
                       role="tab"
@@ -278,7 +278,7 @@ exports[`Header component renders correctly 1`] = `
                     <a
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
-                      data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
+                      data-gtm="{"id":"nav-main-menu"}"
                       data-testid="header-navigation-tab-2"
                       href="https://www.external.co.uk"
                       role="tab"
@@ -401,7 +401,7 @@ exports[`Header component renders correctly 1`] = `
             <li>
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Get in touch\\"}"
+                data-gtm="{"id":"nav-main-menu","label":"Get in touch"}"
                 href="tel:+4401234567890"
                 tabindex="0"
                 target="_blank"
@@ -539,7 +539,7 @@ exports[`Header component renders correctly 1`] = `
             <li>
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"About BMI\\",\\"action\\":\\"/gb/landing-page/\\"}"
+                data-gtm="{"id":"nav-main-menu","label":"About BMI","action":"/gb/landing-page/"}"
                 href="/gb/landing-page/"
                 tabindex="0"
                 target="_blank"
@@ -553,7 +553,7 @@ exports[`Header component renders correctly 1`] = `
             <li>
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
+                data-gtm="{"id":"nav-main-menu","label":"string"}"
                 href="https://www.external.co.uk"
                 tabindex="0"
                 target="_blank"
@@ -577,7 +577,7 @@ exports[`Header component renders correctly 1`] = `
               <li>
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/gb/landing-page/\\"}"
+                  data-gtm="{"id":"nav-main-menu","label":"Our story","action":"/gb/landing-page/"}"
                   href="/gb/landing-page/"
                   tabindex="0"
                 >
@@ -591,7 +591,7 @@ exports[`Header component renders correctly 1`] = `
             <li>
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"GB\\"}"
+                data-gtm="{"id":"nav-main-menu","label":"GB"}"
                 tabindex="0"
                 type="button"
               >
@@ -695,7 +695,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
             >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/grp/landing-page/\\"}"
+                data-gtm="{"id":"nav-top-utilities-bar","label":"Our story","action":"/grp/landing-page/"}"
                 href="/grp/landing-page/"
                 tabindex="0"
                 target="_blank"
@@ -712,7 +712,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
               <button
                 aria-label="MC: menu.language"
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"open panel\\",\\"action\\":\\"open panel\\"}"
+                data-gtm="{"id":"nav-country-selector","label":"open panel","action":"open panel"}"
                 data-testid="language-button"
                 tabindex="0"
                 type="button"
@@ -746,7 +746,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
       <button
         aria-label="MC: global.close"
         class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-extra-small Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-        data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
+        data-gtm="{"id":"nav-country-selector","label":"close panel","action":"close panel"}"
         data-testid="language-close-button"
         tabindex="0"
         type="button"
@@ -774,7 +774,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
         >
           <div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-1you7td-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -792,7 +792,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                 >
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
+                    data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                     href="/al"
                     tabindex="0"
                   >
@@ -814,7 +814,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                   </a>
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
+                    data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                     href="/at"
                     tabindex="0"
                   >
@@ -836,7 +836,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                   </a>
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/gb/\\"}"
+                    data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/gb/"}"
                     href="/gb"
                     tabindex="0"
                   >
@@ -922,7 +922,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                     <a
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
-                      data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
+                      data-gtm="{"id":"nav-main-menu"}"
                       data-testid="header-navigation-tab-0"
                       href="tel:+4401234567890"
                       role="tab"
@@ -936,7 +936,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                     <a
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
-                      data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
+                      data-gtm="{"id":"nav-main-menu"}"
                       data-testid="header-navigation-tab-1"
                       href="/grp/landing-page/"
                       role="tab"
@@ -950,7 +950,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                     <a
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
-                      data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
+                      data-gtm="{"id":"nav-main-menu"}"
                       data-testid="header-navigation-tab-2"
                       href="https://www.external.co.uk"
                       role="tab"
@@ -1073,7 +1073,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
             <li>
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Get in touch\\"}"
+                data-gtm="{"id":"nav-main-menu","label":"Get in touch"}"
                 href="tel:+4401234567890"
                 tabindex="0"
                 target="_blank"
@@ -1211,7 +1211,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
             <li>
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"About BMI\\",\\"action\\":\\"/grp/landing-page/\\"}"
+                data-gtm="{"id":"nav-main-menu","label":"About BMI","action":"/grp/landing-page/"}"
                 href="/grp/landing-page/"
                 tabindex="0"
                 target="_blank"
@@ -1225,7 +1225,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
             <li>
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
+                data-gtm="{"id":"nav-main-menu","label":"string"}"
                 href="https://www.external.co.uk"
                 tabindex="0"
                 target="_blank"
@@ -1249,7 +1249,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
               <li>
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/grp/landing-page/\\"}"
+                  data-gtm="{"id":"nav-main-menu","label":"Our story","action":"/grp/landing-page/"}"
                   href="/grp/landing-page/"
                   tabindex="0"
                 >
@@ -1263,7 +1263,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
             <li>
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"EN\\"}"
+                data-gtm="{"id":"nav-main-menu","label":"EN"}"
                 tabindex="0"
                 type="button"
               >
@@ -1369,7 +1369,7 @@ exports[`Header component shows sample basket icon 1`] = `
             >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/gb/landing-page/\\"}"
+                data-gtm="{"id":"nav-top-utilities-bar","label":"Our story","action":"/gb/landing-page/"}"
                 href="/gb/landing-page/"
                 tabindex="0"
                 target="_blank"
@@ -1386,7 +1386,7 @@ exports[`Header component shows sample basket icon 1`] = `
               <button
                 aria-label="MC: menu.language"
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"open panel\\",\\"action\\":\\"open panel\\"}"
+                data-gtm="{"id":"nav-country-selector","label":"open panel","action":"open panel"}"
                 data-testid="language-button"
                 tabindex="0"
                 type="button"
@@ -1420,7 +1420,7 @@ exports[`Header component shows sample basket icon 1`] = `
       <button
         aria-label="MC: global.close"
         class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-extra-small Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-        data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
+        data-gtm="{"id":"nav-country-selector","label":"close panel","action":"close panel"}"
         data-testid="language-close-button"
         tabindex="0"
         type="button"
@@ -1448,7 +1448,7 @@ exports[`Header component shows sample basket icon 1`] = `
         >
           <div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-1you7td-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -1466,7 +1466,7 @@ exports[`Header component shows sample basket icon 1`] = `
                 >
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
+                    data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                     href="/al"
                     tabindex="0"
                   >
@@ -1488,7 +1488,7 @@ exports[`Header component shows sample basket icon 1`] = `
                   </a>
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
+                    data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                     href="/at"
                     tabindex="0"
                   >
@@ -1510,7 +1510,7 @@ exports[`Header component shows sample basket icon 1`] = `
                   </a>
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/gb/\\"}"
+                    data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/gb/"}"
                     href="/gb"
                     tabindex="0"
                   >
@@ -1596,7 +1596,7 @@ exports[`Header component shows sample basket icon 1`] = `
                     <a
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
-                      data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
+                      data-gtm="{"id":"nav-main-menu"}"
                       data-testid="header-navigation-tab-0"
                       href="tel:+4401234567890"
                       role="tab"
@@ -1610,7 +1610,7 @@ exports[`Header component shows sample basket icon 1`] = `
                     <a
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
-                      data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
+                      data-gtm="{"id":"nav-main-menu"}"
                       data-testid="header-navigation-tab-1"
                       href="/gb/landing-page/"
                       role="tab"
@@ -1624,7 +1624,7 @@ exports[`Header component shows sample basket icon 1`] = `
                     <a
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
-                      data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
+                      data-gtm="{"id":"nav-main-menu"}"
                       data-testid="header-navigation-tab-2"
                       href="https://www.external.co.uk"
                       role="tab"
@@ -1656,21 +1656,23 @@ exports[`Header component shows sample basket icon 1`] = `
                 type="button"
               >
                 <span
-                  class="MuiBadge-root MuiBadge-root css-anxmnr-MuiBadge-root"
+                  class="MuiBadge-root css-anxmnr-MuiBadge-root"
+                  data-testid="shopping-cart-button-badge"
                 >
                   <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                    data-testid="ShoppingCartOutlinedIcon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
+                    viewBox="0 0 32 32"
                   >
                     <path
-                      d="M15.55 13c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.37-.66-.11-1.48-.87-1.48H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2h7.45zM6.16 6h12.15l-2.76 5H8.53L6.16 6zM7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"
+                      d="M0 0h32v32H0z"
+                      fill="#009fe3"
+                    />
+                    <path
+                      d="m16.981 8-2.115 2.127 4.406 4.343H7v3h12.243l-4.293 4.355 2.128 2.115L25 15.97Z"
+                      fill="#fff"
                     />
                   </svg>
                   <span
-                    class="MuiBadge-badge MuiBadge-standard MuiBadge-anchorOriginTopRight MuiBadge-anchorOriginTopRightRectangular MuiBadge-overlapRectangular MuiBadge-colorError MuiBadge-badge css-12zkn4t-MuiBadge-badge"
+                    class="MuiBadge-badge MuiBadge-standard MuiBadge-anchorOriginTopRight MuiBadge-anchorOriginTopRightRectangular MuiBadge-overlapRectangular MuiBadge-colorError css-12zkn4t-MuiBadge-badge"
                   >
                     1
                   </span>
@@ -1779,7 +1781,7 @@ exports[`Header component shows sample basket icon 1`] = `
             <li>
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Get in touch\\"}"
+                data-gtm="{"id":"nav-main-menu","label":"Get in touch"}"
                 href="tel:+4401234567890"
                 tabindex="0"
                 target="_blank"
@@ -1917,7 +1919,7 @@ exports[`Header component shows sample basket icon 1`] = `
             <li>
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"About BMI\\",\\"action\\":\\"/gb/landing-page/\\"}"
+                data-gtm="{"id":"nav-main-menu","label":"About BMI","action":"/gb/landing-page/"}"
                 href="/gb/landing-page/"
                 tabindex="0"
                 target="_blank"
@@ -1931,7 +1933,7 @@ exports[`Header component shows sample basket icon 1`] = `
             <li>
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
+                data-gtm="{"id":"nav-main-menu","label":"string"}"
                 href="https://www.external.co.uk"
                 tabindex="0"
                 target="_blank"
@@ -1955,7 +1957,7 @@ exports[`Header component shows sample basket icon 1`] = `
               <li>
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/gb/landing-page/\\"}"
+                  data-gtm="{"id":"nav-main-menu","label":"Our story","action":"/gb/landing-page/"}"
                   href="/gb/landing-page/"
                   tabindex="0"
                 >
@@ -1969,7 +1971,7 @@ exports[`Header component shows sample basket icon 1`] = `
             <li>
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"GB\\"}"
+                data-gtm="{"id":"nav-main-menu","label":"GB"}"
                 tabindex="0"
                 type="button"
               >
@@ -2104,6 +2106,7 @@ exports[`Header component shows sample basket icon 1`] = `
         >
           <div
             class="css-oy3w3v"
+            data-testid="shopping-cart-dialog-product"
           >
             <div
               class="css-1833v6z"
@@ -2124,11 +2127,11 @@ exports[`Header component shows sample basket icon 1`] = `
               </h6>
               <h6
                 class="MuiTypography-root MuiTypography-h6 css-1l4dji9-MuiTypography-root"
-                data-testid="shopping-cart-dialog-product-colour-undefined"
+                data-testid="shopping-cart-dialog-product-colour-"
               />
               <p
                 class="MuiTypography-root MuiTypography-body1 css-oexxqj-MuiTypography-root"
-                data-testid="shopping-cart-dialog-product-size-undefined"
+                data-testid="shopping-cart-dialog-product-size-"
               />
             </div>
             <div
@@ -2165,7 +2168,7 @@ exports[`Header component shows sample basket icon 1`] = `
         >
           <a
             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-            data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/gb/sample-basket/\\",\\"label\\":\\"sample-basket\\"}"
+            data-gtm="{"id":"cta-click1","action":"/gb/sample-basket/","label":"sample-basket"}"
             data-testid="shopping-cart-dialog-complete-order-button"
             href="/gb/sample-basket/"
             tabindex="0"
@@ -2231,7 +2234,7 @@ exports[`Header component toggles search 1`] = `
             >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/gb/landing-page/\\"}"
+                data-gtm="{"id":"nav-top-utilities-bar","label":"Our story","action":"/gb/landing-page/"}"
                 href="/gb/landing-page/"
                 tabindex="0"
                 target="_blank"
@@ -2248,7 +2251,7 @@ exports[`Header component toggles search 1`] = `
               <button
                 aria-label="MC: menu.language"
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"open panel\\",\\"action\\":\\"open panel\\"}"
+                data-gtm="{"id":"nav-country-selector","label":"open panel","action":"open panel"}"
                 data-testid="language-button"
                 tabindex="0"
                 type="button"
@@ -2282,7 +2285,7 @@ exports[`Header component toggles search 1`] = `
       <button
         aria-label="MC: global.close"
         class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-extra-small Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-        data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
+        data-gtm="{"id":"nav-country-selector","label":"close panel","action":"close panel"}"
         data-testid="language-close-button"
         tabindex="0"
         type="button"
@@ -2310,7 +2313,7 @@ exports[`Header component toggles search 1`] = `
         >
           <div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-1you7td-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -2328,7 +2331,7 @@ exports[`Header component toggles search 1`] = `
                 >
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
+                    data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                     href="/al"
                     tabindex="0"
                   >
@@ -2350,7 +2353,7 @@ exports[`Header component toggles search 1`] = `
                   </a>
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
+                    data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                     href="/at"
                     tabindex="0"
                   >
@@ -2372,7 +2375,7 @@ exports[`Header component toggles search 1`] = `
                   </a>
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/gb/\\"}"
+                    data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/gb/"}"
                     href="/gb"
                     tabindex="0"
                   >
@@ -2458,7 +2461,7 @@ exports[`Header component toggles search 1`] = `
                     <a
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
-                      data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
+                      data-gtm="{"id":"nav-main-menu"}"
                       data-testid="header-navigation-tab-0"
                       href="tel:+4401234567890"
                       role="tab"
@@ -2472,7 +2475,7 @@ exports[`Header component toggles search 1`] = `
                     <a
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
-                      data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
+                      data-gtm="{"id":"nav-main-menu"}"
                       data-testid="header-navigation-tab-1"
                       href="/gb/landing-page/"
                       role="tab"
@@ -2486,7 +2489,7 @@ exports[`Header component toggles search 1`] = `
                     <a
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
-                      data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
+                      data-gtm="{"id":"nav-main-menu"}"
                       data-testid="header-navigation-tab-2"
                       href="https://www.external.co.uk"
                       role="tab"
@@ -2609,7 +2612,7 @@ exports[`Header component toggles search 1`] = `
             <li>
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Get in touch\\"}"
+                data-gtm="{"id":"nav-main-menu","label":"Get in touch"}"
                 href="tel:+4401234567890"
                 tabindex="0"
                 target="_blank"
@@ -2747,7 +2750,7 @@ exports[`Header component toggles search 1`] = `
             <li>
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"About BMI\\",\\"action\\":\\"/gb/landing-page/\\"}"
+                data-gtm="{"id":"nav-main-menu","label":"About BMI","action":"/gb/landing-page/"}"
                 href="/gb/landing-page/"
                 tabindex="0"
                 target="_blank"
@@ -2761,7 +2764,7 @@ exports[`Header component toggles search 1`] = `
             <li>
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
+                data-gtm="{"id":"nav-main-menu","label":"string"}"
                 href="https://www.external.co.uk"
                 tabindex="0"
                 target="_blank"
@@ -2785,7 +2788,7 @@ exports[`Header component toggles search 1`] = `
               <li>
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/gb/landing-page/\\"}"
+                  data-gtm="{"id":"nav-main-menu","label":"Our story","action":"/gb/landing-page/"}"
                   href="/gb/landing-page/"
                   tabindex="0"
                 >
@@ -2799,7 +2802,7 @@ exports[`Header component toggles search 1`] = `
             <li>
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"GB\\"}"
+                data-gtm="{"id":"nav-main-menu","label":"GB"}"
                 tabindex="0"
                 type="button"
               >
@@ -2889,8 +2892,8 @@ exports[`Header component toggles search 1`] = `
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled css-1wb2lss-MuiFormLabel-root-MuiInputLabel-root"
                 data-shrink="false"
-                for="mui-1"
-                id="mui-1-label"
+                for=":r0:"
+                id=":r0:-label"
               >
                 MC: search.placeholder.header
               </label>
@@ -2900,7 +2903,7 @@ exports[`Header component toggles search 1`] = `
                 <input
                   aria-invalid="false"
                   class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
-                  id="mui-1"
+                  id=":r0:"
                   name="q"
                   type="text"
                   value=""
@@ -2910,7 +2913,7 @@ exports[`Header component toggles search 1`] = `
             <button
               aria-label="MC: search.label"
               class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge InputGroup-button css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-              data-gtm="{\\"id\\":\\"search1\\",\\"label\\":\\"MC: search.label\\"}"
+              data-gtm="{"id":"search1","label":"MC: search.label"}"
               data-testid="search-submit-button"
               tabindex="0"
               type="submit"

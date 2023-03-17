@@ -4,7 +4,7 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import classnames from "classnames";
 import React, { useState } from "react";
 import RawTextField from "../raw-text-field/RawTextField";
-import { StyledComponentWithButtons, classes } from "./styles";
+import { classes, StyledComponentWithButtons } from "./styles";
 
 type Props = {
   name: string;
@@ -81,6 +81,7 @@ const UpDownSimpleNumericInput = ({
       )}
       value={count.toString()}
       onChange={handleInputChange}
+      data-testid={"up-down-simple-numeric-input-text-field"}
     />
   );
 
@@ -103,6 +104,7 @@ const UpDownSimpleNumericInput = ({
         classes.root,
         lockBreakpoint && `locked-${lockBreakpoint}`
       )}
+      data-testid={"up-down-simple-numeric-input-buttons-wrapper"}
     >
       {InputComponent}
       {DownButton}

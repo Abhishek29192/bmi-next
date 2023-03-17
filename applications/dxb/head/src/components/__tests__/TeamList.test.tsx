@@ -1,5 +1,5 @@
 import { ThemeProvider } from "@bmi-digital/components";
-import { fireEvent, render } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import TeamList, { Data } from "../TeamList";
 
@@ -400,13 +400,13 @@ describe("TeamList component", () => {
       }
     ];
 
-    const { container, getByText } = render(
+    const { container } = render(
       <ThemeProvider>
         <TeamList data={data} />
       </ThemeProvider>
     );
 
-    fireEvent.click(getByText("MC: global.showMore"));
+    fireEvent.click(screen.getByText("MC: global.showMore"));
 
     expect(container).toMatchSnapshot();
   });

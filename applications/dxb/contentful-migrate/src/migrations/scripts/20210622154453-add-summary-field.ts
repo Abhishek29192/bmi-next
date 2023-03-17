@@ -1,9 +1,9 @@
-import type Migration from "contentful-migration";
-import type { MigrationFunction } from "contentful-migration";
 import {
   enabledNodeTypes,
   nodes
 } from "../../variables/richText/20210413104316";
+import type Migration from "contentful-migration";
+import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Add summary RichText field";
 

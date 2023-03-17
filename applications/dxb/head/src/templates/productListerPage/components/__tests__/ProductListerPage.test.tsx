@@ -1,6 +1,5 @@
 import { Filter, RegionCode, ThemeProvider } from "@bmi-digital/components";
 import * as all from "@bmi-digital/use-dimensions";
-import type { Product as ESProduct } from "@bmi/elasticsearch-types";
 import { createProduct as createESProduct } from "@bmi/elasticsearch-types";
 import {
   createHistory,
@@ -11,14 +10,15 @@ import {
   fireEvent,
   render,
   RenderResult,
+  screen,
   waitFor
 } from "@testing-library/react";
 import React from "react";
+import type { Product as ESProduct } from "@bmi/elasticsearch-types";
 import { DataTypeEnum, NavigationData } from "../../../../components/Link";
 import { Data as SiteData } from "../../../../components/Site";
 import ProvideStyles from "../../../../components/__tests__/utils/StylesProvider";
 import { ConfigProvider, EnvConfig } from "../../../../contexts/ConfigProvider";
-import * as elasticSearch from "../../../../utils/elasticSearch";
 import createImageData from "../../../../__tests__/helpers/ImageDataHelper";
 import ProductListerPage, {
   Data as PlpPageInfoData,
@@ -153,16 +153,16 @@ function mockUseDimensions({
 const route = "/jest-test-page";
 const history = createHistory(createMemorySource(route));
 
-const mockQueryES = jest
-  .spyOn(elasticSearch, "queryElasticSearch")
-  .mockResolvedValue({
-    hits: {
-      hits: [productWithVariantAndBase],
-      total: {
-        value: 1
-      }
-    }
-  });
+const mockQueryES = jest.fn();
+jest.mock("../../../../utils/elasticSearch", () => {
+  const actualElasticSearch = jest.requireActual(
+    "../../../../utils/elasticSearch"
+  );
+  return {
+    ...actualElasticSearch,
+    queryElasticSearch: (...args) => mockQueryES(...args)
+  };
+});
 
 const renderWithStylesAndLocationProvider = (
   pageData: any,
@@ -203,20 +203,19 @@ beforeEach(() => {
   });
 });
 
-// TODO: reove SKIP when react18 fixes are merged in and mocked tests are fixed
-describe.skip("ProductListerPage template", () => {
+describe("ProductListerPage template", () => {
   describe("New plpFilters tests", () => {
     describe("ProductListerPage without initialProducts without BrandProvider", () => {
       it("renders basic ProductListerPage", async () => {
         pageData.initialProducts = [];
         pageData.plpFilters.filters = [];
-        const { container, findByText } = renderWithStylesAndLocationProvider(
+        const { baseElement } = renderWithStylesAndLocationProvider(
           pageData,
           pageContext,
           { isBrandProviderEnabled: false, isLegacyFiltersUsing: false }
         );
-        await findByText(heroTitle);
-        expect(container.parentElement).toMatchSnapshot();
+        await screen.findByText(heroTitle);
+        expect(baseElement).toMatchSnapshot();
       });
     });
 
@@ -224,12 +223,12 @@ describe.skip("ProductListerPage template", () => {
       it("renders basic ProductListerPage", async () => {
         pageData.initialProducts = [];
         pageData.plpFilters.filters = [];
-        const { container, findByText } = renderWithStylesAndLocationProvider(
+        const { baseElement } = renderWithStylesAndLocationProvider(
           pageData,
           pageContext
         );
-        await findByText(heroTitle);
-        expect(container.parentElement).toMatchSnapshot();
+        await screen.findByText(heroTitle);
+        expect(baseElement).toMatchSnapshot();
       });
     });
     describe("ProductListerPage with multiple category codes", () => {
@@ -263,13 +262,12 @@ describe.skip("ProductListerPage template", () => {
             }
           };
 
-          const { container, findByText } = renderWithStylesAndLocationProvider(
+          const { baseElement } = renderWithStylesAndLocationProvider(
             localPageData,
             localPageContext
           );
-          await findByText("category-code-2");
-
-          expect(container.parentElement).toMatchSnapshot();
+          await screen.findByText("category-code-2");
+          expect(baseElement).toMatchSnapshot();
         });
       });
 
@@ -302,18 +300,17 @@ describe.skip("ProductListerPage template", () => {
               variant1: "variant1"
             }
           };
-          const { container, findByText, queryByText } =
-            renderWithStylesAndLocationProvider(
-              localPageData,
-              localPageContext
-            );
-          await findByText(heroTitle);
-          const categoryLabel = queryByText("category-code-2");
+          const { baseElement } = renderWithStylesAndLocationProvider(
+            localPageData,
+            localPageContext
+          );
+          await screen.findByText(heroTitle);
+          const categoryLabel = screen.queryByText("category-code-2");
           expect(categoryLabel).toBeNull();
 
-          const categoryLabel3 = queryByText("category-code-3");
+          const categoryLabel3 = screen.queryByText("category-code-3");
           expect(categoryLabel3).toBeNull();
-          expect(container.parentElement).toMatchSnapshot();
+          expect(baseElement).toMatchSnapshot();
         });
       });
     });
@@ -323,12 +320,12 @@ describe.skip("ProductListerPage template", () => {
         pageData.initialProducts = [productWithVariantAndBase];
         pageData.contentfulProductListerPage.heroType = "Level 1";
 
-        const { container, getByTestId } = renderWithStylesAndLocationProvider(
+        const { baseElement } = renderWithStylesAndLocationProvider(
           pageData,
           pageContext
         );
-        await waitFor(() => expect(getByTestId("hero")).toBeInTheDocument());
-        expect(container.parentElement).toMatchSnapshot();
+        await screen.findByTestId("hero");
+        expect(baseElement).toMatchSnapshot();
       });
     });
 
@@ -354,11 +351,13 @@ describe.skip("ProductListerPage template", () => {
             filters: productFilters,
             allowFilterBy: ["colour"]
           };
-          const { container, getByLabelText, queryByText } =
-            renderWithStylesAndLocationProvider(pageData, pageContext);
-          getByLabelText(color1Label);
-          expect(queryByText(color2Label)).not.toBeNull();
-          expect(container.parentElement).toMatchSnapshot();
+          const { baseElement } = renderWithStylesAndLocationProvider(
+            pageData,
+            pageContext
+          );
+          screen.getByLabelText(color1Label);
+          expect(screen.getByText(color2Label)).toBeInTheDocument();
+          expect(baseElement).toMatchSnapshot();
         });
       });
 
@@ -367,11 +366,12 @@ describe.skip("ProductListerPage template", () => {
           pageData.initialProducts = [productWithVariantAndBase];
           pageData.contentfulProductListerPage.heroType = "Level 1";
 
-          const { container, getByTestId } =
-            renderWithStylesAndLocationProvider(pageData, pageContext);
-          await waitFor(() => expect(getByTestId("hero")).toBeInTheDocument());
-
-          expect(container.parentElement).toMatchSnapshot();
+          const { baseElement } = renderWithStylesAndLocationProvider(
+            pageData,
+            pageContext
+          );
+          await screen.findByTestId("hero");
+          expect(baseElement).toMatchSnapshot();
         });
       });
 
@@ -393,11 +393,13 @@ describe.skip("ProductListerPage template", () => {
           ];
           pageData.initialProducts = [productWithVariantAndBase];
           pageData.plpFilters.filters = productFilters;
-          const { container, getByLabelText, queryByText } =
-            renderWithStylesAndLocationProvider(pageData, pageContext);
-          getByLabelText(size1Label);
-          expect(queryByText(size2Label)).not.toBeNull();
-          expect(container.parentElement).toMatchSnapshot();
+          const { baseElement } = renderWithStylesAndLocationProvider(
+            pageData,
+            pageContext
+          );
+          screen.getByLabelText(size1Label);
+          expect(screen.getByText(size2Label)).toBeInTheDocument();
+          expect(baseElement).toMatchSnapshot();
         });
       });
     });
@@ -408,36 +410,33 @@ describe.skip("ProductListerPage template", () => {
       { ...productWithVariantAndBase, images: undefined }
     ];
     pageData.contentfulProductListerPage.heroType = "Spotlight";
-    const { container, findByText } = renderWithStylesAndLocationProvider(
+    const { baseElement } = renderWithStylesAndLocationProvider(
       pageData,
       pageContext,
       { isPreviewMode: true }
     );
-    await findByText(heroTitle);
-    expect(container.parentElement).toMatchSnapshot();
+    await screen.findByText(heroTitle);
+    expect(baseElement).toMatchSnapshot();
   });
 
   it("no search for Gatsby preview", async () => {
     pageData.initialProducts = [productWithVariantAndBase];
     pageData.contentfulProductListerPage.heroType = "Spotlight";
-    const { container, findByText } = renderWithStylesAndLocationProvider(
+    const { baseElement } = renderWithStylesAndLocationProvider(
       pageData,
       pageContext,
       { isPreviewMode: true }
     );
-    await findByText(heroTitle);
-    expect(container.parentElement).toMatchSnapshot();
+    await screen.findByText(heroTitle);
+    expect(baseElement).toMatchSnapshot();
   });
 
   it("test handle change by click on pagination", async () => {
     const products = new Array(30).fill(productWithVariantAndBase);
     pageData.initialProducts = [...products];
     jest.spyOn(window, "scrollTo").mockImplementation();
-    const { getByLabelText } = renderWithStylesAndLocationProvider(
-      pageData,
-      pageContext
-    );
-    fireEvent.click(getByLabelText("Go to next page"));
+    renderWithStylesAndLocationProvider(pageData, pageContext);
+    fireEvent.click(screen.getByLabelText("Go to next page"));
     await waitFor(() => {
       expect(window.scrollTo).toHaveBeenCalledWith(0, -200);
     });
@@ -498,13 +497,13 @@ describe.skip("ProductListerPage template", () => {
         }
       }
     });
-    const { container, getByLabelText } = renderWithStylesAndLocationProvider(
+    const { baseElement } = renderWithStylesAndLocationProvider(
       pageData,
       pageContext
     );
-    fireEvent.click(getByLabelText("Go to next page"));
+    fireEvent.click(screen.getByLabelText("Go to next page"));
     expect(mockQueryES).toBeCalledTimes(1);
-    expect(container.parentElement).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 
   it("test handle fetch product by click on pagination when ES return aggregations", async () => {
@@ -528,13 +527,13 @@ describe.skip("ProductListerPage template", () => {
         }
       }
     });
-    const { container, getByLabelText } = renderWithStylesAndLocationProvider(
+    const { baseElement } = renderWithStylesAndLocationProvider(
       pageData,
       pageContext
     );
-    fireEvent.click(getByLabelText("Go to next page"));
+    fireEvent.click(screen.getByLabelText("Go to next page"));
     expect(mockQueryES).toBeCalledTimes(1);
-    expect(container.parentElement).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 
   it("test handle change url by click on filters and test clear all click", async () => {
@@ -565,12 +564,14 @@ describe.skip("ProductListerPage template", () => {
       filters: productFilters,
       allowFilterBy: ["colour"]
     };
-    const { container, queryByText, getByText } =
-      renderWithStylesAndLocationProvider(pageData, pageContext);
-    expect(container.parentElement).toMatchSnapshot();
-    fireEvent.click(queryByText(color2Label));
+    const { baseElement } = renderWithStylesAndLocationProvider(
+      pageData,
+      pageContext
+    );
+    expect(baseElement).toMatchSnapshot();
+    fireEvent.click(screen.queryByText(color2Label));
     expect(window.history.replaceState).toHaveBeenCalledTimes(1);
-    fireEvent.click(getByText("MC: plp.filters.clearAll"));
+    fireEvent.click(screen.getByText("MC: plp.filters.clearAll"));
     expect(window.history.replaceState).toHaveBeenCalledTimes(2);
   });
 
@@ -594,23 +595,21 @@ describe.skip("ProductListerPage template", () => {
       filters: plpFilters,
       allowFilterBy: ["texturefamily"]
     };
-    const { container } = renderWithStylesAndLocationProvider(
+    const { baseElement } = renderWithStylesAndLocationProvider(
       pageData,
       pageContext
     );
-    expect(container.parentElement).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 
   it("should prevent fetch products on GATSBY_PREVIEW", async () => {
     jest.spyOn(window, "alert").mockImplementation();
     const products = new Array(30).fill(productWithVariantAndBase);
     pageData.initialProducts = [...products];
-    const { getByLabelText } = renderWithStylesAndLocationProvider(
-      pageData,
-      pageContext,
-      { isPreviewMode: true }
-    );
-    fireEvent.click(getByLabelText("Go to next page"));
+    renderWithStylesAndLocationProvider(pageData, pageContext, {
+      isPreviewMode: true
+    });
+    fireEvent.click(screen.getByLabelText("Go to next page"));
 
     expect(window.alert).toHaveBeenCalledWith(
       "You cannot search on the preview environment."

@@ -1,4 +1,9 @@
 import logger from "@bmi-digital/functions-logger";
+import {
+  AwardAndCertificateAssetType,
+  GuaranteesAndWarrantiesAssetType
+} from "@bmi/firestore-types";
+import { generateHashFromString, generateUrl, isDefined } from "@bmi/utils";
 import type {
   ApprovalStatus,
   CategoryGroup,
@@ -9,10 +14,6 @@ import type {
   RelatedVariant,
   UnitValue
 } from "@bmi/firestore-types";
-import {
-  AwardAndCertificateAssetType,
-  GuaranteesAndWarrantiesAssetType
-} from "@bmi/firestore-types";
 import type {
   Asset,
   Category as PimCategory,
@@ -22,7 +23,6 @@ import type {
   Product as PimProduct,
   VariantOption
 } from "@bmi/pim-types";
-import { generateHashFromString, generateUrl, isDefined } from "@bmi/utils";
 import {
   productIgnorableAttributes,
   productIgnorableClassfications

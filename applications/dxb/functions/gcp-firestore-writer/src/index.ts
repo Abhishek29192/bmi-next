@@ -3,9 +3,9 @@ import { Product, System } from "@bmi/firestore-types";
 import { getFirestore } from "@bmi/functions-firestore";
 import { SystemLayer } from "@bmi/pim-types";
 import { DeleteItem, Message, ObjType } from "@bmi/pub-sub-types";
-import type { EventFunction } from "@google-cloud/functions-framework/build/src/functions";
 import { transformProduct } from "./productTransformer";
 import { transformSystem } from "./systemTransformer";
+import type { EventFunction } from "@google-cloud/functions-framework/build/src/functions";
 
 const { FIRESTORE_ROOT_COLLECTION, ENABLE_SAMPLE_ORDERING } = process.env;
 const db = getFirestore();

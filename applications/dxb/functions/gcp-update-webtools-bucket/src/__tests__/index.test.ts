@@ -6,7 +6,6 @@ import {
 } from "@bmi-digital/fetch-mocks";
 import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
-import mockConsole from "jest-mock-console";
 import responses from "./responses.json";
 
 const fetchMock = fetchMockJest.sandbox();
@@ -38,7 +37,6 @@ let oldEnv = process.env;
 
 beforeAll(() => {
   oldEnv = process.env;
-  mockConsole();
 });
 
 beforeEach(() => {

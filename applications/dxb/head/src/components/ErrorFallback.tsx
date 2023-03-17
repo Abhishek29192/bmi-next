@@ -3,7 +3,7 @@ import React from "react";
 import Image from "./Image";
 import { getClickableActionFromUrl } from "./Link";
 import { Data as PromoData } from "./Promo";
-import { renderVideo } from "./Video";
+import Video from "./Video";
 
 const ErrorFallback = ({
   countryCode,
@@ -28,9 +28,9 @@ const ErrorFallback = ({
       title={title}
       media={
         featuredVideo ? (
-          renderVideo(featuredVideo)
+          <Video {...featuredVideo} />
         ) : (
-          <Image data={featuredMedia} />
+          <Image {...featuredMedia} />
         )
       }
     >

@@ -1,5 +1,6 @@
 import { ThemeProvider } from "@bmi-digital/components";
 import React from "react";
+import { screen } from "@testing-library/react";
 import {
   Data as LinkData,
   DataTypeEnum,
@@ -96,23 +97,21 @@ describe("Sitemap", () => {
         menuUtilities
       }
     };
-    const { container, getByTestId, queryByText } = renderWithRouter(
+    const { container } = renderWithRouter(
       <ThemeProvider>
         <Sitemap data={data} pageContext={{ variantCodeToPathMap: {} }} />
       </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
-    expect(container.querySelectorAll("header").length).toBe(1);
-    expect(getByTestId("footer")).toBeTruthy();
-    expect(getByTestId("brand-colors-provider")).toBeTruthy();
-    expect(container.querySelectorAll("[class*='Section-root']").length).toBe(
-      4
-    );
-    expect(queryByText(footerMainNavigation.label)).toBeTruthy();
-    expect(queryByText(footerSecondaryNavigation.label)).toBeTruthy();
-    expect(queryByText(menuNavigation.label)).toBeTruthy();
-    expect(queryByText(menuUtilities.label)).toBeTruthy();
+    expect(screen.getByRole("banner")).toBeInTheDocument();
+    expect(screen.getByTestId("footer")).toBeTruthy();
+    expect(screen.getByTestId("brand-colors-provider")).toBeTruthy();
+    expect(screen.getAllByTestId("sitemap-section")).toHaveLength(4);
+    expect(screen.getByText(footerMainNavigation.label)).toBeTruthy();
+    expect(screen.getByText(footerSecondaryNavigation.label)).toBeTruthy();
+    expect(screen.getByText(menuNavigation.label)).toBeTruthy();
+    expect(screen.getByText(menuUtilities.label)).toBeTruthy();
   });
 
   it("renders correctly when footerMainNavigation is falsy", () => {
@@ -125,23 +124,21 @@ describe("Sitemap", () => {
         menuUtilities
       }
     };
-    const { container, getByTestId, queryByText } = renderWithRouter(
+    const { container } = renderWithRouter(
       <ThemeProvider>
         <Sitemap data={data} pageContext={{ variantCodeToPathMap: {} }} />
       </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
-    expect(container.querySelectorAll("header").length).toBe(1);
-    expect(getByTestId("footer")).toBeTruthy();
-    expect(getByTestId("brand-colors-provider")).toBeTruthy();
-    expect(container.querySelectorAll("[class*='Section-root']").length).toBe(
-      3
-    );
-    expect(queryByText(footerMainNavigation.label)).toBeFalsy();
-    expect(queryByText(footerSecondaryNavigation.label)).toBeTruthy();
-    expect(queryByText(menuNavigation.label)).toBeTruthy();
-    expect(queryByText(menuUtilities.label)).toBeTruthy();
+    expect(screen.getByRole("banner")).toBeInTheDocument();
+    expect(screen.getByTestId("footer")).toBeTruthy();
+    expect(screen.getByTestId("brand-colors-provider")).toBeTruthy();
+    expect(screen.getAllByTestId("sitemap-section")).toHaveLength(3);
+    expect(screen.queryByText(footerMainNavigation.label)).toBeFalsy();
+    expect(screen.getByText(footerSecondaryNavigation.label)).toBeTruthy();
+    expect(screen.getByText(menuNavigation.label)).toBeTruthy();
+    expect(screen.getByText(menuUtilities.label)).toBeTruthy();
   });
 
   it("renders correctly when footerSecondaryNavigation is falsy", () => {
@@ -154,23 +151,21 @@ describe("Sitemap", () => {
         menuUtilities
       }
     };
-    const { container, getByTestId, queryByText } = renderWithRouter(
+    const { container } = renderWithRouter(
       <ThemeProvider>
         <Sitemap data={data} pageContext={{ variantCodeToPathMap: {} }} />
       </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
-    expect(container.querySelectorAll("header").length).toBe(1);
-    expect(getByTestId("footer")).toBeTruthy();
-    expect(getByTestId("brand-colors-provider")).toBeTruthy();
-    expect(container.querySelectorAll("[class*='Section-root']").length).toBe(
-      3
-    );
-    expect(queryByText(footerMainNavigation.label)).toBeTruthy();
-    expect(queryByText(footerSecondaryNavigation.label)).toBeFalsy();
-    expect(queryByText(menuNavigation.label)).toBeTruthy();
-    expect(queryByText(menuUtilities.label)).toBeTruthy();
+    expect(screen.getByRole("banner")).toBeInTheDocument();
+    expect(screen.getByTestId("footer")).toBeTruthy();
+    expect(screen.getByTestId("brand-colors-provider")).toBeTruthy();
+    expect(screen.getAllByTestId("sitemap-section")).toHaveLength(3);
+    expect(screen.getByText(footerMainNavigation.label)).toBeTruthy();
+    expect(screen.queryByText(footerSecondaryNavigation.label)).toBeFalsy();
+    expect(screen.getByText(menuNavigation.label)).toBeTruthy();
+    expect(screen.getByText(menuUtilities.label)).toBeTruthy();
   });
 
   it("renders correctly when menuNavigation is falsy", () => {
@@ -183,23 +178,21 @@ describe("Sitemap", () => {
         menuUtilities
       }
     };
-    const { container, getByTestId, queryByText } = renderWithRouter(
+    const { container } = renderWithRouter(
       <ThemeProvider>
         <Sitemap data={data} pageContext={{ variantCodeToPathMap: {} }} />
       </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
-    expect(container.querySelectorAll("header").length).toBe(0);
-    expect(getByTestId("footer")).toBeTruthy();
-    expect(getByTestId("brand-colors-provider")).toBeTruthy();
-    expect(container.querySelectorAll("[class*='Section-root']").length).toBe(
-      3
-    );
-    expect(queryByText(footerMainNavigation.label)).toBeTruthy();
-    expect(queryByText(footerSecondaryNavigation.label)).toBeTruthy();
-    expect(queryByText(menuNavigation.label)).toBeFalsy();
-    expect(queryByText(menuUtilities.label)).toBeTruthy();
+    expect(screen.queryByRole("banner")).not.toBeInTheDocument();
+    expect(screen.getByTestId("footer")).toBeTruthy();
+    expect(screen.getByTestId("brand-colors-provider")).toBeTruthy();
+    expect(screen.getAllByTestId("sitemap-section")).toHaveLength(3);
+    expect(screen.getByText(footerMainNavigation.label)).toBeTruthy();
+    expect(screen.getByText(footerSecondaryNavigation.label)).toBeTruthy();
+    expect(screen.queryByText(menuNavigation.label)).toBeFalsy();
+    expect(screen.getByText(menuUtilities.label)).toBeTruthy();
   });
 
   it("renders correctly when menuUtilities is falsy", () => {
@@ -212,23 +205,21 @@ describe("Sitemap", () => {
         menuUtilities: null
       }
     };
-    const { container, getByTestId, queryByText } = renderWithRouter(
+    const { container } = renderWithRouter(
       <ThemeProvider>
         <Sitemap data={data} pageContext={{ variantCodeToPathMap: {} }} />
       </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
-    expect(container.querySelectorAll("header").length).toBe(0);
-    expect(getByTestId("footer")).toBeTruthy();
-    expect(getByTestId("brand-colors-provider")).toBeTruthy();
-    expect(container.querySelectorAll("[class*='Section-root']").length).toBe(
-      3
-    );
-    expect(queryByText(footerMainNavigation.label)).toBeTruthy();
-    expect(queryByText(footerSecondaryNavigation.label)).toBeTruthy();
-    expect(queryByText(menuNavigation.label)).toBeTruthy();
-    expect(queryByText(menuUtilities.label)).toBeFalsy();
+    expect(screen.queryByRole("banner")).not.toBeInTheDocument();
+    expect(screen.getByTestId("footer")).toBeTruthy();
+    expect(screen.getByTestId("brand-colors-provider")).toBeTruthy();
+    expect(screen.getAllByTestId("sitemap-section")).toHaveLength(3);
+    expect(screen.getByText(footerMainNavigation.label)).toBeTruthy();
+    expect(screen.getByText(footerSecondaryNavigation.label)).toBeTruthy();
+    expect(screen.getByText(menuNavigation.label)).toBeTruthy();
+    expect(screen.queryByText(menuUtilities.label)).toBeFalsy();
   });
 
   it("cover test for pageContext optional chaining", () => {
@@ -241,22 +232,20 @@ describe("Sitemap", () => {
         menuUtilities
       }
     };
-    const { container, getByTestId, queryByText } = renderWithRouter(
+    const { container } = renderWithRouter(
       <ThemeProvider>
         <Sitemap data={data} pageContext={null} />
       </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
-    expect(container.querySelectorAll("header").length).toBe(1);
-    expect(getByTestId("footer")).toBeTruthy();
-    expect(getByTestId("brand-colors-provider")).toBeTruthy();
-    expect(container.querySelectorAll("[class*='Section-root']").length).toBe(
-      4
-    );
-    expect(queryByText(footerMainNavigation.label)).toBeTruthy();
-    expect(queryByText(footerSecondaryNavigation.label)).toBeTruthy();
-    expect(queryByText(menuNavigation.label)).toBeTruthy();
-    expect(queryByText(menuUtilities.label)).toBeTruthy();
+    expect(screen.getByRole("banner")).toBeInTheDocument();
+    expect(screen.getByTestId("footer")).toBeTruthy();
+    expect(screen.getByTestId("brand-colors-provider")).toBeTruthy();
+    expect(screen.getAllByTestId("sitemap-section")).toHaveLength(4);
+    expect(screen.getByText(footerMainNavigation.label)).toBeTruthy();
+    expect(screen.getByText(footerSecondaryNavigation.label)).toBeTruthy();
+    expect(screen.getByText(menuNavigation.label)).toBeTruthy();
+    expect(screen.getByText(menuUtilities.label)).toBeTruthy();
   });
 });

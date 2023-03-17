@@ -38,9 +38,7 @@ exports[`RichText component closes dialog 1`] = `
     <p
       class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
       data-testid="typography"
-    >
-      
-    </p>
+    />
     <p
       class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
       data-testid="typography"
@@ -58,7 +56,7 @@ exports[`RichText component closes dialog 1`] = `
         
       <a
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"External\\",\\"action\\":\\"https://google.co.uk\\"}"
+        data-gtm="{"id":"cta-click1","label":"External","action":"https://google.co.uk"}"
         data-testid="anchor-link"
         href="https://google.co.uk"
         rel="noopener noreferrer"
@@ -71,7 +69,7 @@ exports[`RichText component closes dialog 1`] = `
        
       <a
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Entry\\",\\"action\\":\\"/testing-simple-page/\\"}"
+        data-gtm="{"id":"cta-click1","label":"Entry","action":"/testing-simple-page/"}"
         data-testid="anchor-link"
         href="/testing-simple-page/"
       >
@@ -82,7 +80,7 @@ exports[`RichText component closes dialog 1`] = `
        
       <a
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Asset\\",\\"action\\":\\"https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png\\"}"
+        data-gtm="{"id":"cta-click1","label":"Asset","action":"https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png"}"
         data-testid="anchor-link"
         href="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png"
         rel="noopener noreferrer"
@@ -95,7 +93,7 @@ exports[`RichText component closes dialog 1`] = `
        
       <button
         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Aerodek Robust Plus\\",\\"action\\":\\"product-category-page/product-sub-category-page/aerodek-robust-plus/\\"}"
+        data-gtm="{"id":"cta-click1","label":"Aerodek Robust Plus","action":"product-category-page/product-sub-category-page/aerodek-robust-plus/"}"
         tabindex="0"
         type="button"
       >
@@ -104,7 +102,6 @@ exports[`RichText component closes dialog 1`] = `
           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
       </button>
-      
     </p>
     <ul>
       <li>
@@ -137,7 +134,7 @@ exports[`RichText component closes dialog 1`] = `
     <hr />
     <button
       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Support\\",\\"action\\":\\"landing-page/\\"}"
+      data-gtm="{"id":"cta-click1","label":"Support","action":"landing-page/"}"
       tabindex="0"
       type="button"
     >
@@ -170,24 +167,21 @@ exports[`RichText component closes dialog 1`] = `
     <p
       class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
       data-testid="typography"
-    >
-      
-    </p>
+    />
     <p
       class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
       data-testid="typography"
     >
       <button
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button Anchorlink css-4gnc4v-MuiTypography-root-MuiLink-root"
-        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Open dialog\\",\\"action\\":\\"Dialog\\"}"
-        data-testid="anchor-link"
+        data-gtm="{"id":"cta-click1","label":"Open dialog","action":"Dialog"}"
+        data-testid="rich-text-entry-hyperlink"
         type="button"
       >
         <span>
           Open dialog
         </span>
       </button>
-      
     </p>
   </div>
 </div>
@@ -244,9 +238,7 @@ exports[`RichText component renders correctly 1`] = `
     <p
       class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
       data-testid="typography"
-    >
-      
-    </p>
+    />
     <p
       class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
       data-testid="typography"
@@ -264,7 +256,7 @@ exports[`RichText component renders correctly 1`] = `
         
       <a
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"External\\",\\"action\\":\\"https://google.co.uk\\"}"
+        data-gtm="{"id":"cta-click1","label":"External","action":"https://google.co.uk"}"
         data-testid="anchor-link"
         href="https://google.co.uk"
         rel="noopener noreferrer"
@@ -277,7 +269,7 @@ exports[`RichText component renders correctly 1`] = `
        
       <a
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Entry\\",\\"action\\":\\"/testing-simple-page/\\"}"
+        data-gtm="{"id":"cta-click1","label":"Entry","action":"/testing-simple-page/"}"
         data-testid="anchor-link"
         href="/testing-simple-page/"
       >
@@ -288,7 +280,7 @@ exports[`RichText component renders correctly 1`] = `
        
       <a
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Asset\\",\\"action\\":\\"https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png\\"}"
+        data-gtm="{"id":"cta-click1","label":"Asset","action":"https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png"}"
         data-testid="anchor-link"
         href="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png"
         rel="noopener noreferrer"
@@ -301,7 +293,7 @@ exports[`RichText component renders correctly 1`] = `
        
       <button
         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Aerodek Robust Plus\\",\\"action\\":\\"product-category-page/product-sub-category-page/aerodek-robust-plus/\\"}"
+        data-gtm="{"id":"cta-click1","label":"Aerodek Robust Plus","action":"product-category-page/product-sub-category-page/aerodek-robust-plus/"}"
         tabindex="0"
         type="button"
       >
@@ -310,7 +302,6 @@ exports[`RichText component renders correctly 1`] = `
           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
       </button>
-      
     </p>
     <ul>
       <li>
@@ -343,7 +334,7 @@ exports[`RichText component renders correctly 1`] = `
     <hr />
     <button
       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Support\\",\\"action\\":\\"landing-page/\\"}"
+      data-gtm="{"id":"cta-click1","label":"Support","action":"landing-page/"}"
       tabindex="0"
       type="button"
     >
@@ -376,24 +367,21 @@ exports[`RichText component renders correctly 1`] = `
     <p
       class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
       data-testid="typography"
-    >
-      
-    </p>
+    />
     <p
       class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
       data-testid="typography"
     >
       <button
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button Anchorlink css-4gnc4v-MuiTypography-root-MuiLink-root"
-        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Open dialog\\",\\"action\\":\\"Dialog\\"}"
-        data-testid="anchor-link"
+        data-gtm="{"id":"cta-click1","label":"Open dialog","action":"Dialog"}"
+        data-testid="rich-text-entry-hyperlink"
         type="button"
       >
         <span>
           Open dialog
         </span>
       </button>
-      
     </p>
   </div>
 </div>
@@ -439,9 +427,7 @@ exports[`RichText component renders when dialog clicked 1`] = `
     <p
       class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
       data-testid="typography"
-    >
-      
-    </p>
+    />
     <p
       class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
       data-testid="typography"
@@ -459,7 +445,7 @@ exports[`RichText component renders when dialog clicked 1`] = `
         
       <a
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"External\\",\\"action\\":\\"https://google.co.uk\\"}"
+        data-gtm="{"id":"cta-click1","label":"External","action":"https://google.co.uk"}"
         data-testid="anchor-link"
         href="https://google.co.uk"
         rel="noopener noreferrer"
@@ -472,7 +458,7 @@ exports[`RichText component renders when dialog clicked 1`] = `
        
       <a
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Entry\\",\\"action\\":\\"/testing-simple-page/\\"}"
+        data-gtm="{"id":"cta-click1","label":"Entry","action":"/testing-simple-page/"}"
         data-testid="anchor-link"
         href="/testing-simple-page/"
       >
@@ -483,7 +469,7 @@ exports[`RichText component renders when dialog clicked 1`] = `
        
       <a
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Asset\\",\\"action\\":\\"https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png\\"}"
+        data-gtm="{"id":"cta-click1","label":"Asset","action":"https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png"}"
         data-testid="anchor-link"
         href="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png"
         rel="noopener noreferrer"
@@ -496,7 +482,7 @@ exports[`RichText component renders when dialog clicked 1`] = `
        
       <button
         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Aerodek Robust Plus\\",\\"action\\":\\"product-category-page/product-sub-category-page/aerodek-robust-plus/\\"}"
+        data-gtm="{"id":"cta-click1","label":"Aerodek Robust Plus","action":"product-category-page/product-sub-category-page/aerodek-robust-plus/"}"
         tabindex="0"
         type="button"
       >
@@ -505,7 +491,6 @@ exports[`RichText component renders when dialog clicked 1`] = `
           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
       </button>
-      
     </p>
     <ul>
       <li>
@@ -538,7 +523,7 @@ exports[`RichText component renders when dialog clicked 1`] = `
     <hr />
     <button
       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Support\\",\\"action\\":\\"landing-page/\\"}"
+      data-gtm="{"id":"cta-click1","label":"Support","action":"landing-page/"}"
       tabindex="0"
       type="button"
     >
@@ -571,24 +556,21 @@ exports[`RichText component renders when dialog clicked 1`] = `
     <p
       class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
       data-testid="typography"
-    >
-      
-    </p>
+    />
     <p
       class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
       data-testid="typography"
     >
       <button
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button Anchorlink css-4gnc4v-MuiTypography-root-MuiLink-root"
-        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Open dialog\\",\\"action\\":\\"Dialog\\"}"
-        data-testid="anchor-link"
+        data-gtm="{"id":"cta-click1","label":"Open dialog","action":"Dialog"}"
+        data-testid="rich-text-entry-hyperlink"
         type="button"
       >
         <span>
           Open dialog
         </span>
       </button>
-      
     </p>
   </div>
 </div>

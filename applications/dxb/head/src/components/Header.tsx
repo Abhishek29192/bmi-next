@@ -39,7 +39,7 @@ const getPromoSection = (promo, countryCode, getMicroCopy) => {
   return [
     {
       label: promo.title || promo.name,
-      image: <Image data={promo.featuredMedia} />
+      image: <Image {...promo.featuredMedia} />
     },
     { label: promo.title || promo.name, isHeading: true },
     ...(promo.subtitle ? [{ label: promo.subtitle, isParagraph: true }] : []),

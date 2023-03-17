@@ -278,10 +278,10 @@ exports[`SampleBasketSection component should render form after complete button 
         </h2>
         <form
           class="Form-rightAlignButton css-yp4v13"
-          data-testid="form"
+          data-testid="sample-basket-section-checkout-form"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -334,7 +334,8 @@ exports[`SampleBasketSection component should render form after complete button 
               aria-label="samples ordering basket form submitted"
               class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Form-button css-11nrv4h-MuiButtonBase-root-MuiButton-root"
               data-action="sample-1-green-rough-1x2x3 mm"
-              data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"samples ordering basket form submitted\\",\\"action\\":\\"sample-1-green-rough-1x2x3 mm\\"}"
+              data-gtm="{"id":"form-button1","label":"samples ordering basket form submitted","action":"sample-1-green-rough-1x2x3 mm"}"
+              data-testid="contentful-form-section-Complete-form-submit-button"
               tabindex="0"
               type="submit"
             >
@@ -367,7 +368,7 @@ exports[`SampleBasketSection component should render form after complete button 
           Dette nettstedet er beskyttet av reCAPTCHA og Googles 
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-            data-testid="anchor-link"
+            data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy?hl=no-nb"
             rel="noreferrer noopener"
             target="_blank"
@@ -379,7 +380,7 @@ exports[`SampleBasketSection component should render form after complete button 
            og 
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-            data-testid="anchor-link"
+            data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms?hl=no-nb"
             rel="noreferrer noopener"
             target="_blank"

@@ -250,19 +250,19 @@ describe("transformDocuments", () => {
     const transformedDocuments = await transformDocuments(product, locale);
 
     expect(transformedDocuments).toMatchInlineSnapshot(`
-      Array [
-        Object {
-          "APPEARANCEATTRIBUTES.COLOUR": Object {
+      [
+        {
+          "APPEARANCEATTRIBUTES.COLOUR": {
             "code": "red",
             "name": "red",
           },
-          "BRAND": Object {
+          "BRAND": {
             "code": "BMI",
             "name": "BMI",
           },
           "__typename": "PIMDocument",
           "approvalStatus": "approved",
-          "assetType": Object {
+          "assetType": {
             "code": "contentful asset type code",
             "name": "contentful asset type name",
             "pimCode": "ASSEMBLY_INSTRUCTIONS",
@@ -310,19 +310,19 @@ describe("transformDocuments", () => {
     const transformedDocuments = await transformDocuments(product, locale);
 
     expect(transformedDocuments).toMatchInlineSnapshot(`
-      Array [
-        Object {
-          "APPEARANCEATTRIBUTES.COLOUR": Object {
+      [
+        {
+          "APPEARANCEATTRIBUTES.COLOUR": {
             "code": "red",
             "name": "red",
           },
-          "BRAND": Object {
+          "BRAND": {
             "code": "BMI",
             "name": "BMI",
           },
           "__typename": "PIMDocument",
           "approvalStatus": "approved",
-          "assetType": Object {
+          "assetType": {
             "code": "contentful asset type code",
             "name": "contentful asset type name",
             "pimCode": "ASSEMBLY_INSTRUCTIONS",
@@ -370,19 +370,19 @@ describe("transformDocuments", () => {
     const transformedDocuments = await transformDocuments(product, locale);
 
     expect(transformedDocuments).toMatchInlineSnapshot(`
-      Array [
-        Object {
-          "APPEARANCEATTRIBUTES.COLOUR": Object {
+      [
+        {
+          "APPEARANCEATTRIBUTES.COLOUR": {
             "code": "red",
             "name": "red",
           },
-          "BRAND": Object {
+          "BRAND": {
             "code": "BMI",
             "name": "BMI",
           },
           "__typename": "PIMDocument",
           "approvalStatus": "approved",
-          "assetType": Object {
+          "assetType": {
             "code": "contentful asset type code",
             "name": "contentful asset type name",
             "pimCode": "ASSEMBLY_INSTRUCTIONS",
@@ -452,19 +452,19 @@ describe("transformDocuments", () => {
     const transformedDocuments = await transformDocuments(product, locale);
 
     expect(transformedDocuments).toMatchInlineSnapshot(`
-      Array [
-        Object {
-          "APPEARANCEATTRIBUTES.COLOUR": Object {
+      [
+        {
+          "APPEARANCEATTRIBUTES.COLOUR": {
             "code": "red",
             "name": "red",
           },
-          "BRAND": Object {
+          "BRAND": {
             "code": "BMI",
             "name": "BMI",
           },
           "__typename": "PIMDocument",
           "approvalStatus": "approved",
-          "assetType": Object {
+          "assetType": {
             "code": "contentful asset type code",
             "name": "contentful asset type name",
             "pimCode": "ASSEMBLY_INSTRUCTIONS",
@@ -518,15 +518,15 @@ describe("transformDocuments", () => {
     const transformedDocuments = await transformDocuments(system, locale);
 
     expect(transformedDocuments).toMatchInlineSnapshot(`
-      Array [
-        Object {
-          "BRAND": Object {
+      [
+        {
+          "BRAND": {
             "code": "BMI",
             "name": "BMI",
           },
           "__typename": "PIMSystemDocument",
           "approvalStatus": "approved",
-          "assetType": Object {
+          "assetType": {
             "code": "contentful asset type code",
             "name": "contentful asset type name",
             "pimCode": "ASSEMBLY_INSTRUCTIONS",
@@ -567,15 +567,15 @@ describe("transformDocuments", () => {
     const transformedDocuments = await transformDocuments(product, locale);
 
     expect(transformedDocuments).toMatchInlineSnapshot(`
-      Array [
-        Object {
-          "APPEARANCEATTRIBUTES.COLOUR": Object {
+      [
+        {
+          "APPEARANCEATTRIBUTES.COLOUR": {
             "code": "red",
             "name": "red",
           },
           "__typename": "PIMDocument",
           "approvalStatus": "approved",
-          "assetType": Object {
+          "assetType": {
             "code": "contentful asset type code",
             "name": "contentful asset type name",
             "pimCode": "ASSEMBLY_INSTRUCTIONS",
@@ -618,11 +618,11 @@ describe("transformDocuments", () => {
     const transformedDocuments = await transformDocuments(system, locale);
 
     expect(transformedDocuments).toMatchInlineSnapshot(`
-      Array [
-        Object {
+      [
+        {
           "__typename": "PIMSystemDocument",
           "approvalStatus": "approved",
-          "assetType": Object {
+          "assetType": {
             "code": "contentful asset type code",
             "name": "contentful asset type name",
             "pimCode": "ASSEMBLY_INSTRUCTIONS",
@@ -664,15 +664,15 @@ describe("transformDocuments", () => {
     const transformedDocuments = await transformDocuments(product, locale);
 
     expect(transformedDocuments).toMatchInlineSnapshot(`
-      Array [
-        Object {
-          "BRAND": Object {
+      [
+        {
+          "BRAND": {
             "code": "BMI",
             "name": "BMI",
           },
           "__typename": "PIMDocument",
           "approvalStatus": "approved",
-          "assetType": Object {
+          "assetType": {
             "code": "contentful asset type code",
             "name": "contentful asset type name",
             "pimCode": "ASSEMBLY_INSTRUCTIONS",
@@ -714,15 +714,15 @@ describe("transformDocuments", () => {
     const transformedDocuments = await transformDocuments(system, locale);
 
     expect(transformedDocuments).toMatchInlineSnapshot(`
-      Array [
-        Object {
-          "BRAND": Object {
+      [
+        {
+          "BRAND": {
             "code": "BMI",
             "name": "BMI",
           },
           "__typename": "PIMSystemDocument",
           "approvalStatus": "approved",
-          "assetType": Object {
+          "assetType": {
             "code": "contentful asset type code",
             "name": "contentful asset type name",
             "pimCode": "ASSEMBLY_INSTRUCTIONS",
@@ -860,15 +860,15 @@ describe("transformDocuments", () => {
     const transformedDocuments = await transformDocuments(product, locale, tag);
 
     expect(transformedDocuments).toMatchInlineSnapshot(`
-      Array [
-        Object {
-          "BRAND": Object {
+      [
+        {
+          "BRAND": {
             "code": "BMI",
             "name": "BMI",
           },
           "__typename": "PIMDocument",
           "approvalStatus": "approved",
-          "assetType": Object {
+          "assetType": {
             "code": "contentful asset type code",
             "name": "contentful asset type name",
             "pimCode": "ASSEMBLY_INSTRUCTIONS",
@@ -916,19 +916,19 @@ describe("transformDocuments", () => {
     const transformedDocuments = await transformDocuments(product, locale);
 
     expect(transformedDocuments).toMatchInlineSnapshot(`
-      Array [
-        Object {
-          "APPEARANCEATTRIBUTES.COLOUR": Object {
+      [
+        {
+          "APPEARANCEATTRIBUTES.COLOUR": {
             "code": "red",
             "name": "red",
           },
-          "BRAND": Object {
+          "BRAND": {
             "code": "BMI",
             "name": "BMI",
           },
           "__typename": "PIMDocument",
           "approvalStatus": "approved",
-          "assetType": Object {
+          "assetType": {
             "code": "contentful asset type code",
             "name": "contentful asset type name",
             "pimCode": "ASSEMBLY_INSTRUCTIONS",
@@ -1146,15 +1146,15 @@ describe("transformDocuments", () => {
     const transformedDocuments = await transformDocuments(system, locale);
 
     expect(transformedDocuments).toMatchInlineSnapshot(`
-      Array [
-        Object {
-          "BRAND": Object {
+      [
+        {
+          "BRAND": {
             "code": "BMI",
             "name": "BMI",
           },
           "__typename": "PIMSystemDocument",
           "approvalStatus": "approved",
-          "assetType": Object {
+          "assetType": {
             "code": "contentful asset type code",
             "name": "contentful asset type name",
             "pimCode": "ASSEMBLY_INSTRUCTIONS",
@@ -1195,15 +1195,15 @@ describe("transformDocuments", () => {
     const transformedDocuments = await transformDocuments(product, locale);
 
     expect(transformedDocuments).toMatchInlineSnapshot(`
-      Array [
-        Object {
-          "APPEARANCEATTRIBUTES.COLOUR": Object {
+      [
+        {
+          "APPEARANCEATTRIBUTES.COLOUR": {
             "code": "red",
             "name": "red",
           },
           "__typename": "PIMDocument",
           "approvalStatus": "approved",
-          "assetType": Object {
+          "assetType": {
             "code": "contentful asset type code",
             "name": "contentful asset type name",
             "pimCode": "ASSEMBLY_INSTRUCTIONS",
@@ -1246,11 +1246,11 @@ describe("transformDocuments", () => {
     const transformedDocuments = await transformDocuments(system, locale);
 
     expect(transformedDocuments).toMatchInlineSnapshot(`
-      Array [
-        Object {
+      [
+        {
           "__typename": "PIMSystemDocument",
           "approvalStatus": "approved",
-          "assetType": Object {
+          "assetType": {
             "code": "contentful asset type code",
             "name": "contentful asset type name",
             "pimCode": "ASSEMBLY_INSTRUCTIONS",
@@ -1292,15 +1292,15 @@ describe("transformDocuments", () => {
     const transformedDocuments = await transformDocuments(product, locale);
 
     expect(transformedDocuments).toMatchInlineSnapshot(`
-      Array [
-        Object {
-          "BRAND": Object {
+      [
+        {
+          "BRAND": {
             "code": "BMI",
             "name": "BMI",
           },
           "__typename": "PIMDocument",
           "approvalStatus": "approved",
-          "assetType": Object {
+          "assetType": {
             "code": "contentful asset type code",
             "name": "contentful asset type name",
             "pimCode": "ASSEMBLY_INSTRUCTIONS",
@@ -1342,15 +1342,15 @@ describe("transformDocuments", () => {
     const transformedDocuments = await transformDocuments(system, locale);
 
     expect(transformedDocuments).toMatchInlineSnapshot(`
-      Array [
-        Object {
-          "BRAND": Object {
+      [
+        {
+          "BRAND": {
             "code": "BMI",
             "name": "BMI",
           },
           "__typename": "PIMSystemDocument",
           "approvalStatus": "approved",
-          "assetType": Object {
+          "assetType": {
             "code": "contentful asset type code",
             "name": "contentful asset type name",
             "pimCode": "ASSEMBLY_INSTRUCTIONS",
@@ -1485,15 +1485,15 @@ describe("transformDocuments", () => {
     const transformedDocuments = await transformDocuments(product, locale, tag);
 
     expect(transformedDocuments).toMatchInlineSnapshot(`
-      Array [
-        Object {
-          "BRAND": Object {
+      [
+        {
+          "BRAND": {
             "code": "BMI",
             "name": "BMI",
           },
           "__typename": "PIMDocument",
           "approvalStatus": "approved",
-          "assetType": Object {
+          "assetType": {
             "code": "contentful asset type code",
             "name": "contentful asset type name",
             "pimCode": "ASSEMBLY_INSTRUCTIONS",

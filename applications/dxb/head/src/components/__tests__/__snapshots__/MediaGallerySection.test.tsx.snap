@@ -13,7 +13,7 @@ exports[`MediaGallerySection component renders correctly 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -67,11 +67,14 @@ exports[`MediaGallerySection component renders correctly 1`] = `
                       type="image/webp"
                     />
                     <img
+                      __typename="ContentfulImage"
                       alt="alt text"
+                      caption="[object Object]"
                       data-gatsby-image-ssr=""
                       data-main-image=""
                       data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
                       data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+                      data-testid="media-gallery-media"
                       decoding="async"
                       draggable="false"
                       loading="lazy"
@@ -158,7 +161,7 @@ exports[`MediaGallerySection component renders correctly 1`] = `
                 >
                   <button
                     class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-selected Thumbnail-large Thumbnail-selected css-yh72z7-MuiButtonBase-root"
-                    data-gtm="{\\"id\\":\\"media-gallery1\\",\\"label\\":\\"alt text\\",\\"action\\":\\"//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png\\"}"
+                    data-gtm="{"id":"media-gallery1","label":"alt text","action":"//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"}"
                     data-testid="default-thumbnail"
                     tabindex="0"
                     type="button"
@@ -191,7 +194,9 @@ exports[`MediaGallerySection component renders correctly 1`] = `
                           type="image/webp"
                         />
                         <img
+                          __typename="ContentfulImage"
                           alt="alt text"
+                          caption="[object Object]"
                           data-gatsby-image-ssr=""
                           data-main-image=""
                           data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
@@ -213,7 +218,7 @@ exports[`MediaGallerySection component renders correctly 1`] = `
                   </button>
                   <button
                     class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-large css-yh72z7-MuiButtonBase-root"
-                    data-gtm="{\\"id\\":\\"media-gallery1\\",\\"label\\":\\"label\\",\\"action\\":\\"//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png\\"}"
+                    data-gtm="{"id":"media-gallery1","label":"label","action":"//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"}"
                     data-testid="default-thumbnail"
                     style="background-image: url(//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png);"
                     tabindex="0"
@@ -263,7 +268,7 @@ exports[`MediaGallerySection component renders correctly with long description 1
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -337,11 +342,14 @@ exports[`MediaGallerySection component renders correctly with long description 1
                       type="image/webp"
                     />
                     <img
+                      __typename="ContentfulImage"
                       alt="alt text"
+                      caption="[object Object]"
                       data-gatsby-image-ssr=""
                       data-main-image=""
                       data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
                       data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+                      data-testid="media-gallery-media"
                       decoding="async"
                       draggable="false"
                       loading="lazy"

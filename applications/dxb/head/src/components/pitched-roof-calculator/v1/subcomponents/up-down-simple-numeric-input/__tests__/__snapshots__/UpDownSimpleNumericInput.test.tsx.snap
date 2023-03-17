@@ -28,6 +28,7 @@ exports[`UpDownSimpleNumericInput component renders correctly 1`] = `
     </button>
     <div
       class="MuiFormControl-root MuiTextField-root input in-middle css-1xgljuk-MuiFormControl-root-MuiTextField-root"
+      data-testid="up-down-simple-numeric-input-text-field"
     >
       <div
         class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
@@ -35,7 +36,8 @@ exports[`UpDownSimpleNumericInput component renders correctly 1`] = `
         <input
           aria-invalid="false"
           class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
-          id="mui-1"
+          data-testid="up-down-simple-numeric-input-text-field-input"
+          id=":r0:"
           type="text"
           value="0"
         />
@@ -70,9 +72,11 @@ exports[`UpDownSimpleNumericInput component renders variant with buttons on the 
 <div>
   <div
     class="upDownSimpleNumericInputStyles-root locked-xs css-1gfu5c9"
+    data-testid="up-down-simple-numeric-input-buttons-wrapper"
   >
     <div
       class="MuiFormControl-root MuiTextField-root input css-1xgljuk-MuiFormControl-root-MuiTextField-root"
+      data-testid="up-down-simple-numeric-input-text-field"
     >
       <div
         class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
@@ -80,7 +84,8 @@ exports[`UpDownSimpleNumericInput component renders variant with buttons on the 
         <input
           aria-invalid="false"
           class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
-          id="mui-2"
+          data-testid="up-down-simple-numeric-input-text-field-input"
+          id=":r1:"
           type="text"
           value="0"
         />
@@ -160,6 +165,7 @@ exports[`UpDownSimpleNumericInput component renders variant with step set to a p
     </button>
     <div
       class="MuiFormControl-root MuiTextField-root input in-middle css-1xgljuk-MuiFormControl-root-MuiTextField-root"
+      data-testid="up-down-simple-numeric-input-text-field"
     >
       <div
         class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
@@ -167,7 +173,8 @@ exports[`UpDownSimpleNumericInput component renders variant with step set to a p
         <input
           aria-invalid="false"
           class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
-          id="mui-3"
+          data-testid="up-down-simple-numeric-input-text-field-input"
+          id=":r2:"
           type="text"
           value="0"
         />

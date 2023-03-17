@@ -1,8 +1,8 @@
 import logger from "@bmi-digital/functions-logger";
 import { AssetType, Resources } from "@bmi/contentful-types";
 import { getContentfulClient } from "@bmi/functions-contentful-client";
-import type { Entry } from "contentful";
 import { ContentfulAssetType, ProductDocumentNameMap } from "./types";
+import type { Entry } from "contentful";
 
 const MAX_NUMBER_OF_DOCUMENTS_PER_RESPONSE = 1000;
 

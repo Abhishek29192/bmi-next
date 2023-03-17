@@ -1,10 +1,10 @@
+import MurmurHash3 from "imurmurhash";
 import type Migration from "contentful-migration";
 import type {
   ContentFields,
   MigrationContext,
   MigrationFunction
 } from "contentful-migration";
-import MurmurHash3 from "imurmurhash";
 
 export const description =
   "Migrate data from System Configurator Block type result to System Configurator Result content type";

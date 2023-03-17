@@ -1,5 +1,5 @@
 import { ThemeProvider, YoutubeVideo } from "@bmi-digital/components";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import React from "react";
 import ProductOverview from "../ProductOverview";
 
@@ -94,7 +94,7 @@ describe("ProductOverview component", () => {
   });
 
   it("renders with visualiser media", async () => {
-    const { container } = render(
+    render(
       <ThemeProvider>
         <ProductOverview
           data={{
@@ -109,6 +109,6 @@ describe("ProductOverview component", () => {
       </ThemeProvider>
     );
 
-    expect(container.querySelector("svg[name='Cube']")).toBeInTheDocument();
+    expect(screen.getByTestId("thumbnail-cube-icon")).toBeInTheDocument();
   });
 });

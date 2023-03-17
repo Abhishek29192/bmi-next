@@ -1,284 +1,284 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PitchedRoofCalculator roofs calculations calculates all roofs correctly 1`] = `
-Array [
-  Object {
-    "faces": Array [
-      Object {
+[
+  {
+    "faces": [
+      {
         "pitch": 15,
-        "sides": Array [
+        "sides": [
           "VERGE",
           "VERGE",
         ],
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 0,
             "y": 0,
           },
-          Object {
+          {
             "x": 0,
             "y": 465.8742811845374,
           },
-          Object {
+          {
             "x": 1500,
             "y": 465.8742811845374,
           },
-          Object {
+          {
             "x": 1500,
             "y": 0,
           },
         ],
       },
-      Object {
+      {
         "pitch": 15,
-        "sides": Array [
+        "sides": [
           "VERGE",
           "VERGE",
         ],
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 0,
             "y": 0,
           },
-          Object {
+          {
             "x": 0,
             "y": 465.8742811845374,
           },
-          Object {
+          {
             "x": 1500,
             "y": 465.8742811845374,
           },
-          Object {
+          {
             "x": 1500,
             "y": 0,
           },
         ],
       },
     ],
-    "lines": Object {
-      "eave": Array [
-        Object {
+    "lines": {
+      "eave": [
+        {
           "length": 900,
         },
-        Object {
+        {
           "length": 900,
         },
-        Object {
+        {
           "length": 1500,
         },
-        Object {
-          "length": 1500,
-        },
-      ],
-      "hip": Array [],
-      "leftVerge": Array [
-        Object {
-          "length": 465.8742811845374,
-        },
-        Object {
-          "length": 465.8742811845374,
-        },
-      ],
-      "ridge": Array [
-        Object {
+        {
           "length": 1500,
         },
       ],
-      "rightVerge": Array [
-        Object {
+      "hip": [],
+      "leftVerge": [
+        {
           "length": 465.8742811845374,
         },
-        Object {
+        {
           "length": 465.8742811845374,
         },
       ],
-      "valley": Array [],
+      "ridge": [
+        {
+          "length": 1500,
+        },
+      ],
+      "rightVerge": [
+        {
+          "length": 465.8742811845374,
+        },
+        {
+          "length": 465.8742811845374,
+        },
+      ],
+      "valley": [],
     },
   },
-  Object {
-    "faces": Array [
-      Object {
+  {
+    "faces": [
+      {
         "pitch": 16,
-        "sides": Array [
+        "sides": [
           "VERGE",
           "VERGE",
         ],
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 0,
             "y": 0,
           },
-          Object {
+          {
             "x": 0,
             "y": 468.1347461377209,
           },
-          Object {
+          {
             "x": 1800,
             "y": 468.1347461377209,
           },
-          Object {
+          {
             "x": 1800,
             "y": 0,
           },
         ],
       },
-      Object {
+      {
         "pitch": 16,
-        "sides": Array [
+        "sides": [
           "VERGE",
           "VERGE",
         ],
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 0,
             "y": 0,
           },
-          Object {
+          {
             "x": 0,
             "y": 468.1347461377209,
           },
-          Object {
+          {
             "x": 1800,
             "y": 468.1347461377209,
           },
-          Object {
+          {
             "x": 1800,
             "y": 0,
           },
         ],
       },
-      Object {
+      {
         "pitch": 17,
-        "sides": Array [
+        "sides": [
           "VALLEY",
           "VERGE",
         ],
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 319.86287833327685,
             "y": 0,
           },
-          Object {
+          {
             "x": 0,
             "y": 313.7075269461444,
           },
-          Object {
+          {
             "x": 1819.862878333277,
             "y": 313.7075269461444,
           },
-          Object {
+          {
             "x": 1819.862878333277,
             "y": 0,
           },
         ],
       },
-      Object {
+      {
         "pitch": 17,
-        "sides": Array [
+        "sides": [
           "VERGE",
           "VALLEY",
         ],
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 0,
             "y": 0,
           },
-          Object {
+          {
             "x": 0,
             "y": 313.7075269461444,
           },
-          Object {
+          {
             "x": 1819.862878333277,
             "y": 313.7075269461444,
           },
-          Object {
+          {
             "x": 1500,
             "y": 0,
           },
         ],
       },
-      Object {
+      {
         "pitch": 16,
-        "sides": Array [
+        "sides": [
           "VALLEY",
           "VALLEY",
         ],
         "subtract": true,
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 0,
             "y": 0,
           },
-          Object {
+          {
             "x": 300,
             "y": 91.71920443759812,
           },
-          Object {
+          {
             "x": 600,
             "y": 0,
           },
         ],
       },
     ],
-    "lines": Object {
-      "eave": Array [
-        Object {
+    "lines": {
+      "eave": [
+        {
           "length": 900,
         },
-        Object {
+        {
           "length": 900,
         },
-        Object {
+        {
           "length": 1800,
         },
-        Object {
+        {
           "length": 1800,
         },
-        Object {
+        {
           "length": 1500,
         },
-        Object {
+        {
           "length": 1500,
         },
       ],
-      "hip": Array [],
-      "leftVerge": Array [
-        Object {
+      "hip": [],
+      "leftVerge": [
+        {
           "length": 468.1347461377209,
         },
-        Object {
+        {
           "length": 468.1347461377209,
         },
-        Object {
+        {
           "length": 313.7075269461444,
         },
       ],
-      "ridge": Array [
-        Object {
+      "ridge": [
+        {
           "length": 1800,
         },
-        Object {
+        {
           "length": 1819.862878333277,
         },
       ],
-      "rightVerge": Array [
-        Object {
+      "rightVerge": [
+        {
           "length": 468.1347461377209,
         },
-        Object {
+        {
           "length": 468.1347461377209,
         },
-        Object {
+        {
           "length": 313.7075269461444,
         },
       ],
-      "valley": Array [
-        Object {
+      "valley": [
+        {
           "length": 448.02307239506604,
           "start": true,
           "top": true,
         },
-        Object {
+        {
           "length": 448.02307239506604,
           "start": true,
           "top": true,
@@ -286,190 +286,190 @@ Array [
       ],
     },
   },
-  Object {
-    "faces": Array [
-      Object {
+  {
+    "faces": [
+      {
         "pitch": 16,
-        "sides": Array [
+        "sides": [
           "VERGE",
           "VERGE",
         ],
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 0,
             "y": 0,
           },
-          Object {
+          {
             "x": 0,
             "y": 468.1347461377209,
           },
-          Object {
+          {
             "x": 1800,
             "y": 468.1347461377209,
           },
-          Object {
+          {
             "x": 1800,
             "y": 0,
           },
         ],
       },
-      Object {
+      {
         "pitch": 16,
-        "sides": Array [
+        "sides": [
           "VERGE",
           "VERGE",
         ],
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 0,
             "y": 0,
           },
-          Object {
+          {
             "x": 0,
             "y": 468.1347461377209,
           },
-          Object {
+          {
             "x": 1800,
             "y": 468.1347461377209,
           },
-          Object {
+          {
             "x": 1800,
             "y": 0,
           },
         ],
       },
-      Object {
+      {
         "pitch": 17,
-        "sides": Array [
+        "sides": [
           "VALLEY",
           "VERGE",
         ],
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 319.86287833327685,
             "y": 0,
           },
-          Object {
+          {
             "x": 0,
             "y": 313.7075269461444,
           },
-          Object {
+          {
             "x": 1819.862878333277,
             "y": 313.7075269461444,
           },
-          Object {
+          {
             "x": 1819.862878333277,
             "y": 0,
           },
         ],
       },
-      Object {
+      {
         "pitch": 17,
-        "sides": Array [
+        "sides": [
           "VERGE",
           "VALLEY",
         ],
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 0,
             "y": 0,
           },
-          Object {
+          {
             "x": 0,
             "y": 313.7075269461444,
           },
-          Object {
+          {
             "x": 1819.862878333277,
             "y": 313.7075269461444,
           },
-          Object {
+          {
             "x": 1500,
             "y": 0,
           },
         ],
       },
-      Object {
+      {
         "pitch": 16,
-        "sides": Array [
+        "sides": [
           "VALLEY",
           "VALLEY",
         ],
         "subtract": true,
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 0,
             "y": 0,
           },
-          Object {
+          {
             "x": 300,
             "y": 91.71920443759812,
           },
-          Object {
+          {
             "x": 600,
             "y": 0,
           },
         ],
       },
     ],
-    "lines": Object {
-      "eave": Array [
-        Object {
+    "lines": {
+      "eave": [
+        {
           "length": 900,
         },
-        Object {
+        {
           "length": 900,
         },
-        Object {
+        {
           "length": 1800,
         },
-        Object {
+        {
           "length": 1800,
         },
-        Object {
+        {
           "length": 1500,
         },
-        Object {
+        {
           "length": 1500,
         },
       ],
-      "hip": Array [],
-      "leftVerge": Array [
-        Object {
+      "hip": [],
+      "leftVerge": [
+        {
           "length": 468.1347461377209,
         },
-        Object {
+        {
           "length": 468.1347461377209,
         },
-        Object {
+        {
           "length": 313.7075269461444,
         },
       ],
-      "ridge": Array [
-        Object {
+      "ridge": [
+        {
           "length": 1800,
         },
-        Object {
+        {
           "length": 1819.862878333277,
         },
       ],
-      "rightVerge": Array [
-        Object {
+      "rightVerge": [
+        {
           "length": 468.1347461377209,
         },
-        Object {
+        {
           "length": 468.1347461377209,
         },
-        Object {
+        {
           "length": 313.7075269461444,
         },
       ],
-      "valley": Array [
-        Object {
+      "valley": [
+        {
           "end": true,
           "length": 448.02307239506604,
           "start": true,
         },
-        Object {
+        {
           "end": true,
           "length": 448.02307239506604,
           "start": true,
@@ -477,155 +477,155 @@ Array [
       ],
     },
   },
-  Object {
-    "faces": Array [
-      Object {
+  {
+    "faces": [
+      {
         "pitch": 16,
-        "sides": Array [
+        "sides": [
           "HIP",
           "VERGE",
         ],
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 0,
             "y": 0,
           },
-          Object {
+          {
             "x": 300,
             "y": 468.1347461377209,
           },
-          Object {
+          {
             "x": 1100,
             "y": 468.1347461377209,
           },
-          Object {
+          {
             "x": 1100,
             "y": 0,
           },
         ],
       },
-      Object {
+      {
         "pitch": 17,
-        "sides": Array [
+        "sides": [
           "VERGE",
           "HIP",
         ],
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 0,
             "y": 0,
           },
-          Object {
+          {
             "x": 0,
             "y": 313.7075269461444,
           },
-          Object {
+          {
             "x": 1950,
             "y": 313.7075269461444,
           },
-          Object {
+          {
             "x": 2400,
             "y": 0,
           },
         ],
       },
-      Object {
+      {
         "pitch": 17,
-        "sides": Array [
+        "sides": [
           "VERGE",
           "VALLEY",
         ],
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 0,
             "y": 0,
           },
-          Object {
+          {
             "x": 0,
             "y": 468.1347461377209,
           },
-          Object {
+          {
             "x": 800,
             "y": 468.1347461377209,
           },
-          Object {
+          {
             "x": 500,
             "y": 0,
           },
         ],
       },
-      Object {
+      {
         "pitch": 17,
-        "sides": Array [
+        "sides": [
           "VALLEY",
           "VERGE",
         ],
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 450,
             "y": 0,
           },
-          Object {
+          {
             "x": 0,
             "y": 313.7075269461444,
           },
-          Object {
+          {
             "x": 1950,
             "y": 313.7075269461444,
           },
-          Object {
+          {
             "x": 1950,
             "y": 0,
           },
         ],
       },
     ],
-    "lines": Object {
-      "eave": Array [
-        Object {
+    "lines": {
+      "eave": [
+        {
           "length": 500,
         },
-        Object {
+        {
           "length": 1500,
         },
-        Object {
+        {
           "length": 2400,
         },
-        Object {
+        {
           "length": 1100,
         },
       ],
-      "hip": Array [
-        Object {
+      "hip": [
+        {
           "length": 434.0649864509529,
         },
       ],
-      "leftVerge": Array [
-        Object {
+      "leftVerge": [
+        {
           "length": 313.7075269461444,
         },
-        Object {
+        {
           "length": 468.1347461377209,
         },
       ],
-      "ridge": Array [
-        Object {
+      "ridge": [
+        {
           "length": 800,
         },
-        Object {
+        {
           "length": 1950,
         },
       ],
-      "rightVerge": Array [
-        Object {
+      "rightVerge": [
+        {
           "length": 468.1347461377209,
         },
-        Object {
+        {
           "length": 313.7075269461444,
         },
       ],
-      "valley": Array [
-        Object {
+      "valley": [
+        {
           "end": true,
           "length": 556.0127161688197,
           "start": true,
@@ -633,352 +633,352 @@ Array [
       ],
     },
   },
-  Object {
-    "faces": Array [
-      Object {
+  {
+    "faces": [
+      {
         "pitch": 16,
-        "sides": Array [
+        "sides": [
           "VERGE",
           "VERGE",
         ],
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 0,
             "y": 0,
           },
-          Object {
+          {
             "x": 0,
             "y": 468.1347461377209,
           },
-          Object {
+          {
             "x": 1500,
             "y": 468.1347461377209,
           },
-          Object {
+          {
             "x": 1500,
             "y": 0,
           },
         ],
       },
-      Object {
+      {
         "pitch": 16,
-        "sides": Array [
+        "sides": [
           "VERGE",
           "VERGE",
         ],
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 0,
             "y": 0,
           },
-          Object {
+          {
             "x": 0,
             "y": 468.1347461377209,
           },
-          Object {
+          {
             "x": 1500,
             "y": 468.1347461377209,
           },
-          Object {
+          {
             "x": 1500,
             "y": 0,
           },
         ],
       },
-      Object {
+      {
         "pitch": 17,
-        "sides": Array [
+        "sides": [
           "VERGE",
           "VERGE",
         ],
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 0,
             "y": 0,
           },
-          Object {
+          {
             "x": 0,
             "y": 627.4150538922888,
           },
-          Object {
+          {
             "x": 500,
             "y": 627.4150538922888,
           },
-          Object {
+          {
             "x": 500,
             "y": 0,
           },
         ],
       },
-      Object {
+      {
         "pitch": 16,
-        "sides": Array [
+        "sides": [
           "VALLEY",
           "VALLEY",
         ],
         "subtract": true,
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 0,
             "y": 0,
           },
-          Object {
+          {
             "x": 0,
             "y": 600,
           },
-          Object {
+          {
             "x": 500,
             "y": 600,
           },
-          Object {
+          {
             "x": 500,
             "y": 0,
           },
         ],
       },
     ],
-    "lines": Object {
-      "eave": Array [
-        Object {
+    "lines": {
+      "eave": [
+        {
           "length": 900,
         },
-        Object {
+        {
           "length": 900,
         },
-        Object {
+        {
           "length": 1500,
         },
-        Object {
+        {
           "length": 1500,
         },
-        Object {
+        {
           "length": 500,
         },
       ],
-      "hip": Array [],
-      "leftVerge": Array [
-        Object {
+      "hip": [],
+      "leftVerge": [
+        {
           "length": 468.1347461377209,
         },
-        Object {
+        {
           "length": 468.1347461377209,
         },
-        Object {
+        {
           "length": 627.4150538922888,
         },
       ],
-      "ridge": Array [
-        Object {
+      "ridge": [
+        {
           "length": 1500,
         },
       ],
-      "rightVerge": Array [
-        Object {
+      "rightVerge": [
+        {
           "length": 468.1347461377209,
         },
-        Object {
+        {
           "length": 468.1347461377209,
         },
-        Object {
+        {
           "length": 627.4150538922888,
         },
       ],
-      "valley": Array [
-        Object {
+      "valley": [
+        {
           "end": true,
           "length": 600,
         },
-        Object {
+        {
           "end": true,
           "length": 600,
         },
       ],
     },
   },
-  Object {
-    "faces": Array [
-      Object {
+  {
+    "faces": [
+      {
         "pitch": 16,
-        "sides": Array [
+        "sides": [
           "VERGE",
           "VERGE",
         ],
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 0,
             "y": 0,
           },
-          Object {
+          {
             "x": 0,
             "y": 468.1347461377209,
           },
-          Object {
+          {
             "x": 1500,
             "y": 468.1347461377209,
           },
-          Object {
+          {
             "x": 1500,
             "y": 0,
           },
         ],
       },
-      Object {
+      {
         "pitch": 16,
-        "sides": Array [
+        "sides": [
           "VERGE",
           "VERGE",
         ],
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 0,
             "y": 0,
           },
-          Object {
+          {
             "x": 0,
             "y": 468.1347461377209,
           },
-          Object {
+          {
             "x": 1500,
             "y": 468.1347461377209,
           },
-          Object {
+          {
             "x": 1500,
             "y": 0,
           },
         ],
       },
-      Object {
+      {
         "pitch": 17,
-        "sides": Array [
+        "sides": [
           "VALLEY",
           "VERGE",
         ],
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 266.55239861106406,
             "y": 0,
           },
-          Object {
+          {
             "x": 0,
             "y": 261.422939121787,
           },
-          Object {
+          {
             "x": 600,
             "y": 261.422939121787,
           },
-          Object {
+          {
             "x": 600,
             "y": 0,
           },
         ],
       },
-      Object {
+      {
         "pitch": 17,
-        "sides": Array [
+        "sides": [
           "VERGE",
           "VALLEY",
         ],
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 266.55239861106406,
             "y": 0,
           },
-          Object {
+          {
             "x": 0,
             "y": 261.422939121787,
           },
-          Object {
+          {
             "x": 600,
             "y": 261.422939121787,
           },
-          Object {
+          {
             "x": 600,
             "y": 0,
           },
         ],
       },
-      Object {
+      {
         "pitch": 16,
-        "sides": Array [
+        "sides": [
           "VALLEY",
           "VALLEY",
         ],
         "subtract": true,
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 0,
             "y": 0,
           },
-          Object {
+          {
             "x": 250,
             "y": 76.4326703646651,
           },
-          Object {
+          {
             "x": 500,
             "y": 0,
           },
         ],
       },
     ],
-    "lines": Object {
-      "eave": Array [
-        Object {
+    "lines": {
+      "eave": [
+        {
           "length": 900,
         },
-        Object {
+        {
           "length": 900,
         },
-        Object {
+        {
           "length": 1500,
         },
-        Object {
+        {
           "length": 1500,
         },
-        Object {
+        {
           "length": 333.44760138893594,
         },
-        Object {
+        {
           "length": 333.44760138893594,
         },
       ],
-      "hip": Array [],
-      "leftVerge": Array [
-        Object {
+      "hip": [],
+      "leftVerge": [
+        {
           "length": 468.1347461377209,
         },
-        Object {
+        {
           "length": 468.1347461377209,
         },
-        Object {
+        {
           "length": 261.422939121787,
         },
       ],
-      "ridge": Array [
-        Object {
+      "ridge": [
+        {
           "length": 1500,
         },
-        Object {
+        {
           "length": 600,
         },
       ],
-      "rightVerge": Array [
-        Object {
+      "rightVerge": [
+        {
           "length": 468.1347461377209,
         },
-        Object {
+        {
           "length": 468.1347461377209,
         },
-        Object {
+        {
           "length": 261.422939121787,
         },
       ],
-      "valley": Array [
-        Object {
+      "valley": [
+        {
           "dormerStart": true,
           "end": true,
           "length": 373.3525603292217,
         },
-        Object {
+        {
           "dormerStart": true,
           "end": true,
           "length": 373.3525603292217,
@@ -986,359 +986,359 @@ Array [
       ],
     },
   },
-  Object {
-    "faces": Array [
-      Object {
+  {
+    "faces": [
+      {
         "pitch": 15,
-        "sides": Array [
+        "sides": [
           "HIP",
           "HIP",
         ],
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 0,
             "y": 0,
           },
-          Object {
+          {
             "x": 450,
             "y": 465.8742811845374,
           },
-          Object {
+          {
             "x": 900,
             "y": 0,
           },
         ],
       },
-      Object {
+      {
         "pitch": 15,
-        "sides": Array [
+        "sides": [
           "HIP",
           "HIP",
         ],
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 0,
             "y": 0,
           },
-          Object {
+          {
             "x": 450,
             "y": 465.8742811845374,
           },
-          Object {
+          {
             "x": 900,
             "y": 0,
           },
         ],
       },
-      Object {
+      {
         "pitch": 15,
-        "sides": Array [
+        "sides": [
           "HIP",
           "HIP",
         ],
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 0,
             "y": 0,
           },
-          Object {
+          {
             "x": 450,
             "y": 465.8742811845374,
           },
-          Object {
+          {
             "x": 1050,
             "y": 465.8742811845374,
           },
-          Object {
+          {
             "x": 1500,
             "y": 0,
           },
         ],
       },
-      Object {
+      {
         "pitch": 15,
-        "sides": Array [
+        "sides": [
           "HIP",
           "HIP",
         ],
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 0,
             "y": 0,
           },
-          Object {
+          {
             "x": 450,
             "y": 465.8742811845374,
           },
-          Object {
+          {
             "x": 1050,
             "y": 465.8742811845374,
           },
-          Object {
+          {
             "x": 1500,
             "y": 0,
           },
         ],
       },
     ],
-    "lines": Object {
-      "eave": Array [
-        Object {
+    "lines": {
+      "eave": [
+        {
           "length": 900,
         },
-        Object {
+        {
           "length": 900,
         },
-        Object {
+        {
           "length": 1500,
         },
-        Object {
+        {
           "length": 1500,
         },
       ],
-      "hip": Array [
-        Object {
+      "hip": [
+        {
           "length": 647.7181839883834,
         },
-        Object {
+        {
           "length": 647.7181839883834,
         },
-        Object {
+        {
           "length": 647.7181839883834,
         },
-        Object {
+        {
           "length": 647.7181839883834,
         },
       ],
-      "leftVerge": Array [],
-      "ridge": Array [
-        Object {
+      "leftVerge": [],
+      "ridge": [
+        {
           "length": 600,
         },
       ],
-      "rightVerge": Array [],
-      "valley": Array [],
+      "rightVerge": [],
+      "valley": [],
     },
   },
-  Object {
-    "faces": Array [
-      Object {
+  {
+    "faces": [
+      {
         "pitch": 16,
-        "sides": Array [
+        "sides": [
           "HIP",
           "HIP",
         ],
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 0,
             "y": 0,
           },
-          Object {
+          {
             "x": 450,
             "y": 499.1297578247643,
           },
-          Object {
+          {
             "x": 900,
             "y": 0,
           },
         ],
       },
-      Object {
+      {
         "pitch": 16,
-        "sides": Array [
+        "sides": [
           "HIP",
           "HIP",
         ],
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 0,
             "y": 0,
           },
-          Object {
+          {
             "x": 450,
             "y": 499.1297578247643,
           },
-          Object {
+          {
             "x": 900,
             "y": 0,
           },
         ],
       },
-      Object {
+      {
         "pitch": 17,
-        "sides": Array [
+        "sides": [
           "HIP",
           "HIP",
         ],
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 0,
             "y": 0,
           },
-          Object {
+          {
             "x": 479.7943174999153,
             "y": 499.1297578247643,
           },
-          Object {
+          {
             "x": 1320.2056825000848,
             "y": 499.1297578247643,
           },
-          Object {
+          {
             "x": 1800,
             "y": 0,
           },
         ],
       },
-      Object {
+      {
         "pitch": 17,
-        "sides": Array [
+        "sides": [
           "HIP",
           "HIP",
         ],
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 0,
             "y": 0,
           },
-          Object {
+          {
             "x": 479.7943174999153,
             "y": 499.1297578247643,
           },
-          Object {
+          {
             "x": 1320.2056825000848,
             "y": 499.1297578247643,
           },
-          Object {
+          {
             "x": 1800,
             "y": 0,
           },
         ],
       },
-      Object {
+      {
         "pitch": 22,
-        "sides": Array [
+        "sides": [
           "VALLEY",
           "HIP",
         ],
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 396.45307161275616,
             "y": 0,
           },
-          Object {
+          {
             "x": 0,
             "y": 323.56042280327506,
           },
-          Object {
+          {
             "x": 1896.453071612756,
             "y": 323.56042280327506,
           },
-          Object {
+          {
             "x": 323.56042280327506,
             "y": 0,
           },
         ],
       },
-      Object {
+      {
         "pitch": 22,
-        "sides": Array [
+        "sides": [
           "HIP",
           "VALLEY",
         ],
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 396.45307161275616,
             "y": 0,
           },
-          Object {
+          {
             "x": 0,
             "y": 323.56042280327506,
           },
-          Object {
+          {
             "x": 1896.453071612756,
             "y": 323.56042280327506,
           },
-          Object {
+          {
             "x": 323.56042280327506,
             "y": 0,
           },
         ],
       },
-      Object {
+      {
         "pitch": 17,
-        "sides": Array [
+        "sides": [
           "VALLEY",
           "VALLEY",
         ],
         "subtract": true,
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 0,
             "y": 0,
           },
-          Object {
+          {
             "x": 300,
             "y": 121.20786775054704,
           },
-          Object {
+          {
             "x": 600,
             "y": 0,
           },
         ],
       },
     ],
-    "lines": Object {
-      "eave": Array [
-        Object {
+    "lines": {
+      "eave": [
+        {
           "length": 900,
         },
-        Object {
+        {
           "length": 900,
         },
-        Object {
+        {
           "length": 1800,
         },
-        Object {
+        {
           "length": 1800,
         },
-        Object {
+        {
           "length": 1500,
         },
-        Object {
+        {
           "length": 1500,
         },
       ],
-      "hip": Array [
-        Object {
+      "hip": [
+        {
           "length": 672.034608592599,
         },
-        Object {
+        {
           "length": 672.034608592599,
         },
-        Object {
+        {
           "length": 672.034608592599,
         },
-        Object {
+        {
           "length": 672.034608592599,
         },
       ],
-      "leftVerge": Array [],
-      "ridge": Array [
-        Object {
+      "leftVerge": [],
+      "ridge": [
+        {
           "length": 840.4113650001694,
         },
-        Object {
+        {
           "length": 1896.453071612756,
         },
       ],
-      "rightVerge": Array [],
-      "valley": Array [
-        Object {
+      "rightVerge": [],
+      "valley": [
+        {
           "length": 511.7288199777527,
           "start": true,
           "top": true,
         },
-        Object {
+        {
           "length": 511.7288199777527,
           "start": true,
           "top": true,
@@ -1346,255 +1346,255 @@ Array [
       ],
     },
   },
-  Object {
-    "faces": Array [
-      Object {
+  {
+    "faces": [
+      {
         "pitch": 16,
-        "sides": Array [
+        "sides": [
           "HIP",
           "HIP",
         ],
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 0,
             "y": 0,
           },
-          Object {
+          {
             "x": 450,
             "y": 499.1297578247643,
           },
-          Object {
+          {
             "x": 900,
             "y": 0,
           },
         ],
       },
-      Object {
+      {
         "pitch": 16,
-        "sides": Array [
+        "sides": [
           "HIP",
           "HIP",
         ],
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 0,
             "y": 0,
           },
-          Object {
+          {
             "x": 450,
             "y": 499.1297578247643,
           },
-          Object {
+          {
             "x": 900,
             "y": 0,
           },
         ],
       },
-      Object {
+      {
         "pitch": 17,
-        "sides": Array [
+        "sides": [
           "HIP",
           "HIP",
         ],
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 0,
             "y": 0,
           },
-          Object {
+          {
             "x": 479.7943174999153,
             "y": 499.1297578247643,
           },
-          Object {
+          {
             "x": 1320.2056825000848,
             "y": 499.1297578247643,
           },
-          Object {
+          {
             "x": 1800,
             "y": 0,
           },
         ],
       },
-      Object {
+      {
         "pitch": 17,
-        "sides": Array [
+        "sides": [
           "HIP",
           "HIP",
         ],
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 0,
             "y": 0,
           },
-          Object {
+          {
             "x": 479.7943174999153,
             "y": 499.1297578247643,
           },
-          Object {
+          {
             "x": 1320.2056825000848,
             "y": 499.1297578247643,
           },
-          Object {
+          {
             "x": 1800,
             "y": 0,
           },
         ],
       },
-      Object {
+      {
         "pitch": 22,
-        "sides": Array [
+        "sides": [
           "HIP",
           "HIP",
         ],
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 0,
             "y": 0,
           },
-          Object {
+          {
             "x": 300,
             "y": 323.56042280327506,
           },
-          Object {
+          {
             "x": 600,
             "y": 0,
           },
         ],
       },
-      Object {
+      {
         "pitch": 22,
-        "sides": Array [
+        "sides": [
           "VALLEY",
           "HIP",
         ],
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 396.45307161275616,
             "y": 0,
           },
-          Object {
+          {
             "x": 0,
             "y": 323.56042280327506,
           },
-          Object {
+          {
             "x": 1596.453071612756,
             "y": 323.56042280327506,
           },
-          Object {
+          {
             "x": 1896.453071612756,
             "y": 0,
           },
         ],
       },
-      Object {
+      {
         "pitch": 22,
-        "sides": Array [
+        "sides": [
           "HIP",
           "VALLEY",
         ],
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 396.45307161275616,
             "y": 0,
           },
-          Object {
+          {
             "x": 0,
             "y": 323.56042280327506,
           },
-          Object {
+          {
             "x": 1596.453071612756,
             "y": 323.56042280327506,
           },
-          Object {
+          {
             "x": 1896.453071612756,
             "y": 0,
           },
         ],
       },
-      Object {
+      {
         "pitch": 17,
-        "sides": Array [
+        "sides": [
           "VALLEY",
           "VALLEY",
         ],
         "subtract": true,
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 0,
             "y": 0,
           },
-          Object {
+          {
             "x": 300,
             "y": 121.20786775054704,
           },
-          Object {
+          {
             "x": 600,
             "y": 0,
           },
         ],
       },
     ],
-    "lines": Object {
-      "eave": Array [
-        Object {
+    "lines": {
+      "eave": [
+        {
           "length": 900,
         },
-        Object {
+        {
           "length": 900,
         },
-        Object {
+        {
           "length": 1800,
         },
-        Object {
+        {
           "length": 1800,
         },
-        Object {
+        {
           "length": 1500,
         },
-        Object {
+        {
           "length": 1500,
         },
-        Object {
+        {
           "length": 600,
         },
       ],
-      "hip": Array [
-        Object {
+      "hip": [
+        {
           "length": 672.034608592599,
         },
-        Object {
+        {
           "length": 672.034608592599,
         },
-        Object {
+        {
           "length": 672.034608592599,
         },
-        Object {
+        {
           "length": 672.034608592599,
         },
-        Object {
+        {
           "length": 441.2384244426522,
         },
-        Object {
+        {
           "length": 441.2384244426522,
         },
       ],
-      "leftVerge": Array [],
-      "ridge": Array [
-        Object {
+      "leftVerge": [],
+      "ridge": [
+        {
           "length": 840.4113650001694,
         },
-        Object {
+        {
           "length": 1596.453071612756,
         },
       ],
-      "rightVerge": Array [],
-      "valley": Array [
-        Object {
+      "rightVerge": [],
+      "valley": [
+        {
           "length": 511.7288199777527,
           "start": true,
           "top": true,
         },
-        Object {
+        {
           "length": 511.7288199777527,
           "start": true,
           "top": true,
@@ -1602,53 +1602,53 @@ Array [
       ],
     },
   },
-  Object {
-    "faces": Array [
-      Object {
+  {
+    "faces": [
+      {
         "pitch": 15,
-        "sides": Array [
+        "sides": [
           "VERGE",
           "VERGE",
         ],
-        "vertices": Array [
-          Object {
+        "vertices": [
+          {
             "x": 0,
             "y": 0,
           },
-          Object {
+          {
             "x": 0,
             "y": 931.7485623690748,
           },
-          Object {
+          {
             "x": 1500,
             "y": 931.7485623690748,
           },
-          Object {
+          {
             "x": 1500,
             "y": 0,
           },
         ],
       },
     ],
-    "lines": Object {
-      "eave": Array [
-        Object {
+    "lines": {
+      "eave": [
+        {
           "length": 1500,
         },
       ],
-      "hip": Array [],
-      "leftVerge": Array [
-        Object {
+      "hip": [],
+      "leftVerge": [
+        {
           "length": 931.7485623690748,
         },
       ],
-      "ridge": Array [],
-      "rightVerge": Array [
-        Object {
+      "ridge": [],
+      "rightVerge": [
+        {
           "length": 931.7485623690748,
         },
       ],
-      "valley": Array [],
+      "valley": [],
     },
   },
 ]

@@ -4,7 +4,7 @@ import {
   createPimProductDocument,
   PimProductDocument
 } from "@bmi/elasticsearch-types";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import React from "react";
 import { ContentfulAssetType as AssetTypeData } from "../../../../types/AssetType";
 import createAssetType, {
@@ -21,7 +21,7 @@ describe("MobileDocumentTechnicalTableResults component", () => {
         ["product3", []]
       ];
 
-      const wrapper = render(
+      const { baseElement } = render(
         <ThemeProvider>
           <MobileDocumentTechnicalTableResults
             documentsByProduct={documentsByProduct}
@@ -30,7 +30,7 @@ describe("MobileDocumentTechnicalTableResults component", () => {
         </ThemeProvider>
       );
 
-      expect(wrapper.baseElement).toMatchSnapshot();
+      expect(baseElement).toMatchSnapshot();
     });
 
     it("when not all products have all asset types", () => {
@@ -46,7 +46,7 @@ describe("MobileDocumentTechnicalTableResults component", () => {
         ["product3", []]
       ];
 
-      const wrapper = render(
+      const { baseElement } = render(
         <ThemeProvider>
           <MobileDocumentTechnicalTableResults
             documentsByProduct={documentsByProduct}
@@ -55,7 +55,7 @@ describe("MobileDocumentTechnicalTableResults component", () => {
         </ThemeProvider>
       );
 
-      expect(wrapper.baseElement).toMatchSnapshot();
+      expect(baseElement).toMatchSnapshot();
     });
 
     it("when multiple documents are present for asset types", () => {
@@ -92,7 +92,7 @@ describe("MobileDocumentTechnicalTableResults component", () => {
         ["product3", []]
       ];
 
-      const wrapper = render(
+      const { baseElement } = render(
         <ThemeProvider>
           <MobileDocumentTechnicalTableResults
             documentsByProduct={documentsByProduct}
@@ -101,7 +101,7 @@ describe("MobileDocumentTechnicalTableResults component", () => {
         </ThemeProvider>
       );
 
-      expect(wrapper.baseElement).toMatchSnapshot();
+      expect(baseElement).toMatchSnapshot();
     });
 
     it("when valid asset types are used", () => {
@@ -133,7 +133,7 @@ describe("MobileDocumentTechnicalTableResults component", () => {
         ]
       ];
 
-      const wrapper = render(
+      const { baseElement } = render(
         <ThemeProvider>
           <MobileDocumentTechnicalTableResults
             documentsByProduct={documentsByProduct}
@@ -141,10 +141,9 @@ describe("MobileDocumentTechnicalTableResults component", () => {
           />
         </ThemeProvider>
       );
-      const svg = wrapper.container.querySelector(".format-icon");
 
-      expect(wrapper.baseElement).toMatchSnapshot();
-      expect(svg).toBeTruthy();
+      expect(baseElement).toMatchSnapshot();
+      expect(screen.getByTestId("format-icon")).toBeInTheDocument();
     });
 
     it("when invalid asset types are used", () => {
@@ -175,7 +174,7 @@ describe("MobileDocumentTechnicalTableResults component", () => {
 
       documentsByProduct[0][1]["format"] = "onlv";
 
-      const wrapper = render(
+      const { baseElement } = render(
         <ThemeProvider>
           <MobileDocumentTechnicalTableResults
             documentsByProduct={documentsByProduct}
@@ -183,10 +182,9 @@ describe("MobileDocumentTechnicalTableResults component", () => {
           />
         </ThemeProvider>
       );
-      const svg = wrapper.container.querySelector(".format-icon");
 
-      expect(wrapper.baseElement).toMatchSnapshot();
-      expect(svg).toBeTruthy();
+      expect(baseElement).toMatchSnapshot();
+      expect(screen.getByTestId("format-icon")).toBeInTheDocument();
     });
   });
 });

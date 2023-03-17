@@ -52,7 +52,7 @@ const DocumentDownloadSection = ({
         </div>
       )}
       {documents.length > 0 && (
-        <Table>
+        <Table data-testid={"document-download-section-table"}>
           <Table.Head>
             <Table.Row>
               <Table.Cell>
@@ -94,10 +94,10 @@ const DocumentDownloadSection = ({
                           }
                           // TODO: consider responsibility of icon styles
                           style={iconStyle}
-                          data-testid="docment-download-section-file-download-icon"
+                          data-testid="document-download-section-file-download-icon"
                         />
                       }
-                      data-testid="docment-download-section-download-button"
+                      data-testid="document-download-section-download-button"
                     >
                       {filesize(details.size)}
                     </GTMButton>

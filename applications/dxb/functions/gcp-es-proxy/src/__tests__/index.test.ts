@@ -7,7 +7,6 @@ import {
 } from "@bmi-digital/fetch-mocks";
 import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
-import mockConsole from "jest-mock-console";
 import { v4 as uuid } from "uuid";
 
 const fetchMock = fetchMockJest.sandbox();
@@ -19,10 +18,6 @@ const getRandomStatus = () => {
 
 const proxy = async (request: Partial<Request>, response: Partial<Response>) =>
   (await import("../index")).proxy(request as Request, response as Response);
-
-beforeAll(() => {
-  mockConsole();
-});
 
 beforeEach(() => {
   jest.clearAllMocks();

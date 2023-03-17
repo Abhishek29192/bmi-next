@@ -87,6 +87,7 @@ const UpDownSimpleNumericInput = ({
       )}
       value={count.toString()}
       onChange={handleInputChange}
+      data-testid={"up-down-simple-numeric-input-text-field"}
     />
   );
 
@@ -101,6 +102,7 @@ const UpDownSimpleNumericInput = ({
   const ComponentWithButtonsOnTheRight = (
     <StyledComponentWithButtons
       className={classnames(lockBreakpoint && `locked-${lockBreakpoint}`)}
+      data-testid={"up-down-simple-numeric-input-buttons-wrapper"}
     >
       {InputComponent}
       {DownButton}

@@ -14,10 +14,6 @@ const mockRequest = (): Partial<Request> => fetchMockRequest("POST");
 const build = async (request: Partial<Request>, response: Partial<Response>) =>
   (await import("../index")).build(request as Request, response as Response);
 
-beforeAll(() => {
-  // mockConsole();
-});
-
 beforeEach(() => {
   jest.clearAllMocks();
   jest.resetModules();

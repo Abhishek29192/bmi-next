@@ -1,6 +1,6 @@
+import branchTypes from "../../variables/branchTypes/20210928085352.js";
 import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
-import branchTypes from "../../variables/branchTypes/20210928085352.js";
 
 export const description = "Add Branch Types and options";
 

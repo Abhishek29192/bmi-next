@@ -7,12 +7,12 @@ import ProductFeaturesTable from "../ProductFeaturesTable";
 describe("ProductFeaturesTable component", () => {
   describe("Renders correctly", () => {
     it("When no features provided", () => {
-      const wrapper = render(
+      const { baseElement } = render(
         <ThemeProvider>
           <ProductFeaturesTable hasNoBorder features={[]} />
         </ThemeProvider>
       );
-      expect(wrapper.baseElement).toMatchSnapshot();
+      expect(baseElement).toMatchSnapshot();
     });
 
     it("With default row pattern color", () => {
@@ -27,12 +27,12 @@ describe("ProductFeaturesTable component", () => {
         }
       ];
 
-      const wrapper = render(
+      const { baseElement } = render(
         <ThemeProvider>
           <ProductFeaturesTable hasNoBorder features={features} />
         </ThemeProvider>
       );
-      expect(wrapper.baseElement).toMatchSnapshot();
+      expect(baseElement).toMatchSnapshot();
     });
 
     it("With default row pattern color and with border", () => {
@@ -47,12 +47,12 @@ describe("ProductFeaturesTable component", () => {
         }
       ];
 
-      const wrapper = render(
+      const { baseElement } = render(
         <ThemeProvider>
           <ProductFeaturesTable hasNoBorder={false} features={features} />
         </ThemeProvider>
       );
-      expect(wrapper.baseElement).toMatchSnapshot();
+      expect(baseElement).toMatchSnapshot();
     });
 
     it("With header row", () => {
@@ -67,7 +67,7 @@ describe("ProductFeaturesTable component", () => {
         }
       ];
 
-      const wrapper = render(
+      const { baseElement } = render(
         <ThemeProvider>
           <ProductFeaturesTable
             hasNoBorder={false}
@@ -76,7 +76,7 @@ describe("ProductFeaturesTable component", () => {
           />
         </ThemeProvider>
       );
-      expect(wrapper.baseElement).toMatchSnapshot();
+      expect(baseElement).toMatchSnapshot();
     });
 
     it("With even row pattern color", () => {
@@ -91,7 +91,7 @@ describe("ProductFeaturesTable component", () => {
         }
       ];
 
-      const wrapper = render(
+      const { baseElement } = render(
         <ThemeProvider>
           <ProductFeaturesTable
             hasNoBorder
@@ -100,7 +100,7 @@ describe("ProductFeaturesTable component", () => {
           />
         </ThemeProvider>
       );
-      expect(wrapper.baseElement).toMatchSnapshot();
+      expect(baseElement).toMatchSnapshot();
     });
   });
 });

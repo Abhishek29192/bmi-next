@@ -1,5 +1,5 @@
 import { DownloadListContext, ThemeProvider } from "@bmi-digital/components";
-import { fireEvent, render, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import MockDate from "mockdate";
 import React from "react";
 import * as ClientDownloadUtils from "../../utils/client-download";
@@ -149,9 +149,8 @@ describe("DocumentResultsFooter component", () => {
   });
 
   it("should execute onDownloadClick correctly", async () => {
-    const handleDownloadClickMock = jest.fn();
     const handlePageChange = jest.fn();
-    const { findByText } = render(
+    render(
       <ThemeProvider>
         <DownloadListContext.Provider
           value={{
@@ -174,20 +173,20 @@ describe("DocumentResultsFooter component", () => {
     );
 
     executeRecaptcha.mockReturnValue("token");
-    const downloadButton = await findByText("MC: downloadList.download (3)");
+    const downloadButton = await screen.findByText(
+      "MC: downloadList.download (3)"
+    );
     fireEvent.click(downloadButton);
     expect(executeRecaptcha).toBeCalledTimes(1);
-    waitFor(() => expect(handleDownloadClickMock).toBeCalledTimes(1));
   });
 
   it("should not call executeRecaptcha if qaAuthToken exists", async () => {
     const handlePageChange = jest.fn();
-    const handleDownloadClickMock = jest.fn();
     mockedWindowDocumentCookie.mockReturnValueOnce(
       `qaAuthToken=${qaAuthToken}`
     );
 
-    const { findByText } = render(
+    render(
       <ThemeProvider>
         <DownloadListContext.Provider
           value={{
@@ -209,10 +208,11 @@ describe("DocumentResultsFooter component", () => {
       </ThemeProvider>
     );
 
-    const downloadButton = await findByText("MC: downloadList.download (3)");
+    const downloadButton = await screen.findByText(
+      "MC: downloadList.download (3)"
+    );
     fireEvent.click(downloadButton);
     expect(executeRecaptcha).not.toHaveBeenCalled();
-    waitFor(() => expect(handleDownloadClickMock).toBeCalledTimes(1));
   });
 
   describe("handleDownloadClick", () => {
@@ -380,7 +380,7 @@ describe("DocumentResultsFooter component", () => {
   describe("hide pagination", () => {
     it("should hide pagination when page size is 25 or less(PageCount=1)", () => {
       const handlePageChange = jest.fn();
-      const { queryByTestId } = render(
+      render(
         <ThemeProvider>
           <DownloadListContext.Provider
             value={{
@@ -401,13 +401,13 @@ describe("DocumentResultsFooter component", () => {
           </DownloadListContext.Provider>
         </ThemeProvider>
       );
-      expect(queryByTestId("pagination-root")).toBeNull();
+      expect(screen.queryByTestId("pagination-root")).not.toBeInTheDocument();
     });
 
     it("should show pagination when page size is more than 25(PageCount>1)", () => {
       const handlePageChange = jest.fn();
 
-      const { queryByTestId } = render(
+      render(
         <ThemeProvider>
           <DownloadListContext.Provider
             value={{
@@ -428,7 +428,7 @@ describe("DocumentResultsFooter component", () => {
           </DownloadListContext.Provider>
         </ThemeProvider>
       );
-      expect(queryByTestId("pagination-root")).not.toBeNull();
+      expect(screen.getByTestId("pagination-root")).toBeInTheDocument();
     });
   });
 });

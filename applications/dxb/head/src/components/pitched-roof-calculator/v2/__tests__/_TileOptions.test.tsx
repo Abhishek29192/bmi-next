@@ -12,6 +12,7 @@ import {
   VergeVariant
 } from "../../types/v2";
 import TileOptions from "../_TileOptions";
+import { AnalyticsContext } from "../../helpers/analytics";
 
 const tileVariant = createProduct<Tile>({
   color: "red",
@@ -57,13 +58,6 @@ const ventilationHood = createProduct<VentilationHood>({
 });
 
 const pushEvent = jest.fn();
-jest.mock("../../helpers/analytics", () => {
-  const actual = jest.requireActual("../../helpers/analytics");
-  return {
-    ...actual,
-    useAnalyticsContext: () => pushEvent
-  };
-});
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -184,30 +178,32 @@ describe("PitchedRoofCalculator TileOptions component", () => {
               values: {}
             }}
           >
-            <TileOptions
-              selections={undefined}
-              variant={{
-                ...tileVariant,
-                vergeOption: verge,
-                ridgeOptions: [
-                  ridgeTile,
-                  {
-                    ...createProduct<RidgeOption>({
-                      name: "Second ridge",
-                      length: 25
-                    })
-                  }
-                ],
-                ventilationHoodOptions: [ventilationHood]
-              }}
-            />
+            <AnalyticsContext.Provider value={pushEvent}>
+              <TileOptions
+                selections={undefined}
+                variant={{
+                  ...tileVariant,
+                  vergeOption: verge,
+                  ridgeOptions: [
+                    ridgeTile,
+                    {
+                      ...createProduct<RidgeOption>({
+                        name: "Second ridge",
+                        length: 25
+                      })
+                    }
+                  ],
+                  ventilationHoodOptions: [ventilationHood]
+                }}
+              />
+            </AnalyticsContext.Provider>
           </FormContext.Provider>
         </MicroCopy.Provider>
       </ThemeProvider>
     );
 
     fireEvent.click(screen.getByText(verge.left.name));
-    waitFor(() =>
+    await waitFor(() =>
       expect(pushEvent).toBeCalledWith({
         event: "dxb.button_click",
         id: "rc-options-accessories",
@@ -217,8 +213,8 @@ describe("PitchedRoofCalculator TileOptions component", () => {
     );
 
     fireEvent.click(screen.getByText("MC: tileOptions.verge.noneLabel"));
-    waitFor(() =>
-      expect(pushEvent).toBeCalledWith({
+    await waitFor(() =>
+      expect(pushEvent).toHaveBeenLastCalledWith({
         event: "dxb.button_click",
         id: "rc-options-accessories",
         label: "MC: tileOptions.verge.noneLabel",
@@ -227,18 +223,18 @@ describe("PitchedRoofCalculator TileOptions component", () => {
     );
 
     fireEvent.click(screen.getByText(ridgeTile.name));
-    waitFor(() =>
-      expect(pushEvent).toBeCalledWith({
+    await waitFor(() =>
+      expect(pushEvent).toHaveBeenLastCalledWith({
         event: "dxb.button_click",
         id: "rc-options-accessories",
-        label: ridgeTile.name,
+        label: `${ridgeTile.name} - MC: calculator.nobb.label: ${ridgeTile.externalProductCode}`,
         action: "selected"
       })
     );
 
     fireEvent.click(screen.getByText(ventilationHood.name));
-    waitFor(() =>
-      expect(pushEvent).toBeCalledWith({
+    await waitFor(() =>
+      expect(pushEvent).toHaveBeenLastCalledWith({
         event: "dxb.button_click",
         id: "rc-options-accessories",
         label: `${ventilationHood.name} - MC: calculator.nobb.label: ${ventilationHood.externalProductCode}`,
@@ -247,7 +243,7 @@ describe("PitchedRoofCalculator TileOptions component", () => {
     );
   });
 
-  it("selects 'none' option for ventilation hoods", () => {
+  it("selects 'none' option for ventilation hoods", async () => {
     const updateFormState = jest.fn();
 
     render(
@@ -275,12 +271,12 @@ describe("PitchedRoofCalculator TileOptions component", () => {
       </ThemeProvider>
     );
 
-    waitFor(() =>
+    await waitFor(() =>
       expect(updateFormState).toBeCalledWith({ ventilation: ["none"] }, {})
     );
   });
 
-  it("selects 'none' option for verge tiles", () => {
+  it("selects 'none' option for verge tiles", async () => {
     const updateFormState = jest.fn();
 
     render(
@@ -308,7 +304,7 @@ describe("PitchedRoofCalculator TileOptions component", () => {
       </ThemeProvider>
     );
 
-    waitFor(() =>
+    await waitFor(() =>
       expect(updateFormState).toBeCalledWith({ verge: "none" }, {})
     );
   });

@@ -1,5 +1,4 @@
 import logger from "@bmi-digital/functions-logger";
-import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import { Storage } from "@google-cloud/storage";
 import fetch from "node-fetch";
 import {
@@ -14,6 +13,7 @@ import {
   transformMainTileProduct,
   transformUnderlayProduct
 } from "./transform";
+import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 
 const {
   WEBTOOLS_UPDATE_REQUEST,

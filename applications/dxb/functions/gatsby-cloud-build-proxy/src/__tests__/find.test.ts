@@ -1,4 +1,3 @@
-import mockConsole from "jest-mock-console";
 import { ContentfulWebhook } from "../types";
 import * as mockContentfulWebhook from "./resources/contentfulWebhook.json";
 import * as mockContentfulWebhookCanada from "./resources/contentfulWebhook_canada.json";
@@ -10,9 +9,6 @@ const findBuildWebhooks = async (contentfulWebhook: ContentfulWebhook) =>
   (await import("../find")).findBuildWebhooks(contentfulWebhook);
 
 describe("FindBuildhook", () => {
-  beforeEach(() => {
-    mockConsole();
-  });
   it("returns corresponding build webhook", async () => {
     const res = await findBuildWebhooks(mockContentfulWebhook);
 

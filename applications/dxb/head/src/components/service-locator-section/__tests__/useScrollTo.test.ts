@@ -14,6 +14,7 @@ describe("useScrollTo", () => {
     renderHook(() =>
       useScrollTo(true, ref as unknown as MutableRefObject<HTMLElement>)
     );
+    // eslint-disable-next-line testing-library/no-node-access
     expect(ref.current.parentElement.scrollTo).toHaveBeenCalledTimes(1);
   });
   it("shouldn't execute scrollTo function if card expansion didn't completed", () => {
@@ -26,6 +27,7 @@ describe("useScrollTo", () => {
     renderHook(() =>
       useScrollTo(true, ref as unknown as MutableRefObject<HTMLElement>)
     );
+    // eslint-disable-next-line testing-library/no-node-access
     expect(ref.current.parentElement.scrollTo).toHaveBeenCalledTimes(0);
   });
 });
