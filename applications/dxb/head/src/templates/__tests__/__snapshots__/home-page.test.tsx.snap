@@ -3234,7 +3234,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
               data-testid="grid-item"
             >
               <div
-                class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-qiur6r-MuiPaper-root-MuiCard-root"
+                class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-nfeqhz-MuiPaper-root-MuiCard-root"
                 data-testid="brand-intro-card-Smilex-spa-brand"
               >
                 <a
@@ -3248,7 +3248,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                   target="_blank"
                 >
                   <svg
-                    class="BrandLogo BrandIntroCard-brandLogo css-8dnw9f"
+                    class="BrandLogo BrandIntroCard-brandLogo css-gn1fhj"
                     viewBox="0 0 154 100"
                     xml:space="preserve"
                     xmlns="http://www.w3.org/2000/svg"

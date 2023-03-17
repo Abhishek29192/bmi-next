@@ -142,6 +142,62 @@ describe("transformMediaSrc function", () => {
     );
   });
 
+  it("should return correct object  if typeName === ContentfulImage and image is null", () => {
+    const mockMedia: GallerySectionMedias[] = [
+      {
+        __typename: "ContentfulImage",
+        altText: "alt text",
+        type: null,
+        image: null,
+        caption: {
+          caption: "CAPTION"
+        },
+        focalPoint: null
+      }
+    ];
+    const expectResult = transformMediaSrc(mockMedia);
+
+    expect(expectResult[0]).toEqual(
+      expect.objectContaining({
+        thumbnail: undefined,
+        isVideo: false,
+        caption: "CAPTION",
+        altText: "alt text"
+      })
+    );
+  });
+
+  it("should return correct object  if typeName === ContentfulImage and image.thumbnail is null", () => {
+    const mockMedia: GallerySectionMedias[] = [
+      {
+        __typename: "ContentfulImage",
+        altText: "alt text",
+        type: null,
+        image: {
+          file: {
+            fileName: "file",
+            url: "//images.asset.jpg"
+          },
+          thumbnail: null
+        },
+        caption: {
+          caption: "CAPTION"
+        },
+        focalPoint: null
+      }
+    ];
+    const expectResult = transformMediaSrc(mockMedia);
+
+    expect(expectResult[0]).toEqual(
+      expect.objectContaining({
+        thumbnail: undefined,
+        isVideo: false,
+        caption: "CAPTION",
+        altText: "alt text"
+      })
+    );
+  });
+
   it("should return correct object if typeName === ContentfulImage and item caption is null", () => {
     const image = createGallerySectionImage({
       caption: null

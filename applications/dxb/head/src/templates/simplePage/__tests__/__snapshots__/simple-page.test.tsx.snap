@@ -6289,7 +6289,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                   data-testid="grid-item"
                 >
                   <div
-                    class=" MuiBox-root css-i0obkw"
+                    class=" MuiBox-root css-1x7vu5"
                     data-testid="card-collection-section-item-BMI-test-video-on-PROMO"
                     type="button"
                   >

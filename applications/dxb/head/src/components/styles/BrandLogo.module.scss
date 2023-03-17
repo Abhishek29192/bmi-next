@@ -2,11 +2,9 @@
 
 .BrandLogo {
   fill: $color-white;
-  height: 70px;
+  height: 60px;
   width: auto;
-  @media (min-width: $breakpoint-xl) {
-    height: 80px;
-  }
+  display: block;
 
   &-whiteBox {
     background-color: white;
