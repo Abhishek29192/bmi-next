@@ -121,6 +121,7 @@ const SampleBasketSection = ({
               action: actionLabels.join(", ")
             }}
             onSuccess={handleSuccess}
+            data-testid={"sample-basket-section-checkout-form"}
           />
         </Section>
       )}

@@ -1,4 +1,3 @@
-import mockConsole from "jest-mock-console";
 import { IMarket, RolesEnum } from "../types";
 
 const getMarketsToRun = jest.fn();
@@ -27,10 +26,6 @@ jest.mock("../requests", () => {
 });
 
 const consoleSpy = jest.spyOn(console, "info");
-
-beforeAll(() => {
-  mockConsole();
-});
 
 beforeEach(() => {
   jest.clearAllMocks();

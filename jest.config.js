@@ -32,11 +32,16 @@ module.exports = {
       "<rootDir>/node_modules/gatsby-page-utils/dist/$1" // Workaround for https://github.com/facebook/jest/issues/9771
   },
   transform: {
-    "^.+\\.(ts|tsx)$": "ts-jest",
+    "^.+\\.(ts|tsx)$": [
+      "ts-jest",
+      {
+        isolatedModules: true
+      }
+    ],
     "^.+\\.(js|jsx)$": "babel-jest"
   },
   transformIgnorePatterns: [
-    "node_modules/(?!(three|lodash-es|@bmi-digital/components)/)"
+    "node_modules/(?!(three|lodash-es|escape-string-regexp|@bmi-digital/components)/)"
   ],
   setupFiles: ["<rootDir>/jest/src/setEnvVars.ts"],
   setupFilesAfterEnv: [
@@ -49,11 +54,6 @@ module.exports = {
       branches: "100",
       functions: "100",
       lines: "100"
-    }
-  },
-  globals: {
-    "ts-jest": {
-      isolatedModules: true
     }
   }
 };

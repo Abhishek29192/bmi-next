@@ -1,6 +1,6 @@
 import { ThemeProvider } from "@bmi-digital/components";
 import { useMediaQuery } from "@mui/material";
-import { fireEvent, render } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import QuantityTable from "../QuantityTable";
 import tileBrown from "./images/tile-brown.jpg";
@@ -80,7 +80,7 @@ describe("BuildSmallViewRows component", () => {
     const onDelete = jest.fn();
     const onChangeQuantity = jest.fn();
     mockUseMediaQuery.mockReturnValue(true);
-    const { getAllByTestId } = render(
+    render(
       <ThemeProvider>
         <QuantityTable
           onDelete={onDelete}
@@ -95,7 +95,7 @@ describe("BuildSmallViewRows component", () => {
       </ThemeProvider>
     );
 
-    const element = getAllByTestId("DeleteIcon")[0];
+    const element = screen.getAllByTestId("DeleteIcon")[0];
 
     fireEvent.click(element!);
 
@@ -106,7 +106,7 @@ describe("BuildSmallViewRows component", () => {
     const onDelete = jest.fn();
     const onChangeQuantity = jest.fn();
     mockUseMediaQuery.mockReturnValue(true);
-    const { getAllByLabelText } = render(
+    render(
       <ThemeProvider>
         <QuantityTable
           onDelete={onDelete}
@@ -121,7 +121,7 @@ describe("BuildSmallViewRows component", () => {
       </ThemeProvider>
     );
 
-    const element = getAllByLabelText("Up")[0];
+    const element = screen.getAllByLabelText("Up")[0];
     fireEvent.click(element);
 
     expect(onChangeQuantity).toHaveBeenCalledTimes(1);
@@ -131,7 +131,7 @@ describe("BuildSmallViewRows component", () => {
     const onDelete = jest.fn();
     const onChangeQuantity = jest.fn();
     mockUseMediaQuery.mockReturnValue(true);
-    const { getAllByLabelText } = render(
+    render(
       <ThemeProvider>
         <QuantityTable
           onDelete={onDelete}
@@ -146,7 +146,7 @@ describe("BuildSmallViewRows component", () => {
       </ThemeProvider>
     );
 
-    const element = getAllByLabelText("Up")[0];
+    const element = screen.getAllByLabelText("Up")[0];
     fireEvent.click(element);
 
     expect(onChangeQuantity).toHaveBeenCalledWith(
@@ -161,7 +161,7 @@ describe("BuildMediumViewRows component", () => {
     const onDelete = jest.fn();
     const onChangeQuantity = jest.fn();
     mockUseMediaQuery.mockReturnValue(true);
-    const { getAllByTestId } = render(
+    render(
       <ThemeProvider>
         <QuantityTable
           onDelete={onDelete}
@@ -176,7 +176,7 @@ describe("BuildMediumViewRows component", () => {
       </ThemeProvider>
     );
 
-    const element = getAllByTestId("DeleteIcon")[5];
+    const element = screen.getAllByTestId("DeleteIcon")[5];
     fireEvent.click(element!);
 
     expect(onDelete).toHaveBeenCalledTimes(1);
@@ -186,7 +186,7 @@ describe("BuildMediumViewRows component", () => {
     const onDelete = jest.fn();
     const onChangeQuantity = jest.fn();
     mockUseMediaQuery.mockReturnValue(true);
-    const { getAllByLabelText } = render(
+    render(
       <ThemeProvider>
         <QuantityTable
           onDelete={onDelete}
@@ -201,7 +201,7 @@ describe("BuildMediumViewRows component", () => {
       </ThemeProvider>
     );
 
-    const element = getAllByLabelText("Up")[5];
+    const element = screen.getAllByLabelText("Up")[5];
     fireEvent.click(element);
 
     expect(onChangeQuantity).toHaveBeenCalledTimes(1);
@@ -211,7 +211,7 @@ describe("BuildMediumViewRows component", () => {
     const onDelete = jest.fn();
     const onChangeQuantity = jest.fn();
     mockUseMediaQuery.mockReturnValue(true);
-    const { getAllByLabelText } = render(
+    render(
       <ThemeProvider>
         <QuantityTable
           onDelete={onDelete}
@@ -226,7 +226,7 @@ describe("BuildMediumViewRows component", () => {
       </ThemeProvider>
     );
 
-    const element = getAllByLabelText("Up")[5];
+    const element = screen.getAllByLabelText("Up")[5];
     fireEvent.click(element);
     expect(onChangeQuantity).toHaveBeenCalledWith(
       rowsTemplate[0].externalProductCode,

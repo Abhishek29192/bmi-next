@@ -57,7 +57,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
               </h5>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -142,7 +142,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
               </h5>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -226,7 +226,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
               </h5>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -330,7 +330,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
               </button>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -479,7 +479,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
             </button>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -494,8 +494,8 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="false"
-                    for="mui-1"
-                    id="mui-1-label"
+                    for=":r0:"
+                    id=":r0:-label"
                   >
                     Total field area
                     <span
@@ -512,7 +512,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                     <input
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd input css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"
-                      id="mui-1"
+                      id=":r0:"
                       name="fieldArea"
                       required=""
                       type="text"
@@ -537,7 +537,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                       >
                         <span>
                           Total field area
-                           
+                           
                           *
                         </span>
                       </legend>
@@ -582,7 +582,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
             </button>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -597,8 +597,8 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="false"
-                    for="mui-2"
-                    id="mui-2-label"
+                    for=":r1:"
+                    id=":r1:-label"
                   >
                     Upstand Height
                   </label>
@@ -606,10 +606,10 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                     class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd css-47wlsu-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <input
-                      aria-describedby="mui-2-helper-text"
+                      aria-describedby=":r1:-helper-text"
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd input css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"
-                      id="mui-2"
+                      id=":r1:"
                       name="upstandHeight"
                       type="text"
                       value=""
@@ -636,7 +636,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                   </div>
                   <p
                     class="MuiFormHelperText-root MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-t5lzr8-MuiFormHelperText-root"
-                    id="mui-2-helper-text"
+                    id=":r1:-helper-text"
                   >
                     Minimum upstand height is 150mm
                   </p>
@@ -655,8 +655,8 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="false"
-                    for="mui-3"
-                    id="mui-3-label"
+                    for=":r2:"
+                    id=":r2:-label"
                   >
                     Upstand Length
                   </label>
@@ -664,10 +664,10 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                     class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd css-47wlsu-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <input
-                      aria-describedby="mui-3-helper-text"
+                      aria-describedby=":r2:-helper-text"
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd input css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"
-                      id="mui-3"
+                      id=":r2:"
                       name="upstandLength"
                       type="text"
                       value=""
@@ -694,7 +694,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                   </div>
                   <p
                     class="MuiFormHelperText-root MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-t5lzr8-MuiFormHelperText-root"
-                    id="mui-3-helper-text"
+                    id=":r2:-helper-text"
                   >
                     Minimum upstand length is 1m
                   </p>
@@ -717,7 +717,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
             </h5>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -732,8 +732,8 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="false"
-                    for="mui-4"
-                    id="mui-4-label"
+                    for=":r3:"
+                    id=":r3:-label"
                   >
                     Kerb Height
                   </label>
@@ -741,10 +741,10 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                     class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd css-47wlsu-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <input
-                      aria-describedby="mui-4-helper-text"
+                      aria-describedby=":r3:-helper-text"
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd input css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"
-                      id="mui-4"
+                      id=":r3:"
                       name="kerbHeight"
                       type="text"
                       value=""
@@ -771,7 +771,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                   </div>
                   <p
                     class="MuiFormHelperText-root MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-t5lzr8-MuiFormHelperText-root"
-                    id="mui-4-helper-text"
+                    id=":r3:-helper-text"
                   >
                     Minimum kerb / verge detail size is 100mm
                   </p>
@@ -790,8 +790,8 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="false"
-                    for="mui-5"
-                    id="mui-5-label"
+                    for=":r4:"
+                    id=":r4:-label"
                   >
                     Kerb Length
                   </label>
@@ -799,10 +799,10 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                     class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd css-47wlsu-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <input
-                      aria-describedby="mui-5-helper-text"
+                      aria-describedby=":r4:-helper-text"
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd input css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"
-                      id="mui-5"
+                      id=":r4:"
                       name="kerbLength"
                       type="text"
                       value=""
@@ -829,7 +829,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                   </div>
                   <p
                     class="MuiFormHelperText-root MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-t5lzr8-MuiFormHelperText-root"
-                    id="mui-5-helper-text"
+                    id=":r4:-helper-text"
                   >
                     Minimum kerb / verge / drip length is 1m
                   </p>
@@ -852,7 +852,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
             </h5>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -867,8 +867,8 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="false"
-                    for="mui-6"
-                    id="mui-6-label"
+                    for=":r5:"
+                    id=":r5:-label"
                   >
                     Detail Height
                   </label>
@@ -876,10 +876,10 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                     class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd css-47wlsu-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <input
-                      aria-describedby="mui-6-helper-text"
+                      aria-describedby=":r5:-helper-text"
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd input css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"
-                      id="mui-6"
+                      id=":r5:"
                       name="detailHeight1"
                       type="text"
                       value=""
@@ -906,7 +906,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                   </div>
                   <p
                     class="MuiFormHelperText-root MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-t5lzr8-MuiFormHelperText-root"
-                    id="mui-6-helper-text"
+                    id=":r5:-helper-text"
                   >
                     Minimum detail height is 100mm
                   </p>
@@ -925,8 +925,8 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="false"
-                    for="mui-7"
-                    id="mui-7-label"
+                    for=":r6:"
+                    id=":r6:-label"
                   >
                     Detail Length
                   </label>
@@ -934,10 +934,10 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                     class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd css-47wlsu-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <input
-                      aria-describedby="mui-7-helper-text"
+                      aria-describedby=":r6:-helper-text"
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd input css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"
-                      id="mui-7"
+                      id=":r6:"
                       name="detailLength1"
                       type="text"
                       value=""
@@ -964,7 +964,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                   </div>
                   <p
                     class="MuiFormHelperText-root MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-t5lzr8-MuiFormHelperText-root"
-                    id="mui-7-helper-text"
+                    id=":r6:-helper-text"
                   >
                     Minimum detail length is 1m
                   </p>
@@ -987,7 +987,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
             </h5>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -1002,8 +1002,8 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="false"
-                    for="mui-8"
-                    id="mui-8-label"
+                    for=":r7:"
+                    id=":r7:-label"
                   >
                     Detail Height
                   </label>
@@ -1011,10 +1011,10 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                     class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd css-47wlsu-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <input
-                      aria-describedby="mui-8-helper-text"
+                      aria-describedby=":r7:-helper-text"
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd input css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"
-                      id="mui-8"
+                      id=":r7:"
                       name="detailHeight2"
                       type="text"
                       value=""
@@ -1041,7 +1041,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                   </div>
                   <p
                     class="MuiFormHelperText-root MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-t5lzr8-MuiFormHelperText-root"
-                    id="mui-8-helper-text"
+                    id=":r7:-helper-text"
                   >
                     Minimum detail height is 100mm
                   </p>
@@ -1060,8 +1060,8 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="false"
-                    for="mui-9"
-                    id="mui-9-label"
+                    for=":r8:"
+                    id=":r8:-label"
                   >
                     Detail Length
                   </label>
@@ -1069,10 +1069,10 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                     class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd css-47wlsu-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <input
-                      aria-describedby="mui-9-helper-text"
+                      aria-describedby=":r8:-helper-text"
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd input css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"
-                      id="mui-9"
+                      id=":r8:"
                       name="detailLength2"
                       type="text"
                       value=""
@@ -1099,7 +1099,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                   </div>
                   <p
                     class="MuiFormHelperText-root MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-t5lzr8-MuiFormHelperText-root"
-                    id="mui-9-helper-text"
+                    id=":r8:-helper-text"
                   >
                     Minimum detail length is 1m
                   </p>
@@ -1119,7 +1119,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
           Project information (optional)
         </h3>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -1134,8 +1134,8 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="false"
-                  for="mui-10"
-                  id="mui-10-label"
+                  for=":r9:"
+                  id=":r9:-label"
                 >
                   Company Name
                 </label>
@@ -1145,7 +1145,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                   <input
                     aria-invalid="false"
                     class="MuiInputBase-input MuiOutlinedInput-input input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="mui-10"
+                    id=":r9:"
                     name="companyName"
                     type="text"
                     value=""
@@ -1168,7 +1168,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -1183,8 +1183,8 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="false"
-                  for="mui-11"
-                  id="mui-11-label"
+                  for=":ra:"
+                  id=":ra:-label"
                 >
                   Project Name
                 </label>
@@ -1194,7 +1194,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                   <input
                     aria-invalid="false"
                     class="MuiInputBase-input MuiOutlinedInput-input input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="mui-11"
+                    id=":ra:"
                     name="projectName"
                     type="text"
                     value=""

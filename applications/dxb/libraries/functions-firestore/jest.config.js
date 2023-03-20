@@ -12,6 +12,5 @@ module.exports = {
   collectCoverageFrom: [
     "<rootDir>/applications/dxb/libraries/functions-firestore/src/**/*.{ts,tsx,js}"
   ],
-  testEnvironment: "node",
-  resolver: "jest-node-exports-resolver"
+  testEnvironment: "node"
 };

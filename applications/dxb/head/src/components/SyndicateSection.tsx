@@ -12,11 +12,11 @@ import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
 import Image from "./Image";
 import Link, { getCTA } from "./Link";
-import type { Data as PageInfoData } from "./PageInfo";
-import type { Data as PromoData } from "./Promo";
 import RichText from "./RichText";
 import { useSiteContext } from "./Site";
-import { renderVideo } from "./Video";
+import Video from "./Video";
+import type { Data as PromoData } from "./Promo";
+import type { Data as PageInfoData } from "./PageInfo";
 
 export type Data = {
   __typename: "ContentfulSyndicateSection";
@@ -75,9 +75,9 @@ const SyndicateSection = ({
         transformHyphens(data.subtitle)
       ),
       media: data.featuredVideo ? (
-        renderVideo(data.featuredVideo)
+        <Video {...data.featuredVideo} />
       ) : (
-        <Image data={data.featuredMedia} size="cover" />
+        <Image {...data.featuredMedia} size="cover" />
       ),
       cta: callToAction
     };

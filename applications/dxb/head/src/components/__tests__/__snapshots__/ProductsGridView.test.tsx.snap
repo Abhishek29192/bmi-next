@@ -19,7 +19,7 @@ exports[`ProductsGridView component renders correctly when not empty 1`] = `
   >
     <a
       class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-iozq77-MuiButtonBase-root"
-      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/no/name-code/?pathname=%2F\\"}"
+      data-gtm="{"id":"cta-click1","label":"MC: plp.product.viewDetails","action":"/no/name-code/?pathname=%2F"}"
       href="/no/name-code/?pathname=%2F"
       tabindex="0"
     >
@@ -40,7 +40,6 @@ exports[`ProductsGridView component renders correctly when not empty 1`] = `
         >
           name
         </h5>
-        
         <div
           class="OverviewCard-text css-fm25tm"
           data-testid="overview-card-body-description"
@@ -90,7 +89,7 @@ exports[`ProductsGridView component renders correctly when not empty with filter
   >
     <a
       class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-iozq77-MuiButtonBase-root"
-      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/no/name-code/?filters=%5B%7B%22name%22%3A%22brand%22%2C%22value%22%3A%5B%22BMI_Components%22%5D%7D%5D&pathname=search&q=query\\"}"
+      data-gtm="{"id":"cta-click1","label":"MC: plp.product.viewDetails","action":"/no/name-code/?filters=%5B%7B%22name%22%3A%22brand%22%2C%22value%22%3A%5B%22BMI_Components%22%5D%7D%5D&pathname=search&q=query"}"
       href="/no/name-code/?filters=%5B%7B%22name%22%3A%22brand%22%2C%22value%22%3A%5B%22BMI_Components%22%5D%7D%5D&pathname=search&q=query"
       tabindex="0"
     >
@@ -111,7 +110,6 @@ exports[`ProductsGridView component renders correctly when not empty with filter
         >
           name
         </h5>
-        
         <div
           class="OverviewCard-text css-fm25tm"
           data-testid="overview-card-body-description"

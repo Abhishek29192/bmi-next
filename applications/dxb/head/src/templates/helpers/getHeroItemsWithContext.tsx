@@ -2,7 +2,7 @@ import { Button, CarouselHeroItem } from "@bmi-digital/components";
 import React from "react";
 import Image from "../../components/Image";
 import Link from "../../components/Link";
-import { renderVideo } from "../../components/Video";
+import Video from "../../components/Video";
 import { microCopy } from "../../constants/microCopies";
 import type { HomepageData } from "../home-page";
 
@@ -30,9 +30,9 @@ export const getHeroItemsWithContext = (
         title,
         children: subtitle,
         media: featuredVideo ? (
-          renderVideo(featuredVideo)
+          <Video {...featuredVideo} data-testid={"hero-video"} />
         ) : (
-          <Image data={featuredMedia} size="cover" />
+          <Image {...featuredMedia} size="cover" data-testid={"hero-image"} />
         ),
         cta: rest["cta"] || rest["path"] ? callToAction : null
       };

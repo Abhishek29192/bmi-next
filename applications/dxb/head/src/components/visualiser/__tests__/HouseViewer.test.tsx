@@ -2,17 +2,16 @@ import { render, waitFor } from "@testing-library/react";
 import React from "react";
 import {
   AxesHelper,
-  WebGLRenderer,
-  Texture,
-  Group,
-  Scene,
-  MeshStandardMaterial,
-  Mesh,
   Box3,
-  Vector3,
-  PlaneGeometry,
+  Group,
   InstancedMesh,
-  Object3D
+  Mesh,
+  MeshStandardMaterial,
+  Object3D,
+  PlaneGeometry,
+  Scene,
+  Texture,
+  Vector3
 } from "three";
 import HouseViewer, { Props as HouseViewerProps } from "../HouseViewer";
 import loadTexture from "../TextureCache";
@@ -31,24 +30,20 @@ const defaultProps: HouseViewerProps = {
   houseModelUrl
 };
 
-const mockWebGLRenderer = WebGLRenderer as unknown as jest.Mock<WebGLRenderer>;
-
-mockWebGLRenderer.mockReturnValue({
-  domElement: document.createElement("canvas"),
-  setSize: jest.fn(),
-  render: jest.fn(),
-  setClearColor: jest.fn(),
-  setPixelRatio: jest.fn(),
-  shadowMap: {
-    enabled: false
-  }
-} as any);
-
 jest.mock("three", () => {
   const THREE = jest.requireActual("three");
   return {
     ...THREE,
-    WebGLRenderer: jest.fn(),
+    WebGLRenderer: jest.fn().mockImplementation(() => ({
+      domElement: document.createElement("canvas"),
+      setSize: jest.fn(),
+      render: jest.fn(),
+      setClearColor: jest.fn(),
+      setPixelRatio: jest.fn(),
+      shadowMap: {
+        enabled: false
+      }
+    })),
     AxesHelper: jest.fn()
   };
 });
@@ -73,6 +68,10 @@ jest.mock("../GetRef", () => ({
   default: jest.fn().mockImplementation((url: string) => url)
 }));
 
+afterEach(() => {
+  jest.clearAllMocks();
+});
+
 describe("Visualiser HouseViewer", () => {
   beforeEach(() => {
     (cacheModel as jest.Mock).mockImplementation(
@@ -88,17 +87,16 @@ describe("Visualiser HouseViewer", () => {
     );
   });
 
-  afterEach(() => {
-    jest.clearAllMocks();
-    jest.restoreAllMocks();
-  });
-
   describe("load method", () => {
     let loadModelSpy;
     beforeEach(() => {
       loadModelSpy = jest
         .spyOn(HouseViewer.prototype, "loadModel")
         .mockImplementation(jest.fn());
+    });
+
+    afterEach(() => {
+      loadModelSpy.mockReset();
     });
 
     it("sets isLoading to false if houseModel doesn't exist", () => {
@@ -109,6 +107,7 @@ describe("Visualiser HouseViewer", () => {
       });
       houseViewer.load();
       expect(setIsLoadingSpy).toHaveBeenCalledWith(false);
+      setIsLoadingSpy.mockReset();
     });
 
     it("should not create a scene if container does not exist", () => {
@@ -177,6 +176,7 @@ describe("Visualiser HouseViewer", () => {
 
       render(<HouseViewer {...defaultProps} />);
       await waitFor(() => expect(setLoadingSpy).toHaveBeenCalledWith(false));
+      setLoadingSpy.mockReset();
     });
   });
 
@@ -192,6 +192,11 @@ describe("Visualiser HouseViewer", () => {
       loadSidingSpy = jest
         .spyOn(HouseViewer.prototype, "loadHouse")
         .mockImplementation(jest.fn());
+    });
+
+    afterEach(() => {
+      loadHouseSpy.mockReset();
+      loadSidingSpy.mockReset();
     });
 
     it("calls loadHouse method", () => {
@@ -259,6 +264,10 @@ describe("Visualiser HouseViewer", () => {
       generateRoofSpy = jest
         .spyOn(HouseViewer.prototype, "generateRoof")
         .mockImplementation(jest.fn());
+    });
+
+    afterEach(() => {
+      generateRoofSpy.mockReset();
     });
 
     it("loads metallicRoughnessMap texture", () => {
@@ -393,6 +402,7 @@ describe("Visualiser HouseViewer", () => {
         null
       );
 
+      // eslint-disable-next-line testing-library/no-node-access
       expect(houseViewer.roof.children.length).toBe(0);
     });
 
@@ -425,6 +435,8 @@ describe("Visualiser HouseViewer", () => {
         tileMesh,
         ridgeMesh
       );
+
+      // eslint-disable-next-line testing-library/no-node-access
       expect(houseViewer.roof.children.length).toBe(1);
     });
 
@@ -460,6 +472,8 @@ describe("Visualiser HouseViewer", () => {
         new Mesh(),
         ridgeMesh
       );
+
+      // eslint-disable-next-line testing-library/no-node-access
       expect(houseViewer.roof.children.length).toBe(2);
     });
 
@@ -475,6 +489,8 @@ describe("Visualiser HouseViewer", () => {
         ridgeMesh,
         ridgeEndMesh
       );
+
+      // eslint-disable-next-line testing-library/no-node-access
       const ridgeEnd = houseViewer.roof.children[0].children.find(
         (i) => ((i as InstancedMesh).geometry.uuid = ridgeEndMesh.geometry.uuid)
       );
@@ -494,6 +510,8 @@ describe("Visualiser HouseViewer", () => {
         ridgeMesh,
         ridgeEndMesh
       );
+
+      // eslint-disable-next-line testing-library/no-node-access
       const ridgeEnd = houseViewer.roof.children[0].children.find(
         (i) => ((i as InstancedMesh).geometry.uuid = ridgeEndMesh.geometry.uuid)
       );
@@ -514,6 +532,7 @@ describe("Visualiser HouseViewer", () => {
         ridgeEndMesh
       );
 
+      // eslint-disable-next-line testing-library/no-node-access
       expect(houseViewer.roof.children.length).toBe(1);
     });
   });

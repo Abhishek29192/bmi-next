@@ -2,10 +2,8 @@ import { YoutubeVideoProps } from "@bmi-digital/components";
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import { Data as ContentfulImageData } from "../Image";
-import * as Video from "../Video";
+import Video from "../Video";
 
-const VideoRenderComponent = Video.renderVideo;
-const VideoComponent = Video.default;
 const mockPushGTMEvent = jest.fn();
 
 jest.mock("../../utils/google-tag-manager", () => ({
@@ -44,28 +42,20 @@ const mockData = {
 };
 
 describe("Video", () => {
-  it("should call renderVideo function", () => {
-    jest.spyOn(Video, "renderVideo");
-    render(<VideoComponent data={mockData} />);
-    expect(Video.renderVideo).toBeCalled();
-  });
-});
-
-describe("renderVideo", () => {
   it("should pass correct GTM data", () => {
     const expectedGTM = JSON.stringify({
       id: "cta-click--video-youtube",
       label: "https://www.youtube.com/watch?v=testId-mockLabel",
       action: "Play"
     });
-    render(<VideoRenderComponent {...mockData} />);
+    render(<Video {...mockData} />);
     const wrapper = screen.getByTestId("wrapper");
     expect(wrapper).toHaveAttribute("data-gtm", expectedGTM);
   });
 
   describe("when GTM event triggered", () => {
     it("should call pushGTMEvent", () => {
-      render(<VideoRenderComponent {...mockData} />);
+      render(<Video {...mockData} />);
       fireEvent.click(screen.getByRole("button"));
       expect(mockPushGTMEvent).toBeCalled();
     });
@@ -74,14 +64,14 @@ describe("renderVideo", () => {
   describe("when previewMedia is passed", () => {
     it("should render previewImageSource", () => {
       const imageData = {} as ContentfulImageData;
-      render(<VideoRenderComponent {...mockData} previewMedia={imageData} />);
-      expect(screen.queryByTestId("image")).toBeInTheDocument();
+      render(<Video {...mockData} previewMedia={imageData} />);
+      expect(screen.getByTestId("image")).toBeInTheDocument();
     });
   });
 
   describe("when previewMedia is not passed", () => {
     it("shouldn't render previewImageSource", () => {
-      render(<VideoRenderComponent {...mockData} />);
+      render(<Video {...mockData} />);
       expect(screen.queryByTestId("image")).not.toBeInTheDocument();
     });
   });
@@ -95,7 +85,7 @@ describe("renderVideo", () => {
       }
     };
 
-    render(<VideoRenderComponent {...localData} />);
+    render(<Video {...localData} />);
     const wrapper = screen.getByTestId("wrapper");
     expect(wrapper).toHaveAttribute("embedheight", "100");
     expect(wrapper).toHaveAttribute("embedwidth", "200");

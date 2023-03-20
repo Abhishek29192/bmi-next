@@ -8,7 +8,7 @@ exports[`KeyAssetTypesDownloadSection component renders correctly 1`] = `
     <div>
       <button
         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-        data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"[\\\\\\"http://pimDocument\\\\\\",\\\\\\"http://pimDocument\\\\\\"]\\"}"
+        data-gtm="{"id":"download1","label":"Download","action":"[\\"http://pimDocument\\",\\"http://pimDocument\\"]"}"
         data-testid="SATDownload"
         tabindex="0"
         type="button"
@@ -51,7 +51,7 @@ exports[`KeyAssetTypesDownloadSection component renders correctly 1`] = `
     <div>
       <a
         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-        data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"[\\\\\\"http://pimDocument\\\\\\"]\\"}"
+        data-gtm="{"id":"download1","label":"Download","action":"[\\"http://pimDocument\\"]"}"
         data-testid="AATDownload"
         href="http://pimdocument/"
         rel="noopener noreferrer"

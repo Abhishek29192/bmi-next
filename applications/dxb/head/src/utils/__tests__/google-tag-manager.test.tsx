@@ -1,7 +1,7 @@
 const mockContext = jest.fn().mockReturnValue({ idMap: {} });
-import React from "react";
-import { fireEvent, render } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { renderHook } from "@testing-library/react-hooks";
+import React from "react";
 import * as GTM from "../google-tag-manager";
 
 const withGTM = GTM.default;
@@ -64,7 +64,7 @@ describe("withGTM", () => {
     HTMLDivElement
   >;
   const TestComponent = ({ ...props }: TestComponentProps) => (
-    <div {...props} />
+    <div data-testid="test-component" {...props} />
   );
 
   it("should throw error if no GTM data added", () => {
@@ -91,9 +91,9 @@ describe("withGTM", () => {
 
     const GtmComponent = withGTM<TestComponentProps>(TestComponent);
 
-    const { container } = render(<GtmComponent gtm={gtm} />);
+    render(<GtmComponent gtm={gtm} />);
 
-    expect(container.firstChild).toHaveAttribute(
+    expect(screen.getByTestId("test-component")).toHaveAttribute(
       "data-gtm",
       JSON.stringify(expectedGtm)
     );
@@ -114,7 +114,7 @@ describe("withGTM", () => {
 
     const GtmComponent = withGTM<TestComponentProps>(TestComponent, gtm);
 
-    const { container } = render(
+    render(
       <GtmComponent
         custom-event={"test-event"}
         custom-id={"test-id"}
@@ -123,7 +123,7 @@ describe("withGTM", () => {
       />
     );
 
-    expect(container.firstChild).toHaveAttribute(
+    expect(screen.getByTestId("test-component")).toHaveAttribute(
       "data-gtm",
       JSON.stringify(expectedGtm)
     );
@@ -145,7 +145,7 @@ describe("withGTM", () => {
 
     const GtmComponent = withGTM<TestComponentProps>(TestComponent, gtm);
 
-    const { container } = render(
+    render(
       <GtmComponent
         onClick={() => {
           console.log("do something");
@@ -157,7 +157,7 @@ describe("withGTM", () => {
       </GtmComponent>
     );
 
-    expect(container.firstChild).toHaveAttribute(
+    expect(screen.getByTestId("test-component")).toHaveAttribute(
       "data-gtm",
       JSON.stringify(expectedGtm)
     );
@@ -176,11 +176,9 @@ describe("withGTM", () => {
 
     const GtmComponent = withGTM<TestComponentProps>(TestComponent);
 
-    const { container } = render(
-      <GtmComponent action={{ "data-gtm": JSON.stringify(gtm) }} />
-    );
+    render(<GtmComponent action={{ "data-gtm": JSON.stringify(gtm) }} />);
 
-    expect(container.firstChild).toHaveAttribute(
+    expect(screen.getByTestId("test-component")).toHaveAttribute(
       "data-gtm",
       JSON.stringify(expectedGtm)
     );
@@ -209,7 +207,7 @@ describe("withGTM", () => {
       customProps
     );
 
-    const { container } = render(
+    render(
       <GtmComponent
         custom-id={"custom-props-id"}
         custom-label={"custom-props-label"}
@@ -218,7 +216,7 @@ describe("withGTM", () => {
       />
     );
 
-    expect(container.firstChild).toHaveAttribute(
+    expect(screen.getByTestId("test-component")).toHaveAttribute(
       "data-gtm",
       JSON.stringify(expectedGtm)
     );
@@ -247,7 +245,7 @@ describe("withGTM", () => {
       customProps
     );
 
-    const { container } = render(
+    render(
       <GtmComponent
         action={{ "data-gtm": JSON.stringify(actionDataGtm) }}
         custom-id={"custom-props-id"}
@@ -256,7 +254,7 @@ describe("withGTM", () => {
       />
     );
 
-    expect(container.firstChild).toHaveAttribute(
+    expect(screen.getByTestId("test-component")).toHaveAttribute(
       "data-gtm",
       JSON.stringify(expectedGtm)
     );
@@ -288,7 +286,7 @@ describe("withGTM", () => {
       customProps
     );
 
-    const { container } = render(
+    render(
       <GtmComponent
         action={{ "data-gtm": JSON.stringify(actionDataGtm) }}
         custom-id={"custom-props-id"}
@@ -297,7 +295,7 @@ describe("withGTM", () => {
       />
     );
 
-    expect(container.firstChild).toHaveAttribute(
+    expect(screen.getByTestId("test-component")).toHaveAttribute(
       "data-gtm",
       JSON.stringify(expectedGtm)
     );
@@ -309,9 +307,9 @@ describe("withGTM", () => {
     };
     const GtmComponent = withGTM<TestComponentProps>(TestComponent);
 
-    const { container } = render(<GtmComponent gtm={gtm} />);
+    render(<GtmComponent gtm={gtm} />);
 
-    expect(container.firstChild).toHaveAttribute(
+    expect(screen.getByTestId("test-component")).toHaveAttribute(
       "data-gtm",
       JSON.stringify(gtm)
     );
@@ -329,8 +327,8 @@ describe("withGTM", () => {
     };
     const GtmComponent = withGTM<TestComponentProps>(TestComponent);
 
-    const { container } = render(<GtmComponent gtm={gtm} />);
-    fireEvent.click(container.firstChild);
+    render(<GtmComponent gtm={gtm} />);
+    fireEvent.click(screen.getByTestId("test-component"));
 
     expect(mockPush).toHaveBeenCalledWith(expectedGtm);
   });
@@ -348,8 +346,8 @@ describe("withGTM", () => {
     const GtmComponent = withGTM<TestComponentProps>(TestComponent);
     const onClick = jest.fn();
 
-    const { container } = render(<GtmComponent gtm={gtm} onClick={onClick} />);
-    fireEvent.click(container.firstChild);
+    render(<GtmComponent gtm={gtm} onClick={onClick} />);
+    fireEvent.click(screen.getByTestId("test-component"));
 
     expect(mockPush).toHaveBeenCalledWith(expectedGtm);
     expect(onClick).toHaveBeenCalled();
@@ -368,10 +366,12 @@ describe("withGTM", () => {
     };
     const GtmComponent = withGTM<TestComponentProps>(TestComponent);
 
-    const { container } = render(<GtmComponent gtm={gtm} />);
-    fireEvent.click(container.firstChild);
+    render(<GtmComponent gtm={gtm} />);
+    fireEvent.click(screen.getByTestId("test-component"));
 
-    expect(container.firstChild).not.toHaveAttribute("data-gtm");
+    expect(screen.getByTestId("test-component")).not.toHaveAttribute(
+      "data-gtm"
+    );
     expect(mockPush).toHaveBeenCalledTimes(0);
   });
 });

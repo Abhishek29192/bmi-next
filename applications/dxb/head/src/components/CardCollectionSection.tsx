@@ -28,7 +28,7 @@ import RichText, { RichTextData } from "./RichText";
 import { useSiteContext } from "./Site";
 import styles from "./styles/CardCollectionSection.module.scss";
 import { TagData } from "./Tag";
-import { renderVideo } from "./Video";
+import Video from "./Video";
 
 type Card = PageInfoData | PromoData;
 
@@ -99,9 +99,9 @@ const CardCollectionItem = ({
       media={
         type !== "Text Card" ? (
           featuredVideo ? (
-            renderVideo(featuredVideo)
+            <Video {...featuredVideo} />
           ) : (
-            <Image data={featuredMedia} />
+            <Image {...featuredMedia} />
           )
         ) : undefined
       }
@@ -146,9 +146,8 @@ const CardCollectionItem = ({
           ) : undefined}
         </>
       }
-      data-testid={`card-collection-section-item-${(title || name)?.replace(
-        / /g,
-        "-"
+      data-testid={`card-collection-section-item-${replaceSpaces(
+        title || name
       )}`}
     >
       {subtitle}
@@ -422,6 +421,7 @@ const CardCollectionSection = ({
                   lg={4}
                   xl={3}
                   className={cardIsVisible ? styles["hidden"] : ""}
+                  data-testid={`card-collection-grid-item-${card.id}`}
                 >
                   <CardCollectionItem
                     card={card}

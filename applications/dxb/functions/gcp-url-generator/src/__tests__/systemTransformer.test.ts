@@ -43,8 +43,8 @@ describe("transformSystem", () => {
     const system = createFullyPopulatedSystem();
     const transformedSystems = transformSystem(system);
     expect(transformedSystems).toMatchInlineSnapshot(`
-      Array [
-        Object {
+      [
+        {
           "catalog": "pim-catalog-name",
           "url": "http://localhost:8000/no/s/name-1853176582",
           "variantCode": "code",
@@ -62,8 +62,8 @@ describe("transformSystem", () => {
     });
     const transformedSystems = transformSystem(system);
     expect(transformedSystems).toMatchInlineSnapshot(`
-      Array [
-        Object {
+      [
+        {
           "catalog": "pim-catalog-name",
           "url": "http://localhost:8000/no/s/name-1853176582",
           "variantCode": "code",

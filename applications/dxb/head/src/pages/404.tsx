@@ -5,7 +5,7 @@ import FallbackComponent from "../components/FallbackComponent";
 import Image from "../components/Image";
 import { getClickableActionFromUrl } from "../components/Link";
 import Page from "../components/Page";
-import { renderVideo } from "../components/Video";
+import Video from "../components/Video";
 import { FourOFourResponse } from "../schema/resolvers/types/Contentful";
 
 type Data = {
@@ -34,9 +34,9 @@ const FourOFour = ({ data }: { data: Data }) => {
           title={errorFourOFour.title || placeholderTitle}
           media={
             errorFourOFour.featuredVideo ? (
-              renderVideo(errorFourOFour.featuredVideo)
+              <Video {...errorFourOFour.featuredVideo} />
             ) : (
-              <Image data={errorFourOFour.featuredMedia} />
+              <Image {...errorFourOFour.featuredMedia} />
             )
           }
         >

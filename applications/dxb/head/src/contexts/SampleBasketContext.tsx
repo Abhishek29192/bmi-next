@@ -100,7 +100,7 @@ export const BasketContextConsumer = BasketContext.Consumer;
 export const BasketContextProvider = ({
   children
 }: {
-  children: React.ReactChild | React.ReactChildren;
+  children: React.ReactNode;
 }) => {
   const { countryCode } = useSiteContext();
   //for context setup for sample shopping basket

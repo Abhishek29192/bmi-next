@@ -1,7 +1,7 @@
-import type Migration from "contentful-migration";
-import type { MigrationFunction } from "contentful-migration";
 import previousIcons from "../../variables/icons/20210324110455";
 import icons from "../../variables/icons/20210512134828";
+import type Migration from "contentful-migration";
+import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Update to the latest set of brand icons";
 

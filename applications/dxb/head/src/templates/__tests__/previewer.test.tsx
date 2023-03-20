@@ -1,6 +1,7 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import * as gatsby from "gatsby";
+import { renderToStaticMarkup } from "react-dom/server";
 import Previewer from "../previewer";
 
 describe("Previewer", () => {
@@ -25,10 +26,10 @@ describe("Previewer", () => {
   it("render correctly", () => {
     locationSpy.mockReturnValue({ ...window.location, search: "slug=slug" });
     const { countryCode, pages } = data.contentfulSite;
-    const { container, getByText } = render(<Previewer data={data} />);
+    const { container } = render(<Previewer data={data} />);
 
     expect(container).toMatchSnapshot();
-    expect(getByText("Redirecting to slug")).toBeTruthy();
+    expect(screen.getByText("Redirecting to slug")).toBeTruthy();
     expect(navigateSpy).toHaveBeenCalledWith(
       `/${countryCode}/${pages[0].path}`
     );
@@ -36,30 +37,27 @@ describe("Previewer", () => {
 
   it("return null when window is undefined", () => {
     jest.spyOn(window, "window", "get").mockReturnValueOnce(undefined);
-    const { container } = render(<Previewer data={data} />);
+    const view = renderToStaticMarkup(<Previewer data={data} />);
 
-    expect(container).toMatchSnapshot();
-    expect(container).toBeEmptyDOMElement();
+    expect(view).toMatchSnapshot();
   });
 
   it("render correctly with no contentfulSite in data", () => {
-    const { container, getByText } = render(
-      <Previewer data={{ contentfulSite: null }} />
-    );
+    const { container } = render(<Previewer data={{ contentfulSite: null }} />);
 
     expect(container).toMatchSnapshot();
     expect(
-      getByText("No Sites found for the given country code.")
+      screen.getByText("No Sites found for the given country code.")
     ).toBeTruthy();
   });
 
   it("render correctly with no slug in window.location.search", () => {
     locationSpy.mockReturnValue({ ...window.location, search: "" });
-    const { container, getByText } = render(<Previewer data={data} />);
+    const { container } = render(<Previewer data={data} />);
 
     expect(container).toMatchSnapshot();
     expect(
-      getByText(
+      screen.getByText(
         "You need to specify a page slug in the URL. e.g. previewer?slug=metal-tiles."
       )
     ).toBeTruthy();
@@ -67,11 +65,11 @@ describe("Previewer", () => {
 
   it("render correctly with no matching slug", () => {
     locationSpy.mockReturnValue({ ...window.location, search: "slug=noMatch" });
-    const { container, getByText } = render(<Previewer data={data} />);
+    const { container } = render(<Previewer data={data} />);
 
     expect(container).toMatchSnapshot();
     expect(
-      getByText(
+      screen.getByText(
         "There is no page for the noMatch slug. Make sure you assign it to the site."
       )
     ).toBeTruthy();
@@ -83,10 +81,10 @@ describe("Previewer", () => {
       search: "slug=slug&slug=slug2"
     });
     const { countryCode, pages } = data.contentfulSite;
-    const { container, getByText } = render(<Previewer data={data} />);
+    const { container } = render(<Previewer data={data} />);
 
     expect(container).toMatchSnapshot();
-    expect(getByText(`Redirecting to slugslug2`)).toBeTruthy();
+    expect(screen.getByText(`Redirecting to slugslug2`)).toBeTruthy();
     expect(navigateSpy).toHaveBeenCalledWith(
       `/${countryCode}/${pages[0].path}`
     );

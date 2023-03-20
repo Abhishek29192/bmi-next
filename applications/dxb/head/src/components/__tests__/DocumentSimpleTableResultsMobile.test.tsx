@@ -1,5 +1,5 @@
 import { ThemeProvider } from "@bmi-digital/components";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import React from "react";
 import createContentfulDocument from "../../__tests__/helpers/ContentfulDocumentHelper";
 import createPimDocument from "../../__tests__/helpers/PimDocumentHelper";
@@ -51,34 +51,31 @@ describe("DocumentSimpleTableResultsMobile component", () => {
         <DocumentSimpleTableResultsMobile documents={[document]} />
       </ThemeProvider>
     );
-    const svg = container.querySelector(".download-icon");
 
     expect(container).toMatchSnapshot();
-    expect(svg).toBeTruthy();
+    expect(screen.getByTestId("download-icon")).toBeInTheDocument();
   });
   it("renders pim documents correctly", () => {
-    const { container, findByText } = render(
+    const { container } = render(
       <ThemeProvider>
         <DocumentSimpleTableResultsMobile documents={[pimDocument]} />
       </ThemeProvider>
     );
-    const svg = container.querySelector(".download-icon");
 
     expect(container).toMatchSnapshot();
-    expect(findByText("dummy-title")).not.toBeNull();
-    expect(svg).toBeTruthy();
+    expect(screen.getByText(pimDocument.title)).toBeInTheDocument();
+    expect(screen.getByTestId("download-icon")).toBeInTheDocument();
   });
   it("renders multiple documents of same asset type as zip file", () => {
-    const { container, queryAllByText } = render(
+    const { container } = render(
       <ThemeProvider>
         <DocumentSimpleTableResultsMobile documents={[pimDocument]} />
       </ThemeProvider>
     );
-    const svg = container.querySelector(".download-icon");
 
     expect(container).toMatchSnapshot();
-    expect(queryAllByText(pimDocument.title).length).toBe(1);
-    expect(svg).toBeTruthy();
+    expect(screen.queryAllByText(pimDocument.title).length).toBe(1);
+    expect(screen.getByTestId("download-icon")).toBeInTheDocument();
   });
 
   it("renders correctly when invalid asset types are used", () => {

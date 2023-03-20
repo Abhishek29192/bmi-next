@@ -3,7 +3,10 @@
   "extends": "../../../.eslintrc.js",
   "overrides": [
     {
-      "files": ["**/gatsby-ssr.js", "**/gatsby-browser.js"],
+      "files": [
+        "**/gatsby-ssr.js",
+        "**/gatsby-browser.js"
+      ],
       "parserOptions": {
         "sourceType": "module"
       }

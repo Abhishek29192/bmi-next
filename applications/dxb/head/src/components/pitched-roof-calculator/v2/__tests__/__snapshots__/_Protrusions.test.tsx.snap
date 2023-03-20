@@ -17,7 +17,7 @@ exports[`PitchedRoofCalculator Protrusions component renders correctly 1`] = `
         class="FieldContainer fieldsContainer"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-i24bwq-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-111ndel-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -27,9 +27,12 @@ exports[`PitchedRoofCalculator Protrusions component renders correctly 1`] = `
             <div
               class="css-tmrmui"
             >
-              <label>
+              <label
+                data-testid="card-input-label"
+              >
                 <input
                   class="CardInput-input"
+                  data-testid="card-input-input"
                   name="select-protrusion-0"
                   type="radio"
                   value="protrusion01"
@@ -60,9 +63,12 @@ exports[`PitchedRoofCalculator Protrusions component renders correctly 1`] = `
             <div
               class="css-tmrmui"
             >
-              <label>
+              <label
+                data-testid="card-input-label"
+              >
                 <input
                   class="CardInput-input"
+                  data-testid="card-input-input"
                   name="select-protrusion-0"
                   type="radio"
                   value="protrusion02"
@@ -93,9 +99,12 @@ exports[`PitchedRoofCalculator Protrusions component renders correctly 1`] = `
             <div
               class="css-tmrmui"
             >
-              <label>
+              <label
+                data-testid="card-input-label"
+              >
                 <input
                   class="CardInput-input"
+                  data-testid="card-input-input"
                   name="select-protrusion-0"
                   type="radio"
                   value="protrusion03"

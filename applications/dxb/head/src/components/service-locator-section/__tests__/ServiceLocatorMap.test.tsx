@@ -1,5 +1,5 @@
 import { ThemeProvider } from "@bmi-digital/components";
-import { fireEvent, render } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import { MapProps, ServiceLocatorMap } from "../components";
 import { imageData, selectedRooferMock } from "../__mocks__/markers";
@@ -49,52 +49,61 @@ const renderWithGoogleProvider = ({
 
 describe("ServiceLocatorMap component", () => {
   it("should not render popup with card if user didn't select a roofer in list", () => {
-    const { container } = renderWithGoogleProvider({});
-    const popupContainer = container.querySelector("popup");
-    expect(popupContainer).not.toBeInTheDocument();
+    renderWithGoogleProvider({});
+    const popupCloseBtn = screen.queryByRole("button", {
+      name: "MC: global.close"
+    });
+    expect(popupCloseBtn).not.toBeInTheDocument();
   });
+
   it("should render company logo inside card", () => {
-    const { getByAltText } = renderWithGoogleProvider({
+    renderWithGoogleProvider({
       selectedRoofer: {
         ...selectedRooferMock,
         companyLogo: { ...imageData }
       }
     });
-    expect(getByAltText(imageData.altText)).toBeInTheDocument();
+    expect(screen.getByAltText(imageData.altText)).toBeInTheDocument();
   });
+
   it("should render popup with card if user select a roofer in list", () => {
     const clearRooferAndResetMap = jest.fn();
-    const { getByRole } = renderWithGoogleProvider({
+    renderWithGoogleProvider({
       selectedRoofer: selectedRooferMock,
       clearRooferAndResetMap: clearRooferAndResetMap
     });
-    const popupCloseBtn = getByRole("button", { name: "MC: global.close" });
+    const popupCloseBtn = screen.getByRole("button", {
+      name: "MC: global.close"
+    });
     expect(popupCloseBtn).toBeInTheDocument();
     fireEvent.click(popupCloseBtn);
     expect(clearRooferAndResetMap).toHaveBeenCalled();
   });
+
   it("should not render popup card title and CompanyDetails summary", () => {
-    const { getByText } = renderWithGoogleProvider({
+    renderWithGoogleProvider({
       selectedRoofer: selectedRooferMock
     });
-    const title = getByText(selectedRooferMock.name);
-    const summary = getByText(selectedRooferMock.summary);
+    const title = screen.getByText(selectedRooferMock.name);
+    const summary = screen.getByText(selectedRooferMock.summary);
     expect(title).toBeInTheDocument();
     expect(summary).toBeInTheDocument();
   });
+
   it("should render popup card title and CompanyDetails summary", () => {
-    const { queryByText } = renderWithGoogleProvider({
+    renderWithGoogleProvider({
       selectedRoofer: {
         ...selectedRooferMock,
         name: undefined,
         summary: undefined
       }
     });
-    const title = queryByText(selectedRooferMock.name);
-    const summary = queryByText(selectedRooferMock.summary);
+    const title = screen.queryByText(selectedRooferMock.name);
+    const summary = screen.queryByText(selectedRooferMock.summary);
     expect(title).toBeNull();
     expect(summary).toBeNull();
   });
+
   it("should invoke getCompanyDetails", () => {
     const getCompanyDetails = jest.fn();
     renderWithGoogleProvider({

@@ -41,20 +41,13 @@ const createCard = (includeVideo = false): PromoData | PageInfoData => {
   };
 };
 
-const mockRenderVideo = jest.fn();
-jest.mock("../../../components/Video", () => {
-  return {
-    renderVideo: (video: ContentfulVideoData) => mockRenderVideo(video)
-  };
-});
-
 describe("PdpCardsSection", () => {
   beforeEach(() => {
     jest.clearAllMocks();
   });
-  it("should render corectly", () => {
+  it("should render correctly", () => {
     const card = createCard();
-    const { container, queryByAltText } = render(
+    const { baseElement } = render(
       <ThemeProvider>
         <PdpCardsSection
           resources={{
@@ -65,13 +58,12 @@ describe("PdpCardsSection", () => {
         />
       </ThemeProvider>
     );
-    expect(container.querySelector(".PdpCardsSection")).toBeInTheDocument();
-    expect(queryByAltText(card.featuredMedia.altText)).toBeInTheDocument();
-    expect(mockRenderVideo).not.toBeCalled();
+    expect(baseElement).toMatchSnapshot();
   });
+
   it("should render CTACard with video", () => {
     const card = createCard(true);
-    const { container, queryByAltText } = render(
+    const { baseElement } = render(
       <ThemeProvider>
         <PdpCardsSection
           resources={{
@@ -82,8 +74,6 @@ describe("PdpCardsSection", () => {
         />
       </ThemeProvider>
     );
-    expect(container.querySelector(".PdpCardsSection")).toBeInTheDocument();
-    expect(mockRenderVideo).toBeCalled();
-    expect(queryByAltText(card.featuredMedia.altText)).not.toBeInTheDocument();
+    expect(baseElement).toMatchSnapshot();
   });
 });

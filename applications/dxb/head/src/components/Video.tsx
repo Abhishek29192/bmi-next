@@ -1,4 +1,4 @@
-import { YoutubeVideo } from "@bmi-digital/components";
+import { Layout, YoutubeVideo } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React, { useMemo } from "react";
 import { useGTM } from "../utils/google-tag-manager";
@@ -12,26 +12,23 @@ export type Data = {
   previewMedia: ContentfulImageData | null;
   videoRatio: { width: number; height: number } | null;
   defaultYouTubePreviewImage: string;
+  layout?: Layout;
 };
 
 export type ContentfulVideoData = Data & {
   __typename: "ContentfulVideo";
 };
 
-const Video = ({ data }: { data: Data }) => {
-  return renderVideo(data);
-};
-
-export const renderVideo = (data: Data) => {
-  const {
-    label,
-    subtitle,
-    videoUrl,
-    previewMedia,
-    videoRatio,
-    defaultYouTubePreviewImage
-  } = data;
-
+const Video = ({
+  label,
+  subtitle,
+  videoUrl,
+  previewMedia,
+  videoRatio,
+  defaultYouTubePreviewImage,
+  layout,
+  ...props
+}: Data) => {
   const gtm = useMemo(
     () => ({
       id: "cta-click--video-youtube",
@@ -51,14 +48,12 @@ export const renderVideo = (data: Data) => {
       embedHeight={videoRatio?.height || 0}
       embedWidth={videoRatio?.width || 0}
       previewImageSource={
-        previewMedia ? (
-          <Image data={previewMedia} />
-        ) : (
-          defaultYouTubePreviewImage
-        )
+        previewMedia ? <Image {...previewMedia} /> : defaultYouTubePreviewImage
       }
+      layout={layout}
       onGTMEvent={pushGTMEvent}
       dataGTM={dataGTM}
+      {...props}
     />
   );
 };

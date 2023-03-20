@@ -129,7 +129,7 @@ const AboutLeadBlock = ({ system, sidebarItem }: Props) => {
                   {...(isExternalUrl(item.url) ? { isExternal: true } : {})}
                   className={classes.inlineLink}
                   data-testid={`guarantee-inline-link${
-                    item.name ? `-${item.name.replace(/ /g, "-")}` : ""
+                    item.name ? `-${replaceSpaces(item.name)}` : ""
                   }`}
                 >
                   {item.name}
@@ -180,6 +180,7 @@ const AboutLeadBlock = ({ system, sidebarItem }: Props) => {
                 label: system.specification.name,
                 action: system.specification.url
               }}
+              data-testid="specification-button"
             >
               {system.specification.name}
             </GTMButton>

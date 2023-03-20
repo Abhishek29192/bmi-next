@@ -46,7 +46,7 @@ exports[`SitemapSection component renders correctly 1`] = `
                     >
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-                        data-testid="anchor-link"
+                        data-testid="sitemap-link"
                         type="button"
                       >
                         <span>
@@ -79,7 +79,7 @@ exports[`SitemapSection component renders correctly 1`] = `
                     >
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-                        data-testid="anchor-link"
+                        data-testid="sitemap-link"
                         type="button"
                       >
                         <span>
@@ -145,7 +145,7 @@ exports[`SitemapSection component renders correctly 2 levels deep 1`] = `
                     >
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-                        data-testid="anchor-link"
+                        data-testid="sitemap-link"
                         type="button"
                       >
                         <span>
@@ -170,7 +170,7 @@ exports[`SitemapSection component renders correctly 2 levels deep 1`] = `
                           >
                             <a
                               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-                              data-testid="anchor-link"
+                              data-testid="sitemap-link"
                               type="button"
                             >
                               <span>
@@ -195,7 +195,7 @@ exports[`SitemapSection component renders correctly 2 levels deep 1`] = `
                                 >
                                   <a
                                     class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-                                    data-testid="anchor-link"
+                                    data-testid="sitemap-link"
                                     type="button"
                                   >
                                     <span>
@@ -234,7 +234,7 @@ exports[`SitemapSection component renders correctly 2 levels deep 1`] = `
                     >
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-                        data-testid="anchor-link"
+                        data-testid="sitemap-link"
                         type="button"
                       >
                         <span>

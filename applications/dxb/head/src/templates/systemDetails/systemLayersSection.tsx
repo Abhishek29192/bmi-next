@@ -25,7 +25,7 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
   const { getMicroCopy, countryCode } = useSiteContext();
 
   return (
-    <Accordion>
+    <Accordion data-testid="system-layers-accordion">
       {systemLayers &&
         systemLayers.map((layer, index) => {
           const relatedProduct = layer.relatedProducts?.[0];

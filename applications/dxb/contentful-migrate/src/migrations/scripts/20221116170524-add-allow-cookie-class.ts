@@ -1,6 +1,6 @@
+import cookieTypes from "../../variables/cookieTypes/202211171557";
 import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
-import cookieTypes from "../../variables/cookieTypes/202211171557";
 
 export const description = "Add allowed cookie classes on Iframe";
 

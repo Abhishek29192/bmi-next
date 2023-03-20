@@ -30,24 +30,24 @@ describe("ProductTechnicalSpec component", () => {
   describe("Renders correctly", () => {
     it("when no classifications provided", () => {
       const product = createProduct({ classifications: [] });
-      const wrapper = render(
+      const { baseElement } = render(
         <ThemeProvider>
           <ProductTechnicalSpec product={product} />
         </ThemeProvider>
       );
-      expect(wrapper.baseElement).toMatchSnapshot();
+      expect(baseElement).toMatchSnapshot();
     });
     describe("with microcopy text", () => {
       it("when no classifications and microcopy text is provided", () => {
         const product = createProduct({ classifications: [] });
-        const wrapper = render(
+        const { baseElement } = render(
           <ThemeProvider>
             <MockSiteContext>
               <ProductTechnicalSpec product={product} />
             </MockSiteContext>
           </ThemeProvider>
         );
-        expect(wrapper.baseElement).toMatchSnapshot();
+        expect(baseElement).toMatchSnapshot();
       });
     });
 
@@ -61,12 +61,12 @@ describe("ProductTechnicalSpec component", () => {
           ]
         });
 
-        const wrapper = render(
+        const { baseElement } = render(
           <ThemeProvider>
             <ProductTechnicalSpec product={product} />
           </ThemeProvider>
         );
-        expect(wrapper.baseElement).toMatchSnapshot();
+        expect(baseElement).toMatchSnapshot();
       });
 
       it("With a feature units", () => {
@@ -78,12 +78,12 @@ describe("ProductTechnicalSpec component", () => {
           ]
         });
 
-        const wrapper = render(
+        const { baseElement } = render(
           <ThemeProvider>
             <ProductTechnicalSpec product={product} />
           </ThemeProvider>
         );
-        expect(wrapper.baseElement).toMatchSnapshot();
+        expect(baseElement).toMatchSnapshot();
       });
     });
 
@@ -99,12 +99,12 @@ describe("ProductTechnicalSpec component", () => {
             })
           ]
         });
-        const wrapper = render(
+        const { baseElement } = render(
           <ThemeProvider>
             <ProductTechnicalSpec product={product} />
           </ThemeProvider>
         );
-        expect(wrapper.baseElement).toMatchSnapshot();
+        expect(baseElement).toMatchSnapshot();
       });
 
       it("With more than one feature units", () => {
@@ -118,12 +118,12 @@ describe("ProductTechnicalSpec component", () => {
             })
           ]
         });
-        const wrapper = render(
+        const { baseElement } = render(
           <ThemeProvider>
             <ProductTechnicalSpec product={product} />
           </ThemeProvider>
         );
-        expect(wrapper.baseElement).toMatchSnapshot();
+        expect(baseElement).toMatchSnapshot();
       });
     });
   });

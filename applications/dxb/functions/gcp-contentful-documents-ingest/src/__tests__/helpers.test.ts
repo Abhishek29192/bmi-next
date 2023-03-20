@@ -1,6 +1,5 @@
 import { mockRequest, mockResponse } from "@bmi-digital/fetch-mocks";
 import { Request, Response } from "@google-cloud/functions-framework";
-import mockConsole from "jest-mock-console";
 
 const checkEnvVariablesMissing = async (response: Partial<Response>) =>
   (await import("../helpers")).checkEnvVariablesMissing(response as Response);
@@ -24,7 +23,6 @@ const checkHttpMethod = async (
   );
 
 beforeEach(() => {
-  mockConsole();
   process.env.MARKET_LOCALE = "en-US";
 });
 

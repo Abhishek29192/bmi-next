@@ -37,7 +37,7 @@ exports[`FilterSection render correctly 1`] = `
             aria-expanded="false"
             aria-label="filter1"
             class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
-            data-gtm="{\\"id\\":\\"filter1\\",\\"label\\":\\"filter1\\",\\"action\\":\\"Selector – Filter\\"}"
+            data-gtm="{"id":"filter1","label":"filter1","action":"Selector – Filter"}"
             role="button"
             tabindex="0"
           >
@@ -96,7 +96,7 @@ exports[`FilterSection render correctly 1`] = `
                           >
                             <span
                               class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
-                              data-gtm="{\\"id\\":\\"filter2\\",\\"label\\":\\"filterLabel\\",\\"action\\":\\"Selector – Filter\\"}"
+                              data-gtm="{"id":"filter2","label":"filterLabel","action":"Selector – Filter"}"
                               data-testid="filter-checkbox"
                             >
                               <input

@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`useScrollToOnLoad hook calls window.scrollTo 1`] = `
-Array [
-  Array [
+[
+  [
     0,
     410,
   ],
@@ -10,8 +10,8 @@ Array [
 `;
 
 exports[`useScrollToOnLoad hook can skip scrolling then do it later 1`] = `
-Array [
-  Array [
+[
+  [
     0,
     410,
   ],
@@ -19,16 +19,12 @@ Array [
 `;
 
 exports[`useScrollToOnLoad hook waits before scrolling 1`] = `
-Array [
-  Array [
-    [Function],
-    0,
-  ],
-  Array [
+[
+  [
     [Function],
     1000,
   ],
-  Array [
+  [
     [Function],
     1000,
   ],

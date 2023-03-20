@@ -1,7 +1,7 @@
 import { graphql } from "gatsby";
-import { Data as FormData } from "./FormSection";
-import { Data as PageInfoData } from "./PageInfo";
-import { RichTextData } from "./RichText";
+import type { Data as FormData } from "./FormSection";
+import type { Data as PageInfoData } from "./PageInfo";
+import type { RichTextData } from "./RichText";
 
 export type Data = {
   __typename: "SampleBasketSection";

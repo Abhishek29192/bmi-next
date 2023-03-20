@@ -1,6 +1,6 @@
 import { PerspectiveCamera, Vector3 } from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import React from "react";
 import Viewer, { Props, State } from "../Viewer";
 import tileMock from "./__mocks__/tile";
@@ -8,6 +8,7 @@ import sidingMock from "./__mocks__/siding";
 
 class ViewerImpl extends Viewer<Props, State> {
   load() {}
+
   loadModel(props) {
     return Promise.resolve(props);
   }
@@ -339,7 +340,7 @@ describe("Viewer methods", () => {
 
 describe("Viewer component", () => {
   beforeEach(() => {
-    jest.useFakeTimers("modern");
+    jest.useFakeTimers();
   });
 
   afterEach(() => {
@@ -485,7 +486,9 @@ describe("Viewer component", () => {
     fireEvent.click(screen.getByLabelText("Zoom in"));
     jest.runAllTimers();
 
-    expect(screen.queryByLabelText("Rotate top")).not.toBeInTheDocument();
+    await waitFor(() =>
+      expect(screen.queryByLabelText("Rotate top")).not.toBeInTheDocument()
+    );
   });
 
   it("calls loadModel if user changes tile", () => {

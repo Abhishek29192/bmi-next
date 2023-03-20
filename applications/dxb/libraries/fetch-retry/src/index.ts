@@ -1,5 +1,5 @@
-import type { RequestInfo, RequestInit, Response } from "node-fetch";
 import fetch from "node-fetch";
+import type { RequestInfo, RequestInit, Response } from "node-fetch";
 import type { RetryOptions } from "./types";
 
 /**

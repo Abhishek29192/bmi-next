@@ -42,7 +42,7 @@ const TeamList = ({ data }: { data: Data | null }) => {
             return (
               <Grid xs={12} sm={6} lg={3} key={index}>
                 <ProfileCard
-                  imageSource={profileImage && <Image data={profileImage} />}
+                  imageSource={profileImage && <Image {...profileImage} />}
                   body={
                     <EqualHeights.Consumer shouldDisableBoxSizing>
                       {({ addRef, equalHeight }) => {

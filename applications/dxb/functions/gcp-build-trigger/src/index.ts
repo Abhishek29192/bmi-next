@@ -1,7 +1,7 @@
 import logger from "@bmi-digital/functions-logger";
 import { waitFor } from "@bmi/utils";
-import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import fetch from "node-fetch";
+import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 
 const { DELAY_MILLISECONDS, NETLIFY_BUILD_HOOK } = process.env;
 

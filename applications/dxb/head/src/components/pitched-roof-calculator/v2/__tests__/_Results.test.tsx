@@ -2,7 +2,6 @@ import { TextField, ThemeProvider } from "@bmi-digital/components";
 import { mockResponses } from "@bmi-digital/fetch-mocks";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import fetchMockJest from "fetch-mock-jest";
-import mockConsole from "jest-mock-console";
 import React, { useEffect, useRef } from "react";
 import { renderToString } from "react-dom/server";
 import { useIsMobileDevice } from "../../../../utils/useIsMobileDevice";
@@ -28,10 +27,6 @@ jest.mock("../../../../utils/useIsMobileDevice", () => ({
   useIsMobileDevice: jest.fn().mockReturnValue(false)
 }));
 
-beforeAll(() => {
-  mockConsole();
-});
-
 const openPdfMock = jest.fn();
 const getBlobMock = jest.fn();
 
@@ -53,8 +48,10 @@ jest.mock("../../../FormSection", () => {
     useEffect(() => {
       // inserts content into iframe document
       ref.current.contentDocument.body.innerHTML = renderToString(<HSForm />);
+      console.log(ref.current.contentDocument.body.innerHTML);
       props.onFormReady?.({}, ref.current);
       // tracks submit event of iframe form
+      // eslint-disable-next-line testing-library/no-node-access
       ref.current.contentDocument.querySelector("form").onsubmit =
         props.onSuccess;
     }, []);
@@ -70,17 +67,21 @@ jest.mock("../../../FormSection", () => {
               variant="outlined"
               isRequired
               placeholder="name"
+              data-testid="hs-name"
             />
             <TextField
               name="email"
               variant="outlined"
               isRequired
               placeholder="email"
+              data-testid="hs-email"
             />
             <div className="hs-file">
               <input type="file" name="file" />
             </div>
-            <button id="submit-button">Submit button</button>
+            <button id="submit-button" data-testid="hs-submit-button">
+              Submit button
+            </button>
           </form>
         </div>
       </ThemeProvider>
@@ -622,12 +623,15 @@ describe("PitchedRoofCalculator Results component", () => {
 
     const hsForm = screen.getByTitle<HTMLIFrameElement>("HubSpot Form");
     const emailInput =
+      // eslint-disable-next-line testing-library/no-node-access -- screen can't access iframe contents for some reason
       hsForm.contentDocument.querySelector("input[name=email]");
     fireEvent.change(emailInput, { target: { value: "test@test.test" } });
 
+    // eslint-disable-next-line testing-library/no-node-access -- screen can't access iframe contents for some reason
     const nameInput = hsForm.contentDocument.querySelector("input[name=name]");
     fireEvent.change(nameInput, { target: { value: "Test Name" } });
 
+    // eslint-disable-next-line testing-library/no-node-access -- screen can't access iframe contents for some reason
     fireEvent.click(hsForm.contentDocument.getElementById("submit-button"));
     await waitFor(() => expect(openPdfMock).toHaveBeenCalledTimes(1));
   });

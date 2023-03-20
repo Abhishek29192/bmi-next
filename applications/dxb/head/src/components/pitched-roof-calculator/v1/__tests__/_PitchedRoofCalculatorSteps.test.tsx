@@ -1,6 +1,5 @@
 import React from "react";
-import { render } from "@testing-library/react";
-import { act } from "@testing-library/react";
+import { act, render } from "@testing-library/react";
 import {
   Props as CalculatorStepperProps,
   StepProps
@@ -193,9 +192,7 @@ describe("PitchedRoofCalculatorSteps component", () => {
       </MicroCopy.Provider>
     );
 
-    const { rerender, debug } = render(getComponent(selected));
-
-    debug();
+    const { rerender } = render(getComponent(selected));
 
     expect(renderedStep).toBe("select-roof");
 

@@ -52,6 +52,7 @@ const IframeSection = ({ data }: Props) => {
         src={data.url}
         width="100%"
         height={data.height}
+        data-testid={`iframe-section-${replaceSpaces(data.title)}-iframe`}
       ></iframe>
     </Section>
   );

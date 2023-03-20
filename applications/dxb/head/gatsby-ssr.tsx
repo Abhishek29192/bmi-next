@@ -1,8 +1,8 @@
 import { HubspotProvider } from "@aaronhayes/react-use-hubspot-form";
 import { ThemeProvider } from "@bmi-digital/components";
-import type { GatsbySSR } from "gatsby";
 import React from "react";
 import { ConfigProvider } from "./src/contexts/ConfigProvider";
+import type { GatsbySSR } from "gatsby";
 import "./src/styles/global.css";
 
 export const wrapRootElement: GatsbySSR["wrapRootElement"] = ({ element }) => {

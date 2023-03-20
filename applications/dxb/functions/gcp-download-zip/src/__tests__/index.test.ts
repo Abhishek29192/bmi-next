@@ -8,7 +8,6 @@ import {
 } from "@bmi-digital/fetch-mocks";
 import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
-import mockConsole from "jest-mock-console";
 
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
@@ -59,10 +58,6 @@ const temporaryFileContents = (temporaryFile: PathLike) =>
 const deleteTemporaryFile = (temporaryFile: PathLike) =>
   // eslint-disable-next-line security/detect-non-literal-fs-filename
   fs.existsSync(temporaryFile) && fs.unlinkSync(temporaryFile);
-
-beforeAll(() => {
-  mockConsole();
-});
 
 beforeEach(() => {
   jest.clearAllMocks();

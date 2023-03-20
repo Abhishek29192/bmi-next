@@ -251,7 +251,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
             index={tabKey}
           >
             {hasBeenDisplayed ? (
-              <Container>
+              <Container data-testid={`container-${tabKey}`}>
                 <Component
                   queryString={queryString}
                   pageContext={pageContext}

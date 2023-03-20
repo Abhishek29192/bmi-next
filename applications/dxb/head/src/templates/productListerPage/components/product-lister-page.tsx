@@ -11,13 +11,13 @@ import {
   SpotlightHeroProps,
   Typography
 } from "@bmi-digital/components";
-import type { Product as ESProduct } from "@bmi/elasticsearch-types";
 import { Check as CheckIcon } from "@mui/icons-material";
 import { styled } from "@mui/material/styles";
 import { useLocation } from "@reach/router";
 import { graphql } from "gatsby";
 import queryString from "query-string";
 import React, { useEffect, useMemo, useRef, useState } from "react";
+import type { Product as ESProduct } from "@bmi/elasticsearch-types";
 import Breadcrumbs, {
   Data as BreadcrumbsData
 } from "../../../components/Breadcrumbs";

@@ -1,6 +1,6 @@
+import { richTextFromMarkdown } from "@contentful/rich-text-from-markdown";
 import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
-import { richTextFromMarkdown } from "@contentful/rich-text-from-markdown";
 
 export const description = "Convert Markdown to RichText";
 

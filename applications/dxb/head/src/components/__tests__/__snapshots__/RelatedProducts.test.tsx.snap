@@ -74,7 +74,7 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
                           aria-controls="tabpanel-group"
                           aria-selected="true"
                           class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                          data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"group\\",\\"action\\":\\"Filter – Related Products\\"}"
+                          data-gtm="{"id":"related-products-filter1","label":"group","action":"Filter – Related Products"}"
                           data-testid="tab-group"
                           id="tab-group"
                           role="tab"
@@ -123,7 +123,7 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
               role="tabpanel"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
                 data-testid="grid-container"
               >
                 <div
@@ -132,7 +132,7 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
                 >
                   <a
                     class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-iozq77-MuiButtonBase-root"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/path/\\"}"
+                    data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
                     data-testid="GTMOverviewCard"
                     href="/en/path/"
                     tabindex="0"
@@ -287,7 +287,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                           aria-controls="tabpanel-group"
                           aria-selected="true"
                           class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                          data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"group\\",\\"action\\":\\"Filter – Related Products\\"}"
+                          data-gtm="{"id":"related-products-filter1","label":"group","action":"Filter – Related Products"}"
                           data-testid="tab-group"
                           id="tab-group"
                           role="tab"
@@ -336,7 +336,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
               role="tabpanel"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
                 data-testid="grid-container"
               >
                 <div
@@ -345,7 +345,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                 >
                   <a
                     class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-iozq77-MuiButtonBase-root"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/path/\\"}"
+                    data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
                     data-testid="GTMOverviewCard"
                     href="/en/path/"
                     tabindex="0"
@@ -422,7 +422,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                 >
                   <a
                     class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-iozq77-MuiButtonBase-root"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/path/\\"}"
+                    data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
                     data-testid="GTMOverviewCard"
                     href="/en/path/"
                     tabindex="0"
@@ -492,7 +492,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                 >
                   <a
                     class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-iozq77-MuiButtonBase-root"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/path/\\"}"
+                    data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
                     data-testid="GTMOverviewCard"
                     href="/en/path/"
                     tabindex="0"
@@ -638,7 +638,7 @@ exports[`RelatedProducts component renders with correct gtmLabel 1`] = `
                           aria-controls="tabpanel-group"
                           aria-selected="true"
                           class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                          data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"group\\",\\"action\\":\\"Filter – Related Products\\"}"
+                          data-gtm="{"id":"related-products-filter1","label":"group","action":"Filter – Related Products"}"
                           data-testid="tab-group"
                           id="tab-group"
                           role="tab"
@@ -687,7 +687,7 @@ exports[`RelatedProducts component renders with correct gtmLabel 1`] = `
               role="tabpanel"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
                 data-testid="grid-container"
               >
                 <div
@@ -696,7 +696,7 @@ exports[`RelatedProducts component renders with correct gtmLabel 1`] = `
                 >
                   <a
                     class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-iozq77-MuiButtonBase-root"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/path/\\"}"
+                    data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
                     data-testid="GTMOverviewCard"
                     href="/en/path/"
                     tabindex="0"

@@ -90,7 +90,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1a title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1a title"
@@ -144,7 +144,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
                           <input
                             checked=""
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1b title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1b title"
@@ -238,16 +238,16 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
             </div>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
             data-testid="system-configuration-results-grid"
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="system-card-efgh"
+              data-testid="efgh"
             >
               <a
                 class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-iozq77-MuiButtonBase-root"
-                data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"efgh name\\",\\"action\\":\\"/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details\\"}"
+                data-gtm="{"id":"system-configurator01-results","label":"efgh name","action":"/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details"}"
                 href="/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
               >
@@ -388,7 +388,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1a title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1a title"
@@ -442,7 +442,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
                           <input
                             checked=""
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1b title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1b title"
@@ -536,16 +536,16 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
             </div>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
             data-testid="system-configuration-results-grid"
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="system-card-efgh"
+              data-testid="efgh"
             >
               <a
                 class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-iozq77-MuiButtonBase-root"
-                data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"efgh name\\",\\"action\\":\\"/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details\\"}"
+                data-gtm="{"id":"system-configurator01-results","label":"efgh name","action":"/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details"}"
                 href="/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
               >
@@ -686,7 +686,7 @@ exports[`SystemConfiguratorSection component redirect to 404 page if no matches 
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1a title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1a title"
@@ -740,7 +740,7 @@ exports[`SystemConfiguratorSection component redirect to 404 page if no matches 
                           <input
                             checked=""
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1b title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1b title"
@@ -926,7 +926,7 @@ exports[`SystemConfiguratorSection component renders System Configurator Block w
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1a title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1a title"
@@ -979,7 +979,7 @@ exports[`SystemConfiguratorSection component renders System Configurator Block w
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1b title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1b title"
@@ -1126,7 +1126,7 @@ exports[`SystemConfiguratorSection component renders a no result section when an
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1a title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1a title"
@@ -1180,7 +1180,7 @@ exports[`SystemConfiguratorSection component renders a no result section when an
                           <input
                             checked=""
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1b title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1b title"
@@ -1365,7 +1365,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
                           <input
                             checked=""
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1a title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1a title"
@@ -1418,7 +1418,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1b title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1b title"
@@ -1512,16 +1512,16 @@ exports[`SystemConfiguratorSection component renders a result section when answe
             </div>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
             data-testid="system-configuration-results-grid"
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="system-card-efgh"
+              data-testid="efgh"
             >
               <a
                 class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-iozq77-MuiButtonBase-root"
-                data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"efgh name\\",\\"action\\":\\"/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details\\"}"
+                data-gtm="{"id":"system-configurator01-results","label":"efgh name","action":"/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details"}"
                 href="/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
               >
@@ -1663,7 +1663,7 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
                           <input
                             checked=""
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1a title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1a title"
@@ -1716,7 +1716,7 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1b title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1b title"
@@ -1835,7 +1835,7 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Next Question Title\\",\\"action\\":\\"Answer 1a title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Next Question Title","action":"Answer 1a title"}"
                             name="Next Question Title"
                             type="radio"
                             value="Answer 1a title"
@@ -1888,7 +1888,7 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Next Question Title\\",\\"action\\":\\"Answer 1b title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Next Question Title","action":"Answer 1b title"}"
                             name="Next Question Title"
                             type="radio"
                             value="Answer 1b title"
@@ -2031,7 +2031,7 @@ exports[`SystemConfiguratorSection component renders correctly 1`] = `
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1a title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1a title"
@@ -2084,7 +2084,7 @@ exports[`SystemConfiguratorSection component renders correctly 1`] = `
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1b title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1b title"
@@ -2232,7 +2232,7 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
                           <input
                             checked=""
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1a title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1a title"
@@ -2285,7 +2285,7 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1b title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1b title"
@@ -2404,7 +2404,7 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Next Question Title\\",\\"action\\":\\"Answer 1a title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Next Question Title","action":"Answer 1a title"}"
                             name="Next Question Title"
                             type="radio"
                             value="Answer 1a title"
@@ -2457,7 +2457,7 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Next Question Title\\",\\"action\\":\\"Answer 1b title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Next Question Title","action":"Answer 1b title"}"
                             name="Next Question Title"
                             type="radio"
                             value="Answer 1b title"
@@ -2604,7 +2604,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1a title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1a title"
@@ -2658,7 +2658,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
                           <input
                             checked=""
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1b title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1b title"
@@ -2829,7 +2829,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1a title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1a title"
@@ -2883,7 +2883,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
                           <input
                             checked=""
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1b title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1b title"
@@ -3054,7 +3054,7 @@ exports[`SystemConfiguratorSection component renders no result section with the 
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1a title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1a title"
@@ -3108,7 +3108,7 @@ exports[`SystemConfiguratorSection component renders no result section with the 
                           <input
                             checked=""
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1b title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1b title"
@@ -3301,7 +3301,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1a title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1a title"
@@ -3355,7 +3355,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                           <input
                             checked=""
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1b title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1b title"
@@ -3449,16 +3449,16 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
             </div>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
             data-testid="system-configuration-results-grid"
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="system-card-ijkl"
+              data-testid="ijkl"
             >
               <a
                 class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-iozq77-MuiButtonBase-root"
-                data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"ijkl name\\",\\"action\\":\\"/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details\\"}"
+                data-gtm="{"id":"system-configurator01-results","label":"ijkl name","action":"/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details"}"
                 href="/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
               >
@@ -3495,24 +3495,18 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                       type="button"
                     >
                       MC: sdp.system.readMore
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
                     </button>
                   </div>
                 </div>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
               </a>
             </div>
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="system-card-efgh"
+              data-testid="efgh"
             >
               <a
                 class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-iozq77-MuiButtonBase-root"
-                data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"efgh name\\",\\"action\\":\\"/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details\\"}"
+                data-gtm="{"id":"system-configurator01-results","label":"efgh name","action":"/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details"}"
                 href="/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
               >
@@ -3549,24 +3543,18 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                       type="button"
                     >
                       MC: sdp.system.readMore
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
                     </button>
                   </div>
                 </div>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
               </a>
             </div>
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="system-card-abcd"
+              data-testid="abcd"
             >
               <a
                 class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-iozq77-MuiButtonBase-root"
-                data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"abcd name\\",\\"action\\":\\"/no/related-system-path/?selected_system=abcd&prev_page=/test-path&referer=sys_details\\"}"
+                data-gtm="{"id":"system-configurator01-results","label":"abcd name","action":"/no/related-system-path/?selected_system=abcd&prev_page=/test-path&referer=sys_details"}"
                 href="/no/related-system-path/?selected_system=abcd&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
               >
@@ -3603,24 +3591,18 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                       type="button"
                     >
                       MC: sdp.system.readMore
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
                     </button>
                   </div>
                 </div>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
               </a>
             </div>
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="system-card-mnop"
+              data-testid="mnop"
             >
               <a
                 class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-iozq77-MuiButtonBase-root"
-                data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"mnop name\\",\\"action\\":\\"/no/related-system-path/?selected_system=mnop&prev_page=/test-path&referer=sys_details\\"}"
+                data-gtm="{"id":"system-configurator01-results","label":"mnop name","action":"/no/related-system-path/?selected_system=mnop&prev_page=/test-path&referer=sys_details"}"
                 href="/no/related-system-path/?selected_system=mnop&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
               >
@@ -3657,15 +3639,9 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                       type="button"
                     >
                       MC: sdp.system.readMore
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
                     </button>
                   </div>
                 </div>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
               </a>
             </div>
           </div>
@@ -3766,7 +3742,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1a title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1a title"
@@ -3820,7 +3796,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
                           <input
                             checked=""
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1b title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1b title"
@@ -3914,16 +3890,16 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
             </div>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
             data-testid="system-configuration-results-grid"
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="system-card-ijkl"
+              data-testid="ijkl"
             >
               <a
                 class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-iozq77-MuiButtonBase-root"
-                data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"ijkl name\\",\\"action\\":\\"/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details\\"}"
+                data-gtm="{"id":"system-configurator01-results","label":"ijkl name","action":"/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details"}"
                 href="/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
               >
@@ -3973,11 +3949,11 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
             </div>
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="system-card-efgh"
+              data-testid="efgh"
             >
               <a
                 class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-iozq77-MuiButtonBase-root"
-                data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"efgh name\\",\\"action\\":\\"/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details\\"}"
+                data-gtm="{"id":"system-configurator01-results","label":"efgh name","action":"/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details"}"
                 href="/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
               >
@@ -4123,7 +4099,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1a title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1a title"
@@ -4177,7 +4153,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                           <input
                             checked=""
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1b title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1b title"
@@ -4301,7 +4277,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                           <input
                             checked=""
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Skipped Title\\",\\"action\\":\\"Skipped Answer Title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Skipped Title","action":"Skipped Answer Title"}"
                             name="Skipped Title"
                             type="radio"
                             value="Skipped Answer Title"
@@ -4420,7 +4396,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Next Question Title\\",\\"action\\":\\"Answer 1a title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Next Question Title","action":"Answer 1a title"}"
                             name="Next Question Title"
                             type="radio"
                             value="Answer 1a title"
@@ -4473,7 +4449,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Next Question Title\\",\\"action\\":\\"Answer 1b title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Next Question Title","action":"Answer 1b title"}"
                             name="Next Question Title"
                             type="radio"
                             value="Answer 1b title"
@@ -4620,7 +4596,7 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1a title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1a title"
@@ -4674,7 +4650,7 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
                           <input
                             checked=""
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1b title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1b title"
@@ -4793,7 +4769,7 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Next Question Title\\",\\"action\\":\\"Answer 1a title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Next Question Title","action":"Answer 1a title"}"
                             name="Next Question Title"
                             type="radio"
                             value="Answer 1a title"
@@ -4846,7 +4822,7 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Next Question Title\\",\\"action\\":\\"Answer 1b title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Next Question Title","action":"Answer 1b title"}"
                             name="Next Question Title"
                             type="radio"
                             value="Answer 1b title"
@@ -5005,7 +4981,7 @@ exports[`SystemConfiguratorSection component renders with description rich text 
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1a title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1a title"
@@ -5058,7 +5034,7 @@ exports[`SystemConfiguratorSection component renders with description rich text 
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1b title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1b title"
@@ -5117,6 +5093,220 @@ exports[`SystemConfiguratorSection component renders with description rich text 
 
 exports[`SystemConfiguratorSection component throws error 1`] = `
 <div>
-  Something went wrong
+  <div
+    class="Scrim Scrim--light"
+  >
+    <span
+      class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary ProgressIndicator ProgressIndicator--light css-1kcdtbk-MuiCircularProgress-root"
+      data-testid="progress-indicator"
+      role="progressbar"
+      style="width: 72px; height: 72px;"
+    >
+      <svg
+        class="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
+        viewBox="22 22 44 44"
+      >
+        <circle
+          class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-176wh8e-MuiCircularProgress-circle"
+          cx="44"
+          cy="44"
+          fill="none"
+          r="20.5"
+          stroke-width="3"
+        />
+      </svg>
+    </span>
+  </div>
+  <div
+    class="SystemConfigurator Section-root Section-white css-cxq310"
+    data-testid="system-configuration-section-System-Configurator-Section-Title"
+  >
+    <div
+      class=" css-ze8cyt"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
+      >
+        <h2
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          data-testid="typography"
+        >
+          System Configurator Section Title
+        </h2>
+        <div
+          class="css-1rikofx"
+        >
+          <div
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded Mui-disabled MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            data-testid="configurator-panel-accordion"
+          >
+            <div
+              aria-disabled="true"
+              aria-expanded="true"
+              class="MuiButtonBase-root Mui-disabled MuiAccordionSummary-root Mui-expanded Mui-disabled MuiAccordionSummary-gutters css-17dbip5-MuiButtonBase-root-MuiAccordionSummary-root"
+              data-testid="configurator-panel-accordion-summary"
+              role="button"
+              tabindex="-1"
+            >
+              <div
+                class="MuiAccordionSummary-content Mui-expanded MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
+              >
+                <h3
+                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
+                  data-testid="configurator-panel-accordion-summary-title"
+                >
+                  Question One
+                </h3>
+              </div>
+              <div
+                class="MuiAccordionSummary-expandIconWrapper Mui-expanded css-yw020d-MuiAccordionSummary-expandIconWrapper"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  data-testid="ExpandMoreIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div
+              class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-entered css-pwcg7p-MuiCollapse-root"
+              style="min-height: 0px;"
+            >
+              <div
+                class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
+              >
+                <div
+                  class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
+                >
+                  <div
+                    class="MuiAccordion-region"
+                    role="region"
+                  >
+                    <div
+                      class="MuiAccordionDetails-root css-1n6v6h4-MuiAccordionDetails-root"
+                      data-testid="configurator-panel-accordion-details"
+                    >
+                      <div
+                        class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1a-title"
+                      >
+                        <label
+                          class="RadioPane-label"
+                        >
+                          <input
+                            class="RadioPane-input"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1a title"}"
+                            name="Question One"
+                            type="radio"
+                            value="Answer 1a title"
+                          />
+                          <div
+                            class="MuiButtonBase-root RadioPane-pane css-10d1a0h-MuiButtonBase-root"
+                            role="button"
+                            tabindex="-1"
+                          >
+                            <div
+                              class="RadioPane-header"
+                            >
+                              <h6
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                data-testid="typography"
+                              >
+                                Answer 1a title
+                              </h6>
+                              <svg
+                                aria-hidden="true"
+                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium RadioPane-checkedIcon css-i4bv87-MuiSvgIcon-root"
+                                data-testid="CheckCircleIcon"
+                                focusable="false"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                                />
+                              </svg>
+                            </div>
+                            <span
+                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                            />
+                          </div>
+                        </label>
+                        <div
+                          class="RadioPane-btnContainer"
+                        >
+                          <div
+                            class="RadioPane-iconBtn"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1b-title"
+                      >
+                        <label
+                          class="RadioPane-label"
+                        >
+                          <input
+                            class="RadioPane-input"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1b title"}"
+                            name="Question One"
+                            type="radio"
+                            value="Answer 1b title"
+                          />
+                          <div
+                            class="MuiButtonBase-root RadioPane-pane css-10d1a0h-MuiButtonBase-root"
+                            role="button"
+                            tabindex="-1"
+                          >
+                            <div
+                              class="RadioPane-header"
+                            >
+                              <h6
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                data-testid="typography"
+                              >
+                                Answer 1b title
+                              </h6>
+                              <svg
+                                aria-hidden="true"
+                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium RadioPane-checkedIcon css-i4bv87-MuiSvgIcon-root"
+                                data-testid="CheckCircleIcon"
+                                focusable="false"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                                />
+                              </svg>
+                            </div>
+                            <span
+                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                            />
+                          </div>
+                        </label>
+                        <div
+                          class="RadioPane-btnContainer"
+                        >
+                          <div
+                            class="RadioPane-iconBtn"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;

@@ -56,7 +56,9 @@ const SampleOrderSection = ({
   };
   const [hasSampleInTheBasket, setHasSampleInTheBasket] = useState(false);
   const [isBasketFull, setIsBasketFull] = useState(false);
-  const [basketHasProducts, setBasketHasProducts] = useState(false);
+  const [basketHasProducts, setBasketHasProducts] = useState(
+    basketState.products.length > 0
+  );
   const { countryCode } = useSiteContext();
   useEffect(() => {
     if (product) {

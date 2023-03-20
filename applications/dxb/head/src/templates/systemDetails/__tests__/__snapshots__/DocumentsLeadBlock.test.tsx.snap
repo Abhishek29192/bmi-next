@@ -14,6 +14,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
         >
           <div
             class="DocumentSimpleTableResults css-1iwuinm"
+            data-testid="document-simple-table-results"
           >
             <div
               class="css-ya57aw"
@@ -60,7 +61,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
                 >
                   <tr
                     class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
-                    data-test-id="document-table-row-pim-link-document-id"
+                    data-testid="document-table-row-pim-link-document-id"
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
@@ -122,6 +123,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
         </div>
         <div
           class="DocumentResultsFooter"
+          data-testid="document-results-footer"
         >
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
@@ -134,7 +136,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
           </a>
           <button
             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-            data-gtm="{\\"id\\":\\"download3-button1\\",\\"label\\":\\"MC: downloadList.download (0)\\",\\"action\\":\\"[]\\"}"
+            data-gtm="{"id":"download3-button1","label":"MC: downloadList.download (0)","action":"[]"}"
             data-testid="document-table-download-button"
             tabindex="0"
             type="button"
@@ -151,7 +153,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
             This site is protected by reCAPTCHA and the Google 
             <a
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-              data-testid="anchor-link"
+              data-testid="recaptcha-privacy-policy-link"
               href="https://policies.google.com/privacy"
               rel="noreferrer noopener"
               target="_blank"
@@ -163,7 +165,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
              and 
             <a
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-              data-testid="anchor-link"
+              data-testid="recaptcha-terms-of-service-link"
               href="https://policies.google.com/terms"
               rel="noreferrer noopener"
               target="_blank"

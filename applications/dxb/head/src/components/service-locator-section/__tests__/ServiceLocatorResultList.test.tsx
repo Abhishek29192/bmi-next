@@ -1,5 +1,5 @@
 import { ThemeProvider } from "@bmi-digital/components";
-import { render } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import createService from "../../../__tests__/helpers/ServiceHelper";
 import { ServiceLocatorResultList } from "../components";
@@ -12,7 +12,7 @@ const handlePageChange = jest.fn();
 
 describe("ServiceLocatorResultList component", () => {
   it("should renders empty list with NO service", () => {
-    const { getByRole } = render(
+    render(
       <ThemeProvider>
         <ServiceLocatorResultList
           page={1}
@@ -27,7 +27,7 @@ describe("ServiceLocatorResultList component", () => {
         />
       </ThemeProvider>
     );
-    const noResultHeading = getByRole("heading", {
+    const noResultHeading = screen.getByRole("heading", {
       name: /MC: findARoofer.noResults.title/i
     });
     expect(noResultHeading).toBeDefined();
@@ -46,7 +46,7 @@ describe("ServiceLocatorResultList component", () => {
         ? ` - ${service.serviceTypes[0].name}`
         : ` - ${service.entryType}`
     } - selected`;
-    const { getByTestId } = render(
+    render(
       <ThemeProvider>
         <ServiceLocatorResultList
           page={1}
@@ -62,14 +62,14 @@ describe("ServiceLocatorResultList component", () => {
       </ThemeProvider>
     );
     const gtmData = JSON.parse(
-      getByTestId(listItemTestId).getAttribute("data-gtm")
+      screen.getByTestId(listItemTestId).getAttribute("data-gtm")
     );
     expect(gtmData.label).toEqual(expectedResult);
   });
   it("should execute callback fn when user click on list item", () => {
     const service = createService({ serviceTypes: [] });
     const onListItemClick = jest.fn();
-    const { getByTestId } = render(
+    render(
       <ThemeProvider>
         <ServiceLocatorResultList
           page={1}
@@ -84,14 +84,14 @@ describe("ServiceLocatorResultList component", () => {
         />
       </ThemeProvider>
     );
-    const listItem = getByTestId(listItemTestId);
-    listItem.click();
+    const listItem = screen.getByTestId(listItemTestId);
+    fireEvent.click(listItem);
     expect(onListItemClick).toBeCalled();
   });
   it("should print subtitle if shouldListCertification === true", () => {
     const service = createService({ certification: "expert" });
     const onListItemClick = jest.fn();
-    const { getByText } = render(
+    render(
       <ThemeProvider>
         <ServiceLocatorResultList
           page={1}
@@ -106,7 +106,7 @@ describe("ServiceLocatorResultList component", () => {
         />
       </ThemeProvider>
     );
-    const listItem = getByText("MC: findARoofer.certificationLabel:");
+    const listItem = screen.getByText("MC: findARoofer.certificationLabel:");
 
     expect(listItem).toBeDefined();
   });
@@ -114,7 +114,7 @@ describe("ServiceLocatorResultList component", () => {
   it("should render correctly if pageCount larger then 1", () => {
     const service = createService({ certification: "expert" });
     const onListItemClick = jest.fn();
-    const { container } = render(
+    render(
       <ThemeProvider>
         <ServiceLocatorResultList
           page={5}
@@ -130,14 +130,14 @@ describe("ServiceLocatorResultList component", () => {
       </ThemeProvider>
     );
 
-    const pagination = container.querySelector(".pagination");
+    const pagination = screen.getByTestId("pagination-root");
 
     expect(pagination).toBeDefined();
   });
   it("should trigger popup when selectedRoofer.id === service.id", () => {
     const service = createService({ id: "testServiceId" });
     const onListItemClick = jest.fn();
-    const { getByTestId } = render(
+    render(
       <ThemeProvider>
         <ServiceLocatorResultList
           page={1}
@@ -152,7 +152,7 @@ describe("ServiceLocatorResultList component", () => {
         />
       </ThemeProvider>
     );
-    const integratedLinkCard = getByTestId(listItemTestId);
+    const integratedLinkCard = screen.getByTestId(listItemTestId);
     let hasSelectedClass = false;
     integratedLinkCard.classList.forEach((item) => {
       if (item.startsWith("LinkCard-open")) {

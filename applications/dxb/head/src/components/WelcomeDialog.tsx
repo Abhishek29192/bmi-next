@@ -37,6 +37,7 @@ const WelcomeDialog = ({ data }: { data: Data }) => {
       open={!dialogClose}
       onCloseClick={closeDialog}
       className={styles["WelcomeDialog"]}
+      data-testid="welcome-dialog"
     >
       <Dialog.Title hasUnderline>{welcomeDialogTitle}</Dialog.Title>
       <Dialog.Content>
@@ -48,6 +49,7 @@ const WelcomeDialog = ({ data }: { data: Data }) => {
                   key={`welcome-brand-${brandName}-${index}`}
                   brandName={brandName}
                   className={styles["brand"]}
+                  data-testid={`welcome-brand-${brandName}`}
                 />
               ))}
             </div>

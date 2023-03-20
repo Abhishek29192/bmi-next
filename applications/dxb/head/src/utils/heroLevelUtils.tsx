@@ -8,7 +8,7 @@ import React from "react";
 import { Data as BreadcrumbsData } from "../components/Breadcrumbs";
 import Image, { Data as ContentfulImageData } from "../components/Image";
 import Link, { Data as LinkData } from "../components/Link";
-import { Data as VideoData, renderVideo } from "../components/Video";
+import Video, { Data as VideoData } from "../components/Video";
 
 export const generateHeroLevel = (
   heroType: string,
@@ -42,9 +42,9 @@ export const generateHeroProps = (
     level,
     children: subtitle,
     media: featuredVideo ? (
-      renderVideo(featuredVideo)
+      <Video {...featuredVideo} />
     ) : (
-      <Image data={featuredMedia} size="cover" />
+      <Image {...featuredMedia} size="cover" />
     ),
     cta:
       cta &&

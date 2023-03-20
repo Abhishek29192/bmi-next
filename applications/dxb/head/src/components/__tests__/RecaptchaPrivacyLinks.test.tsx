@@ -1,18 +1,13 @@
 import { ThemeProvider } from "@bmi-digital/components";
-import { render } from "@testing-library/react";
-import mockConsole from "jest-mock-console";
+import { render, screen } from "@testing-library/react";
 import React from "react";
 import RecaptchaPrivacyLinks from "../RecaptchaPrivacyLinks";
 import { SiteContextProvider } from "../Site";
 
-beforeAll(() => {
-  mockConsole();
-});
-
 describe("RecaptchaPrivacyLinks component", () => {
   describe("When invalid country code is provided", () => {
     it("renders English Recaptcha policy text and urls", async () => {
-      const { container, findByText, getByText } = render(
+      const { container } = render(
         <ThemeProvider>
           <SiteContextProvider
             value={{
@@ -28,25 +23,25 @@ describe("RecaptchaPrivacyLinks component", () => {
           </SiteContextProvider>
         </ThemeProvider>
       );
-      await findByText((content) =>
+      await screen.findByText((content) =>
         content.startsWith(
           "This site is protected by reCAPTCHA and the Google "
         )
       );
       expect(
-        (getByText("Privacy Policy").parentElement as HTMLAnchorElement).href
-      ).toEqual("https://policies.google.com/privacy");
+        screen.getByTestId("recaptcha-privacy-policy-link")
+      ).toHaveAttribute("href", "https://policies.google.com/privacy");
 
       expect(
-        (getByText("Terms of Service").parentElement as HTMLAnchorElement).href
-      ).toEqual("https://policies.google.com/terms");
+        screen.getByTestId("recaptcha-terms-of-service-link")
+      ).toHaveAttribute("href", "https://policies.google.com/terms");
 
       expect(container).toMatchSnapshot();
     });
   });
   describe("When 'no' country code is provided", () => {
     it("renders Norwegian Recaptcha policy text and urls", async () => {
-      const { container, findByText, getByText } = render(
+      const { container } = render(
         <ThemeProvider>
           <SiteContextProvider
             value={{
@@ -62,18 +57,18 @@ describe("RecaptchaPrivacyLinks component", () => {
           </SiteContextProvider>
         </ThemeProvider>
       );
-      await findByText((content) =>
+      await screen.findByText((content) =>
         content.startsWith(
           "Dette nettstedet er beskyttet av reCAPTCHA og Googles "
         )
       );
       expect(
-        (getByText("Personvernregler").parentElement as HTMLAnchorElement).href
-      ).toEqual("https://policies.google.com/privacy?hl=no-nb");
+        screen.getByTestId("recaptcha-privacy-policy-link")
+      ).toHaveAttribute("href", "https://policies.google.com/privacy?hl=no-nb");
 
       expect(
-        (getByText("Vilkår for bruk").parentElement as HTMLAnchorElement).href
-      ).toEqual("https://policies.google.com/terms?hl=no-nb");
+        screen.getByTestId("recaptcha-terms-of-service-link")
+      ).toHaveAttribute("href", "https://policies.google.com/terms?hl=no-nb");
 
       expect(container).toMatchSnapshot();
     });
@@ -81,7 +76,7 @@ describe("RecaptchaPrivacyLinks component", () => {
 
   describe("When 'fi' country code is provided", () => {
     it("renders Finnish Recaptcha policy text and urls", async () => {
-      const { container, findByText, getByText } = render(
+      const { container } = render(
         <ThemeProvider>
           <SiteContextProvider
             value={{
@@ -97,19 +92,18 @@ describe("RecaptchaPrivacyLinks component", () => {
           </SiteContextProvider>
         </ThemeProvider>
       );
-      await findByText((content) =>
+      await screen.findByText((content) =>
         content.startsWith(
           "Tätä sivustoa suojaa reCAPTCHA, ja siihen sovelletaan Googlen "
         )
       );
       expect(
-        (getByText("tietosuojakäytäntöä").parentElement as HTMLAnchorElement)
-          .href
-      ).toEqual("https://policies.google.com/privacy?hl=fi-fi");
+        screen.getByTestId("recaptcha-privacy-policy-link")
+      ).toHaveAttribute("href", "https://policies.google.com/privacy?hl=fi-fi");
 
       expect(
-        (getByText("käyttöehtoja").parentElement as HTMLAnchorElement).href
-      ).toEqual("https://policies.google.com/terms?hl=fi-fi");
+        screen.getByTestId("recaptcha-terms-of-service-link")
+      ).toHaveAttribute("href", "https://policies.google.com/terms?hl=fi-fi");
 
       expect(container).toMatchSnapshot();
     });
@@ -117,7 +111,7 @@ describe("RecaptchaPrivacyLinks component", () => {
 
   describe("When 'it' country code is provided", () => {
     it("renders Italian Recaptcha policy text and urls", async () => {
-      const { container, findByText, getByText } = render(
+      const { container } = render(
         <ThemeProvider>
           <SiteContextProvider
             value={{
@@ -133,20 +127,18 @@ describe("RecaptchaPrivacyLinks component", () => {
           </SiteContextProvider>
         </ThemeProvider>
       );
-      await findByText((content) =>
+      await screen.findByText((content) =>
         content.startsWith(
           "Questo sito è protetto da reCAPTCHA e si applicano le "
         )
       );
       expect(
-        (getByText("Norme sulla privacy").parentElement as HTMLAnchorElement)
-          .href
-      ).toEqual("https://policies.google.com/privacy?hl=it-it");
+        screen.getByTestId("recaptcha-privacy-policy-link")
+      ).toHaveAttribute("href", "https://policies.google.com/privacy?hl=it-it");
 
       expect(
-        (getByText("Termini di servizio").parentElement as HTMLAnchorElement)
-          .href
-      ).toEqual("https://policies.google.com/terms?hl=it-it");
+        screen.getByTestId("recaptcha-terms-of-service-link")
+      ).toHaveAttribute("href", "https://policies.google.com/terms?hl=it-it");
 
       expect(container).toMatchSnapshot();
     });
@@ -154,7 +146,7 @@ describe("RecaptchaPrivacyLinks component", () => {
 
   describe("When 'fr' country code is provided", () => {
     it("renders French Recaptcha policy text and urls", async () => {
-      const { container, findByText, getByText } = render(
+      const { container } = render(
         <ThemeProvider>
           <SiteContextProvider
             value={{
@@ -170,22 +162,16 @@ describe("RecaptchaPrivacyLinks component", () => {
           </SiteContextProvider>
         </ThemeProvider>
       );
-      await findByText((content) =>
+      await screen.findByText((content) =>
         content.startsWith("Ce site est protégé par reCAPTCHA et la ")
       );
       expect(
-        (
-          getByText("politique de confidentialité")
-            .parentElement as HTMLAnchorElement
-        ).href
-      ).toEqual("https://policies.google.com/privacy?hl=fr-fr");
+        screen.getByTestId("recaptcha-privacy-policy-link")
+      ).toHaveAttribute("href", "https://policies.google.com/privacy?hl=fr-fr");
 
       expect(
-        (
-          getByText("conditions d'utilisation")
-            .parentElement as HTMLAnchorElement
-        ).href
-      ).toEqual("https://policies.google.com/terms?hl=fr-fr");
+        screen.getByTestId("recaptcha-terms-of-service-link")
+      ).toHaveAttribute("href", "https://policies.google.com/terms?hl=fr-fr");
 
       expect(container).toMatchSnapshot();
     });
@@ -193,7 +179,7 @@ describe("RecaptchaPrivacyLinks component", () => {
 
   describe("When 'de' country code is provided", () => {
     it("renders German Recaptcha policy text and urls", async () => {
-      const { container, findByText, getByText } = render(
+      const { container } = render(
         <ThemeProvider>
           <SiteContextProvider
             value={{
@@ -209,23 +195,19 @@ describe("RecaptchaPrivacyLinks component", () => {
           </SiteContextProvider>
         </ThemeProvider>
       );
-      await findByText((content) =>
+      await screen.findByText((content) =>
         content.startsWith(
           "Diese Website ist durch reCAPTCHA geschützt und es gelten die "
         )
       );
 
       expect(
-        (
-          getByText("Datenschutzbestimmungen")
-            .parentElement as HTMLAnchorElement
-        ).href
-      ).toEqual("https://policies.google.com/privacy?hl=de-de");
+        screen.getByTestId("recaptcha-privacy-policy-link")
+      ).toHaveAttribute("href", "https://policies.google.com/privacy?hl=de-de");
 
       expect(
-        (getByText("Nutzungsbedingungen").parentElement as HTMLAnchorElement)
-          .href
-      ).toEqual("https://policies.google.com/terms?hl=de-de");
+        screen.getByTestId("recaptcha-terms-of-service-link")
+      ).toHaveAttribute("href", "https://policies.google.com/terms?hl=de-de");
 
       expect(container).toMatchSnapshot();
     });
@@ -233,7 +215,7 @@ describe("RecaptchaPrivacyLinks component", () => {
 
   describe("When 'at' country code is provided", () => {
     it("renders German Recaptcha policy text and urls", async () => {
-      const { container, findByText, getByText } = render(
+      const { container } = render(
         <ThemeProvider>
           <SiteContextProvider
             value={{
@@ -249,23 +231,19 @@ describe("RecaptchaPrivacyLinks component", () => {
           </SiteContextProvider>
         </ThemeProvider>
       );
-      await findByText((content) =>
+      await screen.findByText((content) =>
         content.startsWith(
           "Diese Website ist durch reCAPTCHA geschützt und es gelten die "
         )
       );
 
       expect(
-        (
-          getByText("Datenschutzbestimmungen")
-            .parentElement as HTMLAnchorElement
-        ).href
-      ).toEqual("https://policies.google.com/privacy?hl=de-at");
+        screen.getByTestId("recaptcha-privacy-policy-link")
+      ).toHaveAttribute("href", "https://policies.google.com/privacy?hl=de-at");
 
       expect(
-        (getByText("Nutzungsbedingungen").parentElement as HTMLAnchorElement)
-          .href
-      ).toEqual("https://policies.google.com/terms?hl=de-at");
+        screen.getByTestId("recaptcha-terms-of-service-link")
+      ).toHaveAttribute("href", "https://policies.google.com/terms?hl=de-at");
 
       expect(container).toMatchSnapshot();
     });
@@ -273,7 +251,7 @@ describe("RecaptchaPrivacyLinks component", () => {
 
   describe("When custom styles added", () => {
     it("renders with custom style", async () => {
-      const { container, findByText, getByText } = render(
+      const { container } = render(
         <ThemeProvider>
           <SiteContextProvider
             value={{
@@ -289,23 +267,19 @@ describe("RecaptchaPrivacyLinks component", () => {
           </SiteContextProvider>
         </ThemeProvider>
       );
-      await findByText((content) =>
+      await screen.findByText((content) =>
         content.startsWith(
           "Diese Website ist durch reCAPTCHA geschützt und es gelten die "
         )
       );
 
       expect(
-        (
-          getByText("Datenschutzbestimmungen")
-            .parentElement as HTMLAnchorElement
-        ).href
-      ).toEqual("https://policies.google.com/privacy?hl=de-de");
+        screen.getByTestId("recaptcha-privacy-policy-link")
+      ).toHaveAttribute("href", "https://policies.google.com/privacy?hl=de-de");
 
       expect(
-        (getByText("Nutzungsbedingungen").parentElement as HTMLAnchorElement)
-          .href
-      ).toEqual("https://policies.google.com/terms?hl=de-de");
+        screen.getByTestId("recaptcha-terms-of-service-link")
+      ).toHaveAttribute("href", "https://policies.google.com/terms?hl=de-de");
 
       expect(container).toMatchSnapshot();
     });

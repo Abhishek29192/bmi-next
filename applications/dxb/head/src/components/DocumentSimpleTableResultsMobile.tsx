@@ -119,6 +119,7 @@ const MultipleDocumentsToZipFile = ({
           <StyledDownloadIcon
             name={"FileZIP"}
             className={classnames("download-icon")}
+            data-testid={"download-icon"}
           />
         </StyledListIcon>
         <StyledDocumentTitle>{document.assetType.name}</StyledDocumentTitle>
@@ -141,6 +142,7 @@ const ListItem = ({ asset }: { asset: FileDownloadButtonProps }) => {
             <StyledDownloadIcon
               name={fileIconsMap[asset.format] || "External"}
               className={classnames("download-icon")}
+              data-testid={"download-icon"}
             />
           </StyledListIcon>
         )}

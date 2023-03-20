@@ -1,7 +1,7 @@
-import type Migration from "contentful-migration";
-import type { MigrationFunction } from "contentful-migration";
 import { brands as previousIcons } from "../../variables/icons/20210324110455";
 import { brands as newIcons } from "../../variables/icons/20210512134828";
+import type Migration from "contentful-migration";
+import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Adding new brand logos called Icopal Katto.";
 

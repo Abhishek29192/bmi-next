@@ -100,7 +100,11 @@ const IntegratedSignupBlock = ({
         }}
       />
       {dialogOpen && (
-        <Dialog open={dialogOpen} onCloseClick={handleDialogClose}>
+        <Dialog
+          open={dialogOpen}
+          onCloseClick={handleDialogClose}
+          data-testid={"signup-block-dialog"}
+        >
           <Dialog.Title hasUnderline> {title} </Dialog.Title>
           <Dialog.Content>
             <FormSection

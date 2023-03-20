@@ -7,7 +7,7 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
     data-testid="product-overview"
   >
     <div
-      class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+      class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
       data-testid="grid-container"
     >
       <div
@@ -24,6 +24,7 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
           >
             <img
               class="MediaGallery-mainImageWrappershort css-ztt6nc-Media"
+              data-testid="media-gallery-media"
               src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"
             />
             <div
@@ -98,7 +99,7 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
             >
               <button
                 class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-selected Thumbnail-large Thumbnail-selected css-yh72z7-MuiButtonBase-root"
-                data-gtm="{\\"id\\":\\"media-gallery1\\",\\"label\\":\\"undefined\\",\\"action\\":\\"https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg\\"}"
+                data-gtm="{"id":"media-gallery1","label":"undefined","action":"https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"}"
                 data-testid="default-thumbnail"
                 tabindex="0"
                 type="button"
@@ -110,7 +111,7 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
               </button>
               <button
                 class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-large css-yh72z7-MuiButtonBase-root"
-                data-gtm="{\\"id\\":\\"media-gallery1\\",\\"label\\":\\"undefined\\",\\"action\\":\\"https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg\\"}"
+                data-gtm="{"id":"media-gallery1","label":"undefined","action":"https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"}"
                 data-testid="default-thumbnail"
                 tabindex="0"
                 type="button"
@@ -125,7 +126,7 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
               </button>
               <button
                 class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-large css-yh72z7-MuiButtonBase-root"
-                data-gtm="{\\"id\\":\\"media-gallery1\\",\\"label\\":\\"test video\\",\\"action\\":\\"[object Object]\\"}"
+                data-gtm="{"id":"media-gallery1","label":"test video","action":"[object Object]"}"
                 data-testid="default-thumbnail"
                 tabindex="0"
                 type="button"
@@ -181,7 +182,7 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
           This site is protected by reCAPTCHA and the Google 
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-            data-testid="anchor-link"
+            data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy"
             rel="noreferrer noopener"
             target="_blank"
@@ -193,7 +194,7 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
            and 
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-            data-testid="anchor-link"
+            data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms"
             rel="noreferrer noopener"
             target="_blank"
@@ -217,7 +218,7 @@ exports[`ProductOverview component renders correctly without Recaptcha 1`] = `
     data-testid="product-overview"
   >
     <div
-      class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+      class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
       data-testid="grid-container"
     >
       <div
@@ -234,6 +235,7 @@ exports[`ProductOverview component renders correctly without Recaptcha 1`] = `
           >
             <img
               class="MediaGallery-mainImageWrappershort css-ztt6nc-Media"
+              data-testid="media-gallery-media"
               src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"
             />
             <div
@@ -308,7 +310,7 @@ exports[`ProductOverview component renders correctly without Recaptcha 1`] = `
             >
               <button
                 class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-selected Thumbnail-large Thumbnail-selected css-yh72z7-MuiButtonBase-root"
-                data-gtm="{\\"id\\":\\"media-gallery1\\",\\"label\\":\\"undefined\\",\\"action\\":\\"https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg\\"}"
+                data-gtm="{"id":"media-gallery1","label":"undefined","action":"https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"}"
                 data-testid="default-thumbnail"
                 tabindex="0"
                 type="button"
@@ -320,7 +322,7 @@ exports[`ProductOverview component renders correctly without Recaptcha 1`] = `
               </button>
               <button
                 class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-large css-yh72z7-MuiButtonBase-root"
-                data-gtm="{\\"id\\":\\"media-gallery1\\",\\"label\\":\\"undefined\\",\\"action\\":\\"https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg\\"}"
+                data-gtm="{"id":"media-gallery1","label":"undefined","action":"https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"}"
                 data-testid="default-thumbnail"
                 tabindex="0"
                 type="button"
@@ -335,7 +337,7 @@ exports[`ProductOverview component renders correctly without Recaptcha 1`] = `
               </button>
               <button
                 class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-large css-yh72z7-MuiButtonBase-root"
-                data-gtm="{\\"id\\":\\"media-gallery1\\",\\"label\\":\\"test video\\",\\"action\\":\\"[object Object]\\"}"
+                data-gtm="{"id":"media-gallery1","label":"test video","action":"[object Object]"}"
                 data-testid="default-thumbnail"
                 tabindex="0"
                 type="button"
@@ -397,7 +399,7 @@ exports[`ProductOverview component renders with default image if there are no im
     data-testid="product-overview"
   >
     <div
-      class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+      class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
       data-testid="grid-container"
     >
       <div
@@ -414,6 +416,7 @@ exports[`ProductOverview component renders with default image if there are no im
           >
             <svg
               class="MediaGallery-mainImageWrappershort css-ztt6nc-Media"
+              data-testid="media-gallery-media"
             />
           </div>
         </div>
@@ -450,7 +453,7 @@ exports[`ProductOverview component renders with default image if there are no im
           This site is protected by reCAPTCHA and the Google 
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-            data-testid="anchor-link"
+            data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy"
             rel="noreferrer noopener"
             target="_blank"
@@ -462,7 +465,7 @@ exports[`ProductOverview component renders with default image if there are no im
            and 
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-            data-testid="anchor-link"
+            data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms"
             rel="noreferrer noopener"
             target="_blank"

@@ -10,7 +10,6 @@ import {
   createVariantOption,
   Image
 } from "@bmi/pim-types";
-import mockConsole from "jest-mock-console";
 import {
   ESIndexObject,
   findMainImage,
@@ -24,10 +23,6 @@ import {
 import { createTwoOneClassifications } from "./helpers/TwoOneHelper";
 
 const { PIM_CLASSIFICATION_CATALOGUE_NAMESPACE } = process.env;
-
-beforeAll(() => {
-  mockConsole();
-});
 
 type ImageItem = {
   name: string;

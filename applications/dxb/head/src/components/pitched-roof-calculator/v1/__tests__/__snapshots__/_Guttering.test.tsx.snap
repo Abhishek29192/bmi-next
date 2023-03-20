@@ -20,7 +20,7 @@ exports[`PitchedRoofCalculator Guttering component renders correctly 1`] = `
         class="css-klihbg"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-2 css-1xqc8d-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-2 css-wohhz8-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -30,9 +30,12 @@ exports[`PitchedRoofCalculator Guttering component renders correctly 1`] = `
             <div
               class="CardRadioGroup-item css-tmrmui"
             >
-              <label>
+              <label
+                data-testid="card-input-label"
+              >
                 <input
                   class="CardInput-input"
+                  data-testid="card-input-input"
                   name="guttering"
                   type="radio"
                   value="Test Guttering"
@@ -90,7 +93,7 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
         class="css-klihbg"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-2 css-1xqc8d-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-2 css-wohhz8-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -100,10 +103,13 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
             <div
               class="CardRadioGroup-item css-tmrmui"
             >
-              <label>
+              <label
+                data-testid="card-input-label"
+              >
                 <input
                   checked=""
                   class="CardInput-input"
+                  data-testid="card-input-input"
                   name="guttering"
                   type="radio"
                   value="Test Guttering"
@@ -154,7 +160,7 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
         class="css-klihbg"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-2 css-1xqc8d-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-2 css-wohhz8-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -164,10 +170,13 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
             <div
               class="CardRadioGroup-item css-tmrmui"
             >
-              <label>
+              <label
+                data-testid="card-input-label"
+              >
                 <input
                   checked=""
                   class="CardInput-input"
+                  data-testid="card-input-input"
                   name="gutteringVariant"
                   type="radio"
                   value="34391"
@@ -214,9 +223,12 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
             <div
               class="CardRadioGroup-item css-tmrmui"
             >
-              <label>
+              <label
+                data-testid="card-input-label"
+              >
                 <input
                   class="CardInput-input"
+                  data-testid="card-input-input"
                   name="gutteringVariant"
                   type="radio"
                   value="4391"
@@ -276,7 +288,7 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
         class="css-klihbg"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-2 css-1xqc8d-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-2 css-wohhz8-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -286,10 +298,13 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
             <div
               class="CardRadioGroup-item css-tmrmui"
             >
-              <label>
+              <label
+                data-testid="card-input-label"
+              >
                 <input
                   checked=""
                   class="CardInput-input"
+                  data-testid="card-input-input"
                   name="gutteringHook"
                   type="radio"
                   value="34392"
@@ -336,9 +351,12 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
             <div
               class="CardRadioGroup-item css-tmrmui"
             >
-              <label>
+              <label
+                data-testid="card-input-label"
+              >
                 <input
                   class="CardInput-input"
+                  data-testid="card-input-input"
                   name="gutteringHook"
                   type="radio"
                   value="4392"
@@ -395,7 +413,7 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
         </h6>
       </div>
       <div
-        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
         data-testid="grid-container"
       >
         <div
@@ -428,6 +446,7 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
             </button>
             <div
               class="MuiFormControl-root MuiTextField-root input in-middle css-1xgljuk-MuiFormControl-root-MuiTextField-root"
+              data-testid="up-down-simple-numeric-input-text-field"
             >
               <div
                 class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
@@ -435,7 +454,8 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
                 <input
                   aria-invalid="false"
                   class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
-                  id="mui-1"
+                  data-testid="up-down-simple-numeric-input-text-field-input"
+                  id=":r0:"
                   type="text"
                   value="0"
                 />
@@ -480,7 +500,7 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
         </h6>
       </div>
       <div
-        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
         data-testid="grid-container"
       >
         <div
@@ -513,6 +533,7 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
             </button>
             <div
               class="MuiFormControl-root MuiTextField-root input in-middle css-1xgljuk-MuiFormControl-root-MuiTextField-root"
+              data-testid="up-down-simple-numeric-input-text-field"
             >
               <div
                 class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
@@ -520,7 +541,8 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
                 <input
                   aria-invalid="false"
                   class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
-                  id="mui-2"
+                  data-testid="up-down-simple-numeric-input-text-field-input"
+                  id=":r1:"
                   type="text"
                   value="0"
                 />

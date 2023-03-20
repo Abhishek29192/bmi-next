@@ -1,4 +1,3 @@
-import mockConsole from "jest-mock-console";
 import {
   ProductCategory,
   ResultsRow,
@@ -9,10 +8,6 @@ import QuantitiesCalculator, {
   convertProductRowToResultsRow,
   QuantitiesCalculatorProps
 } from "../calculation/QuantitiesCalculator";
-
-beforeAll(() => {
-  mockConsole();
-});
 
 const input: QuantitiesCalculatorProps = {
   measurements: {

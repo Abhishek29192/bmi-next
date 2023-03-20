@@ -63,6 +63,7 @@ export const ServiceLocatorResultList = ({
       className={classnames({
         [styles["results-list-section"]]: pageCount > 1
       })}
+      data-testid={"results-list-section"}
     >
       <div className={styles["list"]}>
         {roofersList.map((service) => (
@@ -74,8 +75,8 @@ export const ServiceLocatorResultList = ({
             title={service.name}
             logo={
               <Image
-                data={service.companyLogo}
                 className={styles["company-logo"]}
+                {...service.companyLogo}
               />
             }
             gtm={getResultDataGtm(service, matches)}

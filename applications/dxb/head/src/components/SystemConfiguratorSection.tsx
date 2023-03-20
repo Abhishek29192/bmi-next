@@ -407,6 +407,7 @@ const SystemConfiguratorResult = ({
                 const linkToSDP = `${system.path}/?selected_system=${system.code}&prev_page=${window.location.pathname}&referer=sys_details`;
                 return (
                   <SystemCard
+                    data-testid={system.code}
                     key={`${system.code}-${id}`}
                     system={system}
                     countryCode={countryCode}

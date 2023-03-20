@@ -1,5 +1,5 @@
 import { FormContext, ThemeProvider } from "@bmi-digital/components";
-import { fireEvent, render } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import { getMicroCopy, MicroCopy } from "../../helpers/microCopy";
 import en from "../../samples/copy/en.json";
@@ -36,7 +36,7 @@ describe("PitchedRoofCalculator Protrusions component", () => {
     const hasBeenSubmitted = false;
     const submitButtonDisabled = false;
 
-    const { getByText } = render(
+    render(
       <ThemeProvider>
         <MicroCopy.Provider values={en}>
           <FormContext.Provider
@@ -53,7 +53,7 @@ describe("PitchedRoofCalculator Protrusions component", () => {
       </ThemeProvider>
     );
 
-    const addProtrusionButton = getByText(
+    const addProtrusionButton = screen.getByText(
       getMicroCopy(en, "roofDimensions.protrusions.add")
     );
     fireEvent.click(addProtrusionButton);
@@ -66,7 +66,7 @@ describe("PitchedRoofCalculator Protrusions component", () => {
     const hasBeenSubmitted = false;
     const submitButtonDisabled = false;
 
-    const { getByText } = render(
+    render(
       <ThemeProvider>
         <MicroCopy.Provider values={en}>
           <FormContext.Provider
@@ -87,7 +87,7 @@ describe("PitchedRoofCalculator Protrusions component", () => {
       </ThemeProvider>
     );
 
-    const removeProtrusionButton = getByText(
+    const removeProtrusionButton = screen.getByText(
       getMicroCopy(en, "roofDimensions.protrusions.remove")
     );
     fireEvent.click(removeProtrusionButton);

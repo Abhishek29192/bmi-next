@@ -12,7 +12,7 @@
     "up": "node ./dist/up.js"
   },
   "dependencies": {
-    "@bmi-digital/contentful-migration": "^1.2.0"
+    "@bmi-digital/contentful-migration": "^1.2.1"
   },
   "devDependencies": {
     "dotenv": "^8.2.0"

@@ -12,8 +12,5 @@
   },
   "dependencies": {
     "firebase-admin": "^11.4.1"
-  },
-  "devDependencies": {
-    "jest-node-exports-resolver": "^1.1.6"
   }
 }

@@ -1,7 +1,7 @@
-import type Migration from "contentful-migration";
-import type { MigrationFunction } from "contentful-migration";
 import { brands as previousIcons } from "../../variables/icons/20201111103444";
 import { brands as newIcons } from "../../variables/icons/20210324110455";
+import type Migration from "contentful-migration";
+import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Update brand logos to latest available";
 

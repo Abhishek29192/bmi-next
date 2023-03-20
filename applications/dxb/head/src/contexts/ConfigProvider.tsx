@@ -99,7 +99,7 @@ export const ConfigProvider = ({
   children
 }: {
   configObject?: EnvConfig["config"];
-  children: React.ReactChild | React.ReactChildren;
+  children: React.ReactNode;
 }) => (
   <ConfigContext.Provider
     value={{ config: { ...envConfig.config, ...configObject } }}

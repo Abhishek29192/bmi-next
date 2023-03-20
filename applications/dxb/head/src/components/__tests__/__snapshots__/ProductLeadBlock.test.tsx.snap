@@ -56,7 +56,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     aria-controls="tabpanel-one"
                     aria-selected="true"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                    data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-gtm="{"id":"selector-tabs1","label":"MC: pdp.leadBlock.about","action":"Selector – Tabs"}"
                     data-testid="tab-one"
                     id="tab-one"
                     role="tab"
@@ -72,7 +72,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     aria-controls="tabpanel-two"
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                    data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.technicalSpecifications\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-gtm="{"id":"selector-tabs1","label":"MC: pdp.leadBlock.technicalSpecifications","action":"Selector – Tabs"}"
                     data-testid="tab-two"
                     id="tab-two"
                     role="tab"
@@ -88,7 +88,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     aria-controls="tabpanel-three"
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                    data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.documents\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-gtm="{"id":"selector-tabs1","label":"MC: pdp.leadBlock.documents","action":"Selector – Tabs"}"
                     data-testid="tab-three"
                     id="tab-three"
                     role="tab"
@@ -104,7 +104,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     aria-controls="tabpanel-four"
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                    data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.bim\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-gtm="{"id":"selector-tabs1","label":"MC: pdp.leadBlock.bim","action":"Selector – Tabs"}"
                     data-testid="tab-four"
                     id="tab-four"
                     role="tab"
@@ -120,7 +120,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     aria-controls="tabpanel-five"
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                    data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.technicalDrawings\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-gtm="{"id":"selector-tabs1","label":"MC: pdp.leadBlock.technicalDrawings","action":"Selector – Tabs"}"
                     data-testid="tab-five"
                     id="tab-five"
                     role="tab"
@@ -136,7 +136,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     aria-controls="tabpanel-seven"
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                    data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.specification\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-gtm="{"id":"selector-tabs1","label":"MC: pdp.leadBlock.specification","action":"Selector – Tabs"}"
                     data-testid="tab-seven"
                     id="tab-seven"
                     role="tab"
@@ -152,7 +152,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     aria-controls="tabpanel-six"
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                    data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.fixingTool\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-gtm="{"id":"selector-tabs1","label":"MC: pdp.leadBlock.fixingTool","action":"Selector – Tabs"}"
                     data-testid="tab-six"
                     id="tab-six"
                     role="tab"
@@ -201,7 +201,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
         role="tabpanel"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-oet5y7-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -230,25 +230,27 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                 MC: pdp.leadBlock.guaranteesWarranties
               </h5>
               <img
-                alt="asset-name"
+                alt="asset-1"
                 class="image"
-                data-testid="guarantee-image-asset-name"
+                data-testid="guarantee-image-asset-1"
                 src="http://localhost:8000/asset-real-file-name.jpg"
               />
               <img
-                alt="asset-name"
+                alt="asset-2"
                 class="image"
-                data-testid="guarantee-image-asset-name"
+                data-testid="guarantee-image-asset-2"
                 src="http://localhost:8000/asset-real-file-name.jpg"
               />
               <div>
                 <a
                   class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"http://localhost:8000/\\"}"
-                  data-testid="guarantee-inline-link"
+                  data-gtm="{"id":"cta-click1","label":"link-1","action":"http://localhost:8000/"}"
+                  data-testid="guarantee-inline-link-link-1"
                   type="button"
                 >
-                  <span />
+                  <span>
+                    link-1
+                  </span>
                   <svg
                     aria-hidden="true"
                     class=" css-em5iqk"
@@ -266,11 +268,13 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               <div>
                 <a
                   class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"http://localhost:8000/\\"}"
-                  data-testid="guarantee-inline-link"
+                  data-gtm="{"id":"cta-click1","label":"link-2","action":"http://localhost:8000/"}"
+                  data-testid="guarantee-inline-link-link-2"
                   type="button"
                 >
-                  <span />
+                  <span>
+                    link-2
+                  </span>
                   <svg
                     aria-hidden="true"
                     class=" css-em5iqk"
@@ -443,7 +447,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
         role="tabpanel"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-oet5y7-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -517,6 +521,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
         >
           <div
             class="DocumentSimpleTableResults css-1iwuinm"
+            data-testid="document-simple-table-results"
           >
             <div
               class="css-ya57aw"
@@ -557,7 +562,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                 >
                   <tr
                     class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
-                    data-test-id="document-table-row-id-1"
+                    data-testid="document-table-row-id-1"
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ggd0b4-MuiTableCell-root"
@@ -575,7 +580,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://pimDocument\\"}"
+                        data-gtm="{"id":"download1","label":"Download","action":"http://pimDocument"}"
                         data-testid="document-table-download-application/pdf-button"
                         href="http://pimdocument/"
                         rel="noopener noreferrer"
@@ -647,7 +652,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                                 aria-label="MC: documentLibrary.download Pim Document"
                                 class="PrivateSwitchBase-input css-1m9pwf3"
                                 data-indeterminate="false"
-                                name="id-1-Pim_Document"
+                                name="id-1-Pim-Document"
                                 type="checkbox"
                               />
                               <svg
@@ -672,7 +677,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                   </tr>
                   <tr
                     class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
-                    data-test-id="document-table-row-id-2"
+                    data-testid="document-table-row-id-2"
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ggd0b4-MuiTableCell-root"
@@ -690,7 +695,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://pimDocument\\"}"
+                        data-gtm="{"id":"download1","label":"Download","action":"http://pimDocument"}"
                         data-testid="document-table-download-application/pdf-button"
                         href="http://pimdocument/"
                         rel="noopener noreferrer"
@@ -762,7 +767,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                                 aria-label="MC: documentLibrary.download Pim Document"
                                 class="PrivateSwitchBase-input css-1m9pwf3"
                                 data-indeterminate="false"
-                                name="id-2-Pim_Document"
+                                name="id-2-Pim-Document"
                                 type="checkbox"
                               />
                               <svg
@@ -787,7 +792,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                   </tr>
                   <tr
                     class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
-                    data-test-id="document-table-row-id-3"
+                    data-testid="document-table-row-id-3"
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ggd0b4-MuiTableCell-root"
@@ -805,7 +810,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://pimDocument\\"}"
+                        data-gtm="{"id":"download1","label":"Download","action":"http://pimDocument"}"
                         data-testid="document-table-download-application/pdf-button"
                         href="http://pimdocument/"
                         rel="noopener noreferrer"
@@ -877,7 +882,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                                 aria-label="MC: documentLibrary.download Pim Document"
                                 class="PrivateSwitchBase-input css-1m9pwf3"
                                 data-indeterminate="false"
-                                name="id-3-Pim_Document"
+                                name="id-3-Pim-Document"
                                 type="checkbox"
                               />
                               <svg
@@ -902,7 +907,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                   </tr>
                   <tr
                     class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
-                    data-test-id="document-table-row-id-3"
+                    data-testid="document-table-row-id-3"
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ggd0b4-MuiTableCell-root"
@@ -920,7 +925,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://pimDocument\\"}"
+                        data-gtm="{"id":"download1","label":"Download","action":"http://pimDocument"}"
                         data-testid="document-table-download-application/pdf-button"
                         href="http://pimdocument/"
                         rel="noopener noreferrer"
@@ -992,7 +997,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                                 aria-label="MC: documentLibrary.download Pim Document"
                                 class="PrivateSwitchBase-input css-1m9pwf3"
                                 data-indeterminate="false"
-                                name="id-3-Pim_Document"
+                                name="id-3-Pim-Document"
                                 type="checkbox"
                               />
                               <svg
@@ -1021,6 +1026,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
           </div>
           <div
             class="DocumentResultsFooter"
+            data-testid="document-results-footer"
           >
             <a
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
@@ -1033,7 +1039,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
             </a>
             <button
               class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-              data-gtm="{\\"id\\":\\"download3-button1\\",\\"label\\":\\"MC: downloadList.download (0)\\",\\"action\\":\\"[]\\"}"
+              data-gtm="{"id":"download3-button1","label":"MC: downloadList.download (0)","action":"[]"}"
               data-testid="document-table-download-button"
               tabindex="0"
               type="button"
@@ -1050,7 +1056,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               This site is protected by reCAPTCHA and the Google 
               <a
                 class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-                data-testid="anchor-link"
+                data-testid="recaptcha-privacy-policy-link"
                 href="https://policies.google.com/privacy"
                 rel="noreferrer noopener"
                 target="_blank"
@@ -1062,7 +1068,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                and 
               <a
                 class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-                data-testid="anchor-link"
+                data-testid="recaptcha-terms-of-service-link"
                 href="https://policies.google.com/terms"
                 rel="noreferrer noopener"
                 target="_blank"
@@ -1101,7 +1107,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
         role="tabpanel"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-180ih2o-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-16d2wre-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -1123,6 +1129,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                   <img
                     alt="Alt text"
                     class="MediaGallery-mainImageWrapperdefault css-ztt6nc-Media"
+                    data-testid="media-gallery-media"
                     src="http://localhost:8000/image-main-source.jpg"
                   />
                 </div>
@@ -1222,7 +1229,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     aria-controls="tabpanel-one"
                     aria-selected="true"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                    data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-gtm="{"id":"selector-tabs1","label":"MC: pdp.leadBlock.about","action":"Selector – Tabs"}"
                     data-testid="tab-one"
                     id="tab-one"
                     role="tab"
@@ -1238,7 +1245,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     aria-controls="tabpanel-two"
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                    data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.technicalSpecifications\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-gtm="{"id":"selector-tabs1","label":"MC: pdp.leadBlock.technicalSpecifications","action":"Selector – Tabs"}"
                     data-testid="tab-two"
                     id="tab-two"
                     role="tab"
@@ -1254,7 +1261,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     aria-controls="tabpanel-three"
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                    data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.documents\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-gtm="{"id":"selector-tabs1","label":"MC: pdp.leadBlock.documents","action":"Selector – Tabs"}"
                     data-testid="tab-three"
                     id="tab-three"
                     role="tab"
@@ -1270,7 +1277,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     aria-controls="tabpanel-four"
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                    data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.bim\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-gtm="{"id":"selector-tabs1","label":"MC: pdp.leadBlock.bim","action":"Selector – Tabs"}"
                     data-testid="tab-four"
                     id="tab-four"
                     role="tab"
@@ -1286,7 +1293,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     aria-controls="tabpanel-five"
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                    data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.technicalDrawings\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-gtm="{"id":"selector-tabs1","label":"MC: pdp.leadBlock.technicalDrawings","action":"Selector – Tabs"}"
                     data-testid="tab-five"
                     id="tab-five"
                     role="tab"
@@ -1302,7 +1309,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     aria-controls="tabpanel-seven"
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                    data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.specification\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-gtm="{"id":"selector-tabs1","label":"MC: pdp.leadBlock.specification","action":"Selector – Tabs"}"
                     data-testid="tab-seven"
                     id="tab-seven"
                     role="tab"
@@ -1318,7 +1325,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     aria-controls="tabpanel-six"
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                    data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.fixingTool\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-gtm="{"id":"selector-tabs1","label":"MC: pdp.leadBlock.fixingTool","action":"Selector – Tabs"}"
                     data-testid="tab-six"
                     id="tab-six"
                     role="tab"
@@ -1367,7 +1374,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
         role="tabpanel"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-oet5y7-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -1410,7 +1417,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               <div>
                 <a
                   class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"http://localhost:8000/\\"}"
+                  data-gtm="{"id":"cta-click1","action":"http://localhost:8000/"}"
                   data-testid="guarantee-inline-link"
                   type="button"
                 >
@@ -1432,7 +1439,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               <div>
                 <a
                   class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"http://localhost:8000/\\"}"
+                  data-gtm="{"id":"cta-click1","action":"http://localhost:8000/"}"
                   data-testid="guarantee-inline-link"
                   type="button"
                 >
@@ -1609,7 +1616,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
         role="tabpanel"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-oet5y7-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -1683,6 +1690,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
         >
           <div
             class="DocumentSimpleTableResults css-1iwuinm"
+            data-testid="document-simple-table-results"
           >
             <div
               class="css-ya57aw"
@@ -1723,7 +1731,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                 >
                   <tr
                     class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
-                    data-test-id="document-table-row-pim-document"
+                    data-testid="document-table-row-pim-document"
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
@@ -1737,7 +1745,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://pimDocument\\"}"
+                        data-gtm="{"id":"download1","label":"Download","action":"http://pimDocument"}"
                         data-testid="document-table-download-application/pdf-button"
                         href="http://pimdocument/"
                         rel="noopener noreferrer"
@@ -1809,7 +1817,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                                 aria-label="MC: documentLibrary.download Pim Document"
                                 class="PrivateSwitchBase-input css-1m9pwf3"
                                 data-indeterminate="false"
-                                name="pim-document-Pim_Document"
+                                name="pim-document-Pim-Document"
                                 type="checkbox"
                               />
                               <svg
@@ -1834,7 +1842,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                   </tr>
                   <tr
                     class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
-                    data-test-id="document-table-row-pim-document"
+                    data-testid="document-table-row-pim-document"
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
@@ -1848,7 +1856,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://pimDocument\\"}"
+                        data-gtm="{"id":"download1","label":"Download","action":"http://pimDocument"}"
                         data-testid="document-table-download-application/pdf-button"
                         href="http://pimdocument/"
                         rel="noopener noreferrer"
@@ -1920,7 +1928,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                                 aria-label="MC: documentLibrary.download Pim Document"
                                 class="PrivateSwitchBase-input css-1m9pwf3"
                                 data-indeterminate="false"
-                                name="pim-document-Pim_Document"
+                                name="pim-document-Pim-Document"
                                 type="checkbox"
                               />
                               <svg
@@ -1949,6 +1957,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
           </div>
           <div
             class="DocumentResultsFooter"
+            data-testid="document-results-footer"
           >
             <a
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
@@ -1961,7 +1970,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
             </a>
             <button
               class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-              data-gtm="{\\"id\\":\\"download3-button1\\",\\"label\\":\\"MC: downloadList.download (0)\\",\\"action\\":\\"[]\\"}"
+              data-gtm="{"id":"download3-button1","label":"MC: downloadList.download (0)","action":"[]"}"
               data-testid="document-table-download-button"
               tabindex="0"
               type="button"
@@ -1978,7 +1987,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               This site is protected by reCAPTCHA and the Google 
               <a
                 class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-                data-testid="anchor-link"
+                data-testid="recaptcha-privacy-policy-link"
                 href="https://policies.google.com/privacy"
                 rel="noreferrer noopener"
                 target="_blank"
@@ -1990,7 +1999,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                and 
               <a
                 class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-                data-testid="anchor-link"
+                data-testid="recaptcha-terms-of-service-link"
                 href="https://policies.google.com/terms"
                 rel="noreferrer noopener"
                 target="_blank"
@@ -2029,7 +2038,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
         role="tabpanel"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-180ih2o-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-16d2wre-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -2051,6 +2060,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                   <img
                     alt="Alt text"
                     class="MediaGallery-mainImageWrapperdefault css-ztt6nc-Media"
+                    data-testid="media-gallery-media"
                     src="http://localhost:8000/image-main-source.jpg"
                   />
                 </div>
@@ -2150,7 +2160,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
                     aria-controls="tabpanel-one"
                     aria-selected="true"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                    data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-gtm="{"id":"selector-tabs1","label":"MC: pdp.leadBlock.about","action":"Selector – Tabs"}"
                     data-testid="tab-one"
                     id="tab-one"
                     role="tab"
@@ -2166,7 +2176,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
                     aria-controls="tabpanel-two"
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                    data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.technicalSpecifications\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-gtm="{"id":"selector-tabs1","label":"MC: pdp.leadBlock.technicalSpecifications","action":"Selector – Tabs"}"
                     data-testid="tab-two"
                     id="tab-two"
                     role="tab"
@@ -2182,7 +2192,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
                     aria-controls="tabpanel-four"
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                    data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.bim\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-gtm="{"id":"selector-tabs1","label":"MC: pdp.leadBlock.bim","action":"Selector – Tabs"}"
                     data-testid="tab-four"
                     id="tab-four"
                     role="tab"
@@ -2198,7 +2208,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
                     aria-controls="tabpanel-five"
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                    data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.technicalDrawings\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-gtm="{"id":"selector-tabs1","label":"MC: pdp.leadBlock.technicalDrawings","action":"Selector – Tabs"}"
                     data-testid="tab-five"
                     id="tab-five"
                     role="tab"
@@ -2214,7 +2224,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
                     aria-controls="tabpanel-seven"
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                    data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.specification\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-gtm="{"id":"selector-tabs1","label":"MC: pdp.leadBlock.specification","action":"Selector – Tabs"}"
                     data-testid="tab-seven"
                     id="tab-seven"
                     role="tab"
@@ -2230,7 +2240,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
                     aria-controls="tabpanel-six"
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                    data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.fixingTool\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-gtm="{"id":"selector-tabs1","label":"MC: pdp.leadBlock.fixingTool","action":"Selector – Tabs"}"
                     data-testid="tab-six"
                     id="tab-six"
                     role="tab"
@@ -2279,7 +2289,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
         role="tabpanel"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-oet5y7-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -2322,7 +2332,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
               <div>
                 <a
                   class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"http://localhost:8000/\\"}"
+                  data-gtm="{"id":"cta-click1","action":"http://localhost:8000/"}"
                   data-testid="guarantee-inline-link"
                   type="button"
                 >
@@ -2344,7 +2354,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
               <div>
                 <a
                   class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"http://localhost:8000/\\"}"
+                  data-gtm="{"id":"cta-click1","action":"http://localhost:8000/"}"
                   data-testid="guarantee-inline-link"
                   type="button"
                 >
@@ -2521,7 +2531,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
         role="tabpanel"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-oet5y7-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -2606,7 +2616,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
         role="tabpanel"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-180ih2o-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-16d2wre-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -2628,6 +2638,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
                   <img
                     alt="Alt text"
                     class="MediaGallery-mainImageWrapperdefault css-ztt6nc-Media"
+                    data-testid="media-gallery-media"
                     src="http://localhost:8000/image-main-source.jpg"
                   />
                 </div>
@@ -2686,6 +2697,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
   >
     <div
       class="DocumentSimpleTableResults css-1iwuinm"
+      data-testid="document-simple-table-results"
     >
       <div
         class="css-ya57aw"
@@ -2726,7 +2738,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
           >
             <tr
               class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
-              data-test-id="document-table-row-id-1"
+              data-testid="document-table-row-id-1"
             >
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
@@ -2740,7 +2752,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
               >
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://pimDocument\\"}"
+                  data-gtm="{"id":"download1","label":"Download","action":"http://pimDocument"}"
                   data-testid="document-table-download-application/pdf-button"
                   href="http://pimdocument/"
                   rel="noopener noreferrer"
@@ -2812,7 +2824,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                           aria-label="MC: documentLibrary.download Pim Document"
                           class="PrivateSwitchBase-input css-1m9pwf3"
                           data-indeterminate="false"
-                          name="id-1-Pim_Document"
+                          name="id-1-Pim-Document"
                           type="checkbox"
                         />
                         <svg
@@ -2837,7 +2849,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
             </tr>
             <tr
               class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
-              data-test-id="document-table-row-id-2"
+              data-testid="document-table-row-id-2"
             >
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
@@ -2851,7 +2863,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
               >
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://pimDocument\\"}"
+                  data-gtm="{"id":"download1","label":"Download","action":"http://pimDocument"}"
                   data-testid="document-table-download-application/pdf-button"
                   href="http://pimdocument/"
                   rel="noopener noreferrer"
@@ -2923,7 +2935,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                           aria-label="MC: documentLibrary.download Pim Document"
                           class="PrivateSwitchBase-input css-1m9pwf3"
                           data-indeterminate="false"
-                          name="id-2-Pim_Document"
+                          name="id-2-Pim-Document"
                           type="checkbox"
                         />
                         <svg
@@ -2948,7 +2960,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
             </tr>
             <tr
               class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
-              data-test-id="document-table-row-id-3"
+              data-testid="document-table-row-id-3"
             >
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
@@ -2962,7 +2974,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
               >
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://pimDocument\\"}"
+                  data-gtm="{"id":"download1","label":"Download","action":"http://pimDocument"}"
                   data-testid="document-table-download-application/pdf-button"
                   href="http://pimdocument/"
                   rel="noopener noreferrer"
@@ -3034,7 +3046,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                           aria-label="MC: documentLibrary.download Pim Document"
                           class="PrivateSwitchBase-input css-1m9pwf3"
                           data-indeterminate="false"
-                          name="id-3-Pim_Document"
+                          name="id-3-Pim-Document"
                           type="checkbox"
                         />
                         <svg
@@ -3059,7 +3071,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
             </tr>
             <tr
               class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
-              data-test-id="document-table-row-id-3"
+              data-testid="document-table-row-id-3"
             >
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
@@ -3073,7 +3085,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
               >
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://pimDocument\\"}"
+                  data-gtm="{"id":"download1","label":"Download","action":"http://pimDocument"}"
                   data-testid="document-table-download-application/pdf-button"
                   href="http://pimdocument/"
                   rel="noopener noreferrer"
@@ -3145,7 +3157,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                           aria-label="MC: documentLibrary.download Pim Document"
                           class="PrivateSwitchBase-input css-1m9pwf3"
                           data-indeterminate="false"
-                          name="id-3-Pim_Document"
+                          name="id-3-Pim-Document"
                           type="checkbox"
                         />
                         <svg
@@ -3174,6 +3186,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
     </div>
     <div
       class="DocumentResultsFooter"
+      data-testid="document-results-footer"
     >
       <a
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
@@ -3186,7 +3199,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
       </a>
       <button
         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-        data-gtm="{\\"id\\":\\"download3-button1\\",\\"label\\":\\"MC: downloadList.download (0)\\",\\"action\\":\\"[]\\"}"
+        data-gtm="{"id":"download3-button1","label":"MC: downloadList.download (0)","action":"[]"}"
         data-testid="document-table-download-button"
         tabindex="0"
         type="button"
@@ -3203,7 +3216,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
         This site is protected by reCAPTCHA and the Google 
         <a
           class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-          data-testid="anchor-link"
+          data-testid="recaptcha-privacy-policy-link"
           href="https://policies.google.com/privacy"
           rel="noreferrer noopener"
           target="_blank"
@@ -3215,7 +3228,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
          and 
         <a
           class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-          data-testid="anchor-link"
+          data-testid="recaptcha-terms-of-service-link"
           href="https://policies.google.com/terms"
           rel="noreferrer noopener"
           target="_blank"
@@ -3241,7 +3254,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
   role="tabpanel"
 >
   <div
-    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-oet5y7-MuiGrid2-root"
     data-testid="grid-container"
   >
     <div
@@ -3270,25 +3283,27 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
           MC: pdp.leadBlock.guaranteesWarranties
         </h5>
         <img
-          alt="asset-name"
+          alt="asset-1"
           class="image"
-          data-testid="guarantee-image-asset-name"
+          data-testid="guarantee-image-asset-1"
           src="http://localhost:8000/asset-real-file-name.jpg"
         />
         <img
-          alt="asset-name"
+          alt="asset-2"
           class="image"
-          data-testid="guarantee-image-asset-name"
+          data-testid="guarantee-image-asset-2"
           src="http://localhost:8000/asset-real-file-name.jpg"
         />
         <div>
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-            data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"http://localhost:8000/\\"}"
-            data-testid="guarantee-inline-link"
+            data-gtm="{"id":"cta-click1","label":"link-1","action":"http://localhost:8000/"}"
+            data-testid="guarantee-inline-link-link-1"
             type="button"
           >
-            <span />
+            <span>
+              link-1
+            </span>
             <svg
               aria-hidden="true"
               class=" css-em5iqk"
@@ -3306,11 +3321,13 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
         <div>
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-            data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"http://localhost:8000/\\"}"
-            data-testid="guarantee-inline-link"
+            data-gtm="{"id":"cta-click1","label":"link-2","action":"http://localhost:8000/"}"
+            data-testid="guarantee-inline-link-link-2"
             type="button"
           >
-            <span />
+            <span>
+              link-2
+            </span>
             <svg
               aria-hidden="true"
               class=" css-em5iqk"
@@ -3490,6 +3507,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
   >
     <div
       class="DocumentSimpleTableResults css-1iwuinm"
+      data-testid="document-simple-table-results"
     >
       <div
         class="css-ya57aw"
@@ -3530,7 +3548,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
           >
             <tr
               class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
-              data-test-id="document-table-row-id-1"
+              data-testid="document-table-row-id-1"
             >
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
@@ -3544,7 +3562,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
               >
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://pimDocument\\"}"
+                  data-gtm="{"id":"download1","label":"Download","action":"http://pimDocument"}"
                   data-testid="document-table-download-application/pdf-button"
                   href="http://pimdocument/"
                   rel="noopener noreferrer"
@@ -3616,7 +3634,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                           aria-label="MC: documentLibrary.download Pim Document"
                           class="PrivateSwitchBase-input css-1m9pwf3"
                           data-indeterminate="false"
-                          name="id-1-Pim_Document"
+                          name="id-1-Pim-Document"
                           type="checkbox"
                         />
                         <svg
@@ -3641,7 +3659,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
             </tr>
             <tr
               class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
-              data-test-id="document-table-row-id-2"
+              data-testid="document-table-row-id-2"
             >
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
@@ -3655,7 +3673,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
               >
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://pimDocument\\"}"
+                  data-gtm="{"id":"download1","label":"Download","action":"http://pimDocument"}"
                   data-testid="document-table-download-application/pdf-button"
                   href="http://pimdocument/"
                   rel="noopener noreferrer"
@@ -3727,7 +3745,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                           aria-label="MC: documentLibrary.download Pim Document"
                           class="PrivateSwitchBase-input css-1m9pwf3"
                           data-indeterminate="false"
-                          name="id-2-Pim_Document"
+                          name="id-2-Pim-Document"
                           type="checkbox"
                         />
                         <svg
@@ -3752,7 +3770,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
             </tr>
             <tr
               class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
-              data-test-id="document-table-row-id-3"
+              data-testid="document-table-row-id-3"
             >
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
@@ -3766,7 +3784,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
               >
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://pimDocument\\"}"
+                  data-gtm="{"id":"download1","label":"Download","action":"http://pimDocument"}"
                   data-testid="document-table-download-application/pdf-button"
                   href="http://pimdocument/"
                   rel="noopener noreferrer"
@@ -3838,7 +3856,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                           aria-label="MC: documentLibrary.download Pim Document"
                           class="PrivateSwitchBase-input css-1m9pwf3"
                           data-indeterminate="false"
-                          name="id-3-Pim_Document"
+                          name="id-3-Pim-Document"
                           type="checkbox"
                         />
                         <svg
@@ -3863,7 +3881,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
             </tr>
             <tr
               class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
-              data-test-id="document-table-row-id-3"
+              data-testid="document-table-row-id-3"
             >
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
@@ -3877,7 +3895,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
               >
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://pimDocument\\"}"
+                  data-gtm="{"id":"download1","label":"Download","action":"http://pimDocument"}"
                   data-testid="document-table-download-application/pdf-button"
                   href="http://pimdocument/"
                   rel="noopener noreferrer"
@@ -3949,7 +3967,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                           aria-label="MC: documentLibrary.download Pim Document"
                           class="PrivateSwitchBase-input css-1m9pwf3"
                           data-indeterminate="false"
-                          name="id-3-Pim_Document"
+                          name="id-3-Pim-Document"
                           type="checkbox"
                         />
                         <svg
@@ -3978,6 +3996,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
     </div>
     <div
       class="DocumentResultsFooter"
+      data-testid="document-results-footer"
     >
       <a
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
@@ -3990,7 +4009,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
       </a>
       <button
         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-        data-gtm="{\\"id\\":\\"download3-button1\\",\\"label\\":\\"MC: downloadList.download (0)\\",\\"action\\":\\"[]\\"}"
+        data-gtm="{"id":"download3-button1","label":"MC: downloadList.download (0)","action":"[]"}"
         data-testid="document-table-download-button"
         tabindex="0"
         type="button"
@@ -4007,7 +4026,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
         This site is protected by reCAPTCHA and the Google 
         <a
           class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-          data-testid="anchor-link"
+          data-testid="recaptcha-privacy-policy-link"
           href="https://policies.google.com/privacy"
           rel="noreferrer noopener"
           target="_blank"
@@ -4019,7 +4038,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
          and 
         <a
           class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-          data-testid="anchor-link"
+          data-testid="recaptcha-terms-of-service-link"
           href="https://policies.google.com/terms"
           rel="noreferrer noopener"
           target="_blank"
@@ -4112,7 +4131,7 @@ exports[`ProductLeadBlock tests should render the technical draws tab 1`] = `
   role="tabpanel"
 >
   <div
-    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-180ih2o-MuiGrid2-root"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-16d2wre-MuiGrid2-root"
     data-testid="grid-container"
   >
     <div
@@ -4134,6 +4153,7 @@ exports[`ProductLeadBlock tests should render the technical draws tab 1`] = `
             <img
               alt="Alt text"
               class="MediaGallery-mainImageWrapperdefault css-ztt6nc-Media"
+              data-testid="media-gallery-media"
               src="http://localhost:8000/image-main-source.jpg"
             />
           </div>

@@ -45,4 +45,4 @@ exports[`Previewer render correctly with no slug in window.location.search 1`] =
 </div>
 `;
 
-exports[`Previewer return null when window is undefined 1`] = `<div />`;
+exports[`Previewer return null when window is undefined 1`] = `""`;

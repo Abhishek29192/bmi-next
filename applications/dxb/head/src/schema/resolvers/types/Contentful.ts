@@ -4,13 +4,13 @@
  * main types, but with any "link" fields and without any resolver created
  * fields.
  */
-import { Region } from "../../../components/Header";
-import { Data as ContentfulImage } from "../../../components/Image";
-import { CalculatorConfig } from "../../../components/pitched-roof-calculator/types";
-import { RichTextData } from "../../../components/RichText";
-import { Data as ContentfulVideo } from "../../../components/Video";
-import { HouseType } from "../../../components/visualiser/Types";
-import { Node } from "./Gatsby";
+import type { Region } from "../../../components/Header";
+import type { Data as ContentfulImage } from "../../../components/Image";
+import type { CalculatorConfig } from "../../../components/pitched-roof-calculator/types";
+import type { RichTextData } from "../../../components/RichText";
+import type { Data as ContentfulVideo } from "../../../components/Video";
+import type { HouseType } from "../../../components/visualiser/Types";
+import type { Node } from "./Gatsby";
 
 export type Resource = Node & {
   keyAssetTypes: string[] | null;

@@ -1,3 +1,6 @@
+import AllLocales from "./resources/locales.json";
+import SampleAsset from "./resources/sample_asset.json";
+import SampleEntry from "./resources/sample_entry.json";
 import type {
   Asset,
   Entry,
@@ -5,9 +8,6 @@ import type {
   Link,
   Locale
 } from "contentful-management";
-import AllLocales from "./resources/locales.json";
-import SampleAsset from "./resources/sample_asset.json";
-import SampleEntry from "./resources/sample_entry.json";
 
 const findIrrelevantLocales = async (
   environment: Partial<Environment>,

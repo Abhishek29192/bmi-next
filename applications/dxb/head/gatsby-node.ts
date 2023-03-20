@@ -1,13 +1,13 @@
 import path from "path";
 import dotenv from "dotenv";
 import findUp from "find-up";
-import type { GatsbyNode } from "gatsby";
 import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
 import { createSystemPages } from "./src/gatsby/systemDetailsPages";
 import resolvers from "./src/schema/resolvers";
 import typeDefs from "./src/schema/schema.graphql";
 import { getRedirects, Redirect } from "./src/utils/get-redirects";
 import { getPathWithCountryCode } from "./src/utils/path";
+import type { GatsbyNode } from "gatsby";
 
 dotenv.config({
   path: `./.env.${process.env.NODE_ENV}`

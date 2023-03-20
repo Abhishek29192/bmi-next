@@ -8,7 +8,6 @@ import {
 } from "@bmi-digital/fetch-mocks";
 import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
-import mockConsole from "jest-mock-console";
 
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
@@ -44,10 +43,6 @@ jest.mock("contentful-management", () => ({
 
 const upload = async (request: Partial<Request>, response: Partial<Response>) =>
   (await import("../index")).upload(request as Request, response as Response);
-
-beforeAll(() => {
-  mockConsole();
-});
 
 beforeEach(() => {
   jest.clearAllMocks();

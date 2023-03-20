@@ -1,6 +1,6 @@
 import { QUERY_KEY, ThemeProvider } from "@bmi-digital/components";
 import { useMediaQuery } from "@mui/material";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import QueryString from "query-string";
 import React from "react";
 import { FILTER_KEY, PATHNAME_KEY, SEARCHTAB_KEY } from "../../utils/filters";
@@ -51,7 +51,7 @@ describe("BackToResults component", () => {
         </BackToResults>
       </ThemeProvider>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders children if url query params is not related to search", () => {
@@ -64,13 +64,13 @@ describe("BackToResults component", () => {
         </BackToResults>
       </ThemeProvider>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders cta if url query params includes search request", () => {
     window.location = getLocation({ [QUERY_KEY]: "query" });
 
-    const { container, getByRole } = render(
+    const { container } = render(
       <ThemeProvider>
         <SiteContextProvider value={getSiteContext()}>
           <BackToResults>
@@ -80,7 +80,7 @@ describe("BackToResults component", () => {
       </ThemeProvider>
     );
 
-    const cta = getByRole("link") as HTMLLinkElement;
+    const cta = screen.getByRole("link") as HTMLLinkElement;
 
     expect(cta.href).toBe("http://localhost/en/search/?q=query");
     expect(cta.attributes.getNamedItem("data-gtm").value).toBe(
@@ -90,7 +90,7 @@ describe("BackToResults component", () => {
         action: "/en/search/?q=query"
       })
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders cta if url query params includes filters values", () => {
@@ -98,7 +98,7 @@ describe("BackToResults component", () => {
       [FILTER_KEY]: JSON.stringify({ brands: ["BRAND_1"] })
     });
 
-    const { container, getByRole } = render(
+    const { container } = render(
       <ThemeProvider>
         <SiteContextProvider value={getSiteContext()}>
           <BackToResults>
@@ -108,7 +108,7 @@ describe("BackToResults component", () => {
       </ThemeProvider>
     );
 
-    const cta = getByRole("link") as HTMLLinkElement;
+    const cta = screen.getByRole("link") as HTMLLinkElement;
 
     expect(cta.href).toBe(
       "http://localhost/en/search/?filters=%7B%22brands%22%3A%5B%22BRAND_1%22%5D%7D"
@@ -120,7 +120,7 @@ describe("BackToResults component", () => {
         action: "/en/search/?filters=%7B%22brands%22%3A%5B%22BRAND_1%22%5D%7D"
       })
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders cta if url query params includes previous page (for plp)", () => {
@@ -128,7 +128,7 @@ describe("BackToResults component", () => {
       [PATHNAME_KEY]: "/en/plp-page"
     });
 
-    const { container, getByRole } = render(
+    const { container } = render(
       <ThemeProvider>
         <SiteContextProvider value={getSiteContext()}>
           <BackToResults>
@@ -138,7 +138,7 @@ describe("BackToResults component", () => {
       </ThemeProvider>
     );
 
-    const cta = getByRole("link") as HTMLLinkElement;
+    const cta = screen.getByRole("link") as HTMLLinkElement;
 
     expect(cta.href).toBe("http://localhost/en/plp-page");
     expect(cta.attributes.getNamedItem("data-gtm").value).toBe(
@@ -148,7 +148,7 @@ describe("BackToResults component", () => {
         action: "/en/plp-page"
       })
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   describe("when url search param has more than one parameters along with pathname param", () => {
     it("renders removes only path name parameter and keeps other parameters", () => {
@@ -157,7 +157,7 @@ describe("BackToResults component", () => {
         [SEARCHTAB_KEY]: "pages"
       });
 
-      const { container, getByRole } = render(
+      const { container } = render(
         <ThemeProvider>
           <SiteContextProvider value={getSiteContext()}>
             <BackToResults>
@@ -167,7 +167,7 @@ describe("BackToResults component", () => {
         </ThemeProvider>
       );
 
-      const cta = getByRole("link") as HTMLLinkElement;
+      const cta = screen.getByRole("link") as HTMLLinkElement;
 
       expect(cta.href).toBe("http://localhost/en/plp-page?tab=pages");
       expect(cta.attributes.getNamedItem("data-gtm").value).toBe(
@@ -177,7 +177,7 @@ describe("BackToResults component", () => {
           action: "/en/plp-page?tab=pages"
         })
       );
-      expect(container.firstChild).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
   });
 
@@ -186,7 +186,7 @@ describe("BackToResults component", () => {
       [SEARCHTAB_KEY]: "pages"
     });
 
-    const { container, getByRole } = render(
+    const { container } = render(
       <ThemeProvider>
         <SiteContextProvider value={getSiteContext()}>
           <BackToResults>
@@ -196,7 +196,7 @@ describe("BackToResults component", () => {
       </ThemeProvider>
     );
 
-    const cta = getByRole("link") as HTMLLinkElement;
+    const cta = screen.getByRole("link") as HTMLLinkElement;
 
     expect(cta.href).toBe("http://localhost/en/search/?tab=pages");
     expect(cta.attributes.getNamedItem("data-gtm").value).toBe(
@@ -206,7 +206,7 @@ describe("BackToResults component", () => {
         action: "/en/search/?tab=pages"
       })
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly", () => {
@@ -216,7 +216,7 @@ describe("BackToResults component", () => {
       [QUERY_KEY]: "query"
     });
 
-    const { container, getByRole } = render(
+    const { container } = render(
       <ThemeProvider>
         <SiteContextProvider value={getSiteContext()}>
           <BackToResults>
@@ -226,7 +226,7 @@ describe("BackToResults component", () => {
       </ThemeProvider>
     );
 
-    const cta = getByRole("link") as HTMLLinkElement;
+    const cta = screen.getByRole("link") as HTMLLinkElement;
 
     expect(cta.href).toBe(
       "http://localhost/en/search/?filters=%7B%22brand%22%3A%22BRAND_1%22%7D&q=query&tab=pages"
@@ -239,7 +239,7 @@ describe("BackToResults component", () => {
           "/en/search/?filters=%7B%22brand%22%3A%22BRAND_1%22%7D&q=query&tab=pages"
       })
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders cta without children if mobile", () => {
@@ -260,6 +260,6 @@ describe("BackToResults component", () => {
       </ThemeProvider>
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

@@ -14,6 +14,7 @@ exports[`DocumentSimpleTableResultsMobile component renders correctly 1`] = `
         >
           <svg
             class="download-icon css-x3wokz"
+            data-testid="download-icon"
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -80,7 +81,7 @@ exports[`DocumentSimpleTableResultsMobile component renders correctly 1`] = `
         </p>
         <a
           class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-          data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://doesnot-exist.com/fileName\\"}"
+          data-gtm="{"id":"download1","label":"Download","action":"http://doesnot-exist.com/fileName"}"
           href="http://doesnot-exist.com/fileName"
           rel="noopener noreferrer"
           tabindex="0"
@@ -126,6 +127,7 @@ exports[`DocumentSimpleTableResultsMobile component renders correctly when valid
         >
           <svg
             class="download-icon css-x3wokz"
+            data-testid="download-icon"
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -192,7 +194,7 @@ exports[`DocumentSimpleTableResultsMobile component renders correctly when valid
         </p>
         <a
           class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-          data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://doesnot-exist.com/fileName\\"}"
+          data-gtm="{"id":"download1","label":"Download","action":"http://doesnot-exist.com/fileName"}"
           href="http://doesnot-exist.com/fileName"
           rel="noopener noreferrer"
           tabindex="0"
@@ -238,6 +240,7 @@ exports[`DocumentSimpleTableResultsMobile component renders multiple documents o
         >
           <svg
             class="download-icon css-x3wokz"
+            data-testid="download-icon"
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -304,7 +307,7 @@ exports[`DocumentSimpleTableResultsMobile component renders multiple documents o
         </p>
         <a
           class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-          data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://pimDocument\\"}"
+          data-gtm="{"id":"download1","label":"Download","action":"http://pimDocument"}"
           href="http://pimdocument/"
           rel="noopener noreferrer"
           tabindex="0"
@@ -326,6 +329,9 @@ exports[`DocumentSimpleTableResultsMobile component renders multiple documents o
               />
             </svg>
           </span>
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
         </a>
       </div>
     </div>
@@ -347,6 +353,7 @@ exports[`DocumentSimpleTableResultsMobile component renders pim documents correc
         >
           <svg
             class="download-icon css-x3wokz"
+            data-testid="download-icon"
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -413,7 +420,7 @@ exports[`DocumentSimpleTableResultsMobile component renders pim documents correc
         </p>
         <a
           class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-          data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://pimDocument\\"}"
+          data-gtm="{"id":"download1","label":"Download","action":"http://pimDocument"}"
           href="http://pimdocument/"
           rel="noopener noreferrer"
           tabindex="0"

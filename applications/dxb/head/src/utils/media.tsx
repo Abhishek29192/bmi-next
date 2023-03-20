@@ -1,7 +1,7 @@
 import { MediaData } from "@bmi-digital/components";
 import React from "react";
 import Image, { Data as ImageData } from "../components/Image";
-import { Data as VideoData, renderVideo } from "../components/Video";
+import Video, { Data as VideoData } from "../components/Video";
 
 export const getJpgImage = (ogImageUrl: string) => {
   if (
@@ -46,7 +46,7 @@ export const transformMediaSrc = (
     switch (item.__typename) {
       case "ContentfulImage":
         return {
-          media: <Image data={item} />,
+          media: <Image {...item} />,
           thumbnail: item.image.thumbnail?.images.fallback.src,
           caption: item.caption?.caption || undefined,
           altText: item.altText || undefined,
@@ -54,7 +54,7 @@ export const transformMediaSrc = (
         };
       case "ContentfulVideo":
         return {
-          media: renderVideo(item),
+          media: <Video {...item} />,
           thumbnail:
             item.previewMedia?.image?.thumbnail?.images.fallback.src ||
             item.defaultYouTubePreviewImage,
@@ -64,7 +64,7 @@ export const transformMediaSrc = (
         };
       case "PimVideo":
         return {
-          media: renderVideo(item),
+          media: <Video {...item} />,
           thumbnail: item.defaultYouTubePreviewImage,
           caption: item.title,
           isVideo: true

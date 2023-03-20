@@ -1,5 +1,5 @@
 import { ThemeProvider } from "@bmi-digital/components";
-import { fireEvent, render } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import UpDownSimpleNumericInput from "../UpDownSimpleNumericInput";
 
@@ -13,6 +13,7 @@ describe("UpDownSimpleNumericInput component", () => {
     );
     expect(container).toMatchSnapshot();
   });
+
   it("renders variant with buttons on the side", () => {
     const onInputMock = jest.fn();
     const { container } = render(
@@ -26,6 +27,7 @@ describe("UpDownSimpleNumericInput component", () => {
     );
     expect(container).toMatchSnapshot();
   });
+
   it("renders variant with step set to a pre-defined value", () => {
     const onInputMock = jest.fn();
     const stepValue = 5;
@@ -40,10 +42,11 @@ describe("UpDownSimpleNumericInput component", () => {
     );
     expect(container).toMatchSnapshot();
   });
+
   it("should trigger handleIncrement function on click button Up", () => {
     const onInputMock = jest.fn();
     const stepValue = 5;
-    const wrapper = render(
+    render(
       <ThemeProvider>
         <UpDownSimpleNumericInput
           name="Counter"
@@ -52,16 +55,17 @@ describe("UpDownSimpleNumericInput component", () => {
         />
       </ThemeProvider>
     );
-    const buttonUp = wrapper.container.querySelector("[aria-label='Up']");
+    const buttonUp = screen.getByLabelText("Up");
     if (buttonUp) {
       fireEvent.click(buttonUp);
     }
     expect(onInputMock).toHaveBeenCalledWith(5);
   });
+
   it("should trigger handleDecrement function on click button Down", () => {
     const onInputMock = jest.fn();
     const stepValue = 5;
-    const wrapper = render(
+    render(
       <ThemeProvider>
         <UpDownSimpleNumericInput
           name="Counter"
@@ -70,16 +74,17 @@ describe("UpDownSimpleNumericInput component", () => {
         />
       </ThemeProvider>
     );
-    const buttonDown = wrapper.container.querySelector("[aria-label='Down']");
+    const buttonDown = screen.getByLabelText("Down");
     if (buttonDown) {
       fireEvent.click(buttonDown);
     }
     expect(onInputMock).toHaveBeenCalledWith(-5);
   });
+
   it("should trigger handleChange function with correct value on trigger input change event with value 5", () => {
     const onInputMock = jest.fn();
     const stepValue = 5;
-    const wrapper = render(
+    render(
       <ThemeProvider>
         <UpDownSimpleNumericInput
           name="Counter"
@@ -88,16 +93,19 @@ describe("UpDownSimpleNumericInput component", () => {
         />
       </ThemeProvider>
     );
-    const input = wrapper.container.querySelector("input[value='0']");
+    const input = screen.getByTestId(
+      "up-down-simple-numeric-input-text-field-input"
+    );
     if (input) {
       fireEvent.change(input, { target: { value: 5 } });
     }
     expect(onInputMock).toHaveBeenCalledWith(5);
   });
+
   it("should trigger handleInputChange function with incorrect value on trigger input change event with value NaN", () => {
     const onInputMock = jest.fn();
     const stepValue = 5;
-    const wrapper = render(
+    render(
       <ThemeProvider>
         <UpDownSimpleNumericInput
           name="Counter"
@@ -106,16 +114,19 @@ describe("UpDownSimpleNumericInput component", () => {
         />
       </ThemeProvider>
     );
-    const input = wrapper.container.querySelector("input[value='0']");
+    const input = screen.getByTestId(
+      "up-down-simple-numeric-input-text-field-input"
+    );
     if (input) {
       fireEvent.change(input, { target: { value: NaN } });
     }
     expect(onInputMock).not.toHaveBeenCalled();
   });
+
   it("should not trigger handleInputChange function if min value is greater than current value", () => {
     const onInputMock = jest.fn();
     const min = 5;
-    const wrapper = render(
+    render(
       <ThemeProvider>
         <UpDownSimpleNumericInput
           name="Counter"
@@ -124,16 +135,19 @@ describe("UpDownSimpleNumericInput component", () => {
         />
       </ThemeProvider>
     );
-    const input = wrapper.container.querySelector("input[value='5']");
+    const input = screen.getByTestId(
+      "up-down-simple-numeric-input-text-field-input"
+    );
     if (input) {
       fireEvent.change(input, { target: { value: 1 } });
     }
     expect(onInputMock).toHaveBeenCalledTimes(0);
   });
+
   it("should trigger handleInputChange function with max value on trigger input change event with value that is more than max value", () => {
     const onInputMock = jest.fn();
     const max = 5;
-    const wrapper = render(
+    render(
       <ThemeProvider>
         <UpDownSimpleNumericInput
           name="Counter"
@@ -142,16 +156,19 @@ describe("UpDownSimpleNumericInput component", () => {
         />
       </ThemeProvider>
     );
-    const input = wrapper.container.querySelector("input[value='0']");
+    const input = screen.getByTestId(
+      "up-down-simple-numeric-input-text-field-input"
+    );
     if (input) {
       fireEvent.change(input, { target: { value: 6 } });
     }
     expect(onInputMock).toHaveBeenCalledWith(5);
   });
+
   it("should set default value if the value is defined", () => {
     const onInputMock = jest.fn();
     const defaultValue = 5;
-    const wrapper = render(
+    render(
       <ThemeProvider>
         <UpDownSimpleNumericInput
           name="Counter"
@@ -160,24 +177,28 @@ describe("UpDownSimpleNumericInput component", () => {
         />
       </ThemeProvider>
     );
-    const input = wrapper.container.querySelector("input[value='5']");
-    expect(input).toBeDefined();
+
+    expect(
+      screen.getByTestId("up-down-simple-numeric-input-text-field-input")
+    ).toHaveValue("5");
   });
+
   it("should change lockBreakpoint value for styles class of buttons container", () => {
     const onInputMock = jest.fn();
     const lockBreakpoint = "md";
-    const wrapper = render(
+    render(
       <ThemeProvider>
         <UpDownSimpleNumericInput
           name="Counter"
           onChange={onInputMock}
           lockBreakpoint={lockBreakpoint}
+          buttonPlacement={"right"}
         />
       </ThemeProvider>
     );
-    const buttonsHolder = wrapper.container.querySelector(
-      `div.UpDownSimpleNumericInput--locked-${lockBreakpoint}`
-    );
-    expect(buttonsHolder).toBeDefined();
+
+    expect(
+      screen.getByTestId("up-down-simple-numeric-input-buttons-wrapper")
+    ).toHaveClass(`locked-${lockBreakpoint}`);
   });
 });

@@ -11,8 +11,6 @@ import OverlapCards, {
   Data as OverlapCardData
 } from "../components/OverlapCards";
 import Page, { Data as PageData } from "../components/Page";
-import type { Data as PageInfoData } from "../components/PageInfo";
-import type { Data as SlideData } from "../components/Promo";
 import Sections, { Data as SectionsData } from "../components/Sections";
 import { Data as SiteData } from "../components/Site";
 import WelcomeDialog from "../components/WelcomeDialog";
@@ -21,6 +19,8 @@ import { useConfig } from "../contexts/ConfigProvider";
 import withGTM from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
 import { getHeroItemsWithContext } from "./helpers/getHeroItemsWithContext";
+import type { Data as SlideData } from "../components/Promo";
+import type { Data as PageInfoData } from "../components/PageInfo";
 
 export type HomepageData = {
   __typename: "ContentfulHomePage";

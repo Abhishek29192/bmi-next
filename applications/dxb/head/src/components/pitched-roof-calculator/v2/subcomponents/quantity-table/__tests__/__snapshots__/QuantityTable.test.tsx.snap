@@ -125,6 +125,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                         </button>
                         <div
                           class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                          data-testid="up-down-simple-numeric-input-text-field"
                         >
                           <div
                             class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
@@ -132,7 +133,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                             <input
                               aria-invalid="false"
                               class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
-                              id="mui-1"
+                              data-testid="up-down-simple-numeric-input-text-field-input"
+                              id=":r0:"
                               type="text"
                               value="43"
                             />
@@ -265,6 +267,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                         </button>
                         <div
                           class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                          data-testid="up-down-simple-numeric-input-text-field"
                         >
                           <div
                             class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
@@ -272,7 +275,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                             <input
                               aria-invalid="false"
                               class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
-                              id="mui-2"
+                              data-testid="up-down-simple-numeric-input-text-field-input"
+                              id=":r1:"
                               type="text"
                               value="43"
                             />
@@ -405,6 +409,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                         </button>
                         <div
                           class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                          data-testid="up-down-simple-numeric-input-text-field"
                         >
                           <div
                             class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
@@ -412,7 +417,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                             <input
                               aria-invalid="false"
                               class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
-                              id="mui-3"
+                              data-testid="up-down-simple-numeric-input-text-field-input"
+                              id=":r2:"
                               type="text"
                               value="43"
                             />
@@ -545,6 +551,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                         </button>
                         <div
                           class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                          data-testid="up-down-simple-numeric-input-text-field"
                         >
                           <div
                             class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
@@ -552,7 +559,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                             <input
                               aria-invalid="false"
                               class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
-                              id="mui-4"
+                              data-testid="up-down-simple-numeric-input-text-field-input"
+                              id=":r3:"
                               type="text"
                               value="43"
                             />
@@ -685,6 +693,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                         </button>
                         <div
                           class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                          data-testid="up-down-simple-numeric-input-text-field"
                         >
                           <div
                             class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
@@ -692,7 +701,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                             <input
                               aria-invalid="false"
                               class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
-                              id="mui-5"
+                              data-testid="up-down-simple-numeric-input-text-field-input"
+                              id=":r4:"
                               type="text"
                               value="43"
                             />
@@ -846,6 +856,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                     </button>
                     <div
                       class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                      data-testid="up-down-simple-numeric-input-text-field"
                     >
                       <div
                         class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
@@ -853,7 +864,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                         <input
                           aria-invalid="false"
                           class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
-                          id="mui-6"
+                          data-testid="up-down-simple-numeric-input-text-field-input"
+                          id=":r5:"
                           type="text"
                           value="43"
                         />
@@ -965,6 +977,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                     </button>
                     <div
                       class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                      data-testid="up-down-simple-numeric-input-text-field"
                     >
                       <div
                         class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
@@ -972,7 +985,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                         <input
                           aria-invalid="false"
                           class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
-                          id="mui-7"
+                          data-testid="up-down-simple-numeric-input-text-field-input"
+                          id=":r6:"
                           type="text"
                           value="43"
                         />
@@ -1084,6 +1098,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                     </button>
                     <div
                       class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                      data-testid="up-down-simple-numeric-input-text-field"
                     >
                       <div
                         class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
@@ -1091,7 +1106,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                         <input
                           aria-invalid="false"
                           class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
-                          id="mui-8"
+                          data-testid="up-down-simple-numeric-input-text-field-input"
+                          id=":r7:"
                           type="text"
                           value="43"
                         />
@@ -1203,6 +1219,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                     </button>
                     <div
                       class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                      data-testid="up-down-simple-numeric-input-text-field"
                     >
                       <div
                         class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
@@ -1210,7 +1227,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                         <input
                           aria-invalid="false"
                           class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
-                          id="mui-9"
+                          data-testid="up-down-simple-numeric-input-text-field-input"
+                          id=":r8:"
                           type="text"
                           value="43"
                         />
@@ -1322,6 +1340,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                     </button>
                     <div
                       class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                      data-testid="up-down-simple-numeric-input-text-field"
                     >
                       <div
                         class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
@@ -1329,7 +1348,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                         <input
                           aria-invalid="false"
                           class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
-                          id="mui-10"
+                          data-testid="up-down-simple-numeric-input-text-field-input"
+                          id=":r9:"
                           type="text"
                           value="43"
                         />
@@ -1546,6 +1566,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                     </button>
                     <div
                       class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                      data-testid="up-down-simple-numeric-input-text-field"
                     >
                       <div
                         class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
@@ -1553,7 +1574,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                         <input
                           aria-invalid="false"
                           class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
-                          id="mui-11"
+                          data-testid="up-down-simple-numeric-input-text-field-input"
+                          id=":ra:"
                           type="text"
                           value="43"
                         />
@@ -1674,6 +1696,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                     </button>
                     <div
                       class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                      data-testid="up-down-simple-numeric-input-text-field"
                     >
                       <div
                         class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
@@ -1681,7 +1704,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                         <input
                           aria-invalid="false"
                           class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
-                          id="mui-12"
+                          data-testid="up-down-simple-numeric-input-text-field-input"
+                          id=":rb:"
                           type="text"
                           value="43"
                         />
@@ -1802,6 +1826,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                     </button>
                     <div
                       class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                      data-testid="up-down-simple-numeric-input-text-field"
                     >
                       <div
                         class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
@@ -1809,7 +1834,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                         <input
                           aria-invalid="false"
                           class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
-                          id="mui-13"
+                          data-testid="up-down-simple-numeric-input-text-field-input"
+                          id=":rc:"
                           type="text"
                           value="43"
                         />
@@ -1930,6 +1956,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                     </button>
                     <div
                       class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                      data-testid="up-down-simple-numeric-input-text-field"
                     >
                       <div
                         class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
@@ -1937,7 +1964,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                         <input
                           aria-invalid="false"
                           class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
-                          id="mui-14"
+                          data-testid="up-down-simple-numeric-input-text-field-input"
+                          id=":rd:"
                           type="text"
                           value="43"
                         />
@@ -2058,6 +2086,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                     </button>
                     <div
                       class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                      data-testid="up-down-simple-numeric-input-text-field"
                     >
                       <div
                         class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
@@ -2065,7 +2094,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                         <input
                           aria-invalid="false"
                           class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
-                          id="mui-15"
+                          data-testid="up-down-simple-numeric-input-text-field-input"
+                          id=":re:"
                           type="text"
                           value="43"
                         />

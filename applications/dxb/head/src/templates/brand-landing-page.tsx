@@ -14,22 +14,22 @@ import Breadcrumbs, {
   Data as BreadcrumbsData
 } from "../components/Breadcrumbs";
 import Image from "../components/Image";
-import type { Data as LinkData } from "../components/Link";
 import Link from "../components/Link";
 import OverlapCards, {
   Data as OverlapCardData
 } from "../components/OverlapCards";
 import Page, { Data as PageData } from "../components/Page";
-import type { Data as PageInfoData } from "../components/PageInfo";
-import type { Data as SlideData } from "../components/Promo";
 import Sections, { Data as SectionsData } from "../components/Sections";
-import type { Data as SiteData } from "../components/Site";
-import { renderVideo } from "../components/Video";
+import Video from "../components/Video";
 import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
 import { updateBreadcrumbTitleFromContentful } from "../utils/breadcrumbUtils";
 import withGTM from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
+import type { Data as LinkData } from "../components/Link";
+import type { Data as SiteData } from "../components/Site";
+import type { Data as SlideData } from "../components/Promo";
+import type { Data as PageInfoData } from "../components/PageInfo";
 
 type BrandLandingPageData = Omit<PageInfoData, "sections"> &
   Omit<PageData, "breadcrumbs"> & {
@@ -77,9 +77,9 @@ const getHeroItemsWithContext = (
         title,
         children: subtitle,
         media: featuredVideo ? (
-          renderVideo(featuredVideo)
+          <Video {...featuredVideo} />
         ) : (
-          <Image data={featuredMedia} size="cover" />
+          <Image {...featuredMedia} size="cover" />
         ),
         cta:
           rest.__typename === "ContentfulPromo"
@@ -93,7 +93,6 @@ const getHeroItemsWithContext = (
 const BrandLandingPage = ({ data, pageContext }: Props) => {
   const {
     title,
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     description,
     cta,
     brandLogo,
@@ -131,13 +130,13 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
         }`
       : null,
     media: featuredVideo ? (
-      renderVideo(featuredVideo)
+      <Video {...featuredVideo} />
     ) : (
-      <Image data={featuredMedia} size="cover" />
+      <Image {...featuredMedia} size="cover" />
     ),
     hasUnderline: false,
     cta: cta ? (
-      <Link component={Button} data={cta}>
+      <Link component={Button} data={cta} data-testid="first-slide-cta">
         {cta.label}
       </Link>
     ) : null
