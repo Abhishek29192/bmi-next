@@ -543,7 +543,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
                 style="width: 33.333333333333336%;"
               >
                 <h5
-                  class="MuiTypography-root MuiTypography-h5 item css-1lhxn1g-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom  css-1syfip8-MuiTypography-root"
                   data-testid="typography"
                 >
                   <a
@@ -591,7 +591,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
                 style="width: 33.333333333333336%;"
               >
                 <h5
-                  class="MuiTypography-root MuiTypography-h5 item css-1lhxn1g-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom  css-1syfip8-MuiTypography-root"
                   data-testid="typography"
                 >
                   <a
@@ -639,7 +639,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
                 style="width: 33.333333333333336%;"
               >
                 <h5
-                  class="MuiTypography-root MuiTypography-h5 item css-1lhxn1g-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom  css-1syfip8-MuiTypography-root"
                   data-testid="typography"
                 >
                   <a
@@ -687,7 +687,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
                 style="width: 33.333333333333336%;"
               >
                 <h5
-                  class="MuiTypography-root MuiTypography-h5 item css-1lhxn1g-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom  css-1syfip8-MuiTypography-root"
                   data-testid="typography"
                 >
                   <a
@@ -1396,7 +1396,7 @@ exports[`Sitemap renders correctly 1`] = `
                 style="width: 33.333333333333336%;"
               >
                 <h5
-                  class="MuiTypography-root MuiTypography-h5 item css-1lhxn1g-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom  css-1syfip8-MuiTypography-root"
                   data-testid="typography"
                 >
                   <a
@@ -1444,7 +1444,7 @@ exports[`Sitemap renders correctly 1`] = `
                 style="width: 33.333333333333336%;"
               >
                 <h5
-                  class="MuiTypography-root MuiTypography-h5 item css-1lhxn1g-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom  css-1syfip8-MuiTypography-root"
                   data-testid="typography"
                 >
                   <a
@@ -1492,7 +1492,7 @@ exports[`Sitemap renders correctly 1`] = `
                 style="width: 33.333333333333336%;"
               >
                 <h5
-                  class="MuiTypography-root MuiTypography-h5 item css-1lhxn1g-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom  css-1syfip8-MuiTypography-root"
                   data-testid="typography"
                 >
                   <a
@@ -1540,7 +1540,7 @@ exports[`Sitemap renders correctly 1`] = `
                 style="width: 33.333333333333336%;"
               >
                 <h5
-                  class="MuiTypography-root MuiTypography-h5 item css-1lhxn1g-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom  css-1syfip8-MuiTypography-root"
                   data-testid="typography"
                 >
                   <a
@@ -2249,7 +2249,7 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
                 style="width: 33.333333333333336%;"
               >
                 <h5
-                  class="MuiTypography-root MuiTypography-h5 item css-1lhxn1g-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom  css-1syfip8-MuiTypography-root"
                   data-testid="typography"
                 >
                   <a
@@ -2297,7 +2297,7 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
                 style="width: 33.333333333333336%;"
               >
                 <h5
-                  class="MuiTypography-root MuiTypography-h5 item css-1lhxn1g-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom  css-1syfip8-MuiTypography-root"
                   data-testid="typography"
                 >
                   <a
@@ -2345,7 +2345,7 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
                 style="width: 33.333333333333336%;"
               >
                 <h5
-                  class="MuiTypography-root MuiTypography-h5 item css-1lhxn1g-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom  css-1syfip8-MuiTypography-root"
                   data-testid="typography"
                 >
                   <a
@@ -3038,7 +3038,7 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
                 style="width: 33.333333333333336%;"
               >
                 <h5
-                  class="MuiTypography-root MuiTypography-h5 item css-1lhxn1g-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom  css-1syfip8-MuiTypography-root"
                   data-testid="typography"
                 >
                   <a
@@ -3086,7 +3086,7 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
                 style="width: 33.333333333333336%;"
               >
                 <h5
-                  class="MuiTypography-root MuiTypography-h5 item css-1lhxn1g-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom  css-1syfip8-MuiTypography-root"
                   data-testid="typography"
                 >
                   <a
@@ -3134,7 +3134,7 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
                 style="width: 33.333333333333336%;"
               >
                 <h5
-                  class="MuiTypography-root MuiTypography-h5 item css-1lhxn1g-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom  css-1syfip8-MuiTypography-root"
                   data-testid="typography"
                 >
                   <a
@@ -3319,7 +3319,7 @@ exports[`Sitemap renders correctly when menuNavigation is falsy 1`] = `
                 style="width: 33.333333333333336%;"
               >
                 <h5
-                  class="MuiTypography-root MuiTypography-h5 item css-1lhxn1g-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom  css-1syfip8-MuiTypography-root"
                   data-testid="typography"
                 >
                   <a
@@ -3367,7 +3367,7 @@ exports[`Sitemap renders correctly when menuNavigation is falsy 1`] = `
                 style="width: 33.333333333333336%;"
               >
                 <h5
-                  class="MuiTypography-root MuiTypography-h5 item css-1lhxn1g-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom  css-1syfip8-MuiTypography-root"
                   data-testid="typography"
                 >
                   <a
@@ -3415,7 +3415,7 @@ exports[`Sitemap renders correctly when menuNavigation is falsy 1`] = `
                 style="width: 33.333333333333336%;"
               >
                 <h5
-                  class="MuiTypography-root MuiTypography-h5 item css-1lhxn1g-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom  css-1syfip8-MuiTypography-root"
                   data-testid="typography"
                 >
                   <a
@@ -3615,7 +3615,7 @@ exports[`Sitemap renders correctly when menuUtilities is falsy 1`] = `
                 style="width: 33.333333333333336%;"
               >
                 <h5
-                  class="MuiTypography-root MuiTypography-h5 item css-1lhxn1g-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom  css-1syfip8-MuiTypography-root"
                   data-testid="typography"
                 >
                   <a
@@ -3663,7 +3663,7 @@ exports[`Sitemap renders correctly when menuUtilities is falsy 1`] = `
                 style="width: 33.333333333333336%;"
               >
                 <h5
-                  class="MuiTypography-root MuiTypography-h5 item css-1lhxn1g-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom  css-1syfip8-MuiTypography-root"
                   data-testid="typography"
                 >
                   <a
@@ -3711,7 +3711,7 @@ exports[`Sitemap renders correctly when menuUtilities is falsy 1`] = `
                 style="width: 33.333333333333336%;"
               >
                 <h5
-                  class="MuiTypography-root MuiTypography-h5 item css-1lhxn1g-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom  css-1syfip8-MuiTypography-root"
                   data-testid="typography"
                 >
                   <a

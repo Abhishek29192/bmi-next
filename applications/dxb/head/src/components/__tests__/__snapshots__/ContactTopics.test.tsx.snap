@@ -67,7 +67,7 @@ exports[`ContactTopics component renders correctly 1`] = `
             class="ExpandableCard-body"
           >
             <h4
-              class="MuiTypography-root MuiTypography-h6 css-8u8jlx-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
               data-testid="typography"
             >
               Did you know?2
@@ -204,7 +204,7 @@ exports[`ContactTopics component renders correctly 1`] = `
                     class="BorderedItem"
                   />
                   <h5
-                    class="MuiTypography-root MuiTypography-h5 css-y579gu-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h5 heading css-1lhxn1g-MuiTypography-root"
                     data-testid="typography"
                   >
                     teste

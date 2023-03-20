@@ -124,7 +124,7 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
                   data-testid="typography"
                 >
                   <div
-                    class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-description css-1o02bdp-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                     data-testid="typography"
                   >
                     system-desc
@@ -404,7 +404,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                   data-testid="typography"
                 >
                   <div
-                    class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-description css-1o02bdp-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                     data-testid="typography"
                   >
                     system-desc
@@ -1295,12 +1295,22 @@ exports[`TabLeadBlock tests should render the bimIframe tab 1`] = `
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
               data-testid="grid-item"
             >
-              <h2
-                class="MuiTypography-root MuiTypography-h2 Typography-underline css-8cj2y3-MuiTypography-root"
+              <p
+                class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
                 data-testid="typography"
               >
-                BIM_CODE
-              </h2>
+                <h5
+                  class="MuiTypography-root MuiTypography-h5 css-ulrehz-MuiTypography-root"
+                  data-testid="typography"
+                >
+                  <h2
+                    class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
+                    data-testid="typography"
+                  >
+                    BIM_CODE
+                  </h2>
+                </h5>
+              </p>
               <p
                 class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
                 data-testid="typography"
