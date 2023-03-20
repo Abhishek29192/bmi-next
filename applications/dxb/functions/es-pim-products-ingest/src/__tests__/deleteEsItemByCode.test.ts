@@ -1,5 +1,7 @@
 import { ObjType } from "@bmi/pub-sub-types";
-import { deleteEsItemByCode } from "../deleteEsItemByCode";
+import { ApiResponse } from "@elastic/elasticsearch";
+import { ResponseError } from "@elastic/elasticsearch/lib/errors";
+import { deleteEsItemByCode, ItemTypes } from "../deleteEsItemByCode";
 
 const getEsClient = jest.fn();
 const deleteByQuery = jest.fn();
@@ -21,6 +23,30 @@ interface Params {
     };
   };
 }
+
+type TestCase = {
+  objType: ObjType;
+  callTimes: number;
+  itemType: ItemTypes;
+};
+
+const testCases: TestCase[] = [
+  {
+    objType: ObjType.System,
+    itemType: "SYSTEMS",
+    callTimes: 2
+  },
+  {
+    objType: ObjType.Base_product,
+    itemType: "PRODUCTS",
+    callTimes: 2
+  },
+  {
+    objType: ObjType.Variant,
+    itemType: "PRODUCTS",
+    callTimes: 1
+  }
+];
 
 beforeEach(() => {
   jest.clearAllMocks();
@@ -63,7 +89,7 @@ describe("deleteESItemByCode", () => {
     });
   });
 
-  it("should perform delete operation for variant and NOT perform delete operation for documnets on delete message ", async () => {
+  it("should perform delete operation for variant and NOT perform delete operation for documents on delete message ", async () => {
     const deleteItem = {
       code: "test_code_variant",
       objType: ObjType.Variant
@@ -129,10 +155,61 @@ describe("deleteESItemByCode", () => {
 
     const logMessage = JSON.parse(logData[logData.length - 1][0]).message;
 
-    expect(getEsClient).toBeCalled();
+    expect(getEsClient).not.toBeCalled();
     expect(deleteByQuery).toBeCalledTimes(0);
-    expect(logMessage).toEqual(
-      "ES Systems documents do not contain field 'Layer'"
-    );
+    expect(logMessage).toEqual("'Layer' is not indexed into ES");
+  });
+
+  describe("esDeleteByQuery", () => {
+    testCases.forEach(({ objType, itemType, callTimes }: TestCase) => {
+      const deleteItem = { code: "test-code", objType };
+
+      it(`should perform a delete operation for ${objType} if a ResponseError occurs and not propagate the error`, async () => {
+        deleteByQuery
+          .mockRejectedValueOnce(
+            new ResponseError({ statusCode: 400 } as ApiResponse)
+          )
+          .mockResolvedValueOnce(undefined);
+
+        try {
+          await deleteEsItemByCode(deleteItem, itemType);
+        } catch (error) {
+          expect(true).toEqual(`An error should not be thrown: ${error}`);
+        }
+
+        expect(getEsClient).toBeCalled();
+        expect(deleteByQuery).toBeCalledTimes(callTimes);
+      });
+
+      it(`should perform a delete operation for documents if an unknown error occurs when deleting the ${objType} and not propagate the error`, async () => {
+        deleteByQuery
+          .mockRejectedValueOnce(new Error("Expected error"))
+          .mockResolvedValueOnce(undefined);
+
+        try {
+          await deleteEsItemByCode(deleteItem, itemType);
+        } catch (error) {
+          expect(true).toEqual(`An error should not be thrown: ${error}`);
+        }
+
+        expect(getEsClient).toBeCalled();
+        expect(deleteByQuery).toBeCalledTimes(callTimes);
+      });
+
+      it(`should not propagate the error when deleting the ${objType} product documents`, async () => {
+        deleteByQuery
+          .mockResolvedValueOnce(undefined)
+          .mockRejectedValueOnce(new Error("Expected error"));
+
+        try {
+          await deleteEsItemByCode(deleteItem, itemType);
+        } catch (error) {
+          expect(true).toEqual(`An error should not be thrown: ${error}`);
+        }
+
+        expect(getEsClient).toBeCalled();
+        expect(deleteByQuery).toBeCalledTimes(callTimes);
+      });
+    });
   });
 });

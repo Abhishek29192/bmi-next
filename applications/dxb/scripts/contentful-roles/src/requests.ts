@@ -1,7 +1,5 @@
-// istanbul ignore file
 import fetchRetry from "@bmi/fetch-retry";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const createRoles = async (body: any) => {
   try {
     await fetchRetry(
@@ -16,14 +14,12 @@ export const createRoles = async (body: any) => {
       }
     );
     console.info(`Created role`);
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     console.error(error.message);
   }
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const updateRole = async (body: any, role: any) => {
+export const updateRole = async (body: Record<string, never>, role: any) => {
   try {
     console.info(`Triggering update ${role.name} role`);
     await fetchRetry(
@@ -39,7 +35,6 @@ export const updateRole = async (body: any, role: any) => {
       }
     );
     console.info(`Updated ${role.name} role`);
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     console.error(error.message);
   }
@@ -58,7 +53,6 @@ export const getSpaceRoles = async () => {
       }
     );
     return response.json();
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     console.error(error.message);
   }
