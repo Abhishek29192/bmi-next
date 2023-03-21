@@ -126,7 +126,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
           data-testid="document-results-footer"
         >
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
             data-testid="anchor-link"
             type="button"
           >
@@ -152,7 +152,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
           >
             This site is protected by reCAPTCHA and the Google 
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
               data-testid="recaptcha-privacy-policy-link"
               href="https://policies.google.com/privacy"
               rel="noreferrer noopener"
@@ -164,7 +164,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
             </a>
              and 
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
               data-testid="recaptcha-terms-of-service-link"
               href="https://policies.google.com/terms"
               rel="noreferrer noopener"

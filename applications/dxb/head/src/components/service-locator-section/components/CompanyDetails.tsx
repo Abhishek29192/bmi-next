@@ -1,4 +1,8 @@
-import { CompanyDetailProps, RoofProLevel } from "@bmi-digital/components";
+import {
+  CompanyDetailProps,
+  RoofProLevel,
+  SocialMediaLinks
+} from "@bmi-digital/components";
 import React from "react";
 import { Service } from "..";
 import { devLog } from "../../../utils/devLog";
@@ -32,7 +36,8 @@ export const createCompanyDetails = (
     merchantWebsiteLabel: localizationCb("findAMerchant.websiteLabel"),
     branchWebsiteLabel: localizationCb("findABranch.websiteLabel"),
     roofTypeLabel: localizationCb("findARoofer.roofTypeLabel"),
-    certificationLabel: localizationCb("findARoofer.certificationLabel")
+    certificationLabel: localizationCb("findARoofer.certificationLabel"),
+    socialMediaLabel: localizationCb("findARoofer.socialMediaLabel")
   };
 
   const getServiceDataGTM = (action: string, linkOrButtonText?: string) => {
@@ -53,6 +58,25 @@ export const createCompanyDetails = (
     } else {
       return { id: EVENT_CAT_ID_LINK_CLICKS, label, action };
     }
+  };
+
+  const getSocialMedia = (): CompanyDetailProps => {
+    const socialMedia = {
+      facebook: service?.facebook,
+      linkedIn: service?.linkedIn,
+      twitter: service?.twitter,
+      instagram: service?.instagram
+    };
+
+    if (Object.values(socialMedia).every((channel) => !channel)) {
+      return;
+    }
+
+    return {
+      type: "content",
+      label: localization.socialMediaLabel,
+      text: <SocialMediaLinks {...socialMedia} />
+    };
   };
 
   const websiteWithProtocol: string = !service
@@ -150,6 +174,7 @@ export const createCompanyDetails = (
           getServiceDataGTM(`mailto:${service.email}`, localization.globalEmail)
         )
   };
+
   const address: CompanyDetailProps = !service
     ? null
     : {
@@ -257,6 +282,7 @@ export const createCompanyDetails = (
         phone,
         email,
         website,
+        getSocialMedia(),
         type,
         certification
       ].filter(Boolean);
@@ -268,6 +294,7 @@ export const createCompanyDetails = (
         email,
         fax,
         website,
+        getSocialMedia(),
         directions
       ].filter(Boolean);
     case EntryTypeEnum.MERCHANT_TYPE:
@@ -277,6 +304,7 @@ export const createCompanyDetails = (
         phone,
         email,
         website,
+        getSocialMedia(),
         directions
       ].filter(Boolean);
     default:

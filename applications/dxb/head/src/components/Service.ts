@@ -29,6 +29,10 @@ export type Data = {
   phone: string | null;
   email: string | null;
   website: string | null;
+  facebook: string | null;
+  twitter: string | null;
+  instagram: string | null;
+  linkedIn: string | null;
   websiteLinkAsLabel: boolean | null;
   fax: string | null;
   companyLogo: ContentfulImageData | null;
@@ -51,6 +55,10 @@ export const query = graphql`
     phone
     email
     website
+    facebook
+    twitter
+    instagram
+    linkedIn
     websiteLinkAsLabel
     companyLogo {
       ...ImageCardFragment

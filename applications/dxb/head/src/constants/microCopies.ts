@@ -263,6 +263,7 @@ export const microCopy = {
   VALIDATION_ERRORS_EMAIL: "validation.errors.email",
 
   FIND_A_ROOFER_FILTERS_LABEL: "findARoofer.filtersLabel",
+  FIND_A_ROOFER_SOCIAL_MEDIA_LABEL: "findARoofer.socialMediaLabel",
   FIND_A_BRANCH_FILTERS_LABEL: "findABranch.filtersLabel",
   FIND_A_MERCHANT_FILTERS_LABEL: "findAMerchant.filtersLabel",
 

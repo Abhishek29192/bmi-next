@@ -1061,6 +1061,10 @@ type ContentfulService implements ContentfulObject & Node @dontInfer {
   phone: String
   email: String
   website: String
+  facebook: String
+  twitter: String
+  instagram: String
+  linkedIn: String
   websiteLinkAsLabel: Boolean
   fax: String
   companyLogo: ContentfulImage @link(by: "id", from: "companyLogo___NODE")
