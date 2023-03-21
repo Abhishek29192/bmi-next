@@ -350,6 +350,7 @@ const HubspotForm = ({
   onFormLoadError,
   additionalValues,
   className,
+  hasNoPadding,
   isDialog = false
 }: {
   id: string;
@@ -364,6 +365,7 @@ const HubspotForm = ({
   additionalValues: FormSectionProps["additionalValues"];
   className?: string;
   isDialog?: boolean;
+  hasNoPadding?: boolean;
 }) => {
   const hubSpotFormID = `bmi-hubspot-form-${id || "no-id"}`;
   const {
@@ -437,6 +439,7 @@ const HubspotForm = ({
       backgroundColor={backgroundColor}
       className={className}
       isDialog={isDialog}
+      hasNoPadding={hasNoPadding}
       data-testid={`hubspot-form-section-${replaceSpaces(title)}`}
     >
       {showTitle && <Section.Title>{title}</Section.Title>}
@@ -473,6 +476,7 @@ type FormSectionProps = {
   onFormLoadError?: () => void;
   className?: string;
   isDialog?: boolean;
+  hasNoPadding?: boolean;
   "data-testid"?: string;
 };
 
@@ -498,6 +502,7 @@ const FormSection = ({
   onFormReady,
   onFormLoadError,
   className,
+  hasNoPadding,
   isDialog = false,
   "data-testid": dataTestId
 }: FormSectionProps) => {
@@ -711,6 +716,7 @@ const FormSection = ({
         additionalValues={additionalValues}
         className={className}
         isDialog={isDialog}
+        hasNoPadding={hasNoPadding}
         data-testid={dataTestId}
       />
     );
@@ -719,6 +725,7 @@ const FormSection = ({
     <Section
       backgroundColor={backgroundColor}
       className={className}
+      hasNoPadding={hasNoPadding}
       data-testid={`contentful-form-section-${replaceSpaces(title)}`}
     >
       {showTitle && <Section.Title>{title}</Section.Title>}

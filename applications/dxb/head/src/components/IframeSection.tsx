@@ -41,7 +41,7 @@ const IframeSection = ({ data }: Props) => {
       )}
       {data.summary && (
         <div className={styles["summary"]}>
-          <RichText document={data.summary} />
+          <RichText document={data.summary} hasNoBottomMargin />
         </div>
       )}
       <iframe

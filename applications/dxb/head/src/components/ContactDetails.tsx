@@ -95,7 +95,9 @@ const IntegratedLocationCard = ({
       title={title}
       details={details}
       footNote={
-        otherInformation ? <RichText document={otherInformation} /> : null
+        otherInformation ? (
+          <RichText document={otherInformation} hasNoBottomMargin />
+        ) : null
       }
       isFlat={isFlat}
       anchorComponent={(props: AnchorLinkProps) => (

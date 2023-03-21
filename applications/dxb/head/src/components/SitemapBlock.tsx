@@ -71,7 +71,7 @@ const SitemapBlock = ({ links, label, level = 0 }: Props) => {
           return (
             <Typography
               variant={levelVariantMap[level.toString()].link}
-              gutterBottom
+              className={styles["item"]}
               key={`${level}-${label}`}
             >
               <AnchorLink
@@ -98,7 +98,7 @@ const SitemapBlock = ({ links, label, level = 0 }: Props) => {
               {label && (
                 <Typography
                   variant={levelVariantMap[level.toString()].label}
-                  gutterBottom
+                  className={styles["item"]}
                 >
                   {link ? (
                     <AnchorLink

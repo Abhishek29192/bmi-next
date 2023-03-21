@@ -34,7 +34,7 @@ exports[`WelcomeDialog component Renders correctly When Title and rich text cont
           data-testid="dialog-header"
         >
           <h3
-            class="MuiTypography-root MuiTypography-h3 Typography-underline css-fnhfkn-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h3 Typography-underline css-zqd360-MuiTypography-root"
             data-testid="dialog-header-title"
           >
             Dialog Title
@@ -69,17 +69,14 @@ exports[`WelcomeDialog component Renders correctly When Title and rich text cont
             class="contentArea"
           >
             <div
-              class="brands"
               data-testid="brandsContainer"
             />
-            <div
-              class="body body--with-brand"
-            >
+            <div>
               <div
-                class="RichText-root css-17t4j5c"
+                class="RichText-root RichText-no-bottom-margin css-11n1wnk"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
                   data-testid="typography"
                 >
                   test rich text
@@ -147,7 +144,7 @@ exports[`WelcomeDialog component Renders correctly When Title rich text and icon
           data-testid="dialog-header"
         >
           <h3
-            class="MuiTypography-root MuiTypography-h3 Typography-underline css-fnhfkn-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h3 Typography-underline css-zqd360-MuiTypography-root"
             data-testid="dialog-header-title"
           >
             Dialog Title
@@ -182,7 +179,6 @@ exports[`WelcomeDialog component Renders correctly When Title rich text and icon
             class="contentArea"
           >
             <div
-              class="brands"
               data-testid="brandsContainer"
             >
               <svg
@@ -222,14 +218,12 @@ exports[`WelcomeDialog component Renders correctly When Title rich text and icon
                 />
               </svg>
             </div>
-            <div
-              class="body body--with-brand"
-            >
+            <div>
               <div
-                class="RichText-root css-17t4j5c"
+                class="RichText-root RichText-no-bottom-margin css-11n1wnk"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
                   data-testid="typography"
                 >
                   test rich text

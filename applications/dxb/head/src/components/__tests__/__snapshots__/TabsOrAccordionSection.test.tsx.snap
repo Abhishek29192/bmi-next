@@ -3,7 +3,7 @@
 exports[`TabsOrAccordionSection Accordion default to name if title is null 1`] = `
 <div>
   <div
-    class="Section-root Section-white css-cxq310"
+    class="Section-root Section-white css-10chrh8"
     data-testid="tabs-or-accordion-section-string"
   >
     <div
@@ -13,13 +13,13 @@ exports[`TabsOrAccordionSection Accordion default to name if title is null 1`] =
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
           data-testid="typography"
         >
           string
         </h2>
         <p
-          class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
           data-testid="typography"
         >
           string
@@ -35,7 +35,7 @@ exports[`TabsOrAccordionSection Accordion default to name if title is null 1`] =
             >
               <div
                 aria-expanded="false"
-                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
+                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-lxjiqx-MuiButtonBase-root-MuiAccordionSummary-root"
                 data-gtm="{"id":"selector-accordion1","label":"name","action":"Selector – Accordion"}"
                 role="button"
                 tabindex="0"
@@ -44,7 +44,7 @@ exports[`TabsOrAccordionSection Accordion default to name if title is null 1`] =
                   class="MuiAccordionSummary-content Accordion-summaryContent MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
                 >
                   <h3
-                    class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                     data-testid="typography"
                   >
                     name
@@ -84,10 +84,10 @@ exports[`TabsOrAccordionSection Accordion default to name if title is null 1`] =
                         class="MuiAccordionDetails-root  css-1r7u8wy-MuiAccordionDetails-root"
                       >
                         <div
-                          class="RichText-root css-17t4j5c"
+                          class="RichText-root RichText-no-bottom-margin css-11n1wnk"
                         >
                           <p
-                            class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+                            class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
                             data-testid="typography"
                           >
                             Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
@@ -110,7 +110,7 @@ exports[`TabsOrAccordionSection Accordion default to name if title is null 1`] =
 exports[`TabsOrAccordionSection Accordion renders Correctly  1`] = `
 <div>
   <div
-    class="Section-root Section-white css-cxq310"
+    class="Section-root Section-white css-10chrh8"
     data-testid="tabs-or-accordion-section-string"
   >
     <div
@@ -120,13 +120,13 @@ exports[`TabsOrAccordionSection Accordion renders Correctly  1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
           data-testid="typography"
         >
           string
         </h2>
         <p
-          class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
           data-testid="typography"
         >
           string
@@ -142,7 +142,7 @@ exports[`TabsOrAccordionSection Accordion renders Correctly  1`] = `
             >
               <div
                 aria-expanded="false"
-                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
+                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-lxjiqx-MuiButtonBase-root-MuiAccordionSummary-root"
                 data-gtm="{"id":"selector-accordion1","label":"hello","action":"Selector – Accordion"}"
                 role="button"
                 tabindex="0"
@@ -151,7 +151,7 @@ exports[`TabsOrAccordionSection Accordion renders Correctly  1`] = `
                   class="MuiAccordionSummary-content Accordion-summaryContent MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
                 >
                   <h3
-                    class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                     data-testid="typography"
                   >
                     hello
@@ -191,10 +191,10 @@ exports[`TabsOrAccordionSection Accordion renders Correctly  1`] = `
                         class="MuiAccordionDetails-root  css-1r7u8wy-MuiAccordionDetails-root"
                       >
                         <div
-                          class="RichText-root css-17t4j5c"
+                          class="RichText-root RichText-no-bottom-margin css-11n1wnk"
                         >
                           <p
-                            class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+                            class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
                             data-testid="typography"
                           >
                             Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
@@ -217,7 +217,7 @@ exports[`TabsOrAccordionSection Accordion renders Correctly  1`] = `
 exports[`TabsOrAccordionSection Tabs default to name if title is null 1`] = `
 <div>
   <div
-    class="Section-root Section-pearl css-cxq310"
+    class="Section-root Section-pearl css-10chrh8"
     data-testid="tabs-or-accordion-section-string"
   >
     <div
@@ -227,13 +227,13 @@ exports[`TabsOrAccordionSection Tabs default to name if title is null 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
           data-testid="typography"
         >
           string
         </h2>
         <p
-          class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
           data-testid="typography"
         >
           string
@@ -341,10 +341,10 @@ exports[`TabsOrAccordionSection Tabs default to name if title is null 1`] = `
               role="tabpanel"
             >
               <div
-                class="RichText-root css-17t4j5c"
+                class="RichText-root css-11n1wnk"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
                   data-testid="typography"
                 >
                   Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
@@ -362,7 +362,7 @@ exports[`TabsOrAccordionSection Tabs default to name if title is null 1`] = `
 exports[`TabsOrAccordionSection Tabs renders Correctly  1`] = `
 <div>
   <div
-    class="Section-root Section-pearl css-cxq310"
+    class="Section-root Section-pearl css-10chrh8"
     data-testid="tabs-or-accordion-section-string"
   >
     <div
@@ -372,13 +372,13 @@ exports[`TabsOrAccordionSection Tabs renders Correctly  1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
           data-testid="typography"
         >
           string
         </h2>
         <p
-          class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
           data-testid="typography"
         >
           string
@@ -486,10 +486,10 @@ exports[`TabsOrAccordionSection Tabs renders Correctly  1`] = `
               role="tabpanel"
             >
               <div
-                class="RichText-root css-17t4j5c"
+                class="RichText-root css-11n1wnk"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
                   data-testid="typography"
                 >
                   Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
@@ -507,7 +507,7 @@ exports[`TabsOrAccordionSection Tabs renders Correctly  1`] = `
 exports[`TabsOrAccordionSection not render tab panel if item array is empty 1`] = `
 <div>
   <div
-    class="Section-root Section-pearl css-cxq310"
+    class="Section-root Section-pearl css-10chrh8"
     data-testid="tabs-or-accordion-section-string"
   >
     <div
@@ -517,13 +517,13 @@ exports[`TabsOrAccordionSection not render tab panel if item array is empty 1`] 
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
           data-testid="typography"
         >
           string
         </h2>
         <p
-          class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
           data-testid="typography"
         >
           string
@@ -616,7 +616,7 @@ exports[`TabsOrAccordionSection not render tab panel if item array is empty 1`] 
 exports[`TabsOrAccordionSection title attribute is rendered if both name and title exists for tab panels 1`] = `
 <div>
   <div
-    class="Section-root Section-pearl css-cxq310"
+    class="Section-root Section-pearl css-10chrh8"
     data-testid="tabs-or-accordion-section-string"
   >
     <div
@@ -626,13 +626,13 @@ exports[`TabsOrAccordionSection title attribute is rendered if both name and tit
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
           data-testid="typography"
         >
           string
         </h2>
         <p
-          class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
           data-testid="typography"
         >
           string
@@ -740,10 +740,10 @@ exports[`TabsOrAccordionSection title attribute is rendered if both name and tit
               role="tabpanel"
             >
               <div
-                class="RichText-root css-17t4j5c"
+                class="RichText-root css-11n1wnk"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
                   data-testid="typography"
                 >
                   Lorem Ipsum has been the industry's standard dummy text ever since the 1500s

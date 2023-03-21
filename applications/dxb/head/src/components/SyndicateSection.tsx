@@ -70,7 +70,7 @@ const SyndicateSection = ({
     return {
       title: transformHyphens(data.title),
       children: (data as PromoData).body ? (
-        <RichText document={(data as PromoData).body} />
+        <RichText document={(data as PromoData).body} hasNoBottomMargin />
       ) : (
         transformHyphens(data.subtitle)
       ),

@@ -54,11 +54,16 @@ export const HubspotFormWrapper = styled("div")(({ theme }) => ({
           color: theme.colours.charcoal,
           marginBottom: "-10px",
           fontSize: "14px",
-          top: "12px",
+          top: "0",
+          display: "block",
+          width: "max-content",
           position: "relative",
           left: "9px",
           padding: "0 5px",
           zIndex: 1
+        },
+        "&:not(:first-child) > label": {
+          marginTop: "16px"
         },
         // Inputs
         "& .hs-input": {

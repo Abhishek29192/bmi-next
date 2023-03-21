@@ -83,6 +83,7 @@ const AboutLeadBlock = ({ system, sidebarItem }: Props) => {
         <LeadBlock.Content.Section>
           <Typography
             component="div"
+            className={classes.description}
             dangerouslySetInnerHTML={{
               __html: transformHyphens(system.description) as string
             }}

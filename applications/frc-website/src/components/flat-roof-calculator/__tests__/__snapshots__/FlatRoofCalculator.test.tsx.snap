@@ -11,13 +11,13 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
       data-testid="flat-roof-calculator-input-view-section"
     >
       <h1
-        class="MuiTypography-root MuiTypography-h1 header Typography-underline css-1stz9tq-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h1 header Typography-underline css-1v05vzk-MuiTypography-root"
         data-testid="typography"
       >
         SBS Bitumen Estimator
       </h1>
       <p
-        class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
         data-testid="typography"
       >
         SBS-Bitumen is our premium product, offered in three colour ways, supported by a 15 or 20 year guarantee. Suitable for combustible and non combustible decks.
@@ -31,13 +31,13 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
         class="section"
       >
         <h3
-          class="MuiTypography-root MuiTypography-h3 header3 Typography-underline css-d7brak-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h3 header3 Typography-underline css-2221f6-MuiTypography-root"
           data-testid="typography"
         >
           Input your project details
         </h3>
         <p
-          class="MuiTypography-root MuiTypography-body1 description css-87ejlm-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 description css-1o02bdp-MuiTypography-root"
           data-testid="typography"
         >
           To select the right system, please tell us a little bit more about your project.
@@ -50,7 +50,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
               class="fieldHeader"
             >
               <h5
-                class="MuiTypography-root MuiTypography-h5  css-10q7alf-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
                 data-testid="typography"
               >
                 Product guarantee
@@ -65,7 +65,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                 data-testid="grid-item"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-body1 fieldDescription css-87ejlm-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 fieldDescription css-1o02bdp-MuiTypography-root"
                   data-testid="typography"
                 >
                   Please select the guarantee length that you require for this project.
@@ -135,7 +135,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
               class="fieldHeader"
             >
               <h5
-                class="MuiTypography-root MuiTypography-h5  css-10q7alf-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
                 data-testid="typography"
               >
                 Roof substrate
@@ -150,7 +150,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                 data-testid="grid-item"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-body1 fieldDescription css-87ejlm-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 fieldDescription css-1o02bdp-MuiTypography-root"
                   data-testid="typography"
                 >
                   Please select the roof substrate for your project. We recommend torch-safe roofing systems for combustible substrate types such as timber, plywood and OSB.
@@ -219,7 +219,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
               class="fieldHeader"
             >
               <h5
-                class="MuiTypography-root MuiTypography-h5  css-10q7alf-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
                 data-testid="typography"
               >
                 Roof insulation
@@ -234,7 +234,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                 data-testid="grid-item"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-body1 fieldDescription css-87ejlm-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 fieldDescription css-1o02bdp-MuiTypography-root"
                   data-testid="typography"
                 >
                   Please select if this roof is insulated or uninsulated.
@@ -303,7 +303,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
               class="fieldHeader"
             >
               <h5
-                class="MuiTypography-root MuiTypography-h5  css-10q7alf-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
                 data-testid="typography"
               >
                 Capsheet colour
@@ -338,7 +338,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                 data-testid="grid-item"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-body1 fieldDescription css-87ejlm-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 fieldDescription css-1o02bdp-MuiTypography-root"
                   data-testid="typography"
                 >
                   Please select the desired colour finish of the system.
@@ -440,7 +440,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
         class="section"
       >
         <h3
-          class="MuiTypography-root MuiTypography-h3 header3 header3--extra-margin Typography-underline css-d7brak-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h3 header3 header3--extra-margin Typography-underline css-2221f6-MuiTypography-root"
           data-testid="typography"
         >
           Your roofing measurements
@@ -452,7 +452,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
             class="fieldHeader"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5  css-10q7alf-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
               data-testid="typography"
             >
               Field area
@@ -555,7 +555,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
             class="fieldHeader"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5  css-10q7alf-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
               data-testid="typography"
             >
               Upstand (optional)
@@ -710,7 +710,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
             class="fieldHeader"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5  css-10q7alf-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
               data-testid="typography"
             >
               Kerb / verge / drip detail (optional)
@@ -845,7 +845,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
             class="fieldHeader"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5  css-10q7alf-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
               data-testid="typography"
             >
               Additional detailing (optional)
@@ -980,7 +980,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
             class="fieldHeader"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5  css-10q7alf-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
               data-testid="typography"
             >
               Additional detailing (optional)
@@ -1113,7 +1113,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
         class="section"
       >
         <h3
-          class="MuiTypography-root MuiTypography-h3 header3 header3--extra-margin Typography-underline css-d7brak-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h3 header3 header3--extra-margin Typography-underline css-2221f6-MuiTypography-root"
           data-testid="typography"
         >
           Project information (optional)
@@ -1222,13 +1222,13 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
         data-testid="flat-roof-calculator-help-descriptio-section"
       >
         <h5
-          class="MuiTypography-root MuiTypography-h5 helpHeader css-10q7alf-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h5 helpHeader css-1lhxn1g-MuiTypography-root"
           data-testid="typography"
         >
           Need some help?
         </h5>
         <p
-          class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
           data-testid="typography"
         >
           Your local BMI Area Sales Manager can support you with step by step guidance in using this tool.

@@ -31,7 +31,7 @@ exports[`PitchedRoofCalculator UnderlaySelection component renders correctly 1`]
                   value="45917056"
                 />
                 <div
-                  class="MuiButtonBase-root CardInput-card css-13lto1c-MuiButtonBase-root"
+                  class="MuiButtonBase-root CardInput-card css-6rgev3-MuiButtonBase-root"
                   role="button"
                   tabindex="0"
                 >
@@ -43,19 +43,19 @@ exports[`PitchedRoofCalculator UnderlaySelection component renders correctly 1`]
                       style="background-image: url(https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h02/hc4/8975281455134/Product-Hero-Small-Desktop-Tablet-44134232-Icopal-Takshingel-type-S-Teglrod-med-skyggejpg);"
                     />
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 ToggleCard-title css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 ToggleCard-title css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Underlay Divoroll Prima 1-5x50m
                     </h6>
                     <p
-                      class="MuiTypography-root MuiTypography-body1 ToggleCard-paragraph css-87ejlm-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body1 ToggleCard-paragraph css-1o02bdp-MuiTypography-root"
                       data-testid="typography"
                     >
                       Short underlay description
                     </p>
                     <p
-                      class="MuiTypography-root MuiTypography-body1 ToggleCard-paragraph css-87ejlm-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body1 ToggleCard-paragraph css-1o02bdp-MuiTypography-root"
                       data-testid="typography"
                     >
                       Nobb: 
@@ -87,7 +87,7 @@ exports[`PitchedRoofCalculator UnderlaySelection component renders correctly 1`]
                   value="26583450"
                 />
                 <div
-                  class="MuiButtonBase-root CardInput-card css-13lto1c-MuiButtonBase-root"
+                  class="MuiButtonBase-root CardInput-card css-6rgev3-MuiButtonBase-root"
                   role="button"
                   tabindex="0"
                 >
@@ -99,19 +99,19 @@ exports[`PitchedRoofCalculator UnderlaySelection component renders correctly 1`]
                       style="background-image: url(https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h02/hc4/8975281455134/Product-Hero-Small-Desktop-Tablet-44134232-Icopal-Takshingel-type-S-Teglrod-med-skyggejpg);"
                     />
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 ToggleCard-title css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 ToggleCard-title css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Underlay Divoroll TOP RU
                     </h6>
                     <p
-                      class="MuiTypography-root MuiTypography-body1 ToggleCard-paragraph css-87ejlm-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body1 ToggleCard-paragraph css-1o02bdp-MuiTypography-root"
                       data-testid="typography"
                     >
                       Short underlay description
                     </p>
                     <p
-                      class="MuiTypography-root MuiTypography-body1 ToggleCard-paragraph css-87ejlm-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body1 ToggleCard-paragraph css-1o02bdp-MuiTypography-root"
                       data-testid="typography"
                     >
                       Nobb: 
@@ -136,7 +136,7 @@ exports[`PitchedRoofCalculator UnderlaySelection component renders with no optio
 <div>
   <div>
     <h4
-      class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
       data-testid="typography"
     >
       Couldn't find suitable underlays for the entered dimensions. Please click "Go back" and double-check the dimensions.

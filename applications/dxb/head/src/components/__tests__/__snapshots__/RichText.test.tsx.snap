@@ -3,44 +3,44 @@
 exports[`RichText component closes dialog 1`] = `
 <div>
   <div
-    class="RichText-root css-17t4j5c"
+    class="RichText-root css-11n1wnk"
   >
     <h2
-      class="MuiTypography-root MuiTypography-h2 RichText-title css-ta8c5q-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h2 RichText-title css-1gn4sxn-MuiTypography-root"
       data-testid="typography"
     >
       Heading 2
     </h2>
     <h3
-      class="MuiTypography-root MuiTypography-h3 RichText-title css-d7brak-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h3 RichText-title css-2221f6-MuiTypography-root"
       data-testid="typography"
     >
       Heading 3
     </h3>
     <h4
-      class="MuiTypography-root MuiTypography-h4 RichText-title css-1ekntu4-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h4 RichText-title css-1x9euu8-MuiTypography-root"
       data-testid="typography"
     >
       Heading 4
     </h4>
     <h5
-      class="MuiTypography-root MuiTypography-h5 RichText-title css-10q7alf-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h5 RichText-title css-1lhxn1g-MuiTypography-root"
       data-testid="typography"
     >
       Heading 5
     </h5>
     <h6
-      class="MuiTypography-root MuiTypography-h6 RichText-title css-1le86ss-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h6 RichText-title css-1nuwz6u-MuiTypography-root"
       data-testid="typography"
     >
       Heading 6
     </h6>
     <p
-      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
       data-testid="typography"
     />
     <p
-      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
       data-testid="typography"
     >
       Paragraph 
@@ -92,7 +92,7 @@ exports[`RichText component closes dialog 1`] = `
       </a>
        
       <button
-        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLink embeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
         data-gtm="{"id":"cta-click1","label":"Aerodek Robust Plus","action":"product-category-page/product-sub-category-page/aerodek-robust-plus/"}"
         tabindex="0"
         type="button"
@@ -106,7 +106,7 @@ exports[`RichText component closes dialog 1`] = `
     <ul>
       <li>
         <p
-          class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
           data-testid="typography"
         >
           UL
@@ -116,7 +116,7 @@ exports[`RichText component closes dialog 1`] = `
     <ol>
       <li>
         <p
-          class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
           data-testid="typography"
         >
           OL
@@ -125,7 +125,7 @@ exports[`RichText component closes dialog 1`] = `
     </ol>
     <blockquote>
       <p
-        class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
         data-testid="typography"
       >
         Blockquote
@@ -133,7 +133,7 @@ exports[`RichText component closes dialog 1`] = `
     </blockquote>
     <hr />
     <button
-      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLink embeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
       data-gtm="{"id":"cta-click1","label":"Support","action":"landing-page/"}"
       tabindex="0"
       type="button"
@@ -165,11 +165,11 @@ exports[`RichText component closes dialog 1`] = `
       />
     </picture>
     <p
-      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
       data-testid="typography"
     />
     <p
-      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
       data-testid="typography"
     >
       <button
@@ -190,10 +190,10 @@ exports[`RichText component closes dialog 1`] = `
 exports[`RichText component falls back with incorrect data 1`] = `
 <div>
   <div
-    class="RichText-root css-17t4j5c"
+    class="RichText-root css-11n1wnk"
   >
     <p
-      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
       data-testid="typography"
     />
   </div>
@@ -203,44 +203,44 @@ exports[`RichText component falls back with incorrect data 1`] = `
 exports[`RichText component renders correctly 1`] = `
 <div>
   <div
-    class="RichText-root css-17t4j5c"
+    class="RichText-root css-11n1wnk"
   >
     <h2
-      class="MuiTypography-root MuiTypography-h2 RichText-title css-ta8c5q-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h2 RichText-title css-1gn4sxn-MuiTypography-root"
       data-testid="typography"
     >
       Heading 2
     </h2>
     <h3
-      class="MuiTypography-root MuiTypography-h3 RichText-title css-d7brak-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h3 RichText-title css-2221f6-MuiTypography-root"
       data-testid="typography"
     >
       Heading 3
     </h3>
     <h4
-      class="MuiTypography-root MuiTypography-h4 RichText-title css-1ekntu4-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h4 RichText-title css-1x9euu8-MuiTypography-root"
       data-testid="typography"
     >
       Heading 4
     </h4>
     <h5
-      class="MuiTypography-root MuiTypography-h5 RichText-title css-10q7alf-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h5 RichText-title css-1lhxn1g-MuiTypography-root"
       data-testid="typography"
     >
       Heading 5
     </h5>
     <h6
-      class="MuiTypography-root MuiTypography-h6 RichText-title css-1le86ss-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h6 RichText-title css-1nuwz6u-MuiTypography-root"
       data-testid="typography"
     >
       Heading 6
     </h6>
     <p
-      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
       data-testid="typography"
     />
     <p
-      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
       data-testid="typography"
     >
       Paragraph 
@@ -292,7 +292,7 @@ exports[`RichText component renders correctly 1`] = `
       </a>
        
       <button
-        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLink embeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
         data-gtm="{"id":"cta-click1","label":"Aerodek Robust Plus","action":"product-category-page/product-sub-category-page/aerodek-robust-plus/"}"
         tabindex="0"
         type="button"
@@ -306,7 +306,7 @@ exports[`RichText component renders correctly 1`] = `
     <ul>
       <li>
         <p
-          class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
           data-testid="typography"
         >
           UL
@@ -316,7 +316,7 @@ exports[`RichText component renders correctly 1`] = `
     <ol>
       <li>
         <p
-          class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
           data-testid="typography"
         >
           OL
@@ -325,7 +325,7 @@ exports[`RichText component renders correctly 1`] = `
     </ol>
     <blockquote>
       <p
-        class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
         data-testid="typography"
       >
         Blockquote
@@ -333,7 +333,7 @@ exports[`RichText component renders correctly 1`] = `
     </blockquote>
     <hr />
     <button
-      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLink embeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
       data-gtm="{"id":"cta-click1","label":"Support","action":"landing-page/"}"
       tabindex="0"
       type="button"
@@ -365,11 +365,11 @@ exports[`RichText component renders correctly 1`] = `
       />
     </picture>
     <p
-      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
       data-testid="typography"
     />
     <p
-      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
       data-testid="typography"
     >
       <button
@@ -392,44 +392,44 @@ exports[`RichText component renders when dialog clicked 1`] = `
   aria-hidden="true"
 >
   <div
-    class="RichText-root css-17t4j5c"
+    class="RichText-root css-11n1wnk"
   >
     <h2
-      class="MuiTypography-root MuiTypography-h2 RichText-title css-ta8c5q-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h2 RichText-title css-1gn4sxn-MuiTypography-root"
       data-testid="typography"
     >
       Heading 2
     </h2>
     <h3
-      class="MuiTypography-root MuiTypography-h3 RichText-title css-d7brak-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h3 RichText-title css-2221f6-MuiTypography-root"
       data-testid="typography"
     >
       Heading 3
     </h3>
     <h4
-      class="MuiTypography-root MuiTypography-h4 RichText-title css-1ekntu4-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h4 RichText-title css-1x9euu8-MuiTypography-root"
       data-testid="typography"
     >
       Heading 4
     </h4>
     <h5
-      class="MuiTypography-root MuiTypography-h5 RichText-title css-10q7alf-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h5 RichText-title css-1lhxn1g-MuiTypography-root"
       data-testid="typography"
     >
       Heading 5
     </h5>
     <h6
-      class="MuiTypography-root MuiTypography-h6 RichText-title css-1le86ss-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h6 RichText-title css-1nuwz6u-MuiTypography-root"
       data-testid="typography"
     >
       Heading 6
     </h6>
     <p
-      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
       data-testid="typography"
     />
     <p
-      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
       data-testid="typography"
     >
       Paragraph 
@@ -481,7 +481,7 @@ exports[`RichText component renders when dialog clicked 1`] = `
       </a>
        
       <button
-        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLink embeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
         data-gtm="{"id":"cta-click1","label":"Aerodek Robust Plus","action":"product-category-page/product-sub-category-page/aerodek-robust-plus/"}"
         tabindex="0"
         type="button"
@@ -495,7 +495,7 @@ exports[`RichText component renders when dialog clicked 1`] = `
     <ul>
       <li>
         <p
-          class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
           data-testid="typography"
         >
           UL
@@ -505,7 +505,7 @@ exports[`RichText component renders when dialog clicked 1`] = `
     <ol>
       <li>
         <p
-          class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
           data-testid="typography"
         >
           OL
@@ -514,7 +514,7 @@ exports[`RichText component renders when dialog clicked 1`] = `
     </ol>
     <blockquote>
       <p
-        class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
         data-testid="typography"
       >
         Blockquote
@@ -522,7 +522,7 @@ exports[`RichText component renders when dialog clicked 1`] = `
     </blockquote>
     <hr />
     <button
-      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLink embeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
       data-gtm="{"id":"cta-click1","label":"Support","action":"landing-page/"}"
       tabindex="0"
       type="button"
@@ -554,11 +554,11 @@ exports[`RichText component renders when dialog clicked 1`] = `
       />
     </picture>
     <p
-      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
       data-testid="typography"
     />
     <p
-      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
       data-testid="typography"
     >
       <button

@@ -105,7 +105,10 @@ const IntegratedSignupBlock = ({
           onCloseClick={handleDialogClose}
           data-testid={"signup-block-dialog"}
         >
-          <Dialog.Title hasUnderline> {title} </Dialog.Title>
+          <Dialog.Title hasUnderline className={styles["dialogTitle"]}>
+            {" "}
+            {title}{" "}
+          </Dialog.Title>
           <Dialog.Content>
             <FormSection
               data={signupDialogContent}
@@ -113,6 +116,7 @@ const IntegratedSignupBlock = ({
               isDialog
               onSuccess={onSuccess}
               onFormReady={onFormReady}
+              hasNoPadding
             />
           </Dialog.Content>
           <Dialog.Actions

@@ -18,7 +18,7 @@ const TitleWithContentSection = ({ data }: Props) => {
     >
       <Grid container lg={8} xs={12}>
         {data.title && <Section.Title>{data.title}</Section.Title>}
-        <RichText document={data.content} />
+        <RichText document={data.content} hasNoBottomMargin />
       </Grid>
     </Section>
   );

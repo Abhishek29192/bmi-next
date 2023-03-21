@@ -6,7 +6,7 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
     class="SampleBasketSectionProducts"
   >
     <button
-      class="MuiButtonBase-root OverviewCard-clickable product-wrapper MuiBox-root css-iozq77-MuiButtonBase-root"
+      class="MuiButtonBase-root OverviewCard-clickable product-wrapper MuiBox-root css-um3yzr-MuiButtonBase-root"
       data-testid="shopping-cart-product"
       tabindex="0"
       type="button"
@@ -21,11 +21,11 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
         class="OverviewCard-body"
       >
         <h4
-          class="MuiTypography-root MuiTypography-h4 OverviewCard-title OverviewCard-noBrandLogo css-1ekntu4-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h4 OverviewCard-title OverviewCard-noBrandLogo css-1x9euu8-MuiTypography-root"
           data-testid="overview-card-body-title"
         />
         <div
-          class="OverviewCard-text OverviewCard-withoutMargin css-fm25tm"
+          class="OverviewCard-text OverviewCard-withoutMargin css-kl66ak"
           data-testid="overview-card-body-description"
         >
           <div
@@ -35,24 +35,24 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
               class="product-description"
             >
               <p
-                class="MuiTypography-root MuiTypography-body1 product-title css-87ejlm-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 product-title css-1o02bdp-MuiTypography-root"
                 data-testid="typography"
               >
                 sample-1
               </p>
               <p
-                class="MuiTypography-root MuiTypography-body1 product-color css-87ejlm-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 product-color css-1o02bdp-MuiTypography-root"
                 data-testid="typography"
               />
               <p
-                class="MuiTypography-root MuiTypography-body1 product-size css-87ejlm-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 product-size css-1o02bdp-MuiTypography-root"
                 data-testid="typography"
               />
             </div>
           </div>
         </div>
         <div
-          class="css-1tho2wt"
+          class="css-ekp6jg"
           data-testid="overview-card-body-footer"
         >
           <button
@@ -87,7 +87,7 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
       />
     </button>
     <button
-      class="MuiButtonBase-root OverviewCard-clickable product-wrapper MuiBox-root css-iozq77-MuiButtonBase-root"
+      class="MuiButtonBase-root OverviewCard-clickable product-wrapper MuiBox-root css-um3yzr-MuiButtonBase-root"
       data-testid="shopping-cart-product"
       tabindex="0"
       type="button"
@@ -102,11 +102,11 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
         class="OverviewCard-body"
       >
         <h4
-          class="MuiTypography-root MuiTypography-h4 OverviewCard-title OverviewCard-noBrandLogo css-1ekntu4-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h4 OverviewCard-title OverviewCard-noBrandLogo css-1x9euu8-MuiTypography-root"
           data-testid="overview-card-body-title"
         />
         <div
-          class="OverviewCard-text OverviewCard-withoutMargin css-fm25tm"
+          class="OverviewCard-text OverviewCard-withoutMargin css-kl66ak"
           data-testid="overview-card-body-description"
         >
           <div
@@ -116,19 +116,19 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
               class="product-description"
             >
               <p
-                class="MuiTypography-root MuiTypography-body1 product-title css-87ejlm-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 product-title css-1o02bdp-MuiTypography-root"
                 data-testid="typography"
               >
                 sample-2
               </p>
               <p
-                class="MuiTypography-root MuiTypography-body1 product-color css-87ejlm-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 product-color css-1o02bdp-MuiTypography-root"
                 data-testid="typography"
               >
                 Red | Matte
               </p>
               <p
-                class="MuiTypography-root MuiTypography-body1 product-size css-87ejlm-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 product-size css-1o02bdp-MuiTypography-root"
                 data-testid="typography"
               >
                 10x20x30 mm
@@ -137,7 +137,7 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
           </div>
         </div>
         <div
-          class="css-1tho2wt"
+          class="css-ekp6jg"
           data-testid="overview-card-body-footer"
         >
           <button
@@ -172,7 +172,7 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
       />
     </button>
     <button
-      class="MuiButtonBase-root OverviewCard-clickable product-wrapper MuiBox-root css-iozq77-MuiButtonBase-root"
+      class="MuiButtonBase-root OverviewCard-clickable product-wrapper MuiBox-root css-um3yzr-MuiButtonBase-root"
       data-testid="shopping-cart-product"
       tabindex="0"
       type="button"
@@ -187,11 +187,11 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
         class="OverviewCard-body"
       >
         <h4
-          class="MuiTypography-root MuiTypography-h4 OverviewCard-title OverviewCard-noBrandLogo css-1ekntu4-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h4 OverviewCard-title OverviewCard-noBrandLogo css-1x9euu8-MuiTypography-root"
           data-testid="overview-card-body-title"
         />
         <div
-          class="OverviewCard-text OverviewCard-withoutMargin css-fm25tm"
+          class="OverviewCard-text OverviewCard-withoutMargin css-kl66ak"
           data-testid="overview-card-body-description"
         >
           <div
@@ -201,26 +201,26 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
               class="product-description"
             >
               <p
-                class="MuiTypography-root MuiTypography-body1 product-title css-87ejlm-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 product-title css-1o02bdp-MuiTypography-root"
                 data-testid="typography"
               >
                 sample-3
               </p>
               <p
-                class="MuiTypography-root MuiTypography-body1 product-color css-87ejlm-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 product-color css-1o02bdp-MuiTypography-root"
                 data-testid="typography"
               >
                 Black
               </p>
               <p
-                class="MuiTypography-root MuiTypography-body1 product-size css-87ejlm-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 product-size css-1o02bdp-MuiTypography-root"
                 data-testid="typography"
               />
             </div>
           </div>
         </div>
         <div
-          class="css-1tho2wt"
+          class="css-ekp6jg"
           data-testid="overview-card-body-footer"
         >
           <button

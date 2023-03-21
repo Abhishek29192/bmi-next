@@ -3,7 +3,7 @@
 exports[`Home Page Template render correctly with all data 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1vmtas-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-8mimat-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -178,16 +178,16 @@ exports[`Home Page Template render correctly with all data 1`] = `
                 data-testid="grid-item"
               >
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 css-8200kz-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 css-1j4kt3i-MuiTypography-root"
                   data-testid="typography"
                 >
                   Europe
                 </h6>
                 <div
-                  class="css-1vqzkso"
+                  class="css-1qjezyi"
                 >
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                     href="/al"
                     tabindex="0"
@@ -209,7 +209,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                     href="/at"
                     tabindex="0"
@@ -231,7 +231,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                     href="/uk"
                     tabindex="0"
@@ -253,7 +253,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
                     href="/en"
                     tabindex="0"
@@ -593,7 +593,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
         />
       </button>
       <nav
-        class="css-1q3sjsb"
+        class="css-12skhd1"
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
@@ -602,7 +602,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
           <ul>
             <li>
               <h6
-                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1nuwz6u-MuiTypography-root"
                 data-testid="navigation-list-footer"
               >
                 MC: menu.mainTitle
@@ -677,7 +677,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                   </li>
                   <li>
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Select category
@@ -1229,7 +1229,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                   </li>
                   <li>
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Our Brands
@@ -2606,7 +2606,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
           />
         </button>
         <h4
-          class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
           data-testid="typography"
         >
           MC: search.title
@@ -2619,7 +2619,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
     data-testid="brand-colors-provider"
   >
     <div
-      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-3ypdwb"
+      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-nueu6n"
       data-test-class-name="hero"
       data-testid="hero"
     >
@@ -2666,13 +2666,13 @@ exports[`Home Page Template render correctly with all data 1`] = `
                             class="CarouselHero-content"
                           >
                             <h1
-                              class="MuiTypography-root MuiTypography-h1 Typography-underline Typography-darkBg css-1rt7ftk-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-h1 Typography-underline Typography-darkBg css-b4lozl-MuiTypography-root"
                               data-testid="hero-title"
                             >
                               homePageSlideTitle
                             </h1>
-                            <div
-                              class="css-81i549"
+                            <p
+                              class="MuiTypography-root MuiTypography-body1 css-twvsld-MuiTypography-root"
                               data-test-class-name="text"
                               data-testid="hero-content-slide-text"
                             />
@@ -2906,10 +2906,10 @@ exports[`Home Page Template render correctly with all data 1`] = `
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-194lmd0-MuiPaper-root-MuiCard-root"
                 >
                   <section
-                    class="css-ycekwa"
+                    class="css-1eeyjjm"
                   >
                     <h5
-                      class="MuiTypography-root MuiTypography-h5 css-1qv4qlr-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h5 css-10wr6mh-MuiTypography-root"
                       data-testid="typography"
                     >
                       Call to action
@@ -2994,10 +2994,10 @@ exports[`Home Page Template render correctly with all data 1`] = `
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-194lmd0-MuiPaper-root-MuiCard-root"
                 >
                   <section
-                    class="css-ycekwa"
+                    class="css-1eeyjjm"
                   >
                     <h5
-                      class="MuiTypography-root MuiTypography-h5 css-1qv4qlr-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h5 css-10wr6mh-MuiTypography-root"
                       data-testid="typography"
                     >
                       Call to action
@@ -3079,14 +3079,14 @@ exports[`Home Page Template render correctly with all data 1`] = `
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-194lmd0-MuiPaper-root-MuiCard-root"
                 >
                   <a
-                    class="MuiButtonBase-root css-xpckir-MuiButtonBase-root"
+                    class="MuiButtonBase-root css-t5c0m6-MuiButtonBase-root"
                     data-gtm="{"id":"cta-click1","label":"Card with Video","action":"/en/some-page/"}"
                     data-testid="overlap-card"
                     href="/en/some-page/"
                     tabindex="0"
                   >
                     <h5
-                      class="MuiTypography-root MuiTypography-h5 css-1qv4qlr-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h5 css-10wr6mh-MuiTypography-root"
                       data-testid="typography"
                     >
                       Card with Video
@@ -3202,7 +3202,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
       </div>
     </div>
     <div
-      class="Brands Section-root Section-pearl css-cxq310"
+      class="Brands Section-root Section-pearl css-10chrh8"
       data-testid="brands"
     >
       <div
@@ -3212,7 +3212,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
             data-testid="typography"
           >
              
@@ -3255,7 +3255,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                   </svg>
                 </a>
                 <h6
-                  class="MuiTypography-root MuiTypography-subtitle1 css-1329nyb-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-subtitle1 css-h5v5bh-MuiTypography-root"
                   data-testid="brandLogoDescription"
                 >
                   Uh-oh. He don't look happy. He's been using spa brand X
@@ -3300,7 +3300,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
       style="margin-top: -150px; padding-top: 150px;"
     >
       <div
-        class="Section-root Section-white css-cxq310"
+        class="Section-root Section-white css-10chrh8"
         data-testid="tabs-or-accordion-section-string"
       >
         <div
@@ -3310,13 +3310,13 @@ exports[`Home Page Template render correctly with all data 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h2
-              class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
               data-testid="typography"
             >
               string
             </h2>
             <p
-              class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
               data-testid="typography"
             >
               string
@@ -3332,7 +3332,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                 >
                   <div
                     aria-expanded="false"
-                    class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
+                    class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-lxjiqx-MuiButtonBase-root-MuiAccordionSummary-root"
                     data-gtm="{"id":"selector-accordion1","label":"hello","action":"Selector – Accordion"}"
                     role="button"
                     tabindex="0"
@@ -3341,7 +3341,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                       class="MuiAccordionSummary-content Accordion-summaryContent MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
                     >
                       <h3
-                        class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                         data-testid="typography"
                       >
                         hello
@@ -3381,10 +3381,10 @@ exports[`Home Page Template render correctly with all data 1`] = `
                             class="MuiAccordionDetails-root  css-1r7u8wy-MuiAccordionDetails-root"
                           >
                             <div
-                              class="RichText-root css-17t4j5c"
+                              class="RichText-root RichText-no-bottom-margin css-11n1wnk"
                             >
                               <p
-                                class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
@@ -3425,7 +3425,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 Contact Us
@@ -3436,7 +3436,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 About BMI
@@ -3513,7 +3513,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                  Our portals
@@ -3590,7 +3590,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 Careers

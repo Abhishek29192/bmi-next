@@ -3,7 +3,7 @@
 exports[`FormSection component Hubspot FormSection component renders correctly 1`] = `
 <div>
   <div
-    class="Section-root Section-white css-cxq310"
+    class="Section-root Section-white css-10chrh8"
     data-testid="hubspot-form-section-Test-form"
   >
     <div
@@ -13,7 +13,7 @@ exports[`FormSection component Hubspot FormSection component renders correctly 1
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class=" css-174q70y"
+          class=" css-1y31jzd"
           id="bmi-hubspot-form-no-id"
         />
       </div>
@@ -25,7 +25,7 @@ exports[`FormSection component Hubspot FormSection component renders correctly 1
 exports[`FormSection component Hubspot FormSection component renders correctly with sampleIds 1`] = `
 <div>
   <div
-    class="Section-root Section-white css-cxq310"
+    class="Section-root Section-white css-10chrh8"
     data-testid="hubspot-form-section-Test-form"
   >
     <div
@@ -35,7 +35,7 @@ exports[`FormSection component Hubspot FormSection component renders correctly w
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class=" css-174q70y"
+          class=" css-1y31jzd"
           id="bmi-hubspot-form-no-id"
         />
       </div>
@@ -47,7 +47,7 @@ exports[`FormSection component Hubspot FormSection component renders correctly w
 exports[`FormSection component Hubspot FormSection component test submit when preview is on 1`] = `
 <div>
   <div
-    class="Section-root Section-white css-cxq310"
+    class="Section-root Section-white css-10chrh8"
     data-testid="hubspot-form-section-Test-form"
   >
     <div
@@ -57,7 +57,7 @@ exports[`FormSection component Hubspot FormSection component test submit when pr
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class=" css-174q70y"
+          class=" css-1y31jzd"
           id="bmi-hubspot-form-no-id"
         />
       </div>
@@ -69,7 +69,7 @@ exports[`FormSection component Hubspot FormSection component test submit when pr
 exports[`FormSection component renders correctly 1`] = `
 <div>
   <div
-    class="Section-root Section-white css-cxq310"
+    class="Section-root Section-white css-10chrh8"
     data-testid="contentful-form-section-Test-form"
   >
     <div
@@ -279,7 +279,7 @@ exports[`FormSection component renders correctly 1`] = `
                 class="MuiFormControl-root css-1nrlq1o-MuiFormControl-root"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-body1 CheckboxGroup-heading css-87ejlm-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 CheckboxGroup-heading css-1o02bdp-MuiTypography-root"
                   data-testid="typography"
                 >
                   CheckboxGroup
@@ -403,7 +403,7 @@ exports[`FormSection component renders correctly 1`] = `
             >
               <div>
                 <p
-                  class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                   data-testid="typography"
                   style="padding-bottom: 15px;"
                 >
@@ -600,7 +600,7 @@ exports[`FormSection component renders correctly 1`] = `
                     type="file"
                   />
                   <p
-                    class="MuiTypography-root MuiTypography-body1 Upload-mobileInstructions css-87ejlm-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1 Upload-mobileInstructions css-1o02bdp-MuiTypography-root"
                     data-testid="typography"
                   >
                     MC: form.upload.supportedFormats: .pdf, .jpg, .jpeg, .png. MC: form.upload.maxSize: 5.2MB
@@ -614,7 +614,7 @@ exports[`FormSection component renders correctly 1`] = `
               data-testid="grid-item"
             >
               <p
-                class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                 data-testid="typography"
               >
                 <span>
@@ -771,7 +771,7 @@ exports[`FormSection component renders correctly 1`] = `
           </div>
         </form>
         <p
-          class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-87ejlm-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
           data-testid="typography"
         >
           This site is protected by reCAPTCHA and the Google 
@@ -809,7 +809,7 @@ exports[`FormSection component renders correctly 1`] = `
 exports[`FormSection component renders correctly for dialog 1`] = `
 <div>
   <div
-    class="Section-white css-cxq310"
+    class="Section-white css-10chrh8"
     data-testid="hubspot-form-section-Test-form"
   >
     <div
@@ -819,7 +819,7 @@ exports[`FormSection component renders correctly for dialog 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="FormSection-dialog css-174q70y"
+          class="FormSection-dialog css-1y31jzd"
           id="bmi-hubspot-form-no-id"
         />
       </div>
@@ -831,7 +831,7 @@ exports[`FormSection component renders correctly for dialog 1`] = `
 exports[`FormSection component test convertMarkdownLinksToAnchorLinks function with link in label 1`] = `
 <div>
   <div
-    class="Section-root Section-white css-cxq310"
+    class="Section-root Section-white css-10chrh8"
     data-testid="contentful-form-section-Test-form"
   >
     <div
@@ -989,7 +989,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
           </div>
         </form>
         <p
-          class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-87ejlm-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
           data-testid="typography"
         >
           This site is protected by reCAPTCHA and the Google 
@@ -1027,7 +1027,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
 exports[`FormSection component test convertMarkdownLinksToAnchorLinks function with no label 1`] = `
 <div>
   <div
-    class="Section-root Section-white css-cxq310"
+    class="Section-root Section-white css-10chrh8"
     data-testid="contentful-form-section-Test-form"
   >
     <div
@@ -1117,7 +1117,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
           </div>
         </form>
         <p
-          class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-87ejlm-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
           data-testid="typography"
         >
           This site is protected by reCAPTCHA and the Google 
@@ -1155,7 +1155,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
 exports[`FormSection component test handleEmailValidation with correct email 1`] = `
 <div>
   <div
-    class="Section-root Section-white css-cxq310"
+    class="Section-root Section-white css-10chrh8"
     data-testid="contentful-form-section-Test-form"
   >
     <div
@@ -1260,7 +1260,7 @@ exports[`FormSection component test handleEmailValidation with correct email 1`]
           </div>
         </form>
         <p
-          class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-87ejlm-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
           data-testid="typography"
         >
           This site is protected by reCAPTCHA and the Google 
@@ -1298,7 +1298,7 @@ exports[`FormSection component test handleEmailValidation with correct email 1`]
 exports[`FormSection component test handleEmailValidation with incorrect email 1`] = `
 <div>
   <div
-    class="Section-root Section-white css-cxq310"
+    class="Section-root Section-white css-10chrh8"
     data-testid="contentful-form-section-Test-form"
   >
     <div
@@ -1424,7 +1424,7 @@ exports[`FormSection component test handleEmailValidation with incorrect email 1
           </div>
         </form>
         <p
-          class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-87ejlm-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
           data-testid="typography"
         >
           This site is protected by reCAPTCHA and the Google 
@@ -1462,7 +1462,7 @@ exports[`FormSection component test handleEmailValidation with incorrect email 1
 exports[`FormSection component test multiply options in a checkbox group 1`] = `
 <div>
   <div
-    class="Section-root Section-white css-cxq310"
+    class="Section-root Section-white css-10chrh8"
     data-testid="contentful-form-section-Test-form"
   >
     <div
@@ -1487,7 +1487,7 @@ exports[`FormSection component test multiply options in a checkbox group 1`] = `
                 class="MuiFormControl-root css-1nrlq1o-MuiFormControl-root"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-body1 CheckboxGroup-heading css-87ejlm-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 CheckboxGroup-heading css-1o02bdp-MuiTypography-root"
                   data-testid="typography"
                 >
                   Pizza
@@ -1641,7 +1641,7 @@ exports[`FormSection component test multiply options in a checkbox group 1`] = `
           </div>
         </form>
         <p
-          class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-87ejlm-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
           data-testid="typography"
         >
           Dette nettstedet er beskyttet av reCAPTCHA og Googles 
@@ -1679,7 +1679,7 @@ exports[`FormSection component test multiply options in a checkbox group 1`] = `
 exports[`FormSection component test multiply options in a checkbox group without recaptcha call 1`] = `
 <div>
   <div
-    class="Section-root Section-white css-cxq310"
+    class="Section-root Section-white css-10chrh8"
     data-testid="contentful-form-section-Test-form"
   >
     <div
@@ -1704,7 +1704,7 @@ exports[`FormSection component test multiply options in a checkbox group without
                 class="MuiFormControl-root css-1nrlq1o-MuiFormControl-root"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-body1 CheckboxGroup-heading css-87ejlm-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 CheckboxGroup-heading css-1o02bdp-MuiTypography-root"
                   data-testid="typography"
                 >
                   Pizza
@@ -1858,7 +1858,7 @@ exports[`FormSection component test multiply options in a checkbox group without
           </div>
         </form>
         <p
-          class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-87ejlm-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
           data-testid="typography"
         >
           Dette nettstedet er beskyttet av reCAPTCHA og Googles 
@@ -1896,7 +1896,7 @@ exports[`FormSection component test multiply options in a checkbox group without
 exports[`FormSection component test upload input with large file 1`] = `
 <div>
   <div
-    class="Section-root Section-white css-cxq310"
+    class="Section-root Section-white css-10chrh8"
     data-testid="contentful-form-section-Test-form"
   >
     <div
@@ -1956,7 +1956,7 @@ exports[`FormSection component test upload input with large file 1`] = `
                     type="file"
                   />
                   <p
-                    class="MuiTypography-root MuiTypography-body1 Upload-mobileInstructions css-87ejlm-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1 Upload-mobileInstructions css-1o02bdp-MuiTypography-root"
                     data-testid="typography"
                   >
                     MC: form.upload.supportedFormats: .pdf, .jpg, .jpeg, .png. MC: form.upload.maxSize: 1MB
@@ -1982,7 +1982,7 @@ exports[`FormSection component test upload input with large file 1`] = `
                       class="Upload-fileInfoWrapper"
                     >
                       <p
-                        class="MuiTypography-root MuiTypography-body1 css-orwhc5-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-body1 css-10ngm3f-MuiTypography-root"
                         data-testid="typography"
                       >
                         fileName
@@ -2065,7 +2065,7 @@ exports[`FormSection component test upload input with large file 1`] = `
           </div>
         </form>
         <p
-          class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-87ejlm-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
           data-testid="typography"
         >
           This site is protected by reCAPTCHA and the Google 
@@ -2103,7 +2103,7 @@ exports[`FormSection component test upload input with large file 1`] = `
 exports[`FormSection component test upload input with no maxSize 1`] = `
 <div>
   <div
-    class="Section-root Section-white css-cxq310"
+    class="Section-root Section-white css-10chrh8"
     data-testid="contentful-form-section-Test-form"
   >
     <div
@@ -2163,7 +2163,7 @@ exports[`FormSection component test upload input with no maxSize 1`] = `
                     type="file"
                   />
                   <p
-                    class="MuiTypography-root MuiTypography-body1 Upload-mobileInstructions css-87ejlm-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1 Upload-mobileInstructions css-1o02bdp-MuiTypography-root"
                     data-testid="typography"
                   >
                     MC: form.upload.supportedFormats: .pdf, .jpg, .jpeg, .png. MC: form.upload.maxSize: 1MB
@@ -2208,7 +2208,7 @@ exports[`FormSection component test upload input with no maxSize 1`] = `
           </div>
         </form>
         <p
-          class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-87ejlm-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
           data-testid="typography"
         >
           This site is protected by reCAPTCHA and the Google 
@@ -2246,7 +2246,7 @@ exports[`FormSection component test upload input with no maxSize 1`] = `
 exports[`FormSection component test upload input with small file 1`] = `
 <div>
   <div
-    class="Section-root Section-white css-cxq310"
+    class="Section-root Section-white css-10chrh8"
     data-testid="contentful-form-section-Test-form"
   >
     <div
@@ -2306,7 +2306,7 @@ exports[`FormSection component test upload input with small file 1`] = `
                     type="file"
                   />
                   <p
-                    class="MuiTypography-root MuiTypography-body1 Upload-mobileInstructions css-87ejlm-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1 Upload-mobileInstructions css-1o02bdp-MuiTypography-root"
                     data-testid="typography"
                   >
                     MC: form.upload.supportedFormats: .pdf, .jpg, .jpeg, .png. MC: form.upload.maxSize: 1MB
@@ -2332,7 +2332,7 @@ exports[`FormSection component test upload input with small file 1`] = `
                       class="Upload-fileInfoWrapper"
                     >
                       <p
-                        class="MuiTypography-root MuiTypography-body1 css-orwhc5-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-body1 css-10ngm3f-MuiTypography-root"
                         data-testid="typography"
                       >
                         fileName
@@ -2415,7 +2415,7 @@ exports[`FormSection component test upload input with small file 1`] = `
           </div>
         </form>
         <p
-          class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-87ejlm-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
           data-testid="typography"
         >
           This site is protected by reCAPTCHA and the Google 

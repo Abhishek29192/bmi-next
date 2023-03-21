@@ -48,7 +48,7 @@ exports[`DocumentSimpleTableResultsMobile component renders correctly 1`] = `
           </svg>
         </div>
         <p
-          class="MuiTypography-root MuiTypography-body1 css-eoy3ls-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 css-10t9z99-MuiTypography-root"
           data-testid="typography"
         >
           contentful-document-title
@@ -74,7 +74,7 @@ exports[`DocumentSimpleTableResultsMobile component renders correctly 1`] = `
         class="css-axrk4p"
       >
         <p
-          class="MuiTypography-root MuiTypography-body1 css-l574it-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 css-lmc4b5-MuiTypography-root"
           data-testid="typography"
         >
           asset-name
@@ -161,7 +161,7 @@ exports[`DocumentSimpleTableResultsMobile component renders correctly when valid
           </svg>
         </div>
         <p
-          class="MuiTypography-root MuiTypography-body1 css-eoy3ls-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 css-10t9z99-MuiTypography-root"
           data-testid="typography"
         >
           contentful-document-title
@@ -187,7 +187,7 @@ exports[`DocumentSimpleTableResultsMobile component renders correctly when valid
         class="css-axrk4p"
       >
         <p
-          class="MuiTypography-root MuiTypography-body1 css-l574it-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 css-lmc4b5-MuiTypography-root"
           data-testid="typography"
         >
           asset-name
@@ -274,7 +274,7 @@ exports[`DocumentSimpleTableResultsMobile component renders multiple documents o
           </svg>
         </div>
         <p
-          class="MuiTypography-root MuiTypography-body1 css-eoy3ls-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 css-10t9z99-MuiTypography-root"
           data-testid="typography"
         >
           Pim Document
@@ -300,7 +300,7 @@ exports[`DocumentSimpleTableResultsMobile component renders multiple documents o
         class="css-axrk4p"
       >
         <p
-          class="MuiTypography-root MuiTypography-body1 css-l574it-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 css-lmc4b5-MuiTypography-root"
           data-testid="typography"
         >
           asset-name
@@ -387,7 +387,7 @@ exports[`DocumentSimpleTableResultsMobile component renders pim documents correc
           </svg>
         </div>
         <p
-          class="MuiTypography-root MuiTypography-body1 css-eoy3ls-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 css-10t9z99-MuiTypography-root"
           data-testid="typography"
         >
           Pim Document
@@ -413,7 +413,7 @@ exports[`DocumentSimpleTableResultsMobile component renders pim documents correc
         class="css-axrk4p"
       >
         <p
-          class="MuiTypography-root MuiTypography-body1 css-l574it-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 css-lmc4b5-MuiTypography-root"
           data-testid="typography"
         >
           asset-name

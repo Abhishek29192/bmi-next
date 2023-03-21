@@ -11,7 +11,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
       data-testid="grid-item"
     >
       <p
-        class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
         data-testid="typography"
       >
         <div
@@ -26,7 +26,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
             >
               <div
                 aria-expanded="true"
-                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
+                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-gutters css-lxjiqx-MuiButtonBase-root-MuiAccordionSummary-root"
                 data-gtm="{"id":"selector-accordion1","label":"systemAttributes","action":"Selector – Accordion"}"
                 role="button"
                 tabindex="0"
@@ -35,7 +35,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
                   class="MuiAccordionSummary-content Accordion-summaryContent Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
                 >
                   <h6
-                    class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                     data-testid="typography"
                   >
                     systemAttributes
@@ -126,7 +126,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
             >
               <div
                 aria-expanded="true"
-                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
+                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-gutters css-lxjiqx-MuiButtonBase-root-MuiAccordionSummary-root"
                 data-gtm="{"id":"selector-accordion1","label":"systemAttributes","action":"Selector – Accordion"}"
                 role="button"
                 tabindex="0"
@@ -135,7 +135,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
                   class="MuiAccordionSummary-content Accordion-summaryContent Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
                 >
                   <h6
-                    class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                     data-testid="typography"
                   >
                     systemAttributes
@@ -240,7 +240,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
       data-testid="grid-item"
     >
       <p
-        class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
         data-testid="typography"
       >
         <div
@@ -255,7 +255,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
             >
               <div
                 aria-expanded="true"
-                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
+                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-gutters css-lxjiqx-MuiButtonBase-root-MuiAccordionSummary-root"
                 data-gtm="{"id":"selector-accordion1","label":"systemAttributes","action":"Selector – Accordion"}"
                 role="button"
                 tabindex="0"
@@ -264,7 +264,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
                   class="MuiAccordionSummary-content Accordion-summaryContent Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
                 >
                   <h6
-                    class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                     data-testid="typography"
                   >
                     systemAttributes
@@ -341,7 +341,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
             >
               <div
                 aria-expanded="true"
-                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
+                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-gutters css-lxjiqx-MuiButtonBase-root-MuiAccordionSummary-root"
                 data-gtm="{"id":"selector-accordion1","label":"systemAttributes","action":"Selector – Accordion"}"
                 role="button"
                 tabindex="0"
@@ -350,7 +350,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
                   class="MuiAccordionSummary-content Accordion-summaryContent Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
                 >
                   <h6
-                    class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                     data-testid="typography"
                   >
                     systemAttributes
@@ -441,7 +441,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when One 
       data-testid="grid-item"
     >
       <p
-        class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
         data-testid="typography"
       >
         <div
@@ -512,7 +512,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when One 
       data-testid="grid-item"
     >
       <p
-        class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
         data-testid="typography"
       >
         <div
@@ -583,7 +583,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when no c
       data-testid="grid-item"
     >
       <p
-        class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
         data-testid="typography"
       />
     </div>
@@ -602,7 +602,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
       data-testid="grid-item"
     >
       <p
-        class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
         data-testid="typography"
       >
         <div
@@ -617,7 +617,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
             >
               <div
                 aria-expanded="true"
-                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
+                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-gutters css-lxjiqx-MuiButtonBase-root-MuiAccordionSummary-root"
                 data-gtm="{"id":"selector-accordion1","label":"systemAttributes","action":"Selector – Accordion"}"
                 role="button"
                 tabindex="0"
@@ -626,7 +626,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
                   class="MuiAccordionSummary-content Accordion-summaryContent Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
                 >
                   <h6
-                    class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                     data-testid="typography"
                   >
                     systemAttributes
@@ -703,7 +703,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
             >
               <div
                 aria-expanded="true"
-                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
+                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-gutters css-lxjiqx-MuiButtonBase-root-MuiAccordionSummary-root"
                 data-gtm="{"id":"selector-accordion1","label":"systemAttributes","action":"Selector – Accordion"}"
                 role="button"
                 tabindex="0"
@@ -712,7 +712,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
                   class="MuiAccordionSummary-content Accordion-summaryContent Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
                 >
                   <h6
-                    class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                     data-testid="typography"
                   >
                     systemAttributes
@@ -803,7 +803,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
       data-testid="grid-item"
     >
       <p
-        class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
         data-testid="typography"
       >
         <div
@@ -818,7 +818,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
             >
               <div
                 aria-expanded="true"
-                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
+                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-gutters css-lxjiqx-MuiButtonBase-root-MuiAccordionSummary-root"
                 data-gtm="{"id":"selector-accordion1","label":"systemAttributes","action":"Selector – Accordion"}"
                 role="button"
                 tabindex="0"
@@ -827,7 +827,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
                   class="MuiAccordionSummary-content Accordion-summaryContent Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
                 >
                   <h6
-                    class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                     data-testid="typography"
                   >
                     systemAttributes
@@ -904,7 +904,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
             >
               <div
                 aria-expanded="true"
-                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
+                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-gutters css-lxjiqx-MuiButtonBase-root-MuiAccordionSummary-root"
                 data-gtm="{"id":"selector-accordion1","label":"systemAttributes","action":"Selector – Accordion"}"
                 role="button"
                 tabindex="0"
@@ -913,7 +913,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
                   class="MuiAccordionSummary-content Accordion-summaryContent Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
                 >
                   <h6
-                    class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                     data-testid="typography"
                   >
                     systemAttributes
@@ -997,25 +997,25 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
         class="ColorPair-pearl css-1pt14k0"
       >
         <div
-          class="css-qtgtj9"
+          class="css-1qwqwtx"
         >
           <div
-            class="css-wepxue"
+            class="css-asoc7f"
           >
             <h4
-              class="MuiTypography-root MuiTypography-h4 Typography-underline css-1ekntu4-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
               data-testid="typography"
             >
               specification notes title
             </h4>
             <div
-              class="css-1xaekgw"
+              class="css-eler5f"
             >
               <div
-                class="RichText-root css-17t4j5c"
+                class="RichText-root css-11n1wnk"
               >
                 <h3
-                  class="MuiTypography-root MuiTypography-h3 RichText-title css-d7brak-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h3 RichText-title css-2221f6-MuiTypography-root"
                   data-testid="typography"
                 >
                   test rich text
@@ -1023,7 +1023,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
               </div>
             </div>
             <div
-              class="css-1xaekgw"
+              class="css-1jhnnxy"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"

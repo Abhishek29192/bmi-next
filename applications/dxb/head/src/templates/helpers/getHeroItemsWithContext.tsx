@@ -29,6 +29,7 @@ export const getHeroItemsWithContext = (
       return {
         title,
         children: subtitle,
+        hasUnderline: true,
         media: featuredVideo ? (
           <Video {...featuredVideo} data-testid={"hero-video"} />
         ) : (

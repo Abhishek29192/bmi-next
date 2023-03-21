@@ -24,7 +24,7 @@ exports[`QuantityTable component renders correctly 1`] = `
               scope="col"
             >
               <h6
-                class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                 data-testid="typography"
               >
                 Product
@@ -53,7 +53,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                       src="path-to-image"
                     />
                     <p
-                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-smallDescription css-87ejlm-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-smallDescription css-1o02bdp-MuiTypography-root"
                       data-testid="typography"
                     >
                       Lorem ipsum dolor sit amet memento mori
@@ -63,14 +63,14 @@ exports[`QuantityTable component renders correctly 1`] = `
                     class="quantityTableStyles-cellRow"
                   >
                     <h6
-                      class="MuiTypography-root MuiTypography-subtitle1  css-1nfxde2-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-subtitle1  css-hk0si0-MuiTypography-root"
                       data-testid="typography"
                     >
                       Nobb no
                       :
                     </h6>
                     <p
-                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-boldText css-87ejlm-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-boldText css-1o02bdp-MuiTypography-root"
                       data-testid="typography"
                     >
                       1232342346789
@@ -80,14 +80,14 @@ exports[`QuantityTable component renders correctly 1`] = `
                     class="quantityTableStyles-cellRow"
                   >
                     <h6
-                      class="MuiTypography-root MuiTypography-subtitle1  css-1nfxde2-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-subtitle1  css-hk0si0-MuiTypography-root"
                       data-testid="typography"
                     >
                       Pack size
                       :
                     </h6>
                     <p
-                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-boldText css-87ejlm-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-boldText css-1o02bdp-MuiTypography-root"
                       data-testid="typography"
                     >
                       22 x 42
@@ -195,7 +195,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                       src="path-to-image"
                     />
                     <p
-                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-smallDescription css-87ejlm-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-smallDescription css-1o02bdp-MuiTypography-root"
                       data-testid="typography"
                     >
                       Lorem ipsum dolor sit amet memento mori
@@ -205,14 +205,14 @@ exports[`QuantityTable component renders correctly 1`] = `
                     class="quantityTableStyles-cellRow"
                   >
                     <h6
-                      class="MuiTypography-root MuiTypography-subtitle1  css-1nfxde2-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-subtitle1  css-hk0si0-MuiTypography-root"
                       data-testid="typography"
                     >
                       Nobb no
                       :
                     </h6>
                     <p
-                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-boldText css-87ejlm-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-boldText css-1o02bdp-MuiTypography-root"
                       data-testid="typography"
                     >
                       123456789
@@ -222,14 +222,14 @@ exports[`QuantityTable component renders correctly 1`] = `
                     class="quantityTableStyles-cellRow"
                   >
                     <h6
-                      class="MuiTypography-root MuiTypography-subtitle1  css-1nfxde2-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-subtitle1  css-hk0si0-MuiTypography-root"
                       data-testid="typography"
                     >
                       Pack size
                       :
                     </h6>
                     <p
-                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-boldText css-87ejlm-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-boldText css-1o02bdp-MuiTypography-root"
                       data-testid="typography"
                     >
                       22 x 42
@@ -337,7 +337,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                       src="path-to-image"
                     />
                     <p
-                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-smallDescription css-87ejlm-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-smallDescription css-1o02bdp-MuiTypography-root"
                       data-testid="typography"
                     >
                       Lorem ipsum dolor sit amet memento mori
@@ -347,14 +347,14 @@ exports[`QuantityTable component renders correctly 1`] = `
                     class="quantityTableStyles-cellRow"
                   >
                     <h6
-                      class="MuiTypography-root MuiTypography-subtitle1  css-1nfxde2-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-subtitle1  css-hk0si0-MuiTypography-root"
                       data-testid="typography"
                     >
                       Nobb no
                       :
                     </h6>
                     <p
-                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-boldText css-87ejlm-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-boldText css-1o02bdp-MuiTypography-root"
                       data-testid="typography"
                     >
                       123452346789
@@ -364,14 +364,14 @@ exports[`QuantityTable component renders correctly 1`] = `
                     class="quantityTableStyles-cellRow"
                   >
                     <h6
-                      class="MuiTypography-root MuiTypography-subtitle1  css-1nfxde2-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-subtitle1  css-hk0si0-MuiTypography-root"
                       data-testid="typography"
                     >
                       Pack size
                       :
                     </h6>
                     <p
-                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-boldText css-87ejlm-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-boldText css-1o02bdp-MuiTypography-root"
                       data-testid="typography"
                     >
                       22 x 42
@@ -479,7 +479,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                       src="path-to-image"
                     />
                     <p
-                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-smallDescription css-87ejlm-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-smallDescription css-1o02bdp-MuiTypography-root"
                       data-testid="typography"
                     >
                       Lorem ipsum dolor sit amet memento mori
@@ -489,14 +489,14 @@ exports[`QuantityTable component renders correctly 1`] = `
                     class="quantityTableStyles-cellRow"
                   >
                     <h6
-                      class="MuiTypography-root MuiTypography-subtitle1  css-1nfxde2-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-subtitle1  css-hk0si0-MuiTypography-root"
                       data-testid="typography"
                     >
                       Nobb no
                       :
                     </h6>
                     <p
-                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-boldText css-87ejlm-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-boldText css-1o02bdp-MuiTypography-root"
                       data-testid="typography"
                     >
                       12345677889
@@ -506,14 +506,14 @@ exports[`QuantityTable component renders correctly 1`] = `
                     class="quantityTableStyles-cellRow"
                   >
                     <h6
-                      class="MuiTypography-root MuiTypography-subtitle1  css-1nfxde2-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-subtitle1  css-hk0si0-MuiTypography-root"
                       data-testid="typography"
                     >
                       Pack size
                       :
                     </h6>
                     <p
-                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-boldText css-87ejlm-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-boldText css-1o02bdp-MuiTypography-root"
                       data-testid="typography"
                     >
                       22 x 42
@@ -621,7 +621,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                       src="path-to-image"
                     />
                     <p
-                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-smallDescription css-87ejlm-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-smallDescription css-1o02bdp-MuiTypography-root"
                       data-testid="typography"
                     >
                       Lorem ipsum dolor sit amet memento mori
@@ -631,14 +631,14 @@ exports[`QuantityTable component renders correctly 1`] = `
                     class="quantityTableStyles-cellRow"
                   >
                     <h6
-                      class="MuiTypography-root MuiTypography-subtitle1  css-1nfxde2-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-subtitle1  css-hk0si0-MuiTypography-root"
                       data-testid="typography"
                     >
                       Nobb no
                       :
                     </h6>
                     <p
-                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-boldText css-87ejlm-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-boldText css-1o02bdp-MuiTypography-root"
                       data-testid="typography"
                     >
                       123456789
@@ -648,14 +648,14 @@ exports[`QuantityTable component renders correctly 1`] = `
                     class="quantityTableStyles-cellRow"
                   >
                     <h6
-                      class="MuiTypography-root MuiTypography-subtitle1  css-1nfxde2-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-subtitle1  css-hk0si0-MuiTypography-root"
                       data-testid="typography"
                     >
                       Pack size
                       :
                     </h6>
                     <p
-                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-boldText css-87ejlm-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body1 quantityTableStyles-boldText css-1o02bdp-MuiTypography-root"
                       data-testid="typography"
                     >
                       22 x 42
@@ -771,7 +771,7 @@ exports[`QuantityTable component renders correctly 1`] = `
               scope="col"
             >
               <h6
-                class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                 data-testid="typography"
               >
                 Product
@@ -782,7 +782,7 @@ exports[`QuantityTable component renders correctly 1`] = `
               scope="col"
             >
               <h6
-                class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                 data-testid="typography"
               >
                 Pack size
@@ -793,7 +793,7 @@ exports[`QuantityTable component renders correctly 1`] = `
               scope="col"
             >
               <h6
-                class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                 data-testid="typography"
               >
                 Nobb no
@@ -821,7 +821,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                     src="path-to-image"
                   />
                   <p
-                    class="MuiTypography-root MuiTypography-body1 quantityTableStyles-largeDescription css-87ejlm-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1 quantityTableStyles-largeDescription css-1o02bdp-MuiTypography-root"
                     data-testid="typography"
                   >
                     Lorem ipsum dolor sit amet memento mori
@@ -907,7 +907,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                   class="quantityTableStyles-mediumCellBasketIconWrapper"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                     data-testid="typography"
                   >
                     1232342346789
@@ -942,7 +942,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                     src="path-to-image"
                   />
                   <p
-                    class="MuiTypography-root MuiTypography-body1 quantityTableStyles-largeDescription css-87ejlm-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1 quantityTableStyles-largeDescription css-1o02bdp-MuiTypography-root"
                     data-testid="typography"
                   >
                     Lorem ipsum dolor sit amet memento mori
@@ -1028,7 +1028,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                   class="quantityTableStyles-mediumCellBasketIconWrapper"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                     data-testid="typography"
                   >
                     123456789
@@ -1063,7 +1063,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                     src="path-to-image"
                   />
                   <p
-                    class="MuiTypography-root MuiTypography-body1 quantityTableStyles-largeDescription css-87ejlm-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1 quantityTableStyles-largeDescription css-1o02bdp-MuiTypography-root"
                     data-testid="typography"
                   >
                     Lorem ipsum dolor sit amet memento mori
@@ -1149,7 +1149,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                   class="quantityTableStyles-mediumCellBasketIconWrapper"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                     data-testid="typography"
                   >
                     123452346789
@@ -1184,7 +1184,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                     src="path-to-image"
                   />
                   <p
-                    class="MuiTypography-root MuiTypography-body1 quantityTableStyles-largeDescription css-87ejlm-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1 quantityTableStyles-largeDescription css-1o02bdp-MuiTypography-root"
                     data-testid="typography"
                   >
                     Lorem ipsum dolor sit amet memento mori
@@ -1270,7 +1270,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                   class="quantityTableStyles-mediumCellBasketIconWrapper"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                     data-testid="typography"
                   >
                     12345677889
@@ -1305,7 +1305,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                     src="path-to-image"
                   />
                   <p
-                    class="MuiTypography-root MuiTypography-body1 quantityTableStyles-largeDescription css-87ejlm-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1 quantityTableStyles-largeDescription css-1o02bdp-MuiTypography-root"
                     data-testid="typography"
                   >
                     Lorem ipsum dolor sit amet memento mori
@@ -1391,7 +1391,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                   class="quantityTableStyles-mediumCellBasketIconWrapper"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                     data-testid="typography"
                   >
                     123456789
@@ -1435,7 +1435,7 @@ exports[`QuantityTable component renders correctly 1`] = `
               scope="col"
             >
               <h6
-                class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                 data-testid="typography"
               >
                 Product
@@ -1446,7 +1446,7 @@ exports[`QuantityTable component renders correctly 1`] = `
               scope="col"
             >
               <h6
-                class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                 data-testid="typography"
               >
                 Pack size
@@ -1457,7 +1457,7 @@ exports[`QuantityTable component renders correctly 1`] = `
               scope="col"
             >
               <h6
-                class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                 data-testid="typography"
               >
                 Nobb no
@@ -1468,7 +1468,7 @@ exports[`QuantityTable component renders correctly 1`] = `
               scope="col"
             >
               <h6
-                class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                 data-testid="typography"
               >
                 Quantity
@@ -1479,7 +1479,7 @@ exports[`QuantityTable component renders correctly 1`] = `
               scope="col"
             >
               <h6
-                class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                 data-testid="typography"
               >
                 Remove
@@ -1507,7 +1507,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                     src="path-to-image"
                   />
                   <p
-                    class="MuiTypography-root MuiTypography-body1 quantityTableStyles-largeDescription css-87ejlm-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1 quantityTableStyles-largeDescription css-1o02bdp-MuiTypography-root"
                     data-testid="typography"
                   >
                     Lorem ipsum dolor sit amet memento mori
@@ -1518,7 +1518,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-largeCell css-1xv4y7i-MuiTableCell-root"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                   data-testid="typography"
                 >
                   22 x 42
@@ -1528,7 +1528,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-largeCell css-1xv4y7i-MuiTableCell-root"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                   data-testid="typography"
                 >
                   1232342346789
@@ -1637,7 +1637,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                     src="path-to-image"
                   />
                   <p
-                    class="MuiTypography-root MuiTypography-body1 quantityTableStyles-largeDescription css-87ejlm-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1 quantityTableStyles-largeDescription css-1o02bdp-MuiTypography-root"
                     data-testid="typography"
                   >
                     Lorem ipsum dolor sit amet memento mori
@@ -1648,7 +1648,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-largeCell css-1xv4y7i-MuiTableCell-root"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                   data-testid="typography"
                 >
                   22 x 42
@@ -1658,7 +1658,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-largeCell css-1xv4y7i-MuiTableCell-root"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                   data-testid="typography"
                 >
                   123456789
@@ -1767,7 +1767,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                     src="path-to-image"
                   />
                   <p
-                    class="MuiTypography-root MuiTypography-body1 quantityTableStyles-largeDescription css-87ejlm-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1 quantityTableStyles-largeDescription css-1o02bdp-MuiTypography-root"
                     data-testid="typography"
                   >
                     Lorem ipsum dolor sit amet memento mori
@@ -1778,7 +1778,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-largeCell css-1xv4y7i-MuiTableCell-root"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                   data-testid="typography"
                 >
                   22 x 42
@@ -1788,7 +1788,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-largeCell css-1xv4y7i-MuiTableCell-root"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                   data-testid="typography"
                 >
                   123452346789
@@ -1897,7 +1897,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                     src="path-to-image"
                   />
                   <p
-                    class="MuiTypography-root MuiTypography-body1 quantityTableStyles-largeDescription css-87ejlm-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1 quantityTableStyles-largeDescription css-1o02bdp-MuiTypography-root"
                     data-testid="typography"
                   >
                     Lorem ipsum dolor sit amet memento mori
@@ -1908,7 +1908,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-largeCell css-1xv4y7i-MuiTableCell-root"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                   data-testid="typography"
                 >
                   22 x 42
@@ -1918,7 +1918,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-largeCell css-1xv4y7i-MuiTableCell-root"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                   data-testid="typography"
                 >
                   12345677889
@@ -2027,7 +2027,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                     src="path-to-image"
                   />
                   <p
-                    class="MuiTypography-root MuiTypography-body1 quantityTableStyles-largeDescription css-87ejlm-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1 quantityTableStyles-largeDescription css-1o02bdp-MuiTypography-root"
                     data-testid="typography"
                   >
                     Lorem ipsum dolor sit amet memento mori
@@ -2038,7 +2038,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-largeCell css-1xv4y7i-MuiTableCell-root"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                   data-testid="typography"
                 >
                   22 x 42
@@ -2048,7 +2048,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium quantityTableStyles-largeCell css-1xv4y7i-MuiTableCell-root"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                   data-testid="typography"
                 >
                   123456789

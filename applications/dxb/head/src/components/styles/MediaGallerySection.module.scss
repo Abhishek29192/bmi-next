@@ -2,7 +2,16 @@
 
 .MediaGallerySection {
   .description {
-    padding-top: 32px;
     padding-bottom: 32px;
+  }
+
+  .gridItem{
+    padding-top: 12px;
+    padding-bottom: 0;
+
+    &:last-child{
+      padding-top: 0;
+      padding-bottom: 12px;
+    }
   }
 }

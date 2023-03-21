@@ -1,5 +1,4 @@
 import {
-  AnchorLink,
   AnchorLinkProps,
   Grid,
   HeroProps,
@@ -58,7 +57,7 @@ import {
 } from "../../../utils/heroLevelUtils";
 import { renderHero } from "../../../utils/heroTypesUI";
 import { removePLPFilterPrefix } from "../../../utils/product-filters";
-import { ProductListWrapperGrid } from "../styles";
+import { ProductListWrapperGrid, FeaturesLink } from "../styles";
 import {
   renderProducts,
   resolveFilters
@@ -117,7 +116,7 @@ const BlueCheckIcon = () => {
   return <StyledBlueCheckIcon />;
 };
 
-const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
+const GTMAnchorLink = withGTM<AnchorLinkProps>(FeaturesLink);
 
 const ProductListerPage = ({ pageContext, data }: Props) => {
   const {

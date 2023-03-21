@@ -36,7 +36,7 @@ const IntegratedMediaGallerySection = ({ data }: { data: Data }) => {
       data-testid={`media-gallery-section-${replaceSpaces(data.title)}`}
     >
       <Grid container>
-        <Grid xs={12} lg={8}>
+        <Grid xs={12} lg={8} className={styles["gridItem"]}>
           {title && (
             <Typography variant="h2" hasUnderline>
               {title}
@@ -44,11 +44,11 @@ const IntegratedMediaGallerySection = ({ data }: { data: Data }) => {
           )}
           {longDescription && (
             <div className={styles["description"]}>
-              <RichText document={longDescription} />
+              <RichText document={longDescription} hasNoBottomMargin />
             </div>
           )}
         </Grid>
-        <Grid xs={12}>
+        <Grid xs={12} py={0} className={styles["gridItem"]}>
           <MediaGallery
             media={transformMediaSrc(medias)}
             mediaSize="cover"

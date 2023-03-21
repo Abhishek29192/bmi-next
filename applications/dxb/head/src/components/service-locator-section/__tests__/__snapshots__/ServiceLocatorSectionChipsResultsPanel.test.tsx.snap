@@ -3,7 +3,7 @@
 exports[`ServiceLocatorSection resulst list pannel component should render results list panel on page load if at list one chip exists in query params 1`] = `
 <div>
   <div
-    class="ServiceLocationSection Section-root Section-white css-cxq310"
+    class="ServiceLocationSection Section-root Section-white css-10chrh8"
     data-testid="service-locator-section-Main"
   >
     <div
@@ -13,7 +13,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
           data-testid="typography"
         >
           Main
@@ -91,7 +91,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
               </div>
             </div>
             <p
-              class="MuiTypography-root MuiTypography-body1 and-or-label css-87ejlm-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 and-or-label css-1o02bdp-MuiTypography-root"
               data-testid="typography"
             >
               <span>
@@ -156,7 +156,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                 class="chips"
               >
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 chips-label css-1le86ss-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 chips-label css-1nuwz6u-MuiTypography-root"
                   data-testid="typography"
                 >
                   MC: findARoofer.filtersLabel
@@ -323,13 +323,13 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                       style="object-fit: cover; object-position: center;"
                     />
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom  css-1vyiy8g-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                       data-testid="typography"
                     >
                       roofer 1
                     </h6>
                     <p
-                      class="MuiTypography-root MuiTypography-body1 css-sd7cbl-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                       data-testid="typography"
                     >
                       address 1
@@ -366,7 +366,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                         >
                           <div>
                             <dl
-                              class="css-axlavq"
+                              class="css-jmzo47"
                             >
                               <div
                                 class="CompanyDetails-row"
@@ -387,7 +387,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                                     />
                                   </svg>
                                   <span
-                                    class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-87ejlm-MuiTypography-root"
+                                    class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-1o02bdp-MuiTypography-root"
                                     data-testid="typography"
                                   >
                                     MC: global.telephone
@@ -418,7 +418,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                                     />
                                   </svg>
                                   <span
-                                    class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-87ejlm-MuiTypography-root"
+                                    class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-1o02bdp-MuiTypography-root"
                                     data-testid="typography"
                                   >
                                     MC: global.email
@@ -449,7 +449,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                                     />
                                   </svg>
                                   <span
-                                    class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-87ejlm-MuiTypography-root"
+                                    class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-1o02bdp-MuiTypography-root"
                                     data-testid="typography"
                                   >
                                     MC: global.website
@@ -469,7 +469,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                                   class="css-10edjq1"
                                 >
                                   <span
-                                    class="MuiTypography-root MuiTypography-body1 CompanyDetails-label css-87ejlm-MuiTypography-root"
+                                    class="MuiTypography-root MuiTypography-body1 CompanyDetails-label css-1o02bdp-MuiTypography-root"
                                     data-testid="typography"
                                   >
                                     MC: findARoofer.roofTypeLabel
@@ -485,7 +485,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                               </div>
                             </dl>
                             <p
-                              class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                               data-testid="typography"
                             >
                               roofer summary

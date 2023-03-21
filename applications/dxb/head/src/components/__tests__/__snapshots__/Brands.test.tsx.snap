@@ -3,7 +3,7 @@
 exports[`Brands component renders correctly 1`] = `
 <div>
   <div
-    class="Brands Section-root Section-pearl css-cxq310"
+    class="Brands Section-root Section-pearl css-10chrh8"
     data-testid="brands"
   >
     <div
@@ -13,7 +13,7 @@ exports[`Brands component renders correctly 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
           data-testid="typography"
         >
            
@@ -54,7 +54,7 @@ exports[`Brands component renders correctly 1`] = `
                 </svg>
               </a>
               <h6
-                class="MuiTypography-root MuiTypography-subtitle1 css-1329nyb-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-subtitle1 css-h5v5bh-MuiTypography-root"
                 data-testid="brandLogoDescription"
               >
                 Uh-oh.  He don't look happy. He's been using brand X

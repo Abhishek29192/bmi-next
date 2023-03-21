@@ -31,10 +31,10 @@ exports[`OverlapCards component IntegratedOverlapCards component renders correct
                 class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-194lmd0-MuiPaper-root-MuiCard-root"
               >
                 <section
-                  class="css-ycekwa"
+                  class="css-1eeyjjm"
                 >
                   <h5
-                    class="MuiTypography-root MuiTypography-h5 css-1qv4qlr-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h5 css-10wr6mh-MuiTypography-root"
                     data-testid="typography"
                   >
                     Call to action
@@ -119,10 +119,10 @@ exports[`OverlapCards component IntegratedOverlapCards component renders correct
                 class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-194lmd0-MuiPaper-root-MuiCard-root"
               >
                 <section
-                  class="css-ycekwa"
+                  class="css-1eeyjjm"
                 >
                   <h5
-                    class="MuiTypography-root MuiTypography-h5 css-1qv4qlr-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h5 css-10wr6mh-MuiTypography-root"
                     data-testid="typography"
                   >
                     Call to action
@@ -204,14 +204,14 @@ exports[`OverlapCards component IntegratedOverlapCards component renders correct
                 class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-194lmd0-MuiPaper-root-MuiCard-root"
               >
                 <a
-                  class="MuiButtonBase-root css-xpckir-MuiButtonBase-root"
+                  class="MuiButtonBase-root css-t5c0m6-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"Card with Video","action":"/uk/some-page/"}"
                   data-testid="overlap-card"
                   href="/uk/some-page/"
                   tabindex="0"
                 >
                   <h5
-                    class="MuiTypography-root MuiTypography-h5 css-1qv4qlr-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h5 css-10wr6mh-MuiTypography-root"
                     data-testid="typography"
                   >
                     Card with Video
@@ -360,10 +360,10 @@ exports[`OverlapCards component renders correctly 1`] = `
                 class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-194lmd0-MuiPaper-root-MuiCard-root"
               >
                 <section
-                  class="css-ycekwa"
+                  class="css-1eeyjjm"
                 >
                   <h5
-                    class="MuiTypography-root MuiTypography-h5 css-1qv4qlr-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h5 css-10wr6mh-MuiTypography-root"
                     data-testid="typography"
                   >
                     Call to action
@@ -448,10 +448,10 @@ exports[`OverlapCards component renders correctly 1`] = `
                 class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-194lmd0-MuiPaper-root-MuiCard-root"
               >
                 <section
-                  class="css-ycekwa"
+                  class="css-1eeyjjm"
                 >
                   <h5
-                    class="MuiTypography-root MuiTypography-h5 css-1qv4qlr-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h5 css-10wr6mh-MuiTypography-root"
                     data-testid="typography"
                   >
                     Call to action
@@ -533,14 +533,14 @@ exports[`OverlapCards component renders correctly 1`] = `
                 class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-194lmd0-MuiPaper-root-MuiCard-root"
               >
                 <a
-                  class="MuiButtonBase-root css-xpckir-MuiButtonBase-root"
+                  class="MuiButtonBase-root css-t5c0m6-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"Card with Video","action":"/uk/some-page/"}"
                   data-testid="overlap-card"
                   href="/uk/some-page/"
                   tabindex="0"
                 >
                   <h5
-                    class="MuiTypography-root MuiTypography-h5 css-1qv4qlr-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h5 css-10wr6mh-MuiTypography-root"
                     data-testid="typography"
                   >
                     Card with Video

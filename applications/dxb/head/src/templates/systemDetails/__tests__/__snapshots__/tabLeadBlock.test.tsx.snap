@@ -102,7 +102,7 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
       role="tabpanel"
     >
       <div
-        class="section Section-root Section-white css-cxq310"
+        class="section Section-root Section-white css-10chrh8"
         data-testid="tab-system-about-lead-block-section"
       >
         <div
@@ -112,7 +112,7 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-17g67wa-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1eoi663-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -120,22 +120,22 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
                 data-testid="grid-item"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
                   data-testid="typography"
                 >
                   <div
-                    class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-description css-1o02bdp-MuiTypography-root"
                     data-testid="typography"
                   >
                     system-desc
                   </div>
                 </p>
                 <p
-                  class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
                   data-testid="typography"
                 >
                   <h6
-                    class="MuiTypography-root MuiTypography-h6 css-1wzmdv9-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
                     data-testid="guarentees-section"
                   >
                     MC: pdp.leadBlock.guaranteesWarranties
@@ -148,11 +148,11 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
                   />
                 </p>
                 <p
-                  class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
                   data-testid="typography"
                 >
                   <h6
-                    class="MuiTypography-root MuiTypography-h6 css-1wzmdv9-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
                     data-testid="awards-section"
                   >
                     MC: pdp.leadBlock.awardsCertificates
@@ -169,11 +169,11 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
                   />
                 </p>
                 <p
-                  class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
                   data-testid="typography"
                 >
                   <h6
-                    class="MuiTypography-root MuiTypography-h6 css-1wzmdv9-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
                     data-testid="specification-section"
                   >
                     MC: sdp.leadBlock.specification
@@ -217,22 +217,22 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
                   class="ColorPair-pearl css-1pt14k0"
                 >
                   <div
-                    class="css-qtgtj9"
+                    class="css-1qwqwtx"
                   >
                     <div
-                      class="css-wepxue"
+                      class="css-asoc7f"
                     >
                       <h4
-                        class="MuiTypography-root MuiTypography-h4 Typography-underline css-1ekntu4-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
                         data-testid="typography"
                       >
                         MC: sdp.leadBlock.systemBenefits
                       </h4>
                       <div
-                        class="css-1xaekgw"
+                        class="css-eler5f"
                       >
                         <ul
-                          class="css-1err4t"
+                          class="css-1wmdec9"
                         />
                       </div>
                     </div>
@@ -382,7 +382,7 @@ exports[`TabLeadBlock tests should render 1`] = `
       role="tabpanel"
     >
       <div
-        class="section Section-root Section-white css-cxq310"
+        class="section Section-root Section-white css-10chrh8"
         data-testid="tab-system-about-lead-block-section"
       >
         <div
@@ -392,7 +392,7 @@ exports[`TabLeadBlock tests should render 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-17g67wa-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1eoi663-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -400,22 +400,22 @@ exports[`TabLeadBlock tests should render 1`] = `
                 data-testid="grid-item"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
                   data-testid="typography"
                 >
                   <div
-                    class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-description css-1o02bdp-MuiTypography-root"
                     data-testid="typography"
                   >
                     system-desc
                   </div>
                 </p>
                 <p
-                  class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
                   data-testid="typography"
                 >
                   <h6
-                    class="MuiTypography-root MuiTypography-h6 css-1wzmdv9-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
                     data-testid="guarentees-section"
                   >
                     MC: pdp.leadBlock.guaranteesWarranties
@@ -428,11 +428,11 @@ exports[`TabLeadBlock tests should render 1`] = `
                   />
                 </p>
                 <p
-                  class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
                   data-testid="typography"
                 >
                   <h6
-                    class="MuiTypography-root MuiTypography-h6 css-1wzmdv9-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
                     data-testid="awards-section"
                   >
                     MC: pdp.leadBlock.awardsCertificates
@@ -449,11 +449,11 @@ exports[`TabLeadBlock tests should render 1`] = `
                   />
                 </p>
                 <p
-                  class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
                   data-testid="typography"
                 >
                   <h6
-                    class="MuiTypography-root MuiTypography-h6 css-1wzmdv9-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
                     data-testid="specification-section"
                   >
                     MC: sdp.leadBlock.specification
@@ -497,22 +497,22 @@ exports[`TabLeadBlock tests should render 1`] = `
                   class="ColorPair-pearl css-1pt14k0"
                 >
                   <div
-                    class="css-qtgtj9"
+                    class="css-1qwqwtx"
                   >
                     <div
-                      class="css-wepxue"
+                      class="css-asoc7f"
                     >
                       <h4
-                        class="MuiTypography-root MuiTypography-h4 Typography-underline css-1ekntu4-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
                         data-testid="typography"
                       >
                         MC: sdp.leadBlock.systemBenefits
                       </h4>
                       <div
-                        class="css-1xaekgw"
+                        class="css-eler5f"
                       >
                         <ul
-                          class="css-1err4t"
+                          class="css-1wmdec9"
                         />
                       </div>
                     </div>
@@ -534,7 +534,7 @@ exports[`TabLeadBlock tests should render 1`] = `
       role="tabpanel"
     >
       <div
-        class="section Section-root Section-white css-cxq310"
+        class="section Section-root Section-white css-10chrh8"
         data-testid="tab-system-tech-spec-lead-block-section"
       >
         <div
@@ -552,7 +552,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                 data-testid="grid-item"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
                   data-testid="typography"
                 >
                   <div
@@ -623,7 +623,7 @@ exports[`TabLeadBlock tests should render 1`] = `
       role="tabpanel"
     >
       <div
-        class="section Section-root Section-white css-cxq310"
+        class="section Section-root Section-white css-10chrh8"
         data-testid="tab-system-documents-section"
       >
         <div
@@ -633,10 +633,10 @@ exports[`TabLeadBlock tests should render 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="css-wepxue"
+              class="css-asoc7f"
             >
               <div
-                class="css-1xaekgw"
+                class="css-eler5f"
               >
                 <div>
                   <div
@@ -898,7 +898,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                       />
                     </button>
                     <p
-                      class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-87ejlm-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
                       data-testid="typography"
                     >
                       This site is protected by reCAPTCHA and the Google 
@@ -950,7 +950,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
   role="tabpanel"
 >
   <div
-    class="section Section-root Section-white css-cxq310"
+    class="section Section-root Section-white css-10chrh8"
     data-testid="tab-system-documents-section"
   >
     <div
@@ -960,10 +960,10 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="css-wepxue"
+          class="css-asoc7f"
         >
           <div
-            class="css-1xaekgw"
+            class="css-eler5f"
           >
             <div>
               <div
@@ -1225,7 +1225,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                   />
                 </button>
                 <p
-                  class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-87ejlm-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
                   data-testid="typography"
                 >
                   This site is protected by reCAPTCHA and the Google 
@@ -1278,7 +1278,7 @@ exports[`TabLeadBlock tests should render the bimIframe tab 1`] = `
     class="bimLeadBlock"
   >
     <div
-      class="section Section-root Section-pearl css-cxq310"
+      class="section Section-root Section-pearl css-10chrh8"
       data-testid="tab-system-bim-lead-block-section"
     >
       <div
@@ -1295,24 +1295,14 @@ exports[`TabLeadBlock tests should render the bimIframe tab 1`] = `
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
               data-testid="grid-item"
             >
-              <p
-                class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+              <h2
+                class="MuiTypography-root MuiTypography-h2 Typography-underline css-8cj2y3-MuiTypography-root"
                 data-testid="typography"
               >
-                <h5
-                  class="MuiTypography-root MuiTypography-h5 css-1mafjam-MuiTypography-root"
-                  data-testid="typography"
-                >
-                  <h2
-                    class="MuiTypography-root MuiTypography-h2 Typography-underline css-ta8c5q-MuiTypography-root"
-                    data-testid="typography"
-                  >
-                    BIM_CODE
-                  </h2>
-                </h5>
-              </p>
+                BIM_CODE
+              </h2>
               <p
-                class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
                 data-testid="typography"
               />
             </div>

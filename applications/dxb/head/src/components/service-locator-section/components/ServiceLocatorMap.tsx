@@ -86,7 +86,11 @@ export const ServiceLocatorMap = ({
             <CardContent>
               <CompanyDetails details={getCompanyDetails(selectedRoofer)}>
                 {selectedRoofer.summary && (
-                  <Typography>{selectedRoofer.summary}</Typography>
+                  <Typography
+                    className={styles["product-details-card-summary"]}
+                  >
+                    {selectedRoofer.summary}
+                  </Typography>
                 )}
               </CompanyDetails>
             </CardContent>

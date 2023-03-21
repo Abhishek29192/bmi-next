@@ -108,6 +108,7 @@ const ProductLeadBlock = ({
               <LeadBlock.Content.Section>
                 <Typography
                   component="div"
+                  className={styles["productDescription"]}
                   dangerouslySetInnerHTML={{ __html: product.description }}
                 />
               </LeadBlock.Content.Section>

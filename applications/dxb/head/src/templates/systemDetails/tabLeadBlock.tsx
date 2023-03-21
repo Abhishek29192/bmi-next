@@ -1,4 +1,4 @@
-import { LeadBlock, Section, Tabs, Typography } from "@bmi-digital/components";
+import { LeadBlock, Section, Tabs } from "@bmi-digital/components";
 import Tab, { TabProps } from "@mui/material/Tab";
 import React from "react";
 import AssetsIframe from "../../components/AssetsIframe";
@@ -111,13 +111,9 @@ const TabLeadBlock = ({
             >
               <LeadBlock>
                 <LeadBlock.Content>
-                  <LeadBlock.Content.Section>
-                    <LeadBlock.Content.Heading>
-                      <Typography hasUnderline={true} variant="h2">
-                        {system.bim.name}
-                      </Typography>
-                    </LeadBlock.Content.Heading>
-                  </LeadBlock.Content.Section>
+                  <LeadBlock.Content.Heading hasUnderline={true} variant="h2">
+                    {system.bim.name}
+                  </LeadBlock.Content.Heading>
                   <LeadBlock.Content.Section>
                     <RichText document={bimDescription} />
                   </LeadBlock.Content.Section>

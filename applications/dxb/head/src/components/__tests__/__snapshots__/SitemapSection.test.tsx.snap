@@ -3,7 +3,7 @@
 exports[`SitemapSection component renders correctly 1`] = `
 <div>
   <div
-    class="Section-root css-cxq310"
+    class="Section-root css-10chrh8"
     data-testid="sitemap-section"
     id="site-map"
   >
@@ -14,7 +14,7 @@ exports[`SitemapSection component renders correctly 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
           data-testid="typography"
         >
           Main
@@ -31,7 +31,7 @@ exports[`SitemapSection component renders correctly 1`] = `
             >
               <div>
                 <h4
-                  class="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom  css-uqas8j-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h4 item css-1x9euu8-MuiTypography-root"
                   data-testid="typography"
                 >
                   Get in touch
@@ -41,7 +41,7 @@ exports[`SitemapSection component renders correctly 1`] = `
                 >
                   <div>
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom  css-1vyiy8g-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 item css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       <a
@@ -64,7 +64,7 @@ exports[`SitemapSection component renders correctly 1`] = `
             >
               <div>
                 <h4
-                  class="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom  css-uqas8j-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h4 item css-1x9euu8-MuiTypography-root"
                   data-testid="typography"
                 >
                   About BMI
@@ -74,7 +74,7 @@ exports[`SitemapSection component renders correctly 1`] = `
                 >
                   <div>
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom  css-1vyiy8g-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 item css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       <a
@@ -102,7 +102,7 @@ exports[`SitemapSection component renders correctly 1`] = `
 exports[`SitemapSection component renders correctly 2 levels deep 1`] = `
 <div>
   <div
-    class="Section-root css-cxq310"
+    class="Section-root css-10chrh8"
     data-testid="sitemap-section"
     id="site-map"
   >
@@ -113,7 +113,7 @@ exports[`SitemapSection component renders correctly 2 levels deep 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
           data-testid="typography"
         >
           Main
@@ -130,7 +130,7 @@ exports[`SitemapSection component renders correctly 2 levels deep 1`] = `
             >
               <div>
                 <h4
-                  class="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom  css-uqas8j-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h4 item css-1x9euu8-MuiTypography-root"
                   data-testid="typography"
                 >
                   Get in touch
@@ -140,7 +140,7 @@ exports[`SitemapSection component renders correctly 2 levels deep 1`] = `
                 >
                   <div>
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom  css-1vyiy8g-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 item css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       <a
@@ -155,7 +155,7 @@ exports[`SitemapSection component renders correctly 2 levels deep 1`] = `
                     </h6>
                     <div>
                       <h5
-                        class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom  css-1svxg7-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h5 item css-1lhxn1g-MuiTypography-root"
                         data-testid="typography"
                       >
                         About BMI 2
@@ -165,7 +165,7 @@ exports[`SitemapSection component renders correctly 2 levels deep 1`] = `
                       >
                         <div>
                           <h6
-                            class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom  css-1vyiy8g-MuiTypography-root"
+                            class="MuiTypography-root MuiTypography-h6 item css-1nuwz6u-MuiTypography-root"
                             data-testid="typography"
                           >
                             <a
@@ -180,7 +180,7 @@ exports[`SitemapSection component renders correctly 2 levels deep 1`] = `
                           </h6>
                           <div>
                             <h6
-                              class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom  css-1vyiy8g-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-h6 item css-1nuwz6u-MuiTypography-root"
                               data-testid="typography"
                             >
                               About BMI 2
@@ -190,7 +190,7 @@ exports[`SitemapSection component renders correctly 2 levels deep 1`] = `
                             >
                               <div>
                                 <h6
-                                  class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom  css-1vyiy8g-MuiTypography-root"
+                                  class="MuiTypography-root MuiTypography-h6 item css-1nuwz6u-MuiTypography-root"
                                   data-testid="typography"
                                 >
                                   <a
@@ -219,7 +219,7 @@ exports[`SitemapSection component renders correctly 2 levels deep 1`] = `
             >
               <div>
                 <h4
-                  class="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom  css-uqas8j-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h4 item css-1x9euu8-MuiTypography-root"
                   data-testid="typography"
                 >
                   About BMI
@@ -229,7 +229,7 @@ exports[`SitemapSection component renders correctly 2 levels deep 1`] = `
                 >
                   <div>
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom  css-1vyiy8g-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 item css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       <a
@@ -257,7 +257,7 @@ exports[`SitemapSection component renders correctly 2 levels deep 1`] = `
 exports[`SitemapSection component renders correctly if incomplete 1`] = `
 <div>
   <div
-    class="Section-root css-cxq310"
+    class="Section-root css-10chrh8"
     data-testid="sitemap-section"
     id="site-map"
   >
@@ -268,7 +268,7 @@ exports[`SitemapSection component renders correctly if incomplete 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
           data-testid="typography"
         />
         <div

@@ -32,7 +32,7 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
               data-testid="media-gallery-caption-text"
             >
               <p
-                class="MuiTypography-root MuiTypography-h6 css-3kzowp-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 css-1s1oev7-MuiTypography-root"
                 data-testid="typography"
               >
                 <span
@@ -159,7 +159,7 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
           data-testid="product-overview-pane"
         >
           <h1
-            class="MuiTypography-root MuiTypography-h3 css-1uw45a9-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h3 css-22inrc-MuiTypography-root"
             data-testid="typography"
           >
             name
@@ -176,7 +176,7 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
           </p>
         </div>
         <p
-          class="MuiTypography-root MuiTypography-body1 keyAssetTypesDownload css-87ejlm-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 keyAssetTypesDownload css-1o02bdp-MuiTypography-root"
           data-testid="typography"
         >
           This site is protected by reCAPTCHA and the Google 
@@ -243,7 +243,7 @@ exports[`ProductOverview component renders correctly without Recaptcha 1`] = `
               data-testid="media-gallery-caption-text"
             >
               <p
-                class="MuiTypography-root MuiTypography-h6 css-3kzowp-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 css-1s1oev7-MuiTypography-root"
                 data-testid="typography"
               >
                 <span
@@ -370,7 +370,7 @@ exports[`ProductOverview component renders correctly without Recaptcha 1`] = `
           data-testid="product-overview-pane"
         >
           <h1
-            class="MuiTypography-root MuiTypography-h3 css-1uw45a9-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h3 css-22inrc-MuiTypography-root"
             data-testid="typography"
           >
             name
@@ -430,7 +430,7 @@ exports[`ProductOverview component renders with default image if there are no im
           data-testid="product-overview-pane"
         >
           <h1
-            class="MuiTypography-root MuiTypography-h3 css-1uw45a9-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h3 css-22inrc-MuiTypography-root"
             data-testid="typography"
           >
             name
@@ -447,7 +447,7 @@ exports[`ProductOverview component renders with default image if there are no im
           </p>
         </div>
         <p
-          class="MuiTypography-root MuiTypography-body1 keyAssetTypesDownload css-87ejlm-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 keyAssetTypesDownload css-1o02bdp-MuiTypography-root"
           data-testid="typography"
         >
           This site is protected by reCAPTCHA and the Google 

@@ -3,7 +3,7 @@
 exports[`MediaGallerySection component renders correctly 1`] = `
 <div>
   <div
-    class="MediaGallerySection Section-root Section-alabaster css-cxq310"
+    class="MediaGallerySection Section-root Section-alabaster css-10chrh8"
     data-testid="media-gallery-section-Lorem-ipsum"
   >
     <div
@@ -17,18 +17,18 @@ exports[`MediaGallerySection component renders correctly 1`] = `
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-lg-8 Grid-item css-wuqcfn-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-lg-8 gridItem css-wuqcfn-MuiGrid2-root"
             data-testid="grid-item"
           >
             <h2
-              class="MuiTypography-root MuiTypography-h2 Typography-underline css-ta8c5q-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
               data-testid="typography"
             >
               Lorem ipsum
             </h2>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 Grid-item css-16fnxy3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 gridItem css-r7p5j6-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
@@ -94,7 +94,7 @@ exports[`MediaGallerySection component renders correctly 1`] = `
                   data-testid="media-gallery-caption-text"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-h6 css-3kzowp-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 css-1s1oev7-MuiTypography-root"
                     data-testid="typography"
                   >
                     <span
@@ -258,7 +258,7 @@ exports[`MediaGallerySection component renders correctly 1`] = `
 exports[`MediaGallerySection component renders correctly with long description 1`] = `
 <div>
   <div
-    class="MediaGallerySection Section-root Section-alabaster css-cxq310"
+    class="MediaGallerySection Section-root Section-alabaster css-10chrh8"
     data-testid="media-gallery-section-Lorem-ipsum"
   >
     <div
@@ -272,11 +272,11 @@ exports[`MediaGallerySection component renders correctly with long description 1
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-lg-8 Grid-item css-wuqcfn-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-lg-8 gridItem css-wuqcfn-MuiGrid2-root"
             data-testid="grid-item"
           >
             <h2
-              class="MuiTypography-root MuiTypography-h2 Typography-underline css-ta8c5q-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
               data-testid="typography"
             >
               Lorem ipsum
@@ -285,16 +285,16 @@ exports[`MediaGallerySection component renders correctly with long description 1
               class="description"
             >
               <div
-                class="RichText-root css-17t4j5c"
+                class="RichText-root RichText-no-bottom-margin css-11n1wnk"
               >
                 <h2
-                  class="MuiTypography-root MuiTypography-h2 RichText-title css-ta8c5q-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h2 RichText-title css-1gn4sxn-MuiTypography-root"
                   data-testid="typography"
                 >
                   Heading 2
                 </h2>
                 <p
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
                   data-testid="typography"
                 >
                   this is a test paragraph
@@ -303,7 +303,7 @@ exports[`MediaGallerySection component renders correctly with long description 1
             </div>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 Grid-item css-16fnxy3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 gridItem css-r7p5j6-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
@@ -369,7 +369,7 @@ exports[`MediaGallerySection component renders correctly with long description 1
                   data-testid="media-gallery-caption-text"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-h6 css-3kzowp-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 css-1s1oev7-MuiTypography-root"
                     data-testid="typography"
                   >
                     <span

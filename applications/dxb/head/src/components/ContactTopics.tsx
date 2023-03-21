@@ -25,7 +25,7 @@ import withGTM from "../utils/google-tag-manager";
 import ContactDetails, { Data as ContactDetailsData } from "./ContactDetails";
 import RichText from "./RichText";
 import borderedItemStyles from "./styles/BorderedItem.module.scss";
-import styles from "./styles/ContactTopics.module.scss";
+import { BodyTitle, FooterTitle } from "./styles/ContactTopicsStyles";
 import { Data as TitleWithContentData } from "./TitleWithContent";
 
 const StyledEmojiOutlinedIcon = styled(EmojiObjectsOutlinedIcon)(
@@ -70,9 +70,9 @@ const Body = ({ bodyTitle, bodyList }: BodyProps) => {
   return (
     <>
       {bodyTitle && (
-        <Typography component="h4" variant="h6">
+        <BodyTitle component="h4" variant="h6">
           {bodyTitle}
-        </Typography>
+        </BodyTitle>
       )}
       {bodyList && (
         <IconList>
@@ -83,7 +83,7 @@ const Body = ({ bodyTitle, bodyList }: BodyProps) => {
               title={title}
               component="h5"
             >
-              <RichText document={content} />
+              <RichText document={content} hasNoBottomMargin />
             </IconList.Item>
           ))}
         </IconList>
@@ -105,7 +105,7 @@ const Footer = ({
   return (
     <div>
       {footerTitle && (
-        <Typography variant="h6" style={{ marginBottom: "42px" }}>
+        <Typography variant="h6" style={{ marginBottom: "24px" }}>
           {footerTitle}
         </Typography>
       )}
@@ -128,9 +128,7 @@ const Footer = ({
               return (
                 <Grid key={key} {...gridItemProps}>
                   <BorderedItem />
-                  <Typography variant="h5" className={styles["heading"]}>
-                    {title}
-                  </Typography>
+                  <FooterTitle variant="h5">{title}</FooterTitle>
                   <RichText document={content} gtmLabel={gtmLabel} />
                 </Grid>
               );
@@ -179,7 +177,6 @@ const ContactTopics = ({ topics }: { topics: Data[] }) => {
   return (
     <ExpandableCard.List
       items={items}
-      className={styles["ContactTopics"]}
       cardComponent={(props) => <GTMCard {...props} />}
       data-testid={"contact-topics"}
     />
