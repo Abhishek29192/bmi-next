@@ -23,6 +23,9 @@
         margin-top: -24px;
         margin-right: -24px;
       }
+      [class*="MuiCardHeader-avatar"] {
+        margin-right: 0;
+      }
     }
 
     &--with_logo {
