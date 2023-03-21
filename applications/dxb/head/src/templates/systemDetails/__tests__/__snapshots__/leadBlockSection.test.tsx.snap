@@ -3,7 +3,7 @@
 exports[`LeadBlockSection tests When user navigates with selected systems query string should render back to your selection button 1`] = `
 <div>
   <div
-    class="LeadBlockSection Section-root Section-white css-cxq310"
+    class="LeadBlockSection Section-root Section-white css-10chrh8"
     data-testid="system-details-lead-block-section"
   >
     <div
@@ -21,7 +21,7 @@ exports[`LeadBlockSection tests When user navigates with selected systems query 
             data-testid="grid-item"
           >
             <p
-              class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
               data-testid="typography"
             >
               <svg
@@ -38,18 +38,18 @@ exports[`LeadBlockSection tests When user navigates with selected systems query 
               </svg>
             </p>
             <p
-              class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
               data-testid="typography"
             >
               <h1
-                class="MuiTypography-root MuiTypography-h1 Typography-underline css-1stz9tq-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h1 Typography-underline css-1v05vzk-MuiTypography-root"
                 data-testid="system-lead-block-title"
               >
                 lead Block section
               </h1>
             </p>
             <p
-              class="MuiTypography-root MuiTypography-body1 ctaContainer css-131kag5-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 ctaContainer css-1218bho-MuiTypography-root"
               data-testid="typography"
             >
               <a
@@ -119,7 +119,7 @@ exports[`LeadBlockSection tests When user navigates with selected systems query 
 exports[`LeadBlockSection tests should not render systemAttributes Card with empty uniqueSellingPropositions 1`] = `
 <div>
   <div
-    class="LeadBlockSection Section-root Section-white css-cxq310"
+    class="LeadBlockSection Section-root Section-white css-10chrh8"
     data-testid="system-details-lead-block-section"
   >
     <div
@@ -137,7 +137,7 @@ exports[`LeadBlockSection tests should not render systemAttributes Card with emp
             data-testid="grid-item"
           >
             <p
-              class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
               data-testid="typography"
             >
               <svg
@@ -154,18 +154,18 @@ exports[`LeadBlockSection tests should not render systemAttributes Card with emp
               </svg>
             </p>
             <p
-              class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
               data-testid="typography"
             >
               <h1
-                class="MuiTypography-root MuiTypography-h1 Typography-underline css-1stz9tq-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h1 Typography-underline css-1v05vzk-MuiTypography-root"
                 data-testid="system-lead-block-title"
               >
                 lead Block section
               </h1>
             </p>
             <p
-              class="MuiTypography-root MuiTypography-body1 ctaContainer css-131kag5-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 ctaContainer css-1218bho-MuiTypography-root"
               data-testid="typography"
             >
               <button
@@ -207,7 +207,7 @@ exports[`LeadBlockSection tests should not render systemAttributes Card with emp
 exports[`LeadBlockSection tests should render 1`] = `
 <div>
   <div
-    class="LeadBlockSection Section-root Section-white css-cxq310"
+    class="LeadBlockSection Section-root Section-white css-10chrh8"
     data-testid="system-details-lead-block-section"
   >
     <div
@@ -225,7 +225,7 @@ exports[`LeadBlockSection tests should render 1`] = `
             data-testid="grid-item"
           >
             <p
-              class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
               data-testid="typography"
             >
               <svg
@@ -242,18 +242,18 @@ exports[`LeadBlockSection tests should render 1`] = `
               </svg>
             </p>
             <p
-              class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
               data-testid="typography"
             >
               <h1
-                class="MuiTypography-root MuiTypography-h1 Typography-underline css-1stz9tq-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h1 Typography-underline css-1v05vzk-MuiTypography-root"
                 data-testid="system-lead-block-title"
               >
                 lead Block section
               </h1>
             </p>
             <p
-              class="MuiTypography-root MuiTypography-body1 ctaContainer css-131kag5-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 ctaContainer css-1218bho-MuiTypography-root"
               data-testid="typography"
             >
               <button
@@ -295,7 +295,7 @@ exports[`LeadBlockSection tests should render 1`] = `
 exports[`LeadBlockSection tests should render with uniqueSellingPropositions 1`] = `
 <div>
   <div
-    class="LeadBlockSection Section-root Section-white css-cxq310"
+    class="LeadBlockSection Section-root Section-white css-10chrh8"
     data-testid="system-details-lead-block-section"
   >
     <div
@@ -313,7 +313,7 @@ exports[`LeadBlockSection tests should render with uniqueSellingPropositions 1`]
             data-testid="grid-item"
           >
             <p
-              class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
               data-testid="typography"
             >
               <svg
@@ -330,18 +330,18 @@ exports[`LeadBlockSection tests should render with uniqueSellingPropositions 1`]
               </svg>
             </p>
             <p
-              class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
               data-testid="typography"
             >
               <h1
-                class="MuiTypography-root MuiTypography-h1 Typography-underline css-1stz9tq-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h1 Typography-underline css-1v05vzk-MuiTypography-root"
                 data-testid="system-lead-block-title"
               >
                 lead Block section
               </h1>
             </p>
             <p
-              class="MuiTypography-root MuiTypography-body1 ctaContainer css-131kag5-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 ctaContainer css-1218bho-MuiTypography-root"
               data-testid="typography"
             >
               <button
@@ -381,16 +381,16 @@ exports[`LeadBlockSection tests should render with uniqueSellingPropositions 1`]
               class="ColorPair-pearl css-1pt14k0"
             >
               <div
-                class="css-qtgtj9"
+                class="css-1qwqwtx"
               >
                 <div
-                  class="css-wepxue"
+                  class="css-asoc7f"
                 >
                   <div
                     class="iconList"
                   >
                     <ul
-                      class="css-1err4t"
+                      class="css-1wmdec9"
                     >
                       <li
                         class="IconList-isCompact css-nggtm6"
@@ -414,7 +414,7 @@ exports[`LeadBlockSection tests should render with uniqueSellingPropositions 1`]
                           class="css-1lg3fd1"
                         >
                           <p
-                            class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                            class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                             data-testid="typography"
                           >
                             feature 1
@@ -443,7 +443,7 @@ exports[`LeadBlockSection tests should render with uniqueSellingPropositions 1`]
                           class="css-1lg3fd1"
                         >
                           <p
-                            class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                            class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                             data-testid="typography"
                           >
                             feature 2

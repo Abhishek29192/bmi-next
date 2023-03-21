@@ -4,7 +4,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1vmtas-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-8mimat-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -102,16 +102,16 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   data-testid="grid-item"
                 >
                   <h6
-                    class="MuiTypography-root MuiTypography-h6 css-8200kz-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 css-1j4kt3i-MuiTypography-root"
                     data-testid="typography"
                   >
                     Europe
                   </h6>
                   <div
-                    class="css-1vqzkso"
+                    class="css-1qjezyi"
                   >
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                       href="/al"
                       tabindex="0"
@@ -130,7 +130,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       Albania
                     </a>
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                       href="/at"
                       tabindex="0"
@@ -149,7 +149,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       Österreich
                     </a>
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                       href="/uk"
                       tabindex="0"
@@ -299,7 +299,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
           </svg>
         </button>
         <nav
-          class="css-1q3sjsb"
+          class="css-12skhd1"
         >
           <div
             class="Navigation-navigationList Navigation-offset0"
@@ -308,7 +308,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             <ul>
               <li>
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1nuwz6u-MuiTypography-root"
                   data-testid="navigation-list-footer"
                 >
                   MC: menu.mainTitle
@@ -413,7 +413,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             </svg>
           </button>
           <h4
-            class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
             data-testid="typography"
           >
             MC: search.title
@@ -436,7 +436,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             class=" css-ze8cyt"
           >
             <div
-              class="MuiContainer-root MuiContainer-maxWidthXl css-1cov02q-MuiContainer-root"
+              class="MuiContainer-root MuiContainer-maxWidthXl css-1y8l2cf-MuiContainer-root"
             >
               <div
                 class="css-178yklu"
@@ -456,7 +456,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 </nav>
               </div>
               <h1
-                class="MuiTypography-root MuiTypography-h1 Typography-underline Typography-darkBg css-1bfjzeu-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h1 Typography-underline Typography-darkBg css-7xb81g-MuiTypography-root"
                 data-testid="typography"
               >
                 i am a title
@@ -471,7 +471,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="css-j3u0w2"
+              class="css-vjocrr"
             >
               <div
                 class="css-1oko92u"
@@ -480,7 +480,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
           </div>
         </div>
         <div
-          class="SpotlightHero-blue css-8qe4mn"
+          class="SpotlightHero-blue css-ah43vw"
         >
           <div
             class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-k7hylw-Media"
@@ -533,7 +533,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         </div>
       </div>
       <div
-        class="Section-root Section-white css-cxq310"
+        class="Section-root Section-white css-10chrh8"
         data-testid="product-lister-page-lead-block-section"
       >
         <div
@@ -558,22 +558,22 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   class="ColorPair-pearl css-1pt14k0"
                 >
                   <div
-                    class="css-qtgtj9"
+                    class="css-1qwqwtx"
                   >
                     <div
-                      class="css-wepxue"
+                      class="css-asoc7f"
                     >
                       <h4
-                        class="MuiTypography-root MuiTypography-h4 Typography-underline css-1ekntu4-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
                         data-testid="typography"
                       >
                         MC: plp.keyFeatures.title
                       </h4>
                       <div
-                        class="css-1xaekgw"
+                        class="css-eler5f"
                       >
                         <ul
-                          class="css-1err4t"
+                          class="css-1wmdec9"
                         >
                           <li
                             class="IconList-isCompact css-nggtm6"
@@ -597,7 +597,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                               class="css-1lg3fd1"
                             >
                               <p
-                                class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 test
@@ -615,7 +615,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         </div>
       </div>
       <div
-        class="Section-root Section-pearl Section-overflowVisible css-cxq310"
+        class="Section-root Section-pearl Section-overflowVisible css-10chrh8"
         data-testid="product-lister-page-section-i-am-a-title"
       >
         <div
@@ -648,7 +648,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         </div>
       </div>
       <div
-        class="Section-root Section-alabaster Section-slim css-cxq310"
+        class="Section-root Section-alabaster Section-slim css-10chrh8"
         data-testid="product-lister-page-breadcrumb-bottom"
       >
         <div
@@ -696,7 +696,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 data-testid="grid-item"
               >
                 <h4
-                  class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                   data-testid="typography"
                 >
                   string
@@ -809,7 +809,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1vmtas-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-8mimat-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -907,16 +907,16 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   data-testid="grid-item"
                 >
                   <h6
-                    class="MuiTypography-root MuiTypography-h6 css-8200kz-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 css-1j4kt3i-MuiTypography-root"
                     data-testid="typography"
                   >
                     Europe
                   </h6>
                   <div
-                    class="css-1vqzkso"
+                    class="css-1qjezyi"
                   >
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                       href="/al"
                       tabindex="0"
@@ -935,7 +935,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       Albania
                     </a>
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                       href="/at"
                       tabindex="0"
@@ -954,7 +954,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       Österreich
                     </a>
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                       href="/uk"
                       tabindex="0"
@@ -1104,7 +1104,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
           </svg>
         </button>
         <nav
-          class="css-1q3sjsb"
+          class="css-12skhd1"
         >
           <div
             class="Navigation-navigationList Navigation-offset0"
@@ -1113,7 +1113,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             <ul>
               <li>
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1nuwz6u-MuiTypography-root"
                   data-testid="navigation-list-footer"
                 >
                   MC: menu.mainTitle
@@ -1218,7 +1218,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             </svg>
           </button>
           <h4
-            class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
             data-testid="typography"
           >
             MC: search.title
@@ -1241,7 +1241,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             class=" css-ze8cyt"
           >
             <div
-              class="MuiContainer-root MuiContainer-maxWidthXl css-1cov02q-MuiContainer-root"
+              class="MuiContainer-root MuiContainer-maxWidthXl css-1y8l2cf-MuiContainer-root"
             >
               <div
                 class="css-178yklu"
@@ -1261,7 +1261,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 </nav>
               </div>
               <h1
-                class="MuiTypography-root MuiTypography-h1 Typography-underline Typography-darkBg css-1bfjzeu-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h1 Typography-underline Typography-darkBg css-7xb81g-MuiTypography-root"
                 data-testid="typography"
               >
                 i am a title
@@ -1276,7 +1276,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="css-j3u0w2"
+              class="css-vjocrr"
             >
               <div
                 class="css-1oko92u"
@@ -1285,7 +1285,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
           </div>
         </div>
         <div
-          class="SpotlightHero-blue css-8qe4mn"
+          class="SpotlightHero-blue css-ah43vw"
         >
           <div
             class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-k7hylw-Media"
@@ -1338,7 +1338,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         </div>
       </div>
       <div
-        class="Section-root Section-white css-cxq310"
+        class="Section-root Section-white css-10chrh8"
         data-testid="product-lister-page-lead-block-section"
       >
         <div
@@ -1363,22 +1363,22 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   class="ColorPair-pearl css-1pt14k0"
                 >
                   <div
-                    class="css-qtgtj9"
+                    class="css-1qwqwtx"
                   >
                     <div
-                      class="css-wepxue"
+                      class="css-asoc7f"
                     >
                       <h4
-                        class="MuiTypography-root MuiTypography-h4 Typography-underline css-1ekntu4-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
                         data-testid="typography"
                       >
                         MC: plp.keyFeatures.title
                       </h4>
                       <div
-                        class="css-1xaekgw"
+                        class="css-eler5f"
                       >
                         <ul
-                          class="css-1err4t"
+                          class="css-1wmdec9"
                         >
                           <li
                             class="IconList-isCompact css-nggtm6"
@@ -1402,7 +1402,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                               class="css-1lg3fd1"
                             >
                               <p
-                                class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 test
@@ -1420,7 +1420,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         </div>
       </div>
       <div
-        class="Section-root Section-pearl Section-overflowVisible css-cxq310"
+        class="Section-root Section-pearl Section-overflowVisible css-10chrh8"
         data-testid="product-lister-page-section-i-am-a-title"
       >
         <div
@@ -1430,7 +1430,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h2
-              class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
               data-testid="typography"
             >
               category-code-2
@@ -1459,7 +1459,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         </div>
       </div>
       <div
-        class="Section-root Section-alabaster Section-slim css-cxq310"
+        class="Section-root Section-alabaster Section-slim css-10chrh8"
         data-testid="product-lister-page-breadcrumb-bottom"
       >
         <div
@@ -1507,7 +1507,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 data-testid="grid-item"
               >
                 <h4
-                  class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                   data-testid="typography"
                 >
                   string
@@ -1620,7 +1620,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1vmtas-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-8mimat-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -1727,16 +1727,16 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   data-testid="grid-item"
                 >
                   <h6
-                    class="MuiTypography-root MuiTypography-h6 css-8200kz-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 css-1j4kt3i-MuiTypography-root"
                     data-testid="typography"
                   >
                     Europe
                   </h6>
                   <div
-                    class="css-1vqzkso"
+                    class="css-1qjezyi"
                   >
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                       href="/al"
                       tabindex="0"
@@ -1758,7 +1758,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       />
                     </a>
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                       href="/at"
                       tabindex="0"
@@ -1780,7 +1780,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       />
                     </a>
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                       href="/uk"
                       tabindex="0"
@@ -1949,7 +1949,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
           />
         </button>
         <nav
-          class="css-1q3sjsb"
+          class="css-12skhd1"
         >
           <div
             class="Navigation-navigationList Navigation-offset0"
@@ -1958,7 +1958,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             <ul>
               <li>
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1nuwz6u-MuiTypography-root"
                   data-testid="navigation-list-footer"
                 >
                   MC: menu.mainTitle
@@ -2075,7 +2075,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             />
           </button>
           <h4
-            class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
             data-testid="typography"
           >
             MC: search.title
@@ -2112,42 +2112,46 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         </span>
       </div>
       <div
-        class="Hero-lvl1 css-104w4lq"
+        class="Hero-lvl1 css-17es170"
         data-testid="hero"
       >
         <div
           class=" css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl css-3hqf54-MuiContainer-root"
+            class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1h9wose-MuiContainer-root"
           >
             <div
               class="Hero-wrapper"
             >
-              <nav
-                aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
-                data-testid="product-lister-page-breadcrumbs-top"
+              <div
+                class="Hero-breadcrumbs"
               >
-                <ol
-                  class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+                <nav
+                  aria-label="breadcrumbs"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                  data-testid="product-lister-page-breadcrumbs-top"
                 >
-                  <li
-                    class="MuiBreadcrumbs-li"
-                  />
-                </ol>
-              </nav>
+                  <ol
+                    class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+                  >
+                    <li
+                      class="MuiBreadcrumbs-li"
+                    />
+                  </ol>
+                </nav>
+              </div>
               <div
                 class="Hero-content"
               >
                 <h1
-                  class="MuiTypography-root MuiTypography-h1 Hero-title Typography-underline Typography-darkBg css-1stz9tq-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h1 Hero-title Typography-underline Typography-darkBg css-1v05vzk-MuiTypography-root"
                   data-testid="hero-title"
                 >
                   i am a title
                 </h1>
                 <div
-                  class="css-81i549"
+                  class="css-1my6sol"
                   data-testid="hero-text"
                 />
               </div>
@@ -2204,7 +2208,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         </div>
       </div>
       <div
-        class="Section-root Section-white css-cxq310"
+        class="Section-root Section-white css-10chrh8"
         data-testid="product-lister-page-lead-block-section"
       >
         <div
@@ -2229,22 +2233,22 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   class="ColorPair-pearl css-1pt14k0"
                 >
                   <div
-                    class="css-qtgtj9"
+                    class="css-1qwqwtx"
                   >
                     <div
-                      class="css-wepxue"
+                      class="css-asoc7f"
                     >
                       <h4
-                        class="MuiTypography-root MuiTypography-h4 Typography-underline css-1ekntu4-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
                         data-testid="typography"
                       >
                         MC: plp.keyFeatures.title
                       </h4>
                       <div
-                        class="css-1xaekgw"
+                        class="css-eler5f"
                       >
                         <ul
-                          class="css-1err4t"
+                          class="css-1wmdec9"
                         >
                           <li
                             class="IconList-isCompact css-nggtm6"
@@ -2268,7 +2272,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                               class="css-1lg3fd1"
                             >
                               <p
-                                class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 test
@@ -2286,7 +2290,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         </div>
       </div>
       <div
-        class="Section-root Section-pearl Section-overflowVisible css-cxq310"
+        class="Section-root Section-pearl Section-overflowVisible css-10chrh8"
         data-testid="product-lister-page-section-i-am-a-title"
       >
         <div
@@ -2311,7 +2315,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;"
                   >
                     <h5
-                      class="MuiTypography-root MuiTypography-h5  css-10q7alf-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
                       data-testid="filter-sidebar-header-text"
                     >
                       MC: plp.filters.title
@@ -2338,7 +2342,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         <div
                           aria-expanded="false"
                           aria-label="Colour"
-                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
+                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-lxjiqx-MuiButtonBase-root-MuiAccordionSummary-root"
                           data-gtm="{"id":"filter1","label":"Colour","action":"Selector – Filter"}"
                           role="button"
                           tabindex="0"
@@ -2347,7 +2351,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                             class="MuiAccordionSummary-content Accordion-summaryContent MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
                           >
                             <h6
-                              class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                               data-testid="typography"
                             >
                               Colour
@@ -2508,7 +2512,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         </div>
       </div>
       <div
-        class="Section-root Section-alabaster Section-slim css-cxq310"
+        class="Section-root Section-alabaster Section-slim css-10chrh8"
         data-testid="product-lister-page-breadcrumb-bottom"
       >
         <div
@@ -2556,7 +2560,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 data-testid="grid-item"
               >
                 <h4
-                  class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                   data-testid="typography"
                 >
                   string
@@ -2672,7 +2676,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1vmtas-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-8mimat-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -2779,16 +2783,16 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   data-testid="grid-item"
                 >
                   <h6
-                    class="MuiTypography-root MuiTypography-h6 css-8200kz-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 css-1j4kt3i-MuiTypography-root"
                     data-testid="typography"
                   >
                     Europe
                   </h6>
                   <div
-                    class="css-1vqzkso"
+                    class="css-1qjezyi"
                   >
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                       href="/al"
                       tabindex="0"
@@ -2810,7 +2814,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       />
                     </a>
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                       href="/at"
                       tabindex="0"
@@ -2832,7 +2836,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       />
                     </a>
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                       href="/uk"
                       tabindex="0"
@@ -3001,7 +3005,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
           />
         </button>
         <nav
-          class="css-1q3sjsb"
+          class="css-12skhd1"
         >
           <div
             class="Navigation-navigationList Navigation-offset0"
@@ -3010,7 +3014,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             <ul>
               <li>
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1nuwz6u-MuiTypography-root"
                   data-testid="navigation-list-footer"
                 >
                   MC: menu.mainTitle
@@ -3127,7 +3131,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             />
           </button>
           <h4
-            class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
             data-testid="typography"
           >
             MC: search.title
@@ -3164,42 +3168,46 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         </span>
       </div>
       <div
-        class="Hero-lvl1 css-104w4lq"
+        class="Hero-lvl1 css-17es170"
         data-testid="hero"
       >
         <div
           class=" css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl css-3hqf54-MuiContainer-root"
+            class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1h9wose-MuiContainer-root"
           >
             <div
               class="Hero-wrapper"
             >
-              <nav
-                aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
-                data-testid="product-lister-page-breadcrumbs-top"
+              <div
+                class="Hero-breadcrumbs"
               >
-                <ol
-                  class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+                <nav
+                  aria-label="breadcrumbs"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                  data-testid="product-lister-page-breadcrumbs-top"
                 >
-                  <li
-                    class="MuiBreadcrumbs-li"
-                  />
-                </ol>
-              </nav>
+                  <ol
+                    class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+                  >
+                    <li
+                      class="MuiBreadcrumbs-li"
+                    />
+                  </ol>
+                </nav>
+              </div>
               <div
                 class="Hero-content"
               >
                 <h1
-                  class="MuiTypography-root MuiTypography-h1 Hero-title Typography-underline Typography-darkBg css-1stz9tq-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h1 Hero-title Typography-underline Typography-darkBg css-1v05vzk-MuiTypography-root"
                   data-testid="hero-title"
                 >
                   i am a title
                 </h1>
                 <div
-                  class="css-81i549"
+                  class="css-1my6sol"
                   data-testid="hero-text"
                 />
               </div>
@@ -3256,7 +3264,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         </div>
       </div>
       <div
-        class="Section-root Section-white css-cxq310"
+        class="Section-root Section-white css-10chrh8"
         data-testid="product-lister-page-lead-block-section"
       >
         <div
@@ -3281,22 +3289,22 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   class="ColorPair-pearl css-1pt14k0"
                 >
                   <div
-                    class="css-qtgtj9"
+                    class="css-1qwqwtx"
                   >
                     <div
-                      class="css-wepxue"
+                      class="css-asoc7f"
                     >
                       <h4
-                        class="MuiTypography-root MuiTypography-h4 Typography-underline css-1ekntu4-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
                         data-testid="typography"
                       >
                         MC: plp.keyFeatures.title
                       </h4>
                       <div
-                        class="css-1xaekgw"
+                        class="css-eler5f"
                       >
                         <ul
-                          class="css-1err4t"
+                          class="css-1wmdec9"
                         >
                           <li
                             class="IconList-isCompact css-nggtm6"
@@ -3320,7 +3328,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                               class="css-1lg3fd1"
                             >
                               <p
-                                class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 test
@@ -3338,7 +3346,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         </div>
       </div>
       <div
-        class="Section-root Section-pearl Section-overflowVisible css-cxq310"
+        class="Section-root Section-pearl Section-overflowVisible css-10chrh8"
         data-testid="product-lister-page-section-i-am-a-title"
       >
         <div
@@ -3363,7 +3371,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;"
                   >
                     <h5
-                      class="MuiTypography-root MuiTypography-h5  css-10q7alf-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
                       data-testid="filter-sidebar-header-text"
                     >
                       MC: plp.filters.title
@@ -3390,7 +3398,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         <div
                           aria-expanded="false"
                           aria-label="Size"
-                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
+                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-lxjiqx-MuiButtonBase-root-MuiAccordionSummary-root"
                           data-gtm="{"id":"filter1","label":"Size","action":"Selector – Filter"}"
                           role="button"
                           tabindex="0"
@@ -3399,7 +3407,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                             class="MuiAccordionSummary-content Accordion-summaryContent MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
                           >
                             <h6
-                              class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                               data-testid="typography"
                             >
                               Size
@@ -3554,7 +3562,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         </div>
       </div>
       <div
-        class="Section-root Section-alabaster Section-slim css-cxq310"
+        class="Section-root Section-alabaster Section-slim css-10chrh8"
         data-testid="product-lister-page-breadcrumb-bottom"
       >
         <div
@@ -3602,7 +3610,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 data-testid="grid-item"
               >
                 <h4
-                  class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                   data-testid="typography"
                 >
                   string
@@ -3718,7 +3726,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1vmtas-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-8mimat-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -3816,16 +3824,16 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   data-testid="grid-item"
                 >
                   <h6
-                    class="MuiTypography-root MuiTypography-h6 css-8200kz-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 css-1j4kt3i-MuiTypography-root"
                     data-testid="typography"
                   >
                     Europe
                   </h6>
                   <div
-                    class="css-1vqzkso"
+                    class="css-1qjezyi"
                   >
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                       href="/al"
                       tabindex="0"
@@ -3844,7 +3852,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       Albania
                     </a>
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                       href="/at"
                       tabindex="0"
@@ -3863,7 +3871,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       Österreich
                     </a>
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                       href="/uk"
                       tabindex="0"
@@ -4013,7 +4021,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
           </svg>
         </button>
         <nav
-          class="css-1q3sjsb"
+          class="css-12skhd1"
         >
           <div
             class="Navigation-navigationList Navigation-offset0"
@@ -4022,7 +4030,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             <ul>
               <li>
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1nuwz6u-MuiTypography-root"
                   data-testid="navigation-list-footer"
                 >
                   MC: menu.mainTitle
@@ -4127,7 +4135,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             </svg>
           </button>
           <h4
-            class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
             data-testid="typography"
           >
             MC: search.title
@@ -4140,42 +4148,46 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       data-testid="brand-colors-provider"
     >
       <div
-        class="Hero-lvl1 css-104w4lq"
+        class="Hero-lvl1 css-17es170"
         data-testid="hero"
       >
         <div
           class=" css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl css-3hqf54-MuiContainer-root"
+            class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1h9wose-MuiContainer-root"
           >
             <div
               class="Hero-wrapper"
             >
-              <nav
-                aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
-                data-testid="product-lister-page-breadcrumbs-top"
+              <div
+                class="Hero-breadcrumbs"
               >
-                <ol
-                  class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+                <nav
+                  aria-label="breadcrumbs"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                  data-testid="product-lister-page-breadcrumbs-top"
                 >
-                  <li
-                    class="MuiBreadcrumbs-li"
-                  />
-                </ol>
-              </nav>
+                  <ol
+                    class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+                  >
+                    <li
+                      class="MuiBreadcrumbs-li"
+                    />
+                  </ol>
+                </nav>
+              </div>
               <div
                 class="Hero-content"
               >
                 <h1
-                  class="MuiTypography-root MuiTypography-h1 Hero-title Typography-underline Typography-darkBg css-1stz9tq-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h1 Hero-title Typography-underline Typography-darkBg css-1v05vzk-MuiTypography-root"
                   data-testid="hero-title"
                 >
                   i am a title
                 </h1>
                 <div
-                  class="css-81i549"
+                  class="css-1my6sol"
                   data-testid="hero-text"
                 />
               </div>
@@ -4232,7 +4244,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         </div>
       </div>
       <div
-        class="Section-root Section-white css-cxq310"
+        class="Section-root Section-white css-10chrh8"
         data-testid="product-lister-page-lead-block-section"
       >
         <div
@@ -4257,22 +4269,22 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   class="ColorPair-pearl css-1pt14k0"
                 >
                   <div
-                    class="css-qtgtj9"
+                    class="css-1qwqwtx"
                   >
                     <div
-                      class="css-wepxue"
+                      class="css-asoc7f"
                     >
                       <h4
-                        class="MuiTypography-root MuiTypography-h4 Typography-underline css-1ekntu4-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
                         data-testid="typography"
                       >
                         MC: plp.keyFeatures.title
                       </h4>
                       <div
-                        class="css-1xaekgw"
+                        class="css-eler5f"
                       >
                         <ul
-                          class="css-1err4t"
+                          class="css-1wmdec9"
                         >
                           <li
                             class="IconList-isCompact css-nggtm6"
@@ -4296,7 +4308,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                               class="css-1lg3fd1"
                             >
                               <p
-                                class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 test
@@ -4314,7 +4326,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         </div>
       </div>
       <div
-        class="Section-root Section-pearl Section-overflowVisible css-cxq310"
+        class="Section-root Section-pearl Section-overflowVisible css-10chrh8"
         data-testid="product-lister-page-section-i-am-a-title"
       >
         <div
@@ -4339,7 +4351,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;"
                   >
                     <h5
-                      class="MuiTypography-root MuiTypography-h5  css-10q7alf-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
                       data-testid="filter-sidebar-header-text"
                     >
                       MC: plp.filters.title
@@ -4366,7 +4378,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         <div
                           aria-expanded="false"
                           aria-label="Colour"
-                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
+                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-lxjiqx-MuiButtonBase-root-MuiAccordionSummary-root"
                           data-gtm="{"id":"filter1","label":"Colour","action":"Selector – Filter"}"
                           role="button"
                           tabindex="0"
@@ -4375,7 +4387,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                             class="MuiAccordionSummary-content Accordion-summaryContent MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
                           >
                             <h6
-                              class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                               data-testid="typography"
                             >
                               Colour
@@ -4530,7 +4542,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         </div>
       </div>
       <div
-        class="Section-root Section-alabaster Section-slim css-cxq310"
+        class="Section-root Section-alabaster Section-slim css-10chrh8"
         data-testid="product-lister-page-breadcrumb-bottom"
       >
         <div
@@ -4578,7 +4590,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 data-testid="grid-item"
               >
                 <h4
-                  class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                   data-testid="typography"
                 >
                   string
@@ -4691,7 +4703,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1vmtas-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-8mimat-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -4789,16 +4801,16 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                   data-testid="grid-item"
                 >
                   <h6
-                    class="MuiTypography-root MuiTypography-h6 css-8200kz-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 css-1j4kt3i-MuiTypography-root"
                     data-testid="typography"
                   >
                     Europe
                   </h6>
                   <div
-                    class="css-1vqzkso"
+                    class="css-1qjezyi"
                   >
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                       href="/al"
                       tabindex="0"
@@ -4817,7 +4829,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                       Albania
                     </a>
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                       href="/at"
                       tabindex="0"
@@ -4836,7 +4848,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                       Österreich
                     </a>
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                       href="/uk"
                       tabindex="0"
@@ -4986,7 +4998,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
           </svg>
         </button>
         <nav
-          class="css-1q3sjsb"
+          class="css-12skhd1"
         >
           <div
             class="Navigation-navigationList Navigation-offset0"
@@ -4995,7 +5007,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
             <ul>
               <li>
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1nuwz6u-MuiTypography-root"
                   data-testid="navigation-list-footer"
                 >
                   MC: menu.mainTitle
@@ -5100,7 +5112,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
             </svg>
           </button>
           <h4
-            class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
             data-testid="typography"
           >
             MC: search.title
@@ -5123,7 +5135,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
             class=" css-ze8cyt"
           >
             <div
-              class="MuiContainer-root MuiContainer-maxWidthXl css-1cov02q-MuiContainer-root"
+              class="MuiContainer-root MuiContainer-maxWidthXl css-1y8l2cf-MuiContainer-root"
             >
               <div
                 class="css-178yklu"
@@ -5143,7 +5155,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                 </nav>
               </div>
               <h1
-                class="MuiTypography-root MuiTypography-h1 Typography-underline Typography-darkBg css-1bfjzeu-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h1 Typography-underline Typography-darkBg css-7xb81g-MuiTypography-root"
                 data-testid="typography"
               >
                 i am a title
@@ -5158,7 +5170,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="css-j3u0w2"
+              class="css-vjocrr"
             >
               <div
                 class="css-1oko92u"
@@ -5167,7 +5179,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
           </div>
         </div>
         <div
-          class="SpotlightHero-blue css-8qe4mn"
+          class="SpotlightHero-blue css-ah43vw"
         >
           <div
             class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-k7hylw-Media"
@@ -5220,7 +5232,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
         </div>
       </div>
       <div
-        class="Section-root Section-white css-cxq310"
+        class="Section-root Section-white css-10chrh8"
         data-testid="product-lister-page-lead-block-section"
       >
         <div
@@ -5245,22 +5257,22 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                   class="ColorPair-pearl css-1pt14k0"
                 >
                   <div
-                    class="css-qtgtj9"
+                    class="css-1qwqwtx"
                   >
                     <div
-                      class="css-wepxue"
+                      class="css-asoc7f"
                     >
                       <h4
-                        class="MuiTypography-root MuiTypography-h4 Typography-underline css-1ekntu4-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
                         data-testid="typography"
                       >
                         MC: plp.keyFeatures.title
                       </h4>
                       <div
-                        class="css-1xaekgw"
+                        class="css-eler5f"
                       >
                         <ul
-                          class="css-1err4t"
+                          class="css-1wmdec9"
                         >
                           <li
                             class="IconList-isCompact css-nggtm6"
@@ -5284,7 +5296,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                               class="css-1lg3fd1"
                             >
                               <p
-                                class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 test
@@ -5302,7 +5314,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
         </div>
       </div>
       <div
-        class="Section-root Section-pearl Section-overflowVisible css-cxq310"
+        class="Section-root Section-pearl Section-overflowVisible css-10chrh8"
         data-testid="product-lister-page-section-i-am-a-title"
       >
         <div
@@ -5325,7 +5337,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                   data-testid="grid-container"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                     data-testid="typography"
                   >
                     MC: plp.product.noResultsFound
@@ -5337,7 +5349,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
         </div>
       </div>
       <div
-        class="Section-root Section-alabaster Section-slim css-cxq310"
+        class="Section-root Section-alabaster Section-slim css-10chrh8"
         data-testid="product-lister-page-breadcrumb-bottom"
       >
         <div
@@ -5385,7 +5397,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                 data-testid="grid-item"
               >
                 <h4
-                  class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                   data-testid="typography"
                 >
                   string
@@ -5498,7 +5510,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1vmtas-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-8mimat-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -5596,16 +5608,16 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                   data-testid="grid-item"
                 >
                   <h6
-                    class="MuiTypography-root MuiTypography-h6 css-8200kz-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 css-1j4kt3i-MuiTypography-root"
                     data-testid="typography"
                   >
                     Europe
                   </h6>
                   <div
-                    class="css-1vqzkso"
+                    class="css-1qjezyi"
                   >
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                       href="/al"
                       tabindex="0"
@@ -5624,7 +5636,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                       Albania
                     </a>
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                       href="/at"
                       tabindex="0"
@@ -5643,7 +5655,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                       Österreich
                     </a>
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                       href="/uk"
                       tabindex="0"
@@ -5816,7 +5828,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
           </svg>
         </button>
         <nav
-          class="css-1q3sjsb"
+          class="css-12skhd1"
         >
           <div
             class="Navigation-navigationList Navigation-offset0"
@@ -5825,7 +5837,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
             <ul>
               <li>
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1nuwz6u-MuiTypography-root"
                   data-testid="navigation-list-footer"
                 >
                   MC: menu.mainTitle
@@ -5930,7 +5942,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
             </svg>
           </button>
           <h4
-            class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
             data-testid="typography"
           >
             MC: search.title
@@ -5953,7 +5965,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
             class=" css-ze8cyt"
           >
             <div
-              class="MuiContainer-root MuiContainer-maxWidthXl css-1cov02q-MuiContainer-root"
+              class="MuiContainer-root MuiContainer-maxWidthXl css-1y8l2cf-MuiContainer-root"
             >
               <div
                 class="css-178yklu"
@@ -6002,7 +6014,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                 </nav>
               </div>
               <h1
-                class="MuiTypography-root MuiTypography-h1 Typography-underline Typography-darkBg css-1bfjzeu-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h1 Typography-underline Typography-darkBg css-7xb81g-MuiTypography-root"
                 data-testid="typography"
               >
                 i am a title
@@ -6017,7 +6029,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="css-j3u0w2"
+              class="css-vjocrr"
             >
               <div
                 class="css-1oko92u"
@@ -6026,7 +6038,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
           </div>
         </div>
         <div
-          class="SpotlightHero-blue css-8qe4mn"
+          class="SpotlightHero-blue css-ah43vw"
         >
           <div
             class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-k7hylw-Media"
@@ -6079,7 +6091,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
         </div>
       </div>
       <div
-        class="Section-root Section-white css-cxq310"
+        class="Section-root Section-white css-10chrh8"
         data-testid="product-lister-page-lead-block-section"
       >
         <div
@@ -6104,22 +6116,22 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                   class="ColorPair-pearl css-1pt14k0"
                 >
                   <div
-                    class="css-qtgtj9"
+                    class="css-1qwqwtx"
                   >
                     <div
-                      class="css-wepxue"
+                      class="css-asoc7f"
                     >
                       <h4
-                        class="MuiTypography-root MuiTypography-h4 Typography-underline css-1ekntu4-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
                         data-testid="typography"
                       >
                         MC: plp.keyFeatures.title
                       </h4>
                       <div
-                        class="css-1xaekgw"
+                        class="css-eler5f"
                       >
                         <ul
-                          class="css-1err4t"
+                          class="css-1wmdec9"
                         >
                           <li
                             class="IconList-isCompact css-nggtm6"
@@ -6143,7 +6155,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                               class="css-1lg3fd1"
                             >
                               <p
-                                class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 test
@@ -6161,7 +6173,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
         </div>
       </div>
       <div
-        class="Section-root Section-pearl Section-overflowVisible css-cxq310"
+        class="Section-root Section-pearl Section-overflowVisible css-10chrh8"
         data-testid="product-lister-page-section-i-am-a-title"
       >
         <div
@@ -6184,7 +6196,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                   data-testid="grid-container"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                     data-testid="typography"
                   >
                     MC: plp.product.noResultsFound
@@ -6196,7 +6208,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
         </div>
       </div>
       <div
-        class="Section-root Section-alabaster Section-slim css-cxq310"
+        class="Section-root Section-alabaster Section-slim css-10chrh8"
         data-testid="product-lister-page-breadcrumb-bottom"
       >
         <div
@@ -6273,7 +6285,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                 data-testid="grid-item"
               >
                 <h4
-                  class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                   data-testid="typography"
                 >
                   string
@@ -6395,7 +6407,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1vmtas-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-8mimat-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -6493,16 +6505,16 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                   data-testid="grid-item"
                 >
                   <h6
-                    class="MuiTypography-root MuiTypography-h6 css-8200kz-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 css-1j4kt3i-MuiTypography-root"
                     data-testid="typography"
                   >
                     Europe
                   </h6>
                   <div
-                    class="css-1vqzkso"
+                    class="css-1qjezyi"
                   >
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                       href="/al"
                       tabindex="0"
@@ -6521,7 +6533,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                       Albania
                     </a>
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                       href="/at"
                       tabindex="0"
@@ -6540,7 +6552,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                       Österreich
                     </a>
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                       href="/uk"
                       tabindex="0"
@@ -6690,7 +6702,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
           </svg>
         </button>
         <nav
-          class="css-1q3sjsb"
+          class="css-12skhd1"
         >
           <div
             class="Navigation-navigationList Navigation-offset0"
@@ -6699,7 +6711,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
             <ul>
               <li>
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1nuwz6u-MuiTypography-root"
                   data-testid="navigation-list-footer"
                 >
                   MC: menu.mainTitle
@@ -6804,7 +6816,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
             </svg>
           </button>
           <h4
-            class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
             data-testid="typography"
           >
             MC: search.title
@@ -6817,42 +6829,46 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
       data-testid="brand-colors-provider"
     >
       <div
-        class="Hero-lvl1 css-104w4lq"
+        class="Hero-lvl1 css-17es170"
         data-testid="hero"
       >
         <div
           class=" css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl css-3hqf54-MuiContainer-root"
+            class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1h9wose-MuiContainer-root"
           >
             <div
               class="Hero-wrapper"
             >
-              <nav
-                aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
-                data-testid="product-lister-page-breadcrumbs-top"
+              <div
+                class="Hero-breadcrumbs"
               >
-                <ol
-                  class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+                <nav
+                  aria-label="breadcrumbs"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                  data-testid="product-lister-page-breadcrumbs-top"
                 >
-                  <li
-                    class="MuiBreadcrumbs-li"
-                  />
-                </ol>
-              </nav>
+                  <ol
+                    class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+                  >
+                    <li
+                      class="MuiBreadcrumbs-li"
+                    />
+                  </ol>
+                </nav>
+              </div>
               <div
                 class="Hero-content"
               >
                 <h1
-                  class="MuiTypography-root MuiTypography-h1 Hero-title Typography-underline Typography-darkBg css-1stz9tq-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h1 Hero-title Typography-underline Typography-darkBg css-1v05vzk-MuiTypography-root"
                   data-testid="hero-title"
                 >
                   i am a title
                 </h1>
                 <div
-                  class="css-81i549"
+                  class="css-1my6sol"
                   data-testid="hero-text"
                 />
               </div>
@@ -6909,7 +6925,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
         </div>
       </div>
       <div
-        class="Section-root Section-white css-cxq310"
+        class="Section-root Section-white css-10chrh8"
         data-testid="product-lister-page-lead-block-section"
       >
         <div
@@ -6934,22 +6950,22 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                   class="ColorPair-pearl css-1pt14k0"
                 >
                   <div
-                    class="css-qtgtj9"
+                    class="css-1qwqwtx"
                   >
                     <div
-                      class="css-wepxue"
+                      class="css-asoc7f"
                     >
                       <h4
-                        class="MuiTypography-root MuiTypography-h4 Typography-underline css-1ekntu4-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
                         data-testid="typography"
                       >
                         MC: plp.keyFeatures.title
                       </h4>
                       <div
-                        class="css-1xaekgw"
+                        class="css-eler5f"
                       >
                         <ul
-                          class="css-1err4t"
+                          class="css-1wmdec9"
                         >
                           <li
                             class="IconList-isCompact css-nggtm6"
@@ -6973,7 +6989,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                               class="css-1lg3fd1"
                             >
                               <p
-                                class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 test
@@ -6991,7 +7007,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
         </div>
       </div>
       <div
-        class="Section-root Section-pearl Section-overflowVisible css-cxq310"
+        class="Section-root Section-pearl Section-overflowVisible css-10chrh8"
         data-testid="product-lister-page-section-i-am-a-title"
       >
         <div
@@ -7024,7 +7040,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
         </div>
       </div>
       <div
-        class="Section-root Section-alabaster Section-slim css-cxq310"
+        class="Section-root Section-alabaster Section-slim css-10chrh8"
         data-testid="product-lister-page-breadcrumb-bottom"
       >
         <div
@@ -7072,7 +7088,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                 data-testid="grid-item"
               >
                 <h4
-                  class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                   data-testid="typography"
                 >
                   string
@@ -7185,7 +7201,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1vmtas-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-8mimat-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -7292,16 +7308,16 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                   data-testid="grid-item"
                 >
                   <h6
-                    class="MuiTypography-root MuiTypography-h6 css-8200kz-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 css-1j4kt3i-MuiTypography-root"
                     data-testid="typography"
                   >
                     Europe
                   </h6>
                   <div
-                    class="css-1vqzkso"
+                    class="css-1qjezyi"
                   >
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                       href="/al"
                       tabindex="0"
@@ -7323,7 +7339,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                       />
                     </a>
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                       href="/at"
                       tabindex="0"
@@ -7345,7 +7361,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                       />
                     </a>
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                       href="/uk"
                       tabindex="0"
@@ -7514,7 +7530,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
           />
         </button>
         <nav
-          class="css-1q3sjsb"
+          class="css-12skhd1"
         >
           <div
             class="Navigation-navigationList Navigation-offset0"
@@ -7523,7 +7539,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
             <ul>
               <li>
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1nuwz6u-MuiTypography-root"
                   data-testid="navigation-list-footer"
                 >
                   MC: menu.mainTitle
@@ -7640,7 +7656,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
             />
           </button>
           <h4
-            class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
             data-testid="typography"
           >
             MC: search.title
@@ -7663,7 +7679,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
             class=" css-ze8cyt"
           >
             <div
-              class="MuiContainer-root MuiContainer-maxWidthXl css-1cov02q-MuiContainer-root"
+              class="MuiContainer-root MuiContainer-maxWidthXl css-1y8l2cf-MuiContainer-root"
             >
               <div
                 class="css-178yklu"
@@ -7683,7 +7699,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                 </nav>
               </div>
               <h1
-                class="MuiTypography-root MuiTypography-h1 Typography-underline Typography-darkBg css-1bfjzeu-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h1 Typography-underline Typography-darkBg css-7xb81g-MuiTypography-root"
                 data-testid="typography"
               >
                 i am a title
@@ -7698,7 +7714,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="css-j3u0w2"
+              class="css-vjocrr"
             >
               <div
                 class="css-1oko92u"
@@ -7707,7 +7723,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
           </div>
         </div>
         <div
-          class="SpotlightHero-blue css-8qe4mn"
+          class="SpotlightHero-blue css-ah43vw"
         >
           <div
             class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-k7hylw-Media"
@@ -7760,7 +7776,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
         </div>
       </div>
       <div
-        class="Section-root Section-white css-cxq310"
+        class="Section-root Section-white css-10chrh8"
         data-testid="product-lister-page-lead-block-section"
       >
         <div
@@ -7785,22 +7801,22 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                   class="ColorPair-pearl css-1pt14k0"
                 >
                   <div
-                    class="css-qtgtj9"
+                    class="css-1qwqwtx"
                   >
                     <div
-                      class="css-wepxue"
+                      class="css-asoc7f"
                     >
                       <h4
-                        class="MuiTypography-root MuiTypography-h4 Typography-underline css-1ekntu4-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
                         data-testid="typography"
                       >
                         MC: plp.keyFeatures.title
                       </h4>
                       <div
-                        class="css-1xaekgw"
+                        class="css-eler5f"
                       >
                         <ul
-                          class="css-1err4t"
+                          class="css-1wmdec9"
                         >
                           <li
                             class="IconList-isCompact css-nggtm6"
@@ -7824,7 +7840,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                               class="css-1lg3fd1"
                             >
                               <p
-                                class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 test
@@ -7842,7 +7858,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
         </div>
       </div>
       <div
-        class="Section-root Section-pearl Section-overflowVisible css-cxq310"
+        class="Section-root Section-pearl Section-overflowVisible css-10chrh8"
         data-testid="product-lister-page-section-i-am-a-title"
       >
         <div
@@ -7867,7 +7883,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                     style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;"
                   >
                     <h5
-                      class="MuiTypography-root MuiTypography-h5  css-10q7alf-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
                       data-testid="filter-sidebar-header-text"
                     >
                       MC: plp.filters.title
@@ -7894,7 +7910,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                         <div
                           aria-expanded="false"
                           aria-label="Size"
-                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
+                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-lxjiqx-MuiButtonBase-root-MuiAccordionSummary-root"
                           data-gtm="{"id":"filter1","label":"Size","action":"Selector – Filter"}"
                           role="button"
                           tabindex="0"
@@ -7903,7 +7919,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                             class="MuiAccordionSummary-content Accordion-summaryContent MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
                           >
                             <h6
-                              class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                               data-testid="typography"
                             >
                               Size
@@ -8058,7 +8074,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
         </div>
       </div>
       <div
-        class="Section-root Section-alabaster Section-slim css-cxq310"
+        class="Section-root Section-alabaster Section-slim css-10chrh8"
         data-testid="product-lister-page-breadcrumb-bottom"
       >
         <div
@@ -8106,7 +8122,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                 data-testid="grid-item"
               >
                 <h4
-                  class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                   data-testid="typography"
                 >
                   string
@@ -8222,7 +8238,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1vmtas-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-8mimat-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -8329,16 +8345,16 @@ exports[`ProductListerPage template renders an default image if there is no imag
                   data-testid="grid-item"
                 >
                   <h6
-                    class="MuiTypography-root MuiTypography-h6 css-8200kz-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 css-1j4kt3i-MuiTypography-root"
                     data-testid="typography"
                   >
                     Europe
                   </h6>
                   <div
-                    class="css-1vqzkso"
+                    class="css-1qjezyi"
                   >
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                       href="/al"
                       tabindex="0"
@@ -8360,7 +8376,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
                       />
                     </a>
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                       href="/at"
                       tabindex="0"
@@ -8382,7 +8398,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
                       />
                     </a>
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                       href="/uk"
                       tabindex="0"
@@ -8551,7 +8567,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
           />
         </button>
         <nav
-          class="css-1q3sjsb"
+          class="css-12skhd1"
         >
           <div
             class="Navigation-navigationList Navigation-offset0"
@@ -8560,7 +8576,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
             <ul>
               <li>
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1nuwz6u-MuiTypography-root"
                   data-testid="navigation-list-footer"
                 >
                   MC: menu.mainTitle
@@ -8677,7 +8693,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
             />
           </button>
           <h4
-            class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
             data-testid="typography"
           >
             MC: search.title
@@ -8700,7 +8716,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
             class=" css-ze8cyt"
           >
             <div
-              class="MuiContainer-root MuiContainer-maxWidthXl css-1cov02q-MuiContainer-root"
+              class="MuiContainer-root MuiContainer-maxWidthXl css-1y8l2cf-MuiContainer-root"
             >
               <div
                 class="css-178yklu"
@@ -8720,7 +8736,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
                 </nav>
               </div>
               <h1
-                class="MuiTypography-root MuiTypography-h1 Typography-underline Typography-darkBg css-1bfjzeu-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h1 Typography-underline Typography-darkBg css-7xb81g-MuiTypography-root"
                 data-testid="typography"
               >
                 i am a title
@@ -8735,7 +8751,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="css-j3u0w2"
+              class="css-vjocrr"
             >
               <div
                 class="css-1oko92u"
@@ -8744,7 +8760,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
           </div>
         </div>
         <div
-          class="SpotlightHero-blue css-8qe4mn"
+          class="SpotlightHero-blue css-ah43vw"
         >
           <div
             class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-k7hylw-Media"
@@ -8797,7 +8813,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
         </div>
       </div>
       <div
-        class="Section-root Section-white css-cxq310"
+        class="Section-root Section-white css-10chrh8"
         data-testid="product-lister-page-lead-block-section"
       >
         <div
@@ -8822,22 +8838,22 @@ exports[`ProductListerPage template renders an default image if there is no imag
                   class="ColorPair-pearl css-1pt14k0"
                 >
                   <div
-                    class="css-qtgtj9"
+                    class="css-1qwqwtx"
                   >
                     <div
-                      class="css-wepxue"
+                      class="css-asoc7f"
                     >
                       <h4
-                        class="MuiTypography-root MuiTypography-h4 Typography-underline css-1ekntu4-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
                         data-testid="typography"
                       >
                         MC: plp.keyFeatures.title
                       </h4>
                       <div
-                        class="css-1xaekgw"
+                        class="css-eler5f"
                       >
                         <ul
-                          class="css-1err4t"
+                          class="css-1wmdec9"
                         >
                           <li
                             class="IconList-isCompact css-nggtm6"
@@ -8861,7 +8877,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
                               class="css-1lg3fd1"
                             >
                               <p
-                                class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 test
@@ -8879,7 +8895,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
         </div>
       </div>
       <div
-        class="Section-root Section-pearl Section-overflowVisible css-cxq310"
+        class="Section-root Section-pearl Section-overflowVisible css-10chrh8"
         data-testid="product-lister-page-section-i-am-a-title"
       >
         <div
@@ -8904,7 +8920,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
                     style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;"
                   >
                     <h5
-                      class="MuiTypography-root MuiTypography-h5  css-10q7alf-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
                       data-testid="filter-sidebar-header-text"
                     >
                       MC: plp.filters.title
@@ -8931,7 +8947,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
                         <div
                           aria-expanded="false"
                           aria-label="Size"
-                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
+                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-lxjiqx-MuiButtonBase-root-MuiAccordionSummary-root"
                           data-gtm="{"id":"filter1","label":"Size","action":"Selector – Filter"}"
                           role="button"
                           tabindex="0"
@@ -8940,7 +8956,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
                             class="MuiAccordionSummary-content Accordion-summaryContent MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
                           >
                             <h6
-                              class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                               data-testid="typography"
                             >
                               Size
@@ -9095,7 +9111,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
         </div>
       </div>
       <div
-        class="Section-root Section-alabaster Section-slim css-cxq310"
+        class="Section-root Section-alabaster Section-slim css-10chrh8"
         data-testid="product-lister-page-breadcrumb-bottom"
       >
         <div
@@ -9143,7 +9159,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
                 data-testid="grid-item"
               >
                 <h4
-                  class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                   data-testid="typography"
                 >
                   string
@@ -9259,7 +9275,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1vmtas-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-8mimat-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -9366,16 +9382,16 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                   data-testid="grid-item"
                 >
                   <h6
-                    class="MuiTypography-root MuiTypography-h6 css-8200kz-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 css-1j4kt3i-MuiTypography-root"
                     data-testid="typography"
                   >
                     Europe
                   </h6>
                   <div
-                    class="css-1vqzkso"
+                    class="css-1qjezyi"
                   >
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                       href="/al"
                       tabindex="0"
@@ -9397,7 +9413,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                       />
                     </a>
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                       href="/at"
                       tabindex="0"
@@ -9419,7 +9435,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                       />
                     </a>
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                       href="/uk"
                       tabindex="0"
@@ -9588,7 +9604,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
           />
         </button>
         <nav
-          class="css-1q3sjsb"
+          class="css-12skhd1"
         >
           <div
             class="Navigation-navigationList Navigation-offset0"
@@ -9597,7 +9613,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
             <ul>
               <li>
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1nuwz6u-MuiTypography-root"
                   data-testid="navigation-list-footer"
                 >
                   MC: menu.mainTitle
@@ -9714,7 +9730,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
             />
           </button>
           <h4
-            class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
             data-testid="typography"
           >
             MC: search.title
@@ -9751,42 +9767,46 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
         </span>
       </div>
       <div
-        class="Hero-lvl1 css-104w4lq"
+        class="Hero-lvl1 css-17es170"
         data-testid="hero"
       >
         <div
           class=" css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl css-3hqf54-MuiContainer-root"
+            class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1h9wose-MuiContainer-root"
           >
             <div
               class="Hero-wrapper"
             >
-              <nav
-                aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
-                data-testid="product-lister-page-breadcrumbs-top"
+              <div
+                class="Hero-breadcrumbs"
               >
-                <ol
-                  class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+                <nav
+                  aria-label="breadcrumbs"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                  data-testid="product-lister-page-breadcrumbs-top"
                 >
-                  <li
-                    class="MuiBreadcrumbs-li"
-                  />
-                </ol>
-              </nav>
+                  <ol
+                    class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+                  >
+                    <li
+                      class="MuiBreadcrumbs-li"
+                    />
+                  </ol>
+                </nav>
+              </div>
               <div
                 class="Hero-content"
               >
                 <h1
-                  class="MuiTypography-root MuiTypography-h1 Hero-title Typography-underline Typography-darkBg css-1stz9tq-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h1 Hero-title Typography-underline Typography-darkBg css-1v05vzk-MuiTypography-root"
                   data-testid="hero-title"
                 >
                   i am a title
                 </h1>
                 <div
-                  class="css-81i549"
+                  class="css-1my6sol"
                   data-testid="hero-text"
                 />
               </div>
@@ -9843,7 +9863,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
         </div>
       </div>
       <div
-        class="Section-root Section-white css-cxq310"
+        class="Section-root Section-white css-10chrh8"
         data-testid="product-lister-page-lead-block-section"
       >
         <div
@@ -9868,22 +9888,22 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                   class="ColorPair-pearl css-1pt14k0"
                 >
                   <div
-                    class="css-qtgtj9"
+                    class="css-1qwqwtx"
                   >
                     <div
-                      class="css-wepxue"
+                      class="css-asoc7f"
                     >
                       <h4
-                        class="MuiTypography-root MuiTypography-h4 Typography-underline css-1ekntu4-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
                         data-testid="typography"
                       >
                         MC: plp.keyFeatures.title
                       </h4>
                       <div
-                        class="css-1xaekgw"
+                        class="css-eler5f"
                       >
                         <ul
-                          class="css-1err4t"
+                          class="css-1wmdec9"
                         >
                           <li
                             class="IconList-isCompact css-nggtm6"
@@ -9907,7 +9927,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                               class="css-1lg3fd1"
                             >
                               <p
-                                class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 test
@@ -9925,7 +9945,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
         </div>
       </div>
       <div
-        class="Section-root Section-pearl Section-overflowVisible css-cxq310"
+        class="Section-root Section-pearl Section-overflowVisible css-10chrh8"
         data-testid="product-lister-page-section-i-am-a-title"
       >
         <div
@@ -9950,7 +9970,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                     style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;"
                   >
                     <h5
-                      class="MuiTypography-root MuiTypography-h5  css-10q7alf-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
                       data-testid="filter-sidebar-header-text"
                     >
                       MC: plp.filters.title
@@ -9977,7 +9997,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                         <div
                           aria-expanded="false"
                           aria-label="texture"
-                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
+                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-lxjiqx-MuiButtonBase-root-MuiAccordionSummary-root"
                           data-gtm="{"id":"filter1","label":"texture","action":"Selector – Filter"}"
                           role="button"
                           tabindex="0"
@@ -9986,7 +10006,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                             class="MuiAccordionSummary-content Accordion-summaryContent MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
                           >
                             <h6
-                              class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                               data-testid="typography"
                             >
                               texture
@@ -10141,7 +10161,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
         </div>
       </div>
       <div
-        class="Section-root Section-alabaster Section-slim css-cxq310"
+        class="Section-root Section-alabaster Section-slim css-10chrh8"
         data-testid="product-lister-page-breadcrumb-bottom"
       >
         <div
@@ -10189,7 +10209,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                 data-testid="grid-item"
               >
                 <h4
-                  class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                   data-testid="typography"
                 >
                   string
@@ -10305,7 +10325,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1vmtas-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-8mimat-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -10412,16 +10432,16 @@ exports[`ProductListerPage template test handle change url by click on filters a
                   data-testid="grid-item"
                 >
                   <h6
-                    class="MuiTypography-root MuiTypography-h6 css-8200kz-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 css-1j4kt3i-MuiTypography-root"
                     data-testid="typography"
                   >
                     Europe
                   </h6>
                   <div
-                    class="css-1vqzkso"
+                    class="css-1qjezyi"
                   >
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                       href="/al"
                       tabindex="0"
@@ -10443,7 +10463,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
                       />
                     </a>
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                       href="/at"
                       tabindex="0"
@@ -10465,7 +10485,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
                       />
                     </a>
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                       href="/uk"
                       tabindex="0"
@@ -10634,7 +10654,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
           />
         </button>
         <nav
-          class="css-1q3sjsb"
+          class="css-12skhd1"
         >
           <div
             class="Navigation-navigationList Navigation-offset0"
@@ -10643,7 +10663,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
             <ul>
               <li>
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1nuwz6u-MuiTypography-root"
                   data-testid="navigation-list-footer"
                 >
                   MC: menu.mainTitle
@@ -10760,7 +10780,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
             />
           </button>
           <h4
-            class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
             data-testid="typography"
           >
             MC: search.title
@@ -10797,42 +10817,46 @@ exports[`ProductListerPage template test handle change url by click on filters a
         </span>
       </div>
       <div
-        class="Hero-lvl1 css-104w4lq"
+        class="Hero-lvl1 css-17es170"
         data-testid="hero"
       >
         <div
           class=" css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl css-3hqf54-MuiContainer-root"
+            class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1h9wose-MuiContainer-root"
           >
             <div
               class="Hero-wrapper"
             >
-              <nav
-                aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
-                data-testid="product-lister-page-breadcrumbs-top"
+              <div
+                class="Hero-breadcrumbs"
               >
-                <ol
-                  class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+                <nav
+                  aria-label="breadcrumbs"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                  data-testid="product-lister-page-breadcrumbs-top"
                 >
-                  <li
-                    class="MuiBreadcrumbs-li"
-                  />
-                </ol>
-              </nav>
+                  <ol
+                    class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+                  >
+                    <li
+                      class="MuiBreadcrumbs-li"
+                    />
+                  </ol>
+                </nav>
+              </div>
               <div
                 class="Hero-content"
               >
                 <h1
-                  class="MuiTypography-root MuiTypography-h1 Hero-title Typography-underline Typography-darkBg css-1stz9tq-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h1 Hero-title Typography-underline Typography-darkBg css-1v05vzk-MuiTypography-root"
                   data-testid="hero-title"
                 >
                   i am a title
                 </h1>
                 <div
-                  class="css-81i549"
+                  class="css-1my6sol"
                   data-testid="hero-text"
                 />
               </div>
@@ -10889,7 +10913,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
         </div>
       </div>
       <div
-        class="Section-root Section-white css-cxq310"
+        class="Section-root Section-white css-10chrh8"
         data-testid="product-lister-page-lead-block-section"
       >
         <div
@@ -10914,22 +10938,22 @@ exports[`ProductListerPage template test handle change url by click on filters a
                   class="ColorPair-pearl css-1pt14k0"
                 >
                   <div
-                    class="css-qtgtj9"
+                    class="css-1qwqwtx"
                   >
                     <div
-                      class="css-wepxue"
+                      class="css-asoc7f"
                     >
                       <h4
-                        class="MuiTypography-root MuiTypography-h4 Typography-underline css-1ekntu4-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
                         data-testid="typography"
                       >
                         MC: plp.keyFeatures.title
                       </h4>
                       <div
-                        class="css-1xaekgw"
+                        class="css-eler5f"
                       >
                         <ul
-                          class="css-1err4t"
+                          class="css-1wmdec9"
                         >
                           <li
                             class="IconList-isCompact css-nggtm6"
@@ -10953,7 +10977,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
                               class="css-1lg3fd1"
                             >
                               <p
-                                class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 test
@@ -10971,7 +10995,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
         </div>
       </div>
       <div
-        class="Section-root Section-pearl Section-overflowVisible css-cxq310"
+        class="Section-root Section-pearl Section-overflowVisible css-10chrh8"
         data-testid="product-lister-page-section-i-am-a-title"
       >
         <div
@@ -10996,7 +11020,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
                     style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;"
                   >
                     <h5
-                      class="MuiTypography-root MuiTypography-h5  css-10q7alf-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
                       data-testid="filter-sidebar-header-text"
                     >
                       MC: plp.filters.title
@@ -11023,7 +11047,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
                         <div
                           aria-expanded="false"
                           aria-label="Colour"
-                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
+                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-lxjiqx-MuiButtonBase-root-MuiAccordionSummary-root"
                           data-gtm="{"id":"filter1","label":"Colour","action":"Selector – Filter"}"
                           role="button"
                           tabindex="0"
@@ -11032,7 +11056,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
                             class="MuiAccordionSummary-content Accordion-summaryContent MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
                           >
                             <h6
-                              class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                               data-testid="typography"
                             >
                               Colour
@@ -11193,7 +11217,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
         </div>
       </div>
       <div
-        class="Section-root Section-alabaster Section-slim css-cxq310"
+        class="Section-root Section-alabaster Section-slim css-10chrh8"
         data-testid="product-lister-page-breadcrumb-bottom"
       >
         <div
@@ -11241,7 +11265,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
                 data-testid="grid-item"
               >
                 <h4
-                  class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                   data-testid="typography"
                 >
                   string
@@ -11357,7 +11381,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1vmtas-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-8mimat-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -11464,16 +11488,16 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                   data-testid="grid-item"
                 >
                   <h6
-                    class="MuiTypography-root MuiTypography-h6 css-8200kz-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 css-1j4kt3i-MuiTypography-root"
                     data-testid="typography"
                   >
                     Europe
                   </h6>
                   <div
-                    class="css-1vqzkso"
+                    class="css-1qjezyi"
                   >
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                       href="/al"
                       tabindex="0"
@@ -11495,7 +11519,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       />
                     </a>
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                       href="/at"
                       tabindex="0"
@@ -11517,7 +11541,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       />
                     </a>
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                       href="/uk"
                       tabindex="0"
@@ -11686,7 +11710,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
           />
         </button>
         <nav
-          class="css-1q3sjsb"
+          class="css-12skhd1"
         >
           <div
             class="Navigation-navigationList Navigation-offset0"
@@ -11695,7 +11719,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
             <ul>
               <li>
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1nuwz6u-MuiTypography-root"
                   data-testid="navigation-list-footer"
                 >
                   MC: menu.mainTitle
@@ -11812,7 +11836,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
             />
           </button>
           <h4
-            class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
             data-testid="typography"
           >
             MC: search.title
@@ -11849,42 +11873,46 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
         </span>
       </div>
       <div
-        class="Hero-lvl1 css-104w4lq"
+        class="Hero-lvl1 css-17es170"
         data-testid="hero"
       >
         <div
           class=" css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl css-3hqf54-MuiContainer-root"
+            class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1h9wose-MuiContainer-root"
           >
             <div
               class="Hero-wrapper"
             >
-              <nav
-                aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
-                data-testid="product-lister-page-breadcrumbs-top"
+              <div
+                class="Hero-breadcrumbs"
               >
-                <ol
-                  class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+                <nav
+                  aria-label="breadcrumbs"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                  data-testid="product-lister-page-breadcrumbs-top"
                 >
-                  <li
-                    class="MuiBreadcrumbs-li"
-                  />
-                </ol>
-              </nav>
+                  <ol
+                    class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+                  >
+                    <li
+                      class="MuiBreadcrumbs-li"
+                    />
+                  </ol>
+                </nav>
+              </div>
               <div
                 class="Hero-content"
               >
                 <h1
-                  class="MuiTypography-root MuiTypography-h1 Hero-title Typography-underline Typography-darkBg css-1stz9tq-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h1 Hero-title Typography-underline Typography-darkBg css-1v05vzk-MuiTypography-root"
                   data-testid="hero-title"
                 >
                   i am a title
                 </h1>
                 <div
-                  class="css-81i549"
+                  class="css-1my6sol"
                   data-testid="hero-text"
                 />
               </div>
@@ -11941,7 +11969,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
         </div>
       </div>
       <div
-        class="Section-root Section-white css-cxq310"
+        class="Section-root Section-white css-10chrh8"
         data-testid="product-lister-page-lead-block-section"
       >
         <div
@@ -11966,22 +11994,22 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                   class="ColorPair-pearl css-1pt14k0"
                 >
                   <div
-                    class="css-qtgtj9"
+                    class="css-1qwqwtx"
                   >
                     <div
-                      class="css-wepxue"
+                      class="css-asoc7f"
                     >
                       <h4
-                        class="MuiTypography-root MuiTypography-h4 Typography-underline css-1ekntu4-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
                         data-testid="typography"
                       >
                         MC: plp.keyFeatures.title
                       </h4>
                       <div
-                        class="css-1xaekgw"
+                        class="css-eler5f"
                       >
                         <ul
-                          class="css-1err4t"
+                          class="css-1wmdec9"
                         >
                           <li
                             class="IconList-isCompact css-nggtm6"
@@ -12005,7 +12033,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                               class="css-1lg3fd1"
                             >
                               <p
-                                class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 test
@@ -12023,7 +12051,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
         </div>
       </div>
       <div
-        class="Section-root Section-pearl Section-overflowVisible css-cxq310"
+        class="Section-root Section-pearl Section-overflowVisible css-10chrh8"
         data-testid="product-lister-page-section-i-am-a-title"
       >
         <div
@@ -12048,7 +12076,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;"
                   >
                     <h5
-                      class="MuiTypography-root MuiTypography-h5  css-10q7alf-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
                       data-testid="filter-sidebar-header-text"
                     >
                       MC: plp.filters.title
@@ -12075,7 +12103,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         <div
                           aria-expanded="false"
                           aria-label="Size"
-                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
+                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-lxjiqx-MuiButtonBase-root-MuiAccordionSummary-root"
                           data-gtm="{"id":"filter1","label":"Size","action":"Selector – Filter"}"
                           role="button"
                           tabindex="0"
@@ -12084,7 +12112,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                             class="MuiAccordionSummary-content Accordion-summaryContent MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
                           >
                             <h6
-                              class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                               data-testid="typography"
                             >
                               Size
@@ -12444,7 +12472,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
         </div>
       </div>
       <div
-        class="Section-root Section-alabaster Section-slim css-cxq310"
+        class="Section-root Section-alabaster Section-slim css-10chrh8"
         data-testid="product-lister-page-breadcrumb-bottom"
       >
         <div
@@ -12492,7 +12520,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                 data-testid="grid-item"
               >
                 <h4
-                  class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                   data-testid="typography"
                 >
                   string
@@ -12608,7 +12636,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1vmtas-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-8mimat-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -12715,16 +12743,16 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                   data-testid="grid-item"
                 >
                   <h6
-                    class="MuiTypography-root MuiTypography-h6 css-8200kz-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 css-1j4kt3i-MuiTypography-root"
                     data-testid="typography"
                   >
                     Europe
                   </h6>
                   <div
-                    class="css-1vqzkso"
+                    class="css-1qjezyi"
                   >
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                       href="/al"
                       tabindex="0"
@@ -12746,7 +12774,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       />
                     </a>
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                       href="/at"
                       tabindex="0"
@@ -12768,7 +12796,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       />
                     </a>
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                       href="/uk"
                       tabindex="0"
@@ -12937,7 +12965,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
           />
         </button>
         <nav
-          class="css-1q3sjsb"
+          class="css-12skhd1"
         >
           <div
             class="Navigation-navigationList Navigation-offset0"
@@ -12946,7 +12974,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
             <ul>
               <li>
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1nuwz6u-MuiTypography-root"
                   data-testid="navigation-list-footer"
                 >
                   MC: menu.mainTitle
@@ -13063,7 +13091,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
             />
           </button>
           <h4
-            class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
             data-testid="typography"
           >
             MC: search.title
@@ -13100,42 +13128,46 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
         </span>
       </div>
       <div
-        class="Hero-lvl1 css-104w4lq"
+        class="Hero-lvl1 css-17es170"
         data-testid="hero"
       >
         <div
           class=" css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl css-3hqf54-MuiContainer-root"
+            class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1h9wose-MuiContainer-root"
           >
             <div
               class="Hero-wrapper"
             >
-              <nav
-                aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
-                data-testid="product-lister-page-breadcrumbs-top"
+              <div
+                class="Hero-breadcrumbs"
               >
-                <ol
-                  class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+                <nav
+                  aria-label="breadcrumbs"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                  data-testid="product-lister-page-breadcrumbs-top"
                 >
-                  <li
-                    class="MuiBreadcrumbs-li"
-                  />
-                </ol>
-              </nav>
+                  <ol
+                    class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+                  >
+                    <li
+                      class="MuiBreadcrumbs-li"
+                    />
+                  </ol>
+                </nav>
+              </div>
               <div
                 class="Hero-content"
               >
                 <h1
-                  class="MuiTypography-root MuiTypography-h1 Hero-title Typography-underline Typography-darkBg css-1stz9tq-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h1 Hero-title Typography-underline Typography-darkBg css-1v05vzk-MuiTypography-root"
                   data-testid="hero-title"
                 >
                   i am a title
                 </h1>
                 <div
-                  class="css-81i549"
+                  class="css-1my6sol"
                   data-testid="hero-text"
                 />
               </div>
@@ -13192,7 +13224,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
         </div>
       </div>
       <div
-        class="Section-root Section-white css-cxq310"
+        class="Section-root Section-white css-10chrh8"
         data-testid="product-lister-page-lead-block-section"
       >
         <div
@@ -13217,22 +13249,22 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                   class="ColorPair-pearl css-1pt14k0"
                 >
                   <div
-                    class="css-qtgtj9"
+                    class="css-1qwqwtx"
                   >
                     <div
-                      class="css-wepxue"
+                      class="css-asoc7f"
                     >
                       <h4
-                        class="MuiTypography-root MuiTypography-h4 Typography-underline css-1ekntu4-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
                         data-testid="typography"
                       >
                         MC: plp.keyFeatures.title
                       </h4>
                       <div
-                        class="css-1xaekgw"
+                        class="css-eler5f"
                       >
                         <ul
-                          class="css-1err4t"
+                          class="css-1wmdec9"
                         >
                           <li
                             class="IconList-isCompact css-nggtm6"
@@ -13256,7 +13288,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                               class="css-1lg3fd1"
                             >
                               <p
-                                class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 test
@@ -13274,7 +13306,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
         </div>
       </div>
       <div
-        class="Section-root Section-pearl Section-overflowVisible css-cxq310"
+        class="Section-root Section-pearl Section-overflowVisible css-10chrh8"
         data-testid="product-lister-page-section-i-am-a-title"
       >
         <div
@@ -13299,7 +13331,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;"
                   >
                     <h5
-                      class="MuiTypography-root MuiTypography-h5  css-10q7alf-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
                       data-testid="filter-sidebar-header-text"
                     >
                       MC: plp.filters.title
@@ -13326,7 +13358,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         <div
                           aria-expanded="false"
                           aria-label="Size"
-                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
+                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-lxjiqx-MuiButtonBase-root-MuiAccordionSummary-root"
                           data-gtm="{"id":"filter1","label":"Size","action":"Selector – Filter"}"
                           role="button"
                           tabindex="0"
@@ -13335,7 +13367,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                             class="MuiAccordionSummary-content Accordion-summaryContent MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
                           >
                             <h6
-                              class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                               data-testid="typography"
                             >
                               Size
@@ -13695,7 +13727,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
         </div>
       </div>
       <div
-        class="Section-root Section-alabaster Section-slim css-cxq310"
+        class="Section-root Section-alabaster Section-slim css-10chrh8"
         data-testid="product-lister-page-breadcrumb-bottom"
       >
         <div
@@ -13743,7 +13775,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                 data-testid="grid-item"
               >
                 <h4
-                  class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                   data-testid="typography"
                 >
                   string

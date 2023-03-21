@@ -106,7 +106,11 @@ const ProductListing = ({
                   action: productUrl
                 }}
                 footer={
-                  <AnchorLink component="span" iconEnd>
+                  <AnchorLink
+                    className={styles["footer-anchor-link"]}
+                    component="span"
+                    iconEnd
+                  >
                     {getMicroCopy(microCopy.PDP_RELATED_PRODUCTS_VIEW_DETAILS)}
                   </AnchorLink>
                 }

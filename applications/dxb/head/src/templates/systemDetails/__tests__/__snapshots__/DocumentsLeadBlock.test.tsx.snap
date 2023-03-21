@@ -3,10 +3,10 @@
 exports[`DocumentsLeadBlock tests should render correctly 1`] = `
 <div>
   <div
-    class="css-wepxue"
+    class="css-asoc7f"
   >
     <div
-      class="css-1xaekgw"
+      class="css-eler5f"
     >
       <div>
         <div
@@ -147,7 +147,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
             />
           </button>
           <p
-            class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-87ejlm-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
             data-testid="typography"
           >
             This site is protected by reCAPTCHA and the Google 

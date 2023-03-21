@@ -3,7 +3,7 @@
 exports[`Page component renders correctly 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1vmtas-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-8mimat-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -110,16 +110,16 @@ exports[`Page component renders correctly 1`] = `
                 data-testid="grid-item"
               >
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 css-8200kz-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 css-1j4kt3i-MuiTypography-root"
                   data-testid="typography"
                 >
                   Europe
                 </h6>
                 <div
-                  class="css-1vqzkso"
+                  class="css-1qjezyi"
                 >
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                     href="/al"
                     tabindex="0"
@@ -141,7 +141,7 @@ exports[`Page component renders correctly 1`] = `
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                     href="/at"
                     tabindex="0"
@@ -163,7 +163,7 @@ exports[`Page component renders correctly 1`] = `
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                     href="/uk"
                     tabindex="0"
@@ -383,7 +383,7 @@ exports[`Page component renders correctly 1`] = `
         />
       </button>
       <nav
-        class="css-1q3sjsb"
+        class="css-12skhd1"
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
@@ -392,7 +392,7 @@ exports[`Page component renders correctly 1`] = `
           <ul>
             <li>
               <h6
-                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1nuwz6u-MuiTypography-root"
                 data-testid="navigation-list-footer"
               >
                 MC: menu.mainTitle
@@ -537,7 +537,7 @@ exports[`Page component renders correctly 1`] = `
           />
         </button>
         <h4
-          class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
           data-testid="typography"
         >
           MC: search.title
@@ -573,7 +573,7 @@ exports[`Page component renders correctly 1`] = `
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 string

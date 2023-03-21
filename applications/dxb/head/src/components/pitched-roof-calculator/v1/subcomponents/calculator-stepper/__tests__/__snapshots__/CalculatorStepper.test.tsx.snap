@@ -10,17 +10,17 @@ exports[`CalculatorStepper component ignores footer when there are no buttons 1`
       data-testid="form"
     >
       <h4
-        class="MuiTypography-root MuiTypography-h4 step-title css-1ekntu4-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h4 step-title css-1x9euu8-MuiTypography-root"
         data-testid="typography"
       >
         This is the 2nd page
       </h4>
       <h6
-        class="MuiTypography-root MuiTypography-h6 computation css-1le86ss-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h6 computation css-1nuwz6u-MuiTypography-root"
         data-testid="typography"
       />
       <p
-        class="MuiTypography-root MuiTypography-body1 subtitle css-87ejlm-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body1 subtitle css-1o02bdp-MuiTypography-root"
         data-testid="typography"
       >
         Choose the closest to your roof shape
@@ -49,17 +49,17 @@ exports[`CalculatorStepper component renders as a div 1`] = `
   >
     <div>
       <h4
-        class="MuiTypography-root MuiTypography-h4 step-title css-1ekntu4-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h4 step-title css-1x9euu8-MuiTypography-root"
         data-testid="typography"
       >
         This is the 2nd page
       </h4>
       <h6
-        class="MuiTypography-root MuiTypography-h6 computation css-1le86ss-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h6 computation css-1nuwz6u-MuiTypography-root"
         data-testid="typography"
       />
       <p
-        class="MuiTypography-root MuiTypography-body1 subtitle css-87ejlm-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body1 subtitle css-1o02bdp-MuiTypography-root"
         data-testid="typography"
       >
         Choose the closest to your roof shape
@@ -148,17 +148,17 @@ exports[`CalculatorStepper component renders correctly 1`] = `
       data-testid="form"
     >
       <h4
-        class="MuiTypography-root MuiTypography-h4 step-title css-1ekntu4-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h4 step-title css-1x9euu8-MuiTypography-root"
         data-testid="typography"
       >
         This is the 2nd page
       </h4>
       <h6
-        class="MuiTypography-root MuiTypography-h6 computation css-1le86ss-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h6 computation css-1nuwz6u-MuiTypography-root"
         data-testid="typography"
       />
       <p
-        class="MuiTypography-root MuiTypography-body1 subtitle css-87ejlm-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body1 subtitle css-1o02bdp-MuiTypography-root"
         data-testid="typography"
       >
         Choose the closest to your roof shape

@@ -20,7 +20,7 @@ exports[`SignupBlock component renders correctly 1`] = `
                 class="css-lkf985"
               >
                 <div
-                  class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+                  class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-aj8g3u-MuiGrid2-root"
                   data-testid="grid-container"
                 >
                   <div
@@ -28,7 +28,7 @@ exports[`SignupBlock component renders correctly 1`] = `
                     data-testid="grid-item"
                   >
                     <h3
-                      class="MuiTypography-root MuiTypography-h3 Typography-underline Typography-darkBg css-d7brak-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h3 Typography-underline Typography-darkBg css-2221f6-MuiTypography-root"
                       data-testid="typography"
                     >
                       Newsletter signup block section
@@ -39,7 +39,7 @@ exports[`SignupBlock component renders correctly 1`] = `
                     data-testid="grid-item"
                   >
                     <p
-                      class="MuiTypography-root MuiTypography-body2  css-1qeh4ig-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body2  css-bwrz6w-MuiTypography-root"
                       data-testid="typography"
                     >
                       if it doesnt u it makes u stronger

@@ -3,7 +3,7 @@
 exports[`RecaptchaPrivacyLinks component When 'at' country code is provided renders German Recaptcha policy text and urls 1`] = `
 <div>
   <p
-    class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-87ejlm-MuiTypography-root"
+    class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
     data-testid="typography"
   >
     Diese Website ist durch reCAPTCHA geschützt und es gelten die 
@@ -38,7 +38,7 @@ exports[`RecaptchaPrivacyLinks component When 'at' country code is provided rend
 exports[`RecaptchaPrivacyLinks component When 'de' country code is provided renders German Recaptcha policy text and urls 1`] = `
 <div>
   <p
-    class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-87ejlm-MuiTypography-root"
+    class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
     data-testid="typography"
   >
     Diese Website ist durch reCAPTCHA geschützt und es gelten die 
@@ -73,7 +73,7 @@ exports[`RecaptchaPrivacyLinks component When 'de' country code is provided rend
 exports[`RecaptchaPrivacyLinks component When 'fi' country code is provided renders Finnish Recaptcha policy text and urls 1`] = `
 <div>
   <p
-    class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-87ejlm-MuiTypography-root"
+    class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
     data-testid="typography"
   >
     Tätä sivustoa suojaa reCAPTCHA, ja siihen sovelletaan Googlen 
@@ -108,7 +108,7 @@ exports[`RecaptchaPrivacyLinks component When 'fi' country code is provided rend
 exports[`RecaptchaPrivacyLinks component When 'fr' country code is provided renders French Recaptcha policy text and urls 1`] = `
 <div>
   <p
-    class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-87ejlm-MuiTypography-root"
+    class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
     data-testid="typography"
   >
     Ce site est protégé par reCAPTCHA et la 
@@ -143,7 +143,7 @@ exports[`RecaptchaPrivacyLinks component When 'fr' country code is provided rend
 exports[`RecaptchaPrivacyLinks component When 'it' country code is provided renders Italian Recaptcha policy text and urls 1`] = `
 <div>
   <p
-    class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-87ejlm-MuiTypography-root"
+    class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
     data-testid="typography"
   >
     Questo sito è protetto da reCAPTCHA e si applicano le 
@@ -178,7 +178,7 @@ exports[`RecaptchaPrivacyLinks component When 'it' country code is provided rend
 exports[`RecaptchaPrivacyLinks component When 'no' country code is provided renders Norwegian Recaptcha policy text and urls 1`] = `
 <div>
   <p
-    class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-87ejlm-MuiTypography-root"
+    class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
     data-testid="typography"
   >
     Dette nettstedet er beskyttet av reCAPTCHA og Googles 
@@ -213,7 +213,7 @@ exports[`RecaptchaPrivacyLinks component When 'no' country code is provided rend
 exports[`RecaptchaPrivacyLinks component When custom styles added renders with custom style 1`] = `
 <div>
   <p
-    class="MuiTypography-root MuiTypography-body1 customStyle css-87ejlm-MuiTypography-root"
+    class="MuiTypography-root MuiTypography-body1 customStyle css-1o02bdp-MuiTypography-root"
     data-testid="typography"
   >
     Diese Website ist durch reCAPTCHA geschützt und es gelten die 
@@ -248,7 +248,7 @@ exports[`RecaptchaPrivacyLinks component When custom styles added renders with c
 exports[`RecaptchaPrivacyLinks component When invalid country code is provided renders English Recaptcha policy text and urls 1`] = `
 <div>
   <p
-    class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-87ejlm-MuiTypography-root"
+    class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
     data-testid="typography"
   >
     This site is protected by reCAPTCHA and the Google 

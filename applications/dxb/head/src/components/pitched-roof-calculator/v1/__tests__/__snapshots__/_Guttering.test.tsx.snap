@@ -10,7 +10,7 @@ exports[`PitchedRoofCalculator Guttering component renders correctly 1`] = `
         class="head"
       >
         <h6
-          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
           data-testid="typography"
         >
           Choose a gutter material
@@ -41,7 +41,7 @@ exports[`PitchedRoofCalculator Guttering component renders correctly 1`] = `
                   value="Test Guttering"
                 />
                 <div
-                  class="MuiButtonBase-root CardInput-card css-13lto1c-MuiButtonBase-root"
+                  class="MuiButtonBase-root CardInput-card css-6rgev3-MuiButtonBase-root"
                   role="button"
                   tabindex="0"
                 >
@@ -53,7 +53,7 @@ exports[`PitchedRoofCalculator Guttering component renders correctly 1`] = `
                       style="background-image: url(https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg);"
                     />
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 ToggleCard-title css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 ToggleCard-title css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Test Guttering
@@ -83,7 +83,7 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
         class="head"
       >
         <h6
-          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
           data-testid="typography"
         >
           Choose a gutter material
@@ -115,7 +115,7 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
                   value="Test Guttering"
                 />
                 <div
-                  class="MuiButtonBase-root CardInput-card css-13lto1c-MuiButtonBase-root"
+                  class="MuiButtonBase-root CardInput-card css-6rgev3-MuiButtonBase-root"
                   role="button"
                   tabindex="0"
                 >
@@ -127,7 +127,7 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
                       style="background-image: url(https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg);"
                     />
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 ToggleCard-title css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 ToggleCard-title css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Test Guttering
@@ -150,7 +150,7 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
         class="head"
       >
         <h6
-          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
           data-testid="typography"
         >
           Select the colour
@@ -182,7 +182,7 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
                   value="34391"
                 />
                 <div
-                  class="MuiButtonBase-root CardInput-card css-13lto1c-MuiButtonBase-root"
+                  class="MuiButtonBase-root CardInput-card css-6rgev3-MuiButtonBase-root"
                   role="button"
                   tabindex="0"
                 >
@@ -194,13 +194,13 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
                       style="background-image: url(https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg);"
                     />
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 ToggleCard-title css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 ToggleCard-title css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Test Guttering Black
                     </h6>
                     <p
-                      class="MuiTypography-root MuiTypography-body1 ToggleCard-paragraph css-87ejlm-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body1 ToggleCard-paragraph css-1o02bdp-MuiTypography-root"
                       data-testid="typography"
                     >
                       Nobb: 
@@ -234,7 +234,7 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
                   value="4391"
                 />
                 <div
-                  class="MuiButtonBase-root CardInput-card css-13lto1c-MuiButtonBase-root"
+                  class="MuiButtonBase-root CardInput-card css-6rgev3-MuiButtonBase-root"
                   role="button"
                   tabindex="0"
                 >
@@ -246,13 +246,13 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
                       style="background-image: url(https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg);"
                     />
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 ToggleCard-title css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 ToggleCard-title css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Test Guttering Grey
                     </h6>
                     <p
-                      class="MuiTypography-root MuiTypography-body1 ToggleCard-paragraph css-87ejlm-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body1 ToggleCard-paragraph css-1o02bdp-MuiTypography-root"
                       data-testid="typography"
                     >
                       Nobb: 
@@ -278,7 +278,7 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
         class="head"
       >
         <h6
-          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
           data-testid="typography"
         >
           Select a gutter hook type
@@ -310,7 +310,7 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
                   value="34392"
                 />
                 <div
-                  class="MuiButtonBase-root CardInput-card css-13lto1c-MuiButtonBase-root"
+                  class="MuiButtonBase-root CardInput-card css-6rgev3-MuiButtonBase-root"
                   role="button"
                   tabindex="0"
                 >
@@ -322,13 +322,13 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
                       style="background-image: url(https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg);"
                     />
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 ToggleCard-title css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 ToggleCard-title css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Test Guttering Hook Black
                     </h6>
                     <p
-                      class="MuiTypography-root MuiTypography-body1 ToggleCard-paragraph css-87ejlm-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body1 ToggleCard-paragraph css-1o02bdp-MuiTypography-root"
                       data-testid="typography"
                     >
                       Nobb: 
@@ -362,7 +362,7 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
                   value="4392"
                 />
                 <div
-                  class="MuiButtonBase-root CardInput-card css-13lto1c-MuiButtonBase-root"
+                  class="MuiButtonBase-root CardInput-card css-6rgev3-MuiButtonBase-root"
                   role="button"
                   tabindex="0"
                 >
@@ -374,13 +374,13 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
                       style="background-image: url(https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg);"
                     />
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 ToggleCard-title css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 ToggleCard-title css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Test Guttering Hook Grey
                     </h6>
                     <p
-                      class="MuiTypography-root MuiTypography-body1 ToggleCard-paragraph css-87ejlm-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body1 ToggleCard-paragraph css-1o02bdp-MuiTypography-root"
                       data-testid="typography"
                     >
                       Nobb: 
@@ -406,7 +406,7 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
         class="head"
       >
         <h6
-          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
           data-testid="typography"
         >
           Add down pipe (3m lengths)
@@ -493,7 +493,7 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
         class="head"
       >
         <h6
-          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
           data-testid="typography"
         >
           How many downpipes connectors?

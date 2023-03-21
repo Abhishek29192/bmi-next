@@ -244,7 +244,10 @@ const Header = ({
           language={language}
           languageLabel={getMicroCopy(microCopy.MENU_LANGUAGE)}
           languageIntroduction={
-            <RichText document={countryNavigationIntroduction} />
+            <RichText
+              hasNoBottomMargin
+              document={countryNavigationIntroduction}
+            />
           }
           utilities={utilities}
           navigation={navigation}
@@ -301,7 +304,7 @@ const Header = ({
               variant="outlined"
               endIcon={<ArrowForwardIcon />}
               className="Button"
-              style={{ marginLeft: 10, marginBottom: 15 }}
+              style={{ marginLeft: 16, marginBottom: 15 }}
             />
           )}
           closeButtonComponent={(props: ButtonProps) => (

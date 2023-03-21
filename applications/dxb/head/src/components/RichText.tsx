@@ -16,6 +16,7 @@ import {
 import { graphql } from "gatsby";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import React from "react";
+import classnames from "classnames";
 import withGTM from "../utils/google-tag-manager";
 import EmbeddedAssetBlock from "./EmbeddedAssetBlock";
 import EmbeddedBlock from "./EmbeddedBlock";
@@ -158,16 +159,26 @@ const getOptions = (settings: Settings): Options => {
 
 const RichText = ({
   document,
+  className,
+  hasNoBottomMargin,
   ...rest
 }: {
   document?: RichTextData;
+  className?: string;
+  hasNoBottomMargin?: boolean;
 } & Settings) => {
   if (!document) {
     return null;
   }
 
   return (
-    <StyledRichText className={classes.root}>
+    <StyledRichText
+      className={classnames(
+        classes.root,
+        hasNoBottomMargin && classes.noBottomMargin,
+        className
+      )}
+    >
       {renderRichText(document, getOptions(rest))}
     </StyledRichText>
   );

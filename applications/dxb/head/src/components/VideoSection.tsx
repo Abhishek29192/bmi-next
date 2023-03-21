@@ -26,7 +26,7 @@ const VideoSection = ({
       {title && (
         <Section.Title className={styles["heading"]}>{title}</Section.Title>
       )}
-      {description && <RichText document={description} />}
+      {description && <RichText document={description} hasNoBottomMargin />}
       <div className={styles["video"]}>
         <Video layout={"inline"} {...video} />
       </div>

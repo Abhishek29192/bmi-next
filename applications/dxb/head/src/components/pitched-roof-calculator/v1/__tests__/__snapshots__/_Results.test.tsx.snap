@@ -22,7 +22,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5 css-16m68f8-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5 css-1bb7vpk-MuiTypography-root"
               data-testid="alert-banner-title"
             >
               <svg
@@ -60,7 +60,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5 css-16m68f8-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5 css-1bb7vpk-MuiTypography-root"
               data-testid="alert-banner-title"
             >
               <svg
@@ -86,7 +86,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
       data-testid="form"
     >
       <h4
-        class="MuiTypography-root MuiTypography-h4 title Typography-underline css-1ekntu4-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h4 title Typography-underline css-1x9euu8-MuiTypography-root"
         data-testid="typography"
       >
         Print this list
@@ -100,7 +100,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
           data-testid="grid-item"
         >
           <p
-            class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
             data-testid="typography"
           >
             To access your list of materials in pdf format that can be saved, shared or printed please supply your name and email address
@@ -358,7 +358,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5 css-16m68f8-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5 css-1bb7vpk-MuiTypography-root"
               data-testid="alert-banner-title"
             >
               <svg
@@ -396,7 +396,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5 css-16m68f8-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5 css-1bb7vpk-MuiTypography-root"
               data-testid="alert-banner-title"
             >
               <svg
@@ -422,7 +422,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
       data-testid="form"
     >
       <h4
-        class="MuiTypography-root MuiTypography-h4 title Typography-underline css-1ekntu4-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h4 title Typography-underline css-1x9euu8-MuiTypography-root"
         data-testid="typography"
       >
         Print this list
@@ -436,7 +436,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
           data-testid="grid-item"
         >
           <p
-            class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
             data-testid="typography"
           >
             To access your list of materials in pdf format that can be saved, shared or printed please supply your name and email address
@@ -672,13 +672,13 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
       class="FieldContainer"
     >
       <h3
-        class="MuiTypography-root MuiTypography-h3  css-d7brak-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h3  css-2221f6-MuiTypography-root"
         data-testid="typography"
       >
         Measurements (showing because debugging mode is ON)
       </h3>
       <h4
-        class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
         data-testid="typography"
       >
         Lines
@@ -718,7 +718,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
         </li>
       </ul>
       <h4
-        class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
         data-testid="typography"
       >
         Faces
@@ -770,7 +770,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5 css-16m68f8-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5 css-1bb7vpk-MuiTypography-root"
               data-testid="alert-banner-title"
             >
               <svg
@@ -808,7 +808,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5 css-16m68f8-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5 css-1bb7vpk-MuiTypography-root"
               data-testid="alert-banner-title"
             >
               <svg
@@ -834,7 +834,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
       data-testid="form"
     >
       <h4
-        class="MuiTypography-root MuiTypography-h4 title Typography-underline css-1ekntu4-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h4 title Typography-underline css-1x9euu8-MuiTypography-root"
         data-testid="typography"
       >
         Print this list
@@ -848,7 +848,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
           data-testid="grid-item"
         >
           <p
-            class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
             data-testid="typography"
           >
             To access your list of materials in pdf format that can be saved, shared or printed please supply your name and email address
@@ -1106,7 +1106,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5 css-16m68f8-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5 css-1bb7vpk-MuiTypography-root"
               data-testid="alert-banner-title"
             >
               <svg
@@ -1144,7 +1144,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5 css-16m68f8-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5 css-1bb7vpk-MuiTypography-root"
               data-testid="alert-banner-title"
             >
               <svg
@@ -1170,7 +1170,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
       data-testid="form"
     >
       <h4
-        class="MuiTypography-root MuiTypography-h4 title Typography-underline css-1ekntu4-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h4 title Typography-underline css-1x9euu8-MuiTypography-root"
         data-testid="typography"
       >
         Print this list
@@ -1184,7 +1184,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
           data-testid="grid-item"
         >
           <p
-            class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
             data-testid="typography"
           >
             To access your list of materials in pdf format that can be saved, shared or printed please supply your name and email address
@@ -1442,7 +1442,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5 css-16m68f8-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5 css-1bb7vpk-MuiTypography-root"
               data-testid="alert-banner-title"
             >
               <svg
@@ -1480,7 +1480,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5 css-16m68f8-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5 css-1bb7vpk-MuiTypography-root"
               data-testid="alert-banner-title"
             >
               <svg
@@ -1506,7 +1506,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
       data-testid="form"
     >
       <h4
-        class="MuiTypography-root MuiTypography-h4 title Typography-underline css-1ekntu4-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h4 title Typography-underline css-1x9euu8-MuiTypography-root"
         data-testid="typography"
       >
         Print this list
@@ -1520,7 +1520,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
           data-testid="grid-item"
         >
           <p
-            class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
             data-testid="typography"
           >
             To access your list of materials in pdf format that can be saved, shared or printed please supply your name and email address

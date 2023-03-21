@@ -3,7 +3,7 @@
 exports[`Document Library page renders correctly  1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1vmtas-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-8mimat-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -178,16 +178,16 @@ exports[`Document Library page renders correctly  1`] = `
                 data-testid="grid-item"
               >
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 css-8200kz-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 css-1j4kt3i-MuiTypography-root"
                   data-testid="typography"
                 >
                   Europe
                 </h6>
                 <div
-                  class="css-1vqzkso"
+                  class="css-1qjezyi"
                 >
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                     href="/al"
                     tabindex="0"
@@ -209,7 +209,7 @@ exports[`Document Library page renders correctly  1`] = `
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                     href="/at"
                     tabindex="0"
@@ -231,7 +231,7 @@ exports[`Document Library page renders correctly  1`] = `
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                     href="/uk"
                     tabindex="0"
@@ -253,7 +253,7 @@ exports[`Document Library page renders correctly  1`] = `
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
                     href="/en"
                     tabindex="0"
@@ -593,7 +593,7 @@ exports[`Document Library page renders correctly  1`] = `
         />
       </button>
       <nav
-        class="css-1q3sjsb"
+        class="css-12skhd1"
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
@@ -602,7 +602,7 @@ exports[`Document Library page renders correctly  1`] = `
           <ul>
             <li>
               <h6
-                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1nuwz6u-MuiTypography-root"
                 data-testid="navigation-list-footer"
               >
                 MC: menu.mainTitle
@@ -677,7 +677,7 @@ exports[`Document Library page renders correctly  1`] = `
                   </li>
                   <li>
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Select category
@@ -1229,7 +1229,7 @@ exports[`Document Library page renders correctly  1`] = `
                   </li>
                   <li>
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Our Brands
@@ -2606,7 +2606,7 @@ exports[`Document Library page renders correctly  1`] = `
           />
         </button>
         <h4
-          class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
           data-testid="typography"
         >
           MC: search.title
@@ -2643,68 +2643,72 @@ exports[`Document Library page renders correctly  1`] = `
       </span>
     </div>
     <div
-      class="Hero-slim Hero-lvl2 css-104w4lq"
+      class="Hero-slim Hero-lvl2 css-17es170"
       data-testid="hero"
     >
       <div
         class=" css-ze8cyt"
       >
         <div
-          class="MuiContainer-root MuiContainer-maxWidthXl css-3hqf54-MuiContainer-root"
+          class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1h9wose-MuiContainer-root"
         >
           <div
             class="Hero-wrapper"
           >
-            <nav
-              aria-label="breadcrumbs"
-              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
-              data-testid="document-library-page-breadcrumbs-top"
+            <div
+              class="Hero-breadcrumbs"
             >
-              <ol
-                class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+              <nav
+                aria-label="breadcrumbs"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                data-testid="document-library-page-breadcrumbs-top"
               >
-                <li
-                  class="MuiBreadcrumbs-li"
+                <ol
+                  class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
                 >
-                  <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
-                    data-testid="bread-crumb-Home"
-                    href="/en/"
-                    tabindex="0"
+                  <li
+                    class="MuiBreadcrumbs-li"
                   >
-                    <span
-                      class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                    <a
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                      data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
+                      data-testid="bread-crumb-Home"
+                      href="/en/"
+                      tabindex="0"
                     >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
-                        data-testid="ArrowBackIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
+                      <span
+                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                       >
-                        <path
-                          d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                        />
-                      </svg>
-                    </span>
-                    <span
-                      class="Breadcrumbs-label"
-                    >
-                      Home
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                    />
-                  </a>
-                </li>
-              </ol>
-            </nav>
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                          data-testid="ArrowBackIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="Breadcrumbs-label"
+                      >
+                        Home
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </a>
+                  </li>
+                </ol>
+              </nav>
+            </div>
             <div
               class="Hero-content"
             >
               <h1
-                class="MuiTypography-root MuiTypography-h1 Hero-title Typography-underline Typography-darkBg css-1stz9tq-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h1 Hero-title Typography-underline Typography-darkBg css-1v05vzk-MuiTypography-root"
                 data-testid="hero-title"
               >
                 title
@@ -2715,7 +2719,7 @@ exports[`Document Library page renders correctly  1`] = `
       </div>
     </div>
     <div
-      class="Section-root Section-white css-cxq310"
+      class="Section-root Section-white css-10chrh8"
       data-testid="section-document-library-filters"
       id="document-library-filters"
     >
@@ -2743,7 +2747,7 @@ exports[`Document Library page renders correctly  1`] = `
                     class="box"
                   >
                     <h5
-                      class="MuiTypography-root MuiTypography-h5  css-10q7alf-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
                       data-testid="typography"
                     >
                       MC: documentLibrary.filters.title
@@ -2770,7 +2774,7 @@ exports[`Document Library page renders correctly  1`] = `
                         <div
                           aria-expanded="false"
                           aria-label="filterLabels.Brand"
-                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
+                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-lxjiqx-MuiButtonBase-root-MuiAccordionSummary-root"
                           data-gtm="{"id":"filter1","label":"filterLabels.Brand","action":"Selector – Filter"}"
                           role="button"
                           tabindex="0"
@@ -2779,7 +2783,7 @@ exports[`Document Library page renders correctly  1`] = `
                             class="MuiAccordionSummary-content Accordion-summaryContent MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
                           >
                             <h6
-                              class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                               data-testid="typography"
                             >
                               filterLabels.Brand
@@ -2924,7 +2928,7 @@ exports[`Document Library page renders correctly  1`] = `
       </div>
     </div>
     <div
-      class="Section-root Section-alabaster Section-slim css-cxq310"
+      class="Section-root Section-alabaster Section-slim css-10chrh8"
       data-testid="breadcrumbs-section-bottom"
     >
       <div
@@ -3004,7 +3008,7 @@ exports[`Document Library page renders correctly  1`] = `
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 Contact Us
@@ -3015,7 +3019,7 @@ exports[`Document Library page renders correctly  1`] = `
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 About BMI
@@ -3092,7 +3096,7 @@ exports[`Document Library page renders correctly  1`] = `
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                  Our portals
@@ -3169,7 +3173,7 @@ exports[`Document Library page renders correctly  1`] = `
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 Careers
@@ -3355,7 +3359,7 @@ exports[`Document Library page should render DocumentCardsResults correctly if s
     data-testid="grid-item"
   >
     <a
-      class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-iozq77-MuiButtonBase-root"
+      class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
       data-gtm="{"id":"cta-click1","label":"MC: documentLibrary.card.download","action":"http://localhost:9000/asset-filename.jpg"}"
       href="https:http://localhost:9000/asset-filename.jpg"
       rel="noopener noreferrer"
@@ -3383,17 +3387,17 @@ exports[`Document Library page should render DocumentCardsResults correctly if s
           </svg>
         </div>
         <h4
-          class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1ekntu4-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
           data-testid="overview-card-body-title"
         >
           contentful document title
         </h4>
         <div
-          class="OverviewCard-text css-fm25tm"
+          class="OverviewCard-text css-kl66ak"
           data-testid="overview-card-body-description"
         />
         <div
-          class="css-1tho2wt"
+          class="css-ekp6jg"
           data-testid="overview-card-body-footer"
         >
           <span
@@ -4953,7 +4957,7 @@ exports[`Document Library page should render DocumentTechnicalTableResults corre
       >
         <div
           aria-expanded="false"
-          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
+          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-lxjiqx-MuiButtonBase-root-MuiAccordionSummary-root"
           data-gtm="{"id":"selector-accordion1","label":"product-base-code","action":"Selector – Accordion"}"
           role="button"
           tabindex="0"

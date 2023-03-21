@@ -1,5 +1,4 @@
 import {
-  AnchorLink,
   Grid,
   OverviewCard,
   OverviewCardProps,
@@ -15,6 +14,7 @@ import withGTM from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
 import BrandLogo from "./BrandLogo";
 import { useSiteContext } from "./Site";
+import { FooterAnchorLink } from "./styles/ProductGridViewStyles";
 
 export type Props = {
   products: ReadonlyArray<ESProduct>;
@@ -93,9 +93,9 @@ const ProductsGridView = ({
                 action: productUrl
               }}
               footer={
-                <AnchorLink component="span" iconEnd>
+                <FooterAnchorLink component="span" iconEnd>
                   {getMicroCopy(microCopy.PLP_PRODUCT_VIEW_DETAILS)}
-                </AnchorLink>
+                </FooterAnchorLink>
               }
               moreOptionsAvailable={moreOptionsAvailable}
             >

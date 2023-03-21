@@ -127,6 +127,7 @@ const CardCollectionItem = ({
           {link && transformedCardLabel ? (
             isFlat ? (
               <CardButton
+                className={styles["footer-button"]}
                 data-testid={"card-link"}
                 component={GTMButton}
                 variant="outlined"
@@ -136,6 +137,7 @@ const CardCollectionItem = ({
               </CardButton>
             ) : (
               <Button
+                className={styles["footer-button"]}
                 data-testid={"card-link"}
                 component="span"
                 variant="outlined"

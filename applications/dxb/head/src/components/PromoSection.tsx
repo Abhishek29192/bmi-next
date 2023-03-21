@@ -62,7 +62,7 @@ const IntegratedPromoSection = ({ data }: { data: Data }) => {
       isReversed={theme ? theme.isReversed : null}
       data-testid="promo-section"
     >
-      {body ? <RichText document={body} /> : subtitle}
+      {body ? <RichText document={body} hasNoBottomMargin /> : subtitle}
       {cta && (
         <div className={styles["link"]}>
           <Link

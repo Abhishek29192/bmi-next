@@ -1,5 +1,4 @@
 import {
-  AnchorLink,
   Filter,
   Grid,
   OverviewCard,
@@ -14,6 +13,7 @@ import { getSearchParams } from "../../../utils/filters";
 import { enhanceColourFilterWithSwatches } from "../../../utils/filtersUI";
 import withGTM from "../../../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../../../utils/path";
+import { FooterAnchorLink } from "../styles";
 import type { Context as SiteContext } from "../../../components/Site";
 import type { PageContextType } from "../components/product-lister-page";
 
@@ -85,7 +85,7 @@ export const renderProducts = (
             label: getMicroCopy("plp.product.viewDetails")
           }}
           footer={
-            <AnchorLink
+            <FooterAnchorLink
               action={{
                 model: "routerLink",
                 linkComponent: GatsbyLink,
@@ -94,7 +94,7 @@ export const renderProducts = (
               iconEnd
             >
               {getMicroCopy("plp.product.viewDetails")}
-            </AnchorLink>
+            </FooterAnchorLink>
           }
           moreOptionsAvailable={moreOptionsAvailable}
         >

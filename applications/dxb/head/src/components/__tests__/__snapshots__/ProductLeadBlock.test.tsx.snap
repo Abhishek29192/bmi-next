@@ -209,22 +209,22 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
             data-testid="grid-item"
           >
             <p
-              class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
               data-testid="typography"
             >
               <div
-                class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 productDescription css-1o02bdp-MuiTypography-root"
                 data-testid="typography"
               >
                 Description
               </div>
             </p>
             <p
-              class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
               data-testid="typography"
             >
               <h5
-                class="MuiTypography-root MuiTypography-h5 css-1mafjam-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h5 css-ulrehz-MuiTypography-root"
                 data-testid="typography"
               >
                 MC: pdp.leadBlock.guaranteesWarranties
@@ -291,11 +291,11 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               </div>
             </p>
             <p
-              class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
               data-testid="typography"
             >
               <h5
-                class="MuiTypography-root MuiTypography-h5 css-1mafjam-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h5 css-ulrehz-MuiTypography-root"
                 data-testid="typography"
               >
                 MC: pdp.leadBlock.awardsCertificates
@@ -383,22 +383,22 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               class="ColorPair-blue900 css-1pt14k0"
             >
               <div
-                class="css-qtgtj9"
+                class="css-1qwqwtx"
               >
                 <div
-                  class="css-wepxue"
+                  class="css-asoc7f"
                 >
                   <h4
-                    class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h4 css-16mi5sh-MuiTypography-root"
                     data-testid="typography"
                   >
                     MC: pdp.leadBlock.keyFeatures
                   </h4>
                   <div
-                    class="css-1xaekgw"
+                    class="css-eler5f"
                   >
                     <ul
-                      class="css-1err4t"
+                      class="css-1wmdec9"
                     >
                       <li
                         class="IconList-isCompact css-nggtm6"
@@ -422,7 +422,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                           class="css-1lg3fd1"
                         >
                           <p
-                            class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                            class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                             data-testid="typography"
                           >
                             product-benefit
@@ -1050,7 +1050,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               />
             </button>
             <p
-              class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-87ejlm-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
               data-testid="typography"
             >
               This site is protected by reCAPTCHA and the Google 
@@ -1115,7 +1115,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
             data-testid="grid-item"
           >
             <p
-              class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
               data-testid="typography"
             >
               <div
@@ -1382,22 +1382,22 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
             data-testid="grid-item"
           >
             <p
-              class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
               data-testid="typography"
             >
               <div
-                class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 productDescription css-1o02bdp-MuiTypography-root"
                 data-testid="typography"
               >
                 Description
               </div>
             </p>
             <p
-              class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
               data-testid="typography"
             >
               <h5
-                class="MuiTypography-root MuiTypography-h5 css-1mafjam-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h5 css-ulrehz-MuiTypography-root"
                 data-testid="typography"
               >
                 MC: pdp.leadBlock.guaranteesWarranties
@@ -1460,11 +1460,11 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               </div>
             </p>
             <p
-              class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
               data-testid="typography"
             >
               <h5
-                class="MuiTypography-root MuiTypography-h5 css-1mafjam-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h5 css-ulrehz-MuiTypography-root"
                 data-testid="typography"
               >
                 MC: pdp.leadBlock.awardsCertificates
@@ -1552,22 +1552,22 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               class="ColorPair-blue900 css-1pt14k0"
             >
               <div
-                class="css-qtgtj9"
+                class="css-1qwqwtx"
               >
                 <div
-                  class="css-wepxue"
+                  class="css-asoc7f"
                 >
                   <h4
-                    class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h4 css-16mi5sh-MuiTypography-root"
                     data-testid="typography"
                   >
                     MC: pdp.leadBlock.keyFeatures
                   </h4>
                   <div
-                    class="css-1xaekgw"
+                    class="css-eler5f"
                   >
                     <ul
-                      class="css-1err4t"
+                      class="css-1wmdec9"
                     >
                       <li
                         class="IconList-isCompact css-nggtm6"
@@ -1591,7 +1591,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                           class="css-1lg3fd1"
                         >
                           <p
-                            class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                            class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                             data-testid="typography"
                           >
                             product-benefit
@@ -1981,7 +1981,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               />
             </button>
             <p
-              class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-87ejlm-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
               data-testid="typography"
             >
               This site is protected by reCAPTCHA and the Google 
@@ -2046,7 +2046,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
             data-testid="grid-item"
           >
             <p
-              class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
               data-testid="typography"
             >
               <div
@@ -2297,22 +2297,22 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
             data-testid="grid-item"
           >
             <p
-              class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
               data-testid="typography"
             >
               <div
-                class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 productDescription css-1o02bdp-MuiTypography-root"
                 data-testid="typography"
               >
                 Description
               </div>
             </p>
             <p
-              class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
               data-testid="typography"
             >
               <h5
-                class="MuiTypography-root MuiTypography-h5 css-1mafjam-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h5 css-ulrehz-MuiTypography-root"
                 data-testid="typography"
               >
                 MC: pdp.leadBlock.guaranteesWarranties
@@ -2375,11 +2375,11 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
               </div>
             </p>
             <p
-              class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
               data-testid="typography"
             >
               <h5
-                class="MuiTypography-root MuiTypography-h5 css-1mafjam-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h5 css-ulrehz-MuiTypography-root"
                 data-testid="typography"
               >
                 MC: pdp.leadBlock.awardsCertificates
@@ -2467,22 +2467,22 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
               class="ColorPair-blue900 css-1pt14k0"
             >
               <div
-                class="css-qtgtj9"
+                class="css-1qwqwtx"
               >
                 <div
-                  class="css-wepxue"
+                  class="css-asoc7f"
                 >
                   <h4
-                    class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h4 css-16mi5sh-MuiTypography-root"
                     data-testid="typography"
                   >
                     MC: pdp.leadBlock.keyFeatures
                   </h4>
                   <div
-                    class="css-1xaekgw"
+                    class="css-eler5f"
                   >
                     <ul
-                      class="css-1err4t"
+                      class="css-1wmdec9"
                     >
                       <li
                         class="IconList-isCompact css-nggtm6"
@@ -2506,7 +2506,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
                           class="css-1lg3fd1"
                         >
                           <p
-                            class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                            class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                             data-testid="typography"
                           >
                             product-benefit
@@ -2624,7 +2624,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
             data-testid="grid-item"
           >
             <p
-              class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
               data-testid="typography"
             >
               <div
@@ -3210,7 +3210,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
         />
       </button>
       <p
-        class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-87ejlm-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
         data-testid="typography"
       >
         This site is protected by reCAPTCHA and the Google 
@@ -3262,22 +3262,22 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
       data-testid="grid-item"
     >
       <p
-        class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
         data-testid="typography"
       >
         <div
-          class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 productDescription css-1o02bdp-MuiTypography-root"
           data-testid="typography"
         >
           Description
         </div>
       </p>
       <p
-        class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
         data-testid="typography"
       >
         <h5
-          class="MuiTypography-root MuiTypography-h5 css-1mafjam-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h5 css-ulrehz-MuiTypography-root"
           data-testid="typography"
         >
           MC: pdp.leadBlock.guaranteesWarranties
@@ -3344,11 +3344,11 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
         </div>
       </p>
       <p
-        class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
         data-testid="typography"
       >
         <h5
-          class="MuiTypography-root MuiTypography-h5 css-1mafjam-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h5 css-ulrehz-MuiTypography-root"
           data-testid="typography"
         >
           MC: pdp.leadBlock.awardsCertificates
@@ -3436,22 +3436,22 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
         class="ColorPair-blue900 css-1pt14k0"
       >
         <div
-          class="css-qtgtj9"
+          class="css-1qwqwtx"
         >
           <div
-            class="css-wepxue"
+            class="css-asoc7f"
           >
             <h4
-              class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h4 css-16mi5sh-MuiTypography-root"
               data-testid="typography"
             >
               MC: pdp.leadBlock.keyFeatures
             </h4>
             <div
-              class="css-1xaekgw"
+              class="css-eler5f"
             >
               <ul
-                class="css-1err4t"
+                class="css-1wmdec9"
               >
                 <li
                   class="IconList-isCompact css-nggtm6"
@@ -3475,7 +3475,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
                     class="css-1lg3fd1"
                   >
                     <p
-                      class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                       data-testid="typography"
                     >
                       product-benefit
@@ -4020,7 +4020,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
         />
       </button>
       <p
-        class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-87ejlm-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
         data-testid="typography"
       >
         This site is protected by reCAPTCHA and the Google 
@@ -4083,7 +4083,7 @@ exports[`ProductLeadBlock tests should render the fixing tool tab with title and
   role="tabpanel"
 >
   <h5
-    class="MuiTypography-root MuiTypography-h5 heading css-10q7alf-MuiTypography-root"
+    class="MuiTypography-root MuiTypography-h5 heading css-1lhxn1g-MuiTypography-root"
     data-testid="typography"
   >
     Fixing tool title
@@ -4107,7 +4107,7 @@ exports[`ProductLeadBlock tests should render the specification tab 1`] = `
   role="tabpanel"
 >
   <h5
-    class="MuiTypography-root MuiTypography-h5 heading css-10q7alf-MuiTypography-root"
+    class="MuiTypography-root MuiTypography-h5 heading css-1lhxn1g-MuiTypography-root"
     data-testid="typography"
   >
     Specification title
@@ -4139,7 +4139,7 @@ exports[`ProductLeadBlock tests should render the technical draws tab 1`] = `
       data-testid="grid-item"
     >
       <p
-        class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
         data-testid="typography"
       >
         <div

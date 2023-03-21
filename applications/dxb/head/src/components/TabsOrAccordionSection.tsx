@@ -48,7 +48,7 @@ const SectionAccordion = ({
                 </Typography>
               </GTMAccordionSummary>
               <Accordion.Details>
-                <RichText document={content} />
+                <RichText document={content} hasNoBottomMargin />
               </Accordion.Details>
             </Accordion.Item>
           );

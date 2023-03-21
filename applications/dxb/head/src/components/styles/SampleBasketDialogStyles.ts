@@ -50,8 +50,11 @@ export const CartInfo = styled("div")(({ theme }) => ({
   fontSize: "1rem",
   color: theme.colours.slate,
   fontFamily: "Effra Regular",
-  "&:first-child": {
-    marginTop: "24px"
+  "&>p": {
+    margin: 0,
+    "&:last-child": {
+      marginTop: "12px"
+    }
   }
 }));
 
@@ -87,12 +90,14 @@ export const Product = styled("div")(({ theme }) => ({
 }));
 
 export const ImageContainer = styled("div")(({ theme }) => ({
-  width: "125px",
+  maxWidth: "125px",
   display: "flex",
-  padding: "12px 0",
+  padding: "8px 0",
+  marginRight: "45px",
   alignItems: "center",
   [theme.breakpoints!.down!("md")]: {
-    width: "80px"
+    width: "80px",
+    marginRight: "24px"
   }
 }));
 

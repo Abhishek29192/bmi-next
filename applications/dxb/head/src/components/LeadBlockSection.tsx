@@ -3,8 +3,7 @@ import {
   AnchorLinkProps,
   Button,
   LeadBlock,
-  Section,
-  TableOfContent
+  Section
 } from "@bmi-digital/components";
 import { ArrowForward as ArrowForwardIcon } from "@bmi-digital/components/icon";
 import { BLOCKS } from "@contentful/rich-text-types";
@@ -16,6 +15,12 @@ import withGTM from "../utils/google-tag-manager";
 import Link, { Data as LinkData } from "./Link";
 import RichText, { parseReachDataRawFields, RichTextData } from "./RichText";
 import { useSiteContext } from "./Site";
+import {
+  LinksContainer,
+  Text,
+  LeadBlockWrapper,
+  LinkWrapper
+} from "./styles/leadBlockSectionStyles";
 
 export type Data = {
   __typename: "ContentfulLeadBlockSection";
@@ -38,19 +43,24 @@ const LeadBlockSection = ({
   } = useConfig();
 
   return (
-    <Section backgroundColor="white" data-testid={`lead-block-section}`}>
-      <LeadBlock>
+    <Section
+      backgroundColor="white"
+      spacing="none"
+      data-testid={`lead-block-section}`}
+    >
+      <LeadBlockWrapper>
         <LeadBlock.Content>
-          <LeadBlock.Content.Section>
+          <Text>
             {text && (
               <RichText
                 document={text}
                 underlineHeadings={["h2", "h3", "h4"]}
+                hasNoBottomMargin
               />
             )}
-          </LeadBlock.Content.Section>
+          </Text>
           {link && (
-            <LeadBlock.Content.Section>
+            <LinkWrapper>
               <Link
                 component={Button}
                 data={link}
@@ -59,7 +69,7 @@ const LeadBlockSection = ({
               >
                 {link.label}
               </Link>
-            </LeadBlock.Content.Section>
+            </LinkWrapper>
           )}
         </LeadBlock.Content>
         <LeadBlock.Card color="pearl" data-testid="lead-block-card">
@@ -80,7 +90,7 @@ const LeadBlockSection = ({
                   {getMicroCopy(microCopy.PAGE_JUMP_TO_SECTION)}
                 </LeadBlock.Card.Heading>
                 <LeadBlock.Card.Content>
-                  <TableOfContent.Menu
+                  <LinksContainer
                     anchorLinkComponent={(props: AnchorLinkProps) => (
                       <GTMAnchorLink
                         gtm={{
@@ -99,7 +109,7 @@ const LeadBlockSection = ({
             )}
           </LeadBlock.Card.Section>
         </LeadBlock.Card>
-      </LeadBlock>
+      </LeadBlockWrapper>
     </Section>
   );
 };

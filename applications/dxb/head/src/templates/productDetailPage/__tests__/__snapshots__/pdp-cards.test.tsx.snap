@@ -4,7 +4,7 @@ exports[`PdpCardsSection should render CTACard with video 1`] = `
 <body>
   <div>
     <div
-      class="PdpCardsSection Section-root Section-alabaster css-cxq310"
+      class="PdpCardsSection Section-root Section-alabaster css-10chrh8"
       data-testid="pdp-cards-section"
     >
       <div
@@ -14,7 +14,7 @@ exports[`PdpCardsSection should render CTACard with video 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
             data-testid="typography"
           >
             Tips and Information
@@ -35,14 +35,14 @@ exports[`PdpCardsSection should render CTACard with video 1`] = `
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-194lmd0-MuiPaper-root-MuiCard-root"
                 >
                   <a
-                    class="MuiButtonBase-root css-xpckir-MuiButtonBase-root"
+                    class="MuiButtonBase-root css-t5c0m6-MuiButtonBase-root"
                     data-gtm="{"id":"cta-click1","action":"/en/zanda-arktis/","label":"Zanda Arktis "}"
                     data-testid="cta-card-wrapper"
                     href="/en/zanda-arktis/"
                     tabindex="0"
                   >
                     <h5
-                      class="MuiTypography-root MuiTypography-h5 css-1qv4qlr-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h5 css-10wr6mh-MuiTypography-root"
                       data-testid="typography"
                     >
                       Zanda Arktis 
@@ -124,7 +124,7 @@ exports[`PdpCardsSection should render correctly 1`] = `
 <body>
   <div>
     <div
-      class="PdpCardsSection Section-root Section-alabaster css-cxq310"
+      class="PdpCardsSection Section-root Section-alabaster css-10chrh8"
       data-testid="pdp-cards-section"
     >
       <div
@@ -134,7 +134,7 @@ exports[`PdpCardsSection should render correctly 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
             data-testid="typography"
           >
             Tips and Information
@@ -158,10 +158,10 @@ exports[`PdpCardsSection should render correctly 1`] = `
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-194lmd0-MuiPaper-root-MuiCard-root"
                 >
                   <section
-                    class="css-ycekwa"
+                    class="css-1eeyjjm"
                   >
                     <h5
-                      class="MuiTypography-root MuiTypography-h5 css-1qv4qlr-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h5 css-10wr6mh-MuiTypography-root"
                       data-testid="typography"
                     >
                       Zanda Arktis 

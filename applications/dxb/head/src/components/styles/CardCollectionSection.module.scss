@@ -1,6 +1,8 @@
+@import "~@bmi-digital/styles";
+
 .CardCollectionSection {
   .title {
-    margin-bottom: 48px;
+    margin-bottom: 24px;
   }
 
   .group-chips {
@@ -27,9 +29,12 @@
     text-align: center;
   }
 
-  .date {
-    margin-bottom: 24px;
-    margin-top: 8px;
+  .date+.footer-button {
+    margin-top: 24px;
+    
+    @media (max-width: 1024px) {
+      margin-top: 16px;
+    }
   }
 
   .link {

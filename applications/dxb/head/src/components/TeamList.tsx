@@ -14,6 +14,7 @@ import Icon from "./Icon";
 import Image, { Data as ImageData } from "./Image";
 import { Data as LinkData, getClickableActionFromUrl } from "./Link";
 import { useSiteContext } from "./Site";
+import { ProfileRow } from "./styles/TeamListStyles";
 
 export type Data = {
   name: string;
@@ -59,7 +60,7 @@ const TeamList = ({ data }: { data: Data | null }) => {
                   }
                 >
                   {(links || []).map((link, index) => (
-                    <ProfileCard.Row
+                    <ProfileRow
                       key={`team-member-link-${index}`}
                       action={getClickableActionFromUrl(
                         link.linkedPage,
@@ -80,7 +81,7 @@ const TeamList = ({ data }: { data: Data | null }) => {
                       icon={<Icon name={link.icon} />}
                     >
                       {link.label}
-                    </ProfileCard.Row>
+                    </ProfileRow>
                   ))}
                 </ProfileCard>
               </Grid>

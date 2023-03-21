@@ -10,7 +10,7 @@ exports[`PitchedRoofCalculator TileSelection component renders correctly 1`] = `
         class="head"
       >
         <h6
-          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
           data-testid="typography"
         >
           Concrete tiles
@@ -41,7 +41,7 @@ exports[`PitchedRoofCalculator TileSelection component renders correctly 1`] = `
                   value="Zanda_Protector_main_tile"
                 />
                 <div
-                  class="MuiButtonBase-root CardInput-card css-13lto1c-MuiButtonBase-root"
+                  class="MuiButtonBase-root CardInput-card css-6rgev3-MuiButtonBase-root"
                   role="button"
                   tabindex="0"
                 >
@@ -53,13 +53,13 @@ exports[`PitchedRoofCalculator TileSelection component renders correctly 1`] = `
                       style="background-image: url(https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg);"
                     />
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 ToggleCard-title css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 ToggleCard-title css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Zanda Protector main tile
                     </h6>
                     <p
-                      class="MuiTypography-root MuiTypography-body1 ToggleCard-paragraph css-87ejlm-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body1 ToggleCard-paragraph css-1o02bdp-MuiTypography-root"
                       data-testid="typography"
                     >
                       2 colours
@@ -83,7 +83,7 @@ exports[`PitchedRoofCalculator TileSelection component renders with no tiles 1`]
 <div>
   <div>
     <h4
-      class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
       data-testid="typography"
     >
       Couldn't find suitable tiles for the entered dimensions. Please click "Go back" and double-check the dimensions.

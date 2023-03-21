@@ -3,7 +3,7 @@
 exports[`404 page tests When error page data is partially populated renders place holder content 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1vmtas-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-8mimat-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -178,16 +178,16 @@ exports[`404 page tests When error page data is partially populated renders plac
                 data-testid="grid-item"
               >
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 css-8200kz-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 css-1j4kt3i-MuiTypography-root"
                   data-testid="typography"
                 >
                   Europe
                 </h6>
                 <div
-                  class="css-1vqzkso"
+                  class="css-1qjezyi"
                 >
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                     href="/al"
                     tabindex="0"
@@ -209,7 +209,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                     href="/at"
                     tabindex="0"
@@ -231,7 +231,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                     href="/uk"
                     tabindex="0"
@@ -253,7 +253,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
                     href="/en"
                     tabindex="0"
@@ -593,7 +593,7 @@ exports[`404 page tests When error page data is partially populated renders plac
         />
       </button>
       <nav
-        class="css-1q3sjsb"
+        class="css-12skhd1"
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
@@ -602,7 +602,7 @@ exports[`404 page tests When error page data is partially populated renders plac
           <ul>
             <li>
               <h6
-                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1nuwz6u-MuiTypography-root"
                 data-testid="navigation-list-footer"
               >
                 MC: menu.mainTitle
@@ -677,7 +677,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                   </li>
                   <li>
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Select category
@@ -1229,7 +1229,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                   </li>
                   <li>
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Our Brands
@@ -2606,7 +2606,7 @@ exports[`404 page tests When error page data is partially populated renders plac
           />
         </button>
         <h4
-          class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
           data-testid="typography"
         >
           MC: search.title
@@ -2619,7 +2619,7 @@ exports[`404 page tests When error page data is partially populated renders plac
     data-testid="brand-colors-provider"
   >
     <div
-      class=" Section-root Section-white css-25z9ir"
+      class=" Section-root Section-white css-138dy2c"
       data-testid="promo-section"
     >
       <div
@@ -2633,26 +2633,26 @@ exports[`404 page tests When error page data is partially populated renders plac
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 Grid-item css-y6fwcd-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-sm-12 MuiGrid2-grid-md-6 Grid-item css-i0botz-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
                 class="PromoSection-content"
               >
                 <h2
-                  class="MuiTypography-root MuiTypography-h2 PromoSection-title Typography-underline css-ta8c5q-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h2 PromoSection-title Typography-underline css-1gn4sxn-MuiTypography-root"
                   data-testid="typography"
                 >
                   Error:404.title
                 </h2>
                 <h3
-                  class="MuiTypography-root MuiTypography-h3 PromoSection-subtitle css-d7brak-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h3 PromoSection-subtitle css-2221f6-MuiTypography-root"
                   data-testid="typography"
                 >
                   Error:404.title
                 </h3>
                 <p
-                  class="MuiTypography-root MuiTypography-body2 MuiTypography-gutterBottom  css-jy6nst-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body2 MuiTypography-gutterBottom  css-13crjfg-MuiTypography-root"
                   data-testid="typography"
                 >
                   Error:404.subtitle
@@ -2671,7 +2671,7 @@ exports[`404 page tests When error page data is partially populated renders plac
               </div>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 Grid-item css-y6fwcd-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-sm-12 MuiGrid2-grid-md-6 Grid-item css-i0botz-MuiGrid2-root"
               data-testid="grid-item"
             >
               <img
@@ -2708,7 +2708,7 @@ exports[`404 page tests When error page data is partially populated renders plac
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 Contact Us
@@ -2719,7 +2719,7 @@ exports[`404 page tests When error page data is partially populated renders plac
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 About BMI
@@ -2796,7 +2796,7 @@ exports[`404 page tests When error page data is partially populated renders plac
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                  Our portals
@@ -2873,7 +2873,7 @@ exports[`404 page tests When error page data is partially populated renders plac
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 Careers
@@ -3052,7 +3052,7 @@ exports[`404 page tests When error page data is partially populated renders plac
 exports[`404 page tests When site data and error page data are fully populated renders page content and FourOFour content 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1vmtas-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-8mimat-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -3227,16 +3227,16 @@ exports[`404 page tests When site data and error page data are fully populated r
                 data-testid="grid-item"
               >
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 css-8200kz-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 css-1j4kt3i-MuiTypography-root"
                   data-testid="typography"
                 >
                   Europe
                 </h6>
                 <div
-                  class="css-1vqzkso"
+                  class="css-1qjezyi"
                 >
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                     href="/al"
                     tabindex="0"
@@ -3258,7 +3258,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                     href="/at"
                     tabindex="0"
@@ -3280,7 +3280,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                     href="/uk"
                     tabindex="0"
@@ -3302,7 +3302,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
                     href="/en"
                     tabindex="0"
@@ -3642,7 +3642,7 @@ exports[`404 page tests When site data and error page data are fully populated r
         />
       </button>
       <nav
-        class="css-1q3sjsb"
+        class="css-12skhd1"
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
@@ -3651,7 +3651,7 @@ exports[`404 page tests When site data and error page data are fully populated r
           <ul>
             <li>
               <h6
-                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1nuwz6u-MuiTypography-root"
                 data-testid="navigation-list-footer"
               >
                 MC: menu.mainTitle
@@ -3726,7 +3726,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                   </li>
                   <li>
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Select category
@@ -4278,7 +4278,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                   </li>
                   <li>
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Our Brands
@@ -5655,7 +5655,7 @@ exports[`404 page tests When site data and error page data are fully populated r
           />
         </button>
         <h4
-          class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
           data-testid="typography"
         >
           MC: search.title
@@ -5668,7 +5668,7 @@ exports[`404 page tests When site data and error page data are fully populated r
     data-testid="brand-colors-provider"
   >
     <div
-      class=" Section-root Section-white css-25z9ir"
+      class=" Section-root Section-white css-138dy2c"
       data-testid="promo-section"
     >
       <div
@@ -5682,26 +5682,26 @@ exports[`404 page tests When site data and error page data are fully populated r
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 Grid-item css-y6fwcd-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-sm-12 MuiGrid2-grid-md-6 Grid-item css-i0botz-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
                 class="PromoSection-content"
               >
                 <h2
-                  class="MuiTypography-root MuiTypography-h2 PromoSection-title Typography-underline css-ta8c5q-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h2 PromoSection-title Typography-underline css-1gn4sxn-MuiTypography-root"
                   data-testid="typography"
                 >
                   promo-title
                 </h2>
                 <h3
-                  class="MuiTypography-root MuiTypography-h3 PromoSection-subtitle css-d7brak-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h3 PromoSection-subtitle css-2221f6-MuiTypography-root"
                   data-testid="typography"
                 >
                   promo-title
                 </h3>
                 <p
-                  class="MuiTypography-root MuiTypography-body2 MuiTypography-gutterBottom  css-jy6nst-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body2 MuiTypography-gutterBottom  css-13crjfg-MuiTypography-root"
                   data-testid="typography"
                 >
                   promo-sub-title
@@ -5720,7 +5720,7 @@ exports[`404 page tests When site data and error page data are fully populated r
               </div>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 Grid-item css-y6fwcd-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-sm-12 MuiGrid2-grid-md-6 Grid-item css-i0botz-MuiGrid2-root"
               data-testid="grid-item"
             >
               <img
@@ -5757,7 +5757,7 @@ exports[`404 page tests When site data and error page data are fully populated r
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 Contact Us
@@ -5768,7 +5768,7 @@ exports[`404 page tests When site data and error page data are fully populated r
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 About BMI
@@ -5845,7 +5845,7 @@ exports[`404 page tests When site data and error page data are fully populated r
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                  Our portals
@@ -5922,7 +5922,7 @@ exports[`404 page tests When site data and error page data are fully populated r
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 Careers

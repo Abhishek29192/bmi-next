@@ -261,7 +261,7 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
           backgroundColor="white"
           data-testid={`document-library-description-section`}
         >
-          <RichText document={description} />
+          <RichText document={description} hasNoBottomMargin />
         </Section>
       )}
       <DownloadList maxSize={maxSize}>

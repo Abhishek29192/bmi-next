@@ -11,7 +11,7 @@ exports[`Brands component renders correctly 1`] = `
       data-testid="grid-item"
     >
       <a
-        class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-iozq77-MuiButtonBase-root"
+        class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
         data-gtm="{"id":"cta-click1","label":"MC: documentLibrary.card.download","action":"http://localhost:9000/asset-filename.jpg"}"
         href="https:http://localhost:9000/asset-filename.jpg"
         rel="noopener noreferrer"
@@ -32,17 +32,17 @@ exports[`Brands component renders correctly 1`] = `
             class="OverviewCard-brandLogo OverviewCard-negative"
           />
           <h4
-            class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1ekntu4-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
             data-testid="overview-card-body-title"
           >
             contentful document title
           </h4>
           <div
-            class="OverviewCard-text css-fm25tm"
+            class="OverviewCard-text css-kl66ak"
             data-testid="overview-card-body-description"
           />
           <div
-            class="css-1tho2wt"
+            class="css-ekp6jg"
             data-testid="overview-card-body-footer"
           >
             <span
@@ -68,7 +68,7 @@ exports[`Brands component renders correctly 1`] = `
       data-testid="grid-item"
     >
       <a
-        class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-iozq77-MuiButtonBase-root"
+        class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
         data-gtm="{"id":"cta-click1","label":"MC: documentLibrary.card.download","action":"http://localhost:9000/asset-filename.jpg"}"
         href="https:http://localhost:9000/asset-filename.jpg"
         rel="noopener noreferrer"
@@ -96,17 +96,17 @@ exports[`Brands component renders correctly 1`] = `
             </svg>
           </div>
           <h4
-            class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1ekntu4-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
             data-testid="overview-card-body-title"
           >
             contentful document title
           </h4>
           <div
-            class="OverviewCard-text css-fm25tm"
+            class="OverviewCard-text css-kl66ak"
             data-testid="overview-card-body-description"
           />
           <div
-            class="css-1tho2wt"
+            class="css-ekp6jg"
             data-testid="overview-card-body-footer"
           >
             <span
@@ -142,7 +142,7 @@ exports[`Brands component renders correctly for mobile 1`] = `
       data-testid="grid-item"
     >
       <a
-        class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-iozq77-MuiButtonBase-root"
+        class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
         data-gtm="{"id":"cta-click1","label":"MC: documentLibrary.card.download","action":"http://localhost:9000/asset-filename.jpg"}"
         href="https:http://localhost:9000/asset-filename.jpg"
         rel="noopener noreferrer"
@@ -163,17 +163,17 @@ exports[`Brands component renders correctly for mobile 1`] = `
             class="OverviewCard-brandLogo OverviewCard-negative"
           />
           <h4
-            class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1ekntu4-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
             data-testid="overview-card-body-title"
           >
             contentful document title
           </h4>
           <div
-            class="OverviewCard-text css-fm25tm"
+            class="OverviewCard-text css-kl66ak"
             data-testid="overview-card-body-description"
           />
           <div
-            class="css-1tho2wt"
+            class="css-ekp6jg"
             data-testid="overview-card-body-footer"
           >
             <span
@@ -199,7 +199,7 @@ exports[`Brands component renders correctly for mobile 1`] = `
       data-testid="grid-item"
     >
       <a
-        class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-iozq77-MuiButtonBase-root"
+        class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
         data-gtm="{"id":"cta-click1","label":"MC: documentLibrary.card.download","action":"http://localhost:9000/asset-filename.jpg"}"
         href="https:http://localhost:9000/asset-filename.jpg"
         rel="noopener noreferrer"
@@ -227,17 +227,17 @@ exports[`Brands component renders correctly for mobile 1`] = `
             </svg>
           </div>
           <h4
-            class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1ekntu4-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
             data-testid="overview-card-body-title"
           >
             contentful document title
           </h4>
           <div
-            class="OverviewCard-text css-fm25tm"
+            class="OverviewCard-text css-kl66ak"
             data-testid="overview-card-body-description"
           />
           <div
-            class="css-1tho2wt"
+            class="css-ekp6jg"
             data-testid="overview-card-body-footer"
           >
             <span

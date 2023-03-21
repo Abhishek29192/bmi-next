@@ -3,7 +3,7 @@
 exports[`NextBestActions component renders correctly 1`] = `
 <div>
   <div
-    class="Section-root Section-alabaster css-cxq310"
+    class="Section-root Section-alabaster css-10chrh8"
     data-testid="next-best-actions-section"
   >
     <div
@@ -13,7 +13,7 @@ exports[`NextBestActions component renders correctly 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
           data-testid="typography"
         >
           MC: nba.title
@@ -34,7 +34,7 @@ exports[`NextBestActions component renders correctly 1`] = `
               type="button"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4 css-xmpqba-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4 css-u0svqn-MuiTypography-root"
                 data-testid="typography"
               >
                 test
@@ -90,7 +90,7 @@ exports[`NextBestActions component renders correctly 1`] = `
               type="button"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4 css-xmpqba-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4 css-u0svqn-MuiTypography-root"
                 data-testid="typography"
               >
                 test
@@ -144,7 +144,7 @@ exports[`NextBestActions component renders correctly 1`] = `
 exports[`NextBestActions component renders name with no title 1`] = `
 <div>
   <div
-    class="Section-root Section-alabaster css-cxq310"
+    class="Section-root Section-alabaster css-10chrh8"
     data-testid="next-best-actions-section"
   >
     <div
@@ -154,7 +154,7 @@ exports[`NextBestActions component renders name with no title 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
           data-testid="typography"
         >
           MC: nba.title
@@ -177,7 +177,7 @@ exports[`NextBestActions component renders name with no title 1`] = `
               type="button"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4 css-xmpqba-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4 css-u0svqn-MuiTypography-root"
                 data-testid="typography"
               >
                 test name
@@ -231,7 +231,7 @@ exports[`NextBestActions component renders name with no title 1`] = `
 exports[`NextBestActions component renders with no promo cta 1`] = `
 <div>
   <div
-    class="Section-root Section-alabaster css-cxq310"
+    class="Section-root Section-alabaster css-10chrh8"
     data-testid="next-best-actions-section"
   >
     <div
@@ -241,7 +241,7 @@ exports[`NextBestActions component renders with no promo cta 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
           data-testid="typography"
         >
           MC: nba.title
@@ -259,7 +259,7 @@ exports[`NextBestActions component renders with no promo cta 1`] = `
               type="button"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4 css-xmpqba-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4 css-u0svqn-MuiTypography-root"
                 data-testid="typography"
               >
                 test
@@ -281,7 +281,7 @@ exports[`NextBestActions component renders with no promo cta 1`] = `
 exports[`NextBestActions component renders with no promo cta label 1`] = `
 <div>
   <div
-    class="Section-root Section-alabaster css-cxq310"
+    class="Section-root Section-alabaster css-10chrh8"
     data-testid="next-best-actions-section"
   >
     <div
@@ -291,7 +291,7 @@ exports[`NextBestActions component renders with no promo cta label 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
           data-testid="typography"
         >
           MC: nba.title
@@ -314,7 +314,7 @@ exports[`NextBestActions component renders with no promo cta label 1`] = `
               type="button"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4 css-xmpqba-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4 css-u0svqn-MuiTypography-root"
                 data-testid="typography"
               >
                 test

@@ -3,7 +3,7 @@
 exports[`Simple page renders correctly when no feature media 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1vmtas-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-8mimat-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -165,16 +165,16 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                 data-testid="grid-item"
               >
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 css-8200kz-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 css-1j4kt3i-MuiTypography-root"
                   data-testid="typography"
                 >
                   Europe
                 </h6>
                 <div
-                  class="css-1vqzkso"
+                  class="css-1qjezyi"
                 >
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                     href="/al"
                     tabindex="0"
@@ -196,7 +196,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                     href="/at"
                     tabindex="0"
@@ -218,7 +218,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                     href="/uk"
                     tabindex="0"
@@ -240,7 +240,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
                     href="/en"
                     tabindex="0"
@@ -557,7 +557,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
         />
       </button>
       <nav
-        class="css-1q3sjsb"
+        class="css-12skhd1"
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
@@ -566,7 +566,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
           <ul>
             <li>
               <h6
-                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1nuwz6u-MuiTypography-root"
                 data-testid="navigation-list-footer"
               >
                 MC: menu.mainTitle
@@ -641,7 +641,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                   </li>
                   <li>
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Select category
@@ -1009,7 +1009,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                   </li>
                   <li>
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Our Brands
@@ -2201,7 +2201,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
           />
         </button>
         <h4
-          class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
           data-testid="typography"
         >
           MC: search.title
@@ -2210,42 +2210,46 @@ exports[`Simple page renders correctly when no feature media 1`] = `
     </div>
   </header>
   <div
-    class="Hero-keyline Hero-lvl1 css-104w4lq"
+    class="Hero-keyline Hero-lvl1 css-17es170"
     data-testid="hero"
   >
     <div
       class=" css-ze8cyt"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl css-3hqf54-MuiContainer-root"
+        class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1h9wose-MuiContainer-root"
       >
         <div
           class="Hero-wrapper"
         >
-          <nav
-            aria-label="breadcrumbs"
-            class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
-            data-testid="simple-page-breadcrumbs-top"
+          <div
+            class="Hero-breadcrumbs"
           >
-            <ol
-              class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+            <nav
+              aria-label="breadcrumbs"
+              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+              data-testid="simple-page-breadcrumbs-top"
             >
-              <li
-                class="MuiBreadcrumbs-li"
-              />
-            </ol>
-          </nav>
+              <ol
+                class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+              >
+                <li
+                  class="MuiBreadcrumbs-li"
+                />
+              </ol>
+            </nav>
+          </div>
           <div
             class="Hero-content"
           >
             <h1
-              class="MuiTypography-root MuiTypography-h1 Hero-title Typography-underline Typography-darkBg css-1stz9tq-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h1 Hero-title Typography-underline Typography-darkBg css-1v05vzk-MuiTypography-root"
               data-testid="hero-title"
             >
               Simple page
             </h1>
             <div
-              class="css-81i549"
+              class="css-1my6sol"
               data-testid="hero-text"
             >
               Simple page subtitle
@@ -2276,7 +2280,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
   </div>
   <div>
     <div
-      class="Section-root Section-white Section-noSpacing css-cxq310"
+      class="Section-root Section-white Section-noSpacing css-10chrh8"
       data-testid="share-widget-section-top"
     >
       <div
@@ -2290,7 +2294,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
             data-testid="share-widget"
           >
             <h6
-              class="MuiTypography-root MuiTypography-h6 css-ggwmjd-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h6 css-3vdgqd-MuiTypography-root"
               data-testid="typography"
             >
               ShareWidgetSectionTitle
@@ -2304,7 +2308,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
       </div>
     </div>
     <div
-      class="Section-root Section-pearl css-cxq310"
+      class="Section-root Section-pearl css-10chrh8"
       data-testid="link-columns-section"
     >
       <div
@@ -2314,7 +2318,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
             data-testid="typography"
           >
             linkColumnsTitle
@@ -2327,10 +2331,10 @@ exports[`Simple page renders correctly when no feature media 1`] = `
               style="width: 33.333333333333336%;"
             >
               <div
-                class="css-1zau8e"
+                class="css-124mb5t"
               >
                 <h3
-                  class="MuiTypography-root MuiTypography-h5 css-1lr7elm-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 css-ulrehz-MuiTypography-root"
                   data-testid="typography"
                 >
                   Link column title
@@ -2350,7 +2354,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
       </div>
     </div>
     <div
-      class="Section-root Section-white Section-noSpacing css-cxq310"
+      class="Section-root Section-white Section-noSpacing css-10chrh8"
       data-testid="share-widget-section-bottom"
     >
       <div
@@ -2364,7 +2368,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
             data-testid="share-widget"
           >
             <h6
-              class="MuiTypography-root MuiTypography-h6 css-ggwmjd-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h6 css-3vdgqd-MuiTypography-root"
               data-testid="typography"
             >
               ShareWidgetSectionTitle
@@ -2378,7 +2382,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
       </div>
     </div>
     <div
-      class="Section-root Section-alabaster css-cxq310"
+      class="Section-root Section-alabaster css-10chrh8"
       data-testid="next-best-actions-section"
     >
       <div
@@ -2388,7 +2392,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
             data-testid="typography"
           >
             Mer informasjon
@@ -2406,7 +2410,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                 type="button"
               >
                 <h4
-                  class="MuiTypography-root MuiTypography-h4 css-xmpqba-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h4 css-u0svqn-MuiTypography-root"
                   data-testid="typography"
                 >
                   Action 1
@@ -2421,7 +2425,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
       </div>
     </div>
     <div
-      class="Section-root Section-alabaster css-cxq310"
+      class="Section-root Section-alabaster css-10chrh8"
       data-testid="explorer-bar-section"
     >
       <div
@@ -2435,7 +2439,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
             class="css-v7bjwn"
           >
             <h2
-              class="MuiTypography-root MuiTypography-h6 css-jlrilz-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h6 css-1jvwmj5-MuiTypography-root"
               data-testid="typography"
               id="explore-bar"
             >
@@ -2446,7 +2450,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
       </div>
     </div>
     <div
-      class="Section-root Section-alabaster Section-slim css-cxq310"
+      class="Section-root Section-alabaster Section-slim css-10chrh8"
       data-testid="breadcrumbs-section-bottom"
     >
       <div
@@ -2489,7 +2493,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
               class="css-lkf985"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-aj8g3u-MuiGrid2-root"
                 data-testid="grid-container"
               >
                 <div
@@ -2497,7 +2501,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                   data-testid="grid-item"
                 >
                   <h3
-                    class="MuiTypography-root MuiTypography-h3 Typography-underline Typography-darkBg css-d7brak-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h3 Typography-underline Typography-darkBg css-2221f6-MuiTypography-root"
                     data-testid="typography"
                   >
                     signupBlockTitle
@@ -2508,7 +2512,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                   data-testid="grid-item"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-body2  css-1qeh4ig-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2  css-bwrz6w-MuiTypography-root"
                     data-testid="typography"
                   >
                     description
@@ -2575,7 +2579,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 Contact Us
@@ -2586,7 +2590,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 About BMI
@@ -2663,7 +2667,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                  Our portals
@@ -2740,7 +2744,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 Careers
@@ -2883,7 +2887,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
 exports[`Simple page renders correctly with full data 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1vmtas-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-8mimat-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -3058,16 +3062,16 @@ exports[`Simple page renders correctly with full data 1`] = `
                 data-testid="grid-item"
               >
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 css-8200kz-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 css-1j4kt3i-MuiTypography-root"
                   data-testid="typography"
                 >
                   Europe
                 </h6>
                 <div
-                  class="css-1vqzkso"
+                  class="css-1qjezyi"
                 >
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                     href="/al"
                     tabindex="0"
@@ -3089,7 +3093,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                     href="/at"
                     tabindex="0"
@@ -3111,7 +3115,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                     href="/uk"
                     tabindex="0"
@@ -3133,7 +3137,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
                     href="/en"
                     tabindex="0"
@@ -3473,7 +3477,7 @@ exports[`Simple page renders correctly with full data 1`] = `
         />
       </button>
       <nav
-        class="css-1q3sjsb"
+        class="css-12skhd1"
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
@@ -3482,7 +3486,7 @@ exports[`Simple page renders correctly with full data 1`] = `
           <ul>
             <li>
               <h6
-                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1nuwz6u-MuiTypography-root"
                 data-testid="navigation-list-footer"
               >
                 MC: menu.mainTitle
@@ -3557,7 +3561,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                   </li>
                   <li>
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Select category
@@ -4109,7 +4113,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                   </li>
                   <li>
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Our Brands
@@ -5486,7 +5490,7 @@ exports[`Simple page renders correctly with full data 1`] = `
           />
         </button>
         <h4
-          class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
           data-testid="typography"
         >
           MC: search.title
@@ -5495,74 +5499,78 @@ exports[`Simple page renders correctly with full data 1`] = `
     </div>
   </header>
   <div
-    class="Hero-keyline Hero-lvl1 css-104w4lq"
+    class="Hero-keyline Hero-lvl1 css-17es170"
     data-testid="hero"
   >
     <div
       class=" css-ze8cyt"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl css-3hqf54-MuiContainer-root"
+        class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1h9wose-MuiContainer-root"
       >
         <div
           class="Hero-wrapper"
         >
-          <nav
-            aria-label="breadcrumbs"
-            class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
-            data-testid="simple-page-breadcrumbs-top"
+          <div
+            class="Hero-breadcrumbs"
           >
-            <ol
-              class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+            <nav
+              aria-label="breadcrumbs"
+              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+              data-testid="simple-page-breadcrumbs-top"
             >
-              <li
-                class="MuiBreadcrumbs-li"
+              <ol
+                class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
               >
-                <a
-                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
-                  data-testid="bread-crumb-Home"
-                  href="/en/"
-                  tabindex="0"
+                <li
+                  class="MuiBreadcrumbs-li"
                 >
-                  <span
-                    class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                  <a
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
+                    data-testid="bread-crumb-Home"
+                    href="/en/"
+                    tabindex="0"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
-                      data-testid="ArrowBackIcon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
+                    <span
+                      class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                     >
-                      <path
-                        d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                      />
-                    </svg>
-                  </span>
-                  <span
-                    class="Breadcrumbs-label"
-                  >
-                    Home
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                  />
-                </a>
-              </li>
-            </ol>
-          </nav>
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                        data-testid="ArrowBackIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="Breadcrumbs-label"
+                    >
+                      Home
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </a>
+                </li>
+              </ol>
+            </nav>
+          </div>
           <div
             class="Hero-content"
           >
             <h1
-              class="MuiTypography-root MuiTypography-h1 Hero-title Typography-underline Typography-darkBg css-1stz9tq-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h1 Hero-title Typography-underline Typography-darkBg css-1v05vzk-MuiTypography-root"
               data-testid="hero-title"
             >
               Simple page
             </h1>
             <div
-              class="css-81i549"
+              class="css-1my6sol"
               data-testid="hero-text"
             >
               Simple page subtitle
@@ -5636,7 +5644,7 @@ exports[`Simple page renders correctly with full data 1`] = `
   </div>
   <div>
     <div
-      class="Section-root Section-white Section-noSpacing css-cxq310"
+      class="Section-root Section-white Section-noSpacing css-10chrh8"
       data-testid="share-widget-section-top"
     >
       <div
@@ -5650,7 +5658,7 @@ exports[`Simple page renders correctly with full data 1`] = `
             data-testid="share-widget"
           >
             <h6
-              class="MuiTypography-root MuiTypography-h6 css-ggwmjd-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h6 css-3vdgqd-MuiTypography-root"
               data-testid="typography"
             >
               ShareWidgetSectionTitle
@@ -5664,7 +5672,7 @@ exports[`Simple page renders correctly with full data 1`] = `
       </div>
     </div>
     <div
-      class="Section-root Section-white css-cxq310"
+      class="Section-root Section-white Section-noSpacing css-10chrh8"
       data-testid="lead-block-section}"
     >
       <div
@@ -5674,7 +5682,7 @@ exports[`Simple page renders correctly with full data 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-oet5y7-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-78vpf5-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -5682,14 +5690,14 @@ exports[`Simple page renders correctly with full data 1`] = `
               data-testid="grid-item"
             >
               <p
-                class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 css-1n96ef8-MuiTypography-root"
                 data-testid="typography"
               >
                 <div
-                  class="RichText-root css-17t4j5c"
+                  class="RichText-root RichText-no-bottom-margin css-11n1wnk"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
                     data-testid="typography"
                   >
                     test rich text
@@ -5705,21 +5713,23 @@ exports[`Simple page renders correctly with full data 1`] = `
                 class="ColorPair-pearl css-1pt14k0"
               >
                 <div
-                  class="css-qtgtj9"
+                  class="css-1qwqwtx"
                 >
                   <div
-                    class="css-wepxue"
+                    class="css-asoc7f"
                   >
                     <h4
-                      class="MuiTypography-root MuiTypography-h4 Typography-underline css-1ekntu4-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
                       data-testid="typography"
                     >
                       Hurtignavigering
                     </h4>
                     <div
-                      class="css-1xaekgw"
+                      class="css-eler5f"
                     >
-                      <div>
+                      <div
+                        class="css-cku69e"
+                      >
                         <div
                           class="css-1o92lqg"
                         >
@@ -5753,7 +5763,7 @@ exports[`Simple page renders correctly with full data 1`] = `
         data-testid="card-collection-section-ContentfulCardCollectionSectionTitle"
       >
         <div
-          class="Section-root Section-pearl css-cxq310"
+          class="Section-root Section-pearl css-10chrh8"
           data-testid="section"
         >
           <div
@@ -5763,22 +5773,22 @@ exports[`Simple page renders correctly with full data 1`] = `
               class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
             >
               <h2
-                class="MuiTypography-root MuiTypography-h2 title Typography-underline css-ta8c5q-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
                 data-testid="typography"
               >
                 ContentfulCardCollectionSectionTitle
               </h2>
               <div
-                class="RichText-root css-17t4j5c"
+                class="RichText-root css-11n1wnk"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
                   data-testid="typography"
                 >
                   ContentfulCardCollectionSectionText
                 </p>
                 <p
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
                   data-testid="typography"
                 />
               </div>
@@ -5791,7 +5801,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                   data-testid="card-collection-grid-item-id"
                 >
                   <div
-                    class=" MuiBox-root css-1x7vu5"
+                    class=" MuiBox-root css-13ealx6"
                     data-testid="card-collection-section-item-BMI-test-video-on-PROMO"
                     type="button"
                   >
@@ -5849,17 +5859,17 @@ exports[`Simple page renders correctly with full data 1`] = `
                         class="OverviewCard-brandLogo OverviewCard-negative"
                       />
                       <h4
-                        class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1ekntu4-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
                         data-testid="overview-card-body-title"
                       >
                         BMI test video on PROMO
                       </h4>
                       <div
-                        class="OverviewCard-text css-fm25tm"
+                        class="OverviewCard-text css-kl66ak"
                         data-testid="overview-card-body-description"
                       />
                       <div
-                        class="css-1tho2wt"
+                        class="css-ekp6jg"
                         data-testid="overview-card-body-footer"
                       />
                     </div>
@@ -5872,7 +5882,7 @@ exports[`Simple page renders correctly with full data 1`] = `
       </div>
     </div>
     <div
-      class="Section-root Section-pearl css-cxq310"
+      class="Section-root Section-pearl css-10chrh8"
       data-testid="link-columns-section"
     >
       <div
@@ -5882,7 +5892,7 @@ exports[`Simple page renders correctly with full data 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
             data-testid="typography"
           >
             linkColumnsTitle
@@ -5895,10 +5905,10 @@ exports[`Simple page renders correctly with full data 1`] = `
               style="width: 33.333333333333336%;"
             >
               <div
-                class="css-1zau8e"
+                class="css-124mb5t"
               >
                 <h3
-                  class="MuiTypography-root MuiTypography-h5 css-1lr7elm-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 css-ulrehz-MuiTypography-root"
                   data-testid="typography"
                 >
                   Link column title
@@ -5918,7 +5928,7 @@ exports[`Simple page renders correctly with full data 1`] = `
       </div>
     </div>
     <div
-      class="Section-root Section-white Section-noSpacing css-cxq310"
+      class="Section-root Section-white Section-noSpacing css-10chrh8"
       data-testid="share-widget-section-bottom"
     >
       <div
@@ -5932,7 +5942,7 @@ exports[`Simple page renders correctly with full data 1`] = `
             data-testid="share-widget"
           >
             <h6
-              class="MuiTypography-root MuiTypography-h6 css-ggwmjd-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h6 css-3vdgqd-MuiTypography-root"
               data-testid="typography"
             >
               ShareWidgetSectionTitle
@@ -5946,7 +5956,7 @@ exports[`Simple page renders correctly with full data 1`] = `
       </div>
     </div>
     <div
-      class="Section-root Section-alabaster css-cxq310"
+      class="Section-root Section-alabaster css-10chrh8"
       data-testid="next-best-actions-section"
     >
       <div
@@ -5956,7 +5966,7 @@ exports[`Simple page renders correctly with full data 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
             data-testid="typography"
           >
             Mer informasjon
@@ -5974,7 +5984,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                 type="button"
               >
                 <h4
-                  class="MuiTypography-root MuiTypography-h4 css-xmpqba-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h4 css-u0svqn-MuiTypography-root"
                   data-testid="typography"
                 >
                   Action 1
@@ -5989,7 +5999,7 @@ exports[`Simple page renders correctly with full data 1`] = `
       </div>
     </div>
     <div
-      class="Section-root Section-alabaster css-cxq310"
+      class="Section-root Section-alabaster css-10chrh8"
       data-testid="explorer-bar-section"
     >
       <div
@@ -6003,7 +6013,7 @@ exports[`Simple page renders correctly with full data 1`] = `
             class="css-v7bjwn"
           >
             <h2
-              class="MuiTypography-root MuiTypography-h6 css-jlrilz-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h6 css-1jvwmj5-MuiTypography-root"
               data-testid="typography"
               id="explore-bar"
             >
@@ -6014,7 +6024,7 @@ exports[`Simple page renders correctly with full data 1`] = `
       </div>
     </div>
     <div
-      class="Section-root Section-alabaster Section-slim css-cxq310"
+      class="Section-root Section-alabaster Section-slim css-10chrh8"
       data-testid="breadcrumbs-section-bottom"
     >
       <div
@@ -6089,7 +6099,7 @@ exports[`Simple page renders correctly with full data 1`] = `
               class="css-lkf985"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-aj8g3u-MuiGrid2-root"
                 data-testid="grid-container"
               >
                 <div
@@ -6097,7 +6107,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                   data-testid="grid-item"
                 >
                   <h3
-                    class="MuiTypography-root MuiTypography-h3 Typography-underline Typography-darkBg css-d7brak-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h3 Typography-underline Typography-darkBg css-2221f6-MuiTypography-root"
                     data-testid="typography"
                   >
                     signupBlockTitle
@@ -6108,7 +6118,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                   data-testid="grid-item"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-body2  css-1qeh4ig-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2  css-bwrz6w-MuiTypography-root"
                     data-testid="typography"
                   >
                     description
@@ -6175,7 +6185,7 @@ exports[`Simple page renders correctly with full data 1`] = `
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 Contact Us
@@ -6186,7 +6196,7 @@ exports[`Simple page renders correctly with full data 1`] = `
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 About BMI
@@ -6263,7 +6273,7 @@ exports[`Simple page renders correctly with full data 1`] = `
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                  Our portals
@@ -6340,7 +6350,7 @@ exports[`Simple page renders correctly with full data 1`] = `
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 Careers

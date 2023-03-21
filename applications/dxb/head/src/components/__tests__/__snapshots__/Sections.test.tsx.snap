@@ -7,7 +7,7 @@ exports[`Sections component renders alternate backgrounds for promos 1`] = `
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="PromoSection PromoSection-reversed Section-root Section-white css-25z9ir"
+      class="PromoSection PromoSection-reversed Section-root Section-white css-138dy2c"
       data-testid="promo-section"
     >
       <div
@@ -21,20 +21,20 @@ exports[`Sections component renders alternate backgrounds for promos 1`] = `
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 Grid-item css-y6fwcd-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-sm-12 MuiGrid2-grid-md-6 Grid-item css-i0botz-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
                 class="PromoSection-content"
               >
                 <h2
-                  class="MuiTypography-root MuiTypography-h2 PromoSection-title Typography-underline css-ta8c5q-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h2 PromoSection-title Typography-underline css-1gn4sxn-MuiTypography-root"
                   data-testid="typography"
                 >
                   Promo 1
                 </h2>
                 <h3
-                  class="MuiTypography-root MuiTypography-h3 PromoSection-subtitle css-d7brak-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h3 PromoSection-subtitle css-2221f6-MuiTypography-root"
                   data-testid="typography"
                 >
                   Promo 1
@@ -42,7 +42,7 @@ exports[`Sections component renders alternate backgrounds for promos 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 Grid-item css-y6fwcd-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-sm-12 MuiGrid2-grid-md-6 Grid-item css-i0botz-MuiGrid2-root"
               data-testid="grid-item"
             >
               <img
@@ -60,7 +60,7 @@ exports[`Sections component renders alternate backgrounds for promos 1`] = `
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="PromoSection Section-root Section-alabaster css-25z9ir"
+      class="PromoSection Section-root Section-alabaster css-138dy2c"
       data-testid="promo-section"
     >
       <div
@@ -74,20 +74,20 @@ exports[`Sections component renders alternate backgrounds for promos 1`] = `
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 Grid-item css-y6fwcd-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-sm-12 MuiGrid2-grid-md-6 Grid-item css-i0botz-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
                 class="PromoSection-content"
               >
                 <h2
-                  class="MuiTypography-root MuiTypography-h2 PromoSection-title Typography-underline css-ta8c5q-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h2 PromoSection-title Typography-underline css-1gn4sxn-MuiTypography-root"
                   data-testid="typography"
                 >
                   Promo 2
                 </h2>
                 <h3
-                  class="MuiTypography-root MuiTypography-h3 PromoSection-subtitle css-d7brak-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h3 PromoSection-subtitle css-2221f6-MuiTypography-root"
                   data-testid="typography"
                 >
                   Promo 2
@@ -95,7 +95,7 @@ exports[`Sections component renders alternate backgrounds for promos 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 Grid-item css-y6fwcd-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-sm-12 MuiGrid2-grid-md-6 Grid-item css-i0botz-MuiGrid2-root"
               data-testid="grid-item"
             >
               <img
@@ -113,7 +113,7 @@ exports[`Sections component renders alternate backgrounds for promos 1`] = `
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="PromoSection PromoSection-reversed Section-root Section-white css-25z9ir"
+      class="PromoSection PromoSection-reversed Section-root Section-white css-138dy2c"
       data-testid="promo-section"
     >
       <div
@@ -127,29 +127,29 @@ exports[`Sections component renders alternate backgrounds for promos 1`] = `
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 Grid-item css-y6fwcd-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-sm-12 MuiGrid2-grid-md-6 Grid-item css-i0botz-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
                 class="PromoSection-content"
               >
                 <h2
-                  class="MuiTypography-root MuiTypography-h2 PromoSection-title Typography-underline css-ta8c5q-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h2 PromoSection-title Typography-underline css-1gn4sxn-MuiTypography-root"
                   data-testid="typography"
                 >
                   Promo 3
                 </h2>
                 <h3
-                  class="MuiTypography-root MuiTypography-h3 PromoSection-subtitle css-d7brak-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h3 PromoSection-subtitle css-2221f6-MuiTypography-root"
                   data-testid="typography"
                 >
                   Promo 3
                 </h3>
                 <div
-                  class="RichText-root css-17t4j5c"
+                  class="RichText-root RichText-no-bottom-margin css-11n1wnk"
                 >
                   <h2
-                    class="MuiTypography-root MuiTypography-h2 RichText-title css-ta8c5q-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h2 RichText-title css-1gn4sxn-MuiTypography-root"
                     data-testid="typography"
                   >
                     Heading 2
@@ -158,7 +158,7 @@ exports[`Sections component renders alternate backgrounds for promos 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 Grid-item css-y6fwcd-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-sm-12 MuiGrid2-grid-md-6 Grid-item css-i0botz-MuiGrid2-root"
               data-testid="grid-item"
             >
               <img
@@ -181,7 +181,7 @@ exports[`Sections component renders correctly 1`] = `
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="Section-root Section-white css-cxq310"
+      class="Section-root Section-white css-10chrh8"
       data-testid="tabs-or-accordion-section-string"
     >
       <div
@@ -191,13 +191,13 @@ exports[`Sections component renders correctly 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
             data-testid="typography"
           >
             string
           </h2>
           <p
-            class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
             data-testid="typography"
           >
             string
@@ -213,7 +213,7 @@ exports[`Sections component renders correctly 1`] = `
               >
                 <div
                   aria-expanded="false"
-                  class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
+                  class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-lxjiqx-MuiButtonBase-root-MuiAccordionSummary-root"
                   data-gtm="{"id":"selector-accordion1","label":"hello","action":"Selector – Accordion"}"
                   role="button"
                   tabindex="0"
@@ -222,7 +222,7 @@ exports[`Sections component renders correctly 1`] = `
                     class="MuiAccordionSummary-content Accordion-summaryContent MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
                   >
                     <h3
-                      class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       hello
@@ -262,10 +262,10 @@ exports[`Sections component renders correctly 1`] = `
                           class="MuiAccordionDetails-root  css-1r7u8wy-MuiAccordionDetails-root"
                         >
                           <div
-                            class="RichText-root css-17t4j5c"
+                            class="RichText-root RichText-no-bottom-margin css-11n1wnk"
                           >
                             <p
-                              class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
                               data-testid="typography"
                             >
                               Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
@@ -288,7 +288,7 @@ exports[`Sections component renders correctly 1`] = `
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="Section-root Section-pearl css-cxq310"
+      class="Section-root Section-pearl css-10chrh8"
       data-testid="tabs-or-accordion-section-string"
     >
       <div
@@ -298,13 +298,13 @@ exports[`Sections component renders correctly 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
             data-testid="typography"
           >
             string
           </h2>
           <p
-            class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
             data-testid="typography"
           >
             string
@@ -412,10 +412,10 @@ exports[`Sections component renders correctly 1`] = `
                 role="tabpanel"
               >
                 <div
-                  class="RichText-root css-17t4j5c"
+                  class="RichText-root css-11n1wnk"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
                     data-testid="typography"
                   >
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
@@ -433,7 +433,7 @@ exports[`Sections component renders correctly 1`] = `
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="Section-root Section-white css-cxq310"
+      class="Section-root Section-white css-10chrh8"
       data-testid="syndicate-section-Title"
     >
       <div
@@ -443,13 +443,13 @@ exports[`Sections component renders correctly 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
             data-testid="typography"
           >
             Title
           </h2>
           <div
-            class="Villain-contained css-gtagj9"
+            class="Villain-contained css-1rznarn"
           >
             <div
               class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
@@ -463,7 +463,7 @@ exports[`Sections component renders correctly 1`] = `
                   class="Villain-content ColorPair-blue800 css-1pt14k0"
                 >
                   <h3
-                    class="MuiTypography-root MuiTypography-h4 css-duis7c-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h4 Typography-underline css-1brg2u4-MuiTypography-root"
                     data-testid="typography"
                   >
                     Villain 1
@@ -489,7 +489,7 @@ exports[`Sections component renders correctly 1`] = `
             </div>
           </div>
           <div
-            class="Villain-contained Villain-reversed css-gtagj9"
+            class="Villain-contained Villain-reversed css-1rznarn"
           >
             <div
               class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-column-reverse MuiGrid2-spacing-xs-3  css-1b6hany-MuiGrid2-root"
@@ -503,7 +503,7 @@ exports[`Sections component renders correctly 1`] = `
                   class="Villain-content ColorPair-blue800 css-1pt14k0"
                 >
                   <h3
-                    class="MuiTypography-root MuiTypography-h4 css-duis7c-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h4 Typography-underline css-1brg2u4-MuiTypography-root"
                     data-testid="typography"
                   >
                     Villain 2
@@ -541,7 +541,7 @@ exports[`Sections component renders correctly 1`] = `
       data-testid="card-collection-section-card-collection-section-title"
     >
       <div
-        class="Section-root Section-white css-cxq310"
+        class="Section-root Section-white css-10chrh8"
         data-testid="section"
       >
         <div
@@ -551,7 +551,7 @@ exports[`Sections component renders correctly 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h2
-              class="MuiTypography-root MuiTypography-h2 title Typography-underline css-ta8c5q-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
               data-testid="typography"
             >
               card collection section title
@@ -565,7 +565,7 @@ exports[`Sections component renders correctly 1`] = `
                 data-testid="card-collection-grid-item-00000000-0000-0000-0000-000000000000"
               >
                 <div
-                  class="OverviewCard-flat MuiBox-root css-1x7vu5"
+                  class="OverviewCard-flat MuiBox-root css-13ealx6"
                 >
                   <img
                     class="OverviewCard-headerPicture css-7mgsqw-Media"
@@ -592,7 +592,7 @@ exports[`Sections component renders correctly 1`] = `
                       </svg>
                     </div>
                     <h4
-                      class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1ekntu4-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
                       data-testid="overview-card-body-title"
                     >
                       <a
@@ -610,17 +610,17 @@ exports[`Sections component renders correctly 1`] = `
                       </a>
                     </h4>
                     <div
-                      class="OverviewCard-text css-fm25tm"
+                      class="OverviewCard-text css-kl66ak"
                       data-testid="overview-card-body-description"
                     >
                       promo subtitle
                     </div>
                     <div
-                      class="css-1tho2wt"
+                      class="css-ekp6jg"
                       data-testid="overview-card-body-footer"
                     >
                       <a
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                         data-gtm="{"id":"cta-click1","label":"promo title - Card Label","action":"/uk/contact-us/"}"
                         data-testid="card-link"
                         href="/uk/contact-us/"
@@ -691,7 +691,7 @@ exports[`Sections component renders correctly 1`] = `
       data-testid="card-collection-section-card-section-title-2"
     >
       <div
-        class="Section-root Section-pearl css-cxq310"
+        class="Section-root Section-pearl css-10chrh8"
         data-testid="section"
       >
         <div
@@ -701,7 +701,7 @@ exports[`Sections component renders correctly 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h2
-              class="MuiTypography-root MuiTypography-h2 title Typography-underline css-ta8c5q-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
               data-testid="typography"
             >
               card section title 2
@@ -715,7 +715,7 @@ exports[`Sections component renders correctly 1`] = `
                 data-testid="card-collection-grid-item-00000000-0000-0000-0000-000000000000"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-iozq77-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"page title - Go to page title","action":"/uk/path/"}"
                   data-testid="card-collection-section-item-page-title"
                   href="/uk/path/"
@@ -776,23 +776,23 @@ exports[`Sections component renders correctly 1`] = `
                       class="OverviewCard-brandLogo OverviewCard-negative"
                     />
                     <h4
-                      class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1ekntu4-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
                       data-testid="overview-card-body-title"
                     >
                       page title
                     </h4>
                     <div
-                      class="OverviewCard-text css-fm25tm"
+                      class="OverviewCard-text css-kl66ak"
                       data-testid="overview-card-body-description"
                     >
                       page subtitle
                     </div>
                     <div
-                      class="css-1tho2wt"
+                      class="css-ekp6jg"
                       data-testid="overview-card-body-footer"
                     >
                       <span
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
@@ -821,7 +821,7 @@ exports[`Sections component renders correctly 1`] = `
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="PromoSection Section-root Section-alabaster css-25z9ir"
+      class="PromoSection Section-root Section-alabaster css-138dy2c"
       data-testid="promo-section"
     >
       <div
@@ -835,20 +835,20 @@ exports[`Sections component renders correctly 1`] = `
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 Grid-item css-y6fwcd-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-sm-12 MuiGrid2-grid-md-6 Grid-item css-i0botz-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
                 class="PromoSection-content"
               >
                 <h2
-                  class="MuiTypography-root MuiTypography-h2 PromoSection-title Typography-underline css-ta8c5q-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h2 PromoSection-title Typography-underline css-1gn4sxn-MuiTypography-root"
                   data-testid="typography"
                 >
                   card section title 2
                 </h2>
                 <h3
-                  class="MuiTypography-root MuiTypography-h3 PromoSection-subtitle css-d7brak-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h3 PromoSection-subtitle css-2221f6-MuiTypography-root"
                   data-testid="typography"
                 >
                   card section title 2
@@ -871,7 +871,7 @@ exports[`Sections component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 Grid-item css-y6fwcd-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-sm-12 MuiGrid2-grid-md-6 Grid-item css-i0botz-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -932,7 +932,7 @@ exports[`Sections component renders correctly 1`] = `
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="PromoSection Section-root Section-alabaster css-25z9ir"
+      class="PromoSection Section-root Section-alabaster css-138dy2c"
       data-testid="promo-section"
     >
       <div
@@ -946,20 +946,20 @@ exports[`Sections component renders correctly 1`] = `
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 Grid-item css-y6fwcd-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-sm-12 MuiGrid2-grid-md-6 Grid-item css-i0botz-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
                 class="PromoSection-content"
               >
                 <h2
-                  class="MuiTypography-root MuiTypography-h2 PromoSection-title Typography-underline css-ta8c5q-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h2 PromoSection-title Typography-underline css-1gn4sxn-MuiTypography-root"
                   data-testid="typography"
                 >
                   card section title 2
                 </h2>
                 <h3
-                  class="MuiTypography-root MuiTypography-h3 PromoSection-subtitle css-d7brak-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h3 PromoSection-subtitle css-2221f6-MuiTypography-root"
                   data-testid="typography"
                 >
                   card section title 2
@@ -967,7 +967,7 @@ exports[`Sections component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 Grid-item css-y6fwcd-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-sm-12 MuiGrid2-grid-md-6 Grid-item css-i0botz-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -1028,7 +1028,7 @@ exports[`Sections component renders correctly 1`] = `
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="MediaGallerySection Section-root Section-alabaster css-cxq310"
+      class="MediaGallerySection Section-root Section-alabaster css-10chrh8"
       data-testid="media-gallery-section-Gallery-title"
     >
       <div
@@ -1042,18 +1042,18 @@ exports[`Sections component renders correctly 1`] = `
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-lg-8 Grid-item css-wuqcfn-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-lg-8 gridItem css-wuqcfn-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h2
-                class="MuiTypography-root MuiTypography-h2 Typography-underline css-ta8c5q-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
                 data-testid="typography"
               >
                 Gallery title
               </h2>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 Grid-item css-16fnxy3-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 gridItem css-r7p5j6-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -1119,7 +1119,7 @@ exports[`Sections component renders correctly 1`] = `
                     data-testid="media-gallery-caption-text"
                   >
                     <p
-                      class="MuiTypography-root MuiTypography-h6 css-3kzowp-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 css-1s1oev7-MuiTypography-root"
                       data-testid="typography"
                     >
                       <span
@@ -1143,7 +1143,7 @@ exports[`Sections component renders correctly 1`] = `
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="Section-root Section-white css-cxq310"
+      class="Section-root Section-white css-10chrh8"
       data-testid="document-download-section-Document-Downloads"
     >
       <div
@@ -1153,7 +1153,7 @@ exports[`Sections component renders correctly 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
             data-testid="typography"
           >
             Document Downloads
@@ -1162,10 +1162,10 @@ exports[`Sections component renders correctly 1`] = `
             style="margin-bottom: 40px;"
           >
             <div
-              class="RichText-root css-17t4j5c"
+              class="RichText-root css-11n1wnk"
             >
               <p
-                class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
                 data-testid="typography"
               >
                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
@@ -1181,7 +1181,7 @@ exports[`Sections component renders correctly 1`] = `
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="ServiceLocationSection Section-root Section-white css-cxq310"
+      class="ServiceLocationSection Section-root Section-white css-10chrh8"
       data-testid="service-locator-section-Find-A-Roofer"
     >
       <div
@@ -1263,7 +1263,7 @@ exports[`Sections component renders correctly 1`] = `
                 </div>
               </div>
               <p
-                class="MuiTypography-root MuiTypography-body1 and-or-label css-87ejlm-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 and-or-label css-1o02bdp-MuiTypography-root"
                 data-testid="typography"
               >
                 <span>
@@ -1395,13 +1395,13 @@ exports[`Sections component renders correctly 1`] = `
                 class="no-results"
               >
                 <h4
-                  class="MuiTypography-root MuiTypography-h4 no-results-heading css-1ekntu4-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h4 no-results-heading css-1x9euu8-MuiTypography-root"
                   data-testid="typography"
                 >
                   findARoofer.noResults.title
                 </h4>
                 <p
-                  class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                   data-testid="typography"
                 >
                   findARoofer.noResults.subtitle
@@ -1459,7 +1459,7 @@ exports[`Sections component renders correctly 1`] = `
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="ServiceLocationSection Section-root Section-white css-cxq310"
+      class="ServiceLocationSection Section-root Section-white css-10chrh8"
       data-testid="service-locator-section-Find-A-Roofer"
     >
       <div
@@ -1541,7 +1541,7 @@ exports[`Sections component renders correctly 1`] = `
                 </div>
               </div>
               <p
-                class="MuiTypography-root MuiTypography-body1 and-or-label css-87ejlm-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 and-or-label css-1o02bdp-MuiTypography-root"
                 data-testid="typography"
               >
                 <span>
@@ -1606,7 +1606,7 @@ exports[`Sections component renders correctly 1`] = `
                   class="chips"
                 >
                   <h6
-                    class="MuiTypography-root MuiTypography-h6 chips-label css-1le86ss-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 chips-label css-1nuwz6u-MuiTypography-root"
                     data-testid="typography"
                   >
                     findARoofer.filtersLabel
@@ -1741,13 +1741,13 @@ exports[`Sections component renders correctly 1`] = `
                         style="object-fit: cover; object-position: center;"
                       />
                       <h6
-                        class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom  css-1vyiy8g-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                         data-testid="typography"
                       >
                         roofer 1
                       </h6>
                       <p
-                        class="MuiTypography-root MuiTypography-body1 css-sd7cbl-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                         data-testid="typography"
                       >
                         address 1
@@ -1784,7 +1784,7 @@ exports[`Sections component renders correctly 1`] = `
                           >
                             <div>
                               <dl
-                                class="css-axlavq"
+                                class="css-jmzo47"
                               >
                                 <div
                                   class="CompanyDetails-row"
@@ -1805,7 +1805,7 @@ exports[`Sections component renders correctly 1`] = `
                                       />
                                     </svg>
                                     <span
-                                      class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-87ejlm-MuiTypography-root"
+                                      class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-1o02bdp-MuiTypography-root"
                                       data-testid="typography"
                                     >
                                       global.telephone
@@ -1845,7 +1845,7 @@ exports[`Sections component renders correctly 1`] = `
                                       />
                                     </svg>
                                     <span
-                                      class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-87ejlm-MuiTypography-root"
+                                      class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-1o02bdp-MuiTypography-root"
                                       data-testid="typography"
                                     >
                                       global.email
@@ -1885,7 +1885,7 @@ exports[`Sections component renders correctly 1`] = `
                                       />
                                     </svg>
                                     <span
-                                      class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-87ejlm-MuiTypography-root"
+                                      class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-1o02bdp-MuiTypography-root"
                                       data-testid="typography"
                                     >
                                       global.website
@@ -1916,7 +1916,7 @@ exports[`Sections component renders correctly 1`] = `
                                     class="css-10edjq1"
                                   >
                                     <span
-                                      class="MuiTypography-root MuiTypography-body1 CompanyDetails-label css-87ejlm-MuiTypography-root"
+                                      class="MuiTypography-root MuiTypography-body1 CompanyDetails-label css-1o02bdp-MuiTypography-root"
                                       data-testid="typography"
                                     >
                                       findARoofer.roofTypeLabel
@@ -1932,7 +1932,7 @@ exports[`Sections component renders correctly 1`] = `
                                 </div>
                               </dl>
                               <p
-                                class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 roofer summary
@@ -1957,13 +1957,13 @@ exports[`Sections component renders correctly 1`] = `
                         style="object-fit: cover; object-position: center;"
                       />
                       <h6
-                        class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom  css-1vyiy8g-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                         data-testid="typography"
                       >
                         roofer 2
                       </h6>
                       <p
-                        class="MuiTypography-root MuiTypography-body1 css-sd7cbl-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                         data-testid="typography"
                       >
                         address 1
@@ -2000,7 +2000,7 @@ exports[`Sections component renders correctly 1`] = `
                           >
                             <div>
                               <dl
-                                class="css-axlavq"
+                                class="css-jmzo47"
                               >
                                 <div
                                   class="CompanyDetails-row"
@@ -2021,7 +2021,7 @@ exports[`Sections component renders correctly 1`] = `
                                       />
                                     </svg>
                                     <span
-                                      class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-87ejlm-MuiTypography-root"
+                                      class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-1o02bdp-MuiTypography-root"
                                       data-testid="typography"
                                     >
                                       global.telephone
@@ -2061,7 +2061,7 @@ exports[`Sections component renders correctly 1`] = `
                                       />
                                     </svg>
                                     <span
-                                      class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-87ejlm-MuiTypography-root"
+                                      class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-1o02bdp-MuiTypography-root"
                                       data-testid="typography"
                                     >
                                       global.email
@@ -2101,7 +2101,7 @@ exports[`Sections component renders correctly 1`] = `
                                       />
                                     </svg>
                                     <span
-                                      class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-87ejlm-MuiTypography-root"
+                                      class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-1o02bdp-MuiTypography-root"
                                       data-testid="typography"
                                     >
                                       global.website
@@ -2132,7 +2132,7 @@ exports[`Sections component renders correctly 1`] = `
                                     class="css-10edjq1"
                                   >
                                     <span
-                                      class="MuiTypography-root MuiTypography-body1 CompanyDetails-label css-87ejlm-MuiTypography-root"
+                                      class="MuiTypography-root MuiTypography-body1 CompanyDetails-label css-1o02bdp-MuiTypography-root"
                                       data-testid="typography"
                                     >
                                       findARoofer.roofTypeLabel
@@ -2148,7 +2148,7 @@ exports[`Sections component renders correctly 1`] = `
                                 </div>
                               </dl>
                               <p
-                                class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 roofer summary
@@ -2213,7 +2213,7 @@ exports[`Sections component renders correctly 1`] = `
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="VideoSection Section-root css-cxq310"
+      class="VideoSection Section-root css-10chrh8"
       data-testid="video-section-Section-title"
     >
       <div
@@ -2223,16 +2223,16 @@ exports[`Sections component renders correctly 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 heading Typography-underline css-je89nd-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 heading Typography-underline css-1gn4sxn-MuiTypography-root"
             data-testid="typography"
           >
             Section title
           </h2>
           <div
-            class="RichText-root css-17t4j5c"
+            class="RichText-root RichText-no-bottom-margin css-11n1wnk"
           >
             <p
-              class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
               data-testid="typography"
             >
               Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
@@ -2278,7 +2278,7 @@ exports[`Sections component renders correctly 1`] = `
                     />
                   </button>
                   <p
-                    class="MuiTypography-root MuiTypography-body1 YoutubeVideo-subtitle css-87ejlm-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1 YoutubeVideo-subtitle css-1o02bdp-MuiTypography-root"
                     data-testid="typography"
                   />
                 </div>
@@ -2307,7 +2307,7 @@ exports[`Sections component renders correctly 1`] = `
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="TeamSection-alabaster Section-root css-irirzf"
+      class="TeamSection-alabaster Section-root css-1az4hqf"
       data-testid="section"
     >
       <div
@@ -2325,7 +2325,7 @@ exports[`Sections component renders correctly 1`] = `
               data-testid="grid-item"
             >
               <h2
-                class="MuiTypography-root MuiTypography-h2 Typography-underline css-jpbsv5-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h2 Typography-underline css-trnnr7-MuiTypography-root"
                 data-testid="typography"
               >
                 Team Section - alabaster
@@ -2444,10 +2444,10 @@ exports[`Sections component renders correctly 1`] = `
                         style="margin-bottom: 60px;"
                       >
                         <div
-                          class="RichText-root css-17t4j5c"
+                          class="RichText-root css-11n1wnk"
                         >
                           <p
-                            class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+                            class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
                             data-testid="typography"
                           >
                             Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
@@ -2492,19 +2492,19 @@ exports[`Sections component renders correctly 1`] = `
                                   class="EqualHeights-contentBox css-1kjwaal"
                                 >
                                   <div
-                                    class="css-u0bjcv"
+                                    class="css-pbr3p6"
                                     data-testid="profile-card-body"
                                     style="height: auto;"
                                   >
                                     <div>
                                       <strong
-                                        class="MuiTypography-root MuiTypography-h5  css-10q7alf-MuiTypography-root"
+                                        class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
                                         data-testid="profile-card-body-name"
                                       >
                                         Bob McBobbinson
                                       </strong>
                                       <p
-                                        class="MuiTypography-root MuiTypography-body2 css-cki935-MuiTypography-root"
+                                        class="MuiTypography-root MuiTypography-body2 css-isqx83-MuiTypography-root"
                                         data-testid="profile-card-body-title"
                                       >
                                         CEO
@@ -2532,7 +2532,7 @@ exports[`Sections component renders correctly 1`] = `
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="TeamSection-white Section-root css-irirzf"
+      class="TeamSection-white Section-root css-1az4hqf"
       data-testid="section"
     >
       <div
@@ -2550,7 +2550,7 @@ exports[`Sections component renders correctly 1`] = `
               data-testid="grid-item"
             >
               <h2
-                class="MuiTypography-root MuiTypography-h2 Typography-underline css-jpbsv5-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h2 Typography-underline css-trnnr7-MuiTypography-root"
                 data-testid="typography"
               >
                 Team Section - undefined colour (2 categories)
@@ -2685,10 +2685,10 @@ exports[`Sections component renders correctly 1`] = `
                         style="margin-bottom: 60px;"
                       >
                         <div
-                          class="RichText-root css-17t4j5c"
+                          class="RichText-root css-11n1wnk"
                         >
                           <p
-                            class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+                            class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
                             data-testid="typography"
                           >
                             Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
@@ -2733,19 +2733,19 @@ exports[`Sections component renders correctly 1`] = `
                                   class="EqualHeights-contentBox css-1kjwaal"
                                 >
                                   <div
-                                    class="css-u0bjcv"
+                                    class="css-pbr3p6"
                                     data-testid="profile-card-body"
                                     style="height: auto;"
                                   >
                                     <div>
                                       <strong
-                                        class="MuiTypography-root MuiTypography-h5  css-10q7alf-MuiTypography-root"
+                                        class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
                                         data-testid="profile-card-body-name"
                                       >
                                         Bob McBobbinson
                                       </strong>
                                       <p
-                                        class="MuiTypography-root MuiTypography-body2 css-cki935-MuiTypography-root"
+                                        class="MuiTypography-root MuiTypography-body2 css-isqx83-MuiTypography-root"
                                         data-testid="profile-card-body-title"
                                       >
                                         CEO
@@ -2815,19 +2815,19 @@ exports[`Sections component renders correctly 1`] = `
                                   class="EqualHeights-contentBox css-1kjwaal"
                                 >
                                   <div
-                                    class="css-u0bjcv"
+                                    class="css-pbr3p6"
                                     data-testid="profile-card-body"
                                     style="height: auto;"
                                   >
                                     <div>
                                       <strong
-                                        class="MuiTypography-root MuiTypography-h5  css-10q7alf-MuiTypography-root"
+                                        class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
                                         data-testid="profile-card-body-name"
                                       >
                                         Johnny McJohnson
                                       </strong>
                                       <p
-                                        class="MuiTypography-root MuiTypography-body2 css-cki935-MuiTypography-root"
+                                        class="MuiTypography-root MuiTypography-body2 css-isqx83-MuiTypography-root"
                                         data-testid="profile-card-body-title"
                                       >
                                         CEO
@@ -2855,7 +2855,7 @@ exports[`Sections component renders correctly 1`] = `
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="Section-root css-cxq310"
+      class="Section-root css-10chrh8"
       data-testid="explorer-bar-section-Explore"
     >
       <div
@@ -2869,7 +2869,7 @@ exports[`Sections component renders correctly 1`] = `
             class="css-v7bjwn"
           >
             <h2
-              class="MuiTypography-root MuiTypography-h6 css-jlrilz-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h6 css-1jvwmj5-MuiTypography-root"
               data-testid="typography"
               id="explore-bar"
             >
@@ -2896,7 +2896,7 @@ exports[`Sections component renders correctly 1`] = `
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="Section-root css-cxq310"
+      class="Section-root css-10chrh8"
       data-testid="contentful-form-section-Form-section"
     >
       <div
@@ -2906,7 +2906,7 @@ exports[`Sections component renders correctly 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
             data-testid="typography"
           >
             Form section
@@ -3279,7 +3279,7 @@ exports[`Sections component renders correctly 1`] = `
                       type="file"
                     />
                     <p
-                      class="MuiTypography-root MuiTypography-body1 Upload-mobileInstructions css-87ejlm-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body1 Upload-mobileInstructions css-1o02bdp-MuiTypography-root"
                       data-testid="typography"
                     >
                       form.upload.supportedFormats: .pdf, .jpg, .jpeg, .png. form.upload.maxSize: 5.2MB
@@ -3570,7 +3570,7 @@ exports[`Sections component renders correctly 1`] = `
             </div>
           </form>
           <p
-            class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-87ejlm-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
             data-testid="typography"
           >
             This site is protected by reCAPTCHA and the Google 
@@ -3613,7 +3613,7 @@ exports[`Sections component renders correctly when incomplete 1`] = `
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="Section-root Section-white css-cxq310"
+      class="Section-root Section-white css-10chrh8"
       data-testid="tabs-or-accordion-section-string"
     >
       <div
@@ -3623,13 +3623,13 @@ exports[`Sections component renders correctly when incomplete 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
             data-testid="typography"
           >
             string
           </h2>
           <p
-            class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
             data-testid="typography"
           >
             string
@@ -3645,7 +3645,7 @@ exports[`Sections component renders correctly when incomplete 1`] = `
               >
                 <div
                   aria-expanded="false"
-                  class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
+                  class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-lxjiqx-MuiButtonBase-root-MuiAccordionSummary-root"
                   data-gtm="{"id":"selector-accordion1","label":"hello","action":"Selector – Accordion"}"
                   role="button"
                   tabindex="0"
@@ -3654,7 +3654,7 @@ exports[`Sections component renders correctly when incomplete 1`] = `
                     class="MuiAccordionSummary-content Accordion-summaryContent MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
                   >
                     <h3
-                      class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       hello
@@ -3694,10 +3694,10 @@ exports[`Sections component renders correctly when incomplete 1`] = `
                           class="MuiAccordionDetails-root  css-1r7u8wy-MuiAccordionDetails-root"
                         >
                           <div
-                            class="RichText-root css-17t4j5c"
+                            class="RichText-root RichText-no-bottom-margin css-11n1wnk"
                           >
                             <p
-                              class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
                               data-testid="typography"
                             >
                               Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
@@ -3720,7 +3720,7 @@ exports[`Sections component renders correctly when incomplete 1`] = `
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="Section-root Section-pearl css-cxq310"
+      class="Section-root Section-pearl css-10chrh8"
       data-testid="tabs-or-accordion-section-string"
     >
       <div
@@ -3730,13 +3730,13 @@ exports[`Sections component renders correctly when incomplete 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
             data-testid="typography"
           >
             string
           </h2>
           <p
-            class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
             data-testid="typography"
           >
             string
@@ -3844,10 +3844,10 @@ exports[`Sections component renders correctly when incomplete 1`] = `
                 role="tabpanel"
               >
                 <div
-                  class="RichText-root css-17t4j5c"
+                  class="RichText-root css-11n1wnk"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
                     data-testid="typography"
                   >
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
@@ -3865,7 +3865,7 @@ exports[`Sections component renders correctly when incomplete 1`] = `
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="Section-root Section-white css-cxq310"
+      class="Section-root Section-white css-10chrh8"
       data-testid="syndicate-section-string"
     >
       <div
@@ -3875,7 +3875,7 @@ exports[`Sections component renders correctly when incomplete 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
             data-testid="typography"
           >
             string
@@ -3894,7 +3894,7 @@ exports[`Sections component renders correctly with 1 villain 1`] = `
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="Section-root Section-white css-cxq310"
+      class="Section-root Section-white css-10chrh8"
       data-testid="tabs-or-accordion-section-string"
     >
       <div
@@ -3904,13 +3904,13 @@ exports[`Sections component renders correctly with 1 villain 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
             data-testid="typography"
           >
             string
           </h2>
           <p
-            class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
             data-testid="typography"
           >
             string
@@ -3926,7 +3926,7 @@ exports[`Sections component renders correctly with 1 villain 1`] = `
               >
                 <div
                   aria-expanded="false"
-                  class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
+                  class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-lxjiqx-MuiButtonBase-root-MuiAccordionSummary-root"
                   data-gtm="{"id":"selector-accordion1","label":"hello","action":"Selector – Accordion"}"
                   role="button"
                   tabindex="0"
@@ -3935,7 +3935,7 @@ exports[`Sections component renders correctly with 1 villain 1`] = `
                     class="MuiAccordionSummary-content Accordion-summaryContent MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
                   >
                     <h3
-                      class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       hello
@@ -3975,10 +3975,10 @@ exports[`Sections component renders correctly with 1 villain 1`] = `
                           class="MuiAccordionDetails-root  css-1r7u8wy-MuiAccordionDetails-root"
                         >
                           <div
-                            class="RichText-root css-17t4j5c"
+                            class="RichText-root RichText-no-bottom-margin css-11n1wnk"
                           >
                             <p
-                              class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
                               data-testid="typography"
                             >
                               Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
@@ -4001,7 +4001,7 @@ exports[`Sections component renders correctly with 1 villain 1`] = `
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="Section-root Section-pearl css-cxq310"
+      class="Section-root Section-pearl css-10chrh8"
       data-testid="tabs-or-accordion-section-string"
     >
       <div
@@ -4011,13 +4011,13 @@ exports[`Sections component renders correctly with 1 villain 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
             data-testid="typography"
           >
             string
           </h2>
           <p
-            class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
             data-testid="typography"
           >
             string
@@ -4125,10 +4125,10 @@ exports[`Sections component renders correctly with 1 villain 1`] = `
                 role="tabpanel"
               >
                 <div
-                  class="RichText-root css-17t4j5c"
+                  class="RichText-root css-11n1wnk"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
                     data-testid="typography"
                   >
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
@@ -4146,7 +4146,7 @@ exports[`Sections component renders correctly with 1 villain 1`] = `
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="Villain-fullSize ColorPair-blue800 css-kyvopi"
+      class="Villain-fullSize ColorPair-blue800 css-ui4cq5"
     >
       <div
         class=" css-ze8cyt"
@@ -4158,7 +4158,7 @@ exports[`Sections component renders correctly with 1 villain 1`] = `
             class="Villain-content"
           >
             <h2
-              class="MuiTypography-root MuiTypography-h2 Typography-underline Typography-darkBg css-1v0de6m-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h2 Typography-underline Typography-darkBg css-1jvmopm-MuiTypography-root"
               data-testid="typography"
             >
               Villain 1

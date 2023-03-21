@@ -3,7 +3,7 @@
 exports[`Brand Landing Page Template not render cta link text when cta object is null 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1vmtas-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-8mimat-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -178,16 +178,16 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                 data-testid="grid-item"
               >
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 css-8200kz-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 css-1j4kt3i-MuiTypography-root"
                   data-testid="typography"
                 >
                   Europe
                 </h6>
                 <div
-                  class="css-1vqzkso"
+                  class="css-1qjezyi"
                 >
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                     href="/al"
                     tabindex="0"
@@ -209,7 +209,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                     href="/at"
                     tabindex="0"
@@ -231,7 +231,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                     href="/uk"
                     tabindex="0"
@@ -253,7 +253,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
                     href="/en"
                     tabindex="0"
@@ -593,7 +593,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
         />
       </button>
       <nav
-        class="css-1q3sjsb"
+        class="css-12skhd1"
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
@@ -602,7 +602,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
           <ul>
             <li>
               <h6
-                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1nuwz6u-MuiTypography-root"
                 data-testid="navigation-list-footer"
               >
                 MC: menu.mainTitle
@@ -677,7 +677,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                   </li>
                   <li>
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Select category
@@ -1229,7 +1229,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                   </li>
                   <li>
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Our Brands
@@ -2606,7 +2606,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
           />
         </button>
         <h4
-          class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
           data-testid="typography"
         >
           MC: search.title
@@ -2619,7 +2619,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
     data-testid="brand-colors-provider"
   >
     <div
-      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-3ypdwb"
+      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-nueu6n"
       data-test-class-name="hero"
       data-testid="hero"
     >
@@ -2634,7 +2634,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
           >
             <nav
               aria-label="breadcrumbs"
-              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1prnnfn-MuiTypography-root-MuiBreadcrumbs-root"
               data-testid="brand-landing-page-breadcrumbs-top"
             >
               <ol
@@ -2711,13 +2711,13 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                             class="CarouselHero-content"
                           >
                             <h1
-                              class="MuiTypography-root MuiTypography-h1 Typography-underline Typography-darkBg css-1rt7ftk-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-h1 Typography-underline Typography-darkBg css-b4lozl-MuiTypography-root"
                               data-testid="hero-title"
                             >
                               searchPageNextBestActionsTitle
                             </h1>
-                            <div
-                              class="css-81i549"
+                            <p
+                              class="MuiTypography-root MuiTypography-body1 css-twvsld-MuiTypography-root"
                               data-test-class-name="text"
                               data-testid="hero-content-slide-text"
                             />
@@ -2985,14 +2985,14 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-194lmd0-MuiPaper-root-MuiCard-root"
                 >
                   <a
-                    class="MuiButtonBase-root css-xpckir-MuiButtonBase-root"
+                    class="MuiButtonBase-root css-t5c0m6-MuiButtonBase-root"
                     data-gtm="{"id":"cta-click1","label":"Call to action","action":"/en/some-page/"}"
                     data-testid="overlap-card"
                     href="/en/some-page/"
                     tabindex="0"
                   >
                     <h5
-                      class="MuiTypography-root MuiTypography-h5 css-1qv4qlr-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h5 css-10wr6mh-MuiTypography-root"
                       data-testid="typography"
                     >
                       Call to action
@@ -3074,14 +3074,14 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-194lmd0-MuiPaper-root-MuiCard-root"
                 >
                   <a
-                    class="MuiButtonBase-root css-xpckir-MuiButtonBase-root"
+                    class="MuiButtonBase-root css-t5c0m6-MuiButtonBase-root"
                     data-gtm="{"id":"cta-click1","label":"Call to action","action":"/en/some-page/"}"
                     data-testid="overlap-card"
                     href="/en/some-page/"
                     tabindex="0"
                   >
                     <h5
-                      class="MuiTypography-root MuiTypography-h5 css-1qv4qlr-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h5 css-10wr6mh-MuiTypography-root"
                       data-testid="typography"
                     >
                       Call to action
@@ -3160,7 +3160,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
       style="margin-top: -150px; padding-top: 150px;"
     >
       <div
-        class="Section-root css-cxq310"
+        class="Section-root css-10chrh8"
         data-testid="explorer-bar-section-sectionTitle"
       >
         <div
@@ -3174,7 +3174,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
               class="css-v7bjwn"
             >
               <h2
-                class="MuiTypography-root MuiTypography-h6 css-jlrilz-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 css-1jvwmj5-MuiTypography-root"
                 data-testid="typography"
                 id="explore-bar"
               >
@@ -3186,7 +3186,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
       </div>
     </div>
     <div
-      class="Section-root Section-alabaster Section-slim css-cxq310"
+      class="Section-root Section-alabaster Section-slim css-10chrh8"
       data-testid="breadcrumbs-section-bottom"
     >
       <div
@@ -3266,7 +3266,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 Contact Us
@@ -3277,7 +3277,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 About BMI
@@ -3354,7 +3354,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                  Our portals
@@ -3431,7 +3431,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 Careers
@@ -3610,7 +3610,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
 exports[`Brand Landing Page Template render correctly 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1vmtas-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-8mimat-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -3785,16 +3785,16 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                 data-testid="grid-item"
               >
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 css-8200kz-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 css-1j4kt3i-MuiTypography-root"
                   data-testid="typography"
                 >
                   Europe
                 </h6>
                 <div
-                  class="css-1vqzkso"
+                  class="css-1qjezyi"
                 >
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                     href="/al"
                     tabindex="0"
@@ -3816,7 +3816,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                     href="/at"
                     tabindex="0"
@@ -3838,7 +3838,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                     href="/uk"
                     tabindex="0"
@@ -3860,7 +3860,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
                     href="/en"
                     tabindex="0"
@@ -4200,7 +4200,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
         />
       </button>
       <nav
-        class="css-1q3sjsb"
+        class="css-12skhd1"
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
@@ -4209,7 +4209,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
           <ul>
             <li>
               <h6
-                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1nuwz6u-MuiTypography-root"
                 data-testid="navigation-list-footer"
               >
                 MC: menu.mainTitle
@@ -4284,7 +4284,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                   </li>
                   <li>
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Select category
@@ -4836,7 +4836,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                   </li>
                   <li>
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Our Brands
@@ -6213,7 +6213,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
           />
         </button>
         <h4
-          class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
           data-testid="typography"
         >
           MC: search.title
@@ -6226,7 +6226,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
     data-testid="brand-colors-provider"
   >
     <div
-      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-3ypdwb"
+      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-nueu6n"
       data-test-class-name="hero"
       data-testid="hero"
     >
@@ -6241,7 +6241,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
           >
             <nav
               aria-label="breadcrumbs"
-              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1prnnfn-MuiTypography-root-MuiBreadcrumbs-root"
               data-testid="brand-landing-page-breadcrumbs-top"
             >
               <ol
@@ -6318,16 +6318,16 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                             class="CarouselHero-content"
                           >
                             <h1
-                              class="MuiTypography-root MuiTypography-h1 css-1rt7ftk-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-h1 css-b4lozl-MuiTypography-root"
                               data-testid="hero-title"
                             />
-                            <div
-                              class="css-81i549"
+                            <p
+                              class="MuiTypography-root MuiTypography-body1 css-twvsld-MuiTypography-root"
                               data-test-class-name="text"
                               data-testid="hero-content-slide-text"
                             >
                               description
-                            </div>
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -6562,7 +6562,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
       </div>
     </div>
     <div
-      class="Section-root Section-alabaster Section-slim css-cxq310"
+      class="Section-root Section-alabaster Section-slim css-10chrh8"
       data-testid="breadcrumbs-section-bottom"
     >
       <div
@@ -6642,7 +6642,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 Contact Us
@@ -6653,7 +6653,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 About BMI
@@ -6730,7 +6730,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                  Our portals
@@ -6807,7 +6807,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 Careers
@@ -6986,7 +6986,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
 exports[`Brand Landing Page Template render firstslide featuredMedia instead when no featuredVideo 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1vmtas-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-8mimat-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -7161,16 +7161,16 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
                 data-testid="grid-item"
               >
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 css-8200kz-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 css-1j4kt3i-MuiTypography-root"
                   data-testid="typography"
                 >
                   Europe
                 </h6>
                 <div
-                  class="css-1vqzkso"
+                  class="css-1qjezyi"
                 >
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                     href="/al"
                     tabindex="0"
@@ -7192,7 +7192,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                     href="/at"
                     tabindex="0"
@@ -7214,7 +7214,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                     href="/uk"
                     tabindex="0"
@@ -7236,7 +7236,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
                     href="/en"
                     tabindex="0"
@@ -7576,7 +7576,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
         />
       </button>
       <nav
-        class="css-1q3sjsb"
+        class="css-12skhd1"
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
@@ -7585,7 +7585,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
           <ul>
             <li>
               <h6
-                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1nuwz6u-MuiTypography-root"
                 data-testid="navigation-list-footer"
               >
                 MC: menu.mainTitle
@@ -7660,7 +7660,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
                   </li>
                   <li>
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Select category
@@ -8212,7 +8212,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
                   </li>
                   <li>
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Our Brands
@@ -9589,7 +9589,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
           />
         </button>
         <h4
-          class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
           data-testid="typography"
         >
           MC: search.title
@@ -9602,7 +9602,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
     data-testid="brand-colors-provider"
   >
     <div
-      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-3ypdwb"
+      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-nueu6n"
       data-test-class-name="hero"
       data-testid="hero"
     >
@@ -9617,7 +9617,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
           >
             <nav
               aria-label="breadcrumbs"
-              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1prnnfn-MuiTypography-root-MuiBreadcrumbs-root"
               data-testid="brand-landing-page-breadcrumbs-top"
             >
               <ol
@@ -9694,16 +9694,16 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
                             class="CarouselHero-content"
                           >
                             <h1
-                              class="MuiTypography-root MuiTypography-h1 css-1rt7ftk-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-h1 css-b4lozl-MuiTypography-root"
                               data-testid="hero-title"
                             />
-                            <div
-                              class="css-81i549"
+                            <p
+                              class="MuiTypography-root MuiTypography-body1 css-twvsld-MuiTypography-root"
                               data-test-class-name="text"
                               data-testid="hero-content-slide-text"
                             >
                               description
-                            </div>
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -9964,14 +9964,14 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-194lmd0-MuiPaper-root-MuiCard-root"
                 >
                   <a
-                    class="MuiButtonBase-root css-xpckir-MuiButtonBase-root"
+                    class="MuiButtonBase-root css-t5c0m6-MuiButtonBase-root"
                     data-gtm="{"id":"cta-click1","label":"Call to action","action":"/en/some-page/"}"
                     data-testid="overlap-card"
                     href="/en/some-page/"
                     tabindex="0"
                   >
                     <h5
-                      class="MuiTypography-root MuiTypography-h5 css-1qv4qlr-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h5 css-10wr6mh-MuiTypography-root"
                       data-testid="typography"
                     >
                       Call to action
@@ -10053,14 +10053,14 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-194lmd0-MuiPaper-root-MuiCard-root"
                 >
                   <a
-                    class="MuiButtonBase-root css-xpckir-MuiButtonBase-root"
+                    class="MuiButtonBase-root css-t5c0m6-MuiButtonBase-root"
                     data-gtm="{"id":"cta-click1","label":"Call to action","action":"/en/some-page/"}"
                     data-testid="overlap-card"
                     href="/en/some-page/"
                     tabindex="0"
                   >
                     <h5
-                      class="MuiTypography-root MuiTypography-h5 css-1qv4qlr-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h5 css-10wr6mh-MuiTypography-root"
                       data-testid="typography"
                     >
                       Call to action
@@ -10139,7 +10139,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
       style="margin-top: -150px; padding-top: 150px;"
     >
       <div
-        class="Section-root css-cxq310"
+        class="Section-root css-10chrh8"
         data-testid="explorer-bar-section-sectionTitle"
       >
         <div
@@ -10153,7 +10153,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
               class="css-v7bjwn"
             >
               <h2
-                class="MuiTypography-root MuiTypography-h6 css-jlrilz-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 css-1jvwmj5-MuiTypography-root"
                 data-testid="typography"
                 id="explore-bar"
               >
@@ -10165,7 +10165,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
       </div>
     </div>
     <div
-      class="Section-root Section-alabaster Section-slim css-cxq310"
+      class="Section-root Section-alabaster Section-slim css-10chrh8"
       data-testid="breadcrumbs-section-bottom"
     >
       <div
@@ -10245,7 +10245,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 Contact Us
@@ -10256,7 +10256,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 About BMI
@@ -10333,7 +10333,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                  Our portals
@@ -10410,7 +10410,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 Careers
@@ -10589,7 +10589,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
 exports[`Brand Landing Page Template render linkLabel microcopy when slide is has other typename than ContentfulPromo 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1vmtas-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-8mimat-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -10764,16 +10764,16 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                 data-testid="grid-item"
               >
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 css-8200kz-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 css-1j4kt3i-MuiTypography-root"
                   data-testid="typography"
                 >
                   Europe
                 </h6>
                 <div
-                  class="css-1vqzkso"
+                  class="css-1qjezyi"
                 >
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                     href="/al"
                     tabindex="0"
@@ -10795,7 +10795,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                     href="/at"
                     tabindex="0"
@@ -10817,7 +10817,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                     href="/uk"
                     tabindex="0"
@@ -10839,7 +10839,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
                     href="/en"
                     tabindex="0"
@@ -11179,7 +11179,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
         />
       </button>
       <nav
-        class="css-1q3sjsb"
+        class="css-12skhd1"
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
@@ -11188,7 +11188,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
           <ul>
             <li>
               <h6
-                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1nuwz6u-MuiTypography-root"
                 data-testid="navigation-list-footer"
               >
                 MC: menu.mainTitle
@@ -11263,7 +11263,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                   </li>
                   <li>
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Select category
@@ -11815,7 +11815,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                   </li>
                   <li>
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Our Brands
@@ -13192,7 +13192,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
           />
         </button>
         <h4
-          class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
           data-testid="typography"
         >
           MC: search.title
@@ -13205,7 +13205,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
     data-testid="brand-colors-provider"
   >
     <div
-      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-3ypdwb"
+      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-nueu6n"
       data-test-class-name="hero"
       data-testid="hero"
     >
@@ -13220,7 +13220,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
           >
             <nav
               aria-label="breadcrumbs"
-              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1prnnfn-MuiTypography-root-MuiBreadcrumbs-root"
               data-testid="brand-landing-page-breadcrumbs-top"
             >
               <ol
@@ -13297,13 +13297,13 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                             class="CarouselHero-content"
                           >
                             <h1
-                              class="MuiTypography-root MuiTypography-h1 Typography-underline Typography-darkBg css-1rt7ftk-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-h1 Typography-underline Typography-darkBg css-b4lozl-MuiTypography-root"
                               data-testid="hero-title"
                             >
                               ContentfulSimplePageTitle
                             </h1>
-                            <div
-                              class="css-81i549"
+                            <p
+                              class="MuiTypography-root MuiTypography-body1 css-twvsld-MuiTypography-root"
                               data-test-class-name="text"
                               data-testid="hero-content-slide-text"
                             />
@@ -13541,14 +13541,14 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-194lmd0-MuiPaper-root-MuiCard-root"
                 >
                   <a
-                    class="MuiButtonBase-root css-xpckir-MuiButtonBase-root"
+                    class="MuiButtonBase-root css-t5c0m6-MuiButtonBase-root"
                     data-gtm="{"id":"cta-click1","label":"Call to action","action":"/en/some-page/"}"
                     data-testid="overlap-card"
                     href="/en/some-page/"
                     tabindex="0"
                   >
                     <h5
-                      class="MuiTypography-root MuiTypography-h5 css-1qv4qlr-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h5 css-10wr6mh-MuiTypography-root"
                       data-testid="typography"
                     >
                       Call to action
@@ -13630,14 +13630,14 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-194lmd0-MuiPaper-root-MuiCard-root"
                 >
                   <a
-                    class="MuiButtonBase-root css-xpckir-MuiButtonBase-root"
+                    class="MuiButtonBase-root css-t5c0m6-MuiButtonBase-root"
                     data-gtm="{"id":"cta-click1","label":"Call to action","action":"/en/some-page/"}"
                     data-testid="overlap-card"
                     href="/en/some-page/"
                     tabindex="0"
                   >
                     <h5
-                      class="MuiTypography-root MuiTypography-h5 css-1qv4qlr-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h5 css-10wr6mh-MuiTypography-root"
                       data-testid="typography"
                     >
                       Call to action
@@ -13716,7 +13716,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
       style="margin-top: -150px; padding-top: 150px;"
     >
       <div
-        class="Section-root css-cxq310"
+        class="Section-root css-10chrh8"
         data-testid="explorer-bar-section-sectionTitle"
       >
         <div
@@ -13730,7 +13730,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
               class="css-v7bjwn"
             >
               <h2
-                class="MuiTypography-root MuiTypography-h6 css-jlrilz-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 css-1jvwmj5-MuiTypography-root"
                 data-testid="typography"
                 id="explore-bar"
               >
@@ -13742,7 +13742,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
       </div>
     </div>
     <div
-      class="Section-root Section-alabaster Section-slim css-cxq310"
+      class="Section-root Section-alabaster Section-slim css-10chrh8"
       data-testid="breadcrumbs-section-bottom"
     >
       <div
@@ -13822,7 +13822,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 Contact Us
@@ -13833,7 +13833,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 About BMI
@@ -13910,7 +13910,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                  Our portals
@@ -13987,7 +13987,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 Careers
@@ -14166,7 +14166,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
 exports[`Brand Landing Page Template render no content for first slide when no description 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1vmtas-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-8mimat-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -14341,16 +14341,16 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                 data-testid="grid-item"
               >
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 css-8200kz-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 css-1j4kt3i-MuiTypography-root"
                   data-testid="typography"
                 >
                   Europe
                 </h6>
                 <div
-                  class="css-1vqzkso"
+                  class="css-1qjezyi"
                 >
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                     href="/al"
                     tabindex="0"
@@ -14372,7 +14372,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                     href="/at"
                     tabindex="0"
@@ -14394,7 +14394,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                     href="/uk"
                     tabindex="0"
@@ -14416,7 +14416,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
                     href="/en"
                     tabindex="0"
@@ -14756,7 +14756,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
         />
       </button>
       <nav
-        class="css-1q3sjsb"
+        class="css-12skhd1"
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
@@ -14765,7 +14765,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
           <ul>
             <li>
               <h6
-                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1nuwz6u-MuiTypography-root"
                 data-testid="navigation-list-footer"
               >
                 MC: menu.mainTitle
@@ -14840,7 +14840,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                   </li>
                   <li>
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Select category
@@ -15392,7 +15392,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                   </li>
                   <li>
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Our Brands
@@ -16769,7 +16769,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
           />
         </button>
         <h4
-          class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
           data-testid="typography"
         >
           MC: search.title
@@ -16782,7 +16782,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
     data-testid="brand-colors-provider"
   >
     <div
-      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-3ypdwb"
+      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-nueu6n"
       data-test-class-name="hero"
       data-testid="hero"
     >
@@ -16797,7 +16797,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
           >
             <nav
               aria-label="breadcrumbs"
-              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1prnnfn-MuiTypography-root-MuiBreadcrumbs-root"
               data-testid="brand-landing-page-breadcrumbs-top"
             >
               <ol
@@ -16874,11 +16874,11 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                             class="CarouselHero-content"
                           >
                             <h1
-                              class="MuiTypography-root MuiTypography-h1 css-1rt7ftk-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-h1 css-b4lozl-MuiTypography-root"
                               data-testid="hero-title"
                             />
-                            <div
-                              class="css-81i549"
+                            <p
+                              class="MuiTypography-root MuiTypography-body1 css-twvsld-MuiTypography-root"
                               data-test-class-name="text"
                               data-testid="hero-content-slide-text"
                             />
@@ -17142,14 +17142,14 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-194lmd0-MuiPaper-root-MuiCard-root"
                 >
                   <a
-                    class="MuiButtonBase-root css-xpckir-MuiButtonBase-root"
+                    class="MuiButtonBase-root css-t5c0m6-MuiButtonBase-root"
                     data-gtm="{"id":"cta-click1","label":"Call to action","action":"/en/some-page/"}"
                     data-testid="overlap-card"
                     href="/en/some-page/"
                     tabindex="0"
                   >
                     <h5
-                      class="MuiTypography-root MuiTypography-h5 css-1qv4qlr-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h5 css-10wr6mh-MuiTypography-root"
                       data-testid="typography"
                     >
                       Call to action
@@ -17231,14 +17231,14 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-194lmd0-MuiPaper-root-MuiCard-root"
                 >
                   <a
-                    class="MuiButtonBase-root css-xpckir-MuiButtonBase-root"
+                    class="MuiButtonBase-root css-t5c0m6-MuiButtonBase-root"
                     data-gtm="{"id":"cta-click1","label":"Call to action","action":"/en/some-page/"}"
                     data-testid="overlap-card"
                     href="/en/some-page/"
                     tabindex="0"
                   >
                     <h5
-                      class="MuiTypography-root MuiTypography-h5 css-1qv4qlr-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h5 css-10wr6mh-MuiTypography-root"
                       data-testid="typography"
                     >
                       Call to action
@@ -17317,7 +17317,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
       style="margin-top: -150px; padding-top: 150px;"
     >
       <div
-        class="Section-root css-cxq310"
+        class="Section-root css-10chrh8"
         data-testid="explorer-bar-section-sectionTitle"
       >
         <div
@@ -17331,7 +17331,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
               class="css-v7bjwn"
             >
               <h2
-                class="MuiTypography-root MuiTypography-h6 css-jlrilz-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 css-1jvwmj5-MuiTypography-root"
                 data-testid="typography"
                 id="explore-bar"
               >
@@ -17343,7 +17343,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
       </div>
     </div>
     <div
-      class="Section-root Section-alabaster Section-slim css-cxq310"
+      class="Section-root Section-alabaster Section-slim css-10chrh8"
       data-testid="breadcrumbs-section-bottom"
     >
       <div
@@ -17423,7 +17423,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 Contact Us
@@ -17434,7 +17434,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 About BMI
@@ -17511,7 +17511,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                  Our portals
@@ -17588,7 +17588,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 Careers
@@ -17767,7 +17767,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
 exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1vmtas-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-8mimat-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -17942,16 +17942,16 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                 data-testid="grid-item"
               >
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 css-8200kz-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 css-1j4kt3i-MuiTypography-root"
                   data-testid="typography"
                 >
                   Europe
                 </h6>
                 <div
-                  class="css-1vqzkso"
+                  class="css-1qjezyi"
                 >
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                     href="/al"
                     tabindex="0"
@@ -17973,7 +17973,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                     href="/at"
                     tabindex="0"
@@ -17995,7 +17995,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                     href="/uk"
                     tabindex="0"
@@ -18017,7 +18017,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
                     href="/en"
                     tabindex="0"
@@ -18357,7 +18357,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
         />
       </button>
       <nav
-        class="css-1q3sjsb"
+        class="css-12skhd1"
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
@@ -18366,7 +18366,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
           <ul>
             <li>
               <h6
-                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1nuwz6u-MuiTypography-root"
                 data-testid="navigation-list-footer"
               >
                 MC: menu.mainTitle
@@ -18441,7 +18441,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                   </li>
                   <li>
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Select category
@@ -18993,7 +18993,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                   </li>
                   <li>
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Our Brands
@@ -20370,7 +20370,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
           />
         </button>
         <h4
-          class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
           data-testid="typography"
         >
           MC: search.title
@@ -20383,7 +20383,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
     data-testid="brand-colors-provider"
   >
     <div
-      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-3ypdwb"
+      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-nueu6n"
       data-test-class-name="hero"
       data-testid="hero"
     >
@@ -20398,7 +20398,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
           >
             <nav
               aria-label="breadcrumbs"
-              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1prnnfn-MuiTypography-root-MuiBreadcrumbs-root"
               data-testid="brand-landing-page-breadcrumbs-top"
             >
               <ol
@@ -20475,16 +20475,16 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                             class="CarouselHero-content"
                           >
                             <h1
-                              class="MuiTypography-root MuiTypography-h1 css-1rt7ftk-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-h1 css-b4lozl-MuiTypography-root"
                               data-testid="hero-title"
                             />
-                            <div
-                              class="css-81i549"
+                            <p
+                              class="MuiTypography-root MuiTypography-body1 css-twvsld-MuiTypography-root"
                               data-test-class-name="text"
                               data-testid="hero-content-slide-text"
                             >
                               description
-                            </div>
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -20744,14 +20744,14 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-194lmd0-MuiPaper-root-MuiCard-root"
                 >
                   <a
-                    class="MuiButtonBase-root css-xpckir-MuiButtonBase-root"
+                    class="MuiButtonBase-root css-t5c0m6-MuiButtonBase-root"
                     data-gtm="{"id":"cta-click1","label":"Call to action","action":"/en/some-page/"}"
                     data-testid="overlap-card"
                     href="/en/some-page/"
                     tabindex="0"
                   >
                     <h5
-                      class="MuiTypography-root MuiTypography-h5 css-1qv4qlr-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h5 css-10wr6mh-MuiTypography-root"
                       data-testid="typography"
                     >
                       Call to action
@@ -20833,14 +20833,14 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-194lmd0-MuiPaper-root-MuiCard-root"
                 >
                   <a
-                    class="MuiButtonBase-root css-xpckir-MuiButtonBase-root"
+                    class="MuiButtonBase-root css-t5c0m6-MuiButtonBase-root"
                     data-gtm="{"id":"cta-click1","label":"Call to action","action":"/en/some-page/"}"
                     data-testid="overlap-card"
                     href="/en/some-page/"
                     tabindex="0"
                   >
                     <h5
-                      class="MuiTypography-root MuiTypography-h5 css-1qv4qlr-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h5 css-10wr6mh-MuiTypography-root"
                       data-testid="typography"
                     >
                       Call to action
@@ -20915,7 +20915,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
       </div>
     </div>
     <div
-      class="Section-root Section-alabaster Section-slim css-cxq310"
+      class="Section-root Section-alabaster Section-slim css-10chrh8"
       data-testid="breadcrumbs-section-bottom"
     >
       <div
@@ -20995,7 +20995,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 Contact Us
@@ -21006,7 +21006,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 About BMI
@@ -21083,7 +21083,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                  Our portals
@@ -21160,7 +21160,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 Careers
@@ -21339,7 +21339,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
 exports[`Brand Landing Page Template render sections correctly 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1vmtas-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-8mimat-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -21514,16 +21514,16 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                 data-testid="grid-item"
               >
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 css-8200kz-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 css-1j4kt3i-MuiTypography-root"
                   data-testid="typography"
                 >
                   Europe
                 </h6>
                 <div
-                  class="css-1vqzkso"
+                  class="css-1qjezyi"
                 >
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                     href="/al"
                     tabindex="0"
@@ -21545,7 +21545,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                     href="/at"
                     tabindex="0"
@@ -21567,7 +21567,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                     href="/uk"
                     tabindex="0"
@@ -21589,7 +21589,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
                     href="/en"
                     tabindex="0"
@@ -21929,7 +21929,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
         />
       </button>
       <nav
-        class="css-1q3sjsb"
+        class="css-12skhd1"
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
@@ -21938,7 +21938,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
           <ul>
             <li>
               <h6
-                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1nuwz6u-MuiTypography-root"
                 data-testid="navigation-list-footer"
               >
                 MC: menu.mainTitle
@@ -22013,7 +22013,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                   </li>
                   <li>
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Select category
@@ -22565,7 +22565,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                   </li>
                   <li>
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Our Brands
@@ -23942,7 +23942,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
           />
         </button>
         <h4
-          class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
           data-testid="typography"
         >
           MC: search.title
@@ -23955,7 +23955,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
     data-testid="brand-colors-provider"
   >
     <div
-      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-3ypdwb"
+      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-nueu6n"
       data-test-class-name="hero"
       data-testid="hero"
     >
@@ -23970,7 +23970,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
           >
             <nav
               aria-label="breadcrumbs"
-              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1prnnfn-MuiTypography-root-MuiBreadcrumbs-root"
               data-testid="brand-landing-page-breadcrumbs-top"
             >
               <ol
@@ -24047,16 +24047,16 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                             class="CarouselHero-content"
                           >
                             <h1
-                              class="MuiTypography-root MuiTypography-h1 css-1rt7ftk-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-h1 css-b4lozl-MuiTypography-root"
                               data-testid="hero-title"
                             />
-                            <div
-                              class="css-81i549"
+                            <p
+                              class="MuiTypography-root MuiTypography-body1 css-twvsld-MuiTypography-root"
                               data-test-class-name="text"
                               data-testid="hero-content-slide-text"
                             >
                               description
-                            </div>
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -24316,14 +24316,14 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-194lmd0-MuiPaper-root-MuiCard-root"
                 >
                   <a
-                    class="MuiButtonBase-root css-xpckir-MuiButtonBase-root"
+                    class="MuiButtonBase-root css-t5c0m6-MuiButtonBase-root"
                     data-gtm="{"id":"cta-click1","label":"Call to action","action":"/en/some-page/"}"
                     data-testid="overlap-card"
                     href="/en/some-page/"
                     tabindex="0"
                   >
                     <h5
-                      class="MuiTypography-root MuiTypography-h5 css-1qv4qlr-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h5 css-10wr6mh-MuiTypography-root"
                       data-testid="typography"
                     >
                       Call to action
@@ -24405,14 +24405,14 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-194lmd0-MuiPaper-root-MuiCard-root"
                 >
                   <a
-                    class="MuiButtonBase-root css-xpckir-MuiButtonBase-root"
+                    class="MuiButtonBase-root css-t5c0m6-MuiButtonBase-root"
                     data-gtm="{"id":"cta-click1","label":"Call to action","action":"/en/some-page/"}"
                     data-testid="overlap-card"
                     href="/en/some-page/"
                     tabindex="0"
                   >
                     <h5
-                      class="MuiTypography-root MuiTypography-h5 css-1qv4qlr-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h5 css-10wr6mh-MuiTypography-root"
                       data-testid="typography"
                     >
                       Call to action
@@ -24491,7 +24491,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
       style="margin-top: -150px; padding-top: 150px;"
     >
       <div
-        class="Section-root css-cxq310"
+        class="Section-root css-10chrh8"
         data-testid="explorer-bar-section-sectionTitle"
       >
         <div
@@ -24505,7 +24505,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
               class="css-v7bjwn"
             >
               <h2
-                class="MuiTypography-root MuiTypography-h6 css-jlrilz-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 css-1jvwmj5-MuiTypography-root"
                 data-testid="typography"
                 id="explore-bar"
               >
@@ -24517,7 +24517,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
       </div>
     </div>
     <div
-      class="Section-root Section-alabaster Section-slim css-cxq310"
+      class="Section-root Section-alabaster Section-slim css-10chrh8"
       data-testid="breadcrumbs-section-bottom"
     >
       <div
@@ -24597,7 +24597,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 Contact Us
@@ -24608,7 +24608,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 About BMI
@@ -24685,7 +24685,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                  Our portals
@@ -24762,7 +24762,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 Careers
@@ -24941,7 +24941,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
 exports[`Brand Landing Page Template render slide featuredMedia instead when no featuredVideo 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1vmtas-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-8mimat-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -25116,16 +25116,16 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                 data-testid="grid-item"
               >
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 css-8200kz-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 css-1j4kt3i-MuiTypography-root"
                   data-testid="typography"
                 >
                   Europe
                 </h6>
                 <div
-                  class="css-1vqzkso"
+                  class="css-1qjezyi"
                 >
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                     href="/al"
                     tabindex="0"
@@ -25147,7 +25147,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                     href="/at"
                     tabindex="0"
@@ -25169,7 +25169,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                     href="/uk"
                     tabindex="0"
@@ -25191,7 +25191,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
                     href="/en"
                     tabindex="0"
@@ -25531,7 +25531,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
         />
       </button>
       <nav
-        class="css-1q3sjsb"
+        class="css-12skhd1"
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
@@ -25540,7 +25540,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
           <ul>
             <li>
               <h6
-                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1nuwz6u-MuiTypography-root"
                 data-testid="navigation-list-footer"
               >
                 MC: menu.mainTitle
@@ -25615,7 +25615,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                   </li>
                   <li>
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Select category
@@ -26167,7 +26167,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                   </li>
                   <li>
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Our Brands
@@ -27544,7 +27544,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
           />
         </button>
         <h4
-          class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
           data-testid="typography"
         >
           MC: search.title
@@ -27557,7 +27557,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
     data-testid="brand-colors-provider"
   >
     <div
-      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-3ypdwb"
+      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-nueu6n"
       data-test-class-name="hero"
       data-testid="hero"
     >
@@ -27572,7 +27572,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
           >
             <nav
               aria-label="breadcrumbs"
-              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1prnnfn-MuiTypography-root-MuiBreadcrumbs-root"
               data-testid="brand-landing-page-breadcrumbs-top"
             >
               <ol
@@ -27649,16 +27649,16 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                             class="CarouselHero-content"
                           >
                             <h1
-                              class="MuiTypography-root MuiTypography-h1 css-1rt7ftk-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-h1 css-b4lozl-MuiTypography-root"
                               data-testid="hero-title"
                             />
-                            <div
-                              class="css-81i549"
+                            <p
+                              class="MuiTypography-root MuiTypography-body1 css-twvsld-MuiTypography-root"
                               data-test-class-name="text"
                               data-testid="hero-content-slide-text"
                             >
                               description
-                            </div>
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -27919,14 +27919,14 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-194lmd0-MuiPaper-root-MuiCard-root"
                 >
                   <a
-                    class="MuiButtonBase-root css-xpckir-MuiButtonBase-root"
+                    class="MuiButtonBase-root css-t5c0m6-MuiButtonBase-root"
                     data-gtm="{"id":"cta-click1","label":"Call to action","action":"/en/some-page/"}"
                     data-testid="overlap-card"
                     href="/en/some-page/"
                     tabindex="0"
                   >
                     <h5
-                      class="MuiTypography-root MuiTypography-h5 css-1qv4qlr-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h5 css-10wr6mh-MuiTypography-root"
                       data-testid="typography"
                     >
                       Call to action
@@ -28008,14 +28008,14 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-194lmd0-MuiPaper-root-MuiCard-root"
                 >
                   <a
-                    class="MuiButtonBase-root css-xpckir-MuiButtonBase-root"
+                    class="MuiButtonBase-root css-t5c0m6-MuiButtonBase-root"
                     data-gtm="{"id":"cta-click1","label":"Call to action","action":"/en/some-page/"}"
                     data-testid="overlap-card"
                     href="/en/some-page/"
                     tabindex="0"
                   >
                     <h5
-                      class="MuiTypography-root MuiTypography-h5 css-1qv4qlr-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h5 css-10wr6mh-MuiTypography-root"
                       data-testid="typography"
                     >
                       Call to action
@@ -28094,7 +28094,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
       style="margin-top: -150px; padding-top: 150px;"
     >
       <div
-        class="Section-root css-cxq310"
+        class="Section-root css-10chrh8"
         data-testid="explorer-bar-section-sectionTitle"
       >
         <div
@@ -28108,7 +28108,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
               class="css-v7bjwn"
             >
               <h2
-                class="MuiTypography-root MuiTypography-h6 css-jlrilz-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 css-1jvwmj5-MuiTypography-root"
                 data-testid="typography"
                 id="explore-bar"
               >
@@ -28120,7 +28120,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
       </div>
     </div>
     <div
-      class="Section-root Section-alabaster Section-slim css-cxq310"
+      class="Section-root Section-alabaster Section-slim css-10chrh8"
       data-testid="breadcrumbs-section-bottom"
     >
       <div
@@ -28200,7 +28200,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 Contact Us
@@ -28211,7 +28211,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 About BMI
@@ -28288,7 +28288,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                  Our portals
@@ -28365,7 +28365,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 Careers
@@ -28544,7 +28544,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
 exports[`Brand Landing Page Template render with Search form on hero section 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1vmtas-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-8mimat-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -28719,16 +28719,16 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                 data-testid="grid-item"
               >
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 css-8200kz-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 css-1j4kt3i-MuiTypography-root"
                   data-testid="typography"
                 >
                   Europe
                 </h6>
                 <div
-                  class="css-1vqzkso"
+                  class="css-1qjezyi"
                 >
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                     href="/al"
                     tabindex="0"
@@ -28750,7 +28750,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                     href="/at"
                     tabindex="0"
@@ -28772,7 +28772,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                     href="/uk"
                     tabindex="0"
@@ -28794,7 +28794,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
                     href="/en"
                     tabindex="0"
@@ -29134,7 +29134,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
         />
       </button>
       <nav
-        class="css-1q3sjsb"
+        class="css-12skhd1"
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
@@ -29143,7 +29143,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
           <ul>
             <li>
               <h6
-                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1nuwz6u-MuiTypography-root"
                 data-testid="navigation-list-footer"
               >
                 MC: menu.mainTitle
@@ -29218,7 +29218,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                   </li>
                   <li>
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Select category
@@ -29770,7 +29770,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                   </li>
                   <li>
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Our Brands
@@ -31147,7 +31147,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
           />
         </button>
         <h4
-          class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
           data-testid="typography"
         >
           MC: search.title
@@ -31160,7 +31160,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
     data-testid="brand-colors-provider"
   >
     <div
-      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-3ypdwb"
+      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-nueu6n"
       data-test-class-name="hero"
       data-testid="hero"
     >
@@ -31175,7 +31175,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
           >
             <nav
               aria-label="breadcrumbs"
-              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1prnnfn-MuiTypography-root-MuiBreadcrumbs-root"
               data-testid="brand-landing-page-breadcrumbs-top"
             >
               <ol
@@ -31252,16 +31252,16 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                             class="CarouselHero-content"
                           >
                             <h1
-                              class="MuiTypography-root MuiTypography-h1 css-1rt7ftk-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-h1 css-b4lozl-MuiTypography-root"
                               data-testid="hero-title"
                             />
-                            <div
-                              class="css-81i549"
+                            <p
+                              class="MuiTypography-root MuiTypography-body1 css-twvsld-MuiTypography-root"
                               data-test-class-name="text"
                               data-testid="hero-content-slide-text"
                             >
                               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui...
-                            </div>
+                            </p>
                             <a
                               class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined Button-outlinedDarkBg MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined Button-outlinedDarkBg MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium CarouselHero-cta cta css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                               data-gtm="{"id":"cta-click1","action":"/en/roof-tiles/","label":"firstSlideCTA"}"
@@ -31534,14 +31534,14 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-194lmd0-MuiPaper-root-MuiCard-root"
                 >
                   <a
-                    class="MuiButtonBase-root css-xpckir-MuiButtonBase-root"
+                    class="MuiButtonBase-root css-t5c0m6-MuiButtonBase-root"
                     data-gtm="{"id":"cta-click1","label":"Call to action","action":"/en/some-page/"}"
                     data-testid="overlap-card"
                     href="/en/some-page/"
                     tabindex="0"
                   >
                     <h5
-                      class="MuiTypography-root MuiTypography-h5 css-1qv4qlr-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h5 css-10wr6mh-MuiTypography-root"
                       data-testid="typography"
                     >
                       Call to action
@@ -31623,14 +31623,14 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-194lmd0-MuiPaper-root-MuiCard-root"
                 >
                   <a
-                    class="MuiButtonBase-root css-xpckir-MuiButtonBase-root"
+                    class="MuiButtonBase-root css-t5c0m6-MuiButtonBase-root"
                     data-gtm="{"id":"cta-click1","label":"Call to action","action":"/en/some-page/"}"
                     data-testid="overlap-card"
                     href="/en/some-page/"
                     tabindex="0"
                   >
                     <h5
-                      class="MuiTypography-root MuiTypography-h5 css-1qv4qlr-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h5 css-10wr6mh-MuiTypography-root"
                       data-testid="typography"
                     >
                       Call to action
@@ -31709,7 +31709,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
       style="margin-top: -150px; padding-top: 150px;"
     >
       <div
-        class="Section-root css-cxq310"
+        class="Section-root css-10chrh8"
         data-testid="explorer-bar-section-sectionTitle"
       >
         <div
@@ -31723,7 +31723,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
               class="css-v7bjwn"
             >
               <h2
-                class="MuiTypography-root MuiTypography-h6 css-jlrilz-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 css-1jvwmj5-MuiTypography-root"
                 data-testid="typography"
                 id="explore-bar"
               >
@@ -31735,7 +31735,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
       </div>
     </div>
     <div
-      class="Section-root Section-alabaster Section-slim css-cxq310"
+      class="Section-root Section-alabaster Section-slim css-10chrh8"
       data-testid="breadcrumbs-section-bottom"
     >
       <div
@@ -31815,7 +31815,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 Contact Us
@@ -31826,7 +31826,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 About BMI
@@ -31903,7 +31903,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                  Our portals
@@ -31980,7 +31980,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 Careers
@@ -32159,7 +32159,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
 exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1vmtas-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-8mimat-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -32334,16 +32334,16 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                 data-testid="grid-item"
               >
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 css-8200kz-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 css-1j4kt3i-MuiTypography-root"
                   data-testid="typography"
                 >
                   Europe
                 </h6>
                 <div
-                  class="css-1vqzkso"
+                  class="css-1qjezyi"
                 >
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                     href="/al"
                     tabindex="0"
@@ -32365,7 +32365,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                     href="/at"
                     tabindex="0"
@@ -32387,7 +32387,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                     href="/uk"
                     tabindex="0"
@@ -32409,7 +32409,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
                     href="/en"
                     tabindex="0"
@@ -32749,7 +32749,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
         />
       </button>
       <nav
-        class="css-1q3sjsb"
+        class="css-12skhd1"
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
@@ -32758,7 +32758,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
           <ul>
             <li>
               <h6
-                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1nuwz6u-MuiTypography-root"
                 data-testid="navigation-list-footer"
               >
                 MC: menu.mainTitle
@@ -32833,7 +32833,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                   </li>
                   <li>
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Select category
@@ -33385,7 +33385,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                   </li>
                   <li>
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Our Brands
@@ -34762,7 +34762,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
           />
         </button>
         <h4
-          class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
           data-testid="typography"
         >
           MC: search.title
@@ -34775,7 +34775,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
     data-testid="brand-colors-provider"
   >
     <div
-      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-3ypdwb"
+      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-nueu6n"
       data-test-class-name="hero"
       data-testid="hero"
     >
@@ -34790,7 +34790,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
           >
             <nav
               aria-label="breadcrumbs"
-              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1prnnfn-MuiTypography-root-MuiBreadcrumbs-root"
               data-testid="brand-landing-page-breadcrumbs-top"
             >
               <ol
@@ -34867,11 +34867,11 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                             class="CarouselHero-content"
                           >
                             <h1
-                              class="MuiTypography-root MuiTypography-h1 css-1rt7ftk-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-h1 css-b4lozl-MuiTypography-root"
                               data-testid="hero-title"
                             />
-                            <div
-                              class="css-81i549"
+                            <p
+                              class="MuiTypography-root MuiTypography-body1 css-twvsld-MuiTypography-root"
                               data-test-class-name="text"
                               data-testid="hero-content-slide-text"
                             />
@@ -35147,14 +35147,14 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-194lmd0-MuiPaper-root-MuiCard-root"
                 >
                   <a
-                    class="MuiButtonBase-root css-xpckir-MuiButtonBase-root"
+                    class="MuiButtonBase-root css-t5c0m6-MuiButtonBase-root"
                     data-gtm="{"id":"cta-click1","label":"Call to action","action":"/en/some-page/"}"
                     data-testid="overlap-card"
                     href="/en/some-page/"
                     tabindex="0"
                   >
                     <h5
-                      class="MuiTypography-root MuiTypography-h5 css-1qv4qlr-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h5 css-10wr6mh-MuiTypography-root"
                       data-testid="typography"
                     >
                       Call to action
@@ -35236,14 +35236,14 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-194lmd0-MuiPaper-root-MuiCard-root"
                 >
                   <a
-                    class="MuiButtonBase-root css-xpckir-MuiButtonBase-root"
+                    class="MuiButtonBase-root css-t5c0m6-MuiButtonBase-root"
                     data-gtm="{"id":"cta-click1","label":"Call to action","action":"/en/some-page/"}"
                     data-testid="overlap-card"
                     href="/en/some-page/"
                     tabindex="0"
                   >
                     <h5
-                      class="MuiTypography-root MuiTypography-h5 css-1qv4qlr-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h5 css-10wr6mh-MuiTypography-root"
                       data-testid="typography"
                     >
                       Call to action
@@ -35322,7 +35322,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
       style="margin-top: -150px; padding-top: 150px;"
     >
       <div
-        class="Section-root css-cxq310"
+        class="Section-root css-10chrh8"
         data-testid="explorer-bar-section-sectionTitle"
       >
         <div
@@ -35336,7 +35336,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
               class="css-v7bjwn"
             >
               <h2
-                class="MuiTypography-root MuiTypography-h6 css-jlrilz-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 css-1jvwmj5-MuiTypography-root"
                 data-testid="typography"
                 id="explore-bar"
               >
@@ -35348,7 +35348,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
       </div>
     </div>
     <div
-      class="Section-root Section-alabaster Section-slim css-cxq310"
+      class="Section-root Section-alabaster Section-slim css-10chrh8"
       data-testid="breadcrumbs-section-bottom"
     >
       <div
@@ -35428,7 +35428,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 Contact Us
@@ -35439,7 +35439,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 About BMI
@@ -35516,7 +35516,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                  Our portals
@@ -35593,7 +35593,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 Careers
@@ -35772,7 +35772,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
 exports[`Brand Landing Page Template when description is NOT more than 400 characters renders description without elipsis 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1vmtas-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-8mimat-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -35947,16 +35947,16 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                 data-testid="grid-item"
               >
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 css-8200kz-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 css-1j4kt3i-MuiTypography-root"
                   data-testid="typography"
                 >
                   Europe
                 </h6>
                 <div
-                  class="css-1vqzkso"
+                  class="css-1qjezyi"
                 >
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                     href="/al"
                     tabindex="0"
@@ -35978,7 +35978,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                     href="/at"
                     tabindex="0"
@@ -36000,7 +36000,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                     href="/uk"
                     tabindex="0"
@@ -36022,7 +36022,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
                     href="/en"
                     tabindex="0"
@@ -36362,7 +36362,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
         />
       </button>
       <nav
-        class="css-1q3sjsb"
+        class="css-12skhd1"
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
@@ -36371,7 +36371,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
           <ul>
             <li>
               <h6
-                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1nuwz6u-MuiTypography-root"
                 data-testid="navigation-list-footer"
               >
                 MC: menu.mainTitle
@@ -36446,7 +36446,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                   </li>
                   <li>
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Select category
@@ -36998,7 +36998,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                   </li>
                   <li>
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Our Brands
@@ -38375,7 +38375,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
           />
         </button>
         <h4
-          class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
           data-testid="typography"
         >
           MC: search.title
@@ -38388,7 +38388,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
     data-testid="brand-colors-provider"
   >
     <div
-      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-3ypdwb"
+      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-nueu6n"
       data-test-class-name="hero"
       data-testid="hero"
     >
@@ -38403,7 +38403,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
           >
             <nav
               aria-label="breadcrumbs"
-              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1prnnfn-MuiTypography-root-MuiBreadcrumbs-root"
               data-testid="brand-landing-page-breadcrumbs-top"
             >
               <ol
@@ -38480,16 +38480,16 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                             class="CarouselHero-content"
                           >
                             <h1
-                              class="MuiTypography-root MuiTypography-h1 css-1rt7ftk-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-h1 css-b4lozl-MuiTypography-root"
                               data-testid="hero-title"
                             />
-                            <div
-                              class="css-81i549"
+                            <p
+                              class="MuiTypography-root MuiTypography-body1 css-twvsld-MuiTypography-root"
                               data-test-class-name="text"
                               data-testid="hero-content-slide-text"
                             >
                               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-                            </div>
+                            </p>
                             <a
                               class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined Button-outlinedDarkBg MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined Button-outlinedDarkBg MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium CarouselHero-cta cta css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                               data-gtm="{"id":"cta-click1","action":"/en/roof-tiles/","label":"firstSlideCTA"}"
@@ -38762,14 +38762,14 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-194lmd0-MuiPaper-root-MuiCard-root"
                 >
                   <a
-                    class="MuiButtonBase-root css-xpckir-MuiButtonBase-root"
+                    class="MuiButtonBase-root css-t5c0m6-MuiButtonBase-root"
                     data-gtm="{"id":"cta-click1","label":"Call to action","action":"/en/some-page/"}"
                     data-testid="overlap-card"
                     href="/en/some-page/"
                     tabindex="0"
                   >
                     <h5
-                      class="MuiTypography-root MuiTypography-h5 css-1qv4qlr-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h5 css-10wr6mh-MuiTypography-root"
                       data-testid="typography"
                     >
                       Call to action
@@ -38851,14 +38851,14 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-194lmd0-MuiPaper-root-MuiCard-root"
                 >
                   <a
-                    class="MuiButtonBase-root css-xpckir-MuiButtonBase-root"
+                    class="MuiButtonBase-root css-t5c0m6-MuiButtonBase-root"
                     data-gtm="{"id":"cta-click1","label":"Call to action","action":"/en/some-page/"}"
                     data-testid="overlap-card"
                     href="/en/some-page/"
                     tabindex="0"
                   >
                     <h5
-                      class="MuiTypography-root MuiTypography-h5 css-1qv4qlr-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h5 css-10wr6mh-MuiTypography-root"
                       data-testid="typography"
                     >
                       Call to action
@@ -38937,7 +38937,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
       style="margin-top: -150px; padding-top: 150px;"
     >
       <div
-        class="Section-root css-cxq310"
+        class="Section-root css-10chrh8"
         data-testid="explorer-bar-section-sectionTitle"
       >
         <div
@@ -38951,7 +38951,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
               class="css-v7bjwn"
             >
               <h2
-                class="MuiTypography-root MuiTypography-h6 css-jlrilz-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 css-1jvwmj5-MuiTypography-root"
                 data-testid="typography"
                 id="explore-bar"
               >
@@ -38963,7 +38963,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
       </div>
     </div>
     <div
-      class="Section-root Section-alabaster Section-slim css-cxq310"
+      class="Section-root Section-alabaster Section-slim css-10chrh8"
       data-testid="breadcrumbs-section-bottom"
     >
       <div
@@ -39043,7 +39043,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 Contact Us
@@ -39054,7 +39054,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 About BMI
@@ -39131,7 +39131,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                  Our portals
@@ -39208,7 +39208,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 Careers
@@ -39387,7 +39387,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
 exports[`Brand Landing Page Template when description is more than 400 characters renders description with elipsis 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1vmtas-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-8mimat-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -39562,16 +39562,16 @@ exports[`Brand Landing Page Template when description is more than 400 character
                 data-testid="grid-item"
               >
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 css-8200kz-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 css-1j4kt3i-MuiTypography-root"
                   data-testid="typography"
                 >
                   Europe
                 </h6>
                 <div
-                  class="css-1vqzkso"
+                  class="css-1qjezyi"
                 >
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                     href="/al"
                     tabindex="0"
@@ -39593,7 +39593,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                     href="/at"
                     tabindex="0"
@@ -39615,7 +39615,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                     href="/uk"
                     tabindex="0"
@@ -39637,7 +39637,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
                     href="/en"
                     tabindex="0"
@@ -39977,7 +39977,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
         />
       </button>
       <nav
-        class="css-1q3sjsb"
+        class="css-12skhd1"
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
@@ -39986,7 +39986,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
           <ul>
             <li>
               <h6
-                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1nuwz6u-MuiTypography-root"
                 data-testid="navigation-list-footer"
               >
                 MC: menu.mainTitle
@@ -40061,7 +40061,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                   </li>
                   <li>
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Select category
@@ -40613,7 +40613,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                   </li>
                   <li>
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       Our Brands
@@ -41990,7 +41990,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
           />
         </button>
         <h4
-          class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
           data-testid="typography"
         >
           MC: search.title
@@ -42003,7 +42003,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
     data-testid="brand-colors-provider"
   >
     <div
-      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-3ypdwb"
+      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-nueu6n"
       data-test-class-name="hero"
       data-testid="hero"
     >
@@ -42018,7 +42018,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
           >
             <nav
               aria-label="breadcrumbs"
-              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1prnnfn-MuiTypography-root-MuiBreadcrumbs-root"
               data-testid="brand-landing-page-breadcrumbs-top"
             >
               <ol
@@ -42095,16 +42095,16 @@ exports[`Brand Landing Page Template when description is more than 400 character
                             class="CarouselHero-content"
                           >
                             <h1
-                              class="MuiTypography-root MuiTypography-h1 css-1rt7ftk-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-h1 css-b4lozl-MuiTypography-root"
                               data-testid="hero-title"
                             />
-                            <div
-                              class="css-81i549"
+                            <p
+                              class="MuiTypography-root MuiTypography-body1 css-twvsld-MuiTypography-root"
                               data-test-class-name="text"
                               data-testid="hero-content-slide-text"
                             >
                               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui...
-                            </div>
+                            </p>
                             <a
                               class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined Button-outlinedDarkBg MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined Button-outlinedDarkBg MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium CarouselHero-cta cta css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                               data-gtm="{"id":"cta-click1","action":"/en/roof-tiles/","label":"firstSlideCTA"}"
@@ -42377,14 +42377,14 @@ exports[`Brand Landing Page Template when description is more than 400 character
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-194lmd0-MuiPaper-root-MuiCard-root"
                 >
                   <a
-                    class="MuiButtonBase-root css-xpckir-MuiButtonBase-root"
+                    class="MuiButtonBase-root css-t5c0m6-MuiButtonBase-root"
                     data-gtm="{"id":"cta-click1","label":"Call to action","action":"/en/some-page/"}"
                     data-testid="overlap-card"
                     href="/en/some-page/"
                     tabindex="0"
                   >
                     <h5
-                      class="MuiTypography-root MuiTypography-h5 css-1qv4qlr-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h5 css-10wr6mh-MuiTypography-root"
                       data-testid="typography"
                     >
                       Call to action
@@ -42466,14 +42466,14 @@ exports[`Brand Landing Page Template when description is more than 400 character
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-194lmd0-MuiPaper-root-MuiCard-root"
                 >
                   <a
-                    class="MuiButtonBase-root css-xpckir-MuiButtonBase-root"
+                    class="MuiButtonBase-root css-t5c0m6-MuiButtonBase-root"
                     data-gtm="{"id":"cta-click1","label":"Call to action","action":"/en/some-page/"}"
                     data-testid="overlap-card"
                     href="/en/some-page/"
                     tabindex="0"
                   >
                     <h5
-                      class="MuiTypography-root MuiTypography-h5 css-1qv4qlr-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h5 css-10wr6mh-MuiTypography-root"
                       data-testid="typography"
                     >
                       Call to action
@@ -42552,7 +42552,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
       style="margin-top: -150px; padding-top: 150px;"
     >
       <div
-        class="Section-root css-cxq310"
+        class="Section-root css-10chrh8"
         data-testid="explorer-bar-section-sectionTitle"
       >
         <div
@@ -42566,7 +42566,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
               class="css-v7bjwn"
             >
               <h2
-                class="MuiTypography-root MuiTypography-h6 css-jlrilz-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 css-1jvwmj5-MuiTypography-root"
                 data-testid="typography"
                 id="explore-bar"
               >
@@ -42578,7 +42578,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
       </div>
     </div>
     <div
-      class="Section-root Section-alabaster Section-slim css-cxq310"
+      class="Section-root Section-alabaster Section-slim css-10chrh8"
       data-testid="breadcrumbs-section-bottom"
     >
       <div
@@ -42658,7 +42658,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 Contact Us
@@ -42669,7 +42669,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 About BMI
@@ -42746,7 +42746,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                  Our portals
@@ -42823,7 +42823,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
               data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
                 data-testid="typography"
               >
                 Careers

@@ -48,4 +48,10 @@
       margin-bottom: 24px;
     }
   }
+
+  .productDescription {
+    &>*:first-child{
+        margin-top: 0;
+    }
+  }
 }

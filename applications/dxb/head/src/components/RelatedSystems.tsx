@@ -77,7 +77,10 @@ export const SystemCard = ({
         }}
         gtm={gtm}
         footer={
-          <Button variant="outlined">
+          <Button
+            className={styles["footer-read-more-button"]}
+            variant="outlined"
+          >
             {getMicroCopy(microCopy.SDP_SYSTEM_READ_MORE)}
           </Button>
         }
