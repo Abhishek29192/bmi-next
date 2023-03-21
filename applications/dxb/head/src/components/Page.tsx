@@ -115,11 +115,16 @@ const Page = ({
     {}
   );
 
+  const seoTitle =
+    variantProduct && variantProduct.seoTitle
+      ? variantProduct.seoTitle
+      : title || "";
+
   return (
     <>
       <Head
         htmlAttributes={{ lang: node_locale }}
-        title={title}
+        title={seoTitle}
         defer={false}
         ogImageUrl={ogImageUrl}
         scripts={{

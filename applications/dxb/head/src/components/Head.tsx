@@ -48,6 +48,10 @@ export const Head = ({
   const schemaOrgActivated =
     Boolean(isSchemaORGActivated) && Boolean(variantProduct);
 
+  const seoDescription =
+    (variantProduct &&
+      (variantProduct.seoDescription || variantProduct.description)) ||
+    (seo && seo.metaDescription);
   return (
     <Helmet
       htmlAttributes={htmlAttributes}
@@ -142,7 +146,7 @@ export const Head = ({
           data-testid={"meta-description"}
         />
       )}
-
+      {!!seoDescription && <meta name="description" content={seoDescription} />}
       {isScriptOnetrustEnabled && (
         <script
           type="text/javascript"

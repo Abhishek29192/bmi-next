@@ -109,6 +109,9 @@ export type Product = {
   productBenefits?: readonly string[];
   relatedVariants: readonly RelatedVariant[];
   specificationIframeUrl?: string;
+  seoDescription?: string;
+  seoTags?: string[];
+  seoTitle?: string;
   techDrawings: readonly Image[];
   textureFamily?: string;
   textureFamilyMicrocopy?: string;

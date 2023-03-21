@@ -129,6 +129,9 @@ export type Product = Omit<
   path: string;
   relatedProducts: RelatedProduct[];
   isVisualiserAvailable: boolean | null;
+  seoDescription?: string;
+  seoTags?: string[];
+  seoTitle?: string;
 };
 
 export type KeyAssetDocument = {
