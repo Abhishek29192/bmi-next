@@ -140,23 +140,12 @@ export const ProductButtonContainer = styled("div")(({ theme }) => ({
 export const CartActions = styled("div")(({ theme }) => ({
   padding: "30px",
   display: "flex",
+  flexDirection: "column",
+  marginLeft: "16px",
   "& > *": {
-    width: "50%",
+    width: "100%",
     "&:last-child": {
-      marginLeft: "16px"
+      marginTop: "16px"
     }
-  },
-  [theme.breakpoints!.up!("md")]: {
-    flexDirection: "column",
-    "& > *": {
-      width: "100%",
-      "&:last-child": {
-        marginLeft: 0,
-        marginTop: "16px"
-      }
-    }
-  },
-  [theme.breakpoints!.down!("md")]: {
-    padding: "30px 16px"
   }
 }));
