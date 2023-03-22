@@ -2,7 +2,8 @@ import {
   Button,
   ButtonProps,
   CarouselHero,
-  Search
+  Search,
+  useIsClient
 } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
@@ -67,6 +68,7 @@ const HomePage = ({ data, pageContext }: Props) => {
   const {
     config: { isSpaEnabled, isGatsbyDisabledElasticSearch }
   } = useConfig();
+  const { isClient } = useIsClient();
 
   return (
     <Page
@@ -114,7 +116,7 @@ const HomePage = ({ data, pageContext }: Props) => {
             ) : null}
 
             {sections && <Sections data={sections} pageTypename={__typename} />}
-            {typeof window !== "undefined" &&
+            {isClient &&
             welcomeDialogTitle &&
             welcomeDialogBody &&
             welcomeDialogBrands ? (

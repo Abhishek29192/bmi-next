@@ -375,9 +375,9 @@ exports[`CardCollectionSection component Renders correctly When Title rich text 
                         >
                           <a
                             class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
-                            data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
+                            data-gtm="{"id":"cta-click1","label":"test - a string","action":"/no/"}"
                             data-testid="card-collection-section-item-test"
-                            href="/en/"
+                            href="/no/"
                             tabindex="0"
                             type="button"
                           >
@@ -429,6 +429,9 @@ exports[`CardCollectionSection component Renders correctly When Title rich text 
                               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                             />
                           </a>
+                          <div>
+                            Card
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -541,9 +544,9 @@ exports[`CardCollectionSection component Renders correctly When dialogContent li
               >
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
-                  data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
+                  data-gtm="{"id":"cta-click1","label":"test - a string","action":"/no/"}"
                   data-testid="card-collection-section-item-test"
-                  href="/en/"
+                  href="/no/"
                   tabindex="0"
                   type="button"
                 >
@@ -725,9 +728,9 @@ exports[`CardCollectionSection component Renders correctly When entry-hyperlink 
               >
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
-                  data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
+                  data-gtm="{"id":"cta-click1","label":"test - a string","action":"/no/"}"
                   data-testid="card-collection-section-item-test"
-                  href="/en/"
+                  href="/no/"
                   tabindex="0"
                   type="button"
                 >
@@ -886,9 +889,9 @@ exports[`CardCollectionSection component Renders correctly When heading 2 is pre
               >
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
-                  data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
+                  data-gtm="{"id":"cta-click1","label":"test - a string","action":"/no/"}"
                   data-testid="card-collection-section-item-test"
-                  href="/en/"
+                  href="/no/"
                   tabindex="0"
                   type="button"
                 >
@@ -1047,9 +1050,9 @@ exports[`CardCollectionSection component Renders correctly When heading 3 is pre
               >
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
-                  data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
+                  data-gtm="{"id":"cta-click1","label":"test - a string","action":"/no/"}"
                   data-testid="card-collection-section-item-test"
-                  href="/en/"
+                  href="/no/"
                   tabindex="0"
                   type="button"
                 >
@@ -1208,9 +1211,9 @@ exports[`CardCollectionSection component Renders correctly When heading 4 is pre
               >
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
-                  data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
+                  data-gtm="{"id":"cta-click1","label":"test - a string","action":"/no/"}"
                   data-testid="card-collection-section-item-test"
-                  href="/en/"
+                  href="/no/"
                   tabindex="0"
                   type="button"
                 >
@@ -1369,9 +1372,9 @@ exports[`CardCollectionSection component Renders correctly When heading 5 is pre
               >
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
-                  data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
+                  data-gtm="{"id":"cta-click1","label":"test - a string","action":"/no/"}"
                   data-testid="card-collection-section-item-test"
-                  href="/en/"
+                  href="/no/"
                   tabindex="0"
                   type="button"
                 >
@@ -1530,9 +1533,9 @@ exports[`CardCollectionSection component Renders correctly When heading 6 is pre
               >
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
-                  data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
+                  data-gtm="{"id":"cta-click1","label":"test - a string","action":"/no/"}"
                   data-testid="card-collection-section-item-test"
-                  href="/en/"
+                  href="/no/"
                   tabindex="0"
                   type="button"
                 >
@@ -1689,9 +1692,9 @@ exports[`CardCollectionSection component Renders correctly When text length = 0 
               >
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
-                  data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
+                  data-gtm="{"id":"cta-click1","label":"test - a string","action":"/no/"}"
                   data-testid="card-collection-section-item-test"
-                  href="/en/"
+                  href="/no/"
                   tabindex="0"
                   type="button"
                 >
@@ -1940,7 +1943,7 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                         class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
                         data-testid="typography"
                       >
-                        1. juni 2021
+                        1 June 2021
                       </h6>
                       <span
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
@@ -2001,7 +2004,7 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                         class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
                         data-testid="typography"
                       >
-                        2. juni 2021
+                        2 June 2021
                       </h6>
                       <span
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
@@ -2062,7 +2065,7 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                         class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
                         data-testid="typography"
                       >
-                        3. juni 2021
+                        3 June 2021
                       </h6>
                       <span
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
@@ -2243,7 +2246,7 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                         class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
                         data-testid="typography"
                       >
-                        3. juni 2021
+                        3 June 2021
                       </h6>
                       <span
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
@@ -2304,7 +2307,7 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                         class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
                         data-testid="typography"
                       >
-                        2. juni 2021
+                        2 June 2021
                       </h6>
                       <span
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
@@ -2365,7 +2368,7 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                         class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
                         data-testid="typography"
                       >
-                        1. juni 2021
+                        1 June 2021
                       </h6>
                       <span
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
@@ -2582,7 +2585,7 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                         class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
                         data-testid="typography"
                       >
-                        1. juni 2021
+                        1 June 2021
                       </h6>
                       <span
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
@@ -2643,7 +2646,7 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                         class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
                         data-testid="typography"
                       >
-                        2. juni 2021
+                        2 June 2021
                       </h6>
                       <span
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
@@ -2704,7 +2707,7 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                         class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
                         data-testid="typography"
                       >
-                        3. juni 2021
+                        3 June 2021
                       </h6>
                       <span
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
@@ -2921,7 +2924,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                         class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
                         data-testid="typography"
                       >
-                        1. juni 2021
+                        1 June 2021
                       </h6>
                       <span
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
@@ -2982,7 +2985,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                         class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
                         data-testid="typography"
                       >
-                        2. juni 2021
+                        2 June 2021
                       </h6>
                       <span
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
@@ -3043,7 +3046,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                         class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
                         data-testid="typography"
                       >
-                        3. juni 2021
+                        3 June 2021
                       </h6>
                       <span
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
@@ -3260,7 +3263,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                         class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
                         data-testid="typography"
                       >
-                        1. juni 2021
+                        1 June 2021
                       </h6>
                       <span
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
@@ -3321,7 +3324,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                         class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
                         data-testid="typography"
                       >
-                        2. juni 2021
+                        2 June 2021
                       </h6>
                       <span
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
@@ -3382,7 +3385,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                         class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
                         data-testid="typography"
                       >
-                        3. juni 2021
+                        3 June 2021
                       </h6>
                       <span
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
@@ -3621,7 +3624,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                                   class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
                                   data-testid="typography"
                                 >
-                                  1. juni 2021
+                                  1 June 2021
                                 </h6>
                                 <span
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
@@ -3641,6 +3644,9 @@ exports[`CardCollectionSection component single & multiple row display renders c
                               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                             />
                           </a>
+                          <div>
+                            Card
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -3695,7 +3701,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                                   class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
                                   data-testid="typography"
                                 >
-                                  2. juni 2021
+                                  2 June 2021
                                 </h6>
                                 <span
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
@@ -3715,6 +3721,9 @@ exports[`CardCollectionSection component single & multiple row display renders c
                               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                             />
                           </a>
+                          <div>
+                            Card
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -3769,7 +3778,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                                   class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
                                   data-testid="typography"
                                 >
-                                  3. juni 2021
+                                  3 June 2021
                                 </h6>
                                 <span
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
@@ -3789,6 +3798,9 @@ exports[`CardCollectionSection component single & multiple row display renders c
                               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                             />
                           </a>
+                          <div>
+                            Card
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -3837,6 +3849,9 @@ exports[`CardCollectionSection component single & multiple row display renders c
                                 data-testid="overview-card-body-footer"
                               />
                             </div>
+                          </div>
+                          <div>
+                            Card
                           </div>
                         </div>
                       </div>
