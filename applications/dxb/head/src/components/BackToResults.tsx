@@ -1,4 +1,9 @@
-import { Button, ButtonProps, QUERY_KEY } from "@bmi-digital/components";
+import {
+  Button,
+  ButtonProps,
+  QUERY_KEY,
+  useIsClient
+} from "@bmi-digital/components";
 import { ArrowBack as ArrowBackIcon } from "@bmi-digital/components/icon";
 import { useMediaQuery, useTheme } from "@mui/material";
 import React, { FC, ReactChild } from "react";
@@ -27,10 +32,9 @@ const BackToResults: FC<Props> = ({
   "data-testid": dataTestId
 }: Props) => {
   const { countryCode, getMicroCopy } = useSiteContext();
+  const { isClient } = useIsClient();
 
-  const isSSR = typeof window === "undefined";
-
-  const urlParams = new URLSearchParams(isSSR ? "" : window.location.search);
+  const urlParams = new URLSearchParams(isClient ? window.location.search : "");
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 

@@ -194,14 +194,14 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
       </div>
       <div
         aria-labelledby="tab-one"
-        class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
+        class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-923awc"
         data-testid="aboutTab"
         heading="MC: pdp.leadBlock.about"
         id="tabpanel-one"
         role="tabpanel"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-oet5y7-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-12zstsi-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -243,7 +243,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               />
               <div>
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                   data-gtm="{"id":"cta-click1","label":"link-1","action":"http://localhost:8000/"}"
                   data-testid="guarantee-inline-link-link-1"
                   type="button"
@@ -253,7 +253,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                   </span>
                   <svg
                     aria-hidden="true"
-                    class=" css-em5iqk"
+                    class=" css-1r2mexx"
                     data-testid="external"
                     focusable="false"
                     viewBox="0 0 24 24"
@@ -267,7 +267,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               </div>
               <div>
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                   data-gtm="{"id":"cta-click1","label":"link-2","action":"http://localhost:8000/"}"
                   data-testid="guarantee-inline-link-link-2"
                   type="button"
@@ -277,7 +277,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                   </span>
                   <svg
                     aria-hidden="true"
-                    class=" css-em5iqk"
+                    class=" css-1r2mexx"
                     data-testid="external"
                     focusable="false"
                     viewBox="0 0 24 24"
@@ -439,7 +439,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
       </div>
       <div
         aria-labelledby="tab-two"
-        class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
+        class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-923awc"
         data-testid="technicalSpecificationsTab"
         heading="MC: pdp.leadBlock.technicalSpecifications"
         hidden=""
@@ -447,7 +447,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
         role="tabpanel"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-oet5y7-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-12zstsi-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -509,7 +509,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
       </div>
       <div
         aria-labelledby="tab-three"
-        class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
+        class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-923awc"
         data-testid="documentsTab"
         heading="MC: pdp.leadBlock.documents"
         hidden=""
@@ -1029,7 +1029,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
             data-testid="document-results-footer"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
               data-testid="anchor-link"
               type="button"
             >
@@ -1055,7 +1055,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
             >
               This site is protected by reCAPTCHA and the Google 
               <a
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                 data-testid="recaptcha-privacy-policy-link"
                 href="https://policies.google.com/privacy"
                 rel="noreferrer noopener"
@@ -1067,7 +1067,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               </a>
                and 
               <a
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                 data-testid="recaptcha-terms-of-service-link"
                 href="https://policies.google.com/terms"
                 rel="noreferrer noopener"
@@ -1084,7 +1084,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
       </div>
       <div
         aria-labelledby="tab-four"
-        class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
+        class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-923awc"
         data-testid="tabpanel-four"
         heading="MC: pdp.leadBlock.bim"
         hidden=""
@@ -1099,7 +1099,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
       </div>
       <div
         aria-labelledby="tab-five"
-        class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
+        class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-923awc"
         data-testid="technicalDrawings"
         heading="MC: pdp.leadBlock.technicalDrawings"
         hidden=""
@@ -1107,7 +1107,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
         role="tabpanel"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-16d2wre-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1xdopji-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -1140,7 +1140,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
       </div>
       <div
         aria-labelledby="tab-seven"
-        class="Tabs-tabPanel Tabs-tabPanelBox tab-container MuiBox-root css-19kzrtu"
+        class="Tabs-tabPanel Tabs-tabPanelBox tab-container MuiBox-root css-923awc"
         data-testid="specification"
         heading="MC: pdp.leadBlock.specification"
         hidden=""
@@ -1155,7 +1155,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
       </div>
       <div
         aria-labelledby="tab-six"
-        class="Tabs-tabPanel Tabs-tabPanelBox tab-container MuiBox-root css-19kzrtu"
+        class="Tabs-tabPanel Tabs-tabPanelBox tab-container MuiBox-root css-923awc"
         data-testid="fixingTool"
         heading="MC: pdp.leadBlock.fixingTool"
         hidden=""
@@ -1367,14 +1367,14 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
       </div>
       <div
         aria-labelledby="tab-one"
-        class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
+        class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-923awc"
         data-testid="aboutTab"
         heading="MC: pdp.leadBlock.about"
         id="tabpanel-one"
         role="tabpanel"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-oet5y7-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-12zstsi-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -1416,7 +1416,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               />
               <div>
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                   data-gtm="{"id":"cta-click1","action":"http://localhost:8000/"}"
                   data-testid="guarantee-inline-link"
                   type="button"
@@ -1424,7 +1424,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                   <span />
                   <svg
                     aria-hidden="true"
-                    class=" css-em5iqk"
+                    class=" css-1r2mexx"
                     data-testid="external"
                     focusable="false"
                     viewBox="0 0 24 24"
@@ -1438,7 +1438,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               </div>
               <div>
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                   data-gtm="{"id":"cta-click1","action":"http://localhost:8000/"}"
                   data-testid="guarantee-inline-link"
                   type="button"
@@ -1446,7 +1446,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                   <span />
                   <svg
                     aria-hidden="true"
-                    class=" css-em5iqk"
+                    class=" css-1r2mexx"
                     data-testid="external"
                     focusable="false"
                     viewBox="0 0 24 24"
@@ -1608,7 +1608,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
       </div>
       <div
         aria-labelledby="tab-two"
-        class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
+        class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-923awc"
         data-testid="technicalSpecificationsTab"
         heading="MC: pdp.leadBlock.technicalSpecifications"
         hidden=""
@@ -1616,7 +1616,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
         role="tabpanel"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-oet5y7-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-12zstsi-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -1678,7 +1678,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
       </div>
       <div
         aria-labelledby="tab-three"
-        class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
+        class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-923awc"
         data-testid="documentsTab"
         heading="MC: pdp.leadBlock.documents"
         hidden=""
@@ -1960,7 +1960,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
             data-testid="document-results-footer"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
               data-testid="anchor-link"
               type="button"
             >
@@ -1986,7 +1986,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
             >
               This site is protected by reCAPTCHA and the Google 
               <a
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                 data-testid="recaptcha-privacy-policy-link"
                 href="https://policies.google.com/privacy"
                 rel="noreferrer noopener"
@@ -1998,7 +1998,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               </a>
                and 
               <a
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                 data-testid="recaptcha-terms-of-service-link"
                 href="https://policies.google.com/terms"
                 rel="noreferrer noopener"
@@ -2015,7 +2015,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
       </div>
       <div
         aria-labelledby="tab-four"
-        class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
+        class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-923awc"
         data-testid="tabpanel-four"
         heading="MC: pdp.leadBlock.bim"
         hidden=""
@@ -2030,7 +2030,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
       </div>
       <div
         aria-labelledby="tab-five"
-        class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
+        class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-923awc"
         data-testid="technicalDrawings"
         heading="MC: pdp.leadBlock.technicalDrawings"
         hidden=""
@@ -2038,7 +2038,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
         role="tabpanel"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-16d2wre-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1xdopji-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -2071,7 +2071,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
       </div>
       <div
         aria-labelledby="tab-seven"
-        class="Tabs-tabPanel Tabs-tabPanelBox tab-container MuiBox-root css-19kzrtu"
+        class="Tabs-tabPanel Tabs-tabPanelBox tab-container MuiBox-root css-923awc"
         data-testid="specification"
         heading="MC: pdp.leadBlock.specification"
         hidden=""
@@ -2086,7 +2086,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
       </div>
       <div
         aria-labelledby="tab-six"
-        class="Tabs-tabPanel Tabs-tabPanelBox tab-container MuiBox-root css-19kzrtu"
+        class="Tabs-tabPanel Tabs-tabPanelBox tab-container MuiBox-root css-923awc"
         data-testid="fixingTool"
         heading="MC: pdp.leadBlock.fixingTool"
         hidden=""
@@ -2282,14 +2282,14 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
       </div>
       <div
         aria-labelledby="tab-one"
-        class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
+        class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-923awc"
         data-testid="aboutTab"
         heading="MC: pdp.leadBlock.about"
         id="tabpanel-one"
         role="tabpanel"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-oet5y7-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-12zstsi-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -2331,7 +2331,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
               />
               <div>
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                   data-gtm="{"id":"cta-click1","action":"http://localhost:8000/"}"
                   data-testid="guarantee-inline-link"
                   type="button"
@@ -2339,7 +2339,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
                   <span />
                   <svg
                     aria-hidden="true"
-                    class=" css-em5iqk"
+                    class=" css-1r2mexx"
                     data-testid="external"
                     focusable="false"
                     viewBox="0 0 24 24"
@@ -2353,7 +2353,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
               </div>
               <div>
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                   data-gtm="{"id":"cta-click1","action":"http://localhost:8000/"}"
                   data-testid="guarantee-inline-link"
                   type="button"
@@ -2361,7 +2361,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
                   <span />
                   <svg
                     aria-hidden="true"
-                    class=" css-em5iqk"
+                    class=" css-1r2mexx"
                     data-testid="external"
                     focusable="false"
                     viewBox="0 0 24 24"
@@ -2523,7 +2523,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
       </div>
       <div
         aria-labelledby="tab-two"
-        class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
+        class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-923awc"
         data-testid="technicalSpecificationsTab"
         heading="MC: pdp.leadBlock.technicalSpecifications"
         hidden=""
@@ -2531,7 +2531,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
         role="tabpanel"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-oet5y7-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-12zstsi-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -2593,7 +2593,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
       </div>
       <div
         aria-labelledby="tab-four"
-        class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
+        class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-923awc"
         data-testid="tabpanel-four"
         heading="MC: pdp.leadBlock.bim"
         hidden=""
@@ -2608,7 +2608,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
       </div>
       <div
         aria-labelledby="tab-five"
-        class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
+        class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-923awc"
         data-testid="technicalDrawings"
         heading="MC: pdp.leadBlock.technicalDrawings"
         hidden=""
@@ -2616,7 +2616,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
         role="tabpanel"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-16d2wre-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1xdopji-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -2649,7 +2649,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
       </div>
       <div
         aria-labelledby="tab-seven"
-        class="Tabs-tabPanel Tabs-tabPanelBox tab-container MuiBox-root css-19kzrtu"
+        class="Tabs-tabPanel Tabs-tabPanelBox tab-container MuiBox-root css-923awc"
         data-testid="specification"
         heading="MC: pdp.leadBlock.specification"
         hidden=""
@@ -2664,7 +2664,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
       </div>
       <div
         aria-labelledby="tab-six"
-        class="Tabs-tabPanel Tabs-tabPanelBox tab-container MuiBox-root css-19kzrtu"
+        class="Tabs-tabPanel Tabs-tabPanelBox tab-container MuiBox-root css-923awc"
         data-testid="fixingTool"
         heading="MC: pdp.leadBlock.fixingTool"
         hidden=""
@@ -2685,7 +2685,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
 exports[`ProductLeadBlock tests should render documents tab with correct document count 1`] = `
 <div
   aria-labelledby="tab-three"
-  class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
+  class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-923awc"
   data-testid="documentsTab"
   heading="MC: pdp.leadBlock.documents"
   hidden=""
@@ -3189,7 +3189,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
       data-testid="document-results-footer"
     >
       <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
         data-testid="anchor-link"
         type="button"
       >
@@ -3215,7 +3215,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
       >
         This site is protected by reCAPTCHA and the Google 
         <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
           data-testid="recaptcha-privacy-policy-link"
           href="https://policies.google.com/privacy"
           rel="noreferrer noopener"
@@ -3227,7 +3227,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
         </a>
          and 
         <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
           data-testid="recaptcha-terms-of-service-link"
           href="https://policies.google.com/terms"
           rel="noreferrer noopener"
@@ -3247,14 +3247,14 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
 exports[`ProductLeadBlock tests should render guarantees & warranties images & links on about tab 1`] = `
 <div
   aria-labelledby="tab-one"
-  class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
+  class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-923awc"
   data-testid="aboutTab"
   heading="MC: pdp.leadBlock.about"
   id="tabpanel-one"
   role="tabpanel"
 >
   <div
-    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-oet5y7-MuiGrid2-root"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-12zstsi-MuiGrid2-root"
     data-testid="grid-container"
   >
     <div
@@ -3296,7 +3296,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
         />
         <div>
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
             data-gtm="{"id":"cta-click1","label":"link-1","action":"http://localhost:8000/"}"
             data-testid="guarantee-inline-link-link-1"
             type="button"
@@ -3306,7 +3306,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
             </span>
             <svg
               aria-hidden="true"
-              class=" css-em5iqk"
+              class=" css-1r2mexx"
               data-testid="external"
               focusable="false"
               viewBox="0 0 24 24"
@@ -3320,7 +3320,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
         </div>
         <div>
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
             data-gtm="{"id":"cta-click1","label":"link-2","action":"http://localhost:8000/"}"
             data-testid="guarantee-inline-link-link-2"
             type="button"
@@ -3330,7 +3330,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
             </span>
             <svg
               aria-hidden="true"
-              class=" css-em5iqk"
+              class=" css-1r2mexx"
               data-testid="external"
               focusable="false"
               viewBox="0 0 24 24"
@@ -3495,7 +3495,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
 exports[`ProductLeadBlock tests should render the documents and download tab 1`] = `
 <div
   aria-labelledby="tab-three"
-  class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
+  class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-923awc"
   data-testid="documentsTab"
   heading="MC: pdp.leadBlock.documents"
   hidden=""
@@ -3999,7 +3999,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
       data-testid="document-results-footer"
     >
       <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
         data-testid="anchor-link"
         type="button"
       >
@@ -4025,7 +4025,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
       >
         This site is protected by reCAPTCHA and the Google 
         <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
           data-testid="recaptcha-privacy-policy-link"
           href="https://policies.google.com/privacy"
           rel="noreferrer noopener"
@@ -4037,7 +4037,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
         </a>
          and 
         <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
           data-testid="recaptcha-terms-of-service-link"
           href="https://policies.google.com/terms"
           rel="noreferrer noopener"
@@ -4057,7 +4057,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
 exports[`ProductLeadBlock tests should render the fixing tool tab 1`] = `
 <div
   aria-labelledby="tab-six"
-  class="Tabs-tabPanel Tabs-tabPanelBox tab-container MuiBox-root css-19kzrtu"
+  class="Tabs-tabPanel Tabs-tabPanelBox tab-container MuiBox-root css-923awc"
   data-testid="fixingTool"
   heading="MC: pdp.leadBlock.fixingTool"
   hidden=""
@@ -4075,7 +4075,7 @@ exports[`ProductLeadBlock tests should render the fixing tool tab 1`] = `
 exports[`ProductLeadBlock tests should render the fixing tool tab with title and iframe 1`] = `
 <div
   aria-labelledby="tab-six"
-  class="Tabs-tabPanel Tabs-tabPanelBox tab-container MuiBox-root css-19kzrtu"
+  class="Tabs-tabPanel Tabs-tabPanelBox tab-container MuiBox-root css-923awc"
   data-testid="fixingTool"
   heading="MC: pdp.leadBlock.fixingTool"
   hidden=""
@@ -4099,7 +4099,7 @@ exports[`ProductLeadBlock tests should render the fixing tool tab with title and
 exports[`ProductLeadBlock tests should render the specification tab 1`] = `
 <div
   aria-labelledby="tab-seven"
-  class="Tabs-tabPanel Tabs-tabPanelBox tab-container MuiBox-root css-19kzrtu"
+  class="Tabs-tabPanel Tabs-tabPanelBox tab-container MuiBox-root css-923awc"
   data-testid="specification"
   heading="MC: pdp.leadBlock.specification"
   hidden=""
@@ -4123,7 +4123,7 @@ exports[`ProductLeadBlock tests should render the specification tab 1`] = `
 exports[`ProductLeadBlock tests should render the technical draws tab 1`] = `
 <div
   aria-labelledby="tab-five"
-  class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
+  class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-923awc"
   data-testid="technicalDrawings"
   heading="MC: pdp.leadBlock.technicalDrawings"
   hidden=""
@@ -4131,7 +4131,7 @@ exports[`ProductLeadBlock tests should render the technical draws tab 1`] = `
   role="tabpanel"
 >
   <div
-    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-16d2wre-MuiGrid2-root"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1xdopji-MuiGrid2-root"
     data-testid="grid-container"
   >
     <div

@@ -116,14 +116,14 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
             </div>
             <div
               aria-labelledby="tab-group"
-              class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
+              class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-923awc"
               data-testid="tabpanel-group"
               heading="group"
               id="tabpanel-group"
               role="tabpanel"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
                 data-testid="grid-container"
               >
                 <div
@@ -176,7 +176,7 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
                         data-testid="overview-card-body-footer"
                       >
                         <span
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways footer-anchor-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways footer-anchor-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-testid="anchor-link"
                           type="button"
                         >
@@ -185,7 +185,7 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
                           </span>
                           <svg
                             aria-hidden="true"
-                            class=" css-em5iqk"
+                            class=" css-1r2mexx"
                             data-testid="internal"
                             focusable="false"
                             viewBox="0 0 16 16"
@@ -329,14 +329,14 @@ exports[`RelatedProducts component renders correctly without Brand and External 
             </div>
             <div
               aria-labelledby="tab-group"
-              class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
+              class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-923awc"
               data-testid="tabpanel-group"
               heading="group"
               id="tabpanel-group"
               role="tabpanel"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
                 data-testid="grid-container"
               >
                 <div
@@ -389,7 +389,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                         data-testid="overview-card-body-footer"
                       >
                         <span
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways footer-anchor-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways footer-anchor-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-testid="anchor-link"
                           type="button"
                         >
@@ -398,7 +398,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                           </span>
                           <svg
                             aria-hidden="true"
-                            class=" css-em5iqk"
+                            class=" css-1r2mexx"
                             data-testid="internal"
                             focusable="false"
                             viewBox="0 0 16 16"
@@ -459,7 +459,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                         data-testid="overview-card-body-footer"
                       >
                         <span
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways footer-anchor-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways footer-anchor-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-testid="anchor-link"
                           type="button"
                         >
@@ -468,7 +468,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                           </span>
                           <svg
                             aria-hidden="true"
-                            class=" css-em5iqk"
+                            class=" css-1r2mexx"
                             data-testid="internal"
                             focusable="false"
                             viewBox="0 0 16 16"
@@ -529,7 +529,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                         data-testid="overview-card-body-footer"
                       >
                         <span
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways footer-anchor-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways footer-anchor-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-testid="anchor-link"
                           type="button"
                         >
@@ -538,7 +538,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                           </span>
                           <svg
                             aria-hidden="true"
-                            class=" css-em5iqk"
+                            class=" css-1r2mexx"
                             data-testid="internal"
                             focusable="false"
                             viewBox="0 0 16 16"
@@ -680,14 +680,14 @@ exports[`RelatedProducts component renders with correct gtmLabel 1`] = `
             </div>
             <div
               aria-labelledby="tab-group"
-              class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
+              class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-923awc"
               data-testid="tabpanel-group"
               heading="group"
               id="tabpanel-group"
               role="tabpanel"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
                 data-testid="grid-container"
               >
                 <div
@@ -740,7 +740,7 @@ exports[`RelatedProducts component renders with correct gtmLabel 1`] = `
                         data-testid="overview-card-body-footer"
                       >
                         <span
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways footer-anchor-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways footer-anchor-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-testid="anchor-link"
                           type="button"
                         >
@@ -749,7 +749,7 @@ exports[`RelatedProducts component renders with correct gtmLabel 1`] = `
                           </span>
                           <svg
                             aria-hidden="true"
-                            class=" css-em5iqk"
+                            class=" css-1r2mexx"
                             data-testid="internal"
                             focusable="false"
                             viewBox="0 0 16 16"

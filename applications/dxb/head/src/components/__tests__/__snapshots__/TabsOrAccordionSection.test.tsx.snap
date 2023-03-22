@@ -334,7 +334,7 @@ exports[`TabsOrAccordionSection Tabs default to name if title is null 1`] = `
             </div>
             <div
               aria-labelledby="tab-name"
-              class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
+              class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-923awc"
               data-testid="tabpanel-name"
               heading="name"
               id="tabpanel-name"
@@ -479,7 +479,7 @@ exports[`TabsOrAccordionSection Tabs renders Correctly  1`] = `
             </div>
             <div
               aria-labelledby="tab-hello"
-              class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
+              class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-923awc"
               data-testid="tabpanel-hello"
               heading="hello"
               id="tabpanel-hello"
@@ -733,7 +733,7 @@ exports[`TabsOrAccordionSection title attribute is rendered if both name and tit
             </div>
             <div
               aria-labelledby="tab-title"
-              class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
+              class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-923awc"
               data-testid="tabpanel-title"
               heading="title"
               id="tabpanel-title"

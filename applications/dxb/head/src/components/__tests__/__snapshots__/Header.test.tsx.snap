@@ -102,7 +102,7 @@ exports[`Header component renders correctly 1`] = `
         >
           <div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-1you7td-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pn037-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -782,7 +782,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
         >
           <div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-1you7td-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pn037-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -1464,7 +1464,7 @@ exports[`Header component shows sample basket icon 1`] = `
         >
           <div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-1you7td-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pn037-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -2113,7 +2113,7 @@ exports[`Header component shows sample basket icon 1`] = `
             Basket title
           </h3>
           <div
-            class="css-7ww5b6"
+            class="css-z7ajsi"
             data-testid="shopping-cart-dialog-info"
           >
             <p>
@@ -2129,7 +2129,7 @@ exports[`Header component shows sample basket icon 1`] = `
           data-testid="shopping-cart-dialog-product-list"
         >
           <div
-            class="css-oy3w3v"
+            class="css-1x0xcnn"
             data-testid="shopping-cart-dialog-product"
           >
             <div
@@ -2337,7 +2337,7 @@ exports[`Header component toggles search 1`] = `
         >
           <div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-1you7td-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pn037-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -2924,8 +2924,8 @@ exports[`Header component toggles search 1`] = `
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled css-1wb2lss-MuiFormLabel-root-MuiInputLabel-root"
                 data-shrink="false"
-                for=":r0:"
-                id=":r0:-label"
+                for="search-input-text"
+                id="search-input-text-label"
               >
                 MC: search.placeholder.header
               </label>
@@ -2935,7 +2935,8 @@ exports[`Header component toggles search 1`] = `
                 <input
                   aria-invalid="false"
                   class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
-                  id=":r0:"
+                  data-testid="search-input-text-input"
+                  id="search-input-text"
                   name="q"
                   type="text"
                   value=""

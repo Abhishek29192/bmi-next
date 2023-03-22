@@ -45,6 +45,8 @@ const IframeSection = ({ data }: Props) => {
         </div>
       )}
       <iframe
+        id={`iframe-section-${replaceSpaces(data.title)}-iframe`}
+        key={`iframe-section-${replaceSpaces(data.title)}-iframe`}
         title={data.title}
         className={`${styles["iFrame"]}${
           cookieClasses.length > 0 ? ` optanon-category-${cookieClasses}` : ""
@@ -53,7 +55,7 @@ const IframeSection = ({ data }: Props) => {
         width="100%"
         height={data.height}
         data-testid={`iframe-section-${replaceSpaces(data.title)}-iframe`}
-      ></iframe>
+      />
     </Section>
   );
 };

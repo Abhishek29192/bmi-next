@@ -13,7 +13,7 @@ exports[`OverlapCards component IntegratedOverlapCards component renders correct
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-111ndel-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-1a8bzh9-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -232,7 +232,7 @@ exports[`OverlapCards component IntegratedOverlapCards component renders correct
                   />
                 </a>
                 <div
-                  class="css-ud7f0n-Media"
+                  class="css-tzh23l-Media"
                   data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=TDNEwZbm_Nk-video label","action":"Play"}"
                   data-testid="youtube-dialog-wrapper"
                 >
@@ -342,7 +342,7 @@ exports[`OverlapCards component renders correctly 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-111ndel-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-1a8bzh9-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -561,7 +561,7 @@ exports[`OverlapCards component renders correctly 1`] = `
                   />
                 </a>
                 <div
-                  class="css-ud7f0n-Media"
+                  class="css-tzh23l-Media"
                   data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=TDNEwZbm_Nk-video label","action":"Play"}"
                   data-testid="youtube-dialog-wrapper"
                 >

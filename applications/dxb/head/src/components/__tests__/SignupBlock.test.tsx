@@ -109,7 +109,9 @@ describe("SignupBlock component", () => {
     const signupButton = screen.getByRole("button", { name: "sign up" });
     fireEvent.click(signupButton);
 
-    expect(await screen.findByTestId("dialog")).toBeInTheDocument();
+    expect(
+      await screen.findByTestId("signup-block-dialog")
+    ).toBeInTheDocument();
 
     const dialogSignupBtn = screen.getByRole("button", {
       name: data.signupLabel
@@ -127,7 +129,7 @@ describe("SignupBlock component", () => {
     fireEvent.click(signupButton);
     const closeButton = screen.getByRole("button", { name: "Close" });
     fireEvent.click(closeButton);
-    expect(screen.queryByTestId("dialog")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("signup-block-dialog")).not.toBeInTheDocument();
   });
 
   it("renders correctly when clicked on cancel button", () => {
@@ -250,6 +252,6 @@ describe("SignupBlock component", () => {
     fireEvent.click(dialogSignupBtn);
     const cancelButton = screen.getByTestId("dialog-action-button-cancel");
     fireEvent.click(cancelButton);
-    expect(screen.queryByTestId("dialog")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("signup-block-dialog")).not.toBeInTheDocument();
   });
 });

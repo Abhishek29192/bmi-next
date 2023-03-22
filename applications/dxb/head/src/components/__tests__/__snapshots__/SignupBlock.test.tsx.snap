@@ -20,24 +20,38 @@ exports[`SignupBlock component renders correctly 1`] = `
                 class="css-lkf985"
               >
                 <div
-                  class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-aj8g3u-MuiGrid2-root"
+                  class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1ojup1c-MuiGrid2-root"
                   data-testid="grid-container"
                 >
                   <div
-                    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 Grid-item css-16fnxy3-MuiGrid2-root"
-                    data-testid="grid-item"
+                    class="MuiBox-root css-1ijie62"
                   >
-                    <h3
-                      class="MuiTypography-root MuiTypography-h3 Typography-underline Typography-darkBg css-2221f6-MuiTypography-root"
-                      data-testid="typography"
+                    <div
+                      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 Grid-item css-16fnxy3-MuiGrid2-root"
+                      data-testid="grid-item"
                     >
-                      Newsletter signup block section
-                    </h3>
+                      <h3
+                        class="MuiTypography-root MuiTypography-h3 Typography-underline Typography-darkBg css-1tspm2t-MuiTypography-root"
+                        data-testid="typography"
+                      >
+                        Newsletter signup block section
+                      </h3>
+                    </div>
                   </div>
                   <div
                     class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-8 Grid-item css-e4luph-MuiGrid2-root"
                     data-testid="grid-item"
                   >
+                    <div
+                      class="MuiBox-root css-1ff0vpy"
+                    >
+                      <h3
+                        class="MuiTypography-root MuiTypography-h3 Typography-underline Typography-darkBg css-1tspm2t-MuiTypography-root"
+                        data-testid="typography"
+                      >
+                        Newsletter signup block section
+                      </h3>
+                    </div>
                     <p
                       class="MuiTypography-root MuiTypography-body2  css-bwrz6w-MuiTypography-root"
                       data-testid="typography"

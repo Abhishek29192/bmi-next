@@ -13,29 +13,16 @@ type Data = {
 };
 
 const Previewer = ({ data }: { data: Data }) => {
-  if (typeof window === "undefined") {
-    return null;
-  }
-
-  if (!data.contentfulSite) {
-    return <p>No Sites found for the given country code.</p>;
-  }
-
-  const { slug } = queryString.parse(window.location.search, {});
-
-  if (!slug) {
-    return (
-      <p>
-        You need to specify a page slug in the URL. e.g.
-        previewer?slug=metal-tiles.
-      </p>
-    );
-  }
+  const { slug } =
+    typeof window === "undefined"
+      ? { slug: null }
+      : queryString.parse(window.location.search, {});
 
   const pageData = useMemo(() => {
     return data.contentfulSite.pages.find(
       (page) =>
-        page.slug === (Array.isArray(slug) ? slug[0] : slug).replace("/", "")
+        page.slug ===
+        (Array.isArray(slug) ? slug[0] : slug || "").replace("/", "")
     );
   }, [data, slug]);
 
@@ -49,7 +36,20 @@ const Previewer = ({ data }: { data: Data }) => {
         }${pageData.path}`
       );
     }
-  }, [pageData]);
+  }, [pageData, data.contentfulSite.countryCode]);
+
+  if (typeof window === "undefined") {
+    return null;
+  }
+
+  if (!slug) {
+    return (
+      <p>
+        You need to specify a page slug in the URL. e.g.
+        previewer?slug=metal-tiles.
+      </p>
+    );
+  }
 
   if (!pageData) {
     return (

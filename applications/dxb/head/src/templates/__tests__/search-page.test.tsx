@@ -84,8 +84,12 @@ describe("Search Page Template", () => {
       </ThemeProvider>
     );
 
-    await screen.findByText("MC: search.tabHeadings.products (2)");
-    await screen.findByText("MC: search.tabHeadings.pages (3)");
+    expect(
+      await screen.findByText("MC: search.tabHeadings.products (2)")
+    ).toBeInTheDocument();
+    expect(
+      await screen.findByText("MC: search.tabHeadings.pages (3)")
+    ).toBeInTheDocument();
 
     expect(screen.getByTestId("tab-products")).not.toHaveClass("Mui-selected");
     expect(screen.getByTestId("tab-pages")).toHaveClass("Mui-selected");
@@ -301,7 +305,11 @@ describe("Search Page Template", () => {
     expect(spyOnGetDocumentsCount).toHaveBeenCalledTimes(1);
     expect(spyOnGetPagesCount).toHaveBeenCalledTimes(1);
 
-    await screen.findByText("MC: searchPage.title.withQuery");
+    expect(
+      await screen.findByRole("heading", {
+        name: "MC: searchPage.title.withQuery"
+      })
+    ).toBeInTheDocument();
 
     expect(
       screen.getByText("MC: search.tabHeadings.products (3)")
@@ -371,7 +379,11 @@ describe("Search Page Template", () => {
       </ThemeProvider>
     );
 
-    await screen.findByText("MC: searchPage.noResultsTitle");
+    expect(
+      await screen.findByRole("heading", {
+        name: "MC: searchPage.noResultsTitle"
+      })
+    ).toBeInTheDocument();
 
     expect(screen.queryByTestId("tabpanel-products")).not.toBeInTheDocument();
     expect(screen.queryByTestId("tabpanel-documents")).not.toBeInTheDocument();
@@ -401,10 +413,12 @@ describe("Search Page Template", () => {
     );
 
     await screen.findByText("MC: searchPage.helperText");
-    const documentTabButton = screen.getByTestId("tab-documents");
+    const documentTabButton = await screen.findByTestId("tab-documents");
 
     fireEvent.click(documentTabButton);
-    expect(screen.getByTestId("container-documents")).toBeTruthy();
+    expect(
+      await screen.findByTestId("container-documents")
+    ).toBeInTheDocument();
   });
 
   it("update result count when filter changed on current tab", async () => {

@@ -193,7 +193,7 @@ exports[`ContactTopics component renders correctly 1`] = `
                 footer title
               </h6>
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
                 data-testid="grid-container"
               >
                 <div

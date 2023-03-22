@@ -238,7 +238,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
             </div>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
             data-testid="system-configuration-results-grid"
           >
             <div
@@ -536,7 +536,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
             </div>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
             data-testid="system-configuration-results-grid"
           >
             <div
@@ -1512,7 +1512,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
             </div>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
             data-testid="system-configuration-results-grid"
           >
             <div
@@ -3449,7 +3449,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
             </div>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
             data-testid="system-configuration-results-grid"
           >
             <div
@@ -3890,7 +3890,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
             </div>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
             data-testid="system-configuration-results-grid"
           >
             <div

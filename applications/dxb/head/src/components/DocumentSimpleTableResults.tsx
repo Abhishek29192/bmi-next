@@ -123,168 +123,182 @@ export const formatDate = (document: Document): string => {
   return `${day}.${month}.${dateObj.getFullYear()}`;
 };
 
-const getDocument = (document: Document, headers: AvailableHeader[]) => {
+const DocumentCells = ({
+  document,
+  headers
+}: {
+  document: Document;
+  headers: AvailableHeader[];
+}) => {
   const { getMicroCopy } = useSiteContext();
   const { __typename } = document;
-  return headers.map((header) => {
-    const key = `${__typename}-body-${header}`;
+  return (
+    <>
+      {headers.map((header) => {
+        const key = `${__typename}-body-${header}`;
 
-    if (header === "typeCode") {
-      return (
-        <StyledTableCell
-          key={key}
-          data-testid={`document-table-title-${document.id}`}
-        >
-          <abbr title={document.assetType.name}>{document.assetType.code}</abbr>
-        </StyledTableCell>
-      );
-    }
+        if (header === "typeCode") {
+          return (
+            <StyledTableCell
+              key={key}
+              data-testid={`document-table-title-${document.id}`}
+            >
+              <abbr title={document.assetType.name}>
+                {document.assetType.code}
+              </abbr>
+            </StyledTableCell>
+          );
+        }
 
-    if (header === "type") {
-      return (
-        <StyledTableCell
-          key={key}
-          data-testid={`document-table-type-${document.id}`}
-        >
-          {document.assetType.name}
-        </StyledTableCell>
-      );
-    }
+        if (header === "type") {
+          return (
+            <StyledTableCell
+              key={key}
+              data-testid={`document-table-type-${document.id}`}
+            >
+              {document.assetType.name}
+            </StyledTableCell>
+          );
+        }
 
-    if (header === "productStatus") {
-      return (
-        <StyledTableCell key={key}>
-          {"approvalStatus" in document ? (
-            <DocumentStatus status={document.approvalStatus}>
-              {getProductStatus(document, getMicroCopy)}
-            </DocumentStatus>
+        if (header === "productStatus") {
+          return (
+            <StyledTableCell key={key}>
+              {"approvalStatus" in document ? (
+                <DocumentStatus status={document.approvalStatus}>
+                  {getProductStatus(document, getMicroCopy)}
+                </DocumentStatus>
+              ) : (
+                "-"
+              )}
+            </StyledTableCell>
+          );
+        }
+
+        if (header === "validityDate") {
+          return (
+            <StyledTableCell key={key}>{formatDate(document)}</StyledTableCell>
+          );
+        }
+
+        if (header === "name") {
+          if (
+            document.__typename === "PIMDocument" ||
+            document.__typename === "PIMSystemDocument"
+          ) {
+            return (
+              <StyledTableCell
+                key={key}
+                data-testid={`document-table-name-${document.id}`}
+              >
+                {document.title}
+              </StyledTableCell>
+            );
+          }
+        }
+
+        if (header === "title") {
+          return (
+            <StyledTitleTableCell
+              key={key}
+              data-testid={`document-table-title-${document.id}`}
+            >
+              <Title>{document.title}</Title>
+            </StyledTitleTableCell>
+          );
+        }
+
+        if (header === "download") {
+          return (
+            <StyledTableCell
+              align="left"
+              key={key}
+              data-testid={`document-table-download-${document.id}`}
+            >
+              {!isLinkDocument(document) ? (
+                document.__typename === "PIMDocumentWithPseudoZip" ? (
+                  <MultipleAssetToFileDownload document={document} />
+                ) : (
+                  <FileDownloadButton
+                    {...mapAssetToFileDownload(document, getMicroCopy)}
+                  />
+                )
+              ) : (
+                <Button
+                  isIconButton
+                  variant="text"
+                  action={{
+                    model: "htmlLink",
+                    href: (document as FsPimDocument).url,
+                    target: "_blank",
+                    rel: "noopener noreferrer"
+                  }}
+                  data-testid="document-table-external-link-button"
+                >
+                  <ExternalLinkIcon name={"External"} />
+                </Button>
+              )}
+            </StyledTableCell>
+          );
+        }
+
+        if (header === "add") {
+          return !(document.__typename === "PIMDocumentWithPseudoZip") ? (
+            <StyledTableCell
+              align="center"
+              key={key}
+              data-testid={`document-table-add-${document.id}`}
+            >
+              {!isLinkDocument(document) ? (
+                <DownloadList.Checkbox
+                  name={getUniqueId(document)}
+                  maxLimitReachedLabel={getMicroCopy(
+                    microCopy.DOCUMENTS_DOWNLOAD_MAX_REACHED
+                  )}
+                  ariaLabel={`${getMicroCopy(
+                    microCopy.DOCUMENT_LIBRARY_DOWNLOAD
+                  )} ${document.title}`}
+                  value={document}
+                  fileSize={
+                    document[typenameToSizeMap[document.__typename]] || 0
+                  }
+                />
+              ) : (
+                <NoDocumentIcon>-</NoDocumentIcon>
+              )}
+            </StyledTableCell>
           ) : (
-            "-"
-          )}
-        </StyledTableCell>
-      );
-    }
+            <StyledTableCell
+              align="center"
+              key={key}
+              data-testid={`document-table-add-${document.id}`}
+            >
+              <DownloadList.Checkbox
+                name={getUniqueId(document)}
+                maxLimitReachedLabel={getMicroCopy(
+                  microCopy.DOCUMENTS_DOWNLOAD_MAX_REACHED
+                )}
+                ariaLabel={`${getMicroCopy(
+                  microCopy.DOCUMENT_LIBRARY_DOWNLOAD
+                )} ${document.assetType.name}`}
+                value={document.documentList}
+                fileSize={document.fileSize}
+              />
+            </StyledTableCell>
+          );
+        }
 
-    if (header === "validityDate") {
-      return (
-        <StyledTableCell key={key}>{formatDate(document)}</StyledTableCell>
-      );
-    }
-
-    if (header === "name") {
-      if (
-        document.__typename === "PIMDocument" ||
-        document.__typename === "PIMSystemDocument"
-      ) {
         return (
           <StyledTableCell
             key={key}
-            data-testid={`document-table-name-${document.id}`}
+            data-testid={`document-table-unknown-${document.id}`}
           >
-            {document.title}
+            n/d
           </StyledTableCell>
         );
-      }
-    }
-
-    if (header === "title") {
-      return (
-        <StyledTitleTableCell
-          key={key}
-          data-testid={`document-table-title-${document.id}`}
-        >
-          <Title>{document.title}</Title>
-        </StyledTitleTableCell>
-      );
-    }
-
-    if (header === "download") {
-      return (
-        <StyledTableCell
-          align="left"
-          key={key}
-          data-testid={`document-table-download-${document.id}`}
-        >
-          {!isLinkDocument(document) ? (
-            document.__typename === "PIMDocumentWithPseudoZip" ? (
-              <MultipleAssetToFileDownload document={document} />
-            ) : (
-              <FileDownloadButton
-                {...mapAssetToFileDownload(document, getMicroCopy)}
-              />
-            )
-          ) : (
-            <Button
-              isIconButton
-              variant="text"
-              action={{
-                model: "htmlLink",
-                href: (document as FsPimDocument).url,
-                target: "_blank",
-                rel: "noopener noreferrer"
-              }}
-              data-testid="document-table-external-link-button"
-            >
-              <ExternalLinkIcon name={"External"} />
-            </Button>
-          )}
-        </StyledTableCell>
-      );
-    }
-
-    if (header === "add") {
-      return !(document.__typename === "PIMDocumentWithPseudoZip") ? (
-        <StyledTableCell
-          align="center"
-          key={key}
-          data-testid={`document-table-add-${document.id}`}
-        >
-          {!isLinkDocument(document) ? (
-            <DownloadList.Checkbox
-              name={getUniqueId(document)}
-              maxLimitReachedLabel={getMicroCopy(
-                microCopy.DOCUMENTS_DOWNLOAD_MAX_REACHED
-              )}
-              ariaLabel={`${getMicroCopy(
-                microCopy.DOCUMENT_LIBRARY_DOWNLOAD
-              )} ${document.title}`}
-              value={document}
-              fileSize={document[typenameToSizeMap[document.__typename]] || 0}
-            />
-          ) : (
-            <NoDocumentIcon>-</NoDocumentIcon>
-          )}
-        </StyledTableCell>
-      ) : (
-        <StyledTableCell
-          align="center"
-          key={key}
-          data-testid={`document-table-add-${document.id}`}
-        >
-          <DownloadList.Checkbox
-            name={getUniqueId(document)}
-            maxLimitReachedLabel={getMicroCopy(
-              microCopy.DOCUMENTS_DOWNLOAD_MAX_REACHED
-            )}
-            ariaLabel={`${getMicroCopy(microCopy.DOCUMENT_LIBRARY_DOWNLOAD)} ${
-              document.assetType.name
-            }`}
-            value={document.documentList}
-            fileSize={document.fileSize}
-          />
-        </StyledTableCell>
-      );
-    }
-
-    return (
-      <StyledTableCell
-        key={key}
-        data-testid={`document-table-unknown-${document.id}`}
-      >
-        n/d
-      </StyledTableCell>
-    );
-  });
+      })}
+    </>
+  );
 };
 
 export const mapAssetToFileDownload = (
@@ -556,7 +570,7 @@ const DocumentSimpleTableResults = ({
                 selected={!!list[getUniqueId(document)]}
                 data-testid={`document-table-row-${document.id}`}
               >
-                {getDocument(document, headers)}
+                <DocumentCells document={document} headers={headers} />
               </DocumentRow>
             );
           })}

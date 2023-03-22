@@ -30,12 +30,8 @@ const IntegratedSignupBlock = ({
   data?: Data;
   theme?: SignupBlockColor;
 }) => {
-  if (!data) {
-    return null;
-  }
   const { getMicroCopy } = useSiteContext();
   const [dialogOpen, setDialogOpen] = useState(false);
-  const { title, description, signupLabel, signupDialogContent } = data;
   const GTMButton = withGTM<ButtonProps>(Button);
   const [formSubmitted, setFormSubmitted] = useState<boolean>(false);
   const [hubSpotForm, setHubSpotForm] = useState<HTMLFormElement | null>(null);
@@ -43,6 +39,12 @@ const IntegratedSignupBlock = ({
   const [legalConsentProcessing, setLegalConsentProcessing] = useState(false);
   const [legalConsentSubscription, setLegalConsentSubscription] =
     useState(false);
+
+  if (!data) {
+    return null;
+  }
+
+  const { title, description, signupLabel, signupDialogContent } = data;
 
   const onSuccess = () => {
     setFormSubmitted(true);

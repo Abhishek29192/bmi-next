@@ -33,7 +33,7 @@ exports[`CardCollectionSection component Card label doesn't render button if car
             </p>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -145,7 +145,7 @@ exports[`CardCollectionSection component Card label renders as name if title is 
               </p>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -334,7 +334,7 @@ exports[`CardCollectionSection component Renders correctly When Title rich text 
               </div>
               <button
                 aria-disabled="true"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-h03s9s-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-4gnc4v-MuiTypography-root-MuiLink-root"
                 data-testid="anchor-link"
                 type="button"
               >
@@ -347,7 +347,7 @@ exports[`CardCollectionSection component Renders correctly When Title rich text 
               class="Carousel-wrapperGutter css-xi64lz"
             >
               <div
-                class="Carousel-opacity Carousel-carouselGutter css-1mdsw28"
+                class="Carousel-opacity Carousel-carouselGutter Carousel-slideConstantHeight css-1s5ge7u"
                 data-testid="carousel"
               >
                 <div
@@ -356,7 +356,7 @@ exports[`CardCollectionSection component Renders correctly When Title rich text 
                 >
                   <div
                     class="react-swipeable-view-container"
-                    style="flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;"
+                    style="flex-direction: row; transition: all 0s ease 0s; transform: translate(0%, 0); direction: ltr; display: flex; will-change: transform;"
                   >
                     <div
                       aria-hidden="false"
@@ -522,7 +522,7 @@ exports[`CardCollectionSection component Renders correctly When dialogContent li
               </div>
               <button
                 aria-disabled="true"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-h03s9s-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-4gnc4v-MuiTypography-root-MuiLink-root"
                 data-testid="anchor-link"
                 type="button"
               >
@@ -532,7 +532,7 @@ exports[`CardCollectionSection component Renders correctly When dialogContent li
               </button>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -706,7 +706,7 @@ exports[`CardCollectionSection component Renders correctly When entry-hyperlink 
               </div>
               <button
                 aria-disabled="true"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-h03s9s-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-4gnc4v-MuiTypography-root-MuiLink-root"
                 data-testid="anchor-link"
                 type="button"
               >
@@ -716,7 +716,7 @@ exports[`CardCollectionSection component Renders correctly When entry-hyperlink 
               </button>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -867,7 +867,7 @@ exports[`CardCollectionSection component Renders correctly When heading 2 is pre
               </div>
               <button
                 aria-disabled="true"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-h03s9s-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-4gnc4v-MuiTypography-root-MuiLink-root"
                 data-testid="anchor-link"
                 type="button"
               >
@@ -877,7 +877,7 @@ exports[`CardCollectionSection component Renders correctly When heading 2 is pre
               </button>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -1028,7 +1028,7 @@ exports[`CardCollectionSection component Renders correctly When heading 3 is pre
               </div>
               <button
                 aria-disabled="true"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-h03s9s-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-4gnc4v-MuiTypography-root-MuiLink-root"
                 data-testid="anchor-link"
                 type="button"
               >
@@ -1038,7 +1038,7 @@ exports[`CardCollectionSection component Renders correctly When heading 3 is pre
               </button>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -1189,7 +1189,7 @@ exports[`CardCollectionSection component Renders correctly When heading 4 is pre
               </div>
               <button
                 aria-disabled="true"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-h03s9s-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-4gnc4v-MuiTypography-root-MuiLink-root"
                 data-testid="anchor-link"
                 type="button"
               >
@@ -1199,7 +1199,7 @@ exports[`CardCollectionSection component Renders correctly When heading 4 is pre
               </button>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -1350,7 +1350,7 @@ exports[`CardCollectionSection component Renders correctly When heading 5 is pre
               </div>
               <button
                 aria-disabled="true"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-h03s9s-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-4gnc4v-MuiTypography-root-MuiLink-root"
                 data-testid="anchor-link"
                 type="button"
               >
@@ -1360,7 +1360,7 @@ exports[`CardCollectionSection component Renders correctly When heading 5 is pre
               </button>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -1511,7 +1511,7 @@ exports[`CardCollectionSection component Renders correctly When heading 6 is pre
               </div>
               <button
                 aria-disabled="true"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-h03s9s-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-4gnc4v-MuiTypography-root-MuiLink-root"
                 data-testid="anchor-link"
                 type="button"
               >
@@ -1521,7 +1521,7 @@ exports[`CardCollectionSection component Renders correctly When heading 6 is pre
               </button>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -1670,7 +1670,7 @@ exports[`CardCollectionSection component Renders correctly When text length = 0 
               </div>
               <button
                 aria-disabled="true"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-h03s9s-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-4gnc4v-MuiTypography-root-MuiLink-root"
                 data-testid="anchor-link"
                 type="button"
               >
@@ -1680,7 +1680,7 @@ exports[`CardCollectionSection component Renders correctly When text length = 0 
               </button>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -1851,7 +1851,7 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
               </div>
               <button
                 aria-disabled="true"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-h03s9s-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-4gnc4v-MuiTypography-root-MuiLink-root"
                 data-testid="anchor-link"
                 type="button"
               >
@@ -1861,7 +1861,7 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
               </button>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -2190,7 +2190,7 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
               </div>
               <button
                 aria-disabled="true"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-h03s9s-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-4gnc4v-MuiTypography-root-MuiLink-root"
                 data-testid="anchor-link"
                 type="button"
               >
@@ -2200,7 +2200,7 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
               </button>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -2529,7 +2529,7 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
               </div>
               <button
                 aria-disabled="true"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-h03s9s-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-4gnc4v-MuiTypography-root-MuiLink-root"
                 data-testid="anchor-link"
                 type="button"
               >
@@ -2539,7 +2539,7 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
               </button>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -2868,7 +2868,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
               </div>
               <button
                 aria-disabled="true"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-h03s9s-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-4gnc4v-MuiTypography-root-MuiLink-root"
                 data-testid="anchor-link"
                 type="button"
               >
@@ -2878,7 +2878,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
               </button>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -3207,7 +3207,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
               </div>
               <button
                 aria-disabled="true"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-h03s9s-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-4gnc4v-MuiTypography-root-MuiLink-root"
                 data-testid="anchor-link"
                 type="button"
               >
@@ -3217,7 +3217,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
               </button>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -3546,7 +3546,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
               </div>
               <button
                 aria-disabled="true"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-h03s9s-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-4gnc4v-MuiTypography-root-MuiLink-root"
                 data-testid="anchor-link"
                 type="button"
               >
@@ -3559,7 +3559,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
               class="Carousel-wrapperShowOffScreen Carousel-wrapperGutter css-xi64lz"
             >
               <div
-                class="Carousel-opacity Carousel-carouselGutter css-1mdsw28"
+                class="Carousel-opacity Carousel-carouselGutter Carousel-slideConstantHeight css-1s5ge7u"
                 data-testid="carousel"
               >
                 <div
@@ -3568,7 +3568,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                 >
                   <div
                     class="react-swipeable-view-container"
-                    style="flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;"
+                    style="flex-direction: row; transition: all 0s ease 0s; transform: translate(0%, 0); direction: ltr; display: flex; will-change: transform;"
                   >
                     <div
                       aria-hidden="false"
@@ -3641,6 +3641,203 @@ exports[`CardCollectionSection component single & multiple row display renders c
                               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                             />
                           </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      aria-hidden="true"
+                      class="Carousel-swipeableSlide"
+                      data-swipeable="true"
+                      style="width: 100%; flex-shrink: 0; overflow: auto;"
+                    >
+                      <div
+                        class="Carousel-page"
+                      >
+                        <div
+                          class="Carousel-slide"
+                          data-test-class-name="slide"
+                          data-testid="carousel-slide"
+                          style="width: 100%;"
+                        >
+                          <a
+                            class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                            data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/no/"}"
+                            data-testid="card-collection-section-item-test-2"
+                            href="/no/"
+                            tabindex="0"
+                            type="button"
+                          >
+                            <img
+                              class="OverviewCard-headerPicture css-7mgsqw-Media"
+                              style="object-fit: cover; object-position: center;"
+                            />
+                            <div
+                              class="OverviewCard-body"
+                            >
+                              <div
+                                class="OverviewCard-brandLogo OverviewCard-negative"
+                              />
+                              <h4
+                                class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
+                                data-testid="overview-card-body-title"
+                              >
+                                test 2
+                              </h4>
+                              <div
+                                class="OverviewCard-text css-kl66ak"
+                                data-testid="overview-card-body-description"
+                              />
+                              <div
+                                class="css-ekp6jg"
+                                data-testid="overview-card-body-footer"
+                              >
+                                <h6
+                                  class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                                  data-testid="typography"
+                                >
+                                  2. juni 2021
+                                </h6>
+                                <span
+                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                                  data-testid="card-link"
+                                  role="button"
+                                  tabindex="0"
+                                  type="button"
+                                >
+                                  a string
+                                  <span
+                                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                  />
+                                </span>
+                              </div>
+                            </div>
+                            <span
+                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                            />
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      aria-hidden="true"
+                      class="Carousel-swipeableSlide"
+                      data-swipeable="true"
+                      style="width: 100%; flex-shrink: 0; overflow: auto;"
+                    >
+                      <div
+                        class="Carousel-page"
+                      >
+                        <div
+                          class="Carousel-slide"
+                          data-test-class-name="slide"
+                          data-testid="carousel-slide"
+                          style="width: 100%;"
+                        >
+                          <a
+                            class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                            data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/no/"}"
+                            data-testid="card-collection-section-item-test-3"
+                            href="/no/"
+                            tabindex="0"
+                            type="button"
+                          >
+                            <img
+                              class="OverviewCard-headerPicture css-7mgsqw-Media"
+                              style="object-fit: cover; object-position: center;"
+                            />
+                            <div
+                              class="OverviewCard-body"
+                            >
+                              <div
+                                class="OverviewCard-brandLogo OverviewCard-negative"
+                              />
+                              <h4
+                                class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
+                                data-testid="overview-card-body-title"
+                              >
+                                test 3
+                              </h4>
+                              <div
+                                class="OverviewCard-text css-kl66ak"
+                                data-testid="overview-card-body-description"
+                              />
+                              <div
+                                class="css-ekp6jg"
+                                data-testid="overview-card-body-footer"
+                              >
+                                <h6
+                                  class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                                  data-testid="typography"
+                                >
+                                  3. juni 2021
+                                </h6>
+                                <span
+                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                                  data-testid="card-link"
+                                  role="button"
+                                  tabindex="0"
+                                  type="button"
+                                >
+                                  a string
+                                  <span
+                                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                  />
+                                </span>
+                              </div>
+                            </div>
+                            <span
+                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                            />
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      aria-hidden="true"
+                      class="Carousel-swipeableSlide"
+                      data-swipeable="true"
+                      style="width: 100%; flex-shrink: 0; overflow: auto;"
+                    >
+                      <div
+                        class="Carousel-page"
+                      >
+                        <div
+                          class="Carousel-slide"
+                          data-test-class-name="slide"
+                          data-testid="carousel-slide"
+                          style="width: 100%;"
+                        >
+                          <div
+                            class=" MuiBox-root css-13ealx6"
+                            data-testid="card-collection-section-item-Villain-1"
+                            type="button"
+                          >
+                            <img
+                              class="OverviewCard-headerPicture css-7mgsqw-Media"
+                              style="object-fit: cover; object-position: center;"
+                            />
+                            <div
+                              class="OverviewCard-body"
+                            >
+                              <div
+                                class="OverviewCard-brandLogo OverviewCard-negative"
+                              />
+                              <h4
+                                class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
+                                data-testid="overview-card-body-title"
+                              >
+                                Villain 1
+                              </h4>
+                              <div
+                                class="OverviewCard-text css-kl66ak"
+                                data-testid="overview-card-body-description"
+                              />
+                              <div
+                                class="css-ekp6jg"
+                                data-testid="overview-card-body-footer"
+                              />
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>

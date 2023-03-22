@@ -3,7 +3,7 @@
 exports[`TechnicalSpecificationLeadBlock tests should render correctly when Multiple classifications provided With more than one feature units 1`] = `
 <div>
   <div
-    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-oet5y7-MuiGrid2-root"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-12zstsi-MuiGrid2-root"
     data-testid="grid-container"
   >
     <div
@@ -232,7 +232,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
 exports[`TechnicalSpecificationLeadBlock tests should render correctly when Multiple classifications provided With no feature units 1`] = `
 <div>
   <div
-    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-oet5y7-MuiGrid2-root"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-12zstsi-MuiGrid2-root"
     data-testid="grid-container"
   >
     <div
@@ -433,7 +433,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
 exports[`TechnicalSpecificationLeadBlock tests should render correctly when One classifications provided With a feature units 1`] = `
 <div>
   <div
-    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-oet5y7-MuiGrid2-root"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-12zstsi-MuiGrid2-root"
     data-testid="grid-container"
   >
     <div
@@ -504,7 +504,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when One 
 exports[`TechnicalSpecificationLeadBlock tests should render correctly when One classifications provided With no feature units 1`] = `
 <div>
   <div
-    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-oet5y7-MuiGrid2-root"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-12zstsi-MuiGrid2-root"
     data-testid="grid-container"
   >
     <div
@@ -575,7 +575,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when One 
 exports[`TechnicalSpecificationLeadBlock tests should render correctly when no classifications provided With tech spec an empty set 1`] = `
 <div>
   <div
-    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-oet5y7-MuiGrid2-root"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-12zstsi-MuiGrid2-root"
     data-testid="grid-container"
   >
     <div
@@ -594,7 +594,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when no c
 exports[`TechnicalSpecificationLeadBlock tests should render correctly when specification provided With no specification 1`] = `
 <div>
   <div
-    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-oet5y7-MuiGrid2-root"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-12zstsi-MuiGrid2-root"
     data-testid="grid-container"
   >
     <div
@@ -795,7 +795,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
 exports[`TechnicalSpecificationLeadBlock tests should render correctly when specification provided With specification 1`] = `
 <div>
   <div
-    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-oet5y7-MuiGrid2-root"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-12zstsi-MuiGrid2-root"
     data-testid="grid-container"
   >
     <div

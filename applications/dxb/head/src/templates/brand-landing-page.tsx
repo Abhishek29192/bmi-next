@@ -224,8 +224,8 @@ export const pageQuery = graphql`
       }
       slides {
         ... on ContentfulPromoOrPage {
-          ...PromoFragment
-          ...BasePageInfoFragment
+          ...PromoHeroFragment
+          ...PageInfoHeroFragment
         }
       }
       overlapCards {
@@ -234,10 +234,7 @@ export const pageQuery = graphql`
       sections {
         ...SectionsFragment
       }
-      parentPage {
-        ...BasePageInfoFragment
-      }
-      ...BasePageInfoFragment
+      ...PageInfoHeroFragment
       ...PageFragment
       ...BreadcrumbsFragment
     }

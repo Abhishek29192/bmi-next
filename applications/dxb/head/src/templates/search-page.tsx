@@ -76,7 +76,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
     }
 
     return params.get(QUERY_KEY);
-  }, [params]);
+  }, [isPreviewMode, params]);
   const [pageIsLoading, setPageIsLoading] = useState<boolean>(true);
   const [tabsLoading, setTabsLoading] = useState({});
   const [areTabsResolved, setAreTabsResolved] = useState(false);
@@ -185,6 +185,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
     };
 
     getCounts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- Sets results inside of this hook
   }, [queryString]);
 
   const pageTitle = useMemo(() => {
@@ -204,7 +205,13 @@ const SearchPage = ({ pageContext, data }: Props) => {
         query: queryString
       });
     }
-  }, [queryString, pageHasResults, areTabsResolved]);
+  }, [
+    queryString,
+    pageHasResults,
+    areTabsResolved,
+    defaultTitle,
+    getMicroCopy
+  ]);
 
   // If any of the tabs are loading
   const tabIsLoading =

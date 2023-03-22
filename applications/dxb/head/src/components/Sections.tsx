@@ -131,7 +131,7 @@ const Sections = ({
           return {
             ...carry,
             [id]: {
-              isReversed: isSpaEnabled ? false : true,
+              isReversed: !isSpaEnabled,
               backgroundColor: backgroundColor || "White"
             }
           };

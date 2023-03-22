@@ -20,7 +20,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
             Main
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -32,7 +32,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
-                  data-testid="text-field-company-autocomplete"
+                  data-testid="company-autocomplete"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
@@ -69,6 +69,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                       autocapitalize="none"
                       autocomplete="off"
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiAutocomplete-input MuiAutocomplete-inputFocused css-1o9s3wi-MuiInputBase-input-MuiOutlinedInput-input"
+                      data-testid="company-autocomplete-input"
                       id="company-autocomplete"
                       name="autocomplete-field"
                       role="combobox"
@@ -313,7 +314,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
             </div>
             <div
               aria-labelledby="tab-list"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1rk7w2f"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
               data-testid="tabpanel-list"
               heading="MC: findARoofer.listLabel"
               id="tabpanel-list"
@@ -335,10 +336,6 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                       class="css-c9b8pn"
                       data-testid="linkCard-item"
                     >
-                      <img
-                        class="company-logo"
-                        style="object-fit: cover; object-position: center;"
-                      />
                       <h6
                         class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                         data-testid="typography"
@@ -518,7 +515,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-71osed"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -565,7 +562,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
             Main
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -577,7 +574,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
-                  data-testid="text-field-company-autocomplete"
+                  data-testid="company-autocomplete"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
@@ -614,6 +611,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                       autocapitalize="none"
                       autocomplete="off"
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiAutocomplete-input MuiAutocomplete-inputFocused css-1o9s3wi-MuiInputBase-input-MuiOutlinedInput-input"
+                      data-testid="company-autocomplete-input"
                       id="company-autocomplete"
                       name="autocomplete-field"
                       role="combobox"
@@ -759,7 +757,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
             </div>
             <div
               aria-labelledby="tab-list"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1rk7w2f"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
               data-testid="tabpanel-list"
               heading="MC: findARoofer.listLabel"
               id="tabpanel-list"
@@ -781,10 +779,6 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                       class="css-c9b8pn"
                       data-testid="linkCard-item"
                     >
-                      <img
-                        class="company-logo"
-                        style="object-fit: cover; object-position: center;"
-                      />
                       <h6
                         class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                         data-testid="typography"
@@ -946,10 +940,6 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                       class="css-c9b8pn"
                       data-testid="linkCard-item"
                     >
-                      <img
-                        class="company-logo"
-                        style="object-fit: cover; object-position: center;"
-                      />
                       <h6
                         class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                         data-testid="typography"
@@ -1107,7 +1097,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-71osed"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -1385,7 +1375,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
             Main
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -1397,7 +1387,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
-                  data-testid="text-field-company-autocomplete"
+                  data-testid="company-autocomplete"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
@@ -1434,6 +1424,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                       autocapitalize="none"
                       autocomplete="off"
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiAutocomplete-input MuiAutocomplete-inputFocused css-1o9s3wi-MuiInputBase-input-MuiOutlinedInput-input"
+                      data-testid="company-autocomplete-input"
                       id="company-autocomplete"
                       name="autocomplete-field"
                       role="combobox"
@@ -1678,7 +1669,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
             </div>
             <div
               aria-labelledby="tab-list"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1rk7w2f"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
               data-testid="tabpanel-list"
               heading="MC: findARoofer.listLabel"
               id="tabpanel-list"
@@ -1700,10 +1691,6 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                       class="css-c9b8pn"
                       data-testid="linkCard-item"
                     >
-                      <img
-                        class="company-logo"
-                        style="object-fit: cover; object-position: center;"
-                      />
                       <h6
                         class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                         data-testid="typography"
@@ -1883,7 +1870,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-71osed"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -1930,7 +1917,7 @@ exports[`ServiceLocatorSection component close button 1`] = `
             Main
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -1942,7 +1929,7 @@ exports[`ServiceLocatorSection component close button 1`] = `
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
-                  data-testid="text-field-company-autocomplete"
+                  data-testid="company-autocomplete"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
@@ -1979,6 +1966,7 @@ exports[`ServiceLocatorSection component close button 1`] = `
                       autocapitalize="none"
                       autocomplete="off"
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiAutocomplete-input MuiAutocomplete-inputFocused css-1o9s3wi-MuiInputBase-input-MuiOutlinedInput-input"
+                      data-testid="company-autocomplete-input"
                       id="company-autocomplete"
                       name="autocomplete-field"
                       role="combobox"
@@ -2124,7 +2112,7 @@ exports[`ServiceLocatorSection component close button 1`] = `
             </div>
             <div
               aria-labelledby="tab-list"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1rk7w2f"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
               data-testid="tabpanel-list"
               heading="MC: findARoofer.listLabel"
               id="tabpanel-list"
@@ -2146,10 +2134,6 @@ exports[`ServiceLocatorSection component close button 1`] = `
                       class="css-c9b8pn"
                       data-testid="linkCard-item"
                     >
-                      <img
-                        class="company-logo"
-                        style="object-fit: cover; object-position: center;"
-                      />
                       <h6
                         class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                         data-testid="typography"
@@ -2311,10 +2295,6 @@ exports[`ServiceLocatorSection component close button 1`] = `
                       class="css-c9b8pn"
                       data-testid="linkCard-item"
                     >
-                      <img
-                        class="company-logo"
-                        style="object-fit: cover; object-position: center;"
-                      />
                       <h6
                         class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                         data-testid="typography"
@@ -2472,7 +2452,7 @@ exports[`ServiceLocatorSection component close button 1`] = `
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-71osed"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -2519,7 +2499,7 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
             Main
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -2527,11 +2507,11 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
               data-testid="grid-item"
             >
               <div
-                class="MuiAutocomplete-root Mui-expanded MuiAutocomplete-hasClearIcon company-autocomplete css-l3ln04-MuiAutocomplete-root"
+                class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon company-autocomplete css-l3ln04-MuiAutocomplete-root"
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
-                  data-testid="text-field-company-autocomplete"
+                  data-testid="company-autocomplete"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
@@ -2568,6 +2548,7 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
                       autocapitalize="none"
                       autocomplete="off"
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-152mnda-MuiInputBase-input-MuiOutlinedInput-input"
+                      data-testid="company-autocomplete-input"
                       id="company-autocomplete"
                       name="autocomplete-field"
                       role="combobox"
@@ -2739,7 +2720,7 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
             </div>
             <div
               aria-labelledby="tab-list"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1rk7w2f"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
               data-testid="tabpanel-list"
               heading="MC: findARoofer.listLabel"
               id="tabpanel-list"
@@ -2761,10 +2742,6 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
                       class="css-c9b8pn"
                       data-testid="linkCard-item"
                     >
-                      <img
-                        class="company-logo"
-                        style="object-fit: cover; object-position: center;"
-                      />
                       <h6
                         class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                         data-testid="typography"
@@ -2922,7 +2899,7 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-71osed"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -2981,7 +2958,7 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
             Main
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -3103,7 +3080,7 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
             </div>
             <div
               aria-labelledby="tab-list"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1rk7w2f"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
               data-testid="tabpanel-list"
               heading="MC: findARoofer.listLabel"
               id="tabpanel-list"
@@ -3125,10 +3102,6 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
                       class="css-c9b8pn"
                       data-testid="linkCard-item"
                     >
-                      <img
-                        class="company-logo"
-                        style="object-fit: cover; object-position: center;"
-                      />
                       <h6
                         class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                         data-testid="typography"
@@ -3290,7 +3263,7 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-71osed"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -3337,7 +3310,7 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
             Main
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -3349,7 +3322,7 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
-                  data-testid="text-field-company-autocomplete"
+                  data-testid="company-autocomplete"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
@@ -3386,6 +3359,7 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
                       autocapitalize="none"
                       autocomplete="off"
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiAutocomplete-input MuiAutocomplete-inputFocused css-1o9s3wi-MuiInputBase-input-MuiOutlinedInput-input"
+                      data-testid="company-autocomplete-input"
                       id="company-autocomplete"
                       name="autocomplete-field"
                       role="combobox"
@@ -3582,7 +3556,7 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
             </div>
             <div
               aria-labelledby="tab-list"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1rk7w2f"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
               data-testid="tabpanel-list"
               heading="MC: findARoofer.listLabel"
               id="tabpanel-list"
@@ -3604,10 +3578,6 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
                       class="css-c9b8pn"
                       data-testid="linkCard-item"
                     >
-                      <img
-                        class="company-logo"
-                        style="object-fit: cover; object-position: center;"
-                      />
                       <h6
                         class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                         data-testid="typography"
@@ -3747,7 +3717,7 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-71osed"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -3794,7 +3764,7 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
             Main
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -3806,7 +3776,7 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
-                  data-testid="text-field-company-autocomplete"
+                  data-testid="company-autocomplete"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
@@ -3843,6 +3813,7 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                       autocapitalize="none"
                       autocomplete="off"
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiAutocomplete-input MuiAutocomplete-inputFocused css-1o9s3wi-MuiInputBase-input-MuiOutlinedInput-input"
+                      data-testid="company-autocomplete-input"
                       id="company-autocomplete"
                       name="autocomplete-field"
                       role="combobox"
@@ -4039,7 +4010,7 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
             </div>
             <div
               aria-labelledby="tab-list"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1rk7w2f"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
               data-testid="tabpanel-list"
               heading="MC: findARoofer.listLabel"
               id="tabpanel-list"
@@ -4061,10 +4032,6 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                       class="css-c9b8pn"
                       data-testid="linkCard-item"
                     >
-                      <img
-                        class="company-logo"
-                        style="object-fit: cover; object-position: center;"
-                      />
                       <h6
                         class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                         data-testid="typography"
@@ -4244,7 +4211,7 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-71osed"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -4290,7 +4257,7 @@ exports[`ServiceLocatorSection component renders correctly with NO service 1`] =
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -4302,7 +4269,7 @@ exports[`ServiceLocatorSection component renders correctly with NO service 1`] =
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
-                data-testid="text-field-company-autocomplete"
+                data-testid="company-autocomplete"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
@@ -4339,6 +4306,7 @@ exports[`ServiceLocatorSection component renders correctly with NO service 1`] =
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiAutocomplete-input MuiAutocomplete-inputFocused css-1o9s3wi-MuiInputBase-input-MuiOutlinedInput-input"
+                    data-testid="company-autocomplete-input"
                     id="company-autocomplete"
                     name="autocomplete-field"
                     role="combobox"
@@ -4484,7 +4452,7 @@ exports[`ServiceLocatorSection component renders correctly with NO service 1`] =
           </div>
           <div
             aria-labelledby="tab-list"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1rk7w2f"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
             data-testid="tabpanel-list"
             heading="MC: findARoofer.listLabel"
             id="tabpanel-list"
@@ -4509,7 +4477,7 @@ exports[`ServiceLocatorSection component renders correctly with NO service 1`] =
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-71osed"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -4554,7 +4522,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
           data-testid="grid-container"
         />
         <div
@@ -4624,7 +4592,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
           </div>
           <div
             aria-labelledby="tab-list"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1rk7w2f"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
             data-testid="tabpanel-list"
             heading="MC: findARoofer.listLabel"
             id="tabpanel-list"
@@ -4646,10 +4614,6 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                     class="css-c9b8pn"
                     data-testid="linkCard-item"
                   >
-                    <img
-                      class="company-logo"
-                      style="object-fit: cover; object-position: center;"
-                    />
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                       data-testid="typography"
@@ -4815,10 +4779,6 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                     class="css-c9b8pn"
                     data-testid="linkCard-item"
                   >
-                    <img
-                      class="company-logo"
-                      style="object-fit: cover; object-position: center;"
-                    />
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                       data-testid="typography"
@@ -4980,7 +4940,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-71osed"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -5025,7 +4985,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
           data-testid="grid-container"
         />
         <div
@@ -5095,7 +5055,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
           </div>
           <div
             aria-labelledby="tab-list"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1rk7w2f"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
             data-testid="tabpanel-list"
             heading="MC: findARoofer.listLabel"
             id="tabpanel-list"
@@ -5117,10 +5077,6 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                     class="css-c9b8pn"
                     data-testid="linkCard-item"
                   >
-                    <img
-                      class="company-logo"
-                      style="object-fit: cover; object-position: center;"
-                    />
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                       data-testid="typography"
@@ -5286,10 +5242,6 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                     class="css-c9b8pn"
                     data-testid="linkCard-item"
                   >
-                    <img
-                      class="company-logo"
-                      style="object-fit: cover; object-position: center;"
-                    />
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                       data-testid="typography"
@@ -5451,7 +5403,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-71osed"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -5496,7 +5448,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -5508,7 +5460,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
-                data-testid="text-field-company-autocomplete"
+                data-testid="company-autocomplete"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
@@ -5545,6 +5497,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiAutocomplete-input MuiAutocomplete-inputFocused css-1o9s3wi-MuiInputBase-input-MuiOutlinedInput-input"
+                    data-testid="company-autocomplete-input"
                     id="company-autocomplete"
                     name="autocomplete-field"
                     role="combobox"
@@ -5690,7 +5643,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
           </div>
           <div
             aria-labelledby="tab-list"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1rk7w2f"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
             data-testid="tabpanel-list"
             heading="MC: findARoofer.listLabel"
             id="tabpanel-list"
@@ -5712,10 +5665,6 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                     class="css-c9b8pn"
                     data-testid="linkCard-item"
                   >
-                    <img
-                      class="company-logo"
-                      style="object-fit: cover; object-position: center;"
-                    />
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                       data-testid="typography"
@@ -5859,10 +5808,6 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                     class="css-c9b8pn"
                     data-testid="linkCard-item"
                   >
-                    <img
-                      class="company-logo"
-                      style="object-fit: cover; object-position: center;"
-                    />
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                       data-testid="typography"
@@ -6002,7 +5947,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-71osed"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -6047,7 +5992,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -6059,7 +6004,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
-                data-testid="text-field-company-autocomplete"
+                data-testid="company-autocomplete"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
@@ -6096,6 +6041,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiAutocomplete-input MuiAutocomplete-inputFocused css-1o9s3wi-MuiInputBase-input-MuiOutlinedInput-input"
+                    data-testid="company-autocomplete-input"
                     id="company-autocomplete"
                     name="autocomplete-field"
                     role="combobox"
@@ -6241,7 +6187,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
           </div>
           <div
             aria-labelledby="tab-list"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1rk7w2f"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
             data-testid="tabpanel-list"
             heading="MC: findARoofer.listLabel"
             id="tabpanel-list"
@@ -6263,10 +6209,6 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                     class="css-c9b8pn"
                     data-testid="linkCard-item"
                   >
-                    <img
-                      class="company-logo"
-                      style="object-fit: cover; object-position: center;"
-                    />
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                       data-testid="typography"
@@ -6410,10 +6352,6 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                     class="css-c9b8pn"
                     data-testid="linkCard-item"
                   >
-                    <img
-                      class="company-logo"
-                      style="object-fit: cover; object-position: center;"
-                    />
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                       data-testid="typography"
@@ -6553,7 +6491,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-71osed"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -6598,7 +6536,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -6610,7 +6548,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
-                data-testid="text-field-company-autocomplete"
+                data-testid="company-autocomplete"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
@@ -6647,6 +6585,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiAutocomplete-input MuiAutocomplete-inputFocused css-1o9s3wi-MuiInputBase-input-MuiOutlinedInput-input"
+                    data-testid="company-autocomplete-input"
                     id="company-autocomplete"
                     name="autocomplete-field"
                     role="combobox"
@@ -6792,7 +6731,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
           </div>
           <div
             aria-labelledby="tab-list"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1rk7w2f"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
             data-testid="tabpanel-list"
             heading="MC: findARoofer.listLabel"
             id="tabpanel-list"
@@ -6814,10 +6753,6 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
                     class="css-c9b8pn"
                     data-testid="linkCard-item"
                   >
-                    <img
-                      class="company-logo"
-                      style="object-fit: cover; object-position: center;"
-                    />
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                       data-testid="typography"
@@ -6961,10 +6896,6 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
                     class="css-c9b8pn"
                     data-testid="linkCard-item"
                   >
-                    <img
-                      class="company-logo"
-                      style="object-fit: cover; object-position: center;"
-                    />
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                       data-testid="typography"
@@ -7104,7 +7035,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-71osed"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -7149,7 +7080,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -7161,7 +7092,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
-                data-testid="text-field-company-autocomplete"
+                data-testid="company-autocomplete"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
@@ -7198,6 +7129,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiAutocomplete-input MuiAutocomplete-inputFocused css-1o9s3wi-MuiInputBase-input-MuiOutlinedInput-input"
+                    data-testid="company-autocomplete-input"
                     id="company-autocomplete"
                     name="autocomplete-field"
                     role="combobox"
@@ -7490,7 +7422,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
           </div>
           <div
             aria-labelledby="tab-list"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1rk7w2f"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
             data-testid="tabpanel-list"
             heading="MC: findARoofer.listLabel"
             id="tabpanel-list"
@@ -7512,10 +7444,6 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                     class="css-c9b8pn"
                     data-testid="linkCard-item"
                   >
-                    <img
-                      class="company-logo"
-                      style="object-fit: cover; object-position: center;"
-                    />
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                       data-testid="typography"
@@ -7699,10 +7627,6 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                     class="css-c9b8pn"
                     data-testid="linkCard-item"
                   >
-                    <img
-                      class="company-logo"
-                      style="object-fit: cover; object-position: center;"
-                    />
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                       data-testid="typography"
@@ -7882,7 +7806,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-71osed"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -7927,7 +7851,7 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -7939,7 +7863,7 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
-                data-testid="text-field-company-autocomplete"
+                data-testid="company-autocomplete"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
@@ -7976,6 +7900,7 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiAutocomplete-input MuiAutocomplete-inputFocused css-1o9s3wi-MuiInputBase-input-MuiOutlinedInput-input"
+                    data-testid="company-autocomplete-input"
                     id="company-autocomplete"
                     name="autocomplete-field"
                     role="combobox"
@@ -8121,7 +8046,7 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
           </div>
           <div
             aria-labelledby="tab-list"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1rk7w2f"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
             data-testid="tabpanel-list"
             heading="MC: findARoofer.listLabel"
             id="tabpanel-list"
@@ -8143,10 +8068,6 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
                     class="css-c9b8pn"
                     data-testid="linkCard-item"
                   >
-                    <img
-                      class="company-logo"
-                      style="object-fit: cover; object-position: center;"
-                    />
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                       data-testid="typography"
@@ -8308,10 +8229,6 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
                     class="css-c9b8pn"
                     data-testid="linkCard-item"
                   >
-                    <img
-                      class="company-logo"
-                      style="object-fit: cover; object-position: center;"
-                    />
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                       data-testid="typography"
@@ -8469,7 +8386,7 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-71osed"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -8514,7 +8431,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -8526,7 +8443,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
-                data-testid="text-field-company-autocomplete"
+                data-testid="company-autocomplete"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
@@ -8563,6 +8480,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiAutocomplete-input MuiAutocomplete-inputFocused css-1o9s3wi-MuiInputBase-input-MuiOutlinedInput-input"
+                    data-testid="company-autocomplete-input"
                     id="company-autocomplete"
                     name="autocomplete-field"
                     role="combobox"
@@ -8791,7 +8709,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
           </div>
           <div
             aria-labelledby="tab-list"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1rk7w2f"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
             data-testid="tabpanel-list"
             heading="MC: findARoofer.listLabel"
             id="tabpanel-list"
@@ -8813,10 +8731,6 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                     class="css-c9b8pn"
                     data-testid="linkCard-item"
                   >
-                    <img
-                      class="company-logo"
-                      style="object-fit: cover; object-position: center;"
-                    />
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                       data-testid="typography"
@@ -9000,10 +8914,6 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                     class="css-c9b8pn"
                     data-testid="linkCard-item"
                   >
-                    <img
-                      class="company-logo"
-                      style="object-fit: cover; object-position: center;"
-                    />
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                       data-testid="typography"
@@ -9183,7 +9093,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-71osed"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -9228,7 +9138,7 @@ exports[`ServiceLocatorSection component renders multiple services with single s
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -9240,7 +9150,7 @@ exports[`ServiceLocatorSection component renders multiple services with single s
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
-                data-testid="text-field-company-autocomplete"
+                data-testid="company-autocomplete"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
@@ -9277,6 +9187,7 @@ exports[`ServiceLocatorSection component renders multiple services with single s
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiAutocomplete-input MuiAutocomplete-inputFocused css-1o9s3wi-MuiInputBase-input-MuiOutlinedInput-input"
+                    data-testid="company-autocomplete-input"
                     id="company-autocomplete"
                     name="autocomplete-field"
                     role="combobox"
@@ -9422,7 +9333,7 @@ exports[`ServiceLocatorSection component renders multiple services with single s
           </div>
           <div
             aria-labelledby="tab-list"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1rk7w2f"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
             data-testid="tabpanel-list"
             heading="MC: findARoofer.listLabel"
             id="tabpanel-list"
@@ -9444,10 +9355,6 @@ exports[`ServiceLocatorSection component renders multiple services with single s
                     class="css-c9b8pn"
                     data-testid="linkCard-item"
                   >
-                    <img
-                      class="company-logo"
-                      style="object-fit: cover; object-position: center;"
-                    />
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                       data-testid="typography"
@@ -9631,10 +9538,6 @@ exports[`ServiceLocatorSection component renders multiple services with single s
                     class="css-c9b8pn"
                     data-testid="linkCard-item"
                   >
-                    <img
-                      class="company-logo"
-                      style="object-fit: cover; object-position: center;"
-                    />
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                       data-testid="typography"
@@ -9814,7 +9717,7 @@ exports[`ServiceLocatorSection component renders multiple services with single s
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-71osed"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -9859,7 +9762,7 @@ exports[`ServiceLocatorSection component renders single service with No service 
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -9871,7 +9774,7 @@ exports[`ServiceLocatorSection component renders single service with No service 
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
-                data-testid="text-field-company-autocomplete"
+                data-testid="company-autocomplete"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
@@ -9908,6 +9811,7 @@ exports[`ServiceLocatorSection component renders single service with No service 
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiAutocomplete-input MuiAutocomplete-inputFocused css-1o9s3wi-MuiInputBase-input-MuiOutlinedInput-input"
+                    data-testid="company-autocomplete-input"
                     id="company-autocomplete"
                     name="autocomplete-field"
                     role="combobox"
@@ -10053,7 +9957,7 @@ exports[`ServiceLocatorSection component renders single service with No service 
           </div>
           <div
             aria-labelledby="tab-list"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1rk7w2f"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
             data-testid="tabpanel-list"
             heading="MC: findARoofer.listLabel"
             id="tabpanel-list"
@@ -10075,10 +9979,6 @@ exports[`ServiceLocatorSection component renders single service with No service 
                     class="css-c9b8pn"
                     data-testid="linkCard-item"
                   >
-                    <img
-                      class="company-logo"
-                      style="object-fit: cover; object-position: center;"
-                    />
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                       data-testid="typography"
@@ -10236,7 +10136,7 @@ exports[`ServiceLocatorSection component renders single service with No service 
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-71osed"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -10281,7 +10181,7 @@ exports[`ServiceLocatorSection component renders single service with empty servi
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -10293,7 +10193,7 @@ exports[`ServiceLocatorSection component renders single service with empty servi
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
-                data-testid="text-field-company-autocomplete"
+                data-testid="company-autocomplete"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
@@ -10330,6 +10230,7 @@ exports[`ServiceLocatorSection component renders single service with empty servi
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiAutocomplete-input MuiAutocomplete-inputFocused css-1o9s3wi-MuiInputBase-input-MuiOutlinedInput-input"
+                    data-testid="company-autocomplete-input"
                     id="company-autocomplete"
                     name="autocomplete-field"
                     role="combobox"
@@ -10475,7 +10376,7 @@ exports[`ServiceLocatorSection component renders single service with empty servi
           </div>
           <div
             aria-labelledby="tab-list"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1rk7w2f"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
             data-testid="tabpanel-list"
             heading="MC: findARoofer.listLabel"
             id="tabpanel-list"
@@ -10497,10 +10398,6 @@ exports[`ServiceLocatorSection component renders single service with empty servi
                     class="css-c9b8pn"
                     data-testid="linkCard-item"
                   >
-                    <img
-                      class="company-logo"
-                      style="object-fit: cover; object-position: center;"
-                    />
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                       data-testid="typography"
@@ -10658,7 +10555,7 @@ exports[`ServiceLocatorSection component renders single service with empty servi
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-71osed"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -10703,7 +10600,7 @@ exports[`ServiceLocatorSection component renders single service with multiple se
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -10715,7 +10612,7 @@ exports[`ServiceLocatorSection component renders single service with multiple se
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
-                data-testid="text-field-company-autocomplete"
+                data-testid="company-autocomplete"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
@@ -10752,6 +10649,7 @@ exports[`ServiceLocatorSection component renders single service with multiple se
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiAutocomplete-input MuiAutocomplete-inputFocused css-1o9s3wi-MuiInputBase-input-MuiOutlinedInput-input"
+                    data-testid="company-autocomplete-input"
                     id="company-autocomplete"
                     name="autocomplete-field"
                     role="combobox"
@@ -10948,7 +10846,7 @@ exports[`ServiceLocatorSection component renders single service with multiple se
           </div>
           <div
             aria-labelledby="tab-list"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1rk7w2f"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
             data-testid="tabpanel-list"
             heading="MC: findARoofer.listLabel"
             id="tabpanel-list"
@@ -10970,10 +10868,6 @@ exports[`ServiceLocatorSection component renders single service with multiple se
                     class="css-c9b8pn"
                     data-testid="linkCard-item"
                   >
-                    <img
-                      class="company-logo"
-                      style="object-fit: cover; object-position: center;"
-                    />
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                       data-testid="typography"
@@ -11153,7 +11047,7 @@ exports[`ServiceLocatorSection component renders single service with multiple se
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-71osed"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -11198,7 +11092,7 @@ exports[`ServiceLocatorSection component renders single service with single serv
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -11210,7 +11104,7 @@ exports[`ServiceLocatorSection component renders single service with single serv
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
-                data-testid="text-field-company-autocomplete"
+                data-testid="company-autocomplete"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
@@ -11247,6 +11141,7 @@ exports[`ServiceLocatorSection component renders single service with single serv
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiAutocomplete-input MuiAutocomplete-inputFocused css-1o9s3wi-MuiInputBase-input-MuiOutlinedInput-input"
+                    data-testid="company-autocomplete-input"
                     id="company-autocomplete"
                     name="autocomplete-field"
                     role="combobox"
@@ -11392,7 +11287,7 @@ exports[`ServiceLocatorSection component renders single service with single serv
           </div>
           <div
             aria-labelledby="tab-list"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1rk7w2f"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
             data-testid="tabpanel-list"
             heading="MC: findARoofer.listLabel"
             id="tabpanel-list"
@@ -11414,10 +11309,6 @@ exports[`ServiceLocatorSection component renders single service with single serv
                     class="css-c9b8pn"
                     data-testid="linkCard-item"
                   >
-                    <img
-                      class="company-logo"
-                      style="object-fit: cover; object-position: center;"
-                    />
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                       data-testid="typography"
@@ -11597,7 +11488,7 @@ exports[`ServiceLocatorSection component renders single service with single serv
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-71osed"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -11643,7 +11534,7 @@ exports[`ServiceLocatorSection component searches for a service: Filtered main l
             Main
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -11655,7 +11546,7 @@ exports[`ServiceLocatorSection component searches for a service: Filtered main l
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
-                  data-testid="text-field-company-autocomplete"
+                  data-testid="company-autocomplete"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
@@ -11692,6 +11583,7 @@ exports[`ServiceLocatorSection component searches for a service: Filtered main l
                       autocapitalize="none"
                       autocomplete="off"
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-152mnda-MuiInputBase-input-MuiOutlinedInput-input"
+                      data-testid="company-autocomplete-input"
                       id="company-autocomplete"
                       name="autocomplete-field"
                       role="combobox"
@@ -11863,7 +11755,7 @@ exports[`ServiceLocatorSection component searches for a service: Filtered main l
             </div>
             <div
               aria-labelledby="tab-list"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1rk7w2f"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
               data-testid="tabpanel-list"
               heading="MC: findARoofer.listLabel"
               id="tabpanel-list"
@@ -11885,10 +11777,6 @@ exports[`ServiceLocatorSection component searches for a service: Filtered main l
                       class="css-c9b8pn"
                       data-testid="linkCard-item"
                     >
-                      <img
-                        class="company-logo"
-                        style="object-fit: cover; object-position: center;"
-                      />
                       <h6
                         class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                         data-testid="typography"
@@ -12046,7 +11934,7 @@ exports[`ServiceLocatorSection component searches for a service: Filtered main l
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-71osed"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -12093,7 +11981,7 @@ exports[`ServiceLocatorSection component searches for a service: Filtered option
             Main
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -12102,11 +11990,11 @@ exports[`ServiceLocatorSection component searches for a service: Filtered option
             >
               <div
                 aria-owns="company-autocomplete-listbox"
-                class="MuiAutocomplete-root Mui-expanded MuiAutocomplete-hasClearIcon company-autocomplete css-l3ln04-MuiAutocomplete-root"
+                class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon company-autocomplete css-l3ln04-MuiAutocomplete-root"
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
-                  data-testid="text-field-company-autocomplete"
+                  data-testid="company-autocomplete"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
@@ -12144,6 +12032,7 @@ exports[`ServiceLocatorSection component searches for a service: Filtered option
                       autocapitalize="none"
                       autocomplete="off"
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-152mnda-MuiInputBase-input-MuiOutlinedInput-input"
+                      data-testid="company-autocomplete-input"
                       id="company-autocomplete"
                       name="autocomplete-field"
                       role="combobox"
@@ -12315,7 +12204,7 @@ exports[`ServiceLocatorSection component searches for a service: Filtered option
             </div>
             <div
               aria-labelledby="tab-list"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1rk7w2f"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
               data-testid="tabpanel-list"
               heading="MC: findARoofer.listLabel"
               id="tabpanel-list"
@@ -12337,10 +12226,6 @@ exports[`ServiceLocatorSection component searches for a service: Filtered option
                       class="css-c9b8pn"
                       data-testid="linkCard-item"
                     >
-                      <img
-                        class="company-logo"
-                        style="object-fit: cover; object-position: center;"
-                      />
                       <h6
                         class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                         data-testid="typography"
@@ -12502,10 +12387,6 @@ exports[`ServiceLocatorSection component searches for a service: Filtered option
                       class="css-c9b8pn"
                       data-testid="linkCard-item"
                     >
-                      <img
-                        class="company-logo"
-                        style="object-fit: cover; object-position: center;"
-                      />
                       <h6
                         class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                         data-testid="typography"
@@ -12663,7 +12544,7 @@ exports[`ServiceLocatorSection component searches for a service: Filtered option
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-71osed"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -12741,7 +12622,7 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
             Main
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -12753,7 +12634,7 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
-                  data-testid="text-field-company-autocomplete"
+                  data-testid="company-autocomplete"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
@@ -12790,6 +12671,7 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
                       autocapitalize="none"
                       autocomplete="off"
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiAutocomplete-input MuiAutocomplete-inputFocused css-1o9s3wi-MuiInputBase-input-MuiOutlinedInput-input"
+                      data-testid="company-autocomplete-input"
                       id="company-autocomplete"
                       name="autocomplete-field"
                       role="combobox"
@@ -12935,7 +12817,7 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
             </div>
             <div
               aria-labelledby="tab-list"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1rk7w2f"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
               data-testid="tabpanel-list"
               heading="MC: findARoofer.listLabel"
               id="tabpanel-list"
@@ -12957,10 +12839,6 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
                       class="css-c9b8pn"
                       data-testid="linkCard-item"
                     >
-                      <img
-                        class="company-logo"
-                        style="object-fit: cover; object-position: center;"
-                      />
                       <h6
                         class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                         data-testid="typography"
@@ -13118,7 +12996,7 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-71osed"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -13165,7 +13043,7 @@ exports[`ServiceLocatorSection component selects service 1`] = `
             Main
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -13177,7 +13055,7 @@ exports[`ServiceLocatorSection component selects service 1`] = `
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
-                  data-testid="text-field-company-autocomplete"
+                  data-testid="company-autocomplete"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
@@ -13214,6 +13092,7 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                       autocapitalize="none"
                       autocomplete="off"
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiAutocomplete-input MuiAutocomplete-inputFocused css-1o9s3wi-MuiInputBase-input-MuiOutlinedInput-input"
+                      data-testid="company-autocomplete-input"
                       id="company-autocomplete"
                       name="autocomplete-field"
                       role="combobox"
@@ -13359,7 +13238,7 @@ exports[`ServiceLocatorSection component selects service 1`] = `
             </div>
             <div
               aria-labelledby="tab-list"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1rk7w2f"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
               data-testid="tabpanel-list"
               heading="MC: findARoofer.listLabel"
               id="tabpanel-list"
@@ -13381,10 +13260,6 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                       class="css-c9b8pn"
                       data-testid="linkCard-item"
                     >
-                      <img
-                        class="company-logo"
-                        style="object-fit: cover; object-position: center;"
-                      />
                       <h6
                         class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                         data-testid="typography"
@@ -13542,7 +13417,7 @@ exports[`ServiceLocatorSection component selects service 1`] = `
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-71osed"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -13789,7 +13664,7 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
             Main
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -13801,7 +13676,7 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
-                  data-testid="text-field-company-autocomplete"
+                  data-testid="company-autocomplete"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
@@ -13838,6 +13713,7 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
                       autocapitalize="none"
                       autocomplete="off"
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiAutocomplete-input MuiAutocomplete-inputFocused css-1o9s3wi-MuiInputBase-input-MuiOutlinedInput-input"
+                      data-testid="company-autocomplete-input"
                       id="company-autocomplete"
                       name="autocomplete-field"
                       role="combobox"
@@ -13991,7 +13867,7 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
             </div>
             <div
               aria-labelledby="tab-list"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1rk7w2f"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
               data-testid="tabpanel-list"
               heading="MC: findARoofer.listLabel"
               id="tabpanel-list"
@@ -14013,10 +13889,6 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
                       class="css-c9b8pn"
                       data-testid="linkCard-item"
                     >
-                      <img
-                        class="company-logo"
-                        style="object-fit: cover; object-position: center;"
-                      />
                       <h6
                         class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                         data-testid="typography"
@@ -14174,7 +14046,7 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-71osed"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -14221,7 +14093,7 @@ exports[`ServiceLocatorSection component when showDefaultResultList is false sho
             Main
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -14233,7 +14105,7 @@ exports[`ServiceLocatorSection component when showDefaultResultList is false sho
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
-                  data-testid="text-field-company-autocomplete"
+                  data-testid="company-autocomplete"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
@@ -14270,6 +14142,7 @@ exports[`ServiceLocatorSection component when showDefaultResultList is false sho
                       autocapitalize="none"
                       autocomplete="off"
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiAutocomplete-input MuiAutocomplete-inputFocused css-1o9s3wi-MuiInputBase-input-MuiOutlinedInput-input"
+                      data-testid="company-autocomplete-input"
                       id="company-autocomplete"
                       name="autocomplete-field"
                       role="combobox"
@@ -14451,7 +14324,7 @@ exports[`ServiceLocatorSection component when showDefaultResultList is false sho
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-71osed"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -14498,7 +14371,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
             Main
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -14510,7 +14383,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
-                  data-testid="text-field-company-autocomplete"
+                  data-testid="company-autocomplete"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
@@ -14547,6 +14420,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                       autocapitalize="none"
                       autocomplete="off"
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiAutocomplete-input MuiAutocomplete-inputFocused css-1o9s3wi-MuiInputBase-input-MuiOutlinedInput-input"
+                      data-testid="company-autocomplete-input"
                       id="company-autocomplete"
                       name="autocomplete-field"
                       role="combobox"
@@ -14582,7 +14456,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
-                  data-testid="text-field-location-autocomplete"
+                  data-testid="location-autocomplete"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
@@ -14616,6 +14490,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                       autocapitalize="none"
                       autocomplete="off"
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-152mnda-MuiInputBase-input-MuiOutlinedInput-input"
+                      data-testid="location-autocomplete-input"
                       id="location-autocomplete"
                       name="autocomplete-field"
                       role="combobox"
@@ -14756,7 +14631,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
             </div>
             <div
               aria-labelledby="tab-list"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1rk7w2f"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
               data-testid="tabpanel-list"
               heading="MC: findARoofer.listLabel"
               id="tabpanel-list"
@@ -14778,10 +14653,6 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                       class="css-c9b8pn"
                       data-testid="linkCard-item"
                     >
-                      <img
-                        class="company-logo"
-                        style="object-fit: cover; object-position: center;"
-                      />
                       <h6
                         class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                         data-testid="typography"
@@ -14925,10 +14796,6 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                       class="css-c9b8pn"
                       data-testid="linkCard-item"
                     >
-                      <img
-                        class="company-logo"
-                        style="object-fit: cover; object-position: center;"
-                      />
                       <h6
                         class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                         data-testid="typography"
@@ -15072,10 +14939,6 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                       class="css-c9b8pn"
                       data-testid="linkCard-item"
                     >
-                      <img
-                        class="company-logo"
-                        style="object-fit: cover; object-position: center;"
-                      />
                       <h6
                         class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                         data-testid="typography"
@@ -15215,7 +15078,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-71osed"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -15262,7 +15125,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
             Main
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -15274,7 +15137,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
-                  data-testid="text-field-company-autocomplete"
+                  data-testid="company-autocomplete"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
@@ -15311,6 +15174,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                       autocapitalize="none"
                       autocomplete="off"
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiAutocomplete-input MuiAutocomplete-inputFocused css-1o9s3wi-MuiInputBase-input-MuiOutlinedInput-input"
+                      data-testid="company-autocomplete-input"
                       id="company-autocomplete"
                       name="autocomplete-field"
                       role="combobox"
@@ -15346,7 +15210,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
-                  data-testid="text-field-location-autocomplete"
+                  data-testid="location-autocomplete"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
@@ -15380,6 +15244,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                       autocapitalize="none"
                       autocomplete="off"
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiAutocomplete-input MuiAutocomplete-inputFocused css-1o9s3wi-MuiInputBase-input-MuiOutlinedInput-input"
+                      data-testid="location-autocomplete-input"
                       id="location-autocomplete"
                       name="autocomplete-field"
                       role="combobox"
@@ -15494,7 +15359,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
             </div>
             <div
               aria-labelledby="tab-list"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1rk7w2f"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
               data-testid="tabpanel-list"
               heading="MC: findARoofer.listLabel"
               id="tabpanel-list"
@@ -15519,7 +15384,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-71osed"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -15566,7 +15431,7 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
             Main
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -15578,7 +15443,7 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
-                  data-testid="text-field-company-autocomplete"
+                  data-testid="company-autocomplete"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
@@ -15615,6 +15480,7 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
                       autocapitalize="none"
                       autocomplete="off"
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiAutocomplete-input MuiAutocomplete-inputFocused css-1o9s3wi-MuiInputBase-input-MuiOutlinedInput-input"
+                      data-testid="company-autocomplete-input"
                       id="company-autocomplete"
                       name="autocomplete-field"
                       role="combobox"
@@ -15760,7 +15626,7 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
             </div>
             <div
               aria-labelledby="tab-list"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1rk7w2f"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
               data-testid="tabpanel-list"
               heading="MC: findARoofer.listLabel"
               id="tabpanel-list"
@@ -15782,10 +15648,6 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
                       class="css-c9b8pn"
                       data-testid="linkCard-item"
                     >
-                      <img
-                        class="company-logo"
-                        style="object-fit: cover; object-position: center;"
-                      />
                       <h6
                         class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                         data-testid="typography"
@@ -15965,7 +15827,7 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-71osed"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""

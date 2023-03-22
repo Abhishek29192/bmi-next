@@ -22,7 +22,7 @@ exports[`RelatedSystems component renders correctly when scoringweight equal & n
             MC: sdp.recommendedSystemsTitle
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -163,7 +163,7 @@ exports[`RelatedSystems component renders correctly with no systems 1`] = `
             MC: sdp.recommendedSystemsTitle
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
             data-testid="grid-container"
           />
         </div>
@@ -195,7 +195,7 @@ exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
             MC: sdp.recommendedSystemsTitle
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -336,7 +336,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal & n
             MC: sdp.recommendedSystemsTitle
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -477,7 +477,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal 1`]
             MC: sdp.recommendedSystemsTitle
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -618,7 +618,7 @@ exports[`RelatedSystems component renders correctly with systems 1`] = `
             MC: sdp.recommendedSystemsTitle
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -705,7 +705,7 @@ exports[`RelatedSystems component renders correctly without categories 1`] = `
             MC: sdp.recommendedSystemsTitle
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -792,7 +792,7 @@ exports[`RelatedSystems component renders systems correctly without classificati
             MC: sdp.recommendedSystemsTitle
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div

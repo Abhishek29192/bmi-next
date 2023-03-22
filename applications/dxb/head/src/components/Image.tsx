@@ -82,7 +82,6 @@ const Image = ({
       image={image.gatsbyImageData}
       alt={altText}
       draggable={false}
-      style={{ position: "relative" }}
       objectFit={size || typeToObjectFitMap[type || "Decorative"]}
       objectPosition={getPosition({
         size,

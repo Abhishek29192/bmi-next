@@ -10,8 +10,6 @@ import {
   Section,
   Tabs
 } from "@bmi-digital/components";
-import { useTheme } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import { useLocation } from "@reach/router";
 import { graphql } from "gatsby";
 import React, { useEffect, useMemo, useReducer, useState } from "react";
@@ -92,9 +90,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const isBranchLocator = sectionType == EntryTypeEnum.BRANCH_TYPE;
 
   const { getMicroCopy, countryCode } = useSiteContext();
-  const theme = useTheme();
   const windowLocation = useLocation();
-  const matches = useMediaQuery(theme.breakpoints.up("lg"));
 
   const params = new URLSearchParams(windowLocation.search);
   const userQueryString = useMemo(
@@ -173,9 +169,9 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const markers = useMemo(
     () =>
       showResultList
-        ? pagedFilteredRoofers.map(createMarker(selectedRoofer, matches))
+        ? pagedFilteredRoofers.map(createMarker(selectedRoofer))
         : [],
-    [selectedRoofer, pagedFilteredRoofers, showResultList, matches]
+    [selectedRoofer, pagedFilteredRoofers, showResultList]
   );
 
   const handlePageChange = (_, pageNumber: number) => {
@@ -196,8 +192,8 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
 
   const handleServiceClick = (service: Service, isMarker = false) => {
     setSelectedRoofer(service);
-    if (matches && isMarker) {
-      pushToDataLayer(getResultDataGtm(service, matches, isMarker));
+    if (isMarker) {
+      pushToDataLayer(getResultDataGtm(service, isMarker));
     }
   };
 
@@ -233,7 +229,6 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     return createCompanyDetails(
       sectionType,
       service,
-      matches,
       countryCode,
       getMicroCopy,
       isAddressHidden,

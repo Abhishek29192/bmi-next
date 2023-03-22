@@ -52,7 +52,7 @@ export const CartInfo = styled("div")(({ theme }) => ({
   fontFamily: "Effra Regular",
   "&>p": {
     margin: 0,
-    "&:last-child": {
+    "&:last-of-type": {
       marginTop: "12px"
     }
   }
@@ -81,10 +81,10 @@ export const ProductList = styled("div")(({ theme }) => ({
 export const Product = styled("div")(({ theme }) => ({
   display: "flex",
   padding: "12px 30px",
-  "&:nth-child(odd)": {
+  "&:nth-of-type(odd)": {
     backgroundColor: theme.colours.pearl
   },
-  "&:nth-child(even)": {
+  "&:nth-of-type(even)": {
     backgroundColor: theme.colours.white
   }
 }));

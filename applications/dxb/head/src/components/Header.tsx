@@ -205,10 +205,6 @@ const Header = ({
     [languages, countryCode]
   );
 
-  if (!navigationData || !utilitiesData) {
-    return null;
-  }
-
   const { getMicroCopy } = useSiteContext();
   const {
     config: { isSpaEnabled, isGatsbyDisabledElasticSearch }
@@ -216,6 +212,11 @@ const Header = ({
   const {
     basketState: { products: productsInBasket }
   } = useBasketContext();
+
+  if (!navigationData || !utilitiesData) {
+    return null;
+  }
+
   const utilities = parseNavigation(
     utilitiesData.links,
     countryCode,

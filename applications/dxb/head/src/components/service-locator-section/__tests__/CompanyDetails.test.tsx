@@ -22,7 +22,6 @@ describe("createCompanyDetails", () => {
     const details = createCompanyDetails(
       ROOFER_TYPE,
       service,
-      false,
       "en",
       getMicroCopyMock,
       false,
@@ -42,7 +41,6 @@ describe("createCompanyDetails", () => {
     const details = createCompanyDetails(
       BRANCH_TYPE,
       service,
-      false,
       "en",
       getMicroCopyMock,
       false,
@@ -60,7 +58,6 @@ describe("createCompanyDetails", () => {
     const details = createCompanyDetails(
       MERCHANT_TYPE,
       service,
-      false,
       "en",
       getMicroCopyMock,
       false,
@@ -83,7 +80,6 @@ describe("createCompanyDetails", () => {
     const details = createCompanyDetails(
       sectionType,
       service,
-      false,
       "en",
       getMicroCopyMock,
       false,
@@ -110,7 +106,6 @@ describe("createCompanyDetails", () => {
       const details = createCompanyDetails(
         BRANCH_TYPE,
         service,
-        false,
         "en",
         getMicroCopyMock,
         false,
@@ -150,7 +145,6 @@ describe("createCompanyDetails", () => {
       const details = createCompanyDetails(
         ROOFER_TYPE,
         service,
-        false,
         "en",
         getMicroCopyMock,
         false,
@@ -175,7 +169,6 @@ describe("createCompanyDetails", () => {
       const details = createCompanyDetails(
         ROOFER_TYPE,
         service,
-        true,
         "en",
         getMicroCopyMock,
         false,
@@ -195,7 +188,6 @@ describe("createCompanyDetails", () => {
       const details = createCompanyDetails(
         BRANCH_TYPE,
         null,
-        false,
         "en",
         getMicroCopyMock,
         false,
@@ -239,7 +231,6 @@ describe("createCompanyDetails", () => {
         const details = createCompanyDetails(
           ROOFER_TYPE,
           service,
-          false,
           "en",
           getMicroCopyMock,
           false,
@@ -263,7 +254,6 @@ describe("createCompanyDetails", () => {
         const details = createCompanyDetails(
           MERCHANT_TYPE,
           service,
-          false,
           "en",
           getMicroCopyMock,
           false,
@@ -289,7 +279,6 @@ describe("createCompanyDetails", () => {
         const details = createCompanyDetails(
           BRANCH_TYPE,
           service,
-          false,
           "en",
           getMicroCopyMock,
           false,
@@ -321,7 +310,6 @@ describe("createCompanyDetails", () => {
         const details = createCompanyDetails(
           ROOFER_TYPE,
           service,
-          false,
           "en",
           getMicroCopyMock,
           false,
@@ -352,7 +340,6 @@ describe("createCompanyDetails", () => {
         const details = createCompanyDetails(
           ROOFER_TYPE,
           createService(),
-          false,
           "en",
           getMicroCopyMock,
           false,
