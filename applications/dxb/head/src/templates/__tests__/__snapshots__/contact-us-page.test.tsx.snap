@@ -2837,7 +2837,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                       class="ExpandableCard-body"
                     >
                       <h4
-                        class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h6 css-8u8jlx-MuiTypography-root"
                         data-testid="typography"
                       >
                         Did you know?
@@ -3202,7 +3202,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                               class="BorderedItem"
                             />
                             <h5
-                              class="MuiTypography-root MuiTypography-h5 heading css-1lhxn1g-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-h5 css-y579gu-MuiTypography-root"
                               data-testid="typography"
                             >
                               Use our online form
@@ -7290,7 +7290,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                       class="ExpandableCard-body"
                     >
                       <h4
-                        class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h6 css-8u8jlx-MuiTypography-root"
                         data-testid="typography"
                       >
                         Did you know?
@@ -7655,7 +7655,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                               class="BorderedItem"
                             />
                             <h5
-                              class="MuiTypography-root MuiTypography-h5 heading css-1lhxn1g-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-h5 css-y579gu-MuiTypography-root"
                               data-testid="typography"
                             >
                               Use our online form
@@ -11744,7 +11744,7 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
                       class="ExpandableCard-body"
                     >
                       <h4
-                        class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h6 css-8u8jlx-MuiTypography-root"
                         data-testid="typography"
                       >
                         Did you know?
@@ -12109,7 +12109,7 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
                               class="BorderedItem"
                             />
                             <h5
-                              class="MuiTypography-root MuiTypography-h5 heading css-1lhxn1g-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-h5 css-y579gu-MuiTypography-root"
                               data-testid="typography"
                             >
                               Use our online form
@@ -16197,7 +16197,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                       class="ExpandableCard-body"
                     >
                       <h4
-                        class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h6 css-8u8jlx-MuiTypography-root"
                         data-testid="typography"
                       >
                         Did you know?
@@ -16562,7 +16562,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                               class="BorderedItem"
                             />
                             <h5
-                              class="MuiTypography-root MuiTypography-h5 heading css-1lhxn1g-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-h5 css-y579gu-MuiTypography-root"
                               data-testid="typography"
                             >
                               Use our online form
@@ -20650,7 +20650,7 @@ exports[`Contact us page render location correctly 1`] = `
                       class="ExpandableCard-body"
                     >
                       <h4
-                        class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h6 css-8u8jlx-MuiTypography-root"
                         data-testid="typography"
                       >
                         Did you know?
@@ -21015,7 +21015,7 @@ exports[`Contact us page render location correctly 1`] = `
                               class="BorderedItem"
                             />
                             <h5
-                              class="MuiTypography-root MuiTypography-h5 heading css-1lhxn1g-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-h5 css-y579gu-MuiTypography-root"
                               data-testid="typography"
                             >
                               Use our online form
@@ -25103,7 +25103,7 @@ exports[`Contact us page renders correctly 1`] = `
                       class="ExpandableCard-body"
                     >
                       <h4
-                        class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h6 css-8u8jlx-MuiTypography-root"
                         data-testid="typography"
                       >
                         Did you know?
@@ -25468,7 +25468,7 @@ exports[`Contact us page renders correctly 1`] = `
                               class="BorderedItem"
                             />
                             <h5
-                              class="MuiTypography-root MuiTypography-h5 heading css-1lhxn1g-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-h5 css-y579gu-MuiTypography-root"
                               data-testid="typography"
                             >
                               Use our online form

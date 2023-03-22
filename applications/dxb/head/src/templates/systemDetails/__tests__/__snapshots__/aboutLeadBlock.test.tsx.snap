@@ -15,7 +15,7 @@ exports[`AboutLeadBlock tests should not render if no awardsAndCertificate image
         data-testid="typography"
       >
         <div
-          class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-description css-1o02bdp-MuiTypography-root"
           data-testid="typography"
         >
           system-desc
@@ -145,7 +145,7 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
         data-testid="typography"
       >
         <div
-          class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-description css-1o02bdp-MuiTypography-root"
           data-testid="typography"
         >
           system-desc
@@ -275,7 +275,7 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures 1`] = `
         data-testid="typography"
       >
         <div
-          class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-description css-1o02bdp-MuiTypography-root"
           data-testid="typography"
         >
           system-desc
@@ -426,7 +426,7 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures and systemBene
         data-testid="typography"
       >
         <div
-          class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-description css-1o02bdp-MuiTypography-root"
           data-testid="typography"
         >
           system-desc
@@ -560,7 +560,7 @@ exports[`AboutLeadBlock tests should not render if no siderbar, keyFeatures and 
         data-testid="typography"
       >
         <div
-          class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-description css-1o02bdp-MuiTypography-root"
           data-testid="typography"
         >
           system-desc
@@ -664,7 +664,7 @@ exports[`AboutLeadBlock tests should not render if no specification asset 1`] = 
         data-testid="typography"
       >
         <div
-          class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-description css-1o02bdp-MuiTypography-root"
           data-testid="typography"
         >
           system-desc
@@ -775,7 +775,7 @@ exports[`AboutLeadBlock tests should not render if no systemBenefits 1`] = `
         data-testid="typography"
       >
         <div
-          class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-description css-1o02bdp-MuiTypography-root"
           data-testid="typography"
         >
           system-desc
@@ -909,7 +909,7 @@ exports[`AboutLeadBlock tests should render 1`] = `
         data-testid="typography"
       >
         <div
-          class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-description css-1o02bdp-MuiTypography-root"
           data-testid="typography"
         >
           system-desc
@@ -1060,7 +1060,7 @@ exports[`AboutLeadBlock tests specification section move up if no guaranteesAndW
         data-testid="typography"
       >
         <div
-          class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-description css-1o02bdp-MuiTypography-root"
           data-testid="typography"
         >
           system-desc

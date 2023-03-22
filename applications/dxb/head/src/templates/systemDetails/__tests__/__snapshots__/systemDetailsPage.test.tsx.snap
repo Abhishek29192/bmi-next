@@ -3127,7 +3127,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                   data-testid="typography"
                 >
                   <div
-                    class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-description css-1o02bdp-MuiTypography-root"
                     data-testid="typography"
                   >
                     system-desc
@@ -7261,7 +7261,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                   data-testid="typography"
                 >
                   <div
-                    class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-description css-1o02bdp-MuiTypography-root"
                     data-testid="typography"
                   >
                     system-desc
@@ -11399,7 +11399,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                     data-testid="typography"
                   >
                     <div
-                      class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-description css-1o02bdp-MuiTypography-root"
                       data-testid="typography"
                     >
                       system-desc
@@ -15534,7 +15534,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                   data-testid="typography"
                 >
                   <div
-                    class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-description css-1o02bdp-MuiTypography-root"
                     data-testid="typography"
                   >
                     system-desc
@@ -19668,7 +19668,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                   data-testid="typography"
                 >
                   <div
-                    class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-description css-1o02bdp-MuiTypography-root"
                     data-testid="typography"
                   >
                     system-desc
@@ -23762,7 +23762,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                   data-testid="typography"
                 >
                   <div
-                    class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-description css-1o02bdp-MuiTypography-root"
                     data-testid="typography"
                   >
                     system-desc
@@ -28022,7 +28022,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                   data-testid="typography"
                 >
                   <div
-                    class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-description css-1o02bdp-MuiTypography-root"
                     data-testid="typography"
                   >
                     system-desc
@@ -32282,7 +32282,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                   data-testid="typography"
                 >
                   <div
-                    class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-description css-1o02bdp-MuiTypography-root"
                     data-testid="typography"
                   >
                     system-desc

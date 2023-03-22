@@ -5672,7 +5672,7 @@ exports[`Simple page renders correctly with full data 1`] = `
       </div>
     </div>
     <div
-      class="Section-root Section-white css-10chrh8"
+      class="Section-root Section-white Section-noSpacing css-10chrh8"
       data-testid="lead-block-section}"
     >
       <div
@@ -5690,7 +5690,7 @@ exports[`Simple page renders correctly with full data 1`] = `
               data-testid="grid-item"
             >
               <p
-                class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 css-1n96ef8-MuiTypography-root"
                 data-testid="typography"
               >
                 <div

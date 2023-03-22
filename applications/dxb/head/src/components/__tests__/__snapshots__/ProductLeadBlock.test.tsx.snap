@@ -213,7 +213,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               data-testid="typography"
             >
               <div
-                class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 productDescription css-1o02bdp-MuiTypography-root"
                 data-testid="typography"
               >
                 Description
@@ -1386,7 +1386,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               data-testid="typography"
             >
               <div
-                class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 productDescription css-1o02bdp-MuiTypography-root"
                 data-testid="typography"
               >
                 Description
@@ -2301,7 +2301,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
               data-testid="typography"
             >
               <div
-                class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 productDescription css-1o02bdp-MuiTypography-root"
                 data-testid="typography"
               >
                 Description
@@ -3266,7 +3266,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
         data-testid="typography"
       >
         <div
-          class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 productDescription css-1o02bdp-MuiTypography-root"
           data-testid="typography"
         >
           Description

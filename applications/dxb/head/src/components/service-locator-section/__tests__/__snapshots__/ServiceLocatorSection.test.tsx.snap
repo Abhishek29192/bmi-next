@@ -1344,7 +1344,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                               </div>
                             </dl>
                             <p
-                              class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-body1 product-details-card-summary css-1o02bdp-MuiTypography-root"
                               data-testid="typography"
                             >
                               roofer summary
@@ -13748,7 +13748,7 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                               </div>
                             </dl>
                             <p
-                              class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-body1 product-details-card-summary css-1o02bdp-MuiTypography-root"
                               data-testid="typography"
                             >
                               roofer summary
