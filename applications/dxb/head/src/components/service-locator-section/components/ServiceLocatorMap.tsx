@@ -65,10 +65,12 @@ export const ServiceLocatorMap = ({
           >
             <CardHeader
               avatar={
-                <Image
-                  className={styles["company-logo--card"]}
-                  {...selectedRoofer.companyLogo}
-                />
+                selectedRoofer.companyLogo && (
+                  <Image
+                    className={styles["company-logo--card"]}
+                    {...selectedRoofer.companyLogo}
+                  />
+                )
               }
               title={selectedRoofer.name}
               action={

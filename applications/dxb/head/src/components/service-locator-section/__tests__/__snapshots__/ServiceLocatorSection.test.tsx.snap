@@ -1124,18 +1124,10 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                         class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
                       >
                         <div
-                          class="MuiCardHeader-avatar css-1ssile9-MuiCardHeader-avatar"
-                        >
-                          <img
-                            class="company-logo--card"
-                            style="object-fit: cover; object-position: center;"
-                          />
-                        </div>
-                        <div
                           class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
                         >
                           <span
-                            class="MuiTypography-root MuiTypography-body2 MuiCardHeader-title css-e4iuyj-MuiTypography-root"
+                            class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-steqmq-MuiTypography-root"
                           >
                             roofer 2
                           </span>
@@ -13444,18 +13436,10 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                         class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
                       >
                         <div
-                          class="MuiCardHeader-avatar css-1ssile9-MuiCardHeader-avatar"
-                        >
-                          <img
-                            class="company-logo--card"
-                            style="object-fit: cover; object-position: center;"
-                          />
-                        </div>
-                        <div
                           class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
                         >
                           <span
-                            class="MuiTypography-root MuiTypography-body2 MuiCardHeader-title css-e4iuyj-MuiTypography-root"
+                            class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-steqmq-MuiTypography-root"
                           >
                             roofer 1
                           </span>
