@@ -2187,7 +2187,7 @@ exports[`Header component shows sample basket icon 1`] = `
           </div>
         </div>
         <div
-          class="css-vkdgoq"
+          class="css-eulom"
           data-testid="shopping-cart-dialog-actions"
         >
           <a
