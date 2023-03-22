@@ -4,22 +4,17 @@ import React from "react";
 import { MapProps, ServiceLocatorMap } from "../components";
 import { imageData, selectedRooferMock } from "../__mocks__/markers";
 
-jest.mock("@bmi-digital/components", () => {
-  const originalModule = jest.requireActual("@bmi-digital/components");
-  const GoogleMap = jest.fn().mockImplementation(({ children }) => {
+jest.mock("@bmi-digital/components", () => ({
+  ...jest.requireActual("@bmi-digital/components"),
+  GoogleMap: jest.fn().mockImplementation(({ children }) => {
     return (
       <div className="GoogleMap">
         <div className="map" />
         {children && <div className="popup">{children}</div>}
       </div>
     );
-  });
-
-  return {
-    ...originalModule,
-    GoogleMap
-  };
-});
+  })
+}));
 
 const renderWithGoogleProvider = ({
   selectedRoofer = null,
@@ -48,14 +43,6 @@ const renderWithGoogleProvider = ({
 };
 
 describe("ServiceLocatorMap component", () => {
-  it("should not render popup with card if user didn't select a roofer in list", () => {
-    renderWithGoogleProvider({});
-    const popupCloseBtn = screen.queryByRole("button", {
-      name: "MC: global.close"
-    });
-    expect(popupCloseBtn).not.toBeInTheDocument();
-  });
-
   it("should render company logo inside card", () => {
     renderWithGoogleProvider({
       selectedRoofer: {
@@ -66,31 +53,15 @@ describe("ServiceLocatorMap component", () => {
     expect(screen.getByAltText(imageData.altText)).toBeInTheDocument();
   });
 
-  it("should render popup with card if user select a roofer in list", () => {
-    const clearRooferAndResetMap = jest.fn();
-    renderWithGoogleProvider({
-      selectedRoofer: selectedRooferMock,
-      clearRooferAndResetMap: clearRooferAndResetMap
-    });
-    const popupCloseBtn = screen.getByRole("button", {
+  it("should NOT render popup with card", () => {
+    renderWithGoogleProvider({});
+    const popupCloseBtn = screen.queryByRole("button", {
       name: "MC: global.close"
     });
-    expect(popupCloseBtn).toBeInTheDocument();
-    fireEvent.click(popupCloseBtn);
-    expect(clearRooferAndResetMap).toHaveBeenCalled();
+    expect(popupCloseBtn).not.toBeInTheDocument();
   });
 
-  it("should not render popup card title and CompanyDetails summary", () => {
-    renderWithGoogleProvider({
-      selectedRoofer: selectedRooferMock
-    });
-    const title = screen.getByText(selectedRooferMock.name);
-    const summary = screen.getByText(selectedRooferMock.summary);
-    expect(title).toBeInTheDocument();
-    expect(summary).toBeInTheDocument();
-  });
-
-  it("should render popup card title and CompanyDetails summary", () => {
+  it("should NOT render popup card title and CompanyDetails summary", () => {
     renderWithGoogleProvider({
       selectedRoofer: {
         ...selectedRooferMock,
@@ -104,12 +75,57 @@ describe("ServiceLocatorMap component", () => {
     expect(summary).toBeNull();
   });
 
-  it("should invoke getCompanyDetails", () => {
-    const getCompanyDetails = jest.fn();
-    renderWithGoogleProvider({
-      selectedRoofer: selectedRooferMock,
-      getCompanyDetails: getCompanyDetails
+  describe("When a service is selected", () => {
+    it("should render popup with card", () => {
+      const clearRooferAndResetMap = jest.fn();
+      renderWithGoogleProvider({
+        selectedRoofer: selectedRooferMock,
+        clearRooferAndResetMap: clearRooferAndResetMap
+      });
+      const popupCloseBtn = screen.getByRole("button", {
+        name: "MC: global.close"
+      });
+      expect(popupCloseBtn).toBeInTheDocument();
+      fireEvent.click(popupCloseBtn);
+      expect(clearRooferAndResetMap).toHaveBeenCalled();
     });
-    expect(getCompanyDetails).toHaveBeenCalled();
+
+    it("should render popup card title and CompanyDetails summary", () => {
+      renderWithGoogleProvider({
+        selectedRoofer: selectedRooferMock
+      });
+      const title = screen.getByText(selectedRooferMock.name);
+      const summary = screen.getByText(selectedRooferMock.summary);
+      expect(title).toBeInTheDocument();
+      expect(summary).toBeInTheDocument();
+    });
+
+    describe("When company details contain social media links", () => {
+      describe("When a social-media link is clicked", () => {
+        it("should call 'onClick' handler", () => {
+          const channel = "facebook";
+          const mockOnClick = jest.fn();
+
+          renderWithGoogleProvider({
+            selectedRoofer: {
+              ...selectedRooferMock,
+              [channel]: "foo.com"
+            },
+            getCompanyDetails: () => [
+              {
+                channels: { facebook: "blah" },
+                label: "Connect",
+                onClick: mockOnClick,
+                type: "socialMedia"
+              }
+            ]
+          });
+
+          fireEvent.click(screen.getByRole("link", { name: channel }));
+          expect(mockOnClick).toBeCalledTimes(1);
+          expect(mockOnClick).toBeCalledWith({ channel });
+        });
+      });
+    });
   });
 });
