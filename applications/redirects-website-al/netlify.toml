@@ -1,0 +1,100 @@
+# Settings in the [build] context are global and are applied to all contexts
+# unless otherwise overridden by more specific contexts.
+
+[build]
+  # nothing to build here, this instance is for redirects only
+  ignore = "git diff --quiet HEAD^ HEAD sub_dir/"
+
+  publish = "public/"
+
+[[redirects]]
+from="/cati-e-pjerret/"
+to="https://www.bmigroup.com/al/cati-e-pjerret/"
+status = 301
+
+[[redirects]]
+from="/tjegulla/"
+to="https://www.bmigroup.com/al/cati-e-pjerret/tjegulla-betoni/"
+status = 301
+
+[[redirects]]
+from="/aksesore-per-cati/"
+to="https://www.bmigroup.com/al/komponente-dhe-tjegulla-aksesore/"
+status = 301
+
+[[redirects]]
+from="/termoizolimit/"
+to="https://www.bmigroup.com/al/izolim-termik/"
+status = 301
+
+[[redirects]]
+from="/cati-e-rrafshet/"
+to="https://www.bmigroup.com/al/cati-e-rrafshet/"
+status = 301
+
+[[redirects]]
+from="/produkte-bituminoze/"
+to="https://www.bmigroup.com/al/cati-e-rrafshet/produkte-bituminoze/"
+status = 301
+
+[[redirects]]
+from="/produkte-sintetike/"
+to="https://www.bmigroup.com/al/cati-e-rrafshet/produkte-sintetike/"
+status = 301
+
+[[redirects]]
+from="/inxhinieri-civile/"
+to="https://www.bmigroup.com/al/inxhinieri-civile/"
+status = 301
+
+[[redirects]]
+from="/cati-aktive/"
+to="https://www.bmigroup.com/al/cati-aktive/"
+status = 301
+
+[[redirects]]
+from="/#tehnologije"
+to="https://www.bmigroup.com/al/bramac/"
+status = 301
+
+[[redirects]]
+from="/fusha-e-shkarkimeve/"
+to="https://www.bmigroup.com/al/broshura-dhe-kataloge/"
+status = 301
+
+[[redirects]]
+from="/#o_nama"
+to="https://www.bmigroup.com/al/rreth-nesh/"
+status = 301
+
+[[redirects]]
+from="/#kontakt"
+to="https://www.bmigroup.com/al/na-kontaktoni/"
+status = 301
+
+[[redirects]]
+from="/autoresia/"
+to="https://www.bmigroup.com/al/autoresia/"
+status = 301
+
+[[redirects]]
+from="/cookies/"
+to="https://www.bmigroup.com/al/cookies/"
+status = 301
+
+[[redirects]]
+from="/refuzime/"
+to="https://www.bmigroup.com/al/-informacion-i-përgjithshëm-ligjor/"
+status = 301
+
+[[redirects]]
+from="/deklarate-per-mbrojtjen-e-te-dhenave/"
+to="https://www.bmigroup.com/al/mbrojtja-e-të-dhënave/"
+status = 301
+
+# if no redirects are found, fall back to market homepage
+
+[[redirects]]
+from="/"
+to="https://www.bmigroup.com/al/"
+status = 301
