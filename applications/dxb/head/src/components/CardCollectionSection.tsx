@@ -53,13 +53,11 @@ export type Data = {
 const CardCollectionItem = ({
   card,
   label,
-  type,
-  date
+  type
 }: {
   card: Card;
   label?: string;
   type: Data["cardType"];
-  date?: string;
 }) => {
   const {
     name,
@@ -77,6 +75,8 @@ const CardCollectionItem = ({
   transformedCardLabel = transformHyphens(transformedCardLabel);
   const GTMButton = withGTM<ButtonProps>(Button);
   const GTMButtonBase = withGTM<ButtonBaseProps>(withClickable(ButtonBase));
+
+  const date = "date" in card && card.date ? card.date : undefined;
 
   const CardButton = (props) => (
     <Link
@@ -219,8 +219,9 @@ const CardCollectionSection = ({
   theme
 }: {
   data: Data;
-  // TODO: Type me.
-  theme: any;
+  theme?: {
+    cardCollectionRowType: "single-row";
+  };
 }) => {
   const allKeys = cards.flatMap((x) => x.tags);
   const allKeysGrouped = [];
@@ -232,15 +233,12 @@ const CardCollectionSection = ({
   const groupKeys = moveRestKeyLast(allKeysGrouped.map((c) => c.title));
   const [activeGroups, setActiveGroups] = useState<Record<string, boolean>>({});
   const [showMoreIterator, setShowMoreIterator] = useState(1);
-  const { getMicroCopy, node_locale } = useSiteContext();
+  const { getMicroCopy } = useSiteContext();
 
   const shouldDisplayGroups = groupCards && groupKeys.length > 1;
 
   const getCards = (title: string) => {
-    const cardsBySection = cards.filter((x) =>
-      x.tags?.find((tag) => tag.title == title)
-    );
-    return cardsBySection;
+    return cards.filter((x) => x.tags?.find((tag) => tag.title == title));
   };
 
   const activeCards = [
@@ -251,18 +249,7 @@ const CardCollectionSection = ({
     )
   ];
 
-  const formatDate = (date: string): string =>
-    new Intl.DateTimeFormat(
-      // Required until Norway's locale is fixed in V8 https://bugs.chromium.org/p/v8/issues/detail?id=11897
-      node_locale === "nb-NO" ? "no" : node_locale || undefined,
-      {
-        year: "numeric",
-        month: "long",
-        day: "numeric"
-      }
-    ).format(new Date(date));
-
-  const iteratableCards =
+  const iterableCards =
     shouldDisplayGroups && activeCards.length ? activeCards : cards;
 
   const noDateSortWeight = sortOrder === "Date (Newest first)" ? 0 : Infinity;
@@ -270,7 +257,7 @@ const CardCollectionSection = ({
   const sortedIterableCards = useMemo(
     () =>
       sortOrder
-        ? [...iteratableCards].sort((first, second) => {
+        ? [...iterableCards].sort((first, second) => {
             const firstWeight =
               "date" in first && first.date
                 ? new Date(first.date).getTime()
@@ -290,8 +277,8 @@ const CardCollectionSection = ({
                 return 0;
             }
           })
-        : iteratableCards,
-    [sortOrder, iteratableCards]
+        : iterableCards,
+    [sortOrder, iterableCards]
   );
 
   const cardsPerLoad = 8;
@@ -399,12 +386,8 @@ const CardCollectionSection = ({
                     card={card}
                     label={cardLabel}
                     type={cardType}
-                    date={
-                      "date" in card && card.date
-                        ? formatDate(card.date)
-                        : undefined
-                    }
                   />
+                  <div>Card</div>
                 </Carousel.Slide>
               );
             })}
@@ -430,11 +413,6 @@ const CardCollectionSection = ({
                     card={card}
                     label={cardLabel}
                     type={cardType}
-                    date={
-                      "date" in card && card.date
-                        ? formatDate(card.date)
-                        : undefined
-                    }
                   />
                 </Grid>
               );

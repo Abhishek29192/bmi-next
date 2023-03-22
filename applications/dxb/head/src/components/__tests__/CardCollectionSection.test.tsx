@@ -27,7 +27,7 @@ const card1: PageInfoData = {
   brandLogo: null,
   featuredMedia: null,
   featuredVideo: null,
-  date: "2021-06-01T00:00:00",
+  date: "1 June 2021",
   tags: [testTag1, testTag3]
 };
 const card2: PageInfoData = {
@@ -40,7 +40,7 @@ const card2: PageInfoData = {
   brandLogo: null,
   featuredMedia: null,
   featuredVideo: null,
-  date: "2021-06-02T00:00:00",
+  date: "2 June 2021",
   tags: [testTag2, testTag4]
 };
 const card3: PageInfoData = {
@@ -53,7 +53,7 @@ const card3: PageInfoData = {
   brandLogo: null,
   featuredMedia: null,
   featuredVideo: null,
-  date: "2021-06-03T00:00:00",
+  date: "3 June 2021",
   tags: [testTag1, testTag2]
 };
 const card4: PromoData = {
@@ -71,10 +71,10 @@ const card4: PromoData = {
   featuredVideo: null
 };
 
-const getSiteContext = (countryCode = "en", nodeLocale = "en-GB") => ({
-  countryCode: countryCode,
+const getSiteContext = () => ({
+  countryCode: "no",
   getMicroCopy: (microCopy: string) => `MC: ${microCopy}`,
-  node_locale: nodeLocale,
+  node_locale: "en-GB",
   homePage: {
     title: "Home page title"
   }
@@ -144,7 +144,7 @@ describe("CardCollectionSection component", () => {
       const { baseElement } = render(
         <ThemeProvider>
           <SiteContextProvider value={getSiteContext()}>
-            <CardCollectionSection data={data} theme="" />
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
@@ -180,7 +180,7 @@ describe("CardCollectionSection component", () => {
       const { baseElement } = render(
         <ThemeProvider>
           <SiteContextProvider value={getSiteContext()}>
-            <CardCollectionSection data={data} theme="" />
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
@@ -216,7 +216,7 @@ describe("CardCollectionSection component", () => {
       const { baseElement } = render(
         <ThemeProvider>
           <SiteContextProvider value={getSiteContext()}>
-            <CardCollectionSection data={data} theme="" />
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
@@ -252,7 +252,7 @@ describe("CardCollectionSection component", () => {
       const { baseElement } = render(
         <ThemeProvider>
           <SiteContextProvider value={getSiteContext()}>
-            <CardCollectionSection data={data} theme="" />
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
@@ -288,7 +288,7 @@ describe("CardCollectionSection component", () => {
       const { baseElement } = render(
         <ThemeProvider>
           <SiteContextProvider value={getSiteContext()}>
-            <CardCollectionSection data={data} theme="" />
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
@@ -324,7 +324,7 @@ describe("CardCollectionSection component", () => {
       const { baseElement } = render(
         <ThemeProvider>
           <SiteContextProvider value={getSiteContext()}>
-            <CardCollectionSection data={data} theme="" />
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
@@ -360,7 +360,7 @@ describe("CardCollectionSection component", () => {
       const { baseElement } = render(
         <ThemeProvider>
           <SiteContextProvider value={getSiteContext()}>
-            <CardCollectionSection data={data} theme="" />
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
@@ -420,7 +420,7 @@ describe("CardCollectionSection component", () => {
       const { baseElement } = render(
         <ThemeProvider>
           <SiteContextProvider value={getSiteContext()}>
-            <CardCollectionSection data={data} theme="" />
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
@@ -460,7 +460,7 @@ describe("CardCollectionSection component", () => {
       const { rerender } = render(
         <ThemeProvider>
           <SiteContextProvider value={getSiteContext()}>
-            <CardCollectionSection data={data} theme="" />
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
@@ -474,7 +474,7 @@ describe("CardCollectionSection component", () => {
       rerender(
         <ThemeProvider>
           <SiteContextProvider value={getSiteContext()}>
-            <CardCollectionSection data={data} theme="" />
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
@@ -516,7 +516,7 @@ describe("CardCollectionSection component", () => {
       const { rerender } = render(
         <ThemeProvider>
           <SiteContextProvider value={getSiteContext()}>
-            <CardCollectionSection data={data} theme="" />
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
@@ -530,7 +530,7 @@ describe("CardCollectionSection component", () => {
       rerender(
         <ThemeProvider>
           <SiteContextProvider value={getSiteContext()}>
-            <CardCollectionSection data={data} theme="" />
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
@@ -565,7 +565,7 @@ describe("CardCollectionSection component", () => {
       const { rerender } = render(
         <ThemeProvider>
           <SiteContextProvider value={getSiteContext()}>
-            <CardCollectionSection data={data} theme="" />
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
@@ -584,7 +584,7 @@ describe("CardCollectionSection component", () => {
       rerender(
         <ThemeProvider>
           <SiteContextProvider value={getSiteContext()}>
-            <CardCollectionSection data={data} theme="" />
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
@@ -635,7 +635,7 @@ describe("CardCollectionSection component", () => {
     render(
       <ThemeProvider>
         <SiteContextProvider value={getSiteContext()}>
-          <CardCollectionSection data={data} theme="" />
+          <CardCollectionSection data={data} />
         </SiteContextProvider>
       </ThemeProvider>
     );
@@ -719,7 +719,7 @@ describe("CardCollectionSection component", () => {
       render(
         <ThemeProvider>
           <SiteContextProvider value={getSiteContext()}>
-            <CardCollectionSection data={data} theme="" />
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
@@ -783,7 +783,7 @@ describe("CardCollectionSection component", () => {
       const { baseElement } = render(
         <ThemeProvider>
           <SiteContextProvider value={getSiteContext()}>
-            <CardCollectionSection data={data} theme="" />
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
@@ -825,7 +825,7 @@ describe("CardCollectionSection component", () => {
       render(
         <ThemeProvider>
           <SiteContextProvider value={getSiteContext()}>
-            <CardCollectionSection data={data} theme="" />
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
@@ -895,7 +895,7 @@ describe("CardCollectionSection component", () => {
       render(
         <ThemeProvider>
           <SiteContextProvider value={getSiteContext()}>
-            <CardCollectionSection data={data} theme="" />
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
@@ -954,7 +954,7 @@ describe("CardCollectionSection component", () => {
       render(
         <ThemeProvider>
           <SiteContextProvider value={getSiteContext()}>
-            <CardCollectionSection data={data} theme="" />
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
@@ -1025,7 +1025,7 @@ describe("CardCollectionSection component", () => {
       const { container } = render(
         <ThemeProvider>
           <SiteContextProvider value={getSiteContext()}>
-            <CardCollectionSection data={data} theme="" />
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
@@ -1073,7 +1073,7 @@ describe("CardCollectionSection component", () => {
             value={{ isOpen: false, open: undefined }}
           >
             <SiteContextProvider value={getSiteContext()}>
-              <CardCollectionSection data={data} theme="" />
+              <CardCollectionSection data={data} />
             </SiteContextProvider>
           </VisualiserContext.Provider>
         </ThemeProvider>
@@ -1122,7 +1122,7 @@ describe("CardCollectionSection component", () => {
             value={{ isOpen: false, open: visualiserOpen }}
           >
             <SiteContextProvider value={getSiteContext()}>
-              <CardCollectionSection data={data} theme="" />
+              <CardCollectionSection data={data} />
             </SiteContextProvider>
           </VisualiserContext.Provider>
         </ThemeProvider>
@@ -1173,7 +1173,7 @@ describe("CardCollectionSection component", () => {
             value={{ isOpen: false, open: visualiserOpen }}
           >
             <SiteContextProvider value={getSiteContext()}>
-              <CardCollectionSection data={data} theme="" />
+              <CardCollectionSection data={data} />
             </SiteContextProvider>
           </VisualiserContext.Provider>
         </ThemeProvider>
@@ -1224,7 +1224,7 @@ describe("CardCollectionSection component", () => {
             value={{ isOpen: false, open: undefined }}
           >
             <SiteContextProvider value={getSiteContext()}>
-              <CardCollectionSection data={data} theme="" />
+              <CardCollectionSection data={data} />
             </SiteContextProvider>
           </CalculatorContext.Provider>
         </ThemeProvider>
@@ -1274,7 +1274,7 @@ describe("CardCollectionSection component", () => {
             value={{ isOpen: false, open: calculatorOpen }}
           >
             <SiteContextProvider value={getSiteContext()}>
-              <CardCollectionSection data={data} theme="" />
+              <CardCollectionSection data={data} />
             </SiteContextProvider>
           </CalculatorContext.Provider>
         </ThemeProvider>
@@ -1325,7 +1325,7 @@ describe("CardCollectionSection component", () => {
             value={{ isOpen: false, open: calculatorOpen }}
           >
             <SiteContextProvider value={getSiteContext()}>
-              <CardCollectionSection data={data} theme="" />
+              <CardCollectionSection data={data} />
             </SiteContextProvider>
           </CalculatorContext.Provider>
         </ThemeProvider>
@@ -1357,8 +1357,8 @@ describe("CardCollectionSection component", () => {
 
       const { baseElement } = render(
         <ThemeProvider>
-          <SiteContextProvider value={getSiteContext("no", "nb-NO")}>
-            <CardCollectionSection data={data} theme="" />
+          <SiteContextProvider value={getSiteContext()}>
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
@@ -1384,8 +1384,8 @@ describe("CardCollectionSection component", () => {
 
       const { baseElement } = render(
         <ThemeProvider>
-          <SiteContextProvider value={getSiteContext("no", "nb-NO")}>
-            <CardCollectionSection data={data} theme="" />
+          <SiteContextProvider value={getSiteContext()}>
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
@@ -1411,8 +1411,8 @@ describe("CardCollectionSection component", () => {
 
       const { baseElement } = render(
         <ThemeProvider>
-          <SiteContextProvider value={getSiteContext("no", "nb-NO")}>
-            <CardCollectionSection data={data} theme="" />
+          <SiteContextProvider value={getSiteContext()}>
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
@@ -1440,8 +1440,8 @@ describe("CardCollectionSection component", () => {
 
       const { baseElement } = render(
         <ThemeProvider>
-          <SiteContextProvider value={getSiteContext("no", "nb-NO")}>
-            <CardCollectionSection data={data} theme="" />
+          <SiteContextProvider value={getSiteContext()}>
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
@@ -1470,8 +1470,8 @@ describe("CardCollectionSection component", () => {
 
       const { baseElement } = render(
         <ThemeProvider>
-          <SiteContextProvider value={getSiteContext("no", "nb-NO")}>
-            <CardCollectionSection data={data} theme="" />
+          <SiteContextProvider value={getSiteContext()}>
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
@@ -1499,8 +1499,8 @@ describe("CardCollectionSection component", () => {
 
       const { baseElement } = render(
         <ThemeProvider>
-          <SiteContextProvider value={getSiteContext("no", "nb-NO")}>
-            <CardCollectionSection data={data} theme="" />
+          <SiteContextProvider value={getSiteContext()}>
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
