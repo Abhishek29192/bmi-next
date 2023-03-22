@@ -25,7 +25,7 @@ import type { Data as PageInfoData } from "../components/PageInfo";
 export type HomepageData = {
   __typename: "ContentfulHomePage";
   title: string;
-  slides: (SlideData | PageInfoData)[];
+  slides: readonly (SlideData | PageInfoData)[];
   overlapCards: OverlapCardData;
   brands: BrandData[];
   spaBrands: BrandData[];
@@ -84,7 +84,11 @@ const HomePage = ({ data, pageContext }: Props) => {
 
         return (
           <>
-            <CarouselHero heroes={heroItems} hasSpaceBottom>
+            <CarouselHero
+              heroes={heroItems}
+              hasSpaceBottom
+              disableLazyLoading={true}
+            >
               {!isGatsbyDisabledElasticSearch && (
                 <Search
                   buttonComponent={(props) => (

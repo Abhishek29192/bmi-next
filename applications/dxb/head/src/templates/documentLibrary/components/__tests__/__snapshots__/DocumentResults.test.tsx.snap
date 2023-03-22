@@ -312,7 +312,7 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
 exports[`DocumentResults component cards: renders correctly 1`] = `
 <div>
   <div
-    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
     data-testid="document-cards-results-grid"
   >
     <div
@@ -496,7 +496,7 @@ exports[`DocumentResults component technicalTable: renders correctly 1`] = `
                       class="DocumentTechnicalTableResults-downloadIconContainer"
                     >
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                         data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                         data-testid="anchor-link"
                         download="pim document title"

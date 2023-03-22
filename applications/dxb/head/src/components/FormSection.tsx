@@ -22,7 +22,7 @@ import logger from "@bmi-digital/functions-logger";
 import classNames from "classnames";
 import { graphql, navigate } from "gatsby";
 import fetch from "node-fetch";
-import React, { FormEvent, useEffect, useState } from "react";
+import React, { FormEvent, useCallback, useEffect, useState } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import matchAll from "string.prototype.matchall";
 import { QA_AUTH_TOKEN } from "../constants/cookieConstants";
@@ -152,22 +152,28 @@ const Input = ({
     }
   });
 
-  const handleEmailValidation = (value: string) => {
-    // Has a full stop and a `@`, and at least one character in between both.
-    if (value.match(/.+@.+\..+/)) {
-      return false;
-    } else {
-      return getMicroCopy(microCopy.ERRORS_EMAIL_INVALID);
-    }
-  };
+  const handleEmailValidation = useCallback(
+    (value: string) => {
+      // Has a full stop and a `@`, and at least one character in between both.
+      if (value.match(/.+@.+\..+/)) {
+        return false;
+      } else {
+        return getMicroCopy(microCopy.ERRORS_EMAIL_INVALID);
+      }
+    },
+    [getMicroCopy]
+  );
 
-  const handleFileValidation = (file: File) => {
-    if (maxSize && file.size > maxSize * 1048576) {
-      return getMicroCopy(microCopy.ERRORS_MAX_SIZE, {
-        size: getFileSizeString(maxSize * 1048576)
-      });
-    }
-  };
+  const handleFileValidation = useCallback(
+    (file: File) => {
+      if (maxSize && file.size > maxSize * 1048576) {
+        return getMicroCopy(microCopy.ERRORS_MAX_SIZE, {
+          size: getFileSizeString(maxSize * 1048576)
+        });
+      }
+    },
+    [getMicroCopy, maxSize]
+  );
 
   switch (type) {
     case "upload":
@@ -241,6 +247,7 @@ const Input = ({
           )}
           label={label}
           name={name}
+          defaultValue={microCopy.FORM_NONE_SELECTION}
         >
           <SelectMenuItem value={microCopy.FORM_NONE_SELECTION}>
             {getMicroCopy(microCopy.FORM_NONE_SELECTION)}

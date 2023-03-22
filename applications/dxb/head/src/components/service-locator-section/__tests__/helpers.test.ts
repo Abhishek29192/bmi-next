@@ -309,10 +309,10 @@ describe("helpers functions", () => {
     const serviceMock = createService({ certification: "expert" });
     const { name, address, certification, serviceTypes, entryType } =
       serviceMock;
-    it("should return dataGtm object with service.certification in label if matches === true", () => {
+    it("should return dataGtm object with map pin ID if isMarker === true", () => {
       const result = getResultDataGtm(serviceMock, true);
       const expectResult = {
-        id: EVENT_CAT_ID_SELECTOR_CARDS,
+        id: EVENT_CAT_ID_SELECTOR_CARDS_MAP_PIN,
         label: `${name} - ${address} - ${certification}${
           serviceTypes && serviceTypes.length === 1
             ? ` - ${serviceTypes[0].name}`
@@ -323,24 +323,10 @@ describe("helpers functions", () => {
       };
       expect(result).toEqual(expectResult);
     });
-    it("should return dataGtm object without service.certification in label if matches === false", () => {
+    it("should return dataGtm object without map pin ID if isMarker === false", () => {
       const result = getResultDataGtm(serviceMock, false);
       const expectResult = {
         id: EVENT_CAT_ID_SELECTOR_CARDS,
-        label: `${name} - ${address}${
-          serviceTypes && serviceTypes.length === 1
-            ? ` - ${serviceTypes[0].name}`
-            : ` - ${entryType}`
-        } - selected`,
-        event: "dxb.button_click",
-        action: "Expanded company details"
-      };
-      expect(result).toEqual(expectResult);
-    });
-    it("should return dataGtm object for marker with service.certification in label if matches === true", () => {
-      const result = getResultDataGtm(serviceMock, true, true);
-      const expectResult = {
-        id: EVENT_CAT_ID_SELECTOR_CARDS_MAP_PIN,
         label: `${name} - ${address} - ${certification}${
           serviceTypes && serviceTypes.length === 1
             ? ` - ${serviceTypes[0].name}`

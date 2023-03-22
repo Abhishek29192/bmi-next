@@ -5,7 +5,7 @@ exports[`TeamList component renders correctly 1`] = `
   <div>
     <div>
       <div
-        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-111ndel-MuiGrid2-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-1a8bzh9-MuiGrid2-root"
         data-testid="grid-container"
       >
         <div
@@ -24,7 +24,7 @@ exports[`TeamList component renders correctly 1`] = `
                 data-testid="profile-card-head-picture"
               >
                 <div
-                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-16eddl0"
+                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
                   data-gatsby-image-wrapper=""
                   style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                 >
@@ -109,7 +109,7 @@ exports[`TeamList component renders correctly when incomplete 1`] = `
   <div>
     <div>
       <div
-        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-111ndel-MuiGrid2-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-1a8bzh9-MuiGrid2-root"
         data-testid="grid-container"
       >
         <div
@@ -169,7 +169,7 @@ exports[`TeamList component renders correctly with links 1`] = `
   <div>
     <div>
       <div
-        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-111ndel-MuiGrid2-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-1a8bzh9-MuiGrid2-root"
         data-testid="grid-container"
       >
         <div
@@ -188,7 +188,7 @@ exports[`TeamList component renders correctly with links 1`] = `
                 data-testid="profile-card-head-picture"
               >
                 <div
-                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-16eddl0"
+                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
                   data-gatsby-image-wrapper=""
                   style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                 >
@@ -284,7 +284,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
   <div>
     <div>
       <div
-        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-111ndel-MuiGrid2-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-1a8bzh9-MuiGrid2-root"
         data-testid="grid-container"
       >
         <div
@@ -303,7 +303,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                 data-testid="profile-card-head-picture"
               >
                 <div
-                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-16eddl0"
+                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
                   data-gatsby-image-wrapper=""
                   style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                 >
@@ -393,7 +393,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                 data-testid="profile-card-head-picture"
               >
                 <div
-                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-16eddl0"
+                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
                   data-gatsby-image-wrapper=""
                   style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                 >
@@ -483,7 +483,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                 data-testid="profile-card-head-picture"
               >
                 <div
-                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-16eddl0"
+                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
                   data-gatsby-image-wrapper=""
                   style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                 >
@@ -573,7 +573,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                 data-testid="profile-card-head-picture"
               >
                 <div
-                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-16eddl0"
+                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
                   data-gatsby-image-wrapper=""
                   style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                 >
@@ -663,7 +663,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                 data-testid="profile-card-head-picture"
               >
                 <div
-                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-16eddl0"
+                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
                   data-gatsby-image-wrapper=""
                   style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                 >
@@ -753,7 +753,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                 data-testid="profile-card-head-picture"
               >
                 <div
-                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-16eddl0"
+                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
                   data-gatsby-image-wrapper=""
                   style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                 >
@@ -843,7 +843,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                 data-testid="profile-card-head-picture"
               >
                 <div
-                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-16eddl0"
+                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
                   data-gatsby-image-wrapper=""
                   style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                 >
@@ -933,7 +933,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                 data-testid="profile-card-head-picture"
               >
                 <div
-                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-16eddl0"
+                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
                   data-gatsby-image-wrapper=""
                   style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                 >
@@ -1023,7 +1023,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                 data-testid="profile-card-head-picture"
               >
                 <div
-                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-16eddl0"
+                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
                   data-gatsby-image-wrapper=""
                   style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                 >

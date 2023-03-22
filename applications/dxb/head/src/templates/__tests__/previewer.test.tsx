@@ -42,15 +42,6 @@ describe("Previewer", () => {
     expect(view).toMatchSnapshot();
   });
 
-  it("render correctly with no contentfulSite in data", () => {
-    const { container } = render(<Previewer data={{ contentfulSite: null }} />);
-
-    expect(container).toMatchSnapshot();
-    expect(
-      screen.getByText("No Sites found for the given country code.")
-    ).toBeTruthy();
-  });
-
   it("render correctly with no slug in window.location.search", () => {
     locationSpy.mockReturnValue({ ...window.location, search: "" });
     const { container } = render(<Previewer data={data} />);

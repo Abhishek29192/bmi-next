@@ -197,7 +197,7 @@ const Page = ({
               </ErrorBoundary>
             </GoogleReCaptchaProvider>
           </MicroCopy.Provider>
-        </BasketContextProvider>{" "}
+        </BasketContextProvider>
       </SiteContextProvider>
     </>
   );

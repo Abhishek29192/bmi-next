@@ -1,8 +1,9 @@
 import { PimProductDocument } from "@bmi/elasticsearch-types";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import React, { useMemo } from "react";
 import { groupDistinctBy } from "../../../utils/product-filters";
 import { AssetType } from "../types";
-import { useIsMobileDevice } from "../../../utils/useIsMobileDevice";
 import { Root } from "./DocumentTechnicalTableResultsStyles";
 import DesktopDocumentTechnicalTableResults from "./_DesktopDocumentTechnicalTableResults";
 import MobileDocumentTechnicalTableResults from "./_MobileDocumentTechnicalTableResults";
@@ -25,7 +26,9 @@ const DocumentTechnicalTableResults = ({ documents, assetTypes }: Props) => {
     () => groupDocuments(documents),
     [documents]
   );
-  const matches = useIsMobileDevice();
+
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up("lg"));
 
   if (assetTypes.length === 0) {
     return <p>A technical table cannot being shown with no asset types.</p>;

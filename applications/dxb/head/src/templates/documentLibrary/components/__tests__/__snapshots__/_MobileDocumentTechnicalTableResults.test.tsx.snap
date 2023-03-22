@@ -110,7 +110,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when in
                       class="DocumentTechnicalTableResults-downloadIconContainer"
                     >
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                         data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                         data-testid="anchor-link"
                         download="pim document title"
@@ -253,7 +253,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                       class="DocumentTechnicalTableResults-downloadIconContainer"
                     >
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                         data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                         data-testid="anchor-link"
                         download="pim document title"
@@ -330,7 +330,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                       class="DocumentTechnicalTableResults-downloadIconContainer"
                     >
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                         data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                         data-testid="anchor-link"
                         download="pim document title"
@@ -522,7 +522,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
                       class="DocumentTechnicalTableResults-downloadIconContainer"
                     >
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                         data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                         data-testid="anchor-link"
                         download="pim document title"
@@ -599,7 +599,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
                       class="DocumentTechnicalTableResults-downloadIconContainer"
                     >
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                         data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                         data-testid="anchor-link"
                         download="pim document title"
@@ -905,7 +905,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when va
                       class="DocumentTechnicalTableResults-downloadIconContainer"
                     >
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                         data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                         data-testid="anchor-link"
                         download="pim document title"

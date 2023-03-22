@@ -113,7 +113,7 @@ exports[`DocumentTechnicalTableResults component in desktop view renders correct
                       class="DocumentTechnicalTableResults-downloadIconContainer"
                     >
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                         data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                         data-testid="anchor-link"
                         download="pim document title"
@@ -259,7 +259,7 @@ exports[`DocumentTechnicalTableResults component in mobile view renders correctl
                       class="DocumentTechnicalTableResults-downloadIconContainer"
                     >
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                         data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                         data-testid="anchor-link"
                         download="pim document title"

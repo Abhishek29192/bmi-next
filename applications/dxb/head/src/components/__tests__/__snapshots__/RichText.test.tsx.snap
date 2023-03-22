@@ -55,7 +55,7 @@ exports[`RichText component closes dialog 1`] = `
       </u>
         
       <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
         data-gtm="{"id":"cta-click1","label":"External","action":"https://google.co.uk"}"
         data-testid="anchor-link"
         href="https://google.co.uk"
@@ -68,7 +68,7 @@ exports[`RichText component closes dialog 1`] = `
       </a>
        
       <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
         data-gtm="{"id":"cta-click1","label":"Entry","action":"/testing-simple-page/"}"
         data-testid="anchor-link"
         href="/testing-simple-page/"
@@ -79,7 +79,7 @@ exports[`RichText component closes dialog 1`] = `
       </a>
        
       <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
         data-gtm="{"id":"cta-click1","label":"Asset","action":"https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png"}"
         data-testid="anchor-link"
         href="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png"
@@ -173,7 +173,7 @@ exports[`RichText component closes dialog 1`] = `
       data-testid="typography"
     >
       <button
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button Anchorlink css-h03s9s-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button Anchorlink css-4gnc4v-MuiTypography-root-MuiLink-root"
         data-gtm="{"id":"cta-click1","label":"Open dialog","action":"Dialog"}"
         data-testid="rich-text-entry-hyperlink"
         type="button"
@@ -255,7 +255,7 @@ exports[`RichText component renders correctly 1`] = `
       </u>
         
       <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
         data-gtm="{"id":"cta-click1","label":"External","action":"https://google.co.uk"}"
         data-testid="anchor-link"
         href="https://google.co.uk"
@@ -268,7 +268,7 @@ exports[`RichText component renders correctly 1`] = `
       </a>
        
       <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
         data-gtm="{"id":"cta-click1","label":"Entry","action":"/testing-simple-page/"}"
         data-testid="anchor-link"
         href="/testing-simple-page/"
@@ -279,7 +279,7 @@ exports[`RichText component renders correctly 1`] = `
       </a>
        
       <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
         data-gtm="{"id":"cta-click1","label":"Asset","action":"https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png"}"
         data-testid="anchor-link"
         href="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png"
@@ -373,7 +373,7 @@ exports[`RichText component renders correctly 1`] = `
       data-testid="typography"
     >
       <button
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button Anchorlink css-h03s9s-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button Anchorlink css-4gnc4v-MuiTypography-root-MuiLink-root"
         data-gtm="{"id":"cta-click1","label":"Open dialog","action":"Dialog"}"
         data-testid="rich-text-entry-hyperlink"
         type="button"
@@ -444,7 +444,7 @@ exports[`RichText component renders when dialog clicked 1`] = `
       </u>
         
       <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
         data-gtm="{"id":"cta-click1","label":"External","action":"https://google.co.uk"}"
         data-testid="anchor-link"
         href="https://google.co.uk"
@@ -457,7 +457,7 @@ exports[`RichText component renders when dialog clicked 1`] = `
       </a>
        
       <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
         data-gtm="{"id":"cta-click1","label":"Entry","action":"/testing-simple-page/"}"
         data-testid="anchor-link"
         href="/testing-simple-page/"
@@ -468,7 +468,7 @@ exports[`RichText component renders when dialog clicked 1`] = `
       </a>
        
       <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
         data-gtm="{"id":"cta-click1","label":"Asset","action":"https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png"}"
         data-testid="anchor-link"
         href="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png"
@@ -562,7 +562,7 @@ exports[`RichText component renders when dialog clicked 1`] = `
       data-testid="typography"
     >
       <button
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button Anchorlink css-h03s9s-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button Anchorlink css-4gnc4v-MuiTypography-root-MuiLink-root"
         data-gtm="{"id":"cta-click1","label":"Open dialog","action":"Dialog"}"
         data-testid="rich-text-entry-hyperlink"
         type="button"

@@ -9,7 +9,7 @@ exports[`WelcomeDialog component Renders correctly When Title and rich text cont
   />
   <div
     class="MuiModal-root css-79ws1d-MuiModal-root"
-    data-testid="dialog"
+    data-testid="welcome-dialog"
     role="presentation"
   >
     <div
@@ -119,7 +119,7 @@ exports[`WelcomeDialog component Renders correctly When Title rich text and icon
   />
   <div
     class="MuiModal-root css-79ws1d-MuiModal-root"
-    data-testid="dialog"
+    data-testid="welcome-dialog"
     role="presentation"
   >
     <div

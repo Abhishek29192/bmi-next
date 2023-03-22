@@ -20,7 +20,7 @@ exports[`PdpCardsSection should render CTACard with video 1`] = `
             Tips and Information
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -63,7 +63,7 @@ exports[`PdpCardsSection should render CTACard with video 1`] = `
                     />
                   </a>
                   <div
-                    class="css-ud7f0n-Media"
+                    class="css-tzh23l-Media"
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=testId-mockLabel","action":"Play"}"
                     data-testid="youtube-dialog-wrapper"
                   >
@@ -140,7 +140,7 @@ exports[`PdpCardsSection should render correctly 1`] = `
             Tips and Information
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -179,7 +179,7 @@ exports[`PdpCardsSection should render correctly 1`] = `
                     </h5>
                   </section>
                   <div
-                    class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-17iv773-Media"
+                    class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-hs4m5t-Media"
                     data-gatsby-image-wrapper=""
                     style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                   >

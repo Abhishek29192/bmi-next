@@ -106,7 +106,7 @@ const CalculatorProvider = ({ children, onError, calculatorConfig }: Props) => {
     fetchAndSetData();
 
     return () => controller.abort();
-  }, [isOpen]);
+  }, [isOpen, onError, webtoolsCalculatorDataUrl]);
 
   const calculatorProps = useMemo(
     () => ({
@@ -146,7 +146,14 @@ const CalculatorProvider = ({ children, onError, calculatorConfig }: Props) => {
         }
       }
     }),
-    [data, isOpen, parameters]
+    [
+      data,
+      isOpen,
+      parameters,
+      qaAuthToken,
+      webToolsCalculatorApsisEndpoint,
+      executeRecaptcha
+    ]
   );
 
   return (

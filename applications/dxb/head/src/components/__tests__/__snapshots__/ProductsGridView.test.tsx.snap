@@ -51,7 +51,7 @@ exports[`ProductsGridView component renders correctly when not empty 1`] = `
           data-testid="overview-card-body-footer"
         >
           <span
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-zs2uof-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1qdeosv-MuiTypography-root-MuiLink-root"
             data-testid="anchor-link"
             type="button"
           >
@@ -60,7 +60,7 @@ exports[`ProductsGridView component renders correctly when not empty 1`] = `
             </span>
             <svg
               aria-hidden="true"
-              class=" css-em5iqk"
+              class=" css-1r2mexx"
               data-testid="internal"
               focusable="false"
               viewBox="0 0 16 16"
@@ -121,7 +121,7 @@ exports[`ProductsGridView component renders correctly when not empty with filter
           data-testid="overview-card-body-footer"
         >
           <span
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-zs2uof-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1qdeosv-MuiTypography-root-MuiLink-root"
             data-testid="anchor-link"
             type="button"
           >
@@ -130,7 +130,7 @@ exports[`ProductsGridView component renders correctly when not empty with filter
             </span>
             <svg
               aria-hidden="true"
-              class=" css-em5iqk"
+              class=" css-1r2mexx"
               data-testid="internal"
               focusable="false"
               viewBox="0 0 16 16"

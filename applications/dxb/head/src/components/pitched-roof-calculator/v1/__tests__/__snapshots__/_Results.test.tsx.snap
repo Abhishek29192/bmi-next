@@ -92,7 +92,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
         Print this list
       </h4>
       <div
-        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 help css-fbenth-MuiGrid2-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 help css-1qxu916-MuiGrid2-root"
         data-testid="grid-container"
       >
         <div
@@ -108,7 +108,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-column MuiGrid2-spacing-xs-2 fieldsContainer css-fkwo12-MuiGrid2-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-column MuiGrid2-spacing-xs-2 fieldsContainer css-orxnef-MuiGrid2-root"
         data-testid="grid-container"
       >
         <div
@@ -140,6 +140,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
               <input
                 aria-invalid="false"
                 class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+                data-testid="pitched-roof-calculator-results-form-name-input"
                 id=":r0:"
                 name="name"
                 required=""
@@ -192,6 +193,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
               <input
                 aria-invalid="false"
                 class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+                data-testid="pitched-roof-calculator-results-form-email-input"
                 id=":r1:"
                 name="email"
                 required=""
@@ -217,7 +219,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-column MuiGrid2-spacing-xs-6 gdprContainer css-1dbzsvx-MuiGrid2-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-column MuiGrid2-spacing-xs-6 gdprContainer css-170t6w0-MuiGrid2-root"
         data-testid="grid-container"
       >
         <div
@@ -428,7 +430,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
         Print this list
       </h4>
       <div
-        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 help css-fbenth-MuiGrid2-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 help css-1qxu916-MuiGrid2-root"
         data-testid="grid-container"
       >
         <div
@@ -444,7 +446,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
         </div>
       </div>
       <div
-        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-column MuiGrid2-spacing-xs-2 fieldsContainer css-fkwo12-MuiGrid2-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-column MuiGrid2-spacing-xs-2 fieldsContainer css-orxnef-MuiGrid2-root"
         data-testid="grid-container"
       >
         <div
@@ -476,6 +478,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
               <input
                 aria-invalid="false"
                 class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+                data-testid="pitched-roof-calculator-results-form-name-input"
                 id=":r2:"
                 name="name"
                 required=""
@@ -528,6 +531,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
               <input
                 aria-invalid="false"
                 class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+                data-testid="pitched-roof-calculator-results-form-email-input"
                 id=":r3:"
                 name="email"
                 required=""
@@ -553,7 +557,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
         </div>
       </div>
       <div
-        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-column MuiGrid2-spacing-xs-6 gdprContainer css-1dbzsvx-MuiGrid2-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-column MuiGrid2-spacing-xs-6 gdprContainer css-170t6w0-MuiGrid2-root"
         data-testid="grid-container"
       >
         <div
@@ -840,7 +844,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
         Print this list
       </h4>
       <div
-        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 help css-fbenth-MuiGrid2-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 help css-1qxu916-MuiGrid2-root"
         data-testid="grid-container"
       >
         <div
@@ -856,7 +860,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
         </div>
       </div>
       <div
-        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-column MuiGrid2-spacing-xs-2 fieldsContainer css-fkwo12-MuiGrid2-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-column MuiGrid2-spacing-xs-2 fieldsContainer css-orxnef-MuiGrid2-root"
         data-testid="grid-container"
       >
         <div
@@ -888,6 +892,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
               <input
                 aria-invalid="false"
                 class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+                data-testid="pitched-roof-calculator-results-form-name-input"
                 id=":r8:"
                 name="name"
                 required=""
@@ -940,6 +945,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
               <input
                 aria-invalid="false"
                 class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+                data-testid="pitched-roof-calculator-results-form-email-input"
                 id=":r9:"
                 name="email"
                 required=""
@@ -965,7 +971,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
         </div>
       </div>
       <div
-        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-column MuiGrid2-spacing-xs-6 gdprContainer css-1dbzsvx-MuiGrid2-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-column MuiGrid2-spacing-xs-6 gdprContainer css-170t6w0-MuiGrid2-root"
         data-testid="grid-container"
       >
         <div
@@ -1176,7 +1182,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
         Print this list
       </h4>
       <div
-        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 help css-fbenth-MuiGrid2-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 help css-1qxu916-MuiGrid2-root"
         data-testid="grid-container"
       >
         <div
@@ -1192,7 +1198,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
         </div>
       </div>
       <div
-        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-column MuiGrid2-spacing-xs-2 fieldsContainer css-fkwo12-MuiGrid2-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-column MuiGrid2-spacing-xs-2 fieldsContainer css-orxnef-MuiGrid2-root"
         data-testid="grid-container"
       >
         <div
@@ -1224,6 +1230,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
               <input
                 aria-invalid="false"
                 class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+                data-testid="pitched-roof-calculator-results-form-name-input"
                 id=":r6:"
                 name="name"
                 required=""
@@ -1276,6 +1283,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
               <input
                 aria-invalid="false"
                 class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+                data-testid="pitched-roof-calculator-results-form-email-input"
                 id=":r7:"
                 name="email"
                 required=""
@@ -1301,7 +1309,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
         </div>
       </div>
       <div
-        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-column MuiGrid2-spacing-xs-6 gdprContainer css-1dbzsvx-MuiGrid2-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-column MuiGrid2-spacing-xs-6 gdprContainer css-170t6w0-MuiGrid2-root"
         data-testid="grid-container"
       >
         <div
@@ -1512,7 +1520,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
         Print this list
       </h4>
       <div
-        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 help css-fbenth-MuiGrid2-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 help css-1qxu916-MuiGrid2-root"
         data-testid="grid-container"
       >
         <div
@@ -1528,7 +1536,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
         </div>
       </div>
       <div
-        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-column MuiGrid2-spacing-xs-2 fieldsContainer css-fkwo12-MuiGrid2-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-column MuiGrid2-spacing-xs-2 fieldsContainer css-orxnef-MuiGrid2-root"
         data-testid="grid-container"
       >
         <div
@@ -1560,6 +1568,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
               <input
                 aria-invalid="false"
                 class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+                data-testid="pitched-roof-calculator-results-form-name-input"
                 id=":r4:"
                 name="name"
                 required=""
@@ -1612,6 +1621,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
               <input
                 aria-invalid="false"
                 class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+                data-testid="pitched-roof-calculator-results-form-email-input"
                 id=":r5:"
                 name="email"
                 required=""
@@ -1637,7 +1647,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
         </div>
       </div>
       <div
-        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-column MuiGrid2-spacing-xs-6 gdprContainer css-1dbzsvx-MuiGrid2-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-column MuiGrid2-spacing-xs-6 gdprContainer css-170t6w0-MuiGrid2-root"
         data-testid="grid-container"
       >
         <div

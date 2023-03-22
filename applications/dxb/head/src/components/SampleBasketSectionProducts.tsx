@@ -6,6 +6,7 @@ import {
 } from "@bmi-digital/components";
 import { isDefined } from "@bmi/utils";
 import { Remove } from "@mui/icons-material";
+import { useMediaQuery, useTheme } from "@mui/material";
 import { navigate } from "gatsby";
 import React from "react";
 import { microCopy } from "../constants/microCopies";
@@ -15,7 +16,6 @@ import {
   useBasketContext
 } from "../contexts/SampleBasketContext";
 import { getPathWithCountryCode } from "../utils/path";
-import { useIsMobileDevice } from "../utils/useIsMobileDevice";
 import Image from "./Image";
 import { useSiteContext } from "./Site";
 import styles from "./styles/SampleBasketSectionProducts.module.scss";
@@ -23,7 +23,9 @@ import styles from "./styles/SampleBasketSectionProducts.module.scss";
 const SampleBasketSectionProducts = () => {
   const { basketState, basketDispatch } = useBasketContext();
   const { getMicroCopy, countryCode } = useSiteContext();
-  const isMobile = useIsMobileDevice();
+
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 
   const sampleCards = basketState.products.map((sample) => {
     const media = (

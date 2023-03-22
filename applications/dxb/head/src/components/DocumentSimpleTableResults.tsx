@@ -14,6 +14,8 @@ import {
   PimSystemDocument as EsPimSystemDocument
 } from "@bmi/elasticsearch-types";
 import { GetApp } from "@mui/icons-material";
+import { useMediaQuery } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import classnames from "classnames";
 import filesize from "filesize";
 import fetch, { Response } from "node-fetch";
@@ -31,7 +33,6 @@ import {
 import { downloadAs, getDownloadLink } from "../utils/client-download";
 import getCookie from "../utils/getCookie";
 import withGTM from "../utils/google-tag-manager";
-import { useIsMobileDevice } from "../utils/useIsMobileDevice";
 import createAssetFileCountMap, {
   AssetUniqueFileCountMap,
   generateFilenameByRealFileName,
@@ -522,7 +523,8 @@ const DocumentSimpleTableResults = ({
   headers = ["typeCode", "title", "download", "add"]
 }: Props): React.ReactElement => {
   const { getMicroCopy } = useSiteContext();
-  const isMobile = useIsMobileDevice();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
   const { list } = useContext(DownloadListContext);
 
   if (isMobile) {

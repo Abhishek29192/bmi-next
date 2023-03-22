@@ -19,7 +19,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -31,7 +31,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
-                data-testid="text-field-company-autocomplete"
+                data-testid="company-autocomplete"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
@@ -68,6 +68,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiAutocomplete-input MuiAutocomplete-inputFocused css-1o9s3wi-MuiInputBase-input-MuiOutlinedInput-input"
+                    data-testid="company-autocomplete-input"
                     id="company-autocomplete"
                     name="autocomplete-field"
                     role="combobox"
@@ -296,7 +297,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
           </div>
           <div
             aria-labelledby="tab-list"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1rk7w2f"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
             data-testid="tabpanel-list"
             heading="MC: findARoofer.listLabel"
             id="tabpanel-list"
@@ -318,10 +319,6 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                     class="css-c9b8pn"
                     data-testid="linkCard-item"
                   >
-                    <img
-                      class="company-logo"
-                      style="object-fit: cover; object-position: center;"
-                    />
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                       data-testid="typography"
@@ -501,7 +498,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-71osed"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""

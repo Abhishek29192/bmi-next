@@ -17,7 +17,7 @@ exports[`Sections component renders alternate backgrounds for promos 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 PromoSection-grid css-fbenth-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 PromoSection-grid css-1qxu916-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -70,7 +70,7 @@ exports[`Sections component renders alternate backgrounds for promos 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 PromoSection-grid css-fbenth-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 PromoSection-grid css-1qxu916-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -123,7 +123,7 @@ exports[`Sections component renders alternate backgrounds for promos 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 PromoSection-grid css-fbenth-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 PromoSection-grid css-1qxu916-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -405,7 +405,7 @@ exports[`Sections component renders correctly 1`] = `
               </div>
               <div
                 aria-labelledby="tab-hello"
-                class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
+                class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-923awc"
                 data-testid="tabpanel-hello"
                 heading="hello"
                 id="tabpanel-hello"
@@ -452,7 +452,7 @@ exports[`Sections component renders correctly 1`] = `
             class="Villain-contained css-1rznarn"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -492,7 +492,7 @@ exports[`Sections component renders correctly 1`] = `
             class="Villain-contained Villain-reversed css-1rznarn"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-column-reverse MuiGrid2-spacing-xs-3  css-1b6hany-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-sm-row-reverse MuiGrid2-direction-xs-column-reverse MuiGrid2-spacing-xs-3  css-15jih4u-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -557,7 +557,7 @@ exports[`Sections component renders correctly 1`] = `
               card collection section title
             </h2>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -707,7 +707,7 @@ exports[`Sections component renders correctly 1`] = `
               card section title 2
             </h2>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -723,7 +723,7 @@ exports[`Sections component renders correctly 1`] = `
                   type="button"
                 >
                   <div
-                    class="gatsby-image-wrapper gatsby-image-wrapper-constrained OverviewCard-headerPicture css-1hwnyij-Media"
+                    class="gatsby-image-wrapper gatsby-image-wrapper-constrained OverviewCard-headerPicture css-7mgsqw-Media"
                     data-gatsby-image-wrapper=""
                     style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                   >
@@ -831,7 +831,7 @@ exports[`Sections component renders correctly 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 PromoSection-grid css-fbenth-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 PromoSection-grid css-1qxu916-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -875,7 +875,7 @@ exports[`Sections component renders correctly 1`] = `
               data-testid="grid-item"
             >
               <div
-                class="PromoSection-image css-149z654-Media"
+                class="PromoSection-image css-1moer0t-Media"
                 data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=abc123-Video","action":"Play"}"
                 data-testid="youtube-dialog-wrapper"
               >
@@ -942,7 +942,7 @@ exports[`Sections component renders correctly 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 PromoSection-grid css-fbenth-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 PromoSection-grid css-1qxu916-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -971,7 +971,7 @@ exports[`Sections component renders correctly 1`] = `
               data-testid="grid-item"
             >
               <div
-                class="gatsby-image-wrapper gatsby-image-wrapper-constrained PromoSection-image css-1hwnyij-Media"
+                class="gatsby-image-wrapper gatsby-image-wrapper-constrained PromoSection-image css-7mgsqw-Media"
                 data-gatsby-image-wrapper=""
                 style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
               >
@@ -1038,7 +1038,7 @@ exports[`Sections component renders correctly 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -1065,7 +1065,7 @@ exports[`Sections component renders correctly 1`] = `
                   data-testid="media-gallery-media-wrapper"
                 >
                   <div
-                    class="gatsby-image-wrapper gatsby-image-wrapper-constrained MediaGallery-mainImageWrapperCover MediaGallery-mainImageWrapperdefault css-k9iym5-Media"
+                    class="gatsby-image-wrapper gatsby-image-wrapper-constrained MediaGallery-mainImageWrapperCover MediaGallery-mainImageWrapperdefault css-1kr98xg-Media"
                     data-gatsby-image-wrapper=""
                     style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                   >
@@ -1191,7 +1191,7 @@ exports[`Sections component renders correctly 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -1203,7 +1203,7 @@ exports[`Sections component renders correctly 1`] = `
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
-                  data-testid="text-field-company-autocomplete"
+                  data-testid="company-autocomplete"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
@@ -1240,6 +1240,7 @@ exports[`Sections component renders correctly 1`] = `
                       autocapitalize="none"
                       autocomplete="off"
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiAutocomplete-input MuiAutocomplete-inputFocused css-1o9s3wi-MuiInputBase-input-MuiOutlinedInput-input"
+                      data-testid="company-autocomplete-input"
                       id="company-autocomplete"
                       name="autocomplete-field"
                       role="combobox"
@@ -1385,7 +1386,7 @@ exports[`Sections component renders correctly 1`] = `
             </div>
             <div
               aria-labelledby="tab-list"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1rk7w2f"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
               data-testid="tabpanel-list"
               heading="findARoofer.listLabel"
               id="tabpanel-list"
@@ -1410,7 +1411,7 @@ exports[`Sections component renders correctly 1`] = `
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-71osed"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
               data-testid="tabpanel-map"
               heading="findARoofer.mapLabel"
               hidden=""
@@ -1469,7 +1470,7 @@ exports[`Sections component renders correctly 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-1inyur7-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -1481,7 +1482,7 @@ exports[`Sections component renders correctly 1`] = `
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
-                  data-testid="text-field-company-autocomplete"
+                  data-testid="company-autocomplete"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
@@ -1518,6 +1519,7 @@ exports[`Sections component renders correctly 1`] = `
                       autocapitalize="none"
                       autocomplete="off"
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiAutocomplete-input MuiAutocomplete-inputFocused css-1o9s3wi-MuiInputBase-input-MuiOutlinedInput-input"
+                      data-testid="company-autocomplete-input"
                       id="company-autocomplete"
                       name="autocomplete-field"
                       role="combobox"
@@ -1714,7 +1716,7 @@ exports[`Sections component renders correctly 1`] = `
             </div>
             <div
               aria-labelledby="tab-list"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1rk7w2f"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
               data-testid="tabpanel-list"
               heading="findARoofer.listLabel"
               id="tabpanel-list"
@@ -1736,10 +1738,6 @@ exports[`Sections component renders correctly 1`] = `
                       class="css-c9b8pn"
                       data-testid="linkCard-item"
                     >
-                      <img
-                        class="company-logo"
-                        style="object-fit: cover; object-position: center;"
-                      />
                       <h6
                         class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                         data-testid="typography"
@@ -1815,7 +1813,7 @@ exports[`Sections component renders correctly 1`] = `
                                     class="css-bp47jm"
                                   >
                                     <a
-                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-swxrni-MuiTypography-root-MuiLink-root"
+                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kiv9ae-MuiTypography-root-MuiLink-root"
                                       data-gtm="{"id":"cta-click1","label":"roofer 1 - address 1 - Pitched Roof","action":"tel:phone 1"}"
                                       data-testid="anchor-link"
                                       href="tel:phone 1"
@@ -1855,7 +1853,7 @@ exports[`Sections component renders correctly 1`] = `
                                     class="css-bp47jm"
                                   >
                                     <a
-                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-swxrni-MuiTypography-root-MuiLink-root"
+                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kiv9ae-MuiTypography-root-MuiLink-root"
                                       data-gtm="{"id":"cta-click1","label":"roofer 1 - address 1 - Pitched Roof","action":"mailto:test@test.com"}"
                                       data-testid="anchor-link"
                                       href="mailto:test@test.com"
@@ -1895,7 +1893,7 @@ exports[`Sections component renders correctly 1`] = `
                                     class="css-bp47jm"
                                   >
                                     <a
-                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-swxrni-MuiTypography-root-MuiLink-root"
+                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kiv9ae-MuiTypography-root-MuiLink-root"
                                       data-gtm="{"id":"cta-click1","label":"roofer 1 - address 1 - Pitched Roof","action":"https://www.test.com"}"
                                       data-testid="anchor-link"
                                       href="https://www.test.com"
@@ -1952,10 +1950,6 @@ exports[`Sections component renders correctly 1`] = `
                       class="css-c9b8pn"
                       data-testid="linkCard-item"
                     >
-                      <img
-                        class="company-logo"
-                        style="object-fit: cover; object-position: center;"
-                      />
                       <h6
                         class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                         data-testid="typography"
@@ -2031,7 +2025,7 @@ exports[`Sections component renders correctly 1`] = `
                                     class="css-bp47jm"
                                   >
                                     <a
-                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-swxrni-MuiTypography-root-MuiLink-root"
+                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kiv9ae-MuiTypography-root-MuiLink-root"
                                       data-gtm="{"id":"cta-click1","label":"roofer 2 - address 1 - Pitched Roof","action":"tel:phone 1"}"
                                       data-testid="anchor-link"
                                       href="tel:phone 1"
@@ -2071,7 +2065,7 @@ exports[`Sections component renders correctly 1`] = `
                                     class="css-bp47jm"
                                   >
                                     <a
-                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-swxrni-MuiTypography-root-MuiLink-root"
+                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kiv9ae-MuiTypography-root-MuiLink-root"
                                       data-gtm="{"id":"cta-click1","label":"roofer 2 - address 1 - Pitched Roof","action":"mailto:test@test.com"}"
                                       data-testid="anchor-link"
                                       href="mailto:test@test.com"
@@ -2111,7 +2105,7 @@ exports[`Sections component renders correctly 1`] = `
                                     class="css-bp47jm"
                                   >
                                     <a
-                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-swxrni-MuiTypography-root-MuiLink-root"
+                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kiv9ae-MuiTypography-root-MuiLink-root"
                                       data-gtm="{"id":"cta-click1","label":"roofer 2 - address 1 - Pitched Roof","action":"https://www.test.com"}"
                                       data-testid="anchor-link"
                                       href="https://www.test.com"
@@ -2164,7 +2158,7 @@ exports[`Sections component renders correctly 1`] = `
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-71osed"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
               data-testid="tabpanel-map"
               heading="findARoofer.mapLabel"
               hidden=""
@@ -2242,7 +2236,7 @@ exports[`Sections component renders correctly 1`] = `
             class="video"
           >
             <div
-              class="YoutubeVideo-inline css-1v1pu4w"
+              class="YoutubeVideo-inline css-1tx8gw7"
               data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=A-RfHC91Ewc-Video label","action":"Play"}"
               data-testid="youtube-inline-wrapper"
             >
@@ -2287,6 +2281,7 @@ exports[`Sections component renders correctly 1`] = `
                 style="opacity: 0; visibility: hidden; transition-delay: 500ms;"
               >
                 <div
+                  data-testid="youtube-inline-react-player"
                   style="width: 640px; height: 360px;"
                 >
                   <div
@@ -2317,7 +2312,7 @@ exports[`Sections component renders correctly 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -2427,7 +2422,7 @@ exports[`Sections component renders correctly 1`] = `
                 </div>
                 <div
                   aria-labelledby="tab-0"
-                  class="Tabs-tabPanel Tabs-tabPanelBox TeamSection-tabPanel MuiBox-root css-19kzrtu"
+                  class="Tabs-tabPanel Tabs-tabPanelBox TeamSection-tabPanel MuiBox-root css-923awc"
                   data-testid="tabpanel-0"
                   heading="Team Category 1"
                   id="tabpanel-0"
@@ -2457,7 +2452,7 @@ exports[`Sections component renders correctly 1`] = `
                       <div>
                         <div>
                           <div
-                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-5o54wr-MuiGrid2-root"
+                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-1a0v38e-MuiGrid2-root"
                             data-testid="grid-container"
                           >
                             <div
@@ -2542,7 +2537,7 @@ exports[`Sections component renders correctly 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -2668,7 +2663,7 @@ exports[`Sections component renders correctly 1`] = `
                 </div>
                 <div
                   aria-labelledby="tab-0"
-                  class="Tabs-tabPanel Tabs-tabPanelBox TeamSection-tabPanel MuiBox-root css-19kzrtu"
+                  class="Tabs-tabPanel Tabs-tabPanelBox TeamSection-tabPanel MuiBox-root css-923awc"
                   data-testid="tabpanel-0"
                   heading="Team Category 1"
                   id="tabpanel-0"
@@ -2698,7 +2693,7 @@ exports[`Sections component renders correctly 1`] = `
                       <div>
                         <div>
                           <div
-                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-5o54wr-MuiGrid2-root"
+                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-1a0v38e-MuiGrid2-root"
                             data-testid="grid-container"
                           >
                             <div
@@ -2763,7 +2758,7 @@ exports[`Sections component renders correctly 1`] = `
                 </div>
                 <div
                   aria-labelledby="tab-1"
-                  class="Tabs-tabPanel Tabs-tabPanelBox TeamSection-tabPanel MuiBox-root css-19kzrtu"
+                  class="Tabs-tabPanel Tabs-tabPanelBox TeamSection-tabPanel MuiBox-root css-923awc"
                   data-testid="tabpanel-1"
                   heading="Team Category 2"
                   hidden=""
@@ -2780,7 +2775,7 @@ exports[`Sections component renders correctly 1`] = `
                       <div>
                         <div>
                           <div
-                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-5o54wr-MuiGrid2-root"
+                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-1a0v38e-MuiGrid2-root"
                             data-testid="grid-container"
                           >
                             <div
@@ -2916,7 +2911,7 @@ exports[`Sections component renders correctly 1`] = `
             data-testid="section-Form-section"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-fbenth-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -2948,6 +2943,7 @@ exports[`Sections component renders correctly 1`] = `
                     <input
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+                      data-testid="text-field-first-name-input"
                       id="first-name"
                       name="first-name"
                       required=""
@@ -3000,6 +2996,7 @@ exports[`Sections component renders correctly 1`] = `
                     <input
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+                      data-testid="text-field-second-names-input"
                       id="second-names"
                       name="second-names"
                       required=""
@@ -3052,6 +3049,7 @@ exports[`Sections component renders correctly 1`] = `
                     <input
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+                      data-testid="text-field-email-input"
                       id="email"
                       name="email"
                       required=""
@@ -3097,6 +3095,7 @@ exports[`Sections component renders correctly 1`] = `
                     <input
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+                      data-testid="text-field-company-input"
                       id="company"
                       name="company"
                       type="text"
@@ -3139,6 +3138,7 @@ exports[`Sections component renders correctly 1`] = `
                     <input
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+                      data-testid="text-field-telephone-input"
                       id="telephone"
                       name="telephone"
                       type="text"
@@ -3167,8 +3167,8 @@ exports[`Sections component renders correctly 1`] = `
                   class="MuiFormControl-root MuiFormControl-fullWidth css-q8hpuo-MuiFormControl-root"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
-                    data-shrink="false"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                    data-shrink="true"
                   >
                     Type of query
                     <span
@@ -3191,11 +3191,7 @@ exports[`Sections component renders correctly 1`] = `
                       role="button"
                       tabindex="0"
                     >
-                      <span
-                        class="notranslate"
-                      >
-                        ​
-                      </span>
+                      form.none.selection
                     </div>
                     <input
                       aria-hidden="true"
@@ -3203,7 +3199,7 @@ exports[`Sections component renders correctly 1`] = `
                       name="recipients"
                       required=""
                       tabindex="-1"
-                      value=""
+                      value="form.none.selection"
                     />
                     <svg
                       aria-hidden="true"
@@ -3221,7 +3217,7 @@ exports[`Sections component renders correctly 1`] = `
                       class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="css-yjsfm1"
+                        class="css-14lo706"
                       >
                         <span>
                           Type of query
@@ -3232,7 +3228,7 @@ exports[`Sections component renders correctly 1`] = `
                     </fieldset>
                   </div>
                   <p
-                    class="MuiFormHelperText-root MuiFormHelperText-sizeMedium MuiFormHelperText-contained Mui-required css-t5lzr8-MuiFormHelperText-root"
+                    class="MuiFormHelperText-root MuiFormHelperText-sizeMedium MuiFormHelperText-contained MuiFormHelperText-filled Mui-required css-t5lzr8-MuiFormHelperText-root"
                   />
                 </div>
               </div>
@@ -3317,6 +3313,7 @@ exports[`Sections component renders correctly 1`] = `
                     <textarea
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline css-1sqnrkk-MuiInputBase-input-MuiOutlinedInput-input"
+                      data-testid="text-field-message-input"
                       id="message"
                       name="message"
                       required=""
@@ -3475,7 +3472,7 @@ exports[`Sections component renders correctly 1`] = `
                     >
                       I agree with BMI's 
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                         data-testid="label-Data-Protection-Policy-anchor-link"
                         href="https://google.co.uk"
                         rel="noopener"
@@ -3575,7 +3572,7 @@ exports[`Sections component renders correctly 1`] = `
           >
             This site is protected by reCAPTCHA and the Google 
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
               data-testid="recaptcha-privacy-policy-link"
               href="https://policies.google.com/privacy"
               rel="noreferrer noopener"
@@ -3587,7 +3584,7 @@ exports[`Sections component renders correctly 1`] = `
             </a>
              and 
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
               data-testid="recaptcha-terms-of-service-link"
               href="https://policies.google.com/terms"
               rel="noreferrer noopener"
@@ -3837,7 +3834,7 @@ exports[`Sections component renders correctly when incomplete 1`] = `
               </div>
               <div
                 aria-labelledby="tab-hello"
-                class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
+                class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-923awc"
                 data-testid="tabpanel-hello"
                 heading="hello"
                 id="tabpanel-hello"
@@ -4118,7 +4115,7 @@ exports[`Sections component renders correctly with 1 villain 1`] = `
               </div>
               <div
                 aria-labelledby="tab-hello"
-                class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
+                class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-923awc"
                 data-testid="tabpanel-hello"
                 heading="hello"
                 id="tabpanel-hello"

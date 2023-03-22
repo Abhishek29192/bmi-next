@@ -9,7 +9,7 @@ import type { HomepageData } from "../home-page";
 export const getHeroItemsWithContext = (
   { getMicroCopy },
   slides: HomepageData["slides"]
-): CarouselHeroItem[] => {
+): readonly CarouselHeroItem[] => {
   return slides.map(
     ({ title, subtitle, featuredMedia, featuredVideo, ...rest }) => {
       const callToAction =

@@ -185,7 +185,8 @@ const SearchPage = ({ pageContext, data }: Props) => {
     };
 
     getCounts();
-  }, [queryString, results]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- Sets results inside of this hook
+  }, [queryString]);
 
   const pageTitle = useMemo(() => {
     // If no query, we can't show a title referring to the query
