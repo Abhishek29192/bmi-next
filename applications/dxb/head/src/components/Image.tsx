@@ -210,8 +210,8 @@ export const query = graphql`
       gatsbyImageData(
         layout: CONSTRAINED
         placeholder: DOMINANT_COLOR
-        width: 684
-        breakpoints: [561, 321, 381, 681, 684]
+        width: 920
+        breakpoints: [561, 436, 516, 916, 920]
         formats: [WEBP, JPG, AUTO]
       )
     }
