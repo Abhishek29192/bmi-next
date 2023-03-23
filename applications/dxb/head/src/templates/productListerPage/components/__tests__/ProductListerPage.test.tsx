@@ -18,7 +18,7 @@ import type { Product as ESProduct } from "@bmi/elasticsearch-types";
 import { DataTypeEnum, NavigationData } from "../../../../components/Link";
 import { Data as SiteData } from "../../../../components/Site";
 import ProvideStyles from "../../../../components/__tests__/utils/StylesProvider";
-import { ConfigProvider, EnvConfig } from "../../../../contexts/ConfigProvider";
+import { ConfigProvider, Config } from "../../../../contexts/ConfigProvider";
 import createImageData from "../../../../__tests__/helpers/ImageDataHelper";
 import ProductListerPage, {
   Data as PlpPageInfoData,
@@ -167,18 +167,18 @@ jest.mock("../../../../utils/elasticSearch", () => {
 const renderWithStylesAndLocationProvider = (
   pageData: any,
   pageContext: PageContextType,
-  mockEnvVariables?: Partial<EnvConfig["config"]>
+  mockEnvVariables?: Partial<Config>
 ): RenderResult => {
   const defaultPageEnvVars = {
     gatsbyReCaptchaKey: "test",
     visualizerAssetUrl: "est-test-page",
     isBrandProviderEnabled: true
-  } as Partial<EnvConfig["config"]>;
+  } as Partial<Config>;
 
   return render(
     <ThemeProvider>
       <ConfigProvider
-        configObject={{ ...defaultPageEnvVars, ...mockEnvVariables }}
+        configOverride={{ ...defaultPageEnvVars, ...mockEnvVariables }}
       >
         <ProvideStyles>
           <LocationProvider history={history}>

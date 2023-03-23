@@ -64,7 +64,7 @@ const handleDownloadClick = async (
 
 const KeyAssetTypesDownloadSection = ({ keyAssetDocuments }: Props) => {
   const { executeRecaptcha } = useGoogleReCaptcha();
-  const { config } = useConfig();
+  const config = useConfig();
   const qaAuthToken = getCookie(QA_AUTH_TOKEN);
 
   return (

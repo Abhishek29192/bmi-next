@@ -65,9 +65,7 @@ type Props = {
 
 const BmiFooter = ({ mainNavigation, secondaryNavigation }: Props) => {
   const { countryCode, getMicroCopy } = useSiteContext();
-  const {
-    config: { isSpaEnabled }
-  } = useConfig();
+  const { isSpaEnabled } = useConfig();
   const main = isSpaEnabled
     ? []
     : parseNavigation(mainNavigation?.links, countryCode);

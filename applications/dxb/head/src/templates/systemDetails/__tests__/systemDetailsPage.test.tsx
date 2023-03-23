@@ -7,7 +7,7 @@ import createRelatedSystem from "../../../__tests__/helpers/RelatedSystemHelper"
 import createSystem from "../../../__tests__/helpers/SystemHelper";
 import createSystemLayer from "../../../__tests__/helpers/SystemLayerHelper";
 import ProvideStyles from "../../../components/__tests__/utils/StylesProvider";
-import { ConfigProvider, EnvConfig } from "../../../contexts/ConfigProvider";
+import { Config, ConfigProvider } from "../../../contexts/ConfigProvider";
 import { createMockSiteData } from "../../../test/mockSiteData";
 import { renderWithRouter } from "../../../test/renderWithRouter";
 import SystemDetailsPage from "../systemDetailsPage";
@@ -42,13 +42,13 @@ const withProviders = ({
   routerObject,
   renderComponent
 }: {
-  customConfig?: EnvConfig["config"];
+  customConfig?: Partial<Config>;
   routerObject?: { route?: string; history?: History };
   renderComponent: React.ReactElement;
 }) => {
   return renderWithRouter(
     <ThemeProvider>
-      <ConfigProvider configObject={customConfig}>
+      <ConfigProvider configOverride={customConfig}>
         <ProvideStyles>{renderComponent}</ProvideStyles>
       </ConfigProvider>
     </ThemeProvider>,

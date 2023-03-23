@@ -68,9 +68,7 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
     seo,
     documentsFilters
   } = data.contentfulDocumentLibraryPage;
-  const {
-    config: { documentDownloadMaxLimit, isPreviewMode }
-  } = useConfig();
+  const { documentDownloadMaxLimit, isPreviewMode } = useConfig();
   const maxSize = documentDownloadMaxLimit * 1048576;
   // eslint-disable-next-line security/detect-object-injection
   const format: Format = resultTypeFormatMap[source][resultsType];

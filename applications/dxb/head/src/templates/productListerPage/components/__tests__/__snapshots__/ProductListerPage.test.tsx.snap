@@ -4,7 +4,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-8mimat-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1n3l0bu-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -861,7 +861,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 />
               </ul>
               <div
-                class="css-p15bbt"
+                class="css-prasn8"
               >
                 <div
                   class="MuiBox-root css-1vhvcpa"
@@ -950,7 +950,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-8mimat-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1n3l0bu-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -1813,7 +1813,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 />
               </ul>
               <div
-                class="css-p15bbt"
+                class="css-prasn8"
               >
                 <div
                   class="MuiBox-root css-1vhvcpa"
@@ -1902,7 +1902,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-8mimat-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1n3l0bu-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -3010,7 +3010,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 />
               </ul>
               <div
-                class="css-p15bbt"
+                class="css-prasn8"
               >
                 <div
                   class="MuiBox-root css-1vhvcpa"
@@ -3099,7 +3099,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-8mimat-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1n3l0bu-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -4201,7 +4201,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 />
               </ul>
               <div
-                class="css-p15bbt"
+                class="css-prasn8"
               >
                 <div
                   class="MuiBox-root css-1vhvcpa"
@@ -4290,7 +4290,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-8mimat-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1n3l0bu-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -5319,7 +5319,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 />
               </ul>
               <div
-                class="css-p15bbt"
+                class="css-prasn8"
               >
                 <div
                   class="MuiBox-root css-1vhvcpa"
@@ -5408,7 +5408,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-8mimat-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1n3l0bu-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -6267,7 +6267,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                 />
               </ul>
               <div
-                class="css-p15bbt"
+                class="css-prasn8"
               >
                 <div
                   class="MuiBox-root css-1vhvcpa"
@@ -6356,7 +6356,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-8mimat-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1n3l0bu-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -7363,7 +7363,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                 </li>
               </ul>
               <div
-                class="css-p15bbt"
+                class="css-prasn8"
               >
                 <div
                   class="MuiBox-root css-1vhvcpa"
@@ -7452,7 +7452,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-8mimat-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1n3l0bu-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -8298,7 +8298,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                 />
               </ul>
               <div
-                class="css-p15bbt"
+                class="css-prasn8"
               >
                 <div
                   class="MuiBox-root css-1vhvcpa"
@@ -8387,7 +8387,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-8mimat-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1n3l0bu-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -9476,7 +9476,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                 />
               </ul>
               <div
-                class="css-p15bbt"
+                class="css-prasn8"
               >
                 <div
                   class="MuiBox-root css-1vhvcpa"
@@ -9565,7 +9565,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-8mimat-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1n3l0bu-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -10654,7 +10654,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
                 />
               </ul>
               <div
-                class="css-p15bbt"
+                class="css-prasn8"
               >
                 <div
                   class="MuiBox-root css-1vhvcpa"
@@ -10743,7 +10743,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-8mimat-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1n3l0bu-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -11845,7 +11845,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                 />
               </ul>
               <div
-                class="css-p15bbt"
+                class="css-prasn8"
               >
                 <div
                   class="MuiBox-root css-1vhvcpa"
@@ -11934,7 +11934,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-8mimat-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1n3l0bu-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -13042,7 +13042,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
                 />
               </ul>
               <div
-                class="css-p15bbt"
+                class="css-prasn8"
               >
                 <div
                   class="MuiBox-root css-1vhvcpa"
@@ -13131,7 +13131,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-8mimat-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1n3l0bu-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -14438,7 +14438,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                 />
               </ul>
               <div
-                class="css-p15bbt"
+                class="css-prasn8"
               >
                 <div
                   class="MuiBox-root css-1vhvcpa"
@@ -14527,7 +14527,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-8mimat-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1n3l0bu-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -15834,7 +15834,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                 />
               </ul>
               <div
-                class="css-p15bbt"
+                class="css-prasn8"
               >
                 <div
                   class="MuiBox-root css-1vhvcpa"

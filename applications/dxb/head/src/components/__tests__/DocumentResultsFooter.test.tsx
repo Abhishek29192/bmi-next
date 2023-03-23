@@ -9,6 +9,7 @@ import createPimDocument from "../../__tests__/helpers/PimDocumentHelper";
 import DocumentResultsFooter, {
   handleDownloadClick
 } from "../DocumentResultsFooter";
+import { Config } from "../../contexts/ConfigProvider";
 
 jest.mock("../../utils/devLog");
 
@@ -223,7 +224,7 @@ describe("DocumentResultsFooter component", () => {
 
       await handleDownloadClick(
         list,
-        { isPreviewMode: false, documentDownloadEndpoint: undefined },
+        { isPreviewMode: false, documentDownloadEndpoint: undefined } as Config,
         token,
         resetList
       );
@@ -244,7 +245,7 @@ describe("DocumentResultsFooter component", () => {
         {
           isPreviewMode: false,
           documentDownloadEndpoint: "GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT"
-        },
+        } as Config,
         token,
         resetList
       );
@@ -297,7 +298,7 @@ describe("DocumentResultsFooter component", () => {
         {
           isPreviewMode: false,
           documentDownloadEndpoint: "GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT"
-        },
+        } as Config,
         undefined,
         resetList,
         qaAuthToken
@@ -349,7 +350,7 @@ describe("DocumentResultsFooter component", () => {
         {
           isPreviewMode: false,
           documentDownloadEndpoint: "GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT"
-        },
+        } as Config,
         token,
         resetList
       );
@@ -364,7 +365,7 @@ describe("DocumentResultsFooter component", () => {
         {
           isPreviewMode: true,
           documentDownloadEndpoint: "GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT"
-        },
+        } as Config,
         token,
         resetList
       );

@@ -55,9 +55,7 @@ const NoBrandComponent = ({ children }: NoBrandProps) => {
 };
 
 const BrandProvider = ({ brand, children }: BrandProviderProps) => {
-  const {
-    config: { isBrandProviderEnabled }
-  } = useConfig();
+  const { isBrandProviderEnabled } = useConfig();
   if (!brand || !isBrandProviderEnabled) {
     return <NoBrandComponent>{children}</NoBrandComponent>;
   }

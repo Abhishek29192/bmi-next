@@ -53,12 +53,10 @@ const CalculatorProvider = ({ children, onError, calculatorConfig }: Props) => {
   const [data, setData] = useState<Data>();
   const [parameters, setParameters] = useState<Partial<Parameters>>({});
   const {
-    config: {
-      webtoolsCalculatorDataUrl,
-      isWebToolsCalculatorEnabled,
-      webToolsCalculatorApsisEndpoint,
-      isV2WebToolsCalculatorEnabled
-    }
+    webtoolsCalculatorDataUrl,
+    isWebToolsCalculatorEnabled,
+    webToolsCalculatorApsisEndpoint,
+    isV2WebToolsCalculatorEnabled
   } = useConfig();
   const showCalculatorDialog = !(typeof window === "undefined") && isOpen;
 

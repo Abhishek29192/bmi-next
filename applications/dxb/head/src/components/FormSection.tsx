@@ -132,9 +132,7 @@ const Input = ({
   accept = ".pdf, .jpg, .jpeg, .png",
   maxSize
 }: Omit<InputType, "width">) => {
-  const {
-    config: { gcpFormUploadEndpoint }
-  } = useConfig();
+  const { gcpFormUploadEndpoint } = useConfig();
   const { getMicroCopy } = useSiteContext();
   const { executeRecaptcha } = useGoogleReCaptcha();
   const qaAuthToken = getCookie(QA_AUTH_TOKEN);
@@ -375,9 +373,7 @@ const HubspotForm = ({
   hasNoPadding?: boolean;
 }) => {
   const hubSpotFormID = `bmi-hubspot-form-${id || "no-id"}`;
-  const {
-    config: { hubSpotId }
-  } = useConfig();
+  const { hubSpotId } = useConfig();
 
   // Uses the HS script to bring in the form. This will create an iframe regardless
   // of styling options, but will only _use_ the iframe if it's _not_ raw HTML (empty
@@ -513,9 +509,8 @@ const FormSection = ({
   isDialog = false,
   "data-testid": dataTestId
 }: FormSectionProps) => {
-  const {
-    config: { isPreviewMode, gcpFormSubmitEndpoint, hubspotApiUrl, hubSpotId }
-  } = useConfig();
+  const { isPreviewMode, gcpFormSubmitEndpoint, hubspotApiUrl, hubSpotId } =
+    useConfig();
   const { countryCode, getMicroCopy, node_locale } = useSiteContext();
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const { executeRecaptcha } = useGoogleReCaptcha();

@@ -32,9 +32,9 @@ export const getHeroItemsWithContext = (
         hasUnderline: true,
         media: featuredVideo ? (
           <Video {...featuredVideo} data-testid={"hero-video"} />
-        ) : (
+        ) : featuredMedia ? (
           <Image {...featuredMedia} size="cover" data-testid={"hero-image"} />
-        ),
+        ) : undefined,
         cta: rest["cta"] || rest["path"] ? callToAction : null
       };
     }

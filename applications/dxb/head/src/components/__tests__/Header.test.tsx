@@ -10,8 +10,22 @@ import { fallbackGetMicroCopy as getMicroCopy } from "../MicroCopy";
 import { Data as PageInfoData } from "../PageInfo";
 import { Data as PromoData } from "../Promo";
 
+let isSpaEnabled;
+let isGatsbyDisabledElasticSearch;
+let isSampleOrderingEnabled;
+jest.mock("../../contexts/ConfigProvider", () => ({
+  useConfig: () => ({
+    isSpaEnabled,
+    isGatsbyDisabledElasticSearch,
+    isSampleOrderingEnabled
+  })
+}));
+
 beforeEach(() => {
   jest.useFakeTimers();
+  isSpaEnabled = false;
+  isGatsbyDisabledElasticSearch = false;
+  isSampleOrderingEnabled = true;
 });
 
 afterEach(() => {
@@ -261,6 +275,24 @@ describe("Header component", () => {
     expect(container).toMatchSnapshot();
   });
 
+  it("hides search button if disableSearch is true", () => {
+    render(
+      <ThemeProvider>
+        <Header
+          activeLabel="Main"
+          countryCode="gb"
+          navigationData={navigationData}
+          utilitiesData={utilitiesData}
+          regions={regions}
+          maximumSamples={3}
+          disableSearch={true}
+        />
+      </ThemeProvider>
+    );
+
+    expect(screen.queryByTestId("search-button")).not.toBeInTheDocument();
+  });
+
   it("shows sample basket icon", () => {
     const { container } = render(
       <ThemeProvider>
@@ -281,7 +313,6 @@ describe("Header component", () => {
     const basketButton = screen.queryByLabelText(
       getMicroCopy(microCopy.BASKET_LABEL)
     );
-    jest.runAllTimers();
 
     expect(basketButton).toBeInTheDocument();
     expect(container).toMatchSnapshot();

@@ -16,10 +16,10 @@ import Link, { Data as LinkData } from "./Link";
 import RichText, { parseReachDataRawFields, RichTextData } from "./RichText";
 import { useSiteContext } from "./Site";
 import {
-  LinksContainer,
-  Text,
   LeadBlockWrapper,
-  LinkWrapper
+  LinksContainer,
+  LinkWrapper,
+  Text
 } from "./styles/leadBlockSectionStyles";
 
 export type Data = {
@@ -38,9 +38,7 @@ const LeadBlockSection = ({
   data: Data;
 }) => {
   const { getMicroCopy } = useSiteContext();
-  const {
-    config: { isSpaEnabled }
-  } = useConfig();
+  const { isSpaEnabled } = useConfig();
 
   return (
     <Section

@@ -38,7 +38,7 @@ const SampleBasketDialog = ({
   maximumSamples,
   toggleCart
 }: {
-  title?: string;
+  title: string;
   basketAction?: ClickableAction;
   maximumSamples: number | null;
   toggleCart?: () => void;
@@ -58,7 +58,7 @@ const SampleBasketDialog = ({
     });
   };
 
-  return title && productsInBasket.length > 0 ? (
+  return (
     <StyledBasketDialogContainer data-testid={"shopping-cart-dialog"}>
       <TopContainer data-testid={"shopping-cart-dialog-header-container"}>
         <CloseButton
@@ -168,7 +168,7 @@ const SampleBasketDialog = ({
         )}
       </CartActions>
     </StyledBasketDialogContainer>
-  ) : null;
+  );
 };
 
 export default SampleBasketDialog;

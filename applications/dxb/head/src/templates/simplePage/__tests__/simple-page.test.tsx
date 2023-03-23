@@ -40,7 +40,7 @@ const renderWithStylesAndLocationProvider = (
 ): RenderResult =>
   render(
     <ThemeProvider>
-      <ConfigProvider configObject={{ isBrandProviderEnabled: true }}>
+      <ConfigProvider configOverride={{ isBrandProviderEnabled: true }}>
         <ProvideStyles>
           <LocationProvider history={history}>
             <SimplePage data={pageData} pageContext={pageContext} />

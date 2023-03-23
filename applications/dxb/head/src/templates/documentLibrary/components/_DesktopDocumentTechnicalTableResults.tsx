@@ -38,9 +38,7 @@ const DesktopDocumentTechnicalTableResults = ({
   documentsByProduct,
   assetTypes
 }: Props) => {
-  const {
-    config: { documentDownloadEndpoint }
-  } = useConfig();
+  const { documentDownloadEndpoint } = useConfig();
   const { getMicroCopy } = useSiteContext();
   const { executeRecaptcha } = useGoogleReCaptcha();
   const qaAuthToken = getCookie(QA_AUTH_TOKEN);

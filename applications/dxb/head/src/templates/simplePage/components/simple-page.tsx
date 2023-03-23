@@ -93,9 +93,7 @@ const SimplePage = ({ data, pageContext }: Props) => {
     breadcrumbs,
     breadcrumbTitle
   );
-  const {
-    config: { isBrandProviderEnabled }
-  } = useConfig();
+  const { isBrandProviderEnabled } = useConfig();
 
   const heroLevel = generateHeroLevel(heroType, enhancedBreadcrumbs);
   const heroProps: HeroProps | SpotlightHeroProps = generateHeroProps(

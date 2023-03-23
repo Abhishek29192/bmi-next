@@ -67,9 +67,7 @@ const ProductLeadBlock = ({
   pdpSpecificationDescription,
   documentDisplayFormat
 }: Props) => {
-  const {
-    config: { documentDownloadMaxLimit }
-  } = useConfig();
+  const { documentDownloadMaxLimit } = useConfig();
   const { getMicroCopy, countryCode } = useSiteContext();
   const [page, setPage] = useState(1);
   const [documents, setDocuments] = useState(

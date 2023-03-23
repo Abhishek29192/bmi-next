@@ -16,7 +16,7 @@ describe("BrandProvider", () => {
 
   it("renders without BrandProvider", () => {
     const { container } = render(
-      <ConfigProvider configObject={{ isBrandProviderEnabled: true }}>
+      <ConfigProvider configOverride={{ isBrandProviderEnabled: true }}>
         <BrandProvider>Test</BrandProvider>
       </ConfigProvider>
     );

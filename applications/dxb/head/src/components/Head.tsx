@@ -37,9 +37,8 @@ export const Head = ({
   countryCode
 }: HeadProps) => {
   const { headScripts } = scripts;
-  const {
-    config: { isPreviewMode, hubSpotId, isSchemaORGActivated, oneTrustId }
-  } = useConfig();
+  const { isPreviewMode, hubSpotId, isSchemaORGActivated, oneTrustId } =
+    useConfig();
   const imageUrl = getJpgImage(ogImageUrl);
 
   const isScriptOnetrustEnabled = Boolean(!isPreviewMode && oneTrustId);

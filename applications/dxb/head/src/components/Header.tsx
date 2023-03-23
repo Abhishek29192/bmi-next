@@ -167,23 +167,23 @@ const Header = ({
   utilitiesData,
   countryCode,
   activeLabel,
-  isOnSearchPage,
   countryNavigationIntroduction,
   regions,
   sampleBasketLink,
   maximumSamples,
-  lastNavigationLabel
+  lastNavigationLabel,
+  disableSearch
 }: {
   navigationData: NavigationData;
   utilitiesData: NavigationData;
   countryCode: string;
   activeLabel?: string;
-  isOnSearchPage?: boolean;
   countryNavigationIntroduction?: RichTextData | null;
   regions: Region[];
   sampleBasketLink?: PageInfoData;
   maximumSamples: number | null;
   lastNavigationLabel?: string;
+  disableSearch?: boolean;
 }) => {
   const languages = useMemo(
     () =>
@@ -207,7 +207,9 @@ const Header = ({
 
   const { getMicroCopy } = useSiteContext();
   const {
-    config: { isSpaEnabled, isGatsbyDisabledElasticSearch }
+    isSpaEnabled,
+    isGatsbyDisabledElasticSearch,
+    isSampleOrderingEnabled
   } = useConfig();
   const {
     basketState: { products: productsInBasket }
@@ -239,9 +241,8 @@ const Header = ({
     <HidePrint
       component={() => (
         <HeaderComponent
-          isSpaEnabled={isSpaEnabled}
-          isGatsbyDisabledElasticSearch={isGatsbyDisabledElasticSearch}
-          languages={languages}
+          disableSearch={isGatsbyDisabledElasticSearch || disableSearch}
+          languages={isSpaEnabled ? [] : languages}
           language={language}
           languageLabel={getMicroCopy(microCopy.MENU_LANGUAGE)}
           languageIntroduction={
@@ -250,8 +251,8 @@ const Header = ({
               document={countryNavigationIntroduction}
             />
           }
-          utilities={utilities}
-          navigation={navigation}
+          utilities={isSpaEnabled ? [] : utilities}
+          navigation={isSpaEnabled ? [] : navigation}
           logoAction={{
             model: "routerLink",
             linkComponent: Link,
@@ -275,17 +276,22 @@ const Header = ({
               {...props}
             />
           )}
-          isBasketEmpty={productsInBasket.length === 0}
           shoppingCartCount={productsInBasket.length}
           basketLabel={getMicroCopy(microCopy.BASKET_LABEL)}
-          SampleBasketDialog={(props: () => void) => (
-            <SampleBasketDialog
-              title={sampleBasketLink?.sections?.[0]?.title}
-              maximumSamples={maximumSamples}
-              basketAction={basketCta?.action}
-              {...props}
-            />
-          )}
+          sampleBasketDialog={
+            !isSpaEnabled &&
+            isSampleOrderingEnabled &&
+            sampleBasketLink?.sections?.[0]?.title
+              ? (props: { toggleCart: () => void }) => (
+                  <SampleBasketDialog
+                    title={sampleBasketLink.sections[0].title}
+                    basketAction={basketCta?.action}
+                    maximumSamples={maximumSamples}
+                    {...props}
+                  />
+                )
+              : null
+          }
           navigationButtonComponent={(props: ButtonProps) => (
             <GTMNavigationButton
               gtm={{
@@ -327,7 +333,6 @@ const Header = ({
           openLabel={getMicroCopy(microCopy.MENU_OPEN)}
           mainMenuTitleLabel={getMicroCopy(microCopy.MENU_MAIN_TITLE)}
           mainMenuDefaultLabel={getMicroCopy(microCopy.MENU_MAIN_DEFAULT)}
-          isOnSearchPage={isOnSearchPage}
         />
       )}
     />

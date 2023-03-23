@@ -158,7 +158,7 @@ exports[`Footer component renders correctly 1`] = `
               </li>
             </ul>
             <div
-              class="css-p15bbt"
+              class="css-prasn8"
             >
               <div
                 class="MuiBox-root css-1vhvcpa"
@@ -388,7 +388,7 @@ exports[`Footer component renders without brand logo Icon if it is presented in 
               </li>
             </ul>
             <div
-              class="css-p15bbt"
+              class="css-prasn8"
             >
               <div
                 class="MuiBox-root css-1vhvcpa"
