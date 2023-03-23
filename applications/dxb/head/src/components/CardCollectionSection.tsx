@@ -387,7 +387,6 @@ const CardCollectionSection = ({
                     label={cardLabel}
                     type={cardType}
                   />
-                  <div>Card</div>
                 </Carousel.Slide>
               );
             })}

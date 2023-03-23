@@ -429,9 +429,6 @@ exports[`CardCollectionSection component Renders correctly When Title rich text 
                               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                             />
                           </a>
-                          <div>
-                            Card
-                          </div>
                         </div>
                       </div>
                     </div>
@@ -3644,9 +3641,6 @@ exports[`CardCollectionSection component single & multiple row display renders c
                               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                             />
                           </a>
-                          <div>
-                            Card
-                          </div>
                         </div>
                       </div>
                     </div>
@@ -3721,9 +3715,6 @@ exports[`CardCollectionSection component single & multiple row display renders c
                               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                             />
                           </a>
-                          <div>
-                            Card
-                          </div>
                         </div>
                       </div>
                     </div>
@@ -3798,9 +3789,6 @@ exports[`CardCollectionSection component single & multiple row display renders c
                               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                             />
                           </a>
-                          <div>
-                            Card
-                          </div>
                         </div>
                       </div>
                     </div>
@@ -3849,9 +3837,6 @@ exports[`CardCollectionSection component single & multiple row display renders c
                                 data-testid="overview-card-body-footer"
                               />
                             </div>
-                          </div>
-                          <div>
-                            Card
                           </div>
                         </div>
                       </div>

@@ -4,7 +4,6 @@ import ContentfulHomePage from "./ContentfulHomePage";
 import ContentfulImage from "./ContentfulImage";
 import ContentfulLink from "./ContentfulLink";
 import ContentfulPage from "./ContentfulPage";
-import ContentfulPromo from "./ContentfulPromo";
 import ContentfulServiceLocatorSection from "./ContentfulServiceLocatorSection";
 import ContentfulSimplePage from "./ContentfulSimplePage";
 import ContentfulSite from "./ContentfulSite";
@@ -37,7 +36,6 @@ export default {
   ContentfulFormSection,
   ContentfulHomePage,
   ContentfulProductListerPage,
-  ContentfulPromo,
   ContentfulServiceLocatorSection,
   ContentfulSimplePage: {
     ...ContentfulSimplePage,

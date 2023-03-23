@@ -211,7 +211,6 @@ type ContentfulPromo implements ContentfulObject & Node @dontInfer {
   cta: ContentfulLink @link(from: "cta___NODE")
   featuredVideo: ContentfulVideo @link(from: "featuredVideo___NODE")
   backgroundColor: String
-  date: String
 }
 
 type ContentfulCategory implements ContentfulObject & Node @dontInfer {
