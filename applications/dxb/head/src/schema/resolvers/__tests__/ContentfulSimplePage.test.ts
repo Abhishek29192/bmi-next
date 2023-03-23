@@ -1,5 +1,4 @@
-import * as process from "process";
-import ContentfulPromo from "../ContentfulPromo";
+import ContentfulSimplePage from "../ContentfulSimplePage";
 
 describe("date", () => {
   it("returns correctly formatted date if present", () => {
@@ -7,7 +6,7 @@ describe("date", () => {
       process.env.GATSBY_MARKET_LOCALE_CODE;
     process.env.GATSBY_MARKET_LOCALE_CODE = "en-GB";
 
-    const formattedDate = ContentfulPromo.date.resolve({
+    const formattedDate = ContentfulSimplePage.date.resolve({
       date: "2023-08-03T08:23:59+0000"
     });
 
@@ -21,7 +20,7 @@ describe("date", () => {
       process.env.GATSBY_MARKET_LOCALE_CODE;
     process.env.GATSBY_MARKET_LOCALE_CODE = "fr-FR";
 
-    const formattedDate = ContentfulPromo.date.resolve({
+    const formattedDate = ContentfulSimplePage.date.resolve({
       date: "2023-08-03T08:23:59+0000"
     });
 
@@ -35,7 +34,7 @@ describe("date", () => {
       process.env.GATSBY_MARKET_LOCALE_CODE;
     process.env.GATSBY_MARKET_LOCALE_CODE = "no-NB";
 
-    const formattedDate = ContentfulPromo.date.resolve({
+    const formattedDate = ContentfulSimplePage.date.resolve({
       date: "2023-08-03T08:23:59+0000"
     });
 
@@ -49,7 +48,7 @@ describe("date", () => {
       process.env.GATSBY_MARKET_LOCALE_CODE;
     process.env.GATSBY_MARKET_LOCALE_CODE = "en-GB";
 
-    const formattedDate = ContentfulPromo.date.resolve({
+    const formattedDate = ContentfulSimplePage.date.resolve({
       date: null
     });
 
