@@ -6,43 +6,30 @@ import {
   System
 } from "@bmi/elasticsearch-types";
 import {
-  DeleteOperation,
   getChunks,
-  getDeleteOperation,
   getEsClient,
   getIndexOperation,
   IndexOperation,
   performBulkOperations
 } from "@bmi/functions-es-client";
 
-export type Operation = "index" | "delete";
-
 const getAssetsBulkOperations = (
-  indexName: string,
   assets: readonly (PimSystemDocument | PimProductDocument)[]
 ): (IndexOperation | (PimSystemDocument | PimProductDocument))[] => {
   return assets.reduce(
-    (allOps, item) => [
-      ...allOps,
-      ...getIndexOperation(indexName, item, item.id)
-    ],
+    (allOps, item) => [...allOps, ...getIndexOperation(item, item.id)],
     [] as (IndexOperation | (PimSystemDocument | PimProductDocument))[]
   );
 };
 
 const getBulkOperations = <T extends Product | System>(
-  indexName: string,
-  documents: readonly T[]
-): (DeleteOperation | (IndexOperation | T))[] =>
-  documents.reduce<(DeleteOperation | (IndexOperation | T))[]>(
-    (allOps, item) => [
-      ...allOps,
-      ...(item.approvalStatus === "approved"
-        ? getIndexOperation(indexName, item, item.code)
-        : getDeleteOperation(indexName, item.code))
-    ],
-    []
+  products: readonly T[]
+): (IndexOperation | T)[] => {
+  return products.reduce(
+    (allOps, item) => [...allOps, ...getIndexOperation(item, item.code)],
+    [] as (IndexOperation | T)[]
   );
+};
 
 export const updateItems = async (
   itemType: "PRODUCTS" | "SYSTEMS",
@@ -57,9 +44,7 @@ export const updateItems = async (
 
   const index = `${process.env.ES_INDEX_PREFIX}_${itemType}`.toLowerCase();
   // Chunk the request to avoid exceeding ES bulk request limits.
-  const bulkOperations = getChunks(items).map((c) =>
-    getBulkOperations(index, c)
-  );
+  const bulkOperations = getChunks(items).map((c) => getBulkOperations(c));
 
   logger.info({
     message: `all bulkOperations: ${JSON.stringify(bulkOperations)}`
@@ -108,7 +93,7 @@ export const updateDocuments = async (
     });
   }
   const bulkAssetsOperations = getChunks(assets).map((c) =>
-    getAssetsBulkOperations(index, c)
+    getAssetsBulkOperations(c)
   );
 
   logger.info({

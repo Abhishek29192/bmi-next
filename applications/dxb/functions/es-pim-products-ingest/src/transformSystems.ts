@@ -97,7 +97,7 @@ const getScoringWeight = (classifications?: readonly PimClassification[]) =>
 
 export const transformSystem = (system: PimSystem): EsSystem | undefined => {
   const { approvalStatus, type, code, name, shortDescription } = system;
-  if (!name) {
+  if (!name || approvalStatus !== "approved") {
     return undefined;
   }
   const brand = getBrand(system.categories);

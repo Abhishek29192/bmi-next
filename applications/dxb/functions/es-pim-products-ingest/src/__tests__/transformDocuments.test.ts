@@ -5,6 +5,7 @@ import {
 } from "@bmi/elasticsearch-types";
 import {
   Category,
+  Classification,
   createAsset,
   createClassification,
   createProduct,
@@ -13,7 +14,6 @@ import {
   Product,
   System
 } from "@bmi/pim-types";
-import { Classification } from "@bmi/pim-types";
 import { ProductDocumentNameMap } from "../types";
 
 const transformDocuments = async (
@@ -90,6 +90,68 @@ describe("transformDocuments", () => {
     expect(getProductDocumentNameMap).not.toHaveBeenCalled();
     expect(getCategoryFilters).not.toHaveBeenCalled();
     expect(getClassificationsFilters).not.toHaveBeenCalled();
+  });
+
+  it("should return an array of documents if the product's approval status is 'approved'", async () => {
+    const locale = "en-US";
+    const pimCode = "ASSEMBLY_INSTRUCTIONS";
+    const product = createProduct({
+      approvalStatus: "approved",
+      assets: [createAsset({ assetType: pimCode })]
+    });
+    getAssetTypes.mockResolvedValueOnce([createAssetType({ pimCode })]);
+
+    const transformedDocuments = await transformDocuments(product, locale);
+
+    expect(transformedDocuments.length).toBe(1);
+    expect(transformedDocuments[0]["approvalStatus"]).toEqual("approved");
+    expect(getAssetTypes).toHaveBeenCalledWith(locale, undefined);
+  });
+
+  it("should return an array of documents if the product's approval status is 'discontinued'", async () => {
+    const locale = "en-US";
+    const pimCode = "ASSEMBLY_INSTRUCTIONS";
+    const product = createProduct({
+      approvalStatus: "discontinued",
+      assets: [createAsset({ assetType: pimCode })]
+    });
+    getAssetTypes.mockResolvedValueOnce([createAssetType({ pimCode })]);
+
+    const transformedDocuments = await transformDocuments(product, locale);
+
+    expect(transformedDocuments.length).toBe(1);
+    expect(transformedDocuments[0]["approvalStatus"]).toEqual("discontinued");
+    expect(getAssetTypes).toHaveBeenCalledWith(locale, undefined);
+  });
+
+  it("should return an empty array if the product's approval status is 'unapproved'", async () => {
+    const locale = "en-US";
+    const pimCode = "ASSEMBLY_INSTRUCTIONS";
+    const product = createProduct({
+      approvalStatus: "unapproved",
+      assets: [createAsset({ assetType: pimCode })]
+    });
+    getAssetTypes.mockResolvedValueOnce([createAssetType({ pimCode })]);
+
+    const transformedDocuments = await transformDocuments(product, locale);
+
+    expect(getAssetTypes).toHaveBeenCalledWith(locale, undefined);
+    expect(transformedDocuments).toEqual([]);
+  });
+
+  it("should return an empty array if the product's approval status is 'check'", async () => {
+    const locale = "en-US";
+    const pimCode = "ASSEMBLY_INSTRUCTIONS";
+    const product = createProduct({
+      approvalStatus: "check",
+      assets: [createAsset({ assetType: pimCode })]
+    });
+    getAssetTypes.mockResolvedValueOnce([createAssetType({ pimCode })]);
+
+    const transformedDocuments = await transformDocuments(product, locale);
+
+    expect(getAssetTypes).toHaveBeenCalledWith(locale, undefined);
+    expect(transformedDocuments).toEqual([]);
   });
 
   it("should throw error if getProductDocumentNameMap throws error", async () => {
