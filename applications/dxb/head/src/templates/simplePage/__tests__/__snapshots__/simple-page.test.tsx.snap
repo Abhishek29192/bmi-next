@@ -5978,7 +5978,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                           class="css-1o92lqg"
                         >
                           <a
-                            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink AnchorLink-black css-kan2f7-MuiTypography-root-MuiLink-root"
+                            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink AnchorLink-black css-1m0txtt-MuiTypography-root-MuiLink-root"
                             data-gtm="{"id":"cta-click1","label":"Hurtignavigering - ContentfulCardCollectionSectionTitle","action":"#contentfulcardcollectionsectiontitle"}"
                             data-testid="anchor-link"
                             href="#contentfulcardcollectionsectiontitle"

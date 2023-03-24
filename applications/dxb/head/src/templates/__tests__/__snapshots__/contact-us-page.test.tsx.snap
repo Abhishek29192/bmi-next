@@ -3221,7 +3221,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                                   class="css-q494ab"
                                 >
                                   <a
-                                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                                     data-gtm="{"id":"cta-click1","label":"Only body list and footer - Technical department - 67679090","action":"tel:67679090"}"
                                     data-testid="anchor-link"
                                     href="tel:67679090"
@@ -3256,7 +3256,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                                   class="css-q494ab"
                                 >
                                   <a
-                                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                                     data-gtm="{"id":"cta-click1","label":"Only body list and footer - Technical department - vijay@bmigroup.com","action":"mailto:vijay@bmigroup.com"}"
                                     data-testid="anchor-link"
                                     href="mailto:vijay@bmigroup.com"
@@ -3593,7 +3593,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI Group Corporate Headquarters - Thames Tower, 4th Floor, Station Rd, Reading, United Kingdom, RG1 1LX","action":"https://maps.google.com/maps?q=Thames Tower, 4th Floor, Station Rd, Reading, United Kingdom, RG1 1LX"}"
                           data-testid="anchor-link"
                           href="https://maps.google.com/maps?q=Thames Tower, 4th Floor, Station Rd, Reading, United Kingdom, RG1 1LX"
@@ -3630,7 +3630,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI Group Corporate Headquarters - 0370 560 1000","action":"tel:0370 560 1000"}"
                           data-testid="anchor-link"
                           href="tel:0370 560 1000"
@@ -3665,7 +3665,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI Group Corporate Headquarters - contactus@bmigroup.com","action":"mailto:contactus@bmigroup.com"}"
                           data-testid="anchor-link"
                           href="mailto:contactus@bmigroup.com"
@@ -3733,7 +3733,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI Norway - Fjellhamarveien 52, P.O. Box 55, Fjellhamar, Norway, 1477","action":"https://maps.google.com/maps?q=Fjellhamarveien 52, P.O. Box 55, Fjellhamar, Norway, 1477"}"
                           data-testid="anchor-link"
                           href="https://maps.google.com/maps?q=Fjellhamarveien 52, P.O. Box 55, Fjellhamar, Norway, 1477"
@@ -3770,7 +3770,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI Norway - 0370 560 1000","action":"tel:0370 560 1000"}"
                           data-testid="anchor-link"
                           href="tel:0370 560 1000"
@@ -3805,7 +3805,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI Norway - www.bmigroup.com/no","action":"mailto:www.bmigroup.com/no"}"
                           data-testid="anchor-link"
                           href="mailto:www.bmigroup.com/no"
@@ -3873,7 +3873,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI France - 23-25 Avenue du Dr Lannelongue, Paris, France, 75014","action":"https://maps.google.com/maps?q=23-25 Avenue du Dr Lannelongue, Paris, France, 75014"}"
                           data-testid="anchor-link"
                           href="https://maps.google.com/maps?q=23-25 Avenue du Dr Lannelongue, Paris, France, 75014"
@@ -3910,7 +3910,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI France - 004478123456789","action":"tel:004478123456789"}"
                           data-testid="anchor-link"
                           href="tel:004478123456789"
@@ -3945,7 +3945,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI France - www.bmigroup.com/fr","action":"mailto:www.bmigroup.com/fr"}"
                           data-testid="anchor-link"
                           href="mailto:www.bmigroup.com/fr"
@@ -7894,7 +7894,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                                   class="css-q494ab"
                                 >
                                   <a
-                                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                                     data-gtm="{"id":"cta-click1","label":"Only body list and footer - Technical department - 67679090","action":"tel:67679090"}"
                                     data-testid="anchor-link"
                                     href="tel:67679090"
@@ -7929,7 +7929,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                                   class="css-q494ab"
                                 >
                                   <a
-                                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                                     data-gtm="{"id":"cta-click1","label":"Only body list and footer - Technical department - vijay@bmigroup.com","action":"mailto:vijay@bmigroup.com"}"
                                     data-testid="anchor-link"
                                     href="mailto:vijay@bmigroup.com"
@@ -8266,7 +8266,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI Group Corporate Headquarters - Thames Tower, 4th Floor, Station Rd, Reading, United Kingdom, RG1 1LX","action":"https://maps.google.com/maps?q=Thames Tower, 4th Floor, Station Rd, Reading, United Kingdom, RG1 1LX"}"
                           data-testid="anchor-link"
                           href="https://maps.google.com/maps?q=Thames Tower, 4th Floor, Station Rd, Reading, United Kingdom, RG1 1LX"
@@ -8303,7 +8303,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI Group Corporate Headquarters - 0370 560 1000","action":"tel:0370 560 1000"}"
                           data-testid="anchor-link"
                           href="tel:0370 560 1000"
@@ -8338,7 +8338,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI Group Corporate Headquarters - contactus@bmigroup.com","action":"mailto:contactus@bmigroup.com"}"
                           data-testid="anchor-link"
                           href="mailto:contactus@bmigroup.com"
@@ -8406,7 +8406,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI Norway - Fjellhamarveien 52, P.O. Box 55, Fjellhamar, Norway, 1477","action":"https://maps.google.com/maps?q=Fjellhamarveien 52, P.O. Box 55, Fjellhamar, Norway, 1477"}"
                           data-testid="anchor-link"
                           href="https://maps.google.com/maps?q=Fjellhamarveien 52, P.O. Box 55, Fjellhamar, Norway, 1477"
@@ -8443,7 +8443,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI Norway - 0370 560 1000","action":"tel:0370 560 1000"}"
                           data-testid="anchor-link"
                           href="tel:0370 560 1000"
@@ -8478,7 +8478,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI Norway - www.bmigroup.com/no","action":"mailto:www.bmigroup.com/no"}"
                           data-testid="anchor-link"
                           href="mailto:www.bmigroup.com/no"
@@ -8546,7 +8546,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI France - 23-25 Avenue du Dr Lannelongue, Paris, France, 75014","action":"https://maps.google.com/maps?q=23-25 Avenue du Dr Lannelongue, Paris, France, 75014"}"
                           data-testid="anchor-link"
                           href="https://maps.google.com/maps?q=23-25 Avenue du Dr Lannelongue, Paris, France, 75014"
@@ -8583,7 +8583,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI France - 004478123456789","action":"tel:004478123456789"}"
                           data-testid="anchor-link"
                           href="tel:004478123456789"
@@ -8618,7 +8618,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI France - www.bmigroup.com/fr","action":"mailto:www.bmigroup.com/fr"}"
                           data-testid="anchor-link"
                           href="mailto:www.bmigroup.com/fr"
@@ -12568,7 +12568,7 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
                                   class="css-q494ab"
                                 >
                                   <a
-                                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                                     data-gtm="{"id":"cta-click1","label":"Only body list and footer - Technical department - 67679090","action":"tel:67679090"}"
                                     data-testid="anchor-link"
                                     href="tel:67679090"
@@ -12603,7 +12603,7 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
                                   class="css-q494ab"
                                 >
                                   <a
-                                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                                     data-gtm="{"id":"cta-click1","label":"Only body list and footer - Technical department - vijay@bmigroup.com","action":"mailto:vijay@bmigroup.com"}"
                                     data-testid="anchor-link"
                                     href="mailto:vijay@bmigroup.com"
@@ -12940,7 +12940,7 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI Group Corporate Headquarters - Thames Tower, 4th Floor, Station Rd, Reading, United Kingdom, RG1 1LX","action":"https://maps.google.com/maps?q=Thames Tower, 4th Floor, Station Rd, Reading, United Kingdom, RG1 1LX"}"
                           data-testid="anchor-link"
                           href="https://maps.google.com/maps?q=Thames Tower, 4th Floor, Station Rd, Reading, United Kingdom, RG1 1LX"
@@ -12977,7 +12977,7 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI Group Corporate Headquarters - 0370 560 1000","action":"tel:0370 560 1000"}"
                           data-testid="anchor-link"
                           href="tel:0370 560 1000"
@@ -13012,7 +13012,7 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI Group Corporate Headquarters - contactus@bmigroup.com","action":"mailto:contactus@bmigroup.com"}"
                           data-testid="anchor-link"
                           href="mailto:contactus@bmigroup.com"
@@ -13080,7 +13080,7 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI Norway - Fjellhamarveien 52, P.O. Box 55, Fjellhamar, Norway, 1477","action":"https://maps.google.com/maps?q=Fjellhamarveien 52, P.O. Box 55, Fjellhamar, Norway, 1477"}"
                           data-testid="anchor-link"
                           href="https://maps.google.com/maps?q=Fjellhamarveien 52, P.O. Box 55, Fjellhamar, Norway, 1477"
@@ -13117,7 +13117,7 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI Norway - 0370 560 1000","action":"tel:0370 560 1000"}"
                           data-testid="anchor-link"
                           href="tel:0370 560 1000"
@@ -13152,7 +13152,7 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI Norway - www.bmigroup.com/no","action":"mailto:www.bmigroup.com/no"}"
                           data-testid="anchor-link"
                           href="mailto:www.bmigroup.com/no"
@@ -13220,7 +13220,7 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI France - 23-25 Avenue du Dr Lannelongue, Paris, France, 75014","action":"https://maps.google.com/maps?q=23-25 Avenue du Dr Lannelongue, Paris, France, 75014"}"
                           data-testid="anchor-link"
                           href="https://maps.google.com/maps?q=23-25 Avenue du Dr Lannelongue, Paris, France, 75014"
@@ -13257,7 +13257,7 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI France - 004478123456789","action":"tel:004478123456789"}"
                           data-testid="anchor-link"
                           href="tel:004478123456789"
@@ -13292,7 +13292,7 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI France - www.bmigroup.com/fr","action":"mailto:www.bmigroup.com/fr"}"
                           data-testid="anchor-link"
                           href="mailto:www.bmigroup.com/fr"
@@ -17241,7 +17241,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                                   class="css-q494ab"
                                 >
                                   <a
-                                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                                     data-gtm="{"id":"cta-click1","label":"Only body list and footer - Technical department - 67679090","action":"tel:67679090"}"
                                     data-testid="anchor-link"
                                     href="tel:67679090"
@@ -17276,7 +17276,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                                   class="css-q494ab"
                                 >
                                   <a
-                                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                                     data-gtm="{"id":"cta-click1","label":"Only body list and footer - Technical department - vijay@bmigroup.com","action":"mailto:vijay@bmigroup.com"}"
                                     data-testid="anchor-link"
                                     href="mailto:vijay@bmigroup.com"
@@ -17613,7 +17613,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI Group Corporate Headquarters - Thames Tower, 4th Floor, Station Rd, Reading, United Kingdom, RG1 1LX","action":"https://maps.google.com/maps?q=Thames Tower, 4th Floor, Station Rd, Reading, United Kingdom, RG1 1LX"}"
                           data-testid="anchor-link"
                           href="https://maps.google.com/maps?q=Thames Tower, 4th Floor, Station Rd, Reading, United Kingdom, RG1 1LX"
@@ -17650,7 +17650,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI Group Corporate Headquarters - 0370 560 1000","action":"tel:0370 560 1000"}"
                           data-testid="anchor-link"
                           href="tel:0370 560 1000"
@@ -17685,7 +17685,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI Group Corporate Headquarters - contactus@bmigroup.com","action":"mailto:contactus@bmigroup.com"}"
                           data-testid="anchor-link"
                           href="mailto:contactus@bmigroup.com"
@@ -17753,7 +17753,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI Norway - Fjellhamarveien 52, P.O. Box 55, Fjellhamar, Norway, 1477","action":"https://maps.google.com/maps?q=Fjellhamarveien 52, P.O. Box 55, Fjellhamar, Norway, 1477"}"
                           data-testid="anchor-link"
                           href="https://maps.google.com/maps?q=Fjellhamarveien 52, P.O. Box 55, Fjellhamar, Norway, 1477"
@@ -17790,7 +17790,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI Norway - 0370 560 1000","action":"tel:0370 560 1000"}"
                           data-testid="anchor-link"
                           href="tel:0370 560 1000"
@@ -17825,7 +17825,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI Norway - www.bmigroup.com/no","action":"mailto:www.bmigroup.com/no"}"
                           data-testid="anchor-link"
                           href="mailto:www.bmigroup.com/no"
@@ -17893,7 +17893,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI France - 23-25 Avenue du Dr Lannelongue, Paris, France, 75014","action":"https://maps.google.com/maps?q=23-25 Avenue du Dr Lannelongue, Paris, France, 75014"}"
                           data-testid="anchor-link"
                           href="https://maps.google.com/maps?q=23-25 Avenue du Dr Lannelongue, Paris, France, 75014"
@@ -17930,7 +17930,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI France - 004478123456789","action":"tel:004478123456789"}"
                           data-testid="anchor-link"
                           href="tel:004478123456789"
@@ -17965,7 +17965,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI France - www.bmigroup.com/fr","action":"mailto:www.bmigroup.com/fr"}"
                           data-testid="anchor-link"
                           href="mailto:www.bmigroup.com/fr"
@@ -21914,7 +21914,7 @@ exports[`Contact us page render location correctly 1`] = `
                                   class="css-q494ab"
                                 >
                                   <a
-                                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                                     data-gtm="{"id":"cta-click1","label":"Only body list and footer - Technical department - 67679090","action":"tel:67679090"}"
                                     data-testid="anchor-link"
                                     href="tel:67679090"
@@ -21949,7 +21949,7 @@ exports[`Contact us page render location correctly 1`] = `
                                   class="css-q494ab"
                                 >
                                   <a
-                                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                                     data-gtm="{"id":"cta-click1","label":"Only body list and footer - Technical department - vijay@bmigroup.com","action":"mailto:vijay@bmigroup.com"}"
                                     data-testid="anchor-link"
                                     href="mailto:vijay@bmigroup.com"
@@ -22286,7 +22286,7 @@ exports[`Contact us page render location correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI Group Corporate Headquarters - Thames Tower, 4th Floor, Station Rd, Reading, United Kingdom, RG1 1LX","action":"https://maps.google.com/maps?q=Thames Tower, 4th Floor, Station Rd, Reading, United Kingdom, RG1 1LX"}"
                           data-testid="anchor-link"
                           href="https://maps.google.com/maps?q=Thames Tower, 4th Floor, Station Rd, Reading, United Kingdom, RG1 1LX"
@@ -22323,7 +22323,7 @@ exports[`Contact us page render location correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI Group Corporate Headquarters - 0370 560 1000","action":"tel:0370 560 1000"}"
                           data-testid="anchor-link"
                           href="tel:0370 560 1000"
@@ -22358,7 +22358,7 @@ exports[`Contact us page render location correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI Group Corporate Headquarters - contactus@bmigroup.com","action":"mailto:contactus@bmigroup.com"}"
                           data-testid="anchor-link"
                           href="mailto:contactus@bmigroup.com"
@@ -22426,7 +22426,7 @@ exports[`Contact us page render location correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI Norway - Fjellhamarveien 52, P.O. Box 55, Fjellhamar, Norway, 1477","action":"https://maps.google.com/maps?q=Fjellhamarveien 52, P.O. Box 55, Fjellhamar, Norway, 1477"}"
                           data-testid="anchor-link"
                           href="https://maps.google.com/maps?q=Fjellhamarveien 52, P.O. Box 55, Fjellhamar, Norway, 1477"
@@ -22463,7 +22463,7 @@ exports[`Contact us page render location correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI Norway - 0370 560 1000","action":"tel:0370 560 1000"}"
                           data-testid="anchor-link"
                           href="tel:0370 560 1000"
@@ -22498,7 +22498,7 @@ exports[`Contact us page render location correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI Norway - www.bmigroup.com/no","action":"mailto:www.bmigroup.com/no"}"
                           data-testid="anchor-link"
                           href="mailto:www.bmigroup.com/no"
@@ -22566,7 +22566,7 @@ exports[`Contact us page render location correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI France - 23-25 Avenue du Dr Lannelongue, Paris, France, 75014","action":"https://maps.google.com/maps?q=23-25 Avenue du Dr Lannelongue, Paris, France, 75014"}"
                           data-testid="anchor-link"
                           href="https://maps.google.com/maps?q=23-25 Avenue du Dr Lannelongue, Paris, France, 75014"
@@ -22603,7 +22603,7 @@ exports[`Contact us page render location correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI France - 004478123456789","action":"tel:004478123456789"}"
                           data-testid="anchor-link"
                           href="tel:004478123456789"
@@ -22638,7 +22638,7 @@ exports[`Contact us page render location correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI France - www.bmigroup.com/fr","action":"mailto:www.bmigroup.com/fr"}"
                           data-testid="anchor-link"
                           href="mailto:www.bmigroup.com/fr"
@@ -26587,7 +26587,7 @@ exports[`Contact us page renders correctly 1`] = `
                                   class="css-q494ab"
                                 >
                                   <a
-                                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                                     data-gtm="{"id":"cta-click1","label":"Only body list and footer - Technical department - 67679090","action":"tel:67679090"}"
                                     data-testid="anchor-link"
                                     href="tel:67679090"
@@ -26622,7 +26622,7 @@ exports[`Contact us page renders correctly 1`] = `
                                   class="css-q494ab"
                                 >
                                   <a
-                                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                                     data-gtm="{"id":"cta-click1","label":"Only body list and footer - Technical department - vijay@bmigroup.com","action":"mailto:vijay@bmigroup.com"}"
                                     data-testid="anchor-link"
                                     href="mailto:vijay@bmigroup.com"
@@ -26959,7 +26959,7 @@ exports[`Contact us page renders correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI Group Corporate Headquarters - Thames Tower, 4th Floor, Station Rd, Reading, United Kingdom, RG1 1LX","action":"https://maps.google.com/maps?q=Thames Tower, 4th Floor, Station Rd, Reading, United Kingdom, RG1 1LX"}"
                           data-testid="anchor-link"
                           href="https://maps.google.com/maps?q=Thames Tower, 4th Floor, Station Rd, Reading, United Kingdom, RG1 1LX"
@@ -26996,7 +26996,7 @@ exports[`Contact us page renders correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI Group Corporate Headquarters - 0370 560 1000","action":"tel:0370 560 1000"}"
                           data-testid="anchor-link"
                           href="tel:0370 560 1000"
@@ -27031,7 +27031,7 @@ exports[`Contact us page renders correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI Group Corporate Headquarters - contactus@bmigroup.com","action":"mailto:contactus@bmigroup.com"}"
                           data-testid="anchor-link"
                           href="mailto:contactus@bmigroup.com"
@@ -27099,7 +27099,7 @@ exports[`Contact us page renders correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI Norway - Fjellhamarveien 52, P.O. Box 55, Fjellhamar, Norway, 1477","action":"https://maps.google.com/maps?q=Fjellhamarveien 52, P.O. Box 55, Fjellhamar, Norway, 1477"}"
                           data-testid="anchor-link"
                           href="https://maps.google.com/maps?q=Fjellhamarveien 52, P.O. Box 55, Fjellhamar, Norway, 1477"
@@ -27136,7 +27136,7 @@ exports[`Contact us page renders correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI Norway - 0370 560 1000","action":"tel:0370 560 1000"}"
                           data-testid="anchor-link"
                           href="tel:0370 560 1000"
@@ -27171,7 +27171,7 @@ exports[`Contact us page renders correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI Norway - www.bmigroup.com/no","action":"mailto:www.bmigroup.com/no"}"
                           data-testid="anchor-link"
                           href="mailto:www.bmigroup.com/no"
@@ -27239,7 +27239,7 @@ exports[`Contact us page renders correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI France - 23-25 Avenue du Dr Lannelongue, Paris, France, 75014","action":"https://maps.google.com/maps?q=23-25 Avenue du Dr Lannelongue, Paris, France, 75014"}"
                           data-testid="anchor-link"
                           href="https://maps.google.com/maps?q=23-25 Avenue du Dr Lannelongue, Paris, France, 75014"
@@ -27276,7 +27276,7 @@ exports[`Contact us page renders correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI France - 004478123456789","action":"tel:004478123456789"}"
                           data-testid="anchor-link"
                           href="tel:004478123456789"
@@ -27311,7 +27311,7 @@ exports[`Contact us page renders correctly 1`] = `
                         class="css-q494ab"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways LocationCard-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                           data-gtm="{"id":"cta-click1","label":"BMI France - www.bmigroup.com/fr","action":"mailto:www.bmigroup.com/fr"}"
                           data-testid="anchor-link"
                           href="mailto:www.bmigroup.com/fr"

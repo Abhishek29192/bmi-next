@@ -49,7 +49,7 @@ exports[`NextBestActions component renders correctly 1`] = `
                   style="font-size: 1rem;"
                 >
                   <span
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink AnchorLink-white css-kan2f7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink AnchorLink-white css-1m0txtt-MuiTypography-root-MuiLink-root"
                     data-testid="anchor-link"
                     type="button"
                   >
@@ -107,7 +107,7 @@ exports[`NextBestActions component renders correctly 1`] = `
                   style="font-size: 1rem;"
                 >
                   <span
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink AnchorLink-white css-kan2f7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink AnchorLink-white css-1m0txtt-MuiTypography-root-MuiLink-root"
                     data-testid="anchor-link"
                     type="button"
                   >
@@ -194,7 +194,7 @@ exports[`NextBestActions component renders name with no title 1`] = `
                   style="font-size: 1rem;"
                 >
                   <span
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink AnchorLink-white css-kan2f7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink AnchorLink-white css-1m0txtt-MuiTypography-root-MuiLink-root"
                     data-testid="anchor-link"
                     type="button"
                   >
