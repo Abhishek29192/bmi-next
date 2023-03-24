@@ -22,6 +22,7 @@ include:
   - local: "/applications/redirects-website-hr/.gitlab-ci.yml"
   - local: "/applications/redirects-website-si/.gitlab-ci.yml"
   - local: "/applications/redirects-website-al/.gitlab-ci.yml"
+  - local: "/applications/redirects-website-dk/.gitlab-ci.yml"
 
 variables:
   ARTIFACT_COMPRESSION_LEVEL: fastest
