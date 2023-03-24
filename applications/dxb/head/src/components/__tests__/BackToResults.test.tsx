@@ -1,9 +1,9 @@
-import { QUERY_KEY, ThemeProvider } from "@bmi-digital/components";
+import { ThemeProvider } from "@bmi-digital/components";
 import { useMediaQuery } from "@mui/material";
 import { render, screen } from "@testing-library/react";
 import QueryString from "query-string";
 import React from "react";
-import { FILTER_KEY, PATHNAME_KEY, SEARCHTAB_KEY } from "../../utils/filters";
+import { PATHNAME_KEY, SEARCHTAB_KEY } from "../../utils/filters";
 import BackToResults from "../BackToResults";
 import { SiteContextProvider } from "../Site";
 
@@ -29,237 +29,102 @@ jest.mock("@mui/material", () => ({
 const mockUseMediaQuery = useMediaQuery as jest.Mock<
   ReturnType<typeof useMediaQuery>
 >;
+const { location } = window;
+
+beforeAll(() => {
+  delete window.location;
+
+  window.location = getLocation({});
+});
+
+afterAll(() => {
+  window.location = location;
+});
+
+const renderBackToResults = (locationProps) => {
+  window.location = getLocation(locationProps);
+
+  render(
+    <ThemeProvider>
+      <SiteContextProvider value={getSiteContext()}>
+        <BackToResults>
+          <h1>Rest of Breadcrumbs</h1>
+        </BackToResults>
+      </SiteContextProvider>
+    </ThemeProvider>
+  );
+
+  return render;
+};
 
 describe("BackToResults component", () => {
-  const { location } = window;
+  it("always renders the BackToResults cta in light theme", () => {
+    renderBackToResults({
+      [PATHNAME_KEY]: "/en/pathname"
+    });
 
-  beforeAll(() => {
-    delete window.location;
-
-    window.location = getLocation({});
-  });
-
-  afterAll(() => {
-    window.location = location;
-  });
-
-  it("renders children if no url query params provided", () => {
-    const { container } = render(
-      <ThemeProvider>
-        <BackToResults>
-          <h1>Rest of Breadcrumbs</h1>
-        </BackToResults>
-      </ThemeProvider>
+    expect(screen.getByTestId("back-to-results-button")).not.toHaveClass(
+      "Button-textDarkBg"
     );
-    expect(container).toMatchSnapshot();
   });
 
-  it("renders children if url query params is not related to search", () => {
-    window.location = getLocation({ test: "test" });
+  it("does render the BackToResults cta when url pathname params are present", () => {
+    renderBackToResults({
+      [PATHNAME_KEY]: "/en/pathname"
+    });
 
-    const { container } = render(
-      <ThemeProvider>
-        <BackToResults>
-          <h1>Rest of Breadcrumbs</h1>
-        </BackToResults>
-      </ThemeProvider>
-    );
-    expect(container).toMatchSnapshot();
-  });
-
-  it("renders cta if url query params includes search request", () => {
-    window.location = getLocation({ [QUERY_KEY]: "query" });
-
-    const { container } = render(
-      <ThemeProvider>
-        <SiteContextProvider value={getSiteContext()}>
-          <BackToResults>
-            <h1>Rest of Breadcrumbs</h1>
-          </BackToResults>
-        </SiteContextProvider>
-      </ThemeProvider>
-    );
-
-    const cta = screen.getByRole("link") as HTMLLinkElement;
-
-    expect(cta.href).toBe("http://localhost/en/search/?q=query");
-    expect(cta.attributes.getNamedItem("data-gtm").value).toBe(
+    const cta = screen.getByRole("link");
+    expect(cta).toHaveAttribute("href", "/en/pathname");
+    expect(cta).toHaveAttribute(
+      "data-gtm",
       JSON.stringify({
         id: "nav-breadcrumb-back-to-results",
         label: "MC: searchPage.backToResults",
-        action: "/en/search/?q=query"
+        action: "/en/pathname"
       })
     );
-    expect(container).toMatchSnapshot();
   });
 
-  it("renders cta if url query params includes filters values", () => {
-    window.location = getLocation({
-      [FILTER_KEY]: JSON.stringify({ brands: ["BRAND_1"] })
-    });
-
-    const { container } = render(
-      <ThemeProvider>
-        <SiteContextProvider value={getSiteContext()}>
-          <BackToResults>
-            <h1>Rest of Breadcrumbs</h1>
-          </BackToResults>
-        </SiteContextProvider>
-      </ThemeProvider>
-    );
-
-    const cta = screen.getByRole("link") as HTMLLinkElement;
-
-    expect(cta.href).toBe(
-      "http://localhost/en/search/?filters=%7B%22brands%22%3A%5B%22BRAND_1%22%5D%7D"
-    );
-    expect(cta.attributes.getNamedItem("data-gtm").value).toBe(
-      JSON.stringify({
-        id: "nav-breadcrumb-back-to-results",
-        label: "MC: searchPage.backToResults",
-        action: "/en/search/?filters=%7B%22brands%22%3A%5B%22BRAND_1%22%5D%7D"
-      })
-    );
-    expect(container).toMatchSnapshot();
-  });
-
-  it("renders cta if url query params includes previous page (for plp)", () => {
-    window.location = getLocation({
-      [PATHNAME_KEY]: "/en/plp-page"
-    });
-
-    const { container } = render(
-      <ThemeProvider>
-        <SiteContextProvider value={getSiteContext()}>
-          <BackToResults>
-            <h1>Rest of Breadcrumbs</h1>
-          </BackToResults>
-        </SiteContextProvider>
-      </ThemeProvider>
-    );
-
-    const cta = screen.getByRole("link") as HTMLLinkElement;
-
-    expect(cta.href).toBe("http://localhost/en/plp-page");
-    expect(cta.attributes.getNamedItem("data-gtm").value).toBe(
-      JSON.stringify({
-        id: "nav-breadcrumb-back-to-results",
-        label: "MC: searchPage.backToResults",
-        action: "/en/plp-page"
-      })
-    );
-    expect(container).toMatchSnapshot();
-  });
-  describe("when url search param has more than one parameters along with pathname param", () => {
-    it("renders removes only path name parameter and keeps other parameters", () => {
-      window.location = getLocation({
-        [PATHNAME_KEY]: "/en/plp-page",
-        [SEARCHTAB_KEY]: "pages"
-      });
-
-      const { container } = render(
-        <ThemeProvider>
-          <SiteContextProvider value={getSiteContext()}>
-            <BackToResults>
-              <h1>Rest of Breadcrumbs</h1>
-            </BackToResults>
-          </SiteContextProvider>
-        </ThemeProvider>
-      );
-
-      const cta = screen.getByRole("link") as HTMLLinkElement;
-
-      expect(cta.href).toBe("http://localhost/en/plp-page?tab=pages");
-      expect(cta.attributes.getNamedItem("data-gtm").value).toBe(
-        JSON.stringify({
-          id: "nav-breadcrumb-back-to-results",
-          label: "MC: searchPage.backToResults",
-          action: "/en/plp-page?tab=pages"
-        })
-      );
-      expect(container).toMatchSnapshot();
-    });
-  });
-
-  it("renders cta if url query params includes search tab", () => {
-    window.location = getLocation({
+  it("does not render the BackToResults cta component when url pathname params are not present", () => {
+    renderBackToResults({
       [SEARCHTAB_KEY]: "pages"
     });
 
-    const { container } = render(
-      <ThemeProvider>
-        <SiteContextProvider value={getSiteContext()}>
-          <BackToResults>
-            <h1>Rest of Breadcrumbs</h1>
-          </BackToResults>
-        </SiteContextProvider>
-      </ThemeProvider>
-    );
-
-    const cta = screen.getByRole("link") as HTMLLinkElement;
-
-    expect(cta.href).toBe("http://localhost/en/search/?tab=pages");
-    expect(cta.attributes.getNamedItem("data-gtm").value).toBe(
-      JSON.stringify({
-        id: "nav-breadcrumb-back-to-results",
-        label: "MC: searchPage.backToResults",
-        action: "/en/search/?tab=pages"
-      })
-    );
-    expect(container).toMatchSnapshot();
+    expect(
+      screen.queryByTestId("back-to-results-section")
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByTestId("back-to-results-separator")
+    ).not.toBeInTheDocument();
   });
 
-  it("renders correctly", () => {
-    window.location = getLocation({
-      [SEARCHTAB_KEY]: "pages",
-      [FILTER_KEY]: JSON.stringify({ brand: "BRAND_1" }),
-      [QUERY_KEY]: "query"
-    });
-
-    const { container } = render(
-      <ThemeProvider>
-        <SiteContextProvider value={getSiteContext()}>
-          <BackToResults>
-            <h1>Rest of Breadcrumbs</h1>
-          </BackToResults>
-        </SiteContextProvider>
-      </ThemeProvider>
-    );
-
-    const cta = screen.getByRole("link") as HTMLLinkElement;
-
-    expect(cta.href).toBe(
-      "http://localhost/en/search/?filters=%7B%22brand%22%3A%22BRAND_1%22%7D&q=query&tab=pages"
-    );
-    expect(cta.attributes.getNamedItem("data-gtm").value).toBe(
-      JSON.stringify({
-        id: "nav-breadcrumb-back-to-results",
-        label: "MC: searchPage.backToResults",
-        action:
-          "/en/search/?filters=%7B%22brand%22%3A%22BRAND_1%22%7D&q=query&tab=pages"
-      })
-    );
-    expect(container).toMatchSnapshot();
-  });
-
-  it("renders cta without children if mobile", () => {
+  it("renders correctly when user's screen width is desktop", () => {
     mockUseMediaQuery.mockReturnValue(true);
-    window.location = getLocation({
-      [SEARCHTAB_KEY]: "pages",
-      [FILTER_KEY]: JSON.stringify({ brand: "BRAND_1" }),
-      [QUERY_KEY]: "query"
+    renderBackToResults({
+      [PATHNAME_KEY]: "/en/pathname"
     });
 
-    const { container } = render(
-      <ThemeProvider>
-        <SiteContextProvider value={getSiteContext()}>
-          <BackToResults>
-            <h1>Rest of Breadcrumbs</h1>
-          </BackToResults>
-        </SiteContextProvider>
-      </ThemeProvider>
+    expect(screen.getByTestId("back-to-results-button")).toBeInTheDocument();
+    expect(screen.getByTestId("back-to-results-separator")).toBeInTheDocument();
+    expect(screen.getByTestId("back-to-results-separator")).toHaveClass(
+      "BackToResults--separator"
+    );
+  });
+
+  it("renders correctly when user's screen width is mobile", () => {
+    mockUseMediaQuery.mockReturnValue(false);
+    renderBackToResults({
+      [PATHNAME_KEY]: "/en/pathname"
+    });
+
+    expect(screen.getByTestId("back-to-results-section")).toBeInTheDocument();
+    expect(screen.getByTestId("back-to-results-section")).toHaveClass(
+      "BackToResults"
     );
 
-    expect(container).toMatchSnapshot();
+    expect(screen.getByTestId("back-to-results-button")).toBeInTheDocument();
+    expect(
+      screen.queryByTestId("back-to-results-separator")
+    ).not.toBeInTheDocument();
   });
 });
