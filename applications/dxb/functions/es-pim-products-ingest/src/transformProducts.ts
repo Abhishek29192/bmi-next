@@ -130,7 +130,11 @@ const combineVariantClassifications = (
 };
 
 export const transformProduct = (product: PIMProduct): ESProduct[] => {
-  if (!product.name || product.approvalStatus !== "approved") {
+  if (
+    !product.name ||
+    (product.approvalStatus !== "approved" &&
+      product.approvalStatus !== "discontinued")
+  ) {
     return [];
   }
 
@@ -146,7 +150,11 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
     message: `allCategoriesAsProps: ${JSON.stringify(allCategoriesAsProps)}`
   });
   return (product.variantOptions || [])
-    .filter((variant) => variant.approvalStatus === "approved")
+    .filter(
+      (variant) =>
+        variant.approvalStatus === "approved" ||
+        variant.approvalStatus === "discontinued"
+    )
     .map((variant) => {
       const combinedClassifications = combineVariantClassifications(
         product,
@@ -174,8 +182,16 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
           ({ code }) => code === "scoringWeightAttributes"
         )?.features?.[0]?.featureValues?.[0]?.value || "0";
 
+      if (
+        product.approvalStatus === "discontinued" &&
+        variant.approvalStatus === "approved"
+      ) {
+        variant.approvalStatus = "discontinued";
+      }
+
       const baseAttributes = pick(
         { ...product, ...variant },
+        "approvalStatus",
         "externalProductCode",
         "code",
         "isSampleOrderAllowed",
@@ -230,7 +246,6 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
         ...indexedFeatures,
         ...allCategoriesAsProps,
         ...baseAttributes,
-        approvalStatus: product.approvalStatus,
         name,
         externalProductCode: baseAttributes.externalProductCode || "",
         isSampleOrderAllowed: baseAttributes.isSampleOrderAllowed || false,

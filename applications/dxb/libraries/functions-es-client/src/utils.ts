@@ -1,6 +1,6 @@
 import logger from "@bmi-digital/functions-logger";
 import { Client } from "@elastic/elasticsearch";
-import { BulkApiResponse, IndexOperation } from "./types";
+import { BulkApiResponse, DeleteOperation, IndexOperation } from "./types";
 
 export const getChunks = <T>(items: readonly T[], chunkSize = 300): T[][] => {
   logger.info({ message: `Chunk size: ${chunkSize}` });
@@ -16,22 +16,32 @@ export const getChunks = <T>(items: readonly T[], chunkSize = 300): T[][] => {
 };
 
 export const getIndexOperation = <T>(
+  indexName: string,
   document: T,
   id: string
 ): [IndexOperation, T] => {
   return [
     {
-      index: {
-        _id: id
-      }
+      index: { _index: indexName, _id: id }
     },
     document
   ];
 };
 
+export const getDeleteOperation = (
+  indexName: string,
+  id: string
+): [DeleteOperation] => {
+  return [
+    {
+      delete: { _index: indexName, _id: id }
+    }
+  ];
+};
+
 export const performBulkOperations = async <T extends Record<string, any>>(
   client: Client,
-  operations: (IndexOperation | T)[][],
+  operations: (DeleteOperation | IndexOperation | T)[][],
   index: string
 ) => {
   // Having to do this synchronously as we are seeing errors and ES dropping

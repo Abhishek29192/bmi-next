@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`transformProduct original transform tests should default PIM_CLASSIFICATION_CATALOGUE_NAMESPACE if not provided 1`] = `
+exports[`transformProduct original transform tests approval status scenarios should default PIM_CLASSIFICATION_CATALOGUE_NAMESPACE if not provided 1`] = `
 [
   {
     "APPEARANCEATTRIBUTES$COLOURFAMILY": [
@@ -362,7 +362,7 @@ exports[`transformProduct original transform tests should default PIM_CLASSIFICA
 ]
 `;
 
-exports[`transformProduct original transform tests should handle appearanceAttributes classifications with no features 1`] = `
+exports[`transformProduct original transform tests approval status scenarios should handle appearanceAttributes classifications with no features 1`] = `
 [
   {
     "BMI_BRANDS": [
@@ -494,7 +494,7 @@ exports[`transformProduct original transform tests should handle appearanceAttri
 ]
 `;
 
-exports[`transformProduct original transform tests should handle generalInformation classifications with no features 1`] = `
+exports[`transformProduct original transform tests approval status scenarios should handle generalInformation classifications with no features 1`] = `
 [
   {
     "BMI_BRANDS": [
@@ -626,7 +626,7 @@ exports[`transformProduct original transform tests should handle generalInformat
 ]
 `;
 
-exports[`transformProduct original transform tests should handle no categories 1`] = `
+exports[`transformProduct original transform tests approval status scenarios should handle no categories 1`] = `
 [
   {
     "APPEARANCEATTRIBUTES$COLOURFAMILY": [
@@ -907,7 +907,7 @@ exports[`transformProduct original transform tests should handle no categories 1
 ]
 `;
 
-exports[`transformProduct original transform tests should handle no classifications 1`] = `
+exports[`transformProduct original transform tests approval status scenarios should handle no classifications 1`] = `
 [
   {
     "BMI_BRANDS": [
@@ -1033,7 +1033,7 @@ exports[`transformProduct original transform tests should handle no classificati
 ]
 `;
 
-exports[`transformProduct original transform tests should handle no images 1`] = `
+exports[`transformProduct original transform tests approval status scenarios should handle no images 1`] = `
 [
   {
     "APPEARANCEATTRIBUTES$COLOURFAMILY": [
@@ -1358,9 +1358,9 @@ exports[`transformProduct original transform tests should handle no images 1`] =
 ]
 `;
 
-exports[`transformProduct original transform tests should not transform full product without Variant products 1`] = `[]`;
+exports[`transformProduct original transform tests approval status scenarios should not transform full product without Variant products 1`] = `[]`;
 
-exports[`transformProduct original transform tests should transform full product with single variant to a single ES product 1`] = `
+exports[`transformProduct original transform tests approval status scenarios should transform full product with single variant to a single ES product 1`] = `
 [
   {
     "APPEARANCEATTRIBUTES$COLOURFAMILY": [
