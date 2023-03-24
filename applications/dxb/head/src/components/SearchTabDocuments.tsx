@@ -27,7 +27,7 @@ import { useSiteContext } from "./Site";
 
 const PAGE_SIZE = 24;
 const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_DOCUMENTS;
-
+export const availabilityFilterCode = "availability";
 // Creates filters from aggregations
 // Requires contentful asset types for the localised labels
 const getPagesFilters = (
@@ -52,6 +52,20 @@ const getPagesFilters = (
           label: findLabel(key) || key,
           value: key
         }))
+    },
+    {
+      filterCode: availabilityFilterCode,
+      label: getMicroCopy(
+        microCopy.FILTER_LABELS_SUMMERY_ACCORDION_AVAILABILITY
+      ),
+      name: availabilityFilterCode,
+      options: [
+        {
+          label: getMicroCopy(microCopy.FILTER_LABELS_AVAILABILITY_HEADING),
+          value: availabilityFilterCode
+        }
+      ],
+      value: [availabilityFilterCode]
     }
   ];
 };
@@ -217,10 +231,15 @@ const SearchTabPanelDocuments = (props: Props) => {
   useEffect(() => {
     // Clearing filters has the effect of refetching data
     clearFilters();
+
+    handleFiltersChange(() => ({
+      filterName: availabilityFilterCode,
+      filterValue: availabilityFilterCode,
+      checked: true
+    }));
   }, []);
 
   const maxSize = documentDownloadMaxLimit * 1048576;
-
   return (
     <DownloadList maxSize={maxSize}>
       <Grid container spacing={3} ref={resultsElement}>

@@ -1850,7 +1850,8 @@ describe("getDocumentQueryObject function", () => {
                 fields: ["noIndex"]
               }
             },
-            { term: { "assetType.code.keyword": "ASSEMBLY_INSTRUCTIONS" } }
+            { term: { "assetType.code.keyword": "ASSEMBLY_INSTRUCTIONS" } },
+            { term: { "approvalStatus.keyword": "approved" } }
           ]
         }
       },
@@ -1858,7 +1859,8 @@ describe("getDocumentQueryObject function", () => {
     };
 
     const actualResult = getDocumentQueryObject("icopal", 24, 0, [
-      { value: ["ASSEMBLY_INSTRUCTIONS"] }
+      { value: ["ASSEMBLY_INSTRUCTIONS"] },
+      { filterCode: "availability", value: [] }
     ]);
     expect(actualResult).toMatchObject(expectedResult);
   });

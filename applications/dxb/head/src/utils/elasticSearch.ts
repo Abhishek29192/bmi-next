@@ -1,5 +1,6 @@
 import { Filter } from "@bmi-digital/components";
 import { isDefined } from "@bmi/utils";
+import { availabilityFilterCode } from "../components/SearchTabDocuments";
 import { devLog } from "./devLog";
 import {
   generateAllowFiltersAggs,
@@ -69,7 +70,9 @@ export const disableFiltersFromAggregations = (
 
         return {
           ...option,
-          isDisabled: !(aggregate && aggregate.doc_count > 0)
+          isDisabled:
+            !(aggregate && aggregate.doc_count > 0) &&
+            filter.filterCode !== "availability"
         };
       })
     };
@@ -174,25 +177,33 @@ export const getDocumentQueryObject = (
 ) => {
   // Filters in the query
   // TODO: this acts like it handles many filters but actually handles one. refactor
-  const filtersQuery = filters
-    .filter(({ value }) => value.length)
-    .map((filter) => {
-      const termQuery = (value) => ({
-        term: {
-          ["assetType.code.keyword"]: value
-        }
-      });
-      const query =
-        filter.value.length === 1
+
+  const filtersQuery = filters.map((filter) => {
+    if (filter.filterCode === availabilityFilterCode) {
+      if (!filter.value.length) {
+        return {
+          term: {
+            ["approvalStatus.keyword"]: "approved"
+          }
+        };
+      }
+    } else {
+      if (filter.value.length) {
+        const termQuery = (value) => ({
+          term: {
+            ["assetType.code.keyword"]: value
+          }
+        });
+        return filter.value.length === 1
           ? termQuery(filter.value[0])
           : {
               bool: {
                 should: filter.value.map(termQuery)
               }
             };
-
-      return query;
-    });
+      }
+    }
+  });
 
   const queryElements = [
     {
@@ -209,7 +220,7 @@ export const getDocumentQueryObject = (
         fields: ["noIndex"]
       }
     },
-    ...filtersQuery
+    ...filtersQuery.filter(Boolean)
   ];
 
   return {
