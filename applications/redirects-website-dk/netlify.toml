@@ -1,12 +1,6 @@
 # Settings in the [build] context are global and are applied to all contexts
 # unless otherwise overridden by more specific contexts.
 
-[build]
-  # nothing to build here, this instance is for redirects only
-  ignore = "git diff --quiet HEAD^ HEAD sub_dir/"
-
-  publish = "public/"
-
 [[redirects]]
  from="/produkter"
  to="https://www.bmigroup.com/dk/produkter/?utm_source=bmigroupdanmark.dk&utm_medium=referral-redirect&utm_campaign=dxb-redirects/"
