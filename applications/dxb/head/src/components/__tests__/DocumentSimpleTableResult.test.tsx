@@ -267,34 +267,31 @@ describe("formatDate", () => {
 });
 
 describe("mapAssetToFileDownload", () => {
+  const expectedCommonProperties = {
+    format: "application/pdf",
+    size: 10,
+    assetTypeName: "asset-name",
+    productStatus: "-",
+    validUntil: "-"
+  };
   it("should map PIMDocument types to FileDownloadButtonProps correctly", () => {
     const document = createPimDocument();
     const getMicroCopy = jest.fn();
-    const expected = {
-      url: "http://pimDocument",
-      format: "application/pdf",
-      size: 10,
-      assetTypeName: "asset-name",
+    expect(mapAssetToFileDownload(document, getMicroCopy)).toEqual({
+      ...expectedCommonProperties,
       title: "Pim Document",
-      isLinkDocument: false,
-      productStatus: "-",
-      validUntil: "-"
-    };
-    expect(mapAssetToFileDownload(document, getMicroCopy)).toEqual(expected);
+      url: "http://pimDocument",
+      isLinkDocument: false
+    });
   });
   it("should map PIMSystemDocument types to FileDownloadButtonProps correctly", () => {
     const document = createPimSystemDocument();
     const getMicroCopy = jest.fn();
-    const expected = {
-      url: "http://localhost/pim-link-document-id",
-      format: "application/pdf",
-      size: 10,
-      assetTypeName: "asset-name",
+    expect(mapAssetToFileDownload(document, getMicroCopy)).toEqual({
+      ...expectedCommonProperties,
       title: "pim-link-document-title",
-      isLinkDocument: true,
-      productStatus: "-",
-      validUntil: "-"
-    };
-    expect(mapAssetToFileDownload(document, getMicroCopy)).toEqual(expected);
+      url: "http://localhost/pim-link-document-id",
+      isLinkDocument: true
+    });
   });
 });
