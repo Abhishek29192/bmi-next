@@ -340,7 +340,7 @@ describe("FormSection component", () => {
     jest.spyOn(window, "alert").mockImplementation();
     render(
       <ThemeProvider>
-        <ConfigProvider configObject={{ isPreviewMode: true }}>
+        <ConfigProvider configOverride={{ isPreviewMode: true }}>
           <FormSection
             data={data}
             backgroundColor="white"
@@ -370,7 +370,7 @@ describe("FormSection component", () => {
     fetchMock.mockResolvedValueOnce({ ok: true });
     const { container } = render(
       <ConfigProvider
-        configObject={{
+        configOverride={{
           gcpFormSubmitEndpoint: "GATSBY_GCP_FORM_SUBMIT_ENDPOINT"
         }}
       >
@@ -441,7 +441,7 @@ describe("FormSection component", () => {
     jest.spyOn(Gatsby, "navigate").mockImplementation();
     const { container } = render(
       <ConfigProvider
-        configObject={{
+        configOverride={{
           gcpFormSubmitEndpoint: "GATSBY_GCP_FORM_SUBMIT_ENDPOINT"
         }}
       >
@@ -504,7 +504,7 @@ describe("FormSection component", () => {
     jest.spyOn(Gatsby, "navigate").mockImplementation();
     const { container } = render(
       <ConfigProvider
-        configObject={{
+        configOverride={{
           gcpFormSubmitEndpoint: "GATSBY_GCP_FORM_SUBMIT_ENDPOINT"
         }}
       >
@@ -575,7 +575,7 @@ describe("FormSection component", () => {
     jest.spyOn(Gatsby, "navigate").mockImplementation();
     const { container } = render(
       <ConfigProvider
-        configObject={{
+        configOverride={{
           gcpFormSubmitEndpoint: "GATSBY_GCP_FORM_SUBMIT_ENDPOINT"
         }}
       >
@@ -746,7 +746,7 @@ describe("FormSection component", () => {
 
     const { container } = render(
       <ConfigProvider
-        configObject={{
+        configOverride={{
           gcpFormSubmitEndpoint: "GATSBY_GCP_FORM_SUBMIT_ENDPOINT"
         }}
       >
@@ -810,7 +810,7 @@ describe("FormSection component", () => {
 
     const { container } = render(
       <ConfigProvider
-        configObject={{
+        configOverride={{
           gcpFormSubmitEndpoint: "GATSBY_GCP_FORM_SUBMIT_ENDPOINT"
         }}
       >

@@ -3,7 +3,7 @@
 exports[`Page component renders correctly 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-8mimat-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1n3l0bu-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -639,7 +639,7 @@ exports[`Page component renders correctly 1`] = `
               </li>
             </ul>
             <div
-              class="css-p15bbt"
+              class="css-prasn8"
             >
               <div
                 class="MuiBox-root css-1vhvcpa"

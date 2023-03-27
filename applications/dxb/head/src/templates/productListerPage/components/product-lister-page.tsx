@@ -57,7 +57,7 @@ import {
 } from "../../../utils/heroLevelUtils";
 import { renderHero } from "../../../utils/heroTypesUI";
 import { removePLPFilterPrefix } from "../../../utils/product-filters";
-import { ProductListWrapperGrid, FeaturesLink } from "../styles";
+import { FeaturesLink, ProductListWrapperGrid } from "../styles";
 import {
   renderProducts,
   resolveFilters
@@ -141,9 +141,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
   );
   const initialProducts = data.initialProducts || [];
 
-  const {
-    config: { isPreviewMode, isBrandProviderEnabled }
-  } = useConfig();
+  const { isPreviewMode, isBrandProviderEnabled } = useConfig();
 
   const heroLevel = generateHeroLevel(heroType, enhancedBreadcrumbs);
   const heroProps: HeroProps | SpotlightHeroProps = generateHeroProps(

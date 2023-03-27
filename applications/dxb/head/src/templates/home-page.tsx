@@ -65,9 +65,7 @@ const HomePage = ({ data, pageContext }: Props) => {
     data.contentfulSite.resources || {};
 
   const GTMButton = withGTM<ButtonProps>(Button);
-  const {
-    config: { isSpaEnabled, isGatsbyDisabledElasticSearch }
-  } = useConfig();
+  const { isSpaEnabled, isGatsbyDisabledElasticSearch } = useConfig();
   const { isClient } = useIsClient();
 
   return (

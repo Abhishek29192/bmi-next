@@ -78,9 +78,9 @@ const getHeroItemsWithContext = (
         children: subtitle,
         media: featuredVideo ? (
           <Video {...featuredVideo} />
-        ) : (
+        ) : featuredMedia ? (
           <Image {...featuredMedia} size="cover" />
-        ),
+        ) : undefined,
         cta:
           rest.__typename === "ContentfulPromo"
             ? GetCTAButton(rest.cta)
@@ -116,9 +116,7 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
     seo,
     path: data.contentfulBrandLandingPage.path
   };
-  const {
-    config: { isBrandProviderEnabled }
-  } = useConfig();
+  const { isBrandProviderEnabled } = useConfig();
 
   const GTMButton = withGTM<ButtonProps>(Button);
   const firstSlide: CarouselHeroItem = {

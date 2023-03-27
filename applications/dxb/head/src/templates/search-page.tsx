@@ -62,9 +62,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
   const params = new URLSearchParams(
     typeof window !== `undefined` ? window.location.search : ""
   );
-  const {
-    config: { isPreviewMode }
-  } = useConfig();
+  const { isPreviewMode } = useConfig();
 
   const { countryCode, resources } = contentfulSite;
   const getMicroCopy = generateGetMicroCopy(resources.microCopy);
@@ -300,7 +298,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
       title={pageTitle}
       pageData={{ breadcrumbs: null, signupBlock: null, seo: null, path: null }}
       siteData={contentfulSite}
-      isSearchPage
+      disableSearch={true}
       variantCodeToPathMap={pageContext?.variantCodeToPathMap}
     >
       {tabIsLoading ? (

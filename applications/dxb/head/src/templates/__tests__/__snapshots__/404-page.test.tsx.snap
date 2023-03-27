@@ -3,7 +3,7 @@
 exports[`404 page tests When error page data is partially populated renders place holder content 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-8mimat-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1n3l0bu-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -2992,7 +2992,7 @@ exports[`404 page tests When error page data is partially populated renders plac
               </li>
             </ul>
             <div
-              class="css-p15bbt"
+              class="css-prasn8"
             >
               <div
                 class="MuiBox-root css-1vhvcpa"
@@ -3079,7 +3079,7 @@ exports[`404 page tests When error page data is partially populated renders plac
 exports[`404 page tests When site data and error page data are fully populated renders page content and FourOFour content 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-8mimat-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1n3l0bu-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -6068,7 +6068,7 @@ exports[`404 page tests When site data and error page data are fully populated r
               </li>
             </ul>
             <div
-              class="css-p15bbt"
+              class="css-prasn8"
             >
               <div
                 class="MuiBox-root css-1vhvcpa"

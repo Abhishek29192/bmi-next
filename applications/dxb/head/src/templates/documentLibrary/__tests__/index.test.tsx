@@ -13,7 +13,7 @@ import {
 } from "@bmi/elasticsearch-types";
 import DocumentLibraryPage, { PAGE_SIZE } from "../";
 import * as documentResultsFooter from "../../../components/DocumentResultsFooter";
-import { ConfigProvider, EnvConfig } from "../../../contexts/ConfigProvider";
+import { ConfigProvider, Config } from "../../../contexts/ConfigProvider";
 import { renderWithRouter } from "../../../test/renderWithRouter";
 import * as elasticSearch from "../../../utils/elasticSearch";
 import { FILTER_KEY } from "../../../utils/filters";
@@ -51,7 +51,7 @@ const mockQueryES = jest
 interface Params {
   pageData?: DocumentLibraryProps["data"];
   pageContext?: DocumentLibraryPageContext;
-  mockEnvVariables?: Partial<EnvConfig["config"]>;
+  mockEnvVariables?: Partial<Config>;
   route?: string;
 }
 
@@ -64,7 +64,7 @@ const renderWithProviders = ({
   const defaultPageEnvVars = {
     documentDownloadMaxLimit: 200,
     isPreviewMode: false
-  } as Partial<EnvConfig["config"]>;
+  } as Partial<Config>;
   const defaultPageContext = {
     pageId: null,
     siteId: null,
@@ -76,7 +76,7 @@ const renderWithProviders = ({
   return renderWithRouter(
     <ThemeProvider>
       <ConfigProvider
-        configObject={{ ...defaultPageEnvVars, ...mockEnvVariables }}
+        configOverride={{ ...defaultPageEnvVars, ...mockEnvVariables }}
       >
         <DocumentLibraryPage
           data={pageData || defaultPageData}

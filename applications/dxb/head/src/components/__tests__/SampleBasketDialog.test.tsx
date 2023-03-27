@@ -9,6 +9,7 @@ import { local } from "../../utils/storage";
 import { getClickableActionFromUrl } from "../Link";
 import SampleBasketDialog from "../SampleBasketDialog";
 import { SiteContextProvider } from "../Site";
+import { microCopy } from "../../constants/microCopies";
 
 const getSiteContext = () => ({
   countryCode: "en",
@@ -86,6 +87,7 @@ describe("SampleBasketDialog component", () => {
       screen.getByRole("button", { name: "MC: dialog.close" })
     ).toBeInTheDocument();
   });
+
   it("renders correctly when sample basket is empty", () => {
     jest.spyOn(local, "getItem").mockReturnValue(JSON.stringify([]));
     render(
@@ -95,8 +97,12 @@ describe("SampleBasketDialog component", () => {
         </BasketContextProvider>
       </ThemeProvider>
     );
+    expect(screen.getByTestId("shopping-cart-dialog")).toBeInTheDocument();
     expect(
-      screen.queryByTestId("shopping-cart-dialog")
+      screen.getByText(`MC: ${microCopy.PDP_OVERVIEW_SAMPLE_DIALOG_MESSAGE}`)
+    ).toBeInTheDocument();
+    expect(
+      screen.queryByTestId("shopping-cart-dialog-product")
     ).not.toBeInTheDocument();
   });
 
@@ -141,6 +147,7 @@ describe("SampleBasketDialog component", () => {
       screen.getByRole("link", { name: "MC: pdp.overview.completeSampleOrder" })
     ).toHaveAttribute("href", "/no/sample-basket/");
   });
+
   it("should call toggleCart on continue browsing", () => {
     const toggleCart = jest.fn();
 

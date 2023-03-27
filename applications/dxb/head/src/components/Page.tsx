@@ -46,7 +46,7 @@ type Props = {
   title: string;
   pageData: Data;
   siteData: SiteData;
-  isSearchPage?: boolean;
+  disableSearch?: boolean;
   variantCodeToPathMap?: Record<string, string>;
   ogImageUrl?: string;
   variantProduct?: Product;
@@ -66,7 +66,7 @@ const Page = ({
   children,
   pageData,
   siteData,
-  isSearchPage,
+  disableSearch,
   variantCodeToPathMap,
   ogImageUrl,
   variantProduct
@@ -87,12 +87,10 @@ const Page = ({
 
   const { breadcrumbs, signupBlock, seo, path } = pageData;
   const {
-    config: {
-      gatsbyReCaptchaKey,
-      gatsbyReCaptchaNet,
-      visualizerAssetUrl,
-      isSpaEnabled
-    }
+    gatsbyReCaptchaKey,
+    gatsbyReCaptchaNet,
+    visualizerAssetUrl,
+    isSpaEnabled
   } = useConfig();
   const reCaptchaNet = gatsbyReCaptchaNet === "true";
 
@@ -166,7 +164,7 @@ const Page = ({
                   activeLabel={
                     (breadcrumbs && breadcrumbs[0]?.label) || undefined
                   }
-                  isOnSearchPage={isSearchPage}
+                  disableSearch={disableSearch}
                   countryNavigationIntroduction={
                     resources?.countryNavigationIntroduction
                   }

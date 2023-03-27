@@ -95,9 +95,7 @@ const SearchTabPanelDocuments = (props: Props) => {
 
   const { getMicroCopy } = useSiteContext();
 
-  const {
-    config: { documentDownloadMaxLimit }
-  } = useConfig();
+  const { documentDownloadMaxLimit } = useConfig();
 
   // TODO: Not sure if we need this, would be nice to remove
   const isInitialLoad = useRef(true);

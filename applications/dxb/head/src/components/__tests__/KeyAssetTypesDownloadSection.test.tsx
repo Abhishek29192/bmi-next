@@ -42,10 +42,8 @@ let isPreviewMode;
 let documentDownloadEndpoint;
 jest.mock("../../contexts/ConfigProvider", () => ({
   useConfig: () => ({
-    config: {
-      isPreviewMode,
-      documentDownloadEndpoint
-    }
+    isPreviewMode,
+    documentDownloadEndpoint
   })
 }));
 

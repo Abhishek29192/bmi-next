@@ -13,7 +13,7 @@ import React, { useContext } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { QA_AUTH_TOKEN } from "../constants/cookieConstants";
 import { microCopy } from "../constants/microCopies";
-import { EnvConfig, useConfig } from "../contexts/ConfigProvider";
+import { Config, useConfig } from "../contexts/ConfigProvider";
 import { DocumentResultData } from "../templates/documentLibrary/components/DocumentResults";
 import { downloadAs, getDownloadLink } from "../utils/client-download";
 import { devLog } from "../utils/devLog";
@@ -51,7 +51,7 @@ const GTMButton = withGTM<ButtonProps>(Button);
 
 export const handleDownloadClick = async (
   list: Record<string, any>,
-  config: EnvConfig["config"],
+  config: Config,
   token?: string,
   callback?: () => void,
   qaAuthToken?: string
@@ -168,7 +168,7 @@ const DocumentResultsFooter = ({
 }: Props) => {
   const { getMicroCopy } = useSiteContext();
   const { resetList, list } = useContext(DownloadListContext);
-  const { config } = useConfig();
+  const config = useConfig();
   const { executeRecaptcha } = useGoogleReCaptcha();
   const qaAuthToken = getCookie(QA_AUTH_TOKEN);
   const theme = useTheme();

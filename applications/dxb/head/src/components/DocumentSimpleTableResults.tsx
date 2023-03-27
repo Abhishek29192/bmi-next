@@ -352,9 +352,7 @@ export const MultipleAssetToFileDownload = ({
   document: PseudoZipPIMDocument;
   isMobile?: boolean;
 }): React.ReactElement => {
-  const {
-    config: { documentDownloadEndpoint }
-  } = useConfig();
+  const { documentDownloadEndpoint } = useConfig();
   const { executeRecaptcha } = useGoogleReCaptcha();
   const qaAuthToken = getCookie(QA_AUTH_TOKEN);
   const downloadMultipleFiles = async () => {

@@ -15,10 +15,8 @@ let isSpaEnabled: boolean;
 let isGatsbyDisabledElasticSearch: boolean;
 jest.mock("../../contexts/ConfigProvider", () => ({
   useConfig: () => ({
-    config: {
-      isSpaEnabled,
-      isGatsbyDisabledElasticSearch
-    }
+    isSpaEnabled,
+    isGatsbyDisabledElasticSearch
   })
 }));
 

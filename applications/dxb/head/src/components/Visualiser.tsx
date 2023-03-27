@@ -85,9 +85,7 @@ const VisualiserProvider = ({
   shareWidgetData,
   houseTypes
 }: Props) => {
-  const {
-    config: { isV2VisualiserEnabled }
-  } = useConfig();
+  const { isV2VisualiserEnabled } = useConfig();
   const location = useLocation();
 
   const parsedQueryParameters = mapParameters(

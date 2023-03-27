@@ -134,9 +134,7 @@ const SystemConfiguratorQuestion = ({
   const [nextStep, setNextStep] = useState<NextStepData>({});
   const { locale, openIndex, setState } = useContext(SystemConfiguratorContext);
   const ref = useScrollToOnLoad(index === 0, ACCORDION_TRANSITION);
-  const {
-    config: { gcpSystemConfiguratorEndpoint }
-  } = useConfig();
+  const { gcpSystemConfiguratorEndpoint } = useConfig();
 
   const singleAnswer =
     question.answers.length === 1 ? question.answers[0] : undefined;
@@ -337,9 +335,7 @@ const SystemConfiguratorResult = ({
   const { countryCode } = useSiteContext();
   const [recommendedSystemPimObjects, setRecommendedSystemPimObjects] =
     useState<EsSystem[]>([]);
-  const {
-    config: { esIndexNameSystem }
-  } = useConfig();
+  const { esIndexNameSystem } = useConfig();
 
   useEffect(() => {
     const fetchESData = async () => {

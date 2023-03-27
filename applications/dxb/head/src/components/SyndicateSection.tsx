@@ -71,9 +71,7 @@ const SyndicateSection = ({
   position: number;
 }) => {
   const { countryCode, getMicroCopy } = useSiteContext();
-  const {
-    config: { isSpaEnabled }
-  } = useConfig();
+  const { isSpaEnabled } = useConfig();
   const villainsData = React.useMemo(
     () =>
       villains?.map((data) => {

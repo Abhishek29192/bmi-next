@@ -114,9 +114,7 @@ const Sections = ({
   startIndex?: number;
   pageTypename?: string;
 }) => {
-  const {
-    config: { isSpaEnabled }
-  } = useConfig();
+  const { isSpaEnabled } = useConfig();
   const themeMap = useMemo(
     () =>
       data.reduce<Context>((carry, section, index) => {

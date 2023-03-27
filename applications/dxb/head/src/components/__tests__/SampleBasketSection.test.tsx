@@ -1,7 +1,7 @@
 import { ThemeProvider } from "@bmi-digital/components";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import React from "react";
-import { ConfigProvider, EnvConfig } from "../../contexts/ConfigProvider";
+import { Config, ConfigProvider } from "../../contexts/ConfigProvider";
 import * as BasketContextUtils from "../../contexts/SampleBasketContext";
 import {
   BasketContextProvider,
@@ -18,12 +18,12 @@ const MockSiteContext = ({
   mockEnvConfig = { gcpFormSubmitEndpoint: "GATSBY_GCP_FORM_SUBMIT_ENDPOINT" },
   children
 }: {
-  mockEnvConfig?: EnvConfig["config"];
+  mockEnvConfig?: Partial<Config>;
   children: React.ReactNode;
 }) => {
   return (
     <ThemeProvider>
-      <ConfigProvider configObject={mockEnvConfig}>
+      <ConfigProvider configOverride={mockEnvConfig}>
         <SiteContextProvider
           value={{
             ...getMockSiteContext("no"),
