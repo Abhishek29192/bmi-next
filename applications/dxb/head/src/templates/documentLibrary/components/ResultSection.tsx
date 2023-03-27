@@ -3,7 +3,6 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import React from "react";
 import DocumentResultsFooter from "../../../components/DocumentResultsFooter";
 import { useSiteContext } from "../../../components/Site";
-import filterStyles from "../../../components/styles/Filters.module.scss";
 import { AssetType } from "../types";
 import DocumentResults, { DocumentResultData, Format } from "./DocumentResults";
 
@@ -37,10 +36,7 @@ const ResultSection = ({
             assetTypes={assetTypes}
             format={format}
           />
-          <div
-            className={filterStyles["results"]}
-            data-testid="document-results-footer-wrapper"
-          >
+          <div data-testid="document-results-footer-wrapper">
             <DocumentResultsFooter
               page={page + 1}
               count={pageCount}

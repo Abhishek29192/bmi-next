@@ -876,57 +876,61 @@ exports[`TabLeadBlock tests should render 1`] = `
                     class="DocumentResultsFooter"
                     data-testid="document-results-footer"
                   >
-                    <a
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-                      data-testid="anchor-link"
-                      type="button"
+                    <div
+                      class="MuiBox-root css-h5fkc8"
                     >
-                      <span>
-                        MC: downloadList.clear
-                      </span>
-                    </a>
-                    <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"download3-button1","label":"MC: downloadList.download (0)","action":"[]"}"
-                      data-testid="document-table-download-button"
-                      tabindex="0"
-                      type="button"
-                    >
-                      MC: downloadList.download (0)
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
-                    <p
-                      class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
-                      data-testid="typography"
-                    >
-                      This site is protected by reCAPTCHA and the Google 
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-                        data-testid="recaptcha-privacy-policy-link"
-                        href="https://policies.google.com/privacy"
-                        rel="noreferrer noopener"
-                        target="_blank"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                        data-testid="anchor-link"
+                        type="button"
                       >
                         <span>
-                          Privacy Policy
+                          MC: downloadList.clear
                         </span>
                       </a>
-                       and 
-                      <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-                        data-testid="recaptcha-terms-of-service-link"
-                        href="https://policies.google.com/terms"
-                        rel="noreferrer noopener"
-                        target="_blank"
+                      <button
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+                        data-gtm="{"id":"download3-button1","label":"MC: downloadList.download (0)","action":"[]"}"
+                        data-testid="document-table-download-button"
+                        tabindex="0"
+                        type="button"
                       >
-                        <span>
-                          Terms of Service
-                        </span>
-                      </a>
-                       apply.
-                    </p>
+                        MC: downloadList.download (0)
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </button>
+                      <p
+                        class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
+                        data-testid="typography"
+                      >
+                        This site is protected by reCAPTCHA and the Google 
+                        <a
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                          data-testid="recaptcha-privacy-policy-link"
+                          href="https://policies.google.com/privacy"
+                          rel="noreferrer noopener"
+                          target="_blank"
+                        >
+                          <span>
+                            Privacy Policy
+                          </span>
+                        </a>
+                         and 
+                        <a
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                          data-testid="recaptcha-terms-of-service-link"
+                          href="https://policies.google.com/terms"
+                          rel="noreferrer noopener"
+                          target="_blank"
+                        >
+                          <span>
+                            Terms of Service
+                          </span>
+                        </a>
+                         apply.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1203,57 +1207,61 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                 class="DocumentResultsFooter"
                 data-testid="document-results-footer"
               >
-                <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-                  data-testid="anchor-link"
-                  type="button"
+                <div
+                  class="MuiBox-root css-h5fkc8"
                 >
-                  <span>
-                    MC: downloadList.clear
-                  </span>
-                </a>
-                <button
-                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{"id":"download3-button1","label":"MC: downloadList.download (0)","action":"[]"}"
-                  data-testid="document-table-download-button"
-                  tabindex="0"
-                  type="button"
-                >
-                  MC: downloadList.download (0)
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                  />
-                </button>
-                <p
-                  class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
-                  data-testid="typography"
-                >
-                  This site is protected by reCAPTCHA and the Google 
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-                    data-testid="recaptcha-privacy-policy-link"
-                    href="https://policies.google.com/privacy"
-                    rel="noreferrer noopener"
-                    target="_blank"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                    data-testid="anchor-link"
+                    type="button"
                   >
                     <span>
-                      Privacy Policy
+                      MC: downloadList.clear
                     </span>
                   </a>
-                   and 
-                  <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-                    data-testid="recaptcha-terms-of-service-link"
-                    href="https://policies.google.com/terms"
-                    rel="noreferrer noopener"
-                    target="_blank"
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"download3-button1","label":"MC: downloadList.download (0)","action":"[]"}"
+                    data-testid="document-table-download-button"
+                    tabindex="0"
+                    type="button"
                   >
-                    <span>
-                      Terms of Service
-                    </span>
-                  </a>
-                   apply.
-                </p>
+                    MC: downloadList.download (0)
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                  <p
+                    class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
+                    data-testid="typography"
+                  >
+                    This site is protected by reCAPTCHA and the Google 
+                    <a
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                      data-testid="recaptcha-privacy-policy-link"
+                      href="https://policies.google.com/privacy"
+                      rel="noreferrer noopener"
+                      target="_blank"
+                    >
+                      <span>
+                        Privacy Policy
+                      </span>
+                    </a>
+                     and 
+                    <a
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                      data-testid="recaptcha-terms-of-service-link"
+                      href="https://policies.google.com/terms"
+                      rel="noreferrer noopener"
+                      target="_blank"
+                    >
+                      <span>
+                        Terms of Service
+                      </span>
+                    </a>
+                     apply.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
