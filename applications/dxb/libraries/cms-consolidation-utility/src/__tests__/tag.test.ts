@@ -12,9 +12,8 @@ const mockEnvironment = (): Partial<Environment> => {
   return env;
 };
 
-const mockEntry = (): Partial<Entry> => {
-  const entry: Partial<Entry> = {};
-  entry.sys = {
+const mockEntry = (): Partial<Entry> => ({
+  sys: {
     space: {
       sys: {
         type: "Link",
@@ -65,10 +64,10 @@ const mockEntry = (): Partial<Entry> => {
         linkType: "ContentType",
         id: "page"
       }
-    }
-  };
-  return entry;
-};
+    },
+    automationTags: []
+  }
+});
 
 beforeEach(() => {
   jest.clearAllMocks();

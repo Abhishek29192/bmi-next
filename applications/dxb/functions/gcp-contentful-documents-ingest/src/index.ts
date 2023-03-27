@@ -24,7 +24,7 @@ export const updateESDocumentsIndex: HttpFunction = async (
 
   const body: Entry<ContentfulDocument> | undefined = request.body;
 
-  if (body?.sys.contentType.sys.id !== "document") {
+  if (body?.sys?.contentType.sys.id !== "document") {
     logger.warning({
       message:
         "Function doesn't support webhooks with contentType ID other then 'document.'"

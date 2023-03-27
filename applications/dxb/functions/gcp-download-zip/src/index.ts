@@ -48,10 +48,6 @@ export const download: HttpFunction = async (request, response) => {
 
     return response.status(204).send("");
   } else {
-    if (!request.body) {
-      logger.error({ message: "Invalid request." });
-      return response.status(400).send("Invalid request.");
-    }
     if (!request.body.documents?.length) {
       logger.error({ message: "List of documents not provided." });
       return response.status(400).send("List of documents not provided.");

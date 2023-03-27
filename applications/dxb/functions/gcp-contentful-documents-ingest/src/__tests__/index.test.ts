@@ -66,14 +66,14 @@ beforeEach(() => {
 describe("updateESDocumentsIndex", () => {
   it("should do nothing if env variables are missing", async () => {
     checkEnvVariablesMissing.mockReturnValueOnce(true);
-    const request = mockRequest(
-      "POST",
-      {
+    const request = mockRequest({
+      method: "POST",
+      headers: {
         authorization: "Bearer some-super-secret-token"
       },
-      "http://localhost:9000",
-      createContentfulPublishedRequestBody()
-    );
+      url: "http://localhost:9000",
+      body: createContentfulPublishedRequestBody()
+    });
     const response = mockResponse();
 
     await updateESDocumentsIndex(request, response);
@@ -91,14 +91,14 @@ describe("updateESDocumentsIndex", () => {
   it("should do nothing if check authorisation fails", async () => {
     checkEnvVariablesMissing.mockReturnValueOnce(false);
     checkAuthorization.mockReturnValueOnce(true);
-    const request = mockRequest(
-      "POST",
-      {
+    const request = mockRequest({
+      method: "POST",
+      headers: {
         authorization: "Bearer invalid-token"
       },
-      "http://localhost:9000",
-      createContentfulPublishedRequestBody()
-    );
+      url: "http://localhost:9000",
+      body: createContentfulPublishedRequestBody()
+    });
     const response = mockResponse();
 
     await updateESDocumentsIndex(request, response);
@@ -117,14 +117,14 @@ describe("updateESDocumentsIndex", () => {
     checkEnvVariablesMissing.mockReturnValueOnce(false);
     checkAuthorization.mockReturnValueOnce(false);
     checkHttpMethod.mockReturnValueOnce(true);
-    const request = mockRequest(
-      "GET",
-      {
+    const request = mockRequest({
+      method: "GET",
+      headers: {
         authorization: "Bearer some-super-secret-token"
       },
-      "http://localhost:9000",
-      createContentfulPublishedRequestBody()
-    );
+      url: "http://localhost:9000",
+      body: createContentfulPublishedRequestBody()
+    });
     const response = mockResponse();
 
     await updateESDocumentsIndex(request, response);
@@ -143,8 +143,11 @@ describe("updateESDocumentsIndex", () => {
     checkEnvVariablesMissing.mockReturnValueOnce(false);
     checkAuthorization.mockReturnValueOnce(false);
     checkHttpMethod.mockReturnValueOnce(false);
-    const request = mockRequest("POST", {
-      authorization: "Bearer some-super-secret-token"
+    const request = mockRequest({
+      method: "POST",
+      headers: {
+        authorization: "Bearer some-super-secret-token"
+      }
     });
     const response = mockResponse();
 
@@ -164,20 +167,20 @@ describe("updateESDocumentsIndex", () => {
     checkEnvVariablesMissing.mockReturnValueOnce(false);
     checkAuthorization.mockReturnValueOnce(false);
     checkHttpMethod.mockReturnValueOnce(false);
-    const request = mockRequest(
-      "POST",
-      {
+    const request = mockRequest({
+      method: "POST",
+      headers: {
         authorization: "Bearer some-super-secret-token"
       },
-      "http://localhost:9000",
-      createContentfulPublishedRequestBody({
+      url: "http://localhost:9000",
+      body: createContentfulPublishedRequestBody({
         sys: createSys({
           contentType: {
             sys: { type: "Link", linkType: "ContentType", id: "page" }
           }
         })
       })
-    );
+    });
     const response = mockResponse();
 
     await updateESDocumentsIndex(request, response);
@@ -197,14 +200,14 @@ describe("updateESDocumentsIndex", () => {
     checkAuthorization.mockReturnValueOnce(false);
     checkHttpMethod.mockReturnValueOnce(false);
     getEsClient.mockRejectedValueOnce(Error("Expected error"));
-    const request = mockRequest(
-      "POST",
-      {
+    const request = mockRequest({
+      method: "POST",
+      headers: {
         authorization: "Bearer some-super-secret-token"
       },
-      "http://localhost:9000",
-      createContentfulPublishedRequestBody()
-    );
+      url: "http://localhost:9000",
+      body: createContentfulPublishedRequestBody()
+    });
     const response = mockResponse();
 
     try {
@@ -231,14 +234,14 @@ describe("updateESDocumentsIndex", () => {
     checkAuthorization.mockReturnValueOnce(false);
     checkHttpMethod.mockReturnValueOnce(false);
     transformDocument.mockRejectedValueOnce(Error("Expected error"));
-    const request = mockRequest(
-      "POST",
-      {
+    const request = mockRequest({
+      method: "POST",
+      headers: {
         authorization: "Bearer some-super-secret-token"
       },
-      "http://localhost:9000",
-      contentfulPublishedRequestBody
-    );
+      url: "http://localhost:9000",
+      body: contentfulPublishedRequestBody
+    });
     const response = mockResponse();
 
     await updateESDocumentsIndex(request, response);
@@ -264,14 +267,14 @@ describe("updateESDocumentsIndex", () => {
     checkHttpMethod.mockReturnValueOnce(false);
     transformDocument.mockResolvedValueOnce(transformedDocument);
     index.mockRejectedValueOnce(Error("Expected error"));
-    const request = mockRequest(
-      "POST",
-      {
+    const request = mockRequest({
+      method: "POST",
+      headers: {
         authorization: "Bearer some-super-secret-token"
       },
-      "http://localhost:9000",
-      contentfulPublishedRequestBody
-    );
+      url: "http://localhost:9000",
+      body: contentfulPublishedRequestBody
+    });
     const response = mockResponse();
 
     try {
@@ -320,14 +323,14 @@ describe("updateESDocumentsIndex", () => {
         result: "created"
       }
     });
-    const request = mockRequest(
-      "POST",
-      {
+    const request = mockRequest({
+      method: "POST",
+      headers: {
         authorization: "Bearer some-super-secret-token"
       },
-      "http://localhost:9000",
-      contentfulPublishedRequestBody
-    );
+      url: "http://localhost:9000",
+      body: contentfulPublishedRequestBody
+    });
     const response = mockResponse();
 
     await updateESDocumentsIndex(request, response);
@@ -353,14 +356,14 @@ describe("updateESDocumentsIndex", () => {
     checkAuthorization.mockReturnValueOnce(false);
     checkHttpMethod.mockReturnValueOnce(false);
     mockDelete.mockRejectedValueOnce(Error("Expected error"));
-    const request = mockRequest(
-      "POST",
-      {
+    const request = mockRequest({
+      method: "POST",
+      headers: {
         authorization: "Bearer some-super-secret-token"
       },
-      "http://localhost:9000",
-      createContentfulDeletedRequestBody()
-    );
+      url: "http://localhost:9000",
+      body: createContentfulDeletedRequestBody()
+    });
     const response = mockResponse();
 
     try {
@@ -387,14 +390,14 @@ describe("updateESDocumentsIndex", () => {
     checkEnvVariablesMissing.mockReturnValueOnce(false);
     checkAuthorization.mockReturnValueOnce(false);
     checkHttpMethod.mockReturnValueOnce(false);
-    const request = mockRequest(
-      "POST",
-      {
+    const request = mockRequest({
+      method: "POST",
+      headers: {
         authorization: "Bearer some-super-secret-token"
       },
-      "http://localhost:9000",
-      createContentfulDeletedRequestBody()
-    );
+      url: "http://localhost:9000",
+      body: createContentfulDeletedRequestBody()
+    });
     const response = mockResponse();
     mockDelete.mockResolvedValueOnce({
       body: {

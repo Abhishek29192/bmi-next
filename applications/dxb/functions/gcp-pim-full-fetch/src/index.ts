@@ -115,7 +115,7 @@ const handleRequest = async (
 
   const body = req.body;
 
-  if (!body) {
+  if (!body.type && !body.startPage && !body.numberOfPages) {
     logger.error({
       message: "type, startPage and numberOfPages was not provided."
     });

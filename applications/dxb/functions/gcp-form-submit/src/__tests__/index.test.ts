@@ -22,7 +22,8 @@ const mockRequest = (
     values: { files: ["path/to/file"], a: "b" }
   },
   headers: IncomingHttpHeaders = { "X-Recaptcha-Token": validToken }
-): Partial<Request> => fetchMockRequest("POST", headers, "/", body);
+): Partial<Request> =>
+  fetchMockRequest({ method: "POST", headers, url: "/", body });
 
 const verifyRecaptchaToken = jest.fn();
 jest.mock("@bmi/functions-recaptcha", () => ({
