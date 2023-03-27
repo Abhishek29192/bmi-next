@@ -600,7 +600,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-12zstsi-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1y2mitp-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -630,10 +630,10 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         class="css-eler5f"
                       >
                         <ul
-                          class="css-1wmdec9"
+                          class="css-1yuf2q3"
                         >
                           <li
-                            class="IconList-isCompact css-nggtm6"
+                            class="IconList-isCompact css-6y5cxr"
                           >
                             <div
                               class="IconList-icon"
@@ -1546,7 +1546,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-12zstsi-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1y2mitp-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -1576,10 +1576,10 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         class="css-eler5f"
                       >
                         <ul
-                          class="css-1wmdec9"
+                          class="css-1yuf2q3"
                         >
                           <li
-                            class="IconList-isCompact css-nggtm6"
+                            class="IconList-isCompact css-6y5cxr"
                           >
                             <div
                               class="IconList-icon"
@@ -2557,7 +2557,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-12zstsi-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1y2mitp-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -2587,10 +2587,10 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         class="css-eler5f"
                       >
                         <ul
-                          class="css-1wmdec9"
+                          class="css-1yuf2q3"
                         >
                           <li
-                            class="IconList-isCompact css-nggtm6"
+                            class="IconList-isCompact css-6y5cxr"
                           >
                             <div
                               class="IconList-icon"
@@ -2681,7 +2681,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         <div
                           aria-expanded="false"
                           aria-label="Colour"
-                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-lxjiqx-MuiButtonBase-root-MuiAccordionSummary-root"
+                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
                           data-gtm="{"id":"filter1","label":"Colour","action":"Selector – Filter"}"
                           role="button"
                           tabindex="0"
@@ -3754,7 +3754,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-12zstsi-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1y2mitp-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -3784,10 +3784,10 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         class="css-eler5f"
                       >
                         <ul
-                          class="css-1wmdec9"
+                          class="css-1yuf2q3"
                         >
                           <li
-                            class="IconList-isCompact css-nggtm6"
+                            class="IconList-isCompact css-6y5cxr"
                           >
                             <div
                               class="IconList-icon"
@@ -3878,7 +3878,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         <div
                           aria-expanded="false"
                           aria-label="Size"
-                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-lxjiqx-MuiButtonBase-root-MuiAccordionSummary-root"
+                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
                           data-gtm="{"id":"filter1","label":"Size","action":"Selector – Filter"}"
                           role="button"
                           tabindex="0"
@@ -4875,7 +4875,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-12zstsi-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1y2mitp-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -4905,10 +4905,10 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         class="css-eler5f"
                       >
                         <ul
-                          class="css-1wmdec9"
+                          class="css-1yuf2q3"
                         >
                           <li
-                            class="IconList-isCompact css-nggtm6"
+                            class="IconList-isCompact css-6y5cxr"
                           >
                             <div
                               class="IconList-icon"
@@ -4999,7 +4999,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         <div
                           aria-expanded="false"
                           aria-label="Colour"
-                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-lxjiqx-MuiButtonBase-root-MuiAccordionSummary-root"
+                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
                           data-gtm="{"id":"filter1","label":"Colour","action":"Selector – Filter"}"
                           role="button"
                           tabindex="0"
@@ -6004,7 +6004,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-12zstsi-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1y2mitp-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -6034,10 +6034,10 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                         class="css-eler5f"
                       >
                         <ul
-                          class="css-1wmdec9"
+                          class="css-1yuf2q3"
                         >
                           <li
-                            class="IconList-isCompact css-nggtm6"
+                            class="IconList-isCompact css-6y5cxr"
                           >
                             <div
                               class="IconList-icon"
@@ -7033,7 +7033,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-12zstsi-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1y2mitp-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -7063,10 +7063,10 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                         class="css-eler5f"
                       >
                         <ul
-                          class="css-1wmdec9"
+                          class="css-1yuf2q3"
                         >
                           <li
-                            class="IconList-isCompact css-nggtm6"
+                            class="IconList-isCompact css-6y5cxr"
                           >
                             <div
                               class="IconList-icon"
@@ -8037,7 +8037,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-12zstsi-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1y2mitp-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -8067,10 +8067,10 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                         class="css-eler5f"
                       >
                         <ul
-                          class="css-1wmdec9"
+                          class="css-1yuf2q3"
                         >
                           <li
-                            class="IconList-isCompact css-nggtm6"
+                            class="IconList-isCompact css-6y5cxr"
                           >
                             <div
                               class="IconList-icon"
@@ -9029,7 +9029,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-12zstsi-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1y2mitp-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -9059,10 +9059,10 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                         class="css-eler5f"
                       >
                         <ul
-                          class="css-1wmdec9"
+                          class="css-1yuf2q3"
                         >
                           <li
-                            class="IconList-isCompact css-nggtm6"
+                            class="IconList-isCompact css-6y5cxr"
                           >
                             <div
                               class="IconList-icon"
@@ -9153,7 +9153,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                         <div
                           aria-expanded="false"
                           aria-label="Size"
-                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-lxjiqx-MuiButtonBase-root-MuiAccordionSummary-root"
+                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
                           data-gtm="{"id":"filter1","label":"Size","action":"Selector – Filter"}"
                           role="button"
                           tabindex="0"
@@ -10207,7 +10207,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-12zstsi-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1y2mitp-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -10237,10 +10237,10 @@ exports[`ProductListerPage template renders an default image if there is no imag
                         class="css-eler5f"
                       >
                         <ul
-                          class="css-1wmdec9"
+                          class="css-1yuf2q3"
                         >
                           <li
-                            class="IconList-isCompact css-nggtm6"
+                            class="IconList-isCompact css-6y5cxr"
                           >
                             <div
                               class="IconList-icon"
@@ -10331,7 +10331,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
                         <div
                           aria-expanded="false"
                           aria-label="Size"
-                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-lxjiqx-MuiButtonBase-root-MuiAccordionSummary-root"
+                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
                           data-gtm="{"id":"filter1","label":"Size","action":"Selector – Filter"}"
                           role="button"
                           tabindex="0"
@@ -11398,7 +11398,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-12zstsi-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1y2mitp-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -11428,10 +11428,10 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                         class="css-eler5f"
                       >
                         <ul
-                          class="css-1wmdec9"
+                          class="css-1yuf2q3"
                         >
                           <li
-                            class="IconList-isCompact css-nggtm6"
+                            class="IconList-isCompact css-6y5cxr"
                           >
                             <div
                               class="IconList-icon"
@@ -11522,7 +11522,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                         <div
                           aria-expanded="false"
                           aria-label="texture"
-                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-lxjiqx-MuiButtonBase-root-MuiAccordionSummary-root"
+                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
                           data-gtm="{"id":"filter1","label":"texture","action":"Selector – Filter"}"
                           role="button"
                           tabindex="0"
@@ -12589,7 +12589,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-12zstsi-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1y2mitp-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -12619,10 +12619,10 @@ exports[`ProductListerPage template test handle change url by click on filters a
                         class="css-eler5f"
                       >
                         <ul
-                          class="css-1wmdec9"
+                          class="css-1yuf2q3"
                         >
                           <li
-                            class="IconList-isCompact css-nggtm6"
+                            class="IconList-isCompact css-6y5cxr"
                           >
                             <div
                               class="IconList-icon"
@@ -12713,7 +12713,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
                         <div
                           aria-expanded="false"
                           aria-label="Colour"
-                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-lxjiqx-MuiButtonBase-root-MuiAccordionSummary-root"
+                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
                           data-gtm="{"id":"filter1","label":"Colour","action":"Selector – Filter"}"
                           role="button"
                           tabindex="0"
@@ -13786,7 +13786,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-12zstsi-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1y2mitp-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -13816,10 +13816,10 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         class="css-eler5f"
                       >
                         <ul
-                          class="css-1wmdec9"
+                          class="css-1yuf2q3"
                         >
                           <li
-                            class="IconList-isCompact css-nggtm6"
+                            class="IconList-isCompact css-6y5cxr"
                           >
                             <div
                               class="IconList-icon"
@@ -13910,7 +13910,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         <div
                           aria-expanded="false"
                           aria-label="Size"
-                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-lxjiqx-MuiButtonBase-root-MuiAccordionSummary-root"
+                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
                           data-gtm="{"id":"filter1","label":"Size","action":"Selector – Filter"}"
                           role="button"
                           tabindex="0"
@@ -15182,7 +15182,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-12zstsi-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1y2mitp-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -15212,10 +15212,10 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         class="css-eler5f"
                       >
                         <ul
-                          class="css-1wmdec9"
+                          class="css-1yuf2q3"
                         >
                           <li
-                            class="IconList-isCompact css-nggtm6"
+                            class="IconList-isCompact css-6y5cxr"
                           >
                             <div
                               class="IconList-icon"
@@ -15306,7 +15306,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         <div
                           aria-expanded="false"
                           aria-label="Size"
-                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-lxjiqx-MuiButtonBase-root-MuiAccordionSummary-root"
+                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
                           data-gtm="{"id":"filter1","label":"Size","action":"Selector – Filter"}"
                           role="button"
                           tabindex="0"

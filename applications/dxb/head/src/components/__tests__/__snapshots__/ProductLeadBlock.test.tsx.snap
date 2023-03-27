@@ -201,7 +201,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
         role="tabpanel"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-12zstsi-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1y2mitp-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -398,10 +398,10 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     class="css-eler5f"
                   >
                     <ul
-                      class="css-1wmdec9"
+                      class="css-1yuf2q3"
                     >
                       <li
-                        class="IconList-isCompact css-nggtm6"
+                        class="IconList-isCompact css-6y5cxr"
                       >
                         <div
                           class="IconList-icon"
@@ -447,7 +447,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
         role="tabpanel"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-12zstsi-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1y2mitp-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -1108,7 +1108,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
         role="tabpanel"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1xdopji-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ykfpt-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -1377,7 +1377,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
         role="tabpanel"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-12zstsi-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1y2mitp-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -1570,10 +1570,10 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     class="css-eler5f"
                   >
                     <ul
-                      class="css-1wmdec9"
+                      class="css-1yuf2q3"
                     >
                       <li
-                        class="IconList-isCompact css-nggtm6"
+                        class="IconList-isCompact css-6y5cxr"
                       >
                         <div
                           class="IconList-icon"
@@ -1619,7 +1619,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
         role="tabpanel"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-12zstsi-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1y2mitp-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -2042,7 +2042,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
         role="tabpanel"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1xdopji-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ykfpt-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -2295,7 +2295,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
         role="tabpanel"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-12zstsi-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1y2mitp-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -2488,10 +2488,10 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
                     class="css-eler5f"
                   >
                     <ul
-                      class="css-1wmdec9"
+                      class="css-1yuf2q3"
                     >
                       <li
-                        class="IconList-isCompact css-nggtm6"
+                        class="IconList-isCompact css-6y5cxr"
                       >
                         <div
                           class="IconList-icon"
@@ -2537,7 +2537,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
         role="tabpanel"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-12zstsi-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1y2mitp-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -2623,7 +2623,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
         role="tabpanel"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1xdopji-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ykfpt-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -3263,7 +3263,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
   role="tabpanel"
 >
   <div
-    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-12zstsi-MuiGrid2-root"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1y2mitp-MuiGrid2-root"
     data-testid="grid-container"
   >
     <div
@@ -3460,10 +3460,10 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
               class="css-eler5f"
             >
               <ul
-                class="css-1wmdec9"
+                class="css-1yuf2q3"
               >
                 <li
-                  class="IconList-isCompact css-nggtm6"
+                  class="IconList-isCompact css-6y5cxr"
                 >
                   <div
                     class="IconList-icon"
@@ -4143,7 +4143,7 @@ exports[`ProductLeadBlock tests should render the technical draws tab 1`] = `
   role="tabpanel"
 >
   <div
-    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1xdopji-MuiGrid2-root"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ykfpt-MuiGrid2-root"
     data-testid="grid-container"
   >
     <div

@@ -73,7 +73,7 @@ exports[`WelcomeDialog component Renders correctly When Title and rich text cont
             />
             <div>
               <div
-                class="RichText-root RichText-no-bottom-margin css-11n1wnk"
+                class="RichText-root RichText-no-bottom-margin css-vf09gu"
               >
                 <p
                   class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -220,7 +220,7 @@ exports[`WelcomeDialog component Renders correctly When Title rich text and icon
             </div>
             <div>
               <div
-                class="RichText-root RichText-no-bottom-margin css-11n1wnk"
+                class="RichText-root RichText-no-bottom-margin css-vf09gu"
               >
                 <p
                   class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"

@@ -112,7 +112,7 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-o1hazu-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-d6me72-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -232,7 +232,7 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
                         class="css-eler5f"
                       >
                         <ul
-                          class="css-1wmdec9"
+                          class="css-1yuf2q3"
                         />
                       </div>
                     </div>
@@ -392,7 +392,7 @@ exports[`TabLeadBlock tests should render 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-o1hazu-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-d6me72-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -512,7 +512,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                         class="css-eler5f"
                       >
                         <ul
-                          class="css-1wmdec9"
+                          class="css-1yuf2q3"
                         />
                       </div>
                     </div>
@@ -544,7 +544,7 @@ exports[`TabLeadBlock tests should render 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-12zstsi-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1y2mitp-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -1288,7 +1288,7 @@ exports[`TabLeadBlock tests should render the bimIframe tab 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-12zstsi-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1y2mitp-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div

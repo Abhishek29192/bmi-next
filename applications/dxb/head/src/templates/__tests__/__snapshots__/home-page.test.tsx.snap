@@ -2666,7 +2666,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                             class="CarouselHero-content"
                           >
                             <h1
-                              class="MuiTypography-root MuiTypography-h1 Typography-underline Typography-darkBg css-b4lozl-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-h1 Typography-underline Typography-darkBg css-1a28zd1-MuiTypography-root"
                               data-testid="hero-title"
                             >
                               homePageSlideTitle
@@ -3333,7 +3333,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                 >
                   <div
                     aria-expanded="false"
-                    class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-lxjiqx-MuiButtonBase-root-MuiAccordionSummary-root"
+                    class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
                     data-gtm="{"id":"selector-accordion1","label":"hello","action":"Selector – Accordion"}"
                     role="button"
                     tabindex="0"
@@ -3382,7 +3382,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                             class="MuiAccordionDetails-root  css-1r7u8wy-MuiAccordionDetails-root"
                           >
                             <div
-                              class="RichText-root RichText-no-bottom-margin css-11n1wnk"
+                              class="RichText-root RichText-no-bottom-margin css-vf09gu"
                             >
                               <p
                                 class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"

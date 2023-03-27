@@ -5926,7 +5926,7 @@ exports[`Simple page renders correctly with full data 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1xd00v8-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1f46jqi-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -5938,7 +5938,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                 data-testid="typography"
               >
                 <div
-                  class="RichText-root RichText-no-bottom-margin css-11n1wnk"
+                  class="RichText-root RichText-no-bottom-margin css-vf09gu"
                 >
                   <p
                     class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -6023,7 +6023,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                 ContentfulCardCollectionSectionTitle
               </h2>
               <div
-                class="RichText-root css-11n1wnk"
+                class="RichText-root css-vf09gu"
               >
                 <p
                   class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"

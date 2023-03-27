@@ -20,7 +20,6 @@ export const LinkWrapper = styled(LeadBlock.Content.Section)({
 });
 
 export const LeadBlockWrapper = styled(LeadBlock)(({ theme }) => ({
-  paddingBottom: 0,
   [theme.breakpoints.down("lg")]: {
     gap: "8px"
   }

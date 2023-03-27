@@ -65,7 +65,6 @@ export const StyledRichText = styled("div")(({ theme }) => ({
 
     "& ol li::before": {
       marginLeft: "-1.5rem",
-      marginTop: "1px",
       width: "1.5rem"
     },
 
