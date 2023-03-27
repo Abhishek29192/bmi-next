@@ -2768,10 +2768,14 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                                           <span
                                             class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-srszrw-MuiTypography-root"
                                           >
-                                            <span
-                                              class="ColorSwatch"
-                                            />
-                                            colour-1
+                                            <div
+                                              class="css-k008qs"
+                                            >
+                                              <span
+                                                class="ColorSwatch"
+                                              />
+                                              colour-1
+                                            </div>
                                           </span>
                                         </label>
                                       </div>
@@ -2812,10 +2816,14 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                                           <span
                                             class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-srszrw-MuiTypography-root"
                                           >
-                                            <span
-                                              class="ColorSwatch"
-                                            />
-                                            colour-2
+                                            <div
+                                              class="css-k008qs"
+                                            >
+                                              <span
+                                                class="ColorSwatch"
+                                              />
+                                              colour-2
+                                            </div>
                                           </span>
                                         </label>
                                       </div>
@@ -5083,10 +5091,14 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                                           <span
                                             class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-srszrw-MuiTypography-root"
                                           >
-                                            <span
-                                              class="ColorSwatch"
-                                            />
-                                            colour-1
+                                            <div
+                                              class="css-k008qs"
+                                            >
+                                              <span
+                                                class="ColorSwatch"
+                                              />
+                                              colour-1
+                                            </div>
                                           </span>
                                         </label>
                                       </div>
@@ -5124,10 +5136,14 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                                           <span
                                             class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-srszrw-MuiTypography-root"
                                           >
-                                            <span
-                                              class="ColorSwatch"
-                                            />
-                                            colour-2
+                                            <div
+                                              class="css-k008qs"
+                                            >
+                                              <span
+                                                class="ColorSwatch"
+                                              />
+                                              colour-2
+                                            </div>
                                           </span>
                                         </label>
                                       </div>
@@ -12800,10 +12816,14 @@ exports[`ProductListerPage template test handle change url by click on filters a
                                           <span
                                             class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-srszrw-MuiTypography-root"
                                           >
-                                            <span
-                                              class="ColorSwatch"
-                                            />
-                                            colour-1
+                                            <div
+                                              class="css-k008qs"
+                                            >
+                                              <span
+                                                class="ColorSwatch"
+                                              />
+                                              colour-1
+                                            </div>
                                           </span>
                                         </label>
                                       </div>
@@ -12844,10 +12864,14 @@ exports[`ProductListerPage template test handle change url by click on filters a
                                           <span
                                             class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-srszrw-MuiTypography-root"
                                           >
-                                            <span
-                                              class="ColorSwatch"
-                                            />
-                                            colour-2
+                                            <div
+                                              class="css-k008qs"
+                                            >
+                                              <span
+                                                class="ColorSwatch"
+                                              />
+                                              colour-2
+                                            </div>
                                           </span>
                                         </label>
                                       </div>
