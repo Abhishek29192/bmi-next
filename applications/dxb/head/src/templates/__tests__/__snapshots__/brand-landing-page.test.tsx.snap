@@ -2800,7 +2800,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                             class="CarouselHero-content"
                           >
                             <h1
-                              class="MuiTypography-root MuiTypography-h1 Typography-underline Typography-darkBg css-b4lozl-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-h1 Typography-underline Typography-darkBg css-1a28zd1-MuiTypography-root"
                               data-testid="hero-title"
                             >
                               searchPageNextBestActionsTitle
@@ -6613,7 +6613,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                             class="CarouselHero-content"
                           >
                             <h1
-                              class="MuiTypography-root MuiTypography-h1 css-b4lozl-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-h1 css-1a28zd1-MuiTypography-root"
                               data-testid="hero-title"
                             />
                             <p
@@ -10195,7 +10195,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
                             class="CarouselHero-content"
                           >
                             <h1
-                              class="MuiTypography-root MuiTypography-h1 css-b4lozl-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-h1 css-1a28zd1-MuiTypography-root"
                               data-testid="hero-title"
                             />
                             <p
@@ -14004,7 +14004,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                             class="CarouselHero-content"
                           >
                             <h1
-                              class="MuiTypography-root MuiTypography-h1 Typography-underline Typography-darkBg css-b4lozl-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-h1 Typography-underline Typography-darkBg css-1a28zd1-MuiTypography-root"
                               data-testid="hero-title"
                             >
                               ContentfulSimplePageTitle
@@ -17781,7 +17781,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                             class="CarouselHero-content"
                           >
                             <h1
-                              class="MuiTypography-root MuiTypography-h1 css-b4lozl-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-h1 css-1a28zd1-MuiTypography-root"
                               data-testid="hero-title"
                             />
                             <p
@@ -21588,7 +21588,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                             class="CarouselHero-content"
                           >
                             <h1
-                              class="MuiTypography-root MuiTypography-h1 css-b4lozl-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-h1 css-1a28zd1-MuiTypography-root"
                               data-testid="hero-title"
                             />
                             <p
@@ -25366,7 +25366,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                             class="CarouselHero-content"
                           >
                             <h1
-                              class="MuiTypography-root MuiTypography-h1 css-b4lozl-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-h1 css-1a28zd1-MuiTypography-root"
                               data-testid="hero-title"
                             />
                             <p
@@ -29174,7 +29174,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                             class="CarouselHero-content"
                           >
                             <h1
-                              class="MuiTypography-root MuiTypography-h1 css-b4lozl-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-h1 css-1a28zd1-MuiTypography-root"
                               data-testid="hero-title"
                             />
                             <p
@@ -32983,7 +32983,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                             class="CarouselHero-content"
                           >
                             <h1
-                              class="MuiTypography-root MuiTypography-h1 css-b4lozl-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-h1 css-1a28zd1-MuiTypography-root"
                               data-testid="hero-title"
                             />
                             <p
@@ -36804,7 +36804,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                             class="CarouselHero-content"
                           >
                             <h1
-                              class="MuiTypography-root MuiTypography-h1 css-b4lozl-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-h1 css-1a28zd1-MuiTypography-root"
                               data-testid="hero-title"
                             />
                             <p
@@ -40623,7 +40623,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                             class="CarouselHero-content"
                           >
                             <h1
-                              class="MuiTypography-root MuiTypography-h1 css-b4lozl-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-h1 css-1a28zd1-MuiTypography-root"
                               data-testid="hero-title"
                             />
                             <p
@@ -44444,7 +44444,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                             class="CarouselHero-content"
                           >
                             <h1
-                              class="MuiTypography-root MuiTypography-h1 css-b4lozl-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-h1 css-1a28zd1-MuiTypography-root"
                               data-testid="hero-title"
                             />
                             <p

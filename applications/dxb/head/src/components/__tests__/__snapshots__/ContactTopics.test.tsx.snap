@@ -73,10 +73,10 @@ exports[`ContactTopics component renders correctly 1`] = `
               Did you know?2
             </h4>
             <ul
-              class="css-1wmdec9"
+              class="css-1yuf2q3"
             >
               <li
-                class=" css-nggtm6"
+                class=" css-6y5cxr"
               >
                 <div
                   class="IconList-icon"
@@ -115,7 +115,7 @@ exports[`ContactTopics component renders correctly 1`] = `
                     class="IconList-description"
                   >
                     <div
-                      class="RichText-root RichText-no-bottom-margin css-11n1wnk"
+                      class="RichText-root RichText-no-bottom-margin css-vf09gu"
                     >
                       <p
                         class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -128,7 +128,7 @@ exports[`ContactTopics component renders correctly 1`] = `
                 </div>
               </li>
               <li
-                class=" css-nggtm6"
+                class=" css-6y5cxr"
               >
                 <div
                   class="IconList-icon"
@@ -167,7 +167,7 @@ exports[`ContactTopics component renders correctly 1`] = `
                     class="IconList-description"
                   >
                     <div
-                      class="RichText-root RichText-no-bottom-margin css-11n1wnk"
+                      class="RichText-root RichText-no-bottom-margin css-vf09gu"
                     >
                       <p
                         class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -210,7 +210,7 @@ exports[`ContactTopics component renders correctly 1`] = `
                     teste
                   </h5>
                   <div
-                    class="RichText-root css-11n1wnk"
+                    class="RichText-root css-vf09gu"
                   >
                     <p
                       class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"

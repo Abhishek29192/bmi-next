@@ -20,7 +20,7 @@
     "test": "jest --coverage --reporters=default --reporters=jest-junit"
   },
   "dependencies": {
-    "@bmi-digital/components": "^1.28.1",
+    "@bmi-digital/components": "^1.28.2",
     "@bmi-digital/react-pdf-maker": "^1.5.1",
     "@bmi-digital/styles": "^1.5.1",
     "@bmi/gatsby-plugin-material-ui": "^0.0.0",

@@ -22,7 +22,7 @@ exports[`DocumentDownloadSection component renders correctly with all data 1`] =
           style="margin-bottom: 40px;"
         >
           <div
-            class="RichText-root css-11n1wnk"
+            class="RichText-root css-vf09gu"
           >
             <p
               class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"

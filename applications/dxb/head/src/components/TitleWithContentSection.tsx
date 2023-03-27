@@ -16,7 +16,7 @@ const TitleWithContentSection = ({ data }: Props) => {
       backgroundColor="white"
       data-testid={`title-with-content-section-${replaceSpaces(data.title)}`}
     >
-      <Grid container lg={8} xs={12}>
+      <Grid container lg={8} xs={12} m={0}>
         {data.title && <Section.Title>{data.title}</Section.Title>}
         <RichText document={data.content} hasNoBottomMargin />
       </Grid>

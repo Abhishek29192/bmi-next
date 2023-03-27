@@ -3,6 +3,9 @@
 .ServiceLocationSection {
   .body {
     margin-bottom: 24px;
+    &+.controls{
+      margin-top: 0;
+    }
   }
 
   .controls {

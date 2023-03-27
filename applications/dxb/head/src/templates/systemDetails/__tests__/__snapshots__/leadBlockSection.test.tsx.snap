@@ -13,7 +13,7 @@ exports[`LeadBlockSection tests When user navigates with selected systems query 
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-12zstsi-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1y2mitp-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -129,7 +129,7 @@ exports[`LeadBlockSection tests should not render systemAttributes Card with emp
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-12zstsi-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1y2mitp-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -217,7 +217,7 @@ exports[`LeadBlockSection tests should render 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-12zstsi-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1y2mitp-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -305,7 +305,7 @@ exports[`LeadBlockSection tests should render with uniqueSellingPropositions 1`]
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-12zstsi-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1y2mitp-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -390,10 +390,10 @@ exports[`LeadBlockSection tests should render with uniqueSellingPropositions 1`]
                     class="iconList"
                   >
                     <ul
-                      class="css-1wmdec9"
+                      class="css-1yuf2q3"
                     >
                       <li
-                        class="IconList-isCompact css-nggtm6"
+                        class="IconList-isCompact css-6y5cxr"
                       >
                         <div
                           class="IconList-icon"
@@ -422,7 +422,7 @@ exports[`LeadBlockSection tests should render with uniqueSellingPropositions 1`]
                         </div>
                       </li>
                       <li
-                        class="IconList-isCompact css-nggtm6"
+                        class="IconList-isCompact css-6y5cxr"
                       >
                         <div
                           class="IconList-icon"

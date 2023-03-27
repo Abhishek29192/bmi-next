@@ -146,7 +146,7 @@ exports[`Sections component renders alternate backgrounds for promos 1`] = `
                   Promo 3
                 </h3>
                 <div
-                  class="RichText-root RichText-no-bottom-margin css-11n1wnk"
+                  class="RichText-root RichText-no-bottom-margin css-vf09gu"
                 >
                   <h2
                     class="MuiTypography-root MuiTypography-h2 RichText-title css-1gn4sxn-MuiTypography-root"
@@ -213,7 +213,7 @@ exports[`Sections component renders correctly 1`] = `
               >
                 <div
                   aria-expanded="false"
-                  class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-lxjiqx-MuiButtonBase-root-MuiAccordionSummary-root"
+                  class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
                   data-gtm="{"id":"selector-accordion1","label":"hello","action":"Selector – Accordion"}"
                   role="button"
                   tabindex="0"
@@ -262,7 +262,7 @@ exports[`Sections component renders correctly 1`] = `
                           class="MuiAccordionDetails-root  css-1r7u8wy-MuiAccordionDetails-root"
                         >
                           <div
-                            class="RichText-root RichText-no-bottom-margin css-11n1wnk"
+                            class="RichText-root RichText-no-bottom-margin css-vf09gu"
                           >
                             <p
                               class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -412,7 +412,7 @@ exports[`Sections component renders correctly 1`] = `
                 role="tabpanel"
               >
                 <div
-                  class="RichText-root css-11n1wnk"
+                  class="RichText-root css-vf09gu"
                 >
                   <p
                     class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -463,7 +463,7 @@ exports[`Sections component renders correctly 1`] = `
                   class="Villain-content ColorPair-blue800 css-1pt14k0"
                 >
                   <h3
-                    class="MuiTypography-root MuiTypography-h4 Typography-underline css-1brg2u4-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h2 Typography-underline css-1jvmopm-MuiTypography-root"
                     data-testid="typography"
                   >
                     Villain 1
@@ -503,7 +503,7 @@ exports[`Sections component renders correctly 1`] = `
                   class="Villain-content ColorPair-blue800 css-1pt14k0"
                 >
                   <h3
-                    class="MuiTypography-root MuiTypography-h4 Typography-underline css-1brg2u4-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h2 Typography-underline css-1jvmopm-MuiTypography-root"
                     data-testid="typography"
                   >
                     Villain 2
@@ -1162,7 +1162,7 @@ exports[`Sections component renders correctly 1`] = `
             style="margin-bottom: 40px;"
           >
             <div
-              class="RichText-root css-11n1wnk"
+              class="RichText-root css-vf09gu"
             >
               <p
                 class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -2223,7 +2223,7 @@ exports[`Sections component renders correctly 1`] = `
             Section title
           </h2>
           <div
-            class="RichText-root RichText-no-bottom-margin css-11n1wnk"
+            class="RichText-root RichText-no-bottom-margin css-vf09gu"
           >
             <p
               class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -2439,7 +2439,7 @@ exports[`Sections component renders correctly 1`] = `
                         style="margin-bottom: 60px;"
                       >
                         <div
-                          class="RichText-root css-11n1wnk"
+                          class="RichText-root css-vf09gu"
                         >
                           <p
                             class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -2680,7 +2680,7 @@ exports[`Sections component renders correctly 1`] = `
                         style="margin-bottom: 60px;"
                       >
                         <div
-                          class="RichText-root css-11n1wnk"
+                          class="RichText-root css-vf09gu"
                         >
                           <p
                             class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -3642,7 +3642,7 @@ exports[`Sections component renders correctly when incomplete 1`] = `
               >
                 <div
                   aria-expanded="false"
-                  class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-lxjiqx-MuiButtonBase-root-MuiAccordionSummary-root"
+                  class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
                   data-gtm="{"id":"selector-accordion1","label":"hello","action":"Selector – Accordion"}"
                   role="button"
                   tabindex="0"
@@ -3691,7 +3691,7 @@ exports[`Sections component renders correctly when incomplete 1`] = `
                           class="MuiAccordionDetails-root  css-1r7u8wy-MuiAccordionDetails-root"
                         >
                           <div
-                            class="RichText-root RichText-no-bottom-margin css-11n1wnk"
+                            class="RichText-root RichText-no-bottom-margin css-vf09gu"
                           >
                             <p
                               class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -3841,7 +3841,7 @@ exports[`Sections component renders correctly when incomplete 1`] = `
                 role="tabpanel"
               >
                 <div
-                  class="RichText-root css-11n1wnk"
+                  class="RichText-root css-vf09gu"
                 >
                   <p
                     class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -3923,7 +3923,7 @@ exports[`Sections component renders correctly with 1 villain 1`] = `
               >
                 <div
                   aria-expanded="false"
-                  class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-lxjiqx-MuiButtonBase-root-MuiAccordionSummary-root"
+                  class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
                   data-gtm="{"id":"selector-accordion1","label":"hello","action":"Selector – Accordion"}"
                   role="button"
                   tabindex="0"
@@ -3972,7 +3972,7 @@ exports[`Sections component renders correctly with 1 villain 1`] = `
                           class="MuiAccordionDetails-root  css-1r7u8wy-MuiAccordionDetails-root"
                         >
                           <div
-                            class="RichText-root RichText-no-bottom-margin css-11n1wnk"
+                            class="RichText-root RichText-no-bottom-margin css-vf09gu"
                           >
                             <p
                               class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -4122,7 +4122,7 @@ exports[`Sections component renders correctly with 1 villain 1`] = `
                 role="tabpanel"
               >
                 <div
-                  class="RichText-root css-11n1wnk"
+                  class="RichText-root css-vf09gu"
                 >
                   <p
                     class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"

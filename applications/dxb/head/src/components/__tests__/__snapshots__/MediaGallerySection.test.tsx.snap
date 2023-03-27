@@ -285,7 +285,7 @@ exports[`MediaGallerySection component renders correctly with long description 1
               class="description"
             >
               <div
-                class="RichText-root RichText-no-bottom-margin css-11n1wnk"
+                class="RichText-root RichText-no-bottom-margin css-vf09gu"
               >
                 <h2
                   class="MuiTypography-root MuiTypography-h2 RichText-title css-1gn4sxn-MuiTypography-root"
