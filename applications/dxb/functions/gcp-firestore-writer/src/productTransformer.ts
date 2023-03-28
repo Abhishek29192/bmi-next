@@ -241,8 +241,15 @@ export const transformProduct = (product: PimProduct): Product[] => {
         }
       });
 
+      if (
+        product.approvalStatus === "discontinued" &&
+        variant.approvalStatus === "approved"
+      ) {
+        variant.approvalStatus = "discontinued";
+      }
+
       const transformedProduct: Product = {
-        approvalStatus: product.approvalStatus as ApprovalStatus,
+        approvalStatus: variant.approvalStatus as ApprovalStatus,
         awardsAndCertificateDocuments: getAwardAndCertificateAsset(
           AwardAndCertificateAssetType.Documents,
           product.assets
