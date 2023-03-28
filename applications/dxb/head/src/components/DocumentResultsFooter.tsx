@@ -5,7 +5,7 @@ import {
   DownloadListContext,
   Pagination
 } from "@bmi-digital/components";
-import { useMediaQuery } from "@mui/material";
+import { useMediaQuery, Box } from "@mui/material";
 import { styled, useTheme } from "@mui/material/styles";
 import classnames from "classnames";
 import fetch, { Response } from "node-fetch";
@@ -32,13 +32,13 @@ const classes = {
   paginationRoot: `${PREFIX}-paginationRoot`
 };
 
-const StyledPagination = styled(Pagination)(({ theme }) => ({
+const StyledPagination = styled(Pagination)({
   [`&.${classes.paginationRoot}`]: {
     "& ul": {
       justifyContent: "flex-end"
     }
   }
-}));
+});
 
 type Props = {
   page: number;
@@ -189,7 +189,7 @@ const DocumentResultsFooter = ({
         />
       )}
       {isDownloadButton && !isMobile && (
-        <>
+        <Box mt={4}>
           <DownloadList.Clear
             label={getMicroCopy(microCopy.DOWNLOAD_LIST_CLEAR)}
             className={styles["clear-downloads"]}
@@ -221,7 +221,7 @@ const DocumentResultsFooter = ({
             data-testid="document-table-download-button"
           />
           <RecaptchaPrivacyLinks />
-        </>
+        </Box>
       )}
     </div>
   );
