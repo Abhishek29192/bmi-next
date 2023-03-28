@@ -1,14 +1,11 @@
-import {
-  CompanyDetailProps,
-  RoofProLevel,
-  SocialMediaLinks
-} from "@bmi-digital/components";
+import { CompanyDetailProps, RoofProLevel } from "@bmi-digital/components";
 import React from "react";
 import { Service } from "..";
 import { devLog } from "../../../utils/devLog";
 import { getClickableActionFromUrl } from "../../Link";
 import { EntryTypeEnum } from "../../Service";
 import { EVENT_CAT_ID_LINK_CLICKS } from "../constants";
+import { handleSocialMediaClick } from "../utils/handleSocialMediaClick";
 
 export const createCompanyDetails = (
   sectionType: EntryTypeEnum | undefined,
@@ -60,21 +57,22 @@ export const createCompanyDetails = (
   };
 
   const getSocialMedia = (): CompanyDetailProps => {
-    const socialMedia = {
+    const channels = {
       facebook: service?.facebook,
       linkedIn: service?.linkedIn,
       twitter: service?.twitter,
       instagram: service?.instagram
     };
 
-    if (Object.values(socialMedia).every((channel) => !channel)) {
+    if (Object.values(channels).every((channel) => !channel)) {
       return;
     }
 
     return {
-      type: "content",
+      channels,
       label: localization.socialMediaLabel,
-      text: <SocialMediaLinks {...socialMedia} />
+      onClick: ({ channel }) => handleSocialMediaClick({ channel, service }),
+      type: "socialMedia"
     };
   };
 
