@@ -607,6 +607,9 @@ export type VariantOption = {
   name?: string;
   visualiserAssets?: readonly Asset[];
   keywords?: string[];
+  seoDescription?: string;
+  seoTags?: string[];
+  seoTitle?: string;
 };
 
 export type BaseProduct = Pick<Product, "code" | "name">;
@@ -630,6 +633,9 @@ export type Product = {
   productReferences?: ProductReference[];
   visualiserAssets?: readonly Asset[];
   keywords?: string[];
+  seoDescription?: string;
+  seoTags?: string[];
+  seoTitle?: string;
 };
 
 export enum PimTypes {

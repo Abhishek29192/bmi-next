@@ -333,6 +333,9 @@ describe("transformProduct", () => {
             "product-benefits",
           ],
           "relatedVariants": [],
+          "seoDescription": undefined,
+          "seoTags": undefined,
+          "seoTitle": undefined,
           "specificationIframeUrl": undefined,
           "techDrawings": [],
           "textureFamily": "glossy",
@@ -636,6 +639,9 @@ describe("transformProduct", () => {
             "product-benefits",
           ],
           "relatedVariants": [],
+          "seoDescription": undefined,
+          "seoTags": undefined,
+          "seoTitle": undefined,
           "specificationIframeUrl": undefined,
           "techDrawings": [],
           "textureFamily": "glossy",
@@ -1427,6 +1433,12 @@ describe("transformProduct", () => {
             "product-benefits",
           ],
           "relatedVariants": [],
+          "seoDescription": "seo_descr",
+          "seoTags": [
+            "seo",
+            "test",
+          ],
+          "seoTitle": "test",
           "specificationIframeUrl": "http://localhost:8000",
           "techDrawings": [
             {
@@ -2250,6 +2262,12 @@ describe("transformProduct", () => {
             "product-benefits",
           ],
           "relatedVariants": [],
+          "seoDescription": "seo_descr",
+          "seoTags": [
+            "seo",
+            "test",
+          ],
+          "seoTitle": "test",
           "specificationIframeUrl": "http://localhost:8000",
           "techDrawings": [
             {
@@ -3076,6 +3094,12 @@ describe("transformProduct", () => {
             "product-benefits",
           ],
           "relatedVariants": [],
+          "seoDescription": "seo_descr",
+          "seoTags": [
+            "seo",
+            "test",
+          ],
+          "seoTitle": "test",
           "specificationIframeUrl": "http://localhost:8000",
           "techDrawings": [
             {
@@ -3902,6 +3926,12 @@ describe("transformProduct", () => {
             "product-benefits",
           ],
           "relatedVariants": [],
+          "seoDescription": "seo_descr",
+          "seoTags": [
+            "seo",
+            "test",
+          ],
+          "seoTitle": "test",
           "specificationIframeUrl": "http://localhost:8000",
           "techDrawings": [
             {
@@ -4876,6 +4906,12 @@ describe("transformProduct", () => {
             "product-benefits",
           ],
           "relatedVariants": [],
+          "seoDescription": "seo_descr",
+          "seoTags": [
+            "seo",
+            "test",
+          ],
+          "seoTitle": "test",
           "specificationIframeUrl": "http://localhost:8000",
           "techDrawings": [
             {
@@ -5795,6 +5831,12 @@ describe("transformProduct", () => {
               "variantAttribute": "Shadow Black Gloss 6x7x8x9x10",
             },
           ],
+          "seoDescription": "seo_descr",
+          "seoTags": [
+            "seo",
+            "test",
+          ],
+          "seoTitle": "test",
           "specificationIframeUrl": "http://localhost:8000",
           "techDrawings": [
             {
@@ -6700,6 +6742,12 @@ describe("transformProduct", () => {
               "variantAttribute": "Shadow Black Gloss 6x7x8x9x10",
             },
           ],
+          "seoDescription": "seo_descr",
+          "seoTags": [
+            "seo",
+            "test",
+          ],
+          "seoTitle": "test",
           "specificationIframeUrl": "http://localhost:8000",
           "techDrawings": [
             {
@@ -10252,6 +10300,12 @@ describe("transformProduct", () => {
             "product-benefits",
           ],
           "relatedVariants": [],
+          "seoDescription": "seo_descr",
+          "seoTags": [
+            "seo",
+            "test",
+          ],
+          "seoTitle": "test",
           "specificationIframeUrl": "http://localhost:8000",
           "techDrawings": [
             {
@@ -11206,6 +11260,12 @@ describe("transformProduct", () => {
             "product-benefits",
           ],
           "relatedVariants": [],
+          "seoDescription": "seo_descr",
+          "seoTags": [
+            "seo",
+            "test",
+          ],
+          "seoTitle": "test",
           "specificationIframeUrl": "http://localhost:8000",
           "techDrawings": [
             {

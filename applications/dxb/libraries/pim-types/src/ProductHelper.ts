@@ -209,6 +209,9 @@ export const createFullyPopulatedProduct = (product?: Partial<Product>) =>
       createImage({ assetType: "TECHNICAL_DRAWINGS" })
     ],
     variantOptions: [createFullyPopulatedVariantOption()],
+    seoTitle: "test",
+    seoDescription: "seo_descr",
+    seoTags: ["seo", "test"],
     ...product
   });
 

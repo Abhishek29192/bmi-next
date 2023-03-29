@@ -846,6 +846,9 @@ type Product implements Node @dontInfer {
   path: String!
   productBenefits: [String]
   relatedVariants: [RelatedVariant]!
+  seoTitle: String
+  seoTags: [String]
+  seoDescription: String
   specificationIframeUrl: String
   techDrawings: [PIMImage]!
   textureFamily: String
