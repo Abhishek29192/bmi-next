@@ -7,7 +7,7 @@ import {
   Sample
 } from "../../contexts/SampleBasketContext";
 import { local } from "../../utils/storage";
-import createImage from "../../__tests__/helpers/ImageHelper";
+import createPimImage from "../../__tests__/helpers/PimImageHelper";
 import SampleBasketSectionProducts from "../SampleBasketSectionProducts";
 import { SiteContextProvider } from "../Site";
 
@@ -28,7 +28,7 @@ const samples: Sample[] = [
     colour: null,
     textureFamily: null,
     measurements: null,
-    image: createImage().mainSource
+    image: createPimImage().mainSource
   },
   {
     name: "sample-2",
@@ -37,7 +37,7 @@ const samples: Sample[] = [
     colour: "Red",
     textureFamily: "Matte",
     measurements: "10x20x30 mm",
-    image: createImage().mainSource
+    image: createPimImage().mainSource
   },
   {
     name: "sample-3",
@@ -46,7 +46,7 @@ const samples: Sample[] = [
     colour: "Black",
     textureFamily: null,
     measurements: null,
-    image: createImage().mainSource
+    image: createPimImage().mainSource
   }
 ];
 

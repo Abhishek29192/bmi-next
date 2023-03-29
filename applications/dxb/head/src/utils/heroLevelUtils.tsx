@@ -43,9 +43,9 @@ export const generateHeroProps = (
     children: subtitle,
     media: featuredVideo ? (
       <Video {...featuredVideo} />
-    ) : (
+    ) : featuredMedia ? (
       <Image {...featuredMedia} size="cover" />
-    ),
+    ) : undefined,
     cta:
       cta &&
       React.createElement(

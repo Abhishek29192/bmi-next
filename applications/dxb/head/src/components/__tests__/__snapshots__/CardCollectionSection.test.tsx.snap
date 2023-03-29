@@ -47,15 +47,11 @@ exports[`CardCollectionSection component Card label doesn't render button if car
                 tabindex="0"
                 type="button"
               >
-                <img
-                  class="OverviewCard-headerPicture css-7mgsqw-Media"
-                  style="object-fit: cover; object-position: center;"
-                />
                 <div
                   class="OverviewCard-body"
                 >
                   <div
-                    class="OverviewCard-brandLogo OverviewCard-negative"
+                    class="OverviewCard-brandLogo"
                   />
                   <h4
                     class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
@@ -155,15 +151,11 @@ exports[`CardCollectionSection component Card label renders as name if title is 
                 <div
                   class="OverviewCard-flat MuiBox-root css-13ealx6"
                 >
-                  <img
-                    class="OverviewCard-headerPicture css-7mgsqw-Media"
-                    style="object-fit: cover; object-position: center;"
-                  />
                   <div
                     class="OverviewCard-body"
                   >
                     <div
-                      class="OverviewCard-brandLogo OverviewCard-negative"
+                      class="OverviewCard-brandLogo"
                     />
                     <h4
                       class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
@@ -381,15 +373,11 @@ exports[`CardCollectionSection component Renders correctly When Title rich text 
                             tabindex="0"
                             type="button"
                           >
-                            <img
-                              class="OverviewCard-headerPicture css-7mgsqw-Media"
-                              style="object-fit: cover; object-position: center;"
-                            />
                             <div
                               class="OverviewCard-body"
                             >
                               <div
-                                class="OverviewCard-brandLogo OverviewCard-negative"
+                                class="OverviewCard-brandLogo"
                               />
                               <h4
                                 class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
@@ -547,15 +535,11 @@ exports[`CardCollectionSection component Renders correctly When dialogContent li
                   tabindex="0"
                   type="button"
                 >
-                  <img
-                    class="OverviewCard-headerPicture css-7mgsqw-Media"
-                    style="object-fit: cover; object-position: center;"
-                  />
                   <div
                     class="OverviewCard-body"
                   >
                     <div
-                      class="OverviewCard-brandLogo OverviewCard-negative"
+                      class="OverviewCard-brandLogo"
                     />
                     <h4
                       class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
@@ -731,15 +715,11 @@ exports[`CardCollectionSection component Renders correctly When entry-hyperlink 
                   tabindex="0"
                   type="button"
                 >
-                  <img
-                    class="OverviewCard-headerPicture css-7mgsqw-Media"
-                    style="object-fit: cover; object-position: center;"
-                  />
                   <div
                     class="OverviewCard-body"
                   >
                     <div
-                      class="OverviewCard-brandLogo OverviewCard-negative"
+                      class="OverviewCard-brandLogo"
                     />
                     <h4
                       class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
@@ -892,15 +872,11 @@ exports[`CardCollectionSection component Renders correctly When heading 2 is pre
                   tabindex="0"
                   type="button"
                 >
-                  <img
-                    class="OverviewCard-headerPicture css-7mgsqw-Media"
-                    style="object-fit: cover; object-position: center;"
-                  />
                   <div
                     class="OverviewCard-body"
                   >
                     <div
-                      class="OverviewCard-brandLogo OverviewCard-negative"
+                      class="OverviewCard-brandLogo"
                     />
                     <h4
                       class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
@@ -1053,15 +1029,11 @@ exports[`CardCollectionSection component Renders correctly When heading 3 is pre
                   tabindex="0"
                   type="button"
                 >
-                  <img
-                    class="OverviewCard-headerPicture css-7mgsqw-Media"
-                    style="object-fit: cover; object-position: center;"
-                  />
                   <div
                     class="OverviewCard-body"
                   >
                     <div
-                      class="OverviewCard-brandLogo OverviewCard-negative"
+                      class="OverviewCard-brandLogo"
                     />
                     <h4
                       class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
@@ -1214,15 +1186,11 @@ exports[`CardCollectionSection component Renders correctly When heading 4 is pre
                   tabindex="0"
                   type="button"
                 >
-                  <img
-                    class="OverviewCard-headerPicture css-7mgsqw-Media"
-                    style="object-fit: cover; object-position: center;"
-                  />
                   <div
                     class="OverviewCard-body"
                   >
                     <div
-                      class="OverviewCard-brandLogo OverviewCard-negative"
+                      class="OverviewCard-brandLogo"
                     />
                     <h4
                       class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
@@ -1375,15 +1343,11 @@ exports[`CardCollectionSection component Renders correctly When heading 5 is pre
                   tabindex="0"
                   type="button"
                 >
-                  <img
-                    class="OverviewCard-headerPicture css-7mgsqw-Media"
-                    style="object-fit: cover; object-position: center;"
-                  />
                   <div
                     class="OverviewCard-body"
                   >
                     <div
-                      class="OverviewCard-brandLogo OverviewCard-negative"
+                      class="OverviewCard-brandLogo"
                     />
                     <h4
                       class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
@@ -1536,15 +1500,11 @@ exports[`CardCollectionSection component Renders correctly When heading 6 is pre
                   tabindex="0"
                   type="button"
                 >
-                  <img
-                    class="OverviewCard-headerPicture css-7mgsqw-Media"
-                    style="object-fit: cover; object-position: center;"
-                  />
                   <div
                     class="OverviewCard-body"
                   >
                     <div
-                      class="OverviewCard-brandLogo OverviewCard-negative"
+                      class="OverviewCard-brandLogo"
                     />
                     <h4
                       class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
@@ -1695,15 +1655,11 @@ exports[`CardCollectionSection component Renders correctly When text length = 0 
                   tabindex="0"
                   type="button"
                 >
-                  <img
-                    class="OverviewCard-headerPicture css-7mgsqw-Media"
-                    style="object-fit: cover; object-position: center;"
-                  />
                   <div
                     class="OverviewCard-body"
                   >
                     <div
-                      class="OverviewCard-brandLogo OverviewCard-negative"
+                      class="OverviewCard-brandLogo"
                     />
                     <h4
                       class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
@@ -1873,15 +1829,11 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                   data-testid="card-collection-section-item-Villain-1"
                   type="button"
                 >
-                  <img
-                    class="OverviewCard-headerPicture css-7mgsqw-Media"
-                    style="object-fit: cover; object-position: center;"
-                  />
                   <div
                     class="OverviewCard-body"
                   >
                     <div
-                      class="OverviewCard-brandLogo OverviewCard-negative"
+                      class="OverviewCard-brandLogo"
                     />
                     <h4
                       class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
@@ -1912,15 +1864,11 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                   tabindex="0"
                   type="button"
                 >
-                  <img
-                    class="OverviewCard-headerPicture css-7mgsqw-Media"
-                    style="object-fit: cover; object-position: center;"
-                  />
                   <div
                     class="OverviewCard-body"
                   >
                     <div
-                      class="OverviewCard-brandLogo OverviewCard-negative"
+                      class="OverviewCard-brandLogo"
                     />
                     <h4
                       class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
@@ -1973,15 +1921,11 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                   tabindex="0"
                   type="button"
                 >
-                  <img
-                    class="OverviewCard-headerPicture css-7mgsqw-Media"
-                    style="object-fit: cover; object-position: center;"
-                  />
                   <div
                     class="OverviewCard-body"
                   >
                     <div
-                      class="OverviewCard-brandLogo OverviewCard-negative"
+                      class="OverviewCard-brandLogo"
                     />
                     <h4
                       class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
@@ -2034,15 +1978,11 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                   tabindex="0"
                   type="button"
                 >
-                  <img
-                    class="OverviewCard-headerPicture css-7mgsqw-Media"
-                    style="object-fit: cover; object-position: center;"
-                  />
                   <div
                     class="OverviewCard-body"
                   >
                     <div
-                      class="OverviewCard-brandLogo OverviewCard-negative"
+                      class="OverviewCard-brandLogo"
                     />
                     <h4
                       class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
@@ -2215,15 +2155,11 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                   tabindex="0"
                   type="button"
                 >
-                  <img
-                    class="OverviewCard-headerPicture css-7mgsqw-Media"
-                    style="object-fit: cover; object-position: center;"
-                  />
                   <div
                     class="OverviewCard-body"
                   >
                     <div
-                      class="OverviewCard-brandLogo OverviewCard-negative"
+                      class="OverviewCard-brandLogo"
                     />
                     <h4
                       class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
@@ -2276,15 +2212,11 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                   tabindex="0"
                   type="button"
                 >
-                  <img
-                    class="OverviewCard-headerPicture css-7mgsqw-Media"
-                    style="object-fit: cover; object-position: center;"
-                  />
                   <div
                     class="OverviewCard-body"
                   >
                     <div
-                      class="OverviewCard-brandLogo OverviewCard-negative"
+                      class="OverviewCard-brandLogo"
                     />
                     <h4
                       class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
@@ -2337,15 +2269,11 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                   tabindex="0"
                   type="button"
                 >
-                  <img
-                    class="OverviewCard-headerPicture css-7mgsqw-Media"
-                    style="object-fit: cover; object-position: center;"
-                  />
                   <div
                     class="OverviewCard-body"
                   >
                     <div
-                      class="OverviewCard-brandLogo OverviewCard-negative"
+                      class="OverviewCard-brandLogo"
                     />
                     <h4
                       class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
@@ -2395,15 +2323,11 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                   data-testid="card-collection-section-item-Villain-1"
                   type="button"
                 >
-                  <img
-                    class="OverviewCard-headerPicture css-7mgsqw-Media"
-                    style="object-fit: cover; object-position: center;"
-                  />
                   <div
                     class="OverviewCard-body"
                   >
                     <div
-                      class="OverviewCard-brandLogo OverviewCard-negative"
+                      class="OverviewCard-brandLogo"
                     />
                     <h4
                       class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
@@ -2554,15 +2478,11 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                   tabindex="0"
                   type="button"
                 >
-                  <img
-                    class="OverviewCard-headerPicture css-7mgsqw-Media"
-                    style="object-fit: cover; object-position: center;"
-                  />
                   <div
                     class="OverviewCard-body"
                   >
                     <div
-                      class="OverviewCard-brandLogo OverviewCard-negative"
+                      class="OverviewCard-brandLogo"
                     />
                     <h4
                       class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
@@ -2615,15 +2535,11 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                   tabindex="0"
                   type="button"
                 >
-                  <img
-                    class="OverviewCard-headerPicture css-7mgsqw-Media"
-                    style="object-fit: cover; object-position: center;"
-                  />
                   <div
                     class="OverviewCard-body"
                   >
                     <div
-                      class="OverviewCard-brandLogo OverviewCard-negative"
+                      class="OverviewCard-brandLogo"
                     />
                     <h4
                       class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
@@ -2676,15 +2592,11 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                   tabindex="0"
                   type="button"
                 >
-                  <img
-                    class="OverviewCard-headerPicture css-7mgsqw-Media"
-                    style="object-fit: cover; object-position: center;"
-                  />
                   <div
                     class="OverviewCard-body"
                   >
                     <div
-                      class="OverviewCard-brandLogo OverviewCard-negative"
+                      class="OverviewCard-brandLogo"
                     />
                     <h4
                       class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
@@ -2734,15 +2646,11 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                   data-testid="card-collection-section-item-Villain-1"
                   type="button"
                 >
-                  <img
-                    class="OverviewCard-headerPicture css-7mgsqw-Media"
-                    style="object-fit: cover; object-position: center;"
-                  />
                   <div
                     class="OverviewCard-body"
                   >
                     <div
-                      class="OverviewCard-brandLogo OverviewCard-negative"
+                      class="OverviewCard-brandLogo"
                     />
                     <h4
                       class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
@@ -2893,15 +2801,11 @@ exports[`CardCollectionSection component single & multiple row display renders c
                   tabindex="0"
                   type="button"
                 >
-                  <img
-                    class="OverviewCard-headerPicture css-7mgsqw-Media"
-                    style="object-fit: cover; object-position: center;"
-                  />
                   <div
                     class="OverviewCard-body"
                   >
                     <div
-                      class="OverviewCard-brandLogo OverviewCard-negative"
+                      class="OverviewCard-brandLogo"
                     />
                     <h4
                       class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
@@ -2954,15 +2858,11 @@ exports[`CardCollectionSection component single & multiple row display renders c
                   tabindex="0"
                   type="button"
                 >
-                  <img
-                    class="OverviewCard-headerPicture css-7mgsqw-Media"
-                    style="object-fit: cover; object-position: center;"
-                  />
                   <div
                     class="OverviewCard-body"
                   >
                     <div
-                      class="OverviewCard-brandLogo OverviewCard-negative"
+                      class="OverviewCard-brandLogo"
                     />
                     <h4
                       class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
@@ -3015,15 +2915,11 @@ exports[`CardCollectionSection component single & multiple row display renders c
                   tabindex="0"
                   type="button"
                 >
-                  <img
-                    class="OverviewCard-headerPicture css-7mgsqw-Media"
-                    style="object-fit: cover; object-position: center;"
-                  />
                   <div
                     class="OverviewCard-body"
                   >
                     <div
-                      class="OverviewCard-brandLogo OverviewCard-negative"
+                      class="OverviewCard-brandLogo"
                     />
                     <h4
                       class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
@@ -3073,15 +2969,11 @@ exports[`CardCollectionSection component single & multiple row display renders c
                   data-testid="card-collection-section-item-Villain-1"
                   type="button"
                 >
-                  <img
-                    class="OverviewCard-headerPicture css-7mgsqw-Media"
-                    style="object-fit: cover; object-position: center;"
-                  />
                   <div
                     class="OverviewCard-body"
                   >
                     <div
-                      class="OverviewCard-brandLogo OverviewCard-negative"
+                      class="OverviewCard-brandLogo"
                     />
                     <h4
                       class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
@@ -3232,15 +3124,11 @@ exports[`CardCollectionSection component single & multiple row display renders c
                   tabindex="0"
                   type="button"
                 >
-                  <img
-                    class="OverviewCard-headerPicture css-7mgsqw-Media"
-                    style="object-fit: cover; object-position: center;"
-                  />
                   <div
                     class="OverviewCard-body"
                   >
                     <div
-                      class="OverviewCard-brandLogo OverviewCard-negative"
+                      class="OverviewCard-brandLogo"
                     />
                     <h4
                       class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
@@ -3293,15 +3181,11 @@ exports[`CardCollectionSection component single & multiple row display renders c
                   tabindex="0"
                   type="button"
                 >
-                  <img
-                    class="OverviewCard-headerPicture css-7mgsqw-Media"
-                    style="object-fit: cover; object-position: center;"
-                  />
                   <div
                     class="OverviewCard-body"
                   >
                     <div
-                      class="OverviewCard-brandLogo OverviewCard-negative"
+                      class="OverviewCard-brandLogo"
                     />
                     <h4
                       class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
@@ -3354,15 +3238,11 @@ exports[`CardCollectionSection component single & multiple row display renders c
                   tabindex="0"
                   type="button"
                 >
-                  <img
-                    class="OverviewCard-headerPicture css-7mgsqw-Media"
-                    style="object-fit: cover; object-position: center;"
-                  />
                   <div
                     class="OverviewCard-body"
                   >
                     <div
-                      class="OverviewCard-brandLogo OverviewCard-negative"
+                      class="OverviewCard-brandLogo"
                     />
                     <h4
                       class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
@@ -3412,15 +3292,11 @@ exports[`CardCollectionSection component single & multiple row display renders c
                   data-testid="card-collection-section-item-Villain-1"
                   type="button"
                 >
-                  <img
-                    class="OverviewCard-headerPicture css-7mgsqw-Media"
-                    style="object-fit: cover; object-position: center;"
-                  />
                   <div
                     class="OverviewCard-body"
                   >
                     <div
-                      class="OverviewCard-brandLogo OverviewCard-negative"
+                      class="OverviewCard-brandLogo"
                     />
                     <h4
                       class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
@@ -3593,15 +3469,11 @@ exports[`CardCollectionSection component single & multiple row display renders c
                             tabindex="0"
                             type="button"
                           >
-                            <img
-                              class="OverviewCard-headerPicture css-7mgsqw-Media"
-                              style="object-fit: cover; object-position: center;"
-                            />
                             <div
                               class="OverviewCard-body"
                             >
                               <div
-                                class="OverviewCard-brandLogo OverviewCard-negative"
+                                class="OverviewCard-brandLogo"
                               />
                               <h4
                                 class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
@@ -3667,15 +3539,11 @@ exports[`CardCollectionSection component single & multiple row display renders c
                             tabindex="0"
                             type="button"
                           >
-                            <img
-                              class="OverviewCard-headerPicture css-7mgsqw-Media"
-                              style="object-fit: cover; object-position: center;"
-                            />
                             <div
                               class="OverviewCard-body"
                             >
                               <div
-                                class="OverviewCard-brandLogo OverviewCard-negative"
+                                class="OverviewCard-brandLogo"
                               />
                               <h4
                                 class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
@@ -3741,15 +3609,11 @@ exports[`CardCollectionSection component single & multiple row display renders c
                             tabindex="0"
                             type="button"
                           >
-                            <img
-                              class="OverviewCard-headerPicture css-7mgsqw-Media"
-                              style="object-fit: cover; object-position: center;"
-                            />
                             <div
                               class="OverviewCard-body"
                             >
                               <div
-                                class="OverviewCard-brandLogo OverviewCard-negative"
+                                class="OverviewCard-brandLogo"
                               />
                               <h4
                                 class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
@@ -3812,15 +3676,11 @@ exports[`CardCollectionSection component single & multiple row display renders c
                             data-testid="card-collection-section-item-Villain-1"
                             type="button"
                           >
-                            <img
-                              class="OverviewCard-headerPicture css-7mgsqw-Media"
-                              style="object-fit: cover; object-position: center;"
-                            />
                             <div
                               class="OverviewCard-body"
                             >
                               <div
-                                class="OverviewCard-brandLogo OverviewCard-negative"
+                                class="OverviewCard-brandLogo"
                               />
                               <h4
                                 class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"

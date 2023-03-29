@@ -29,9 +29,9 @@ const ErrorFallback = ({
       media={
         featuredVideo ? (
           <Video {...featuredVideo} />
-        ) : (
+        ) : featuredMedia ? (
           <Image {...featuredMedia} />
-        )
+        ) : undefined
       }
     >
       <Typography variant="body2" gutterBottom>

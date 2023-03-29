@@ -44,12 +44,7 @@ exports[`Sections component renders alternate backgrounds for promos 1`] = `
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 Grid-item css-y6fwcd-MuiGrid2-root"
               data-testid="grid-item"
-            >
-              <img
-                class="PromoSection-image css-7mgsqw-Media"
-                style="object-fit: cover; object-position: top left;"
-              />
-            </div>
+            />
           </div>
         </div>
       </div>
@@ -97,12 +92,7 @@ exports[`Sections component renders alternate backgrounds for promos 1`] = `
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 Grid-item css-y6fwcd-MuiGrid2-root"
               data-testid="grid-item"
-            >
-              <img
-                class="PromoSection-image css-7mgsqw-Media"
-                style="object-fit: cover; object-position: top left;"
-              />
-            </div>
+            />
           </div>
         </div>
       </div>
@@ -160,12 +150,7 @@ exports[`Sections component renders alternate backgrounds for promos 1`] = `
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 Grid-item css-y6fwcd-MuiGrid2-root"
               data-testid="grid-item"
-            >
-              <img
-                class="PromoSection-image css-7mgsqw-Media"
-                style="object-fit: cover; object-position: top left;"
-              />
-            </div>
+            />
           </div>
         </div>
       </div>
@@ -476,16 +461,7 @@ exports[`Sections component renders correctly 1`] = `
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-8 Grid-item css-101zuuw-MuiGrid2-root"
                 data-testid="grid-item"
-              >
-                <div
-                  class="Villain-image"
-                >
-                  <img
-                    class="Villain-media css-7mgsqw-Media"
-                    style="object-fit: cover; object-position: center;"
-                  />
-                </div>
-              </div>
+              />
             </div>
           </div>
           <div
@@ -516,16 +492,7 @@ exports[`Sections component renders correctly 1`] = `
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-8 Grid-item css-101zuuw-MuiGrid2-root"
                 data-testid="grid-item"
-              >
-                <div
-                  class="Villain-image"
-                >
-                  <img
-                    class="Villain-media css-7mgsqw-Media"
-                    style="object-fit: cover; object-position: center;"
-                  />
-                </div>
-              </div>
+              />
             </div>
           </div>
         </div>
@@ -567,15 +534,11 @@ exports[`Sections component renders correctly 1`] = `
                 <div
                   class="OverviewCard-flat MuiBox-root css-13ealx6"
                 >
-                  <img
-                    class="OverviewCard-headerPicture css-7mgsqw-Media"
-                    style="object-fit: cover; object-position: center;"
-                  />
                   <div
                     class="OverviewCard-body"
                   >
                     <div
-                      class="OverviewCard-brandLogo OverviewCard-negative"
+                      class="OverviewCard-brandLogo"
                     >
                       <svg
                         class="BrandLogo css-gn1fhj"
@@ -750,7 +713,7 @@ exports[`Sections component renders correctly 1`] = `
                         type="image/webp"
                       />
                       <img
-                        alt="BMI Decra rense takrennen BMI Norge"
+                        alt="Image alt text"
                         data-gatsby-image-ssr=""
                         data-main-image=""
                         data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
@@ -998,7 +961,7 @@ exports[`Sections component renders correctly 1`] = `
                     type="image/webp"
                   />
                   <img
-                    alt="BMI Decra rense takrennen BMI Norge"
+                    alt="Image alt text"
                     data-gatsby-image-ssr=""
                     data-main-image=""
                     data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
@@ -4167,10 +4130,6 @@ exports[`Sections component renders correctly with 1 villain 1`] = `
           </div>
         </div>
       </div>
-      <img
-        class="Villain-image css-7mgsqw-Media"
-        style="object-fit: cover; object-position: center;"
-      />
     </div>
   </div>
 </div>

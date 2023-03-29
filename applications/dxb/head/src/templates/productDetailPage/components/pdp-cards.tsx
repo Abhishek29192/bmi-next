@@ -40,9 +40,9 @@ export const PdpCardsSection = ({
                 media={
                   featuredVideo ? (
                     <Video {...featuredVideo} />
-                  ) : (
+                  ) : featuredMedia ? (
                     <Image {...featuredMedia} />
-                  )
+                  ) : undefined
                 }
                 clickableArea={featuredVideo ? "heading" : "full"}
                 action={cta?.action}

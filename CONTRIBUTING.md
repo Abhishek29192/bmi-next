@@ -31,6 +31,10 @@ The commit message must follow
 the [Angular commit message format](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#-commit-message-guidelines)
 . These guidelines are enforced by a git hook using [Husky](https://github.com/typicode/husky).
 
+_N.B. Google are fucktards and don't follow their own convention when it comes to commits, so here is an actual example
+from the angular project on how a revert commit message should look
+like https://github.com/angular/angular/commit/0432d952a1d0816882352b8bbc1224d8cc313ed6_
+
 ## Git Workflow
 
 - feature branch for individual code contributions

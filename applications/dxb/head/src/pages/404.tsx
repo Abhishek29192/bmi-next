@@ -35,9 +35,9 @@ const FourOFour = ({ data }: { data: Data }) => {
           media={
             errorFourOFour.featuredVideo ? (
               <Video {...errorFourOFour.featuredVideo} />
-            ) : (
+            ) : errorFourOFour.featuredMedia ? (
               <Image {...errorFourOFour.featuredMedia} />
-            )
+            ) : undefined
           }
         >
           <Typography variant="body2" gutterBottom>

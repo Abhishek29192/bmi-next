@@ -48,9 +48,9 @@ const IntegratedPromoSection = ({ data }: { data: Data }) => {
       media={
         featuredVideo ? (
           <Video {...featuredVideo} />
-        ) : (
+        ) : featuredMedia ? (
           <Image {...featuredMedia} position="top left" />
-        )
+        ) : undefined
       }
       className={styles["PromoSection"]}
       backgroundColor={

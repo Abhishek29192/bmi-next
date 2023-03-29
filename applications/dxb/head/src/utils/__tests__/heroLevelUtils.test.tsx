@@ -125,4 +125,30 @@ describe("generateHeroProps test", () => {
       })
     );
   });
+
+  it("generate props without any media", () => {
+    const result = generateHeroProps(
+      "heroTitle",
+      1,
+      "heroSubtitle",
+      null,
+      null,
+      cta
+    );
+    expect(result).toEqual(
+      expect.objectContaining({
+        title: "heroTitle",
+        level: 1,
+        children: "heroSubtitle"
+      })
+    );
+
+    expect(result.media).toBeUndefined();
+
+    expect((result.cta as React.ReactElement).props).toEqual(
+      expect.objectContaining({
+        children: "ImALink"
+      })
+    );
+  });
 });

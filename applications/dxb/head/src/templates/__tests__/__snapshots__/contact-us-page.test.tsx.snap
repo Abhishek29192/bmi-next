@@ -3398,15 +3398,11 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                     tabindex="0"
                     type="button"
                   >
-                    <img
-                      class="OverviewCard-headerPicture css-7mgsqw-Media"
-                      style="object-fit: cover; object-position: center;"
-                    />
                     <div
                       class="OverviewCard-body"
                     >
                       <div
-                        class="OverviewCard-brandLogo OverviewCard-negative"
+                        class="OverviewCard-brandLogo"
                       />
                       <h4
                         class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
@@ -8071,15 +8067,11 @@ exports[`Contact us page render Sections correctly 1`] = `
                     tabindex="0"
                     type="button"
                   >
-                    <img
-                      class="OverviewCard-headerPicture css-7mgsqw-Media"
-                      style="object-fit: cover; object-position: center;"
-                    />
                     <div
                       class="OverviewCard-body"
                     >
                       <div
-                        class="OverviewCard-brandLogo OverviewCard-negative"
+                        class="OverviewCard-brandLogo"
                       />
                       <h4
                         class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
@@ -12162,7 +12154,7 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
             type="image/webp"
           />
           <img
-            alt="BMI Decra rense takrennen BMI Norge"
+            alt="Image alt text"
             data-gatsby-image-ssr=""
             data-main-image=""
             data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
@@ -12172,7 +12164,7 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
             draggable="false"
             loading="lazy"
             sizes="(min-width: 948px) 948px, 100vw"
-            style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
+            style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: 0% 0%; opacity: 0;"
           />
         </picture>
         <noscript />
@@ -12745,15 +12737,11 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
                     tabindex="0"
                     type="button"
                   >
-                    <img
-                      class="OverviewCard-headerPicture css-7mgsqw-Media"
-                      style="object-fit: cover; object-position: center;"
-                    />
                     <div
                       class="OverviewCard-body"
                     >
                       <div
-                        class="OverviewCard-brandLogo OverviewCard-negative"
+                        class="OverviewCard-brandLogo"
                       />
                       <h4
                         class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
@@ -17418,15 +17406,11 @@ exports[`Contact us page render iframe correctly 1`] = `
                     tabindex="0"
                     type="button"
                   >
-                    <img
-                      class="OverviewCard-headerPicture css-7mgsqw-Media"
-                      style="object-fit: cover; object-position: center;"
-                    />
                     <div
                       class="OverviewCard-body"
                     >
                       <div
-                        class="OverviewCard-brandLogo OverviewCard-negative"
+                        class="OverviewCard-brandLogo"
                       />
                       <h4
                         class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
@@ -22091,15 +22075,11 @@ exports[`Contact us page render location correctly 1`] = `
                     tabindex="0"
                     type="button"
                   >
-                    <img
-                      class="OverviewCard-headerPicture css-7mgsqw-Media"
-                      style="object-fit: cover; object-position: center;"
-                    />
                     <div
                       class="OverviewCard-body"
                     >
                       <div
-                        class="OverviewCard-brandLogo OverviewCard-negative"
+                        class="OverviewCard-brandLogo"
                       />
                       <h4
                         class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
@@ -26764,15 +26744,11 @@ exports[`Contact us page renders correctly 1`] = `
                     tabindex="0"
                     type="button"
                   >
-                    <img
-                      class="OverviewCard-headerPicture css-7mgsqw-Media"
-                      style="object-fit: cover; object-position: center;"
-                    />
                     <div
                       class="OverviewCard-body"
                     >
                       <div
-                        class="OverviewCard-brandLogo OverviewCard-negative"
+                        class="OverviewCard-brandLogo"
                       />
                       <h4
                         class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"

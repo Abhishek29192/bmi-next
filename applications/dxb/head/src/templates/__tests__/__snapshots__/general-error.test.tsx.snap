@@ -535,12 +535,7 @@ exports[`General Error render correctly 1`] = `
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 Grid-item css-y6fwcd-MuiGrid2-root"
               data-testid="grid-item"
-            >
-              <img
-                class="PromoSection-image css-7mgsqw-Media"
-                style="object-fit: cover; object-position: center;"
-              />
-            </div>
+            />
           </div>
         </div>
       </div>
@@ -1267,12 +1262,7 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 Grid-item css-y6fwcd-MuiGrid2-root"
               data-testid="grid-item"
-            >
-              <img
-                class="PromoSection-image css-7mgsqw-Media"
-                style="object-fit: cover; object-position: center;"
-              />
-            </div>
+            />
           </div>
         </div>
       </div>
