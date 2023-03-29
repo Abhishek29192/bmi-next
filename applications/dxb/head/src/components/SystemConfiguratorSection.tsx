@@ -144,74 +144,77 @@ const SystemConfiguratorQuestion = ({
   // Needed so the "go back to your selection" states aren't stored with the user interactions
   const allStateSoFar = [...stateSoFar, nextId];
 
-  const getData = useCallback(async (answerId, locale) => {
-    setState((state) => ({ ...state, isLoading: true }));
+  const getData = useCallback(
+    async (answerId, locale) => {
+      setState((state) => ({ ...state, isLoading: true }));
 
-    const controller = new AbortController();
+      const controller = new AbortController();
 
-    const recaptchaToken = qaAuthToken ? undefined : await executeRecaptcha();
+      const recaptchaToken = qaAuthToken ? undefined : await executeRecaptcha();
 
-    let headers: HeadersInit = {
-      "X-Recaptcha-Token": recaptchaToken
-    };
-    if (qaAuthToken) {
-      headers = { ...headers, authorization: `Bearer ${qaAuthToken}` };
-    }
-    try {
-      const response: Response = await fetch(
-        `${gcpSystemConfiguratorEndpoint}?answerId=${answerId}&locale=${locale}`,
-        {
-          method: "GET",
-          headers,
-          signal: controller.signal
+      let headers: HeadersInit = {
+        "X-Recaptcha-Token": recaptchaToken
+      };
+      if (qaAuthToken) {
+        headers = { ...headers, authorization: `Bearer ${qaAuthToken}` };
+      }
+      try {
+        const response: Response = await fetch(
+          `${gcpSystemConfiguratorEndpoint}?answerId=${answerId}&locale=${locale}`,
+          {
+            method: "GET",
+            headers,
+            signal: controller.signal
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error(response.statusText);
         }
-      );
 
-      if (!response.ok) {
-        throw new Error(response.statusText);
+        const data: QuestionData | ResultData | TitleWithContentData =
+          await response.json();
+
+        if (data.__typename === "ContentfulTitleWithContent") {
+          setNextStep({ nextNoResult: data });
+          setState((state) => ({
+            ...state,
+            noResult: data,
+            result: undefined,
+            isLoading: false,
+            isComplete: true
+          }));
+        } else if (data.__typename === "ContentfulSystemConfiguratorQuestion") {
+          setNextStep({ nextQuestion: data });
+          setState((state) => ({
+            ...state,
+            noResult: undefined,
+            result: undefined,
+            isLoading: false,
+            isComplete: false
+          }));
+        } else if (data.__typename === "ContentfulSystemConfiguratorResult") {
+          setNextStep({ nextResult: data });
+          setState((state) => ({
+            ...state,
+            noResult: undefined,
+            result: data,
+            isLoading: false,
+            isComplete: true
+          }));
+        }
+      } catch (error) {
+        devLog(error);
+        controller.abort();
+        setState((state) => ({
+          ...state,
+          error,
+          isLoading: false
+        }));
       }
-
-      const data: QuestionData | ResultData | TitleWithContentData =
-        await response.json();
-
-      if (data.__typename === "ContentfulTitleWithContent") {
-        setNextStep({ nextNoResult: data });
-        setState((state) => ({
-          ...state,
-          noResult: data,
-          result: undefined,
-          isLoading: false,
-          isComplete: true
-        }));
-      } else if (data.__typename === "ContentfulSystemConfiguratorQuestion") {
-        setNextStep({ nextQuestion: data });
-        setState((state) => ({
-          ...state,
-          noResult: undefined,
-          result: undefined,
-          isLoading: false,
-          isComplete: false
-        }));
-      } else if (data.__typename === "ContentfulSystemConfiguratorResult") {
-        setNextStep({ nextResult: data });
-        setState((state) => ({
-          ...state,
-          noResult: undefined,
-          result: data,
-          isLoading: false,
-          isComplete: true
-        }));
-      }
-    } catch (error) {
-      devLog(error);
-      controller.abort();
-      setState((state) => ({
-        ...state,
-        error,
-        isLoading: false
-      }));
-    }
-  }, []);
+    },
+    [executeRecaptcha]
+  );
 
   useEffect(() => {
     if ((selectedAnswer && isReload) || singleAnswer) {
