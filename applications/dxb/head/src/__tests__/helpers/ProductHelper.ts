@@ -5,13 +5,13 @@ import createBrand from "./BrandHelper";
 import createBreadcrumbItem from "./BreadcrumbItemHelper";
 import createCategory from "./CategoryHelper";
 import createClassification from "./ClassificationHelper";
-import createImage from "./ImageHelper";
+import createPimImage from "./PimImageHelper";
 import createMeasurements from "./MeasurementsHelper";
 import createPimDocument from "./PimDocumentHelper";
 import createFilter from "./PimFilter";
 import createRelatedProduct from "./RelatedProductHelper";
 import createRelatedVariant from "./RelatedVariantHelper";
-import createVideo from "./VideoHelper";
+import createVideo from "./PimVideoHelper";
 import createWeight from "./WeightHelper";
 
 export const createProduct = (product?: Partial<Product>): Product => ({
@@ -59,7 +59,7 @@ export const createProduct = (product?: Partial<Product>): Product => ({
   externalProductCode: "external-product-code",
   filters: [createFilter()],
   fixingToolIframeUrl: "http://fixingToolIframeUrl",
-  galleryImages: [createImage()],
+  galleryImages: [createPimImage()],
   groups: [{ label: "group-label", code: "group-code" }],
   guaranteesAndWarrantiesImages: [
     createImageAsset(),
@@ -69,7 +69,7 @@ export const createProduct = (product?: Partial<Product>): Product => ({
     createLinkAsset({ assetType: "GUARANTIES" }),
     createLinkAsset({ assetType: "WARRANTIES" })
   ],
-  masterImage: createImage(),
+  masterImage: createPimImage(),
   hashedCode: "id",
   isSampleOrderAllowed: true,
   materials: "Materials",
@@ -78,7 +78,7 @@ export const createProduct = (product?: Partial<Product>): Product => ({
   productBenefits: ["product-benefit"],
   relatedVariants: [createRelatedVariant()],
   specificationIframeUrl: "http://specificationIframeUrl",
-  techDrawings: [createImage()],
+  techDrawings: [createPimImage()],
   textureFamily: "texture-family",
   textureFamilyMicrocopy: "Texture Family",
   variantAttribute: "variant-attribute",

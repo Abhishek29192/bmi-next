@@ -750,7 +750,7 @@ exports[`Sections component renders correctly 1`] = `
                         type="image/webp"
                       />
                       <img
-                        alt="BMI Decra rense takrennen BMI Norge"
+                        alt="Image alt text"
                         data-gatsby-image-ssr=""
                         data-main-image=""
                         data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
@@ -998,7 +998,7 @@ exports[`Sections component renders correctly 1`] = `
                     type="image/webp"
                   />
                   <img
-                    alt="BMI Decra rense takrennen BMI Norge"
+                    alt="Image alt text"
                     data-gatsby-image-ssr=""
                     data-main-image=""
                     data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
@@ -1813,7 +1813,7 @@ exports[`Sections component renders correctly 1`] = `
                                     class="css-bp47jm"
                                   >
                                     <a
-                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kiv9ae-MuiTypography-root-MuiLink-root"
+                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-swxrni-MuiTypography-root-MuiLink-root"
                                       data-gtm="{"id":"cta-click1","label":"roofer 1 - address 1 - Pitched Roof","action":"tel:phone 1"}"
                                       data-testid="anchor-link"
                                       href="tel:phone 1"
@@ -1853,7 +1853,7 @@ exports[`Sections component renders correctly 1`] = `
                                     class="css-bp47jm"
                                   >
                                     <a
-                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kiv9ae-MuiTypography-root-MuiLink-root"
+                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-swxrni-MuiTypography-root-MuiLink-root"
                                       data-gtm="{"id":"cta-click1","label":"roofer 1 - address 1 - Pitched Roof","action":"mailto:test@test.com"}"
                                       data-testid="anchor-link"
                                       href="mailto:test@test.com"
@@ -1893,7 +1893,7 @@ exports[`Sections component renders correctly 1`] = `
                                     class="css-bp47jm"
                                   >
                                     <a
-                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kiv9ae-MuiTypography-root-MuiLink-root"
+                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-swxrni-MuiTypography-root-MuiLink-root"
                                       data-gtm="{"id":"cta-click1","label":"roofer 1 - address 1 - Pitched Roof","action":"https://www.test.com"}"
                                       data-testid="anchor-link"
                                       href="https://www.test.com"
@@ -2025,7 +2025,7 @@ exports[`Sections component renders correctly 1`] = `
                                     class="css-bp47jm"
                                   >
                                     <a
-                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kiv9ae-MuiTypography-root-MuiLink-root"
+                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-swxrni-MuiTypography-root-MuiLink-root"
                                       data-gtm="{"id":"cta-click1","label":"roofer 2 - address 1 - Pitched Roof","action":"tel:phone 1"}"
                                       data-testid="anchor-link"
                                       href="tel:phone 1"
@@ -2065,7 +2065,7 @@ exports[`Sections component renders correctly 1`] = `
                                     class="css-bp47jm"
                                   >
                                     <a
-                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kiv9ae-MuiTypography-root-MuiLink-root"
+                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-swxrni-MuiTypography-root-MuiLink-root"
                                       data-gtm="{"id":"cta-click1","label":"roofer 2 - address 1 - Pitched Roof","action":"mailto:test@test.com"}"
                                       data-testid="anchor-link"
                                       href="mailto:test@test.com"
@@ -2105,7 +2105,7 @@ exports[`Sections component renders correctly 1`] = `
                                     class="css-bp47jm"
                                   >
                                     <a
-                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kiv9ae-MuiTypography-root-MuiLink-root"
+                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-swxrni-MuiTypography-root-MuiLink-root"
                                       data-gtm="{"id":"cta-click1","label":"roofer 2 - address 1 - Pitched Roof","action":"https://www.test.com"}"
                                       data-testid="anchor-link"
                                       href="https://www.test.com"
@@ -2452,11 +2452,11 @@ exports[`Sections component renders correctly 1`] = `
                       <div>
                         <div>
                           <div
-                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-1a0v38e-MuiGrid2-root"
+                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-1jy9zk3-MuiGrid2-root"
                             data-testid="grid-container"
                           >
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-1rbj4s-MuiGrid2-root"
+                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-1xrs7k5-MuiGrid2-root"
                               data-testid="grid-item"
                             >
                               <div
@@ -2693,11 +2693,11 @@ exports[`Sections component renders correctly 1`] = `
                       <div>
                         <div>
                           <div
-                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-1a0v38e-MuiGrid2-root"
+                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-1jy9zk3-MuiGrid2-root"
                             data-testid="grid-container"
                           >
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-1rbj4s-MuiGrid2-root"
+                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-1xrs7k5-MuiGrid2-root"
                               data-testid="grid-item"
                             >
                               <div
@@ -2775,11 +2775,11 @@ exports[`Sections component renders correctly 1`] = `
                       <div>
                         <div>
                           <div
-                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-1a0v38e-MuiGrid2-root"
+                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-1jy9zk3-MuiGrid2-root"
                             data-testid="grid-container"
                           >
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-1rbj4s-MuiGrid2-root"
+                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-1xrs7k5-MuiGrid2-root"
                               data-testid="grid-item"
                             >
                               <div
@@ -3195,6 +3195,7 @@ exports[`Sections component renders correctly 1`] = `
                     </div>
                     <input
                       aria-hidden="true"
+                      aria-invalid="false"
                       class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
                       name="recipients"
                       required=""
@@ -3472,7 +3473,7 @@ exports[`Sections component renders correctly 1`] = `
                     >
                       I agree with BMI's 
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                         data-testid="label-Data-Protection-Policy-anchor-link"
                         href="https://google.co.uk"
                         rel="noopener"
@@ -3572,7 +3573,7 @@ exports[`Sections component renders correctly 1`] = `
           >
             This site is protected by reCAPTCHA and the Google 
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
               data-testid="recaptcha-privacy-policy-link"
               href="https://policies.google.com/privacy"
               rel="noreferrer noopener"
@@ -3584,7 +3585,7 @@ exports[`Sections component renders correctly 1`] = `
             </a>
              and 
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
               data-testid="recaptcha-terms-of-service-link"
               href="https://policies.google.com/terms"
               rel="noreferrer noopener"

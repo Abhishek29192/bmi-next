@@ -2329,11 +2329,6 @@ exports[`Simple page renders correctly when no feature media 1`] = `
         </div>
       </div>
     </div>
-    <img
-      class="Hero-image css-7mgsqw-Media"
-      data-testid="hero-image"
-      style="object-fit: cover; object-position: center;"
-    />
   </div>
   <div>
     <div
@@ -5865,7 +5860,7 @@ exports[`Simple page renders correctly with full data 1`] = `
           type="image/webp"
         />
         <img
-          alt="BMI Decra rense takrennen BMI Norge"
+          alt="Image alt text"
           data-gatsby-image-ssr=""
           data-main-image=""
           data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
@@ -5875,7 +5870,7 @@ exports[`Simple page renders correctly with full data 1`] = `
           draggable="false"
           loading="lazy"
           sizes="(min-width: 948px) 948px, 100vw"
-          style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
+          style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: 0% 0%; opacity: 0;"
         />
       </picture>
       <noscript />
@@ -5978,7 +5973,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                           class="css-1o92lqg"
                         >
                           <a
-                            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink AnchorLink-black css-1m0txtt-MuiTypography-root-MuiLink-root"
+                            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink AnchorLink-black css-kan2f7-MuiTypography-root-MuiLink-root"
                             data-gtm="{"id":"cta-click1","label":"Hurtignavigering - ContentfulCardCollectionSectionTitle","action":"#contentfulcardcollectionsectiontitle"}"
                             data-testid="anchor-link"
                             href="#contentfulcardcollectionsectiontitle"

@@ -242,7 +242,8 @@ describe("Home Page Template", () => {
       )
     ).toBeInTheDocument();
     expect(screen.queryByTestId("welcome-dialog")).not.toBeInTheDocument();
-    expect(screen.getAllByTestId("youtube-dialog-wrapper")).toHaveLength(2);
+    expect(screen.getByTestId("overlap-cards-video")).toBeInTheDocument();
+    expect(screen.getByTestId("hero-video")).toBeInTheDocument();
   });
 
   it("render slide with not ContentfulPromo __typename and featureMedia data", () => {
