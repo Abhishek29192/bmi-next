@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
+exports[`DocumentResults component When SimpleTable documents have multiple unique asset type code for documents And same no of contentful Asset Types are present with matching asset type code SimpleTable: renders correctly with ALL columns 1`] = `
 <div>
   <div
     class="DocumentSimpleTableResults css-1iwuinm"
