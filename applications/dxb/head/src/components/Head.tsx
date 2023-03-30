@@ -170,6 +170,31 @@ export const Head = ({
                   var parts = value.split("; " + name + "=");
                   if (parts.length == 2) return parts.pop().split(";").shift();
               }
+              function reloadIframes() {
+                // ASK: should we care the SRC / domain of the iframe? 
+                // i.e is this iframe location is same domain or  not a BMI gorup
+                // for now.. just reload all iframes on the page!
+                document.querySelectorAll('iframe').forEach((iframe)=> {
+                    if(iframe && iframe.id){
+                      console.log("found iframe with id:", iframe.id);
+                      if(iframe.location) {
+                            console.log('---- reloading with iframe.location.reload -----')  
+                            iframe.location.reload(true);
+                        } else if (iframe.contentWindow.location) {
+                            console.log('---- reloading with iframe.contentWindow.location.reload -----')
+                            iframe.contentWindow.location.reload(true);
+                        } else if (iframe.src){
+                            console.log('---- reloading with iframe.src -----')
+                            iframe.src = iframe.src;
+                        } else {
+                            // fail condition, respond as appropriate, or do nothing
+                            console.log("Sorry, unable to reload iframe:", iframe.id);
+                        }
+                    
+                    }
+                  });
+              }
+
               function OptanonWrapper() { 
                   
                   console.log("OptanonWrapper called");
@@ -178,25 +203,24 @@ export const Head = ({
                   var pcAllowAllBtn = document.getElementById("accept-recommended-btn-handler");
                   var pcSaveBtn = document.getElementsByClassName("save-preference-btn-handler onetrust-close-btn-handler")[0];
                   var OABCcookie = getCookie(OABCcookieName);
-                      
-                
+
                   // IF logic needed here because ot-banner-sdk DIV is not injected on page loads if banner is not exposed
                   if (!OABCcookie && bannerAcceptBtn) {
                       bannerAcceptBtn.addEventListener('click', function() {
                           console.log("Allowed all via Banner");
-                          location.reload();
+                          reloadIframes()
                       });
                   }
                   if (pcAllowAllBtn)
                       pcAllowAllBtn.addEventListener('click', function() {
                           console.log("Allowed all via Preference Center");
-                          location.reload();
+                          reloadIframes()
                       });
                   if(pcSaveBtn){
                       pcSaveBtn.addEventListener('click', function() {
                           setTimeout(()=> {
                           console.log("Set custom settings via Preference Center");
-                          location.reload();
+                          reloadIframes()
                       }, 1000) //quick timeout so that the consent receipt can be sent and the cookie can be updated
                       });
                   }
