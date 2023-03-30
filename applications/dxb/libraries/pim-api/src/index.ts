@@ -75,11 +75,11 @@ export const fetchData = async (
     redirect
   };
 
-  const endingOfFullPath =
+  const statusOfPimType =
     type === PimTypes.Systems
-      ? `&status=approved&lang=${locale}`
-      : `&lang=${locale}`;
-  const fullPath = `${PIM_HOST}/bmiwebservices/v2/${PIM_CATALOG_NAME}/export/${type}?currentPage=${currentPage}${endingOfFullPath}`;
+      ? `&status=approved`
+      : `&status=approved,discontinued`;
+  const fullPath = `${PIM_HOST}/bmiwebservices/v2/${PIM_CATALOG_NAME}/export/${type}?currentPage=${currentPage}${statusOfPimType}&lang=${locale}`;
 
   // eslint-disable-next-line no-console
   console.log(`FETCH: ${fullPath}`);
