@@ -1,11 +1,12 @@
-import React from "react";
 import {
   ContentfulDocument,
   PimProductDocument
 } from "@bmi/elasticsearch-types";
+import React from "react";
 import DocumentSimpleTableResults, {
   AvailableHeader
 } from "../../../components/DocumentSimpleTableResults";
+import groupBy from "../../../utils/groupBy";
 import { AssetType } from "../types";
 import DocumentCardsResults from "./DocumentCardsResults";
 import DocumentTechnicalTableResults from "./DocumentTechnicalTableResults";
@@ -38,11 +39,24 @@ const tableHeadersConfig: Record<
   ]
 };
 
-const DocumentResults = ({ data, assetTypes, format }: Props) => {
+const DocumentResults = ({
+  data,
+  assetTypes: contentfulAssetTypes,
+  format
+}: Props) => {
   if (format === "simpleTable" || format === "simpleArchiveTable") {
+    const documentsByAssetTypeCode = groupBy(
+      data,
+      (document) => document.assetType.code
+    );
+    const documentAssetTypeCodes = Object.keys(documentsByAssetTypeCode);
+
+    const commonAssetTypes = contentfulAssetTypes.filter((assetType) =>
+      documentAssetTypeCodes.includes(assetType.code)
+    );
     // eslint-disable-next-line security/detect-object-injection
     const tableHeaders = tableHeadersConfig[format].filter(
-      (header) => !(assetTypes.length < 2 && header.includes("type"))
+      (header) => !(commonAssetTypes.length < 2 && header.includes("type"))
     );
     return (
       <DocumentSimpleTableResults documents={data} headers={tableHeaders} />
@@ -54,7 +68,7 @@ const DocumentResults = ({ data, assetTypes, format }: Props) => {
     return (
       <DocumentTechnicalTableResults
         documents={data as PimProductDocument[]}
-        assetTypes={assetTypes}
+        assetTypes={contentfulAssetTypes}
       />
     );
   }
