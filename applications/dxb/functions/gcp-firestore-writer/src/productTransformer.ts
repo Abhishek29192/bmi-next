@@ -350,7 +350,10 @@ export const transformProduct = (product: PimProduct): Product[] => {
           weightPerPallet,
           weightPerPiece,
           weightPerSqm
-        }
+        },
+        seoTitle: variant.seoTitle || product.seoTitle,
+        seoTags: variant.seoTags || product.seoTags,
+        seoDescription: variant.seoDescription || product.seoDescription
       };
       return transformedProduct;
     });

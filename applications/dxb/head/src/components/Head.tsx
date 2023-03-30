@@ -138,14 +138,10 @@ export const Head = ({
         name="viewport"
         content="width=device-width, initial-scale=1.0, viewport-fit=cover"
       />
-      {seo?.metaDescription && (
-        <meta
-          name="description"
-          content={seo.metaDescription}
-          data-testid={"meta-description"}
-        />
-      )}
       {!!seoDescription && <meta name="description" content={seoDescription} />}
+      {variantProduct?.seoTags && (
+        <meta name="keywords" content={variantProduct.seoTags.join(",")} />
+      )}
       {isScriptOnetrustEnabled && (
         <script
           type="text/javascript"

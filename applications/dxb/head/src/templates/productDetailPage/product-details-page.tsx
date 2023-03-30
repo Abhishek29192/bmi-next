@@ -293,6 +293,9 @@ export const pageQuery = graphql`
         variantAttribute
         path
       }
+      seoTitle
+      seoTags
+      seoDescription
       specificationIframeUrl
       techDrawings {
         ...PIMImageFragment
