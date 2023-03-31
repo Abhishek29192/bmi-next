@@ -29,6 +29,7 @@ import { useSiteContext } from "./Site";
 
 const PAGE_SIZE = 24;
 const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_DOCUMENTS;
+export const availabilityFilterCode = "availability";
 const documentTableHeaders: AvailableHeader[] = [
   "typeCode",
   "title",
