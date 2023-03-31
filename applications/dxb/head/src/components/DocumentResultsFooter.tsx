@@ -5,7 +5,7 @@ import {
   DownloadListContext,
   Pagination
 } from "@bmi-digital/components";
-import { useMediaQuery, Box } from "@mui/material";
+import { Box, useMediaQuery } from "@mui/material";
 import { styled, useTheme } from "@mui/material/styles";
 import classnames from "classnames";
 import fetch, { Response } from "node-fetch";

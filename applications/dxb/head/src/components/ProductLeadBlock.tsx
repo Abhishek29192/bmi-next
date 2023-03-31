@@ -37,6 +37,7 @@ const StyledBlueCheckIcon = styled(Icon)(({ theme }) => ({
 const BlueCheckIcon = () => {
   return <StyledBlueCheckIcon source={CheckIcon} />;
 };
+
 type Props = {
   product: Product;
   sidebarItems?: {
@@ -76,7 +77,7 @@ const ProductLeadBlock = ({
   const resultsElement = useRef<HTMLDivElement>(null);
 
   const count = Math.ceil(product.productDocuments.length / DOCUMENTS_PER_PAGE);
-  const handlePageChange = (_, page) => {
+  const handlePageChange = (_: React.ChangeEvent<unknown>, page: number) => {
     const scrollY = resultsElement.current
       ? resultsElement.current.offsetTop - 200
       : 0;
@@ -226,7 +227,7 @@ const ProductLeadBlock = ({
                 ) : null}
                 {sidebarItems?.length && (
                   <LeadBlock.Card.Section>
-                    <LeadBlock.Card.Heading variant="h5">
+                    <LeadBlock.Card.Heading>
                       {sidebarItems[0].title}
                     </LeadBlock.Card.Heading>
                     <LeadBlock.Card.Content>
