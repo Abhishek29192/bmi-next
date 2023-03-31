@@ -154,7 +154,7 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
                         aria-label="MC: documentLibrary.download contentful document title"
                         class="PrivateSwitchBase-input css-1m9pwf3"
                         data-indeterminate="false"
-                        name="contentful-document-id-contentful-document-title"
+                        name="contentful-document-id-contentful_document_title"
                         type="checkbox"
                       />
                       <svg
@@ -279,7 +279,7 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
                         aria-label="MC: documentLibrary.download pim document title"
                         class="PrivateSwitchBase-input css-1m9pwf3"
                         data-indeterminate="false"
-                        name="pim-document-id-pim-document-title"
+                        name="pim-document-id-pim_document_title"
                         type="checkbox"
                       />
                       <svg

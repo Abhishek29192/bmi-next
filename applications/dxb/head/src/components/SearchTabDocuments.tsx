@@ -22,12 +22,23 @@ import {
   updateFilterValue
 } from "../utils/filters";
 import DocumentResultsFooter from "./DocumentResultsFooter";
-import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
+import DocumentSimpleTableResults, {
+  AvailableHeader
+} from "./DocumentSimpleTableResults";
 import { useSiteContext } from "./Site";
 
 const PAGE_SIZE = 24;
 const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_DOCUMENTS;
 export const availabilityFilterCode = "availability";
+const documentTableHeaders: AvailableHeader[] = [
+  "typeCode",
+  "title",
+  "productStatus",
+  "validityDate",
+  "download",
+  "add"
+];
+
 // Creates filters from aggregations
 // Requires contentful asset types for the localised labels
 const getPagesFilters = (
@@ -253,7 +264,10 @@ const SearchTabPanelDocuments = (props: Props) => {
           </DownloadListContext.Consumer>
         </Grid>
         <Grid xs={12} md={12} lg={9} style={{ paddingTop: 0 }}>
-          <DocumentSimpleTableResults documents={results} />
+          <DocumentSimpleTableResults
+            documents={results}
+            headers={documentTableHeaders}
+          />
           <div>
             <DocumentResultsFooter
               page={page + 1}

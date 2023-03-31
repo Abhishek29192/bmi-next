@@ -3754,7 +3754,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                       aria-label="MC: documentLibrary.download pim document title"
                       class="PrivateSwitchBase-input css-1m9pwf3"
                       data-indeterminate="false"
-                      name="pim-document-id-pim-document-title"
+                      name="pim-document-id-pim_document_title"
                       type="checkbox"
                     />
                     <svg
@@ -3920,7 +3920,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                       aria-label="MC: documentLibrary.download contentful document title"
                       class="PrivateSwitchBase-input css-1m9pwf3"
                       data-indeterminate="false"
-                      name="contentful-document-id-contentful-document-title"
+                      name="contentful-document-id-contentful_document_title"
                       type="checkbox"
                     />
                     <svg
@@ -4083,7 +4083,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                       aria-label="MC: documentLibrary.download pim document title"
                       class="PrivateSwitchBase-input css-1m9pwf3"
                       data-indeterminate="false"
-                      name="pim-document-id-pim-document-title"
+                      name="pim-document-id-pim_document_title"
                       type="checkbox"
                     />
                     <svg
@@ -4249,7 +4249,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                       aria-label="MC: documentLibrary.download contentful document title"
                       class="PrivateSwitchBase-input css-1m9pwf3"
                       data-indeterminate="false"
-                      name="contentful-document-id-contentful-document-title"
+                      name="contentful-document-id-contentful_document_title"
                       type="checkbox"
                     />
                     <svg
@@ -4412,7 +4412,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                       aria-label="MC: documentLibrary.download pim document title"
                       class="PrivateSwitchBase-input css-1m9pwf3"
                       data-indeterminate="false"
-                      name="pim-document-id-pim-document-title"
+                      name="pim-document-id-pim_document_title"
                       type="checkbox"
                     />
                     <svg
@@ -4575,7 +4575,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                       aria-label="MC: documentLibrary.download pim document title"
                       class="PrivateSwitchBase-input css-1m9pwf3"
                       data-indeterminate="false"
-                      name="pim-document-id-pim-document-title"
+                      name="pim-document-id-pim_document_title"
                       type="checkbox"
                     />
                     <svg
@@ -4738,7 +4738,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                       aria-label="MC: documentLibrary.download pim document title"
                       class="PrivateSwitchBase-input css-1m9pwf3"
                       data-indeterminate="false"
-                      name="pim-document-id-pim-document-title"
+                      name="pim-document-id-pim_document_title"
                       type="checkbox"
                     />
                     <svg
@@ -4837,6 +4837,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
           </td>
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
+            data-testid="document-table-productStatus-pim-document-id"
           >
             <p
               class="css-1i5s96j"
@@ -4846,6 +4847,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
           </td>
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
+            data-testid="document-table-validityDate-pim-document-id"
           >
             -
           </td>
@@ -4927,7 +4929,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                       aria-label="MC: documentLibrary.download pim document title"
                       class="PrivateSwitchBase-input css-1m9pwf3"
                       data-indeterminate="false"
-                      name="pim-document-id-pim-document-title"
+                      name="pim-document-id-pim_document_title"
                       type="checkbox"
                     />
                     <svg
@@ -5026,6 +5028,7 @@ exports[`Document Library page should render DocumentSimpleTableResults if sourc
           </td>
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
+            data-testid="document-table-productStatus-pim-document-id"
           >
             <p
               class="css-1i5s96j"
@@ -5035,6 +5038,7 @@ exports[`Document Library page should render DocumentSimpleTableResults if sourc
           </td>
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
+            data-testid="document-table-validityDate-pim-document-id"
           >
             -
           </td>
@@ -5116,7 +5120,7 @@ exports[`Document Library page should render DocumentSimpleTableResults if sourc
                       aria-label="MC: documentLibrary.download pim document title"
                       class="PrivateSwitchBase-input css-1m9pwf3"
                       data-indeterminate="false"
-                      name="pim-document-id-pim-document-title"
+                      name="pim-document-id-pim_document_title"
                       type="checkbox"
                     />
                     <svg

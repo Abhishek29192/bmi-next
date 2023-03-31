@@ -836,7 +836,6 @@ exports[`TabLeadBlock tests should render 1`] = `
                               >
                                 <a
                                   class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-                                  data-testid="document-table-external-link-button"
                                   href="http://localhost/pim-link-document-id"
                                   rel="noopener noreferrer"
                                   tabindex="0"
@@ -1167,7 +1166,6 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                           >
                             <a
                               class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-                              data-testid="document-table-external-link-button"
                               href="http://localhost/pim-link-document-id"
                               rel="noopener noreferrer"
                               tabindex="0"
