@@ -1,3 +1,5 @@
+import { SocialMediaLinks } from "@bmi-digital/components";
+import React from "react";
 import * as devLog from "../../../utils/devLog";
 import createService from "../../../__tests__/helpers/ServiceHelper";
 import { EntryTypeEnum } from "../../Service";
@@ -317,14 +319,16 @@ describe("createCompanyDetails", () => {
         expect(details).toEqual(
           expect.arrayContaining([
             expect.objectContaining({
-              channels: {
-                facebook: "foo",
-                instagram: "beep",
-                linkedIn: "tux",
-                twitter: "bar"
-              },
-              type: "socialMedia",
-              label: "findARoofer.socialMediaLabel"
+              type: "content",
+              label: "findARoofer.socialMediaLabel",
+              text: (
+                <SocialMediaLinks
+                  facebook={channels.facebook}
+                  instagram={channels.instagram}
+                  linkedIn={channels.linkedIn}
+                  twitter={channels.twitter}
+                />
+              )
             })
           ])
         );
