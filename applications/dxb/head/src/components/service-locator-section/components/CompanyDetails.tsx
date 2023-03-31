@@ -1,24 +1,44 @@
 import { CompanyDetailProps, RoofProLevel } from "@bmi-digital/components";
 import React from "react";
 import { Service } from "..";
-import { devLog } from "../../../utils/devLog";
 import { getClickableActionFromUrl } from "../../Link";
 import { EntryTypeEnum } from "../../Service";
 import { EVENT_CAT_ID_LINK_CLICKS } from "../constants";
 import { handleSocialMediaClick } from "../utils/handleSocialMediaClick";
 
-export const createCompanyDetails = (
-  sectionType: EntryTypeEnum | undefined,
-  service: Service,
-  countryCode: string,
-  localizationCb: (s: string) => string,
-  isAddressHidden: boolean,
-  googleURLLatLng: string
-): CompanyDetailProps[] => {
-  const shouldShowIcons = sectionType === EntryTypeEnum.ROOFER_TYPE;
-  const isAddressClickable = sectionType !== EntryTypeEnum.MERCHANT_TYPE;
-  const shouldShowGetDirectionsButton =
-    sectionType !== EntryTypeEnum.ROOFER_TYPE;
+import { devLog } from "../../../utils/devLog";
+
+const { ROOFER_TYPE, MERCHANT_TYPE, BRANCH_TYPE } = EntryTypeEnum;
+
+interface Props {
+  (
+    sectionType: EntryTypeEnum | undefined,
+    service: Service,
+    countryCode: string,
+    localizationCb: (s: string) => string,
+    isAddressHidden: boolean,
+    googleURLLatLng: string
+  ): CompanyDetailProps[];
+}
+
+export const createCompanyDetails: Props = (
+  sectionType,
+  service,
+  countryCode,
+  localizationCb,
+  isAddressHidden,
+  googleURLLatLng
+) => {
+  if (!service) {
+    return;
+  }
+
+  if (![ROOFER_TYPE, MERCHANT_TYPE, BRANCH_TYPE].includes(sectionType)) {
+    devLog("Invalid section type passed to service locator:", sectionType);
+    return [];
+  }
+
+  const isAddressClickable = sectionType !== MERCHANT_TYPE;
 
   const localization = {
     globalAddress: localizationCb("global.address"),
@@ -45,7 +65,7 @@ export const createCompanyDetails = (
     const label = `${service?.name} - ${service?.address}${
       service?.certification ? ` - ${service?.certification}` : ""
     } - ${serviceType}`;
-    if (sectionType !== EntryTypeEnum.ROOFER_TYPE) {
+    if (sectionType !== ROOFER_TYPE) {
       return {
         id: EVENT_CAT_ID_LINK_CLICKS,
         label: `${label}${linkOrButtonText ? ` - ${linkOrButtonText}` : ""}`,
@@ -76,180 +96,137 @@ export const createCompanyDetails = (
     };
   };
 
-  const websiteWithProtocol: string = !service
-    ? null
-    : !service.website || service.website.startsWith("http")
-    ? service.website
-    : `https://${service.website}`;
-
-  const websiteLabelMicrocopy: string = !service
-    ? null
-    : service.entryType === EntryTypeEnum.ROOFER_TYPE
-    ? localization.rooferWebsiteLabel
-    : service.entryType === EntryTypeEnum.MERCHANT_TYPE
-    ? localization.merchantWebsiteLabel
-    : service.entryType === EntryTypeEnum.BRANCH_TYPE
-    ? localization.branchWebsiteLabel
-    : null;
-
-  const actions = {
-    address: !service
-      ? null
-      : getClickableActionFromUrl(
-          undefined,
-          `https://www.google.com/maps/dir/${googleURLLatLng}/${encodeURI(
-            service.address
-          )}/`,
-          countryCode,
-          undefined,
-          localization.globalAddress,
-          undefined,
-          undefined,
-          getServiceDataGTM(
-            `https://www.google.com/maps/dir/${googleURLLatLng}/${encodeURI(
-              service.address
-            )}/`,
-            localization.globalAddress
-          )
-        ),
-    directions: !service
-      ? null
-      : getClickableActionFromUrl(
-          undefined,
-          `https://www.google.com/maps/dir/${googleURLLatLng}/${encodeURI(
-            service.address
-          )}/`,
-          countryCode,
-          undefined,
-          localization.directionsLabel,
-          undefined,
-          undefined,
-          getServiceDataGTM(
-            `https://www.google.com/maps/dir/${googleURLLatLng}/${encodeURI(
-              service.address
-            )}/`,
-            localization.directionsLabel
-          )
-        ),
-    phone: !service
-      ? null
-      : getClickableActionFromUrl(
-          undefined,
-          `tel:${service.phone}`,
-          countryCode,
-          undefined,
-          localization.globalTelephone,
-          undefined,
-          undefined,
-          getServiceDataGTM(
-            `tel:${service.phone}`,
-            localization.globalTelephone
-          )
-        ),
-    website: !service
-      ? null
-      : getClickableActionFromUrl(
-          undefined,
-          websiteWithProtocol,
-          countryCode,
-          undefined,
-          websiteLabelMicrocopy,
-          undefined,
-          undefined,
-          getServiceDataGTM(websiteWithProtocol, websiteLabelMicrocopy)
-        ),
-    email: !service
-      ? null
-      : getClickableActionFromUrl(
-          undefined,
-          `mailto:${service.email}`,
-          countryCode,
-          undefined,
-          localization.globalEmail,
-          undefined,
-          undefined,
-          getServiceDataGTM(`mailto:${service.email}`, localization.globalEmail)
-        )
+  const getWebsiteLabelMicrocopy = (entryType: EntryTypeEnum) => {
+    switch (entryType) {
+      case ROOFER_TYPE:
+        return localization.rooferWebsiteLabel;
+      case MERCHANT_TYPE:
+        return localization.merchantWebsiteLabel;
+      case BRANCH_TYPE:
+        return localization.branchWebsiteLabel;
+      default:
+        return null;
+    }
   };
 
-  const address: CompanyDetailProps = !service
-    ? null
-    : {
-        type: "address",
-        display: shouldShowIcons ? "icon" : "contentOnly",
-        text: service.address,
-        label: localization.globalAddress,
-        action: isAddressClickable ? actions.address : undefined
-      };
-  const detailsStart = isAddressHidden ? [] : [address];
+  const websiteWithProtocol: string =
+    !service.website || service?.website.startsWith("http")
+      ? service.website
+      : `https://${service.website}`;
 
-  const distance: CompanyDetailProps | undefined =
-    service && service.distance !== undefined
-      ? {
-          type: "distance",
-          display: shouldShowIcons ? "icon" : "label",
-          text: `${Math.floor(service.distance) / 1000}km`,
-          label: localization.distanceLabel
-        }
-      : undefined;
-  const directions: CompanyDetailProps | undefined =
-    shouldShowGetDirectionsButton && service
-      ? {
-          type: "cta",
-          text: localization.directionsLabel,
-          action: actions.directions,
-          label: localization.directionsLabel
-        }
-      : undefined;
-  const phone: CompanyDetailProps | undefined =
-    service && service.phone
-      ? {
-          type: "phone",
-          display: shouldShowIcons ? "icon" : "label",
-          text: service.phone,
-          action: actions.phone,
-          label: localization.globalTelephone
-        }
-      : undefined;
-  const email: CompanyDetailProps | undefined =
-    service && service.email
-      ? {
-          type: "email",
-          display: shouldShowIcons ? "icon" : "label",
-          text: service.email,
-          action: actions.email,
-          label: localization.globalEmail
-        }
-      : undefined;
-  const website: CompanyDetailProps | undefined = websiteWithProtocol
+  const websiteLabelMicrocopy = getWebsiteLabelMicrocopy(service.entryType);
+
+  const actions = {
+    address: getClickableActionFromUrl(
+      undefined,
+      `https://www.google.com/maps/dir/${googleURLLatLng}/${encodeURI(
+        service.address
+      )}/`,
+      countryCode,
+      undefined,
+      localization.globalAddress,
+      undefined,
+      undefined,
+      getServiceDataGTM(
+        `https://www.google.com/maps/dir/${googleURLLatLng}/${encodeURI(
+          service.address
+        )}/`,
+        localization.globalAddress
+      )
+    ),
+    phone: getClickableActionFromUrl(
+      undefined,
+      `tel:${service.phone}`,
+      countryCode,
+      undefined,
+      localization.globalTelephone,
+      undefined,
+      undefined,
+      getServiceDataGTM(`tel:${service.phone}`, localization.globalTelephone)
+    ),
+    website: getClickableActionFromUrl(
+      undefined,
+      websiteWithProtocol,
+      countryCode,
+      undefined,
+      websiteLabelMicrocopy,
+      undefined,
+      undefined,
+      getServiceDataGTM(websiteWithProtocol, websiteLabelMicrocopy)
+    ),
+    email: getClickableActionFromUrl(
+      undefined,
+      `mailto:${service.email}`,
+      countryCode,
+      undefined,
+      localization.globalEmail,
+      undefined,
+      undefined,
+      getServiceDataGTM(`mailto:${service.email}`, localization.globalEmail)
+    )
+  };
+
+  const address = {
+    type: "address",
+    display: "contentOnly",
+    text: service.address,
+    label: localization.globalAddress,
+    action: isAddressClickable ? actions.address : undefined
+  };
+
+  const distance = service?.distance
+    ? {
+        type: "distance",
+        display: "label",
+        text: `${Math.floor(service.distance) / 1000}km`,
+        label: localization.distanceLabel
+      }
+    : undefined;
+
+  const phone = service?.phone
+    ? {
+        type: "phone",
+        display: "label",
+        text: service.phone,
+        action: actions.phone,
+        label: localization.globalTelephone
+      }
+    : undefined;
+
+  const email = service?.email
+    ? {
+        type: "email",
+        display: "label",
+        text: service.email,
+        action: actions.email,
+        label: localization.globalEmail
+      }
+    : undefined;
+
+  const website = websiteWithProtocol
     ? {
         type: "website",
-        display: shouldShowIcons ? "icon" : "label",
-        text: websiteWithProtocol
-          ? service.websiteLinkAsLabel
-            ? websiteLabelMicrocopy
-            : new URL(websiteWithProtocol).hostname
-          : null,
+        display: "label",
+        text: service.websiteLinkAsLabel
+          ? websiteLabelMicrocopy
+          : new URL(websiteWithProtocol).hostname,
         action: actions.website,
         label: localization.globalWebsite
       }
     : undefined;
-  const fax: CompanyDetailProps | undefined =
-    service && service.fax
+
+  const fax = service?.fax
+    ? {
+        type: "content",
+        text: service.fax,
+        label: localization.faxLabel
+      }
+    : undefined;
+
+  const type =
+    service?.serviceTypes && service.serviceTypes.length
       ? {
-          type: "content",
-          text: service.fax,
-          textStyle: "bold",
-          label: localization.faxLabel
-        }
-      : undefined;
-  const type: CompanyDetailProps | undefined =
-    service &&
-    service.serviceTypes &&
-    service.serviceTypes.length &&
-    service.serviceTypes.length > 0
-      ? {
-          type: "content",
+          type: "roofType",
           label: localization.roofTypeLabel,
           text: (
             <b>
@@ -261,51 +238,35 @@ export const createCompanyDetails = (
         }
       : undefined;
 
-  const certification: CompanyDetailProps =
-    service && service.certification
-      ? {
-          type: "roofProLevel",
-          label: localization.certificationLabel,
-          level: service.certification.toLowerCase() as RoofProLevel
-        }
-      : undefined;
+  const certification = service?.certification
+    ? {
+        type: "roofProLevel",
+        label: localization.certificationLabel,
+        level: service.certification.toLowerCase() as RoofProLevel
+      }
+    : undefined;
 
-  switch (sectionType) {
-    case EntryTypeEnum.ROOFER_TYPE:
-      return [
-        ...detailsStart,
-        distance,
-        directions,
-        phone,
-        email,
-        website,
-        getSocialMedia(),
-        type,
-        certification
-      ].filter(Boolean);
-    case EntryTypeEnum.BRANCH_TYPE:
-      return [
-        ...detailsStart,
-        distance,
-        phone,
-        email,
-        fax,
-        website,
-        getSocialMedia(),
-        directions
-      ].filter(Boolean);
-    case EntryTypeEnum.MERCHANT_TYPE:
-      return [
-        ...detailsStart,
-        distance,
-        phone,
-        email,
-        website,
-        getSocialMedia(),
-        directions
-      ].filter(Boolean);
-    default:
-      devLog("Invalid section type passed to service locator:", sectionType);
-      return [];
+  const details = [];
+
+  if (!isAddressHidden) {
+    details.push(address);
   }
+
+  if (sectionType === ROOFER_TYPE) {
+    details.push(certification);
+  }
+
+  details.push(distance, phone, email, website, getSocialMedia());
+
+  if (sectionType === BRANCH_TYPE) {
+    details.push(fax);
+  }
+
+  details.push(email, website, getSocialMedia());
+
+  if (sectionType === ROOFER_TYPE) {
+    details.push(type);
+  }
+
+  return details.filter((detail) => !!detail);
 };
