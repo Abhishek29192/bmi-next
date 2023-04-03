@@ -1159,7 +1159,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                         </div>
                       </div>
                       <div
-                        class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+                        class="MuiCardContent-root product-details-card-body css-46bh2p-MuiCardContent-root"
                       >
                         <div
                           class="css-hvci11"
@@ -13471,7 +13471,7 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                         </div>
                       </div>
                       <div
-                        class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+                        class="MuiCardContent-root product-details-card-body css-46bh2p-MuiCardContent-root"
                       >
                         <div
                           class="css-hvci11"

@@ -1,7 +1,16 @@
+@import "~@bmi-digital/styles";
+
 .CarouselSection {
   overflow: hidden;
 
   .link {
     margin-top: 24px;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    .video-preview-image{
+      max-height: 400px;
+      height: calc(100vw - 32px)
+    }
   }
 }

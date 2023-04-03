@@ -2633,138 +2633,142 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
             class="CarouselHero-wrapper"
           >
             <div
-              class="MuiBox-root css-130f8nx"
-              data-testid="brand-landing-page-breadcrumbs-top"
+              class="MuiBox-root css-i3pbo"
             >
-              <nav
-                aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1prnnfn-MuiTypography-root-MuiBreadcrumbs-root"
+              <div
+                class="MuiBox-root css-130f8nx"
+                data-testid="brand-landing-page-breadcrumbs-top"
               >
-                <ol
-                  class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+                <nav
+                  aria-label="breadcrumbs"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
                 >
-                  <li
-                    class="MuiBreadcrumbs-li"
+                  <ol
+                    class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
                   >
-                    <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
-                      data-testid="bread-crumb-Home"
-                      href="/en/"
-                      tabindex="0"
+                    <li
+                      class="MuiBreadcrumbs-li"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      <a
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                        data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
+                        data-testid="bread-crumb-Home"
+                        href="/en/"
+                        tabindex="0"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
-                          data-testid="ArrowBackIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                        <span
+                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         >
-                          <path
-                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                          />
-                        </svg>
-                      </span>
-                      <span
-                        class="Breadcrumbs-label"
-                      >
-                        Home
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </a>
-                  </li>
-                  <li
-                    aria-hidden="true"
-                    class="MuiBreadcrumbs-separator Breadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
-                  >
-                    /
-                  </li>
-                  <li
-                    class="MuiBreadcrumbs-li"
-                  >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
-                      data-testid="bread-crumb-breadcrumbTitle"
-                      disabled=""
-                      tabindex="-1"
-                      type="button"
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                            data-testid="ArrowBackIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="Breadcrumbs-label"
+                        >
+                          Home
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </a>
+                    </li>
+                    <li
+                      aria-hidden="true"
+                      class="MuiBreadcrumbs-separator Breadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      /
+                    </li>
+                    <li
+                      class="MuiBreadcrumbs-li"
+                    >
+                      <button
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                        data-testid="bread-crumb-breadcrumbTitle"
+                        disabled=""
+                        tabindex="-1"
+                        type="button"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
-                          data-testid="ArrowBackIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                        <span
+                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         >
-                          <path
-                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                          />
-                        </svg>
-                      </span>
-                      <span>
-                        breadcrumbTitle
-                      </span>
-                    </button>
-                  </li>
-                </ol>
-              </nav>
-            </div>
-            <div
-              class="MuiBox-root css-10q9jzs"
-              data-testid="brand-landing-page-breadcrumbs-top-mobile"
-            >
-              <nav
-                aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1prnnfn-MuiTypography-root-MuiBreadcrumbs-root"
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                            data-testid="ArrowBackIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span>
+                          breadcrumbTitle
+                        </span>
+                      </button>
+                    </li>
+                  </ol>
+                </nav>
+              </div>
+              <div
+                class="MuiBox-root css-10q9jzs"
+                data-testid="brand-landing-page-breadcrumbs-top-mobile"
               >
-                <ol
-                  class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+                <nav
+                  aria-label="breadcrumbs"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
                 >
-                  <li
-                    class="MuiBreadcrumbs-li"
+                  <ol
+                    class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
                   >
-                    <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
-                      data-testid="bread-crumb-Home"
-                      href="/en/"
-                      tabindex="0"
+                    <li
+                      class="MuiBreadcrumbs-li"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      <a
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                        data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
+                        data-testid="bread-crumb-Home"
+                        href="/en/"
+                        tabindex="0"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
-                          data-testid="ArrowBackIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                        <span
+                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         >
-                          <path
-                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                          />
-                        </svg>
-                      </span>
-                      <span
-                        class="Breadcrumbs-label"
-                      >
-                        Home
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </a>
-                  </li>
-                </ol>
-              </nav>
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                            data-testid="ArrowBackIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="Breadcrumbs-label"
+                        >
+                          Home
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </a>
+                    </li>
+                  </ol>
+                </nav>
+              </div>
             </div>
             <div
               class=" css-xi64lz"
@@ -6446,138 +6450,142 @@ exports[`Brand Landing Page Template render correctly 1`] = `
             class="CarouselHero-wrapper"
           >
             <div
-              class="MuiBox-root css-130f8nx"
-              data-testid="brand-landing-page-breadcrumbs-top"
+              class="MuiBox-root css-i3pbo"
             >
-              <nav
-                aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1prnnfn-MuiTypography-root-MuiBreadcrumbs-root"
+              <div
+                class="MuiBox-root css-130f8nx"
+                data-testid="brand-landing-page-breadcrumbs-top"
               >
-                <ol
-                  class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+                <nav
+                  aria-label="breadcrumbs"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
                 >
-                  <li
-                    class="MuiBreadcrumbs-li"
+                  <ol
+                    class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
                   >
-                    <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
-                      data-testid="bread-crumb-Home"
-                      href="/en/"
-                      tabindex="0"
+                    <li
+                      class="MuiBreadcrumbs-li"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      <a
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                        data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
+                        data-testid="bread-crumb-Home"
+                        href="/en/"
+                        tabindex="0"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
-                          data-testid="ArrowBackIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                        <span
+                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         >
-                          <path
-                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                          />
-                        </svg>
-                      </span>
-                      <span
-                        class="Breadcrumbs-label"
-                      >
-                        Home
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </a>
-                  </li>
-                  <li
-                    aria-hidden="true"
-                    class="MuiBreadcrumbs-separator Breadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
-                  >
-                    /
-                  </li>
-                  <li
-                    class="MuiBreadcrumbs-li"
-                  >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
-                      data-testid="bread-crumb-breadcrumbTitle"
-                      disabled=""
-                      tabindex="-1"
-                      type="button"
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                            data-testid="ArrowBackIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="Breadcrumbs-label"
+                        >
+                          Home
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </a>
+                    </li>
+                    <li
+                      aria-hidden="true"
+                      class="MuiBreadcrumbs-separator Breadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      /
+                    </li>
+                    <li
+                      class="MuiBreadcrumbs-li"
+                    >
+                      <button
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                        data-testid="bread-crumb-breadcrumbTitle"
+                        disabled=""
+                        tabindex="-1"
+                        type="button"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
-                          data-testid="ArrowBackIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                        <span
+                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         >
-                          <path
-                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                          />
-                        </svg>
-                      </span>
-                      <span>
-                        breadcrumbTitle
-                      </span>
-                    </button>
-                  </li>
-                </ol>
-              </nav>
-            </div>
-            <div
-              class="MuiBox-root css-10q9jzs"
-              data-testid="brand-landing-page-breadcrumbs-top-mobile"
-            >
-              <nav
-                aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1prnnfn-MuiTypography-root-MuiBreadcrumbs-root"
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                            data-testid="ArrowBackIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span>
+                          breadcrumbTitle
+                        </span>
+                      </button>
+                    </li>
+                  </ol>
+                </nav>
+              </div>
+              <div
+                class="MuiBox-root css-10q9jzs"
+                data-testid="brand-landing-page-breadcrumbs-top-mobile"
               >
-                <ol
-                  class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+                <nav
+                  aria-label="breadcrumbs"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
                 >
-                  <li
-                    class="MuiBreadcrumbs-li"
+                  <ol
+                    class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
                   >
-                    <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
-                      data-testid="bread-crumb-Home"
-                      href="/en/"
-                      tabindex="0"
+                    <li
+                      class="MuiBreadcrumbs-li"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      <a
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                        data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
+                        data-testid="bread-crumb-Home"
+                        href="/en/"
+                        tabindex="0"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
-                          data-testid="ArrowBackIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                        <span
+                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         >
-                          <path
-                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                          />
-                        </svg>
-                      </span>
-                      <span
-                        class="Breadcrumbs-label"
-                      >
-                        Home
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </a>
-                  </li>
-                </ol>
-              </nav>
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                            data-testid="ArrowBackIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="Breadcrumbs-label"
+                        >
+                          Home
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </a>
+                    </li>
+                  </ol>
+                </nav>
+              </div>
             </div>
             <div
               class=" css-xi64lz"
@@ -10028,138 +10036,142 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
             class="CarouselHero-wrapper"
           >
             <div
-              class="MuiBox-root css-130f8nx"
-              data-testid="brand-landing-page-breadcrumbs-top"
+              class="MuiBox-root css-i3pbo"
             >
-              <nav
-                aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1prnnfn-MuiTypography-root-MuiBreadcrumbs-root"
+              <div
+                class="MuiBox-root css-130f8nx"
+                data-testid="brand-landing-page-breadcrumbs-top"
               >
-                <ol
-                  class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+                <nav
+                  aria-label="breadcrumbs"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
                 >
-                  <li
-                    class="MuiBreadcrumbs-li"
+                  <ol
+                    class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
                   >
-                    <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
-                      data-testid="bread-crumb-Home"
-                      href="/en/"
-                      tabindex="0"
+                    <li
+                      class="MuiBreadcrumbs-li"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      <a
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                        data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
+                        data-testid="bread-crumb-Home"
+                        href="/en/"
+                        tabindex="0"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
-                          data-testid="ArrowBackIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                        <span
+                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         >
-                          <path
-                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                          />
-                        </svg>
-                      </span>
-                      <span
-                        class="Breadcrumbs-label"
-                      >
-                        Home
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </a>
-                  </li>
-                  <li
-                    aria-hidden="true"
-                    class="MuiBreadcrumbs-separator Breadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
-                  >
-                    /
-                  </li>
-                  <li
-                    class="MuiBreadcrumbs-li"
-                  >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
-                      data-testid="bread-crumb-breadcrumbTitle"
-                      disabled=""
-                      tabindex="-1"
-                      type="button"
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                            data-testid="ArrowBackIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="Breadcrumbs-label"
+                        >
+                          Home
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </a>
+                    </li>
+                    <li
+                      aria-hidden="true"
+                      class="MuiBreadcrumbs-separator Breadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      /
+                    </li>
+                    <li
+                      class="MuiBreadcrumbs-li"
+                    >
+                      <button
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                        data-testid="bread-crumb-breadcrumbTitle"
+                        disabled=""
+                        tabindex="-1"
+                        type="button"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
-                          data-testid="ArrowBackIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                        <span
+                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         >
-                          <path
-                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                          />
-                        </svg>
-                      </span>
-                      <span>
-                        breadcrumbTitle
-                      </span>
-                    </button>
-                  </li>
-                </ol>
-              </nav>
-            </div>
-            <div
-              class="MuiBox-root css-10q9jzs"
-              data-testid="brand-landing-page-breadcrumbs-top-mobile"
-            >
-              <nav
-                aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1prnnfn-MuiTypography-root-MuiBreadcrumbs-root"
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                            data-testid="ArrowBackIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span>
+                          breadcrumbTitle
+                        </span>
+                      </button>
+                    </li>
+                  </ol>
+                </nav>
+              </div>
+              <div
+                class="MuiBox-root css-10q9jzs"
+                data-testid="brand-landing-page-breadcrumbs-top-mobile"
               >
-                <ol
-                  class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+                <nav
+                  aria-label="breadcrumbs"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
                 >
-                  <li
-                    class="MuiBreadcrumbs-li"
+                  <ol
+                    class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
                   >
-                    <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
-                      data-testid="bread-crumb-Home"
-                      href="/en/"
-                      tabindex="0"
+                    <li
+                      class="MuiBreadcrumbs-li"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      <a
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                        data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
+                        data-testid="bread-crumb-Home"
+                        href="/en/"
+                        tabindex="0"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
-                          data-testid="ArrowBackIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                        <span
+                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         >
-                          <path
-                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                          />
-                        </svg>
-                      </span>
-                      <span
-                        class="Breadcrumbs-label"
-                      >
-                        Home
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </a>
-                  </li>
-                </ol>
-              </nav>
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                            data-testid="ArrowBackIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="Breadcrumbs-label"
+                        >
+                          Home
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </a>
+                    </li>
+                  </ol>
+                </nav>
+              </div>
             </div>
             <div
               class=" css-xi64lz"
@@ -13837,138 +13849,142 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
             class="CarouselHero-wrapper"
           >
             <div
-              class="MuiBox-root css-130f8nx"
-              data-testid="brand-landing-page-breadcrumbs-top"
+              class="MuiBox-root css-i3pbo"
             >
-              <nav
-                aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1prnnfn-MuiTypography-root-MuiBreadcrumbs-root"
+              <div
+                class="MuiBox-root css-130f8nx"
+                data-testid="brand-landing-page-breadcrumbs-top"
               >
-                <ol
-                  class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+                <nav
+                  aria-label="breadcrumbs"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
                 >
-                  <li
-                    class="MuiBreadcrumbs-li"
+                  <ol
+                    class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
                   >
-                    <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
-                      data-testid="bread-crumb-Home"
-                      href="/en/"
-                      tabindex="0"
+                    <li
+                      class="MuiBreadcrumbs-li"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      <a
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                        data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
+                        data-testid="bread-crumb-Home"
+                        href="/en/"
+                        tabindex="0"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
-                          data-testid="ArrowBackIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                        <span
+                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         >
-                          <path
-                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                          />
-                        </svg>
-                      </span>
-                      <span
-                        class="Breadcrumbs-label"
-                      >
-                        Home
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </a>
-                  </li>
-                  <li
-                    aria-hidden="true"
-                    class="MuiBreadcrumbs-separator Breadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
-                  >
-                    /
-                  </li>
-                  <li
-                    class="MuiBreadcrumbs-li"
-                  >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
-                      data-testid="bread-crumb-breadcrumbTitle"
-                      disabled=""
-                      tabindex="-1"
-                      type="button"
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                            data-testid="ArrowBackIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="Breadcrumbs-label"
+                        >
+                          Home
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </a>
+                    </li>
+                    <li
+                      aria-hidden="true"
+                      class="MuiBreadcrumbs-separator Breadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      /
+                    </li>
+                    <li
+                      class="MuiBreadcrumbs-li"
+                    >
+                      <button
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                        data-testid="bread-crumb-breadcrumbTitle"
+                        disabled=""
+                        tabindex="-1"
+                        type="button"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
-                          data-testid="ArrowBackIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                        <span
+                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         >
-                          <path
-                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                          />
-                        </svg>
-                      </span>
-                      <span>
-                        breadcrumbTitle
-                      </span>
-                    </button>
-                  </li>
-                </ol>
-              </nav>
-            </div>
-            <div
-              class="MuiBox-root css-10q9jzs"
-              data-testid="brand-landing-page-breadcrumbs-top-mobile"
-            >
-              <nav
-                aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1prnnfn-MuiTypography-root-MuiBreadcrumbs-root"
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                            data-testid="ArrowBackIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span>
+                          breadcrumbTitle
+                        </span>
+                      </button>
+                    </li>
+                  </ol>
+                </nav>
+              </div>
+              <div
+                class="MuiBox-root css-10q9jzs"
+                data-testid="brand-landing-page-breadcrumbs-top-mobile"
               >
-                <ol
-                  class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+                <nav
+                  aria-label="breadcrumbs"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
                 >
-                  <li
-                    class="MuiBreadcrumbs-li"
+                  <ol
+                    class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
                   >
-                    <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
-                      data-testid="bread-crumb-Home"
-                      href="/en/"
-                      tabindex="0"
+                    <li
+                      class="MuiBreadcrumbs-li"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      <a
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                        data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
+                        data-testid="bread-crumb-Home"
+                        href="/en/"
+                        tabindex="0"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
-                          data-testid="ArrowBackIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                        <span
+                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         >
-                          <path
-                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                          />
-                        </svg>
-                      </span>
-                      <span
-                        class="Breadcrumbs-label"
-                      >
-                        Home
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </a>
-                  </li>
-                </ol>
-              </nav>
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                            data-testid="ArrowBackIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="Breadcrumbs-label"
+                        >
+                          Home
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </a>
+                    </li>
+                  </ol>
+                </nav>
+              </div>
             </div>
             <div
               class=" css-xi64lz"
@@ -17614,138 +17630,142 @@ exports[`Brand Landing Page Template render no content for first slide when no d
             class="CarouselHero-wrapper"
           >
             <div
-              class="MuiBox-root css-130f8nx"
-              data-testid="brand-landing-page-breadcrumbs-top"
+              class="MuiBox-root css-i3pbo"
             >
-              <nav
-                aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1prnnfn-MuiTypography-root-MuiBreadcrumbs-root"
+              <div
+                class="MuiBox-root css-130f8nx"
+                data-testid="brand-landing-page-breadcrumbs-top"
               >
-                <ol
-                  class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+                <nav
+                  aria-label="breadcrumbs"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
                 >
-                  <li
-                    class="MuiBreadcrumbs-li"
+                  <ol
+                    class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
                   >
-                    <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
-                      data-testid="bread-crumb-Home"
-                      href="/en/"
-                      tabindex="0"
+                    <li
+                      class="MuiBreadcrumbs-li"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      <a
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                        data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
+                        data-testid="bread-crumb-Home"
+                        href="/en/"
+                        tabindex="0"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
-                          data-testid="ArrowBackIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                        <span
+                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         >
-                          <path
-                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                          />
-                        </svg>
-                      </span>
-                      <span
-                        class="Breadcrumbs-label"
-                      >
-                        Home
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </a>
-                  </li>
-                  <li
-                    aria-hidden="true"
-                    class="MuiBreadcrumbs-separator Breadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
-                  >
-                    /
-                  </li>
-                  <li
-                    class="MuiBreadcrumbs-li"
-                  >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
-                      data-testid="bread-crumb-breadcrumbTitle"
-                      disabled=""
-                      tabindex="-1"
-                      type="button"
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                            data-testid="ArrowBackIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="Breadcrumbs-label"
+                        >
+                          Home
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </a>
+                    </li>
+                    <li
+                      aria-hidden="true"
+                      class="MuiBreadcrumbs-separator Breadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      /
+                    </li>
+                    <li
+                      class="MuiBreadcrumbs-li"
+                    >
+                      <button
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                        data-testid="bread-crumb-breadcrumbTitle"
+                        disabled=""
+                        tabindex="-1"
+                        type="button"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
-                          data-testid="ArrowBackIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                        <span
+                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         >
-                          <path
-                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                          />
-                        </svg>
-                      </span>
-                      <span>
-                        breadcrumbTitle
-                      </span>
-                    </button>
-                  </li>
-                </ol>
-              </nav>
-            </div>
-            <div
-              class="MuiBox-root css-10q9jzs"
-              data-testid="brand-landing-page-breadcrumbs-top-mobile"
-            >
-              <nav
-                aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1prnnfn-MuiTypography-root-MuiBreadcrumbs-root"
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                            data-testid="ArrowBackIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span>
+                          breadcrumbTitle
+                        </span>
+                      </button>
+                    </li>
+                  </ol>
+                </nav>
+              </div>
+              <div
+                class="MuiBox-root css-10q9jzs"
+                data-testid="brand-landing-page-breadcrumbs-top-mobile"
               >
-                <ol
-                  class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+                <nav
+                  aria-label="breadcrumbs"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
                 >
-                  <li
-                    class="MuiBreadcrumbs-li"
+                  <ol
+                    class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
                   >
-                    <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
-                      data-testid="bread-crumb-Home"
-                      href="/en/"
-                      tabindex="0"
+                    <li
+                      class="MuiBreadcrumbs-li"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      <a
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                        data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
+                        data-testid="bread-crumb-Home"
+                        href="/en/"
+                        tabindex="0"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
-                          data-testid="ArrowBackIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                        <span
+                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         >
-                          <path
-                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                          />
-                        </svg>
-                      </span>
-                      <span
-                        class="Breadcrumbs-label"
-                      >
-                        Home
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </a>
-                  </li>
-                </ol>
-              </nav>
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                            data-testid="ArrowBackIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="Breadcrumbs-label"
+                        >
+                          Home
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </a>
+                    </li>
+                  </ol>
+                </nav>
+              </div>
             </div>
             <div
               class=" css-xi64lz"
@@ -21421,138 +21441,142 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
             class="CarouselHero-wrapper"
           >
             <div
-              class="MuiBox-root css-130f8nx"
-              data-testid="brand-landing-page-breadcrumbs-top"
+              class="MuiBox-root css-i3pbo"
             >
-              <nav
-                aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1prnnfn-MuiTypography-root-MuiBreadcrumbs-root"
+              <div
+                class="MuiBox-root css-130f8nx"
+                data-testid="brand-landing-page-breadcrumbs-top"
               >
-                <ol
-                  class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+                <nav
+                  aria-label="breadcrumbs"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
                 >
-                  <li
-                    class="MuiBreadcrumbs-li"
+                  <ol
+                    class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
                   >
-                    <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
-                      data-testid="bread-crumb-Home"
-                      href="/en/"
-                      tabindex="0"
+                    <li
+                      class="MuiBreadcrumbs-li"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      <a
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                        data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
+                        data-testid="bread-crumb-Home"
+                        href="/en/"
+                        tabindex="0"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
-                          data-testid="ArrowBackIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                        <span
+                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         >
-                          <path
-                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                          />
-                        </svg>
-                      </span>
-                      <span
-                        class="Breadcrumbs-label"
-                      >
-                        Home
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </a>
-                  </li>
-                  <li
-                    aria-hidden="true"
-                    class="MuiBreadcrumbs-separator Breadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
-                  >
-                    /
-                  </li>
-                  <li
-                    class="MuiBreadcrumbs-li"
-                  >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
-                      data-testid="bread-crumb-breadcrumbTitle"
-                      disabled=""
-                      tabindex="-1"
-                      type="button"
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                            data-testid="ArrowBackIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="Breadcrumbs-label"
+                        >
+                          Home
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </a>
+                    </li>
+                    <li
+                      aria-hidden="true"
+                      class="MuiBreadcrumbs-separator Breadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      /
+                    </li>
+                    <li
+                      class="MuiBreadcrumbs-li"
+                    >
+                      <button
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                        data-testid="bread-crumb-breadcrumbTitle"
+                        disabled=""
+                        tabindex="-1"
+                        type="button"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
-                          data-testid="ArrowBackIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                        <span
+                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         >
-                          <path
-                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                          />
-                        </svg>
-                      </span>
-                      <span>
-                        breadcrumbTitle
-                      </span>
-                    </button>
-                  </li>
-                </ol>
-              </nav>
-            </div>
-            <div
-              class="MuiBox-root css-10q9jzs"
-              data-testid="brand-landing-page-breadcrumbs-top-mobile"
-            >
-              <nav
-                aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1prnnfn-MuiTypography-root-MuiBreadcrumbs-root"
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                            data-testid="ArrowBackIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span>
+                          breadcrumbTitle
+                        </span>
+                      </button>
+                    </li>
+                  </ol>
+                </nav>
+              </div>
+              <div
+                class="MuiBox-root css-10q9jzs"
+                data-testid="brand-landing-page-breadcrumbs-top-mobile"
               >
-                <ol
-                  class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+                <nav
+                  aria-label="breadcrumbs"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
                 >
-                  <li
-                    class="MuiBreadcrumbs-li"
+                  <ol
+                    class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
                   >
-                    <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
-                      data-testid="bread-crumb-Home"
-                      href="/en/"
-                      tabindex="0"
+                    <li
+                      class="MuiBreadcrumbs-li"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      <a
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                        data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
+                        data-testid="bread-crumb-Home"
+                        href="/en/"
+                        tabindex="0"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
-                          data-testid="ArrowBackIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                        <span
+                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         >
-                          <path
-                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                          />
-                        </svg>
-                      </span>
-                      <span
-                        class="Breadcrumbs-label"
-                      >
-                        Home
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </a>
-                  </li>
-                </ol>
-              </nav>
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                            data-testid="ArrowBackIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="Breadcrumbs-label"
+                        >
+                          Home
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </a>
+                    </li>
+                  </ol>
+                </nav>
+              </div>
             </div>
             <div
               class=" css-xi64lz"
@@ -25199,138 +25223,142 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
             class="CarouselHero-wrapper"
           >
             <div
-              class="MuiBox-root css-130f8nx"
-              data-testid="brand-landing-page-breadcrumbs-top"
+              class="MuiBox-root css-i3pbo"
             >
-              <nav
-                aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1prnnfn-MuiTypography-root-MuiBreadcrumbs-root"
+              <div
+                class="MuiBox-root css-130f8nx"
+                data-testid="brand-landing-page-breadcrumbs-top"
               >
-                <ol
-                  class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+                <nav
+                  aria-label="breadcrumbs"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
                 >
-                  <li
-                    class="MuiBreadcrumbs-li"
+                  <ol
+                    class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
                   >
-                    <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
-                      data-testid="bread-crumb-Home"
-                      href="/en/"
-                      tabindex="0"
+                    <li
+                      class="MuiBreadcrumbs-li"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      <a
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                        data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
+                        data-testid="bread-crumb-Home"
+                        href="/en/"
+                        tabindex="0"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
-                          data-testid="ArrowBackIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                        <span
+                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         >
-                          <path
-                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                          />
-                        </svg>
-                      </span>
-                      <span
-                        class="Breadcrumbs-label"
-                      >
-                        Home
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </a>
-                  </li>
-                  <li
-                    aria-hidden="true"
-                    class="MuiBreadcrumbs-separator Breadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
-                  >
-                    /
-                  </li>
-                  <li
-                    class="MuiBreadcrumbs-li"
-                  >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
-                      data-testid="bread-crumb-breadcrumbTitle"
-                      disabled=""
-                      tabindex="-1"
-                      type="button"
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                            data-testid="ArrowBackIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="Breadcrumbs-label"
+                        >
+                          Home
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </a>
+                    </li>
+                    <li
+                      aria-hidden="true"
+                      class="MuiBreadcrumbs-separator Breadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      /
+                    </li>
+                    <li
+                      class="MuiBreadcrumbs-li"
+                    >
+                      <button
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                        data-testid="bread-crumb-breadcrumbTitle"
+                        disabled=""
+                        tabindex="-1"
+                        type="button"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
-                          data-testid="ArrowBackIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                        <span
+                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         >
-                          <path
-                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                          />
-                        </svg>
-                      </span>
-                      <span>
-                        breadcrumbTitle
-                      </span>
-                    </button>
-                  </li>
-                </ol>
-              </nav>
-            </div>
-            <div
-              class="MuiBox-root css-10q9jzs"
-              data-testid="brand-landing-page-breadcrumbs-top-mobile"
-            >
-              <nav
-                aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1prnnfn-MuiTypography-root-MuiBreadcrumbs-root"
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                            data-testid="ArrowBackIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span>
+                          breadcrumbTitle
+                        </span>
+                      </button>
+                    </li>
+                  </ol>
+                </nav>
+              </div>
+              <div
+                class="MuiBox-root css-10q9jzs"
+                data-testid="brand-landing-page-breadcrumbs-top-mobile"
               >
-                <ol
-                  class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+                <nav
+                  aria-label="breadcrumbs"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
                 >
-                  <li
-                    class="MuiBreadcrumbs-li"
+                  <ol
+                    class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
                   >
-                    <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
-                      data-testid="bread-crumb-Home"
-                      href="/en/"
-                      tabindex="0"
+                    <li
+                      class="MuiBreadcrumbs-li"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      <a
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                        data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
+                        data-testid="bread-crumb-Home"
+                        href="/en/"
+                        tabindex="0"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
-                          data-testid="ArrowBackIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                        <span
+                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         >
-                          <path
-                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                          />
-                        </svg>
-                      </span>
-                      <span
-                        class="Breadcrumbs-label"
-                      >
-                        Home
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </a>
-                  </li>
-                </ol>
-              </nav>
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                            data-testid="ArrowBackIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="Breadcrumbs-label"
+                        >
+                          Home
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </a>
+                    </li>
+                  </ol>
+                </nav>
+              </div>
             </div>
             <div
               class=" css-xi64lz"
@@ -29007,138 +29035,142 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
             class="CarouselHero-wrapper"
           >
             <div
-              class="MuiBox-root css-130f8nx"
-              data-testid="brand-landing-page-breadcrumbs-top"
+              class="MuiBox-root css-i3pbo"
             >
-              <nav
-                aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1prnnfn-MuiTypography-root-MuiBreadcrumbs-root"
+              <div
+                class="MuiBox-root css-130f8nx"
+                data-testid="brand-landing-page-breadcrumbs-top"
               >
-                <ol
-                  class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+                <nav
+                  aria-label="breadcrumbs"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
                 >
-                  <li
-                    class="MuiBreadcrumbs-li"
+                  <ol
+                    class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
                   >
-                    <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
-                      data-testid="bread-crumb-Home"
-                      href="/en/"
-                      tabindex="0"
+                    <li
+                      class="MuiBreadcrumbs-li"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      <a
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                        data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
+                        data-testid="bread-crumb-Home"
+                        href="/en/"
+                        tabindex="0"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
-                          data-testid="ArrowBackIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                        <span
+                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         >
-                          <path
-                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                          />
-                        </svg>
-                      </span>
-                      <span
-                        class="Breadcrumbs-label"
-                      >
-                        Home
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </a>
-                  </li>
-                  <li
-                    aria-hidden="true"
-                    class="MuiBreadcrumbs-separator Breadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
-                  >
-                    /
-                  </li>
-                  <li
-                    class="MuiBreadcrumbs-li"
-                  >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
-                      data-testid="bread-crumb-breadcrumbTitle"
-                      disabled=""
-                      tabindex="-1"
-                      type="button"
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                            data-testid="ArrowBackIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="Breadcrumbs-label"
+                        >
+                          Home
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </a>
+                    </li>
+                    <li
+                      aria-hidden="true"
+                      class="MuiBreadcrumbs-separator Breadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      /
+                    </li>
+                    <li
+                      class="MuiBreadcrumbs-li"
+                    >
+                      <button
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                        data-testid="bread-crumb-breadcrumbTitle"
+                        disabled=""
+                        tabindex="-1"
+                        type="button"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
-                          data-testid="ArrowBackIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                        <span
+                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         >
-                          <path
-                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                          />
-                        </svg>
-                      </span>
-                      <span>
-                        breadcrumbTitle
-                      </span>
-                    </button>
-                  </li>
-                </ol>
-              </nav>
-            </div>
-            <div
-              class="MuiBox-root css-10q9jzs"
-              data-testid="brand-landing-page-breadcrumbs-top-mobile"
-            >
-              <nav
-                aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1prnnfn-MuiTypography-root-MuiBreadcrumbs-root"
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                            data-testid="ArrowBackIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span>
+                          breadcrumbTitle
+                        </span>
+                      </button>
+                    </li>
+                  </ol>
+                </nav>
+              </div>
+              <div
+                class="MuiBox-root css-10q9jzs"
+                data-testid="brand-landing-page-breadcrumbs-top-mobile"
               >
-                <ol
-                  class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+                <nav
+                  aria-label="breadcrumbs"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
                 >
-                  <li
-                    class="MuiBreadcrumbs-li"
+                  <ol
+                    class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
                   >
-                    <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
-                      data-testid="bread-crumb-Home"
-                      href="/en/"
-                      tabindex="0"
+                    <li
+                      class="MuiBreadcrumbs-li"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      <a
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                        data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
+                        data-testid="bread-crumb-Home"
+                        href="/en/"
+                        tabindex="0"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
-                          data-testid="ArrowBackIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                        <span
+                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         >
-                          <path
-                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                          />
-                        </svg>
-                      </span>
-                      <span
-                        class="Breadcrumbs-label"
-                      >
-                        Home
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </a>
-                  </li>
-                </ol>
-              </nav>
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                            data-testid="ArrowBackIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="Breadcrumbs-label"
+                        >
+                          Home
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </a>
+                    </li>
+                  </ol>
+                </nav>
+              </div>
             </div>
             <div
               class=" css-xi64lz"
@@ -32816,138 +32848,142 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
             class="CarouselHero-wrapper"
           >
             <div
-              class="MuiBox-root css-130f8nx"
-              data-testid="brand-landing-page-breadcrumbs-top"
+              class="MuiBox-root css-i3pbo"
             >
-              <nav
-                aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1prnnfn-MuiTypography-root-MuiBreadcrumbs-root"
+              <div
+                class="MuiBox-root css-130f8nx"
+                data-testid="brand-landing-page-breadcrumbs-top"
               >
-                <ol
-                  class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+                <nav
+                  aria-label="breadcrumbs"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
                 >
-                  <li
-                    class="MuiBreadcrumbs-li"
+                  <ol
+                    class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
                   >
-                    <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
-                      data-testid="bread-crumb-Home"
-                      href="/en/"
-                      tabindex="0"
+                    <li
+                      class="MuiBreadcrumbs-li"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      <a
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                        data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
+                        data-testid="bread-crumb-Home"
+                        href="/en/"
+                        tabindex="0"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
-                          data-testid="ArrowBackIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                        <span
+                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         >
-                          <path
-                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                          />
-                        </svg>
-                      </span>
-                      <span
-                        class="Breadcrumbs-label"
-                      >
-                        Home
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </a>
-                  </li>
-                  <li
-                    aria-hidden="true"
-                    class="MuiBreadcrumbs-separator Breadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
-                  >
-                    /
-                  </li>
-                  <li
-                    class="MuiBreadcrumbs-li"
-                  >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
-                      data-testid="bread-crumb-breadcrumbTitle"
-                      disabled=""
-                      tabindex="-1"
-                      type="button"
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                            data-testid="ArrowBackIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="Breadcrumbs-label"
+                        >
+                          Home
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </a>
+                    </li>
+                    <li
+                      aria-hidden="true"
+                      class="MuiBreadcrumbs-separator Breadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      /
+                    </li>
+                    <li
+                      class="MuiBreadcrumbs-li"
+                    >
+                      <button
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                        data-testid="bread-crumb-breadcrumbTitle"
+                        disabled=""
+                        tabindex="-1"
+                        type="button"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
-                          data-testid="ArrowBackIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                        <span
+                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         >
-                          <path
-                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                          />
-                        </svg>
-                      </span>
-                      <span>
-                        breadcrumbTitle
-                      </span>
-                    </button>
-                  </li>
-                </ol>
-              </nav>
-            </div>
-            <div
-              class="MuiBox-root css-10q9jzs"
-              data-testid="brand-landing-page-breadcrumbs-top-mobile"
-            >
-              <nav
-                aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1prnnfn-MuiTypography-root-MuiBreadcrumbs-root"
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                            data-testid="ArrowBackIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span>
+                          breadcrumbTitle
+                        </span>
+                      </button>
+                    </li>
+                  </ol>
+                </nav>
+              </div>
+              <div
+                class="MuiBox-root css-10q9jzs"
+                data-testid="brand-landing-page-breadcrumbs-top-mobile"
               >
-                <ol
-                  class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+                <nav
+                  aria-label="breadcrumbs"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
                 >
-                  <li
-                    class="MuiBreadcrumbs-li"
+                  <ol
+                    class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
                   >
-                    <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
-                      data-testid="bread-crumb-Home"
-                      href="/en/"
-                      tabindex="0"
+                    <li
+                      class="MuiBreadcrumbs-li"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      <a
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                        data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
+                        data-testid="bread-crumb-Home"
+                        href="/en/"
+                        tabindex="0"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
-                          data-testid="ArrowBackIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                        <span
+                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         >
-                          <path
-                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                          />
-                        </svg>
-                      </span>
-                      <span
-                        class="Breadcrumbs-label"
-                      >
-                        Home
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </a>
-                  </li>
-                </ol>
-              </nav>
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                            data-testid="ArrowBackIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="Breadcrumbs-label"
+                        >
+                          Home
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </a>
+                    </li>
+                  </ol>
+                </nav>
+              </div>
             </div>
             <div
               class=" css-xi64lz"
@@ -36637,138 +36673,142 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
             class="CarouselHero-wrapper"
           >
             <div
-              class="MuiBox-root css-130f8nx"
-              data-testid="brand-landing-page-breadcrumbs-top"
+              class="MuiBox-root css-i3pbo"
             >
-              <nav
-                aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1prnnfn-MuiTypography-root-MuiBreadcrumbs-root"
+              <div
+                class="MuiBox-root css-130f8nx"
+                data-testid="brand-landing-page-breadcrumbs-top"
               >
-                <ol
-                  class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+                <nav
+                  aria-label="breadcrumbs"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
                 >
-                  <li
-                    class="MuiBreadcrumbs-li"
+                  <ol
+                    class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
                   >
-                    <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
-                      data-testid="bread-crumb-Home"
-                      href="/en/"
-                      tabindex="0"
+                    <li
+                      class="MuiBreadcrumbs-li"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      <a
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                        data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
+                        data-testid="bread-crumb-Home"
+                        href="/en/"
+                        tabindex="0"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
-                          data-testid="ArrowBackIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                        <span
+                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         >
-                          <path
-                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                          />
-                        </svg>
-                      </span>
-                      <span
-                        class="Breadcrumbs-label"
-                      >
-                        Home
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </a>
-                  </li>
-                  <li
-                    aria-hidden="true"
-                    class="MuiBreadcrumbs-separator Breadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
-                  >
-                    /
-                  </li>
-                  <li
-                    class="MuiBreadcrumbs-li"
-                  >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
-                      data-testid="bread-crumb-breadcrumbTitle"
-                      disabled=""
-                      tabindex="-1"
-                      type="button"
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                            data-testid="ArrowBackIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="Breadcrumbs-label"
+                        >
+                          Home
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </a>
+                    </li>
+                    <li
+                      aria-hidden="true"
+                      class="MuiBreadcrumbs-separator Breadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      /
+                    </li>
+                    <li
+                      class="MuiBreadcrumbs-li"
+                    >
+                      <button
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                        data-testid="bread-crumb-breadcrumbTitle"
+                        disabled=""
+                        tabindex="-1"
+                        type="button"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
-                          data-testid="ArrowBackIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                        <span
+                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         >
-                          <path
-                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                          />
-                        </svg>
-                      </span>
-                      <span>
-                        breadcrumbTitle
-                      </span>
-                    </button>
-                  </li>
-                </ol>
-              </nav>
-            </div>
-            <div
-              class="MuiBox-root css-10q9jzs"
-              data-testid="brand-landing-page-breadcrumbs-top-mobile"
-            >
-              <nav
-                aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1prnnfn-MuiTypography-root-MuiBreadcrumbs-root"
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                            data-testid="ArrowBackIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span>
+                          breadcrumbTitle
+                        </span>
+                      </button>
+                    </li>
+                  </ol>
+                </nav>
+              </div>
+              <div
+                class="MuiBox-root css-10q9jzs"
+                data-testid="brand-landing-page-breadcrumbs-top-mobile"
               >
-                <ol
-                  class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+                <nav
+                  aria-label="breadcrumbs"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
                 >
-                  <li
-                    class="MuiBreadcrumbs-li"
+                  <ol
+                    class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
                   >
-                    <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
-                      data-testid="bread-crumb-Home"
-                      href="/en/"
-                      tabindex="0"
+                    <li
+                      class="MuiBreadcrumbs-li"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      <a
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                        data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
+                        data-testid="bread-crumb-Home"
+                        href="/en/"
+                        tabindex="0"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
-                          data-testid="ArrowBackIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                        <span
+                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         >
-                          <path
-                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                          />
-                        </svg>
-                      </span>
-                      <span
-                        class="Breadcrumbs-label"
-                      >
-                        Home
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </a>
-                  </li>
-                </ol>
-              </nav>
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                            data-testid="ArrowBackIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="Breadcrumbs-label"
+                        >
+                          Home
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </a>
+                    </li>
+                  </ol>
+                </nav>
+              </div>
             </div>
             <div
               class=" css-xi64lz"
@@ -40456,138 +40496,142 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
             class="CarouselHero-wrapper"
           >
             <div
-              class="MuiBox-root css-130f8nx"
-              data-testid="brand-landing-page-breadcrumbs-top"
+              class="MuiBox-root css-i3pbo"
             >
-              <nav
-                aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1prnnfn-MuiTypography-root-MuiBreadcrumbs-root"
+              <div
+                class="MuiBox-root css-130f8nx"
+                data-testid="brand-landing-page-breadcrumbs-top"
               >
-                <ol
-                  class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+                <nav
+                  aria-label="breadcrumbs"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
                 >
-                  <li
-                    class="MuiBreadcrumbs-li"
+                  <ol
+                    class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
                   >
-                    <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
-                      data-testid="bread-crumb-Home"
-                      href="/en/"
-                      tabindex="0"
+                    <li
+                      class="MuiBreadcrumbs-li"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      <a
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                        data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
+                        data-testid="bread-crumb-Home"
+                        href="/en/"
+                        tabindex="0"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
-                          data-testid="ArrowBackIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                        <span
+                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         >
-                          <path
-                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                          />
-                        </svg>
-                      </span>
-                      <span
-                        class="Breadcrumbs-label"
-                      >
-                        Home
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </a>
-                  </li>
-                  <li
-                    aria-hidden="true"
-                    class="MuiBreadcrumbs-separator Breadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
-                  >
-                    /
-                  </li>
-                  <li
-                    class="MuiBreadcrumbs-li"
-                  >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
-                      data-testid="bread-crumb-breadcrumbTitle"
-                      disabled=""
-                      tabindex="-1"
-                      type="button"
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                            data-testid="ArrowBackIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="Breadcrumbs-label"
+                        >
+                          Home
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </a>
+                    </li>
+                    <li
+                      aria-hidden="true"
+                      class="MuiBreadcrumbs-separator Breadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      /
+                    </li>
+                    <li
+                      class="MuiBreadcrumbs-li"
+                    >
+                      <button
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                        data-testid="bread-crumb-breadcrumbTitle"
+                        disabled=""
+                        tabindex="-1"
+                        type="button"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
-                          data-testid="ArrowBackIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                        <span
+                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         >
-                          <path
-                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                          />
-                        </svg>
-                      </span>
-                      <span>
-                        breadcrumbTitle
-                      </span>
-                    </button>
-                  </li>
-                </ol>
-              </nav>
-            </div>
-            <div
-              class="MuiBox-root css-10q9jzs"
-              data-testid="brand-landing-page-breadcrumbs-top-mobile"
-            >
-              <nav
-                aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1prnnfn-MuiTypography-root-MuiBreadcrumbs-root"
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                            data-testid="ArrowBackIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span>
+                          breadcrumbTitle
+                        </span>
+                      </button>
+                    </li>
+                  </ol>
+                </nav>
+              </div>
+              <div
+                class="MuiBox-root css-10q9jzs"
+                data-testid="brand-landing-page-breadcrumbs-top-mobile"
               >
-                <ol
-                  class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+                <nav
+                  aria-label="breadcrumbs"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
                 >
-                  <li
-                    class="MuiBreadcrumbs-li"
+                  <ol
+                    class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
                   >
-                    <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
-                      data-testid="bread-crumb-Home"
-                      href="/en/"
-                      tabindex="0"
+                    <li
+                      class="MuiBreadcrumbs-li"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      <a
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                        data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
+                        data-testid="bread-crumb-Home"
+                        href="/en/"
+                        tabindex="0"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
-                          data-testid="ArrowBackIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                        <span
+                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         >
-                          <path
-                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                          />
-                        </svg>
-                      </span>
-                      <span
-                        class="Breadcrumbs-label"
-                      >
-                        Home
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </a>
-                  </li>
-                </ol>
-              </nav>
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                            data-testid="ArrowBackIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="Breadcrumbs-label"
+                        >
+                          Home
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </a>
+                    </li>
+                  </ol>
+                </nav>
+              </div>
             </div>
             <div
               class=" css-xi64lz"
@@ -44277,138 +44321,142 @@ exports[`Brand Landing Page Template when description is more than 400 character
             class="CarouselHero-wrapper"
           >
             <div
-              class="MuiBox-root css-130f8nx"
-              data-testid="brand-landing-page-breadcrumbs-top"
+              class="MuiBox-root css-i3pbo"
             >
-              <nav
-                aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1prnnfn-MuiTypography-root-MuiBreadcrumbs-root"
+              <div
+                class="MuiBox-root css-130f8nx"
+                data-testid="brand-landing-page-breadcrumbs-top"
               >
-                <ol
-                  class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+                <nav
+                  aria-label="breadcrumbs"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
                 >
-                  <li
-                    class="MuiBreadcrumbs-li"
+                  <ol
+                    class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
                   >
-                    <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
-                      data-testid="bread-crumb-Home"
-                      href="/en/"
-                      tabindex="0"
+                    <li
+                      class="MuiBreadcrumbs-li"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      <a
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                        data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
+                        data-testid="bread-crumb-Home"
+                        href="/en/"
+                        tabindex="0"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
-                          data-testid="ArrowBackIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                        <span
+                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         >
-                          <path
-                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                          />
-                        </svg>
-                      </span>
-                      <span
-                        class="Breadcrumbs-label"
-                      >
-                        Home
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </a>
-                  </li>
-                  <li
-                    aria-hidden="true"
-                    class="MuiBreadcrumbs-separator Breadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
-                  >
-                    /
-                  </li>
-                  <li
-                    class="MuiBreadcrumbs-li"
-                  >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
-                      data-testid="bread-crumb-breadcrumbTitle"
-                      disabled=""
-                      tabindex="-1"
-                      type="button"
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                            data-testid="ArrowBackIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="Breadcrumbs-label"
+                        >
+                          Home
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </a>
+                    </li>
+                    <li
+                      aria-hidden="true"
+                      class="MuiBreadcrumbs-separator Breadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      /
+                    </li>
+                    <li
+                      class="MuiBreadcrumbs-li"
+                    >
+                      <button
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                        data-testid="bread-crumb-breadcrumbTitle"
+                        disabled=""
+                        tabindex="-1"
+                        type="button"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
-                          data-testid="ArrowBackIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                        <span
+                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         >
-                          <path
-                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                          />
-                        </svg>
-                      </span>
-                      <span>
-                        breadcrumbTitle
-                      </span>
-                    </button>
-                  </li>
-                </ol>
-              </nav>
-            </div>
-            <div
-              class="MuiBox-root css-10q9jzs"
-              data-testid="brand-landing-page-breadcrumbs-top-mobile"
-            >
-              <nav
-                aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1prnnfn-MuiTypography-root-MuiBreadcrumbs-root"
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                            data-testid="ArrowBackIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span>
+                          breadcrumbTitle
+                        </span>
+                      </button>
+                    </li>
+                  </ol>
+                </nav>
+              </div>
+              <div
+                class="MuiBox-root css-10q9jzs"
+                data-testid="brand-landing-page-breadcrumbs-top-mobile"
               >
-                <ol
-                  class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+                <nav
+                  aria-label="breadcrumbs"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
                 >
-                  <li
-                    class="MuiBreadcrumbs-li"
+                  <ol
+                    class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
                   >
-                    <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
-                      data-testid="bread-crumb-Home"
-                      href="/en/"
-                      tabindex="0"
+                    <li
+                      class="MuiBreadcrumbs-li"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      <a
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                        data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
+                        data-testid="bread-crumb-Home"
+                        href="/en/"
+                        tabindex="0"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
-                          data-testid="ArrowBackIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                        <span
+                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         >
-                          <path
-                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                          />
-                        </svg>
-                      </span>
-                      <span
-                        class="Breadcrumbs-label"
-                      >
-                        Home
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </a>
-                  </li>
-                </ol>
-              </nav>
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                            data-testid="ArrowBackIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="Breadcrumbs-label"
+                        >
+                          Home
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </a>
+                    </li>
+                  </ol>
+                </nav>
+              </div>
             </div>
             <div
               class=" css-xi64lz"

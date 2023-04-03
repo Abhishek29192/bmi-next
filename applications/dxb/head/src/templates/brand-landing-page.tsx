@@ -164,7 +164,6 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
                   <Breadcrumbs
                     data={enhancedBreadcrumbs}
                     isDarkThemed
-                    sx={{ marginBottom: 3 }}
                     data-testid="brand-landing-page-breadcrumbs-top"
                   />
                 </BackToResults>

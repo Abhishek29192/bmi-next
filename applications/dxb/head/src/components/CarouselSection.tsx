@@ -60,7 +60,7 @@ const parseSlides = (
       title,
       brandIcon: brandLogoIcons,
       media: featuredVideo ? (
-        <Video {...featuredVideo} />
+        <Video {...featuredVideo} className={styles["video-preview-image"]} />
       ) : (
         <Image {...featuredMedia} />
       ),

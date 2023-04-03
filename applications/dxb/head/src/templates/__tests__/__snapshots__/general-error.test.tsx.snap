@@ -494,7 +494,7 @@ exports[`General Error render correctly 1`] = `
     data-testid="brand-colors-provider"
   >
     <div
-      class=" Section-root Section-white css-138dy2c"
+      class=" Section-root Section-white css-oz2ls0"
       data-testid="promo-section"
     >
       <div
@@ -1214,7 +1214,7 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
     data-testid="brand-colors-provider"
   >
     <div
-      class=" Section-root Section-white css-138dy2c"
+      class=" Section-root Section-white css-oz2ls0"
       data-testid="promo-section"
     >
       <div
