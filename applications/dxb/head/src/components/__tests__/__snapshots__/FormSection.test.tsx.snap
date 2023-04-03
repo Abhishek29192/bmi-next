@@ -13,7 +13,7 @@ exports[`FormSection component Hubspot FormSection component renders correctly 1
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class=" css-1y31jzd"
+          class=" css-n5y371"
           id="bmi-hubspot-form-no-id"
         />
       </div>
@@ -35,7 +35,7 @@ exports[`FormSection component Hubspot FormSection component renders correctly w
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class=" css-1y31jzd"
+          class=" css-n5y371"
           id="bmi-hubspot-form-no-id"
         />
       </div>
@@ -57,7 +57,7 @@ exports[`FormSection component Hubspot FormSection component test submit when pr
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class=" css-1y31jzd"
+          class=" css-n5y371"
           id="bmi-hubspot-form-no-id"
         />
       </div>
@@ -818,7 +818,7 @@ exports[`FormSection component renders correctly for dialog 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="FormSection-dialog css-1y31jzd"
+          class="FormSection-dialog css-n5y371"
           id="bmi-hubspot-form-no-id"
         />
       </div>

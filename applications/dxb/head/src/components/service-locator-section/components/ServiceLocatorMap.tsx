@@ -85,7 +85,7 @@ export const ServiceLocatorMap = ({
                 </Button>
               }
             />
-            <CardContent>
+            <CardContent className={styles["product-details-card-body"]}>
               <CompanyDetails details={getCompanyDetails(selectedRoofer)}>
                 {selectedRoofer.summary && (
                   <Typography

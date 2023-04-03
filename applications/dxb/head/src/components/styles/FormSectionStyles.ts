@@ -34,7 +34,13 @@ export const HubspotFormWrapper = styled("div")(({ theme }) => ({
     }
   },
   ".hs-form fieldset": {
-    maxWidth: "none"
+    maxWidth: "none",
+
+    "&:not(:first-of-type)": {
+      ".hs-fieldtype-radio": {
+        marginTop: "16px"
+      }
+    }
   },
   ".legal-consent-container .hs-form-booleancheckbox-display > span": {
     paddingLeft: "40px",
@@ -54,16 +60,11 @@ export const HubspotFormWrapper = styled("div")(({ theme }) => ({
           color: theme.colours.charcoal,
           marginBottom: "-10px",
           fontSize: "14px",
-          top: "0",
-          display: "block",
-          width: "max-content",
+          top: "12px",
           position: "relative",
           left: "9px",
           padding: "0 5px",
           zIndex: 1
-        },
-        "&:not(:first-child) > label": {
-          marginTop: "16px"
         },
         // Inputs
         "& .hs-input": {

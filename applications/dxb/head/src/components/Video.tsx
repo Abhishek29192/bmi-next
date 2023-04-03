@@ -13,6 +13,7 @@ export type Data = {
   videoRatio: { width: number; height: number } | null;
   defaultYouTubePreviewImage: string;
   layout?: Layout;
+  className?: string;
 };
 
 export type ContentfulVideoData = Data & {

@@ -15,6 +15,10 @@
   .product-details-card {
     border-radius: 0;
 
+    .product-details-card-body {
+      overflow-y: auto;
+    }
+
     :global {
       [class*="MuiCardHeader-root"] {
         padding: 30px 30px 0;
