@@ -675,10 +675,7 @@ describe("transformSystem", () => {
       ]
     });
     const transformedSystems = transformSystem(system);
-    expect(transformedSystems[0].keyFeatures).toEqual({
-      name: "name",
-      values: []
-    });
+    expect(transformedSystems[0].keyFeatures).toBeUndefined();
   });
 
   it("ignores key features classification with empty features", () => {
@@ -691,10 +688,7 @@ describe("transformSystem", () => {
       ]
     });
     const transformedSystems = transformSystem(system);
-    expect(transformedSystems[0].keyFeatures).toEqual({
-      name: "name",
-      values: []
-    });
+    expect(transformedSystems[0].keyFeatures).toBeUndefined();
   });
 
   it("ignores key features classification without features when system attributes has features", () => {
@@ -707,10 +701,7 @@ describe("transformSystem", () => {
       ]
     });
     const transformedSystems = transformSystem(system);
-    expect(transformedSystems[0].keyFeatures).toEqual({
-      name: "name",
-      values: []
-    });
+    expect(transformedSystems[0].keyFeatures).toBeUndefined();
   });
 
   it("handles a system layer without products", () => {
@@ -792,6 +783,51 @@ describe("transformSystem", () => {
     const transformedSystems = transformSystem(system);
     expect(transformedSystems[0].galleryImages).toEqual([]);
     expect(transformedSystems[0].masterImage).toBeUndefined();
+  });
+
+  it("returns data without keyFeatures if there is no systemAttributes.keyfeatures", () => {
+    const system = createSystem({
+      classifications: [
+        createClassification({
+          code: "systemAttributes",
+          features: [
+            createFeature({
+              code: "bmiSystemsClassificationCatalog/1.0/systemAttributes.PromotionalContent",
+              name: "PromotionalContent",
+              featureValues: [{ value: "fake value" }]
+            })
+          ]
+        })
+      ]
+    });
+    const transformedSystems = transformSystem(system);
+    expect(transformedSystems[0].keyFeatures).toBeUndefined();
+  });
+
+  it("returns correct data if systemAttributes.keyfeatures exists", () => {
+    const system = createSystem({
+      classifications: [
+        createClassification({
+          code: "systemAttributes",
+          features: [
+            createFeature({
+              code: "bmiSystemsClassificationCatalog/1.0/systemAttributes.keyFeatures",
+              name: "PromotionalContent",
+              featureValues: [
+                { value: "value-1" },
+                { value: "value-2" },
+                { value: "value-3" }
+              ]
+            })
+          ]
+        })
+      ]
+    });
+    const transformedSystems = transformSystem(system);
+    const expectedResult = ["value-1", "value-2", "value-3"];
+    expect(transformedSystems[0].keyFeatures?.values).toStrictEqual(
+      expectedResult
+    );
   });
 
   // TODO: Remove test case - DXB-3449

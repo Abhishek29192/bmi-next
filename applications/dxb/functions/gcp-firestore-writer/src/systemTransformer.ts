@@ -132,17 +132,24 @@ const mapKeyFeatures = (system: PimSystem): KeyFeatures | undefined => {
   if (!classification) {
     return;
   }
+
+  const keyFeatureValues = classification.features
+    ?.find(
+      (feature) =>
+        // TODO: Remove upercase checks - DXB-3449
+        feature.code.split("/").pop()!.toUpperCase() ===
+        "systemAttributes.keyfeatures".toUpperCase()
+    )
+    ?.featureValues.map((featureValue) => featureValue.value.trim())
+    ?.filter(Boolean);
+
+  if (!keyFeatureValues?.length) {
+    return;
+  }
+
   return {
     name: classification.name,
-    values:
-      classification.features
-        ?.find(
-          (feature) =>
-            // TODO: Remove upercase checks - DXB-3449
-            feature.code.split("/").pop()!.toUpperCase() ===
-            "systemAttributes.keyfeatures".toUpperCase()
-        )
-        ?.featureValues.map((featureValue) => featureValue.value) || []
+    values: keyFeatureValues
   };
 };
 
