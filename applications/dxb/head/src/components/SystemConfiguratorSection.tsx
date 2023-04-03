@@ -17,7 +17,10 @@ import React, {
   useLayoutEffect,
   useState
 } from "react";
-import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import {
+  useGoogleReCaptcha,
+  IGoogleReCaptchaConsumerProps
+} from "react-google-recaptcha-v3";
 import { QA_AUTH_TOKEN } from "../constants/cookieConstants";
 import { SYSTEM_CONFIG_QUERY_KEY_REFERER } from "../constants/queryConstants";
 import { useConfig } from "../contexts/ConfigProvider";
@@ -111,6 +114,7 @@ const saveStateToLocalStorage = (stateToStore: string) => {
 const GTMRadioPane = withGTM<RadioPaneProps>(RadioPane);
 
 type SystemConfiguratorQuestionData = {
+  executeRecaptcha: IGoogleReCaptchaConsumerProps["executeRecaptcha"];
   index: number;
   id: string;
   question: QuestionData;
@@ -125,11 +129,11 @@ const SystemConfiguratorQuestion = ({
   question,
   storedAnswers,
   isReload,
+  executeRecaptcha,
   stateSoFar = []
 }: SystemConfiguratorQuestionData) => {
   const [myStoredAnswerId, ...remainingStoredAnswers] = storedAnswers;
   const [nextId, setNextId] = useState<string>(myStoredAnswerId);
-  const { executeRecaptcha } = useGoogleReCaptcha();
   const qaAuthToken = getCookie(QA_AUTH_TOKEN);
   const [nextStep, setNextStep] = useState<NextStepData>({});
   const { locale, openIndex, setState } = useContext(SystemConfiguratorContext);
@@ -294,6 +298,7 @@ const SystemConfiguratorQuestion = ({
           stateSoFar={allStateSoFar}
           isReload={isReload}
           question={nextStep.nextQuestion}
+          executeRecaptcha={executeRecaptcha}
         />
       ) : null}
     </>
@@ -435,6 +440,7 @@ const SystemConfiguratorSection = ({ data }: { data: Data }) => {
   const [storedAnswers, setStoredAnswers] =
     useState<StoredStateType>(undefined);
   const location = useLocation();
+  const { executeRecaptcha } = useGoogleReCaptcha();
   // useLayoutEffect for getting value from local storage
   // as Local storage in ssr value appears after first rendering
   // see useStickyState hook
@@ -480,7 +486,7 @@ const SystemConfiguratorSection = ({ data }: { data: Data }) => {
 
   return (
     <>
-      {isLoading ? (
+      {isLoading || !executeRecaptcha ? (
         <Scrim theme="light">
           <ProgressIndicator theme="light" />
         </Scrim>
@@ -492,7 +498,7 @@ const SystemConfiguratorSection = ({ data }: { data: Data }) => {
       >
         <Section.Title>{title}</Section.Title>
         {description && <RichText document={description} />}
-        {storedAnswers ? (
+        {storedAnswers && executeRecaptcha ? (
           <SystemConfiguratorContext.Provider value={{ ...state, setState }}>
             <SystemConfiguratorQuestion
               key={question.id}
@@ -501,6 +507,7 @@ const SystemConfiguratorSection = ({ data }: { data: Data }) => {
               storedAnswers={storedAnswers.selectedAnswers}
               isReload={(referer || "").length > 0}
               question={question}
+              executeRecaptcha={executeRecaptcha}
             />
           </SystemConfiguratorContext.Provider>
         ) : null}

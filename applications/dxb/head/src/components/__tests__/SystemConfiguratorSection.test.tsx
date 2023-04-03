@@ -18,10 +18,11 @@ import SystemConfiguratorSection, {
   QuestionData
 } from "../SystemConfiguratorSection";
 
+let executeRecaptchaMock = jest.fn();
 jest.mock("react-google-recaptcha-v3", () => {
   return {
     useGoogleReCaptcha: jest.fn(() => ({
-      executeRecaptcha: jest.fn(() => "1234")
+      executeRecaptcha: executeRecaptchaMock
     }))
   };
 });
@@ -56,6 +57,7 @@ beforeEach(() => {
 
 afterEach(async () => {
   await cleanup();
+  executeRecaptchaMock = jest.fn();
 });
 
 afterAll(() => {
@@ -596,6 +598,22 @@ describe("SystemConfiguratorSection component", () => {
     fireEvent.click(firstQuestion);
 
     expect(container).toMatchSnapshot();
+  });
+
+  it("works correctly if executeRecaptcha does not exist", () => {
+    executeRecaptchaMock = undefined;
+    render(
+      <ThemeProvider>
+        <LocationProvider>
+          <SystemConfiguratorSection data={initialData} />
+        </LocationProvider>
+      </ThemeProvider>
+    );
+
+    expect(screen.getByRole("progressbar")).toBeInTheDocument();
+    expect(
+      screen.queryByTestId("configurator-panel-accordion")
+    ).not.toBeInTheDocument();
   });
 
   describe("When returning from valid referer", () => {
