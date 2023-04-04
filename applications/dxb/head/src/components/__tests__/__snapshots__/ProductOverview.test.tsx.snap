@@ -159,13 +159,13 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
           data-testid="product-overview-pane"
         >
           <h1
-            class="MuiTypography-root MuiTypography-h3 Typography-underline css-22inrc-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h3 css-22inrc-MuiTypography-root"
             data-testid="typography"
           >
             name
           </h1>
           <ul
-            class="css-1wqu3mc"
+            class="css-132h8yw"
             data-testid="product-overview-pane-attributes"
           />
           <div>
@@ -370,13 +370,13 @@ exports[`ProductOverview component renders correctly without Recaptcha 1`] = `
           data-testid="product-overview-pane"
         >
           <h1
-            class="MuiTypography-root MuiTypography-h3 Typography-underline css-22inrc-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h3 css-22inrc-MuiTypography-root"
             data-testid="typography"
           >
             name
           </h1>
           <ul
-            class="css-1wqu3mc"
+            class="css-132h8yw"
             data-testid="product-overview-pane-attributes"
           />
           <div>
@@ -430,13 +430,13 @@ exports[`ProductOverview component renders with default image if there are no im
           data-testid="product-overview-pane"
         >
           <h1
-            class="MuiTypography-root MuiTypography-h3 Typography-underline css-22inrc-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h3 css-22inrc-MuiTypography-root"
             data-testid="typography"
           >
             name
           </h1>
           <ul
-            class="css-1wqu3mc"
+            class="css-132h8yw"
             data-testid="product-overview-pane-attributes"
           />
           <div>
