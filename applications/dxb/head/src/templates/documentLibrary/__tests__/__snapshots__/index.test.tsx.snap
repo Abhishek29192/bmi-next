@@ -2819,182 +2819,179 @@ exports[`Document Library page renders correctly  1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="Filters"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
+            data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
-              data-testid="grid-container"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-3 Grid-item css-1wq2hvv-MuiGrid2-root"
+              data-testid="grid-item"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-3 Grid-item css-1wq2hvv-MuiGrid2-root"
-                data-testid="grid-item"
+                class="css-3zyvy8"
+                data-testid="document-library-filters"
               >
                 <div
-                  data-testid="document-library-filters"
+                  class="FilterSectionStyles-filterBox"
                 >
-                  <div
-                    class="box"
+                  <h5
+                    class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
+                    data-testid="typography"
                   >
-                    <h5
-                      class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
-                      data-testid="typography"
-                    >
-                      MC: documentLibrary.filters.title
-                    </h5>
-                    <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                      data-testid="filters-clear-all"
-                      tabindex="0"
-                      type="button"
-                    >
-                      MC: documentLibrary.filters.clearAll
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
-                  </div>
-                  <div>
+                    MC: documentLibrary.filters.title
+                  </h5>
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                    data-testid="filters-clear-all"
+                    tabindex="0"
+                    type="button"
+                  >
+                    MC: documentLibrary.filters.clearAll
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
+                <div>
+                  <div
+                    class="Accordion-noInnerPadding css-1u48ai"
+                  >
                     <div
-                      class="Accordion-noInnerPadding css-1u48ai"
+                      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-1g8jyxy-MuiPaper-root-MuiAccordion-root"
                     >
                       <div
-                        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-1g8jyxy-MuiPaper-root-MuiAccordion-root"
+                        aria-expanded="false"
+                        aria-label="filterLabels.Brand"
+                        class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
+                        data-gtm="{"id":"filter1","label":"filterLabels.Brand","action":"Selector – Filter"}"
+                        role="button"
+                        tabindex="0"
                       >
                         <div
-                          aria-expanded="false"
-                          aria-label="filterLabels.Brand"
-                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
-                          data-gtm="{"id":"filter1","label":"filterLabels.Brand","action":"Selector – Filter"}"
-                          role="button"
-                          tabindex="0"
+                          class="MuiAccordionSummary-content Accordion-summaryContent MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
                         >
-                          <div
-                            class="MuiAccordionSummary-content Accordion-summaryContent MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
+                          <h6
+                            class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
+                            data-testid="typography"
                           >
-                            <h6
-                              class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
-                              data-testid="typography"
-                            >
-                              filterLabels.Brand
-                            </h6>
-                          </div>
-                          <div
-                            class="MuiAccordionSummary-expandIconWrapper css-yw020d-MuiAccordionSummary-expandIconWrapper"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                              data-testid="ExpandMoreIcon"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
-                              />
-                            </svg>
-                          </div>
+                            filterLabels.Brand
+                          </h6>
                         </div>
                         <div
-                          class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-bz4dnt-MuiCollapse-root"
-                          style="min-height: 0px;"
+                          class="MuiAccordionSummary-expandIconWrapper css-yw020d-MuiAccordionSummary-expandIconWrapper"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                            data-testid="ExpandMoreIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                      <div
+                        class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-bz4dnt-MuiCollapse-root"
+                        style="min-height: 0px;"
+                      >
+                        <div
+                          class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
                         >
                           <div
-                            class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
+                            class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                           >
                             <div
-                              class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
+                              class="MuiAccordion-region"
+                              role="region"
                             >
                               <div
-                                class="MuiAccordion-region"
-                                role="region"
+                                class="MuiAccordionDetails-root Accordion-detailsNoInnerPadding css-1r7u8wy-MuiAccordionDetails-root"
                               >
                                 <div
-                                  class="MuiAccordionDetails-root Accordion-detailsNoInnerPadding css-1r7u8wy-MuiAccordionDetails-root"
+                                  class="css-1r0p0eh"
                                 >
-                                  <div
-                                    class="css-1r0p0eh"
-                                  >
-                                    <div>
-                                      <div
-                                        class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                                  <div>
+                                    <div
+                                      class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                                    >
+                                      <label
+                                        class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                                       >
-                                        <label
-                                          class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+                                        <span
+                                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                          data-gtm="{"id":"filter2","label":"AeroDek","action":"Selector – Filter"}"
+                                          data-testid="filter-checkbox"
                                         >
-                                          <span
-                                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
-                                            data-gtm="{"id":"filter2","label":"AeroDek","action":"Selector – Filter"}"
-                                            data-testid="filter-checkbox"
+                                          <input
+                                            class="PrivateSwitchBase-input css-1m9pwf3"
+                                            data-indeterminate="false"
+                                            name="AeroDek"
+                                            type="checkbox"
+                                          />
+                                          <svg
+                                            aria-hidden="true"
+                                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                            data-testid="CheckBoxOutlineBlankIcon"
+                                            focusable="false"
+                                            viewBox="0 0 24 24"
                                           >
-                                            <input
-                                              class="PrivateSwitchBase-input css-1m9pwf3"
-                                              data-indeterminate="false"
-                                              name="AeroDek"
-                                              type="checkbox"
+                                            <path
+                                              d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
                                             />
-                                            <svg
-                                              aria-hidden="true"
-                                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                              data-testid="CheckBoxOutlineBlankIcon"
-                                              focusable="false"
-                                              viewBox="0 0 24 24"
-                                            >
-                                              <path
-                                                d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                                              />
-                                            </svg>
-                                            <span
-                                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                                            />
-                                          </span>
+                                          </svg>
                                           <span
-                                            class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-srszrw-MuiTypography-root"
-                                          >
-                                            AeroDek
-                                          </span>
-                                        </label>
-                                      </div>
+                                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                          />
+                                        </span>
+                                        <span
+                                          class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-srszrw-MuiTypography-root"
+                                        >
+                                          AeroDek
+                                        </span>
+                                      </label>
                                     </div>
-                                    <div>
-                                      <div
-                                        class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                                  </div>
+                                  <div>
+                                    <div
+                                      class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                                    >
+                                      <label
+                                        class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                                       >
-                                        <label
-                                          class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+                                        <span
+                                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                          data-gtm="{"id":"filter2","label":"BMI Components","action":"Selector – Filter"}"
+                                          data-testid="filter-checkbox"
                                         >
-                                          <span
-                                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
-                                            data-gtm="{"id":"filter2","label":"BMI Components","action":"Selector – Filter"}"
-                                            data-testid="filter-checkbox"
+                                          <input
+                                            class="PrivateSwitchBase-input css-1m9pwf3"
+                                            data-indeterminate="false"
+                                            name="BMI_Components"
+                                            type="checkbox"
+                                          />
+                                          <svg
+                                            aria-hidden="true"
+                                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                            data-testid="CheckBoxOutlineBlankIcon"
+                                            focusable="false"
+                                            viewBox="0 0 24 24"
                                           >
-                                            <input
-                                              class="PrivateSwitchBase-input css-1m9pwf3"
-                                              data-indeterminate="false"
-                                              name="BMI_Components"
-                                              type="checkbox"
+                                            <path
+                                              d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
                                             />
-                                            <svg
-                                              aria-hidden="true"
-                                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                              data-testid="CheckBoxOutlineBlankIcon"
-                                              focusable="false"
-                                              viewBox="0 0 24 24"
-                                            >
-                                              <path
-                                                d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                                              />
-                                            </svg>
-                                            <span
-                                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                                            />
-                                          </span>
+                                          </svg>
                                           <span
-                                            class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-srszrw-MuiTypography-root"
-                                          >
-                                            BMI Components
-                                          </span>
-                                        </label>
-                                      </div>
+                                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                          />
+                                        </span>
+                                        <span
+                                          class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-srszrw-MuiTypography-root"
+                                        >
+                                          BMI Components
+                                        </span>
+                                      </label>
                                     </div>
                                   </div>
                                 </div>
@@ -3007,11 +3004,11 @@ exports[`Document Library page renders correctly  1`] = `
                   </div>
                 </div>
               </div>
-              <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-9 Grid-item css-hwt01p-MuiGrid2-root"
-                data-testid="grid-item"
-              />
             </div>
+            <div
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-9 Grid-item css-hwt01p-MuiGrid2-root"
+              data-testid="grid-item"
+            />
           </div>
         </div>
       </div>

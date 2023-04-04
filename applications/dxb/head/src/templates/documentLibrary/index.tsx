@@ -16,7 +16,6 @@ import Page, { Data as PageData } from "../../components/Page";
 import ProgressIndicator from "../../components/ProgressIndicator";
 import RichText from "../../components/RichText";
 import Scrim from "../../components/Scrim";
-import filterStyles from "../../components/styles/Filters.module.scss";
 import { useConfig } from "../../contexts/ConfigProvider";
 import { updateBreadcrumbTitleFromContentful } from "../../utils/breadcrumbUtils";
 import { devLog } from "../../utils/devLog";
@@ -274,29 +273,28 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
         </DownloadListContext.Consumer>
         {!(resultsType === "Simple Archive" && source === "CMS") && (
           <Section backgroundColor="white" id={`document-library-filters`}>
-            <div className={filterStyles["Filters"]}>
-              <Grid container spacing={3} ref={resultsElement}>
-                <Grid xs={12} md={12} lg={3}>
-                  <FilterSection
-                    filters={filters}
-                    handleFiltersChange={handleFiltersChange}
-                    clearFilters={handleClearFilters}
-                  />
-                </Grid>
-                <Grid xs={12} md={12} lg={9}>
-                  {!initialLoading ? (
-                    <ResultSection
-                      results={documents}
-                      assetTypes={contentfulAssetTypes}
-                      format={format}
-                      page={page}
-                      pageCount={pageCount}
-                      handlePageChange={handlePageChange}
-                    />
-                  ) : null}
-                </Grid>
+            <Grid container spacing={3} ref={resultsElement}>
+              <Grid xs={12} md={12} lg={3}>
+                <FilterSection
+                  filters={filters}
+                  handleFiltersChange={handleFiltersChange}
+                  clearFilters={handleClearFilters}
+                  documentsCount={documents.length}
+                />
               </Grid>
-            </div>
+              <Grid xs={12} md={12} lg={9}>
+                {!initialLoading ? (
+                  <ResultSection
+                    results={documents}
+                    assetTypes={contentfulAssetTypes}
+                    format={format}
+                    page={page}
+                    pageCount={pageCount}
+                    handlePageChange={handlePageChange}
+                  />
+                ) : null}
+              </Grid>
+            </Grid>
           </Section>
         )}
       </DownloadList>

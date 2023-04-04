@@ -3,10 +3,11 @@
 exports[`FilterSection render correctly 1`] = `
 <div>
   <div
+    class="css-3zyvy8"
     data-testid="document-library-filters"
   >
     <div
-      class="box"
+      class="FilterSectionStyles-filterBox"
     >
       <h5
         class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
