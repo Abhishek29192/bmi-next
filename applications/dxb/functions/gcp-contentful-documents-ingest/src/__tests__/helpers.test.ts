@@ -66,7 +66,7 @@ describe("checkEnvVariablesMissing", () => {
 
 describe("checkAuthorization", () => {
   it("Returns true with a 401 response when authorisation header is empty", async () => {
-    const mockReq = mockRequest("POST");
+    const mockReq = mockRequest({ method: "POST" });
     const mockRes = mockResponse();
 
     const authorised = await checkAuthorization(mockReq, mockRes);
@@ -76,7 +76,10 @@ describe("checkAuthorization", () => {
   });
 
   it("Returns true with a 401 response when 'Bearer ' string is missing", async () => {
-    const mockReq = mockRequest("POST", { authorization: "some value" });
+    const mockReq = mockRequest({
+      method: "POST",
+      headers: { authorization: "some value" }
+    });
     const mockRes = mockResponse();
 
     const authorised = await checkAuthorization(mockReq, mockRes);
@@ -86,7 +89,10 @@ describe("checkAuthorization", () => {
   });
 
   it("Returns true with a 401 response when Bearer token is missing", async () => {
-    const mockReq = mockRequest("POST", { authorization: "Bearer " });
+    const mockReq = mockRequest({
+      method: "POST",
+      headers: { authorization: "Bearer " }
+    });
     const mockRes = mockResponse();
 
     const authorised = await checkAuthorization(mockReq, mockRes);
@@ -97,8 +103,11 @@ describe("checkAuthorization", () => {
 
   it("Returns true with a 401 response when Bearer token is less than 10 characters long", async () => {
     const shortSecret = "123";
-    const mockReq = mockRequest("POST", {
-      authorization: `Bearer ${shortSecret}`
+    const mockReq = mockRequest({
+      method: "POST",
+      headers: {
+        authorization: `Bearer ${shortSecret}`
+      }
     });
     const mockRes = mockResponse();
 
@@ -111,8 +120,11 @@ describe("checkAuthorization", () => {
   });
 
   it("Returns false when Bearer token matches ES_DOCUMENTS_INGEST_SECRET", async () => {
-    const mockReq = mockRequest("POST", {
-      authorization: `Bearer ${process.env.ES_DOCUMENTS_INGEST_SECRET}`
+    const mockReq = mockRequest({
+      method: "POST",
+      headers: {
+        authorization: `Bearer ${process.env.ES_DOCUMENTS_INGEST_SECRET}`
+      }
     });
     const mockRes = mockResponse();
 
@@ -136,7 +148,7 @@ describe("checkHttpMethod", () => {
   ])(
     "Returns true with 405 response when %s method is used",
     async (method) => {
-      const request = mockRequest(method);
+      const request = mockRequest({ method });
       const response = mockResponse();
 
       const isInvalidHttpMethod = await checkHttpMethod(request, response);
@@ -147,7 +159,7 @@ describe("checkHttpMethod", () => {
   );
 
   it("Returns false when POST method is used", async () => {
-    const request = mockRequest("POST");
+    const request = mockRequest({ method: "POST" });
     const response = mockResponse();
 
     const isInvalidHttpMethod = await checkHttpMethod(request, response);

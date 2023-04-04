@@ -26,7 +26,8 @@ const mockRequest = (
     `${resourcesBasePath}/blank.jpeg`
   ),
   headers: IncomingHttpHeaders = { "X-Recaptcha-Token": validToken }
-): Partial<Request> => fetchMockRequest("POST", headers, "/", body);
+): Partial<Request> =>
+  fetchMockRequest({ method: "POST", headers, url: "/", body });
 
 const getSpace = jest.fn();
 const getEnvironment = jest.fn();

@@ -6,6 +6,7 @@
   "src": "src/index.ts",
   "scripts": {
     "build": "tsc --build && copyfiles './src/images/**/*' ./dist/contentful-migrate",
+    "compile": "tsc",
     "migrateCreate": "node ./dist/contentful-migrate/src/create.js",
     "debug": "node --inspect ./dist/contentful-migrate/src/index.js",
     "dxb-update-mc": "node ./dist/contentful-migrate/src/cma/update-mc.js",

@@ -20,7 +20,7 @@
     "contentful": "^9.2.5"
   },
   "devDependencies": {
-    "@bmi-digital/fetch-mocks": "^1.5.1",
+    "@bmi-digital/fetch-mocks": "^1.6.0",
     "@bmi/contentful-types": "0.0.0",
     "@bmi/elasticsearch-types": "0.0.0",
     "env-cmd": "^10.1.0",

@@ -65,12 +65,12 @@ describe("Generating JSON file from WebTools space", () => {
       process.env.WEBTOOLS_CONTENTFUL_TOKEN;
     delete process.env.WEBTOOLS_CONTENTFUL_TOKEN;
 
-    const req = mockRequest(
-      "GET",
-      { authorization: `Bearer ${SECRET}` },
-      "/",
-      {}
-    );
+    const req = mockRequest({
+      method: "GET",
+      headers: { authorization: `Bearer ${SECRET}` },
+      url: "/",
+      body: {}
+    });
 
     const res = mockResponse();
 
@@ -92,12 +92,12 @@ describe("Generating JSON file from WebTools space", () => {
       process.env.WEBTOOLS_UPDATE_REQUEST;
     delete process.env.WEBTOOLS_UPDATE_REQUEST;
 
-    const req = mockRequest(
-      "GET",
-      { authorization: `Bearer ${SECRET}` },
-      "/",
-      {}
-    );
+    const req = mockRequest({
+      method: "GET",
+      headers: { authorization: `Bearer ${SECRET}` },
+      url: "/",
+      body: {}
+    });
 
     const res = mockResponse();
 
@@ -122,12 +122,12 @@ describe("Generating JSON file from WebTools space", () => {
       });
     });
 
-    const req = mockRequest(
-      "GET",
-      { authorization: `Bearer ${SECRET}` },
-      "/",
-      {}
-    );
+    const req = mockRequest({
+      method: "GET",
+      headers: { authorization: `Bearer ${SECRET}` },
+      url: "/",
+      body: {}
+    });
 
     const res = mockResponse();
 
@@ -157,12 +157,12 @@ describe("Generating JSON file from WebTools space", () => {
   });
 
   it("failes with the wrong secret", async () => {
-    const req = mockRequest(
-      "GET",
-      { authorization: `Bearer ${SECRET + "incorrect_value"}` },
-      "/",
-      {}
-    );
+    const req = mockRequest({
+      method: "GET",
+      headers: { authorization: `Bearer ${SECRET + "incorrect_value"}` },
+      url: "/",
+      body: {}
+    });
 
     const res = mockResponse();
 
@@ -187,12 +187,12 @@ describe("Generating JSON file from WebTools space", () => {
       }
     );
 
-    const req = mockRequest(
-      "GET",
-      { authorization: `Bearer ${SECRET}` },
-      "/",
-      {}
-    );
+    const req = mockRequest({
+      method: "GET",
+      headers: { authorization: `Bearer ${SECRET}` },
+      url: "/",
+      body: {}
+    });
 
     const res = mockResponse();
 
@@ -219,12 +219,12 @@ describe("Generating JSON file from WebTools space", () => {
       status: 429
     });
 
-    const req = mockRequest(
-      "GET",
-      { authorization: `Bearer ${SECRET}` },
-      "/",
-      {}
-    );
+    const req = mockRequest({
+      method: "GET",
+      headers: { authorization: `Bearer ${SECRET}` },
+      url: "/",
+      body: {}
+    });
 
     const res = mockResponse();
 
@@ -265,12 +265,12 @@ describe("Generating JSON file from WebTools space", () => {
       headers: {}
     });
 
-    const req = mockRequest(
-      "GET",
-      { authorization: `Bearer ${SECRET}` },
-      "/",
-      {}
-    );
+    const req = mockRequest({
+      method: "GET",
+      headers: { authorization: `Bearer ${SECRET}` },
+      url: "/",
+      body: {}
+    });
 
     const res = mockResponse();
 
@@ -281,7 +281,12 @@ describe("Generating JSON file from WebTools space", () => {
   });
 
   it("accepts OPTIONS request", async () => {
-    const req = mockRequest("OPTIONS", {}, "/", {});
+    const req = mockRequest({
+      method: "OPTIONS",
+      headers: {},
+      url: "/",
+      body: {}
+    });
     const res = mockResponse();
 
     await handleRequest(req, res);
@@ -304,12 +309,12 @@ describe("Generating JSON file from WebTools space", () => {
 
     const res = mockResponse();
 
-    const req = mockRequest(
-      "GET",
-      { authorization: `Bearer ${SECRET}` },
-      "/",
-      {}
-    );
+    const req = mockRequest({
+      method: "GET",
+      headers: { authorization: `Bearer ${SECRET}` },
+      url: "/",
+      body: {}
+    });
 
     await handleRequest(req, res);
 
