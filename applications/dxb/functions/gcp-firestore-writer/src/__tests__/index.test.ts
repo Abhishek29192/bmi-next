@@ -1,3 +1,4 @@
+import { createProduct } from "@bmi/firestore-types";
 import {
   CollectionReference,
   DocumentReference,
@@ -5,17 +6,17 @@ import {
 } from "@bmi/functions-firestore";
 import { createFullyPopulatedProduct, createSystem } from "@bmi/pim-types";
 import {
+  Message,
+  ObjType,
   createDeleteProductItem,
   createDeleteProductMessage,
   createDeleteSystemItem,
   createDeleteSystemMessage,
   createUpdateCategoryMessage,
   createUpdateProductMessage,
-  createUpdateSystemMessage,
-  Message,
-  ObjType
+  createUpdateSystemMessage
 } from "@bmi/pub-sub-types";
-import { CODE_TYPES, handleMessage, OBJECT_TYPES } from "../";
+import { CODE_TYPES, OBJECT_TYPES, handleMessage } from "../";
 
 jest.mock("@bmi-digital/functions-logger");
 
@@ -31,6 +32,7 @@ const createEvent = (message?: Message) => {
 const set = jest.fn();
 const commit = jest.fn();
 const deleteFunc = jest.fn();
+const updateFunc = jest.fn();
 const get = jest.fn();
 const doc = jest.fn();
 const documentRef: DocumentReference = {
@@ -61,7 +63,8 @@ jest.mock("@bmi/functions-firestore", () => ({
     batch: jest.fn(() => ({
       set,
       commit,
-      delete: deleteFunc
+      delete: deleteFunc,
+      update: updateFunc
     }))
   }))
 }));
@@ -234,14 +237,24 @@ describe("handleMessage", () => {
         })
       })
     );
-    const docRef1 = { ...documentRef, id: "docId1" };
 
-    doc.mockReturnValue(docRef1);
+    const docRef1 = { ...documentRef, id: "docId1" };
+    const product = createProduct();
+
+    get.mockResolvedValueOnce({
+      docs: [{ data: () => product, exists: true }]
+    });
+    get.mockResolvedValueOnce({
+      docs: [{ data: () => product, exists: true }]
+    });
+
+    doc.mockReturnValueOnce(docRef1);
 
     await handleMessage(data, {});
 
     expect(deleteFunc).toBeCalledTimes(1);
     expect(deleteFunc).toBeCalledWith(docRef1);
+    expect(updateFunc).toBeCalledTimes(1);
     expect(commit).toBeCalledTimes(1);
   });
 
