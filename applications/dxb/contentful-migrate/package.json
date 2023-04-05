@@ -18,7 +18,7 @@
     "up": "node ./dist/contentful-migrate/src/up.js"
   },
   "dependencies": {
-    "@bmi-digital/contentful-migration": "^1.2.1",
+    "@bmi-digital/contentful-migration": "^1.2.2",
     "ora": "^5.3.0",
     "semver-parser": "^3.0.5"
   },
