@@ -6363,7 +6363,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                             alt=""
                             aria-hidden="true"
                             role="presentation"
-                            src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                            src="data:image/svg+xml;charset=utf-8,%3Csvg%20height='720'%20width='948'%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E"
                             style="max-width: 100%; display: block; position: static;"
                           />
                         </div>
@@ -13271,7 +13271,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                             alt=""
                             aria-hidden="true"
                             role="presentation"
-                            src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                            src="data:image/svg+xml;charset=utf-8,%3Csvg%20height='720'%20width='948'%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E"
                             style="max-width: 100%; display: block; position: static;"
                           />
                         </div>
@@ -16855,7 +16855,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                             alt=""
                             aria-hidden="true"
                             role="presentation"
-                            src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                            src="data:image/svg+xml;charset=utf-8,%3Csvg%20height='720'%20width='948'%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E"
                             style="max-width: 100%; display: block; position: static;"
                           />
                         </div>
@@ -20409,7 +20409,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                             alt=""
                             aria-hidden="true"
                             role="presentation"
-                            src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                            src="data:image/svg+xml;charset=utf-8,%3Csvg%20height='720'%20width='948'%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E"
                             style="max-width: 100%; display: block; position: static;"
                           />
                         </div>
@@ -23993,7 +23993,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                             alt=""
                             aria-hidden="true"
                             role="presentation"
-                            src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                            src="data:image/svg+xml;charset=utf-8,%3Csvg%20height='720'%20width='948'%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E"
                             style="max-width: 100%; display: block; position: static;"
                           />
                         </div>
@@ -27589,7 +27589,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                             alt=""
                             aria-hidden="true"
                             role="presentation"
-                            src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                            src="data:image/svg+xml;charset=utf-8,%3Csvg%20height='720'%20width='948'%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E"
                             style="max-width: 100%; display: block; position: static;"
                           />
                         </div>
@@ -31183,7 +31183,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                             alt=""
                             aria-hidden="true"
                             role="presentation"
-                            src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                            src="data:image/svg+xml;charset=utf-8,%3Csvg%20height='720'%20width='948'%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E"
                             style="max-width: 100%; display: block; position: static;"
                           />
                         </div>
@@ -34779,7 +34779,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                             alt=""
                             aria-hidden="true"
                             role="presentation"
-                            src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                            src="data:image/svg+xml;charset=utf-8,%3Csvg%20height='720'%20width='948'%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E"
                             style="max-width: 100%; display: block; position: static;"
                           />
                         </div>
@@ -38375,7 +38375,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                             alt=""
                             aria-hidden="true"
                             role="presentation"
-                            src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                            src="data:image/svg+xml;charset=utf-8,%3Csvg%20height='720'%20width='948'%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E"
                             style="max-width: 100%; display: block; position: static;"
                           />
                         </div>

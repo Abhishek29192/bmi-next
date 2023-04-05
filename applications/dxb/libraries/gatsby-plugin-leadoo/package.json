@@ -20,6 +20,6 @@
     "lint": "prettier --write gatsby-node.js"
   },
   "dependencies": {
-    "gatsby-cli": "^4.10.1"
+    "gatsby-cli": "^5.9.0"
   }
 }

@@ -21,15 +21,15 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "find-up": "^4.1.0",
-    "gatsby": "^4.10.1",
-    "gatsby-plugin-gatsby-cloud": "^4.10.1",
+    "gatsby": "^5.9.0",
+    "gatsby-plugin-gatsby-cloud": "^5.9.0",
     "react": "^18.2.0",
     "toml": "^3.0.0",
     "tsconfig-paths-webpack-plugin": "^3.5.2",
     "webpack": "^5.70.0"
   },
   "devDependencies": {
-    "babel-preset-gatsby": "^2.5.2",
+    "babel-preset-gatsby": "^3.9.0",
     "jest-preset-gatsby": "^1.0.134"
   },
   "eslintIgnore": [

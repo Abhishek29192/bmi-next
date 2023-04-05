@@ -29,6 +29,9 @@ include:
 .cypress-image:
   image: cypress/browsers:node14.17.0-chrome91-ff89
 
+.license-finder-image:
+  image: ${CI_REGISTRY}/bmi-digital/gitlab-templates/license-finder-js:latest
+
 variables:
   ARTIFACT_COMPRESSION_LEVEL: fastest
   CACHE_COMPRESSION_LEVEL: fastest

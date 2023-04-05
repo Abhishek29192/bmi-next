@@ -45,42 +45,39 @@ const parseSlides = (
 ): (TwoPaneCarouselSlide | VerticalRollerSlide)[] => {
   return slides
     .filter((slide) => slide.title)
-    .map((slide, index) => {
-      const {
-        title,
-        subtitle,
-        brandLogo,
-        featuredVideo,
-        featuredMedia,
-        ...rest
-      } = slide;
-      const cta = getCTA(rest, countryCode, linkLabel);
-      const brandLogoIcons = brandLogo ? (
-        <BrandLogo
-          brandName={brandLogo}
-          brandWhiteBox={variant === "vertical"}
-          data-testid={`carousel-section-slide-brand-logo-${index}`}
-        />
-      ) : undefined;
-      return {
-        title,
-        brandIcon: brandLogoIcons,
-        media: featuredVideo ? (
-          <Video
-            {...featuredVideo}
-            className={styles["video-preview-image"]}
-            data-testid={`carousel-section-slide-video-${index}`}
+    .map(
+      (
+        { title, subtitle, brandLogo, featuredVideo, featuredMedia, ...rest },
+        index
+      ) => {
+        const cta = getCTA(rest, countryCode, linkLabel);
+        const brandLogoIcons = brandLogo ? (
+          <BrandLogo
+            brandName={brandLogo}
+            brandWhiteBox={variant === "vertical"}
+            data-testid={`carousel-section-slide-brand-logo-${index}`}
           />
-        ) : featuredMedia ? (
-          <Image
-            {...featuredMedia}
-            data-testid={`carousel-section-slide-image-${index}`}
-          />
-        ) : undefined,
-        description: subtitle || undefined,
-        cta
-      };
-    });
+        ) : undefined;
+        return {
+          title,
+          brandIcon: brandLogoIcons,
+          media: featuredVideo ? (
+            <Video
+              {...featuredVideo}
+              className={styles["video-preview-image"]}
+              data-testid={`carousel-section-slide-video-${index}`}
+            />
+          ) : featuredMedia ? (
+            <Image
+              {...featuredMedia}
+              data-testid={`carousel-section-slide-image-${index}`}
+            />
+          ) : undefined,
+          description: subtitle || undefined,
+          cta
+        };
+      }
+    );
 };
 
 const CarouselSection = ({

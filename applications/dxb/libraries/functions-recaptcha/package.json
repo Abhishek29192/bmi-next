@@ -13,7 +13,7 @@
     "test": "jest --coverage --reporters=default --reporters=jest-junit"
   },
   "dependencies": {
-    "@bmi-digital/functions-logger": "^1.5.1"
+    "@bmi-digital/functions-logger": "^1.6.0"
   },
   "devDependencies": {
     "@bmi-digital/fetch-mocks": "^1.6.0",
