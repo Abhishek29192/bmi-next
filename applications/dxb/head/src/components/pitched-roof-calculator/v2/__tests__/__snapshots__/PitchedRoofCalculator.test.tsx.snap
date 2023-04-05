@@ -1,14 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PitchedRoofCalculator component calls onClose 1`] = `
-Array [
-  Array [],
+[
+  [],
 ]
 `;
 
 exports[`PitchedRoofCalculator component calls onClose with analytics error 1`] = `
-Array [
-  Array [
+[
+  [
     "Analytics events are failing",
   ],
 ]
@@ -75,6 +75,7 @@ exports[`PitchedRoofCalculator component renders closed 1`] = `
         <button
           aria-label="Close"
           class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-1o5d63j-MuiButtonBase-root-MuiIconButton-root"
+          data-testid="container-dialog-header-close-button"
           tabindex="0"
           type="button"
         >
@@ -175,6 +176,7 @@ exports[`PitchedRoofCalculator component renders correctly 1`] = `
         <button
           aria-label="Close"
           class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-1o5d63j-MuiButtonBase-root-MuiIconButton-root"
+          data-testid="container-dialog-header-close-button"
           tabindex="0"
           type="button"
         >

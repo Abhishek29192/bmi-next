@@ -1,0 +1,103 @@
+# Settings in the [build] context are global and are applied to all contexts
+# unless otherwise overridden by more specific contexts.
+
+[build]
+  # nothing to build here, this instance is for redirects only
+  ignore = "git diff --quiet HEAD^ HEAD sub_dir/"
+
+  publish = "public/"
+
+  # Default build command.
+  command = "yarn workspace @bmi/redirects-website-ba run build"
+
+[[redirects]]
+ from="/kosi-krovovi/"
+ to="https://www.bmigroup.com/ba/kosi-krovovi/"
+ status=301
+
+ [[redirects]]
+ from="/crijepovi/"
+ to="https://www.bmigroup.com/ba/kosi-krovovi/betonski-crijep/"
+ status=301
+
+[[redirects]]
+ from="/krovna-oprema/"
+ to="https://www.bmigroup.com/ba/kosi-krovovi/krovna-oprema-i-fazonski-elementi/"
+ status=301
+
+[[redirects]]
+ from="/termoizolacija/"
+ to="https://www.bmigroup.com/ba/kosi-krovovi/termoizolacija/"
+ status=301
+
+ [[redirects]]
+ from="/bitumenski-proizvodi/"
+ to="https://www.bmigroup.com/ba/ravni-krovovi/bitumenski-proizvodi/"
+ status=301
+
+[[redirects]]
+ from="/ravni-krovovi/"
+ to="https://www.bmigroup.com/ba/ravni-krovovi/"
+ status=301
+
+[[redirects]]
+ from="/sinteticki-proizvodi/"
+ to="https://www.bmigroup.com/ba/ravni-krovovi/sinteticki-proizvodi/"
+ status=301
+
+[[redirects]]
+ from="/gradevinarstvo/"
+ to="https://www.bmigroup.com/ba/gradjevinarstvo/"
+ status=301
+
+[[redirects]]
+ from="/aktivni-krovovi/"
+ to="https://www.bmigroup.com/ba/aktivni-krovovi/"
+ status=301
+
+[[redirects]]
+ from="/#tehnologije/"
+ to="https://www.bmigroup.com/ba/bramac/"
+ status=301
+
+[[redirects]]
+ from="/prospektni-materijali/"
+ to="https://www.bmigroup.com/ba/prospektni-materijali/"
+ status=301
+
+[[redirects]]
+ from="/#o_nama/"
+ to="https://www.bmigroup.com/ba/o-nama/"
+ status=301
+
+[[redirects]]
+ from="/#kontakt"
+ to="https://www.bmigroup.com/ba/kontakt/"
+ status=301
+
+[[redirects]]
+ from="/impresum/"
+ to="https://www.bmigroup.com/ba/impresum/"
+ status=301
+
+[[redirects]]
+ from="/kolacici/"
+ to="https://www.bmigroup.com/ba/kolacici/"
+ status=301
+
+ [[redirects]]
+ from="/odricanje-od-odgovornosti/"
+ to="https://www.bmigroup.com/ba/odricanje-od-odgovornosti/"
+ status=301
+
+ [[redirects]]
+ from="/zastita-licnih-podataka/"
+ to="https://www.bmigroup.com/ba/zastita-licnih-podataka/"
+ status=301
+
+# if no redirects are found, fall back to relevant brand page
+
+[[redirects]]
+ from="/"
+ to="https://www.bmigroup.com/ba/"
+ status=301

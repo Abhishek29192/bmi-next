@@ -3,8 +3,8 @@
 exports[`NextBestActions component renders correctly 1`] = `
 <div>
   <div
-    class="Section-root Section-alabaster css-cxq310"
-    data-testid="section"
+    class="Section-root Section-alabaster css-10chrh8"
+    data-testid="next-best-actions-section"
   >
     <div
       class=" css-ze8cyt"
@@ -13,13 +13,13 @@ exports[`NextBestActions component renders correctly 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
           data-testid="typography"
         >
           MC: nba.title
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -28,13 +28,13 @@ exports[`NextBestActions component renders correctly 1`] = `
           >
             <a
               class="MuiButtonBase-root NBACard-clickable ColorPair-secondary1 css-bkdr6q-MuiButtonBase-root"
-              data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/somewhere/\\",\\"label\\":\\"test\\"}"
+              data-gtm="{"id":"cta-click1","action":"/en/somewhere/","label":"test"}"
               href="/en/somewhere/"
               tabindex="0"
               type="button"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4 css-xmpqba-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4 css-u0svqn-MuiTypography-root"
                 data-testid="typography"
               >
                 test
@@ -55,7 +55,7 @@ exports[`NextBestActions component renders correctly 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=" css-em5iqk"
+                      class=" css-1r2mexx"
                       data-testid="internal"
                       focusable="false"
                       viewBox="0 0 16 16"
@@ -82,7 +82,7 @@ exports[`NextBestActions component renders correctly 1`] = `
           >
             <a
               class="MuiButtonBase-root NBACard-clickable ColorPair-secondary2 css-bkdr6q-MuiButtonBase-root"
-              data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"https://www.external.co.uk\\",\\"label\\":\\"string\\"}"
+              data-gtm="{"id":"cta-click1","action":"https://www.external.co.uk","label":"string"}"
               href="https://www.external.co.uk"
               rel="noopener noreferrer"
               tabindex="0"
@@ -90,7 +90,7 @@ exports[`NextBestActions component renders correctly 1`] = `
               type="button"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4 css-xmpqba-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4 css-u0svqn-MuiTypography-root"
                 data-testid="typography"
               >
                 test
@@ -113,7 +113,7 @@ exports[`NextBestActions component renders correctly 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=" css-em5iqk"
+                      class=" css-1r2mexx"
                       data-testid="internal"
                       focusable="false"
                       viewBox="0 0 16 16"
@@ -144,8 +144,8 @@ exports[`NextBestActions component renders correctly 1`] = `
 exports[`NextBestActions component renders name with no title 1`] = `
 <div>
   <div
-    class="Section-root Section-alabaster css-cxq310"
-    data-testid="section"
+    class="Section-root Section-alabaster css-10chrh8"
+    data-testid="next-best-actions-section"
   >
     <div
       class=" css-ze8cyt"
@@ -154,13 +154,13 @@ exports[`NextBestActions component renders name with no title 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
           data-testid="typography"
         >
           MC: nba.title
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -169,7 +169,7 @@ exports[`NextBestActions component renders name with no title 1`] = `
           >
             <a
               class="MuiButtonBase-root NBACard-clickable ColorPair-secondary1 css-bkdr6q-MuiButtonBase-root"
-              data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"https://www.external.co.uk\\",\\"label\\":\\"string\\"}"
+              data-gtm="{"id":"cta-click1","action":"https://www.external.co.uk","label":"string"}"
               href="https://www.external.co.uk"
               rel="noopener noreferrer"
               tabindex="0"
@@ -177,7 +177,7 @@ exports[`NextBestActions component renders name with no title 1`] = `
               type="button"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4 css-xmpqba-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4 css-u0svqn-MuiTypography-root"
                 data-testid="typography"
               >
                 test name
@@ -200,7 +200,7 @@ exports[`NextBestActions component renders name with no title 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=" css-em5iqk"
+                      class=" css-1r2mexx"
                       data-testid="internal"
                       focusable="false"
                       viewBox="0 0 16 16"
@@ -231,8 +231,8 @@ exports[`NextBestActions component renders name with no title 1`] = `
 exports[`NextBestActions component renders with no promo cta 1`] = `
 <div>
   <div
-    class="Section-root Section-alabaster css-cxq310"
-    data-testid="section"
+    class="Section-root Section-alabaster css-10chrh8"
+    data-testid="next-best-actions-section"
   >
     <div
       class=" css-ze8cyt"
@@ -241,13 +241,13 @@ exports[`NextBestActions component renders with no promo cta 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
           data-testid="typography"
         >
           MC: nba.title
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -259,7 +259,7 @@ exports[`NextBestActions component renders with no promo cta 1`] = `
               type="button"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4 css-xmpqba-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4 css-u0svqn-MuiTypography-root"
                 data-testid="typography"
               >
                 test
@@ -281,8 +281,8 @@ exports[`NextBestActions component renders with no promo cta 1`] = `
 exports[`NextBestActions component renders with no promo cta label 1`] = `
 <div>
   <div
-    class="Section-root Section-alabaster css-cxq310"
-    data-testid="section"
+    class="Section-root Section-alabaster css-10chrh8"
+    data-testid="next-best-actions-section"
   >
     <div
       class=" css-ze8cyt"
@@ -291,13 +291,13 @@ exports[`NextBestActions component renders with no promo cta label 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
           data-testid="typography"
         >
           MC: nba.title
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -306,7 +306,7 @@ exports[`NextBestActions component renders with no promo cta label 1`] = `
           >
             <a
               class="MuiButtonBase-root NBACard-clickable ColorPair-secondary1 css-bkdr6q-MuiButtonBase-root"
-              data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"https://www.external.co.uk\\",\\"label\\":null}"
+              data-gtm="{"id":"cta-click1","action":"https://www.external.co.uk","label":null}"
               href="https://www.external.co.uk"
               rel="noopener noreferrer"
               tabindex="0"
@@ -314,7 +314,7 @@ exports[`NextBestActions component renders with no promo cta label 1`] = `
               type="button"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4 css-xmpqba-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4 css-u0svqn-MuiTypography-root"
                 data-testid="typography"
               >
                 test

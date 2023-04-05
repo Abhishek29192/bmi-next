@@ -1,0 +1,9 @@
+build_redirects_website_ie_necoflex:
+  extends: .build_yarn_workspace
+  rules:
+    - !reference [.ingore_release_mrs, rules]
+    - !reference [.run_for_changes_on_mr, rules]
+    - !reference [.run_for_changes_on_main, rules]
+  variables:
+    ROOT_DIR: applications/redirects-website-ie-necoflex
+    WORKSPACE: "@bmi/redirects-website-ie-necoflex"

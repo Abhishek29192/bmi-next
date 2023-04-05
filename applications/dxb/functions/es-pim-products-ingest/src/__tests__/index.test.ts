@@ -3,10 +3,6 @@ import {
   createPimSystemDocument,
   createProduct as createEsProduct,
   createSystem as createEsSystem,
-  // PimDocument as EsPimDocument,
-  // PimDocument,
-  // PimLinkDocument as EsPimLinkDocument,
-  // PimLinkDocument,
   PimProductDocument,
   PimSystemDocument,
   Product as EsProduct,
@@ -22,7 +18,6 @@ import {
   ItemType,
   Message
 } from "@bmi/pub-sub-types";
-import mockConsole from "jest-mock-console";
 
 const createEvent = (message?: Message): { data: string } => {
   if (!message) {
@@ -75,10 +70,6 @@ jest.mock("../elasticsearch", () => ({
     itemCode: string
   ) => updateDocuments(assets, itemCode)
 }));
-
-beforeAll(() => {
-  mockConsole();
-});
 
 beforeEach(() => {
   jest.clearAllMocks();

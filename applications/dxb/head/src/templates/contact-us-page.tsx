@@ -1,4 +1,9 @@
-import { Hero, Section, Typography } from "@bmi-digital/components";
+import {
+  Hero,
+  replaceSpaces,
+  Section,
+  Typography
+} from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
 import BackToResults from "../components/BackToResults";
@@ -11,7 +16,7 @@ import ContactTopics, {
 import IframeSection, {
   Data as IframeSectionData
 } from "../components/IframeSection";
-import { renderImage } from "../components/Image";
+import Image from "../components/Image";
 import Locations, { Data as LocationsData } from "../components/Locations";
 import NextBestActions, {
   Data as NextBestActionsData
@@ -20,7 +25,7 @@ import Page, { Data as PageData } from "../components/Page";
 import { Data as PageInfoData } from "../components/PageInfo";
 import Sections, { Data as SectionsData } from "../components/Sections";
 import { Data as SiteData } from "../components/Site";
-import { renderVideo } from "../components/Video";
+import Video from "../components/Video";
 import { updateBreadcrumbTitleFromContentful } from "../utils/breadcrumbUtils";
 
 export type Data = PageInfoData &
@@ -90,19 +95,31 @@ const ContactUsPage = ({ data, pageContext }: Props) => {
         level={1}
         title={title}
         media={
-          featuredVideo
-            ? renderVideo(featuredVideo)
-            : renderImage(featuredMedia, { size: "cover" })
+          featuredVideo ? (
+            <Video {...featuredVideo} />
+          ) : (
+            <Image {...featuredMedia} size="cover" />
+          )
         }
         breadcrumbs={
-          <BackToResults isDarkThemed>
-            <Breadcrumbs data={enhancedBreadcrumbs} isDarkThemed />
+          <BackToResults isDarkThemed data-testid="breadcrumbs-section-top">
+            <Breadcrumbs
+              data={enhancedBreadcrumbs}
+              isDarkThemed
+              data-testid="contact-us-page-breadcrumbs-top"
+            />
           </BackToResults>
         }
       >
         {subtitle}
       </Hero>
-      <Section backgroundColor="pearl" overflowVisible>
+      <Section
+        backgroundColor="pearl"
+        overflowVisible
+        data-testid={`contact-us-page-queries-section-${replaceSpaces(
+          queriesTitle
+        )}`}
+      >
         <Section.Title>{queriesTitle}</Section.Title>
         <Typography variant="h4" component="p">
           {queriesSubtitle}
@@ -116,7 +133,12 @@ const ContactUsPage = ({ data, pageContext }: Props) => {
       {iframe && <IframeSection data={iframe} />}
       {sections && <Sections data={sections} />}
       {locations && (
-        <Section backgroundColor="white">
+        <Section
+          backgroundColor="white"
+          data-testid={`contact-us-page-locations-section-${replaceSpaces(
+            queriesTitle
+          )}`}
+        >
           <Section.Title>{locationsTitle}</Section.Title>
           <div>
             <Locations data={locations} />
@@ -124,8 +146,15 @@ const ContactUsPage = ({ data, pageContext }: Props) => {
         </Section>
       )}
       {nextBestActions && <NextBestActions data={nextBestActions} />}
-      <Section backgroundColor="alabaster" isSlim>
-        <Breadcrumbs data={breadcrumbs} />
+      <Section
+        backgroundColor="alabaster"
+        isSlim
+        data-testid="breadcrumbs-section-bottom"
+      >
+        <Breadcrumbs
+          data={breadcrumbs}
+          data-testid="contact-us-page-breadcrumbs-bottom"
+        />
       </Section>
     </Page>
   );
@@ -136,7 +165,7 @@ export default ContactUsPage;
 export const pageQuery = graphql`
   query ContactUsPageById($pageId: String!, $siteId: String!) {
     contentfulContactUsPage(id: { eq: $pageId }) {
-      ...PageInfoFragment
+      ...PageInfoHeroFragment
       ...BreadcrumbsFragment
       queriesTitle
       queriesSubtitle

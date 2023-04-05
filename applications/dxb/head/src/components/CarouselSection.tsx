@@ -1,5 +1,6 @@
 import {
   Button,
+  replaceSpaces,
   Section,
   transformHyphens,
   TwoPaneCarousel,
@@ -15,13 +16,13 @@ import { Data as PromoData } from "../components/Promo";
 import { microCopy } from "../constants/microCopies";
 import withGTM from "../utils/google-tag-manager";
 import BrandLogo from "./BrandLogo";
-import { renderImage } from "./Image";
+import Image from "./Image";
 import { Data as LinkData, getClickableActionFromUrl, getCTA } from "./Link";
 import { Data as PageInfoData } from "./PageInfo";
 import { CalculatorContext } from "./PitchedRoofCalcualtor";
 import { useSiteContext } from "./Site";
 import styles from "./styles/CarouselSection.module.scss";
-import { renderVideo } from "./Video";
+import Video from "./Video";
 import { VisualiserContext } from "./Visualiser";
 
 type Slide = PromoData | PageInfoData;
@@ -57,11 +58,12 @@ const parseSlides = (
     ) : undefined;
     return {
       title,
-      // eslint-disable-next-line security/detect-object-injection
       brandIcon: brandLogoIcons,
-      media: featuredVideo
-        ? renderVideo(featuredVideo)
-        : renderImage(featuredMedia),
+      media: featuredVideo ? (
+        <Video {...featuredVideo} className={styles["video-preview-image"]} />
+      ) : (
+        <Image {...featuredMedia} />
+      ),
       description: subtitle || undefined,
       cta
     };
@@ -81,6 +83,7 @@ const CarouselSection = ({
     <Section
       backgroundColor={variant === "vertical" ? "pearl" : "white"}
       className={styles["CarouselSection"]}
+      data-testid={`carousel-section-${replaceSpaces(title)}`}
     >
       {variant === "vertical" ? (
         <VerticalRoller

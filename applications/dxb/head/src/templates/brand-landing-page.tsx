@@ -13,22 +13,23 @@ import BrandLogo from "../components/BrandLogo";
 import Breadcrumbs, {
   Data as BreadcrumbsData
 } from "../components/Breadcrumbs";
-import { renderImage } from "../components/Image";
+import Image from "../components/Image";
 import Link from "../components/Link";
 import OverlapCards, {
   Data as OverlapCardData
 } from "../components/OverlapCards";
 import Page, { Data as PageData } from "../components/Page";
-import { Data as PageInfoData } from "../components/PageInfo";
-import { Data as SlideData } from "../components/Promo";
 import Sections, { Data as SectionsData } from "../components/Sections";
-import { Data as SiteData } from "../components/Site";
-import { renderVideo } from "../components/Video";
+import Video from "../components/Video";
 import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
 import { updateBreadcrumbTitleFromContentful } from "../utils/breadcrumbUtils";
 import withGTM from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
+import type { Data as LinkData } from "../components/Link";
+import type { Data as SiteData } from "../components/Site";
+import type { Data as SlideData } from "../components/Promo";
+import type { Data as PageInfoData } from "../components/PageInfo";
 
 type BrandLandingPageData = Omit<PageInfoData, "sections"> &
   Omit<PageData, "breadcrumbs"> & {
@@ -54,24 +55,36 @@ const getHeroItemsWithContext = (
   { getMicroCopy },
   slides: BrandLandingPageData["slides"]
 ): CarouselHeroItem[] => {
+  const GetCTAButton = (cta: LinkData | null): JSX.Element => {
+    return cta?.label ? (
+      <Link component={Button} data={cta}>
+        {cta?.label}
+      </Link>
+    ) : null;
+  };
+
+  const GetCTALinkFromPath = (getMicroCopy, path: string): JSX.Element => {
+    return path ? (
+      <Link component={Button} data={{ linkedPage: { path: path } }}>
+        {getMicroCopy(microCopy.PAGE_LINK_LABEL)}
+      </Link>
+    ) : null;
+  };
+
   return slides.map(
     ({ title, subtitle, featuredMedia, featuredVideo, ...rest }) => {
       return {
         title,
         children: subtitle,
-        media: featuredVideo
-          ? renderVideo(featuredVideo)
-          : renderImage(featuredMedia, { size: "cover" }),
+        media: featuredVideo ? (
+          <Video {...featuredVideo} />
+        ) : featuredMedia ? (
+          <Image {...featuredMedia} size="cover" />
+        ) : undefined,
         cta:
-          rest.__typename === "ContentfulPromo" ? (
-            <Link component={Button} data={rest.cta}>
-              {rest.cta?.label}
-            </Link>
-          ) : (
-            <Link component={Button} data={{ linkedPage: { path: rest.path } }}>
-              {getMicroCopy(microCopy.PAGE_LINK_LABEL)}
-            </Link>
-          )
+          rest.__typename === "ContentfulPromo"
+            ? GetCTAButton(rest.cta)
+            : GetCTALinkFromPath(getMicroCopy, rest.path)
       };
     }
   );
@@ -80,7 +93,6 @@ const getHeroItemsWithContext = (
 const BrandLandingPage = ({ data, pageContext }: Props) => {
   const {
     title,
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     description,
     cta,
     brandLogo,
@@ -104,9 +116,7 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
     seo,
     path: data.contentfulBrandLandingPage.path
   };
-  const {
-    config: { isBrandProviderEnabled }
-  } = useConfig();
+  const { isBrandProviderEnabled } = useConfig();
 
   const GTMButton = withGTM<ButtonProps>(Button);
   const firstSlide: CarouselHeroItem = {
@@ -117,12 +127,14 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
           description?.description.length > 400 ? "..." : ""
         }`
       : null,
-    media: featuredVideo
-      ? renderVideo(featuredVideo)
-      : renderImage(featuredMedia, { size: "cover" }),
+    media: featuredVideo ? (
+      <Video {...featuredVideo} />
+    ) : (
+      <Image {...featuredMedia} size="cover" />
+    ),
     hasUnderline: false,
     cta: cta ? (
-      <Link component={Button} data={cta}>
+      <Link component={Button} data={cta} data-testid="first-slide-cta">
         {cta.label}
       </Link>
     ) : null
@@ -145,8 +157,15 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
           <>
             <CarouselHero
               breadcrumbs={
-                <BackToResults isDarkThemed>
-                  <Breadcrumbs data={enhancedBreadcrumbs} isDarkThemed />
+                <BackToResults
+                  isDarkThemed
+                  data-testid="breadcrumbs-section-top"
+                >
+                  <Breadcrumbs
+                    data={enhancedBreadcrumbs}
+                    isDarkThemed
+                    data-testid="brand-landing-page-breadcrumbs-top"
+                  />
                 </BackToResults>
               }
               heroes={[firstSlide, ...heroItems]}
@@ -172,8 +191,15 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
             </CarouselHero>
             {overlapCards && <OverlapCards data={overlapCards} />}
             {sections && <Sections data={sections} />}
-            <Section backgroundColor="alabaster" isSlim>
-              <Breadcrumbs data={enhancedBreadcrumbs} />
+            <Section
+              backgroundColor="alabaster"
+              isSlim
+              data-testid="breadcrumbs-section-bottom"
+            >
+              <Breadcrumbs
+                data={enhancedBreadcrumbs}
+                data-testid="brand-landing-page-breadcrumbs-bottom"
+              />
             </Section>
           </>
         );
@@ -195,8 +221,8 @@ export const pageQuery = graphql`
       }
       slides {
         ... on ContentfulPromoOrPage {
-          ...PromoFragment
-          ...PageInfoFragment
+          ...PromoHeroFragment
+          ...PageInfoHeroFragment
         }
       }
       overlapCards {
@@ -205,10 +231,7 @@ export const pageQuery = graphql`
       sections {
         ...SectionsFragment
       }
-      parentPage {
-        ...PageInfoFragment
-      }
-      ...PageInfoFragment
+      ...PageInfoHeroFragment
       ...PageFragment
       ...BreadcrumbsFragment
     }

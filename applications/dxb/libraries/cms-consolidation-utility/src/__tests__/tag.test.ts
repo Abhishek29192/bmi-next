@@ -1,5 +1,4 @@
 import type { Entry, Environment, Link } from "contentful-management";
-import mockConsole from "jest-mock-console";
 
 const createTag = async (environment: Partial<Environment>, market: string) =>
   (await import("../tag")).createTag(environment as Environment, market);
@@ -13,9 +12,8 @@ const mockEnvironment = (): Partial<Environment> => {
   return env;
 };
 
-const mockEntry = (): Partial<Entry> => {
-  const entry: Partial<Entry> = {};
-  entry.sys = {
+const mockEntry = (): Partial<Entry> => ({
+  sys: {
     space: {
       sys: {
         type: "Link",
@@ -66,13 +64,12 @@ const mockEntry = (): Partial<Entry> => {
         linkType: "ContentType",
         id: "page"
       }
-    }
-  };
-  return entry;
-};
+    },
+    automationTags: []
+  }
+});
 
 beforeEach(() => {
-  mockConsole();
   jest.clearAllMocks();
   jest.resetModules();
 });

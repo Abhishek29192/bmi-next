@@ -98,6 +98,7 @@ export type Asset = {
   realFileName?: string; // includes file extension
   url: string;
   format?: string;
+  validUntil?: string;
 };
 
 export type CategoryImage = {
@@ -593,6 +594,7 @@ export type ProductReference = {
 
 export type VariantOption = {
   approvalStatus: ApprovalStatus;
+  assets?: readonly Asset[];
   classifications?: readonly Classification[];
   code: string;
   externalProductCode?: string;
@@ -605,6 +607,9 @@ export type VariantOption = {
   name?: string;
   visualiserAssets?: readonly Asset[];
   keywords?: string[];
+  seoDescription?: string;
+  seoTags?: string[];
+  seoTitle?: string;
 };
 
 export type BaseProduct = Pick<Product, "code" | "name">;
@@ -628,6 +633,9 @@ export type Product = {
   productReferences?: ProductReference[];
   visualiserAssets?: readonly Asset[];
   keywords?: string[];
+  seoDescription?: string;
+  seoTags?: string[];
+  seoTitle?: string;
 };
 
 export enum PimTypes {

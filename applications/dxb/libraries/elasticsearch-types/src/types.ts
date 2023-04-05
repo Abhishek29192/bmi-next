@@ -60,7 +60,8 @@ export type System = {
   brand?: PimCategory;
   code: string;
   hashedCode: string;
-  images: readonly Image[];
+  galleryImages: readonly Image[];
+  masterImage?: Image;
   name: string;
   path: string;
   scoringWeight: number;
@@ -113,8 +114,9 @@ export type ContentfulDocument = {
   noIndex: boolean;
 };
 
-type PimDocumentBase = {
+export type PimDocumentBase = {
   id: string;
+  approvalStatus: ApprovalStatus;
   title: string;
   url: string;
   assetType: {
@@ -129,6 +131,7 @@ type PimDocumentBase = {
   realFileName: string;
   titleAndSize: string;
   noIndex: boolean;
+  validUntil?: number;
 } & {
   [extractedFilter: string]: any;
 };

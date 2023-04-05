@@ -25,6 +25,7 @@ module.exports = {
     "\\.(jpg|png)$": require.resolve("./jest/src/ImageImport.ts"),
     "\\.module\\.s?css$": require.resolve("./jest/src/CSSModuleImport.ts"),
     "(?<!\\.module)\\.s?css$": require.resolve("./jest/src/GlobalCSS.ts"),
+    "\\.(css|scss)$": "identity-obj-proxy",
     "\\.svg$": require.resolve("./jest/src/SVGImport.tsx"),
     "\\.(woff2|ttf)$": require.resolve("./jest/src/FontImport.ts"),
     "^@bmi/(?!visualiser/data)(.*)$": "<rootDir>/node_modules/@bmi/$1/src",
@@ -32,11 +33,16 @@ module.exports = {
       "<rootDir>/node_modules/gatsby-page-utils/dist/$1" // Workaround for https://github.com/facebook/jest/issues/9771
   },
   transform: {
-    "^.+\\.(ts|tsx)$": "ts-jest",
+    "^.+\\.(ts|tsx)$": [
+      "ts-jest",
+      {
+        isolatedModules: true
+      }
+    ],
     "^.+\\.(js|jsx)$": "babel-jest"
   },
   transformIgnorePatterns: [
-    "node_modules/(?!(three|lodash-es|@bmi-digital/components)/)"
+    "node_modules/(?!(three|lodash-es|escape-string-regexp|@bmi-digital/components)/)"
   ],
   setupFiles: ["<rootDir>/jest/src/setEnvVars.ts"],
   setupFilesAfterEnv: [
@@ -49,11 +55,6 @@ module.exports = {
       branches: "100",
       functions: "100",
       lines: "100"
-    }
-  },
-  globals: {
-    "ts-jest": {
-      isolatedModules: true
     }
   }
 };

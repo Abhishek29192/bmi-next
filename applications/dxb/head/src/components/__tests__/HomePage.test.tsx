@@ -1,6 +1,6 @@
+import { RegionCode } from "@bmi-digital/components";
 import { render } from "@testing-library/react";
 import React from "react";
-import { RegionCode } from "@bmi-digital/components";
 import { Data as BrandData } from "../../components/Brands";
 import { Data as OverlapCardData } from "../../components/OverlapCards";
 import { Data as PageData } from "../../components/Page";
@@ -62,13 +62,6 @@ const card1: PromoData = {
         fileName: "Lorem ipsum",
         url: "//images.asset.jpg"
       }
-    },
-    thumbnail: {
-      src: "//images.asset.jpg",
-      file: {
-        fileName: "Lorem ipsum",
-        url: "//images.asset.jpg"
-      }
     }
   },
   cta: null,
@@ -111,13 +104,6 @@ const card2: PromoData = {
         width: 948,
         height: 720
       },
-      file: {
-        fileName: "Lorem ipsum",
-        url: "//images.asset.jpg"
-      }
-    },
-    thumbnail: {
-      src: "//images.asset.jpg",
       file: {
         fileName: "Lorem ipsum",
         url: "//images.asset.jpg"
@@ -166,13 +152,6 @@ const slide: PageInfoData = {
         width: 948,
         height: 720
       },
-      file: {
-        fileName: "Lorem ipsum",
-        url: "//images.asset.jpg"
-      }
-    },
-    thumbnail: {
-      src: "//images.asset.jpg",
       file: {
         fileName: "Lorem ipsum",
         url: "//images.asset.jpg"

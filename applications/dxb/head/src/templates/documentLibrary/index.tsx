@@ -42,7 +42,7 @@ import {
 } from "./helpers/documentsLibraryHelpers";
 import { DocumentLibraryProps, QueryParams } from "./types";
 
-export const PAGE_SIZE = 24;
+export const PAGE_SIZE = 25;
 
 const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
   const location = useLocation();
@@ -68,9 +68,7 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
     seo,
     documentsFilters
   } = data.contentfulDocumentLibraryPage;
-  const {
-    config: { documentDownloadMaxLimit, isPreviewMode }
-  } = useConfig();
+  const { documentDownloadMaxLimit, isPreviewMode } = useConfig();
   const maxSize = documentDownloadMaxLimit * 1048576;
   // eslint-disable-next-line security/detect-object-injection
   const format: Format = resultTypeFormatMap[source][resultsType];
@@ -208,6 +206,16 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
   }, [location]);
 
   useEffect(() => {
+    if (
+      //Should not fetch products if resultsType === "Simple Archive" && source === "CMS"
+      resultsType === "Simple Archive" &&
+      source === "CMS"
+    ) {
+      setInitialLoading(false);
+      setIsLoading(false);
+      return;
+    }
+
     if (documentsFilters.filters) {
       const { filters: initialFilters } = documentsFilters;
       if (queryParams?.filters?.length) {
@@ -219,7 +227,7 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
         fetchDocuments(initialFilters, 0);
       }
     }
-  }, [documentsFilters]);
+  }, [documentsFilters, resultsType, source]);
 
   return (
     <Page
@@ -237,14 +245,21 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
         level={2}
         title={title}
         breadcrumbs={
-          <BackToResults isDarkThemed>
-            <Breadcrumbs data={enhancedBreadcrumbs} isDarkThemed />
+          <BackToResults isDarkThemed data-testid="breadcrumbs-section-top">
+            <Breadcrumbs
+              data={enhancedBreadcrumbs}
+              isDarkThemed
+              data-testid="document-library-page-breadcrumbs-top"
+            />
           </BackToResults>
         }
       />
       {description && (
-        <Section backgroundColor="white">
-          <RichText document={description} />
+        <Section
+          backgroundColor="white"
+          data-testid={`document-library-description-section`}
+        >
+          <RichText document={description} hasNoBottomMargin />
         </Section>
       )}
       <DownloadList maxSize={maxSize}>
@@ -257,34 +272,43 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
             return <DownloadListAlertBanner />;
           }}
         </DownloadListContext.Consumer>
-        <Section backgroundColor="white">
-          <div className={filterStyles["Filters"]}>
-            <Grid container spacing={3} ref={resultsElement}>
-              <Grid xs={12} md={12} lg={3}>
-                <FilterSection
-                  filters={filters}
-                  handleFiltersChange={handleFiltersChange}
-                  clearFilters={handleClearFilters}
-                />
-              </Grid>
-              <Grid xs={12} md={12} lg={9}>
-                {!initialLoading ? (
-                  <ResultSection
-                    results={documents}
-                    assetTypes={contentfulAssetTypes}
-                    format={format}
-                    page={page}
-                    pageCount={pageCount}
-                    handlePageChange={handlePageChange}
+        {!(resultsType === "Simple Archive" && source === "CMS") && (
+          <Section backgroundColor="white" id={`document-library-filters`}>
+            <div className={filterStyles["Filters"]}>
+              <Grid container spacing={3} ref={resultsElement}>
+                <Grid xs={12} md={12} lg={3}>
+                  <FilterSection
+                    filters={filters}
+                    handleFiltersChange={handleFiltersChange}
+                    clearFilters={handleClearFilters}
                   />
-                ) : null}
+                </Grid>
+                <Grid xs={12} md={12} lg={9}>
+                  {!initialLoading ? (
+                    <ResultSection
+                      results={documents}
+                      assetTypes={contentfulAssetTypes}
+                      format={format}
+                      page={page}
+                      pageCount={pageCount}
+                      handlePageChange={handlePageChange}
+                    />
+                  ) : null}
+                </Grid>
               </Grid>
-            </Grid>
-          </div>
-        </Section>
+            </div>
+          </Section>
+        )}
       </DownloadList>
-      <Section backgroundColor="alabaster" isSlim>
-        <Breadcrumbs data={enhancedBreadcrumbs} />
+      <Section
+        backgroundColor="alabaster"
+        isSlim
+        data-testid="breadcrumbs-section-bottom"
+      >
+        <Breadcrumbs
+          data={enhancedBreadcrumbs}
+          data-testid="document-library-page-breadcrumbs-bottom"
+        />
       </Section>
     </Page>
   );
@@ -295,7 +319,7 @@ export default DocumentLibraryPage;
 export const pageQuery = graphql`
   query DocumentLibraryPageById($pageId: String!, $siteId: String!) {
     contentfulDocumentLibraryPage(id: { eq: $pageId }) {
-      ...PageInfoFragment
+      ...PageInfoHeroFragment
       ...PageFragment
       ...BreadcrumbsFragment
       description {

@@ -1,5 +1,4 @@
 import type { ClientAPI, Space } from "contentful-management";
-import mockConsole from "jest-mock-console";
 
 const main = async (tag: string, locales: string[]) =>
   (await import("../index")).main(tag, ...locales);
@@ -26,12 +25,9 @@ jest.mock("contentful-management", () => {
 });
 
 const fillDefaultValues = jest.fn();
+const publishAll = jest.fn();
 jest.mock("@bmi/cms-consolidation-utility", () => {
-  return { fillDefaultValues };
-});
-
-beforeEach(() => {
-  mockConsole();
+  return { fillDefaultValues, publishAll };
 });
 
 describe("main", () => {
@@ -44,6 +40,57 @@ describe("main", () => {
     await main("market__uk", ["en-GB"]);
 
     expect(fillDefaultValues).toBeCalled();
+  });
+
+  it("Does not call publishAll if PUBLISH_ALL is not set", async () => {
+    const originalPublishAll = process.env.PUBLISH_ALL;
+    delete process.env.PUBLISH_ALL;
+
+    const environment = {};
+    getEnvironment.mockReturnValueOnce(environment);
+
+    await main("market__uk", ["en-GB"]);
+
+    expect(getEnvironment).toHaveBeenCalledWith(
+      process.env.CONTENTFUL_ENVIRONMENT
+    );
+    expect(publishAll).not.toBeCalled();
+
+    process.env.PUBLISH_ALL = originalPublishAll;
+  });
+
+  it("Does not call publishAll if PUBLISH_ALL set to false", async () => {
+    const originalPublishAll = process.env.PUBLISH_ALL;
+    process.env.PUBLISH_ALL = "false";
+
+    const environment = {};
+    getEnvironment.mockReturnValueOnce(environment);
+
+    await main("market__uk", ["en-GB"]);
+
+    expect(getEnvironment).toHaveBeenCalledWith(
+      process.env.CONTENTFUL_ENVIRONMENT
+    );
+    expect(publishAll).not.toBeCalled();
+
+    process.env.PUBLISH_ALL = originalPublishAll;
+  });
+
+  it("Calls publishAll if PUBLISH_ALL set to true", async () => {
+    const originalPublishAll = process.env.PUBLISH_ALL;
+    process.env.PUBLISH_ALL = "true";
+
+    const environment = {};
+    getEnvironment.mockReturnValueOnce(environment);
+
+    await main("market__uk", ["en-GB"]);
+
+    expect(getEnvironment).toHaveBeenCalledWith(
+      process.env.CONTENTFUL_ENVIRONMENT
+    );
+    expect(publishAll).toBeCalledWith(environment, "market__uk");
+
+    process.env.PUBLISH_ALL = originalPublishAll;
   });
 
   it("Logs an error if market locales are not passed in", async () => {

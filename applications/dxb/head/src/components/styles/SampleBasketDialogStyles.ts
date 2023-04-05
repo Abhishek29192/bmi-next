@@ -50,8 +50,11 @@ export const CartInfo = styled("div")(({ theme }) => ({
   fontSize: "1rem",
   color: theme.colours.slate,
   fontFamily: "Effra Regular",
-  "&:first-child": {
-    marginTop: "24px"
+  "&>p": {
+    margin: 0,
+    "&:last-of-type": {
+      marginTop: "12px"
+    }
   }
 }));
 
@@ -78,21 +81,23 @@ export const ProductList = styled("div")(({ theme }) => ({
 export const Product = styled("div")(({ theme }) => ({
   display: "flex",
   padding: "12px 30px",
-  "&:nth-child(odd)": {
+  "&:nth-of-type(odd)": {
     backgroundColor: theme.colours.pearl
   },
-  "&:nth-child(even)": {
+  "&:nth-of-type(even)": {
     backgroundColor: theme.colours.white
   }
 }));
 
 export const ImageContainer = styled("div")(({ theme }) => ({
-  width: "125px",
+  maxWidth: "125px",
   display: "flex",
-  padding: "12px 0",
+  padding: "8px 0",
+  marginRight: "45px",
   alignItems: "center",
   [theme.breakpoints!.down!("md")]: {
-    width: "80px"
+    width: "80px",
+    marginRight: "24px"
   }
 }));
 
@@ -135,23 +140,12 @@ export const ProductButtonContainer = styled("div")(({ theme }) => ({
 export const CartActions = styled("div")(({ theme }) => ({
   padding: "30px",
   display: "flex",
+  flexDirection: "column",
+  marginLeft: "16px",
   "& > *": {
-    width: "50%",
+    width: "100%",
     "&:last-child": {
-      marginLeft: "16px"
+      marginTop: "16px"
     }
-  },
-  [theme.breakpoints!.up!("md")]: {
-    flexDirection: "column",
-    "& > *": {
-      width: "100%",
-      "&:last-child": {
-        marginLeft: 0,
-        marginTop: "16px"
-      }
-    }
-  },
-  [theme.breakpoints!.down!("md")]: {
-    padding: "30px 16px"
   }
 }));

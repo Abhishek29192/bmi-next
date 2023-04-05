@@ -1,165 +1,165 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`transformProduct original transform tests should default PIM_CLASSIFICATION_CATALOGUE_NAMESPACE if not provided 1`] = `
-Array [
-  Object {
-    "APPEARANCEATTRIBUTES$COLOURFAMILY": Array [
-      Object {
+exports[`transformProduct original transform tests approval status scenarios should default PIM_CLASSIFICATION_CATALOGUE_NAMESPACE if not provided 1`] = `
+[
+  {
+    "APPEARANCEATTRIBUTES$COLOURFAMILY": [
+      {
         "code": "codesymbol",
         "name": "red symbol",
       },
     ],
-    "APPEARANCEATTRIBUTES$TEXTUREFAMILY": Array [
-      Object {
+    "APPEARANCEATTRIBUTES$TEXTUREFAMILY": [
+      {
         "code": "codesymbol",
         "name": "glossy symbol",
       },
     ],
-    "BMI_BRANDS": Array [
-      Object {
+    "BMI_BRANDS": [
+      {
         "code": "BMI-brand-code",
         "name": "name",
       },
     ],
-    "BRAND": Array [
-      Object {
+    "BRAND": [
+      {
         "code": "BMI-brand-code",
         "name": "name",
       },
     ],
-    "CATEGORY": Array [
-      Object {
+    "CATEGORY": [
+      {
         "code": "parent-category-code",
         "name": "name",
       },
-      Object {
+      {
         "code": "code",
         "name": "name",
       },
-      Object {
+      {
         "code": "BMI-brand-code",
         "name": "name",
       },
     ],
-    "CLASSIFICATION-FEATURE-CODE": Array [
-      Object {
+    "CLASSIFICATION-FEATURE-CODE": [
+      {
         "code": "codesymbol",
         "name": "value symbol",
       },
     ],
-    "GENERALINFORMATION$MATERIALS": Array [
-      Object {
+    "GENERALINFORMATION$MATERIALS": [
+      {
         "code": "codesymbol",
         "name": "concrete symbol",
       },
     ],
-    "MEASUREMENTS$HEIGHT": Array [
-      Object {
+    "MEASUREMENTS$HEIGHT": [
+      {
         "code": "codemm",
         "name": "30 mm",
       },
     ],
-    "MEASUREMENTS$LENGTH": Array [
-      Object {
+    "MEASUREMENTS$LENGTH": [
+      {
         "code": "codemm",
         "name": "10 mm",
         "value": "10",
       },
     ],
-    "MEASUREMENTS$THICKNESS": Array [
-      Object {
+    "MEASUREMENTS$THICKNESS": [
+      {
         "code": "codemm",
         "name": "40 mm",
       },
     ],
-    "MEASUREMENTS$WIDTH": Array [
-      Object {
+    "MEASUREMENTS$WIDTH": [
+      {
         "code": "codemm",
         "name": "20 mm",
         "value": "20",
       },
     ],
-    "PARENT-CATEGORY-CODE": Array [
-      Object {
+    "PARENT-CATEGORY-CODE": [
+      {
         "code": "code",
         "name": "name",
       },
-      Object {
+      {
         "code": "code",
         "name": "name",
       },
-      Object {
+      {
         "code": "code",
         "name": "name",
       },
-      Object {
+      {
         "code": "BMI-brand-code",
         "name": "name",
       },
     ],
-    "PRODUCTFAMILY": Array [
-      Object {
+    "PRODUCTFAMILY": [
+      {
         "code": "code",
         "name": "name",
       },
     ],
-    "PRODUCTLINE": Array [
-      Object {
+    "PRODUCTLINE": [
+      {
         "code": "code",
         "name": "name",
       },
     ],
-    "SCORINGWEIGHTATTRIBUTES$SCORINGWEIGHT": Array [
-      Object {
+    "SCORINGWEIGHTATTRIBUTES$SCORINGWEIGHT": [
+      {
         "code": "codesymbol",
         "name": "1.0 symbol",
       },
     ],
-    "allCategories": Array [
-      Object {
+    "allCategories": [
+      {
         "code": "parent-category-code",
         "parentCategoryCode": "",
       },
-      Object {
+      {
         "code": "code",
         "parentCategoryCode": "parent-category-code",
       },
-      Object {
+      {
         "code": "code",
         "parentCategoryCode": "parent-category-code",
       },
-      Object {
+      {
         "code": "code",
         "parentCategoryCode": "parent-category-code",
       },
-      Object {
+      {
         "code": "BMI-brand-code",
         "parentCategoryCode": "BMI_Brands",
       },
-      Object {
+      {
         "code": "BMI-brand-code",
         "parentCategoryCode": "parent-category-code",
       },
     ],
     "approvalStatus": "approved",
-    "baseProduct": Object {
+    "baseProduct": {
       "code": "base-code",
       "name": "name",
     },
     "brandCode": "BMI-brand-code",
-    "classifications": Array [
-      Object {
+    "classifications": [
+      {
         "code": "variant-code",
-        "features": Array [
-          Object {
+        "features": [
+          {
             "code": "classification-feature-code",
-            "featureUnit": Object {
+            "featureUnit": {
               "name": "unit-name",
               "symbol": "symbol",
               "unitType": "unit-type",
             },
-            "featureValues": Array [
-              Object {
+            "featureValues": [
+              {
                 "code": "code",
                 "value": "value",
               },
@@ -169,18 +169,18 @@ Array [
         ],
         "name": "name",
       },
-      Object {
+      {
         "code": "scoringWeightAttributes",
-        "features": Array [
-          Object {
+        "features": [
+          {
             "code": "bmiClassificationCatalog/1.0/scoringWeightAttributes.scoringweight",
-            "featureUnit": Object {
+            "featureUnit": {
               "name": "unit-name",
               "symbol": "symbol",
               "unitType": "unit-type",
             },
-            "featureValues": Array [
-              Object {
+            "featureValues": [
+              {
                 "code": "code",
                 "value": "1.0",
               },
@@ -190,33 +190,33 @@ Array [
         ],
         "name": "name",
       },
-      Object {
+      {
         "code": "appearanceAttributes",
-        "features": Array [
-          Object {
+        "features": [
+          {
             "code": "bmiClassificationCatalog/1.0/appearanceAttributes.colourfamily",
-            "featureUnit": Object {
+            "featureUnit": {
               "name": "unit-name",
               "symbol": "symbol",
               "unitType": "unit-type",
             },
-            "featureValues": Array [
-              Object {
+            "featureValues": [
+              {
                 "code": "code",
                 "value": "red",
               },
             ],
             "name": "name",
           },
-          Object {
+          {
             "code": "bmiClassificationCatalog/1.0/appearanceAttributes.texturefamily",
-            "featureUnit": Object {
+            "featureUnit": {
               "name": "unit-name",
               "symbol": "symbol",
               "unitType": "unit-type",
             },
-            "featureValues": Array [
-              Object {
+            "featureValues": [
+              {
                 "code": "code",
                 "value": "glossy",
               },
@@ -226,18 +226,18 @@ Array [
         ],
         "name": "name",
       },
-      Object {
+      {
         "code": "generalInformation",
-        "features": Array [
-          Object {
+        "features": [
+          {
             "code": "bmiClassificationCatalog/1.0/generalInformation.materials",
-            "featureUnit": Object {
+            "featureUnit": {
               "name": "unit-name",
               "symbol": "symbol",
               "unitType": "unit-type",
             },
-            "featureValues": Array [
-              Object {
+            "featureValues": [
+              {
                 "code": "code",
                 "value": "concrete",
               },
@@ -247,63 +247,63 @@ Array [
         ],
         "name": "name",
       },
-      Object {
+      {
         "code": "measurements",
-        "features": Array [
-          Object {
+        "features": [
+          {
             "code": "bmiClassificationCatalog/1.0/measurements.length",
-            "featureUnit": Object {
+            "featureUnit": {
               "name": "millimeter",
               "symbol": "mm",
               "unitType": "space",
             },
-            "featureValues": Array [
-              Object {
+            "featureValues": [
+              {
                 "code": "code",
                 "value": "10",
               },
             ],
             "name": "name",
           },
-          Object {
+          {
             "code": "bmiClassificationCatalog/1.0/measurements.width",
-            "featureUnit": Object {
+            "featureUnit": {
               "name": "millimeter",
               "symbol": "mm",
               "unitType": "space",
             },
-            "featureValues": Array [
-              Object {
+            "featureValues": [
+              {
                 "code": "code",
                 "value": "20",
               },
             ],
             "name": "name",
           },
-          Object {
+          {
             "code": "bmiClassificationCatalog/1.0/measurements.height",
-            "featureUnit": Object {
+            "featureUnit": {
               "name": "millimeter",
               "symbol": "mm",
               "unitType": "space",
             },
-            "featureValues": Array [
-              Object {
+            "featureValues": [
+              {
                 "code": "code",
                 "value": "30",
               },
             ],
             "name": "name",
           },
-          Object {
+          {
             "code": "bmiClassificationCatalog/1.0/measurements.thickness",
-            "featureUnit": Object {
+            "featureUnit": {
               "name": "millimeter",
               "symbol": "mm",
               "unitType": "space",
             },
-            "featureValues": Array [
-              Object {
+            "featureValues": [
+              {
                 "code": "code",
                 "value": "40",
               },
@@ -317,8 +317,8 @@ Array [
     "code": "variant-code",
     "description": "<p>Some description</p>",
     "externalProductCode": "external-product-code",
-    "images": Array [
-      Object {
+    "images": [
+      {
         "allowedToDownload": true,
         "assetType": "MASTER_IMAGE",
         "containerId": "container-id",
@@ -329,7 +329,7 @@ Array [
         "realFileName": "real-file-name.jpeg",
         "url": "http://localhost:8000",
       },
-      Object {
+      {
         "allowedToDownload": true,
         "assetType": "MASTER_IMAGE",
         "containerId": "container-id",
@@ -347,7 +347,7 @@ Array [
     "measurementValue": "",
     "name": "name",
     "path": "/p/name-glossy-concrete-3464354221",
-    "productBenefits": Array [
+    "productBenefits": [
       "product-benefits",
     ],
     "productReferences": undefined,
@@ -362,95 +362,95 @@ Array [
 ]
 `;
 
-exports[`transformProduct original transform tests should handle appearanceAttributes classifications with no features 1`] = `
-Array [
-  Object {
-    "BMI_BRANDS": Array [
-      Object {
+exports[`transformProduct original transform tests approval status scenarios should handle appearanceAttributes classifications with no features 1`] = `
+[
+  {
+    "BMI_BRANDS": [
+      {
         "code": "BMI-brand-code",
         "name": "name",
       },
     ],
-    "CATEGORY": Array [
-      Object {
+    "CATEGORY": [
+      {
         "code": "parent-category-code",
         "name": "name",
       },
-      Object {
+      {
         "code": "code",
         "name": "name",
       },
-      Object {
+      {
         "code": "BMI-brand-code",
         "name": "name",
       },
     ],
-    "PARENT-CATEGORY-CODE": Array [
-      Object {
+    "PARENT-CATEGORY-CODE": [
+      {
         "code": "code",
         "name": "name",
       },
-      Object {
+      {
         "code": "code",
         "name": "name",
       },
-      Object {
-        "code": "code",
-        "name": "name",
-      },
-    ],
-    "PRODUCTFAMILY": Array [
-      Object {
+      {
         "code": "code",
         "name": "name",
       },
     ],
-    "PRODUCTLINE": Array [
-      Object {
+    "PRODUCTFAMILY": [
+      {
         "code": "code",
         "name": "name",
       },
     ],
-    "allCategories": Array [
-      Object {
+    "PRODUCTLINE": [
+      {
+        "code": "code",
+        "name": "name",
+      },
+    ],
+    "allCategories": [
+      {
         "code": "parent-category-code",
         "parentCategoryCode": "",
       },
-      Object {
+      {
         "code": "code",
         "parentCategoryCode": "parent-category-code",
       },
-      Object {
+      {
         "code": "code",
         "parentCategoryCode": "parent-category-code",
       },
-      Object {
+      {
         "code": "code",
         "parentCategoryCode": "parent-category-code",
       },
-      Object {
+      {
         "code": "BMI-brand-code",
         "parentCategoryCode": "BMI_Brands",
       },
     ],
     "approvalStatus": "approved",
-    "baseProduct": Object {
+    "baseProduct": {
       "code": "base-code",
       "name": "name",
     },
     "brandCode": undefined,
-    "classifications": Array [
-      Object {
+    "classifications": [
+      {
         "code": "appearanceAttributes",
-        "features": Array [],
+        "features": [],
         "name": "name",
       },
     ],
     "code": "variant-code",
     "description": "<p>Some description</p>",
     "externalProductCode": "external-product-code",
-    "images": Array [
-      Object {
+    "images": [
+      {
         "allowedToDownload": true,
         "assetType": "MASTER_IMAGE",
         "containerId": "container-id",
@@ -461,7 +461,7 @@ Array [
         "realFileName": "real-file-name.jpeg",
         "url": "http://localhost:8000",
       },
-      Object {
+      {
         "allowedToDownload": true,
         "assetType": "MASTER_IMAGE",
         "containerId": "container-id",
@@ -479,7 +479,7 @@ Array [
     "measurementValue": "",
     "name": "name",
     "path": "/p/name-3464354221",
-    "productBenefits": Array [
+    "productBenefits": [
       "product-benefits",
     ],
     "productReferences": undefined,
@@ -494,95 +494,95 @@ Array [
 ]
 `;
 
-exports[`transformProduct original transform tests should handle generalInformation classifications with no features 1`] = `
-Array [
-  Object {
-    "BMI_BRANDS": Array [
-      Object {
+exports[`transformProduct original transform tests approval status scenarios should handle generalInformation classifications with no features 1`] = `
+[
+  {
+    "BMI_BRANDS": [
+      {
         "code": "BMI-brand-code",
         "name": "name",
       },
     ],
-    "CATEGORY": Array [
-      Object {
+    "CATEGORY": [
+      {
         "code": "parent-category-code",
         "name": "name",
       },
-      Object {
+      {
         "code": "code",
         "name": "name",
       },
-      Object {
+      {
         "code": "BMI-brand-code",
         "name": "name",
       },
     ],
-    "PARENT-CATEGORY-CODE": Array [
-      Object {
+    "PARENT-CATEGORY-CODE": [
+      {
         "code": "code",
         "name": "name",
       },
-      Object {
+      {
         "code": "code",
         "name": "name",
       },
-      Object {
-        "code": "code",
-        "name": "name",
-      },
-    ],
-    "PRODUCTFAMILY": Array [
-      Object {
+      {
         "code": "code",
         "name": "name",
       },
     ],
-    "PRODUCTLINE": Array [
-      Object {
+    "PRODUCTFAMILY": [
+      {
         "code": "code",
         "name": "name",
       },
     ],
-    "allCategories": Array [
-      Object {
+    "PRODUCTLINE": [
+      {
+        "code": "code",
+        "name": "name",
+      },
+    ],
+    "allCategories": [
+      {
         "code": "parent-category-code",
         "parentCategoryCode": "",
       },
-      Object {
+      {
         "code": "code",
         "parentCategoryCode": "parent-category-code",
       },
-      Object {
+      {
         "code": "code",
         "parentCategoryCode": "parent-category-code",
       },
-      Object {
+      {
         "code": "code",
         "parentCategoryCode": "parent-category-code",
       },
-      Object {
+      {
         "code": "BMI-brand-code",
         "parentCategoryCode": "BMI_Brands",
       },
     ],
     "approvalStatus": "approved",
-    "baseProduct": Object {
+    "baseProduct": {
       "code": "base-code",
       "name": "name",
     },
     "brandCode": undefined,
-    "classifications": Array [
-      Object {
+    "classifications": [
+      {
         "code": "generalInformation",
-        "features": Array [],
+        "features": [],
         "name": "name",
       },
     ],
     "code": "variant-code",
     "description": "<p>Some description</p>",
     "externalProductCode": "external-product-code",
-    "images": Array [
-      Object {
+    "images": [
+      {
         "allowedToDownload": true,
         "assetType": "MASTER_IMAGE",
         "containerId": "container-id",
@@ -593,7 +593,7 @@ Array [
         "realFileName": "real-file-name.jpeg",
         "url": "http://localhost:8000",
       },
-      Object {
+      {
         "allowedToDownload": true,
         "assetType": "MASTER_IMAGE",
         "containerId": "container-id",
@@ -611,7 +611,7 @@ Array [
     "measurementValue": "",
     "name": "name",
     "path": "/p/name-3464354221",
-    "productBenefits": Array [
+    "productBenefits": [
       "product-benefits",
     ],
     "productReferences": undefined,
@@ -626,85 +626,85 @@ Array [
 ]
 `;
 
-exports[`transformProduct original transform tests should handle no categories 1`] = `
-Array [
-  Object {
-    "APPEARANCEATTRIBUTES$COLOURFAMILY": Array [
-      Object {
+exports[`transformProduct original transform tests approval status scenarios should handle no categories 1`] = `
+[
+  {
+    "APPEARANCEATTRIBUTES$COLOURFAMILY": [
+      {
         "code": "codesymbol",
         "name": "red symbol",
       },
     ],
-    "APPEARANCEATTRIBUTES$TEXTUREFAMILY": Array [
-      Object {
+    "APPEARANCEATTRIBUTES$TEXTUREFAMILY": [
+      {
         "code": "codesymbol",
         "name": "glossy symbol",
       },
     ],
-    "CLASSIFICATION-FEATURE-CODE": Array [
-      Object {
+    "CLASSIFICATION-FEATURE-CODE": [
+      {
         "code": "codesymbol",
         "name": "value symbol",
       },
     ],
-    "GENERALINFORMATION$MATERIALS": Array [
-      Object {
+    "GENERALINFORMATION$MATERIALS": [
+      {
         "code": "codesymbol",
         "name": "concrete symbol",
       },
     ],
-    "MEASUREMENTS$HEIGHT": Array [
-      Object {
+    "MEASUREMENTS$HEIGHT": [
+      {
         "code": "codemm",
         "name": "30 mm",
       },
     ],
-    "MEASUREMENTS$LENGTH": Array [
-      Object {
+    "MEASUREMENTS$LENGTH": [
+      {
         "code": "codemm",
         "name": "10 mm",
         "value": "10",
       },
     ],
-    "MEASUREMENTS$THICKNESS": Array [
-      Object {
+    "MEASUREMENTS$THICKNESS": [
+      {
         "code": "codemm",
         "name": "40 mm",
       },
     ],
-    "MEASUREMENTS$WIDTH": Array [
-      Object {
+    "MEASUREMENTS$WIDTH": [
+      {
         "code": "codemm",
         "name": "20 mm",
         "value": "20",
       },
     ],
-    "SCORINGWEIGHTATTRIBUTES$SCORINGWEIGHT": Array [
-      Object {
+    "SCORINGWEIGHTATTRIBUTES$SCORINGWEIGHT": [
+      {
         "code": "codesymbol",
         "name": "1.0 symbol",
       },
     ],
-    "allCategories": Array [],
+    "allCategories": [],
     "approvalStatus": "approved",
-    "baseProduct": Object {
+    "baseProduct": {
       "code": "base-code",
       "name": "name",
     },
     "brandCode": undefined,
-    "classifications": Array [
-      Object {
+    "classifications": [
+      {
         "code": "variant-code",
-        "features": Array [
-          Object {
+        "features": [
+          {
             "code": "classification-feature-code",
-            "featureUnit": Object {
+            "featureUnit": {
               "name": "unit-name",
               "symbol": "symbol",
               "unitType": "unit-type",
             },
-            "featureValues": Array [
-              Object {
+            "featureValues": [
+              {
                 "code": "code",
                 "value": "value",
               },
@@ -714,18 +714,18 @@ Array [
         ],
         "name": "name",
       },
-      Object {
+      {
         "code": "scoringWeightAttributes",
-        "features": Array [
-          Object {
+        "features": [
+          {
             "code": "bmiClassificationCatalog/1.0/scoringWeightAttributes.scoringweight",
-            "featureUnit": Object {
+            "featureUnit": {
               "name": "unit-name",
               "symbol": "symbol",
               "unitType": "unit-type",
             },
-            "featureValues": Array [
-              Object {
+            "featureValues": [
+              {
                 "code": "code",
                 "value": "1.0",
               },
@@ -735,33 +735,33 @@ Array [
         ],
         "name": "name",
       },
-      Object {
+      {
         "code": "appearanceAttributes",
-        "features": Array [
-          Object {
+        "features": [
+          {
             "code": "bmiClassificationCatalog/1.0/appearanceAttributes.colourfamily",
-            "featureUnit": Object {
+            "featureUnit": {
               "name": "unit-name",
               "symbol": "symbol",
               "unitType": "unit-type",
             },
-            "featureValues": Array [
-              Object {
+            "featureValues": [
+              {
                 "code": "code",
                 "value": "red",
               },
             ],
             "name": "name",
           },
-          Object {
+          {
             "code": "bmiClassificationCatalog/1.0/appearanceAttributes.texturefamily",
-            "featureUnit": Object {
+            "featureUnit": {
               "name": "unit-name",
               "symbol": "symbol",
               "unitType": "unit-type",
             },
-            "featureValues": Array [
-              Object {
+            "featureValues": [
+              {
                 "code": "code",
                 "value": "glossy",
               },
@@ -771,18 +771,18 @@ Array [
         ],
         "name": "name",
       },
-      Object {
+      {
         "code": "generalInformation",
-        "features": Array [
-          Object {
+        "features": [
+          {
             "code": "bmiClassificationCatalog/1.0/generalInformation.materials",
-            "featureUnit": Object {
+            "featureUnit": {
               "name": "unit-name",
               "symbol": "symbol",
               "unitType": "unit-type",
             },
-            "featureValues": Array [
-              Object {
+            "featureValues": [
+              {
                 "code": "code",
                 "value": "concrete",
               },
@@ -792,63 +792,63 @@ Array [
         ],
         "name": "name",
       },
-      Object {
+      {
         "code": "measurements",
-        "features": Array [
-          Object {
+        "features": [
+          {
             "code": "bmiClassificationCatalog/1.0/measurements.length",
-            "featureUnit": Object {
+            "featureUnit": {
               "name": "millimeter",
               "symbol": "mm",
               "unitType": "space",
             },
-            "featureValues": Array [
-              Object {
+            "featureValues": [
+              {
                 "code": "code",
                 "value": "10",
               },
             ],
             "name": "name",
           },
-          Object {
+          {
             "code": "bmiClassificationCatalog/1.0/measurements.width",
-            "featureUnit": Object {
+            "featureUnit": {
               "name": "millimeter",
               "symbol": "mm",
               "unitType": "space",
             },
-            "featureValues": Array [
-              Object {
+            "featureValues": [
+              {
                 "code": "code",
                 "value": "20",
               },
             ],
             "name": "name",
           },
-          Object {
+          {
             "code": "bmiClassificationCatalog/1.0/measurements.height",
-            "featureUnit": Object {
+            "featureUnit": {
               "name": "millimeter",
               "symbol": "mm",
               "unitType": "space",
             },
-            "featureValues": Array [
-              Object {
+            "featureValues": [
+              {
                 "code": "code",
                 "value": "30",
               },
             ],
             "name": "name",
           },
-          Object {
+          {
             "code": "bmiClassificationCatalog/1.0/measurements.thickness",
-            "featureUnit": Object {
+            "featureUnit": {
               "name": "millimeter",
               "symbol": "mm",
               "unitType": "space",
             },
-            "featureValues": Array [
-              Object {
+            "featureValues": [
+              {
                 "code": "code",
                 "value": "40",
               },
@@ -862,8 +862,8 @@ Array [
     "code": "variant-code",
     "description": "<p>Some description</p>",
     "externalProductCode": "external-product-code",
-    "images": Array [
-      Object {
+    "images": [
+      {
         "allowedToDownload": true,
         "assetType": "MASTER_IMAGE",
         "containerId": "container-id",
@@ -874,7 +874,7 @@ Array [
         "realFileName": "real-file-name.jpeg",
         "url": "http://localhost:8000",
       },
-      Object {
+      {
         "allowedToDownload": true,
         "assetType": "MASTER_IMAGE",
         "containerId": "container-id",
@@ -892,7 +892,7 @@ Array [
     "measurementValue": "",
     "name": "name",
     "path": "/p/name-glossy-concrete-3464354221",
-    "productBenefits": Array [
+    "productBenefits": [
       "product-benefits",
     ],
     "productReferences": undefined,
@@ -907,89 +907,89 @@ Array [
 ]
 `;
 
-exports[`transformProduct original transform tests should handle no classifications 1`] = `
-Array [
-  Object {
-    "BMI_BRANDS": Array [
-      Object {
+exports[`transformProduct original transform tests approval status scenarios should handle no classifications 1`] = `
+[
+  {
+    "BMI_BRANDS": [
+      {
         "code": "BMI-brand-code",
         "name": "name",
       },
     ],
-    "CATEGORY": Array [
-      Object {
+    "CATEGORY": [
+      {
         "code": "parent-category-code",
         "name": "name",
       },
-      Object {
+      {
         "code": "code",
         "name": "name",
       },
-      Object {
+      {
         "code": "BMI-brand-code",
         "name": "name",
       },
     ],
-    "PARENT-CATEGORY-CODE": Array [
-      Object {
+    "PARENT-CATEGORY-CODE": [
+      {
         "code": "code",
         "name": "name",
       },
-      Object {
+      {
         "code": "code",
         "name": "name",
       },
-      Object {
-        "code": "code",
-        "name": "name",
-      },
-    ],
-    "PRODUCTFAMILY": Array [
-      Object {
+      {
         "code": "code",
         "name": "name",
       },
     ],
-    "PRODUCTLINE": Array [
-      Object {
+    "PRODUCTFAMILY": [
+      {
         "code": "code",
         "name": "name",
       },
     ],
-    "allCategories": Array [
-      Object {
+    "PRODUCTLINE": [
+      {
+        "code": "code",
+        "name": "name",
+      },
+    ],
+    "allCategories": [
+      {
         "code": "parent-category-code",
         "parentCategoryCode": "",
       },
-      Object {
+      {
         "code": "code",
         "parentCategoryCode": "parent-category-code",
       },
-      Object {
+      {
         "code": "code",
         "parentCategoryCode": "parent-category-code",
       },
-      Object {
+      {
         "code": "code",
         "parentCategoryCode": "parent-category-code",
       },
-      Object {
+      {
         "code": "BMI-brand-code",
         "parentCategoryCode": "BMI_Brands",
       },
     ],
     "approvalStatus": "approved",
-    "baseProduct": Object {
+    "baseProduct": {
       "code": "base-code",
       "name": "name",
     },
     "brandCode": undefined,
-    "classifications": Array [],
+    "classifications": [],
     "code": "variant-code",
     "description": "<p>Some description</p>",
     "externalProductCode": "external-product-code",
-    "images": Array [
-      Object {
+    "images": [
+      {
         "allowedToDownload": true,
         "assetType": "MASTER_IMAGE",
         "containerId": "container-id",
@@ -1000,7 +1000,7 @@ Array [
         "realFileName": "real-file-name.jpeg",
         "url": "http://localhost:8000",
       },
-      Object {
+      {
         "allowedToDownload": true,
         "assetType": "MASTER_IMAGE",
         "containerId": "container-id",
@@ -1018,7 +1018,7 @@ Array [
     "measurementValue": "",
     "name": "name",
     "path": "/p/name-3464354221",
-    "productBenefits": Array [
+    "productBenefits": [
       "product-benefits",
     ],
     "productReferences": undefined,
@@ -1033,152 +1033,152 @@ Array [
 ]
 `;
 
-exports[`transformProduct original transform tests should handle no images 1`] = `
-Array [
-  Object {
-    "APPEARANCEATTRIBUTES$COLOURFAMILY": Array [
-      Object {
+exports[`transformProduct original transform tests approval status scenarios should handle no images 1`] = `
+[
+  {
+    "APPEARANCEATTRIBUTES$COLOURFAMILY": [
+      {
         "code": "codesymbol",
         "name": "red symbol",
       },
     ],
-    "APPEARANCEATTRIBUTES$TEXTUREFAMILY": Array [
-      Object {
+    "APPEARANCEATTRIBUTES$TEXTUREFAMILY": [
+      {
         "code": "codesymbol",
         "name": "glossy symbol",
       },
     ],
-    "BMI_BRANDS": Array [
-      Object {
+    "BMI_BRANDS": [
+      {
         "code": "BMI-brand-code",
         "name": "name",
       },
     ],
-    "CATEGORY": Array [
-      Object {
+    "CATEGORY": [
+      {
         "code": "parent-category-code",
         "name": "name",
       },
-      Object {
+      {
         "code": "code",
         "name": "name",
       },
-      Object {
+      {
         "code": "BMI-brand-code",
         "name": "name",
       },
     ],
-    "CLASSIFICATION-FEATURE-CODE": Array [
-      Object {
+    "CLASSIFICATION-FEATURE-CODE": [
+      {
         "code": "codesymbol",
         "name": "value symbol",
       },
     ],
-    "GENERALINFORMATION$MATERIALS": Array [
-      Object {
+    "GENERALINFORMATION$MATERIALS": [
+      {
         "code": "codesymbol",
         "name": "concrete symbol",
       },
     ],
-    "MEASUREMENTS$HEIGHT": Array [
-      Object {
+    "MEASUREMENTS$HEIGHT": [
+      {
         "code": "codemm",
         "name": "30 mm",
       },
     ],
-    "MEASUREMENTS$LENGTH": Array [
-      Object {
+    "MEASUREMENTS$LENGTH": [
+      {
         "code": "codemm",
         "name": "10 mm",
         "value": "10",
       },
     ],
-    "MEASUREMENTS$THICKNESS": Array [
-      Object {
+    "MEASUREMENTS$THICKNESS": [
+      {
         "code": "codemm",
         "name": "40 mm",
       },
     ],
-    "MEASUREMENTS$WIDTH": Array [
-      Object {
+    "MEASUREMENTS$WIDTH": [
+      {
         "code": "codemm",
         "name": "20 mm",
         "value": "20",
       },
     ],
-    "PARENT-CATEGORY-CODE": Array [
-      Object {
+    "PARENT-CATEGORY-CODE": [
+      {
         "code": "code",
         "name": "name",
       },
-      Object {
+      {
         "code": "code",
         "name": "name",
       },
-      Object {
-        "code": "code",
-        "name": "name",
-      },
-    ],
-    "PRODUCTFAMILY": Array [
-      Object {
+      {
         "code": "code",
         "name": "name",
       },
     ],
-    "PRODUCTLINE": Array [
-      Object {
+    "PRODUCTFAMILY": [
+      {
         "code": "code",
         "name": "name",
       },
     ],
-    "SCORINGWEIGHTATTRIBUTES$SCORINGWEIGHT": Array [
-      Object {
+    "PRODUCTLINE": [
+      {
+        "code": "code",
+        "name": "name",
+      },
+    ],
+    "SCORINGWEIGHTATTRIBUTES$SCORINGWEIGHT": [
+      {
         "code": "codesymbol",
         "name": "1.0 symbol",
       },
     ],
-    "allCategories": Array [
-      Object {
+    "allCategories": [
+      {
         "code": "parent-category-code",
         "parentCategoryCode": "",
       },
-      Object {
+      {
         "code": "code",
         "parentCategoryCode": "parent-category-code",
       },
-      Object {
+      {
         "code": "code",
         "parentCategoryCode": "parent-category-code",
       },
-      Object {
+      {
         "code": "code",
         "parentCategoryCode": "parent-category-code",
       },
-      Object {
+      {
         "code": "BMI-brand-code",
         "parentCategoryCode": "BMI_Brands",
       },
     ],
     "approvalStatus": "approved",
-    "baseProduct": Object {
+    "baseProduct": {
       "code": "base-code",
       "name": "name",
     },
     "brandCode": undefined,
-    "classifications": Array [
-      Object {
+    "classifications": [
+      {
         "code": "variant-code",
-        "features": Array [
-          Object {
+        "features": [
+          {
             "code": "classification-feature-code",
-            "featureUnit": Object {
+            "featureUnit": {
               "name": "unit-name",
               "symbol": "symbol",
               "unitType": "unit-type",
             },
-            "featureValues": Array [
-              Object {
+            "featureValues": [
+              {
                 "code": "code",
                 "value": "value",
               },
@@ -1188,18 +1188,18 @@ Array [
         ],
         "name": "name",
       },
-      Object {
+      {
         "code": "scoringWeightAttributes",
-        "features": Array [
-          Object {
+        "features": [
+          {
             "code": "bmiClassificationCatalog/1.0/scoringWeightAttributes.scoringweight",
-            "featureUnit": Object {
+            "featureUnit": {
               "name": "unit-name",
               "symbol": "symbol",
               "unitType": "unit-type",
             },
-            "featureValues": Array [
-              Object {
+            "featureValues": [
+              {
                 "code": "code",
                 "value": "1.0",
               },
@@ -1209,33 +1209,33 @@ Array [
         ],
         "name": "name",
       },
-      Object {
+      {
         "code": "appearanceAttributes",
-        "features": Array [
-          Object {
+        "features": [
+          {
             "code": "bmiClassificationCatalog/1.0/appearanceAttributes.colourfamily",
-            "featureUnit": Object {
+            "featureUnit": {
               "name": "unit-name",
               "symbol": "symbol",
               "unitType": "unit-type",
             },
-            "featureValues": Array [
-              Object {
+            "featureValues": [
+              {
                 "code": "code",
                 "value": "red",
               },
             ],
             "name": "name",
           },
-          Object {
+          {
             "code": "bmiClassificationCatalog/1.0/appearanceAttributes.texturefamily",
-            "featureUnit": Object {
+            "featureUnit": {
               "name": "unit-name",
               "symbol": "symbol",
               "unitType": "unit-type",
             },
-            "featureValues": Array [
-              Object {
+            "featureValues": [
+              {
                 "code": "code",
                 "value": "glossy",
               },
@@ -1245,18 +1245,18 @@ Array [
         ],
         "name": "name",
       },
-      Object {
+      {
         "code": "generalInformation",
-        "features": Array [
-          Object {
+        "features": [
+          {
             "code": "bmiClassificationCatalog/1.0/generalInformation.materials",
-            "featureUnit": Object {
+            "featureUnit": {
               "name": "unit-name",
               "symbol": "symbol",
               "unitType": "unit-type",
             },
-            "featureValues": Array [
-              Object {
+            "featureValues": [
+              {
                 "code": "code",
                 "value": "concrete",
               },
@@ -1266,63 +1266,63 @@ Array [
         ],
         "name": "name",
       },
-      Object {
+      {
         "code": "measurements",
-        "features": Array [
-          Object {
+        "features": [
+          {
             "code": "bmiClassificationCatalog/1.0/measurements.length",
-            "featureUnit": Object {
+            "featureUnit": {
               "name": "millimeter",
               "symbol": "mm",
               "unitType": "space",
             },
-            "featureValues": Array [
-              Object {
+            "featureValues": [
+              {
                 "code": "code",
                 "value": "10",
               },
             ],
             "name": "name",
           },
-          Object {
+          {
             "code": "bmiClassificationCatalog/1.0/measurements.width",
-            "featureUnit": Object {
+            "featureUnit": {
               "name": "millimeter",
               "symbol": "mm",
               "unitType": "space",
             },
-            "featureValues": Array [
-              Object {
+            "featureValues": [
+              {
                 "code": "code",
                 "value": "20",
               },
             ],
             "name": "name",
           },
-          Object {
+          {
             "code": "bmiClassificationCatalog/1.0/measurements.height",
-            "featureUnit": Object {
+            "featureUnit": {
               "name": "millimeter",
               "symbol": "mm",
               "unitType": "space",
             },
-            "featureValues": Array [
-              Object {
+            "featureValues": [
+              {
                 "code": "code",
                 "value": "30",
               },
             ],
             "name": "name",
           },
-          Object {
+          {
             "code": "bmiClassificationCatalog/1.0/measurements.thickness",
-            "featureUnit": Object {
+            "featureUnit": {
               "name": "millimeter",
               "symbol": "mm",
               "unitType": "space",
             },
-            "featureValues": Array [
-              Object {
+            "featureValues": [
+              {
                 "code": "code",
                 "value": "40",
               },
@@ -1336,14 +1336,14 @@ Array [
     "code": "variant-code",
     "description": "<p>Some description</p>",
     "externalProductCode": "external-product-code",
-    "images": Array [],
+    "images": [],
     "isSampleOrderAllowed": true,
     "longDescription": "<p>Long description</p>",
     "mainImage": "",
     "measurementValue": "",
     "name": "name",
     "path": "/p/name-glossy-concrete-3464354221",
-    "productBenefits": Array [
+    "productBenefits": [
       "product-benefits",
     ],
     "productReferences": undefined,
@@ -1358,154 +1358,154 @@ Array [
 ]
 `;
 
-exports[`transformProduct original transform tests should not transform full product without Variant products 1`] = `Array []`;
+exports[`transformProduct original transform tests approval status scenarios should not transform full product without Variant products 1`] = `[]`;
 
-exports[`transformProduct original transform tests should transform full product with single variant to a single ES product 1`] = `
-Array [
-  Object {
-    "APPEARANCEATTRIBUTES$COLOURFAMILY": Array [
-      Object {
+exports[`transformProduct original transform tests approval status scenarios should transform full product with single variant to a single ES product 1`] = `
+[
+  {
+    "APPEARANCEATTRIBUTES$COLOURFAMILY": [
+      {
         "code": "codesymbol",
         "name": "red symbol",
       },
     ],
-    "APPEARANCEATTRIBUTES$TEXTUREFAMILY": Array [
-      Object {
+    "APPEARANCEATTRIBUTES$TEXTUREFAMILY": [
+      {
         "code": "codesymbol",
         "name": "glossy symbol",
       },
     ],
-    "BMI_BRANDS": Array [
-      Object {
+    "BMI_BRANDS": [
+      {
         "code": "BMI-brand-code",
         "name": "name",
       },
     ],
-    "CATEGORY": Array [
-      Object {
+    "CATEGORY": [
+      {
         "code": "parent-category-code",
         "name": "name",
       },
-      Object {
+      {
         "code": "code",
         "name": "name",
       },
-      Object {
+      {
         "code": "BMI-brand-code",
         "name": "name",
       },
     ],
-    "CLASSIFICATION-FEATURE-CODE": Array [
-      Object {
+    "CLASSIFICATION-FEATURE-CODE": [
+      {
         "code": "codesymbol",
         "name": "value symbol",
       },
     ],
-    "GENERALINFORMATION$MATERIALS": Array [
-      Object {
+    "GENERALINFORMATION$MATERIALS": [
+      {
         "code": "codesymbol",
         "name": "concrete symbol",
       },
     ],
-    "MEASUREMENTS$HEIGHT": Array [
-      Object {
+    "MEASUREMENTS$HEIGHT": [
+      {
         "code": "codemm",
         "name": "30 mm",
       },
     ],
-    "MEASUREMENTS$LENGTH": Array [
-      Object {
+    "MEASUREMENTS$LENGTH": [
+      {
         "code": "codemm",
         "name": "10 mm",
         "value": "10",
       },
     ],
-    "MEASUREMENTS$THICKNESS": Array [
-      Object {
+    "MEASUREMENTS$THICKNESS": [
+      {
         "code": "codemm",
         "name": "40 mm",
       },
     ],
-    "MEASUREMENTS$WIDTH": Array [
-      Object {
+    "MEASUREMENTS$WIDTH": [
+      {
         "code": "codemm",
         "name": "20 mm",
         "value": "20",
       },
     ],
-    "PARENT-CATEGORY-CODE": Array [
-      Object {
+    "PARENT-CATEGORY-CODE": [
+      {
         "code": "code",
         "name": "name",
       },
-      Object {
+      {
         "code": "code",
         "name": "name",
       },
-      Object {
-        "code": "code",
-        "name": "name",
-      },
-    ],
-    "PRODUCTFAMILY": Array [
-      Object {
+      {
         "code": "code",
         "name": "name",
       },
     ],
-    "PRODUCTLINE": Array [
-      Object {
+    "PRODUCTFAMILY": [
+      {
         "code": "code",
         "name": "name",
       },
     ],
-    "SCORINGWEIGHTATTRIBUTES$SCORINGWEIGHT": Array [
-      Object {
+    "PRODUCTLINE": [
+      {
+        "code": "code",
+        "name": "name",
+      },
+    ],
+    "SCORINGWEIGHTATTRIBUTES$SCORINGWEIGHT": [
+      {
         "code": "codesymbol",
         "name": "1.0 symbol",
       },
     ],
-    "allCategories": Array [
-      Object {
+    "allCategories": [
+      {
         "code": "parent-category-code",
         "parentCategoryCode": "",
       },
-      Object {
+      {
         "code": "code",
         "parentCategoryCode": "parent-category-code",
       },
-      Object {
+      {
         "code": "code",
         "parentCategoryCode": "parent-category-code",
       },
-      Object {
+      {
         "code": "code",
         "parentCategoryCode": "parent-category-code",
       },
-      Object {
+      {
         "code": "BMI-brand-code",
         "parentCategoryCode": "BMI_Brands",
       },
     ],
     "approvalStatus": "approved",
-    "baseProduct": Object {
+    "baseProduct": {
       "code": "base-code",
       "name": "name",
     },
     "brandCode": undefined,
-    "classifications": Array [
-      Object {
+    "classifications": [
+      {
         "code": "variant-code",
-        "features": Array [
-          Object {
+        "features": [
+          {
             "code": "classification-feature-code",
-            "featureUnit": Object {
+            "featureUnit": {
               "name": "unit-name",
               "symbol": "symbol",
               "unitType": "unit-type",
             },
-            "featureValues": Array [
-              Object {
+            "featureValues": [
+              {
                 "code": "code",
                 "value": "value",
               },
@@ -1515,18 +1515,18 @@ Array [
         ],
         "name": "name",
       },
-      Object {
+      {
         "code": "scoringWeightAttributes",
-        "features": Array [
-          Object {
+        "features": [
+          {
             "code": "bmiClassificationCatalog/1.0/scoringWeightAttributes.scoringweight",
-            "featureUnit": Object {
+            "featureUnit": {
               "name": "unit-name",
               "symbol": "symbol",
               "unitType": "unit-type",
             },
-            "featureValues": Array [
-              Object {
+            "featureValues": [
+              {
                 "code": "code",
                 "value": "1.0",
               },
@@ -1536,33 +1536,33 @@ Array [
         ],
         "name": "name",
       },
-      Object {
+      {
         "code": "appearanceAttributes",
-        "features": Array [
-          Object {
+        "features": [
+          {
             "code": "bmiClassificationCatalog/1.0/appearanceAttributes.colourfamily",
-            "featureUnit": Object {
+            "featureUnit": {
               "name": "unit-name",
               "symbol": "symbol",
               "unitType": "unit-type",
             },
-            "featureValues": Array [
-              Object {
+            "featureValues": [
+              {
                 "code": "code",
                 "value": "red",
               },
             ],
             "name": "name",
           },
-          Object {
+          {
             "code": "bmiClassificationCatalog/1.0/appearanceAttributes.texturefamily",
-            "featureUnit": Object {
+            "featureUnit": {
               "name": "unit-name",
               "symbol": "symbol",
               "unitType": "unit-type",
             },
-            "featureValues": Array [
-              Object {
+            "featureValues": [
+              {
                 "code": "code",
                 "value": "glossy",
               },
@@ -1572,18 +1572,18 @@ Array [
         ],
         "name": "name",
       },
-      Object {
+      {
         "code": "generalInformation",
-        "features": Array [
-          Object {
+        "features": [
+          {
             "code": "bmiClassificationCatalog/1.0/generalInformation.materials",
-            "featureUnit": Object {
+            "featureUnit": {
               "name": "unit-name",
               "symbol": "symbol",
               "unitType": "unit-type",
             },
-            "featureValues": Array [
-              Object {
+            "featureValues": [
+              {
                 "code": "code",
                 "value": "concrete",
               },
@@ -1593,63 +1593,63 @@ Array [
         ],
         "name": "name",
       },
-      Object {
+      {
         "code": "measurements",
-        "features": Array [
-          Object {
+        "features": [
+          {
             "code": "bmiClassificationCatalog/1.0/measurements.length",
-            "featureUnit": Object {
+            "featureUnit": {
               "name": "millimeter",
               "symbol": "mm",
               "unitType": "space",
             },
-            "featureValues": Array [
-              Object {
+            "featureValues": [
+              {
                 "code": "code",
                 "value": "10",
               },
             ],
             "name": "name",
           },
-          Object {
+          {
             "code": "bmiClassificationCatalog/1.0/measurements.width",
-            "featureUnit": Object {
+            "featureUnit": {
               "name": "millimeter",
               "symbol": "mm",
               "unitType": "space",
             },
-            "featureValues": Array [
-              Object {
+            "featureValues": [
+              {
                 "code": "code",
                 "value": "20",
               },
             ],
             "name": "name",
           },
-          Object {
+          {
             "code": "bmiClassificationCatalog/1.0/measurements.height",
-            "featureUnit": Object {
+            "featureUnit": {
               "name": "millimeter",
               "symbol": "mm",
               "unitType": "space",
             },
-            "featureValues": Array [
-              Object {
+            "featureValues": [
+              {
                 "code": "code",
                 "value": "30",
               },
             ],
             "name": "name",
           },
-          Object {
+          {
             "code": "bmiClassificationCatalog/1.0/measurements.thickness",
-            "featureUnit": Object {
+            "featureUnit": {
               "name": "millimeter",
               "symbol": "mm",
               "unitType": "space",
             },
-            "featureValues": Array [
-              Object {
+            "featureValues": [
+              {
                 "code": "code",
                 "value": "40",
               },
@@ -1663,8 +1663,8 @@ Array [
     "code": "variant-code",
     "description": "<p>Some description</p>",
     "externalProductCode": "external-product-code",
-    "images": Array [
-      Object {
+    "images": [
+      {
         "allowedToDownload": true,
         "assetType": "MASTER_IMAGE",
         "containerId": "container-id",
@@ -1675,7 +1675,7 @@ Array [
         "realFileName": "real-file-name.jpeg",
         "url": "http://localhost:8000",
       },
-      Object {
+      {
         "allowedToDownload": true,
         "assetType": "MASTER_IMAGE",
         "containerId": "container-id",
@@ -1693,7 +1693,7 @@ Array [
     "measurementValue": "",
     "name": "name",
     "path": "/p/name-glossy-concrete-3464354221",
-    "productBenefits": Array [
+    "productBenefits": [
       "product-benefits",
     ],
     "productReferences": undefined,

@@ -1,20 +1,20 @@
 import {
-  AnchorLink,
   Filter,
   Grid,
   OverviewCard,
   OverviewCardProps
 } from "@bmi-digital/components";
-import type { Product as EsProduct } from "@bmi/elasticsearch-types";
 import { Link as GatsbyLink } from "gatsby";
 import React from "react";
+import type { Product as EsProduct } from "@bmi/elasticsearch-types";
 import BrandLogo from "../../../components/BrandLogo";
-import type { Context as SiteContext } from "../../../components/Site";
 import DefaultImage from "../../../images/DefaultImage.svg";
 import { getSearchParams } from "../../../utils/filters";
 import { enhanceColourFilterWithSwatches } from "../../../utils/filtersUI";
 import withGTM from "../../../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../../../utils/path";
+import { FooterAnchorLink } from "../styles";
+import type { Context as SiteContext } from "../../../components/Site";
 import type { PageContextType } from "../components/product-lister-page";
 
 //TODO: remove filter.name === "colour" condition when feature flag 'GATSBY_USE_LEGACY_FILTERS' is removed
@@ -85,7 +85,7 @@ export const renderProducts = (
             label: getMicroCopy("plp.product.viewDetails")
           }}
           footer={
-            <AnchorLink
+            <FooterAnchorLink
               action={{
                 model: "routerLink",
                 linkComponent: GatsbyLink,
@@ -94,7 +94,7 @@ export const renderProducts = (
               iconEnd
             >
               {getMicroCopy("plp.product.viewDetails")}
-            </AnchorLink>
+            </FooterAnchorLink>
           }
           moreOptionsAvailable={moreOptionsAvailable}
         >

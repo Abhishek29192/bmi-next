@@ -1,5 +1,5 @@
 import { ThemeProvider } from "@bmi-digital/components";
-import { cleanup, render, screen, waitFor } from "@testing-library/react";
+import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import { BasketContextProvider } from "../../contexts/SampleBasketContext";
 import { Product } from "../../types/pim";
@@ -64,47 +64,25 @@ describe("Functionality of sample basket", () => {
     const addSampleCta = screen.getByRole("button", {
       name: `MC: pdp.overview.addSample`
     });
-    await waitFor(() => {
-      addSampleCta.click();
-    });
-    expect(screen.queryByText(`MC: pdp.overview.removeSample`)).not.toBeNull();
+    fireEvent.click(addSampleCta);
+    expect(screen.getByText(`MC: pdp.overview.removeSample`)).not.toBeNull();
     expect(
-      screen.queryByText("MC: pdp.overview.completeSampleOrder")
+      screen.getByText("MC: pdp.overview.completeSampleOrder")
     ).not.toBeNull();
     const removeSample = screen.getByRole("button", {
       name: `MC: pdp.overview.removeSample`
     });
-    await waitFor(() => {
-      removeSample.click();
-    });
+    fireEvent.click(removeSample);
 
     expect(screen.queryByText(`MC: pdp.overview.removeSample`)).toBeNull();
-    expect(screen.queryByText(`MC: pdp.overview.addSample`)).not.toBeNull();
+    expect(screen.getByText(`MC: pdp.overview.addSample`)).not.toBeNull();
     expect(
       screen.queryByText(`MC: pdp.overview.completeSampleOrder`)
     ).toBeNull();
   });
+
   it("display only complete order if there are some items on basket but sample is not allowed", () => {
-    render(
-      <ThemeProvider>
-        <SiteContextProvider
-          value={{
-            ...getMockSiteContext("no"),
-            reCaptchaKey: "1234",
-            reCaptchaNet: false
-          }}
-        >
-          <SampleOrderSection
-            isSampleOrderAllowed={true}
-            sampleBasketLinkInfo={sampleBasketLinkInfo}
-            product={product}
-          ></SampleOrderSection>
-        </SiteContextProvider>
-      </ThemeProvider>,
-      {
-        wrapper: BasketContextProvider
-      }
-    );
+    localStorage.setItem("-basketItems", JSON.stringify([product2]));
     render(
       <ThemeProvider>
         <SiteContextProvider
@@ -116,7 +94,6 @@ describe("Functionality of sample basket", () => {
         >
           <SampleOrderSection
             isSampleOrderAllowed={false}
-            maximumSamples={3}
             sampleBasketLinkInfo={sampleBasketLinkInfo}
             product={product}
           ></SampleOrderSection>
@@ -126,13 +103,15 @@ describe("Functionality of sample basket", () => {
         wrapper: BasketContextProvider
       }
     );
-    expect(screen.queryAllByText(`MC: pdp.overview.removeSample`).length).toBe(
-      0
-    );
-    expect(screen.queryAllByText(`MC: pdp.overview.addSample`).length).toBe(1);
     expect(
-      screen.queryAllByText(`MC: pdp.overview.completeSampleOrder`)
-    ).not.toBeNull();
+      screen.queryByText(`MC: pdp.overview.removeSample`)
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByText(`MC: pdp.overview.addSample`)
+    ).not.toBeInTheDocument();
+    expect(
+      screen.getByText(`MC: pdp.overview.completeSampleOrder`)
+    ).toBeInTheDocument();
   });
 });
 
@@ -162,7 +141,7 @@ describe("disable 'Add to basket' if basket is full", () => {
     const addSampleCta = screen.getByRole("button", {
       name: `MC: pdp.overview.addSample`
     });
-    addSampleCta.click();
+    fireEvent.click(addSampleCta);
     render(
       <ThemeProvider>
         <SiteContextProvider
@@ -186,9 +165,7 @@ describe("disable 'Add to basket' if basket is full", () => {
       name: `MC: pdp.overview.addSample`
     });
     //maximum sample has reached
-    await waitFor(() => {
-      addSampleCtaAgain.click();
-    });
+    fireEvent.click(addSampleCtaAgain);
     // check maximum sample has reached
     expect(
       JSON.parse(localStorage.getItem("no-basketItems")).length
@@ -229,7 +206,7 @@ describe("disable 'Add to basket' if basket is full", () => {
     const addSampleCta = screen.getByRole("button", {
       name: `MC: pdp.overview.addSample`
     });
-    addSampleCta.click();
+    fireEvent.click(addSampleCta);
     await render(
       <ThemeProvider>
         <SiteContextProvider
@@ -254,18 +231,17 @@ describe("disable 'Add to basket' if basket is full", () => {
       name: `MC: pdp.overview.addSample`
     });
     //maximum sample has reached
-    await waitFor(() => {
-      addSampleCtaAgain.click();
-    });
+    fireEvent.click(addSampleCtaAgain);
     //check maximum sample has reached
     expect(JSON.parse(localStorage.getItem("no-basketItems")).length).toBe(
       maximumSamples
     );
-    const sampleLimitReachedMessage = screen.queryByText(
+    const sampleLimitReachedMessage = screen.getByText(
       "MC: pdp.overview.sampleLimitReachedMessage"
     );
     expect(sampleLimitReachedMessage).not.toBeNull();
   });
+
   it("not ordered max samples & sample unavailable, show MC: canAddOtherMessage", async () => {
     const maximumSamples = 4;
     await render(
@@ -287,10 +263,10 @@ describe("disable 'Add to basket' if basket is full", () => {
         </SiteContextProvider>
       </ThemeProvider>
     );
-    const addSampleCta = await screen.getByRole("button", {
+    const addSampleCta = screen.getByRole("button", {
       name: `MC: pdp.overview.addSample`
     });
-    addSampleCta.click();
+    fireEvent.click(addSampleCta);
     await render(
       <ThemeProvider>
         <SiteContextProvider
@@ -310,13 +286,11 @@ describe("disable 'Add to basket' if basket is full", () => {
         </SiteContextProvider>
       </ThemeProvider>
     );
-    const addSampleCtaAgain = await screen.getByRole("button", {
+    const addSampleCtaAgain = screen.getByRole("button", {
       name: `MC: pdp.overview.addSample`
     });
     //maximum sample has reached
-    await waitFor(() => {
-      addSampleCtaAgain.click();
-    });
+    fireEvent.click(addSampleCtaAgain);
 
     //since sample is not available onlyDisplayCompleteOrder is rendered
     render(
@@ -376,7 +350,7 @@ describe("Test Functionality of redirections by click on 'Complete order' ", () 
     const addSampleCta = screen.getByRole("button", {
       name: `MC: pdp.overview.addSample`
     });
-    addSampleCta.click();
+    fireEvent.click(addSampleCta);
     expect(JSON.parse(localStorage.getItem("basketItems"))).toEqual(product);
   });
   it("add redirect url to 'Complete order' CTA", async () => {
@@ -403,9 +377,7 @@ describe("Test Functionality of redirections by click on 'Complete order' ", () 
     const addSampleCta = screen.getByRole("button", {
       name: `MC: pdp.overview.addSample`
     });
-    await waitFor(() => {
-      addSampleCta.click();
-    });
+    fireEvent.click(addSampleCta);
     const completeOrderCta = screen.getByText(
       "MC: pdp.overview.completeSampleOrder"
     );

@@ -1,6 +1,5 @@
 import { mockRequest, mockResponse } from "@bmi-digital/fetch-mocks";
 import { Request, Response } from "express";
-import mockConsole from "jest-mock-console";
 
 const handleRequest = async (req: Partial<Request>, res: Partial<Response>) =>
   (await import("../index")).buildStatusLogger(req as Request, res as Response);
@@ -24,10 +23,6 @@ jest.useFakeTimers().setSystemTime(new Date("10/10/2022"));
 
 jest.useFakeTimers().setSystemTime(new Date(Date.UTC(2022, 9, 10, 0, 0, 0)));
 
-beforeAll(() => {
-  mockConsole();
-});
-
 beforeEach(() => {
   jest.clearAllMocks();
   jest.resetModules();
@@ -38,7 +33,7 @@ describe("buildStatusLogger", () => {
     const originalValue = process.env.FIRESTORE_BUILD_STATUS_COLLECTION;
     delete process.env.FIRESTORE_BUILD_STATUS_COLLECTION;
 
-    const req = mockRequest("GET", {}, "/");
+    const req = mockRequest({ method: "GET", headers: {}, url: "/" });
     const res = mockResponse();
 
     await handleRequest(req, res);
@@ -52,7 +47,7 @@ describe("buildStatusLogger", () => {
     const originalValue = process.env.FIRESTORE_TRIGGERED_BUILDS_COLLECTION;
     delete process.env.FIRESTORE_TRIGGERED_BUILDS_COLLECTION;
 
-    const req = mockRequest("GET", {}, "/");
+    const req = mockRequest({ method: "GET", headers: {}, url: "/" });
     const res = mockResponse();
 
     await handleRequest(req, res);
@@ -66,7 +61,7 @@ describe("buildStatusLogger", () => {
     const originalValue = process.env.BEARER_TOKEN_SECRET;
     delete process.env.BEARER_TOKEN_SECRET;
 
-    const req = mockRequest("GET", {}, "/");
+    const req = mockRequest({ method: "GET", headers: {}, url: "/" });
     const res = mockResponse();
 
     await handleRequest(req, res);
@@ -77,7 +72,7 @@ describe("buildStatusLogger", () => {
   });
 
   it("should return 204 if method is OPTIONS", async () => {
-    const req = mockRequest("OPTIONS", {}, "/");
+    const req = mockRequest({ method: "OPTIONS", headers: {}, url: "/" });
     const res = mockResponse();
 
     await handleRequest(req, res);
@@ -86,17 +81,17 @@ describe("buildStatusLogger", () => {
   });
 
   it("should write build triggered event to firestore", async () => {
-    const req = mockRequest(
-      "POST",
-      { "x-contentful-webhook-name": "webhookName" },
-      "/",
-      {
+    const req = mockRequest({
+      method: "POST",
+      headers: { "x-contentful-webhook-name": "webhookName" },
+      url: "/",
+      body: {
         sys: {
           updatedBy: { sys: { id: "userID" } },
           updatedAt: "2022-10-11T00:00:00.000Z"
         }
       }
-    );
+    });
     const res = mockResponse();
 
     await handleRequest(req, res);
@@ -110,9 +105,14 @@ describe("buildStatusLogger", () => {
   });
 
   it("should write build status event to firestore", async () => {
-    const req = mockRequest("POST", {}, "/", {
-      body: "some body",
-      event: "BUILD_SUCCEEDED"
+    const req = mockRequest({
+      method: "POST",
+      headers: {},
+      url: "/",
+      body: {
+        body: "some body",
+        event: "BUILD_SUCCEEDED"
+      }
     });
     const res = mockResponse();
 
@@ -128,11 +128,11 @@ describe("buildStatusLogger", () => {
   });
 
   it("should return unauthorized status if token is invalid", async () => {
-    const req = mockRequest(
-      "GET",
-      { authorization: "Bearer someRandomTOken" },
-      "/"
-    );
+    const req = mockRequest({
+      method: "GET",
+      headers: { authorization: "Bearer someRandomTOken" },
+      url: "/"
+    });
     const res = mockResponse();
 
     await handleRequest(req, res);
@@ -144,11 +144,11 @@ describe("buildStatusLogger", () => {
   });
 
   it("should return last build status events and build trigger events", async () => {
-    const req = mockRequest(
-      "GET",
-      { authorization: "Bearer bearerToken" },
-      "/"
-    );
+    const req = mockRequest({
+      method: "GET",
+      headers: { authorization: "Bearer bearerToken" },
+      url: "/"
+    });
     const mockedData = [
       {
         event: "BUILD SUCCEEDED",
@@ -167,11 +167,11 @@ describe("buildStatusLogger", () => {
   });
 
   it("should return last build status events and build trigger events if Authorization is started from upper case", async () => {
-    const req = mockRequest(
-      "GET",
-      { Authorization: "Bearer bearerToken" },
-      "/"
-    );
+    const req = mockRequest({
+      method: "GET",
+      headers: { Authorization: "Bearer bearerToken" },
+      url: "/"
+    });
     const mockedData = [
       {
         event: "BUILD SUCCEEDED",
@@ -190,11 +190,11 @@ describe("buildStatusLogger", () => {
   });
 
   it("should return a HTTP_500_INTERNAL_SERVER_ERROR if some error happened", async () => {
-    const req = mockRequest(
-      "GET",
-      { Authorization: "Bearer bearerToken" },
-      "/"
-    );
+    const req = mockRequest({
+      method: "GET",
+      headers: { Authorization: "Bearer bearerToken" },
+      url: "/"
+    });
     mockGetList.mockRejectedValueOnce(new Error("Internal server error"));
     const res = mockResponse();
 

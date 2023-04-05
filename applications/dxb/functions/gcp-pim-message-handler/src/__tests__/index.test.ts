@@ -6,7 +6,6 @@ import {
 import { ObjType } from "@bmi/pub-sub-types";
 import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
-import mockConsole from "jest-mock-console";
 
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
@@ -39,10 +38,6 @@ const createEvent = (message = {}): { data: string } => {
   return { data: objJsonB64 };
 };
 
-beforeAll(() => {
-  mockConsole();
-});
-
 beforeEach(() => {
   jest.clearAllMocks();
   jest.resetModules();
@@ -54,11 +49,16 @@ describe("handleMessage", () => {
     const originalBuildTriggerEndpoint = process.env.BUILD_TRIGGER_ENDPOINT;
     delete process.env.BUILD_TRIGGER_ENDPOINT;
 
-    const req = mockRequest("GET", {}, "/", {
-      message: createEvent({
-        itemType: "TEST",
-        type: "UPDATED"
-      })
+    const req = mockRequest({
+      method: "GET",
+      headers: {},
+      url: "/",
+      body: {
+        message: createEvent({
+          itemType: "TEST",
+          type: "UPDATED"
+        })
+      }
     });
     const res = mockResponse();
 
@@ -77,11 +77,16 @@ describe("handleMessage", () => {
     const originalTransitionalTopicName = process.env.TRANSITIONAL_TOPIC_NAME;
     delete process.env.TRANSITIONAL_TOPIC_NAME;
 
-    const req = mockRequest("GET", {}, "/", {
-      message: createEvent({
-        itemType: "TEST",
-        type: "UPDATED"
-      })
+    const req = mockRequest({
+      method: "GET",
+      headers: {},
+      url: "/",
+      body: {
+        message: createEvent({
+          itemType: "TEST",
+          type: "UPDATED"
+        })
+      }
     });
     const res = mockResponse();
 
@@ -100,11 +105,16 @@ describe("handleMessage", () => {
     const originalLocale = process.env.LOCALE;
     delete process.env.LOCALE;
 
-    const req = mockRequest("GET", {}, "/", {
-      message: createEvent({
-        itemType: "TEST",
-        type: "UPDATED"
-      })
+    const req = mockRequest({
+      method: "GET",
+      headers: {},
+      url: "/",
+      body: {
+        message: createEvent({
+          itemType: "TEST",
+          type: "UPDATED"
+        })
+      }
     });
     const res = mockResponse();
 
@@ -120,7 +130,12 @@ describe("handleMessage", () => {
   });
 
   it("should return 404 if request body not sent", async () => {
-    const req = mockRequest("GET", {}, "/");
+    const req = mockRequest({
+      method: "GET",
+      headers: {},
+      url: "/",
+      body: undefined
+    });
     const res = mockResponse();
 
     await handleRequest(req, res);
@@ -134,11 +149,16 @@ describe("handleMessage", () => {
   });
 
   it("should error if itemType is unrecognised", async () => {
-    const req = mockRequest("GET", {}, "/", {
-      message: createEvent({
-        itemType: "TEST",
-        type: "UPDATED"
-      })
+    const req = mockRequest({
+      method: "GET",
+      headers: {},
+      url: "/",
+      body: {
+        message: createEvent({
+          itemType: "TEST",
+          type: "UPDATED"
+        })
+      }
     });
     const res = mockResponse();
 
@@ -153,11 +173,16 @@ describe("handleMessage", () => {
   });
 
   it("should error if message type is unrecognised", async () => {
-    const req = mockRequest("GET", {}, "/", {
-      message: createEvent({
-        itemType: "PRODUCTS",
-        type: "TEST"
-      })
+    const req = mockRequest({
+      method: "GET",
+      headers: {},
+      url: "/",
+      body: {
+        message: createEvent({
+          itemType: "PRODUCTS",
+          type: "TEST"
+        })
+      }
     });
     const res = mockResponse();
 
@@ -172,11 +197,16 @@ describe("handleMessage", () => {
   });
 
   it("should publish UPDATED PRODUCTS message to the GCP PubSub", async () => {
-    const req = mockRequest("GET", {}, "/", {
-      message: createEvent({
-        itemType: "PRODUCTS",
-        type: "UPDATED"
-      })
+    const req = mockRequest({
+      method: "GET",
+      headers: {},
+      url: "/",
+      body: {
+        message: createEvent({
+          itemType: "PRODUCTS",
+          type: "UPDATED"
+        })
+      }
     });
     const res = mockResponse();
     getProductsByMessageId
@@ -244,11 +274,16 @@ describe("handleMessage", () => {
   });
 
   it("should handle UPDATED message when no products returned from API", async () => {
-    const req = mockRequest("GET", {}, "/", {
-      message: createEvent({
-        itemType: "PRODUCTS",
-        type: "UPDATED"
-      })
+    const req = mockRequest({
+      method: "GET",
+      headers: {},
+      url: "/",
+      body: {
+        message: createEvent({
+          itemType: "PRODUCTS",
+          type: "UPDATED"
+        })
+      }
     });
     const res = mockResponse();
     getProductsByMessageId.mockResolvedValueOnce({
@@ -266,13 +301,18 @@ describe("handleMessage", () => {
   });
 
   it("should publish DELETED PRODUCTS message to the GCP PubSub", async () => {
-    const req = mockRequest("GET", {}, "/", {
-      message: createEvent({
-        itemType: "PRODUCTS",
-        type: "DELETED",
-        base: ["BP1", "BPÉ2"],
-        variant: ["VP1", "VP2"]
-      })
+    const req = mockRequest({
+      method: "GET",
+      headers: {},
+      url: "/",
+      body: {
+        message: createEvent({
+          itemType: "PRODUCTS",
+          type: "DELETED",
+          base: ["BP1", "BPÉ2"],
+          variant: ["VP1", "VP2"]
+        })
+      }
     });
     const res = mockResponse();
     const token = "authentication-token";
@@ -346,11 +386,16 @@ describe("handleMessage", () => {
   });
 
   it("should handle DELETED message when no products returned from API", async () => {
-    const req = mockRequest("GET", {}, "/", {
-      message: createEvent({
-        itemType: "PRODUCTS",
-        type: "DELETED"
-      })
+    const req = mockRequest({
+      method: "GET",
+      headers: {},
+      url: "/",
+      body: {
+        message: createEvent({
+          itemType: "PRODUCTS",
+          type: "DELETED"
+        })
+      }
     });
     const res = mockResponse();
     getProductsByMessageId.mockResolvedValueOnce({
@@ -368,11 +413,16 @@ describe("handleMessage", () => {
   });
 
   it("should publish UPDATED SYSTEMS message to the GCP PubSub", async () => {
-    const req = mockRequest("GET", {}, "/", {
-      message: createEvent({
-        itemType: "SYSTEMS",
-        type: "UPDATED"
-      })
+    const req = mockRequest({
+      method: "GET",
+      headers: {},
+      url: "/",
+      body: {
+        message: createEvent({
+          itemType: "SYSTEMS",
+          type: "UPDATED"
+        })
+      }
     });
     const res = mockResponse();
     getSystemsByMessageId
@@ -440,11 +490,16 @@ describe("handleMessage", () => {
   });
 
   it("should handle UPDATED message when no systems returned from API", async () => {
-    const req = mockRequest("GET", {}, "/", {
-      message: createEvent({
-        itemType: "SYSTEMS",
-        type: "UPDATED"
-      })
+    const req = mockRequest({
+      method: "GET",
+      headers: {},
+      url: "/",
+      body: {
+        message: createEvent({
+          itemType: "SYSTEMS",
+          type: "UPDATED"
+        })
+      }
     });
     const res = mockResponse();
     getSystemsByMessageId.mockResolvedValueOnce({
@@ -462,13 +517,18 @@ describe("handleMessage", () => {
   });
 
   it("should publish DELETED SYSTEMS message to the GCP PubSub", async () => {
-    const req = mockRequest("GET", {}, "/", {
-      message: createEvent({
-        itemType: "SYSTEMS",
-        type: "DELETED",
-        system: ["System1", "System2"],
-        layer: ["Layer1", "Layer2"]
-      })
+    const req = mockRequest({
+      method: "GET",
+      headers: {},
+      url: "/",
+      body: {
+        message: createEvent({
+          itemType: "SYSTEMS",
+          type: "DELETED",
+          system: ["System1", "System2"],
+          layer: ["Layer1", "Layer2"]
+        })
+      }
     });
     const res = mockResponse();
     getSystemsByMessageId
@@ -550,13 +610,18 @@ describe("handleMessage", () => {
   });
 
   it("should handle DELETED message when no systems returned from API", async () => {
-    const req = mockRequest("GET", {}, "/", {
-      message: createEvent({
-        itemType: "SYSTEMS",
-        type: "DELETED",
-        system: ["System1", "System2"],
-        layer: ["Layer1", "Layer2"]
-      })
+    const req = mockRequest({
+      method: "GET",
+      headers: {},
+      url: "/",
+      body: {
+        message: createEvent({
+          itemType: "SYSTEMS",
+          type: "DELETED",
+          system: ["System1", "System2"],
+          layer: ["Layer1", "Layer2"]
+        })
+      }
     });
     const res = mockResponse();
     getSystemsByMessageId.mockResolvedValueOnce({
@@ -574,11 +639,16 @@ describe("handleMessage", () => {
   });
 
   it("should not publish UPDATED CATEGORIES message to the GCP PubSub", async () => {
-    const req = mockRequest("GET", {}, "/", {
-      message: createEvent({
-        itemType: "CATEGORIES",
-        type: "UPDATED"
-      })
+    const req = mockRequest({
+      method: "GET",
+      headers: {},
+      url: "/",
+      body: {
+        message: createEvent({
+          itemType: "CATEGORIES",
+          type: "UPDATED"
+        })
+      }
     });
     const res = mockResponse();
     getProductsByMessageId
@@ -615,15 +685,20 @@ describe("handleMessage", () => {
   });
 
   it("should not publish DELETED CATEGORIES message to the GCP PubSub", async () => {
-    const req = mockRequest("GET", {}, "/", {
-      message: createEvent({
-        itemType: "CATEGORIES",
-        type: "DELETED",
-        base: ["BP1", "BPÉ2"],
-        variant: ["VP1", "VP2"],
-        system: ["System1", "System2"],
-        layer: ["Layer1", "Layer2"]
-      })
+    const req = mockRequest({
+      method: "GET",
+      headers: {},
+      url: "/",
+      body: {
+        message: createEvent({
+          itemType: "CATEGORIES",
+          type: "DELETED",
+          base: ["BP1", "BPÉ2"],
+          variant: ["VP1", "VP2"],
+          system: ["System1", "System2"],
+          layer: ["Layer1", "Layer2"]
+        })
+      }
     });
     const res = mockResponse();
     const token = "authentication-token";
@@ -651,11 +726,16 @@ describe("handleMessage", () => {
   });
 
   it("should ignore errors when messages fail to publish", async () => {
-    const req = mockRequest("GET", {}, "/", {
-      message: createEvent({
-        itemType: "PRODUCTS",
-        type: "UPDATED"
-      })
+    const req = mockRequest({
+      method: "GET",
+      headers: {},
+      url: "/",
+      body: {
+        message: createEvent({
+          itemType: "PRODUCTS",
+          type: "UPDATED"
+        })
+      }
     });
     const res = mockResponse();
     getProductsByMessageId
@@ -724,11 +804,16 @@ describe("handleMessage", () => {
   });
 
   it("should ignore error when get authentication token", async () => {
-    const req = mockRequest("GET", {}, "/", {
-      message: createEvent({
-        itemType: "PRODUCTS",
-        type: "UPDATED"
-      })
+    const req = mockRequest({
+      method: "GET",
+      headers: {},
+      url: "/",
+      body: {
+        message: createEvent({
+          itemType: "PRODUCTS",
+          type: "UPDATED"
+        })
+      }
     });
     const res = mockResponse();
     getProductsByMessageId
@@ -781,11 +866,16 @@ describe("handleMessage", () => {
   });
 
   it("should ignore error when triggering build function", async () => {
-    const req = mockRequest("GET", {}, "/", {
-      message: createEvent({
-        itemType: "PRODUCTS",
-        type: "UPDATED"
-      })
+    const req = mockRequest({
+      method: "GET",
+      headers: {},
+      url: "/",
+      body: {
+        message: createEvent({
+          itemType: "PRODUCTS",
+          type: "UPDATED"
+        })
+      }
     });
     const res = mockResponse();
     getProductsByMessageId

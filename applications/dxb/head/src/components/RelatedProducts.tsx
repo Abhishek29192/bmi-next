@@ -106,7 +106,11 @@ const ProductListing = ({
                   action: productUrl
                 }}
                 footer={
-                  <AnchorLink component="span" iconEnd>
+                  <AnchorLink
+                    className={styles["footer-anchor-link"]}
+                    component="span"
+                    iconEnd
+                  >
                     {getMicroCopy(microCopy.PDP_RELATED_PRODUCTS_VIEW_DETAILS)}
                   </AnchorLink>
                 }
@@ -159,7 +163,10 @@ const RelatedProducts = ({ countryCode, products }: Props) => {
   }
 
   return (
-    <Section backgroundColor="alabaster">
+    <Section
+      backgroundColor="alabaster"
+      data-testid={`related-products-section`}
+    >
       <Section.Title>
         {getMicroCopy(microCopy.PDP_RELATED_PRODUCTS_TITLE)}
       </Section.Title>

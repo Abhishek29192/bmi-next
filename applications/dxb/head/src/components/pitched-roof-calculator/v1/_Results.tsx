@@ -163,6 +163,7 @@ const EmailAddressCollection = ({
             isRequired
             errorText={getMicroCopy(copy, "validation.errors.fieldRequired")}
             fullWidth
+            data-testid={"pitched-roof-calculator-results-form-name"}
           />
         </Grid>
         <Grid xs={12} lg={3}>
@@ -178,6 +179,7 @@ const EmailAddressCollection = ({
                 : getMicroCopy(copy, "validation.errors.email")
             }
             fullWidth
+            data-testid={"pitched-roof-calculator-results-form-email"}
           />
         </Grid>
       </Grid>
@@ -196,6 +198,7 @@ const EmailAddressCollection = ({
               copy,
               "validation.errors.fieldRequired"
             )}
+            data-testid={"pitched-roof-calculator-results-form-gdpr_1"}
           />
         </Grid>
         <Grid xs={12} lg={6}>
@@ -207,10 +210,15 @@ const EmailAddressCollection = ({
               copy,
               "validation.errors.fieldRequired"
             )}
+            data-testid={"pitched-roof-calculator-results-form-gdpr_2"}
           />
         </Grid>
         <Grid xs={12} lg={3}>
-          <Form.SubmitButton className={styles["submit"]} disabled={loading}>
+          <Form.SubmitButton
+            className={styles["submit"]}
+            disabled={loading}
+            data-testid={"pitched-roof-calculator-results-form-submit-button"}
+          >
             {getMicroCopy(copy, "results.email.print")}
           </Form.SubmitButton>
         </Grid>

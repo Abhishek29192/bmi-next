@@ -3,6 +3,7 @@ import {
   Button,
   ButtonProps,
   Grid,
+  replaceSpaces,
   Section
 } from "@bmi-digital/components";
 import { graphql, Link } from "gatsby";
@@ -32,7 +33,11 @@ const Brands = ({
   const GTMButton = withGTM<ButtonProps>(Button);
 
   return (
-    <Section backgroundColor={"pearl"} className={styles["Brands"]}>
+    <Section
+      backgroundColor={"pearl"}
+      className={styles["Brands"]}
+      data-testid="brands"
+    >
       <Section.Title> {getMicroCopy(microCopy.HOMEPAGE_BRANDS)}</Section.Title>
       <Grid container justifyContent="center">
         {data.map((brand, index) => {
@@ -73,20 +78,14 @@ const Brands = ({
                           linkComponent: Link
                         }
                   }
-                  data-testid={`brand-intro-card-${brand.title.replace(
-                    / /g,
-                    "-"
-                  )}`}
+                  data-testid={`brand-intro-card-${replaceSpaces(brand.title)}`}
                 />
               ) : (
                 <BrandIntroCard
                   name={brand.brandLogo}
                   logoIcon={<BrandLogo brandName={brand.brandLogo} />}
                   description={brand.subtitle ? brand.subtitle : undefined}
-                  data-testid={`brand-intro-card-${brand.title.replace(
-                    / /g,
-                    "-"
-                  )}`}
+                  data-testid={`brand-intro-card-${replaceSpaces(brand.title)}`}
                 />
               )}
             </Grid>

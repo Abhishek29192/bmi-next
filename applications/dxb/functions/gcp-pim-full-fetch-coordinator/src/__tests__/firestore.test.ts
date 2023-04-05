@@ -1,4 +1,3 @@
-import mockConsole from "jest-mock-console";
 import { deleteFirestoreCollection } from "../firestore";
 import { FirestoreCollections } from "../firestoreCollections";
 
@@ -15,10 +14,6 @@ jest.mock("@bmi/functions-firestore", () => ({
     batch: () => batch()
   })
 }));
-
-beforeAll(() => {
-  mockConsole();
-});
 
 beforeEach(() => {
   jest.resetAllMocks();

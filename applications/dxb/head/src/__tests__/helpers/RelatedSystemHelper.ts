@@ -9,7 +9,7 @@ const createRelatedSystem = (
     brand: { code: "related-system-brand-1" },
     name: "related-ssytem-name",
     path: "related-system-path",
-    images: [createImage()],
+    galleryImages: [createImage()],
     scoringWeight: 0,
     shortDescription: "related-short-desc",
     ...relatedVariant

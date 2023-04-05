@@ -1,5 +1,6 @@
-import { ThemeProvider } from "@bmi-digital/components";
+import { replaceSpaces, ThemeProvider } from "@bmi-digital/components";
 import React from "react";
+import { screen } from "@testing-library/react";
 import { DataTypeEnum } from "../../components/Link";
 import { Data as BrandData } from "../../components/Brands";
 import { Data as OverlapCardData } from "../../components/OverlapCards";
@@ -7,16 +8,15 @@ import { Data as SlideData } from "../../components/Promo";
 import { Data as SectionsData } from "../../components/Sections";
 import { createMockSiteData } from "../../test/mockSiteData";
 import { renderWithRouter } from "../../test/renderWithRouter";
+import createImageData from "../../__tests__/helpers/ImageDataHelper";
 import HomePage, { Props as HomePageData } from "../home-page";
 
 let isSpaEnabled: boolean;
 let isGatsbyDisabledElasticSearch: boolean;
 jest.mock("../../contexts/ConfigProvider", () => ({
   useConfig: () => ({
-    config: {
-      isSpaEnabled,
-      isGatsbyDisabledElasticSearch
-    }
+    isSpaEnabled,
+    isGatsbyDisabledElasticSearch
   })
 }));
 
@@ -80,138 +80,21 @@ describe("Home Page Template", () => {
       __typename: "ContentfulSimplePage",
       title: "Call to action",
       path: "some-page",
-      featuredMedia: {
-        type: null,
-        altText: "Lorem ipsum",
-        focalPoint: null,
-        image: {
-          gatsbyImageData: {
-            images: {
-              sources: [
-                {
-                  srcSet:
-                    "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w",
-                  sizes: "(min-width: 948px) 948px, 100vw",
-                  type: "image/webp"
-                }
-              ],
-              fallback: {
-                src: "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png",
-                srcSet:
-                  "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w",
-                sizes: "(min-width: 948px) 948px, 100vw"
-              }
-            },
-            layout: "constrained",
-            backgroundColor: "#484848",
-            width: 948,
-            height: 720
-          },
-          file: {
-            fileName: "Lorem ipsum",
-            url: "//images.asset.jpg"
-          }
-        },
-        thumbnail: {
-          src: "//images.asset.jpg",
-          file: {
-            fileName: "Lorem ipsum",
-            url: "//images.asset.jpg"
-          }
-        }
-      },
+      featuredMedia: createImageData(),
       featuredVideo: null
     },
     {
       __typename: "ContentfulSimplePage",
       title: "Call to action",
       path: "some-page",
-      featuredMedia: {
-        type: null,
-        altText: "Lorem ipsum",
-        focalPoint: null,
-        image: {
-          gatsbyImageData: {
-            images: {
-              sources: [
-                {
-                  srcSet:
-                    "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w",
-                  sizes: "(min-width: 948px) 948px, 100vw",
-                  type: "image/webp"
-                }
-              ],
-              fallback: {
-                src: "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png",
-                srcSet:
-                  "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w",
-                sizes: "(min-width: 948px) 948px, 100vw"
-              }
-            },
-            layout: "constrained",
-            backgroundColor: "#484848",
-            width: 948,
-            height: 720
-          },
-          file: {
-            fileName: "Lorem ipsum",
-            url: "//images.asset.jpg"
-          }
-        },
-        thumbnail: {
-          src: "//images.asset.jpg",
-          file: {
-            fileName: "Lorem ipsum",
-            url: "//images.asset.jpg"
-          }
-        }
-      },
+      featuredMedia: createImageData(),
       featuredVideo: null
     },
     {
       __typename: "ContentfulSimplePage",
       title: "Card with Video",
       path: "some-page",
-      featuredMedia: {
-        type: null,
-        altText: "Lorem ipsum",
-        focalPoint: null,
-        image: {
-          gatsbyImageData: {
-            images: {
-              sources: [
-                {
-                  srcSet:
-                    "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w",
-                  sizes: "(min-width: 948px) 948px, 100vw",
-                  type: "image/webp"
-                }
-              ],
-              fallback: {
-                src: "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png",
-                srcSet:
-                  "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w",
-                sizes: "(min-width: 948px) 948px, 100vw"
-              }
-            },
-            layout: "constrained",
-            backgroundColor: "#484848",
-            width: 948,
-            height: 720
-          },
-          file: {
-            fileName: "Lorem ipsum",
-            url: "//images.asset.jpg"
-          }
-        },
-        thumbnail: {
-          src: "//images.asset.jpg",
-          file: {
-            fileName: "Lorem ipsum",
-            url: "//images.asset.jpg"
-          }
-        }
-      },
+      featuredMedia: createImageData(),
       featuredVideo: {
         __typename: "ContentfulVideo",
         title: "video title",
@@ -323,119 +206,83 @@ describe("Home Page Template", () => {
     isSpaEnabled = false;
     isGatsbyDisabledElasticSearch = false;
 
-    const { container, getByTestId, getByText, getAllByTestId } =
-      renderWithRouter(
-        <ThemeProvider>
-          <HomePage data={data} pageContext={null} />
-        </ThemeProvider>
-      );
+    const { container } = renderWithRouter(
+      <ThemeProvider>
+        <HomePage data={data} pageContext={null} />
+      </ThemeProvider>
+    );
 
-    expect(container.querySelector("header")).toBeInTheDocument();
-    expect(getByTestId("footer")).toBeInTheDocument();
-    expect(getByTestId("brand-colors-provider")).toBeInTheDocument();
-    expect(getByTestId("hero")).toBeInTheDocument();
+    expect(screen.getByRole("banner")).toBeInTheDocument();
+    expect(screen.getByTestId("footer")).toBeInTheDocument();
+    expect(screen.getByTestId("brand-colors-provider")).toBeInTheDocument();
+    expect(screen.getByTestId("hero")).toBeInTheDocument();
     expect(
+      // eslint-disable-next-line testing-library/no-node-access,testing-library/no-container
       container.querySelector("[class*=Hero-root] [class*=Breadcrumbs-root]")
     ).not.toBeInTheDocument();
 
     expect(container).toMatchSnapshot();
 
-    expect(getAllByTestId("hero-content-slide-0").length).toEqual(1);
-    expect(getAllByTestId("hero-content-slide-text").length).toEqual(1);
-    expect(getByTestId("search-button")).toBeInTheDocument();
-    expect(getByText(slide.title)).toBeInTheDocument();
-    expect(container.querySelector(".OverlapCards")).toBeInTheDocument();
+    expect(screen.getAllByTestId("hero-content-slide-0").length).toEqual(1);
+    expect(screen.getAllByTestId("hero-content-slide-text").length).toEqual(1);
+    expect(screen.getByTestId("search-button")).toBeInTheDocument();
+    expect(screen.getByText(slide.title)).toBeInTheDocument();
+    expect(screen.getAllByTestId("overlap-card")).toHaveLength(3);
+    expect(screen.getByTestId("brands")).toBeInTheDocument();
     expect(
-      container.querySelectorAll(
-        ".OverlapCards .MuiGrid2-container .MuiGrid2-root"
-      ).length
-    ).toBe(3);
-    expect(container.querySelector(".Brands")).toBeInTheDocument();
+      screen.getByTestId(
+        `brand-intro-card-${replaceSpaces(
+          data.contentfulHomePage.spaBrands[0].title
+        )}`
+      )
+    ).toBeInTheDocument();
     expect(
-      container.querySelectorAll(".Brands .MuiGrid2-container").length
-    ).toBe(1);
-    expect(
-      container.querySelectorAll("[class*=Section-root]:not(.Brands)").length
-    ).toBe(1);
-    expect(container.querySelector(".WelcomeDialog")).not.toBeInTheDocument();
-    expect(getAllByTestId("youtube-dialog-wrapper")).toHaveLength(2);
+      screen.getByTestId(
+        `tabs-or-accordion-section-${data.contentfulHomePage.sections[0]["title"]}`
+      )
+    ).toBeInTheDocument();
+    expect(screen.queryByTestId("welcome-dialog")).not.toBeInTheDocument();
+    expect(screen.getAllByTestId("youtube-dialog-wrapper")).toHaveLength(2);
   });
 
   it("render slide with not ContentfulPromo __typename and featureMedia data", () => {
     isSpaEnabled = true;
     isGatsbyDisabledElasticSearch = false;
     slide.__typename = null;
-    slide.featuredMedia = {
-      type: null,
-      altText: "Lorem ipsum ContentfulImage",
-      focalPoint: null,
-      image: {
-        gatsbyImageData: {
-          images: {
-            sources: [
-              {
-                srcSet:
-                  "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w",
-                sizes: "(min-width: 948px) 948px, 100vw",
-                type: "image/webp"
-              }
-            ],
-            fallback: {
-              src: "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png",
-              srcSet:
-                "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w",
-              sizes: "(min-width: 948px) 948px, 100vw"
-            }
-          },
-          layout: "constrained",
-          backgroundColor: "#484848",
-          width: 948,
-          height: 720
-        },
-        file: {
-          fileName: "Lorem ipsum",
-          url: "//images.asset.jpg"
-        }
-      },
-      thumbnail: {
-        src: "//images.asset.jpg",
-        file: {
-          fileName: "Lorem ipsum",
-          url: "//images.asset.jpg"
-        }
-      }
-    };
+    slide.featuredMedia = createImageData({
+      altText: "Lorem ipsum ContentfulImage"
+    });
 
     slide.featuredVideo = null;
     slide.cta = null;
     data.contentfulSite.resources = null;
     data.contentfulHomePage.spaBrands = [];
 
-    const { container, getByAltText } = renderWithRouter(
+    renderWithRouter(
       <ThemeProvider>
         <HomePage data={data} pageContext={null} />
       </ThemeProvider>
     );
 
+    expect(screen.queryByTestId("hero-video")).not.toBeInTheDocument();
     expect(
-      container.querySelector("[class*=Hero-root] [class*=YoutubeVideo-root]")
-    ).not.toBeInTheDocument();
-    expect(getByAltText("Lorem ipsum ContentfulImage")).toBeInTheDocument();
+      screen.getByAltText(slide.featuredMedia.altText)
+    ).toBeInTheDocument();
   });
 
   it("render page with brands", () => {
     data.contentfulHomePage.brands = brandsData;
     data.contentfulHomePage.spaBrands = [];
 
-    const { container, getByText } = renderWithRouter(
+    renderWithRouter(
       <ThemeProvider>
         <HomePage data={data} pageContext={null} />
       </ThemeProvider>
     );
 
-    expect(container.querySelector(".Brands")).toBeInTheDocument();
+    expect(screen.getByTestId("brands")).toBeInTheDocument();
     expect(
-      getByText(data.contentfulHomePage.brands[0].subtitle)
+      screen.getByText(data.contentfulHomePage.brands[0].subtitle)
     ).toBeInTheDocument();
   });
 
@@ -443,15 +290,15 @@ describe("Home Page Template", () => {
     data.contentfulHomePage.brands = [];
     data.contentfulHomePage.spaBrands = spaBrandsData;
 
-    const { container, getByText } = renderWithRouter(
+    renderWithRouter(
       <ThemeProvider>
         <HomePage data={data} pageContext={null} />
       </ThemeProvider>
     );
 
-    expect(container.querySelector(".Brands")).toBeInTheDocument();
+    expect(screen.getByTestId("brands")).toBeInTheDocument();
     expect(
-      getByText(data.contentfulHomePage.spaBrands[0].subtitle)
+      screen.getByText(data.contentfulHomePage.spaBrands[0].subtitle)
     ).toBeInTheDocument();
   });
 
@@ -459,40 +306,37 @@ describe("Home Page Template", () => {
     data.contentfulHomePage.spaBrands = [];
     data.contentfulHomePage.brands = [];
 
-    const { container } = renderWithRouter(
+    renderWithRouter(
       <ThemeProvider>
         <HomePage data={data} pageContext={null} />
       </ThemeProvider>
     );
 
-    expect(container.querySelector(".Brands")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("brands")).not.toBeInTheDocument();
   });
 
   it("render page with overlapCardsData", () => {
-    const { container } = renderWithRouter(
+    renderWithRouter(
       <ThemeProvider>
         <HomePage data={data} pageContext={null} />
       </ThemeProvider>
     );
 
-    expect(container.querySelector(".OverlapCards")).toBeInTheDocument();
-    expect(
-      container.querySelectorAll(
-        ".OverlapCards .MuiGrid2-container .MuiGrid2-root"
-      ).length
-    ).toBe(3);
+    expect(screen.getAllByTestId("overlap-card")).toHaveLength(3);
   });
 
   it("render page without overlapCardsData", () => {
     data.contentfulHomePage.overlapCards = null;
 
-    const { container } = renderWithRouter(
+    renderWithRouter(
       <ThemeProvider>
         <HomePage data={data} pageContext={null} />
       </ThemeProvider>
     );
 
-    expect(container.querySelector(".OverlapCards")).not.toBeInTheDocument();
+    expect(
+      screen.queryByTestId("overlap-cards-wrapper")
+    ).not.toBeInTheDocument();
   });
 
   it("render page with sections", () => {
@@ -502,9 +346,8 @@ describe("Home Page Template", () => {
       </ThemeProvider>
     );
 
-    expect(
-      container.querySelectorAll("[class*=Section-root]:not(.Brands)").length
-    ).toBe(1);
+    // eslint-disable-next-line testing-library/no-container,testing-library/no-node-access
+    expect(container.querySelectorAll("[class*=Section-root]")).toHaveLength(1);
   });
 
   it("render page without sections", () => {
@@ -514,8 +357,7 @@ describe("Home Page Template", () => {
       <HomePage data={data} pageContext={null} />
     );
 
-    expect(
-      container.querySelectorAll("[class*=Section-root]:not(.Brands)").length
-    ).toBe(0);
+    // eslint-disable-next-line testing-library/no-container,testing-library/no-node-access
+    expect(container.querySelectorAll("[class*=Section-root]")).toHaveLength(0);
   });
 });

@@ -58,7 +58,8 @@ const mockEntry = (): Partial<Entry> => {
         linkType: "ContentType",
         id: "titleWithContent"
       }
-    }
+    },
+    automationTags: []
   };
   return entry;
 };
@@ -99,7 +100,8 @@ const mockEntryWithoutOwner = (): Partial<Entry> => {
         linkType: "ContentType",
         id: "titleWithContent"
       }
-    }
+    },
+    automationTags: []
   };
   return entry;
 };

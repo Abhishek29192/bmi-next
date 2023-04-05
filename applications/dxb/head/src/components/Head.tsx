@@ -37,9 +37,8 @@ export const Head = ({
   countryCode
 }: HeadProps) => {
   const { headScripts } = scripts;
-  const {
-    config: { isPreviewMode, hubSpotId, isSchemaORGActivated, oneTrustId }
-  } = useConfig();
+  const { isPreviewMode, hubSpotId, isSchemaORGActivated, oneTrustId } =
+    useConfig();
   const imageUrl = getJpgImage(ogImageUrl);
 
   const isScriptOnetrustEnabled = Boolean(!isPreviewMode && oneTrustId);
@@ -48,6 +47,10 @@ export const Head = ({
   const schemaOrgActivated =
     Boolean(isSchemaORGActivated) && Boolean(variantProduct);
 
+  const seoDescription =
+    (variantProduct &&
+      (variantProduct.seoDescription || variantProduct.description)) ||
+    (seo && seo.metaDescription);
   return (
     <Helmet
       htmlAttributes={htmlAttributes}
@@ -85,6 +88,14 @@ export const Head = ({
         />
       )}
       <link
+        rel="alternate"
+        href={`${process.env.GATSBY_SITE_URL}${getPathWithCountryCode(
+          countryCode,
+          path
+        )}`}
+        hrefLang="x-default"
+      />
+      <link
         rel="preload"
         href={EffraRegular}
         as="font"
@@ -112,7 +123,13 @@ export const Head = ({
         type="font/woff2"
         crossOrigin="anonymous"
       />
-      {imageUrl && <meta property="og:image" content={imageUrl} />}
+      {imageUrl && (
+        <meta
+          property="og:image"
+          content={imageUrl}
+          data-testid={"meta-og-image"}
+        />
+      )}
 
       {seo?.noIndex && <meta name="robots" content="noindex, nofollow" />}
 
@@ -121,10 +138,10 @@ export const Head = ({
         name="viewport"
         content="width=device-width, initial-scale=1.0, viewport-fit=cover"
       />
-      {seo?.metaDescription && (
-        <meta name="description" content={seo.metaDescription} />
+      {!!seoDescription && <meta name="description" content={seoDescription} />}
+      {variantProduct?.seoTags && (
+        <meta name="keywords" content={variantProduct.seoTags.join(",")} />
       )}
-
       {isScriptOnetrustEnabled && (
         <script
           type="text/javascript"
@@ -143,43 +160,8 @@ export const Head = ({
       )}
       {isScriptOnetrustEnabled && (
         <script type="text/javascript">{`
-              // function to pull cookie value
-              function getCookie(name) {
-                  var value = "; " + document.cookie;
-                  var parts = value.split("; " + name + "=");
-                  if (parts.length == 2) return parts.pop().split(";").shift();
-              }
               function OptanonWrapper() { 
-                  
                   console.log("OptanonWrapper called");
-                  var OABCcookieName = "OptanonAlertBoxClosed";
-                  var bannerAcceptBtn = document.getElementById("onetrust-accept-btn-handler");
-                  var pcAllowAllBtn = document.getElementById("accept-recommended-btn-handler");
-                  var pcSaveBtn = document.getElementsByClassName("save-preference-btn-handler onetrust-close-btn-handler")[0];
-                  var OABCcookie = getCookie(OABCcookieName);
-                      
-                
-                  // IF logic needed here because ot-banner-sdk DIV is not injected on page loads if banner is not exposed
-                  if (!OABCcookie && bannerAcceptBtn) {
-                      bannerAcceptBtn.addEventListener('click', function() {
-                          console.log("Allowed all via Banner");
-                          location.reload();
-                      });
-                  }
-                  if (pcAllowAllBtn)
-                      pcAllowAllBtn.addEventListener('click', function() {
-                          console.log("Allowed all via Preference Center");
-                          location.reload();
-                      });
-                  if(pcSaveBtn){
-                      pcSaveBtn.addEventListener('click', function() {
-                          setTimeout(()=> {
-                          console.log("Set custom settings via Preference Center");
-                          location.reload();
-                      }, 1000) //quick timeout so that the consent receipt can be sent and the cookie can be updated
-                      });
-                  }
-                  
               }
         `}</script>
       )}

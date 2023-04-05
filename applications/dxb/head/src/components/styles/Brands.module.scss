@@ -2,6 +2,7 @@
 
 .Brands {
   :global(.MuiButton-root) {
+    padding: 0;
     // Make sure the logo doesn't go outside of the grid area,
     @media (min-width: $breakpoint-xl) {
       max-width: 350px;

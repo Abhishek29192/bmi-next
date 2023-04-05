@@ -3,7 +3,7 @@
 exports[`ContactTopics component renders correctly 1`] = `
 <div>
   <div
-    class="ContactTopics css-j2p4rx"
+    class="css-j2p4rx"
     data-testid="contact-topics"
   >
     <div
@@ -11,8 +11,8 @@ exports[`ContactTopics component renders correctly 1`] = `
     >
       <div
         aria-label="Did you know?1"
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root ExpandableCard-collapsed css-oqqhyi-MuiPaper-root-MuiCard-root"
-        data-gtm="{\\"id\\":\\"selector-cards2\\",\\"label\\":\\"Did you know?1\\",\\"action\\":\\"Selector - Cards\\"}"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root ExpandableCard-collapsed css-ios428-MuiPaper-root-MuiCard-root"
+        data-gtm="{"id":"selector-cards2","label":"Did you know?1","action":"Selector - Cards"}"
         data-testid="expandable-card-Did-you-know?1"
         role="button"
         style="min-height: 100%;"
@@ -57,7 +57,7 @@ exports[`ContactTopics component renders correctly 1`] = `
               />
             </svg>
             <h5
-              class="MuiTypography-root MuiTypography-h5 ExpandableCard-title ExpandableCard-titleStatic css-10q7alf-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5 ExpandableCard-title ExpandableCard-titleStatic css-1lhxn1g-MuiTypography-root"
               data-testid="typography"
             >
               Did you know?1
@@ -67,16 +67,16 @@ exports[`ContactTopics component renders correctly 1`] = `
             class="ExpandableCard-body"
           >
             <h4
-              class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h6 css-8u8jlx-MuiTypography-root"
               data-testid="typography"
             >
               Did you know?2
             </h4>
             <ul
-              class="css-1err4t"
+              class="css-1yuf2q3"
             >
               <li
-                class=" css-nggtm6"
+                class=" css-6y5cxr"
               >
                 <div
                   class="IconList-icon"
@@ -106,7 +106,7 @@ exports[`ContactTopics component renders correctly 1`] = `
                   class="css-1lg3fd1"
                 >
                   <h5
-                    class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                     data-testid="typography"
                   >
                     Frequently Asked Questions
@@ -115,10 +115,10 @@ exports[`ContactTopics component renders correctly 1`] = `
                     class="IconList-description"
                   >
                     <div
-                      class="RichText-root css-17t4j5c"
+                      class="RichText-root RichText-no-bottom-margin css-vf09gu"
                     >
                       <p
-                        class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
                         data-testid="typography"
                       >
                         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
@@ -128,7 +128,7 @@ exports[`ContactTopics component renders correctly 1`] = `
                 </div>
               </li>
               <li
-                class=" css-nggtm6"
+                class=" css-6y5cxr"
               >
                 <div
                   class="IconList-icon"
@@ -158,7 +158,7 @@ exports[`ContactTopics component renders correctly 1`] = `
                   class="css-1lg3fd1"
                 >
                   <h5
-                    class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                     data-testid="typography"
                   >
                     CloseDach
@@ -167,10 +167,10 @@ exports[`ContactTopics component renders correctly 1`] = `
                     class="IconList-description"
                   >
                     <div
-                      class="RichText-root css-17t4j5c"
+                      class="RichText-root RichText-no-bottom-margin css-vf09gu"
                     >
                       <p
-                        class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
                         data-testid="typography"
                       >
                         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
@@ -186,14 +186,14 @@ exports[`ContactTopics component renders correctly 1`] = `
           >
             <div>
               <h6
-                class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                 data-testid="typography"
-                style="margin-bottom: 42px;"
+                style="margin-bottom: 24px;"
               >
                 footer title
               </h6>
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
                 data-testid="grid-container"
               >
                 <div
@@ -204,16 +204,16 @@ exports[`ContactTopics component renders correctly 1`] = `
                     class="BorderedItem"
                   />
                   <h5
-                    class="MuiTypography-root MuiTypography-h5 heading css-10q7alf-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h5 css-y579gu-MuiTypography-root"
                     data-testid="typography"
                   >
                     teste
                   </h5>
                   <div
-                    class="RichText-root css-17t4j5c"
+                    class="RichText-root css-vf09gu"
                   >
                     <p
-                      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
                       data-testid="typography"
                     >
                       Lorem Ipsum has been the industry's standard dummy text ever since the 1500s

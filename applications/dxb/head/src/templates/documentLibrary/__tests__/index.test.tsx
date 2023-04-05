@@ -1,14 +1,23 @@
 /* eslint-disable prefer-spread */
 import { ThemeProvider } from "@bmi-digital/components";
-import { fireEvent, RenderResult, waitFor } from "@testing-library/react";
+import {
+  fireEvent,
+  RenderResult,
+  screen,
+  waitFor
+} from "@testing-library/react";
 import React from "react";
+import {
+  createContentfulDocument,
+  createPimProductDocument
+} from "@bmi/elasticsearch-types";
 import DocumentLibraryPage, { PAGE_SIZE } from "../";
 import * as documentResultsFooter from "../../../components/DocumentResultsFooter";
-import { ConfigProvider, EnvConfig } from "../../../contexts/ConfigProvider";
+import { ConfigProvider, Config } from "../../../contexts/ConfigProvider";
 import { renderWithRouter } from "../../../test/renderWithRouter";
 import * as elasticSearch from "../../../utils/elasticSearch";
 import { FILTER_KEY } from "../../../utils/filters";
-import { DocumentLibraryPageContext } from "../types";
+import { DocumentLibraryPageContext, DocumentLibraryProps } from "../types";
 import {
   createCollapseData,
   createData,
@@ -40,9 +49,9 @@ const mockQueryES = jest
   });
 
 interface Params {
-  pageData?: any;
+  pageData?: DocumentLibraryProps["data"];
   pageContext?: DocumentLibraryPageContext;
-  mockEnvVariables?: Partial<EnvConfig["config"]>;
+  mockEnvVariables?: Partial<Config>;
   route?: string;
 }
 
@@ -55,7 +64,7 @@ const renderWithProviders = ({
   const defaultPageEnvVars = {
     documentDownloadMaxLimit: 200,
     isPreviewMode: false
-  } as Partial<EnvConfig["config"]>;
+  } as Partial<Config>;
   const defaultPageContext = {
     pageId: null,
     siteId: null,
@@ -67,7 +76,7 @@ const renderWithProviders = ({
   return renderWithRouter(
     <ThemeProvider>
       <ConfigProvider
-        configObject={{ ...defaultPageEnvVars, ...mockEnvVariables }}
+        configOverride={{ ...defaultPageEnvVars, ...mockEnvVariables }}
       >
         <DocumentLibraryPage
           data={pageData || defaultPageData}
@@ -84,32 +93,16 @@ jest.setTimeout(30000);
 describe("Document Library page", () => {
   beforeEach(() => {
     jest.resetModules();
+    jest.clearAllMocks();
   });
 
   it("renders correctly ", async () => {
-    const { container, getByTestId, getByText } = renderWithProviders({});
-    expect(container.querySelectorAll("header").length).toBe(1);
-    expect(getByTestId("footer")).toBeTruthy();
-    expect(getByTestId("brand-colors-provider")).toBeTruthy();
-    expect(container.querySelector("[class*='Hero']")).toBeTruthy();
-    expect(
-      container.querySelector("[class*='Hero'] [class*='Breadcrumbs']")
-    ).toBeTruthy();
-    expect(getByTestId("document-library-filters")).toBeInTheDocument();
-    expect(getByText("MC: documentLibrary.filters.title")).toBeTruthy();
-    expect(getByText("MC: documentLibrary.filters.clearAll")).toBeTruthy();
+    const { container } = renderWithProviders({});
+    expect(container).toMatchSnapshot();
     expect(mockQueryES).toBeCalled();
-    expect(
-      container.querySelector("[class*='alabaster'][class*='slim']")
-    ).toBeTruthy();
-    expect(
-      container.querySelector(
-        "[class*='alabaster'][class*='slim'] [class*='Breadcrumbs']"
-      )
-    ).toBeTruthy();
   });
 
-  it("renders desription correctly", () => {
+  it("renders description correctly", () => {
     const paragraphText = "this is a test paragraph";
     const raw = {
       nodeType: "document",
@@ -139,45 +132,330 @@ describe("Document Library page", () => {
         }
       ]
     };
-    const data = createData();
-    data.contentfulDocumentLibraryPage.description = richText;
-    const { getByText } = renderWithProviders({ pageData: data });
+    const data = createData([], { description: richText });
+    renderWithProviders({ pageData: data });
 
-    expect(getByText(paragraphText)).toBeTruthy();
+    expect(screen.getByText(paragraphText)).toBeTruthy();
   });
 
-  it("should render DocumentResults and DocumentResultsFooter correctly", async () => {
-    const { container } = renderWithProviders({});
-    await waitFor(() => expect(mockQueryES).toBeCalled());
-    expect(container.querySelector(".DocumentSimpleTableResults")).toBeTruthy();
-    expect(
-      container.querySelectorAll(".DocumentSimpleTableResults .row").length
-    ).toBe(1);
-    expect(container.querySelector(".results")).toBeTruthy();
-    expect(container.querySelector(".DocumentResultsFooter")).toBeTruthy();
-  });
-
-  it("should render DocumentTechnicalTableResults correctly if resultsType === Technical", async () => {
+  it("should render DocumentSimpleTableResults correctly if source === PIM and resultsType === Simple", async () => {
     const collapseData = createCollapseData();
     mockQueryES.mockResolvedValueOnce({
       hits: {
-        hits: [createESDocumentHitResponseMock({}, collapseData)],
+        hits: [
+          createESDocumentHitResponseMock(
+            createPimProductDocument(),
+            collapseData
+          )
+        ],
         total: {
           value: 2
         }
       }
     });
-    const { container, getByTestId } = renderWithProviders({
-      pageData: createData([], { resultsType: "Technical" })
+    renderWithProviders({
+      pageData: createData([], { source: "PIM", resultsType: "Simple" })
     });
 
     await waitFor(() => expect(mockQueryES).toBeCalled());
-    await waitFor(() =>
-      expect(getByTestId("tech-results-table")).toBeInTheDocument()
+    const simpleTable = await screen.findByTestId(
+      "document-simple-table-results"
     );
-    expect(container.querySelector(`a[href="https://url"]`)).toBeTruthy();
-    expect(container.querySelector(".results")).toBeTruthy();
-    expect(container.querySelector(".DocumentResultsFooter")).toBeTruthy();
+    expect(simpleTable).toMatchSnapshot();
+  });
+
+  it("should render DocumentSimpleTableResults correctly if source === PIM and resultsType === Simple Archive", async () => {
+    const collapseData = createCollapseData();
+    mockQueryES.mockResolvedValueOnce({
+      hits: {
+        hits: [
+          createESDocumentHitResponseMock(
+            createPimProductDocument(),
+            collapseData
+          )
+        ],
+        total: {
+          value: 2
+        }
+      }
+    });
+    renderWithProviders({
+      pageData: createData([], { source: "PIM", resultsType: "Simple Archive" })
+    });
+
+    await waitFor(() => expect(mockQueryES).toBeCalled());
+    const simpleTable = await screen.findByTestId(
+      "document-simple-table-results"
+    );
+    expect(simpleTable).toMatchSnapshot();
+  });
+
+  it("should render DocumentTechnicalTableResults correctly if source === PIM and resultsType === Technical", async () => {
+    const collapseData = createCollapseData();
+    mockQueryES.mockResolvedValueOnce({
+      hits: {
+        hits: [
+          createESDocumentHitResponseMock(
+            createPimProductDocument(),
+            collapseData
+          )
+        ],
+        total: {
+          value: 2
+        }
+      }
+    });
+    renderWithProviders({
+      pageData: createData([], { source: "PIM", resultsType: "Technical" })
+    });
+
+    await waitFor(() => expect(mockQueryES).toBeCalled());
+    const technicalTable = await screen.findByTestId("tech-results-table");
+    expect(technicalTable).toMatchSnapshot();
+  });
+
+  it("should render DocumentSimpleTableResults correctly if source === PIM and resultsType === Card Collection", async () => {
+    const collapseData = createCollapseData();
+    mockQueryES.mockResolvedValueOnce({
+      hits: {
+        hits: [
+          createESDocumentHitResponseMock(
+            createPimProductDocument(),
+            collapseData
+          )
+        ],
+        total: {
+          value: 2
+        }
+      }
+    });
+    renderWithProviders({
+      pageData: createData([], {
+        source: "PIM",
+        resultsType: "Card Collection"
+      })
+    });
+
+    await waitFor(() => expect(mockQueryES).toBeCalled());
+    const simpleTable = await screen.findByTestId(
+      "document-simple-table-results"
+    );
+    expect(simpleTable).toMatchSnapshot();
+  });
+
+  it("should render DocumentSimpleTableResults correctly if source === CMS and resultsType === Simple", async () => {
+    const collapseData = createCollapseData();
+    mockQueryES.mockResolvedValueOnce({
+      hits: {
+        hits: [
+          createESDocumentHitResponseMock(
+            createContentfulDocument(),
+            collapseData
+          )
+        ],
+        total: {
+          value: 2
+        }
+      }
+    });
+    renderWithProviders({
+      pageData: createData([], { source: "CMS", resultsType: "Simple" })
+    });
+
+    await waitFor(() => expect(mockQueryES).toBeCalled());
+    const simpleTable = await screen.findByTestId(
+      "document-simple-table-results"
+    );
+    expect(simpleTable).toMatchSnapshot();
+  });
+
+  it("should render no table if source === CMS and resultsType === Simple Archive", async () => {
+    const collapseData = createCollapseData();
+    mockQueryES.mockResolvedValueOnce({
+      hits: {
+        hits: [
+          createESDocumentHitResponseMock(
+            createContentfulDocument(),
+            collapseData
+          )
+        ],
+        total: {
+          value: 2
+        }
+      }
+    });
+    renderWithProviders({
+      pageData: createData([], { source: "CMS", resultsType: "Simple Archive" })
+    });
+
+    expect(mockQueryES).not.toBeCalled();
+    expect(
+      screen.queryByTestId("document-simple-table-results")
+    ).not.toBeInTheDocument();
+    expect(screen.queryByTestId("tech-results-table")).not.toBeInTheDocument();
+    expect(
+      screen.queryByTestId("document-cards-results-grid")
+    ).not.toBeInTheDocument();
+  });
+
+  it("should render DocumentSimpleTableResults correctly if source === CMS and resultsType === Technical", async () => {
+    const collapseData = createCollapseData();
+    mockQueryES.mockResolvedValueOnce({
+      hits: {
+        hits: [
+          createESDocumentHitResponseMock(
+            createContentfulDocument(),
+            collapseData
+          )
+        ],
+        total: {
+          value: 2
+        }
+      }
+    });
+    renderWithProviders({
+      pageData: createData([], { source: "CMS", resultsType: "Technical" })
+    });
+
+    await waitFor(() => expect(mockQueryES).toBeCalled());
+    const simpleTable = await screen.findByTestId(
+      "document-simple-table-results"
+    );
+    expect(simpleTable).toMatchSnapshot();
+  });
+
+  it("should render DocumentCardsResults correctly if source === CMS and resultsType === Card Collection", async () => {
+    const collapseData = createCollapseData([createContentfulDocument()]);
+    mockQueryES.mockResolvedValueOnce({
+      hits: {
+        hits: [
+          createESDocumentHitResponseMock(
+            createContentfulDocument(),
+            collapseData
+          )
+        ],
+        total: {
+          value: 2
+        }
+      }
+    });
+    renderWithProviders({
+      pageData: createData([], {
+        source: "CMS",
+        resultsType: "Card Collection"
+      })
+    });
+
+    await waitFor(() => expect(mockQueryES).toBeCalled());
+    const cardGrid = await screen.findByTestId("document-cards-results-grid");
+    expect(cardGrid).toMatchSnapshot();
+  });
+
+  it("should render DocumentSimpleTableResults correctly if source === ALL and resultsType === Simple", async () => {
+    const collapseData = createCollapseData();
+    mockQueryES.mockResolvedValueOnce({
+      hits: {
+        hits: [
+          createESDocumentHitResponseMock(
+            createPimProductDocument(),
+            collapseData
+          )
+        ],
+        total: {
+          value: 2
+        }
+      }
+    });
+    renderWithProviders({
+      pageData: createData([], { source: "ALL", resultsType: "Simple" })
+    });
+
+    await waitFor(() => expect(mockQueryES).toBeCalled());
+    const simpleTable = await screen.findByTestId(
+      "document-simple-table-results"
+    );
+    expect(simpleTable).toMatchSnapshot();
+  });
+
+  it("should render DocumentSimpleTableResults if source === ALL and resultsType === Simple Archive", async () => {
+    const collapseData = createCollapseData();
+    mockQueryES.mockResolvedValueOnce({
+      hits: {
+        hits: [
+          createESDocumentHitResponseMock(
+            createPimProductDocument(),
+            collapseData
+          )
+        ],
+        total: {
+          value: 2
+        }
+      }
+    });
+    renderWithProviders({
+      pageData: createData([], { source: "ALL", resultsType: "Simple Archive" })
+    });
+
+    await waitFor(() => expect(mockQueryES).toBeCalled());
+    const simpleTable = await screen.findByTestId(
+      "document-simple-table-results"
+    );
+    expect(simpleTable).toMatchSnapshot();
+  });
+
+  it("should render DocumentSimpleTableResults correctly if source === ALL and resultsType === Technical", async () => {
+    const collapseData = createCollapseData();
+    mockQueryES.mockResolvedValueOnce({
+      hits: {
+        hits: [
+          createESDocumentHitResponseMock(
+            createPimProductDocument(),
+            collapseData
+          )
+        ],
+        total: {
+          value: 2
+        }
+      }
+    });
+    renderWithProviders({
+      pageData: createData([], { source: "ALL", resultsType: "Technical" })
+    });
+
+    await waitFor(() => expect(mockQueryES).toBeCalled());
+    const simpleTable = await screen.findByTestId(
+      "document-simple-table-results"
+    );
+    expect(simpleTable).toMatchSnapshot();
+  });
+
+  it("should render DocumentSimpleTableResults correctly if source === ALL and resultsType === Card Collection", async () => {
+    const collapseData = createCollapseData();
+    mockQueryES.mockResolvedValueOnce({
+      hits: {
+        hits: [
+          createESDocumentHitResponseMock(
+            createPimProductDocument(),
+            collapseData
+          )
+        ],
+        total: {
+          value: 2
+        }
+      }
+    });
+    renderWithProviders({
+      pageData: createData([], {
+        source: "ALL",
+        resultsType: "Card Collection"
+      })
+    });
+
+    await waitFor(() => expect(mockQueryES).toBeCalled());
+    const simpleTable = await screen.findByTestId(
+      "document-simple-table-results"
+    );
+    expect(simpleTable).toMatchSnapshot();
   });
 
   describe("filters", () => {
@@ -209,11 +487,11 @@ describe("Document Library page", () => {
         }
       });
 
-      const { findByLabelText } = renderWithProviders({
+      renderWithProviders({
         route: mockHref
       });
       expect(mockQueryES).toBeCalled();
-      expect(await findByLabelText(/bmi components/i)).toBeChecked();
+      expect(await screen.findByLabelText(/bmi components/i)).toBeChecked();
       expect(mockQueryES).toBeCalled();
     });
     it("should make ES request when user select any filter and update url query params", async () => {
@@ -232,9 +510,9 @@ describe("Document Library page", () => {
           }
         }
       });
-      const { queryByText } = renderWithProviders({});
+      renderWithProviders({});
 
-      fireEvent.click(queryByText("BMI Components"));
+      fireEvent.click(screen.queryByText("BMI Components"));
       expect(mockQueryES).toBeCalledTimes(2);
 
       await waitFor(() => {
@@ -261,8 +539,8 @@ describe("Document Library page", () => {
           }
         }
       });
-      const { queryByText } = renderWithProviders({});
-      fireEvent.click(queryByText("BMI Components"));
+      renderWithProviders({});
+      fireEvent.click(screen.queryByText("BMI Components"));
       expect(mockQueryES).toBeCalled();
       await waitFor(() => {
         expect(window.history.replaceState).toBeCalledWith(
@@ -272,7 +550,7 @@ describe("Document Library page", () => {
         );
       });
 
-      fireEvent.click(queryByText("BMI Components"));
+      fireEvent.click(screen.queryByText("BMI Components"));
       expect(mockQueryES).toBeCalled();
       await waitFor(() => {
         expect(window.history.replaceState).toBeCalledWith(
@@ -298,12 +576,12 @@ describe("Document Library page", () => {
           }
         }
       });
-      const { getByText, findByLabelText } = renderWithProviders({
+      renderWithProviders({
         route: mockHref
       });
       expect(mockQueryES).toBeCalled();
-      expect(await findByLabelText(/bmi components/i)).toBeChecked();
-      fireEvent.click(getByText("MC: documentLibrary.filters.clearAll"));
+      expect(await screen.findByLabelText(/bmi components/i)).toBeChecked();
+      fireEvent.click(screen.getByText("MC: documentLibrary.filters.clearAll"));
       expect(window.history.replaceState).toHaveBeenCalledTimes(1);
       expect(mockQueryES).toBeCalled();
       await waitFor(() => {
@@ -315,16 +593,18 @@ describe("Document Library page", () => {
   it("should show the correct documents after clicking the pagination", async () => {
     jest.spyOn(window, "scrollTo").mockImplementation();
     const mockESDocumentsList = Array.from(Array(count + 1)).map((_, index) =>
-      createESDocumentHitResponseMock({
-        title: `documentTitle${index}`,
-        titleAndSize: `AeroDek_${index}`
-      })
+      createESDocumentHitResponseMock(
+        createPimProductDocument({
+          title: `documentTitle${index}`,
+          titleAndSize: `AeroDek_${index}`
+        })
+      )
     );
     const mockLastEsDocument = mockESDocumentsList.slice(-1);
     mockQueryES
       .mockResolvedValueOnce({
         hits: {
-          hits: [...mockESDocumentsList.slice(0, 24)]
+          hits: [...mockESDocumentsList.slice(0, 25)]
         },
         aggregations: {
           unique_documents_count: { value: count + 1 }
@@ -338,19 +618,21 @@ describe("Document Library page", () => {
           unique_documents_count: { value: 1 }
         }
       });
-    const { container, getByLabelText } = renderWithProviders({});
+    const { container } = renderWithProviders({});
     await waitFor(() => {
       expect(
+        // eslint-disable-next-line testing-library/no-node-access,testing-library/no-container
         container.querySelectorAll(".DocumentSimpleTableResults .row").length
       ).toBe(count);
     });
-    const nextPageButton = getByLabelText("Go to next page");
+    const nextPageButton = screen.getByLabelText("Go to next page");
     fireEvent.click(nextPageButton);
     await waitFor(() => {
       expect(window.scrollTo).toHaveBeenCalledWith(0, 0);
     });
     await waitFor(() => {
       expect(
+        // eslint-disable-next-line testing-library/no-node-access,testing-library/no-container
         container.querySelectorAll(".DocumentSimpleTableResults .row").length
       ).toBe(1);
     });
@@ -358,16 +640,16 @@ describe("Document Library page", () => {
 
   it("should render downloadList banner if user select document from the table", async () => {
     const eSDocumentMock = createESDocumentHitResponseMock()._source;
-    const { queryByText, getByText, findByLabelText } = renderWithProviders({});
-    const checkbox = await findByLabelText(
+    renderWithProviders({});
+    const checkbox = await screen.findByLabelText(
       `MC: documentLibrary.download ${eSDocumentMock.title}`
     );
-    expect(queryByText("MC: downloadList.info.title")).toBeFalsy();
-    expect(queryByText("MC: downloadList.info.message")).toBeFalsy();
+    expect(screen.queryByText("MC: downloadList.info.title")).toBeFalsy();
+    expect(screen.queryByText("MC: downloadList.info.message")).toBeFalsy();
 
     fireEvent.click(checkbox);
-    expect(getByText("MC: downloadList.info.title")).toBeTruthy();
-    expect(getByText("MC: downloadList.info.message")).toBeTruthy();
+    expect(screen.getByText("MC: downloadList.info.title")).toBeTruthy();
+    expect(screen.getByText("MC: downloadList.info.message")).toBeTruthy();
   });
 
   it("should update count after clicking any document checkbox", async () => {
@@ -376,10 +658,12 @@ describe("Document Library page", () => {
       "handleDownloadClick"
     );
     const mockESDocumentsList = Array.from(Array(2)).map((_, index) =>
-      createESDocumentHitResponseMock({
-        title: `documentTitle${index}`,
-        titleAndSize: `AeroDek_${index}`
-      })
+      createESDocumentHitResponseMock(
+        createPimProductDocument({
+          title: `documentTitle${index}`,
+          titleAndSize: `AeroDek_${index}`
+        })
+      )
     );
     mockQueryES.mockResolvedValueOnce({
       hits: {
@@ -389,31 +673,35 @@ describe("Document Library page", () => {
         }
       }
     });
-    const { findByLabelText, findByText } = renderWithProviders({});
-    const checkbox = await findByLabelText(
+    renderWithProviders({});
+    const checkbox = await screen.findByLabelText(
       "MC: documentLibrary.download documentTitle0"
     );
-    const checkbox2 = await findByLabelText(
+    const checkbox2 = await screen.findByLabelText(
       "MC: documentLibrary.download documentTitle1"
     );
 
     fireEvent.click(checkbox);
     fireEvent.click(checkbox2);
-    const downloadButton = await findByText("MC: downloadList.download (2)");
+    const downloadButton = await screen.findByText(
+      "MC: downloadList.download (2)"
+    );
     fireEvent.click(downloadButton);
     await waitFor(() => {
       expect(executeRecaptchaSpy).toHaveBeenCalledTimes(1);
-      expect(handleDownloadClickSpy).toHaveBeenCalledTimes(1);
     });
+    expect(handleDownloadClickSpy).toHaveBeenCalledTimes(1);
   });
 
   it("should show tooltip when reach max limit", async () => {
     const mockESDocumentsList = Array.from(Array(2)).map((_, index) =>
-      createESDocumentHitResponseMock({
-        title: `documentTitle${index}`,
-        titleAndSize: `AeroDek_${index}`,
-        fileSize: 104857600
-      })
+      createESDocumentHitResponseMock(
+        createPimProductDocument({
+          title: `documentTitle${index}`,
+          titleAndSize: `AeroDek_${index}`,
+          fileSize: 104857600
+        })
+      )
     );
     mockQueryES.mockResolvedValueOnce({
       hits: {
@@ -423,28 +711,23 @@ describe("Document Library page", () => {
         }
       }
     });
-    const { container, findByLabelText } = renderWithProviders({});
-    const checkbox = await findByLabelText(
+    renderWithProviders({});
+    const checkbox = await screen.findByLabelText(
       "MC: documentLibrary.download documentTitle0"
     );
-    const checkbox2 = await findByLabelText(
+    const checkbox2 = await screen.findByLabelText(
       "MC: documentLibrary.download documentTitle1"
     );
 
     fireEvent.click(checkbox);
     fireEvent.mouseOver(checkbox2);
-    const title = container.querySelector(
-      "[title='MC: documents.download.maxReached']"
-    );
-    expect(title).toBeFalsy();
+    expect(screen.queryByText("MC: documents.download.maxReached")).toBeFalsy();
     fireEvent.click(checkbox2);
     console.log("Hovering over checkbox");
     fireEvent.mouseOver(checkbox2);
-    waitFor(() =>
-      expect(
-        container.querySelector("[title='MC: documents.download.maxReached']")
-      ).toBeTruthy()
-    );
+    expect(
+      await screen.findByText("MC: documents.download.maxReached")
+    ).toBeInTheDocument();
   });
 
   it("should prevent document fetching in preview mode", async () => {
@@ -455,5 +738,20 @@ describe("Document Library page", () => {
         "You cannot search on the preview environment."
       );
     });
+  });
+
+  it("should not fetch documents and show Simple Archive table if source===CMS", async () => {
+    renderWithProviders({
+      pageData: createData(filtersMock(), {
+        resultsType: "Simple Archive",
+        title: "Document library page",
+        source: "CMS"
+      })
+    });
+
+    expect(
+      screen.queryByText("MC: documentLibrary.filters.title")
+    ).not.toBeInTheDocument();
+    expect(mockQueryES).not.toHaveBeenCalled();
   });
 });

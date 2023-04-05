@@ -3,13 +3,13 @@
 exports[`RecaptchaPrivacyLinks component When 'at' country code is provided renders German Recaptcha policy text and urls 1`] = `
 <div>
   <p
-    class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-87ejlm-MuiTypography-root"
+    class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
     data-testid="typography"
   >
     Diese Website ist durch reCAPTCHA geschützt und es gelten die 
     <a
       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-      data-testid="anchor-link"
+      data-testid="recaptcha-privacy-policy-link"
       href="https://policies.google.com/privacy?hl=de-at"
       rel="noreferrer noopener"
       target="_blank"
@@ -21,7 +21,7 @@ exports[`RecaptchaPrivacyLinks component When 'at' country code is provided rend
      und 
     <a
       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-      data-testid="anchor-link"
+      data-testid="recaptcha-terms-of-service-link"
       href="https://policies.google.com/terms?hl=de-at"
       rel="noreferrer noopener"
       target="_blank"
@@ -38,13 +38,13 @@ exports[`RecaptchaPrivacyLinks component When 'at' country code is provided rend
 exports[`RecaptchaPrivacyLinks component When 'de' country code is provided renders German Recaptcha policy text and urls 1`] = `
 <div>
   <p
-    class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-87ejlm-MuiTypography-root"
+    class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
     data-testid="typography"
   >
     Diese Website ist durch reCAPTCHA geschützt und es gelten die 
     <a
       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-      data-testid="anchor-link"
+      data-testid="recaptcha-privacy-policy-link"
       href="https://policies.google.com/privacy?hl=de-de"
       rel="noreferrer noopener"
       target="_blank"
@@ -56,7 +56,7 @@ exports[`RecaptchaPrivacyLinks component When 'de' country code is provided rend
      und 
     <a
       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-      data-testid="anchor-link"
+      data-testid="recaptcha-terms-of-service-link"
       href="https://policies.google.com/terms?hl=de-de"
       rel="noreferrer noopener"
       target="_blank"
@@ -73,13 +73,13 @@ exports[`RecaptchaPrivacyLinks component When 'de' country code is provided rend
 exports[`RecaptchaPrivacyLinks component When 'fi' country code is provided renders Finnish Recaptcha policy text and urls 1`] = `
 <div>
   <p
-    class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-87ejlm-MuiTypography-root"
+    class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
     data-testid="typography"
   >
     Tätä sivustoa suojaa reCAPTCHA, ja siihen sovelletaan Googlen 
     <a
       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-      data-testid="anchor-link"
+      data-testid="recaptcha-privacy-policy-link"
       href="https://policies.google.com/privacy?hl=fi-fi"
       rel="noreferrer noopener"
       target="_blank"
@@ -91,7 +91,7 @@ exports[`RecaptchaPrivacyLinks component When 'fi' country code is provided rend
      ja 
     <a
       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-      data-testid="anchor-link"
+      data-testid="recaptcha-terms-of-service-link"
       href="https://policies.google.com/terms?hl=fi-fi"
       rel="noreferrer noopener"
       target="_blank"
@@ -108,13 +108,13 @@ exports[`RecaptchaPrivacyLinks component When 'fi' country code is provided rend
 exports[`RecaptchaPrivacyLinks component When 'fr' country code is provided renders French Recaptcha policy text and urls 1`] = `
 <div>
   <p
-    class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-87ejlm-MuiTypography-root"
+    class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
     data-testid="typography"
   >
     Ce site est protégé par reCAPTCHA et la 
     <a
       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-      data-testid="anchor-link"
+      data-testid="recaptcha-privacy-policy-link"
       href="https://policies.google.com/privacy?hl=fr-fr"
       rel="noreferrer noopener"
       target="_blank"
@@ -126,7 +126,7 @@ exports[`RecaptchaPrivacyLinks component When 'fr' country code is provided rend
      et les 
     <a
       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-      data-testid="anchor-link"
+      data-testid="recaptcha-terms-of-service-link"
       href="https://policies.google.com/terms?hl=fr-fr"
       rel="noreferrer noopener"
       target="_blank"
@@ -143,13 +143,13 @@ exports[`RecaptchaPrivacyLinks component When 'fr' country code is provided rend
 exports[`RecaptchaPrivacyLinks component When 'it' country code is provided renders Italian Recaptcha policy text and urls 1`] = `
 <div>
   <p
-    class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-87ejlm-MuiTypography-root"
+    class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
     data-testid="typography"
   >
     Questo sito è protetto da reCAPTCHA e si applicano le 
     <a
       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-      data-testid="anchor-link"
+      data-testid="recaptcha-privacy-policy-link"
       href="https://policies.google.com/privacy?hl=it-it"
       rel="noreferrer noopener"
       target="_blank"
@@ -161,7 +161,7 @@ exports[`RecaptchaPrivacyLinks component When 'it' country code is provided rend
      e i 
     <a
       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-      data-testid="anchor-link"
+      data-testid="recaptcha-terms-of-service-link"
       href="https://policies.google.com/terms?hl=it-it"
       rel="noreferrer noopener"
       target="_blank"
@@ -178,13 +178,13 @@ exports[`RecaptchaPrivacyLinks component When 'it' country code is provided rend
 exports[`RecaptchaPrivacyLinks component When 'no' country code is provided renders Norwegian Recaptcha policy text and urls 1`] = `
 <div>
   <p
-    class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-87ejlm-MuiTypography-root"
+    class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
     data-testid="typography"
   >
     Dette nettstedet er beskyttet av reCAPTCHA og Googles 
     <a
       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-      data-testid="anchor-link"
+      data-testid="recaptcha-privacy-policy-link"
       href="https://policies.google.com/privacy?hl=no-nb"
       rel="noreferrer noopener"
       target="_blank"
@@ -196,7 +196,7 @@ exports[`RecaptchaPrivacyLinks component When 'no' country code is provided rend
      og 
     <a
       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-      data-testid="anchor-link"
+      data-testid="recaptcha-terms-of-service-link"
       href="https://policies.google.com/terms?hl=no-nb"
       rel="noreferrer noopener"
       target="_blank"
@@ -213,13 +213,13 @@ exports[`RecaptchaPrivacyLinks component When 'no' country code is provided rend
 exports[`RecaptchaPrivacyLinks component When custom styles added renders with custom style 1`] = `
 <div>
   <p
-    class="MuiTypography-root MuiTypography-body1 customStyle css-87ejlm-MuiTypography-root"
+    class="MuiTypography-root MuiTypography-body1 customStyle css-1o02bdp-MuiTypography-root"
     data-testid="typography"
   >
     Diese Website ist durch reCAPTCHA geschützt und es gelten die 
     <a
       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-      data-testid="anchor-link"
+      data-testid="recaptcha-privacy-policy-link"
       href="https://policies.google.com/privacy?hl=de-de"
       rel="noreferrer noopener"
       target="_blank"
@@ -231,7 +231,7 @@ exports[`RecaptchaPrivacyLinks component When custom styles added renders with c
      und 
     <a
       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-      data-testid="anchor-link"
+      data-testid="recaptcha-terms-of-service-link"
       href="https://policies.google.com/terms?hl=de-de"
       rel="noreferrer noopener"
       target="_blank"
@@ -248,13 +248,13 @@ exports[`RecaptchaPrivacyLinks component When custom styles added renders with c
 exports[`RecaptchaPrivacyLinks component When invalid country code is provided renders English Recaptcha policy text and urls 1`] = `
 <div>
   <p
-    class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-87ejlm-MuiTypography-root"
+    class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
     data-testid="typography"
   >
     This site is protected by reCAPTCHA and the Google 
     <a
       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-      data-testid="anchor-link"
+      data-testid="recaptcha-privacy-policy-link"
       href="https://policies.google.com/privacy"
       rel="noreferrer noopener"
       target="_blank"
@@ -266,7 +266,7 @@ exports[`RecaptchaPrivacyLinks component When invalid country code is provided r
      and 
     <a
       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-      data-testid="anchor-link"
+      data-testid="recaptcha-terms-of-service-link"
       href="https://policies.google.com/terms"
       rel="noreferrer noopener"
       target="_blank"

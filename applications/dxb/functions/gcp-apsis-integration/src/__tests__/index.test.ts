@@ -7,7 +7,6 @@ import {
 } from "@bmi-digital/fetch-mocks";
 import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
-import mockConsole from "jest-mock-console";
 
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
@@ -23,7 +22,8 @@ const mockRequest = (
     gdpr_2: true
   },
   headers: IncomingHttpHeaders = { "X-Recaptcha-Token": validToken }
-): Partial<Request> => fetchMockRequest("POST", headers, "/", body);
+): Partial<Request> =>
+  fetchMockRequest({ method: "POST", headers, url: "/", body });
 
 const oAuthEndpoint = `${process.env.APSIS_API_BASE_URL}/oauth/token`;
 
@@ -62,10 +62,6 @@ const optInEmailMarketing = async (
     request as Request,
     response as Response
   );
-
-beforeAll(() => {
-  mockConsole();
-});
 
 beforeEach(() => {
   jest.clearAllMocks();

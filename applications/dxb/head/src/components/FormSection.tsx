@@ -9,6 +9,7 @@ import {
   Grid,
   InputValue,
   RadioGroup,
+  replaceSpaces,
   Section,
   Select,
   SelectMenuItem,
@@ -21,7 +22,7 @@ import logger from "@bmi-digital/functions-logger";
 import classNames from "classnames";
 import { graphql, navigate } from "gatsby";
 import fetch from "node-fetch";
-import React, { FormEvent, useEffect, useState } from "react";
+import React, { FormEvent, useCallback, useEffect, useState } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import matchAll from "string.prototype.matchall";
 import { QA_AUTH_TOKEN } from "../constants/cookieConstants";
@@ -112,6 +113,7 @@ export const convertMarkdownLinksToAnchorLinks = (
           action={{ model: "htmlLink", href: link }}
           target="_blank"
           rel={isExternalUrl(link) && "noopener"}
+          data-testid={`label-${replaceSpaces(label)}-anchor-link`}
         >
           {label}
         </AnchorLink>
@@ -130,9 +132,7 @@ const Input = ({
   accept = ".pdf, .jpg, .jpeg, .png",
   maxSize
 }: Omit<InputType, "width">) => {
-  const {
-    config: { gcpFormUploadEndpoint }
-  } = useConfig();
+  const { gcpFormUploadEndpoint } = useConfig();
   const { getMicroCopy } = useSiteContext();
   const { executeRecaptcha } = useGoogleReCaptcha();
   const qaAuthToken = getCookie(QA_AUTH_TOKEN);
@@ -150,22 +150,28 @@ const Input = ({
     }
   });
 
-  const handleEmailValidation = (value: string) => {
-    // Has a full stop and a `@`, and at least one character in between both.
-    if (value.match(/.+@.+\..+/)) {
-      return false;
-    } else {
-      return getMicroCopy(microCopy.ERRORS_EMAIL_INVALID);
-    }
-  };
+  const handleEmailValidation = useCallback(
+    (value: string) => {
+      // Has a full stop and a `@`, and at least one character in between both.
+      if (value.match(/.+@.+\..+/)) {
+        return false;
+      } else {
+        return getMicroCopy(microCopy.ERRORS_EMAIL_INVALID);
+      }
+    },
+    [getMicroCopy]
+  );
 
-  const handleFileValidation = (file: File) => {
-    if (maxSize && file.size > maxSize * 1048576) {
-      return getMicroCopy(microCopy.ERRORS_MAX_SIZE, {
-        size: getFileSizeString(maxSize * 1048576)
-      });
-    }
-  };
+  const handleFileValidation = useCallback(
+    (file: File) => {
+      if (maxSize && file.size > maxSize * 1048576) {
+        return getMicroCopy(microCopy.ERRORS_MAX_SIZE, {
+          size: getFileSizeString(maxSize * 1048576)
+        });
+      }
+    },
+    [getMicroCopy, maxSize]
+  );
 
   switch (type) {
     case "upload":
@@ -239,6 +245,7 @@ const Input = ({
           )}
           label={label}
           name={name}
+          defaultValue={microCopy.FORM_NONE_SELECTION}
         >
           <SelectMenuItem value={microCopy.FORM_NONE_SELECTION}>
             {getMicroCopy(microCopy.FORM_NONE_SELECTION)}
@@ -327,9 +334,9 @@ type FormInputs = {
 export const FormInputs = ({ inputs }: FormInputs) => {
   return (
     <>
-      {inputs.map(({ width, ...props }, $i) => (
+      {inputs.map(({ width, name, ...props }, $i) => (
         <Grid key={$i} xs={12} md={width === "full" ? 12 : 6}>
-          <Input {...props} />
+          <Input name={name} data-testid={`form-input-${name}`} {...props} />
         </Grid>
       ))}
     </>
@@ -348,6 +355,7 @@ const HubspotForm = ({
   onFormLoadError,
   additionalValues,
   className,
+  hasNoPadding,
   isDialog = false
 }: {
   id: string;
@@ -362,11 +370,10 @@ const HubspotForm = ({
   additionalValues: FormSectionProps["additionalValues"];
   className?: string;
   isDialog?: boolean;
+  hasNoPadding?: boolean;
 }) => {
   const hubSpotFormID = `bmi-hubspot-form-${id || "no-id"}`;
-  const {
-    config: { hubSpotId }
-  } = useConfig();
+  const { hubSpotId } = useConfig();
 
   // Uses the HS script to bring in the form. This will create an iframe regardless
   // of styling options, but will only _use_ the iframe if it's _not_ raw HTML (empty
@@ -435,6 +442,8 @@ const HubspotForm = ({
       backgroundColor={backgroundColor}
       className={className}
       isDialog={isDialog}
+      hasNoPadding={hasNoPadding}
+      data-testid={`hubspot-form-section-${replaceSpaces(title)}`}
     >
       {showTitle && <Section.Title>{title}</Section.Title>}
       {description && (
@@ -470,6 +479,8 @@ type FormSectionProps = {
   onFormLoadError?: () => void;
   className?: string;
   isDialog?: boolean;
+  hasNoPadding?: boolean;
+  "data-testid"?: string;
 };
 
 const FormSection = ({
@@ -494,11 +505,12 @@ const FormSection = ({
   onFormReady,
   onFormLoadError,
   className,
-  isDialog = false
+  hasNoPadding,
+  isDialog = false,
+  "data-testid": dataTestId
 }: FormSectionProps) => {
-  const {
-    config: { isPreviewMode, gcpFormSubmitEndpoint, hubspotApiUrl, hubSpotId }
-  } = useConfig();
+  const { isPreviewMode, gcpFormSubmitEndpoint, hubspotApiUrl, hubSpotId } =
+    useConfig();
   const { countryCode, getMicroCopy, node_locale } = useSiteContext();
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const { executeRecaptcha } = useGoogleReCaptcha();
@@ -706,11 +718,18 @@ const FormSection = ({
         additionalValues={additionalValues}
         className={className}
         isDialog={isDialog}
+        hasNoPadding={hasNoPadding}
+        data-testid={dataTestId}
       />
     );
   }
   return (
-    <Section backgroundColor={backgroundColor} className={className}>
+    <Section
+      backgroundColor={backgroundColor}
+      className={className}
+      hasNoPadding={hasNoPadding}
+      data-testid={`contentful-form-section-${replaceSpaces(title)}`}
+    >
       {showTitle && <Section.Title>{title}</Section.Title>}
       {description && (
         <>
@@ -730,6 +749,7 @@ const FormSection = ({
               : handleSubmit
           }
           rightAlignButton
+          data-testid={dataTestId}
         >
           <Grid container spacing={3}>
             <FormInputs inputs={inputs} />
@@ -769,6 +789,9 @@ const FormSection = ({
                 )
               }
               disabled={isSubmitting || isSubmitDisabled}
+              data-testid={`contentful-form-section-${replaceSpaces(
+                title
+              )}-submit-button`}
             >
               {submitText || getMicroCopy(microCopy.FORM_SUBMIT)}
             </Form.SubmitButton>

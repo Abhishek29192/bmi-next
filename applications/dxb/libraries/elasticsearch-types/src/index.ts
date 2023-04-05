@@ -24,7 +24,8 @@ import type {
   PimSystemDocument,
   Product,
   ProductReference,
-  System
+  System,
+  PimDocumentBase
 } from "./types";
 
 export {
@@ -47,6 +48,7 @@ export type {
   ContentfulDocument,
   ContentfulImage,
   Image,
+  PimDocumentBase,
   PimProductDocument,
   PimSystemDocument,
   Product,

@@ -1,6 +1,6 @@
+import { brands } from "../../variables/icons/20220404105849";
 import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
-import { brands } from "../../variables/icons/20220404105849";
 
 export const description = "Create content model for Brand";
 

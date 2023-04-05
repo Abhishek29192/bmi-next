@@ -10,11 +10,11 @@ import {
 import ButtonBase, { ButtonBaseProps } from "@mui/material/ButtonBase";
 import { graphql } from "gatsby";
 import React from "react";
-import type { Data as PageInfoData } from "../components/PageInfo";
-import type { Data as PromoData } from "../components/Promo";
 import { microCopy } from "../constants/microCopies";
 import { getCTA } from "./Link";
 import { useSiteContext } from "./Site";
+import type { Data as PromoData } from "../components/Promo";
+import type { Data as PageInfoData } from "../components/PageInfo";
 
 export type Data = (PromoData | PageInfoData)[];
 
@@ -29,7 +29,10 @@ const NextBestActions = ({ data }: { data: Data }) => {
   const { getMicroCopy, countryCode } = useSiteContext();
 
   return (
-    <Section backgroundColor="alabaster">
+    <Section
+      backgroundColor="alabaster"
+      data-testid="next-best-actions-section"
+    >
       <Section.Title>{getMicroCopy(microCopy.NBA_TITLE)}</Section.Title>
       <Grid container spacing={3}>
         {data.map(({ title, subtitle, ...rest }, index) => {
@@ -78,7 +81,7 @@ export default NextBestActions;
 
 export const query = graphql`
   fragment NextBestActionsFragment on ContentfulPromoOrPage {
-    ...PromoFragment
-    ...PageInfoFragment
+    ...PromoCardFragment
+    ...PageInfoCardFragment
   }
 `;

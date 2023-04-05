@@ -1,6 +1,6 @@
+import { internalName } from "../../variables/helpText/20210421160910";
 import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
-import { internalName } from "../../variables/helpText/20210421160910";
 
 export const description = "Add name field for document library page";
 

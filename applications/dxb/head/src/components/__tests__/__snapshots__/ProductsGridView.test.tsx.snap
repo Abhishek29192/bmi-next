@@ -3,7 +3,7 @@
 exports[`ProductsGridView component renders correctly when empty 1`] = `
 <div>
   <p
-    class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+    class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
     data-testid="typography"
   >
     MC: plp.product.noResultsFound
@@ -18,8 +18,8 @@ exports[`ProductsGridView component renders correctly when not empty 1`] = `
     data-testid="grid-item"
   >
     <a
-      class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-iozq77-MuiButtonBase-root"
-      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/no/name-code/?pathname=%2F\\"}"
+      class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+      data-gtm="{"id":"cta-click1","label":"MC: plp.product.viewDetails","action":"/no/name-code/?pathname=%2F"}"
       href="/no/name-code/?pathname=%2F"
       tabindex="0"
     >
@@ -35,24 +35,23 @@ exports[`ProductsGridView component renders correctly when not empty 1`] = `
           class="OverviewCard-brandLogo OverviewCard-negative"
         />
         <h5
-          class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-10q7alf-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
           data-testid="overview-card-body-title"
         >
           name
         </h5>
-        
         <div
-          class="OverviewCard-text css-fm25tm"
+          class="OverviewCard-text css-kl66ak"
           data-testid="overview-card-body-description"
         >
           short-description
         </div>
         <div
-          class="css-1tho2wt"
+          class="css-ekp6jg"
           data-testid="overview-card-body-footer"
         >
           <span
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1qdeosv-MuiTypography-root-MuiLink-root"
             data-testid="anchor-link"
             type="button"
           >
@@ -61,7 +60,7 @@ exports[`ProductsGridView component renders correctly when not empty 1`] = `
             </span>
             <svg
               aria-hidden="true"
-              class=" css-em5iqk"
+              class=" css-1r2mexx"
               data-testid="internal"
               focusable="false"
               viewBox="0 0 16 16"
@@ -89,8 +88,8 @@ exports[`ProductsGridView component renders correctly when not empty with filter
     data-testid="grid-item"
   >
     <a
-      class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-iozq77-MuiButtonBase-root"
-      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/no/name-code/?filters=%5B%7B%22name%22%3A%22brand%22%2C%22value%22%3A%5B%22BMI_Components%22%5D%7D%5D&pathname=search&q=query\\"}"
+      class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+      data-gtm="{"id":"cta-click1","label":"MC: plp.product.viewDetails","action":"/no/name-code/?filters=%5B%7B%22name%22%3A%22brand%22%2C%22value%22%3A%5B%22BMI_Components%22%5D%7D%5D&pathname=search&q=query"}"
       href="/no/name-code/?filters=%5B%7B%22name%22%3A%22brand%22%2C%22value%22%3A%5B%22BMI_Components%22%5D%7D%5D&pathname=search&q=query"
       tabindex="0"
     >
@@ -106,24 +105,23 @@ exports[`ProductsGridView component renders correctly when not empty with filter
           class="OverviewCard-brandLogo OverviewCard-negative"
         />
         <h5
-          class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-10q7alf-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
           data-testid="overview-card-body-title"
         >
           name
         </h5>
-        
         <div
-          class="OverviewCard-text css-fm25tm"
+          class="OverviewCard-text css-kl66ak"
           data-testid="overview-card-body-description"
         >
           short-description
         </div>
         <div
-          class="css-1tho2wt"
+          class="css-ekp6jg"
           data-testid="overview-card-body-footer"
         >
           <span
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1qdeosv-MuiTypography-root-MuiLink-root"
             data-testid="anchor-link"
             type="button"
           >
@@ -132,7 +130,7 @@ exports[`ProductsGridView component renders correctly when not empty with filter
             </span>
             <svg
               aria-hidden="true"
-              class=" css-em5iqk"
+              class=" css-1r2mexx"
               data-testid="internal"
               focusable="false"
               viewBox="0 0 16 16"

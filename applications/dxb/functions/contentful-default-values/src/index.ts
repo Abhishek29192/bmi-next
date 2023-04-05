@@ -3,9 +3,9 @@ import {
   copyDefaultValues,
   findIrrelevantLocales
 } from "@bmi/cms-consolidation-utility";
-import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import { Asset, createClient, Entry, Environment } from "contentful-management";
 import { findLocalesFromTag } from "./locale";
+import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 
 const SECRET_MIN_LENGTH = 10;
 

@@ -1,6 +1,7 @@
 import { RegionCode } from "@bmi-digital/components";
 import { DataTypeEnum } from "../components/Link";
 import { Data as SiteData } from "../components/Site";
+import createImageData from "../__tests__/helpers/ImageDataHelper";
 
 export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
   node_locale: "en-GB",
@@ -1041,74 +1042,7 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
         date: null,
         tags: null,
         featuredVideo: null,
-        featuredMedia: {
-          type: "Decorative",
-          altText: "BMI-Norge-produktbilde-zanda-arktis",
-          focalPoint: null,
-          image: {
-            file: {
-              fileName: "BMI_Zanda_Arktis.jpg",
-              url: "//images.ctfassets.net/un5bh1z034o8/7cEa9QXFAsCMmvnhJLrZqK/debb0d8db1db80413b7903194e366616/BMI_Zanda_Arktis.jpg"
-            },
-            gatsbyImageData: {
-              images: {
-                sources: [
-                  {
-                    srcSet:
-                      "//images.ctfassets.net/un5bh1z034o8/7cEa9QXFAsCMmvnhJLrZqK/debb0d8db1db80413b7903194e366616/BMI_Zanda_Arktis.jpg?w=1597&h=1213&q=50&fm=webp 1597w,\n//images.ctfassets.net/un5bh1z034o8/7cEa9QXFAsCMmvnhJLrZqK/debb0d8db1db80413b7903194e366616/BMI_Zanda_Arktis.jpg?w=3195&h=2426&q=50&fm=webp 3195w,\n//images.ctfassets.net/un5bh1z034o8/7cEa9QXFAsCMmvnhJLrZqK/debb0d8db1db80413b7903194e366616/BMI_Zanda_Arktis.jpg?w=4000&h=3037&q=50&fm=webp 4000w",
-                    sizes: "(min-width: 6389px) 6389px, 100vw",
-                    type: "image/webp"
-                  }
-                ],
-                fallback: {
-                  src: "//images.ctfassets.net/un5bh1z034o8/7cEa9QXFAsCMmvnhJLrZqK/debb0d8db1db80413b7903194e366616/BMI_Zanda_Arktis.jpg?w=1597&h=1213&fl=progressive&q=50&fm=jpg",
-                  srcSet:
-                    "//images.ctfassets.net/un5bh1z034o8/7cEa9QXFAsCMmvnhJLrZqK/debb0d8db1db80413b7903194e366616/BMI_Zanda_Arktis.jpg?w=1597&h=1213&fl=progressive&q=50&fm=jpg 1597w,\n//images.ctfassets.net/un5bh1z034o8/7cEa9QXFAsCMmvnhJLrZqK/debb0d8db1db80413b7903194e366616/BMI_Zanda_Arktis.jpg?w=3195&h=2426&fl=progressive&q=50&fm=jpg 3195w,\n//images.ctfassets.net/un5bh1z034o8/7cEa9QXFAsCMmvnhJLrZqK/debb0d8db1db80413b7903194e366616/BMI_Zanda_Arktis.jpg?w=4000&h=3037&fl=progressive&q=50&fm=jpg 4000w",
-                  sizes: "(min-width: 6389px) 6389px, 100vw"
-                }
-              },
-              layout: "constrained",
-              width: 6389,
-              height: 4852,
-              placeholder: {
-                fallback:
-                  "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEBLAEsAAD/4gJASUNDX1BST0ZJTEUAAQEAAAIwQURCRQIQAABtbnRyUkdCIFhZWiAH0AAIAAsAEwAzADthY3NwQVBQTAAAAABub25lAAAAAAAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLUFEQkUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAApjcHJ0AAAA/AAAADJkZXNjAAABMAAAAGt3dHB0AAABnAAAABRia3B0AAABsAAAABRyVFJDAAABxAAAAA5nVFJDAAAB1AAAAA5iVFJDAAAB5AAAAA5yWFlaAAAB9AAAABRnWFlaAAACCAAAABRiWFlaAAACHAAAABR0ZXh0AAAAAENvcHlyaWdodCAyMDAwIEFkb2JlIFN5c3RlbXMgSW5jb3Jwb3JhdGVkAAAAZGVzYwAAAAAAAAARQWRvYmUgUkdCICgxOTk4KQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWFlaIAAAAAAAAPNRAAEAAAABFsxYWVogAAAAAAAAAAAAAAAAAAAAAGN1cnYAAAAAAAAAAQIzAABjdXJ2AAAAAAAAAAECMwAAY3VydgAAAAAAAAABAjMAAFhZWiAAAAAAAACcGAAAT6UAAAT8WFlaIAAAAAAAADSNAACgLAAAD5VYWVogAAAAAAAAJjEAABAvAAC+nP/bAEMAAwICAwICAwMDAwQDAwQFCAUFBAQFCgcHBggMCgwMCwoLCw0OEhANDhEOCwsQFhARExQVFRUMDxcYFhQYEhQVFP/bAEMBAwQEBQQFCQUFCRQNCw0UFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFP/AABEIAA8AFAMBEQACEQEDEQH/xAAXAAEAAwAAAAAAAAAAAAAAAAAGAgUI/8QAJBAAAQIFAwUBAAAAAAAAAAAAAQIDAAQFESEGUWESEzFB8DL/xAAXAQEBAQEAAAAAAAAAAAAAAAADAgEE/8QAHxEAAgIBBAMAAAAAAAAAAAAAAQIAAxEEEiFBE1Fh/9oADAMBAAIRAxEAPwDENFpUu70rdt1qwAPKjsOYhmCDJiIjWMFWOJLSstM04Oy7oTnGLg/cxivuwVHBlPV4wQ5ww69yuVQFtrWm/g+4SDC9OeTMS/bKSFejf7PMQ67hFrsKH5F9EqKacwpTjinH/wBEi4STvbffeDrqCcxrdS9vHUi5qO7ijY5MPOOf/9k="
-              }
-            }
-          },
-          thumbnail: {
-            src: "https://images.ctfassets.net/un5bh1z034o8/7cEa9QXFAsCMmvnhJLrZqK/debb0d8db1db80413b7903194e366616/BMI_Zanda_Arktis.jpg",
-            file: {
-              fileName: "BMI_Zanda_Arktis.jpg",
-              url: "//images.ctfassets.net/un5bh1z034o8/7cEa9QXFAsCMmvnhJLrZqK/debb0d8db1db80413b7903194e366616/BMI_Zanda_Arktis.jpg"
-            },
-            gatsbyImageData: {
-              images: {
-                sources: [
-                  {
-                    srcSet:
-                      "//images.ctfassets.net/un5bh1z034o8/7cEa9QXFAsCMmvnhJLrZqK/debb0d8db1db80413b7903194e366616/BMI_Zanda_Arktis.jpg?w=1597&h=1213&q=50&fm=webp 1597w,\n//images.ctfassets.net/un5bh1z034o8/7cEa9QXFAsCMmvnhJLrZqK/debb0d8db1db80413b7903194e366616/BMI_Zanda_Arktis.jpg?w=3195&h=2426&q=50&fm=webp 3195w,\n//images.ctfassets.net/un5bh1z034o8/7cEa9QXFAsCMmvnhJLrZqK/debb0d8db1db80413b7903194e366616/BMI_Zanda_Arktis.jpg?w=4000&h=3037&q=50&fm=webp 4000w",
-                    sizes: "(min-width: 6389px) 6389px, 100vw",
-                    type: "image/webp"
-                  }
-                ],
-                fallback: {
-                  src: "//images.ctfassets.net/un5bh1z034o8/7cEa9QXFAsCMmvnhJLrZqK/debb0d8db1db80413b7903194e366616/BMI_Zanda_Arktis.jpg?w=1597&h=1213&fl=progressive&q=50&fm=jpg",
-                  srcSet:
-                    "//images.ctfassets.net/un5bh1z034o8/7cEa9QXFAsCMmvnhJLrZqK/debb0d8db1db80413b7903194e366616/BMI_Zanda_Arktis.jpg?w=1597&h=1213&fl=progressive&q=50&fm=jpg 1597w,\n//images.ctfassets.net/un5bh1z034o8/7cEa9QXFAsCMmvnhJLrZqK/debb0d8db1db80413b7903194e366616/BMI_Zanda_Arktis.jpg?w=3195&h=2426&fl=progressive&q=50&fm=jpg 3195w,\n//images.ctfassets.net/un5bh1z034o8/7cEa9QXFAsCMmvnhJLrZqK/debb0d8db1db80413b7903194e366616/BMI_Zanda_Arktis.jpg?w=4000&h=3037&fl=progressive&q=50&fm=jpg 4000w",
-                  sizes: "(min-width: 6389px) 6389px, 100vw"
-                }
-              },
-              layout: "constrained",
-              width: 6389,
-              height: 4852,
-              placeholder: {
-                fallback:
-                  "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEBLAEsAAD/4gJASUNDX1BST0ZJTEUAAQEAAAIwQURCRQIQAABtbnRyUkdCIFhZWiAH0AAIAAsAEwAzADthY3NwQVBQTAAAAABub25lAAAAAAAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLUFEQkUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAApjcHJ0AAAA/AAAADJkZXNjAAABMAAAAGt3dHB0AAABnAAAABRia3B0AAABsAAAABRyVFJDAAABxAAAAA5nVFJDAAAB1AAAAA5iVFJDAAAB5AAAAA5yWFlaAAAB9AAAABRnWFlaAAACCAAAABRiWFlaAAACHAAAABR0ZXh0AAAAAENvcHlyaWdodCAyMDAwIEFkb2JlIFN5c3RlbXMgSW5jb3Jwb3JhdGVkAAAAZGVzYwAAAAAAAAARQWRvYmUgUkdCICgxOTk4KQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWFlaIAAAAAAAAPNRAAEAAAABFsxYWVogAAAAAAAAAAAAAAAAAAAAAGN1cnYAAAAAAAAAAQIzAABjdXJ2AAAAAAAAAAECMwAAY3VydgAAAAAAAAABAjMAAFhZWiAAAAAAAACcGAAAT6UAAAT8WFlaIAAAAAAAADSNAACgLAAAD5VYWVogAAAAAAAAJjEAABAvAAC+nP/bAEMAAwICAwICAwMDAwQDAwQFCAUFBAQFCgcHBggMCgwMCwoLCw0OEhANDhEOCwsQFhARExQVFRUMDxcYFhQYEhQVFP/bAEMBAwQEBQQFCQUFCRQNCw0UFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFP/AABEIAA8AFAMBEQACEQEDEQH/xAAXAAEAAwAAAAAAAAAAAAAAAAAGAgUI/8QAJBAAAQIFAwUBAAAAAAAAAAAAAQIDAAQFESEGUWESEzFB8DL/xAAXAQEBAQEAAAAAAAAAAAAAAAADAgEE/8QAHxEAAgIBBAMAAAAAAAAAAAAAAQIAAxEEEiFBE1Fh/9oADAMBAAIRAxEAPwDENFpUu70rdt1qwAPKjsOYhmCDJiIjWMFWOJLSstM04Oy7oTnGLg/cxivuwVHBlPV4wQ5ww69yuVQFtrWm/g+4SDC9OeTMS/bKSFejf7PMQ67hFrsKH5F9EqKacwpTjinH/wBEi4STvbffeDrqCcxrdS9vHUi5qO7ijY5MPOOf/9k="
-              }
-            }
-          }
-        }
+        featuredMedia: createImageData()
       },
       {
         __typename: "ContentfulSimplePage",
@@ -1127,74 +1061,7 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
           }
         ],
         featuredVideo: null,
-        featuredMedia: {
-          type: "Decorative",
-          altText: "BMI-Norge-miljøbilde-Tegl-nortelg-overflate",
-          focalPoint: null,
-          image: {
-            file: {
-              fileName: "BMI-Norge-miljøbilde-Tegl-nortelg-overflate.jpg",
-              url: "//images.ctfassets.net/un5bh1z034o8/3vvFgG6vD4FaUD5oRNmUQB/822e560920b21a5915259b36662e7d6e/BMI-Norge-milj_bilde-Tegl-nortelg-overflate.jpg"
-            },
-            gatsbyImageData: {
-              images: {
-                sources: [
-                  {
-                    srcSet:
-                      "//images.ctfassets.net/un5bh1z034o8/3vvFgG6vD4FaUD5oRNmUQB/822e560920b21a5915259b36662e7d6e/BMI-Norge-milj_bilde-Tegl-nortelg-overflate.jpg?w=411&h=265&q=50&fm=webp 411w,\n//images.ctfassets.net/un5bh1z034o8/3vvFgG6vD4FaUD5oRNmUQB/822e560920b21a5915259b36662e7d6e/BMI-Norge-milj_bilde-Tegl-nortelg-overflate.jpg?w=821&h=529&q=50&fm=webp 821w,\n//images.ctfassets.net/un5bh1z034o8/3vvFgG6vD4FaUD5oRNmUQB/822e560920b21a5915259b36662e7d6e/BMI-Norge-milj_bilde-Tegl-nortelg-overflate.jpg?w=1642&h=1058&q=50&fm=webp 1642w",
-                    sizes: "(min-width: 1642px) 1642px, 100vw",
-                    type: "image/webp"
-                  }
-                ],
-                fallback: {
-                  src: "//images.ctfassets.net/un5bh1z034o8/3vvFgG6vD4FaUD5oRNmUQB/822e560920b21a5915259b36662e7d6e/BMI-Norge-milj_bilde-Tegl-nortelg-overflate.jpg?w=1642&h=1058&fl=progressive&q=50&fm=jpg",
-                  srcSet:
-                    "//images.ctfassets.net/un5bh1z034o8/3vvFgG6vD4FaUD5oRNmUQB/822e560920b21a5915259b36662e7d6e/BMI-Norge-milj_bilde-Tegl-nortelg-overflate.jpg?w=411&h=265&fl=progressive&q=50&fm=jpg 411w,\n//images.ctfassets.net/un5bh1z034o8/3vvFgG6vD4FaUD5oRNmUQB/822e560920b21a5915259b36662e7d6e/BMI-Norge-milj_bilde-Tegl-nortelg-overflate.jpg?w=821&h=529&fl=progressive&q=50&fm=jpg 821w,\n//images.ctfassets.net/un5bh1z034o8/3vvFgG6vD4FaUD5oRNmUQB/822e560920b21a5915259b36662e7d6e/BMI-Norge-milj_bilde-Tegl-nortelg-overflate.jpg?w=1642&h=1058&fl=progressive&q=50&fm=jpg 1642w",
-                  sizes: "(min-width: 1642px) 1642px, 100vw"
-                }
-              },
-              layout: "constrained",
-              width: 1642,
-              height: 1058,
-              placeholder: {
-                fallback:
-                  "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEBLAEsAAD/4gJASUNDX1BST0ZJTEUAAQEAAAIwQURCRQIQAABtbnRyUkdCIFhZWiAHzwAGAAMAAAAAAABhY3NwQVBQTAAAAABub25lAAAAAAAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLUFEQkUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAApjcHJ0AAAA/AAAADJkZXNjAAABMAAAAGt3dHB0AAABnAAAABRia3B0AAABsAAAABRyVFJDAAABxAAAAA5nVFJDAAAB1AAAAA5iVFJDAAAB5AAAAA5yWFlaAAAB9AAAABRnWFlaAAACCAAAABRiWFlaAAACHAAAABR0ZXh0AAAAAENvcHlyaWdodCAxOTk5IEFkb2JlIFN5c3RlbXMgSW5jb3Jwb3JhdGVkAAAAZGVzYwAAAAAAAAARQWRvYmUgUkdCICgxOTk4KQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWFlaIAAAAAAAAPNRAAEAAAABFsxYWVogAAAAAAAAAAAAAAAAAAAAAGN1cnYAAAAAAAAAAQIzAABjdXJ2AAAAAAAAAAECMwAAY3VydgAAAAAAAAABAjMAAFhZWiAAAAAAAACcGAAAT6UAAAT8WFlaIAAAAAAAADSNAACgLAAAD5VYWVogAAAAAAAAJjEAABAvAAC+nP/bAEMAAwICAwICAwMDAwQDAwQFCAUFBAQFCgcHBggMCgwMCwoLCw0OEhANDhEOCwsQFhARExQVFRUMDxcYFhQYEhQVFP/bAEMBAwQEBQQFCQUFCRQNCw0UFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFP/AABEIAA0AFAMBEQACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAACBwMFBv/EACYQAAEDAwMEAgMAAAAAAAAAAAECAxEEEiEABkEFEyIxMmFSgfD/xAAaAQABBQEAAAAAAAAAAAAAAAADAAQFBgcC/8QAIhEAAQMDAwUAAAAAAAAAAAAAAgABEQQSIQNRoRMxceHw/9oADAMBAAIRAxEAPwBfO9Ha2883StOGpZS2gpeWkAqx7Ign6AnJBOs2DW6w3u0OtLpiuDwhet7gUlSgpfjJlRu9jNv2RAj5aMOcJwWMqjrktqfknMcupGl2XUTmU0XWxXM07igJ8ouklPjdiCM+88TqH05tfO3KqT1JaJEzKKo2UKlS7qpOZTho8Cfz/uZ1ZwooiC49qWaugYt5WG3Bt9LfUDY92wpIUUtoASD+50UKW5skm417tLEMx9sv/9k="
-              }
-            }
-          },
-          thumbnail: {
-            src: "https://images.ctfassets.net/un5bh1z034o8/3vvFgG6vD4FaUD5oRNmUQB/822e560920b21a5915259b36662e7d6e/BMI-Norge-milj_bilde-Tegl-nortelg-overflate.jpg",
-            file: {
-              fileName: "BMI-Norge-miljøbilde-Tegl-nortelg-overflate.jpg",
-              url: "//images.ctfassets.net/un5bh1z034o8/3vvFgG6vD4FaUD5oRNmUQB/822e560920b21a5915259b36662e7d6e/BMI-Norge-milj_bilde-Tegl-nortelg-overflate.jpg"
-            },
-            gatsbyImageData: {
-              images: {
-                sources: [
-                  {
-                    srcSet:
-                      "//images.ctfassets.net/un5bh1z034o8/3vvFgG6vD4FaUD5oRNmUQB/822e560920b21a5915259b36662e7d6e/BMI-Norge-milj_bilde-Tegl-nortelg-overflate.jpg?w=411&h=265&q=50&fm=webp 411w,\n//images.ctfassets.net/un5bh1z034o8/3vvFgG6vD4FaUD5oRNmUQB/822e560920b21a5915259b36662e7d6e/BMI-Norge-milj_bilde-Tegl-nortelg-overflate.jpg?w=821&h=529&q=50&fm=webp 821w,\n//images.ctfassets.net/un5bh1z034o8/3vvFgG6vD4FaUD5oRNmUQB/822e560920b21a5915259b36662e7d6e/BMI-Norge-milj_bilde-Tegl-nortelg-overflate.jpg?w=1642&h=1058&q=50&fm=webp 1642w",
-                    sizes: "(min-width: 1642px) 1642px, 100vw",
-                    type: "image/webp"
-                  }
-                ],
-                fallback: {
-                  src: "//images.ctfassets.net/un5bh1z034o8/3vvFgG6vD4FaUD5oRNmUQB/822e560920b21a5915259b36662e7d6e/BMI-Norge-milj_bilde-Tegl-nortelg-overflate.jpg?w=1642&h=1058&fl=progressive&q=50&fm=jpg",
-                  srcSet:
-                    "//images.ctfassets.net/un5bh1z034o8/3vvFgG6vD4FaUD5oRNmUQB/822e560920b21a5915259b36662e7d6e/BMI-Norge-milj_bilde-Tegl-nortelg-overflate.jpg?w=411&h=265&fl=progressive&q=50&fm=jpg 411w,\n//images.ctfassets.net/un5bh1z034o8/3vvFgG6vD4FaUD5oRNmUQB/822e560920b21a5915259b36662e7d6e/BMI-Norge-milj_bilde-Tegl-nortelg-overflate.jpg?w=821&h=529&fl=progressive&q=50&fm=jpg 821w,\n//images.ctfassets.net/un5bh1z034o8/3vvFgG6vD4FaUD5oRNmUQB/822e560920b21a5915259b36662e7d6e/BMI-Norge-milj_bilde-Tegl-nortelg-overflate.jpg?w=1642&h=1058&fl=progressive&q=50&fm=jpg 1642w",
-                  sizes: "(min-width: 1642px) 1642px, 100vw"
-                }
-              },
-              layout: "constrained",
-              width: 1642,
-              height: 1058,
-              placeholder: {
-                fallback:
-                  "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEBLAEsAAD/4gJASUNDX1BST0ZJTEUAAQEAAAIwQURCRQIQAABtbnRyUkdCIFhZWiAHzwAGAAMAAAAAAABhY3NwQVBQTAAAAABub25lAAAAAAAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLUFEQkUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAApjcHJ0AAAA/AAAADJkZXNjAAABMAAAAGt3dHB0AAABnAAAABRia3B0AAABsAAAABRyVFJDAAABxAAAAA5nVFJDAAAB1AAAAA5iVFJDAAAB5AAAAA5yWFlaAAAB9AAAABRnWFlaAAACCAAAABRiWFlaAAACHAAAABR0ZXh0AAAAAENvcHlyaWdodCAxOTk5IEFkb2JlIFN5c3RlbXMgSW5jb3Jwb3JhdGVkAAAAZGVzYwAAAAAAAAARQWRvYmUgUkdCICgxOTk4KQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWFlaIAAAAAAAAPNRAAEAAAABFsxYWVogAAAAAAAAAAAAAAAAAAAAAGN1cnYAAAAAAAAAAQIzAABjdXJ2AAAAAAAAAAECMwAAY3VydgAAAAAAAAABAjMAAFhZWiAAAAAAAACcGAAAT6UAAAT8WFlaIAAAAAAAADSNAACgLAAAD5VYWVogAAAAAAAAJjEAABAvAAC+nP/bAEMAAwICAwICAwMDAwQDAwQFCAUFBAQFCgcHBggMCgwMCwoLCw0OEhANDhEOCwsQFhARExQVFRUMDxcYFhQYEhQVFP/bAEMBAwQEBQQFCQUFCRQNCw0UFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFP/AABEIAA0AFAMBEQACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAACBwMFBv/EACYQAAEDAwMEAgMAAAAAAAAAAAECAxEEEiEABkEFEyIxMmFSgfD/xAAaAQABBQEAAAAAAAAAAAAAAAADAAQFBgcC/8QAIhEAAQMDAwUAAAAAAAAAAAAAAgABEQQSIQNRoRMxceHw/9oADAMBAAIRAxEAPwBfO9Ha2883StOGpZS2gpeWkAqx7Ign6AnJBOs2DW6w3u0OtLpiuDwhet7gUlSgpfjJlRu9jNv2RAj5aMOcJwWMqjrktqfknMcupGl2XUTmU0XWxXM07igJ8ouklPjdiCM+88TqH05tfO3KqT1JaJEzKKo2UKlS7qpOZTho8Cfz/uZ1ZwooiC49qWaugYt5WG3Bt9LfUDY92wpIUUtoASD+50UKW5skm417tLEMx9sv/9k="
-              }
-            }
-          }
-        }
+        featuredMedia: createImageData()
       },
       {
         __typename: "ContentfulSimplePage",
@@ -1208,74 +1075,7 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
         date: null,
         tags: null,
         featuredVideo: null,
-        featuredMedia: {
-          type: "Decorative",
-          altText: "BMI-Norge-Miljøbilde-betongtakstein-arktis",
-          focalPoint: null,
-          image: {
-            file: {
-              fileName: "BMI-Norge-miljøbilde-betongstein-Arktis.jpg",
-              url: "//images.ctfassets.net/un5bh1z034o8/4pqV0q6UfA6xV7bcDBAtKS/c4c841aaa7661ba6ce55aac9a47d07ef/BMI-Norge-milj_bilde-betongstein-Arktis.jpg"
-            },
-            gatsbyImageData: {
-              images: {
-                sources: [
-                  {
-                    srcSet:
-                      "//images.ctfassets.net/un5bh1z034o8/4pqV0q6UfA6xV7bcDBAtKS/c4c841aaa7661ba6ce55aac9a47d07ef/BMI-Norge-milj_bilde-betongstein-Arktis.jpg?w=419&h=298&q=50&fm=webp 419w,\n//images.ctfassets.net/un5bh1z034o8/4pqV0q6UfA6xV7bcDBAtKS/c4c841aaa7661ba6ce55aac9a47d07ef/BMI-Norge-milj_bilde-betongstein-Arktis.jpg?w=838&h=596&q=50&fm=webp 838w,\n//images.ctfassets.net/un5bh1z034o8/4pqV0q6UfA6xV7bcDBAtKS/c4c841aaa7661ba6ce55aac9a47d07ef/BMI-Norge-milj_bilde-betongstein-Arktis.jpg?w=1676&h=1192&q=50&fm=webp 1676w",
-                    sizes: "(min-width: 1676px) 1676px, 100vw",
-                    type: "image/webp"
-                  }
-                ],
-                fallback: {
-                  src: "//images.ctfassets.net/un5bh1z034o8/4pqV0q6UfA6xV7bcDBAtKS/c4c841aaa7661ba6ce55aac9a47d07ef/BMI-Norge-milj_bilde-betongstein-Arktis.jpg?w=1676&h=1192&fl=progressive&q=50&fm=jpg",
-                  srcSet:
-                    "//images.ctfassets.net/un5bh1z034o8/4pqV0q6UfA6xV7bcDBAtKS/c4c841aaa7661ba6ce55aac9a47d07ef/BMI-Norge-milj_bilde-betongstein-Arktis.jpg?w=419&h=298&fl=progressive&q=50&fm=jpg 419w,\n//images.ctfassets.net/un5bh1z034o8/4pqV0q6UfA6xV7bcDBAtKS/c4c841aaa7661ba6ce55aac9a47d07ef/BMI-Norge-milj_bilde-betongstein-Arktis.jpg?w=838&h=596&fl=progressive&q=50&fm=jpg 838w,\n//images.ctfassets.net/un5bh1z034o8/4pqV0q6UfA6xV7bcDBAtKS/c4c841aaa7661ba6ce55aac9a47d07ef/BMI-Norge-milj_bilde-betongstein-Arktis.jpg?w=1676&h=1192&fl=progressive&q=50&fm=jpg 1676w",
-                  sizes: "(min-width: 1676px) 1676px, 100vw"
-                }
-              },
-              layout: "constrained",
-              width: 1676,
-              height: 1192,
-              placeholder: {
-                fallback:
-                  "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAOABQDAREAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAQUDBgf/xAArEAABAwEECAcAAAAAAAAAAAABAgMEBQAGBxESFSExQWGT0RMUIyU2UXH/xAAZAQEAAgMAAAAAAAAAAAAAAAADBAYAAQX/xAAmEQABAwMCBQUAAAAAAAAAAAABAAISAwQRBWETIVJx0TFBQqGx/9oADAMBAAIRAxEAPwCG/Mmu3UplIVTIXm5kzxlvBx4aKGwsJSBkPsOZ79wtarjUYPw0ZG4Krtvp82ZeTnuFXWMTL6MrWTdGmvlQA9VRWdnLS/LQDqDz8l0m2NNvq3PdMmsVr8FPxCkpHAJY2bhzsZvHdX75Ti2b0D68JzjrT4wvZBhRYLL8WHAaQ0p9amyQsqeOaU5gbXDxtAqVeIQ7J5pqdODYgLPdRpyHtVP6zvaxy3Sx2Q1C2kkarhddztbc91kM+y//2Q=="
-              }
-            }
-          },
-          thumbnail: {
-            src: "https://images.ctfassets.net/un5bh1z034o8/4pqV0q6UfA6xV7bcDBAtKS/c4c841aaa7661ba6ce55aac9a47d07ef/BMI-Norge-milj_bilde-betongstein-Arktis.jpg",
-            file: {
-              fileName: "BMI-Norge-miljøbilde-betongstein-Arktis.jpg",
-              url: "//images.ctfassets.net/un5bh1z034o8/4pqV0q6UfA6xV7bcDBAtKS/c4c841aaa7661ba6ce55aac9a47d07ef/BMI-Norge-milj_bilde-betongstein-Arktis.jpg"
-            },
-            gatsbyImageData: {
-              images: {
-                sources: [
-                  {
-                    srcSet:
-                      "//images.ctfassets.net/un5bh1z034o8/4pqV0q6UfA6xV7bcDBAtKS/c4c841aaa7661ba6ce55aac9a47d07ef/BMI-Norge-milj_bilde-betongstein-Arktis.jpg?w=419&h=298&q=50&fm=webp 419w,\n//images.ctfassets.net/un5bh1z034o8/4pqV0q6UfA6xV7bcDBAtKS/c4c841aaa7661ba6ce55aac9a47d07ef/BMI-Norge-milj_bilde-betongstein-Arktis.jpg?w=838&h=596&q=50&fm=webp 838w,\n//images.ctfassets.net/un5bh1z034o8/4pqV0q6UfA6xV7bcDBAtKS/c4c841aaa7661ba6ce55aac9a47d07ef/BMI-Norge-milj_bilde-betongstein-Arktis.jpg?w=1676&h=1192&q=50&fm=webp 1676w",
-                    sizes: "(min-width: 1676px) 1676px, 100vw",
-                    type: "image/webp"
-                  }
-                ],
-                fallback: {
-                  src: "//images.ctfassets.net/un5bh1z034o8/4pqV0q6UfA6xV7bcDBAtKS/c4c841aaa7661ba6ce55aac9a47d07ef/BMI-Norge-milj_bilde-betongstein-Arktis.jpg?w=1676&h=1192&fl=progressive&q=50&fm=jpg",
-                  srcSet:
-                    "//images.ctfassets.net/un5bh1z034o8/4pqV0q6UfA6xV7bcDBAtKS/c4c841aaa7661ba6ce55aac9a47d07ef/BMI-Norge-milj_bilde-betongstein-Arktis.jpg?w=419&h=298&fl=progressive&q=50&fm=jpg 419w,\n//images.ctfassets.net/un5bh1z034o8/4pqV0q6UfA6xV7bcDBAtKS/c4c841aaa7661ba6ce55aac9a47d07ef/BMI-Norge-milj_bilde-betongstein-Arktis.jpg?w=838&h=596&fl=progressive&q=50&fm=jpg 838w,\n//images.ctfassets.net/un5bh1z034o8/4pqV0q6UfA6xV7bcDBAtKS/c4c841aaa7661ba6ce55aac9a47d07ef/BMI-Norge-milj_bilde-betongstein-Arktis.jpg?w=1676&h=1192&fl=progressive&q=50&fm=jpg 1676w",
-                  sizes: "(min-width: 1676px) 1676px, 100vw"
-                }
-              },
-              layout: "constrained",
-              width: 1676,
-              height: 1192,
-              placeholder: {
-                fallback:
-                  "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAOABQDAREAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAQUDBgf/xAArEAABAwEECAcAAAAAAAAAAAABAgMEBQAGBxESFSExQWGT0RMUIyU2UXH/xAAZAQEAAgMAAAAAAAAAAAAAAAADBAYAAQX/xAAmEQABAwMCBQUAAAAAAAAAAAABAAISAwQRBWETIVJx0TFBQqGx/9oADAMBAAIRAxEAPwCG/Mmu3UplIVTIXm5kzxlvBx4aKGwsJSBkPsOZ79wtarjUYPw0ZG4Krtvp82ZeTnuFXWMTL6MrWTdGmvlQA9VRWdnLS/LQDqDz8l0m2NNvq3PdMmsVr8FPxCkpHAJY2bhzsZvHdX75Ti2b0D68JzjrT4wvZBhRYLL8WHAaQ0p9amyQsqeOaU5gbXDxtAqVeIQ7J5pqdODYgLPdRpyHtVP6zvaxy3Sx2Q1C2kkarhddztbc91kM+y//2Q=="
-              }
-            }
-          }
-        }
+        featuredMedia: createImageData()
       }
     ],
     pdpExploreBar: {
@@ -1380,74 +1180,7 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
       cta: null,
       featuredVideo: null,
       backgroundColor: null,
-      featuredMedia: {
-        type: "Decorative",
-        altText: "BMI-Norge-Verdier-inspire",
-        focalPoint: null,
-        image: {
-          file: {
-            fileName: "BMI-Norge-Verdier-inspire.png",
-            url: "//images.ctfassets.net/un5bh1z034o8/2JAGuqwBxeIXx4K7heouI7/1675523db890a7fed9b63f961ee20355/BMI-Norge-Verdier-inspire.png"
-          },
-          gatsbyImageData: {
-            images: {
-              sources: [
-                {
-                  srcSet:
-                    "//images.ctfassets.net/un5bh1z034o8/2JAGuqwBxeIXx4K7heouI7/1675523db890a7fed9b63f961ee20355/BMI-Norge-Verdier-inspire.png?w=563&h=563&q=50&fm=webp 563w,\n//images.ctfassets.net/un5bh1z034o8/2JAGuqwBxeIXx4K7heouI7/1675523db890a7fed9b63f961ee20355/BMI-Norge-Verdier-inspire.png?w=1127&h=1126&q=50&fm=webp 1127w,\n//images.ctfassets.net/un5bh1z034o8/2JAGuqwBxeIXx4K7heouI7/1675523db890a7fed9b63f961ee20355/BMI-Norge-Verdier-inspire.png?w=2253&h=2252&q=50&fm=webp 2253w",
-                  sizes: "(min-width: 2253px) 2253px, 100vw",
-                  type: "image/webp"
-                }
-              ],
-              fallback: {
-                src: "//images.ctfassets.net/un5bh1z034o8/2JAGuqwBxeIXx4K7heouI7/1675523db890a7fed9b63f961ee20355/BMI-Norge-Verdier-inspire.png?w=2253&h=2252&q=50&fm=png",
-                srcSet:
-                  "//images.ctfassets.net/un5bh1z034o8/2JAGuqwBxeIXx4K7heouI7/1675523db890a7fed9b63f961ee20355/BMI-Norge-Verdier-inspire.png?w=563&h=563&q=50&fm=png 563w,\n//images.ctfassets.net/un5bh1z034o8/2JAGuqwBxeIXx4K7heouI7/1675523db890a7fed9b63f961ee20355/BMI-Norge-Verdier-inspire.png?w=1127&h=1126&q=50&fm=png 1127w,\n//images.ctfassets.net/un5bh1z034o8/2JAGuqwBxeIXx4K7heouI7/1675523db890a7fed9b63f961ee20355/BMI-Norge-Verdier-inspire.png?w=2253&h=2252&q=50&fm=png 2253w",
-                sizes: "(min-width: 2253px) 2253px, 100vw"
-              }
-            },
-            layout: "constrained",
-            width: 2253,
-            height: 2251.9999999999995,
-            placeholder: {
-              fallback:
-                "data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6V+0/AAABklBMVEXAEE3AEE3CIlnMPW7BFFC5EEqmQmPceZvAEU2qJVHmsMO6FU6OEzuYNFPTXobdi6fQTHqgEkGHFDilT2qwYXqhEkGvM1zbepu4boXqscTprMHVkqilFUWWMFCxZ36aOVifQ2DilK/UXIXbeJrGKF/UWoTORXSMHkGqWXK2cYa8fJDNQXHpqr+0EUiuWnW1Yn3DKF2nU27cepvNQHHUi6OKFDmNFDq3EUrYrbvFI1vls8SOIEKhRmLRVH/JM2e6bYWgRWHtvM3mn7jCfZOVME/oq8DegqLVYoqKGT2iSGS+gJTQna3MmamuYXmoVW/GXoHAEU7MPG7XaI/EIFmoVG7Ei53Xn7LimbLXaY/IMGXCF1LRUn7hkq3kmbLkmrPjk6/hjarcepzWYorru8zUXYbFJVzegaHhjqvmorndgaHPl6m7JFfCGVTBEk/DGlTDHVbUW4XbqbqhQ2CxEUfKNWnYa5HYn7LJlaXRnq7gn7XcfJ3hpbmzaoGKFTrSnq+8e4+KGTyZNlW2b4W4c4mNIEKJFDlC01mMAAAAAXRSTlP9g+pWxwAAAAlwSFlzAAALEgAACxIB0t1+/AAAAAd0SU1FB+UGFwoiHHb3Ja4AAADeSURBVBgZBcE9jk1xAMDR83vvn7mTiXAzoRahQqUQtVjAazW6qUQUekt4hSj1VBILsIG7BYWPRINMwiQkknGdUwAArBsAbQBsgK0xBtMWDHBY1V/T4U8YMFf/tj9c6Rso5nBQ9RWsg/lCnV3sk2u5Xh8Y5o7q7Cg+3rpdYVw+9x1T3KlasDkHPh/cM021QMeAm9WfFlgHwKhagAEwqgUwcLeqil29Zdyv6s3DqkdVGHOv4PVJ9OtSoeBxL59E1Z613Y2+XK16Z1e/91h73vsHL/C06nQPa8cAPDvdg/U/YgQuFgfeb5cAAAAASUVORK5CYII="
-            }
-          }
-        },
-        thumbnail: {
-          src: "https://images.ctfassets.net/un5bh1z034o8/2JAGuqwBxeIXx4K7heouI7/1675523db890a7fed9b63f961ee20355/BMI-Norge-Verdier-inspire.png",
-          file: {
-            fileName: "BMI-Norge-Verdier-inspire.png",
-            url: "//images.ctfassets.net/un5bh1z034o8/2JAGuqwBxeIXx4K7heouI7/1675523db890a7fed9b63f961ee20355/BMI-Norge-Verdier-inspire.png"
-          },
-          gatsbyImageData: {
-            images: {
-              sources: [
-                {
-                  srcSet:
-                    "//images.ctfassets.net/un5bh1z034o8/2JAGuqwBxeIXx4K7heouI7/1675523db890a7fed9b63f961ee20355/BMI-Norge-Verdier-inspire.png?w=563&h=563&q=50&fm=webp 563w,\n//images.ctfassets.net/un5bh1z034o8/2JAGuqwBxeIXx4K7heouI7/1675523db890a7fed9b63f961ee20355/BMI-Norge-Verdier-inspire.png?w=1127&h=1126&q=50&fm=webp 1127w,\n//images.ctfassets.net/un5bh1z034o8/2JAGuqwBxeIXx4K7heouI7/1675523db890a7fed9b63f961ee20355/BMI-Norge-Verdier-inspire.png?w=2253&h=2252&q=50&fm=webp 2253w",
-                  sizes: "(min-width: 2253px) 2253px, 100vw",
-                  type: "image/webp"
-                }
-              ],
-              fallback: {
-                src: "//images.ctfassets.net/un5bh1z034o8/2JAGuqwBxeIXx4K7heouI7/1675523db890a7fed9b63f961ee20355/BMI-Norge-Verdier-inspire.png?w=2253&h=2252&q=50&fm=png",
-                srcSet:
-                  "//images.ctfassets.net/un5bh1z034o8/2JAGuqwBxeIXx4K7heouI7/1675523db890a7fed9b63f961ee20355/BMI-Norge-Verdier-inspire.png?w=563&h=563&q=50&fm=png 563w,\n//images.ctfassets.net/un5bh1z034o8/2JAGuqwBxeIXx4K7heouI7/1675523db890a7fed9b63f961ee20355/BMI-Norge-Verdier-inspire.png?w=1127&h=1126&q=50&fm=png 1127w,\n//images.ctfassets.net/un5bh1z034o8/2JAGuqwBxeIXx4K7heouI7/1675523db890a7fed9b63f961ee20355/BMI-Norge-Verdier-inspire.png?w=2253&h=2252&q=50&fm=png 2253w",
-                sizes: "(min-width: 2253px) 2253px, 100vw"
-              }
-            },
-            layout: "constrained",
-            width: 80,
-            height: 60,
-            placeholder: {
-              fallback:
-                "data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6V+0/AAABklBMVEXAEE3AEE3CIlnMPW7BFFC5EEqmQmPceZvAEU2qJVHmsMO6FU6OEzuYNFPTXobdi6fQTHqgEkGHFDilT2qwYXqhEkGvM1zbepu4boXqscTprMHVkqilFUWWMFCxZ36aOVifQ2DilK/UXIXbeJrGKF/UWoTORXSMHkGqWXK2cYa8fJDNQXHpqr+0EUiuWnW1Yn3DKF2nU27cepvNQHHUi6OKFDmNFDq3EUrYrbvFI1vls8SOIEKhRmLRVH/JM2e6bYWgRWHtvM3mn7jCfZOVME/oq8DegqLVYoqKGT2iSGS+gJTQna3MmamuYXmoVW/GXoHAEU7MPG7XaI/EIFmoVG7Ei53Xn7LimbLXaY/IMGXCF1LRUn7hkq3kmbLkmrPjk6/hjarcepzWYorru8zUXYbFJVzegaHhjqvmorndgaHPl6m7JFfCGVTBEk/DGlTDHVbUW4XbqbqhQ2CxEUfKNWnYa5HYn7LJlaXRnq7gn7XcfJ3hpbmzaoGKFTrSnq+8e4+KGTyZNlW2b4W4c4mNIEKJFDlC01mMAAAAAXRSTlP9g+pWxwAAAAlwSFlzAAALEgAACxIB0t1+/AAAAAd0SU1FB+UGFwoiHHb3Ja4AAADeSURBVBgZBcE9jk1xAMDR83vvn7mTiXAzoRahQqUQtVjAazW6qUQUekt4hSj1VBILsIG7BYWPRINMwiQkknGdUwAArBsAbQBsgK0xBtMWDHBY1V/T4U8YMFf/tj9c6Rso5nBQ9RWsg/lCnV3sk2u5Xh8Y5o7q7Cg+3rpdYVw+9x1T3KlasDkHPh/cM021QMeAm9WfFlgHwKhagAEwqgUwcLeqil29Zdyv6s3DqkdVGHOv4PVJ9OtSoeBxL59E1Z613Y2+XK16Z1e/91h73vsHL/C06nQPa8cAPDvdg/U/YgQuFgfeb5cAAAAASUVORK5CYII="
-            }
-          }
-        }
-      }
+      featuredMedia: createImageData()
     },
     errorGeneral: {
       __typename: "ContentfulPromo",
@@ -1464,62 +1197,7 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
       cta: null,
       featuredVideo: null,
       backgroundColor: null,
-      featuredMedia: {
-        type: "Decorative",
-        altText: "BMI Decra rense takrennen BMI Norge",
-        focalPoint: null,
-        image: {
-          file: {
-            fileName: "BMI_Decra_rense_takrennen_BMI_Norge.jpg",
-            url: "//images.ctfassets.net/un5bh1z034o8/2uiUayMfc3Cr7DzNFhZIKi/e9eaf6f69a2448d267cacb95022f12f6/BMI_Decra_rense_takrennen_BMI_Norge.jpg"
-          },
-          gatsbyImageData: {
-            images: {
-              sources: [
-                {
-                  srcSet:
-                    "//images.ctfassets.net/un5bh1z034o8/2uiUayMfc3Cr7DzNFhZIKi/e9eaf6f69a2448d267cacb95022f12f6/BMI_Decra_rense_takrennen_BMI_Norge.jpg?w=480&h=320&q=50&fm=webp 480w,\n//images.ctfassets.net/un5bh1z034o8/2uiUayMfc3Cr7DzNFhZIKi/e9eaf6f69a2448d267cacb95022f12f6/BMI_Decra_rense_takrennen_BMI_Norge.jpg?w=960&h=640&q=50&fm=webp 960w,\n//images.ctfassets.net/un5bh1z034o8/2uiUayMfc3Cr7DzNFhZIKi/e9eaf6f69a2448d267cacb95022f12f6/BMI_Decra_rense_takrennen_BMI_Norge.jpg?w=1920&h=1280&q=50&fm=webp 1920w",
-                  sizes: "(min-width: 1920px) 1920px, 100vw",
-                  type: "image/webp"
-                }
-              ]
-            },
-            layout: "constrained",
-            width: 1920,
-            height: 1280,
-            placeholder: {
-              fallback:
-                "data:image/jpeg;base64,UklGRuYAAABXRUJQVlA4INoAAABQBQCdASoUAA0APpE4l0eloyIhMAgAsBIJbACdMoR3JoIpnz/9kkkRYLIrACKU94IdlzwA+SS0JQFVIQGjO/5xppSPpcodrthGceUn3sDbf/M+m0hz9Ghy8Lfhnu+6B8JDaSiMo+5n61Mj+JaHX4Ex/dypg8JRi63zjFO1cruiRmCPqNJS/tesC1YYYDAVdgBtR28Kp9lwtH3IDbCh87/VZr/kFQ2/9H4HKDIH/Ia/w10rbYyB1uJAcOUHk7eTftbl0W/dvxx/5clPxrlwjT2f978IMHc/M2uAAA=="
-            }
-          }
-        },
-        thumbnail: {
-          src: "https://images.ctfassets.net/un5bh1z034o8/2uiUayMfc3Cr7DzNFhZIKi/e9eaf6f69a2448d267cacb95022f12f6/BMI_Decra_rense_takrennen_BMI_Norge.jpg",
-          file: {
-            fileName: "BMI_Decra_rense_takrennen_BMI_Norge.jpg",
-            url: "//images.ctfassets.net/un5bh1z034o8/2uiUayMfc3Cr7DzNFhZIKi/e9eaf6f69a2448d267cacb95022f12f6/BMI_Decra_rense_takrennen_BMI_Norge.jpg"
-          },
-          gatsbyImageData: {
-            images: {
-              sources: [
-                {
-                  srcSet:
-                    "//images.ctfassets.net/un5bh1z034o8/2uiUayMfc3Cr7DzNFhZIKi/e9eaf6f69a2448d267cacb95022f12f6/BMI_Decra_rense_takrennen_BMI_Norge.jpg?w=480&h=320&q=50&fm=webp 480w,\n//images.ctfassets.net/un5bh1z034o8/2uiUayMfc3Cr7DzNFhZIKi/e9eaf6f69a2448d267cacb95022f12f6/BMI_Decra_rense_takrennen_BMI_Norge.jpg?w=960&h=640&q=50&fm=webp 960w,\n//images.ctfassets.net/un5bh1z034o8/2uiUayMfc3Cr7DzNFhZIKi/e9eaf6f69a2448d267cacb95022f12f6/BMI_Decra_rense_takrennen_BMI_Norge.jpg?w=1920&h=1280&q=50&fm=webp 1920w",
-                  sizes: "(min-width: 1920px) 1920px, 100vw",
-                  type: "image/webp"
-                }
-              ]
-            },
-            layout: "constrained",
-            width: 1920,
-            height: 1280,
-            placeholder: {
-              fallback:
-                "data:image/jpeg;base64,UklGRuYAAABXRUJQVlA4INoAAABQBQCdASoUAA0APpE4l0eloyIhMAgAsBIJbACdMoR3JoIpnz/9kkkRYLIrACKU94IdlzwA+SS0JQFVIQGjO/5xppSPpcodrthGceUn3sDbf/M+m0hz9Ghy8Lfhnu+6B8JDaSiMo+5n61Mj+JaHX4Ex/dypg8JRi63zjFO1cruiRmCPqNJS/tesC1YYYDAVdgBtR28Kp9lwtH3IDbCh87/VZr/kFQ2/9H4HKDIH/Ia/w10rbYyB1uJAcOUHk7eTftbl0W/dvxx/5clPxrlwjT2f978IMHc/M2uAAA=="
-            }
-          }
-        }
-      }
+      featuredMedia: createImageData()
     },
     welcomeDialogTitle: null,
     welcomeDialogBrands: null,

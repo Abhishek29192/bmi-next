@@ -34,7 +34,13 @@ export const HubspotFormWrapper = styled("div")(({ theme }) => ({
     }
   },
   ".hs-form fieldset": {
-    maxWidth: "none"
+    maxWidth: "none",
+
+    "&:not(:first-of-type)": {
+      ".hs-fieldtype-radio": {
+        marginTop: "16px"
+      }
+    }
   },
   ".legal-consent-container .hs-form-booleancheckbox-display > span": {
     paddingLeft: "40px",

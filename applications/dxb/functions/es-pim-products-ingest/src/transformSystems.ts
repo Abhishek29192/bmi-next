@@ -1,4 +1,5 @@
 import logger from "@bmi-digital/functions-logger";
+import { generateHashFromString, generateUrl } from "@bmi/utils";
 import type {
   Image as EsImage,
   System as EsSystem
@@ -10,7 +11,6 @@ import type {
   ImageAssetType as PimImageAssetType,
   System as PimSystem
 } from "@bmi/pim-types";
-import { generateHashFromString, generateUrl } from "@bmi/utils";
 
 const getBrand = (
   categories: PimSystem["categories"]
@@ -97,12 +97,12 @@ const getScoringWeight = (classifications?: readonly PimClassification[]) =>
 
 export const transformSystem = (system: PimSystem): EsSystem | undefined => {
   const { approvalStatus, type, code, name, shortDescription } = system;
-  if (!name) {
+  if (!name || approvalStatus !== "approved") {
     return undefined;
   }
   const brand = getBrand(system.categories);
   const hashedCode = generateHashFromString(code);
-  const images = mapImages(groupImages(system.images || []), "MASTER_IMAGE");
+  const groupedImages = groupImages(system.images || []);
   const path = `/s/${generateUrl([name, hashedCode])}`;
   const scoringWeight = getScoringWeight(system.classifications);
   logger.info({
@@ -113,7 +113,8 @@ export const transformSystem = (system: PimSystem): EsSystem | undefined => {
     brand,
     code,
     hashedCode,
-    images,
+    masterImage: mapImages(groupedImages, "MASTER_IMAGE")?.[0],
+    galleryImages: mapImages(groupedImages, "GALLERY"),
     name,
     path,
     scoringWeight,

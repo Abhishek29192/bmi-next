@@ -7,9 +7,9 @@ import {
   ObjType,
   PimDeltaMessage
 } from "@bmi/pub-sub-types";
-import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import { PubSub, Topic } from "@google-cloud/pubsub";
 import fetch from "node-fetch";
+import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 
 const {
   TRANSITIONAL_TOPIC_NAME,
@@ -173,15 +173,15 @@ export const handleRequest: HttpFunction = async (req, res) => {
     return res.sendStatus(500);
   }
 
-  if (!req.body) {
+  logger.info({ message: `Received: ${JSON.stringify(req.body, null, 2)}` });
+
+  const { message } = req.body;
+
+  if (!message) {
     logger.info({ message: "No data received" });
     res.status(404).send("not-ok");
     return;
   }
-
-  logger.info({ message: `Received: ${JSON.stringify(req.body, null, 2)}` });
-
-  const { message } = req.body;
 
   const messageData: PimDeltaMessage = JSON.parse(
     Buffer.from(message.data, "base64").toString("utf8")
@@ -283,6 +283,8 @@ export const handleRequest: HttpFunction = async (req, res) => {
         Authorization: `bearer ${token}`
       },
       body: JSON.stringify({ data: "filler data" })
+    }).catch(() => {
+      // no-op
     });
   } catch (error) {
     logger.error({ message: (error as Error).message });

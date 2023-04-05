@@ -1,5 +1,4 @@
 import { ObjType } from "@bmi/pub-sub-types";
-import mockConsole from "jest-mock-console";
 import { deleteEsItemByCode } from "../deleteEsItemByCode";
 
 const getEsClient = jest.fn();
@@ -12,7 +11,6 @@ jest.mock("@bmi/functions-es-client", () => {
 beforeAll(() => {
   process.env.ES_INDEX_PREFIX = "dxb_no";
   process.env.ES_INDEX_NAME_DOCUMENTS = "pim-documents-test";
-  mockConsole();
 });
 
 interface Params {

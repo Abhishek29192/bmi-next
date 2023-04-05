@@ -53,12 +53,10 @@ const CalculatorProvider = ({ children, onError, calculatorConfig }: Props) => {
   const [data, setData] = useState<Data>();
   const [parameters, setParameters] = useState<Partial<Parameters>>({});
   const {
-    config: {
-      webtoolsCalculatorDataUrl,
-      isWebToolsCalculatorEnabled,
-      webToolsCalculatorApsisEndpoint,
-      isV2WebToolsCalculatorEnabled
-    }
+    webtoolsCalculatorDataUrl,
+    isWebToolsCalculatorEnabled,
+    webToolsCalculatorApsisEndpoint,
+    isV2WebToolsCalculatorEnabled
   } = useConfig();
   const showCalculatorDialog = !(typeof window === "undefined") && isOpen;
 
@@ -106,7 +104,7 @@ const CalculatorProvider = ({ children, onError, calculatorConfig }: Props) => {
     fetchAndSetData();
 
     return () => controller.abort();
-  }, [isOpen]);
+  }, [isOpen, onError, webtoolsCalculatorDataUrl]);
 
   const calculatorProps = useMemo(
     () => ({
@@ -146,7 +144,14 @@ const CalculatorProvider = ({ children, onError, calculatorConfig }: Props) => {
         }
       }
     }),
-    [data, isOpen, parameters]
+    [
+      data,
+      isOpen,
+      parameters,
+      qaAuthToken,
+      webToolsCalculatorApsisEndpoint,
+      executeRecaptcha
+    ]
   );
 
   return (

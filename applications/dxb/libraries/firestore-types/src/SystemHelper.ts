@@ -139,7 +139,7 @@ const createSystem = (system?: Partial<System>): System => ({
     })
   ],
   hashedCode: "1234567890",
-  images: [createImage()],
+  galleryImages: [createImage()],
   keyFeatures: createKeyFeatures(),
   layerCodes: ["layer-1"],
   name: "system-1-name",

@@ -1,11 +1,15 @@
-import { ThemeProvider } from "@bmi-digital/components";
-import { render } from "@testing-library/react";
+import { replaceSpaces, ThemeProvider } from "@bmi-digital/components";
+import { render, screen } from "@testing-library/react";
 import React from "react";
 import { microCopy } from "../../constants/microCopies";
 import createAssetType from "../../__tests__/helpers/AssetTypeHelper";
 import createPimDocument from "../../__tests__/helpers/PimDocumentHelper";
 import createProduct from "../../__tests__/helpers/ProductHelper";
 import ProductLeadBlock from "../ProductLeadBlock";
+import {
+  createImageAsset,
+  createLinkAsset
+} from "../../__tests__/helpers/AssetHelper";
 
 beforeEach(() => {
   // resolve useDimensions (useState) hook in TechnicalSpecificationLeadBlock ProductFeatureTable
@@ -25,36 +29,47 @@ afterEach(() => {
   jest.clearAllMocks();
 });
 //product to test documents and download tab
-const product = createProduct();
+const product = createProduct({
+  guaranteesAndWarrantiesImages: [
+    createImageAsset({ name: "asset-1", assetType: "GUARANTIES" }),
+    createImageAsset({
+      name: "asset-2",
+      assetType: "WARRANTIES"
+    })
+  ],
+  guaranteesAndWarrantiesLinks: [
+    createLinkAsset({ name: "link-1", assetType: "GUARANTIES" }),
+    createLinkAsset({ name: "link-2", assetType: "WARRANTIES" })
+  ]
+});
 describe("ProductLeadBlock tests", () => {
   it("should render guarantees & warranties images & links on about tab", () => {
-    const { getByTestId, container, queryByText } = render(
+    render(
       <ThemeProvider>
         <ProductLeadBlock product={product} />
       </ThemeProvider>
     );
 
-    const aboutTab = getByTestId("aboutTab");
-    const title = queryByText(
+    const aboutTab = screen.getByTestId("aboutTab");
+    const title = screen.queryByText(
       `MC: ${microCopy.PDP_LEAD_BLOCK_GUARANTEES_WARRANTIES}`
     );
-    //expect guarantees & warranties block is rendered
     expect(title).not.toBeNull();
-    //expect two images
-    expect(
-      container.querySelectorAll("img[data-testid*='guarantee-image']").length
-    ).toBe(2);
-    //expect two links
-    expect(
-      container.querySelectorAll("a[data-testid*='guarantee-inline-link']")
-        .length
-    ).toBe(2);
-
+    product.guaranteesAndWarrantiesImages.forEach((image) => {
+      expect(
+        screen.getByTestId(`guarantee-image-${replaceSpaces(image.name)}`)
+      ).toBeInTheDocument();
+    });
+    product.guaranteesAndWarrantiesLinks.forEach((link) => {
+      expect(
+        screen.getByTestId(`guarantee-inline-link-${replaceSpaces(link.name)}`)
+      ).toBeInTheDocument();
+    });
     expect(aboutTab).toMatchSnapshot();
   });
 
   it("shouldn't render guarantees & warranties block on about tab if guarantees & warranties images and links are empty array", async () => {
-    const { queryByText } = render(
+    render(
       <ThemeProvider>
         <ProductLeadBlock
           product={createProduct({
@@ -65,7 +80,7 @@ describe("ProductLeadBlock tests", () => {
       </ThemeProvider>
     );
 
-    const title = queryByText(
+    const title = screen.queryByText(
       `MC: ${microCopy.PDP_LEAD_BLOCK_GUARANTEES_WARRANTIES}`
     );
     expect(title).toBeNull();
@@ -74,26 +89,26 @@ describe("ProductLeadBlock tests", () => {
   it("should render the technical draws tab", () => {
     const product = createProduct();
 
-    const { queryByTestId } = render(
+    render(
       <ThemeProvider>
         <ProductLeadBlock product={product} />
       </ThemeProvider>
     );
 
-    const productBlock = queryByTestId("technicalDrawings");
+    const productBlock = screen.queryByTestId("technicalDrawings");
     expect(productBlock).toMatchSnapshot();
   });
 
   it("should not render the technical draws tab", () => {
     const product = createProduct({ techDrawings: [] });
 
-    const { queryByTestId } = render(
+    render(
       <ThemeProvider>
         <ProductLeadBlock product={product} />
       </ThemeProvider>
     );
 
-    const productBlock = queryByTestId("technicalDrawings");
+    const productBlock = screen.queryByTestId("technicalDrawings");
     expect(productBlock).toBe(null);
   });
 
@@ -102,13 +117,13 @@ describe("ProductLeadBlock tests", () => {
       fixingToolIframeUrl: "https://monier.service.bouwconnect.nl/"
     });
 
-    const { queryByTestId } = render(
+    render(
       <ThemeProvider>
         <ProductLeadBlock product={product} />
       </ThemeProvider>
     );
 
-    const productBlock = queryByTestId("fixingTool");
+    const productBlock = screen.queryByTestId("fixingTool");
     expect(productBlock).toMatchSnapshot();
   });
 
@@ -117,7 +132,7 @@ describe("ProductLeadBlock tests", () => {
       fixingToolIframeUrl: "https://monier.service.bouwconnect.nl/"
     });
 
-    const { queryByTestId } = render(
+    render(
       <ThemeProvider>
         <ProductLeadBlock
           product={product}
@@ -127,14 +142,14 @@ describe("ProductLeadBlock tests", () => {
       </ThemeProvider>
     );
 
-    const productBlock = queryByTestId("fixingTool");
+    const productBlock = screen.queryByTestId("fixingTool");
     expect(productBlock).toMatchSnapshot();
   });
 
   it("should not render the fixing tool tab", () => {
     const product = createProduct({ fixingToolIframeUrl: null });
 
-    const { queryByTestId } = render(
+    render(
       <ThemeProvider>
         <ProductLeadBlock
           product={product}
@@ -144,7 +159,7 @@ describe("ProductLeadBlock tests", () => {
       </ThemeProvider>
     );
 
-    const productBlock = queryByTestId("fixingTool");
+    const productBlock = screen.queryByTestId("fixingTool");
     expect(productBlock).toBe(null);
   });
 
@@ -153,7 +168,7 @@ describe("ProductLeadBlock tests", () => {
       specificationIframeUrl: "https://monier.service.bouwconnect.nl/"
     });
 
-    const { queryByTestId } = render(
+    render(
       <ThemeProvider>
         <ProductLeadBlock
           product={product}
@@ -163,34 +178,38 @@ describe("ProductLeadBlock tests", () => {
       </ThemeProvider>
     );
 
-    const productBlock = queryByTestId("specification");
+    const productBlock = screen.queryByTestId("specification");
     expect(productBlock).toMatchSnapshot();
   });
 
   it("should render the documents and download tab", () => {
     const product = createProduct();
 
-    const { queryByTestId } = render(
+    render(
       <ThemeProvider>
         <ProductLeadBlock product={product} />
       </ThemeProvider>
     );
-    const productBlock = queryByTestId("documentsTab");
+    const productBlock = screen.queryByTestId("documentsTab");
     expect(productBlock).toMatchSnapshot();
   });
 
   it("should render documents tab with correct document count", () => {
-    const { queryByTestId } = render(
+    render(
       <ThemeProvider>
         <ProductLeadBlock product={product} />
       </ThemeProvider>
     );
-    const productBlock = queryByTestId("documentsTab");
-    expect(productBlock.getElementsByClassName("row").length).toBe(4);
+    const productBlock = screen.queryByTestId("documentsTab");
+    product.documents.forEach((document) => {
+      expect(
+        screen.getAllByTestId(`document-table-row-${document.id}`)
+      ).toBeInTheDocument();
+    });
     expect(productBlock).toMatchSnapshot();
   });
   it("renders correctly when document display format is by asset name", () => {
-    const { container, queryByText, queryAllByText } = render(
+    const { container } = render(
       <ThemeProvider>
         <ProductLeadBlock
           product={product}
@@ -198,14 +217,17 @@ describe("ProductLeadBlock tests", () => {
         />
       </ThemeProvider>
     );
-    expect(container.getElementsByClassName("row").length).toBe(4);
-    expect(queryByText("MC: documentLibrary.headers.title")).toBeTruthy();
-    expect(queryByText("MC: documentLibrary.headers.type")).toBeFalsy();
-    expect(queryAllByText("Pim Document").length).toBe(4);
+    expect(
+      screen.getByText("MC: documentLibrary.headers.title")
+    ).toBeInTheDocument();
+    expect(
+      screen.queryByText("MC: documentLibrary.headers.type")
+    ).not.toBeInTheDocument();
+    expect(screen.queryAllByText("Pim Document").length).toBe(4);
     expect(container).toMatchSnapshot();
   });
   it("renders correctly when document display format is by asset type", () => {
-    const { container, queryByText } = render(
+    const { container } = render(
       <ThemeProvider>
         <ProductLeadBlock
           product={createProduct({
@@ -224,12 +246,16 @@ describe("ProductLeadBlock tests", () => {
     );
 
     expect(container).toMatchSnapshot();
-    expect(queryByText("Pim Document")).toBeFalsy();
-    expect(queryByText("MC: documentLibrary.headers.name")).toBeFalsy();
-    expect(queryByText("MC: documentLibrary.headers.type")).toBeTruthy();
+    expect(screen.queryByText("Pim Document")).not.toBeInTheDocument();
+    expect(
+      screen.queryByText("MC: documentLibrary.headers.name")
+    ).not.toBeInTheDocument();
+    expect(
+      screen.getByText("MC: documentLibrary.headers.type")
+    ).toBeInTheDocument();
   });
   it("renders correctly when productDocuments is empty array", () => {
-    const { container, queryByText } = render(
+    const { container } = render(
       <ThemeProvider>
         <ProductLeadBlock
           product={createProduct({
@@ -240,6 +266,8 @@ describe("ProductLeadBlock tests", () => {
     );
 
     expect(container).toMatchSnapshot();
-    expect(queryByText("MC: pdp.leadBlock.documents")).toBeFalsy();
+    expect(
+      screen.queryByText("MC: pdp.leadBlock.documents")
+    ).not.toBeInTheDocument();
   });
 });

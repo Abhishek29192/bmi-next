@@ -1,4 +1,9 @@
 import logger from "@bmi-digital/functions-logger";
+import {
+  AwardAndCertificateAssetType,
+  GuaranteesAndWarrantiesAssetType
+} from "@bmi/firestore-types";
+import { generateHashFromString, generateUrl, isDefined } from "@bmi/utils";
 import type {
   ApprovalStatus,
   CategoryGroup,
@@ -9,19 +14,15 @@ import type {
   RelatedVariant,
   UnitValue
 } from "@bmi/firestore-types";
-import {
-  AwardAndCertificateAssetType,
-  GuaranteesAndWarrantiesAssetType
-} from "@bmi/firestore-types";
 import type {
   Asset,
   Category as PimCategory,
   Classification as PimClassification,
   ClassificationWithFeatures,
   Feature,
-  Product as PimProduct
+  Product as PimProduct,
+  VariantOption
 } from "@bmi/pim-types";
-import { generateHashFromString, generateUrl, isDefined } from "@bmi/utils";
 import {
   productIgnorableAttributes,
   productIgnorableClassfications
@@ -240,8 +241,15 @@ export const transformProduct = (product: PimProduct): Product[] => {
         }
       });
 
+      if (
+        product.approvalStatus === "discontinued" &&
+        variant.approvalStatus === "approved"
+      ) {
+        variant.approvalStatus = "discontinued";
+      }
+
       const transformedProduct: Product = {
-        approvalStatus: product.approvalStatus as ApprovalStatus,
+        approvalStatus: variant.approvalStatus as ApprovalStatus,
         awardsAndCertificateDocuments: getAwardAndCertificateAsset(
           AwardAndCertificateAssetType.Documents,
           product.assets
@@ -264,7 +272,7 @@ export const transformProduct = (product: PimProduct): Product[] => {
         ),
         colourFamily,
         description: variant.longDescription || product.description,
-        documents: mapProductDocuments(product),
+        documents: mapProductDocuments(product, variant),
         externalProductCode:
           variant.externalProductCode ?? product.externalProductCode,
         filters: getFilters(
@@ -342,7 +350,10 @@ export const transformProduct = (product: PimProduct): Product[] => {
           weightPerPallet,
           weightPerPiece,
           weightPerSqm
-        }
+        },
+        seoTitle: variant.seoTitle || product.seoTitle,
+        seoTags: variant.seoTags || product.seoTags,
+        seoDescription: variant.seoDescription || product.seoDescription
       };
       return transformedProduct;
     });
@@ -663,16 +674,31 @@ const getMicroCopy = (
     )
     .filter(isDefined)[0];
 
-const mapProductDocuments = (product: PimProduct): ProductDocument[] =>
-  mapDocuments(product.assets).map((document) => ({
-    ...document,
-    productBaseCode: product.code,
-    productName: product.name!,
-    productCategories: (product.categories || []).map((category) => ({
-      code: category.code,
-      parentCategoryCode: category.parentCategoryCode
-    }))
+const mapProductDocuments = (
+  baseProduct: PimProduct,
+  variant: VariantOption
+): ProductDocument[] => {
+  const productCategories = (baseProduct.categories || []).map((category) => ({
+    code: category.code,
+    parentCategoryCode: category.parentCategoryCode
   }));
+
+  if (variant.assets) {
+    return mapDocuments(variant.assets).map((document) => ({
+      ...document,
+      productBaseCode: baseProduct.code,
+      productName: variant.name!,
+      productCategories
+    }));
+  }
+
+  return mapDocuments(baseProduct.assets).map((document) => ({
+    ...document,
+    productBaseCode: baseProduct.code,
+    productName: variant.name!,
+    productCategories
+  }));
+};
 
 const getSizeLabel = (
   length?: UnitValue,

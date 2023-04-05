@@ -3,7 +3,7 @@
 exports[`Promo component has no change to graphql query 1`] = `undefined`;
 
 exports[`Promo component has no change to props 1`] = `
-Object {
+{
   "__typename": "ContentfulSimplePage",
   "brandLogo": null,
   "date": null,

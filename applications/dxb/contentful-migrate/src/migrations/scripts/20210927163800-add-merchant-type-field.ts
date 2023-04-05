@@ -1,6 +1,6 @@
+import merchantTypes from "../../variables/merchantTypes/20210929064001.js";
 import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
-import merchantTypes from "../../variables/merchantTypes/20210929064001.js";
 
 export const description = "Add Merchant Types and options";
 

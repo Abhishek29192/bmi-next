@@ -48,8 +48,12 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
   const { contentfulSite, system } = data;
   const { countryCode, resources } = contentfulSite;
 
-  const breadcrumbs = (
-    <Section backgroundColor="pearl" isSlim>
+  const BreadcrumbSection = ({ location }: { location: "top" | "bottom" }) => (
+    <Section
+      backgroundColor="pearl"
+      isSlim
+      data-testid={`system-details-page-breadcrumbs-section${location}`}
+    >
       <Breadcrumbs
         data={[
           {
@@ -58,12 +62,15 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
             slug: null
           }
         ]}
+        data-testid={`system-details-page-breadcrumbs-${location}`}
       />
     </Section>
   );
 
   const media = [
-    ...transformImages(system.images),
+    ...transformImages(
+      [system.masterImage, ...system.galleryImages].filter(Boolean)
+    ),
     //TODO: check if it doesnt work on system detals page!!!
     ...transformMediaSrc(system.videos)
   ];
@@ -79,7 +86,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
       pageData={{ breadcrumbs: null, signupBlock: null, seo: null, path: null }}
       siteData={contentfulSite}
     >
-      {breadcrumbs}
+      <BreadcrumbSection location="top" />
       {resources?.sdpShareWidget && (
         <ShareWidgetSection data={resources.sdpShareWidget} />
       )}
@@ -93,7 +100,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
       <Section
         backgroundColor="alabaster"
         className={styles["imageGallery-systemLayers-section"]}
-        data-testid="system-details-image-gallary-section"
+        data-testid="system-details-page-image-gallary-section"
       >
         <Grid container spacing={3}>
           <Grid xs={12} md={12} lg={8}>
@@ -125,7 +132,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
           countryCode={countryCode}
         />
       )}
-      {breadcrumbs}
+      <BreadcrumbSection location="bottom" />
     </Page>
   );
 };
@@ -172,7 +179,10 @@ export const systemQuery = graphql`
         name
         values
       }
-      images {
+      galleryImages {
+        ...PIMImageFragment
+      }
+      masterImage {
         ...PIMImageFragment
       }
       layerCodes

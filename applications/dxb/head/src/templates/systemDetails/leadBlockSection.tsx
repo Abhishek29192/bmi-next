@@ -78,7 +78,9 @@ const LeadBlockSection = ({
           {brandLogo && (
             <LeadBlock.Content.Section>
               {React.cloneElement(brandLogo, {
-                className: styles["brandLogo"]
+                className: styles["brandLogo"],
+                "data-testid":
+                  brandLogo.props["data-testid"] || "lead-block-brand-logo"
               })}
             </LeadBlock.Content.Section>
           )}

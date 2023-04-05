@@ -18,7 +18,7 @@ describe("DesktopDocumentTechnicalTableResults component", () => {
         ["product3", []]
       ];
 
-      const wrapper = render(
+      const { baseElement } = render(
         <ThemeProvider>
           <DesktopDocumentTechnicalTableResults
             documentsByProduct={documentsByProduct}
@@ -27,7 +27,7 @@ describe("DesktopDocumentTechnicalTableResults component", () => {
         </ThemeProvider>
       );
 
-      expect(wrapper.baseElement).toMatchSnapshot();
+      expect(baseElement).toMatchSnapshot();
     });
     it("when not all products have all asset types", () => {
       const assetTypes: AssetTypeData[] = [
@@ -42,7 +42,7 @@ describe("DesktopDocumentTechnicalTableResults component", () => {
         ["product3", []]
       ];
 
-      const wrapper = render(
+      const { baseElement } = render(
         <ThemeProvider>
           <DesktopDocumentTechnicalTableResults
             documentsByProduct={documentsByProduct}
@@ -51,7 +51,7 @@ describe("DesktopDocumentTechnicalTableResults component", () => {
         </ThemeProvider>
       );
 
-      expect(wrapper.baseElement).toMatchSnapshot();
+      expect(baseElement).toMatchSnapshot();
     });
 
     it("when multiple documents are present for asset types", () => {
@@ -61,7 +61,7 @@ describe("DesktopDocumentTechnicalTableResults component", () => {
         ["product3", []]
       ];
 
-      const wrapper = render(
+      const { baseElement } = render(
         <ThemeProvider>
           <DesktopDocumentTechnicalTableResults
             documentsByProduct={documentsByProduct}
@@ -70,7 +70,7 @@ describe("DesktopDocumentTechnicalTableResults component", () => {
         </ThemeProvider>
       );
 
-      expect(wrapper.baseElement).toMatchSnapshot();
+      expect(baseElement).toMatchSnapshot();
     });
   });
 });

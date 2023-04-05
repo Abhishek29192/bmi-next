@@ -3,8 +3,8 @@
 exports[`IframeSection component renders correctly 1`] = `
 <div>
   <div
-    class="IframeSection Section-root Section-pearl css-cxq310"
-    data-testid="section"
+    class="IframeSection Section-root Section-pearl css-10chrh8"
+    data-testid="iframe-section-iFrame-Section"
   >
     <div
       class=" css-ze8cyt"
@@ -13,7 +13,7 @@ exports[`IframeSection component renders correctly 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 title Typography-underline css-je89nd-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
           data-testid="typography"
         >
           iFrame Section
@@ -22,10 +22,10 @@ exports[`IframeSection component renders correctly 1`] = `
           class="summary"
         >
           <div
-            class="RichText-root css-17t4j5c"
+            class="RichText-root RichText-no-bottom-margin css-vf09gu"
           >
             <p
-              class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
               data-testid="typography"
             >
               Summary
@@ -34,7 +34,9 @@ exports[`IframeSection component renders correctly 1`] = `
         </div>
         <iframe
           class="iFrame"
+          data-testid="iframe-section-iFrame-Section-iframe"
           height="450px"
+          id="iframe-section-iFrame-Section-iframe"
           src="https://google.co.uk"
           title="iFrame Section"
           width="100%"

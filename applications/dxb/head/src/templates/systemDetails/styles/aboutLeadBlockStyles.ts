@@ -5,7 +5,8 @@ const PREFIX = "AboutLeadBlock";
 
 export const classes = {
   image: `${PREFIX}-image`,
-  inlineLink: `${PREFIX}-inlineLink`
+  inlineLink: `${PREFIX}-inlineLink`,
+  description: `${PREFIX}-description`
 };
 
 export const StyledLeadBlock = styled(LeadBlock)(({ theme }) => ({
@@ -20,6 +21,11 @@ export const StyledLeadBlock = styled(LeadBlock)(({ theme }) => ({
       color: "#005b8c"
     },
     transition: "color ease-out 0.25s"
+  },
+  [`& .${classes.description}`]: {
+    "&>*:first-child": {
+      marginTop: 0
+    }
   }
   // "@global": {
   //   "[class*=MuiBox-root]": {

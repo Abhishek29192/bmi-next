@@ -227,7 +227,7 @@ Authorization: ApiKey {{esApiKey}}
             "allCategories.code.keyword": [
               "{{category}}"
             ]
-          } 
+          }
         }
       ]
     }

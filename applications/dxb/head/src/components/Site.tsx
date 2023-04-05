@@ -1,11 +1,11 @@
 import { graphql } from "gatsby";
 import React from "react";
-import { Region } from "./Header";
-import { NavigationData } from "./Link";
 import { fallbackGetMicroCopy, GetMicroCopy } from "./MicroCopy";
-import { CalculatorConfig } from "./pitched-roof-calculator/types";
-import { Data as ResourcesData } from "./Resources";
-import { HouseType } from "./visualiser/Types";
+import type { Region } from "./Header";
+import type { NavigationData } from "./Link";
+import type { CalculatorConfig } from "./pitched-roof-calculator/types";
+import type { Data as ResourcesData } from "./Resources";
+import type { HouseType } from "./visualiser/Types";
 
 export type Context = {
   node_locale: string;

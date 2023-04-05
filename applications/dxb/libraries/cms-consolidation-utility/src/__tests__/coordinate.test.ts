@@ -1,6 +1,3 @@
-import type { Asset, Entry, Environment } from "contentful-management";
-import mockConsole from "jest-mock-console";
-import {} from "../tag";
 import SampleAssetsPage1 from "./resources/assets_page_1.json";
 import SampleAssetsPage2 from "./resources/assets_page_2.json";
 import SampleAssetsPage3 from "./resources/assets_page_3.json";
@@ -8,6 +5,7 @@ import SampleEntriesPage1 from "./resources/entries_page_1.json";
 import SampleEntriesPage2 from "./resources/entries_page_2.json";
 import SampleEntriesPage3 from "./resources/entries_page_3.json";
 import SpaceLocales from "./resources/locales.json";
+import type { Asset, Entry, Environment } from "contentful-management";
 
 const tagAndUpdate = async (environment: Partial<Environment>) =>
   (await import("../coordinate")).tagAndUpdate(environment as Environment);
@@ -84,8 +82,6 @@ afterAll(() => {
 });
 
 beforeEach(() => {
-  mockConsole();
-
   getEntries = jest
     .fn()
     .mockReturnValueOnce(SampleEntriesPage1)

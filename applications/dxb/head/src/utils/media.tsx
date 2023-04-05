@@ -1,6 +1,7 @@
 import { MediaData } from "@bmi-digital/components";
-import { Data as ImageData, renderImage } from "../components/Image";
-import { Data as VideoData, renderVideo } from "../components/Video";
+import React from "react";
+import Image, { Data as ImageData } from "../components/Image";
+import Video, { Data as VideoData } from "../components/Video";
 
 export const getJpgImage = (ogImageUrl: string) => {
   if (
@@ -17,21 +18,13 @@ export type GallerySectionImage = Omit<ImageData, "image"> & {
   caption?: {
     caption: string;
   } | null;
-  image: ImageData["image"] & {
-    thumbnail: {
-      src: string;
-    };
-  };
+  image: ImageData["image"];
 };
 
 export type GallerySectionVideo = Omit<VideoData, "previewMedia"> & {
   __typename: "ContentfulVideo";
   previewMedia: VideoData["previewMedia"] & {
-    image: VideoData["previewMedia"]["image"] & {
-      thumbnail: {
-        src: string;
-      };
-    };
+    image: VideoData["previewMedia"]["image"];
   };
 };
 
@@ -53,17 +46,17 @@ export const transformMediaSrc = (
     switch (item.__typename) {
       case "ContentfulImage":
         return {
-          media: renderImage(item),
-          thumbnail: item.image?.thumbnail?.src || undefined,
+          media: <Image {...item} />,
+          thumbnail: item.image.thumbnail?.images.fallback.src,
           caption: item.caption?.caption || undefined,
           altText: item.altText || undefined,
           isVideo: false
         };
       case "ContentfulVideo":
         return {
-          media: renderVideo(item),
+          media: <Video {...item} />,
           thumbnail:
-            item.previewMedia?.image?.thumbnail?.src ||
+            item.previewMedia?.image?.thumbnail?.images.fallback.src ||
             item.defaultYouTubePreviewImage,
           caption: item.subtitle || undefined,
           altText: item.label,
@@ -71,7 +64,7 @@ export const transformMediaSrc = (
         };
       case "PimVideo":
         return {
-          media: renderVideo(item),
+          media: <Video {...item} />,
           thumbnail: item.defaultYouTubePreviewImage,
           caption: item.title,
           isVideo: true

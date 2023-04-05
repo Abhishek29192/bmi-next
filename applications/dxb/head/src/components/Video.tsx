@@ -1,4 +1,4 @@
-import { YoutubeVideo } from "@bmi-digital/components";
+import { Layout, YoutubeVideo } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React, { useMemo } from "react";
 import { useGTM } from "../utils/google-tag-manager";
@@ -12,26 +12,24 @@ export type Data = {
   previewMedia: ContentfulImageData | null;
   videoRatio: { width: number; height: number } | null;
   defaultYouTubePreviewImage: string;
+  layout?: Layout;
+  className?: string;
 };
 
 export type ContentfulVideoData = Data & {
   __typename: "ContentfulVideo";
 };
 
-const Video = ({ data }: { data: Data }) => {
-  return renderVideo(data);
-};
-
-export const renderVideo = (data: Data) => {
-  const {
-    label,
-    subtitle,
-    videoUrl,
-    previewMedia,
-    videoRatio,
-    defaultYouTubePreviewImage
-  } = data;
-
+const Video = ({
+  label,
+  subtitle,
+  videoUrl,
+  previewMedia,
+  videoRatio,
+  defaultYouTubePreviewImage,
+  layout,
+  ...props
+}: Data) => {
   const gtm = useMemo(
     () => ({
       id: "cta-click--video-youtube",
@@ -51,28 +49,23 @@ export const renderVideo = (data: Data) => {
       embedHeight={videoRatio?.height || 0}
       embedWidth={videoRatio?.width || 0}
       previewImageSource={
-        previewMedia ? (
-          <Image data={previewMedia} />
-        ) : (
-          defaultYouTubePreviewImage
-        )
+        previewMedia ? <Image {...previewMedia} /> : defaultYouTubePreviewImage
       }
+      layout={layout}
       onGTMEvent={pushGTMEvent}
       dataGTM={dataGTM}
+      {...props}
     />
   );
 };
 
 export const query = graphql`
-  fragment VideoFragment on ContentfulVideo {
+  fragment BaseVideoFragment on ContentfulVideo {
     __typename
     title
     label
     subtitle
     videoUrl: youtubeId
-    previewMedia {
-      ...ImageFragment
-    }
     videoRatio {
       width
       height
@@ -80,8 +73,53 @@ export const query = graphql`
     defaultYouTubePreviewImage
   }
 
+  fragment VideoFragment on ContentfulVideo {
+    ...BaseVideoFragment
+    previewMedia {
+      ...VideoImageFragment
+    }
+  }
+
+  fragment VideoHeroFragment on ContentfulVideo {
+    ...BaseVideoFragment
+    previewMedia {
+      ...ImageHeroFragment
+    }
+  }
+
+  fragment VideoHeaderFragment on ContentfulVideo {
+    ...BaseVideoFragment
+    previewMedia {
+      ...ImageHeaderFragment
+    }
+  }
+
+  fragment VideoVillainFragment on ContentfulVideo {
+    ...BaseVideoFragment
+    previewMedia {
+      ...ImageVillainFragment
+    }
+  }
+
+  fragment VideoCardFragment on ContentfulVideo {
+    ...BaseVideoFragment
+    previewMedia {
+      ...ImageCardFragment
+    }
+  }
+
+  fragment VideoSlideFragment on ContentfulVideo {
+    ...BaseVideoFragment
+    previewMedia {
+      ...ImageSlideFragment
+    }
+  }
+
   fragment VideoGallerySlideFragment on ContentfulVideo {
-    ...VideoFragment
+    ...BaseVideoFragment
+    previewMedia {
+      ...ImageGallerySlideFragment
+    }
   }
 `;
 

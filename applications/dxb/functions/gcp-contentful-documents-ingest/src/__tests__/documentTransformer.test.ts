@@ -190,20 +190,20 @@ describe("transformDocument", () => {
     );
 
     expect(transformedDocument).toMatchInlineSnapshot(`
-      Object {
+      {
         "BRAND": undefined,
         "__typename": "ContentfulDocument",
-        "asset": Object {
-          "file": Object {
+        "asset": {
+          "file": {
             "contentType": "application/pdf",
-            "details": Object {
+            "details": {
               "size": 1,
             },
             "fileName": "asset-filename.pdf",
             "url": "https://localhost:9000/asset-filename.pdf",
           },
         },
-        "assetType": Object {
+        "assetType": {
           "code": "contentful asset type code",
           "name": "contentful asset type name",
         },
@@ -246,34 +246,34 @@ describe("transformDocument", () => {
     );
 
     expect(transformedDocument).toMatchInlineSnapshot(`
-      Object {
-        "BRAND": Object {
+      {
+        "BRAND": {
           "code": "AeroDek",
           "name": "AeroDek",
         },
         "__typename": "ContentfulDocument",
-        "asset": Object {
-          "file": Object {
+        "asset": {
+          "file": {
             "contentType": "application/pdf",
-            "details": Object {
+            "details": {
               "size": 1,
             },
             "fileName": "asset-filename.pdf",
             "url": "https://localhost:9000/asset-filename.pdf",
           },
         },
-        "assetType": Object {
+        "assetType": {
           "code": "contentful asset type code",
           "name": "contentful asset type name",
         },
-        "featuredMedia": Object {
+        "featuredMedia": {
           "altText": "image alt text",
-          "focalPoint": Object {
+          "focalPoint": {
             "x": 0,
             "y": 0,
           },
-          "image": Object {
-            "file": Object {
+          "image": {
+            "file": {
               "fileName": "asset-filename.jpg",
               "url": "https://localhost:9000/asset-filename.jpg",
             },

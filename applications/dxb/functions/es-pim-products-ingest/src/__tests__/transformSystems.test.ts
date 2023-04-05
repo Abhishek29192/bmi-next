@@ -28,8 +28,33 @@ describe("transformSystem", () => {
     expect(generateHashFromString).not.toHaveBeenCalled();
     expect(generateUrl).not.toHaveBeenCalled();
   });
-  it("should transform system to object", () => {
-    const system = createSystem();
+
+  it("should return undefined if system has a discontinued approval status", () => {
+    const system = createSystem({ approvalStatus: "discontinued" });
+
+    expect(transformSystem(system)).toBeUndefined();
+    expect(generateHashFromString).not.toHaveBeenCalled();
+    expect(generateUrl).not.toHaveBeenCalled();
+  });
+
+  it("should return undefined if system has an unapproved approval status", () => {
+    const system = createSystem({ approvalStatus: "unapproved" });
+
+    expect(transformSystem(system)).toBeUndefined();
+    expect(generateHashFromString).not.toHaveBeenCalled();
+    expect(generateUrl).not.toHaveBeenCalled();
+  });
+
+  it("should return undefined if system has a check approval status", () => {
+    const system = createSystem({ approvalStatus: "check" });
+
+    expect(transformSystem(system)).toBeUndefined();
+    expect(generateHashFromString).not.toHaveBeenCalled();
+    expect(generateUrl).not.toHaveBeenCalled();
+  });
+
+  it("should transform system to object when approval status is approved", () => {
+    const system = createSystem({ approvalStatus: "approved" });
     const { approvalStatus, type, code, name, shortDescription } = system;
     const brand = getBrand(system);
     const scoringWeight = getScoringWeight(system);
@@ -41,13 +66,18 @@ describe("transformSystem", () => {
       brand,
       code,
       hashedCode: "hashed-system-code",
-      images: [
+      galleryImages: [
         {
           altText: "name",
           mainSource: "http://localhost:8000",
           thumbnail: "http://localhost:8000"
         }
       ],
+      masterImage: {
+        altText: "name",
+        mainSource: "http://localhost:8000",
+        thumbnail: "http://localhost:8000"
+      },
       name,
       path: "/s/generated-url",
       scoringWeight,
@@ -69,13 +99,18 @@ describe("transformSystem", () => {
       brand: undefined,
       approvalStatus,
       type,
-      images: [
+      galleryImages: [
         {
           altText: "name",
           mainSource: "http://localhost:8000",
           thumbnail: "http://localhost:8000"
         }
       ],
+      masterImage: {
+        altText: "name",
+        mainSource: "http://localhost:8000",
+        thumbnail: "http://localhost:8000"
+      },
       code,
       name,
       scoringWeight,
@@ -98,13 +133,18 @@ describe("transformSystem", () => {
       brand: undefined,
       approvalStatus,
       type,
-      images: [
+      galleryImages: [
         {
           altText: "name",
           mainSource: "http://localhost:8000",
           thumbnail: "http://localhost:8000"
         }
       ],
+      masterImage: {
+        altText: "name",
+        mainSource: "http://localhost:8000",
+        thumbnail: "http://localhost:8000"
+      },
       code,
       name,
       scoringWeight,
@@ -134,13 +174,18 @@ describe("transformSystem", () => {
       brand: brandCategory,
       approvalStatus,
       type,
-      images: [
+      galleryImages: [
         {
           altText: "name",
           mainSource: "http://localhost:8000",
           thumbnail: "http://localhost:8000"
         }
       ],
+      masterImage: {
+        altText: "name",
+        mainSource: "http://localhost:8000",
+        thumbnail: "http://localhost:8000"
+      },
       code,
       name,
       scoringWeight,
@@ -170,13 +215,18 @@ describe("transformSystem", () => {
       brand: undefined,
       approvalStatus,
       type,
-      images: [
+      galleryImages: [
         {
           altText: "name",
           mainSource: "http://localhost:8000",
           thumbnail: "http://localhost:8000"
         }
       ],
+      masterImage: {
+        altText: "name",
+        mainSource: "http://localhost:8000",
+        thumbnail: "http://localhost:8000"
+      },
       code,
       name,
       scoringWeight,
@@ -199,13 +249,18 @@ describe("transformSystem", () => {
       brand,
       approvalStatus,
       type,
-      images: [
+      galleryImages: [
         {
           altText: "name",
           mainSource: "http://localhost:8000",
           thumbnail: "http://localhost:8000"
         }
       ],
+      masterImage: {
+        altText: "name",
+        mainSource: "http://localhost:8000",
+        thumbnail: "http://localhost:8000"
+      },
       code,
       name,
       scoringWeight: 0,
@@ -230,13 +285,18 @@ describe("transformSystem", () => {
       brand,
       approvalStatus,
       type,
-      images: [
+      galleryImages: [
         {
           altText: "name",
           mainSource: "http://localhost:8000",
           thumbnail: "http://localhost:8000"
         }
       ],
+      masterImage: {
+        altText: "name",
+        mainSource: "http://localhost:8000",
+        thumbnail: "http://localhost:8000"
+      },
       code,
       name,
       scoringWeight: 0,
@@ -259,7 +319,12 @@ describe("transformSystem", () => {
       brand,
       approvalStatus,
       type,
-      images: [
+      masterImage: {
+        altText: "name",
+        mainSource: "http://localhost:8000",
+        thumbnail: "http://localhost:8000"
+      },
+      galleryImages: [
         {
           altText: "name",
           mainSource: "http://localhost:8000",
@@ -289,7 +354,8 @@ describe("transformSystem", () => {
       brand,
       approvalStatus,
       type,
-      images: [],
+      galleryImages: [],
+      masterImage: undefined,
       code,
       name,
       scoringWeight,
@@ -301,7 +367,7 @@ describe("transformSystem", () => {
     expect(generateUrl).toHaveBeenCalledWith([name, "hashed-system-code"]);
   });
 
-  it("should transform system to object with image that only has thumbnail", () => {
+  it("should transform system to object with masterImage that only has thumbnail", () => {
     const system = createSystem({
       images: [
         createImage({
@@ -320,13 +386,12 @@ describe("transformSystem", () => {
       brand,
       approvalStatus,
       type,
-      images: [
-        {
-          altText: undefined,
-          mainSource: undefined,
-          thumbnail: "http://localhost:8000"
-        }
-      ],
+      masterImage: {
+        altText: undefined,
+        mainSource: undefined,
+        thumbnail: "http://localhost:8000"
+      },
+      galleryImages: [],
       code,
       name,
       scoringWeight,
@@ -350,7 +415,8 @@ describe("transformSystem", () => {
       brand,
       approvalStatus,
       type,
-      images: [],
+      galleryImages: [],
+      masterImage: undefined,
       code,
       name,
       scoringWeight,

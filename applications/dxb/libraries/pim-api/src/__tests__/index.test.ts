@@ -1,14 +1,13 @@
 import { mockResponses } from "@bmi-digital/fetch-mocks";
 import { PimTypes } from "@bmi/pim-types";
 import fetchMockJest from "fetch-mock-jest";
-import mockConsole from "jest-mock-console";
 import {
   createProductsApiResponse,
   createSystemsApiResponse
 } from "./helpers/pimHelper";
 
 const pimAuthTokenUrl = `${process.env.PIM_HOST}/authorizationserver/oauth/token`;
-const pimProductsUrl = `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?currentPage=0&status=approved&lang=${process.env.LOCALE}`;
+const pimProductsUrl = `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?currentPage=0&status=approved,discontinued&lang=${process.env.LOCALE}`;
 const pimSystemsUrl = `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/systems?currentPage=0&status=approved&lang=${process.env.LOCALE}`;
 
 const fetchMock = fetchMockJest.sandbox();
@@ -45,10 +44,6 @@ const getSystemsByMessageId = async (
     currentPage,
     locale
   );
-
-beforeAll(() => {
-  mockConsole();
-});
 
 beforeEach(() => {
   jest.resetAllMocks();
@@ -475,7 +470,7 @@ describe("fetchData", () => {
         })
       },
       {
-        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?currentPage=18&status=approved&lang=${process.env.LOCALE}`,
+        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?currentPage=18&status=approved,discontinued&lang=${process.env.LOCALE}`,
         method: "GET",
         headers: {
           Authorization: `Bearer access_token`,
@@ -507,7 +502,7 @@ describe("fetchData", () => {
       }
     });
     expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?currentPage=18&status=approved&lang=${process.env.LOCALE}`,
+      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?currentPage=18&status=approved,discontinued&lang=${process.env.LOCALE}`,
       {
         method: "GET",
         headers: {

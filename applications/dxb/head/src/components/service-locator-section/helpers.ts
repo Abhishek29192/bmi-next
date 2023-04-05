@@ -38,10 +38,7 @@ export const getRooferTypes = (
   }, []);
 };
 
-export const createMarker = (
-  selectedRoofer: Service | null,
-  matches?: boolean
-) => {
+export const createMarker = (selectedRoofer: Service | null) => {
   return (service: Service): MarkerOptionsWithData<Service> => ({
     title: service.name,
     position: {
@@ -50,7 +47,7 @@ export const createMarker = (
     },
     isActive: selectedRoofer && selectedRoofer.id === service.id,
     data: service,
-    "data-gtm": JSON.stringify(getResultDataGtm(service, matches, true))
+    "data-gtm": JSON.stringify(getResultDataGtm(service, true))
   });
 };
 
@@ -143,12 +140,11 @@ export const filterServices = (
 
 export const getResultDataGtm = (
   service: Service,
-  matches: boolean,
   isMarker = false
 ): { id: string; label: string; action: string; event: string } => {
   const { name, address, certification, serviceTypes, entryType } = service;
   const label = `${name} - ${address}${
-    matches && certification ? ` - ${certification}` : ""
+    certification ? ` - ${certification}` : ""
   }${
     serviceTypes && serviceTypes.length === 1
       ? ` - ${serviceTypes[0].name}`

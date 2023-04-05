@@ -1,107 +1,44 @@
 // istanbul ignore file: doesn't hold any logic
 import { Filter } from "@bmi-digital/components";
+import {
+  ContentfulDocument,
+  createPimProductDocument,
+  PimProductDocument,
+  PimSystemDocument
+} from "@bmi/elasticsearch-types";
 import { Data as SiteData } from "../../../components/Site";
 import createContentfulAssetType from "../../../schema/resolvers/types/helpers/ContentfulAssetTypeHelper";
 import { createMockSiteData } from "../../../test/mockSiteData";
 import { ContentfulDocumentLibraryPage } from "../types";
 
-export const createDocument = (customFields = {}) => {
-  return {
-    _source: {
-      BRAND: [
-        {
-          code: "BMI_Components",
-          name: "BMI Components"
-        }
-      ],
-      CATEGORY: [
-        {
-          code: "ROOF_DRAIN_ASPHALT_MEMBRANES_FLATROOF_NO",
-          name: "Taksluk bitumen flate tak"
-        },
-        {
-          code: "ROOF_DRAIN_FLATROOF_NO",
-          name: "Taksluk flate tak"
-        },
-        {
-          code: "PRODUCTS_NO",
-          name: "Produkter"
-        },
-        {
-          code: "ACCESSORIES_FLATROOF_NO",
-          name: "Tilbehør flate tak"
-        },
-        {
-          code: "FLATROOF_NO",
-          name: "Flate tak"
-        },
-        {
-          code: "ROOF_NO",
-          name: "Takprodukter"
-        }
-      ],
-      CONCRETE_FITTINGS: [
-        {
-          code: "CONCRETE_FITTINGS_RIDGE",
-          name: "Ridge"
-        }
-      ],
-      CONCRETE: [
-        {
-          code: "CONCRETE_FITTINGS",
-          name: "Fittings"
-        }
-      ],
-      PITCHED_ROOF: [
-        {
-          code: "CONCRETE",
-          name: "Concrete"
-        }
-      ],
-      __typename: "PIMDocument",
-      id: "07070050-a9a9-414a-944e-46dd7ecb8d3c",
-      url: "https://bmipimngqa.azureedge.net/sys-master-hyb",
-      title: "Bro BMI Norge AeroDek",
-      isLinkDocument: false,
-      productCode: "base_10201B1E1GHED",
-      titleAndSize: "AeroDek_5034939_3",
-      noIndex: false,
-      assetType: {
-        name: "Broschüren",
-        code: "BRO",
-        pimCode: "PRODUCT_BROCHURE"
-      },
-      fileSize: 5034939,
-      format: "application/pdf",
-      extension: "pdf",
-      realFileName: "BMI-AeroDek-BRO.pdf",
-      ...customFields
-    }
-  };
-};
-
-export const createCollapseData = (documents: [] = []) => ({
+export const createCollapseData = (
+  documents: (PimProductDocument | PimSystemDocument | ContentfulDocument)[] = [
+    createPimProductDocument({
+      fileSize: 111111,
+      url: "https://url"
+    })
+  ]
+) => ({
   inner_hits: {
     related_documents: {
       hits: {
-        hits: [
-          createDocument({
-            fileSize: 111111,
-            url: "https://url"
-          }),
-          ...documents
-        ]
+        hits: documents.map((document) => ({ _source: document }))
       }
     }
   }
 });
 
 export const createESDocumentHitResponseMock = (
-  customDocumentFields = {},
+  customDocumentFields:
+    | PimProductDocument
+    | PimSystemDocument
+    | ContentfulDocument = createPimProductDocument(),
   customEsResponseFields = {}
 ) => {
   return {
-    ...createDocument(customDocumentFields),
+    _source: {
+      ...customDocumentFields
+    },
     ...customEsResponseFields
   };
 };

@@ -429,9 +429,7 @@ const Visualiser = ({
   const [isSidingsSelectorOpen, setIsSidingsSelectorOpen] =
     useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const {
-    config: { esIndexNameProduct }
-  } = useConfig();
+  const { esIndexNameProduct } = useConfig();
   const [state, _setState] = useState({ tileId, sidingId, viewMode });
   const [tiles, setTiles] = useState<PIMTile[]>([]);
   const { getMicroCopy } = useMicroCopy();

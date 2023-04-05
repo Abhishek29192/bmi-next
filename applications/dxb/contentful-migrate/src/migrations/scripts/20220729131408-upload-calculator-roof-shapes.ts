@@ -10,8 +10,8 @@ import {
   LocaleProps,
   VersionedLink
 } from "contentful-management";
-import type { MigrationFunction } from "contentful-migration";
 import { getEnvironment, waitFor } from "@bmi/utils";
+import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Upload WebTool Calculator Roof Shapes";
 

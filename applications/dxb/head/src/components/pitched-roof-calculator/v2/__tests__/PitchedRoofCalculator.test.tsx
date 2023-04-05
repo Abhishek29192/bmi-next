@@ -1,6 +1,5 @@
 import { ThemeProvider } from "@bmi-digital/components";
-import { fireEvent, render } from "@testing-library/react";
-import mockConsole from "jest-mock-console";
+import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import { MicroCopy } from "../../helpers/microCopy";
 import en from "../../samples/copy/en.json";
@@ -14,13 +13,9 @@ jest.mock("../_PitchedRoofCalculatorSteps", () => ({
   default: jest.fn().mockImplementation(() => <p>{LOADED_TEXT}</p>)
 }));
 
-beforeEach(() => {
-  mockConsole();
-});
-
 describe("PitchedRoofCalculator component", () => {
   it("renders correctly", async () => {
-    const { container, findByText } = render(
+    const { baseElement } = render(
       <ThemeProvider>
         <MicroCopy.Provider values={en}>
           <PitchedRoofCalculator
@@ -33,13 +28,13 @@ describe("PitchedRoofCalculator component", () => {
       </ThemeProvider>
     );
 
-    await findByText(LOADED_TEXT);
+    await screen.findByText(LOADED_TEXT);
 
-    expect(container.parentElement).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 
   it("renders closed", async () => {
-    const { container, findByText } = render(
+    const { baseElement } = render(
       <ThemeProvider>
         <MicroCopy.Provider values={no}>
           <PitchedRoofCalculator
@@ -52,16 +47,16 @@ describe("PitchedRoofCalculator component", () => {
       </ThemeProvider>
     );
 
-    await findByText(LOADED_TEXT);
+    await screen.findByText(LOADED_TEXT);
 
-    expect(container.parentElement).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 
   it("calls onClose", async () => {
     const onClose = jest.fn();
     const onAnalyticsEvent = jest.fn();
 
-    const { getByLabelText, findByText } = render(
+    render(
       <ThemeProvider>
         <MicroCopy.Provider values={en}>
           <PitchedRoofCalculator
@@ -75,9 +70,9 @@ describe("PitchedRoofCalculator component", () => {
       </ThemeProvider>
     );
 
-    await findByText(LOADED_TEXT);
+    await screen.findByText(LOADED_TEXT);
 
-    const closeButton = getByLabelText("Close");
+    const closeButton = screen.getByLabelText("Close");
     fireEvent.click(closeButton);
 
     expect(onClose.mock.calls).toMatchSnapshot();
@@ -89,7 +84,7 @@ describe("PitchedRoofCalculator component", () => {
       throw new Error("Can't reach analytics services");
     });
 
-    const { getByLabelText, findByText } = render(
+    render(
       <ThemeProvider>
         <MicroCopy.Provider values={en}>
           <PitchedRoofCalculator
@@ -103,9 +98,9 @@ describe("PitchedRoofCalculator component", () => {
       </ThemeProvider>
     );
 
-    await findByText(LOADED_TEXT);
+    await screen.findByText(LOADED_TEXT);
 
-    const closeButton = getByLabelText("Close");
+    const closeButton = screen.getByLabelText("Close");
     fireEvent.click(closeButton);
 
     expect((console.warn as jest.Mock).mock.calls).toMatchSnapshot();

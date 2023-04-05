@@ -1,5 +1,5 @@
 import { ThemeProvider } from "@bmi-digital/components";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import React from "react";
 import { Data as LinkData, DataTypeEnum, NavigationData } from "../Link";
 import SitemapSection from "../SitemapSection";
@@ -227,13 +227,13 @@ describe("SitemapSection component", () => {
       ]
     };
 
-    const { container } = render(
+    render(
       <ThemeProvider>
         <SitemapSection data={data} />
       </ThemeProvider>
     );
-    const linkResult = container.querySelectorAll("a");
-    expect(linkResult).toHaveLength(3);
+    const linkResult = screen.getAllByTestId("sitemap-link");
+    expect(linkResult).toHaveLength(2);
   });
 
   it("renders correctly if incomplete", () => {

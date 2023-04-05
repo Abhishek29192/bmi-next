@@ -1,5 +1,5 @@
+import { render, screen } from "@testing-library/react";
 import React from "react";
-import { render } from "@testing-library/react";
 import { renderMedia } from "../renderMedia";
 
 const mockImageSrc = "test-image-src";
@@ -11,18 +11,19 @@ const MockContainer = ({ children }: { children: React.ReactNode }) => {
 
 describe("renderMedia", () => {
   it("should return img if arg mainImage === true", () => {
-    const result = renderMedia(mockImageSrc, mockAltText);
-    expect(result.type).toEqual("img");
+    // eslint-disable-next-line testing-library/render-result-naming-convention
+    const image = renderMedia(mockImageSrc, mockAltText);
+    expect(image.type).toEqual("img");
   });
   it("should return img if arg mainImage is empty string", () => {
-    const result = renderMedia("", mockAltText);
-    expect(result).toEqual("");
+    const view = renderMedia("", mockAltText);
+    expect(view).toEqual("");
   });
   it("should return img if arg mainImage === true and altText is undefined", () => {
-    const { container } = render(
+    render(
       <MockContainer>{renderMedia(mockImageSrc, undefined)}</MockContainer>
     );
 
-    expect(container.getElementsByTagName("img")[0].alt).toBe("");
+    expect((screen.getByRole("img") as HTMLImageElement).alt).toBe("");
   });
 });

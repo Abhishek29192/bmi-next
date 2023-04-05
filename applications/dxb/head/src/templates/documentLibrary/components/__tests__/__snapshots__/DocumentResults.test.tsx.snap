@@ -1,9 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
+exports[`DocumentResults component When SimpleTable documents have multiple unique asset type code for documents And same no of contentful Asset Types are present with matching asset type code SimpleTable: renders correctly with ALL columns 1`] = `
 <div>
   <div
     class="DocumentSimpleTableResults css-1iwuinm"
+    data-testid="document-simple-table-results"
   >
     <div
       class="css-ya57aw"
@@ -50,7 +51,7 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
         >
           <tr
             class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
-            data-test-id="document-table-row-contentful-document-id"
+            data-testid="document-table-row-contentful-document-id"
           >
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
@@ -78,7 +79,7 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
             >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost:9000/asset-filename.jpg\\"}"
+                data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/asset-filename.jpg"}"
                 data-testid="document-table-download-image/jpeg-button"
                 href="http://localhost:9000/asset-filename.jpg"
                 rel="noopener noreferrer"
@@ -178,7 +179,7 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
           </tr>
           <tr
             class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
-            data-test-id="document-table-row-pim-document-id"
+            data-testid="document-table-row-pim-document-id"
           >
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
@@ -203,7 +204,59 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
               data-testid="document-table-download-pim-document-id"
-            />
+            >
+              <a
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
+                data-testid="document-table-download-application/pdf-button"
+                href="http://localhost:9000/document.pdf"
+                rel="noopener noreferrer"
+                tabindex="0"
+                target="_blank"
+              >
+                <span
+                  class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                >
+                  <svg
+                    class="download-icon css-x3wokz"
+                    viewBox="0 0 32 32"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0 0h32v32H0z"
+                      fill="none"
+                    />
+                    <path
+                      d="M21 2H8v28h21V10Z"
+                      fill="#aeb1b1"
+                    />
+                    <path
+                      d="M9 29V3h12v7h7v19Z"
+                      fill="#fff"
+                    />
+                    <rect
+                      fill="#d43533"
+                      height="10"
+                      rx="1"
+                      width="21"
+                      x="3"
+                      y="15"
+                    />
+                    <g
+                      fill="#fff"
+                    >
+                      <path
+                        d="M6 23v-6h1.944c.737 0 2.556.132 2.556 2 0 1.9-1.95 2-2.5 2H7v2Zm1-5v2h.874c.672 0 1.474-.121 1.474-1 0-.814-.7-1-1.551-1ZM11 17h2.214A2.838 2.838 0 0 1 16 19.885V20a2.8 2.8 0 0 1-2.592 2.994.914.914 0 0 0-.128.006H11Zm1 1v4h1.116a1.757 1.757 0 0 0 1.9-1.602v-.004A1.729 1.729 0 0 0 15 20c0-1.628-1.222-2-2.244-2ZM17 23v-6h4v1h-3v1.5h2.5v1H18V23Z"
+                      />
+                    </g>
+                  </svg>
+                </span>
+                1 B
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
+              </a>
+            </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1wzxo7t-MuiTableCell-root"
               data-testid="document-table-add-pim-document-id"
@@ -259,16 +312,16 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
 exports[`DocumentResults component cards: renders correctly 1`] = `
 <div>
   <div
-    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
-    data-testid="grid-container"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
+    data-testid="document-cards-results-grid"
   >
     <div
       class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-12 MuiGrid2-grid-lg-6 MuiGrid2-grid-xl-4 Grid-item css-8c4xmf-MuiGrid2-root"
       data-testid="grid-item"
     >
       <a
-        class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-iozq77-MuiButtonBase-root"
-        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: documentLibrary.card.download\\",\\"action\\":\\"http://localhost:9000/asset-filename.jpg\\"}"
+        class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+        data-gtm="{"id":"cta-click1","label":"MC: documentLibrary.card.download","action":"http://localhost:9000/asset-filename.jpg"}"
         href="https:http://localhost:9000/asset-filename.jpg"
         rel="noopener noreferrer"
         tabindex="0"
@@ -279,19 +332,33 @@ exports[`DocumentResults component cards: renders correctly 1`] = `
         >
           <div
             class="OverviewCard-brandLogo"
-          />
+          >
+            <svg
+              class="BrandLogo css-gn1fhj"
+              data-testid="brand-logo"
+              preserveAspectRatio="xMinYMin"
+              viewBox="0 0 244 100"
+              xml:space="preserve"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15.506 29H25.89l15.236 41.02H30.882l-3.187-9.387H13.02L9.833 70.02H0L15.506 29Zm9.833 24.444-4.981-15.466-5.263 15.466H25.34ZM72.008 66.851c-.28.14-.832.55-1.523.97-.832.55-1.664.97-2.636 1.38-1.243.55-2.496.97-3.74 1.24-1.663.409-3.327.549-4.98.549-2.356 0-4.572-.41-6.787-1.11-1.934-.69-3.598-1.8-5.122-3.179-1.383-1.38-2.495-3.04-3.187-4.839-.692-2.07-1.113-4.139-1.113-6.358 0-1.93.28-4.01.972-5.799 1.243-3.729 4.15-6.628 7.759-8.288a16.83 16.83 0 0 1 6.374-1.24c2.226 0 4.29.41 6.235 1.24 1.804.83 3.328 1.93 4.57 3.45a14.765 14.765 0 0 1 2.767 5.248c.692 2.21.973 4.419.973 6.628v1.52H51.66c0 1.66.833 3.04 2.076 4.139 1.523 1.24 3.598 1.93 5.543 1.8 1.934.14 3.878-.28 5.673-.97 1.112-.55 2.215-1.11 3.187-1.8l3.88 5.389-.01.03ZM64.12 52.624c0-.69-.14-1.24-.411-1.93-.27-.689-.692-1.239-1.113-1.799a6.98 6.98 0 0 0-1.934-1.38c-.822-.41-1.804-.55-2.636-.55-.973 0-1.935.14-2.767.55-.691.28-1.383.83-1.934 1.38-.552.55-.973 1.11-1.243 1.8-.281.55-.411 1.24-.411 1.93H64.13h-.01ZM77.692 41.157h8.59l.28 3.59c.832-1.11 1.935-2.07 3.047-2.76 1.524-.97 3.328-1.38 5.122-1.38.692 0 1.384 0 2.075.14l1.664.41-1.383 7.868a13.282 13.282 0 0 0-3.188-.41c-1.934-.14-3.738.55-5.122 1.93-1.383 1.38-2.075 3.32-1.934 5.389V70.02h-9.001l-.14-28.863h-.01ZM99.703 55.524c0-2.07.411-4.14 1.113-5.939.701-1.8 1.804-3.45 3.187-4.839 1.383-1.39 3.047-2.49 4.982-3.319a16.823 16.823 0 0 1 6.374-1.24c2.226 0 4.291.41 6.375 1.24 1.805.69 3.458 1.93 4.982 3.32 1.383 1.379 2.496 3.038 3.187 4.838a16.364 16.364 0 0 1 0 12.017c-.691 1.8-1.804 3.45-3.187 4.84-1.383 1.389-3.047 2.489-4.982 3.318a16.825 16.825 0 0 1-6.375 1.24c-2.225 0-4.43-.41-6.374-1.24a14.767 14.767 0 0 1-8.169-8.148c-.692-1.93-1.113-4.009-1.113-6.078v-.01Zm15.787 7.738c.972 0 2.075-.14 3.047-.69.832-.41 1.664-.97 2.215-1.8.551-.69 1.113-1.52 1.383-2.489.552-1.8.552-3.87 0-5.659-.28-.97-.691-1.8-1.383-2.489-.551-.69-1.383-1.24-2.215-1.66-.972-.41-1.935-.69-3.047-.69-1.113 0-2.075.14-3.047.69-.832.41-1.664.97-2.216 1.66-.551.69-1.112 1.52-1.383 2.49a7.982 7.982 0 0 0 0 5.658c.281.97.692 1.8 1.383 2.49a7.107 7.107 0 0 0 2.216 1.799c.972.55 1.934.83 3.047.69ZM137.231 29h15.786c3.048 0 5.954.41 8.861 1.24 2.626.69 4.982 2.07 7.067 3.729a16.476 16.476 0 0 1 4.57 6.488c1.113 2.9 1.805 6.079 1.664 9.258.141 3.04-.551 6.079-1.664 8.838-1.112 2.49-2.626 4.559-4.711 6.358-2.085 1.8-4.43 3.04-7.066 3.87a32.622 32.622 0 0 1-8.861 1.24h-15.646V29Zm15.235 32.732c4.15 0 7.337-1.11 9.693-3.179 2.355-2.35 3.598-5.529 3.328-8.838 0-1.8-.281-3.45-.832-5.109-.411-1.52-1.243-2.76-2.356-3.869-1.112-1.11-2.496-1.93-4.019-2.49-1.935-.689-3.879-.969-5.814-.829h-5.813v24.314h5.813ZM208.687 66.851c-.28.14-.831.55-1.523.97-.832.55-1.664.97-2.626 1.38-1.243.55-2.496.97-3.739 1.24-1.664.409-3.328.549-4.982.549-2.355 0-4.57-.41-6.785-1.11-1.935-.69-3.599-1.8-5.122-3.179-1.384-1.38-2.496-3.04-3.188-4.839-.691-2.07-1.112-4.139-1.112-6.358 0-1.93.28-4.01.972-5.799 1.243-3.729 4.15-6.628 7.758-8.288 2.075-.83 4.15-1.24 6.375-1.24 2.225 0 4.29.41 6.234 1.24 1.805.83 3.328 1.93 4.571 3.45a14.775 14.775 0 0 1 2.767 5.248c.691 2.21.972 4.419.972 6.628v1.52H188.35c0 1.66.832 3.04 2.075 4.139 1.523 1.24 3.598 1.93 5.543 1.8 1.934.14 3.879-.28 5.673-.97 1.113-.55 2.215-1.11 3.187-1.8l3.88 5.389-.021.03Zm-7.888-14.227c0-.69-.14-1.24-.411-1.93-.271-.689-.692-1.239-1.112-1.799a6.991 6.991 0 0 0-1.935-1.38c-.822-.41-1.804-.55-2.626-.55-.972 0-1.935.14-2.767.55-.691.28-1.383.69-1.934 1.38-.551.55-.972 1.11-1.243 1.8-.281.55-.411 1.24-.411 1.93h12.459-.02ZM214.371 29h9.001v21.275l9.001-9.118h10.244l-10.525 10.638L244 70.03h-10.384l-7.478-12.157-2.626 2.63v9.527h-9.001l-.14-41.02V29Z"
+                fill="#70706F"
+              />
+            </svg>
+          </div>
           <h4
-            class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1ekntu4-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
             data-testid="overview-card-body-title"
           >
             contentful document title
           </h4>
           <div
-            class="OverviewCard-text css-fm25tm"
+            class="OverviewCard-text css-kl66ak"
             data-testid="overview-card-body-description"
           />
           <div
-            class="css-1tho2wt"
+            class="css-ekp6jg"
             data-testid="overview-card-body-footer"
           >
             <span
@@ -335,7 +402,7 @@ exports[`DocumentResults component technicalTable: renders correctly 1`] = `
           <div
             aria-expanded="false"
             class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
-            data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"product-base-code\\",\\"action\\":\\"Selector – Accordion\\"}"
+            data-gtm="{"id":"selector-accordion1","label":"product-base-code","action":"Selector – Accordion"}"
             role="button"
             tabindex="0"
           >
@@ -380,17 +447,10 @@ exports[`DocumentResults component technicalTable: renders correctly 1`] = `
                     <div
                       class="DocumentTechnicalTableResults-iconContainer"
                     >
-                      <svg
+                      <filepdf
                         class="DocumentTechnicalTableResults-formatIcon format-icon"
-                        data-name="Layer 2"
-                        viewBox="0 0 32 32"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M19 2H6v28h21V10Zm7 27H7V3h12v7h7Z"
-                          style="fill: #aeb1b1;"
-                        />
-                      </svg>
+                        data-testid="format-icon"
+                      />
                     </div>
                     <div
                       class="DocumentTechnicalTableResults-iconContainer"
@@ -407,6 +467,7 @@ exports[`DocumentResults component technicalTable: renders correctly 1`] = `
                         <div
                           class=""
                           data-mui-internal-clone-element="true"
+                          data-testid="tooltip"
                         >
                           <button
                             class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-42 Button-text MuiIconButton-sizeLarge css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
@@ -436,7 +497,7 @@ exports[`DocumentResults component technicalTable: renders correctly 1`] = `
                     >
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-                        data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost:9000/document.pdf\\"}"
+                        data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                         data-testid="anchor-link"
                         download="pim document title"
                         href="http://localhost:9000/document.pdf"

@@ -8,7 +8,7 @@ import { createMockSiteData } from "../../../test/mockSiteData";
 import { Product } from "../../../types/pim";
 import ProductDetailsPage, { Props as PdpProps } from "../product-details-page";
 
-const mockpageContext: PdpProps["pageContext"] = {
+const mockPageContext: PdpProps["pageContext"] = {
   productCode: "test-product-code",
   siteId: "test-site-id",
   countryCode: "test-country-code"
@@ -45,36 +45,39 @@ const renderPdpPage = ({
             },
             contentfulSite
           }}
-          pageContext={mockpageContext}
+          pageContext={mockPageContext}
         />
       </LocationProvider>
     </ThemeProvider>
   );
 };
 
-const pdpContent = [
-  "ProductOverview",
-  "ProductLeadBlock",
-  "RelatedProducts",
-  "PdpCardsSection",
-  "ExploreBar",
-  "ProductBreadcrumbs"
-];
+beforeEach(() => {
+  jest.resetModules();
+  jest.clearAllMocks();
+});
 
 describe("Product Details Page", () => {
-  beforeEach(() => {
-    jest.resetModules();
-    jest.clearAllMocks();
-  });
-  it("should render corectly", () => {
-    const { container, getByTestId } = renderPdpPage({});
+  it("should render correctly", () => {
+    renderPdpPage({});
 
-    pdpContent.forEach((item) =>
-      expect(container.querySelector(`.${item}`)).toBeInTheDocument()
-    );
-    expect(container.querySelector("header")).toBeInTheDocument();
-    expect(getByTestId("footer")).toBeInTheDocument();
-    expect(container.querySelector("[class*='Breadcrumbs']")).toBeTruthy();
+    expect(screen.getByTestId("product-overview")).toBeInTheDocument();
+    expect(
+      screen.getByTestId("product-details-product-lead-block-section")
+    ).toBeInTheDocument();
+    expect(screen.getByTestId("related-products-section")).toBeInTheDocument();
+    expect(screen.getByTestId("pdp-cards-section")).toBeInTheDocument();
+    expect(
+      screen.getByTestId("product-details-product-explorer-bar-section")
+    ).toBeInTheDocument();
+    expect(
+      screen.getByTestId("breadcrumbs-section-bottom")
+    ).toBeInTheDocument();
+    expect(screen.getByRole("banner")).toBeInTheDocument();
+    expect(screen.getByTestId("footer")).toBeInTheDocument();
+    expect(
+      screen.getByTestId("product-details-page-breadcrumbs-top")
+    ).toBeInTheDocument();
     expect(screen.getByLabelText("MC: share.email")).toBeInTheDocument();
     expect(
       screen.getByTestId(
@@ -87,16 +90,27 @@ describe("Product Details Page", () => {
       ...mockProduct,
       keyAssetDocuments: []
     };
-    const { container, getByTestId } = renderPdpPage({
+    renderPdpPage({
       product
     });
 
-    pdpContent.forEach((item) =>
-      expect(container.querySelector(`.${item}`)).toBeInTheDocument()
-    );
-    expect(container.querySelector("header")).toBeInTheDocument();
-    expect(getByTestId("footer")).toBeInTheDocument();
-    expect(container.querySelector("[class*='Breadcrumbs']")).toBeTruthy();
+    expect(screen.getByTestId("product-overview")).toBeInTheDocument();
+    expect(
+      screen.getByTestId("product-details-product-lead-block-section")
+    ).toBeInTheDocument();
+    expect(screen.getByTestId("related-products-section")).toBeInTheDocument();
+    expect(screen.getByTestId("pdp-cards-section")).toBeInTheDocument();
+    expect(
+      screen.getByTestId("product-details-product-explorer-bar-section")
+    ).toBeInTheDocument();
+    expect(
+      screen.getByTestId("breadcrumbs-section-bottom")
+    ).toBeInTheDocument();
+    expect(screen.getByRole("banner")).toBeInTheDocument();
+    expect(screen.getByTestId("footer")).toBeInTheDocument();
+    expect(
+      screen.getByTestId("product-details-page-breadcrumbs-top")
+    ).toBeInTheDocument();
     expect(screen.getByLabelText("MC: share.email")).toBeInTheDocument();
     expect(
       screen.queryByTestId(
@@ -112,16 +126,27 @@ describe("Product Details Page", () => {
         pdpShareWidget: null
       }
     });
-    const { container, getByTestId } = renderPdpPage({
+    renderPdpPage({
       contentfulSite
     });
 
-    pdpContent.forEach((item) =>
-      expect(container.querySelector(`.${item}`)).toBeInTheDocument()
-    );
-    expect(container.querySelector("header")).toBeInTheDocument();
-    expect(getByTestId("footer")).toBeInTheDocument();
-    expect(container.querySelector("[class*='Breadcrumbs']")).toBeTruthy();
+    expect(screen.getByTestId("product-overview")).toBeInTheDocument();
+    expect(
+      screen.getByTestId("product-details-product-lead-block-section")
+    ).toBeInTheDocument();
+    expect(screen.getByTestId("related-products-section")).toBeInTheDocument();
+    expect(screen.getByTestId("pdp-cards-section")).toBeInTheDocument();
+    expect(
+      screen.getByTestId("product-details-product-explorer-bar-section")
+    ).toBeInTheDocument();
+    expect(
+      screen.getByTestId("breadcrumbs-section-bottom")
+    ).toBeInTheDocument();
+    expect(screen.getByRole("banner")).toBeInTheDocument();
+    expect(screen.getByTestId("footer")).toBeInTheDocument();
+    expect(
+      screen.getByTestId("product-details-page-breadcrumbs-top")
+    ).toBeInTheDocument();
     expect(screen.queryByLabelText("MC: share.email")).not.toBeInTheDocument();
     expect(
       screen.getByTestId(
@@ -135,19 +160,28 @@ describe("Product Details Page", () => {
       ...mockProduct,
       relatedProducts: []
     };
-    const { container, getByTestId } = renderPdpPage({ product });
+    renderPdpPage({ product });
 
-    pdpContent.forEach((item) => {
-      if (item === "RelatedProducts") {
-        expect(container.querySelector(`.${item}`)).not.toBeInTheDocument();
-        return;
-      }
-      expect(container.querySelector(`.${item}`)).toBeInTheDocument();
-    });
-    expect(container.querySelector("header")).toBeInTheDocument();
-    expect(getByTestId("footer")).toBeInTheDocument();
-    expect(container.querySelector("[class*='Breadcrumbs']")).toBeTruthy();
-    expect(screen.queryByLabelText("MC: share.email")).toBeInTheDocument();
+    expect(screen.getByTestId("product-overview")).toBeInTheDocument();
+    expect(
+      screen.getByTestId("product-details-product-lead-block-section")
+    ).toBeInTheDocument();
+    expect(
+      screen.queryByTestId("related-products-section")
+    ).not.toBeInTheDocument();
+    expect(screen.getByTestId("pdp-cards-section")).toBeInTheDocument();
+    expect(
+      screen.getByTestId("product-details-product-explorer-bar-section")
+    ).toBeInTheDocument();
+    expect(
+      screen.getByTestId("breadcrumbs-section-bottom")
+    ).toBeInTheDocument();
+    expect(screen.getByRole("banner")).toBeInTheDocument();
+    expect(screen.getByTestId("footer")).toBeInTheDocument();
+    expect(
+      screen.getByTestId("product-details-page-breadcrumbs-top")
+    ).toBeInTheDocument();
+    expect(screen.getByLabelText("MC: share.email")).toBeInTheDocument();
     expect(
       screen.getByTestId(
         `${mockProduct.keyAssetDocuments[0].assetType}Download`
@@ -162,18 +196,25 @@ describe("Product Details Page", () => {
         pdpCards: null
       }
     });
-    const { container, getByTestId } = renderPdpPage({ contentfulSite });
+    renderPdpPage({ contentfulSite });
 
-    pdpContent.forEach((item) => {
-      if (item === "PdpCardsSection") {
-        expect(container.querySelector(`.${item}`)).not.toBeInTheDocument();
-        return;
-      }
-      expect(container.querySelector(`.${item}`)).toBeInTheDocument();
-    });
-    expect(container.querySelector("header")).toBeInTheDocument();
-    expect(getByTestId("footer")).toBeInTheDocument();
-    expect(container.querySelector("[class*='Breadcrumbs']")).toBeTruthy();
+    expect(screen.getByTestId("product-overview")).toBeInTheDocument();
+    expect(
+      screen.getByTestId("product-details-product-lead-block-section")
+    ).toBeInTheDocument();
+    expect(screen.getByTestId("related-products-section")).toBeInTheDocument();
+    expect(screen.queryByTestId("pdp-cards-section")).not.toBeInTheDocument();
+    expect(
+      screen.getByTestId("product-details-product-explorer-bar-section")
+    ).toBeInTheDocument();
+    expect(
+      screen.getByTestId("breadcrumbs-section-bottom")
+    ).toBeInTheDocument();
+    expect(screen.getByRole("banner")).toBeInTheDocument();
+    expect(screen.getByTestId("footer")).toBeInTheDocument();
+    expect(
+      screen.getByTestId("product-details-page-breadcrumbs-top")
+    ).toBeInTheDocument();
     expect(
       screen.getByTestId(
         `${mockProduct.keyAssetDocuments[0].assetType}Download`
@@ -187,18 +228,25 @@ describe("Product Details Page", () => {
         pdpCardsTitle: null
       }
     });
-    const { container, getByTestId } = renderPdpPage({ contentfulSite });
+    renderPdpPage({ contentfulSite });
 
-    pdpContent.forEach((item) => {
-      if (item === "PdpCardsSection") {
-        expect(container.querySelector(`.${item}`)).not.toBeInTheDocument();
-        return;
-      }
-      expect(container.querySelector(`.${item}`)).toBeInTheDocument();
-    });
-    expect(container.querySelector("header")).toBeInTheDocument();
-    expect(getByTestId("footer")).toBeInTheDocument();
-    expect(container.querySelector("[class*='Breadcrumbs']")).toBeTruthy();
+    expect(screen.getByTestId("product-overview")).toBeInTheDocument();
+    expect(
+      screen.getByTestId("product-details-product-lead-block-section")
+    ).toBeInTheDocument();
+    expect(screen.getByTestId("related-products-section")).toBeInTheDocument();
+    expect(screen.queryByTestId("pdp-cards-section")).not.toBeInTheDocument();
+    expect(
+      screen.getByTestId("product-details-product-explorer-bar-section")
+    ).toBeInTheDocument();
+    expect(
+      screen.getByTestId("breadcrumbs-section-bottom")
+    ).toBeInTheDocument();
+    expect(screen.getByRole("banner")).toBeInTheDocument();
+    expect(screen.getByTestId("footer")).toBeInTheDocument();
+    expect(
+      screen.getByTestId("product-details-page-breadcrumbs-top")
+    ).toBeInTheDocument();
     expect(
       screen.getByTestId(
         `${mockProduct.keyAssetDocuments[0].assetType}Download`
@@ -213,18 +261,25 @@ describe("Product Details Page", () => {
         pdpExploreBar: null
       }
     });
-    const { container, getByTestId } = renderPdpPage({ contentfulSite });
+    renderPdpPage({ contentfulSite });
 
-    pdpContent.forEach((item) => {
-      if (item === "ExploreBar") {
-        expect(container.querySelector(`.${item}`)).not.toBeInTheDocument();
-        return;
-      }
-      expect(container.querySelector(`.${item}`)).toBeInTheDocument();
-    });
-    expect(container.querySelector("header")).toBeInTheDocument();
-    expect(getByTestId("footer")).toBeInTheDocument();
-    expect(container.querySelector("[class*='Breadcrumbs']")).toBeTruthy();
+    expect(screen.getByTestId("product-overview")).toBeInTheDocument();
+    expect(
+      screen.getByTestId("product-details-product-lead-block-section")
+    ).toBeInTheDocument();
+    expect(screen.getByTestId("related-products-section")).toBeInTheDocument();
+    expect(screen.getByTestId("pdp-cards-section")).toBeInTheDocument();
+    expect(
+      screen.queryByTestId("product-details-product-explorer-bar-section")
+    ).not.toBeInTheDocument();
+    expect(
+      screen.getByTestId("breadcrumbs-section-bottom")
+    ).toBeInTheDocument();
+    expect(screen.getByRole("banner")).toBeInTheDocument();
+    expect(screen.getByTestId("footer")).toBeInTheDocument();
+    expect(
+      screen.getByTestId("product-details-page-breadcrumbs-top")
+    ).toBeInTheDocument();
     expect(
       screen.getByTestId(
         `${mockProduct.keyAssetDocuments[0].assetType}Download`

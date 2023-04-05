@@ -1,117 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CalculatorStepper component calls button events 1`] = `
-Array [
-  Array [
-    Class {
-      "_dispatchInstances": null,
-      "_dispatchListeners": null,
-      "_targetInst": null,
-      "altKey": null,
-      "bubbles": null,
-      "button": null,
-      "buttons": null,
-      "cancelable": null,
-      "clientX": null,
-      "clientY": null,
-      "ctrlKey": null,
-      "currentTarget": [Function],
-      "defaultPrevented": null,
-      "detail": null,
-      "dispatchConfig": null,
-      "eventPhase": null,
-      "getModifierState": [Function],
-      "isDefaultPrevented": [Function],
-      "isPropagationStopped": [Function],
-      "isTrusted": null,
-      "metaKey": null,
-      "movementX": [Function],
-      "movementY": [Function],
-      "nativeEvent": null,
-      "pageX": null,
-      "pageY": null,
-      "relatedTarget": [Function],
-      "screenX": null,
-      "screenY": null,
-      "shiftKey": null,
-      "target": null,
-      "timeStamp": [Function],
-      "type": null,
-      "view": null,
-    },
-  ],
-]
-`;
-
-exports[`CalculatorStepper component calls button events 2`] = `
-Array [
-  Array [
-    Class {
-      "_dispatchInstances": null,
-      "_dispatchListeners": null,
-      "_targetInst": null,
-      "altKey": null,
-      "bubbles": null,
-      "button": null,
-      "buttons": null,
-      "cancelable": null,
-      "clientX": null,
-      "clientY": null,
-      "ctrlKey": null,
-      "currentTarget": [Function],
-      "defaultPrevented": null,
-      "detail": null,
-      "dispatchConfig": null,
-      "eventPhase": null,
-      "getModifierState": [Function],
-      "isDefaultPrevented": [Function],
-      "isPropagationStopped": [Function],
-      "isTrusted": null,
-      "metaKey": null,
-      "movementX": [Function],
-      "movementY": [Function],
-      "nativeEvent": null,
-      "pageX": null,
-      "pageY": null,
-      "relatedTarget": [Function],
-      "screenX": null,
-      "screenY": null,
-      "shiftKey": null,
-      "target": null,
-      "timeStamp": [Function],
-      "type": null,
-      "view": null,
-    },
-  ],
-]
-`;
-
-exports[`CalculatorStepper component calls button events 3`] = `
-Array [
-  Array [
-    SyntheticEvent {
-      "_dispatchInstances": null,
-      "_dispatchListeners": null,
-      "_targetInst": null,
-      "bubbles": null,
-      "cancelable": null,
-      "currentTarget": [Function],
-      "defaultPrevented": null,
-      "dispatchConfig": null,
-      "eventPhase": null,
-      "isDefaultPrevented": [Function],
-      "isPropagationStopped": [Function],
-      "isTrusted": null,
-      "nativeEvent": null,
-      "target": null,
-      "timeStamp": [Function],
-      "type": null,
-    },
-    Object {},
-  ],
-]
-`;
-
 exports[`CalculatorStepper component ignores footer when there are no buttons 1`] = `
 <div>
   <div
@@ -125,17 +13,17 @@ exports[`CalculatorStepper component ignores footer when there are no buttons 1`
         class="formContent"
       >
         <h4
-          class="MuiTypography-root MuiTypography-h4 step-title css-1ekntu4-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h4 step-title css-1x9euu8-MuiTypography-root"
           data-testid="typography"
         >
           This is the 2nd page
         </h4>
         <h6
-          class="MuiTypography-root MuiTypography-h6 computation css-1le86ss-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h6 computation css-1nuwz6u-MuiTypography-root"
           data-testid="typography"
         />
         <p
-          class="MuiTypography-root MuiTypography-body1 subtitle css-87ejlm-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 subtitle css-1o02bdp-MuiTypography-root"
           data-testid="typography"
         >
           Choose the closest to your roof shape
@@ -170,17 +58,17 @@ exports[`CalculatorStepper component renders as a div 1`] = `
         class="formContent"
       >
         <h4
-          class="MuiTypography-root MuiTypography-h4 step-title css-1ekntu4-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h4 step-title css-1x9euu8-MuiTypography-root"
           data-testid="typography"
         >
           This is the 2nd page
         </h4>
         <h6
-          class="MuiTypography-root MuiTypography-h6 computation css-1le86ss-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h6 computation css-1nuwz6u-MuiTypography-root"
           data-testid="typography"
         />
         <p
-          class="MuiTypography-root MuiTypography-body1 subtitle css-87ejlm-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 subtitle css-1o02bdp-MuiTypography-root"
           data-testid="typography"
         >
           Choose the closest to your roof shape
@@ -266,17 +154,17 @@ exports[`CalculatorStepper component renders correctly 1`] = `
         class="formContent"
       >
         <h4
-          class="MuiTypography-root MuiTypography-h4 step-title css-1ekntu4-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h4 step-title css-1x9euu8-MuiTypography-root"
           data-testid="typography"
         >
           This is the 2nd page
         </h4>
         <h6
-          class="MuiTypography-root MuiTypography-h6 computation css-1le86ss-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h6 computation css-1nuwz6u-MuiTypography-root"
           data-testid="typography"
         />
         <p
-          class="MuiTypography-root MuiTypography-body1 subtitle css-87ejlm-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 subtitle css-1o02bdp-MuiTypography-root"
           data-testid="typography"
         >
           Choose the closest to your roof shape

@@ -1,15 +1,15 @@
 import { Button, CarouselHeroItem } from "@bmi-digital/components";
 import React from "react";
-import { renderImage } from "../../components/Image";
+import Image from "../../components/Image";
 import Link from "../../components/Link";
-import { renderVideo } from "../../components/Video";
+import Video from "../../components/Video";
 import { microCopy } from "../../constants/microCopies";
 import type { HomepageData } from "../home-page";
 
 export const getHeroItemsWithContext = (
   { getMicroCopy },
   slides: HomepageData["slides"]
-): CarouselHeroItem[] => {
+): readonly CarouselHeroItem[] => {
   return slides.map(
     ({ title, subtitle, featuredMedia, featuredVideo, ...rest }) => {
       const callToAction =
@@ -29,9 +29,12 @@ export const getHeroItemsWithContext = (
       return {
         title,
         children: subtitle,
-        media: featuredVideo
-          ? renderVideo(featuredVideo)
-          : renderImage(featuredMedia, { size: "cover" }),
+        hasUnderline: true,
+        media: featuredVideo ? (
+          <Video {...featuredVideo} data-testid={"hero-video"} />
+        ) : featuredMedia ? (
+          <Image {...featuredMedia} size="cover" data-testid={"hero-image"} />
+        ) : undefined,
         cta: rest["cta"] || rest["path"] ? callToAction : null
       };
     }

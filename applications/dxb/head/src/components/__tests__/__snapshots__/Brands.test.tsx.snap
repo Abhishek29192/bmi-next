@@ -3,8 +3,8 @@
 exports[`Brands component renders correctly 1`] = `
 <div>
   <div
-    class="Brands Section-root Section-pearl css-cxq310"
-    data-testid="section"
+    class="Brands Section-root Section-pearl css-10chrh8"
+    data-testid="brands"
   >
     <div
       class=" css-ze8cyt"
@@ -13,14 +13,14 @@ exports[`Brands component renders correctly 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
           data-testid="typography"
         >
            
           MC: homepage.brands
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-i24bwq-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-1a8bzh9-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -34,13 +34,15 @@ exports[`Brands component renders correctly 1`] = `
               <a
                 aria-label="Icopal"
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium BrandIntroCard-brandLogoButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Smilex - MC: homepage.brands.learn\\",\\"action\\":\\"/smilex\\"}"
+                data-gtm="{"id":"cta-click1","label":"Smilex - MC: homepage.brands.learn","action":"/smilex"}"
                 data-testid="brandLogoButton"
                 href="/smilex"
                 tabindex="0"
               >
                 <svg
                   class="BrandLogo BrandIntroCard-brandLogo css-gn1fhj"
+                  data-testid="brandLogo"
+                  preserveAspectRatio="xMinYMin"
                   viewBox="0 0 154 100"
                   xml:space="preserve"
                   xmlns="http://www.w3.org/2000/svg"
@@ -52,14 +54,15 @@ exports[`Brands component renders correctly 1`] = `
                 </svg>
               </a>
               <h6
-                class="MuiTypography-root MuiTypography-subtitle1 css-1329nyb-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-subtitle1 css-h5v5bh-MuiTypography-root"
                 data-testid="brandLogoDescription"
               >
                 Uh-oh.  He don't look happy. He's been using brand X
               </h6>
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Smilex - MC: homepage.brands.learn\\",\\"action\\":\\"/smilex\\"}"
+                data-gtm="{"id":"cta-click1","label":"Smilex - MC: homepage.brands.learn","action":"/smilex"}"
+                data-testid="brandLogoLabelButton"
                 href="/smilex"
                 tabindex="0"
               >

@@ -20,7 +20,7 @@ exports[`ConfiguratorPanel component renders collapsed 1`] = `
           class="MuiAccordionSummary-content MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
         >
           <h3
-            class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1cdyjz5-MuiTypography-root"
             data-testid="configurator-panel-accordion-summary-title"
           >
             Question One
@@ -89,7 +89,7 @@ exports[`ConfiguratorPanel component renders correctly 1`] = `
           class="MuiAccordionSummary-content Mui-expanded MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
         >
           <h3
-            class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1cdyjz5-MuiTypography-root"
             data-testid="configurator-panel-accordion-summary-title"
           >
             Question One
@@ -159,7 +159,7 @@ exports[`ConfiguratorPanel component renders disabled 1`] = `
           class="MuiAccordionSummary-content Mui-expanded MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
         >
           <h3
-            class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1cdyjz5-MuiTypography-root"
             data-testid="configurator-panel-accordion-summary-title"
           >
             Question One
@@ -244,7 +244,7 @@ exports[`ConfiguratorPanel component renders expanded with child content 1`] = `
           class="MuiAccordionSummary-content Mui-expanded MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
         >
           <h3
-            class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1cdyjz5-MuiTypography-root"
             data-testid="configurator-panel-accordion-summary-title"
           >
             Question One
@@ -320,7 +320,7 @@ exports[`ConfiguratorPanel component renders expanded with child content and opt
           class="MuiAccordionSummary-content Mui-expanded MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
         >
           <h3
-            class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1cdyjz5-MuiTypography-root"
             data-testid="configurator-panel-accordion-summary-title"
           >
             Question One
@@ -406,7 +406,7 @@ exports[`ConfiguratorPanel component renders with title with selected option tit
           class="MuiAccordionSummary-content Mui-expanded MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
         >
           <h3
-            class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1cdyjz5-MuiTypography-root"
             data-testid="configurator-panel-accordion-summary-title"
           >
             Question one: 

@@ -38,9 +38,7 @@ const DesktopDocumentTechnicalTableResults = ({
   documentsByProduct,
   assetTypes
 }: Props) => {
-  const {
-    config: { documentDownloadEndpoint }
-  } = useConfig();
+  const { documentDownloadEndpoint } = useConfig();
   const { getMicroCopy } = useSiteContext();
   const { executeRecaptcha } = useGoogleReCaptcha();
   const qaAuthToken = getCookie(QA_AUTH_TOKEN);
@@ -59,6 +57,7 @@ const DesktopDocumentTechnicalTableResults = ({
           label: "Download",
           action: asset.url
         }}
+        data-testid="single-document-download-link"
       >
         <Icon
           name={fileIconsMap[asset.format] || "FileUniversal"}
@@ -83,6 +82,7 @@ const DesktopDocumentTechnicalTableResults = ({
         }}
         className={classes.externalDownloadButton}
         disableTouchRipple={true}
+        data-testid="single-document-external-link"
       >
         <Icon name={"External"} className={classes.externalLinkIcon} />
       </GTMButton>

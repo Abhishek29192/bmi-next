@@ -56,7 +56,9 @@ const SampleOrderSection = ({
   };
   const [hasSampleInTheBasket, setHasSampleInTheBasket] = useState(false);
   const [isBasketFull, setIsBasketFull] = useState(false);
-  const [basketHasProducts, setBasketHasProducts] = useState(false);
+  const [basketHasProducts, setBasketHasProducts] = useState(
+    basketState.products.length > 0
+  );
   const { countryCode } = useSiteContext();
   useEffect(() => {
     if (product) {
@@ -87,7 +89,12 @@ const SampleOrderSection = ({
     (isSampleOrderAllowed || basketHasProducts) && (
       <div className={styles["SampleOrderSection"]}>
         <div className={styles["container"]}>
-          <Section backgroundColor="white" spacing="none" hasNoPadding>
+          <Section
+            backgroundColor="white"
+            spacing="none"
+            hasNoPadding
+            id={`sample-order`}
+          >
             {basketHasProducts && (
               <div className={styles["sample-message"]}>{sampleMessage()}</div>
             )}

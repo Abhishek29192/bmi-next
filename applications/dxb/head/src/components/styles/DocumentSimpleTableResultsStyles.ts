@@ -1,4 +1,5 @@
 import { Table } from "@bmi-digital/components";
+import { ApprovalStatus } from "@bmi/pim-types";
 import { alpha, formControlLabelClasses } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Icon from "../Icon";
@@ -75,3 +76,10 @@ export const NoDocumentIcon = styled("span")(({ theme }) => ({
   color: theme.colours.charcoal,
   opacity: 0.24
 }));
+
+export const DocumentStatus = styled("p")<{ status: ApprovalStatus }>(
+  ({ theme, status }) => ({
+    margin: 0,
+    color: status === "approved" ? theme.colours.success : theme.colours.blue300
+  })
+);

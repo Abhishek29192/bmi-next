@@ -1,6 +1,6 @@
 import logger from "@bmi-digital/functions-logger";
-import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import fetch, { RequestInit } from "node-fetch";
+import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 
 const { ES_HOST } = process.env;
 

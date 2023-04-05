@@ -3,8 +3,8 @@
 exports[`ExploreBarSection component renders correctly 1`] = `
 <div>
   <div
-    class="Section-root css-cxq310"
-    data-testid="section"
+    class="Section-root css-10chrh8"
+    data-testid="explorer-bar-section-Lorem-ipsum"
   >
     <div
       class=" css-ze8cyt"
@@ -17,7 +17,7 @@ exports[`ExploreBarSection component renders correctly 1`] = `
           class="css-v7bjwn"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h6 css-jlrilz-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h6 css-1jvwmj5-MuiTypography-root"
             data-testid="typography"
             id="explore-bar"
           >

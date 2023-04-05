@@ -32,6 +32,7 @@ exports[`Visualiser component renders correctly 1`] = `
         <button
           aria-label="Close"
           class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-1o5d63j-MuiButtonBase-root-MuiIconButton-root"
+          data-testid="container-dialog-header-close-button"
           tabindex="0"
           type="button"
         >
@@ -108,11 +109,11 @@ exports[`Visualiser component renders correctly 1`] = `
               </svg>
               <div>
                 <h3
-                  class="MuiTypography-root MuiTypography-h5 VisualiserV2-detailsTitle css-10q7alf-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 VisualiserV2-detailsTitle css-1lhxn1g-MuiTypography-root"
                   data-testid="typography"
                 />
                 <p
-                  class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                   data-testid="typography"
                 />
               </div>
@@ -224,6 +225,7 @@ exports[`Visualiser component renders correctly when non-test asset url provided
         <button
           aria-label="Close"
           class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-1o5d63j-MuiButtonBase-root-MuiIconButton-root"
+          data-testid="container-dialog-header-close-button"
           tabindex="0"
           type="button"
         >
@@ -300,11 +302,11 @@ exports[`Visualiser component renders correctly when non-test asset url provided
               </svg>
               <div>
                 <h3
-                  class="MuiTypography-root MuiTypography-h5 VisualiserV2-detailsTitle css-10q7alf-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 VisualiserV2-detailsTitle css-1lhxn1g-MuiTypography-root"
                   data-testid="typography"
                 />
                 <p
-                  class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                   data-testid="typography"
                 />
               </div>
@@ -416,6 +418,7 @@ exports[`Visualiser component renders correctly when test asset url provided 1`]
         <button
           aria-label="Close"
           class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-1o5d63j-MuiButtonBase-root-MuiIconButton-root"
+          data-testid="container-dialog-header-close-button"
           tabindex="0"
           type="button"
         >
@@ -492,11 +495,11 @@ exports[`Visualiser component renders correctly when test asset url provided 1`]
               </svg>
               <div>
                 <h3
-                  class="MuiTypography-root MuiTypography-h5 VisualiserV2-detailsTitle css-10q7alf-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 VisualiserV2-detailsTitle css-1lhxn1g-MuiTypography-root"
                   data-testid="typography"
                 />
                 <p
-                  class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                   data-testid="typography"
                 />
               </div>

@@ -42,6 +42,10 @@ export const microCopy = {
   DOCUMENT_LIBRARY_HEADERS_TITLE: "documentLibrary.headers.title",
   DOCUMENT_LIBRARY_HEADERS_DOWNLOAD: "documentLibrary.headers.download",
   DOCUMENT_LIBRARY_HEADERS_ADD: "documentLibrary.headers.add",
+  DOCUMENT_LIBRARY_HEADERS_PRODUCT_STATUS:
+    "documentLibrary.headers.productStatus",
+  DOCUMENT_LIBRARY_HEADERS_VALIDITY_DATE:
+    "documentLibrary.headers.validityDate",
   DOCUMENT_LIBRARY_DOWNLOAD: "documentLibrary.download",
   DOCUMENT_LIBRARY_CARD_DOWNLOAD: "documentLibrary.card.download",
   DOCUMENT_LIBRARY_FILTERS_TITLE: "documentLibrary.filters.title",
@@ -49,6 +53,8 @@ export const microCopy = {
   DOCUMENT_LIBRARY_NO_RESULTS: "documentLibrary.noResults",
 
   DOCUMENTS_DOWNLOAD_MAX_REACHED: "documents.download.maxReached",
+  DOCUMENT_STATUS_AVAILABLE: "document.status.available",
+  DOCUMENT_STATUS_DISCONTINUED: "document.status.discontinued",
 
   HOMEPAGE_BRANDS: "homepage.brands",
   HOMEPAGE_BRANDS_LEARN: "homepage.brands.learn",
@@ -257,6 +263,7 @@ export const microCopy = {
   VALIDATION_ERRORS_EMAIL: "validation.errors.email",
 
   FIND_A_ROOFER_FILTERS_LABEL: "findARoofer.filtersLabel",
+  FIND_A_ROOFER_SOCIAL_MEDIA_LABEL: "findARoofer.socialMediaLabel",
   FIND_A_BRANCH_FILTERS_LABEL: "findABranch.filtersLabel",
   FIND_A_MERCHANT_FILTERS_LABEL: "findAMerchant.filtersLabel",
 
@@ -323,6 +330,9 @@ export const microCopy = {
   FILTER_LABELS_COLOUR: "filterLabels.colour",
   FILTER_LABELS_PRODUCT_FAMILY: "filterLabels.ProductFamily",
   FILTER_LABELS_CATEGORY: "filterLabels.Category",
+  FILTER_LABELS_AVAILABILITY_HEADING: "filterLabels.Availability.Heading",
+  FILTER_LABELS_SUMMERY_ACCORDION_AVAILABILITY:
+    "filterLabels.Summery.Accordion.Availability",
 
   FIND_A_ROOFER_FILTERS_FLAT_ROOF: "findARoofer.filters.flatRoof",
   UPLOAD_SUPPORTED_FORMATS: "upload.supportedFormats",

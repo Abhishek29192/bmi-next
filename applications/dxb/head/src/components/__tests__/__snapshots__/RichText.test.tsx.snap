@@ -3,46 +3,44 @@
 exports[`RichText component closes dialog 1`] = `
 <div>
   <div
-    class="RichText-root css-17t4j5c"
+    class="RichText-root css-vf09gu"
   >
     <h2
-      class="MuiTypography-root MuiTypography-h2 RichText-title css-ta8c5q-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h2 RichText-title css-1gn4sxn-MuiTypography-root"
       data-testid="typography"
     >
       Heading 2
     </h2>
     <h3
-      class="MuiTypography-root MuiTypography-h3 RichText-title css-d7brak-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h3 RichText-title css-2221f6-MuiTypography-root"
       data-testid="typography"
     >
       Heading 3
     </h3>
     <h4
-      class="MuiTypography-root MuiTypography-h4 RichText-title css-1ekntu4-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h4 RichText-title css-1x9euu8-MuiTypography-root"
       data-testid="typography"
     >
       Heading 4
     </h4>
     <h5
-      class="MuiTypography-root MuiTypography-h5 RichText-title css-10q7alf-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h5 RichText-title css-1lhxn1g-MuiTypography-root"
       data-testid="typography"
     >
       Heading 5
     </h5>
     <h6
-      class="MuiTypography-root MuiTypography-h6 RichText-title css-1le86ss-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h6 RichText-title css-1nuwz6u-MuiTypography-root"
       data-testid="typography"
     >
       Heading 6
     </h6>
     <p
-      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
       data-testid="typography"
-    >
-      
-    </p>
+    />
     <p
-      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
       data-testid="typography"
     >
       Paragraph 
@@ -58,7 +56,7 @@ exports[`RichText component closes dialog 1`] = `
         
       <a
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"External\\",\\"action\\":\\"https://google.co.uk\\"}"
+        data-gtm="{"id":"cta-click1","label":"External","action":"https://google.co.uk"}"
         data-testid="anchor-link"
         href="https://google.co.uk"
         rel="noopener noreferrer"
@@ -71,7 +69,7 @@ exports[`RichText component closes dialog 1`] = `
        
       <a
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Entry\\",\\"action\\":\\"/testing-simple-page/\\"}"
+        data-gtm="{"id":"cta-click1","label":"Entry","action":"/testing-simple-page/"}"
         data-testid="anchor-link"
         href="/testing-simple-page/"
       >
@@ -82,7 +80,7 @@ exports[`RichText component closes dialog 1`] = `
        
       <a
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Asset\\",\\"action\\":\\"https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png\\"}"
+        data-gtm="{"id":"cta-click1","label":"Asset","action":"https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png"}"
         data-testid="anchor-link"
         href="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png"
         rel="noopener noreferrer"
@@ -94,8 +92,8 @@ exports[`RichText component closes dialog 1`] = `
       </a>
        
       <button
-        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Aerodek Robust Plus\\",\\"action\\":\\"product-category-page/product-sub-category-page/aerodek-robust-plus/\\"}"
+        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLink embeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+        data-gtm="{"id":"cta-click1","label":"Aerodek Robust Plus","action":"product-category-page/product-sub-category-page/aerodek-robust-plus/"}"
         tabindex="0"
         type="button"
       >
@@ -104,12 +102,11 @@ exports[`RichText component closes dialog 1`] = `
           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
       </button>
-      
     </p>
     <ul>
       <li>
         <p
-          class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
           data-testid="typography"
         >
           UL
@@ -119,7 +116,7 @@ exports[`RichText component closes dialog 1`] = `
     <ol>
       <li>
         <p
-          class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
           data-testid="typography"
         >
           OL
@@ -128,7 +125,7 @@ exports[`RichText component closes dialog 1`] = `
     </ol>
     <blockquote>
       <p
-        class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
         data-testid="typography"
       >
         Blockquote
@@ -136,8 +133,8 @@ exports[`RichText component closes dialog 1`] = `
     </blockquote>
     <hr />
     <button
-      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Support\\",\\"action\\":\\"landing-page/\\"}"
+      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLink embeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+      data-gtm="{"id":"cta-click1","label":"Support","action":"landing-page/"}"
       tabindex="0"
       type="button"
     >
@@ -146,32 +143,45 @@ exports[`RichText component closes dialog 1`] = `
         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
       />
     </button>
-    <img
-      alt="Customer Support"
-      class="embedded-asset"
-      src="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png"
+    <picture>
+      <source
+        sizes="(max-width: 600px) 561px, (max-width: 720px) 665px, (max-width: 840px) 785px, (max-width: 1440px) 916px, 920px"
+        srcset="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=webp&q=50&w=561 561w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=webp&q=50&w=665 665w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=webp&q=50&w=785 785w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=webp&q=50&w=916 916w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=webp&q=50&w=920 920w"
+        type="image/webp"
+      />
+      <source
+        sizes="(max-width: 600px) 561px, (max-width: 720px) 665px, (max-width: 840px) 785px, (max-width: 1440px) 916px, 920px"
+        srcset="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?q=50&w=561 561w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?q=50&w=665 665w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?q=50&w=785 785w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?q=50&w=916 916w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?q=50&w=920 920w"
+      />
+      <img
+        alt="Customer Support"
+        class="embedded-asset"
+        data-main-image="true"
+        decoding="async"
+        draggable="false"
+        loading="lazy"
+        src="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=png&q=50&fl=progressive&w=920"
+        srcset="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=png&q=50&w=561 561w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=png&q=50&w=665 665w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=png&q=50&w=785 785w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=png&q=50&w=916 916w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=png&q=50&w=920 920w"
+      />
+    </picture>
+    <p
+      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
+      data-testid="typography"
     />
     <p
-      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
-      data-testid="typography"
-    >
-      
-    </p>
-    <p
-      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
       data-testid="typography"
     >
       <button
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button Anchorlink css-4gnc4v-MuiTypography-root-MuiLink-root"
-        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Open dialog\\",\\"action\\":\\"Dialog\\"}"
-        data-testid="anchor-link"
+        data-gtm="{"id":"cta-click1","label":"Open dialog","action":"Dialog"}"
+        data-testid="rich-text-entry-hyperlink"
         type="button"
       >
         <span>
           Open dialog
         </span>
       </button>
-      
     </p>
   </div>
 </div>
@@ -180,10 +190,10 @@ exports[`RichText component closes dialog 1`] = `
 exports[`RichText component falls back with incorrect data 1`] = `
 <div>
   <div
-    class="RichText-root css-17t4j5c"
+    class="RichText-root css-vf09gu"
   >
     <p
-      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
       data-testid="typography"
     />
   </div>
@@ -193,46 +203,44 @@ exports[`RichText component falls back with incorrect data 1`] = `
 exports[`RichText component renders correctly 1`] = `
 <div>
   <div
-    class="RichText-root css-17t4j5c"
+    class="RichText-root css-vf09gu"
   >
     <h2
-      class="MuiTypography-root MuiTypography-h2 RichText-title css-ta8c5q-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h2 RichText-title css-1gn4sxn-MuiTypography-root"
       data-testid="typography"
     >
       Heading 2
     </h2>
     <h3
-      class="MuiTypography-root MuiTypography-h3 RichText-title css-d7brak-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h3 RichText-title css-2221f6-MuiTypography-root"
       data-testid="typography"
     >
       Heading 3
     </h3>
     <h4
-      class="MuiTypography-root MuiTypography-h4 RichText-title css-1ekntu4-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h4 RichText-title css-1x9euu8-MuiTypography-root"
       data-testid="typography"
     >
       Heading 4
     </h4>
     <h5
-      class="MuiTypography-root MuiTypography-h5 RichText-title css-10q7alf-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h5 RichText-title css-1lhxn1g-MuiTypography-root"
       data-testid="typography"
     >
       Heading 5
     </h5>
     <h6
-      class="MuiTypography-root MuiTypography-h6 RichText-title css-1le86ss-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h6 RichText-title css-1nuwz6u-MuiTypography-root"
       data-testid="typography"
     >
       Heading 6
     </h6>
     <p
-      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
       data-testid="typography"
-    >
-      
-    </p>
+    />
     <p
-      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
       data-testid="typography"
     >
       Paragraph 
@@ -248,7 +256,7 @@ exports[`RichText component renders correctly 1`] = `
         
       <a
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"External\\",\\"action\\":\\"https://google.co.uk\\"}"
+        data-gtm="{"id":"cta-click1","label":"External","action":"https://google.co.uk"}"
         data-testid="anchor-link"
         href="https://google.co.uk"
         rel="noopener noreferrer"
@@ -261,7 +269,7 @@ exports[`RichText component renders correctly 1`] = `
        
       <a
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Entry\\",\\"action\\":\\"/testing-simple-page/\\"}"
+        data-gtm="{"id":"cta-click1","label":"Entry","action":"/testing-simple-page/"}"
         data-testid="anchor-link"
         href="/testing-simple-page/"
       >
@@ -272,7 +280,7 @@ exports[`RichText component renders correctly 1`] = `
        
       <a
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Asset\\",\\"action\\":\\"https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png\\"}"
+        data-gtm="{"id":"cta-click1","label":"Asset","action":"https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png"}"
         data-testid="anchor-link"
         href="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png"
         rel="noopener noreferrer"
@@ -284,8 +292,8 @@ exports[`RichText component renders correctly 1`] = `
       </a>
        
       <button
-        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Aerodek Robust Plus\\",\\"action\\":\\"product-category-page/product-sub-category-page/aerodek-robust-plus/\\"}"
+        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLink embeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+        data-gtm="{"id":"cta-click1","label":"Aerodek Robust Plus","action":"product-category-page/product-sub-category-page/aerodek-robust-plus/"}"
         tabindex="0"
         type="button"
       >
@@ -294,12 +302,11 @@ exports[`RichText component renders correctly 1`] = `
           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
       </button>
-      
     </p>
     <ul>
       <li>
         <p
-          class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
           data-testid="typography"
         >
           UL
@@ -309,7 +316,7 @@ exports[`RichText component renders correctly 1`] = `
     <ol>
       <li>
         <p
-          class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
           data-testid="typography"
         >
           OL
@@ -318,7 +325,7 @@ exports[`RichText component renders correctly 1`] = `
     </ol>
     <blockquote>
       <p
-        class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
         data-testid="typography"
       >
         Blockquote
@@ -326,8 +333,8 @@ exports[`RichText component renders correctly 1`] = `
     </blockquote>
     <hr />
     <button
-      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Support\\",\\"action\\":\\"landing-page/\\"}"
+      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLink embeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+      data-gtm="{"id":"cta-click1","label":"Support","action":"landing-page/"}"
       tabindex="0"
       type="button"
     >
@@ -336,32 +343,45 @@ exports[`RichText component renders correctly 1`] = `
         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
       />
     </button>
-    <img
-      alt="Customer Support"
-      class="embedded-asset"
-      src="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png"
+    <picture>
+      <source
+        sizes="(max-width: 600px) 561px, (max-width: 720px) 665px, (max-width: 840px) 785px, (max-width: 1440px) 916px, 920px"
+        srcset="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=webp&q=50&w=561 561w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=webp&q=50&w=665 665w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=webp&q=50&w=785 785w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=webp&q=50&w=916 916w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=webp&q=50&w=920 920w"
+        type="image/webp"
+      />
+      <source
+        sizes="(max-width: 600px) 561px, (max-width: 720px) 665px, (max-width: 840px) 785px, (max-width: 1440px) 916px, 920px"
+        srcset="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?q=50&w=561 561w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?q=50&w=665 665w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?q=50&w=785 785w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?q=50&w=916 916w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?q=50&w=920 920w"
+      />
+      <img
+        alt="Customer Support"
+        class="embedded-asset"
+        data-main-image="true"
+        decoding="async"
+        draggable="false"
+        loading="lazy"
+        src="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=png&q=50&fl=progressive&w=920"
+        srcset="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=png&q=50&w=561 561w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=png&q=50&w=665 665w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=png&q=50&w=785 785w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=png&q=50&w=916 916w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=png&q=50&w=920 920w"
+      />
+    </picture>
+    <p
+      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
+      data-testid="typography"
     />
     <p
-      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
-      data-testid="typography"
-    >
-      
-    </p>
-    <p
-      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
       data-testid="typography"
     >
       <button
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button Anchorlink css-4gnc4v-MuiTypography-root-MuiLink-root"
-        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Open dialog\\",\\"action\\":\\"Dialog\\"}"
-        data-testid="anchor-link"
+        data-gtm="{"id":"cta-click1","label":"Open dialog","action":"Dialog"}"
+        data-testid="rich-text-entry-hyperlink"
         type="button"
       >
         <span>
           Open dialog
         </span>
       </button>
-      
     </p>
   </div>
 </div>
@@ -372,46 +392,44 @@ exports[`RichText component renders when dialog clicked 1`] = `
   aria-hidden="true"
 >
   <div
-    class="RichText-root css-17t4j5c"
+    class="RichText-root css-vf09gu"
   >
     <h2
-      class="MuiTypography-root MuiTypography-h2 RichText-title css-ta8c5q-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h2 RichText-title css-1gn4sxn-MuiTypography-root"
       data-testid="typography"
     >
       Heading 2
     </h2>
     <h3
-      class="MuiTypography-root MuiTypography-h3 RichText-title css-d7brak-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h3 RichText-title css-2221f6-MuiTypography-root"
       data-testid="typography"
     >
       Heading 3
     </h3>
     <h4
-      class="MuiTypography-root MuiTypography-h4 RichText-title css-1ekntu4-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h4 RichText-title css-1x9euu8-MuiTypography-root"
       data-testid="typography"
     >
       Heading 4
     </h4>
     <h5
-      class="MuiTypography-root MuiTypography-h5 RichText-title css-10q7alf-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h5 RichText-title css-1lhxn1g-MuiTypography-root"
       data-testid="typography"
     >
       Heading 5
     </h5>
     <h6
-      class="MuiTypography-root MuiTypography-h6 RichText-title css-1le86ss-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h6 RichText-title css-1nuwz6u-MuiTypography-root"
       data-testid="typography"
     >
       Heading 6
     </h6>
     <p
-      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
       data-testid="typography"
-    >
-      
-    </p>
+    />
     <p
-      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
       data-testid="typography"
     >
       Paragraph 
@@ -427,7 +445,7 @@ exports[`RichText component renders when dialog clicked 1`] = `
         
       <a
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"External\\",\\"action\\":\\"https://google.co.uk\\"}"
+        data-gtm="{"id":"cta-click1","label":"External","action":"https://google.co.uk"}"
         data-testid="anchor-link"
         href="https://google.co.uk"
         rel="noopener noreferrer"
@@ -440,7 +458,7 @@ exports[`RichText component renders when dialog clicked 1`] = `
        
       <a
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Entry\\",\\"action\\":\\"/testing-simple-page/\\"}"
+        data-gtm="{"id":"cta-click1","label":"Entry","action":"/testing-simple-page/"}"
         data-testid="anchor-link"
         href="/testing-simple-page/"
       >
@@ -451,7 +469,7 @@ exports[`RichText component renders when dialog clicked 1`] = `
        
       <a
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Asset\\",\\"action\\":\\"https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png\\"}"
+        data-gtm="{"id":"cta-click1","label":"Asset","action":"https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png"}"
         data-testid="anchor-link"
         href="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png"
         rel="noopener noreferrer"
@@ -463,8 +481,8 @@ exports[`RichText component renders when dialog clicked 1`] = `
       </a>
        
       <button
-        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Aerodek Robust Plus\\",\\"action\\":\\"product-category-page/product-sub-category-page/aerodek-robust-plus/\\"}"
+        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLink embeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+        data-gtm="{"id":"cta-click1","label":"Aerodek Robust Plus","action":"product-category-page/product-sub-category-page/aerodek-robust-plus/"}"
         tabindex="0"
         type="button"
       >
@@ -473,12 +491,11 @@ exports[`RichText component renders when dialog clicked 1`] = `
           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
       </button>
-      
     </p>
     <ul>
       <li>
         <p
-          class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
           data-testid="typography"
         >
           UL
@@ -488,7 +505,7 @@ exports[`RichText component renders when dialog clicked 1`] = `
     <ol>
       <li>
         <p
-          class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
           data-testid="typography"
         >
           OL
@@ -497,7 +514,7 @@ exports[`RichText component renders when dialog clicked 1`] = `
     </ol>
     <blockquote>
       <p
-        class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
         data-testid="typography"
       >
         Blockquote
@@ -505,8 +522,8 @@ exports[`RichText component renders when dialog clicked 1`] = `
     </blockquote>
     <hr />
     <button
-      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Support\\",\\"action\\":\\"landing-page/\\"}"
+      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLink embeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+      data-gtm="{"id":"cta-click1","label":"Support","action":"landing-page/"}"
       tabindex="0"
       type="button"
     >
@@ -515,32 +532,45 @@ exports[`RichText component renders when dialog clicked 1`] = `
         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
       />
     </button>
-    <img
-      alt="Customer Support"
-      class="embedded-asset"
-      src="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png"
+    <picture>
+      <source
+        sizes="(max-width: 600px) 561px, (max-width: 720px) 665px, (max-width: 840px) 785px, (max-width: 1440px) 916px, 920px"
+        srcset="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=webp&q=50&w=561 561w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=webp&q=50&w=665 665w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=webp&q=50&w=785 785w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=webp&q=50&w=916 916w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=webp&q=50&w=920 920w"
+        type="image/webp"
+      />
+      <source
+        sizes="(max-width: 600px) 561px, (max-width: 720px) 665px, (max-width: 840px) 785px, (max-width: 1440px) 916px, 920px"
+        srcset="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?q=50&w=561 561w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?q=50&w=665 665w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?q=50&w=785 785w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?q=50&w=916 916w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?q=50&w=920 920w"
+      />
+      <img
+        alt="Customer Support"
+        class="embedded-asset"
+        data-main-image="true"
+        decoding="async"
+        draggable="false"
+        loading="lazy"
+        src="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=png&q=50&fl=progressive&w=920"
+        srcset="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=png&q=50&w=561 561w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=png&q=50&w=665 665w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=png&q=50&w=785 785w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=png&q=50&w=916 916w, https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png?fm=png&q=50&w=920 920w"
+      />
+    </picture>
+    <p
+      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
+      data-testid="typography"
     />
     <p
-      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
-      data-testid="typography"
-    >
-      
-    </p>
-    <p
-      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
       data-testid="typography"
     >
       <button
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button Anchorlink css-4gnc4v-MuiTypography-root-MuiLink-root"
-        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Open dialog\\",\\"action\\":\\"Dialog\\"}"
-        data-testid="anchor-link"
+        data-gtm="{"id":"cta-click1","label":"Open dialog","action":"Dialog"}"
+        data-testid="rich-text-entry-hyperlink"
         type="button"
       >
         <span>
           Open dialog
         </span>
       </button>
-      
     </p>
   </div>
 </div>

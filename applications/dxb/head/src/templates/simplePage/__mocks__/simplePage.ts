@@ -1,6 +1,6 @@
 import { DataTypeEnum } from "../../../components/Link";
-import { ImageWithThumbnail } from "../../../components/PageInfo";
 import { Data as SignUpBlockData } from "../../../components/SignupBlock";
+import createImageData from "../../../__tests__/helpers/ImageDataHelper";
 import { PageContextType } from "../../productListerPage/components/product-lister-page";
 
 export const pageContext: PageContextType = {
@@ -75,24 +75,7 @@ export const sections = [
     displaySingleRow: null
   }
 ];
-export const featuredMedia: ImageWithThumbnail = {
-  type: null,
-  altText: "Lorem ipsum",
-  focalPoint: null,
-  image: {
-    file: {
-      fileName: "Lorem ipsum",
-      url: "//images.asset.jpg"
-    }
-  },
-  thumbnail: {
-    src: "//images.asset.jpg",
-    file: {
-      fileName: "Lorem ipsum",
-      url: "//images.asset.jpg"
-    }
-  }
-};
+export const featuredMedia = createImageData();
 
 export const leadBlockData = {
   __typename: "ContentfulLeadBlockSection",

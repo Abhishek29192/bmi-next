@@ -1,7 +1,6 @@
 import { mockResponse } from "@bmi-digital/fetch-mocks";
 import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
-import mockConsole from "jest-mock-console";
 import { Method, Status } from "simple-http-status";
 import { getById, getYoutubeDetails, saveById } from "../db";
 import createYoutubeVideoListResponse from "./YoutubeVideoListResponseHelper";
@@ -45,7 +44,6 @@ const createRequest = async (
 };
 
 beforeEach(() => {
-  mockConsole();
   jest.resetAllMocks();
   fetchMock.reset();
 });

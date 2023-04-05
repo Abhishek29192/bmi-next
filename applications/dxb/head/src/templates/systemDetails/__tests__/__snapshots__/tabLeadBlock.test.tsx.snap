@@ -53,7 +53,7 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
                   aria-controls="tabpanel-one"
                   aria-selected="true"
                   class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                  data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
+                  data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.about","action":"Selector – Tabs"}"
                   data-testid="tab-one"
                   id="tab-one"
                   role="tab"
@@ -95,15 +95,15 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
     </div>
     <div
       aria-labelledby="tab-one"
-      class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
-      data-testid="tabpanel-one"
+      class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-923awc"
+      data-testid="tab-panel-lead-block-about"
       heading="MC: sdp.leadBlock.about"
       id="tabpanel-one"
       role="tabpanel"
     >
       <div
-        class="section Section-root Section-white css-cxq310"
-        data-testid="section"
+        class="section Section-root Section-white css-10chrh8"
+        data-testid="tab-system-about-lead-block-section"
       >
         <div
           class=" css-ze8cyt"
@@ -112,7 +112,7 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-11fgxps-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-d6me72-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -120,22 +120,22 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
                 data-testid="grid-item"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
                   data-testid="typography"
                 >
                   <div
-                    class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-description css-1o02bdp-MuiTypography-root"
                     data-testid="typography"
                   >
                     system-desc
                   </div>
                 </p>
                 <p
-                  class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
                   data-testid="typography"
                 >
                   <h6
-                    class="MuiTypography-root MuiTypography-h6 css-1wzmdv9-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
                     data-testid="guarentees-section"
                   >
                     MC: pdp.leadBlock.guaranteesWarranties
@@ -148,11 +148,11 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
                   />
                 </p>
                 <p
-                  class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
                   data-testid="typography"
                 >
                   <h6
-                    class="MuiTypography-root MuiTypography-h6 css-1wzmdv9-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
                     data-testid="awards-section"
                   >
                     MC: pdp.leadBlock.awardsCertificates
@@ -169,18 +169,19 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
                   />
                 </p>
                 <p
-                  class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
                   data-testid="typography"
                 >
                   <h6
-                    class="MuiTypography-root MuiTypography-h6 css-1wzmdv9-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
                     data-testid="specification-section"
                   >
                     MC: sdp.leadBlock.specification
                   </h6>
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"asset-name\\",\\"action\\":\\"http://localhost:8000/asset-real-file-name.pdf\\"}"
+                    data-gtm="{"id":"cta-click1","label":"asset-name","action":"http://localhost:8000/asset-real-file-name.pdf"}"
+                    data-testid="specification-button"
                     href="http://localhost:8000/asset-real-file-name.pdf"
                     rel="noopener noreferrer"
                     tabindex="0"
@@ -216,22 +217,22 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
                   class="ColorPair-pearl css-1pt14k0"
                 >
                   <div
-                    class="css-qtgtj9"
+                    class="css-1qwqwtx"
                   >
                     <div
-                      class="css-wepxue"
+                      class="css-asoc7f"
                     >
                       <h4
-                        class="MuiTypography-root MuiTypography-h4 Typography-underline css-1ekntu4-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
                         data-testid="typography"
                       >
                         MC: sdp.leadBlock.systemBenefits
                       </h4>
                       <div
-                        class="css-1xaekgw"
+                        class="css-eler5f"
                       >
                         <ul
-                          class="css-1err4t"
+                          class="css-1yuf2q3"
                         />
                       </div>
                     </div>
@@ -300,7 +301,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                   aria-controls="tabpanel-one"
                   aria-selected="true"
                   class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                  data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
+                  data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.about","action":"Selector – Tabs"}"
                   data-testid="tab-one"
                   id="tab-one"
                   role="tab"
@@ -316,7 +317,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                   aria-controls="tabpanel-two"
                   aria-selected="false"
                   class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                  data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.technicalSpecification\\",\\"action\\":\\"Selector – Tabs\\"}"
+                  data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.technicalSpecification","action":"Selector – Tabs"}"
                   data-testid="tab-two"
                   id="tab-two"
                   role="tab"
@@ -332,7 +333,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                   aria-controls="tabpanel-three"
                   aria-selected="false"
                   class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                  data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.documentsAndDownloads\\",\\"action\\":\\"Selector – Tabs\\"}"
+                  data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.documentsAndDownloads","action":"Selector – Tabs"}"
                   data-testid="tab-three"
                   id="tab-three"
                   role="tab"
@@ -374,15 +375,15 @@ exports[`TabLeadBlock tests should render 1`] = `
     </div>
     <div
       aria-labelledby="tab-one"
-      class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
-      data-testid="tabpanel-one"
+      class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-923awc"
+      data-testid="tab-panel-lead-block-about"
       heading="MC: sdp.leadBlock.about"
       id="tabpanel-one"
       role="tabpanel"
     >
       <div
-        class="section Section-root Section-white css-cxq310"
-        data-testid="section"
+        class="section Section-root Section-white css-10chrh8"
+        data-testid="tab-system-about-lead-block-section"
       >
         <div
           class=" css-ze8cyt"
@@ -391,7 +392,7 @@ exports[`TabLeadBlock tests should render 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-11fgxps-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-d6me72-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -399,22 +400,22 @@ exports[`TabLeadBlock tests should render 1`] = `
                 data-testid="grid-item"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
                   data-testid="typography"
                 >
                   <div
-                    class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-description css-1o02bdp-MuiTypography-root"
                     data-testid="typography"
                   >
                     system-desc
                   </div>
                 </p>
                 <p
-                  class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
                   data-testid="typography"
                 >
                   <h6
-                    class="MuiTypography-root MuiTypography-h6 css-1wzmdv9-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
                     data-testid="guarentees-section"
                   >
                     MC: pdp.leadBlock.guaranteesWarranties
@@ -427,11 +428,11 @@ exports[`TabLeadBlock tests should render 1`] = `
                   />
                 </p>
                 <p
-                  class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
                   data-testid="typography"
                 >
                   <h6
-                    class="MuiTypography-root MuiTypography-h6 css-1wzmdv9-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
                     data-testid="awards-section"
                   >
                     MC: pdp.leadBlock.awardsCertificates
@@ -448,18 +449,19 @@ exports[`TabLeadBlock tests should render 1`] = `
                   />
                 </p>
                 <p
-                  class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
                   data-testid="typography"
                 >
                   <h6
-                    class="MuiTypography-root MuiTypography-h6 css-1wzmdv9-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
                     data-testid="specification-section"
                   >
                     MC: sdp.leadBlock.specification
                   </h6>
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"asset-name\\",\\"action\\":\\"http://localhost:8000/asset-real-file-name.pdf\\"}"
+                    data-gtm="{"id":"cta-click1","label":"asset-name","action":"http://localhost:8000/asset-real-file-name.pdf"}"
+                    data-testid="specification-button"
                     href="http://localhost:8000/asset-real-file-name.pdf"
                     rel="noopener noreferrer"
                     tabindex="0"
@@ -495,22 +497,22 @@ exports[`TabLeadBlock tests should render 1`] = `
                   class="ColorPair-pearl css-1pt14k0"
                 >
                   <div
-                    class="css-qtgtj9"
+                    class="css-1qwqwtx"
                   >
                     <div
-                      class="css-wepxue"
+                      class="css-asoc7f"
                     >
                       <h4
-                        class="MuiTypography-root MuiTypography-h4 Typography-underline css-1ekntu4-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
                         data-testid="typography"
                       >
                         MC: sdp.leadBlock.systemBenefits
                       </h4>
                       <div
-                        class="css-1xaekgw"
+                        class="css-eler5f"
                       >
                         <ul
-                          class="css-1err4t"
+                          class="css-1yuf2q3"
                         />
                       </div>
                     </div>
@@ -524,16 +526,16 @@ exports[`TabLeadBlock tests should render 1`] = `
     </div>
     <div
       aria-labelledby="tab-two"
-      class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
-      data-testid="tabpanel-two"
+      class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-923awc"
+      data-testid="tab-panel-lead-block-technical-specification"
       heading="MC: sdp.leadBlock.technicalSpecification"
       hidden=""
       id="tabpanel-two"
       role="tabpanel"
     >
       <div
-        class="section Section-root Section-white css-cxq310"
-        data-testid="section"
+        class="section Section-root Section-white css-10chrh8"
+        data-testid="tab-system-tech-spec-lead-block-section"
       >
         <div
           class=" css-ze8cyt"
@@ -542,7 +544,7 @@ exports[`TabLeadBlock tests should render 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1y2mitp-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -550,11 +552,12 @@ exports[`TabLeadBlock tests should render 1`] = `
                 data-testid="grid-item"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
                   data-testid="typography"
                 >
                   <div
                     class="SystemDetailsTechnicalSpec"
+                    data-testid="technical-specification-classifications-table-wrapper"
                   >
                     <div
                       class="css-ya57aw"
@@ -612,16 +615,16 @@ exports[`TabLeadBlock tests should render 1`] = `
     </div>
     <div
       aria-labelledby="tab-three"
-      class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
-      data-testid="tabpanel-three"
+      class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-923awc"
+      data-testid="tab-panel-lead-block-documents-and-downloads"
       heading="MC: sdp.leadBlock.documentsAndDownloads"
       hidden=""
       id="tabpanel-three"
       role="tabpanel"
     >
       <div
-        class="section Section-root Section-white css-cxq310"
-        data-testid="section"
+        class="section Section-root Section-white css-10chrh8"
+        data-testid="tab-system-documents-section"
       >
         <div
           class=" css-ze8cyt"
@@ -630,10 +633,10 @@ exports[`TabLeadBlock tests should render 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="css-wepxue"
+              class="css-asoc7f"
             >
               <div
-                class="css-1xaekgw"
+                class="css-eler5f"
               >
                 <div>
                   <div
@@ -641,6 +644,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                   >
                     <div
                       class="DocumentSimpleTableResults css-1iwuinm"
+                      data-testid="document-simple-table-results"
                     >
                       <div
                         class="css-ya57aw"
@@ -687,7 +691,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                           >
                             <tr
                               class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
-                              data-test-id="document-table-row-pim-link-document-id"
+                              data-testid="document-table-row-pim-link-document-id"
                             >
                               <td
                                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
@@ -711,7 +715,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                               >
                                 <a
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                                  data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost/pim-link-document-id\\"}"
+                                  data-gtm="{"id":"download1","label":"Download","action":"http://localhost/pim-link-document-id"}"
                                   data-testid="document-table-download-application/pdf-button"
                                   href="http://localhost/pim-link-document-id"
                                   rel="noopener noreferrer"
@@ -808,7 +812,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                             </tr>
                             <tr
                               class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
-                              data-test-id="document-table-row-pim-link-document-id"
+                              data-testid="document-table-row-pim-link-document-id"
                             >
                               <td
                                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
@@ -832,7 +836,6 @@ exports[`TabLeadBlock tests should render 1`] = `
                               >
                                 <a
                                   class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-                                  data-testid="document-table-external-link-button"
                                   href="http://localhost/pim-link-document-id"
                                   rel="noopener noreferrer"
                                   tabindex="0"
@@ -870,127 +873,63 @@ exports[`TabLeadBlock tests should render 1`] = `
                   </div>
                   <div
                     class="DocumentResultsFooter"
+                    data-testid="document-results-footer"
                   >
-                    <nav
-                      aria-label="pagination navigation"
-                      class="MuiPagination-root MuiPagination-text pagination docResultsFooterStyles-paginationRoot css-ys6i0r-MuiPagination-root"
-                      data-testid="pagination-root"
+                    <div
+                      class="MuiBox-root css-h5fkc8"
                     >
-                      <ul
-                        class="MuiPagination-ul css-wjh20t-MuiPagination-ul"
-                      >
-                        <li>
-                          <button
-                            aria-label="Go to previous page"
-                            class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-disabled MuiPaginationItem-previousNext Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
-                            data-testid="pagination-0-button"
-                            disabled=""
-                            tabindex="-1"
-                            type="button"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiPaginationItem-icon css-g2z002-MuiSvgIcon-root-MuiPaginationItem-icon"
-                              data-testid="NavigateBeforeIcon"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-                              />
-                            </svg>
-                          </button>
-                        </li>
-                        <li>
-                          <button
-                            aria-current="true"
-                            aria-label="page 1"
-                            class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-selected MuiPaginationItem-page Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
-                            data-testid="pagination-1-button"
-                            tabindex="0"
-                            type="button"
-                          >
-                            1
-                            <span
-                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                            />
-                          </button>
-                        </li>
-                        <li>
-                          <button
-                            aria-label="Go to next page"
-                            class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-disabled MuiPaginationItem-previousNext Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
-                            data-testid="pagination-2-button"
-                            disabled=""
-                            tabindex="-1"
-                            type="button"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiPaginationItem-icon css-g2z002-MuiSvgIcon-root-MuiPaginationItem-icon"
-                              data-testid="NavigateNextIcon"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                              />
-                            </svg>
-                          </button>
-                        </li>
-                      </ul>
-                    </nav>
-                    <a
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-                      data-testid="anchor-link"
-                      type="button"
-                    >
-                      <span>
-                        MC: downloadList.clear
-                      </span>
-                    </a>
-                    <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{\\"id\\":\\"download3-button1\\",\\"label\\":\\"MC: downloadList.download (0)\\",\\"action\\":\\"[]\\"}"
-                      data-testid="document-table-download-button"
-                      tabindex="0"
-                      type="button"
-                    >
-                      MC: downloadList.download (0)
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
-                    <p
-                      class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-87ejlm-MuiTypography-root"
-                      data-testid="typography"
-                    >
-                      This site is protected by reCAPTCHA and the Google 
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                         data-testid="anchor-link"
-                        href="https://policies.google.com/privacy"
-                        rel="noreferrer noopener"
-                        target="_blank"
+                        type="button"
                       >
                         <span>
-                          Privacy Policy
+                          MC: downloadList.clear
                         </span>
                       </a>
-                       and 
-                      <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-                        data-testid="anchor-link"
-                        href="https://policies.google.com/terms"
-                        rel="noreferrer noopener"
-                        target="_blank"
+                      <button
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+                        data-gtm="{"id":"download3-button1","label":"MC: downloadList.download (0)","action":"[]"}"
+                        data-testid="document-table-download-button"
+                        tabindex="0"
+                        type="button"
                       >
-                        <span>
-                          Terms of Service
-                        </span>
-                      </a>
-                       apply.
-                    </p>
+                        MC: downloadList.download (0)
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </button>
+                      <p
+                        class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
+                        data-testid="typography"
+                      >
+                        This site is protected by reCAPTCHA and the Google 
+                        <a
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                          data-testid="recaptcha-privacy-policy-link"
+                          href="https://policies.google.com/privacy"
+                          rel="noreferrer noopener"
+                          target="_blank"
+                        >
+                          <span>
+                            Privacy Policy
+                          </span>
+                        </a>
+                         and 
+                        <a
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                          data-testid="recaptcha-terms-of-service-link"
+                          href="https://policies.google.com/terms"
+                          rel="noreferrer noopener"
+                          target="_blank"
+                        >
+                          <span>
+                            Terms of Service
+                          </span>
+                        </a>
+                         apply.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1006,16 +945,16 @@ exports[`TabLeadBlock tests should render 1`] = `
 exports[`TabLeadBlock tests should render documents and downloads 1`] = `
 <div
   aria-labelledby="tab-three"
-  class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
-  data-testid="tabpanel-three"
+  class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-923awc"
+  data-testid="tab-panel-lead-block-documents-and-downloads"
   heading="MC: sdp.leadBlock.documentsAndDownloads"
   hidden=""
   id="tabpanel-three"
   role="tabpanel"
 >
   <div
-    class="section Section-root Section-white css-cxq310"
-    data-testid="section"
+    class="section Section-root Section-white css-10chrh8"
+    data-testid="tab-system-documents-section"
   >
     <div
       class=" css-ze8cyt"
@@ -1024,10 +963,10 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="css-wepxue"
+          class="css-asoc7f"
         >
           <div
-            class="css-1xaekgw"
+            class="css-eler5f"
           >
             <div>
               <div
@@ -1035,6 +974,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
               >
                 <div
                   class="DocumentSimpleTableResults css-1iwuinm"
+                  data-testid="document-simple-table-results"
                 >
                   <div
                     class="css-ya57aw"
@@ -1081,7 +1021,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                       >
                         <tr
                           class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
-                          data-test-id="document-table-row-pim-link-document-id"
+                          data-testid="document-table-row-pim-link-document-id"
                         >
                           <td
                             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
@@ -1105,7 +1045,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                           >
                             <a
                               class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                              data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost/pim-link-document-id\\"}"
+                              data-gtm="{"id":"download1","label":"Download","action":"http://localhost/pim-link-document-id"}"
                               data-testid="document-table-download-application/pdf-button"
                               href="http://localhost/pim-link-document-id"
                               rel="noopener noreferrer"
@@ -1202,7 +1142,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                         </tr>
                         <tr
                           class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
-                          data-test-id="document-table-row-pim-link-document-id"
+                          data-testid="document-table-row-pim-link-document-id"
                         >
                           <td
                             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
@@ -1226,7 +1166,6 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                           >
                             <a
                               class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-                              data-testid="document-table-external-link-button"
                               href="http://localhost/pim-link-document-id"
                               rel="noopener noreferrer"
                               tabindex="0"
@@ -1264,127 +1203,63 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
               </div>
               <div
                 class="DocumentResultsFooter"
+                data-testid="document-results-footer"
               >
-                <nav
-                  aria-label="pagination navigation"
-                  class="MuiPagination-root MuiPagination-text pagination docResultsFooterStyles-paginationRoot css-ys6i0r-MuiPagination-root"
-                  data-testid="pagination-root"
+                <div
+                  class="MuiBox-root css-h5fkc8"
                 >
-                  <ul
-                    class="MuiPagination-ul css-wjh20t-MuiPagination-ul"
-                  >
-                    <li>
-                      <button
-                        aria-label="Go to previous page"
-                        class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-disabled MuiPaginationItem-previousNext Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
-                        data-testid="pagination-0-button"
-                        disabled=""
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiPaginationItem-icon css-g2z002-MuiSvgIcon-root-MuiPaginationItem-icon"
-                          data-testid="NavigateBeforeIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-                          />
-                        </svg>
-                      </button>
-                    </li>
-                    <li>
-                      <button
-                        aria-current="true"
-                        aria-label="page 1"
-                        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-selected MuiPaginationItem-page Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
-                        data-testid="pagination-1-button"
-                        tabindex="0"
-                        type="button"
-                      >
-                        1
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </button>
-                    </li>
-                    <li>
-                      <button
-                        aria-label="Go to next page"
-                        class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-disabled MuiPaginationItem-previousNext Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
-                        data-testid="pagination-2-button"
-                        disabled=""
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiPaginationItem-icon css-g2z002-MuiSvgIcon-root-MuiPaginationItem-icon"
-                          data-testid="NavigateNextIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                          />
-                        </svg>
-                      </button>
-                    </li>
-                  </ul>
-                </nav>
-                <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-                  data-testid="anchor-link"
-                  type="button"
-                >
-                  <span>
-                    MC: downloadList.clear
-                  </span>
-                </a>
-                <button
-                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{\\"id\\":\\"download3-button1\\",\\"label\\":\\"MC: downloadList.download (0)\\",\\"action\\":\\"[]\\"}"
-                  data-testid="document-table-download-button"
-                  tabindex="0"
-                  type="button"
-                >
-                  MC: downloadList.download (0)
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                  />
-                </button>
-                <p
-                  class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-87ejlm-MuiTypography-root"
-                  data-testid="typography"
-                >
-                  This site is protected by reCAPTCHA and the Google 
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                     data-testid="anchor-link"
-                    href="https://policies.google.com/privacy"
-                    rel="noreferrer noopener"
-                    target="_blank"
+                    type="button"
                   >
                     <span>
-                      Privacy Policy
+                      MC: downloadList.clear
                     </span>
                   </a>
-                   and 
-                  <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-                    data-testid="anchor-link"
-                    href="https://policies.google.com/terms"
-                    rel="noreferrer noopener"
-                    target="_blank"
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"download3-button1","label":"MC: downloadList.download (0)","action":"[]"}"
+                    data-testid="document-table-download-button"
+                    tabindex="0"
+                    type="button"
                   >
-                    <span>
-                      Terms of Service
-                    </span>
-                  </a>
-                   apply.
-                </p>
+                    MC: downloadList.download (0)
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                  <p
+                    class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
+                    data-testid="typography"
+                  >
+                    This site is protected by reCAPTCHA and the Google 
+                    <a
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                      data-testid="recaptcha-privacy-policy-link"
+                      href="https://policies.google.com/privacy"
+                      rel="noreferrer noopener"
+                      target="_blank"
+                    >
+                      <span>
+                        Privacy Policy
+                      </span>
+                    </a>
+                     and 
+                    <a
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                      data-testid="recaptcha-terms-of-service-link"
+                      href="https://policies.google.com/terms"
+                      rel="noreferrer noopener"
+                      target="_blank"
+                    >
+                      <span>
+                        Terms of Service
+                      </span>
+                    </a>
+                     apply.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -1398,8 +1273,8 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
 exports[`TabLeadBlock tests should render the bimIframe tab 1`] = `
 <div
   aria-labelledby="tab-four"
-  class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
-  data-testid="tabpanel-four"
+  class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-923awc"
+  data-testid="tab-panel-lead-block-bim"
   heading="MC: sdp.tabs.bim"
   hidden=""
   id="tabpanel-four"
@@ -1409,8 +1284,8 @@ exports[`TabLeadBlock tests should render the bimIframe tab 1`] = `
     class="bimLeadBlock"
   >
     <div
-      class="section Section-root Section-pearl css-cxq310"
-      data-testid="section"
+      class="section Section-root Section-pearl css-10chrh8"
+      data-testid="tab-system-bim-lead-block-section"
     >
       <div
         class=" css-ze8cyt"
@@ -1419,31 +1294,21 @@ exports[`TabLeadBlock tests should render the bimIframe tab 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1y2mitp-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
               data-testid="grid-item"
             >
-              <p
-                class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+              <h2
+                class="MuiTypography-root MuiTypography-h2 Typography-underline css-8cj2y3-MuiTypography-root"
                 data-testid="typography"
               >
-                <h5
-                  class="MuiTypography-root MuiTypography-h5 css-1mafjam-MuiTypography-root"
-                  data-testid="typography"
-                >
-                  <h2
-                    class="MuiTypography-root MuiTypography-h2 Typography-underline css-ta8c5q-MuiTypography-root"
-                    data-testid="typography"
-                  >
-                    BIM_CODE
-                  </h2>
-                </h5>
-              </p>
+                BIM_CODE
+              </h2>
               <p
-                class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
                 data-testid="typography"
               />
             </div>

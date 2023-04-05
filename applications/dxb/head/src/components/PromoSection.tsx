@@ -7,13 +7,13 @@ import {
 import { graphql } from "gatsby";
 import React, { useContext } from "react";
 import withGTM from "../utils/google-tag-manager";
-import { renderImage } from "./Image";
+import Image from "./Image";
 import Link from "./Link";
 import { Data as PromoData } from "./Promo";
 import RichText from "./RichText";
 import { SectionsContext } from "./Sections";
 import styles from "./styles/PromoSection.module.scss";
-import { renderVideo } from "./Video";
+import Video from "./Video";
 
 export type Data = PromoData;
 
@@ -46,9 +46,11 @@ const IntegratedPromoSection = ({ data }: { data: Data }) => {
     <PromoSection
       title={title}
       media={
-        featuredVideo
-          ? renderVideo(featuredVideo)
-          : renderImage(featuredMedia, { position: "top left" })
+        featuredVideo ? (
+          <Video {...featuredVideo} />
+        ) : (
+          <Image {...featuredMedia} position="top left" />
+        )
       }
       className={styles["PromoSection"]}
       backgroundColor={
@@ -58,8 +60,9 @@ const IntegratedPromoSection = ({ data }: { data: Data }) => {
             backgroundColorMap[backgroundColor]
       }
       isReversed={theme ? theme.isReversed : null}
+      data-testid="promo-section"
     >
-      {body ? <RichText document={body} /> : subtitle}
+      {body ? <RichText document={body} hasNoBottomMargin /> : subtitle}
       {cta && (
         <div className={styles["link"]}>
           <Link
@@ -79,6 +82,6 @@ export default IntegratedPromoSection;
 
 export const query = graphql`
   fragment PromoSectionFragment on ContentfulSection {
-    ...PromoFragment
+    ...PromoVillainFragment
   }
 `;

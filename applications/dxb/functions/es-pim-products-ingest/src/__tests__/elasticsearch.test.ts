@@ -42,8 +42,8 @@ describe("updateItems", () => {
     expect(getEsClient).not.toBeCalled();
     expect(getChunks).not.toBeCalled();
     expect(getIndexOperation).not.toBeCalled();
-    expect(getDeleteOperation).not.toBeCalled();
     expect(performBulkOperations).not.toBeCalled();
+    expect(getDeleteOperation).not.toBeCalled();
     expect(count).not.toBeCalled();
     expect(deleteByQuery).not.toBeCalled();
 
@@ -141,41 +141,7 @@ describe("updateItems", () => {
       esProducts[0].code
     );
     expect(getDeleteOperation).not.toBeCalled();
-    expect(performBulkOperations).toBeCalledWith(
-      mockClient,
-      [bulkOperations],
-      index
-    );
-    expect(count).toBeCalledWith({ index });
-    expect(deleteByQuery).not.toBeCalled();
-  });
 
-  it("should index product if approval status is approved", async () => {
-    const esProducts = [createEsProduct({ approvalStatus: "approved" })];
-    const index = `${process.env.ES_INDEX_PREFIX}_products`;
-    const bulkOperations = [
-      {
-        index: {
-          _index: index,
-          _id: esProducts[0].code
-        }
-      },
-      esProducts[0]
-    ];
-    getChunks.mockReturnValueOnce([esProducts]);
-    getIndexOperation.mockReturnValueOnce(bulkOperations);
-    count.mockResolvedValueOnce({ body: { count: 1 } });
-
-    await updateItems("PRODUCTS", esProducts);
-
-    expect(getEsClient).toBeCalled();
-    expect(getChunks).toBeCalledWith(esProducts);
-    expect(getIndexOperation).toBeCalledWith(
-      index,
-      esProducts[0],
-      esProducts[0].code
-    );
-    expect(getDeleteOperation).not.toBeCalled();
     expect(performBulkOperations).toBeCalledWith(
       mockClient,
       [bulkOperations],
@@ -340,8 +306,8 @@ describe("updateItems", () => {
     expect(deleteByQuery).not.toBeCalled();
   });
 
-  it("should delete system if approval status is unapproved", async () => {
-    const esSystems = [createEsSystem({ approvalStatus: "unapproved" })];
+  it("should delete system if approval status is discontinued", async () => {
+    const esSystems = [createEsSystem({ approvalStatus: "discontinued" })];
     const index = `${process.env.ES_INDEX_PREFIX}_systems`;
     const bulkOperations = [
       {
@@ -369,6 +335,42 @@ describe("updateItems", () => {
     expect(count).toBeCalledWith({ index });
     expect(deleteByQuery).not.toBeCalled();
   });
+
+  it("should index products into elastic search", async () => {
+    const esProducts = [createEsProduct()];
+    const index = `${process.env.ES_INDEX_PREFIX}_products`;
+    const bulkOperations = [
+      {
+        index: {
+          _index: index,
+          _id: esProducts[0].code
+        }
+      },
+      esProducts[0]
+    ];
+    getChunks.mockReturnValueOnce([esProducts]);
+    getIndexOperation.mockReturnValueOnce(bulkOperations);
+    performBulkOperations.mockResolvedValueOnce({});
+    count.mockReturnValueOnce({ body: { count: 1 } });
+
+    await updateItems("PRODUCTS", esProducts);
+
+    expect(getEsClient).toBeCalled();
+    expect(getChunks).toBeCalledWith(esProducts);
+    expect(getIndexOperation).toBeCalledWith(
+      index,
+      esProducts[0],
+      esProducts[0].code
+    );
+    expect(getDeleteOperation).not.toBeCalled();
+    expect(performBulkOperations).toBeCalledWith(
+      mockClient,
+      [bulkOperations],
+      index
+    );
+    expect(count).toBeCalledWith({ index });
+    expect(deleteByQuery).not.toBeCalled();
+  });
 });
 
 describe("updateDocuments", () => {
@@ -381,8 +383,8 @@ describe("updateDocuments", () => {
     expect(getEsClient).not.toBeCalled();
     expect(deleteByQuery).not.toBeCalled();
     expect(getChunks).not.toBeCalled();
-    expect(getIndexOperation).not.toBeCalled();
     expect(getDeleteOperation).not.toBeCalled();
+    expect(getIndexOperation).not.toBeCalled();
     expect(performBulkOperations).not.toBeCalled();
     expect(count).not.toBeCalled();
 
@@ -402,8 +404,8 @@ describe("updateDocuments", () => {
     expect(getEsClient).toBeCalled();
     expect(deleteByQuery).not.toBeCalled();
     expect(getChunks).not.toBeCalled();
-    expect(getIndexOperation).not.toBeCalled();
     expect(getDeleteOperation).not.toBeCalled();
+    expect(getIndexOperation).not.toBeCalled();
     expect(performBulkOperations).not.toBeCalled();
     expect(count).not.toBeCalled();
   });
@@ -504,7 +506,7 @@ describe("updateDocuments", () => {
     const itemCode = "itemCode";
     const pimDocuments = [createPimProductDocument()];
     const bulkOperations = [
-      { index: { _index: index, _id: pimDocuments[0].id } },
+      { index: { _id: pimDocuments[0].id } },
       pimDocuments[0]
     ];
     getChunks.mockReturnValueOnce([pimDocuments]);
@@ -551,7 +553,7 @@ describe("updateDocuments", () => {
     const itemCode = "itemCode";
     const pimDocuments = [createPimProductDocument()];
     const bulkOperations = [
-      { index: { _index: index, _id: pimDocuments[0].id } },
+      { index: { _id: pimDocuments[0].id } },
       pimDocuments[0]
     ];
     getChunks.mockReturnValueOnce([pimDocuments]);

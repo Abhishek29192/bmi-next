@@ -19,7 +19,7 @@ exports[`DocumentTechnicalTableResults component in desktop view renders correct
           <div
             aria-expanded="false"
             class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
-            data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"product-base-code\\",\\"action\\":\\"Selector – Accordion\\"}"
+            data-gtm="{"id":"selector-accordion1","label":"product-base-code","action":"Selector – Accordion"}"
             role="button"
             tabindex="0"
           >
@@ -64,17 +64,10 @@ exports[`DocumentTechnicalTableResults component in desktop view renders correct
                     <div
                       class="DocumentTechnicalTableResults-iconContainer"
                     >
-                      <svg
+                      <filepdf
                         class="DocumentTechnicalTableResults-formatIcon format-icon"
-                        data-name="Layer 2"
-                        viewBox="0 0 32 32"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M19 2H6v28h21V10Zm7 27H7V3h12v7h7Z"
-                          style="fill: #aeb1b1;"
-                        />
-                      </svg>
+                        data-testid="format-icon"
+                      />
                     </div>
                     <div
                       class="DocumentTechnicalTableResults-iconContainer"
@@ -91,6 +84,7 @@ exports[`DocumentTechnicalTableResults component in desktop view renders correct
                         <div
                           class=""
                           data-mui-internal-clone-element="true"
+                          data-testid="tooltip"
                         >
                           <button
                             class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-42 Button-text MuiIconButton-sizeLarge css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
@@ -120,7 +114,7 @@ exports[`DocumentTechnicalTableResults component in desktop view renders correct
                     >
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-                        data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost:9000/document.pdf\\"}"
+                        data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                         data-testid="anchor-link"
                         download="pim document title"
                         href="http://localhost:9000/document.pdf"
@@ -171,7 +165,7 @@ exports[`DocumentTechnicalTableResults component in mobile view renders correctl
           <div
             aria-expanded="false"
             class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
-            data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"product-base-code\\",\\"action\\":\\"Selector – Accordion\\"}"
+            data-gtm="{"id":"selector-accordion1","label":"product-base-code","action":"Selector – Accordion"}"
             role="button"
             tabindex="0"
           >
@@ -216,17 +210,10 @@ exports[`DocumentTechnicalTableResults component in mobile view renders correctl
                     <div
                       class="DocumentTechnicalTableResults-iconContainer"
                     >
-                      <svg
+                      <filepdf
                         class="DocumentTechnicalTableResults-formatIcon format-icon"
-                        data-name="Layer 2"
-                        viewBox="0 0 32 32"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M19 2H6v28h21V10Zm7 27H7V3h12v7h7Z"
-                          style="fill: #aeb1b1;"
-                        />
-                      </svg>
+                        data-testid="format-icon"
+                      />
                     </div>
                     <div
                       class="DocumentTechnicalTableResults-iconContainer"
@@ -243,6 +230,7 @@ exports[`DocumentTechnicalTableResults component in mobile view renders correctl
                         <div
                           class=""
                           data-mui-internal-clone-element="true"
+                          data-testid="tooltip"
                         >
                           <button
                             class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-42 Button-text MuiIconButton-sizeLarge css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
@@ -272,7 +260,7 @@ exports[`DocumentTechnicalTableResults component in mobile view renders correctl
                     >
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-                        data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost:9000/document.pdf\\"}"
+                        data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                         data-testid="anchor-link"
                         download="pim document title"
                         href="http://localhost:9000/document.pdf"

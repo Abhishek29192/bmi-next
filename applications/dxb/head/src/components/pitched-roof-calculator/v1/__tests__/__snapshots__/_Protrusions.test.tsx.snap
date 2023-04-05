@@ -1,34 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PitchedRoofCalculator Protrusions component adds a protrusion 1`] = `
-Array [
-  Array [
-    Object {
-      "protrusions": Array [],
+[
+  [
+    {
+      "protrusions": [],
     },
-    Object {
+    {
       "protrusions": undefined,
     },
   ],
-  Array [
-    Object {
-      "protrusions": Array [
-        Object {},
+  [
+    {
+      "protrusions": [
+        {},
       ],
     },
-    Object {
+    {
       "protrusions": undefined,
     },
   ],
-  Array [
-    Object {
-      "protrusions": Array [
-        Object {
+  [
+    {
+      "protrusions": [
+        {
           "type": undefined,
         },
       ],
     },
-    Object {
+    {
       "protrusions": "There is an error",
     },
   ],
@@ -36,11 +36,11 @@ Array [
 `;
 
 exports[`PitchedRoofCalculator Protrusions component removes a protrusion 1`] = `
-Array [
-  Array [
-    Object {
-      "protrusions": Array [
-        Object {
+[
+  [
+    {
+      "protrusions": [
+        {
           "A": "33",
           "B": "55",
           "P": "44",
@@ -48,14 +48,14 @@ Array [
         },
       ],
     },
-    Object {
+    {
       "protrusions": undefined,
     },
   ],
-  Array [
-    Object {
-      "protrusions": Array [
-        Object {
+  [
+    {
+      "protrusions": [
+        {
           "A": "33",
           "B": "55",
           "P": "44",
@@ -63,15 +63,15 @@ Array [
         },
       ],
     },
-    Object {
+    {
       "protrusions": undefined,
     },
   ],
-  Array [
-    Object {
-      "protrusions": Array [],
+  [
+    {
+      "protrusions": [],
     },
-    Object {
+    {
       "protrusions": undefined,
     },
   ],
@@ -90,7 +90,7 @@ exports[`PitchedRoofCalculator Protrusions component renders correctly 1`] = `
         class="head"
       >
         <h6
-          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
           data-testid="typography"
         >
           Are there any protrusions?

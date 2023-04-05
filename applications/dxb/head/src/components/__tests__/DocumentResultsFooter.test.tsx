@@ -1,5 +1,5 @@
 import { DownloadListContext, ThemeProvider } from "@bmi-digital/components";
-import { fireEvent, render, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import MockDate from "mockdate";
 import React from "react";
 import * as ClientDownloadUtils from "../../utils/client-download";
@@ -9,6 +9,7 @@ import createPimDocument from "../../__tests__/helpers/PimDocumentHelper";
 import DocumentResultsFooter, {
   handleDownloadClick
 } from "../DocumentResultsFooter";
+import { Config } from "../../contexts/ConfigProvider";
 
 jest.mock("../../utils/devLog");
 
@@ -149,9 +150,8 @@ describe("DocumentResultsFooter component", () => {
   });
 
   it("should execute onDownloadClick correctly", async () => {
-    const handleDownloadClickMock = jest.fn();
     const handlePageChange = jest.fn();
-    const { findByText } = render(
+    render(
       <ThemeProvider>
         <DownloadListContext.Provider
           value={{
@@ -174,20 +174,20 @@ describe("DocumentResultsFooter component", () => {
     );
 
     executeRecaptcha.mockReturnValue("token");
-    const downloadButton = await findByText("MC: downloadList.download (3)");
+    const downloadButton = await screen.findByText(
+      "MC: downloadList.download (3)"
+    );
     fireEvent.click(downloadButton);
     expect(executeRecaptcha).toBeCalledTimes(1);
-    waitFor(() => expect(handleDownloadClickMock).toBeCalledTimes(1));
   });
 
   it("should not call executeRecaptcha if qaAuthToken exists", async () => {
     const handlePageChange = jest.fn();
-    const handleDownloadClickMock = jest.fn();
     mockedWindowDocumentCookie.mockReturnValueOnce(
       `qaAuthToken=${qaAuthToken}`
     );
 
-    const { findByText } = render(
+    render(
       <ThemeProvider>
         <DownloadListContext.Provider
           value={{
@@ -209,10 +209,11 @@ describe("DocumentResultsFooter component", () => {
       </ThemeProvider>
     );
 
-    const downloadButton = await findByText("MC: downloadList.download (3)");
+    const downloadButton = await screen.findByText(
+      "MC: downloadList.download (3)"
+    );
     fireEvent.click(downloadButton);
     expect(executeRecaptcha).not.toHaveBeenCalled();
-    waitFor(() => expect(handleDownloadClickMock).toBeCalledTimes(1));
   });
 
   describe("handleDownloadClick", () => {
@@ -223,7 +224,7 @@ describe("DocumentResultsFooter component", () => {
 
       await handleDownloadClick(
         list,
-        { isPreviewMode: false, documentDownloadEndpoint: undefined },
+        { isPreviewMode: false, documentDownloadEndpoint: undefined } as Config,
         token,
         resetList
       );
@@ -244,7 +245,7 @@ describe("DocumentResultsFooter component", () => {
         {
           isPreviewMode: false,
           documentDownloadEndpoint: "GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT"
-        },
+        } as Config,
         token,
         resetList
       );
@@ -297,7 +298,7 @@ describe("DocumentResultsFooter component", () => {
         {
           isPreviewMode: false,
           documentDownloadEndpoint: "GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT"
-        },
+        } as Config,
         undefined,
         resetList,
         qaAuthToken
@@ -349,7 +350,7 @@ describe("DocumentResultsFooter component", () => {
         {
           isPreviewMode: false,
           documentDownloadEndpoint: "GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT"
-        },
+        } as Config,
         token,
         resetList
       );
@@ -364,7 +365,7 @@ describe("DocumentResultsFooter component", () => {
         {
           isPreviewMode: true,
           documentDownloadEndpoint: "GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT"
-        },
+        } as Config,
         token,
         resetList
       );
@@ -374,6 +375,61 @@ describe("DocumentResultsFooter component", () => {
         "You cannot download documents on the preview enviornment."
       );
       expect(resetList).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe("hide pagination", () => {
+    it("should hide pagination when page size is 25 or less(PageCount=1)", () => {
+      const handlePageChange = jest.fn();
+      render(
+        <ThemeProvider>
+          <DownloadListContext.Provider
+            value={{
+              list,
+              updateList: jest.fn(),
+              resetList: jest.fn(),
+              count: 3,
+              remainingSize: Infinity,
+              isLoading: false,
+              setIsLoading: jest.fn()
+            }}
+          >
+            <DocumentResultsFooter
+              page={1}
+              count={1}
+              onPageChange={handlePageChange}
+            />
+          </DownloadListContext.Provider>
+        </ThemeProvider>
+      );
+      expect(screen.queryByTestId("pagination-root")).not.toBeInTheDocument();
+    });
+
+    it("should show pagination when page size is more than 25(PageCount>1)", () => {
+      const handlePageChange = jest.fn();
+
+      render(
+        <ThemeProvider>
+          <DownloadListContext.Provider
+            value={{
+              list,
+              updateList: jest.fn(),
+              resetList: jest.fn(),
+              count: 26,
+              remainingSize: Infinity,
+              isLoading: false,
+              setIsLoading: jest.fn()
+            }}
+          >
+            <DocumentResultsFooter
+              page={1}
+              count={2}
+              onPageChange={handlePageChange}
+            />
+          </DownloadListContext.Provider>
+        </ThemeProvider>
+      );
+      expect(screen.getByTestId("pagination-root")).toBeInTheDocument();
     });
   });
 });

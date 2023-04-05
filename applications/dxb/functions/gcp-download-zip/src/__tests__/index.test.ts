@@ -8,7 +8,6 @@ import {
 } from "@bmi-digital/fetch-mocks";
 import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
-import mockConsole from "jest-mock-console";
 
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
@@ -60,10 +59,6 @@ const deleteTemporaryFile = (temporaryFile: PathLike) =>
   // eslint-disable-next-line security/detect-non-literal-fs-filename
   fs.existsSync(temporaryFile) && fs.unlinkSync(temporaryFile);
 
-beforeAll(() => {
-  mockConsole();
-});
-
 beforeEach(() => {
   jest.clearAllMocks();
   jest.resetModules();
@@ -76,7 +71,7 @@ describe("Invalid environment variables", () => {
     delete process.env.GCS_NAME;
     const temporaryFile = createTemporaryFilename();
 
-    const req = mockRequest("POST");
+    const req = mockRequest({ method: "POST" });
     const res = mockResponse();
 
     await download(req, res);
@@ -101,7 +96,7 @@ describe("Invalid environment variables", () => {
     delete process.env.RECAPTCHA_KEY;
     const temporaryFile = createTemporaryFilename();
 
-    const req = mockRequest("POST");
+    const req = mockRequest({ method: "POST" });
     const res = mockResponse();
 
     await download(req, res);
@@ -160,14 +155,14 @@ describe("Making a POST request", () => {
   it("returns status code 400 when the body is not sent", async () => {
     const temporaryFile = createTemporaryFilename();
 
-    const req = mockRequest("POST");
+    const req = mockRequest({ method: "POST" });
     const res = mockResponse();
 
     await download(req, res);
 
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.status).toBeCalledWith(400);
-    expect(res.send).toBeCalledWith("Invalid request.");
+    expect(res.send).toBeCalledWith("List of documents not provided.");
     expect(bucket).toBeCalledWith(process.env.GCS_NAME);
     expect(verifyRecaptchaToken).toBeCalledTimes(0);
     expect(file).toBeCalledTimes(0);
@@ -183,7 +178,12 @@ describe("Making a POST request", () => {
   it("returns status code 400 when the body is empty", async () => {
     const temporaryFile = createTemporaryFilename();
 
-    const req = mockRequest("POST", {}, "/", {});
+    const req = mockRequest({
+      method: "POST",
+      headers: {},
+      url: "/",
+      body: {}
+    });
     const res = mockResponse();
 
     await download(req, res);
@@ -206,8 +206,13 @@ describe("Making a POST request", () => {
   it("returns status code 400 when the documents list is empty", async () => {
     const temporaryFile = createTemporaryFilename();
 
-    const req = mockRequest("POST", { "X-Recaptcha-Token": validToken }, "/", {
-      documents: []
+    const req = mockRequest({
+      method: "POST",
+      headers: { "X-Recaptcha-Token": validToken },
+      url: "/",
+      body: {
+        documents: []
+      }
     });
     const res = mockResponse();
 
@@ -231,7 +236,12 @@ describe("Making a POST request", () => {
   it("returns status code 400 when the token is missing", async () => {
     const temporaryFile = createTemporaryFilename();
 
-    const req = mockRequest("POST", {}, "/", { documents: [mockDocument()] });
+    const req = mockRequest({
+      method: "POST",
+      headers: {},
+      url: "/",
+      body: { documents: [mockDocument()] }
+    });
     const res = mockResponse();
 
     await download(req, res);
@@ -254,16 +264,16 @@ describe("Making a POST request", () => {
   it("returns status code 400 when a document provided is from an invalid URL", async () => {
     const temporaryFile = createTemporaryFilename();
 
-    const req = mockRequest(
-      "POST",
-      {
+    const req = mockRequest({
+      method: "POST",
+      headers: {
         "X-Recaptcha-Token": validToken
       },
-      "/",
-      {
+      url: "/",
+      body: {
         documents: [mockDocument("invalid-href")]
       }
-    );
+    });
     const res = mockResponse();
 
     await download(req, res);
@@ -286,16 +296,16 @@ describe("Making a POST request", () => {
   it("returns status code 400 when a document provided is missing name", async () => {
     const temporaryFile = createTemporaryFilename();
 
-    const req = mockRequest(
-      "POST",
-      {
+    const req = mockRequest({
+      method: "POST",
+      headers: {
         "X-Recaptcha-Token": validToken
       },
-      "/",
-      {
+      url: "/",
+      body: {
         documents: [{ href: `https://${process.env.DXB_VALID_HOSTS}/file.pdf` }]
       }
-    );
+    });
     const res = mockResponse();
 
     await download(req, res);
@@ -318,16 +328,16 @@ describe("Making a POST request", () => {
   it("returns status code 400 when a document provided is missing href", async () => {
     const temporaryFile = createTemporaryFilename();
 
-    const req = mockRequest(
-      "POST",
-      {
+    const req = mockRequest({
+      method: "POST",
+      headers: {
         "X-Recaptcha-Token": validToken
       },
-      "/",
-      {
+      url: "/",
+      body: {
         documents: [{ name: "file.pdf" }]
       }
-    );
+    });
     const res = mockResponse();
 
     await download(req, res);
@@ -350,16 +360,16 @@ describe("Making a POST request", () => {
   it("returns status code 400 when the recaptcha check fails", async () => {
     const temporaryFile = createTemporaryFilename();
 
-    const req = mockRequest(
-      "POST",
-      {
+    const req = mockRequest({
+      method: "POST",
+      headers: {
         "X-Recaptcha-Token": validToken
       },
-      "/",
-      {
+      url: "/",
+      body: {
         documents: [mockDocument()]
       }
-    );
+    });
     const res = mockResponse();
 
     verifyRecaptchaToken.mockRejectedValueOnce(Error("Expected error"));
@@ -389,17 +399,17 @@ describe("Making a POST request", () => {
     const temporaryFile = createTemporaryFilename();
     process.env.QA_AUTH_TOKEN = "qaAuthToken";
 
-    const req = mockRequest(
-      "POST",
-      {
+    const req = mockRequest({
+      method: "POST",
+      headers: {
         "X-Recaptcha-Token": undefined,
         authorization: "Bearer qaAuthTokenFailed"
       },
-      "/",
-      {
+      url: "/",
+      body: {
         documents: [mockDocument()]
       }
-    );
+    });
     const res = mockResponse();
 
     await download(req, res);
@@ -422,18 +432,18 @@ describe("Making a POST request", () => {
   it("returns status code 500 when document fetch request fails", async () => {
     const temporaryFile = createTemporaryFilename();
 
-    const req = mockRequest(
-      "POST",
-      {
+    const req = mockRequest({
+      method: "POST",
+      headers: {
         "X-Recaptcha-Token": validToken
       },
-      "/",
-      {
+      url: "/",
+      body: {
         documents: [
           mockDocument(`https://${process.env.DXB_VALID_HOSTS}/file.pdf`)
         ]
       }
-    );
+    });
     const res = mockResponse();
 
     verifyRecaptchaToken.mockResolvedValueOnce(undefined);
@@ -470,7 +480,7 @@ describe("Making a POST request", () => {
       `https://${process.env.DXB_VALID_HOSTS}/file.pdf`
     );
     expect(publicUrl).toBeCalledTimes(0);
-    expect(temporaryFileContents(temporaryFile)).toStrictEqual("");
+    expect(temporaryFileContents(temporaryFile)).toStrictEqual(undefined);
 
     deleteTemporaryFile(temporaryFile);
   });
@@ -478,18 +488,18 @@ describe("Making a POST request", () => {
   it("returns status code 500 when creating write stream throws error", async () => {
     const temporaryFile = createTemporaryFilename();
 
-    const req = mockRequest(
-      "POST",
-      {
+    const req = mockRequest({
+      method: "POST",
+      headers: {
         "X-Recaptcha-Token": validToken
       },
-      "/",
-      {
+      url: "/",
+      body: {
         documents: [
           mockDocument(`https://${process.env.DXB_VALID_HOSTS}/file.pdf`)
         ]
       }
-    );
+    });
     const res = mockResponse();
 
     verifyRecaptchaToken.mockResolvedValueOnce(undefined);
@@ -529,18 +539,18 @@ describe("Making a POST request", () => {
   it("returns status code 200 when document fetch request returns a non-ok response", async () => {
     const temporaryFile = createTemporaryFilename();
 
-    const req = mockRequest(
-      "POST",
-      {
+    const req = mockRequest({
+      method: "POST",
+      headers: {
         "X-Recaptcha-Token": validToken
       },
-      "/",
-      {
+      url: "/",
+      body: {
         documents: [
           mockDocument(`https://${process.env.DXB_VALID_HOSTS}/file.pdf`)
         ]
       }
-    );
+    });
     const res = mockResponse();
 
     verifyRecaptchaToken.mockResolvedValueOnce(undefined);
@@ -584,16 +594,16 @@ describe("Making a POST request", () => {
   it("returns status code 200 when successfully created zip file when lowercase recaptcha header is used", async () => {
     const temporaryFile = createTemporaryFilename();
 
-    const req = mockRequest(
-      "POST",
-      {
+    const req = mockRequest({
+      method: "POST",
+      headers: {
         "x-recaptcha-token": validToken
       },
-      "/",
-      {
+      url: "/",
+      body: {
         documents: [mockDocument()]
       }
-    );
+    });
     const res = mockResponse();
 
     verifyRecaptchaToken.mockResolvedValueOnce(undefined);
@@ -637,16 +647,16 @@ describe("Making a POST request", () => {
     delete process.env.RECAPTCHA_MINIMUM_SCORE;
     const temporaryFile = createTemporaryFilename();
 
-    const req = mockRequest(
-      "POST",
-      {
+    const req = mockRequest({
+      method: "POST",
+      headers: {
         "X-Recaptcha-Token": validToken
       },
-      "/",
-      {
+      url: "/",
+      body: {
         documents: [mockDocument()]
       }
-    );
+    });
     const res = mockResponse();
 
     verifyRecaptchaToken.mockResolvedValueOnce(undefined);
@@ -689,16 +699,16 @@ describe("Making a POST request", () => {
   it("returns status code 200 when successfully created zip file", async () => {
     const temporaryFile = createTemporaryFilename();
 
-    const req = mockRequest(
-      "POST",
-      {
+    const req = mockRequest({
+      method: "POST",
+      headers: {
         "X-Recaptcha-Token": validToken
       },
-      "/",
-      {
+      url: "/",
+      body: {
         documents: [mockDocument()]
       }
-    );
+    });
     const res = mockResponse();
 
     verifyRecaptchaToken.mockResolvedValue(undefined);
@@ -742,16 +752,16 @@ describe("Making a POST request", () => {
     delete process.env.DXB_VALID_HOSTS;
     const temporaryFile = createTemporaryFilename();
 
-    const req = mockRequest(
-      "POST",
-      {
+    const req = mockRequest({
+      method: "POST",
+      headers: {
         "X-Recaptcha-Token": validToken
       },
-      "/",
-      {
+      url: "/",
+      body: {
         documents: [mockDocument("https://somewhere/file.pdf")]
       }
-    );
+    });
     const res = mockResponse();
 
     verifyRecaptchaToken.mockResolvedValueOnce(undefined);
@@ -793,17 +803,17 @@ describe("Making a POST request", () => {
     const temporaryFile = createTemporaryFilename();
     process.env.QA_AUTH_TOKEN = "qaAuthToken";
 
-    const req = mockRequest(
-      "POST",
-      {
+    const req = mockRequest({
+      method: "POST",
+      headers: {
         "x-recaptcha-token": undefined,
         authorization: "Bearer qaAuthToken"
       },
-      "/",
-      {
+      url: "/",
+      body: {
         documents: [mockDocument()]
       }
-    );
+    });
     const res = mockResponse();
 
     mockResponses(fetchMock, {

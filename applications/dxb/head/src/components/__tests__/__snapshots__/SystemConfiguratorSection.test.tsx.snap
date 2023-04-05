@@ -3,8 +3,8 @@
 exports[`SystemConfiguratorSection component When returning from valid referer highlights last selected system 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section-root Section-white css-cxq310"
-    data-testid="system-config-section"
+    class="SystemConfigurator Section-root Section-white css-10chrh8"
+    data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
       class=" css-ze8cyt"
@@ -13,7 +13,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
           data-testid="typography"
         >
           System Configurator Section Title
@@ -36,7 +36,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
                 class="MuiAccordionSummary-content MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
               >
                 <h3
-                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1cdyjz5-MuiTypography-root"
                   data-testid="configurator-panel-accordion-summary-title"
                 >
                   Question One: 
@@ -90,7 +90,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1a title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1a title"
@@ -104,7 +104,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
                               class="RadioPane-header"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 Answer 1a title
@@ -144,7 +144,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
                           <input
                             checked=""
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1b title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1b title"
@@ -158,7 +158,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
                               class="RadioPane-header"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 Answer 1b title
@@ -202,8 +202,8 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
     data-testid="system-config-result"
   >
     <div
-      class="SystemConfigurator-result Section-root Section-pearl css-cxq310"
-      data-testid="section"
+      class="SystemConfigurator-result Section-root Section-pearl css-10chrh8"
+      data-testid="system-configuration-section-Result-Title"
     >
       <div
         class=" css-ze8cyt"
@@ -212,7 +212,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 title Typography-underline css-je89nd-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
             data-testid="typography"
           >
             Result Title
@@ -221,16 +221,16 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
             class="description"
           >
             <div
-              class="RichText-root css-17t4j5c"
+              class="RichText-root css-vf09gu"
             >
               <h3
-                class="MuiTypography-root MuiTypography-h3 RichText-title css-d7brak-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h3 RichText-title css-2221f6-MuiTypography-root"
                 data-testid="typography"
               >
                 Rich Text heading 3
               </h3>
               <p
-                class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
                 data-testid="typography"
               >
                 Rich Text paragraph text
@@ -238,17 +238,16 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
             </div>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
-            data-testid="grid-container"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
+            data-testid="system-configuration-results-grid"
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="efgh"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-iozq77-MuiButtonBase-root"
-                data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"efgh name\\",\\"action\\":\\"/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details\\"}"
-                data-testid="efgh"
+                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                data-gtm="{"id":"system-configurator01-results","label":"efgh name","action":"/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details"}"
                 href="/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
               >
@@ -259,23 +258,23 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
                     class="OverviewCard-brandLogo"
                   />
                   <h5
-                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-10q7alf-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
                     data-testid="overview-card-body-title"
                   >
                     efgh name
                   </h5>
                   <div
-                    class="OverviewCard-text css-fm25tm"
+                    class="OverviewCard-text css-kl66ak"
                     data-testid="overview-card-body-description"
                   >
                     efgh description
                   </div>
                   <div
-                    class="css-1tho2wt"
+                    class="css-ekp6jg"
                     data-testid="overview-card-body-footer"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
@@ -302,8 +301,8 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
 exports[`SystemConfiguratorSection component When returning from valid referer removes query string from path 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section-root Section-white css-cxq310"
-    data-testid="system-config-section"
+    class="SystemConfigurator Section-root Section-white css-10chrh8"
+    data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
       class=" css-ze8cyt"
@@ -312,7 +311,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
           data-testid="typography"
         >
           System Configurator Section Title
@@ -335,7 +334,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
                 class="MuiAccordionSummary-content MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
               >
                 <h3
-                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1cdyjz5-MuiTypography-root"
                   data-testid="configurator-panel-accordion-summary-title"
                 >
                   Question One: 
@@ -389,7 +388,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1a title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1a title"
@@ -403,7 +402,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
                               class="RadioPane-header"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 Answer 1a title
@@ -443,7 +442,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
                           <input
                             checked=""
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1b title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1b title"
@@ -457,7 +456,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
                               class="RadioPane-header"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 Answer 1b title
@@ -501,8 +500,8 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
     data-testid="system-config-result"
   >
     <div
-      class="SystemConfigurator-result Section-root Section-pearl css-cxq310"
-      data-testid="section"
+      class="SystemConfigurator-result Section-root Section-pearl css-10chrh8"
+      data-testid="system-configuration-section-Result-Title"
     >
       <div
         class=" css-ze8cyt"
@@ -511,7 +510,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 title Typography-underline css-je89nd-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
             data-testid="typography"
           >
             Result Title
@@ -520,16 +519,16 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
             class="description"
           >
             <div
-              class="RichText-root css-17t4j5c"
+              class="RichText-root css-vf09gu"
             >
               <h3
-                class="MuiTypography-root MuiTypography-h3 RichText-title css-d7brak-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h3 RichText-title css-2221f6-MuiTypography-root"
                 data-testid="typography"
               >
                 Rich Text heading 3
               </h3>
               <p
-                class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
                 data-testid="typography"
               >
                 Rich Text paragraph text
@@ -537,17 +536,16 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
             </div>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
-            data-testid="grid-container"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
+            data-testid="system-configuration-results-grid"
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="efgh"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-iozq77-MuiButtonBase-root"
-                data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"efgh name\\",\\"action\\":\\"/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details\\"}"
-                data-testid="efgh"
+                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                data-gtm="{"id":"system-configurator01-results","label":"efgh name","action":"/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details"}"
                 href="/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
               >
@@ -558,23 +556,23 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
                     class="OverviewCard-brandLogo"
                   />
                   <h5
-                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-10q7alf-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
                     data-testid="overview-card-body-title"
                   >
                     efgh name
                   </h5>
                   <div
-                    class="OverviewCard-text css-fm25tm"
+                    class="OverviewCard-text css-kl66ak"
                     data-testid="overview-card-body-description"
                   >
                     efgh description
                   </div>
                   <div
-                    class="css-1tho2wt"
+                    class="css-ekp6jg"
                     data-testid="overview-card-body-footer"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
@@ -601,8 +599,8 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
 exports[`SystemConfiguratorSection component redirect to 404 page if no matches to pimSystem code 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section-root Section-white css-cxq310"
-    data-testid="system-config-section"
+    class="SystemConfigurator Section-root Section-white css-10chrh8"
+    data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
       class=" css-ze8cyt"
@@ -611,7 +609,7 @@ exports[`SystemConfiguratorSection component redirect to 404 page if no matches 
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
           data-testid="typography"
         >
           System Configurator Section Title
@@ -634,7 +632,7 @@ exports[`SystemConfiguratorSection component redirect to 404 page if no matches 
                 class="MuiAccordionSummary-content MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
               >
                 <h3
-                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1cdyjz5-MuiTypography-root"
                   data-testid="configurator-panel-accordion-summary-title"
                 >
                   Question One: 
@@ -688,7 +686,7 @@ exports[`SystemConfiguratorSection component redirect to 404 page if no matches 
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1a title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1a title"
@@ -702,7 +700,7 @@ exports[`SystemConfiguratorSection component redirect to 404 page if no matches 
                               class="RadioPane-header"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 Answer 1a title
@@ -742,7 +740,7 @@ exports[`SystemConfiguratorSection component redirect to 404 page if no matches 
                           <input
                             checked=""
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1b title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1b title"
@@ -756,7 +754,7 @@ exports[`SystemConfiguratorSection component redirect to 404 page if no matches 
                               class="RadioPane-header"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 Answer 1b title
@@ -800,8 +798,8 @@ exports[`SystemConfiguratorSection component redirect to 404 page if no matches 
     data-testid="system-config-result"
   >
     <div
-      class="SystemConfigurator-result Section-root Section-pearl css-cxq310"
-      data-testid="section"
+      class="SystemConfigurator-result Section-root Section-pearl css-10chrh8"
+      data-testid="system-configuration-section-Result-Title"
     >
       <div
         class=" css-ze8cyt"
@@ -810,7 +808,7 @@ exports[`SystemConfiguratorSection component redirect to 404 page if no matches 
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 title Typography-underline css-je89nd-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
             data-testid="typography"
           >
             Result Title
@@ -819,16 +817,16 @@ exports[`SystemConfiguratorSection component redirect to 404 page if no matches 
             class="description"
           >
             <div
-              class="RichText-root css-17t4j5c"
+              class="RichText-root css-vf09gu"
             >
               <h3
-                class="MuiTypography-root MuiTypography-h3 RichText-title css-d7brak-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h3 RichText-title css-2221f6-MuiTypography-root"
                 data-testid="typography"
               >
                 Rich Text heading 3
               </h3>
               <p
-                class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
                 data-testid="typography"
               >
                 Rich Text paragraph text
@@ -845,8 +843,8 @@ exports[`SystemConfiguratorSection component redirect to 404 page if no matches 
 exports[`SystemConfiguratorSection component renders System Configurator Block with initial question and answer data 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section-root Section-white css-cxq310"
-    data-testid="system-config-section"
+    class="SystemConfigurator Section-root Section-white css-10chrh8"
+    data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
       class=" css-ze8cyt"
@@ -855,7 +853,7 @@ exports[`SystemConfiguratorSection component renders System Configurator Block w
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
           data-testid="typography"
         >
           System Configurator Section Title
@@ -879,7 +877,7 @@ exports[`SystemConfiguratorSection component renders System Configurator Block w
                 class="MuiAccordionSummary-content Mui-expanded MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
               >
                 <h3
-                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1cdyjz5-MuiTypography-root"
                   data-testid="configurator-panel-accordion-summary-title"
                 >
                   Question One
@@ -928,7 +926,7 @@ exports[`SystemConfiguratorSection component renders System Configurator Block w
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1a title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1a title"
@@ -942,7 +940,7 @@ exports[`SystemConfiguratorSection component renders System Configurator Block w
                               class="RadioPane-header"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 Answer 1a title
@@ -981,7 +979,7 @@ exports[`SystemConfiguratorSection component renders System Configurator Block w
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1b title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1b title"
@@ -995,7 +993,7 @@ exports[`SystemConfiguratorSection component renders System Configurator Block w
                               class="RadioPane-header"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 Answer 1b title
@@ -1041,8 +1039,8 @@ exports[`SystemConfiguratorSection component renders System Configurator Block w
 exports[`SystemConfiguratorSection component renders a no result section when answer clicked 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section-root Section-white css-cxq310"
-    data-testid="system-config-section"
+    class="SystemConfigurator Section-root Section-white css-10chrh8"
+    data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
       class=" css-ze8cyt"
@@ -1051,7 +1049,7 @@ exports[`SystemConfiguratorSection component renders a no result section when an
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
           data-testid="typography"
         >
           System Configurator Section Title
@@ -1074,7 +1072,7 @@ exports[`SystemConfiguratorSection component renders a no result section when an
                 class="MuiAccordionSummary-content MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
               >
                 <h3
-                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1cdyjz5-MuiTypography-root"
                   data-testid="configurator-panel-accordion-summary-title"
                 >
                   Question One: 
@@ -1128,7 +1126,7 @@ exports[`SystemConfiguratorSection component renders a no result section when an
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1a title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1a title"
@@ -1142,7 +1140,7 @@ exports[`SystemConfiguratorSection component renders a no result section when an
                               class="RadioPane-header"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 Answer 1a title
@@ -1182,7 +1180,7 @@ exports[`SystemConfiguratorSection component renders a no result section when an
                           <input
                             checked=""
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1b title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1b title"
@@ -1196,7 +1194,7 @@ exports[`SystemConfiguratorSection component renders a no result section when an
                               class="RadioPane-header"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 Answer 1b title
@@ -1238,8 +1236,8 @@ exports[`SystemConfiguratorSection component renders a no result section when an
   </div>
   <div>
     <div
-      class="Section-root Section-alabaster css-cxq310"
-      data-testid="section"
+      class="Section-root Section-alabaster css-10chrh8"
+      data-testid="system-configuration-section-No-Result-Title"
     >
       <div
         class=" css-ze8cyt"
@@ -1248,22 +1246,22 @@ exports[`SystemConfiguratorSection component renders a no result section when an
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
             data-testid="typography"
           >
             No Result Title
           </h2>
           <div
-            class="RichText-root css-17t4j5c"
+            class="RichText-root css-vf09gu"
           >
             <h3
-              class="MuiTypography-root MuiTypography-h3 RichText-title css-d7brak-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h3 RichText-title css-2221f6-MuiTypography-root"
               data-testid="typography"
             >
               Rich Text heading 3
             </h3>
             <p
-              class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
               data-testid="typography"
             >
               Rich Text paragraph text
@@ -1279,8 +1277,8 @@ exports[`SystemConfiguratorSection component renders a no result section when an
 exports[`SystemConfiguratorSection component renders a result section when answer clicked 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section-root Section-white css-cxq310"
-    data-testid="system-config-section"
+    class="SystemConfigurator Section-root Section-white css-10chrh8"
+    data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
       class=" css-ze8cyt"
@@ -1289,7 +1287,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
           data-testid="typography"
         >
           System Configurator Section Title
@@ -1312,7 +1310,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
                 class="MuiAccordionSummary-content MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
               >
                 <h3
-                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1cdyjz5-MuiTypography-root"
                   data-testid="configurator-panel-accordion-summary-title"
                 >
                   Question One: 
@@ -1367,7 +1365,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
                           <input
                             checked=""
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1a title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1a title"
@@ -1381,7 +1379,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
                               class="RadioPane-header"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 Answer 1a title
@@ -1420,7 +1418,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1b title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1b title"
@@ -1434,7 +1432,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
                               class="RadioPane-header"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 Answer 1b title
@@ -1478,8 +1476,8 @@ exports[`SystemConfiguratorSection component renders a result section when answe
     data-testid="system-config-result"
   >
     <div
-      class="SystemConfigurator-result Section-root Section-pearl css-cxq310"
-      data-testid="section"
+      class="SystemConfigurator-result Section-root Section-pearl css-10chrh8"
+      data-testid="system-configuration-section-Result-Title"
     >
       <div
         class=" css-ze8cyt"
@@ -1488,7 +1486,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 title Typography-underline css-je89nd-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
             data-testid="typography"
           >
             Result Title
@@ -1497,16 +1495,16 @@ exports[`SystemConfiguratorSection component renders a result section when answe
             class="description"
           >
             <div
-              class="RichText-root css-17t4j5c"
+              class="RichText-root css-vf09gu"
             >
               <h3
-                class="MuiTypography-root MuiTypography-h3 RichText-title css-d7brak-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h3 RichText-title css-2221f6-MuiTypography-root"
                 data-testid="typography"
               >
                 Rich Text heading 3
               </h3>
               <p
-                class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
                 data-testid="typography"
               >
                 Rich Text paragraph text
@@ -1514,17 +1512,16 @@ exports[`SystemConfiguratorSection component renders a result section when answe
             </div>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
-            data-testid="grid-container"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
+            data-testid="system-configuration-results-grid"
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="efgh"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-iozq77-MuiButtonBase-root"
-                data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"efgh name\\",\\"action\\":\\"/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details\\"}"
-                data-testid="efgh"
+                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                data-gtm="{"id":"system-configurator01-results","label":"efgh name","action":"/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details"}"
                 href="/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
               >
@@ -1535,23 +1532,23 @@ exports[`SystemConfiguratorSection component renders a result section when answe
                     class="OverviewCard-brandLogo"
                   />
                   <h5
-                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-10q7alf-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
                     data-testid="overview-card-body-title"
                   >
                     efgh name
                   </h5>
                   <div
-                    class="OverviewCard-text css-fm25tm"
+                    class="OverviewCard-text css-kl66ak"
                     data-testid="overview-card-body-description"
                   >
                     efgh description
                   </div>
                   <div
-                    class="css-1tho2wt"
+                    class="css-ekp6jg"
                     data-testid="overview-card-body-footer"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
@@ -1578,8 +1575,8 @@ exports[`SystemConfiguratorSection component renders a result section when answe
 exports[`SystemConfiguratorSection component renders an expanded panel when previous panel is clicked 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section-root Section-white css-cxq310"
-    data-testid="system-config-section"
+    class="SystemConfigurator Section-root Section-white css-10chrh8"
+    data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
       class=" css-ze8cyt"
@@ -1588,7 +1585,7 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
           data-testid="typography"
         >
           System Configurator Section Title
@@ -1611,7 +1608,7 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
                 class="MuiAccordionSummary-content Mui-expanded MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
               >
                 <h3
-                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1cdyjz5-MuiTypography-root"
                   data-testid="configurator-panel-accordion-summary-title"
                 >
                   Question One: 
@@ -1666,7 +1663,7 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
                           <input
                             checked=""
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1a title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1a title"
@@ -1680,7 +1677,7 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
                               class="RadioPane-header"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 Answer 1a title
@@ -1719,7 +1716,7 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1b title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1b title"
@@ -1733,7 +1730,7 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
                               class="RadioPane-header"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 Answer 1b title
@@ -1789,7 +1786,7 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
                 class="MuiAccordionSummary-content Mui-expanded MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
               >
                 <h3
-                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1cdyjz5-MuiTypography-root"
                   data-testid="configurator-panel-accordion-summary-title"
                 >
                   Next Question Title
@@ -1838,7 +1835,7 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Next Question Title\\",\\"action\\":\\"Answer 1a title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Next Question Title","action":"Answer 1a title"}"
                             name="Next Question Title"
                             type="radio"
                             value="Answer 1a title"
@@ -1852,7 +1849,7 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
                               class="RadioPane-header"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 Answer 1a title
@@ -1891,7 +1888,7 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Next Question Title\\",\\"action\\":\\"Answer 1b title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Next Question Title","action":"Answer 1b title"}"
                             name="Next Question Title"
                             type="radio"
                             value="Answer 1b title"
@@ -1905,7 +1902,7 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
                               class="RadioPane-header"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 Answer 1b title
@@ -1951,8 +1948,8 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
 exports[`SystemConfiguratorSection component renders correctly 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section-root Section-white css-cxq310"
-    data-testid="system-config-section"
+    class="SystemConfigurator Section-root Section-white css-10chrh8"
+    data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
       class=" css-ze8cyt"
@@ -1961,7 +1958,7 @@ exports[`SystemConfiguratorSection component renders correctly 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
           data-testid="typography"
         >
           System Configurator Section Title
@@ -1985,7 +1982,7 @@ exports[`SystemConfiguratorSection component renders correctly 1`] = `
                 class="MuiAccordionSummary-content Mui-expanded MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
               >
                 <h3
-                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1cdyjz5-MuiTypography-root"
                   data-testid="configurator-panel-accordion-summary-title"
                 >
                   Question One
@@ -2034,7 +2031,7 @@ exports[`SystemConfiguratorSection component renders correctly 1`] = `
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1a title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1a title"
@@ -2048,7 +2045,7 @@ exports[`SystemConfiguratorSection component renders correctly 1`] = `
                               class="RadioPane-header"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 Answer 1a title
@@ -2087,7 +2084,7 @@ exports[`SystemConfiguratorSection component renders correctly 1`] = `
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1b title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1b title"
@@ -2101,7 +2098,7 @@ exports[`SystemConfiguratorSection component renders correctly 1`] = `
                               class="RadioPane-header"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 Answer 1b title
@@ -2147,8 +2144,8 @@ exports[`SystemConfiguratorSection component renders correctly 1`] = `
 exports[`SystemConfiguratorSection component renders next question and answer block when answer clicked 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section-root Section-white css-cxq310"
-    data-testid="system-config-section"
+    class="SystemConfigurator Section-root Section-white css-10chrh8"
+    data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
       class=" css-ze8cyt"
@@ -2157,7 +2154,7 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
           data-testid="typography"
         >
           System Configurator Section Title
@@ -2180,7 +2177,7 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
                 class="MuiAccordionSummary-content MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
               >
                 <h3
-                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1cdyjz5-MuiTypography-root"
                   data-testid="configurator-panel-accordion-summary-title"
                 >
                   Question One: 
@@ -2235,7 +2232,7 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
                           <input
                             checked=""
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1a title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1a title"
@@ -2249,7 +2246,7 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
                               class="RadioPane-header"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 Answer 1a title
@@ -2288,7 +2285,7 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1b title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1b title"
@@ -2302,7 +2299,7 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
                               class="RadioPane-header"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 Answer 1b title
@@ -2358,7 +2355,7 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
                 class="MuiAccordionSummary-content Mui-expanded MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
               >
                 <h3
-                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1cdyjz5-MuiTypography-root"
                   data-testid="configurator-panel-accordion-summary-title"
                 >
                   Next Question Title
@@ -2407,7 +2404,7 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Next Question Title\\",\\"action\\":\\"Answer 1a title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Next Question Title","action":"Answer 1a title"}"
                             name="Next Question Title"
                             type="radio"
                             value="Answer 1a title"
@@ -2421,7 +2418,7 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
                               class="RadioPane-header"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 Answer 1a title
@@ -2460,7 +2457,7 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Next Question Title\\",\\"action\\":\\"Answer 1b title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Next Question Title","action":"Answer 1b title"}"
                             name="Next Question Title"
                             type="radio"
                             value="Answer 1b title"
@@ -2474,7 +2471,7 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
                               class="RadioPane-header"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 Answer 1b title
@@ -2520,8 +2517,8 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
 exports[`SystemConfiguratorSection component renders no result section while ignoring assets other than image 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section-root Section-white css-cxq310"
-    data-testid="system-config-section"
+    class="SystemConfigurator Section-root Section-white css-10chrh8"
+    data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
       class=" css-ze8cyt"
@@ -2530,7 +2527,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
           data-testid="typography"
         >
           System Configurator Section Title
@@ -2553,7 +2550,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
                 class="MuiAccordionSummary-content MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
               >
                 <h3
-                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1cdyjz5-MuiTypography-root"
                   data-testid="configurator-panel-accordion-summary-title"
                 >
                   Question One: 
@@ -2607,7 +2604,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1a title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1a title"
@@ -2621,7 +2618,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
                               class="RadioPane-header"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 Answer 1a title
@@ -2661,7 +2658,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
                           <input
                             checked=""
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1b title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1b title"
@@ -2675,7 +2672,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
                               class="RadioPane-header"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 Answer 1b title
@@ -2717,8 +2714,8 @@ exports[`SystemConfiguratorSection component renders no result section while ign
   </div>
   <div>
     <div
-      class="Section-root Section-alabaster css-cxq310"
-      data-testid="section"
+      class="Section-root Section-alabaster css-10chrh8"
+      data-testid="system-configuration-section-No-Result-Title"
     >
       <div
         class=" css-ze8cyt"
@@ -2727,13 +2724,13 @@ exports[`SystemConfiguratorSection component renders no result section while ign
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
             data-testid="typography"
           >
             No Result Title
           </h2>
           <div
-            class="RichText-root css-17t4j5c"
+            class="RichText-root css-vf09gu"
           />
         </div>
       </div>
@@ -2745,8 +2742,8 @@ exports[`SystemConfiguratorSection component renders no result section while ign
 exports[`SystemConfiguratorSection component renders no result section while ignoring invalid asset references 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section-root Section-white css-cxq310"
-    data-testid="system-config-section"
+    class="SystemConfigurator Section-root Section-white css-10chrh8"
+    data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
       class=" css-ze8cyt"
@@ -2755,7 +2752,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
           data-testid="typography"
         >
           System Configurator Section Title
@@ -2778,7 +2775,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
                 class="MuiAccordionSummary-content MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
               >
                 <h3
-                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1cdyjz5-MuiTypography-root"
                   data-testid="configurator-panel-accordion-summary-title"
                 >
                   Question One: 
@@ -2832,7 +2829,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1a title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1a title"
@@ -2846,7 +2843,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
                               class="RadioPane-header"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 Answer 1a title
@@ -2886,7 +2883,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
                           <input
                             checked=""
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1b title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1b title"
@@ -2900,7 +2897,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
                               class="RadioPane-header"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 Answer 1b title
@@ -2942,8 +2939,8 @@ exports[`SystemConfiguratorSection component renders no result section while ign
   </div>
   <div>
     <div
-      class="Section-root Section-alabaster css-cxq310"
-      data-testid="section"
+      class="Section-root Section-alabaster css-10chrh8"
+      data-testid="system-configuration-section-No-Result-Title"
     >
       <div
         class=" css-ze8cyt"
@@ -2952,13 +2949,13 @@ exports[`SystemConfiguratorSection component renders no result section while ign
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
             data-testid="typography"
           >
             No Result Title
           </h2>
           <div
-            class="RichText-root css-17t4j5c"
+            class="RichText-root css-vf09gu"
           />
         </div>
       </div>
@@ -2970,8 +2967,8 @@ exports[`SystemConfiguratorSection component renders no result section while ign
 exports[`SystemConfiguratorSection component renders no result section with the correct image url 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section-root Section-white css-cxq310"
-    data-testid="system-config-section"
+    class="SystemConfigurator Section-root Section-white css-10chrh8"
+    data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
       class=" css-ze8cyt"
@@ -2980,7 +2977,7 @@ exports[`SystemConfiguratorSection component renders no result section with the 
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
           data-testid="typography"
         >
           System Configurator Section Title
@@ -3003,7 +3000,7 @@ exports[`SystemConfiguratorSection component renders no result section with the 
                 class="MuiAccordionSummary-content MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
               >
                 <h3
-                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1cdyjz5-MuiTypography-root"
                   data-testid="configurator-panel-accordion-summary-title"
                 >
                   Question One: 
@@ -3057,7 +3054,7 @@ exports[`SystemConfiguratorSection component renders no result section with the 
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1a title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1a title"
@@ -3071,7 +3068,7 @@ exports[`SystemConfiguratorSection component renders no result section with the 
                               class="RadioPane-header"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 Answer 1a title
@@ -3111,7 +3108,7 @@ exports[`SystemConfiguratorSection component renders no result section with the 
                           <input
                             checked=""
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1b title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1b title"
@@ -3125,7 +3122,7 @@ exports[`SystemConfiguratorSection component renders no result section with the 
                               class="RadioPane-header"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 Answer 1b title
@@ -3167,8 +3164,8 @@ exports[`SystemConfiguratorSection component renders no result section with the 
   </div>
   <div>
     <div
-      class="Section-root Section-alabaster css-cxq310"
-      data-testid="section"
+      class="Section-root Section-alabaster css-10chrh8"
+      data-testid="system-configuration-section-No-Result-Title"
     >
       <div
         class=" css-ze8cyt"
@@ -3177,19 +3174,35 @@ exports[`SystemConfiguratorSection component renders no result section with the 
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
             data-testid="typography"
           >
             No Result Title
           </h2>
           <div
-            class="RichText-root css-17t4j5c"
+            class="RichText-root css-vf09gu"
           >
-            <img
-              alt="image 2"
-              class="embedded-asset"
-              src="https:// path to image.jpg"
-            />
+            <picture>
+              <source
+                sizes="(max-width: 600px) 561px, (max-width: 720px) 665px, (max-width: 840px) 785px, (max-width: 1440px) 916px, 920px"
+                srcset="https:// path to image.jpg?fm=webp&q=50&w=561 561w, https:// path to image.jpg?fm=webp&q=50&w=665 665w, https:// path to image.jpg?fm=webp&q=50&w=785 785w, https:// path to image.jpg?fm=webp&q=50&w=916 916w, https:// path to image.jpg?fm=webp&q=50&w=920 920w"
+                type="image/webp"
+              />
+              <source
+                sizes="(max-width: 600px) 561px, (max-width: 720px) 665px, (max-width: 840px) 785px, (max-width: 1440px) 916px, 920px"
+                srcset="https:// path to image.jpg?q=50&w=561 561w, https:// path to image.jpg?q=50&w=665 665w, https:// path to image.jpg?q=50&w=785 785w, https:// path to image.jpg?q=50&w=916 916w, https:// path to image.jpg?q=50&w=920 920w"
+              />
+              <img
+                alt="image 2"
+                class="embedded-asset"
+                data-main-image="true"
+                decoding="async"
+                draggable="false"
+                loading="lazy"
+                src="https:// path to image.jpg?fm=jpg&q=50&fl=progressive&w=920"
+                srcset="https:// path to image.jpg?fm=jpg&q=50&w=561 561w, https:// path to image.jpg?fm=jpg&q=50&w=665 665w, https:// path to image.jpg?fm=jpg&q=50&w=785 785w, https:// path to image.jpg?fm=jpg&q=50&w=916 916w, https:// path to image.jpg?fm=jpg&q=50&w=920 920w"
+              />
+            </picture>
           </div>
         </div>
       </div>
@@ -3201,8 +3214,8 @@ exports[`SystemConfiguratorSection component renders no result section with the 
 exports[`SystemConfiguratorSection component renders only max of 4 recommendedSystems 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section-root Section-white css-cxq310"
-    data-testid="system-config-section"
+    class="SystemConfigurator Section-root Section-white css-10chrh8"
+    data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
       class=" css-ze8cyt"
@@ -3211,7 +3224,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
           data-testid="typography"
         >
           System Configurator Section Title
@@ -3234,7 +3247,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                 class="MuiAccordionSummary-content MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
               >
                 <h3
-                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1cdyjz5-MuiTypography-root"
                   data-testid="configurator-panel-accordion-summary-title"
                 >
                   Question One: 
@@ -3288,7 +3301,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1a title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1a title"
@@ -3302,7 +3315,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                               class="RadioPane-header"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 Answer 1a title
@@ -3342,7 +3355,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                           <input
                             checked=""
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1b title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1b title"
@@ -3356,7 +3369,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                               class="RadioPane-header"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 Answer 1b title
@@ -3400,8 +3413,8 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
     data-testid="system-config-result"
   >
     <div
-      class="SystemConfigurator-result Section-root Section-pearl css-cxq310"
-      data-testid="section"
+      class="SystemConfigurator-result Section-root Section-pearl css-10chrh8"
+      data-testid="system-configuration-section-Result-Title"
     >
       <div
         class=" css-ze8cyt"
@@ -3410,7 +3423,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 title Typography-underline css-je89nd-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
             data-testid="typography"
           >
             Result Title
@@ -3419,16 +3432,16 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
             class="description"
           >
             <div
-              class="RichText-root css-17t4j5c"
+              class="RichText-root css-vf09gu"
             >
               <h3
-                class="MuiTypography-root MuiTypography-h3 RichText-title css-d7brak-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h3 RichText-title css-2221f6-MuiTypography-root"
                 data-testid="typography"
               >
                 Rich Text heading 3
               </h3>
               <p
-                class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
                 data-testid="typography"
               >
                 Rich Text paragraph text
@@ -3436,17 +3449,16 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
             </div>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
-            data-testid="grid-container"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
+            data-testid="system-configuration-results-grid"
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="ijkl"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-iozq77-MuiButtonBase-root"
-                data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"ijkl name\\",\\"action\\":\\"/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details\\"}"
-                data-testid="ijkl"
+                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                data-gtm="{"id":"system-configurator01-results","label":"ijkl name","action":"/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details"}"
                 href="/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
               >
@@ -3462,46 +3474,39 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                     class="OverviewCard-brandLogo OverviewCard-negative"
                   />
                   <h5
-                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-10q7alf-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
                     data-testid="overview-card-body-title"
                   >
                     ijkl name
                   </h5>
                   <div
-                    class="OverviewCard-text css-fm25tm"
+                    class="OverviewCard-text css-kl66ak"
                     data-testid="overview-card-body-description"
                   >
                     related-short-desc
                   </div>
                   <div
-                    class="css-1tho2wt"
+                    class="css-ekp6jg"
                     data-testid="overview-card-body-footer"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
                       MC: sdp.system.readMore
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
                     </button>
                   </div>
                 </div>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
               </a>
             </div>
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="efgh"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-iozq77-MuiButtonBase-root"
-                data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"efgh name\\",\\"action\\":\\"/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details\\"}"
-                data-testid="efgh"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                data-gtm="{"id":"system-configurator01-results","label":"efgh name","action":"/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details"}"
                 href="/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
               >
@@ -3517,46 +3522,39 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                     class="OverviewCard-brandLogo OverviewCard-negative"
                   />
                   <h5
-                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-10q7alf-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
                     data-testid="overview-card-body-title"
                   >
                     efgh name
                   </h5>
                   <div
-                    class="OverviewCard-text css-fm25tm"
+                    class="OverviewCard-text css-kl66ak"
                     data-testid="overview-card-body-description"
                   >
                     related-short-desc
                   </div>
                   <div
-                    class="css-1tho2wt"
+                    class="css-ekp6jg"
                     data-testid="overview-card-body-footer"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
                       MC: sdp.system.readMore
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
                     </button>
                   </div>
                 </div>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
               </a>
             </div>
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="abcd"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-iozq77-MuiButtonBase-root"
-                data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"abcd name\\",\\"action\\":\\"/no/related-system-path/?selected_system=abcd&prev_page=/test-path&referer=sys_details\\"}"
-                data-testid="abcd"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                data-gtm="{"id":"system-configurator01-results","label":"abcd name","action":"/no/related-system-path/?selected_system=abcd&prev_page=/test-path&referer=sys_details"}"
                 href="/no/related-system-path/?selected_system=abcd&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
               >
@@ -3572,46 +3570,39 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                     class="OverviewCard-brandLogo OverviewCard-negative"
                   />
                   <h5
-                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-10q7alf-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
                     data-testid="overview-card-body-title"
                   >
                     abcd name
                   </h5>
                   <div
-                    class="OverviewCard-text css-fm25tm"
+                    class="OverviewCard-text css-kl66ak"
                     data-testid="overview-card-body-description"
                   >
                     related-short-desc
                   </div>
                   <div
-                    class="css-1tho2wt"
+                    class="css-ekp6jg"
                     data-testid="overview-card-body-footer"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
                       MC: sdp.system.readMore
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
                     </button>
                   </div>
                 </div>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
               </a>
             </div>
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="mnop"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-iozq77-MuiButtonBase-root"
-                data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"mnop name\\",\\"action\\":\\"/no/related-system-path/?selected_system=mnop&prev_page=/test-path&referer=sys_details\\"}"
-                data-testid="mnop"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                data-gtm="{"id":"system-configurator01-results","label":"mnop name","action":"/no/related-system-path/?selected_system=mnop&prev_page=/test-path&referer=sys_details"}"
                 href="/no/related-system-path/?selected_system=mnop&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
               >
@@ -3627,36 +3618,30 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                     class="OverviewCard-brandLogo OverviewCard-negative"
                   />
                   <h5
-                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-10q7alf-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
                     data-testid="overview-card-body-title"
                   >
                     mnop name
                   </h5>
                   <div
-                    class="OverviewCard-text css-fm25tm"
+                    class="OverviewCard-text css-kl66ak"
                     data-testid="overview-card-body-description"
                   >
                     related-short-desc
                   </div>
                   <div
-                    class="css-1tho2wt"
+                    class="css-ekp6jg"
                     data-testid="overview-card-body-footer"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
                       MC: sdp.system.readMore
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
                     </button>
                   </div>
                 </div>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
               </a>
             </div>
           </div>
@@ -3670,8 +3655,8 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
 exports[`SystemConfiguratorSection component renders only the recommendedSystems that match the pimSystem list from contentful 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section-root Section-white css-cxq310"
-    data-testid="system-config-section"
+    class="SystemConfigurator Section-root Section-white css-10chrh8"
+    data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
       class=" css-ze8cyt"
@@ -3680,7 +3665,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
           data-testid="typography"
         >
           System Configurator Section Title
@@ -3703,7 +3688,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
                 class="MuiAccordionSummary-content MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
               >
                 <h3
-                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1cdyjz5-MuiTypography-root"
                   data-testid="configurator-panel-accordion-summary-title"
                 >
                   Question One: 
@@ -3757,7 +3742,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1a title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1a title"
@@ -3771,7 +3756,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
                               class="RadioPane-header"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 Answer 1a title
@@ -3811,7 +3796,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
                           <input
                             checked=""
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1b title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1b title"
@@ -3825,7 +3810,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
                               class="RadioPane-header"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 Answer 1b title
@@ -3869,8 +3854,8 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
     data-testid="system-config-result"
   >
     <div
-      class="SystemConfigurator-result Section-root Section-pearl css-cxq310"
-      data-testid="section"
+      class="SystemConfigurator-result Section-root Section-pearl css-10chrh8"
+      data-testid="system-configuration-section-Result-Title"
     >
       <div
         class=" css-ze8cyt"
@@ -3879,7 +3864,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 title Typography-underline css-je89nd-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
             data-testid="typography"
           >
             Result Title
@@ -3888,16 +3873,16 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
             class="description"
           >
             <div
-              class="RichText-root css-17t4j5c"
+              class="RichText-root css-vf09gu"
             >
               <h3
-                class="MuiTypography-root MuiTypography-h3 RichText-title css-d7brak-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h3 RichText-title css-2221f6-MuiTypography-root"
                 data-testid="typography"
               >
                 Rich Text heading 3
               </h3>
               <p
-                class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
                 data-testid="typography"
               >
                 Rich Text paragraph text
@@ -3905,17 +3890,16 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
             </div>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
-            data-testid="grid-container"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
+            data-testid="system-configuration-results-grid"
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="ijkl"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-iozq77-MuiButtonBase-root"
-                data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"ijkl name\\",\\"action\\":\\"/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details\\"}"
-                data-testid="ijkl"
+                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                data-gtm="{"id":"system-configurator01-results","label":"ijkl name","action":"/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details"}"
                 href="/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
               >
@@ -3931,23 +3915,23 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
                     class="OverviewCard-brandLogo OverviewCard-negative"
                   />
                   <h5
-                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-10q7alf-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
                     data-testid="overview-card-body-title"
                   >
                     ijkl name
                   </h5>
                   <div
-                    class="OverviewCard-text css-fm25tm"
+                    class="OverviewCard-text css-kl66ak"
                     data-testid="overview-card-body-description"
                   >
                     related-short-desc
                   </div>
                   <div
-                    class="css-1tho2wt"
+                    class="css-ekp6jg"
                     data-testid="overview-card-body-footer"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
@@ -3965,12 +3949,11 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
             </div>
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="efgh"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-iozq77-MuiButtonBase-root"
-                data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"efgh name\\",\\"action\\":\\"/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details\\"}"
-                data-testid="efgh"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                data-gtm="{"id":"system-configurator01-results","label":"efgh name","action":"/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details"}"
                 href="/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
               >
@@ -3986,23 +3969,23 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
                     class="OverviewCard-brandLogo OverviewCard-negative"
                   />
                   <h5
-                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-10q7alf-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
                     data-testid="overview-card-body-title"
                   >
                     efgh name
                   </h5>
                   <div
-                    class="OverviewCard-text css-fm25tm"
+                    class="OverviewCard-text css-kl66ak"
                     data-testid="overview-card-body-description"
                   >
                     related-short-desc
                   </div>
                   <div
-                    class="css-1tho2wt"
+                    class="css-ekp6jg"
                     data-testid="overview-card-body-footer"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
@@ -4029,8 +4012,8 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
 exports[`SystemConfiguratorSection component renders skipping a block with only one answer 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section-root Section-white css-cxq310"
-    data-testid="system-config-section"
+    class="SystemConfigurator Section-root Section-white css-10chrh8"
+    data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
       class=" css-ze8cyt"
@@ -4039,7 +4022,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
           data-testid="typography"
         >
           System Configurator Section Title
@@ -4062,7 +4045,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                 class="MuiAccordionSummary-content MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
               >
                 <h3
-                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1cdyjz5-MuiTypography-root"
                   data-testid="configurator-panel-accordion-summary-title"
                 >
                   Question One: 
@@ -4116,7 +4099,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1a title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1a title"
@@ -4130,7 +4113,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                               class="RadioPane-header"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 Answer 1a title
@@ -4170,7 +4153,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                           <input
                             checked=""
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1b title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1b title"
@@ -4184,7 +4167,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                               class="RadioPane-header"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 Answer 1b title
@@ -4239,7 +4222,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                 class="MuiAccordionSummary-content MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
               >
                 <h3
-                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1cdyjz5-MuiTypography-root"
                   data-testid="configurator-panel-accordion-summary-title"
                 >
                   Skipped Title: 
@@ -4294,7 +4277,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                           <input
                             checked=""
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Skipped Title\\",\\"action\\":\\"Skipped Answer Title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Skipped Title","action":"Skipped Answer Title"}"
                             name="Skipped Title"
                             type="radio"
                             value="Skipped Answer Title"
@@ -4308,7 +4291,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                               class="RadioPane-header"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 Skipped Answer Title
@@ -4364,7 +4347,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                 class="MuiAccordionSummary-content Mui-expanded MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
               >
                 <h3
-                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1cdyjz5-MuiTypography-root"
                   data-testid="configurator-panel-accordion-summary-title"
                 >
                   Next Question Title
@@ -4413,7 +4396,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Next Question Title\\",\\"action\\":\\"Answer 1a title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Next Question Title","action":"Answer 1a title"}"
                             name="Next Question Title"
                             type="radio"
                             value="Answer 1a title"
@@ -4427,7 +4410,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                               class="RadioPane-header"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 Answer 1a title
@@ -4466,7 +4449,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Next Question Title\\",\\"action\\":\\"Answer 1b title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Next Question Title","action":"Answer 1b title"}"
                             name="Next Question Title"
                             type="radio"
                             value="Answer 1b title"
@@ -4480,7 +4463,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                               class="RadioPane-header"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 Answer 1b title
@@ -4526,8 +4509,8 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
 exports[`SystemConfiguratorSection component renders toggled closed configurator panel 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section-root Section-white css-cxq310"
-    data-testid="system-config-section"
+    class="SystemConfigurator Section-root Section-white css-10chrh8"
+    data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
       class=" css-ze8cyt"
@@ -4536,7 +4519,7 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
           data-testid="typography"
         >
           System Configurator Section Title
@@ -4559,7 +4542,7 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
                 class="MuiAccordionSummary-content MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
               >
                 <h3
-                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1cdyjz5-MuiTypography-root"
                   data-testid="configurator-panel-accordion-summary-title"
                 >
                   Question One: 
@@ -4613,7 +4596,7 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1a title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1a title"
@@ -4627,7 +4610,7 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
                               class="RadioPane-header"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 Answer 1a title
@@ -4667,7 +4650,7 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
                           <input
                             checked=""
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1b title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1b title"
@@ -4681,7 +4664,7 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
                               class="RadioPane-header"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 Answer 1b title
@@ -4737,7 +4720,7 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
                 class="MuiAccordionSummary-content Mui-expanded MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
               >
                 <h3
-                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1cdyjz5-MuiTypography-root"
                   data-testid="configurator-panel-accordion-summary-title"
                 >
                   Next Question Title
@@ -4786,7 +4769,7 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Next Question Title\\",\\"action\\":\\"Answer 1a title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Next Question Title","action":"Answer 1a title"}"
                             name="Next Question Title"
                             type="radio"
                             value="Answer 1a title"
@@ -4800,7 +4783,7 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
                               class="RadioPane-header"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 Answer 1a title
@@ -4839,7 +4822,7 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Next Question Title\\",\\"action\\":\\"Answer 1b title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Next Question Title","action":"Answer 1b title"}"
                             name="Next Question Title"
                             type="radio"
                             value="Answer 1b title"
@@ -4853,7 +4836,7 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
                               class="RadioPane-header"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 Answer 1b title
@@ -4899,8 +4882,8 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
 exports[`SystemConfiguratorSection component renders with description rich text 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section-root Section-white css-cxq310"
-    data-testid="system-config-section"
+    class="SystemConfigurator Section-root Section-white css-10chrh8"
+    data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
       class=" css-ze8cyt"
@@ -4909,22 +4892,22 @@ exports[`SystemConfiguratorSection component renders with description rich text 
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
           data-testid="typography"
         >
           System Configurator Section Title
         </h2>
         <div
-          class="RichText-root css-17t4j5c"
+          class="RichText-root css-vf09gu"
         >
           <h3
-            class="MuiTypography-root MuiTypography-h3 RichText-title css-d7brak-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h3 RichText-title css-2221f6-MuiTypography-root"
             data-testid="typography"
           >
             Rich Text heading 3
           </h3>
           <p
-            class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
             data-testid="typography"
           >
             Rich Text paragraph text
@@ -4949,7 +4932,7 @@ exports[`SystemConfiguratorSection component renders with description rich text 
                 class="MuiAccordionSummary-content Mui-expanded MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
               >
                 <h3
-                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1cdyjz5-MuiTypography-root"
                   data-testid="configurator-panel-accordion-summary-title"
                 >
                   Question One
@@ -4998,7 +4981,7 @@ exports[`SystemConfiguratorSection component renders with description rich text 
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1a title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1a title"
@@ -5012,7 +4995,7 @@ exports[`SystemConfiguratorSection component renders with description rich text 
                               class="RadioPane-header"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 Answer 1a title
@@ -5051,7 +5034,7 @@ exports[`SystemConfiguratorSection component renders with description rich text 
                         >
                           <input
                             class="RadioPane-input"
-                            data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1b title"}"
                             name="Question One"
                             type="radio"
                             value="Answer 1b title"
@@ -5065,7 +5048,7 @@ exports[`SystemConfiguratorSection component renders with description rich text 
                               class="RadioPane-header"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1le86ss-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 Answer 1b title
@@ -5110,6 +5093,220 @@ exports[`SystemConfiguratorSection component renders with description rich text 
 
 exports[`SystemConfiguratorSection component throws error 1`] = `
 <div>
-  Something went wrong
+  <div
+    class="Scrim Scrim--light"
+  >
+    <span
+      class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary ProgressIndicator ProgressIndicator--light css-1kcdtbk-MuiCircularProgress-root"
+      data-testid="progress-indicator"
+      role="progressbar"
+      style="width: 72px; height: 72px;"
+    >
+      <svg
+        class="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
+        viewBox="22 22 44 44"
+      >
+        <circle
+          class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-176wh8e-MuiCircularProgress-circle"
+          cx="44"
+          cy="44"
+          fill="none"
+          r="20.5"
+          stroke-width="3"
+        />
+      </svg>
+    </span>
+  </div>
+  <div
+    class="SystemConfigurator Section-root Section-white css-10chrh8"
+    data-testid="system-configuration-section-System-Configurator-Section-Title"
+  >
+    <div
+      class=" css-ze8cyt"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
+      >
+        <h2
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
+          data-testid="typography"
+        >
+          System Configurator Section Title
+        </h2>
+        <div
+          class="css-1rikofx"
+        >
+          <div
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded Mui-disabled MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            data-testid="configurator-panel-accordion"
+          >
+            <div
+              aria-disabled="true"
+              aria-expanded="true"
+              class="MuiButtonBase-root Mui-disabled MuiAccordionSummary-root Mui-expanded Mui-disabled MuiAccordionSummary-gutters css-17dbip5-MuiButtonBase-root-MuiAccordionSummary-root"
+              data-testid="configurator-panel-accordion-summary"
+              role="button"
+              tabindex="-1"
+            >
+              <div
+                class="MuiAccordionSummary-content Mui-expanded MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
+              >
+                <h3
+                  class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1cdyjz5-MuiTypography-root"
+                  data-testid="configurator-panel-accordion-summary-title"
+                >
+                  Question One
+                </h3>
+              </div>
+              <div
+                class="MuiAccordionSummary-expandIconWrapper Mui-expanded css-yw020d-MuiAccordionSummary-expandIconWrapper"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  data-testid="ExpandMoreIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div
+              class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-entered css-pwcg7p-MuiCollapse-root"
+              style="min-height: 0px;"
+            >
+              <div
+                class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
+              >
+                <div
+                  class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
+                >
+                  <div
+                    class="MuiAccordion-region"
+                    role="region"
+                  >
+                    <div
+                      class="MuiAccordionDetails-root css-1n6v6h4-MuiAccordionDetails-root"
+                      data-testid="configurator-panel-accordion-details"
+                    >
+                      <div
+                        class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1a-title"
+                      >
+                        <label
+                          class="RadioPane-label"
+                        >
+                          <input
+                            class="RadioPane-input"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1a title"}"
+                            name="Question One"
+                            type="radio"
+                            value="Answer 1a title"
+                          />
+                          <div
+                            class="MuiButtonBase-root RadioPane-pane css-10d1a0h-MuiButtonBase-root"
+                            role="button"
+                            tabindex="-1"
+                          >
+                            <div
+                              class="RadioPane-header"
+                            >
+                              <h6
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
+                                data-testid="typography"
+                              >
+                                Answer 1a title
+                              </h6>
+                              <svg
+                                aria-hidden="true"
+                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium RadioPane-checkedIcon css-i4bv87-MuiSvgIcon-root"
+                                data-testid="CheckCircleIcon"
+                                focusable="false"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                                />
+                              </svg>
+                            </div>
+                            <span
+                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                            />
+                          </div>
+                        </label>
+                        <div
+                          class="RadioPane-btnContainer"
+                        >
+                          <div
+                            class="RadioPane-iconBtn"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1b-title"
+                      >
+                        <label
+                          class="RadioPane-label"
+                        >
+                          <input
+                            class="RadioPane-input"
+                            data-gtm="{"id":"system-configurator01-selected","label":"Question One","action":"Answer 1b title"}"
+                            name="Question One"
+                            type="radio"
+                            value="Answer 1b title"
+                          />
+                          <div
+                            class="MuiButtonBase-root RadioPane-pane css-10d1a0h-MuiButtonBase-root"
+                            role="button"
+                            tabindex="-1"
+                          >
+                            <div
+                              class="RadioPane-header"
+                            >
+                              <h6
+                                class="MuiTypography-root MuiTypography-h6 RadioPane-title css-1nuwz6u-MuiTypography-root"
+                                data-testid="typography"
+                              >
+                                Answer 1b title
+                              </h6>
+                              <svg
+                                aria-hidden="true"
+                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium RadioPane-checkedIcon css-i4bv87-MuiSvgIcon-root"
+                                data-testid="CheckCircleIcon"
+                                focusable="false"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                                />
+                              </svg>
+                            </div>
+                            <span
+                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                            />
+                          </div>
+                        </label>
+                        <div
+                          class="RadioPane-btnContainer"
+                        >
+                          <div
+                            class="RadioPane-iconBtn"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;

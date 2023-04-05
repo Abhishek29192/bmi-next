@@ -17,11 +17,12 @@ export type System = {
   code: string;
   description?: string;
   documents: readonly SystemDocument[];
+  galleryImages: readonly Image[];
   guaranteesAndWarrantiesImages: readonly Asset[];
   guaranteesAndWarrantiesLinks: readonly Asset[];
   hashedCode: string;
   keyFeatures?: KeyFeatures;
-  images: readonly Image[];
+  masterImage?: Image;
   layerCodes: string[];
   name: string;
   path: string;
@@ -108,6 +109,9 @@ export type Product = {
   productBenefits?: readonly string[];
   relatedVariants: readonly RelatedVariant[];
   specificationIframeUrl?: string;
+  seoDescription?: string;
+  seoTags?: string[];
+  seoTitle?: string;
   techDrawings: readonly Image[];
   textureFamily?: string;
   textureFamilyMicrocopy?: string;

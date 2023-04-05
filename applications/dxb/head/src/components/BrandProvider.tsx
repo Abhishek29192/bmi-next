@@ -28,7 +28,8 @@ const BRAND_STYLES: { [key: string]: string | undefined } = {
   Villas: "RoyalBlue",
   Wierer: "BrandRed",
   Wolfin: "BrandGreen",
-  Zanda: "BrandRed"
+  Zanda: "BrandRed",
+  Klober: "BrandRed"
 };
 
 // @deprecated
@@ -54,9 +55,7 @@ const NoBrandComponent = ({ children }: NoBrandProps) => {
 };
 
 const BrandProvider = ({ brand, children }: BrandProviderProps) => {
-  const {
-    config: { isBrandProviderEnabled }
-  } = useConfig();
+  const { isBrandProviderEnabled } = useConfig();
   if (!brand || !isBrandProviderEnabled) {
     return <NoBrandComponent>{children}</NoBrandComponent>;
   }

@@ -1,6 +1,6 @@
+import { brands as icons } from "../../variables/icons/20201110150955";
 import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
-import { brands as icons } from "../../variables/icons/20201110150955";
 
 export const description = "Update icons to use avariable file";
 

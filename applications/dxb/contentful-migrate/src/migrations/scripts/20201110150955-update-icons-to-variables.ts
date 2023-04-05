@@ -1,6 +1,6 @@
+import icons from "../../variables/icons/20201110150955";
 import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
-import icons from "../../variables/icons/20201110150955";
 
 export const description = "Update icons to use a variable file";
 

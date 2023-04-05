@@ -12,6 +12,7 @@ const mockChildComponent = jest.fn();
 jest.mock("../HouseViewer", () => ({
   __esModule: true,
   default: (props) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
       props.setIsLoading(false);
     }, []);
@@ -24,6 +25,7 @@ jest.mock("../HouseViewer", () => ({
 jest.mock("../TileViewer", () => ({
   __esModule: true,
   default: (props) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
       props.setIsLoading(false);
     }, []);
@@ -116,7 +118,7 @@ describe("Visualiser component", () => {
     expect(baseElement).toMatchSnapshot();
   });
 
-  it("passes house types to HouseViewer", () => {
+  it("passes house types to HouseViewer", async () => {
     mockResponses(fetchMock, {
       url: "*",
       method: "POST",
@@ -142,7 +144,7 @@ describe("Visualiser component", () => {
       </ThemeProvider>
     );
 
-    waitFor(() =>
+    await waitFor(() =>
       expect(mockChildComponent).toHaveBeenCalledWith(
         expect.objectContaining({
           houseModelUrl
@@ -167,7 +169,9 @@ describe("Visualiser component", () => {
     );
 
     expect(
-      document.querySelector("button[aria-describedby='share-popover']")
+      screen.getByRole("button", {
+        name: "visualizer.sharePopover.accessibilityLabel"
+      })
     ).toBeInTheDocument();
   });
 
@@ -191,7 +195,7 @@ describe("Visualiser component", () => {
     ).toBeInTheDocument();
   });
 
-  it("selects tile", () => {
+  it("selects tile", async () => {
     const onClick = jest.fn();
     mockResponses(fetchMock, {
       url: "*",
@@ -217,12 +221,10 @@ describe("Visualiser component", () => {
     );
 
     fireEvent.click(screen.getByText("visualizer.actions.selectProduct"));
-    waitFor(() =>
-      fireEvent.click(
-        screen.getByRole("heading", { level: 6, name: blackTile.name })
-      )
+    fireEvent.click(
+      await screen.findByRole("heading", { level: 6, name: blackTile.name })
     );
-    waitFor(() =>
+    await waitFor(() =>
       expect(onClick).toHaveBeenCalledWith(
         expect.objectContaining({
           tileId: blackTile.code,
@@ -280,9 +282,7 @@ describe("Visualiser component", () => {
     );
 
     fireEvent.click(screen.getByText("visualizer.actions.roofMode"));
-    await waitFor(() =>
-      expect(screen.getByText("House viewer")).toBeInTheDocument()
-    );
+    await screen.findByText("House viewer");
   });
 
   it("switches to tile view mode", async () => {
@@ -310,9 +310,7 @@ describe("Visualiser component", () => {
     );
 
     fireEvent.click(screen.getByText("visualizer.actions.tileMode"));
-    await waitFor(() =>
-      expect(screen.getByText("Tile viewer")).toBeInTheDocument()
-    );
+    await screen.findByText("Tile viewer");
   });
 
   it("selects wall", () => {
@@ -418,7 +416,9 @@ describe("Visualiser component", () => {
     );
 
     fireEvent.click(
-      document.querySelector("button[aria-describedby='share-popover']")
+      screen.getByRole("button", {
+        name: "visualizer.sharePopover.accessibilityLabel"
+      })
     );
     expect(screen.getByText("Share widget")).toBeInTheDocument();
 

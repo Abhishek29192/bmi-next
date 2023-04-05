@@ -1,5 +1,4 @@
 import { Dialog } from "@bmi-digital/components";
-import classnames from "classnames";
 import { graphql } from "gatsby";
 import React from "react";
 import { microCopy } from "../constants/microCopies";
@@ -37,27 +36,25 @@ const WelcomeDialog = ({ data }: { data: Data }) => {
       open={!dialogClose}
       onCloseClick={closeDialog}
       className={styles["WelcomeDialog"]}
+      data-testid="welcome-dialog"
     >
       <Dialog.Title hasUnderline>{welcomeDialogTitle}</Dialog.Title>
       <Dialog.Content>
         <div className={styles["contentArea"]}>
           {welcomeDialogBrands && (
-            <div className={styles["brands"]} data-testid="brandsContainer">
+            <div data-testid="brandsContainer">
               {welcomeDialogBrands.map((brandName, index) => (
                 <BrandLogo
                   key={`welcome-brand-${brandName}-${index}`}
                   brandName={brandName}
                   className={styles["brand"]}
+                  data-testid={`welcome-brand-${brandName}`}
                 />
               ))}
             </div>
           )}
-          <div
-            className={classnames(styles["body"], {
-              [styles["body--with-brand"]]: welcomeDialogBrands
-            })}
-          >
-            <RichText document={welcomeDialogBody} />
+          <div>
+            <RichText document={welcomeDialogBody} hasNoBottomMargin />
           </div>
         </div>
       </Dialog.Content>

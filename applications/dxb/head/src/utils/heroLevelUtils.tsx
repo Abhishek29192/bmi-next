@@ -6,9 +6,9 @@ import {
 } from "@bmi-digital/components";
 import React from "react";
 import { Data as BreadcrumbsData } from "../components/Breadcrumbs";
-import { Data as ContentfulImageData, renderImage } from "../components/Image";
+import Image, { Data as ContentfulImageData } from "../components/Image";
 import Link, { Data as LinkData } from "../components/Link";
-import { Data as VideoData, renderVideo } from "../components/Video";
+import Video, { Data as VideoData } from "../components/Video";
 
 export const generateHeroLevel = (
   heroType: string,
@@ -41,9 +41,11 @@ export const generateHeroProps = (
     title: transformHyphens(title),
     level,
     children: subtitle,
-    media: featuredVideo
-      ? renderVideo(featuredVideo)
-      : renderImage(featuredMedia, { size: "cover" }),
+    media: featuredVideo ? (
+      <Video {...featuredVideo} />
+    ) : (
+      <Image {...featuredMedia} size="cover" />
+    ),
     cta:
       cta &&
       React.createElement(

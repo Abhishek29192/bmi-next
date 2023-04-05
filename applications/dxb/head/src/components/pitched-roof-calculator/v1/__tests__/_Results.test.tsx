@@ -1,7 +1,6 @@
 import { ThemeProvider } from "@bmi-digital/components";
-import { fireEvent, render, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import fetchMockJest from "fetch-mock-jest";
-import mockConsole from "jest-mock-console";
 import React from "react";
 import { MicroCopy } from "../../helpers/microCopy";
 import en from "../../samples/copy/en.json";
@@ -9,10 +8,6 @@ import data from "../../samples/data.json";
 import { Measurements } from "../../types/roof";
 import { Props } from "../subcomponents/quantity-table/QuantityTable";
 import Results from "../_Results";
-
-beforeAll(() => {
-  mockConsole();
-});
 
 beforeEach(() => {
   jest.clearAllMocks();
@@ -516,20 +511,28 @@ describe("PitchedRoofCalculator Results component", () => {
       </ThemeProvider>
     );
 
+    // eslint-disable-next-line testing-library/no-node-access,testing-library/no-container -- can't get test ID on actual input field
     const nameInput = container.querySelector(`input[name="name"]`);
     fireEvent.change(nameInput!, { target: { value: "Test Test" } });
 
+    // eslint-disable-next-line testing-library/no-node-access,testing-library/no-container -- can't get test ID on actual input field
     const emailInput = container.querySelector(`input[name="email"]`);
     fireEvent.change(emailInput!, { target: { value: "test@test.test" } });
 
-    const gdpr_1Input = container.querySelector(`input[name="gdpr_1"]`);
-    fireEvent.click(gdpr_1Input!);
+    const gdpr_1Input = screen.getByTestId(
+      "pitched-roof-calculator-results-form-gdpr_1"
+    );
+    fireEvent.click(gdpr_1Input);
 
-    const gdpr_2Input = container.querySelector(`input[name="gdpr_2"]`);
-    fireEvent.click(gdpr_2Input!);
+    const gdpr_2Input = screen.getByTestId(
+      "pitched-roof-calculator-results-form-gdpr_2"
+    );
+    fireEvent.click(gdpr_2Input);
 
-    const submitButton = container.querySelector<HTMLButtonElement>(`.submit`)!;
-    fireEvent.click(submitButton!);
+    const submitButton = screen.getByTestId(
+      "pitched-roof-calculator-results-form-submit-button"
+    );
+    fireEvent.click(submitButton);
 
     expect(sendEmailAddress.mock.calls).toMatchSnapshot(
       "Email address details"

@@ -1,10 +1,10 @@
+import MurmurHash3 from "imurmurhash";
 import type Migration from "contentful-migration";
 import type {
   ContentFields,
   MigrationContext,
   MigrationFunction
 } from "contentful-migration";
-import MurmurHash3 from "imurmurhash";
 
 export const description = "Copy data from teamPage to page content type";
 

@@ -1,8 +1,9 @@
-import { Grid, Section } from "@bmi-digital/components";
+import { replaceSpaces, Section } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
-import RichText from "./RichText";
 import { Data as TitleWithContentData } from "./TitleWithContent";
+import { GridContainer, classes } from "./styles/TitleWithContentSectionStyles";
+import RichText from "./RichText";
 
 export type Data = TitleWithContentData;
 
@@ -12,11 +13,18 @@ type Props = {
 
 const TitleWithContentSection = ({ data }: Props) => {
   return (
-    <Section backgroundColor="white">
-      <Grid lg={8} xs={12}>
+    <Section
+      backgroundColor="white"
+      data-testid={`title-with-content-section-${replaceSpaces(data.title)}`}
+    >
+      <GridContainer container lg={8} xs={12}>
         {data.title && <Section.Title>{data.title}</Section.Title>}
-        <RichText document={data.content} />
-      </Grid>
+        <RichText
+          document={data.content}
+          hasNoBottomMargin
+          className={classes.richText}
+        />
+      </GridContainer>
     </Section>
   );
 };
