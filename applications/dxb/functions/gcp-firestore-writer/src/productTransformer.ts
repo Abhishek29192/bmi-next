@@ -683,19 +683,10 @@ const mapProductDocuments = (
     parentCategoryCode: category.parentCategoryCode
   }));
 
-  if (variant.assets) {
-    return mapDocuments(variant.assets).map((document) => ({
-      ...document,
-      productBaseCode: baseProduct.code,
-      productName: variant.name!,
-      productCategories
-    }));
-  }
-
-  return mapDocuments(baseProduct.assets).map((document) => ({
+  return mapDocuments(variant.assets || baseProduct.assets).map((document) => ({
     ...document,
     productBaseCode: baseProduct.code,
-    productName: variant.name!,
+    productName: baseProduct.name!,
     productCategories
   }));
 };
