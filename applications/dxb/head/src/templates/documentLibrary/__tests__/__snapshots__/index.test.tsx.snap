@@ -3556,11 +3556,11 @@ exports[`Document Library page renders correctly  1`] = `
 
 exports[`Document Library page should render DocumentCardsResults correctly if source === CMS and resultsType === Card Collection 1`] = `
 <div
-  class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-brnvbi-MuiGrid2-root"
+  class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-124co8l-MuiGrid2-root"
   data-testid="document-cards-results-grid"
 >
   <div
-    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-12 MuiGrid2-grid-lg-6 MuiGrid2-grid-xl-4 Grid-item css-1d2dgzm-MuiGrid2-root"
+    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-12 MuiGrid2-grid-lg-6 MuiGrid2-grid-xl-4 Grid-item css-gdzhda-MuiGrid2-root"
     data-testid="grid-item"
   >
     <a
@@ -5261,7 +5261,7 @@ exports[`Document Library page should render DocumentTechnicalTableResults corre
                     class="DocumentTechnicalTableResults-downloadIconContainer"
                   >
                     <a
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                       data-gtm="{"id":"download1","label":"Download","action":"https://url"}"
                       data-testid="anchor-link"
                       download="pim document title"

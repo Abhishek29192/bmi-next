@@ -6,7 +6,6 @@ import createProduct from "../../../__tests__/helpers/ProductHelper";
 import createRelatedSystem from "../../../__tests__/helpers/RelatedSystemHelper";
 import createSystem from "../../../__tests__/helpers/SystemHelper";
 import createSystemLayer from "../../../__tests__/helpers/SystemLayerHelper";
-import ProvideStyles from "../../../components/__tests__/utils/StylesProvider";
 import { Config, ConfigProvider } from "../../../contexts/ConfigProvider";
 import { createMockSiteData } from "../../../test/mockSiteData";
 import { renderWithRouter } from "../../../test/renderWithRouter";
@@ -49,7 +48,7 @@ const withProviders = ({
   return renderWithRouter(
     <ThemeProvider>
       <ConfigProvider configOverride={customConfig}>
-        <ProvideStyles>{renderComponent}</ProvideStyles>
+        {renderComponent}
       </ConfigProvider>
     </ThemeProvider>,
     routerObject

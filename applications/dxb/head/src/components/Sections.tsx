@@ -7,7 +7,7 @@ import CardCollectionSection, {
 } from "./CardCollectionSection";
 import CarouselSection, {
   Data as CarouselSectionData
-} from "./CarouselSection";
+} from "./carousel-section/CarouselSection";
 import DocumentDownloadSection, {
   Data as DocumentDownloadSectionData
 } from "./DocumentDownloadSection";

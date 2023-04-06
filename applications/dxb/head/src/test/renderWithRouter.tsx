@@ -8,14 +8,22 @@ import {
 import { render, RenderResult } from "@testing-library/react";
 import { renderToStaticMarkup } from "react-dom/server";
 
-// https://testing-library.com/docs/example-reach-router/
-export const renderWithRouter = (
+type RenderWithRouter = (
   ui: React.ReactNode,
   {
-    route = "/",
-    history = createHistory(createMemorySource(route))
-  }: { route?: string; history?: History } = {}
-): RenderResult & { history: History } => ({
+    route,
+    history
+  }?: {
+    route?: string;
+    history?: History;
+  }
+) => RenderResult & { history: History };
+
+// https://testing-library.com/docs/example-reach-router/
+export const renderWithRouter: RenderWithRouter = (
+  ui,
+  { route = "/", history = createHistory(createMemorySource(route)) } = {}
+) => ({
   ...render(<LocationProvider history={history}>{ui}</LocationProvider>),
   // adding `history` to the returned utilities to allow us
   // to reference it in our tests (just try to avoid using

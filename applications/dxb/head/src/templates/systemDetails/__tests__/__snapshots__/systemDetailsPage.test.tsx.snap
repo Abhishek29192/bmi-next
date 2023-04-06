@@ -3691,7 +3691,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                       class="MuiBox-root css-h5fkc8"
                     >
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                         data-testid="anchor-link"
                         type="button"
                       >
@@ -3717,7 +3717,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                       >
                         This site is protected by reCAPTCHA and the Google 
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                           data-testid="recaptcha-privacy-policy-link"
                           href="https://policies.google.com/privacy"
                           rel="noreferrer noopener"
@@ -3729,7 +3729,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                         </a>
                          and 
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                           data-testid="recaptcha-terms-of-service-link"
                           href="https://policies.google.com/terms"
                           rel="noreferrer noopener"
@@ -8033,7 +8033,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                       class="MuiBox-root css-h5fkc8"
                     >
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                         data-testid="anchor-link"
                         type="button"
                       >
@@ -8059,7 +8059,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                       >
                         This site is protected by reCAPTCHA and the Google 
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                           data-testid="recaptcha-privacy-policy-link"
                           href="https://policies.google.com/privacy"
                           rel="noreferrer noopener"
@@ -8071,7 +8071,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                         </a>
                          and 
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                           data-testid="recaptcha-terms-of-service-link"
                           href="https://policies.google.com/terms"
                           rel="noreferrer noopener"
@@ -12379,7 +12379,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                         class="MuiBox-root css-h5fkc8"
                       >
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                           data-testid="anchor-link"
                           type="button"
                         >
@@ -12405,7 +12405,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                         >
                           This site is protected by reCAPTCHA and the Google 
                           <a
-                            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                             data-testid="recaptcha-privacy-policy-link"
                             href="https://policies.google.com/privacy"
                             rel="noreferrer noopener"
@@ -12417,7 +12417,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                           </a>
                            and 
                           <a
-                            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                             data-testid="recaptcha-terms-of-service-link"
                             href="https://policies.google.com/terms"
                             rel="noreferrer noopener"
@@ -16722,7 +16722,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                       class="MuiBox-root css-h5fkc8"
                     >
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                         data-testid="anchor-link"
                         type="button"
                       >
@@ -16748,7 +16748,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                       >
                         This site is protected by reCAPTCHA and the Google 
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                           data-testid="recaptcha-privacy-policy-link"
                           href="https://policies.google.com/privacy"
                           rel="noreferrer noopener"
@@ -16760,7 +16760,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                         </a>
                          and 
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                           data-testid="recaptcha-terms-of-service-link"
                           href="https://policies.google.com/terms"
                           rel="noreferrer noopener"
@@ -21024,7 +21024,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                       class="MuiBox-root css-h5fkc8"
                     >
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                         data-testid="anchor-link"
                         type="button"
                       >
@@ -21050,7 +21050,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                       >
                         This site is protected by reCAPTCHA and the Google 
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                           data-testid="recaptcha-privacy-policy-link"
                           href="https://policies.google.com/privacy"
                           rel="noreferrer noopener"
@@ -21062,7 +21062,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                         </a>
                          and 
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                           data-testid="recaptcha-terms-of-service-link"
                           href="https://policies.google.com/terms"
                           rel="noreferrer noopener"
@@ -25366,7 +25366,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                       class="MuiBox-root css-h5fkc8"
                     >
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                         data-testid="anchor-link"
                         type="button"
                       >
@@ -25392,7 +25392,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                       >
                         This site is protected by reCAPTCHA and the Google 
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                           data-testid="recaptcha-privacy-policy-link"
                           href="https://policies.google.com/privacy"
                           rel="noreferrer noopener"
@@ -25404,7 +25404,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                         </a>
                          and 
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                           data-testid="recaptcha-terms-of-service-link"
                           href="https://policies.google.com/terms"
                           rel="noreferrer noopener"
@@ -29137,15 +29137,15 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                           class="MuiAccordionDetails-root  css-1r7u8wy-MuiAccordionDetails-root"
                         >
                           <div
-                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-brnvbi-MuiGrid2-root"
+                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-124co8l-MuiGrid2-root"
                             data-testid="system-layer-details"
                           >
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-10c4goh-MuiGrid2-root"
+                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-1t1pw06-MuiGrid2-root"
                               data-testid="grid-item"
                             >
                               <a
-                                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                                 data-gtm="{"id":"cta-click1","label":"duplicate-product-1","action":"/en/p/path/"}"
                                 data-testid="anchor-link"
                                 href="/en/p/path/"
@@ -29156,7 +29156,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                               </a>
                             </div>
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-10c4goh-MuiGrid2-root"
+                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-1t1pw06-MuiGrid2-root"
                               data-testid="grid-item"
                             >
                               <p
@@ -29167,7 +29167,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                               </p>
                             </div>
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-10c4goh-MuiGrid2-root"
+                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-1t1pw06-MuiGrid2-root"
                               data-testid="grid-item"
                             >
                               <h5
@@ -29178,11 +29178,11 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                               </h5>
                             </div>
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-10c4goh-MuiGrid2-root"
+                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-1t1pw06-MuiGrid2-root"
                               data-testid="grid-item"
                             >
                               <a
-                                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                                 data-gtm="{"id":"cta-click1","label":"optional-related-product-1","action":"/en/p/path/"}"
                                 data-testid="anchor-link"
                                 href="/en/p/path/"
@@ -29834,7 +29834,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                       class="MuiBox-root css-h5fkc8"
                     >
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                         data-testid="anchor-link"
                         type="button"
                       >
@@ -29860,7 +29860,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                       >
                         This site is protected by reCAPTCHA and the Google 
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                           data-testid="recaptcha-privacy-policy-link"
                           href="https://policies.google.com/privacy"
                           rel="noreferrer noopener"
@@ -29872,7 +29872,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                         </a>
                          and 
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                           data-testid="recaptcha-terms-of-service-link"
                           href="https://policies.google.com/terms"
                           rel="noreferrer noopener"
@@ -33605,15 +33605,15 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                           class="MuiAccordionDetails-root  css-1r7u8wy-MuiAccordionDetails-root"
                         >
                           <div
-                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-brnvbi-MuiGrid2-root"
+                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-124co8l-MuiGrid2-root"
                             data-testid="system-layer-details"
                           >
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-10c4goh-MuiGrid2-root"
+                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-1t1pw06-MuiGrid2-root"
                               data-testid="grid-item"
                             >
                               <a
-                                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                                 data-gtm="{"id":"cta-click1","label":"related-product-1","action":"/en/p/path/"}"
                                 data-testid="anchor-link"
                                 href="/en/p/path/"
@@ -33624,7 +33624,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                               </a>
                             </div>
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-10c4goh-MuiGrid2-root"
+                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-1t1pw06-MuiGrid2-root"
                               data-testid="grid-item"
                             >
                               <p
@@ -33635,7 +33635,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                               </p>
                             </div>
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-10c4goh-MuiGrid2-root"
+                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-1t1pw06-MuiGrid2-root"
                               data-testid="grid-item"
                             >
                               <h5
@@ -33646,11 +33646,11 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                               </h5>
                             </div>
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-10c4goh-MuiGrid2-root"
+                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-1t1pw06-MuiGrid2-root"
                               data-testid="grid-item"
                             >
                               <a
-                                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                                 data-gtm="{"id":"cta-click1","label":"optional-related-product-1","action":"/en/p/path/"}"
                                 data-testid="anchor-link"
                                 href="/en/p/path/"
@@ -34302,7 +34302,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                       class="MuiBox-root css-h5fkc8"
                     >
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                         data-testid="anchor-link"
                         type="button"
                       >
@@ -34328,7 +34328,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                       >
                         This site is protected by reCAPTCHA and the Google 
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                           data-testid="recaptcha-privacy-policy-link"
                           href="https://policies.google.com/privacy"
                           rel="noreferrer noopener"
@@ -34340,7 +34340,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                         </a>
                          and 
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                           data-testid="recaptcha-terms-of-service-link"
                           href="https://policies.google.com/terms"
                           rel="noreferrer noopener"

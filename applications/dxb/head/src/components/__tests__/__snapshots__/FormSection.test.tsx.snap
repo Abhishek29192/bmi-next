@@ -522,6 +522,7 @@ exports[`FormSection component renders correctly 1`] = `
                   </div>
                   <input
                     aria-hidden="true"
+                    aria-invalid="false"
                     class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
                     name="select"
                     tabindex="-1"
@@ -775,7 +776,7 @@ exports[`FormSection component renders correctly 1`] = `
         >
           This site is protected by reCAPTCHA and the Google 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy"
             rel="noreferrer noopener"
@@ -787,7 +788,7 @@ exports[`FormSection component renders correctly 1`] = `
           </a>
            and 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms"
             rel="noreferrer noopener"
@@ -886,7 +887,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
                   >
                     I agree with BMI's 
                     <a
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                       data-testid="label-Data-Protection-Policy-anchor-link"
                       href="https://google.co.uk"
                       rel="noopener"
@@ -939,7 +940,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
                   >
                     I agree with BMI's 
                     <a
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                       data-testid="label-Another-Data-Protection-Policy-anchor-link"
                       href="https://www.bmigroup.com"
                       target="_blank"
@@ -993,7 +994,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
         >
           This site is protected by reCAPTCHA and the Google 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy"
             rel="noreferrer noopener"
@@ -1005,7 +1006,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
           </a>
            and 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms"
             rel="noreferrer noopener"
@@ -1121,7 +1122,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
         >
           This site is protected by reCAPTCHA and the Google 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy"
             rel="noreferrer noopener"
@@ -1133,7 +1134,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
           </a>
            and 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms"
             rel="noreferrer noopener"
@@ -1265,7 +1266,7 @@ exports[`FormSection component test handleEmailValidation with correct email 1`]
         >
           This site is protected by reCAPTCHA and the Google 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy"
             rel="noreferrer noopener"
@@ -1277,7 +1278,7 @@ exports[`FormSection component test handleEmailValidation with correct email 1`]
           </a>
            and 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms"
             rel="noreferrer noopener"
@@ -1430,7 +1431,7 @@ exports[`FormSection component test handleEmailValidation with incorrect email 1
         >
           This site is protected by reCAPTCHA and the Google 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy"
             rel="noreferrer noopener"
@@ -1442,7 +1443,7 @@ exports[`FormSection component test handleEmailValidation with incorrect email 1
           </a>
            and 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms"
             rel="noreferrer noopener"
@@ -1647,7 +1648,7 @@ exports[`FormSection component test multiply options in a checkbox group 1`] = `
         >
           Dette nettstedet er beskyttet av reCAPTCHA og Googles 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy?hl=no-nb"
             rel="noreferrer noopener"
@@ -1659,7 +1660,7 @@ exports[`FormSection component test multiply options in a checkbox group 1`] = `
           </a>
            og 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms?hl=no-nb"
             rel="noreferrer noopener"
@@ -1864,7 +1865,7 @@ exports[`FormSection component test multiply options in a checkbox group without
         >
           Dette nettstedet er beskyttet av reCAPTCHA og Googles 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy?hl=no-nb"
             rel="noreferrer noopener"
@@ -1876,7 +1877,7 @@ exports[`FormSection component test multiply options in a checkbox group without
           </a>
            og 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms?hl=no-nb"
             rel="noreferrer noopener"
@@ -2071,7 +2072,7 @@ exports[`FormSection component test upload input with large file 1`] = `
         >
           This site is protected by reCAPTCHA and the Google 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy"
             rel="noreferrer noopener"
@@ -2083,7 +2084,7 @@ exports[`FormSection component test upload input with large file 1`] = `
           </a>
            and 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms"
             rel="noreferrer noopener"
@@ -2214,7 +2215,7 @@ exports[`FormSection component test upload input with no maxSize 1`] = `
         >
           This site is protected by reCAPTCHA and the Google 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy"
             rel="noreferrer noopener"
@@ -2226,7 +2227,7 @@ exports[`FormSection component test upload input with no maxSize 1`] = `
           </a>
            and 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms"
             rel="noreferrer noopener"
@@ -2421,7 +2422,7 @@ exports[`FormSection component test upload input with small file 1`] = `
         >
           This site is protected by reCAPTCHA and the Google 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy"
             rel="noreferrer noopener"
@@ -2433,7 +2434,7 @@ exports[`FormSection component test upload input with small file 1`] = `
           </a>
            and 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms"
             rel="noreferrer noopener"

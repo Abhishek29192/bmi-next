@@ -2499,7 +2499,7 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
               data-testid="grid-item"
             >
               <div
-                class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon company-autocomplete css-l3ln04-MuiAutocomplete-root"
+                class="MuiAutocomplete-root Mui-expanded MuiAutocomplete-hasClearIcon company-autocomplete css-l3ln04-MuiAutocomplete-root"
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -11982,7 +11982,7 @@ exports[`ServiceLocatorSection component searches for a service: Filtered option
             >
               <div
                 aria-owns="company-autocomplete-listbox"
-                class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon company-autocomplete css-l3ln04-MuiAutocomplete-root"
+                class="MuiAutocomplete-root Mui-expanded MuiAutocomplete-hasClearIcon company-autocomplete css-l3ln04-MuiAutocomplete-root"
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"

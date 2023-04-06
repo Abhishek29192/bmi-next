@@ -17,8 +17,7 @@ import React from "react";
 import type { Product as ESProduct } from "@bmi/elasticsearch-types";
 import { DataTypeEnum, NavigationData } from "../../../../components/Link";
 import { Data as SiteData } from "../../../../components/Site";
-import ProvideStyles from "../../../../components/__tests__/utils/StylesProvider";
-import { ConfigProvider, Config } from "../../../../contexts/ConfigProvider";
+import { Config, ConfigProvider } from "../../../../contexts/ConfigProvider";
 import createImageData from "../../../../__tests__/helpers/ImageDataHelper";
 import ProductListerPage, {
   Data as PlpPageInfoData,
@@ -165,7 +164,7 @@ jest.mock("../../../../utils/elasticSearch", () => {
 });
 
 const renderWithStylesAndLocationProvider = (
-  pageData: any,
+  pageData: Props["data"],
   pageContext: PageContextType,
   mockEnvVariables?: Partial<Config>
 ): RenderResult => {
@@ -180,11 +179,9 @@ const renderWithStylesAndLocationProvider = (
       <ConfigProvider
         configOverride={{ ...defaultPageEnvVars, ...mockEnvVariables }}
       >
-        <ProvideStyles>
-          <LocationProvider history={history}>
-            <ProductListerPage data={pageData} pageContext={pageContext} />
-          </LocationProvider>
-        </ProvideStyles>
+        <LocationProvider history={history}>
+          <ProductListerPage data={pageData} pageContext={pageContext} />
+        </LocationProvider>
       </ConfigProvider>
     </ThemeProvider>
   );

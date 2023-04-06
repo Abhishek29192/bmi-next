@@ -31,7 +31,7 @@ import type { Data as SiteData } from "../components/Site";
 import type { Data as SlideData } from "../components/Promo";
 import type { Data as PageInfoData } from "../components/PageInfo";
 
-type BrandLandingPageData = Omit<PageInfoData, "sections"> &
+type BrandLandingPageData = Omit<PageInfoData, "sections" | "featuredVideo"> &
   Omit<PageData, "breadcrumbs"> & {
     description: null | { description: string };
     slides: (SlideData | PageInfoData)[];
@@ -103,8 +103,7 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
     signupBlock,
     breadcrumbs,
     breadcrumbTitle,
-    seo,
-    featuredVideo
+    seo
   } = data.contentfulBrandLandingPage;
   const enhancedBreadcrumbs = updateBreadcrumbTitleFromContentful(
     breadcrumbs,
@@ -127,11 +126,7 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
           description?.description.length > 400 ? "..." : ""
         }`
       : null,
-    media: featuredVideo ? (
-      <Video {...featuredVideo} />
-    ) : (
-      <Image {...featuredMedia} size="cover" />
-    ),
+    media: <Image {...featuredMedia} size="cover" />,
     hasUnderline: false,
     cta: cta ? (
       <Link component={Button} data={cta} data-testid="first-slide-cta">
