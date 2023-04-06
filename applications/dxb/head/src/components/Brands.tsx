@@ -21,6 +21,10 @@ export type Data = {
   subtitle?: string;
 };
 
+type ButtonPropsWithAction = ButtonProps & {
+  action: { to?: string; href?: string };
+};
+
 const Brands = ({
   data,
   spaBrand = false
@@ -49,7 +53,7 @@ const Brands = ({
               {brand.path ? (
                 <BrandIntroCard
                   name={brand.brandLogo}
-                  buttonComponent={(props: ButtonProps) => (
+                  buttonComponent={(props: ButtonPropsWithAction) => (
                     <GTMButton
                       gtm={{
                         id: "cta-click1",
