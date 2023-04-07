@@ -1,7 +1,6 @@
 import {
   Button,
   ButtonProps,
-  Icon,
   replaceSpaces,
   Section,
   Table
@@ -16,6 +15,7 @@ import withGTM from "../utils/google-tag-manager";
 import { getClickableActionFromUrl } from "./Link";
 import RichText, { RichTextData } from "./RichText";
 import { useSiteContext } from "./Site";
+import Icon from "./Icon";
 
 export type Data = {
   __typename: "ContentfulDocumentDownloadSection";
@@ -88,7 +88,7 @@ const DocumentDownloadSection = ({
                       variant="text"
                       startIcon={
                         <Icon
-                          source={
+                          name={
                             // eslint-disable-next-line security/detect-object-injection
                             fileIconsMap[contentType] || "FileUniversal"
                           }
