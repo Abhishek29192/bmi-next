@@ -730,6 +730,7 @@ type PIMSystemDocument @dontInfer {
   isLinkDocument: Boolean!
   assetType: ContentfulAssetType!
   realFileName: String
+  extension: String
   fileSize: Int
   format: String
   id: ID!
