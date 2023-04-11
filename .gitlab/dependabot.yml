@@ -5,7 +5,642 @@ registries:
     url: https://registry.npmjs.org
     token: ${{NPM_AUTH_READ_TOKEN}}
 updates:
+  ###################################
+  # /
+  ###################################
   - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
     directory: "/"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # frc-website
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/frc-website"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # csp-creator
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/csp-creator"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # webtools-contentful-migrate
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/webtools-contentful-migrate"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # cms-consolidation-utility
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/libraries/cms-consolidation-utility"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # contentful-upload
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/libraries/contentful-upload"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # pim-api
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/libraries/pim-api"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # pub-sub-types
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/libraries/pub-sub-types"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # netlify-plugin-trigger-gitlab
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/libraries/netlify-plugin-trigger-gitlab"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # gatsby-plugin-elasticsearch
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/libraries/gatsby-plugin-elasticsearch"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # functions-recaptcha
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/libraries/functions-recaptcha"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # gatsby-source-hubspot-forms
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/libraries/gatsby-source-hubspot-forms"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # gatsby-plugin-leadoo
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/libraries/gatsby-plugin-leadoo"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # firestore-types
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/libraries/firestore-types"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # elasticsearch-types
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/libraries/elasticsearch-types"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # gatsby-plugin-meta-redirect
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/libraries/gatsby-plugin-meta-redirect"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # utils
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/libraries/utils"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # gatsby-plugin-google-tagmanager
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/libraries/gatsby-plugin-google-tagmanager"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # gatsby-plugin-firestore
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/libraries/gatsby-plugin-firestore"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # functions-contentful-client
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/libraries/functions-contentful-client"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # contentful-default-values-cli
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/libraries/contentful-default-values-cli"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # contentful-graph
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/libraries/contentful-graph"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # contentful-types
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/libraries/contentful-types"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # pim-types
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/libraries/pim-types"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # gatsby-plugin-sitemap
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/libraries/gatsby-plugin-sitemap"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # functions-firestore
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/libraries/functions-firestore"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # contentful-tag-cli
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/libraries/contentful-tag-cli"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # fetch-retry
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/libraries/fetch-retry"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # functions-es-client
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/libraries/functions-es-client"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # gatsby-plugin-material-ui
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/libraries/gatsby-plugin-material-ui"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # redirects-checker
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/redirects-checker"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # head
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/head"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # contentful-roles
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/scripts/contentful-roles"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # gcp-system-configurator
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/functions/gcp-system-configurator"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # gcp-pim-full-fetch
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/functions/gcp-pim-full-fetch"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # gcp-functions-deployer
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/functions/gcp-functions-deployer"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # gcp-download-zip
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/functions/gcp-download-zip"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # gcp-build-trigger
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/functions/gcp-build-trigger"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # contentful-tagger
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/functions/contentful-tagger"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # gcp-url-generator
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/functions/gcp-url-generator"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # gcp-firestore-writer
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/functions/gcp-firestore-writer"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # gcp-apsis-integration
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/functions/gcp-apsis-integration"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # es-pim-products-ingest
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/functions/es-pim-products-ingest"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # contentful-default-values
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/functions/contentful-default-values"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # gcp-upload-file
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/functions/gcp-upload-file"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # gcp-youtube-cache
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/functions/gcp-youtube-cache"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # gcp-pim-message-handler
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/functions/gcp-pim-message-handler"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # gcp-update-webtools-bucket
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/functions/gcp-update-webtools-bucket"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # gcp-build-status-logger
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/functions/gcp-build-status-logger"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # gcp-form-submit
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/functions/gcp-form-submit"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # gcp-pim-full-fetch-coordinator
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/functions/gcp-pim-full-fetch-coordinator"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # gcp-es-proxy
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/functions/gcp-es-proxy"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # gatsby-cloud-build-proxy
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/functions/gatsby-cloud-build-proxy"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # gcp-contentful-documents-ingest
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/functions/gcp-contentful-documents-ingest"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # contentful-migrate
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/contentful-migrate"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # redirects-website-rs
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/redirects-website-rs"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # redirects-website-fr-siplast
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/redirects-website-fr-siplast"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # redirects-website-al
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/redirects-website-al"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # redirects-website
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/redirects-website"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # redirects-website-italy
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/redirects-website-italy"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # redirects-website-pt-es-blogs
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/redirects-website-pt-es-blogs"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # redirects-website-uk-icopal
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/redirects-website-uk-icopal"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # redirects-website-nl-monier
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/redirects-website-nl-monier"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # redirects-website-ba
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/redirects-website-ba"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # redirects-website-fr-monier
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/redirects-website-fr-monier"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # redirects-website-hr
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/redirects-website-hr"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # redirects-website-ie-necoflex
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/redirects-website-ie-necoflex"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # redirects-website-dk
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/redirects-website-dk"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # redirects-website-uk-redland
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/redirects-website-uk-redland"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # redirects-website-nl-icopal
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/redirects-website-nl-icopal"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # redirects-website-si
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/redirects-website-si"
     schedule:
       interval: "weekly"
