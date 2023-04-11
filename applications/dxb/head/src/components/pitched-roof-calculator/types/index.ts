@@ -1,3 +1,4 @@
+import { Product as ESProduct } from "@bmi/elasticsearch-types";
 import { Data as TitleWithContentProps } from "../../TitleWithContent";
 
 export type RangeValue = {
@@ -6,107 +7,213 @@ export type RangeValue = {
   value: number;
 };
 
-export type BaseProduct = {
-  code: string;
-  name: string;
-};
+export interface BaseProduct extends ESProduct {
+  externalProductCode: string;
+  packSize: number;
+}
 
 export type BaseVariant = BaseProduct & {
   externalProductCode: string;
   image: string;
 };
 
-export type LengthBasedProduct = BaseVariant & {
-  length: number;
-};
-
-export type WidthBasedProduct = BaseVariant & {
-  width: number;
-};
-
-export type VergeMetalFlushOption = {
-  type: "METAL_FLUSH";
-  name: string;
-  left: LengthBasedProduct;
-  right: LengthBasedProduct;
-  leftStart?: LengthBasedProduct;
-  rightStart?: LengthBasedProduct;
-};
-
-export type VergeTileOption = {
-  type: "TILE";
-  name: string;
-  left: WidthBasedProduct;
-  right: WidthBasedProduct;
-  halfLeft: WidthBasedProduct;
-  halfRight: WidthBasedProduct;
-};
-
-export type VergeOption = VergeTileOption | VergeMetalFlushOption;
-
-export type Accessory = BaseVariant & {
+export interface Accessory extends BaseProduct {
   category: ProductCategory;
-  packSize?: number;
+}
+
+export interface LengthBasedProduct extends BaseProduct {
+  length: number;
+}
+
+export interface WidthBasedProduct extends BaseProduct {
+  width: number;
+}
+
+export interface RidgeOption extends LengthBasedProduct {
+  tRidge?: LengthBasedProduct;
+  yRidge?: LengthBasedProduct;
+  ridgeEnd?: LengthBasedProduct;
+}
+
+export type VentilationHood = ESProduct;
+
+export interface VergeVariant extends BaseProduct {
+  length?: number;
+  width?: number;
+}
+export interface VergeOption {
+  left: VergeVariant;
+  right: VergeVariant;
+  leftStart?: VergeVariant;
+  rightStart?: VergeVariant;
+  halfLeft?: VergeVariant;
+  halfRight?: VergeVariant;
+}
+
+export interface ReferencedTileProducts extends VergeOption {
+  ridgeOptions?: RidgeOption[];
+  ventilationHoodOptions?: VentilationHood[];
+  accessories?: Accessory[];
+  eaveAccessories?: Accessory[];
+  hip?: LengthBasedProduct;
+  halfTile?: WidthBasedProduct;
+  valleyMetalFlushStart?: LengthBasedProduct;
+  valleyMetalFlush?: LengthBasedProduct;
+  valleyMetalFlushEnd?: LengthBasedProduct;
+  valleyMetalFlushTop?: LengthBasedProduct;
+  valleyMetalFlushDormerStart?: LengthBasedProduct;
+  clip?: Accessory;
+  ridgeAndHipScrew?: Accessory;
+  longScrew?: Accessory;
+  screw?: Accessory;
+  stormBracket?: Accessory;
+  finishingKit?: Accessory;
+}
+
+export interface NestedProductReferences {
+  tRidge?: LengthBasedProduct;
+  yRidge?: LengthBasedProduct;
+  ridgeEnd?: LengthBasedProduct;
+  downPipe?: Accessory;
+  downPipeConnector?: Accessory;
+}
+
+export interface Tile
+  extends BaseProduct,
+    Omit<ReferencedTileProducts, keyof VergeOption> {
+  color: string;
+  category: string;
+  brokenBond: boolean;
+  maxBattenSpacing: number;
+  eaveGauge: number;
+  ridgeSpacing: number;
+  minBattenSpacing: number;
+  width: number;
+  length: number;
+  vergeOption?: VergeOption;
+}
+
+export type GroupedTiles = { [baseProductCode: string]: Tile[] };
+
+export type GroupedGutters = {
+  [baseProductCode: string]: GutterVariant[];
 };
 
-export type Underlay = BaseVariant & {
-  description?: string;
-  minSupportedPitch: number;
+export type BasicResults = {
+  [category in ProductCategory]: ResultsRow[];
+};
+
+export interface ResultsObject extends BasicResults {
+  extras: ResultsRow[] | null;
+}
+
+export interface Underlay extends BaseProduct {
+  overlap: number;
   length: number;
   width: number;
-  overlap: number;
-};
+}
 
-export type GutteringVariant = LengthBasedProduct & {
-  downpipe: Accessory;
-  downpipeConnector: Accessory;
-};
+export type GutterHook = LengthBasedProduct;
 
-export type Guttering = BaseProduct & {
-  image: string;
-  variants: GutteringVariant[];
-};
+export interface GutterVariant extends BaseProduct {
+  length: number;
+  downPipe?: Accessory;
+  downPipeConnector?: Accessory;
+}
 
-export type BaseTile = {
-  minBattenGauge: number;
-  maxBattenGauge: RangeValue[];
-  eaveGauge: RangeValue[];
-  ridgeSpacing: RangeValue[];
-  width: number;
-  height: number;
-  brokenBond: boolean;
-};
+export enum ProductType {
+  tile = "MAIN_TILE",
+  underlay = "UNDERLAY",
+  gutter = "GUTTER",
+  gutterHook = "GUTTER_HOOK"
+}
 
-export type MainTileVariant = BaseVariant &
-  BaseTile & {
-    color: string;
-    halfTile?: WidthBasedProduct;
-    hip: LengthBasedProduct;
-    ridgeOptions: LengthBasedProduct[];
-    vergeOptions: VergeOption[];
-    valleyMetalFlushStart?: LengthBasedProduct;
-    valleyMetalFlush?: LengthBasedProduct;
-    valleyMetalFlushEnd?: LengthBasedProduct;
-    valleyMetalFlushTop?: LengthBasedProduct;
-    valleyMetalFlushDormerStart?: LengthBasedProduct;
-    accessories: Accessory[];
-    eaveAccessories: Accessory[];
-    clip?: Accessory;
-    ridgeAndHipScrew?: Accessory;
-    longScrew?: Accessory;
-    screw?: Accessory;
-    stormBracket?: Accessory;
-    finishingKit?: Accessory;
-    ventilationHoodOptions: Accessory[];
-  };
+export interface Data {
+  tiles: GroupedTiles;
+  underlays: Underlay[];
+  gutters: GroupedGutters;
+  gutterHooks: GutterHook[];
+}
+
+export interface TileOptionSelections {
+  ridge?: RidgeOption;
+  verge?: VergeOption | "none";
+  ventilationHoods: VentilationHood[] | "none";
+}
+
+export type GutteringFormSelection = {
+  guttering?: string;
+  gutteringVariant?: string;
+  gutteringHook?: string;
+  downPipes?: number;
+  downPipeConnectors?: number;
+};
 
 export type MainTileCategory = "concrete" | "metal" | "clay";
 
-export type MainTile = BaseProduct &
-  BaseTile & {
-    category: MainTileCategory;
-    variants: MainTileVariant[];
-  };
+export const lengthBasedProducts = [
+  "HIP",
+  "RIDGE_TILE",
+  "LEFT_START",
+  "RIGHT_START",
+  "VALLEY_METAL_FLUSH_START",
+  "VALLEY_METAL_FLUSH",
+  "VALLEY_METAL_FLUSH_END",
+  "VALLEY_METAL_FLUSH_TOP",
+  "VALLEY_METAL_FLUSH_DORMER_START"
+];
+
+export const widthBasedProducts = [
+  "HALF_TILE",
+  "LEFT_VERGE_TILE",
+  "LEFT_VERGE_HALF_TILE",
+  "RIGHT_VERGE_TILE",
+  "RIGHT_VERGE_HALF_TILE"
+];
+
+export const multiValueProducts = [
+  "EAVE_ACCESSORIES",
+  "VENTILATION_HOOD",
+  "ACCESSORIES",
+  "RIDGE_TILE"
+];
+
+export const mainTileReferencesMapper = {
+  HIP: "hip",
+  HALF_TILE: "halfTile",
+  RIDGE_TILE: "ridgeOptions",
+  VALLEY_METAL_FLUSH_START: "valleyMetalFlushStart",
+  VALLEY_METAL_FLUSH: "valleyMetalFlush",
+  VALLEY_METAL_FLUSH_END: "valleyMetalFlushEnd",
+  VALLEY_METAL_FLUSH_TOP: "valleyMetalFlushTop",
+  VALLEY_METAL_FLUSH_DORMER_START: "valleyMetalFlushDormerStart",
+  EAVE_ACCESSORIES: "eaveAccessories",
+  ACCESSORIES: "accessories",
+  VENTILATION_HOOD: "ventilationHoodOptions",
+  CLIP: "clip",
+  RIDGE_AND_HIP_SCREW: "ridgeAndHipScrew",
+  LONG_SCREW: "longScrew",
+  SCREW: "screw",
+  STORM_BRACKET: "stormBracket",
+  FINISHING_KIT: "finishingKit",
+  LEFT_VERGE_TILE: "left",
+  RIGHT_VERGE_TILE: "right",
+  LEFT_START: "leftStart",
+  RIGHT_START: "rightStart",
+  LEFT_VERGE_HALF_TILE: "halfLeft",
+  RIGHT_VERGE_HALF_TILE: "halfRight"
+};
+
+export const nestedProductReferencesMapper: Record<
+  string,
+  keyof NestedProductReferences
+> = {
+  RIDGE_END_TILE: "ridgeEnd",
+  T_RIDGE: "tRidge",
+  Y_RIDGE: "yRidge",
+  DOWN_PIPE: "downPipe",
+  DOWN_PIPE_CONNECTOR: "downPipeConnector"
+};
 
 export enum ProductCategory {
   Tiles = "tiles",
@@ -116,13 +223,6 @@ export enum ProductCategory {
   Accessories = "accessories"
 }
 
-export type Data = {
-  mainTiles: MainTile[];
-  gutters: Guttering[];
-  gutterHooks: LengthBasedProduct[];
-  underlays: Underlay[];
-};
-
 export type ResultsRow = {
   category: ProductCategory;
   image: string | null;
@@ -130,10 +230,6 @@ export type ResultsRow = {
   externalProductCode: string;
   packSize: string;
   quantity: number;
-};
-
-export type ResultsObject = {
-  [category in ProductCategory]: ResultsRow[];
 };
 
 export enum CalculatorSteps {
