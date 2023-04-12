@@ -8,6 +8,7 @@ export const classes = {
 
 export const GridContainer = styled(Grid)({
   margin: 0,
+  flexDirection: "column",
   [`.${classes.richText}`]: {
     maxWidth: "100%"
   }

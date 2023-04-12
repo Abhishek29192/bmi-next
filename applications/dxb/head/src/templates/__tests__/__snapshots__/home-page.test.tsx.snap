@@ -3385,7 +3385,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                             class="MuiAccordionDetails-root  css-1r7u8wy-MuiAccordionDetails-root"
                           >
                             <div
-                              class="RichText-root RichText-no-bottom-margin css-vf09gu"
+                              class="RichText-root RichText-no-bottom-margin css-1u73y0t"
                             >
                               <p
                                 class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"

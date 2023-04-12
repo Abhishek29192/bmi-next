@@ -221,7 +221,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
             class="description"
           >
             <div
-              class="RichText-root css-vf09gu"
+              class="RichText-root css-1u73y0t"
             >
               <h3
                 class="MuiTypography-root MuiTypography-h3 RichText-title css-2221f6-MuiTypography-root"
@@ -519,7 +519,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
             class="description"
           >
             <div
-              class="RichText-root css-vf09gu"
+              class="RichText-root css-1u73y0t"
             >
               <h3
                 class="MuiTypography-root MuiTypography-h3 RichText-title css-2221f6-MuiTypography-root"
@@ -817,7 +817,7 @@ exports[`SystemConfiguratorSection component redirect to 404 page if no matches 
             class="description"
           >
             <div
-              class="RichText-root css-vf09gu"
+              class="RichText-root css-1u73y0t"
             >
               <h3
                 class="MuiTypography-root MuiTypography-h3 RichText-title css-2221f6-MuiTypography-root"
@@ -1252,7 +1252,7 @@ exports[`SystemConfiguratorSection component renders a no result section when an
             No Result Title
           </h2>
           <div
-            class="RichText-root css-vf09gu"
+            class="RichText-root css-1u73y0t"
           >
             <h3
               class="MuiTypography-root MuiTypography-h3 RichText-title css-2221f6-MuiTypography-root"
@@ -1495,7 +1495,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
             class="description"
           >
             <div
-              class="RichText-root css-vf09gu"
+              class="RichText-root css-1u73y0t"
             >
               <h3
                 class="MuiTypography-root MuiTypography-h3 RichText-title css-2221f6-MuiTypography-root"
@@ -2730,7 +2730,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
             No Result Title
           </h2>
           <div
-            class="RichText-root css-vf09gu"
+            class="RichText-root css-1u73y0t"
           />
         </div>
       </div>
@@ -2955,7 +2955,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
             No Result Title
           </h2>
           <div
-            class="RichText-root css-vf09gu"
+            class="RichText-root css-1u73y0t"
           />
         </div>
       </div>
@@ -3180,7 +3180,7 @@ exports[`SystemConfiguratorSection component renders no result section with the 
             No Result Title
           </h2>
           <div
-            class="RichText-root css-vf09gu"
+            class="RichText-root css-1u73y0t"
           >
             <picture>
               <source
@@ -3432,7 +3432,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
             class="description"
           >
             <div
-              class="RichText-root css-vf09gu"
+              class="RichText-root css-1u73y0t"
             >
               <h3
                 class="MuiTypography-root MuiTypography-h3 RichText-title css-2221f6-MuiTypography-root"
@@ -3873,7 +3873,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
             class="description"
           >
             <div
-              class="RichText-root css-vf09gu"
+              class="RichText-root css-1u73y0t"
             >
               <h3
                 class="MuiTypography-root MuiTypography-h3 RichText-title css-2221f6-MuiTypography-root"
@@ -4898,7 +4898,7 @@ exports[`SystemConfiguratorSection component renders with description rich text 
           System Configurator Section Title
         </h2>
         <div
-          class="RichText-root css-vf09gu"
+          class="RichText-root css-1u73y0t"
         >
           <h3
             class="MuiTypography-root MuiTypography-h3 RichText-title css-2221f6-MuiTypography-root"

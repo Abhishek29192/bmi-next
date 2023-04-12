@@ -146,7 +146,7 @@ exports[`Sections component renders alternate backgrounds for promos 1`] = `
                   Promo 3
                 </h3>
                 <div
-                  class="RichText-root RichText-no-bottom-margin css-vf09gu"
+                  class="RichText-root RichText-no-bottom-margin css-1u73y0t"
                 >
                   <h2
                     class="MuiTypography-root MuiTypography-h2 RichText-title css-1gn4sxn-MuiTypography-root"
@@ -262,7 +262,7 @@ exports[`Sections component renders correctly 1`] = `
                           class="MuiAccordionDetails-root  css-1r7u8wy-MuiAccordionDetails-root"
                         >
                           <div
-                            class="RichText-root RichText-no-bottom-margin css-vf09gu"
+                            class="RichText-root RichText-no-bottom-margin css-1u73y0t"
                           >
                             <p
                               class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -412,7 +412,7 @@ exports[`Sections component renders correctly 1`] = `
                 role="tabpanel"
               >
                 <div
-                  class="RichText-root css-vf09gu"
+                  class="RichText-root css-1u73y0t"
                 >
                   <p
                     class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -1162,7 +1162,7 @@ exports[`Sections component renders correctly 1`] = `
             style="margin-bottom: 40px;"
           >
             <div
-              class="RichText-root css-vf09gu"
+              class="RichText-root css-1u73y0t"
             >
               <p
                 class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -2223,7 +2223,7 @@ exports[`Sections component renders correctly 1`] = `
             Section title
           </h2>
           <div
-            class="RichText-root RichText-no-bottom-margin css-vf09gu"
+            class="RichText-root RichText-no-bottom-margin css-1u73y0t"
           >
             <p
               class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -2439,7 +2439,7 @@ exports[`Sections component renders correctly 1`] = `
                         style="margin-bottom: 60px;"
                       >
                         <div
-                          class="RichText-root css-vf09gu"
+                          class="RichText-root css-1u73y0t"
                         >
                           <p
                             class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -2680,7 +2680,7 @@ exports[`Sections component renders correctly 1`] = `
                         style="margin-bottom: 60px;"
                       >
                         <div
-                          class="RichText-root css-vf09gu"
+                          class="RichText-root css-1u73y0t"
                         >
                           <p
                             class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -3691,7 +3691,7 @@ exports[`Sections component renders correctly when incomplete 1`] = `
                           class="MuiAccordionDetails-root  css-1r7u8wy-MuiAccordionDetails-root"
                         >
                           <div
-                            class="RichText-root RichText-no-bottom-margin css-vf09gu"
+                            class="RichText-root RichText-no-bottom-margin css-1u73y0t"
                           >
                             <p
                               class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -3841,7 +3841,7 @@ exports[`Sections component renders correctly when incomplete 1`] = `
                 role="tabpanel"
               >
                 <div
-                  class="RichText-root css-vf09gu"
+                  class="RichText-root css-1u73y0t"
                 >
                   <p
                     class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -3972,7 +3972,7 @@ exports[`Sections component renders correctly with 1 villain 1`] = `
                           class="MuiAccordionDetails-root  css-1r7u8wy-MuiAccordionDetails-root"
                         >
                           <div
-                            class="RichText-root RichText-no-bottom-margin css-vf09gu"
+                            class="RichText-root RichText-no-bottom-margin css-1u73y0t"
                           >
                             <p
                               class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -4122,7 +4122,7 @@ exports[`Sections component renders correctly with 1 villain 1`] = `
                 role="tabpanel"
               >
                 <div
-                  class="RichText-root css-vf09gu"
+                  class="RichText-root css-1u73y0t"
                 >
                   <p
                     class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"

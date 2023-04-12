@@ -115,7 +115,7 @@ exports[`ContactTopics component renders correctly 1`] = `
                     class="IconList-description"
                   >
                     <div
-                      class="RichText-root RichText-no-bottom-margin css-vf09gu"
+                      class="RichText-root RichText-no-bottom-margin css-1u73y0t"
                     >
                       <p
                         class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -167,7 +167,7 @@ exports[`ContactTopics component renders correctly 1`] = `
                     class="IconList-description"
                   >
                     <div
-                      class="RichText-root RichText-no-bottom-margin css-vf09gu"
+                      class="RichText-root RichText-no-bottom-margin css-1u73y0t"
                     >
                       <p
                         class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -210,7 +210,7 @@ exports[`ContactTopics component renders correctly 1`] = `
                     teste
                   </h5>
                   <div
-                    class="RichText-root css-vf09gu"
+                    class="RichText-root css-1u73y0t"
                   >
                     <p
                       class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
