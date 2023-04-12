@@ -14,7 +14,6 @@ import { Data as NextBestActionsData } from "../../../components/NextBestActions
 import { Data as SectionsData } from "../../../components/Sections";
 import { Data as ShareWidgetSectionData } from "../../../components/ShareWidgetSection";
 import { Data as SiteData } from "../../../components/Site";
-import ProvideStyles from "../../../components/__tests__/utils/StylesProvider";
 import { ConfigProvider } from "../../../contexts/ConfigProvider";
 import { createMockSiteData } from "../../../test/mockSiteData";
 import SimplePage, { Data, Props } from "../components/simple-page";
@@ -41,11 +40,9 @@ const renderWithStylesAndLocationProvider = (
   render(
     <ThemeProvider>
       <ConfigProvider configOverride={{ isBrandProviderEnabled: true }}>
-        <ProvideStyles>
-          <LocationProvider history={history}>
-            <SimplePage data={pageData} pageContext={pageContext} />
-          </LocationProvider>
-        </ProvideStyles>
+        <LocationProvider history={history}>
+          <SimplePage data={pageData} pageContext={pageContext} />
+        </LocationProvider>
       </ConfigProvider>
     </ThemeProvider>
   );

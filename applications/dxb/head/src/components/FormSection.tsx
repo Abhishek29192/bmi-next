@@ -137,7 +137,7 @@ const Input = ({
   const { executeRecaptcha } = useGoogleReCaptcha();
   const qaAuthToken = getCookie(QA_AUTH_TOKEN);
 
-  const mapBody = (file: File) => file;
+  const mapBody = (file: File): Record<string, unknown> => ({ ...file });
   const mapValue = ({ name, type }, upload) => ({
     fileName: name,
     contentType: type,

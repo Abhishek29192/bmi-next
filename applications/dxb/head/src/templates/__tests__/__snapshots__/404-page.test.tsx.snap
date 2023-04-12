@@ -2619,7 +2619,7 @@ exports[`404 page tests When error page data is partially populated renders plac
     data-testid="brand-colors-provider"
   >
     <div
-      class=" Section-root Section-white css-oz2ls0"
+      class=" Section-root Section-white css-1obptq1"
       data-testid="promo-section"
     >
       <div
@@ -2633,7 +2633,7 @@ exports[`404 page tests When error page data is partially populated renders plac
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-sm-12 MuiGrid2-grid-md-6 Grid-item css-i0botz-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 Grid-item css-y6fwcd-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -2671,7 +2671,7 @@ exports[`404 page tests When error page data is partially populated renders plac
               </div>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-sm-12 MuiGrid2-grid-md-6 Grid-item css-i0botz-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 Grid-item css-y6fwcd-MuiGrid2-root"
               data-testid="grid-item"
             >
               <img
@@ -5695,7 +5695,7 @@ exports[`404 page tests When site data and error page data are fully populated r
     data-testid="brand-colors-provider"
   >
     <div
-      class=" Section-root Section-white css-oz2ls0"
+      class=" Section-root Section-white css-1obptq1"
       data-testid="promo-section"
     >
       <div
@@ -5709,7 +5709,7 @@ exports[`404 page tests When site data and error page data are fully populated r
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-sm-12 MuiGrid2-grid-md-6 Grid-item css-i0botz-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 Grid-item css-y6fwcd-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -5747,7 +5747,7 @@ exports[`404 page tests When site data and error page data are fully populated r
               </div>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-sm-12 MuiGrid2-grid-md-6 Grid-item css-i0botz-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 Grid-item css-y6fwcd-MuiGrid2-root"
               data-testid="grid-item"
             >
               <img

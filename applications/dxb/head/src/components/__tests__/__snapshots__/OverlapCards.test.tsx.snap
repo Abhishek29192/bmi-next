@@ -84,6 +84,7 @@ exports[`OverlapCards component IntegratedOverlapCards component renders correct
                       data-main-image=""
                       data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
                       data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+                      data-testid="overlap-cards-image"
                       decoding="async"
                       draggable="false"
                       loading="lazy"
@@ -172,6 +173,7 @@ exports[`OverlapCards component IntegratedOverlapCards component renders correct
                       data-main-image=""
                       data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
                       data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+                      data-testid="overlap-cards-image"
                       decoding="async"
                       draggable="false"
                       loading="lazy"
@@ -234,7 +236,7 @@ exports[`OverlapCards component IntegratedOverlapCards component renders correct
                 <div
                   class="css-tzh23l-Media"
                   data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=TDNEwZbm_Nk-video label","action":"Play"}"
-                  data-testid="youtube-dialog-wrapper"
+                  data-testid="overlap-cards-video"
                 >
                   <button
                     aria-label="video label"
@@ -413,6 +415,7 @@ exports[`OverlapCards component renders correctly 1`] = `
                       data-main-image=""
                       data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
                       data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+                      data-testid="overlap-cards-image"
                       decoding="async"
                       draggable="false"
                       loading="lazy"
@@ -501,6 +504,7 @@ exports[`OverlapCards component renders correctly 1`] = `
                       data-main-image=""
                       data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
                       data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+                      data-testid="overlap-cards-image"
                       decoding="async"
                       draggable="false"
                       loading="lazy"
@@ -563,7 +567,7 @@ exports[`OverlapCards component renders correctly 1`] = `
                 <div
                   class="css-tzh23l-Media"
                   data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=TDNEwZbm_Nk-video label","action":"Play"}"
-                  data-testid="youtube-dialog-wrapper"
+                  data-testid="overlap-cards-video"
                 >
                   <button
                     aria-label="video label"
