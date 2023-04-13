@@ -1411,7 +1411,7 @@ exports[`Sections component renders correctly 1`] = `
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
               data-testid="tabpanel-map"
               heading="findARoofer.mapLabel"
               hidden=""
@@ -2158,7 +2158,7 @@ exports[`Sections component renders correctly 1`] = `
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
               data-testid="tabpanel-map"
               heading="findARoofer.mapLabel"
               hidden=""
