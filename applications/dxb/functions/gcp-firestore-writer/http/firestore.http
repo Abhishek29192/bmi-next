@@ -1,0 +1,12 @@
+###
+
+# @name Update/Delete Firestore Document
+
+POST {{host}}
+Content-Type: application/json
+
+{
+  "data": {
+    "data": "eyJ0eXBlIjoiREVMRVRFRCIsIml0ZW1UeXBlIjoiUFJPRFVDVFMiLCJpdGVtIjp7ImNvZGUiOiIwMDE0NzNfQWVyb0Rla19UcmFkaXRpb25fUGx1c19yaWRnZV9jdXJ2ZWRfZW5kX2FudGlxdWVfZ3JleSIsIm9ialR5cGUiOiJ2YXJpYW50In19"
+  }
+}
