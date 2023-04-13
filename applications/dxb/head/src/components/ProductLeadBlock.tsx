@@ -140,7 +140,7 @@ const ProductLeadBlock = ({
                             null,
                             item.url,
                             countryCode,
-                            null,
+                            undefined,
                             item.name
                           )}
                           gtm={{

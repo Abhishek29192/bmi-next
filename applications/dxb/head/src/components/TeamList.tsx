@@ -66,7 +66,7 @@ const TeamList = ({ data }: { data: Data | null }) => {
                         link.linkedPage,
                         link.url,
                         countryCode,
-                        null,
+                        undefined,
                         link.label
                       )}
                       anchorComponent={(props: AnchorLinkProps) => (

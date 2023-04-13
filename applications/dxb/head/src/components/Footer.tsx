@@ -14,8 +14,8 @@ import withGTM from "../utils/google-tag-manager";
 import Icon from "./Icon";
 import {
   Data as LinkData,
-  getClickableActionFromUrl,
-  NavigationData
+  NavigationData,
+  getClickableActionFromUrl
 } from "./Link";
 import { useSiteContext } from "./Site";
 
@@ -51,7 +51,7 @@ const parseNavigation = (
         linkedPage,
         url,
         countryCode,
-        null,
+        undefined,
         label
       )
     };
@@ -78,7 +78,7 @@ const BmiFooter = ({ mainNavigation, secondaryNavigation }: Props) => {
         { path: "sitemap" },
         null,
         countryCode,
-        null,
+        undefined,
         getMicroCopy(microCopy.GLOBAL_SITEMAP)
       )
     }

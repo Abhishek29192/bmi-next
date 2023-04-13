@@ -43,7 +43,7 @@ const ErrorFallback = ({
             cta?.linkedPage,
             cta?.url,
             countryCode,
-            null,
+            undefined,
             cta.label
           )}
         >

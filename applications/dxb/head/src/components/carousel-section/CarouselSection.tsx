@@ -12,14 +12,14 @@ import { ArrowForward as ArrowForwardIcon } from "@bmi-digital/components/icon";
 import ButtonBase, { ButtonBaseProps } from "@mui/material/ButtonBase";
 import { graphql } from "gatsby";
 import React, { useContext } from "react";
-import { Data as PromoData } from "../Promo";
 import { microCopy } from "../../constants/microCopies";
 import withGTM from "../../utils/google-tag-manager";
 import BrandLogo from "../BrandLogo";
 import Image from "../Image";
-import { Data as LinkData, getClickableActionFromUrl, getCTA } from "../Link";
+import { getClickableActionFromUrl, getCTA, Data as LinkData } from "../Link";
 import { Data as PageInfoData } from "../PageInfo";
 import { CalculatorContext } from "../PitchedRoofCalcualtor";
+import { Data as PromoData } from "../Promo";
 import { useSiteContext } from "../Site";
 import styles from "../styles/CarouselSection.module.scss";
 import Video from "../Video";
@@ -134,7 +134,7 @@ const CarouselSection = ({
             link?.linkedPage,
             link?.url,
             countryCode,
-            null,
+            undefined,
             link.label,
             link?.type,
             () => {
