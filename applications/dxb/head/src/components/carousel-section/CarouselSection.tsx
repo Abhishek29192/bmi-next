@@ -12,25 +12,25 @@ import { ArrowForward as ArrowForwardIcon } from "@bmi-digital/components/icon";
 import ButtonBase, { ButtonBaseProps } from "@mui/material/ButtonBase";
 import { graphql } from "gatsby";
 import React, { useContext } from "react";
-import { Data as PromoData } from "../components/Promo";
-import { microCopy } from "../constants/microCopies";
-import withGTM from "../utils/google-tag-manager";
-import BrandLogo from "./BrandLogo";
-import Image from "./Image";
-import { Data as LinkData, getClickableActionFromUrl, getCTA } from "./Link";
-import { Data as PageInfoData } from "./PageInfo";
-import { CalculatorContext } from "./PitchedRoofCalcualtor";
-import { useSiteContext } from "./Site";
-import styles from "./styles/CarouselSection.module.scss";
-import Video from "./Video";
-import { VisualiserContext } from "./Visualiser";
+import { Data as PromoData } from "../Promo";
+import { microCopy } from "../../constants/microCopies";
+import withGTM from "../../utils/google-tag-manager";
+import BrandLogo from "../BrandLogo";
+import Image from "../Image";
+import { Data as LinkData, getClickableActionFromUrl, getCTA } from "../Link";
+import { Data as PageInfoData } from "../PageInfo";
+import { CalculatorContext } from "../PitchedRoofCalcualtor";
+import { useSiteContext } from "../Site";
+import styles from "../styles/CarouselSection.module.scss";
+import Video from "../Video";
+import { VisualiserContext } from "../Visualiser";
 
 type Slide = PromoData | PageInfoData;
 
 export type Data = {
   __typename: "ContentfulCarouselSection";
-  title?: string;
-  variant: string;
+  title: string;
+  variant: "horizontal" | "vertical";
   slides: Slide[];
   link: LinkData | null;
 };
@@ -43,31 +43,44 @@ const parseSlides = (
   linkLabel: string,
   variant: string
 ): (TwoPaneCarouselSlide | VerticalRollerSlide)[] => {
-  return slides.map((slide) => {
-    const {
-      title,
-      subtitle,
-      brandLogo,
-      featuredVideo,
-      featuredMedia,
-      ...rest
-    } = slide;
-    const cta = getCTA(rest, countryCode, linkLabel);
-    const brandLogoIcons = brandLogo ? (
-      <BrandLogo brandName={brandLogo} brandWhiteBox={variant === "vertical"} />
-    ) : undefined;
-    return {
-      title,
-      brandIcon: brandLogoIcons,
-      media: featuredVideo ? (
-        <Video {...featuredVideo} className={styles["video-preview-image"]} />
-      ) : (
-        <Image {...featuredMedia} />
-      ),
-      description: subtitle || undefined,
-      cta
-    };
-  });
+  return slides
+    .filter((slide) => slide.title)
+    .map((slide, index) => {
+      const {
+        title,
+        subtitle,
+        brandLogo,
+        featuredVideo,
+        featuredMedia,
+        ...rest
+      } = slide;
+      const cta = getCTA(rest, countryCode, linkLabel);
+      const brandLogoIcons = brandLogo ? (
+        <BrandLogo
+          brandName={brandLogo}
+          brandWhiteBox={variant === "vertical"}
+          data-testid={`carousel-section-slide-brand-logo-${index}`}
+        />
+      ) : undefined;
+      return {
+        title,
+        brandIcon: brandLogoIcons,
+        media: featuredVideo ? (
+          <Video
+            {...featuredVideo}
+            className={styles["video-preview-image"]}
+            data-testid={`carousel-section-slide-video-${index}`}
+          />
+        ) : featuredMedia ? (
+          <Image
+            {...featuredMedia}
+            data-testid={`carousel-section-slide-image-${index}`}
+          />
+        ) : undefined,
+        description: subtitle || undefined,
+        cta
+      };
+    });
 };
 
 const CarouselSection = ({
@@ -133,7 +146,12 @@ const CarouselSection = ({
             }
           )}
           className={styles["link"]}
-          endIcon={<ArrowForwardIcon />}
+          endIcon={
+            <ArrowForwardIcon
+              data-testid={"carousel-section-arrow-forward-icon"}
+            />
+          }
+          data-testid={"carousel-section-link"}
         >
           {transformHyphens(link.label)}
         </Button>

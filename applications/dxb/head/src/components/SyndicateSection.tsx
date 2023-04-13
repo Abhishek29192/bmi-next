@@ -84,9 +84,9 @@ const SyndicateSection = ({
           ),
           media: data.featuredVideo ? (
             <Video {...data.featuredVideo} />
-          ) : (
+          ) : data.featuredMedia ? (
             <Image {...data.featuredMedia} size="cover" />
-          ),
+          ) : undefined,
           cta: getCallToAction(data, countryCode, getMicroCopy, isSpaEnabled)
         };
       }),

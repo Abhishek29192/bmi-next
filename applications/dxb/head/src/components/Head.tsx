@@ -153,8 +153,6 @@ export const Head = ({
         <script
           src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"
           type="text/javascript"
-          // eslint-disable-next-line react/no-unknown-property
-          charSet="UTF-8"
           data-domain-script={oneTrustId}
         />
       )}

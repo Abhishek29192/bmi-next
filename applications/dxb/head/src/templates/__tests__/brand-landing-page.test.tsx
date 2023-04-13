@@ -62,18 +62,7 @@ describe("Brand Landing Page Template", () => {
       path: "path",
       date: null,
       tags: null,
-      featuredMedia: null,
-      featuredVideo: {
-        __typename: "ContentfulVideo",
-        title: "featuredVideo",
-        label: "label",
-        subtitle: null,
-        videoUrl: "https://www.youtube.com/watch?v=youtubeId",
-        previewMedia: null,
-        videoRatio: null,
-        defaultYouTubePreviewImage:
-          "https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
-      },
+      featuredMedia: createImageData(),
       heroType: null,
       cta: null,
       signupBlock: null,
@@ -175,27 +164,6 @@ describe("Brand Landing Page Template", () => {
 
     expect(container).toMatchSnapshot();
     expect(screen.getByText("sectionTitle")).toBeTruthy();
-  });
-
-  it("render firstslide featuredMedia instead when no featuredVideo", () => {
-    const newData = { ...data };
-    newData.contentfulBrandLandingPage.featuredVideo = null;
-    newData.contentfulBrandLandingPage.featuredMedia = createImageData();
-    const { container } = renderWithRouter(
-      <ThemeProvider>
-        <BrandLandingPage
-          data={newData}
-          pageContext={{ variantCodeToPathMap: {} }}
-        />
-      </ThemeProvider>
-    );
-
-    expect(container).toMatchSnapshot();
-    expect(
-      screen.getByAltText(
-        newData.contentfulBrandLandingPage.featuredMedia.altText
-      )
-    ).toBeTruthy();
   });
 
   it("render slide featuredMedia instead when no featuredVideo", () => {

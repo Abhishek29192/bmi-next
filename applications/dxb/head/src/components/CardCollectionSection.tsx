@@ -100,9 +100,9 @@ const CardCollectionItem = ({
         type !== "Text Card" ? (
           featuredVideo ? (
             <Video {...featuredVideo} />
-          ) : (
+          ) : featuredMedia ? (
             <Image {...featuredMedia} />
-          )
+          ) : undefined
         ) : undefined
       }
       isFlat={isFlat}

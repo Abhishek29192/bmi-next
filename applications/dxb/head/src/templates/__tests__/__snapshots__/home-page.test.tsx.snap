@@ -2958,7 +2958,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                         type="image/webp"
                       />
                       <img
-                        alt="BMI Decra rense takrennen BMI Norge"
+                        alt="Image alt text"
                         data-gatsby-image-ssr=""
                         data-main-image=""
                         data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
@@ -3047,7 +3047,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                         type="image/webp"
                       />
                       <img
-                        alt="BMI Decra rense takrennen BMI Norge"
+                        alt="Image alt text"
                         data-gatsby-image-ssr=""
                         data-main-image=""
                         data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"

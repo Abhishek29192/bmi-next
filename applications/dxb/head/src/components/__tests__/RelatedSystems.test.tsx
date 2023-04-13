@@ -9,15 +9,13 @@ import { RelatedSystem, System } from "../../types/pim";
 import createRelatedSystem from "../../__tests__/helpers/RelatedSystemHelper";
 import createSystem from "../../__tests__/helpers/SystemHelper";
 import RelatedSystems, { SystemCard } from "../RelatedSystems";
-import createImage from "../../__tests__/helpers/ImageHelper";
+import createPimImage from "../../__tests__/helpers/PimImageHelper";
 
 describe("RelatedSystems component", () => {
   it("renders correctly with no systems", () => {
-    const systems: System[] = [];
-
     const { container } = render(
       <ThemeProvider>
-        <RelatedSystems countryCode="en" systems={systems} />
+        <RelatedSystems countryCode="en" systems={[]} />
       </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
@@ -150,7 +148,9 @@ describe("SystemCard", () => {
   it("should render with masterImage", () => {
     const system: RelatedSystem = createRelatedSystem({
       name: "Fake system",
-      masterImage: createImage({ mainSource: "https://fake_master_image.jpg" })
+      masterImage: createPimImage({
+        mainSource: "https://fake_master_image.jpg"
+      })
     });
 
     render(
@@ -173,7 +173,7 @@ describe("SystemCard", () => {
       name: "Fake system",
       masterImage: undefined,
       galleryImages: [
-        createImage({ mainSource: "https://fake_gallery_image.jpg" })
+        createPimImage({ mainSource: "https://fake_gallery_image.jpg" })
       ]
     });
 

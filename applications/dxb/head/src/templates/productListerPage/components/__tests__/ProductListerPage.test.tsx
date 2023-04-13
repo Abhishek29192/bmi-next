@@ -164,7 +164,7 @@ jest.mock("../../../../utils/elasticSearch", () => {
 });
 
 const renderWithStylesAndLocationProvider = (
-  pageData: any,
+  pageData: Props["data"],
   pageContext: PageContextType,
   mockEnvVariables?: Partial<Config>
 ): RenderResult => {

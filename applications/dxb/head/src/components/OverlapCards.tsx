@@ -54,12 +54,12 @@ const IntegratedOverlapCards = ({ data }: { data?: Data }) => {
                         {...featuredVideo}
                         data-testid={"overlap-cards-video"}
                       />
-                    ) : (
+                    ) : featuredMedia ? (
                       <Image
                         {...featuredMedia}
                         data-testid={"overlap-cards-image"}
                       />
-                    )
+                    ) : undefined
                   }
                   clickableArea={featuredVideo ? "heading" : "full"}
                   action={cta?.action}

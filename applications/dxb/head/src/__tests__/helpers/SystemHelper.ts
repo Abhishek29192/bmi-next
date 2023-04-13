@@ -3,7 +3,7 @@ import createAsset from "./AssetHelper";
 import createBrand from "./BrandHelper";
 import createCategory from "./CategoryHelper";
 import createClassification from "./ClassificationHelper";
-import createImage from "./ImageHelper";
+import createPimImage from "./PimImageHelper";
 import createPimSystemDocument from "./PimSystemDocumentHelper";
 import createRelatedSystem from "./RelatedSystemHelper";
 
@@ -76,7 +76,7 @@ export const createSystem = (system?: Partial<System>): System => ({
   ],
   hashedCode: "1234567890",
   keyFeatures: null,
-  galleryImages: [createImage()],
+  galleryImages: [createPimImage()],
   layerCodes: [],
   name: "system-Name",
   promotionalContent: "",
