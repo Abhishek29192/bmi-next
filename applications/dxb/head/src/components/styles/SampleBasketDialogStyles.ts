@@ -1,4 +1,5 @@
 import { Button, Typography } from "@bmi-digital/components";
+import { iconButtonClasses } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 export const StyledBasketDialogContainer = styled("div")(({ theme }) => ({
@@ -15,7 +16,7 @@ export const StyledBasketDialogContainer = styled("div")(({ theme }) => ({
     flexDirection: "column",
     justifyContent: "space-between"
   },
-  [theme.breakpoints!.up!("md")]: {
+  [theme.breakpoints!.up!("lg")]: {
     position: "inherit",
     height: "auto",
     top: "auto",
@@ -34,15 +35,15 @@ export const TopContainer = styled("div")(({ theme }) => ({
 }));
 
 export const CloseButton = styled(Button)(({ theme }) => ({
-  backgroundColor: theme.colours.white,
-  color: theme.colours.slate,
+  backgroundColor: `${theme.colours.white} !important`,
+  color: `${theme.colours.slate} !important`,
   position: "absolute",
   right: 0,
   top: 0,
   zIndex: 2,
-  "&:hover": {
-    backgroundColor: theme.colours.pearl,
-    color: theme.colours.charcoal
+  [`&.${iconButtonClasses.root}:hover`]: {
+    backgroundColor: `${theme.colours.pearl} !important`,
+    color: `${theme.colours.charcoal} !important`
   }
 }));
 
