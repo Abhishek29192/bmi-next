@@ -298,7 +298,6 @@ const SearchPage = ({ pageContext, data }: Props) => {
       title={pageTitle}
       pageData={{ breadcrumbs: null, signupBlock: null, seo: null, path: null }}
       siteData={contentfulSite}
-      disableSearch={false}
       variantCodeToPathMap={pageContext?.variantCodeToPathMap}
     >
       {tabIsLoading ? (
