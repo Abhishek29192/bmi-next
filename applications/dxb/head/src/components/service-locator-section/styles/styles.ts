@@ -15,7 +15,7 @@ export const ResultListTabPanel = styled(Tabs.TabPanel)(({ theme }) => ({
 export const MapTabPanel = styled(Tabs.TabPanel)(({ theme }) => ({
   width: "100%",
   [theme.breakpoints!.up!("lg")]: {
-    width: "66.6666666667%",
+    maxWidth: "66.6666666667%",
     [`&.${tabsClasses.tabPanelBox}`]: {
       paddingRight: 0,
       paddingLeft: 0

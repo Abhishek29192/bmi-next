@@ -515,7 +515,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -1097,7 +1097,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -1862,7 +1862,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -2444,7 +2444,7 @@ exports[`ServiceLocatorSection component close button 1`] = `
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -2891,7 +2891,7 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -3255,7 +3255,7 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -3709,7 +3709,7 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -4203,7 +4203,7 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -4469,7 +4469,7 @@ exports[`ServiceLocatorSection component renders correctly with NO service 1`] =
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -4932,7 +4932,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -5395,7 +5395,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -5939,7 +5939,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -6483,7 +6483,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -7027,7 +7027,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -7798,7 +7798,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -8378,7 +8378,7 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -9085,7 +9085,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -9709,7 +9709,7 @@ exports[`ServiceLocatorSection component renders multiple services with single s
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -10128,7 +10128,7 @@ exports[`ServiceLocatorSection component renders single service with No service 
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -10547,7 +10547,7 @@ exports[`ServiceLocatorSection component renders single service with empty servi
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -11039,7 +11039,7 @@ exports[`ServiceLocatorSection component renders single service with multiple se
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -11480,7 +11480,7 @@ exports[`ServiceLocatorSection component renders single service with single serv
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -11926,7 +11926,7 @@ exports[`ServiceLocatorSection component searches for a service: Filtered main l
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -12536,7 +12536,7 @@ exports[`ServiceLocatorSection component searches for a service: Filtered option
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -12988,7 +12988,7 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -13409,7 +13409,7 @@ exports[`ServiceLocatorSection component selects service 1`] = `
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -14030,7 +14030,7 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -14308,7 +14308,7 @@ exports[`ServiceLocatorSection component when showDefaultResultList is false sho
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -15062,7 +15062,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -15368,7 +15368,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -15811,7 +15811,7 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
