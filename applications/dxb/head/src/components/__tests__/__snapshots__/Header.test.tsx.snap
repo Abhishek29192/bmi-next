@@ -2077,7 +2077,7 @@ exports[`Header component shows sample basket icon 1`] = `
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <div
-        class="css-1baqf78"
+        class="css-1syuv4f"
         data-testid="shopping-cart-dialog"
       >
         <div
@@ -2086,7 +2086,7 @@ exports[`Header component shows sample basket icon 1`] = `
         >
           <button
             aria-label="MC: dialog.close"
-            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge css-ljulll-MuiButtonBase-root-MuiIconButton-root"
+            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge css-m5soyh-MuiButtonBase-root-MuiIconButton-root"
             data-testid="shopping-cart-dialog-close-button"
             tabindex="0"
             type="button"
@@ -2922,15 +2922,15 @@ exports[`Header component toggles search 1`] = `
               data-testid="search-input-text"
             >
               <label
-                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-filled MuiFormLabel-colorPrimary Mui-focused MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-filled css-msp17o-MuiFormLabel-root-MuiInputLabel-root"
-                data-shrink="true"
+                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled css-1wb2lss-MuiFormLabel-root-MuiInputLabel-root"
+                data-shrink="false"
                 for="search-input-text"
                 id="search-input-text-label"
               >
                 MC: search.placeholder.header
               </label>
               <div
-                class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary Mui-focused MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
+                class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
               >
                 <input
                   aria-invalid="false"
