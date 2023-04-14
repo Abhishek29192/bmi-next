@@ -4,8 +4,11 @@ import {
   PLPFilterResponse,
   QUERY_KEY,
   Section,
-  Tabs
+  Tabs,
+  useIsClient
 } from "@bmi-digital/components";
+import { useMediaQuery } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import { graphql } from "gatsby";
 import React, { FormEvent, useEffect, useMemo, useState } from "react";
 import Breadcrumbs from "../components/Breadcrumbs";
@@ -59,10 +62,15 @@ const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 
 const SearchPage = ({ pageContext, data }: Props) => {
   const { contentfulSite, allContentfulAssetType, searchFilters } = data;
-  const params = new URLSearchParams(
-    typeof window !== `undefined` ? window.location.search : ""
-  );
   const { isPreviewMode } = useConfig();
+  const { isClient } = useIsClient();
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
+  const params = useMemo(() => {
+    return new URLSearchParams(
+      isClient && window ? window.location.search : ""
+    );
+  }, [isClient]);
 
   const { countryCode, resources } = contentfulSite;
   const getMicroCopy = generateGetMicroCopy(resources.microCopy);
@@ -298,6 +306,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
       title={pageTitle}
       pageData={{ breadcrumbs: null, signupBlock: null, seo: null, path: null }}
       siteData={contentfulSite}
+      disableSearch={isClient && isDesktop}
       variantCodeToPathMap={pageContext?.variantCodeToPathMap}
     >
       {tabIsLoading ? (
