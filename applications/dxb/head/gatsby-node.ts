@@ -302,7 +302,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
 const getRedirectConfig = (
   redirect: Redirect
 ): { fromPath: string; toPath: string; isPermanent: boolean } => {
-  const isPermanent = redirect.status === "301";
+  const isPermanent = redirect.status === 301;
   let toPath = redirect.to.endsWith("/") ? redirect.to : `${redirect.to}/`;
 
   //If we use wildcard redirects on production users will be redirected to gatsby domain

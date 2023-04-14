@@ -1,0 +1,3 @@
+from,status,to
+/no/old-page,301,/no/new-page
+/no/another-old-page,301,/no/new-page
