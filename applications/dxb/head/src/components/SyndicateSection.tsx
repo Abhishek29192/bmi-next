@@ -6,17 +6,21 @@ import {
   Villain,
   VillainProps
 } from "@bmi-digital/components";
+import { useMediaQuery } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import { graphql } from "gatsby";
 import React from "react";
 import { microCopy, MicroCopyValues } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
 import Image from "./Image";
 import Link, { getCTA } from "./Link";
+
 import RichText from "./RichText";
 import { useSiteContext } from "./Site";
 import Video from "./Video";
-import type { Data as PromoData } from "./Promo";
+
 import type { Data as PageInfoData } from "./PageInfo";
+import type { Data as PromoData } from "./Promo";
 
 export type Data = {
   __typename: "ContentfulSyndicateSection";
@@ -70,6 +74,9 @@ const SyndicateSection = ({
   data: Data;
   position: number;
 }) => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
   const { countryCode, getMicroCopy } = useSiteContext();
   const { isSpaEnabled } = useConfig();
   const villainsData = React.useMemo(
@@ -85,12 +92,12 @@ const SyndicateSection = ({
           media: data.featuredVideo ? (
             <Video {...data.featuredVideo} />
           ) : data.featuredMedia ? (
-            <Image {...data.featuredMedia} size="cover" />
+            <Image {...data.featuredMedia} size="cover" isMobile={isMobile} />
           ) : undefined,
           cta: getCallToAction(data, countryCode, getMicroCopy, isSpaEnabled)
         };
       }),
-    [villains]
+    [isMobile, villains]
   );
 
   if (villainsData?.length === 1) {
