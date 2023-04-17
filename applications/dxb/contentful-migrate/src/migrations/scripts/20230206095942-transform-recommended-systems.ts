@@ -10,9 +10,9 @@ export const up: MigrationFunction = (migration: Migration) => {
     to: ["recommendedSystems"],
     shouldPublish: "preserve",
     transformEntryForLocale: (fromFields, currentLocale) => {
-      const transformedSystems = fromFields.recommendedSystems?.[
-        currentLocale
-      ].map((value: string) => value.trim());
+      const transformedSystems = (
+        fromFields.recommendedSystems?.[currentLocale] || []
+      ).map((value: string) => value.trim());
 
       return { recommendedSystems: transformedSystems };
     }
