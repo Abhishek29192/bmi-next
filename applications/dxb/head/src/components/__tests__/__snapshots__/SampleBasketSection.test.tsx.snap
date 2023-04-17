@@ -13,7 +13,7 @@ exports[`SampleBasketSection component renders correctly 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="RichText-root css-vf09gu"
+          class="RichText-root css-1u73y0t"
         >
           <p
             class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -159,7 +159,7 @@ exports[`SampleBasketSection component should render form after complete button 
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="RichText-root css-vf09gu"
+          class="RichText-root css-1u73y0t"
         >
           <p
             class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"

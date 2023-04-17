@@ -19,7 +19,8 @@ export const StyledRichText = styled("div")(({ theme }) => ({
 
     "& .embeddedLink": {
       display: "block",
-      width: "max-content"
+      width: "max-content",
+      maxWidth: "100%"
     },
 
     "& p": {

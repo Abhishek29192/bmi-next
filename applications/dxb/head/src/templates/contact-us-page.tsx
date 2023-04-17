@@ -97,9 +97,9 @@ const ContactUsPage = ({ data, pageContext }: Props) => {
         media={
           featuredVideo ? (
             <Video {...featuredVideo} />
-          ) : (
+          ) : featuredMedia ? (
             <Image {...featuredMedia} size="cover" />
-          )
+          ) : undefined
         }
         breadcrumbs={
           <BackToResults isDarkThemed data-testid="breadcrumbs-section-top">

@@ -126,7 +126,9 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
           description?.description.length > 400 ? "..." : ""
         }`
       : null,
-    media: <Image {...featuredMedia} size="cover" />,
+    media: featuredMedia ? (
+      <Image {...featuredMedia} size="cover" />
+    ) : undefined,
     hasUnderline: false,
     cta: cta ? (
       <Link component={Button} data={cta} data-testid="first-slide-cta">

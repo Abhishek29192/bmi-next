@@ -7,7 +7,7 @@ exports[`Sections component renders alternate backgrounds for promos 1`] = `
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="PromoSection PromoSection-reversed Section-root Section-white css-oz2ls0"
+      class="PromoSection PromoSection-reversed Section-root Section-white css-1obptq1"
       data-testid="promo-section"
     >
       <div
@@ -21,7 +21,7 @@ exports[`Sections component renders alternate backgrounds for promos 1`] = `
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-sm-12 MuiGrid2-grid-md-6 Grid-item css-i0botz-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 Grid-item css-y6fwcd-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -42,14 +42,9 @@ exports[`Sections component renders alternate backgrounds for promos 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-sm-12 MuiGrid2-grid-md-6 Grid-item css-i0botz-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 Grid-item css-y6fwcd-MuiGrid2-root"
               data-testid="grid-item"
-            >
-              <img
-                class="PromoSection-image css-7mgsqw-Media"
-                style="object-fit: cover; object-position: top left;"
-              />
-            </div>
+            />
           </div>
         </div>
       </div>
@@ -60,7 +55,7 @@ exports[`Sections component renders alternate backgrounds for promos 1`] = `
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="PromoSection Section-root Section-alabaster css-oz2ls0"
+      class="PromoSection Section-root Section-alabaster css-1obptq1"
       data-testid="promo-section"
     >
       <div
@@ -74,7 +69,7 @@ exports[`Sections component renders alternate backgrounds for promos 1`] = `
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-sm-12 MuiGrid2-grid-md-6 Grid-item css-i0botz-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 Grid-item css-y6fwcd-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -95,14 +90,9 @@ exports[`Sections component renders alternate backgrounds for promos 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-sm-12 MuiGrid2-grid-md-6 Grid-item css-i0botz-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 Grid-item css-y6fwcd-MuiGrid2-root"
               data-testid="grid-item"
-            >
-              <img
-                class="PromoSection-image css-7mgsqw-Media"
-                style="object-fit: cover; object-position: top left;"
-              />
-            </div>
+            />
           </div>
         </div>
       </div>
@@ -113,7 +103,7 @@ exports[`Sections component renders alternate backgrounds for promos 1`] = `
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="PromoSection PromoSection-reversed Section-root Section-white css-oz2ls0"
+      class="PromoSection PromoSection-reversed Section-root Section-white css-1obptq1"
       data-testid="promo-section"
     >
       <div
@@ -127,7 +117,7 @@ exports[`Sections component renders alternate backgrounds for promos 1`] = `
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-sm-12 MuiGrid2-grid-md-6 Grid-item css-i0botz-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 Grid-item css-y6fwcd-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -146,7 +136,7 @@ exports[`Sections component renders alternate backgrounds for promos 1`] = `
                   Promo 3
                 </h3>
                 <div
-                  class="RichText-root RichText-no-bottom-margin css-vf09gu"
+                  class="RichText-root RichText-no-bottom-margin css-1u73y0t"
                 >
                   <h2
                     class="MuiTypography-root MuiTypography-h2 RichText-title css-1gn4sxn-MuiTypography-root"
@@ -158,14 +148,9 @@ exports[`Sections component renders alternate backgrounds for promos 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-sm-12 MuiGrid2-grid-md-6 Grid-item css-i0botz-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 Grid-item css-y6fwcd-MuiGrid2-root"
               data-testid="grid-item"
-            >
-              <img
-                class="PromoSection-image css-7mgsqw-Media"
-                style="object-fit: cover; object-position: top left;"
-              />
-            </div>
+            />
           </div>
         </div>
       </div>
@@ -262,7 +247,7 @@ exports[`Sections component renders correctly 1`] = `
                           class="MuiAccordionDetails-root  css-1r7u8wy-MuiAccordionDetails-root"
                         >
                           <div
-                            class="RichText-root RichText-no-bottom-margin css-vf09gu"
+                            class="RichText-root RichText-no-bottom-margin css-1u73y0t"
                           >
                             <p
                               class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -412,7 +397,7 @@ exports[`Sections component renders correctly 1`] = `
                 role="tabpanel"
               >
                 <div
-                  class="RichText-root css-vf09gu"
+                  class="RichText-root css-1u73y0t"
                 >
                   <p
                     class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -476,16 +461,7 @@ exports[`Sections component renders correctly 1`] = `
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-8 Grid-item css-101zuuw-MuiGrid2-root"
                 data-testid="grid-item"
-              >
-                <div
-                  class="Villain-image"
-                >
-                  <img
-                    class="Villain-media css-7mgsqw-Media"
-                    style="object-fit: cover; object-position: center;"
-                  />
-                </div>
-              </div>
+              />
             </div>
           </div>
           <div
@@ -516,16 +492,7 @@ exports[`Sections component renders correctly 1`] = `
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-8 Grid-item css-101zuuw-MuiGrid2-root"
                 data-testid="grid-item"
-              >
-                <div
-                  class="Villain-image"
-                >
-                  <img
-                    class="Villain-media css-7mgsqw-Media"
-                    style="object-fit: cover; object-position: center;"
-                  />
-                </div>
-              </div>
+              />
             </div>
           </div>
         </div>
@@ -567,15 +534,11 @@ exports[`Sections component renders correctly 1`] = `
                 <div
                   class="OverviewCard-flat MuiBox-root css-13ealx6"
                 >
-                  <img
-                    class="OverviewCard-headerPicture css-7mgsqw-Media"
-                    style="object-fit: cover; object-position: center;"
-                  />
                   <div
                     class="OverviewCard-body"
                   >
                     <div
-                      class="OverviewCard-brandLogo OverviewCard-negative"
+                      class="OverviewCard-brandLogo"
                     >
                       <svg
                         class="BrandLogo css-gn1fhj"
@@ -821,7 +784,7 @@ exports[`Sections component renders correctly 1`] = `
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="PromoSection Section-root Section-alabaster css-oz2ls0"
+      class="PromoSection Section-root Section-alabaster css-1obptq1"
       data-testid="promo-section"
     >
       <div
@@ -835,7 +798,7 @@ exports[`Sections component renders correctly 1`] = `
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-sm-12 MuiGrid2-grid-md-6 Grid-item css-i0botz-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 Grid-item css-y6fwcd-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -871,7 +834,7 @@ exports[`Sections component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-sm-12 MuiGrid2-grid-md-6 Grid-item css-i0botz-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 Grid-item css-y6fwcd-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -932,7 +895,7 @@ exports[`Sections component renders correctly 1`] = `
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="PromoSection Section-root Section-alabaster css-oz2ls0"
+      class="PromoSection Section-root Section-alabaster css-1obptq1"
       data-testid="promo-section"
     >
       <div
@@ -946,7 +909,7 @@ exports[`Sections component renders correctly 1`] = `
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-sm-12 MuiGrid2-grid-md-6 Grid-item css-i0botz-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 Grid-item css-y6fwcd-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -967,7 +930,7 @@ exports[`Sections component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-sm-12 MuiGrid2-grid-md-6 Grid-item css-i0botz-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 Grid-item css-y6fwcd-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -1162,7 +1125,7 @@ exports[`Sections component renders correctly 1`] = `
             style="margin-bottom: 40px;"
           >
             <div
-              class="RichText-root css-vf09gu"
+              class="RichText-root css-1u73y0t"
             >
               <p
                 class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -1411,7 +1374,7 @@ exports[`Sections component renders correctly 1`] = `
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
               data-testid="tabpanel-map"
               heading="findARoofer.mapLabel"
               hidden=""
@@ -2158,7 +2121,7 @@ exports[`Sections component renders correctly 1`] = `
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-10tuw95"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
               data-testid="tabpanel-map"
               heading="findARoofer.mapLabel"
               hidden=""
@@ -2223,7 +2186,7 @@ exports[`Sections component renders correctly 1`] = `
             Section title
           </h2>
           <div
-            class="RichText-root RichText-no-bottom-margin css-vf09gu"
+            class="RichText-root RichText-no-bottom-margin css-1u73y0t"
           >
             <p
               class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -2439,7 +2402,7 @@ exports[`Sections component renders correctly 1`] = `
                         style="margin-bottom: 60px;"
                       >
                         <div
-                          class="RichText-root css-vf09gu"
+                          class="RichText-root css-1u73y0t"
                         >
                           <p
                             class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -2680,7 +2643,7 @@ exports[`Sections component renders correctly 1`] = `
                         style="margin-bottom: 60px;"
                       >
                         <div
-                          class="RichText-root css-vf09gu"
+                          class="RichText-root css-1u73y0t"
                         >
                           <p
                             class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -3692,7 +3655,7 @@ exports[`Sections component renders correctly when incomplete 1`] = `
                           class="MuiAccordionDetails-root  css-1r7u8wy-MuiAccordionDetails-root"
                         >
                           <div
-                            class="RichText-root RichText-no-bottom-margin css-vf09gu"
+                            class="RichText-root RichText-no-bottom-margin css-1u73y0t"
                           >
                             <p
                               class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -3842,7 +3805,7 @@ exports[`Sections component renders correctly when incomplete 1`] = `
                 role="tabpanel"
               >
                 <div
-                  class="RichText-root css-vf09gu"
+                  class="RichText-root css-1u73y0t"
                 >
                   <p
                     class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -3973,7 +3936,7 @@ exports[`Sections component renders correctly with 1 villain 1`] = `
                           class="MuiAccordionDetails-root  css-1r7u8wy-MuiAccordionDetails-root"
                         >
                           <div
-                            class="RichText-root RichText-no-bottom-margin css-vf09gu"
+                            class="RichText-root RichText-no-bottom-margin css-1u73y0t"
                           >
                             <p
                               class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -4123,7 +4086,7 @@ exports[`Sections component renders correctly with 1 villain 1`] = `
                 role="tabpanel"
               >
                 <div
-                  class="RichText-root css-vf09gu"
+                  class="RichText-root css-1u73y0t"
                 >
                   <p
                     class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -4167,10 +4130,6 @@ exports[`Sections component renders correctly with 1 villain 1`] = `
           </div>
         </div>
       </div>
-      <img
-        class="Villain-image css-7mgsqw-Media"
-        style="object-fit: cover; object-position: center;"
-      />
     </div>
   </div>
 </div>

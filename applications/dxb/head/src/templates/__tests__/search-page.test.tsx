@@ -1,5 +1,13 @@
+import * as all from "@bmi-digital/components";
 import { ThemeProvider } from "@bmi-digital/components";
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { useMediaQuery } from "@mui/material";
+import {
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+  within
+} from "@testing-library/react";
 import React from "react";
 import * as SearchTabDocuments from "../../components/SearchTabDocuments";
 import * as SearchTabPages from "../../components/SearchTabPages";
@@ -12,6 +20,20 @@ import {
 } from "../../test/renderWithRouter";
 import * as elasticSearch from "../../utils/elasticSearch";
 import SearchPage, { Props as SearchPageData } from "../search-page";
+
+const useClientSpy = jest.spyOn(all, "useIsClient");
+useClientSpy.mockImplementation(() => ({ isClient: true, key: "" }));
+
+jest.mock("@mui/material", () => ({
+  ...jest.requireActual("@mui/material"),
+  useMediaQuery: jest.fn()
+}));
+
+const mockUseMediaQuery = useMediaQuery as jest.Mock<
+  ReturnType<typeof useMediaQuery>
+>;
+// by default render search page in desktop view
+mockUseMediaQuery.mockReturnValue(true);
 
 beforeEach(() => {
   jest.resetModules();
@@ -272,7 +294,7 @@ describe("Search Page Template", () => {
     expect(filterCheckbox).toHaveAttribute("checked", "");
   });
 
-  it("render search Result correctly", async () => {
+  it("render search Result correctly and hides search button from header on desktop view", async () => {
     locationSpy.mockReturnValue({
       ...window.location,
       search: "q=queryString"
@@ -318,6 +340,71 @@ describe("Search Page Template", () => {
       screen.getByText("MC: search.tabHeadings.documents (2)")
     ).toBeTruthy();
     expect(screen.getByText("MC: search.tabHeadings.pages (1)")).toBeTruthy();
+
+    const topNavigationBarButtons = screen.getByTestId("navigationBar-buttons");
+    // top navigation bar with buttons is present in the document
+    expect(topNavigationBarButtons).toBeInTheDocument();
+    // header search icon is not present on the top navigation bar
+    expect(
+      within(topNavigationBarButtons).queryByTestId("search-button")
+    ).not.toBeInTheDocument();
+  });
+
+  it("render search Result correctly and shows search button on Small Screens", async () => {
+    mockUseMediaQuery.mockReturnValue(false);
+    locationSpy.mockReturnValue({
+      ...window.location,
+      search: "q=queryString"
+    });
+    const spyOnGetProductsCount = jest
+      .spyOn(SearchTabProducts, "getCount")
+      .mockResolvedValueOnce(3);
+    const spyOnGetDocumentsCount = jest
+      .spyOn(SearchTabDocuments, "getCount")
+      .mockResolvedValueOnce(2);
+    const spyOnGetPagesCount = jest
+      .spyOn(SearchTabPages, "getCount")
+      .mockResolvedValueOnce("1");
+
+    renderWithRouter(
+      <ThemeProvider>
+        <SearchPage
+          data={data}
+          pageContext={{
+            variantCodeToPathMap: null,
+            siteId: "siteId",
+            countryCode: "en",
+            categoryCode: "categoryCode"
+          }}
+        />
+      </ThemeProvider>
+    );
+
+    expect(spyOnGetProductsCount).toHaveBeenCalledTimes(1);
+    expect(spyOnGetDocumentsCount).toHaveBeenCalledTimes(1);
+    expect(spyOnGetPagesCount).toHaveBeenCalledTimes(1);
+
+    expect(
+      await screen.findByRole("heading", {
+        name: "MC: searchPage.title.withQuery"
+      })
+    ).toBeInTheDocument();
+
+    expect(
+      screen.getByText("MC: search.tabHeadings.products (3)")
+    ).toBeTruthy();
+    expect(
+      screen.getByText("MC: search.tabHeadings.documents (2)")
+    ).toBeTruthy();
+    expect(screen.getByText("MC: search.tabHeadings.pages (1)")).toBeTruthy();
+
+    const topNavigationBarButtons = screen.getByTestId("navigationBar-buttons");
+    // top navigation bar with search icon button is present in the document
+    expect(topNavigationBarButtons).toBeInTheDocument();
+    // header search icon is also present on the top navigation bar
+    expect(
+      within(topNavigationBarButtons).getByTestId("search-button")
+    ).toBeInTheDocument();
   });
 
   it("should not render tab when result count is null", async () => {

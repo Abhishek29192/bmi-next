@@ -117,6 +117,7 @@ export const pimFragments = graphql`
     assetType {
       ...AssetTypeFragment
     }
+    extension
     fileSize
     format
     realFileName
