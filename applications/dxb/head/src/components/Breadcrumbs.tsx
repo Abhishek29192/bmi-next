@@ -36,9 +36,13 @@ const getBreadcrumbsItem = (
 
       return breadcrumbItem;
     });
-  const currentBreadcrumb = breadcrumbsItems.pop();
 
-  return [breadcrumbsItems, currentBreadcrumb];
+  const currentBreadcrumb = breadcrumbsItems[breadcrumbsItems.length - 1];
+  const existingBreadcrumbsItems = breadcrumbsItems.slice(
+    0,
+    breadcrumbsItems.length - 1
+  );
+  return [existingBreadcrumbsItems, currentBreadcrumb];
 };
 
 const IntegratedBreadcrumbs = ({
@@ -63,7 +67,7 @@ const IntegratedBreadcrumbs = ({
           { path: "" },
           null,
           countryCode,
-          null,
+          undefined,
           homePage.title
         )}
         data-testid={`breadcrumb-${replaceSpaces(homePage.title)}`}
@@ -77,7 +81,7 @@ const IntegratedBreadcrumbs = ({
             { path: slug },
             null,
             countryCode,
-            null,
+            undefined,
             label
           )}
           data-testid={`breadcrumb-${replaceSpaces(label)}`}
