@@ -16,13 +16,13 @@ describe("compileESQuery tests", () => {
         collapse: {
           field: "titleAndSize.keyword"
         },
-        from: 24,
+        from: 25,
         query: {
           bool: {
             must: []
           }
         },
-        size: 24,
+        size: 25,
         sort: [
           {
             "title.keyword": "asc"
@@ -48,13 +48,13 @@ describe("compileESQuery tests", () => {
         collapse: {
           field: "titleAndSize.keyword"
         },
-        from: 24,
+        from: 25,
         query: {
           bool: {
             must: []
           }
         },
-        size: 24,
+        size: 25,
         sort: [
           {
             "title.keyword": "asc"
@@ -94,7 +94,7 @@ describe("compileESQuery tests", () => {
         collapse: {
           field: "titleAndSize.keyword"
         },
-        from: 24,
+        from: 25,
         query: {
           bool: {
             must: [
@@ -106,7 +106,7 @@ describe("compileESQuery tests", () => {
             ]
           }
         },
-        size: 24,
+        size: 25,
         sort: [
           {
             "title.keyword": "asc"

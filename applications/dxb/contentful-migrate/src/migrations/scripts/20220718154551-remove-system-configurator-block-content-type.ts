@@ -1,11 +1,11 @@
-import type { CollectionResponse } from "@bmi-digital/contentful-migration";
-import type { EntryProps, KeyValueMap } from "contentful-management";
-import type Migration from "contentful-migration";
-import type { MigrationContext, MigrationFunction } from "contentful-migration";
 import {
   down as systemConfiguratorBlockMigrationDown,
   up as systemConfiguratorBlockMigrationUp
 } from "./20210526133509-create-system-configurator-block";
+import type { CollectionResponse } from "@bmi-digital/contentful-migration";
+import type { EntryProps, KeyValueMap } from "contentful-management";
+import type Migration from "contentful-migration";
+import type { MigrationContext, MigrationFunction } from "contentful-migration";
 
 export const description = "Remove System Configurator Block content type";
 

@@ -9,14 +9,11 @@ import fetchMockJest from "fetch-mock-jest";
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
 
-const mockRequest = (): Partial<Request> => fetchMockRequest("POST");
+const mockRequest = (): Partial<Request> =>
+  fetchMockRequest({ method: "POST" });
 
 const build = async (request: Partial<Request>, response: Partial<Response>) =>
   (await import("../index")).build(request as Request, response as Response);
-
-beforeAll(() => {
-  // mockConsole();
-});
 
 beforeEach(() => {
   jest.clearAllMocks();

@@ -12,7 +12,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
         class="head"
       >
         <h6
-          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.tiles
@@ -103,7 +103,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
         class="head"
       >
         <h6
-          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.fixings
@@ -244,7 +244,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
         class="head"
       >
         <h6
-          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.ventilation
@@ -285,7 +285,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
         class="head"
       >
         <h6
-          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.sealing
@@ -326,7 +326,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
         class="head"
       >
         <h6
-          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.accessories
@@ -627,7 +627,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5 css-16m68f8-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5 css-1bb7vpk-MuiTypography-root"
               data-testid="alert-banner-title"
             >
               <svg
@@ -665,7 +665,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5 css-16m68f8-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5 css-1bb7vpk-MuiTypography-root"
               data-testid="alert-banner-title"
             >
               <svg
@@ -705,7 +705,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
         class="head"
       >
         <h6
-          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.tiles
@@ -796,7 +796,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
         class="head"
       >
         <h6
-          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.fixings
@@ -937,7 +937,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
         class="head"
       >
         <h6
-          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.ventilation
@@ -978,7 +978,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
         class="head"
       >
         <h6
-          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.sealing
@@ -1019,7 +1019,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
         class="head"
       >
         <h6
-          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.accessories
@@ -1320,7 +1320,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5 css-16m68f8-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5 css-1bb7vpk-MuiTypography-root"
               data-testid="alert-banner-title"
             >
               <svg
@@ -1358,7 +1358,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5 css-16m68f8-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5 css-1bb7vpk-MuiTypography-root"
               data-testid="alert-banner-title"
             >
               <svg
@@ -1386,13 +1386,13 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
       class="FieldContainer"
     >
       <h3
-        class="MuiTypography-root MuiTypography-h3  css-d7brak-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h3  css-2221f6-MuiTypography-root"
         data-testid="typography"
       >
         Measurements (showing because debugging mode is ON)
       </h3>
       <h4
-        class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
         data-testid="typography"
       >
         Lines
@@ -1432,7 +1432,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
         </li>
       </ul>
       <h4
-        class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
         data-testid="typography"
       >
         Faces
@@ -1474,7 +1474,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
         class="head"
       >
         <h6
-          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.tiles
@@ -1565,7 +1565,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
         class="head"
       >
         <h6
-          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.fixings
@@ -1706,7 +1706,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
         class="head"
       >
         <h6
-          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.ventilation
@@ -1747,7 +1747,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
         class="head"
       >
         <h6
-          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.sealing
@@ -1788,7 +1788,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
         class="head"
       >
         <h6
-          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.accessories
@@ -1989,7 +1989,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5 css-16m68f8-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5 css-1bb7vpk-MuiTypography-root"
               data-testid="alert-banner-title"
             >
               <svg
@@ -2027,7 +2027,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5 css-16m68f8-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5 css-1bb7vpk-MuiTypography-root"
               data-testid="alert-banner-title"
             >
               <svg
@@ -2067,7 +2067,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
         class="head"
       >
         <h6
-          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.tiles
@@ -2158,7 +2158,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
         class="head"
       >
         <h6
-          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.fixings
@@ -2299,7 +2299,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
         class="head"
       >
         <h6
-          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.ventilation
@@ -2340,7 +2340,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
         class="head"
       >
         <h6
-          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.sealing
@@ -2381,7 +2381,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
         class="head"
       >
         <h6
-          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.accessories
@@ -2582,7 +2582,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5 css-16m68f8-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5 css-1bb7vpk-MuiTypography-root"
               data-testid="alert-banner-title"
             >
               <svg
@@ -2620,7 +2620,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5 css-16m68f8-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5 css-1bb7vpk-MuiTypography-root"
               data-testid="alert-banner-title"
             >
               <svg
@@ -2660,7 +2660,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
         class="head"
       >
         <h6
-          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.tiles
@@ -2751,7 +2751,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
         class="head"
       >
         <h6
-          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.fixings
@@ -2892,7 +2892,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
         class="head"
       >
         <h6
-          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.ventilation
@@ -2933,7 +2933,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
         class="head"
       >
         <h6
-          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.sealing
@@ -2974,7 +2974,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
         class="head"
       >
         <h6
-          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.accessories
@@ -3175,7 +3175,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5 css-16m68f8-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5 css-1bb7vpk-MuiTypography-root"
               data-testid="alert-banner-title"
             >
               <svg
@@ -3213,7 +3213,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5 css-16m68f8-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5 css-1bb7vpk-MuiTypography-root"
               data-testid="alert-banner-title"
             >
               <svg

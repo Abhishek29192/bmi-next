@@ -1,5 +1,5 @@
 import { RelatedSystem } from "../../types/pim";
-import createImage from "./ImageHelper";
+import createPimImage from "./PimImageHelper";
 
 const createRelatedSystem = (
   relatedVariant?: Partial<RelatedSystem>
@@ -9,7 +9,7 @@ const createRelatedSystem = (
     brand: { code: "related-system-brand-1" },
     name: "related-ssytem-name",
     path: "related-system-path",
-    images: [createImage()],
+    galleryImages: [createPimImage()],
     scoringWeight: 0,
     shortDescription: "related-short-desc",
     ...relatedVariant

@@ -9,7 +9,6 @@ import {
 } from "@bmi/pim-types";
 import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
-import mockConsole from "jest-mock-console";
 import { ElasticsearchIndexes } from "../elasticsearch";
 import { FirestoreCollections } from "../firestoreCollections";
 
@@ -58,10 +57,6 @@ jest.mock("../contentful", () => {
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
 
-beforeAll(() => {
-  mockConsole();
-});
-
 beforeEach(() => {
   jest.resetAllMocks();
   jest.resetModules();
@@ -98,7 +93,7 @@ describe("handleRequest", () => {
     // eslint-disable-next-line security/detect-object-injection
     delete process.env[name];
 
-    const request = mockRequest("GET");
+    const request = mockRequest({ method: "GET" });
     const response = mockResponse();
 
     await handleRequest(request, response);
@@ -117,7 +112,7 @@ describe("handleRequest", () => {
 
   it("should error if deleting products Elasticsearch index throws error", async () => {
     deleteElasticSearchIndex.mockRejectedValue(Error("Expected error"));
-    const request = mockRequest("GET");
+    const request = mockRequest({ method: "GET" });
     const response = mockResponse();
 
     try {
@@ -143,7 +138,7 @@ describe("handleRequest", () => {
     deleteElasticSearchIndex
       .mockResolvedValueOnce({})
       .mockRejectedValueOnce(Error("Expected error"));
-    const request = mockRequest("GET");
+    const request = mockRequest({ method: "GET" });
     const response = mockResponse();
 
     try {
@@ -170,7 +165,7 @@ describe("handleRequest", () => {
       .mockResolvedValueOnce({})
       .mockResolvedValueOnce({})
       .mockRejectedValueOnce(Error("Expected error"));
-    const request = mockRequest("GET");
+    const request = mockRequest({ method: "GET" });
     const response = mockResponse();
 
     try {
@@ -194,7 +189,7 @@ describe("handleRequest", () => {
 
   it("should error if creating products Elasticsearch index throws error", async () => {
     createElasticSearchIndex.mockRejectedValue(Error("Expected error"));
-    const request = mockRequest("GET");
+    const request = mockRequest({ method: "GET" });
     const response = mockResponse();
 
     try {
@@ -222,7 +217,7 @@ describe("handleRequest", () => {
     createElasticSearchIndex
       .mockResolvedValueOnce({})
       .mockRejectedValueOnce(Error("Expected error"));
-    const request = mockRequest("GET");
+    const request = mockRequest({ method: "GET" });
     const response = mockResponse();
 
     try {
@@ -251,7 +246,7 @@ describe("handleRequest", () => {
       .mockResolvedValueOnce({})
       .mockResolvedValueOnce({})
       .mockRejectedValueOnce(Error("Expected error"));
-    const request = mockRequest("GET");
+    const request = mockRequest({ method: "GET" });
     const response = mockResponse();
 
     try {
@@ -277,7 +272,7 @@ describe("handleRequest", () => {
 
   it("should error if deleting products Firestore collection throws error", async () => {
     deleteFirestoreCollection.mockRejectedValueOnce(Error("Expected error"));
-    const request = mockRequest("GET");
+    const request = mockRequest({ method: "GET" });
     const response = mockResponse();
 
     try {
@@ -310,7 +305,7 @@ describe("handleRequest", () => {
     deleteFirestoreCollection
       .mockResolvedValueOnce({})
       .mockRejectedValueOnce(Error("Expected error"));
-    const request = mockRequest("GET");
+    const request = mockRequest({ method: "GET" });
     const response = mockResponse();
 
     try {
@@ -342,7 +337,7 @@ describe("handleRequest", () => {
   it("should error if fetching products throws error", async () => {
     fetchData.mockReset();
     fetchData.mockRejectedValueOnce(Error("Expected error"));
-    const request = mockRequest("GET");
+    const request = mockRequest({ method: "GET" });
     const response = mockResponse();
 
     try {
@@ -386,7 +381,7 @@ describe("handleRequest", () => {
       },
       error: Error("Expected error")
     });
-    const request = mockRequest("GET");
+    const request = mockRequest({ method: "GET" });
     const response = mockResponse();
 
     try {
@@ -463,7 +458,7 @@ describe("handleRequest", () => {
       },
       status: 429
     });
-    const request = mockRequest("GET");
+    const request = mockRequest({ method: "GET" });
     const response = mockResponse();
 
     try {
@@ -542,7 +537,7 @@ describe("handleRequest", () => {
       },
       status: 500
     });
-    const request = mockRequest("GET");
+    const request = mockRequest({ method: "GET" });
     const response = mockResponse();
 
     try {
@@ -620,7 +615,7 @@ describe("handleRequest", () => {
         numberOfPages: 10
       }
     });
-    const request = mockRequest("GET");
+    const request = mockRequest({ method: "GET" });
     const response = mockResponse();
 
     try {
@@ -709,7 +704,7 @@ describe("handleRequest", () => {
         error: Error("Expected error")
       }
     );
-    const request = mockRequest("GET");
+    const request = mockRequest({ method: "GET" });
     const response = mockResponse();
 
     try {
@@ -798,7 +793,7 @@ describe("handleRequest", () => {
         status: 429
       }
     );
-    const request = mockRequest("GET");
+    const request = mockRequest({ method: "GET" });
     const response = mockResponse();
 
     try {
@@ -889,7 +884,7 @@ describe("handleRequest", () => {
         status: 500
       }
     );
-    const request = mockRequest("GET");
+    const request = mockRequest({ method: "GET" });
     const response = mockResponse();
 
     try {
@@ -981,7 +976,7 @@ describe("handleRequest", () => {
         }
       }
     );
-    const request = mockRequest("GET");
+    const request = mockRequest({ method: "GET" });
     const response = mockResponse();
 
     try {
@@ -1083,7 +1078,7 @@ describe("handleRequest", () => {
         error: Error("Expected error")
       }
     );
-    const request = mockRequest("GET");
+    const request = mockRequest({ method: "GET" });
     const response = mockResponse();
 
     try {
@@ -1185,7 +1180,7 @@ describe("handleRequest", () => {
         status: 429
       }
     );
-    const request = mockRequest("GET");
+    const request = mockRequest({ method: "GET" });
     const response = mockResponse();
 
     try {
@@ -1289,7 +1284,7 @@ describe("handleRequest", () => {
         status: 500
       }
     );
-    const request = mockRequest("GET");
+    const request = mockRequest({ method: "GET" });
     const response = mockResponse();
 
     try {
@@ -1399,7 +1394,7 @@ describe("handleRequest", () => {
       }
     );
 
-    const request = mockRequest("GET");
+    const request = mockRequest({ method: "GET" });
     const response = mockResponse();
 
     await handleRequest(request, response);
@@ -1523,7 +1518,7 @@ describe("handleRequest", () => {
       }
     );
 
-    const request = mockRequest("GET");
+    const request = mockRequest({ method: "GET" });
     const response = mockResponse();
 
     await handleRequest(request, response);
@@ -1647,7 +1642,7 @@ describe("handleRequest", () => {
       }
     );
 
-    const request = mockRequest("GET");
+    const request = mockRequest({ method: "GET" });
     const response = mockResponse();
 
     await handleRequest(request, response);
@@ -1797,7 +1792,7 @@ describe("handleRequest", () => {
       }
     );
 
-    const request = mockRequest("GET");
+    const request = mockRequest({ method: "GET" });
     const response = mockResponse();
 
     await handleRequest(request, response);
@@ -1937,7 +1932,7 @@ describe("handleRequest", () => {
       }
     );
 
-    const request = mockRequest("GET");
+    const request = mockRequest({ method: "GET" });
     const response = mockResponse();
 
     await handleRequest(request, response);
@@ -2051,7 +2046,7 @@ describe("handleRequest", () => {
       }
     );
 
-    const request = mockRequest("GET");
+    const request = mockRequest({ method: "GET" });
     const response = mockResponse();
 
     await handleRequest(request, response);
@@ -2168,7 +2163,7 @@ describe("handleRequest", () => {
       }
     );
 
-    const request = mockRequest("GET");
+    const request = mockRequest({ method: "GET" });
     const response = mockResponse();
 
     await handleRequest(request, response);
@@ -2273,7 +2268,7 @@ describe("handleRequest", () => {
       }
     );
 
-    const request = mockRequest("GET");
+    const request = mockRequest({ method: "GET" });
     const response = mockResponse();
 
     await handleRequest(request, response);
@@ -2387,7 +2382,7 @@ describe("handleRequest", () => {
       }
     );
 
-    const request = mockRequest("GET");
+    const request = mockRequest({ method: "GET" });
     const response = mockResponse();
 
     await handleRequest(request, response);
@@ -2512,7 +2507,7 @@ describe("handleRequest", () => {
       }
     );
 
-    const request = mockRequest("GET");
+    const request = mockRequest({ method: "GET" });
     const response = mockResponse();
 
     await handleRequest(request, response);

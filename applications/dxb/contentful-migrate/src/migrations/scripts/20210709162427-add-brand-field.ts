@@ -1,6 +1,6 @@
+import { brands } from "../../variables/icons/20210512134828";
 import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
-import { brands } from "../../variables/icons/20210512134828";
 
 export const description = "Add brandLogo field to team page content type";
 

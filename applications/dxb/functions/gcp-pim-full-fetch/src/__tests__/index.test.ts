@@ -17,7 +17,6 @@ import {
 } from "@bmi/pim-types";
 import { Entry } from "contentful";
 import { Request, Response } from "express";
-import mockConsole from "jest-mock-console";
 import { createFullFetchRequest } from "./helpers/fullFetchHelper";
 
 const fetchData = jest.fn();
@@ -62,10 +61,6 @@ jest.mock("../elasticsearch", () => ({
   indexIntoES: (documents: ContentfulDocument[]) => indexIntoES(documents)
 }));
 
-beforeAll(() => {
-  mockConsole();
-});
-
 beforeEach(() => {
   process.env.GCP_PROJECT_ID = "TEST_GCP_PROJECT_ID";
   process.env.TRANSITIONAL_TOPIC_NAME = "TEST_TRANSITIONAL_TOPIC_NAME";
@@ -90,7 +85,12 @@ describe("handleRequest", () => {
     delete process.env.GCP_PROJECT_ID;
 
     const fullFetchRequest = createFullFetchRequest();
-    const request = mockRequest("POST", {}, "", fullFetchRequest);
+    const request = mockRequest({
+      method: "POST",
+      headers: {},
+      url: "",
+      body: fullFetchRequest
+    });
     const response = mockResponse();
 
     await handleRequest(request, response);
@@ -110,7 +110,12 @@ describe("handleRequest", () => {
     delete process.env.TRANSITIONAL_TOPIC_NAME;
 
     const fullFetchRequest = createFullFetchRequest();
-    const request = mockRequest("POST", {}, "", fullFetchRequest);
+    const request = mockRequest({
+      method: "POST",
+      headers: {},
+      url: "",
+      body: fullFetchRequest
+    });
     const response = mockResponse();
 
     await handleRequest(request, response);
@@ -130,7 +135,12 @@ describe("handleRequest", () => {
     delete process.env.LOCALE;
 
     const fullFetchRequest = createFullFetchRequest();
-    const request = mockRequest("POST", {}, "", fullFetchRequest);
+    const request = mockRequest({
+      method: "POST",
+      headers: {},
+      url: "",
+      body: fullFetchRequest
+    });
     const response = mockResponse();
 
     await handleRequest(request, response);
@@ -150,7 +160,12 @@ describe("handleRequest", () => {
     delete process.env.MARKET_LOCALE;
 
     const fullFetchRequest = createFullFetchRequest();
-    const request = mockRequest("POST", {}, "", fullFetchRequest);
+    const request = mockRequest({
+      method: "POST",
+      headers: {},
+      url: "",
+      body: fullFetchRequest
+    });
     const response = mockResponse();
 
     await handleRequest(request, response);
@@ -170,7 +185,12 @@ describe("handleRequest", () => {
     delete process.env.ES_INDEX_NAME_DOCUMENTS;
 
     const fullFetchRequest = createFullFetchRequest();
-    const request = mockRequest("POST", {}, "", fullFetchRequest);
+    const request = mockRequest({
+      method: "POST",
+      headers: {},
+      url: "",
+      body: fullFetchRequest
+    });
     const response = mockResponse();
 
     await handleRequest(request, response);
@@ -186,7 +206,7 @@ describe("handleRequest", () => {
   });
 
   it("should return 400 if body is not provided", async () => {
-    const request = mockRequest("POST");
+    const request = mockRequest({ method: "POST" });
     const response = mockResponse();
 
     await handleRequest(request, response);
@@ -203,9 +223,14 @@ describe("handleRequest", () => {
   });
 
   it("should return 400 if body does not contain type", async () => {
-    const request = mockRequest("POST", {}, "", {
-      startPage: 0,
-      numberOfPages: 1
+    const request = mockRequest({
+      method: "POST",
+      headers: {},
+      url: "",
+      body: {
+        startPage: 0,
+        numberOfPages: 1
+      }
     });
     const response = mockResponse();
 
@@ -221,9 +246,14 @@ describe("handleRequest", () => {
   });
 
   it("should return 400 if body does not contain startPage", async () => {
-    const request = mockRequest("POST", {}, "", {
-      type: "products",
-      numberOfPages: 1
+    const request = mockRequest({
+      method: "POST",
+      headers: {},
+      url: "",
+      body: {
+        type: "products",
+        numberOfPages: 1
+      }
     });
     const response = mockResponse();
 
@@ -241,10 +271,15 @@ describe("handleRequest", () => {
   });
 
   it("should return 400 if startPage is less than 0", async () => {
-    const request = mockRequest("POST", {}, "", {
-      type: "products",
-      startPage: -1,
-      numberOfPages: 1
+    const request = mockRequest({
+      method: "POST",
+      headers: {},
+      url: "",
+      body: {
+        type: "products",
+        startPage: -1,
+        numberOfPages: 1
+      }
     });
     const response = mockResponse();
 
@@ -262,9 +297,14 @@ describe("handleRequest", () => {
   });
 
   it("should return 400 if body does not contain numberOfPages", async () => {
-    const request = mockRequest("POST", {}, "", {
-      type: "products",
-      startPage: 0
+    const request = mockRequest({
+      method: "POST",
+      headers: {},
+      url: "",
+      body: {
+        type: "products",
+        startPage: 0
+      }
     });
     const response = mockResponse();
 
@@ -282,10 +322,15 @@ describe("handleRequest", () => {
   });
 
   it("should return 400 if numberOfPages is less than 0", async () => {
-    const request = mockRequest("POST", {}, "", {
-      type: "products",
-      startPage: 0,
-      numberOfPages: -1
+    const request = mockRequest({
+      method: "POST",
+      headers: {},
+      url: "",
+      body: {
+        type: "products",
+        startPage: 0,
+        numberOfPages: -1
+      }
     });
     const response = mockResponse();
 
@@ -303,10 +348,15 @@ describe("handleRequest", () => {
   });
 
   it("should return 400 if numberOfPages is 0", async () => {
-    const request = mockRequest("POST", {}, "", {
-      type: "products",
-      startPage: 0,
-      numberOfPages: 0
+    const request = mockRequest({
+      method: "POST",
+      headers: {},
+      url: "",
+      body: {
+        type: "products",
+        startPage: 0,
+        numberOfPages: 0
+      }
     });
     const response = mockResponse();
 
@@ -326,7 +376,12 @@ describe("handleRequest", () => {
   it("should error when fetching data from PIM throws error", async () => {
     fetchData.mockRejectedValue(Error("Expected error"));
     const fullFetchRequest = createFullFetchRequest();
-    const request = mockRequest("POST", {}, "", fullFetchRequest);
+    const request = mockRequest({
+      method: "POST",
+      headers: {},
+      url: "",
+      body: fullFetchRequest
+    });
     const response = mockResponse();
 
     try {
@@ -352,7 +407,12 @@ describe("handleRequest", () => {
     fetchData.mockReturnValue(productsApiResponse);
     publishMessage.mockRejectedValue(Error("Expected error"));
     const fullFetchRequest = createFullFetchRequest();
-    const request = mockRequest("POST", {}, "", fullFetchRequest);
+    const request = mockRequest({
+      method: "POST",
+      headers: {},
+      url: "",
+      body: fullFetchRequest
+    });
     const response = mockResponse();
 
     try {
@@ -383,7 +443,12 @@ describe("handleRequest", () => {
     const productsApiResponse = createProductsApiResponse({ products: [] });
     fetchData.mockReturnValue(productsApiResponse);
     const fullFetchRequest = createFullFetchRequest();
-    const request = mockRequest("POST", {}, "", fullFetchRequest);
+    const request = mockRequest({
+      method: "POST",
+      headers: {},
+      url: "",
+      body: fullFetchRequest
+    });
     const response = mockResponse();
 
     await handleRequest(request, response);
@@ -410,7 +475,12 @@ describe("handleRequest", () => {
     const productsApiResponse = createProductsApiResponse();
     fetchData.mockReturnValue(productsApiResponse);
     const fullFetchRequest = createFullFetchRequest();
-    const request = mockRequest("POST", {}, "", fullFetchRequest);
+    const request = mockRequest({
+      method: "POST",
+      headers: {},
+      url: "",
+      body: fullFetchRequest
+    });
     const response = mockResponse();
 
     await handleRequest(request, response);
@@ -439,7 +509,12 @@ describe("handleRequest", () => {
     });
     fetchData.mockReturnValueOnce(productsApiResponse);
     const fullFetchRequest = createFullFetchRequest();
-    const request = mockRequest("POST", {}, "", fullFetchRequest);
+    const request = mockRequest({
+      method: "POST",
+      headers: {},
+      url: "",
+      body: fullFetchRequest
+    });
     const response = mockResponse();
 
     await handleRequest(request, response);
@@ -473,7 +548,12 @@ describe("handleRequest", () => {
     const systemsApiResponse = createSystemsApiResponse({ systems: [] });
     fetchData.mockReturnValue(systemsApiResponse);
     const fullFetchRequest = createFullFetchRequest({ type: PimTypes.Systems });
-    const request = mockRequest("POST", {}, "", fullFetchRequest);
+    const request = mockRequest({
+      method: "POST",
+      headers: {},
+      url: "",
+      body: fullFetchRequest
+    });
     const response = mockResponse();
 
     await handleRequest(request, response);
@@ -500,7 +580,12 @@ describe("handleRequest", () => {
     const systemsApiResponse = createSystemsApiResponse();
     fetchData.mockReturnValue(systemsApiResponse);
     const fullFetchRequest = createFullFetchRequest({ type: PimTypes.Systems });
-    const request = mockRequest("POST", {}, "", fullFetchRequest);
+    const request = mockRequest({
+      method: "POST",
+      headers: {},
+      url: "",
+      body: fullFetchRequest
+    });
     const response = mockResponse();
 
     await handleRequest(request, response);
@@ -529,7 +614,12 @@ describe("handleRequest", () => {
     });
     fetchData.mockReturnValueOnce(systemsApiResponse);
     const fullFetchRequest = createFullFetchRequest({ type: PimTypes.Systems });
-    const request = mockRequest("POST", {}, "", fullFetchRequest);
+    const request = mockRequest({
+      method: "POST",
+      headers: {},
+      url: "",
+      body: fullFetchRequest
+    });
     const response = mockResponse();
 
     await handleRequest(request, response);
@@ -570,7 +660,12 @@ describe("handleRequest", () => {
       .mockReturnValueOnce(productsApiResponse1)
       .mockReturnValueOnce(productsApiResponse2);
     const fullFetchRequest = createFullFetchRequest({ numberOfPages: 2 });
-    const request = mockRequest("POST", {}, "", fullFetchRequest);
+    const request = mockRequest({
+      method: "POST",
+      headers: {},
+      url: "",
+      body: fullFetchRequest
+    });
     const response = mockResponse();
 
     await handleRequest(request, response);
@@ -608,7 +703,12 @@ describe("handleRequest", () => {
   it("should error when fetching data from Contentful throws error", async () => {
     getDocuments.mockRejectedValue(Error("Expected error"));
     const fullFetchRequest = createFullFetchRequest({ type: "documents" });
-    const request = mockRequest("POST", {}, "", fullFetchRequest);
+    const request = mockRequest({
+      method: "POST",
+      headers: {},
+      url: "",
+      body: fullFetchRequest
+    });
     const response = mockResponse();
 
     try {
@@ -630,7 +730,12 @@ describe("handleRequest", () => {
   it("should do nothing when no documents found", async () => {
     getDocuments.mockResolvedValueOnce([]);
     const fullFetchRequest = createFullFetchRequest({ type: "documents" });
-    const request = mockRequest("POST", {}, "", fullFetchRequest);
+    const request = mockRequest({
+      method: "POST",
+      headers: {},
+      url: "",
+      body: fullFetchRequest
+    });
     const response = mockResponse();
 
     await handleRequest(request, response);
@@ -656,7 +761,12 @@ describe("handleRequest", () => {
     transformDocuments.mockReturnValueOnce(esContentfulDocuments);
     const fullFetchRequest = createFullFetchRequest({ type: "documents" });
     indexIntoES.mockRejectedValueOnce(Error("Expected error"));
-    const request = mockRequest("POST", {}, "", fullFetchRequest);
+    const request = mockRequest({
+      method: "POST",
+      headers: {},
+      url: "",
+      body: fullFetchRequest
+    });
     const response = mockResponse();
 
     try {
@@ -686,7 +796,12 @@ describe("handleRequest", () => {
     const esContentfulDocuments = [createEsContentfulDocument()];
     transformDocuments.mockReturnValueOnce(esContentfulDocuments);
     const fullFetchRequest = createFullFetchRequest({ type: "documents" });
-    const request = mockRequest("POST", {}, "", fullFetchRequest);
+    const request = mockRequest({
+      method: "POST",
+      headers: {},
+      url: "",
+      body: fullFetchRequest
+    });
     const response = mockResponse();
 
     await handleRequest(request, response);

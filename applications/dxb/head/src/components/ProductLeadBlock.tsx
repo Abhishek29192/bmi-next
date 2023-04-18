@@ -7,6 +7,7 @@ import {
   IconList,
   LeadBlock,
   MediaGallery,
+  replaceSpaces,
   Tabs,
   Typography
 } from "@bmi-digital/components";
@@ -36,6 +37,7 @@ const StyledBlueCheckIcon = styled(Icon)(({ theme }) => ({
 const BlueCheckIcon = () => {
   return <StyledBlueCheckIcon source={CheckIcon} />;
 };
+
 type Props = {
   product: Product;
   sidebarItems?: {
@@ -66,9 +68,7 @@ const ProductLeadBlock = ({
   pdpSpecificationDescription,
   documentDisplayFormat
 }: Props) => {
-  const {
-    config: { documentDownloadMaxLimit }
-  } = useConfig();
+  const { documentDownloadMaxLimit } = useConfig();
   const { getMicroCopy, countryCode } = useSiteContext();
   const [page, setPage] = useState(1);
   const [documents, setDocuments] = useState(
@@ -77,7 +77,7 @@ const ProductLeadBlock = ({
   const resultsElement = useRef<HTMLDivElement>(null);
 
   const count = Math.ceil(product.productDocuments.length / DOCUMENTS_PER_PAGE);
-  const handlePageChange = (_, page) => {
+  const handlePageChange = (_: React.ChangeEvent<unknown>, page: number) => {
     const scrollY = resultsElement.current
       ? resultsElement.current.offsetTop - 200
       : 0;
@@ -107,6 +107,7 @@ const ProductLeadBlock = ({
               <LeadBlock.Content.Section>
                 <Typography
                   component="div"
+                  className={styles["productDescription"]}
                   dangerouslySetInnerHTML={{ __html: product.description }}
                 />
               </LeadBlock.Content.Section>
@@ -127,7 +128,7 @@ const ProductLeadBlock = ({
                         alt={item.name}
                         className={styles["image"]}
                         data-testid={`guarantee-image${
-                          item.name ? `-${item.name.replace(/ /g, "-")}` : ""
+                          item.name ? `-${replaceSpaces(item.name)}` : ""
                         }`}
                       />
                     ))}
@@ -151,7 +152,7 @@ const ProductLeadBlock = ({
                           isExternal={isExternalUrl(item.url)}
                           className={styles["inline-link"]}
                           data-testid={`guarantee-inline-link${
-                            item.name ? `-${item.name.replace(/ /g, "-")}` : ""
+                            item.name ? `-${replaceSpaces(item.name)}` : ""
                           }`}
                         >
                           {item.name}
@@ -226,7 +227,7 @@ const ProductLeadBlock = ({
                 ) : null}
                 {sidebarItems?.length && (
                   <LeadBlock.Card.Section>
-                    <LeadBlock.Card.Heading variant="h5">
+                    <LeadBlock.Card.Heading>
                       {sidebarItems[0].title}
                     </LeadBlock.Card.Heading>
                     <LeadBlock.Card.Content>

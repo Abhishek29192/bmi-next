@@ -2,7 +2,8 @@ import {
   Button,
   ButtonProps,
   CarouselHero,
-  Search
+  Search,
+  useIsClient
 } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
@@ -11,8 +12,6 @@ import OverlapCards, {
   Data as OverlapCardData
 } from "../components/OverlapCards";
 import Page, { Data as PageData } from "../components/Page";
-import { Data as PageInfoData } from "../components/PageInfo";
-import { Data as SlideData } from "../components/Promo";
 import Sections, { Data as SectionsData } from "../components/Sections";
 import { Data as SiteData } from "../components/Site";
 import WelcomeDialog from "../components/WelcomeDialog";
@@ -21,11 +20,13 @@ import { useConfig } from "../contexts/ConfigProvider";
 import withGTM from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
 import { getHeroItemsWithContext } from "./helpers/getHeroItemsWithContext";
+import type { Data as SlideData } from "../components/Promo";
+import type { Data as PageInfoData } from "../components/PageInfo";
 
 export type HomepageData = {
   __typename: "ContentfulHomePage";
   title: string;
-  slides: (SlideData | PageInfoData)[];
+  slides: readonly (SlideData | PageInfoData)[];
   overlapCards: OverlapCardData;
   brands: BrandData[];
   spaBrands: BrandData[];
@@ -64,9 +65,8 @@ const HomePage = ({ data, pageContext }: Props) => {
     data.contentfulSite.resources || {};
 
   const GTMButton = withGTM<ButtonProps>(Button);
-  const {
-    config: { isSpaEnabled, isGatsbyDisabledElasticSearch }
-  } = useConfig();
+  const { isSpaEnabled, isGatsbyDisabledElasticSearch } = useConfig();
+  const { isClient } = useIsClient();
 
   return (
     <Page
@@ -84,7 +84,11 @@ const HomePage = ({ data, pageContext }: Props) => {
 
         return (
           <>
-            <CarouselHero heroes={heroItems} hasSpaceBottom>
+            <CarouselHero
+              heroes={heroItems}
+              hasSpaceBottom
+              disableLazyLoading={true}
+            >
               {!isGatsbyDisabledElasticSearch && (
                 <Search
                   buttonComponent={(props) => (
@@ -110,13 +114,18 @@ const HomePage = ({ data, pageContext }: Props) => {
             ) : null}
 
             {sections && <Sections data={sections} pageTypename={__typename} />}
-            <WelcomeDialog
-              data={{
-                welcomeDialogTitle,
-                welcomeDialogBody,
-                welcomeDialogBrands
-              }}
-            />
+            {isClient &&
+            welcomeDialogTitle &&
+            welcomeDialogBody &&
+            welcomeDialogBrands ? (
+              <WelcomeDialog
+                data={{
+                  welcomeDialogTitle,
+                  welcomeDialogBody,
+                  welcomeDialogBrands
+                }}
+              />
+            ) : null}
           </>
         );
       }}
@@ -135,8 +144,8 @@ export const pageQuery = graphql`
       title
       slides {
         ... on ContentfulPromoOrPage {
-          ...PromoFragment
-          ...PageInfoFragment
+          ...PromoHeroFragment
+          ...PageInfoHeroFragment
         }
       }
       overlapCards {

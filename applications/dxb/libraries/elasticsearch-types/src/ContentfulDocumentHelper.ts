@@ -34,6 +34,10 @@ const createContentfulDocument = (
     }
   },
   noIndex: false,
+  BRAND: {
+    name: "AeroDek",
+    code: "AeroDek"
+  },
   ...contentfulDocument
 });
 

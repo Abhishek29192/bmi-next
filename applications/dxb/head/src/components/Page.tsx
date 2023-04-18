@@ -46,7 +46,7 @@ type Props = {
   title: string;
   pageData: Data;
   siteData: SiteData;
-  isSearchPage?: boolean;
+  disableSearch?: boolean;
   variantCodeToPathMap?: Record<string, string>;
   ogImageUrl?: string;
   variantProduct?: Product;
@@ -55,7 +55,9 @@ type Props = {
 const Content = ({ children }: { children: Children }) => {
   const siteContext = useSiteContext();
 
-  return typeof children === "function" ? children({ siteContext }) : children;
+  return (
+    <>{typeof children === "function" ? children({ siteContext }) : children}</>
+  );
 };
 
 const Page = ({
@@ -64,7 +66,7 @@ const Page = ({
   children,
   pageData,
   siteData,
-  isSearchPage,
+  disableSearch,
   variantCodeToPathMap,
   ogImageUrl,
   variantProduct
@@ -85,12 +87,10 @@ const Page = ({
 
   const { breadcrumbs, signupBlock, seo, path } = pageData;
   const {
-    config: {
-      gatsbyReCaptchaKey,
-      gatsbyReCaptchaNet,
-      visualizerAssetUrl,
-      isSpaEnabled
-    }
+    gatsbyReCaptchaKey,
+    gatsbyReCaptchaNet,
+    visualizerAssetUrl,
+    isSpaEnabled
   } = useConfig();
   const reCaptchaNet = gatsbyReCaptchaNet === "true";
 
@@ -113,11 +113,16 @@ const Page = ({
     {}
   );
 
+  const seoTitle =
+    variantProduct && variantProduct.seoTitle
+      ? variantProduct.seoTitle
+      : title || "";
+
   return (
     <>
       <Head
         htmlAttributes={{ lang: node_locale }}
-        title={title}
+        title={seoTitle}
         defer={false}
         ogImageUrl={ogImageUrl}
         scripts={{
@@ -159,7 +164,7 @@ const Page = ({
                   activeLabel={
                     (breadcrumbs && breadcrumbs[0]?.label) || undefined
                   }
-                  isOnSearchPage={isSearchPage}
+                  disableSearch={disableSearch}
                   countryNavigationIntroduction={
                     resources?.countryNavigationIntroduction
                   }
@@ -195,7 +200,7 @@ const Page = ({
               </ErrorBoundary>
             </GoogleReCaptchaProvider>
           </MicroCopy.Provider>
-        </BasketContextProvider>{" "}
+        </BasketContextProvider>
       </SiteContextProvider>
     </>
   );

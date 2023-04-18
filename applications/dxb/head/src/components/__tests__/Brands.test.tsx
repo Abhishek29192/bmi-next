@@ -1,5 +1,5 @@
 import { ThemeProvider } from "@bmi-digital/components";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import React from "react";
 import Brands, { Data } from "../Brands";
 
@@ -32,50 +32,52 @@ describe("Brands component", () => {
   });
 
   it("renders brand actions correctly for spaBrand to be external links", () => {
-    const { getByRole } = render(
+    render(
       <ThemeProvider>
         <Brands data={brandData} spaBrand />
       </ThemeProvider>
     );
     expect(
-      getByRole("link", { name: "MC: homepage.brands.learn" }).getAttribute(
-        "target"
-      )
+      screen
+        .getByRole("link", { name: "MC: homepage.brands.learn" })
+        .getAttribute("target")
     ).toBe("_blank");
     expect(
-      getByRole("link", { name: "MC: homepage.brands.learn" }).getAttribute(
-        "rel"
-      )
+      screen
+        .getByRole("link", { name: "MC: homepage.brands.learn" })
+        .getAttribute("rel")
     ).toBe("noopener noreferrer");
   });
 
   it("renders brand correctyly without description", () => {
-    const { container } = render(
+    render(
       <ThemeProvider>
         <Brands data={[{ ...brandData[0], subtitle: undefined }]} />
       </ThemeProvider>
     );
-    expect(container.querySelector(".description")).not.toBeInTheDocument();
+    expect(
+      screen.queryByTestId("brandLogoDescription")
+    ).not.toBeInTheDocument();
   });
 
   it("renders brand correctly without brand path", () => {
-    const { queryByRole, container } = render(
+    render(
       <ThemeProvider>
         <Brands data={[{ ...brandData[0], path: undefined }]} />
       </ThemeProvider>
     );
 
     expect(
-      queryByRole("link", { name: "MC: homepage.brands.learn" })
+      screen.queryByRole("link", { name: "MC: homepage.brands.learn" })
     ).not.toBeInTheDocument();
 
-    expect(
-      container.querySelector("[class*='brandLogoButton'][class*='noPointer']")
-    ).toBeInTheDocument();
+    expect(screen.getByTestId("brandLogoButton")).toHaveClass(
+      "BrandIntroCard-noPointer"
+    );
   });
 
   it("renders brand correctly without brand path and no description", () => {
-    const { container } = render(
+    render(
       <ThemeProvider>
         <Brands
           data={[{ ...brandData[0], path: undefined, subtitle: undefined }]}
@@ -83,6 +85,8 @@ describe("Brands component", () => {
       </ThemeProvider>
     );
 
-    expect(container.querySelector(".description")).not.toBeInTheDocument();
+    expect(
+      screen.queryByTestId("brandLogoDescription")
+    ).not.toBeInTheDocument();
   });
 });

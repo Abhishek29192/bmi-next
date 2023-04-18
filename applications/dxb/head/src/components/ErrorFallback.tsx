@@ -1,9 +1,9 @@
 import { Button, PromoSection, Typography } from "@bmi-digital/components";
 import React from "react";
-import { renderImage } from "./Image";
+import Image from "./Image";
 import { getClickableActionFromUrl } from "./Link";
 import { Data as PromoData } from "./Promo";
-import { renderVideo } from "./Video";
+import Video from "./Video";
 
 const ErrorFallback = ({
   countryCode,
@@ -27,7 +27,11 @@ const ErrorFallback = ({
     <PromoSection
       title={title}
       media={
-        featuredVideo ? renderVideo(featuredVideo) : renderImage(featuredMedia)
+        featuredVideo ? (
+          <Video {...featuredVideo} />
+        ) : featuredMedia ? (
+          <Image {...featuredMedia} />
+        ) : undefined
       }
     >
       <Typography variant="body2" gutterBottom>

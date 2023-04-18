@@ -1,6 +1,5 @@
 import { ThemeProvider } from "@bmi-digital/components";
 import { render } from "@testing-library/react";
-import mockConsole from "jest-mock-console";
 import React from "react";
 import Footer from "../Footer";
 import { SiteContextProvider } from "../Site";
@@ -23,10 +22,6 @@ const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
     </ThemeProvider>
   );
 };
-
-beforeAll(() => {
-  mockConsole();
-});
 
 describe("Footer component", () => {
   it("renders correctly", () => {

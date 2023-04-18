@@ -1,8 +1,8 @@
 import { IncomingHttpHeaders } from "http";
 import logger from "@bmi-digital/functions-logger";
-import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import { Status } from "simple-http-status";
 import { getList, saveBuildStatus } from "./db";
+import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 
 type BuildStatusBase = {
   timestamp: number;

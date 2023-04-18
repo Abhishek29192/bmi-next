@@ -3,7 +3,8 @@ import { styled } from "@mui/material/styles";
 const PREFIX = "RichText";
 export const classes = {
   root: `${PREFIX}-root`,
-  title: `${PREFIX}-title`
+  title: `${PREFIX}-title`,
+  noBottomMargin: `${PREFIX}-no-bottom-margin`
 };
 
 export const StyledRichText = styled("div")(({ theme }) => ({
@@ -14,6 +15,12 @@ export const StyledRichText = styled("div")(({ theme }) => ({
 
     "& img.embedded-asset + img.embedded-asset": {
       marginLeft: "8px"
+    },
+
+    "& .embeddedLink": {
+      display: "block",
+      width: "max-content",
+      maxWidth: "100%"
     },
 
     "& p": {
@@ -30,7 +37,10 @@ export const StyledRichText = styled("div")(({ theme }) => ({
     },
 
     "& ul li": {
-      display: "flex"
+      display: "flex",
+      "&:last-child>p": {
+        marginBottom: 0
+      }
     },
 
     "& ul li:before": {
@@ -44,7 +54,10 @@ export const StyledRichText = styled("div")(({ theme }) => ({
     "& ol": {
       listStyle: "decimal",
       paddingLeft: "1.5rem",
-      paddingInlineStart: "20px"
+      paddingInlineStart: "20px",
+      "& li:last-child>p": {
+        marginBottom: 0
+      }
     },
     "& li > ol": {
       listStyle: "lower-alpha",
@@ -53,7 +66,6 @@ export const StyledRichText = styled("div")(({ theme }) => ({
 
     "& ol li::before": {
       marginLeft: "-1.5rem",
-      marginTop: "1px",
       width: "1.5rem"
     },
 
@@ -62,6 +74,9 @@ export const StyledRichText = styled("div")(({ theme }) => ({
     }
   },
   [`& .${classes.title}`]: {
-    marginBottom: "28px"
+    marginBottom: "24px"
+  },
+  [`&.${classes.noBottomMargin}`]: {
+    "&&>*:last-child": { marginBottom: 0 }
   }
 }));

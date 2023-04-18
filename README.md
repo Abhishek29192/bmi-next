@@ -2,7 +2,7 @@
 
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
-Monorepo for BMI websites that includes a component library.
+Monorepo for BMI websites that does not include component library within. Please check other project with common component library.
 
 ## Getting started
 

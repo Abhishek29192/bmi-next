@@ -3,8 +3,8 @@
 exports[`DocumentDownloadSection component renders correctly with all data 1`] = `
 <div>
   <div
-    class="Section-root Section-white css-cxq310"
-    data-testid="section"
+    class="Section-root Section-white css-10chrh8"
+    data-testid="document-download-section-Document-Downloads-title"
   >
     <div
       class=" css-ze8cyt"
@@ -13,7 +13,7 @@ exports[`DocumentDownloadSection component renders correctly with all data 1`] =
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
           data-testid="typography"
         >
           Document Downloads title
@@ -22,10 +22,10 @@ exports[`DocumentDownloadSection component renders correctly with all data 1`] =
           style="margin-bottom: 40px;"
         >
           <div
-            class="RichText-root css-17t4j5c"
+            class="RichText-root css-1u73y0t"
           >
             <p
-              class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
               data-testid="typography"
             >
               Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
@@ -37,7 +37,7 @@ exports[`DocumentDownloadSection component renders correctly with all data 1`] =
         >
           <table
             class="MuiTable-root Table-evenColor css-wsrw3a-MuiTable-root"
-            data-testid="table"
+            data-testid="document-download-section-table"
           >
             <thead
               class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
@@ -76,8 +76,8 @@ exports[`DocumentDownloadSection component renders correctly with all data 1`] =
                 >
                   <button
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://doesnot-exist.com/fileName\\"}"
-                    data-testid="docment-download-section-download-button"
+                    data-gtm="{"id":"download1","label":"Download","action":"http://doesnot-exist.com/fileName"}"
+                    data-testid="document-download-section-download-button"
                     tabindex="0"
                     type="button"
                   >
@@ -85,6 +85,7 @@ exports[`DocumentDownloadSection component renders correctly with all data 1`] =
                       class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                     >
                       <svg
+                        data-testid="document-download-section-file-download-icon"
                         style="width: 1em; height: 1em;"
                         viewBox="0 0 32 32"
                         xmlns="http://www.w3.org/2000/svg"

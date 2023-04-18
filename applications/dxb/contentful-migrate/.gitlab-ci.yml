@@ -123,8 +123,8 @@ build_contentful_migrate:
   script:
     - |
       apt-get update && apt-get install -y jq
-      export MANAGEMENT_ACCESS_TOKEN=$(echo $DXB_MIGRATION_CREDENTIALS | jq -r --arg DXB_MARKET_ID "$DXB_MARKET_ID" '. [$DXB_MARKET_ID] | .MANAGEMENT_ACCESS_TOKEN')
-      export SPACE_ID=$(echo $DXB_MIGRATION_CREDENTIALS | jq -r --arg DXB_MARKET_ID "$DXB_MARKET_ID" '. [$DXB_MARKET_ID] | .SPACE_ID')
+      export MANAGEMENT_ACCESS_TOKEN=$(cat $DXB_MIGRATION_CREDENTIALS | jq -r --arg DXB_MARKET_ID "$DXB_MARKET_ID" '. [$DXB_MARKET_ID] | .MANAGEMENT_ACCESS_TOKEN')
+      export SPACE_ID=$(cat $DXB_MIGRATION_CREDENTIALS | jq -r --arg DXB_MARKET_ID "$DXB_MARKET_ID" '. [$DXB_MARKET_ID] | .SPACE_ID')
       cd applications/dxb/contentful-migrate && yarn build && yarn dxb-update-mc:publish --isConsolidated=$IS_CONSOLIDATED
 
 ##############################################################
@@ -150,11 +150,6 @@ deploy_gatsby_cloud_qa:
     DXB_BUILD_HOOKS: $DXB_BUILD_HOOKS_QA
     DXB_MARKET_ID: "NO"
     ROOT_DIR: "applications/dxb/contentful-migrate"
-  before_script:
-    # Until https://gitlab.com/gitlab-org/gitlab/-/issues/29407 is resolved
-    - temporary_file=$(mktemp)
-    - echo ${DXB_BUILD_HOOKS} > $temporary_file
-    - DXB_BUILD_HOOKS=$temporary_file
 
 migrate_content_one_page_qa:
   extends: .migrate_content
@@ -175,11 +170,6 @@ deploy_gatsby_cloud_one_page_qa:
     DXB_BUILD_HOOKS: $DXB_BUILD_HOOKS_ONE_PAGE_QA
     DXB_MARKET_ID: "NO"
     ROOT_DIR: "applications/dxb/contentful-migrate"
-  before_script:
-    # Until https://gitlab.com/gitlab-org/gitlab/-/issues/29407 is resolved
-    - temporary_file=$(mktemp)
-    - echo ${DXB_BUILD_HOOKS} > $temporary_file
-    - DXB_BUILD_HOOKS=$temporary_file
 
 migrate_content_norway:
   extends: .migrate_content
@@ -493,7 +483,6 @@ deploy_gatsby_cloud_denmark:
   variables:
     DXB_MARKET_ID: "DK"
     ROOT_DIR: "applications/dxb/contentful-migrate"
-
 
 migrate_content_space_5:
   extends: .migrate_content

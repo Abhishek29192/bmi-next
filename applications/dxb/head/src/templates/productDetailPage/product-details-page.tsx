@@ -97,9 +97,16 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
 
         return (
           <>
-            <Section backgroundColor="pearl" isSlim>
+            <Section
+              backgroundColor="pearl"
+              isSlim
+              data-testid="breadcrumbs-section-top"
+            >
               <BackToResults>
-                <Breadcrumbs data={product.breadcrumbs} />
+                <Breadcrumbs
+                  data={product.breadcrumbs}
+                  data-testid="product-details-page-breadcrumbs-top"
+                />
               </BackToResults>
             </Section>
             <Container>
@@ -149,7 +156,10 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                 )}
               </ProductOverview>
             </Container>
-            <Section backgroundColor="white">
+            <Section
+              backgroundColor="white"
+              data-testid={`product-details-product-lead-block-section`}
+            >
               <ProductLeadBlock
                 product={product}
                 sidebarItems={resources?.pdpSidebarItems}
@@ -176,7 +186,11 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
               />
             )}
             {resources?.pdpExploreBar && (
-              <Section backgroundColor="alabaster" className="ExploreBar">
+              <Section
+                backgroundColor="alabaster"
+                className="ExploreBar"
+                data-testid={`product-details-product-explorer-bar-section`}
+              >
                 <ExploreBar data={resources.pdpExploreBar} />
               </Section>
             )}
@@ -184,8 +198,12 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
               backgroundColor="pearl"
               isSlim
               className="ProductBreadcrumbs"
+              data-testid="breadcrumbs-section-bottom"
             >
-              <Breadcrumbs data={product?.breadcrumbs} />
+              <Breadcrumbs
+                data={product?.breadcrumbs}
+                data-testid="product-details-page-breadcrumbs-bottom"
+              />
             </Section>
           </>
         );
@@ -275,6 +293,9 @@ export const pageQuery = graphql`
         variantAttribute
         path
       }
+      seoTitle
+      seoTags
+      seoDescription
       specificationIframeUrl
       techDrawings {
         ...PIMImageFragment

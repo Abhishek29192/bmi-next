@@ -1,4 +1,4 @@
-import { ExploreBar, Section } from "@bmi-digital/components";
+import { ExploreBar, replaceSpaces, Section } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
 import { devLog } from "../utils/devLog";
@@ -25,7 +25,7 @@ const ExploreBarSection = ({ data }: { data: Data }) => {
   });
 
   return (
-    <Section>
+    <Section data-testid={`explorer-bar-section-${replaceSpaces(label)}`}>
       <ExploreBar
         heading={label}
         links={links.map(({ label, linkedPage, url, asset }) => ({

@@ -4,8 +4,11 @@ import {
   PLPFilterResponse,
   QUERY_KEY,
   Section,
-  Tabs
+  Tabs,
+  useIsClient
 } from "@bmi-digital/components";
+import { useMediaQuery } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import { graphql } from "gatsby";
 import React, { FormEvent, useEffect, useMemo, useState } from "react";
 import Breadcrumbs from "../components/Breadcrumbs";
@@ -59,12 +62,15 @@ const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 
 const SearchPage = ({ pageContext, data }: Props) => {
   const { contentfulSite, allContentfulAssetType, searchFilters } = data;
-  const params = new URLSearchParams(
-    typeof window !== `undefined` ? window.location.search : ""
-  );
-  const {
-    config: { isPreviewMode }
-  } = useConfig();
+  const { isPreviewMode } = useConfig();
+  const { isClient } = useIsClient();
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
+  const params = useMemo(() => {
+    return new URLSearchParams(
+      isClient && window ? window.location.search : ""
+    );
+  }, [isClient]);
 
   const { countryCode, resources } = contentfulSite;
   const getMicroCopy = generateGetMicroCopy(resources.microCopy);
@@ -76,7 +82,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
     }
 
     return params.get(QUERY_KEY);
-  }, [params]);
+  }, [isPreviewMode, params]);
   const [pageIsLoading, setPageIsLoading] = useState<boolean>(true);
   const [tabsLoading, setTabsLoading] = useState({});
   const [areTabsResolved, setAreTabsResolved] = useState(false);
@@ -185,6 +191,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
     };
 
     getCounts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- Sets results inside of this hook
   }, [queryString]);
 
   const pageTitle = useMemo(() => {
@@ -204,7 +211,13 @@ const SearchPage = ({ pageContext, data }: Props) => {
         query: queryString
       });
     }
-  }, [queryString, pageHasResults, areTabsResolved]);
+  }, [
+    queryString,
+    pageHasResults,
+    areTabsResolved,
+    defaultTitle,
+    getMicroCopy
+  ]);
 
   // If any of the tabs are loading
   const tabIsLoading =
@@ -251,7 +264,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
             index={tabKey}
           >
             {hasBeenDisplayed ? (
-              <Container>
+              <Container data-testid={`container-${tabKey}`}>
                 <Component
                   queryString={queryString}
                   pageContext={pageContext}
@@ -293,7 +306,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
       title={pageTitle}
       pageData={{ breadcrumbs: null, signupBlock: null, seo: null, path: null }}
       siteData={contentfulSite}
-      isSearchPage
+      disableSearch={isClient && isDesktop}
       variantCodeToPathMap={pageContext?.variantCodeToPathMap}
     >
       {tabIsLoading ? (
@@ -305,10 +318,18 @@ const SearchPage = ({ pageContext, data }: Props) => {
         level={3}
         title={pageTitle}
         breadcrumbs={
-          <Breadcrumbs data={[{ id: "", label: pageTitle, slug: "search" }]} />
+          <Breadcrumbs
+            data={[{ id: "", label: pageTitle, slug: "search" }]}
+            data-testid="search-page-breadcrumbs-top"
+          />
         }
       />
-      <Section backgroundColor="white" isSlim>
+      <Section
+        backgroundColor="white"
+        isSlim
+        id={`search-block`}
+        data-testid={`search-page-search-block-section`}
+      >
         <SearchBlock
           buttonText={
             queryString
@@ -340,7 +361,11 @@ const SearchPage = ({ pageContext, data }: Props) => {
             <NextBestActions data={resources.searchPageNextBestActions} />
           )
         : resources.searchPageExploreBar && (
-            <Section backgroundColor="pearl" isSlim>
+            <Section
+              backgroundColor="pearl"
+              isSlim
+              id={`search-block-explorer-bar`}
+            >
               <ExploreBar data={resources.searchPageExploreBar} />
             </Section>
           )}

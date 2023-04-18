@@ -7,7 +7,7 @@ import {
 import { ContentfulDocument } from "@bmi/elasticsearch-types";
 import React from "react";
 import BrandLogo from "../../../components/BrandLogo";
-import { renderImage } from "../../../components/Image";
+import Image from "../../../components/Image";
 import { useSiteContext } from "../../../components/Site";
 import { microCopy } from "../../../constants/microCopies";
 import withGTM from "../../../utils/google-tag-manager";
@@ -22,7 +22,7 @@ const DocumentCardsResults = ({ documents }: Props) => {
   const GTMOverviewCard = withGTM<OverviewCardProps>(OverviewCard);
 
   return (
-    <Grid container spacing={3}>
+    <Grid container spacing={3} data-testid="document-cards-results-grid">
       {documents.map((document, index) => {
         return (
           <Grid
@@ -34,8 +34,12 @@ const DocumentCardsResults = ({ documents }: Props) => {
           >
             <GTMOverviewCard
               title={document.title}
-              media={renderImage(document.featuredMedia)}
-              brandImageSource={<BrandLogo brandName={document.BRAND?.name} />}
+              media={
+                document.featuredMedia && <Image {...document.featuredMedia} />
+              }
+              brandImageSource={
+                document.BRAND && <BrandLogo brandName={document.BRAND?.name} />
+              }
               action={{
                 model: "download",
                 href: `https:${document.asset.file.url}`,

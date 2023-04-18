@@ -1,4 +1,5 @@
 import { Button, Typography } from "@bmi-digital/components";
+import { iconButtonClasses } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 export const StyledBasketDialogContainer = styled("div")(({ theme }) => ({
@@ -15,7 +16,7 @@ export const StyledBasketDialogContainer = styled("div")(({ theme }) => ({
     flexDirection: "column",
     justifyContent: "space-between"
   },
-  [theme.breakpoints!.up!("md")]: {
+  [theme.breakpoints!.up!("lg")]: {
     position: "inherit",
     height: "auto",
     top: "auto",
@@ -34,15 +35,15 @@ export const TopContainer = styled("div")(({ theme }) => ({
 }));
 
 export const CloseButton = styled(Button)(({ theme }) => ({
-  backgroundColor: theme.colours.white,
-  color: theme.colours.slate,
+  backgroundColor: `${theme.colours.white} !important`,
+  color: `${theme.colours.slate} !important`,
   position: "absolute",
   right: 0,
   top: 0,
   zIndex: 2,
-  "&:hover": {
-    backgroundColor: theme.colours.pearl,
-    color: theme.colours.charcoal
+  [`&.${iconButtonClasses.root}:hover`]: {
+    backgroundColor: `${theme.colours.pearl} !important`,
+    color: `${theme.colours.charcoal} !important`
   }
 }));
 
@@ -50,8 +51,11 @@ export const CartInfo = styled("div")(({ theme }) => ({
   fontSize: "1rem",
   color: theme.colours.slate,
   fontFamily: "Effra Regular",
-  "&:first-child": {
-    marginTop: "24px"
+  "&>p": {
+    margin: 0,
+    "&:last-of-type": {
+      marginTop: "12px"
+    }
   }
 }));
 
@@ -78,21 +82,23 @@ export const ProductList = styled("div")(({ theme }) => ({
 export const Product = styled("div")(({ theme }) => ({
   display: "flex",
   padding: "12px 30px",
-  "&:nth-child(odd)": {
+  "&:nth-of-type(odd)": {
     backgroundColor: theme.colours.pearl
   },
-  "&:nth-child(even)": {
+  "&:nth-of-type(even)": {
     backgroundColor: theme.colours.white
   }
 }));
 
 export const ImageContainer = styled("div")(({ theme }) => ({
-  width: "125px",
+  maxWidth: "125px",
   display: "flex",
-  padding: "12px 0",
+  padding: "8px 0",
+  marginRight: "45px",
   alignItems: "center",
   [theme.breakpoints!.down!("md")]: {
-    width: "80px"
+    width: "80px",
+    marginRight: "24px"
   }
 }));
 
@@ -135,23 +141,12 @@ export const ProductButtonContainer = styled("div")(({ theme }) => ({
 export const CartActions = styled("div")(({ theme }) => ({
   padding: "30px",
   display: "flex",
+  flexDirection: "column",
+  marginLeft: "16px",
   "& > *": {
-    width: "50%",
+    width: "100%",
     "&:last-child": {
-      marginLeft: "16px"
+      marginTop: "16px"
     }
-  },
-  [theme.breakpoints!.up!("md")]: {
-    flexDirection: "column",
-    "& > *": {
-      width: "100%",
-      "&:last-child": {
-        marginLeft: 0,
-        marginTop: "16px"
-      }
-    }
-  },
-  [theme.breakpoints!.down!("md")]: {
-    padding: "30px 16px"
   }
 }));

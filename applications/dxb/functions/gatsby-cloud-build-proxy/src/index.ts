@@ -1,8 +1,8 @@
 import logger from "@bmi-digital/functions-logger";
-import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import { Asset, createClient, Entry, Environment } from "contentful-management";
 import fetch from "node-fetch";
 import { findBuildWebhooks } from "./find";
+import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 
 const SECRET_MIN_LENGTH = 10;
 

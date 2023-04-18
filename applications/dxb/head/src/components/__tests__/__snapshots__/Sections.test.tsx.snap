@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Sections component renders alternate backgrounds for promos 1`] = `
-HTMLCollection [
+<div>
   <div
     id="Promo 1"
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="PromoSection PromoSection-reversed Section-root Section-white css-25z9ir"
+      class="PromoSection PromoSection-reversed Section-root Section-white css-1obptq1"
       data-testid="promo-section"
     >
       <div
@@ -17,7 +17,7 @@ HTMLCollection [
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 PromoSection-grid css-1149tz3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 PromoSection-grid css-1qxu916-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -28,13 +28,13 @@ HTMLCollection [
                 class="PromoSection-content"
               >
                 <h2
-                  class="MuiTypography-root MuiTypography-h2 PromoSection-title Typography-underline css-ta8c5q-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h2 PromoSection-title Typography-underline css-1gn4sxn-MuiTypography-root"
                   data-testid="typography"
                 >
                   Promo 1
                 </h2>
                 <h3
-                  class="MuiTypography-root MuiTypography-h3 PromoSection-subtitle css-d7brak-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h3 PromoSection-subtitle css-2221f6-MuiTypography-root"
                   data-testid="typography"
                 >
                   Promo 1
@@ -49,13 +49,13 @@ HTMLCollection [
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     id="Promo 2"
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="PromoSection Section-root Section-alabaster css-25z9ir"
+      class="PromoSection Section-root Section-alabaster css-1obptq1"
       data-testid="promo-section"
     >
       <div
@@ -65,7 +65,7 @@ HTMLCollection [
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 PromoSection-grid css-1149tz3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 PromoSection-grid css-1qxu916-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -76,13 +76,13 @@ HTMLCollection [
                 class="PromoSection-content"
               >
                 <h2
-                  class="MuiTypography-root MuiTypography-h2 PromoSection-title Typography-underline css-ta8c5q-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h2 PromoSection-title Typography-underline css-1gn4sxn-MuiTypography-root"
                   data-testid="typography"
                 >
                   Promo 2
                 </h2>
                 <h3
-                  class="MuiTypography-root MuiTypography-h3 PromoSection-subtitle css-d7brak-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h3 PromoSection-subtitle css-2221f6-MuiTypography-root"
                   data-testid="typography"
                 >
                   Promo 2
@@ -97,13 +97,13 @@ HTMLCollection [
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     id="Promo 3"
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="PromoSection PromoSection-reversed Section-root Section-white css-25z9ir"
+      class="PromoSection PromoSection-reversed Section-root Section-white css-1obptq1"
       data-testid="promo-section"
     >
       <div
@@ -113,7 +113,7 @@ HTMLCollection [
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 PromoSection-grid css-1149tz3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 PromoSection-grid css-1qxu916-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -124,22 +124,22 @@ HTMLCollection [
                 class="PromoSection-content"
               >
                 <h2
-                  class="MuiTypography-root MuiTypography-h2 PromoSection-title Typography-underline css-ta8c5q-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h2 PromoSection-title Typography-underline css-1gn4sxn-MuiTypography-root"
                   data-testid="typography"
                 >
                   Promo 3
                 </h2>
                 <h3
-                  class="MuiTypography-root MuiTypography-h3 PromoSection-subtitle css-d7brak-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h3 PromoSection-subtitle css-2221f6-MuiTypography-root"
                   data-testid="typography"
                 >
                   Promo 3
                 </h3>
                 <div
-                  class="RichText-root css-17t4j5c"
+                  class="RichText-root RichText-no-bottom-margin css-1u73y0t"
                 >
                   <h2
-                    class="MuiTypography-root MuiTypography-h2 RichText-title css-ta8c5q-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h2 RichText-title css-1gn4sxn-MuiTypography-root"
                     data-testid="typography"
                   >
                     Heading 2
@@ -155,19 +155,19 @@ HTMLCollection [
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`Sections component renders correctly 1`] = `
-HTMLCollection [
+<div>
   <div
     id="string"
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="Section-root Section-white css-cxq310"
-      data-testid="section"
+      class="Section-root Section-white css-10chrh8"
+      data-testid="tabs-or-accordion-section-string"
     >
       <div
         class=" css-ze8cyt"
@@ -176,13 +176,13 @@ HTMLCollection [
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
             data-testid="typography"
           >
             string
           </h2>
           <p
-            class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
             data-testid="typography"
           >
             string
@@ -199,7 +199,7 @@ HTMLCollection [
                 <div
                   aria-expanded="false"
                   class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
-                  data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"hello\\",\\"action\\":\\"Selector – Accordion\\"}"
+                  data-gtm="{"id":"selector-accordion1","label":"hello","action":"Selector – Accordion"}"
                   role="button"
                   tabindex="0"
                 >
@@ -207,7 +207,7 @@ HTMLCollection [
                     class="MuiAccordionSummary-content Accordion-summaryContent MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
                   >
                     <h3
-                      class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       hello
@@ -247,10 +247,10 @@ HTMLCollection [
                           class="MuiAccordionDetails-root  css-1r7u8wy-MuiAccordionDetails-root"
                         >
                           <div
-                            class="RichText-root css-17t4j5c"
+                            class="RichText-root RichText-no-bottom-margin css-1u73y0t"
                           >
                             <p
-                              class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
                               data-testid="typography"
                             >
                               Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
@@ -267,14 +267,14 @@ HTMLCollection [
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     id="string"
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="Section-root Section-pearl css-cxq310"
-      data-testid="section"
+      class="Section-root Section-pearl css-10chrh8"
+      data-testid="tabs-or-accordion-section-string"
     >
       <div
         class=" css-ze8cyt"
@@ -283,13 +283,13 @@ HTMLCollection [
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
             data-testid="typography"
           >
             string
           </h2>
           <p
-            class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
             data-testid="typography"
           >
             string
@@ -348,7 +348,7 @@ HTMLCollection [
                             aria-controls="tabpanel-hello"
                             aria-selected="true"
                             class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                            data-gtm="{\\"id\\":\\"selector-tabs2\\",\\"label\\":\\"hello\\",\\"action\\":\\"Selector – Tabs\\"}"
+                            data-gtm="{"id":"selector-tabs2","label":"hello","action":"Selector – Tabs"}"
                             data-testid="tab-hello"
                             id="tab-hello"
                             role="tab"
@@ -390,17 +390,17 @@ HTMLCollection [
               </div>
               <div
                 aria-labelledby="tab-hello"
-                class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
+                class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-923awc"
                 data-testid="tabpanel-hello"
                 heading="hello"
                 id="tabpanel-hello"
                 role="tabpanel"
               >
                 <div
-                  class="RichText-root css-17t4j5c"
+                  class="RichText-root css-1u73y0t"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
                     data-testid="typography"
                   >
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
@@ -412,14 +412,14 @@ HTMLCollection [
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     id="Title"
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="Section-root Section-white css-cxq310"
-      data-testid="section"
+      class="Section-root Section-white css-10chrh8"
+      data-testid="syndicate-section-Title"
     >
       <div
         class=" css-ze8cyt"
@@ -428,16 +428,16 @@ HTMLCollection [
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
             data-testid="typography"
           >
             Title
           </h2>
           <div
-            class="Villain-contained css-gtagj9"
+            class="Villain-contained css-1rznarn"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -448,7 +448,7 @@ HTMLCollection [
                   class="Villain-content ColorPair-blue800 css-1pt14k0"
                 >
                   <h3
-                    class="MuiTypography-root MuiTypography-h4 css-duis7c-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h2 Typography-underline css-1jvmopm-MuiTypography-root"
                     data-testid="typography"
                   >
                     Villain 1
@@ -465,10 +465,10 @@ HTMLCollection [
             </div>
           </div>
           <div
-            class="Villain-contained Villain-reversed css-gtagj9"
+            class="Villain-contained Villain-reversed css-1rznarn"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-column-reverse MuiGrid2-spacing-xs-3  css-5nw5p4-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-sm-row-reverse MuiGrid2-direction-xs-column-reverse MuiGrid2-spacing-xs-3  css-15jih4u-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -479,7 +479,7 @@ HTMLCollection [
                   class="Villain-content ColorPair-blue800 css-1pt14k0"
                 >
                   <h3
-                    class="MuiTypography-root MuiTypography-h4 css-duis7c-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h2 Typography-underline css-1jvmopm-MuiTypography-root"
                     data-testid="typography"
                   >
                     Villain 2
@@ -498,7 +498,7 @@ HTMLCollection [
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     id="card collection section title"
     style="margin-top: -150px; padding-top: 150px;"
@@ -508,7 +508,7 @@ HTMLCollection [
       data-testid="card-collection-section-card-collection-section-title"
     >
       <div
-        class="Section-root Section-white css-cxq310"
+        class="Section-root Section-white css-10chrh8"
         data-testid="section"
       >
         <div
@@ -518,21 +518,21 @@ HTMLCollection [
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h2
-              class="MuiTypography-root MuiTypography-h2 title Typography-underline css-ta8c5q-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
               data-testid="typography"
             >
               card collection section title
             </h2>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-3 css-1riydk5-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="card-collection-grid-item-00000000-0000-0000-0000-000000000000"
               >
                 <div
-                  class="OverviewCard-flat MuiBox-root css-1x7vu5"
+                  class="OverviewCard-flat MuiBox-root css-13ealx6"
                 >
                   <div
                     class="OverviewCard-body"
@@ -542,6 +542,8 @@ HTMLCollection [
                     >
                       <svg
                         class="BrandLogo css-gn1fhj"
+                        data-testid="brand-logo"
+                        preserveAspectRatio="xMinYMin"
                         viewBox="0 0 244 100"
                         xml:space="preserve"
                         xmlns="http://www.w3.org/2000/svg"
@@ -553,12 +555,12 @@ HTMLCollection [
                       </svg>
                     </div>
                     <h4
-                      class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1ekntu4-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
                       data-testid="overview-card-body-title"
                     >
                       <a
                         class="MuiButtonBase-root OverviewCard-clickableArea css-10d1a0h-MuiButtonBase-root"
-                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"promo title - Card Label\\",\\"action\\":\\"/uk/contact-us/\\"}"
+                        data-gtm="{"id":"cta-click1","label":"promo title - Card Label","action":"/uk/contact-us/"}"
                         data-testid="card-collection-section-item-promo-title"
                         href="/uk/contact-us/"
                         tabindex="0"
@@ -571,18 +573,18 @@ HTMLCollection [
                       </a>
                     </h4>
                     <div
-                      class="OverviewCard-text css-fm25tm"
+                      class="OverviewCard-text css-kl66ak"
                       data-testid="overview-card-body-description"
                     >
                       promo subtitle
                     </div>
                     <div
-                      class="css-1tho2wt"
+                      class="css-ekp6jg"
                       data-testid="overview-card-body-footer"
                     >
                       <a
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"promo title - Card Label\\",\\"action\\":\\"/uk/contact-us/\\"}"
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                        data-gtm="{"id":"cta-click1","label":"promo title - Card Label","action":"/uk/contact-us/"}"
                         data-testid="card-link"
                         href="/uk/contact-us/"
                         tabindex="0"
@@ -614,7 +616,7 @@ HTMLCollection [
             </div>
             <a
               class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium link css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-              data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/uk/contact-us/\\",\\"label\\":\\"Contact us\\"}"
+              data-gtm="{"id":"cta-click1","action":"/uk/contact-us/","label":"Contact us"}"
               href="/uk/contact-us/"
               tabindex="0"
             >
@@ -642,7 +644,7 @@ HTMLCollection [
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     id="card section title 2"
     style="margin-top: -150px; padding-top: 150px;"
@@ -652,7 +654,7 @@ HTMLCollection [
       data-testid="card-collection-section-card-section-title-2"
     >
       <div
-        class="Section-root Section-pearl css-cxq310"
+        class="Section-root Section-pearl css-10chrh8"
         data-testid="section"
       >
         <div
@@ -662,22 +664,22 @@ HTMLCollection [
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h2
-              class="MuiTypography-root MuiTypography-h2 title Typography-underline css-ta8c5q-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
               data-testid="typography"
             >
               card section title 2
             </h2>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-3 css-1riydk5-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="card-collection-grid-item-00000000-0000-0000-0000-000000000000"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-iozq77-MuiButtonBase-root"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"page title - Go to page title\\",\\"action\\":\\"/uk/path/\\"}"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                  data-gtm="{"id":"cta-click1","label":"page title - Go to page title","action":"/uk/path/"}"
                   data-testid="card-collection-section-item-page-title"
                   href="/uk/path/"
                   tabindex="0"
@@ -706,16 +708,16 @@ HTMLCollection [
                     />
                     <picture>
                       <source
-                        data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
+                        data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
                         sizes="(min-width: 948px) 948px, 100vw"
                         type="image/webp"
                       />
                       <img
-                        alt="Lorem ipsum"
+                        alt="Image alt text"
                         data-gatsby-image-ssr=""
                         data-main-image=""
                         data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                        data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+                        data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
                         decoding="async"
                         draggable="false"
                         loading="lazy"
@@ -737,23 +739,23 @@ HTMLCollection [
                       class="OverviewCard-brandLogo OverviewCard-negative"
                     />
                     <h4
-                      class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1ekntu4-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
                       data-testid="overview-card-body-title"
                     >
                       page title
                     </h4>
                     <div
-                      class="OverviewCard-text css-fm25tm"
+                      class="OverviewCard-text css-kl66ak"
                       data-testid="overview-card-body-description"
                     >
                       page subtitle
                     </div>
                     <div
-                      class="css-1tho2wt"
+                      class="css-ekp6jg"
                       data-testid="overview-card-body-footer"
                     >
                       <span
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
@@ -776,13 +778,13 @@ HTMLCollection [
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     id="card section title 2"
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="PromoSection Section-root Section-alabaster css-25z9ir"
+      class="PromoSection Section-root Section-alabaster css-1obptq1"
       data-testid="promo-section"
     >
       <div
@@ -792,7 +794,7 @@ HTMLCollection [
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 PromoSection-grid css-1149tz3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 PromoSection-grid css-1qxu916-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -803,13 +805,13 @@ HTMLCollection [
                 class="PromoSection-content"
               >
                 <h2
-                  class="MuiTypography-root MuiTypography-h2 PromoSection-title Typography-underline css-ta8c5q-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h2 PromoSection-title Typography-underline css-1gn4sxn-MuiTypography-root"
                   data-testid="typography"
                 >
                   card section title 2
                 </h2>
                 <h3
-                  class="MuiTypography-root MuiTypography-h3 PromoSection-subtitle css-d7brak-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h3 PromoSection-subtitle css-2221f6-MuiTypography-root"
                   data-testid="typography"
                 >
                   card section title 2
@@ -819,7 +821,7 @@ HTMLCollection [
                 >
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{\\"id\\":\\"cta-click1 \\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
+                    data-gtm="{"id":"cta-click1 ","label":"string","action":"link-to-page"}"
                     href="link-to-page"
                     tabindex="0"
                   >
@@ -836,68 +838,64 @@ HTMLCollection [
               data-testid="grid-item"
             >
               <div
-                class="PromoSection-image css-7mgsqw-Media"
+                class="PromoSection-image css-1moer0t-Media"
+                data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=abc123-Video","action":"Play"}"
+                data-testid="youtube-dialog-wrapper"
               >
-                <div
-                  class="css-1cojfdr"
-                  data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=abc123-Video\\",\\"action\\":\\"Play\\"}"
-                  data-testid="youtube-dialog-wrapper"
+                <button
+                  aria-label="Video"
+                  class="YoutubeVideo-thumbnail"
+                  data-testid="thumbnail"
+                  type="button"
                 >
-                  <button
+                  <img
+                    alt="Video"
+                    class="YoutubeVideo-previewImage"
+                    data-testid="youtube-preview-image"
+                    src="https://i.ytimg.com/vi/abc123/maxresdefault.jpg"
+                  />
+                  <span
+                    class="css-1ptr1nd"
+                  >
+                    Video
+                  </span>
+                  <div
                     aria-label="Video"
-                    class="YoutubeVideo-thumbnail"
-                    data-testid="thumbnail"
+                    class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                    data-testid="thumbnail-button"
+                    role="button"
+                    tabindex="0"
                     type="button"
                   >
-                    <img
-                      alt="Video"
-                      class="YoutubeVideo-previewImage"
-                      data-testid="youtube-preview-image"
-                      src="https://i.ytimg.com/vi/abc123/maxresdefault.jpg"
-                    />
-                    <span
-                      class="css-1ptr1nd"
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                      data-testid="PlayArrowIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
                     >
-                      Video
-                    </span>
-                    <div
-                      aria-label="Video"
-                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-                      data-testid="thumbnail-button"
-                      role="button"
-                      tabindex="0"
-                      type="button"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                        data-testid="PlayArrowIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M8 5v14l11-7z"
-                        />
-                      </svg>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      <path
+                        d="M8 5v14l11-7z"
                       />
-                    </div>
-                  </button>
-                </div>
+                    </svg>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </div>
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     id="card section title 2"
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="PromoSection Section-root Section-alabaster css-25z9ir"
+      class="PromoSection Section-root Section-alabaster css-1obptq1"
       data-testid="promo-section"
     >
       <div
@@ -907,7 +905,7 @@ HTMLCollection [
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 PromoSection-grid css-1149tz3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 PromoSection-grid css-1qxu916-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -918,13 +916,13 @@ HTMLCollection [
                 class="PromoSection-content"
               >
                 <h2
-                  class="MuiTypography-root MuiTypography-h2 PromoSection-title Typography-underline css-ta8c5q-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h2 PromoSection-title Typography-underline css-1gn4sxn-MuiTypography-root"
                   data-testid="typography"
                 >
                   card section title 2
                 </h2>
                 <h3
-                  class="MuiTypography-root MuiTypography-h3 PromoSection-subtitle css-d7brak-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h3 PromoSection-subtitle css-2221f6-MuiTypography-root"
                   data-testid="typography"
                 >
                   card section title 2
@@ -958,15 +956,16 @@ HTMLCollection [
                 />
                 <picture>
                   <source
-                    data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
+                    data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
                     sizes="(min-width: 948px) 948px, 100vw"
                     type="image/webp"
                   />
                   <img
+                    alt="Image alt text"
                     data-gatsby-image-ssr=""
                     data-main-image=""
                     data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                    data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+                    data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
                     decoding="async"
                     draggable="false"
                     loading="lazy"
@@ -986,14 +985,14 @@ HTMLCollection [
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     id="Gallery title"
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="MediaGallerySection Section-root Section-alabaster css-cxq310"
-      data-testid="section"
+      class="MediaGallerySection Section-root Section-alabaster css-10chrh8"
+      data-testid="media-gallery-section-Gallery-title"
     >
       <div
         class=" css-ze8cyt"
@@ -1002,22 +1001,22 @@ HTMLCollection [
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-lg-8 Grid-item css-wuqcfn-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-lg-8 gridItem css-wuqcfn-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h2
-                class="MuiTypography-root MuiTypography-h2 Typography-underline css-ta8c5q-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
                 data-testid="typography"
               >
                 Gallery title
               </h2>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 Grid-item css-16fnxy3-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 gridItem css-r7p5j6-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -1051,16 +1050,19 @@ HTMLCollection [
                     />
                     <picture>
                       <source
-                        data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
+                        data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
                         sizes="(min-width: 948px) 948px, 100vw"
                         type="image/webp"
                       />
                       <img
-                        alt="Lorem ipsum"
+                        __typename="ContentfulImage"
+                        alt="alt text"
+                        caption="[object Object]"
                         data-gatsby-image-ssr=""
                         data-main-image=""
                         data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                        data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+                        data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+                        data-testid="media-gallery-media"
                         decoding="async"
                         draggable="false"
                         loading="lazy"
@@ -1075,6 +1077,22 @@ HTMLCollection [
                       const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}
                     </script>
                   </div>
+                  <div
+                    class="css-7y46ji"
+                    data-testid="media-gallery-caption-text"
+                  >
+                    <p
+                      class="MuiTypography-root MuiTypography-h6 css-1s1oev7-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      <span
+                        class="LinesEllipsis  Truncate-root css-13o7eu2"
+                      >
+                        CAPTION
+                        <wbr />
+                      </span>
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1082,14 +1100,14 @@ HTMLCollection [
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     id="Document Downloads"
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="Section-root Section-white css-cxq310"
-      data-testid="section"
+      class="Section-root Section-white css-10chrh8"
+      data-testid="document-download-section-Document-Downloads"
     >
       <div
         class=" css-ze8cyt"
@@ -1098,7 +1116,7 @@ HTMLCollection [
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
             data-testid="typography"
           >
             Document Downloads
@@ -1107,10 +1125,10 @@ HTMLCollection [
             style="margin-bottom: 40px;"
           >
             <div
-              class="RichText-root css-17t4j5c"
+              class="RichText-root css-1u73y0t"
             >
               <p
-                class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
                 data-testid="typography"
               >
                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
@@ -1120,14 +1138,14 @@ HTMLCollection [
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     id="Service Locator"
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="ServiceLocationSection Section-root Section-white css-cxq310"
-      data-testid="section"
+      class="ServiceLocationSection Section-root Section-white css-10chrh8"
+      data-testid="service-locator-section-Find-A-Roofer"
     >
       <div
         class=" css-ze8cyt"
@@ -1136,7 +1154,7 @@ HTMLCollection [
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-vvjsjl-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -1144,14 +1162,14 @@ HTMLCollection [
               data-testid="grid-item"
             >
               <div
-                class="MuiAutocomplete-root company-autocomplete css-1qqsdnr-MuiAutocomplete-root"
+                class="MuiAutocomplete-root company-autocomplete css-l3ln04-MuiAutocomplete-root"
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
-                  data-testid="text-field-company-autocomplete"
+                  data-testid="company-autocomplete"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-taxj8h-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="true"
                     for="company-autocomplete"
                     id="company-autocomplete-label"
@@ -1185,6 +1203,7 @@ HTMLCollection [
                       autocapitalize="none"
                       autocomplete="off"
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiAutocomplete-input MuiAutocomplete-inputFocused css-1o9s3wi-MuiInputBase-input-MuiOutlinedInput-input"
+                      data-testid="company-autocomplete-input"
                       id="company-autocomplete"
                       name="autocomplete-field"
                       role="combobox"
@@ -1208,7 +1227,7 @@ HTMLCollection [
                 </div>
               </div>
               <p
-                class="MuiTypography-root MuiTypography-body1 and-or-label css-87ejlm-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 and-or-label css-1o02bdp-MuiTypography-root"
                 data-testid="typography"
               >
                 <span>
@@ -1330,7 +1349,7 @@ HTMLCollection [
             </div>
             <div
               aria-labelledby="tab-list"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1rk7w2f"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
               data-testid="tabpanel-list"
               heading="findARoofer.listLabel"
               id="tabpanel-list"
@@ -1340,13 +1359,13 @@ HTMLCollection [
                 class="no-results"
               >
                 <h4
-                  class="MuiTypography-root MuiTypography-h4 no-results-heading css-1ekntu4-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h4 no-results-heading css-1x9euu8-MuiTypography-root"
                   data-testid="typography"
                 >
                   findARoofer.noResults.title
                 </h4>
                 <p
-                  class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                   data-testid="typography"
                 >
                   findARoofer.noResults.subtitle
@@ -1355,7 +1374,7 @@ HTMLCollection [
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-71osed"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
               data-testid="tabpanel-map"
               heading="findARoofer.mapLabel"
               hidden=""
@@ -1398,14 +1417,14 @@ HTMLCollection [
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     id="Service Locator - with services"
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="ServiceLocationSection Section-root Section-white css-cxq310"
-      data-testid="section"
+      class="ServiceLocationSection Section-root Section-white css-10chrh8"
+      data-testid="service-locator-section-Find-A-Roofer"
     >
       <div
         class=" css-ze8cyt"
@@ -1414,7 +1433,7 @@ HTMLCollection [
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-vvjsjl-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -1422,14 +1441,14 @@ HTMLCollection [
               data-testid="grid-item"
             >
               <div
-                class="MuiAutocomplete-root company-autocomplete css-1qqsdnr-MuiAutocomplete-root"
+                class="MuiAutocomplete-root company-autocomplete css-l3ln04-MuiAutocomplete-root"
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
-                  data-testid="text-field-company-autocomplete"
+                  data-testid="company-autocomplete"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-taxj8h-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="true"
                     for="company-autocomplete"
                     id="company-autocomplete-label"
@@ -1463,6 +1482,7 @@ HTMLCollection [
                       autocapitalize="none"
                       autocomplete="off"
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiAutocomplete-input MuiAutocomplete-inputFocused css-1o9s3wi-MuiInputBase-input-MuiOutlinedInput-input"
+                      data-testid="company-autocomplete-input"
                       id="company-autocomplete"
                       name="autocomplete-field"
                       role="combobox"
@@ -1486,7 +1506,7 @@ HTMLCollection [
                 </div>
               </div>
               <p
-                class="MuiTypography-root MuiTypography-body1 and-or-label css-87ejlm-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 and-or-label css-1o02bdp-MuiTypography-root"
                 data-testid="typography"
               >
                 <span>
@@ -1551,14 +1571,14 @@ HTMLCollection [
                   class="chips"
                 >
                   <h6
-                    class="MuiTypography-root MuiTypography-h6 chips-label css-1le86ss-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 chips-label css-1nuwz6u-MuiTypography-root"
                     data-testid="typography"
                   >
                     findARoofer.filtersLabel
                   </h6>
                   <div
                     class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
-                    data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Pitched Roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                    data-gtm="{"id":"selector-cards1","label":"Pitched Roof","action":"Selector - Cards Filter"}"
                     data-testid="service-locator-chip-Pitched-Roof"
                     role="button"
                     tabindex="0"
@@ -1574,7 +1594,7 @@ HTMLCollection [
                   </div>
                   <div
                     class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
-                    data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                    data-gtm="{"id":"selector-cards1","label":"Flat Roof","action":"Selector - Cards Filter"}"
                     data-testid="service-locator-chip-Flat-Roof"
                     role="button"
                     tabindex="0"
@@ -1659,7 +1679,7 @@ HTMLCollection [
             </div>
             <div
               aria-labelledby="tab-list"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1rk7w2f"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
               data-testid="tabpanel-list"
               heading="findARoofer.listLabel"
               id="tabpanel-list"
@@ -1667,13 +1687,14 @@ HTMLCollection [
             >
               <div
                 class=""
+                data-testid="results-list-section"
               >
                 <div
                   class="list"
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
-                    data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                    data-gtm="{"id":"selector-cards6","label":"roofer 1 - address 1 - Roofer - selected","action":"Expanded company details"}"
                     data-testid="GTMIntegratedLinkCard-test-id"
                   >
                     <div
@@ -1681,13 +1702,13 @@ HTMLCollection [
                       data-testid="linkCard-item"
                     >
                       <h6
-                        class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom  css-1vyiy8g-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                         data-testid="typography"
                       >
                         roofer 1
                       </h6>
                       <p
-                        class="MuiTypography-root MuiTypography-body1 css-sd7cbl-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                         data-testid="typography"
                       >
                         address 1
@@ -1724,7 +1745,7 @@ HTMLCollection [
                           >
                             <div>
                               <dl
-                                class="css-axlavq"
+                                class="css-jmzo47"
                               >
                                 <div
                                   class="CompanyDetails-row"
@@ -1745,7 +1766,7 @@ HTMLCollection [
                                       />
                                     </svg>
                                     <span
-                                      class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-87ejlm-MuiTypography-root"
+                                      class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-1o02bdp-MuiTypography-root"
                                       data-testid="typography"
                                     >
                                       global.telephone
@@ -1755,8 +1776,8 @@ HTMLCollection [
                                     class="css-bp47jm"
                                   >
                                     <a
-                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kiv9ae-MuiTypography-root-MuiLink-root"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 1 - address 1 - Pitched Roof\\",\\"action\\":\\"tel:phone 1\\"}"
+                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-swxrni-MuiTypography-root-MuiLink-root"
+                                      data-gtm="{"id":"cta-click1","label":"roofer 1 - address 1 - Pitched Roof","action":"tel:phone 1"}"
                                       data-testid="anchor-link"
                                       href="tel:phone 1"
                                     >
@@ -1785,7 +1806,7 @@ HTMLCollection [
                                       />
                                     </svg>
                                     <span
-                                      class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-87ejlm-MuiTypography-root"
+                                      class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-1o02bdp-MuiTypography-root"
                                       data-testid="typography"
                                     >
                                       global.email
@@ -1795,8 +1816,8 @@ HTMLCollection [
                                     class="css-bp47jm"
                                   >
                                     <a
-                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kiv9ae-MuiTypography-root-MuiLink-root"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 1 - address 1 - Pitched Roof\\",\\"action\\":\\"mailto:test@test.com\\"}"
+                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-swxrni-MuiTypography-root-MuiLink-root"
+                                      data-gtm="{"id":"cta-click1","label":"roofer 1 - address 1 - Pitched Roof","action":"mailto:test@test.com"}"
                                       data-testid="anchor-link"
                                       href="mailto:test@test.com"
                                     >
@@ -1825,7 +1846,7 @@ HTMLCollection [
                                       />
                                     </svg>
                                     <span
-                                      class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-87ejlm-MuiTypography-root"
+                                      class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-1o02bdp-MuiTypography-root"
                                       data-testid="typography"
                                     >
                                       global.website
@@ -1835,8 +1856,8 @@ HTMLCollection [
                                     class="css-bp47jm"
                                   >
                                     <a
-                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kiv9ae-MuiTypography-root-MuiLink-root"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 1 - address 1 - Pitched Roof\\",\\"action\\":\\"https://www.test.com\\"}"
+                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-swxrni-MuiTypography-root-MuiLink-root"
+                                      data-gtm="{"id":"cta-click1","label":"roofer 1 - address 1 - Pitched Roof","action":"https://www.test.com"}"
                                       data-testid="anchor-link"
                                       href="https://www.test.com"
                                       rel="noopener noreferrer"
@@ -1856,7 +1877,7 @@ HTMLCollection [
                                     class="css-10edjq1"
                                   >
                                     <span
-                                      class="MuiTypography-root MuiTypography-body1 CompanyDetails-label css-87ejlm-MuiTypography-root"
+                                      class="MuiTypography-root MuiTypography-body1 CompanyDetails-label css-1o02bdp-MuiTypography-root"
                                       data-testid="typography"
                                     >
                                       findARoofer.roofTypeLabel
@@ -1872,7 +1893,7 @@ HTMLCollection [
                                 </div>
                               </dl>
                               <p
-                                class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 roofer summary
@@ -1885,7 +1906,7 @@ HTMLCollection [
                   </div>
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
-                    data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 2 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                    data-gtm="{"id":"selector-cards6","label":"roofer 2 - address 1 - Roofer - selected","action":"Expanded company details"}"
                     data-testid="GTMIntegratedLinkCard-test-id"
                   >
                     <div
@@ -1893,13 +1914,13 @@ HTMLCollection [
                       data-testid="linkCard-item"
                     >
                       <h6
-                        class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom  css-1vyiy8g-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                         data-testid="typography"
                       >
                         roofer 2
                       </h6>
                       <p
-                        class="MuiTypography-root MuiTypography-body1 css-sd7cbl-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                         data-testid="typography"
                       >
                         address 1
@@ -1936,7 +1957,7 @@ HTMLCollection [
                           >
                             <div>
                               <dl
-                                class="css-axlavq"
+                                class="css-jmzo47"
                               >
                                 <div
                                   class="CompanyDetails-row"
@@ -1957,7 +1978,7 @@ HTMLCollection [
                                       />
                                     </svg>
                                     <span
-                                      class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-87ejlm-MuiTypography-root"
+                                      class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-1o02bdp-MuiTypography-root"
                                       data-testid="typography"
                                     >
                                       global.telephone
@@ -1967,8 +1988,8 @@ HTMLCollection [
                                     class="css-bp47jm"
                                   >
                                     <a
-                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kiv9ae-MuiTypography-root-MuiLink-root"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 2 - address 1 - Pitched Roof\\",\\"action\\":\\"tel:phone 1\\"}"
+                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-swxrni-MuiTypography-root-MuiLink-root"
+                                      data-gtm="{"id":"cta-click1","label":"roofer 2 - address 1 - Pitched Roof","action":"tel:phone 1"}"
                                       data-testid="anchor-link"
                                       href="tel:phone 1"
                                     >
@@ -1997,7 +2018,7 @@ HTMLCollection [
                                       />
                                     </svg>
                                     <span
-                                      class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-87ejlm-MuiTypography-root"
+                                      class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-1o02bdp-MuiTypography-root"
                                       data-testid="typography"
                                     >
                                       global.email
@@ -2007,8 +2028,8 @@ HTMLCollection [
                                     class="css-bp47jm"
                                   >
                                     <a
-                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kiv9ae-MuiTypography-root-MuiLink-root"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 2 - address 1 - Pitched Roof\\",\\"action\\":\\"mailto:test@test.com\\"}"
+                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-swxrni-MuiTypography-root-MuiLink-root"
+                                      data-gtm="{"id":"cta-click1","label":"roofer 2 - address 1 - Pitched Roof","action":"mailto:test@test.com"}"
                                       data-testid="anchor-link"
                                       href="mailto:test@test.com"
                                     >
@@ -2037,7 +2058,7 @@ HTMLCollection [
                                       />
                                     </svg>
                                     <span
-                                      class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-87ejlm-MuiTypography-root"
+                                      class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-1o02bdp-MuiTypography-root"
                                       data-testid="typography"
                                     >
                                       global.website
@@ -2047,8 +2068,8 @@ HTMLCollection [
                                     class="css-bp47jm"
                                   >
                                     <a
-                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kiv9ae-MuiTypography-root-MuiLink-root"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 2 - address 1 - Pitched Roof\\",\\"action\\":\\"https://www.test.com\\"}"
+                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-swxrni-MuiTypography-root-MuiLink-root"
+                                      data-gtm="{"id":"cta-click1","label":"roofer 2 - address 1 - Pitched Roof","action":"https://www.test.com"}"
                                       data-testid="anchor-link"
                                       href="https://www.test.com"
                                       rel="noopener noreferrer"
@@ -2068,7 +2089,7 @@ HTMLCollection [
                                     class="css-10edjq1"
                                   >
                                     <span
-                                      class="MuiTypography-root MuiTypography-body1 CompanyDetails-label css-87ejlm-MuiTypography-root"
+                                      class="MuiTypography-root MuiTypography-body1 CompanyDetails-label css-1o02bdp-MuiTypography-root"
                                       data-testid="typography"
                                     >
                                       findARoofer.roofTypeLabel
@@ -2084,7 +2105,7 @@ HTMLCollection [
                                 </div>
                               </dl>
                               <p
-                                class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 roofer summary
@@ -2100,7 +2121,7 @@ HTMLCollection [
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-71osed"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
               data-testid="tabpanel-map"
               heading="findARoofer.mapLabel"
               hidden=""
@@ -2143,14 +2164,14 @@ HTMLCollection [
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     id="Section title"
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="VideoSection Section-root css-cxq310"
-      data-testid="section"
+      class="VideoSection Section-root css-10chrh8"
+      data-testid="video-section-Section-title"
     >
       <div
         class=" css-ze8cyt"
@@ -2159,16 +2180,16 @@ HTMLCollection [
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 heading Typography-underline css-je89nd-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 heading Typography-underline css-1gn4sxn-MuiTypography-root"
             data-testid="typography"
           >
             Section title
           </h2>
           <div
-            class="RichText-root css-17t4j5c"
+            class="RichText-root RichText-no-bottom-margin css-1u73y0t"
           >
             <p
-              class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
               data-testid="typography"
             >
               Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
@@ -2178,8 +2199,8 @@ HTMLCollection [
             class="video"
           >
             <div
-              class="YoutubeVideo-inline css-1v1pu4w"
-              data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=A-RfHC91Ewc-Video label\\",\\"action\\":\\"Play\\"}"
+              class="YoutubeVideo-inline css-1tx8gw7"
+              data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=A-RfHC91Ewc-Video label","action":"Play"}"
               data-testid="youtube-inline-wrapper"
             >
               <div>
@@ -2214,7 +2235,7 @@ HTMLCollection [
                     />
                   </button>
                   <p
-                    class="MuiTypography-root MuiTypography-body1 YoutubeVideo-subtitle css-87ejlm-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1 YoutubeVideo-subtitle css-1o02bdp-MuiTypography-root"
                     data-testid="typography"
                   />
                 </div>
@@ -2223,6 +2244,7 @@ HTMLCollection [
                 style="opacity: 0; visibility: hidden; transition-delay: 500ms;"
               >
                 <div
+                  data-testid="youtube-inline-react-player"
                   style="width: 640px; height: 360px;"
                 >
                   <div
@@ -2237,13 +2259,13 @@ HTMLCollection [
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     id="Team Section - alabaster"
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="TeamSection-alabaster Section-root css-irirzf"
+      class="TeamSection-alabaster Section-root css-1az4hqf"
       data-testid="section"
     >
       <div
@@ -2253,7 +2275,7 @@ HTMLCollection [
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -2261,7 +2283,7 @@ HTMLCollection [
               data-testid="grid-item"
             >
               <h2
-                class="MuiTypography-root MuiTypography-h2 Typography-underline css-jpbsv5-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h2 Typography-underline css-trnnr7-MuiTypography-root"
                 data-testid="typography"
               >
                 Team Section - alabaster
@@ -2320,7 +2342,7 @@ HTMLCollection [
                                 aria-controls="tabpanel-0"
                                 aria-selected="true"
                                 class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                                data-gtm="{\\"id\\":\\"selector-tabs2\\",\\"label\\":\\"Team Category 1\\",\\"action\\":\\"Selector – Tabs\\"}"
+                                data-gtm="{"id":"selector-tabs2","label":"Team Category 1","action":"Selector – Tabs"}"
                                 data-testid="tab-0"
                                 id="tab-0"
                                 role="tab"
@@ -2363,7 +2385,7 @@ HTMLCollection [
                 </div>
                 <div
                   aria-labelledby="tab-0"
-                  class="Tabs-tabPanel Tabs-tabPanelBox TeamSection-tabPanel MuiBox-root css-19kzrtu"
+                  class="Tabs-tabPanel Tabs-tabPanelBox TeamSection-tabPanel MuiBox-root css-923awc"
                   data-testid="tabpanel-0"
                   heading="Team Category 1"
                   id="tabpanel-0"
@@ -2380,10 +2402,10 @@ HTMLCollection [
                         style="margin-bottom: 60px;"
                       >
                         <div
-                          class="RichText-root css-17t4j5c"
+                          class="RichText-root css-1u73y0t"
                         >
                           <p
-                            class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+                            class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
                             data-testid="typography"
                           >
                             Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
@@ -2393,11 +2415,11 @@ HTMLCollection [
                       <div>
                         <div>
                           <div
-                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-1xkue61-MuiGrid2-root"
+                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-1jy9zk3-MuiGrid2-root"
                             data-testid="grid-container"
                           >
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-vmc4ev-MuiGrid2-root"
+                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-1xrs7k5-MuiGrid2-root"
                               data-testid="grid-item"
                             >
                               <div
@@ -2428,19 +2450,19 @@ HTMLCollection [
                                   class="EqualHeights-contentBox css-1kjwaal"
                                 >
                                   <div
-                                    class="css-u0bjcv"
+                                    class="css-pbr3p6"
                                     data-testid="profile-card-body"
                                     style="height: auto;"
                                   >
                                     <div>
                                       <strong
-                                        class="MuiTypography-root MuiTypography-h5  css-10q7alf-MuiTypography-root"
+                                        class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
                                         data-testid="profile-card-body-name"
                                       >
                                         Bob McBobbinson
                                       </strong>
                                       <p
-                                        class="MuiTypography-root MuiTypography-body2 css-cki935-MuiTypography-root"
+                                        class="MuiTypography-root MuiTypography-body2 css-isqx83-MuiTypography-root"
                                         data-testid="profile-card-body-title"
                                       >
                                         CEO
@@ -2462,13 +2484,13 @@ HTMLCollection [
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     id="Team Section - undefined colour (2 categories)"
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="TeamSection-white Section-root css-irirzf"
+      class="TeamSection-white Section-root css-1az4hqf"
       data-testid="section"
     >
       <div
@@ -2478,7 +2500,7 @@ HTMLCollection [
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -2486,7 +2508,7 @@ HTMLCollection [
               data-testid="grid-item"
             >
               <h2
-                class="MuiTypography-root MuiTypography-h2 Typography-underline css-jpbsv5-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h2 Typography-underline css-trnnr7-MuiTypography-root"
                 data-testid="typography"
               >
                 Team Section - undefined colour (2 categories)
@@ -2545,7 +2567,7 @@ HTMLCollection [
                                 aria-controls="tabpanel-0"
                                 aria-selected="true"
                                 class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                                data-gtm="{\\"id\\":\\"selector-tabs2\\",\\"label\\":\\"Team Category 1\\",\\"action\\":\\"Selector – Tabs\\"}"
+                                data-gtm="{"id":"selector-tabs2","label":"Team Category 1","action":"Selector – Tabs"}"
                                 data-testid="tab-0"
                                 id="tab-0"
                                 role="tab"
@@ -2561,7 +2583,7 @@ HTMLCollection [
                                 aria-controls="tabpanel-1"
                                 aria-selected="false"
                                 class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                                data-gtm="{\\"id\\":\\"selector-tabs2\\",\\"label\\":\\"Team Category 2\\",\\"action\\":\\"Selector – Tabs\\"}"
+                                data-gtm="{"id":"selector-tabs2","label":"Team Category 2","action":"Selector – Tabs"}"
                                 data-testid="tab-1"
                                 id="tab-1"
                                 role="tab"
@@ -2604,7 +2626,7 @@ HTMLCollection [
                 </div>
                 <div
                   aria-labelledby="tab-0"
-                  class="Tabs-tabPanel Tabs-tabPanelBox TeamSection-tabPanel MuiBox-root css-19kzrtu"
+                  class="Tabs-tabPanel Tabs-tabPanelBox TeamSection-tabPanel MuiBox-root css-923awc"
                   data-testid="tabpanel-0"
                   heading="Team Category 1"
                   id="tabpanel-0"
@@ -2621,10 +2643,10 @@ HTMLCollection [
                         style="margin-bottom: 60px;"
                       >
                         <div
-                          class="RichText-root css-17t4j5c"
+                          class="RichText-root css-1u73y0t"
                         >
                           <p
-                            class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+                            class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
                             data-testid="typography"
                           >
                             Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
@@ -2634,11 +2656,11 @@ HTMLCollection [
                       <div>
                         <div>
                           <div
-                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-1xkue61-MuiGrid2-root"
+                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-1jy9zk3-MuiGrid2-root"
                             data-testid="grid-container"
                           >
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-vmc4ev-MuiGrid2-root"
+                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-1xrs7k5-MuiGrid2-root"
                               data-testid="grid-item"
                             >
                               <div
@@ -2669,19 +2691,19 @@ HTMLCollection [
                                   class="EqualHeights-contentBox css-1kjwaal"
                                 >
                                   <div
-                                    class="css-u0bjcv"
+                                    class="css-pbr3p6"
                                     data-testid="profile-card-body"
                                     style="height: auto;"
                                   >
                                     <div>
                                       <strong
-                                        class="MuiTypography-root MuiTypography-h5  css-10q7alf-MuiTypography-root"
+                                        class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
                                         data-testid="profile-card-body-name"
                                       >
                                         Bob McBobbinson
                                       </strong>
                                       <p
-                                        class="MuiTypography-root MuiTypography-body2 css-cki935-MuiTypography-root"
+                                        class="MuiTypography-root MuiTypography-body2 css-isqx83-MuiTypography-root"
                                         data-testid="profile-card-body-title"
                                       >
                                         CEO
@@ -2699,7 +2721,7 @@ HTMLCollection [
                 </div>
                 <div
                   aria-labelledby="tab-1"
-                  class="Tabs-tabPanel Tabs-tabPanelBox TeamSection-tabPanel MuiBox-root css-19kzrtu"
+                  class="Tabs-tabPanel Tabs-tabPanelBox TeamSection-tabPanel MuiBox-root css-923awc"
                   data-testid="tabpanel-1"
                   heading="Team Category 2"
                   hidden=""
@@ -2716,11 +2738,11 @@ HTMLCollection [
                       <div>
                         <div>
                           <div
-                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-1xkue61-MuiGrid2-root"
+                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-1jy9zk3-MuiGrid2-root"
                             data-testid="grid-container"
                           >
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-vmc4ev-MuiGrid2-root"
+                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-1xrs7k5-MuiGrid2-root"
                               data-testid="grid-item"
                             >
                               <div
@@ -2751,19 +2773,19 @@ HTMLCollection [
                                   class="EqualHeights-contentBox css-1kjwaal"
                                 >
                                   <div
-                                    class="css-u0bjcv"
+                                    class="css-pbr3p6"
                                     data-testid="profile-card-body"
                                     style="height: auto;"
                                   >
                                     <div>
                                       <strong
-                                        class="MuiTypography-root MuiTypography-h5  css-10q7alf-MuiTypography-root"
+                                        class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
                                         data-testid="profile-card-body-name"
                                       >
                                         Johnny McJohnson
                                       </strong>
                                       <p
-                                        class="MuiTypography-root MuiTypography-body2 css-cki935-MuiTypography-root"
+                                        class="MuiTypography-root MuiTypography-body2 css-isqx83-MuiTypography-root"
                                         data-testid="profile-card-body-title"
                                       >
                                         CEO
@@ -2785,14 +2807,14 @@ HTMLCollection [
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     id="Explore"
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="Section-root css-cxq310"
-      data-testid="section"
+      class="Section-root css-10chrh8"
+      data-testid="explorer-bar-section-Explore"
     >
       <div
         class=" css-ze8cyt"
@@ -2805,7 +2827,7 @@ HTMLCollection [
             class="css-v7bjwn"
           >
             <h2
-              class="MuiTypography-root MuiTypography-h6 css-jlrilz-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h6 css-1jvwmj5-MuiTypography-root"
               data-testid="typography"
               id="explore-bar"
             >
@@ -2813,7 +2835,7 @@ HTMLCollection [
             </h2>
             <a
               class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined Button-opaqueOutlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined Button-opaqueOutlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1clvr55-MuiButtonBase-root-MuiButton-root"
-              data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"link-to-page\\",\\"label\\":\\"string\\"}"
+              data-gtm="{"id":"cta-click1","action":"link-to-page","label":"string"}"
               href="link-to-page"
               tabindex="0"
             >
@@ -2826,14 +2848,14 @@ HTMLCollection [
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     id="Form section"
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="Section-root css-cxq310"
-      data-testid="section"
+      class="Section-root css-10chrh8"
+      data-testid="contentful-form-section-Form-section"
     >
       <div
         class=" css-ze8cyt"
@@ -2842,17 +2864,17 @@ HTMLCollection [
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
             data-testid="typography"
           >
             Form section
           </h2>
           <form
             class="Form-rightAlignButton css-yp4v13"
-            data-testid="form"
+            data-testid="section-Form-section"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -2884,6 +2906,7 @@ HTMLCollection [
                     <input
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+                      data-testid="text-field-first-name-input"
                       id="first-name"
                       name="first-name"
                       required=""
@@ -2899,7 +2922,7 @@ HTMLCollection [
                       >
                         <span>
                           First name
-                           
+                           
                           *
                         </span>
                       </legend>
@@ -2936,6 +2959,7 @@ HTMLCollection [
                     <input
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+                      data-testid="text-field-second-names-input"
                       id="second-names"
                       name="second-names"
                       required=""
@@ -2951,7 +2975,7 @@ HTMLCollection [
                       >
                         <span>
                           Second name
-                           
+                           
                           *
                         </span>
                       </legend>
@@ -2988,6 +3012,7 @@ HTMLCollection [
                     <input
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+                      data-testid="text-field-email-input"
                       id="email"
                       name="email"
                       required=""
@@ -3003,7 +3028,7 @@ HTMLCollection [
                       >
                         <span>
                           Email address
-                           
+                           
                           *
                         </span>
                       </legend>
@@ -3033,6 +3058,7 @@ HTMLCollection [
                     <input
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+                      data-testid="text-field-company-input"
                       id="company"
                       name="company"
                       type="text"
@@ -3075,6 +3101,7 @@ HTMLCollection [
                     <input
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+                      data-testid="text-field-telephone-input"
                       id="telephone"
                       name="telephone"
                       type="text"
@@ -3103,8 +3130,8 @@ HTMLCollection [
                   class="MuiFormControl-root MuiFormControl-fullWidth css-q8hpuo-MuiFormControl-root"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
-                    data-shrink="false"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                    data-shrink="true"
                   >
                     Type of query
                     <span
@@ -3127,19 +3154,16 @@ HTMLCollection [
                       role="button"
                       tabindex="0"
                     >
-                      <span
-                        class="notranslate"
-                      >
-                        ​
-                      </span>
+                      form.none.selection
                     </div>
                     <input
                       aria-hidden="true"
+                      aria-invalid="false"
                       class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
                       name="recipients"
                       required=""
                       tabindex="-1"
-                      value=""
+                      value="form.none.selection"
                     />
                     <svg
                       aria-hidden="true"
@@ -3157,18 +3181,18 @@ HTMLCollection [
                       class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="css-yjsfm1"
+                        class="css-14lo706"
                       >
                         <span>
                           Type of query
-                           
+                           
                           *
                         </span>
                       </legend>
                     </fieldset>
                   </div>
                   <p
-                    class="MuiFormHelperText-root MuiFormHelperText-sizeMedium MuiFormHelperText-contained Mui-required css-t5lzr8-MuiFormHelperText-root"
+                    class="MuiFormHelperText-root MuiFormHelperText-sizeMedium MuiFormHelperText-contained MuiFormHelperText-filled Mui-required css-t5lzr8-MuiFormHelperText-root"
                   />
                 </div>
               </div>
@@ -3215,7 +3239,7 @@ HTMLCollection [
                       type="file"
                     />
                     <p
-                      class="MuiTypography-root MuiTypography-body1 Upload-mobileInstructions css-87ejlm-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body1 Upload-mobileInstructions css-1o02bdp-MuiTypography-root"
                       data-testid="typography"
                     >
                       form.upload.supportedFormats: .pdf, .jpg, .jpeg, .png. form.upload.maxSize: 5.2MB
@@ -3253,6 +3277,7 @@ HTMLCollection [
                     <textarea
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline css-1sqnrkk-MuiInputBase-input-MuiOutlinedInput-input"
+                      data-testid="text-field-message-input"
                       id="message"
                       name="message"
                       required=""
@@ -3275,7 +3300,7 @@ HTMLCollection [
                       >
                         <span>
                           Your message
-                           
+                           
                           *
                         </span>
                       </legend>
@@ -3411,8 +3436,8 @@ HTMLCollection [
                     >
                       I agree with BMI's 
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-                        data-testid="anchor-link"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                        data-testid="label-Data-Protection-Policy-anchor-link"
                         href="https://google.co.uk"
                         rel="noopener"
                         target="_blank"
@@ -3421,7 +3446,6 @@ HTMLCollection [
                           Data Protection Policy
                         </span>
                       </a>
-                      
                     </span>
                   </label>
                 </div>
@@ -3481,7 +3505,8 @@ HTMLCollection [
                 aria-label="children"
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Form-button css-11nrv4h-MuiButtonBase-root-MuiButton-root"
                 data-action="Form section"
-                data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"children\\",\\"action\\":\\"Form section\\"}"
+                data-gtm="{"id":"form-button1","label":"children","action":"Form section"}"
+                data-testid="contentful-form-section-Form-section-submit-button"
                 disabled=""
                 tabindex="-1"
                 type="submit"
@@ -3506,13 +3531,13 @@ HTMLCollection [
             </div>
           </form>
           <p
-            class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-87ejlm-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
             data-testid="typography"
           >
             This site is protected by reCAPTCHA and the Google 
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-              data-testid="anchor-link"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+              data-testid="recaptcha-privacy-policy-link"
               href="https://policies.google.com/privacy"
               rel="noreferrer noopener"
               target="_blank"
@@ -3523,8 +3548,8 @@ HTMLCollection [
             </a>
              and 
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-              data-testid="anchor-link"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+              data-testid="recaptcha-terms-of-service-link"
               href="https://policies.google.com/terms"
               rel="noreferrer noopener"
               target="_blank"
@@ -3538,19 +3563,19 @@ HTMLCollection [
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`Sections component renders correctly when incomplete 1`] = `
-HTMLCollection [
+<div>
   <div
     id="string"
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="Section-root Section-white css-cxq310"
-      data-testid="section"
+      class="Section-root Section-white css-10chrh8"
+      data-testid="tabs-or-accordion-section-string"
     >
       <div
         class=" css-ze8cyt"
@@ -3559,13 +3584,13 @@ HTMLCollection [
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
             data-testid="typography"
           >
             string
           </h2>
           <p
-            class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
             data-testid="typography"
           >
             string
@@ -3582,7 +3607,7 @@ HTMLCollection [
                 <div
                   aria-expanded="false"
                   class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
-                  data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"hello\\",\\"action\\":\\"Selector – Accordion\\"}"
+                  data-gtm="{"id":"selector-accordion1","label":"hello","action":"Selector – Accordion"}"
                   role="button"
                   tabindex="0"
                 >
@@ -3590,7 +3615,7 @@ HTMLCollection [
                     class="MuiAccordionSummary-content Accordion-summaryContent MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
                   >
                     <h3
-                      class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       hello
@@ -3630,10 +3655,10 @@ HTMLCollection [
                           class="MuiAccordionDetails-root  css-1r7u8wy-MuiAccordionDetails-root"
                         >
                           <div
-                            class="RichText-root css-17t4j5c"
+                            class="RichText-root RichText-no-bottom-margin css-1u73y0t"
                           >
                             <p
-                              class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
                               data-testid="typography"
                             >
                               Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
@@ -3650,14 +3675,14 @@ HTMLCollection [
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     id="string"
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="Section-root Section-pearl css-cxq310"
-      data-testid="section"
+      class="Section-root Section-pearl css-10chrh8"
+      data-testid="tabs-or-accordion-section-string"
     >
       <div
         class=" css-ze8cyt"
@@ -3666,13 +3691,13 @@ HTMLCollection [
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
             data-testid="typography"
           >
             string
           </h2>
           <p
-            class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
             data-testid="typography"
           >
             string
@@ -3731,7 +3756,7 @@ HTMLCollection [
                             aria-controls="tabpanel-hello"
                             aria-selected="true"
                             class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                            data-gtm="{\\"id\\":\\"selector-tabs2\\",\\"label\\":\\"hello\\",\\"action\\":\\"Selector – Tabs\\"}"
+                            data-gtm="{"id":"selector-tabs2","label":"hello","action":"Selector – Tabs"}"
                             data-testid="tab-hello"
                             id="tab-hello"
                             role="tab"
@@ -3773,17 +3798,17 @@ HTMLCollection [
               </div>
               <div
                 aria-labelledby="tab-hello"
-                class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
+                class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-923awc"
                 data-testid="tabpanel-hello"
                 heading="hello"
                 id="tabpanel-hello"
                 role="tabpanel"
               >
                 <div
-                  class="RichText-root css-17t4j5c"
+                  class="RichText-root css-1u73y0t"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
                     data-testid="typography"
                   >
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
@@ -3795,14 +3820,14 @@ HTMLCollection [
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     id="string"
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="Section-root Section-white css-cxq310"
-      data-testid="section"
+      class="Section-root Section-white css-10chrh8"
+      data-testid="syndicate-section-string"
     >
       <div
         class=" css-ze8cyt"
@@ -3811,7 +3836,7 @@ HTMLCollection [
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
             data-testid="typography"
           >
             string
@@ -3819,19 +3844,19 @@ HTMLCollection [
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`Sections component renders correctly with 1 villain 1`] = `
-HTMLCollection [
+<div>
   <div
     id="string"
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="Section-root Section-white css-cxq310"
-      data-testid="section"
+      class="Section-root Section-white css-10chrh8"
+      data-testid="tabs-or-accordion-section-string"
     >
       <div
         class=" css-ze8cyt"
@@ -3840,13 +3865,13 @@ HTMLCollection [
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
             data-testid="typography"
           >
             string
           </h2>
           <p
-            class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
             data-testid="typography"
           >
             string
@@ -3863,7 +3888,7 @@ HTMLCollection [
                 <div
                   aria-expanded="false"
                   class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
-                  data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"hello\\",\\"action\\":\\"Selector – Accordion\\"}"
+                  data-gtm="{"id":"selector-accordion1","label":"hello","action":"Selector – Accordion"}"
                   role="button"
                   tabindex="0"
                 >
@@ -3871,7 +3896,7 @@ HTMLCollection [
                     class="MuiAccordionSummary-content Accordion-summaryContent MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
                   >
                     <h3
-                      class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       hello
@@ -3911,10 +3936,10 @@ HTMLCollection [
                           class="MuiAccordionDetails-root  css-1r7u8wy-MuiAccordionDetails-root"
                         >
                           <div
-                            class="RichText-root css-17t4j5c"
+                            class="RichText-root RichText-no-bottom-margin css-1u73y0t"
                           >
                             <p
-                              class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
                               data-testid="typography"
                             >
                               Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
@@ -3931,14 +3956,14 @@ HTMLCollection [
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     id="string"
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="Section-root Section-pearl css-cxq310"
-      data-testid="section"
+      class="Section-root Section-pearl css-10chrh8"
+      data-testid="tabs-or-accordion-section-string"
     >
       <div
         class=" css-ze8cyt"
@@ -3947,13 +3972,13 @@ HTMLCollection [
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
             data-testid="typography"
           >
             string
           </h2>
           <p
-            class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
             data-testid="typography"
           >
             string
@@ -4012,7 +4037,7 @@ HTMLCollection [
                             aria-controls="tabpanel-hello"
                             aria-selected="true"
                             class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                            data-gtm="{\\"id\\":\\"selector-tabs2\\",\\"label\\":\\"hello\\",\\"action\\":\\"Selector – Tabs\\"}"
+                            data-gtm="{"id":"selector-tabs2","label":"hello","action":"Selector – Tabs"}"
                             data-testid="tab-hello"
                             id="tab-hello"
                             role="tab"
@@ -4054,17 +4079,17 @@ HTMLCollection [
               </div>
               <div
                 aria-labelledby="tab-hello"
-                class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
+                class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-923awc"
                 data-testid="tabpanel-hello"
                 heading="hello"
                 id="tabpanel-hello"
                 role="tabpanel"
               >
                 <div
-                  class="RichText-root css-17t4j5c"
+                  class="RichText-root css-1u73y0t"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
                     data-testid="typography"
                   >
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
@@ -4076,13 +4101,13 @@ HTMLCollection [
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     id="Title"
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="Villain-fullSize ColorPair-blue800 css-kyvopi"
+      class="Villain-fullSize ColorPair-blue800 css-ui4cq5"
     >
       <div
         class=" css-ze8cyt"
@@ -4094,7 +4119,7 @@ HTMLCollection [
             class="Villain-content"
           >
             <h2
-              class="MuiTypography-root MuiTypography-h2 Typography-underline Typography-darkBg css-1v0de6m-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h2 Typography-underline Typography-darkBg css-1jvmopm-MuiTypography-root"
               data-testid="typography"
             >
               Villain 1
@@ -4106,6 +4131,6 @@ HTMLCollection [
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;

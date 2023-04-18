@@ -27,12 +27,12 @@ const DocumentTechnicalTableResults = ({ documents, assetTypes }: Props) => {
     [documents]
   );
 
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up("lg"));
+
   if (assetTypes.length === 0) {
     return <p>A technical table cannot being shown with no asset types.</p>;
   }
-
-  const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up("lg"));
 
   return (
     <Root data-testid="tech-results-table">

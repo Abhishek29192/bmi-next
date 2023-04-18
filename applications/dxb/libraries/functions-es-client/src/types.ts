@@ -1,5 +1,12 @@
 import { ResponseError } from "@elastic/elasticsearch/lib/errors";
 
+export type DeleteOperation = {
+  delete: {
+    _index: string;
+    _id: string;
+  };
+};
+
 type BulkApiResponseAction = {
   _index: string;
   _type: string;
@@ -26,13 +33,6 @@ export type BulkApiResponse = {
   body: {
     errors: boolean;
     items: BulkApiResponseItem[];
-  };
-};
-
-export type DeleteOperation = {
-  delete: {
-    _index: string;
-    _id: string;
   };
 };
 

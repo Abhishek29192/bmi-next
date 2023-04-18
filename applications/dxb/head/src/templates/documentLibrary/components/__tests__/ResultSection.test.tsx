@@ -1,8 +1,10 @@
 import { ThemeProvider } from "@bmi-digital/components";
-import { createPimProductDocument } from "@bmi/elasticsearch-types";
-import { fireEvent, render, waitFor } from "@testing-library/react";
+import {
+  createContentfulDocument,
+  createPimProductDocument
+} from "@bmi/elasticsearch-types";
+import { render, screen } from "@testing-library/react";
 import React from "react";
-import * as documentResultsFooter from "../../../../components/DocumentResultsFooter";
 import createAssetType from "../../../../__tests__/helpers/AssetTypeHelper";
 import ResultSection, { Props as ResultSectionProps } from "../ResultSection";
 
@@ -41,47 +43,50 @@ describe("ResultSection", () => {
   };
 
   it("render correctly", () => {
-    const { container } = render(
+    render(
       <ThemeProvider>
         <ResultSection {...props} />
       </ThemeProvider>
     );
 
-    expect(container.querySelector(".DocumentSimpleTableResults")).toBeTruthy();
     expect(
-      container.querySelectorAll(".DocumentSimpleTableResults .row").length
-    ).toBe(1);
-    expect(container.querySelector(".results")).toBeTruthy();
-    expect(container.querySelector(".DocumentResultsFooter")).toBeTruthy();
+      screen.getByTestId("document-simple-table-results")
+    ).toBeInTheDocument();
+    props.results.forEach((result) => {
+      expect(
+        screen.getByTestId(`document-table-row-${result.id}`)
+      ).toBeInTheDocument();
+    });
+    expect(
+      screen.getByTestId("document-results-footer-wrapper")
+    ).toBeInTheDocument();
+    expect(screen.getByTestId("document-results-footer")).toBeInTheDocument();
   });
 
   it("does not trigger handleDownloadClick if format is set to cards", async () => {
-    const handleDownloadClickSpy = jest.spyOn(
-      documentResultsFooter,
-      "handleDownloadClick"
-    );
-    const { getByText } = render(
+    render(
       <ThemeProvider>
-        <ResultSection {...props} />
+        <ResultSection
+          {...props}
+          results={[createContentfulDocument()]}
+          format={"cards"}
+        />
       </ThemeProvider>
     );
 
-    const downloadButton = getByText("MC: downloadList.download (0)");
-    fireEvent.click(downloadButton);
-    await waitFor(() => {
-      expect(executeRecaptchaSpy).toHaveBeenCalledTimes(1);
-      expect(handleDownloadClickSpy).toHaveBeenCalledTimes(0);
-    });
+    expect(
+      screen.queryByText("MC: downloadList.download (0)")
+    ).not.toBeInTheDocument();
   });
 
   it("not render downloadList when format is set to technicalTable", async () => {
-    const { queryByText } = render(
+    render(
       <ThemeProvider>
         <ResultSection {...{ ...props, format: "technicalTable" }} />
       </ThemeProvider>
     );
 
-    expect(queryByText("MC: downloadList.clear")).toBeFalsy();
-    expect(queryByText("MC: downloadList.download (0)")).toBeFalsy();
+    expect(screen.queryByText("MC: downloadList.clear")).toBeFalsy();
+    expect(screen.queryByText("MC: downloadList.download (0)")).toBeFalsy();
   });
 });

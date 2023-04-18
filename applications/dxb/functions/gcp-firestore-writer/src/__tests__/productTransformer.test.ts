@@ -52,20 +52,20 @@ describe("transformProduct", () => {
     const product = createProduct({ approvalStatus: "approved" });
     const transformedProducts = await transformProduct(product);
     expect(transformedProducts).toMatchInlineSnapshot(`
-      Array [
-        Object {
+      [
+        {
           "approvalStatus": "approved",
-          "awardsAndCertificateDocuments": Array [],
-          "awardsAndCertificateImages": Array [],
+          "awardsAndCertificateDocuments": [],
+          "awardsAndCertificateImages": [],
           "baseCode": "base-code",
           "baseScoringWeight": 1,
           "bimIframeUrl": undefined,
           "brand": undefined,
-          "categories": Array [
-            Object {
+          "categories": [
+            {
               "categoryType": "Category",
               "code": "parent-category-code",
-              "image": Object {
+              "image": {
                 "allowedToDownload": true,
                 "fileSize": 10,
                 "mime": "image/png",
@@ -76,10 +76,10 @@ describe("transformProduct", () => {
               "name": "name",
               "parentCategoryCode": "",
             },
-            Object {
+            {
               "categoryType": "Category",
               "code": "code",
-              "image": Object {
+              "image": {
                 "allowedToDownload": true,
                 "fileSize": 10,
                 "mime": "image/png",
@@ -90,10 +90,10 @@ describe("transformProduct", () => {
               "name": "name",
               "parentCategoryCode": "parent-category-code",
             },
-            Object {
+            {
               "categoryType": "ProductFamily",
               "code": "code",
-              "image": Object {
+              "image": {
                 "allowedToDownload": true,
                 "fileSize": 10,
                 "mime": "image/png",
@@ -104,10 +104,10 @@ describe("transformProduct", () => {
               "name": "name",
               "parentCategoryCode": "parent-category-code",
             },
-            Object {
+            {
               "categoryType": "ProductLine",
               "code": "code",
-              "image": Object {
+              "image": {
                 "allowedToDownload": true,
                 "fileSize": 10,
                 "mime": "image/png",
@@ -118,10 +118,10 @@ describe("transformProduct", () => {
               "name": "name",
               "parentCategoryCode": "parent-category-code",
             },
-            Object {
+            {
               "categoryType": "Category",
               "code": "BMI-brand-code",
-              "image": Object {
+              "image": {
                 "allowedToDownload": true,
                 "fileSize": 10,
                 "mime": "image/png",
@@ -133,40 +133,40 @@ describe("transformProduct", () => {
               "parentCategoryCode": "BMI_Brands",
             },
           ],
-          "classifications": Array [
-            Object {
-              "features": Array [
-                Object {
+          "classifications": [
+            {
+              "features": [
+                {
                   "name": "name",
                   "value": "value symbol",
                 },
               ],
               "name": "name",
             },
-            Object {
-              "features": Array [
-                Object {
+            {
+              "features": [
+                {
                   "name": "name",
                   "value": "concrete symbol",
                 },
               ],
               "name": "name",
             },
-            Object {
-              "features": Array [
-                Object {
+            {
+              "features": [
+                {
                   "name": "name",
                   "value": "10 mm",
                 },
-                Object {
+                {
                   "name": "name",
                   "value": "20 mm",
                 },
-                Object {
+                {
                   "name": "name",
                   "value": "30 mm",
                 },
-                Object {
+                {
                   "name": "name",
                   "value": "40 mm",
                 },
@@ -179,10 +179,10 @@ describe("transformProduct", () => {
           "colourFamily": "red",
           "colourMicrocopy": undefined,
           "description": "<p>Long description</p>",
-          "documents": Array [],
+          "documents": [],
           "externalProductCode": "external-product-code",
-          "filters": Array [
-            Object {
+          "filters": [
+            {
               "code": "code",
               "filterCode": "classification-feature-code",
               "groupLabel": "name",
@@ -192,7 +192,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "value",
             },
-            Object {
+            {
               "code": "code",
               "filterCode": "generalInformation.materials",
               "groupLabel": "name",
@@ -202,7 +202,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "concrete",
             },
-            Object {
+            {
               "code": "code",
               "filterCode": "measurements.length",
               "groupLabel": "name",
@@ -212,7 +212,7 @@ describe("transformProduct", () => {
               "unit": "mm",
               "value": "10",
             },
-            Object {
+            {
               "code": "code",
               "filterCode": "measurements.width",
               "groupLabel": "name",
@@ -222,7 +222,7 @@ describe("transformProduct", () => {
               "unit": "mm",
               "value": "20",
             },
-            Object {
+            {
               "code": "code",
               "filterCode": "measurements.height",
               "groupLabel": "name",
@@ -232,7 +232,7 @@ describe("transformProduct", () => {
               "unit": "mm",
               "value": "30",
             },
-            Object {
+            {
               "code": "code",
               "filterCode": "measurements.thickness",
               "groupLabel": "name",
@@ -242,7 +242,7 @@ describe("transformProduct", () => {
               "unit": "mm",
               "value": "40",
             },
-            Object {
+            {
               "code": "parent-category-code",
               "filterCode": "Category",
               "groupLabel": undefined,
@@ -251,7 +251,7 @@ describe("transformProduct", () => {
               "parentFilterCode": "",
               "value": "parent-category-code",
             },
-            Object {
+            {
               "code": "code",
               "filterCode": "Category",
               "groupLabel": "name",
@@ -260,7 +260,7 @@ describe("transformProduct", () => {
               "parentFilterCode": "parent-category-code",
               "value": "code",
             },
-            Object {
+            {
               "code": "code",
               "filterCode": "ProductFamily",
               "groupLabel": "name",
@@ -269,7 +269,7 @@ describe("transformProduct", () => {
               "parentFilterCode": "parent-category-code",
               "value": "code",
             },
-            Object {
+            {
               "code": "code",
               "filterCode": "ProductLine",
               "groupLabel": "name",
@@ -278,7 +278,7 @@ describe("transformProduct", () => {
               "parentFilterCode": "parent-category-code",
               "value": "code",
             },
-            Object {
+            {
               "code": "BMI-brand-code",
               "filterCode": "Category",
               "groupLabel": undefined,
@@ -289,57 +289,60 @@ describe("transformProduct", () => {
             },
           ],
           "fixingToolIframeUrl": undefined,
-          "galleryImages": Array [],
-          "groups": Array [
-            Object {
+          "galleryImages": [],
+          "groups": [
+            {
               "code": "parent-category-code",
               "label": "name",
             },
           ],
-          "guaranteesAndWarrantiesImages": Array [],
-          "guaranteesAndWarrantiesLinks": Array [],
+          "guaranteesAndWarrantiesImages": [],
+          "guaranteesAndWarrantiesLinks": [],
           "hashedCode": "3464354221",
           "isSampleOrderAllowed": true,
           "isVisualiserAvailable": false,
-          "masterImage": Object {
+          "masterImage": {
             "altText": undefined,
             "mainSource": "http://localhost:8000",
             "thumbnail": undefined,
           },
           "materials": "concrete",
-          "measurements": Object {
-            "height": Object {
+          "measurements": {
+            "height": {
               "unit": "mm",
               "value": "30",
             },
             "label": "10x20x30x40mm",
-            "length": Object {
+            "length": {
               "unit": "mm",
               "value": "10",
             },
-            "thickness": Object {
+            "thickness": {
               "unit": "mm",
               "value": "40",
             },
             "volume": undefined,
-            "width": Object {
+            "width": {
               "unit": "mm",
               "value": "20",
             },
           },
           "name": "name",
           "path": "/p/name-glossy-concrete-3464354221",
-          "productBenefits": Array [
+          "productBenefits": [
             "product-benefits",
           ],
-          "relatedVariants": Array [],
+          "relatedVariants": [],
+          "seoDescription": undefined,
+          "seoTags": undefined,
+          "seoTitle": undefined,
           "specificationIframeUrl": undefined,
-          "techDrawings": Array [],
+          "techDrawings": [],
           "textureFamily": "glossy",
           "textureFamilyMicrocopy": "name",
           "variantAttribute": undefined,
-          "videos": Array [],
-          "weight": Object {
+          "videos": [],
+          "weight": {
             "grossWeight": undefined,
             "netWeight": undefined,
             "weightPerPallet": undefined,
@@ -355,20 +358,20 @@ describe("transformProduct", () => {
     const product = createProduct({ approvalStatus: "discontinued" });
     const transformedProducts = await transformProduct(product);
     expect(transformedProducts).toMatchInlineSnapshot(`
-      Array [
-        Object {
+      [
+        {
           "approvalStatus": "discontinued",
-          "awardsAndCertificateDocuments": Array [],
-          "awardsAndCertificateImages": Array [],
+          "awardsAndCertificateDocuments": [],
+          "awardsAndCertificateImages": [],
           "baseCode": "base-code",
           "baseScoringWeight": 1,
           "bimIframeUrl": undefined,
           "brand": undefined,
-          "categories": Array [
-            Object {
+          "categories": [
+            {
               "categoryType": "Category",
               "code": "parent-category-code",
-              "image": Object {
+              "image": {
                 "allowedToDownload": true,
                 "fileSize": 10,
                 "mime": "image/png",
@@ -379,10 +382,10 @@ describe("transformProduct", () => {
               "name": "name",
               "parentCategoryCode": "",
             },
-            Object {
+            {
               "categoryType": "Category",
               "code": "code",
-              "image": Object {
+              "image": {
                 "allowedToDownload": true,
                 "fileSize": 10,
                 "mime": "image/png",
@@ -393,10 +396,10 @@ describe("transformProduct", () => {
               "name": "name",
               "parentCategoryCode": "parent-category-code",
             },
-            Object {
+            {
               "categoryType": "ProductFamily",
               "code": "code",
-              "image": Object {
+              "image": {
                 "allowedToDownload": true,
                 "fileSize": 10,
                 "mime": "image/png",
@@ -407,10 +410,10 @@ describe("transformProduct", () => {
               "name": "name",
               "parentCategoryCode": "parent-category-code",
             },
-            Object {
+            {
               "categoryType": "ProductLine",
               "code": "code",
-              "image": Object {
+              "image": {
                 "allowedToDownload": true,
                 "fileSize": 10,
                 "mime": "image/png",
@@ -421,10 +424,10 @@ describe("transformProduct", () => {
               "name": "name",
               "parentCategoryCode": "parent-category-code",
             },
-            Object {
+            {
               "categoryType": "Category",
               "code": "BMI-brand-code",
-              "image": Object {
+              "image": {
                 "allowedToDownload": true,
                 "fileSize": 10,
                 "mime": "image/png",
@@ -436,40 +439,40 @@ describe("transformProduct", () => {
               "parentCategoryCode": "BMI_Brands",
             },
           ],
-          "classifications": Array [
-            Object {
-              "features": Array [
-                Object {
+          "classifications": [
+            {
+              "features": [
+                {
                   "name": "name",
                   "value": "value symbol",
                 },
               ],
               "name": "name",
             },
-            Object {
-              "features": Array [
-                Object {
+            {
+              "features": [
+                {
                   "name": "name",
                   "value": "concrete symbol",
                 },
               ],
               "name": "name",
             },
-            Object {
-              "features": Array [
-                Object {
+            {
+              "features": [
+                {
                   "name": "name",
                   "value": "10 mm",
                 },
-                Object {
+                {
                   "name": "name",
                   "value": "20 mm",
                 },
-                Object {
+                {
                   "name": "name",
                   "value": "30 mm",
                 },
-                Object {
+                {
                   "name": "name",
                   "value": "40 mm",
                 },
@@ -482,10 +485,10 @@ describe("transformProduct", () => {
           "colourFamily": "red",
           "colourMicrocopy": undefined,
           "description": "<p>Long description</p>",
-          "documents": Array [],
+          "documents": [],
           "externalProductCode": "external-product-code",
-          "filters": Array [
-            Object {
+          "filters": [
+            {
               "code": "code",
               "filterCode": "classification-feature-code",
               "groupLabel": "name",
@@ -495,7 +498,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "value",
             },
-            Object {
+            {
               "code": "code",
               "filterCode": "generalInformation.materials",
               "groupLabel": "name",
@@ -505,7 +508,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "concrete",
             },
-            Object {
+            {
               "code": "code",
               "filterCode": "measurements.length",
               "groupLabel": "name",
@@ -515,7 +518,7 @@ describe("transformProduct", () => {
               "unit": "mm",
               "value": "10",
             },
-            Object {
+            {
               "code": "code",
               "filterCode": "measurements.width",
               "groupLabel": "name",
@@ -525,7 +528,7 @@ describe("transformProduct", () => {
               "unit": "mm",
               "value": "20",
             },
-            Object {
+            {
               "code": "code",
               "filterCode": "measurements.height",
               "groupLabel": "name",
@@ -535,7 +538,7 @@ describe("transformProduct", () => {
               "unit": "mm",
               "value": "30",
             },
-            Object {
+            {
               "code": "code",
               "filterCode": "measurements.thickness",
               "groupLabel": "name",
@@ -545,7 +548,7 @@ describe("transformProduct", () => {
               "unit": "mm",
               "value": "40",
             },
-            Object {
+            {
               "code": "parent-category-code",
               "filterCode": "Category",
               "groupLabel": undefined,
@@ -554,7 +557,7 @@ describe("transformProduct", () => {
               "parentFilterCode": "",
               "value": "parent-category-code",
             },
-            Object {
+            {
               "code": "code",
               "filterCode": "Category",
               "groupLabel": "name",
@@ -563,7 +566,7 @@ describe("transformProduct", () => {
               "parentFilterCode": "parent-category-code",
               "value": "code",
             },
-            Object {
+            {
               "code": "code",
               "filterCode": "ProductFamily",
               "groupLabel": "name",
@@ -572,7 +575,7 @@ describe("transformProduct", () => {
               "parentFilterCode": "parent-category-code",
               "value": "code",
             },
-            Object {
+            {
               "code": "code",
               "filterCode": "ProductLine",
               "groupLabel": "name",
@@ -581,7 +584,7 @@ describe("transformProduct", () => {
               "parentFilterCode": "parent-category-code",
               "value": "code",
             },
-            Object {
+            {
               "code": "BMI-brand-code",
               "filterCode": "Category",
               "groupLabel": undefined,
@@ -592,57 +595,60 @@ describe("transformProduct", () => {
             },
           ],
           "fixingToolIframeUrl": undefined,
-          "galleryImages": Array [],
-          "groups": Array [
-            Object {
+          "galleryImages": [],
+          "groups": [
+            {
               "code": "parent-category-code",
               "label": "name",
             },
           ],
-          "guaranteesAndWarrantiesImages": Array [],
-          "guaranteesAndWarrantiesLinks": Array [],
+          "guaranteesAndWarrantiesImages": [],
+          "guaranteesAndWarrantiesLinks": [],
           "hashedCode": "3464354221",
           "isSampleOrderAllowed": true,
           "isVisualiserAvailable": false,
-          "masterImage": Object {
+          "masterImage": {
             "altText": undefined,
             "mainSource": "http://localhost:8000",
             "thumbnail": undefined,
           },
           "materials": "concrete",
-          "measurements": Object {
-            "height": Object {
+          "measurements": {
+            "height": {
               "unit": "mm",
               "value": "30",
             },
             "label": "10x20x30x40mm",
-            "length": Object {
+            "length": {
               "unit": "mm",
               "value": "10",
             },
-            "thickness": Object {
+            "thickness": {
               "unit": "mm",
               "value": "40",
             },
             "volume": undefined,
-            "width": Object {
+            "width": {
               "unit": "mm",
               "value": "20",
             },
           },
           "name": "name",
           "path": "/p/name-glossy-concrete-3464354221",
-          "productBenefits": Array [
+          "productBenefits": [
             "product-benefits",
           ],
-          "relatedVariants": Array [],
+          "relatedVariants": [],
+          "seoDescription": undefined,
+          "seoTags": undefined,
+          "seoTitle": undefined,
           "specificationIframeUrl": undefined,
-          "techDrawings": Array [],
+          "techDrawings": [],
           "textureFamily": "glossy",
           "textureFamilyMicrocopy": "name",
           "variantAttribute": undefined,
-          "videos": Array [],
-          "weight": Object {
+          "videos": [],
+          "weight": {
             "grossWeight": undefined,
             "netWeight": undefined,
             "weightPerPallet": undefined,
@@ -658,11 +664,11 @@ describe("transformProduct", () => {
     const product = createFullyPopulatedProduct();
     const transformedProducts = await transformProduct(product);
     expect(transformedProducts).toMatchInlineSnapshot(`
-      Array [
-        Object {
+      [
+        {
           "approvalStatus": "approved",
-          "awardsAndCertificateDocuments": Array [
-            Object {
+          "awardsAndCertificateDocuments": [
+            {
               "allowedToDownload": true,
               "assetType": "AWARDS",
               "fileSize": 10,
@@ -672,7 +678,7 @@ describe("transformProduct", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -682,7 +688,7 @@ describe("transformProduct", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": false,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -692,7 +698,7 @@ describe("transformProduct", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -702,7 +708,7 @@ describe("transformProduct", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 1.7976931348623157e+308,
@@ -712,7 +718,7 @@ describe("transformProduct", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": undefined,
@@ -722,7 +728,7 @@ describe("transformProduct", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -733,8 +739,8 @@ describe("transformProduct", () => {
               "url": undefined,
             },
           ],
-          "awardsAndCertificateImages": Array [
-            Object {
+          "awardsAndCertificateImages": [
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -744,7 +750,7 @@ describe("transformProduct", () => {
               "realFileName": undefined,
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": undefined,
@@ -758,16 +764,16 @@ describe("transformProduct", () => {
           "baseCode": "base-code",
           "baseScoringWeight": 100,
           "bimIframeUrl": "http://localhost:8000",
-          "brand": Object {
+          "brand": {
             "code": "code",
             "logo": "http://localhost:8000",
             "name": "name",
           },
-          "categories": Array [
-            Object {
+          "categories": [
+            {
               "categoryType": "Brand",
               "code": "code",
-              "image": Object {
+              "image": {
                 "allowedToDownload": true,
                 "fileSize": 10,
                 "mime": "image/png",
@@ -778,10 +784,10 @@ describe("transformProduct", () => {
               "name": "name",
               "parentCategoryCode": "parent-category-code",
             },
-            Object {
+            {
               "categoryType": "Category",
               "code": "parent-category",
-              "image": Object {
+              "image": {
                 "allowedToDownload": true,
                 "fileSize": 10,
                 "mime": "image/png",
@@ -792,10 +798,10 @@ describe("transformProduct", () => {
               "name": "Parent Category",
               "parentCategoryCode": "",
             },
-            Object {
+            {
               "categoryType": "Category",
               "code": "child-category",
-              "image": Object {
+              "image": {
                 "allowedToDownload": true,
                 "fileSize": 10,
                 "mime": "image/png",
@@ -807,69 +813,69 @@ describe("transformProduct", () => {
               "parentCategoryCode": "parent-category",
             },
           ],
-          "classifications": Array [
-            Object {
-              "features": Array [
-                Object {
+          "classifications": [
+            {
+              "features": [
+                {
                   "name": "Material",
                   "value": "Concrete",
                 },
               ],
               "name": "General",
             },
-            Object {
-              "features": Array [
-                Object {
+            {
+              "features": [
+                {
                   "name": "Length",
                   "value": "6 symbol",
                 },
-                Object {
+                {
                   "name": "Width",
                   "value": "7 symbol",
                 },
-                Object {
+                {
                   "name": "Height",
                   "value": "8 symbol",
                 },
-                Object {
+                {
                   "name": "Thickness",
                   "value": "9 symbol",
                 },
-                Object {
+                {
                   "name": "Volume",
                   "value": "10 symbol",
                 },
               ],
               "name": "Measurements",
             },
-            Object {
-              "features": Array [
-                Object {
+            {
+              "features": [
+                {
                   "name": "Gross Weight",
                   "value": "6 symbol",
                 },
-                Object {
+                {
                   "name": "Net Weight",
                   "value": "7 symbol",
                 },
-                Object {
+                {
                   "name": "Weight per Pallet",
                   "value": "8 symbol",
                 },
-                Object {
+                {
                   "name": "Weight per Piece",
                   "value": "9 symbol",
                 },
-                Object {
+                {
                   "name": "Weight per sq m",
                   "value": "10 symbol",
                 },
               ],
               "name": "Weight",
             },
-            Object {
-              "features": Array [
-                Object {
+            {
+              "features": [
+                {
                   "name": "name",
                   "value": "value symbol",
                 },
@@ -882,8 +888,8 @@ describe("transformProduct", () => {
           "colourFamily": "Black",
           "colourMicrocopy": "Colour",
           "description": "<p>Long description</p>",
-          "documents": Array [
-            Object {
+          "documents": [
+            {
               "assetType": "ASSEMBLY_INSTRUCTIONS",
               "extension": "pdf",
               "fileSize": 10,
@@ -891,16 +897,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -910,7 +916,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "AWARDS",
               "extension": "pdf",
               "fileSize": 10,
@@ -918,16 +924,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -937,7 +943,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "CERTIFICATES",
               "extension": "pdf",
               "fileSize": 10,
@@ -945,16 +951,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -964,21 +970,21 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "CERTIFICATES",
               "id": "2583923841",
               "isLinkDocument": true,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -987,7 +993,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "CERTIFICATES",
               "extension": "pdf",
               "fileSize": 10,
@@ -995,16 +1001,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -1014,21 +1020,21 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "CERTIFICATES",
               "id": "2583923841",
               "isLinkDocument": true,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -1037,21 +1043,21 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "CERTIFICATES",
               "id": "2583923841",
               "isLinkDocument": true,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -1060,7 +1066,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "BIM",
               "extension": "pdf",
               "fileSize": 10,
@@ -1068,16 +1074,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -1087,7 +1093,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "FIXING_TOOL",
               "extension": "pdf",
               "fileSize": 10,
@@ -1095,16 +1101,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -1114,7 +1120,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "GUARANTIES",
               "extension": "pdf",
               "fileSize": 10,
@@ -1122,16 +1128,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -1141,7 +1147,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "SPECIFICATION",
               "extension": "pdf",
               "fileSize": 10,
@@ -1149,16 +1155,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -1168,7 +1174,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "VIDEO",
               "extension": "pdf",
               "fileSize": 10,
@@ -1176,16 +1182,16 @@ describe("transformProduct", () => {
               "id": "84587715",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -1195,7 +1201,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "https://www.youtube.com/watch?v=3901c0ds7oo",
             },
-            Object {
+            {
               "assetType": "WARRANTIES",
               "extension": "pdf",
               "fileSize": 10,
@@ -1203,16 +1209,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -1224,8 +1230,8 @@ describe("transformProduct", () => {
             },
           ],
           "externalProductCode": "external-product-code",
-          "filters": Array [
-            Object {
+          "filters": [
+            {
               "code": "code",
               "filterCode": "classification-feature-code",
               "groupLabel": "name",
@@ -1235,7 +1241,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "value",
             },
-            Object {
+            {
               "code": "code",
               "filterCode": "generalInformation.materials",
               "groupLabel": "Material",
@@ -1245,7 +1251,7 @@ describe("transformProduct", () => {
               "unit": undefined,
               "value": "Concrete",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "measurements.length",
               "groupLabel": "Length",
@@ -1255,7 +1261,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "6",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "measurements.width",
               "groupLabel": "Width",
@@ -1265,7 +1271,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "7",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "measurements.height",
               "groupLabel": "Height",
@@ -1275,7 +1281,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "8",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "measurements.thickness",
               "groupLabel": "Thickness",
@@ -1285,7 +1291,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "9",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "measurements.volume",
               "groupLabel": "Volume",
@@ -1295,7 +1301,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "10",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "weightAttributes.grossweight",
               "groupLabel": "Gross Weight",
@@ -1305,7 +1311,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "6",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "weightAttributes.netweight",
               "groupLabel": "Net Weight",
@@ -1315,7 +1321,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "7",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "weightAttributes.weightperpallet",
               "groupLabel": "Weight per Pallet",
@@ -1325,7 +1331,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "8",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "weightAttributes.weightperpiece",
               "groupLabel": "Weight per Piece",
@@ -1335,7 +1341,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "9",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "weightAttributes.weightpersqm",
               "groupLabel": "Weight per sq m",
@@ -1345,7 +1351,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "10",
             },
-            Object {
+            {
               "code": "code",
               "filterCode": "Brand",
               "groupLabel": undefined,
@@ -1354,7 +1360,7 @@ describe("transformProduct", () => {
               "parentFilterCode": "parent-category-code",
               "value": "code",
             },
-            Object {
+            {
               "code": "parent-category",
               "filterCode": "Category",
               "groupLabel": undefined,
@@ -1363,7 +1369,7 @@ describe("transformProduct", () => {
               "parentFilterCode": "",
               "value": "parent-category",
             },
-            Object {
+            {
               "code": "child-category",
               "filterCode": "Category",
               "groupLabel": "Parent Category",
@@ -1374,62 +1380,68 @@ describe("transformProduct", () => {
             },
           ],
           "fixingToolIframeUrl": "http://localhost:8000",
-          "galleryImages": Array [
-            Object {
+          "galleryImages": [
+            {
               "altText": "name",
               "mainSource": "http://localhost:8000",
               "thumbnail": "http://localhost:8000",
             },
           ],
-          "groups": Array [
-            Object {
+          "groups": [
+            {
               "code": "parent-category",
               "label": "Parent Category",
             },
           ],
-          "guaranteesAndWarrantiesImages": Array [],
-          "guaranteesAndWarrantiesLinks": Array [],
+          "guaranteesAndWarrantiesImages": [],
+          "guaranteesAndWarrantiesLinks": [],
           "hashedCode": "3464354221",
           "isSampleOrderAllowed": true,
           "isVisualiserAvailable": false,
-          "masterImage": Object {
+          "masterImage": {
             "altText": "name",
             "mainSource": "http://localhost:8000",
             "thumbnail": "http://localhost:8000",
           },
           "materials": "Concrete",
-          "measurements": Object {
-            "height": Object {
+          "measurements": {
+            "height": {
               "unit": "symbol",
               "value": "8",
             },
             "label": "6x7x8x9symbol",
-            "length": Object {
+            "length": {
               "unit": "symbol",
               "value": "6",
             },
-            "thickness": Object {
+            "thickness": {
               "unit": "symbol",
               "value": "9",
             },
-            "volume": Object {
+            "volume": {
               "unit": "symbol",
               "value": "10",
             },
-            "width": Object {
+            "width": {
               "unit": "symbol",
               "value": "7",
             },
           },
           "name": "name",
           "path": "/p/name-shadow-black-gloss-concrete-3464354221",
-          "productBenefits": Array [
+          "productBenefits": [
             "product-benefits",
           ],
-          "relatedVariants": Array [],
+          "relatedVariants": [],
+          "seoDescription": "seo_descr",
+          "seoTags": [
+            "seo",
+            "test",
+          ],
+          "seoTitle": "test",
           "specificationIframeUrl": "http://localhost:8000",
-          "techDrawings": Array [
-            Object {
+          "techDrawings": [
+            {
               "altText": undefined,
               "mainSource": "http://localhost:8000",
               "thumbnail": undefined,
@@ -1438,8 +1450,8 @@ describe("transformProduct", () => {
           "textureFamily": "Gloss",
           "textureFamilyMicrocopy": "Texture Family",
           "variantAttribute": "Shadow Black Gloss 6x7x8x9x10",
-          "videos": Array [
-            Object {
+          "videos": [
+            {
               "label": "name",
               "previewMedia": null,
               "subtitle": null,
@@ -1448,24 +1460,24 @@ describe("transformProduct", () => {
               "videoUrl": "https://www.youtube.com/watch?v=3901c0ds7oo",
             },
           ],
-          "weight": Object {
-            "grossWeight": Object {
+          "weight": {
+            "grossWeight": {
               "unit": "symbol",
               "value": "6",
             },
-            "netWeight": Object {
+            "netWeight": {
               "unit": "symbol",
               "value": "7",
             },
-            "weightPerPallet": Object {
+            "weightPerPallet": {
               "unit": "symbol",
               "value": "8",
             },
-            "weightPerPiece": Object {
+            "weightPerPiece": {
               "unit": "symbol",
               "value": "9",
             },
-            "weightPerSqm": Object {
+            "weightPerSqm": {
               "unit": "symbol",
               "value": "10",
             },
@@ -1474,17 +1486,18 @@ describe("transformProduct", () => {
       ]
     `);
   });
+
   it("transforms a fully populated product with discontinued status", async () => {
     const product = createFullyPopulatedProduct({
       approvalStatus: "discontinued"
     });
     const transformedProducts = await transformProduct(product);
     expect(transformedProducts).toMatchInlineSnapshot(`
-      Array [
-        Object {
+      [
+        {
           "approvalStatus": "discontinued",
-          "awardsAndCertificateDocuments": Array [
-            Object {
+          "awardsAndCertificateDocuments": [
+            {
               "allowedToDownload": true,
               "assetType": "AWARDS",
               "fileSize": 10,
@@ -1494,7 +1507,7 @@ describe("transformProduct", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -1504,7 +1517,7 @@ describe("transformProduct", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": false,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -1514,7 +1527,7 @@ describe("transformProduct", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -1524,7 +1537,7 @@ describe("transformProduct", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 1.7976931348623157e+308,
@@ -1534,7 +1547,7 @@ describe("transformProduct", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": undefined,
@@ -1544,7 +1557,7 @@ describe("transformProduct", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -1555,8 +1568,8 @@ describe("transformProduct", () => {
               "url": undefined,
             },
           ],
-          "awardsAndCertificateImages": Array [
-            Object {
+          "awardsAndCertificateImages": [
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -1566,7 +1579,7 @@ describe("transformProduct", () => {
               "realFileName": undefined,
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": undefined,
@@ -1580,16 +1593,16 @@ describe("transformProduct", () => {
           "baseCode": "base-code",
           "baseScoringWeight": 100,
           "bimIframeUrl": "http://localhost:8000",
-          "brand": Object {
+          "brand": {
             "code": "code",
             "logo": "http://localhost:8000",
             "name": "name",
           },
-          "categories": Array [
-            Object {
+          "categories": [
+            {
               "categoryType": "Brand",
               "code": "code",
-              "image": Object {
+              "image": {
                 "allowedToDownload": true,
                 "fileSize": 10,
                 "mime": "image/png",
@@ -1600,10 +1613,10 @@ describe("transformProduct", () => {
               "name": "name",
               "parentCategoryCode": "parent-category-code",
             },
-            Object {
+            {
               "categoryType": "Category",
               "code": "parent-category",
-              "image": Object {
+              "image": {
                 "allowedToDownload": true,
                 "fileSize": 10,
                 "mime": "image/png",
@@ -1614,10 +1627,10 @@ describe("transformProduct", () => {
               "name": "Parent Category",
               "parentCategoryCode": "",
             },
-            Object {
+            {
               "categoryType": "Category",
               "code": "child-category",
-              "image": Object {
+              "image": {
                 "allowedToDownload": true,
                 "fileSize": 10,
                 "mime": "image/png",
@@ -1629,69 +1642,69 @@ describe("transformProduct", () => {
               "parentCategoryCode": "parent-category",
             },
           ],
-          "classifications": Array [
-            Object {
-              "features": Array [
-                Object {
+          "classifications": [
+            {
+              "features": [
+                {
                   "name": "Material",
                   "value": "Concrete",
                 },
               ],
               "name": "General",
             },
-            Object {
-              "features": Array [
-                Object {
+            {
+              "features": [
+                {
                   "name": "Length",
                   "value": "6 symbol",
                 },
-                Object {
+                {
                   "name": "Width",
                   "value": "7 symbol",
                 },
-                Object {
+                {
                   "name": "Height",
                   "value": "8 symbol",
                 },
-                Object {
+                {
                   "name": "Thickness",
                   "value": "9 symbol",
                 },
-                Object {
+                {
                   "name": "Volume",
                   "value": "10 symbol",
                 },
               ],
               "name": "Measurements",
             },
-            Object {
-              "features": Array [
-                Object {
+            {
+              "features": [
+                {
                   "name": "Gross Weight",
                   "value": "6 symbol",
                 },
-                Object {
+                {
                   "name": "Net Weight",
                   "value": "7 symbol",
                 },
-                Object {
+                {
                   "name": "Weight per Pallet",
                   "value": "8 symbol",
                 },
-                Object {
+                {
                   "name": "Weight per Piece",
                   "value": "9 symbol",
                 },
-                Object {
+                {
                   "name": "Weight per sq m",
                   "value": "10 symbol",
                 },
               ],
               "name": "Weight",
             },
-            Object {
-              "features": Array [
-                Object {
+            {
+              "features": [
+                {
                   "name": "name",
                   "value": "value symbol",
                 },
@@ -1704,8 +1717,8 @@ describe("transformProduct", () => {
           "colourFamily": "Black",
           "colourMicrocopy": "Colour",
           "description": "<p>Long description</p>",
-          "documents": Array [
-            Object {
+          "documents": [
+            {
               "assetType": "ASSEMBLY_INSTRUCTIONS",
               "extension": "pdf",
               "fileSize": 10,
@@ -1713,16 +1726,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -1732,7 +1745,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "AWARDS",
               "extension": "pdf",
               "fileSize": 10,
@@ -1740,16 +1753,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -1759,7 +1772,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "CERTIFICATES",
               "extension": "pdf",
               "fileSize": 10,
@@ -1767,16 +1780,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -1786,21 +1799,21 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "CERTIFICATES",
               "id": "2583923841",
               "isLinkDocument": true,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -1809,7 +1822,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "CERTIFICATES",
               "extension": "pdf",
               "fileSize": 10,
@@ -1817,16 +1830,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -1836,21 +1849,21 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "CERTIFICATES",
               "id": "2583923841",
               "isLinkDocument": true,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -1859,21 +1872,21 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "CERTIFICATES",
               "id": "2583923841",
               "isLinkDocument": true,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -1882,7 +1895,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "BIM",
               "extension": "pdf",
               "fileSize": 10,
@@ -1890,16 +1903,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -1909,7 +1922,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "FIXING_TOOL",
               "extension": "pdf",
               "fileSize": 10,
@@ -1917,16 +1930,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -1936,7 +1949,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "GUARANTIES",
               "extension": "pdf",
               "fileSize": 10,
@@ -1944,16 +1957,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -1963,7 +1976,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "SPECIFICATION",
               "extension": "pdf",
               "fileSize": 10,
@@ -1971,16 +1984,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -1990,7 +2003,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "VIDEO",
               "extension": "pdf",
               "fileSize": 10,
@@ -1998,16 +2011,16 @@ describe("transformProduct", () => {
               "id": "84587715",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -2017,7 +2030,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "https://www.youtube.com/watch?v=3901c0ds7oo",
             },
-            Object {
+            {
               "assetType": "WARRANTIES",
               "extension": "pdf",
               "fileSize": 10,
@@ -2025,16 +2038,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -2046,8 +2059,8 @@ describe("transformProduct", () => {
             },
           ],
           "externalProductCode": "external-product-code",
-          "filters": Array [
-            Object {
+          "filters": [
+            {
               "code": "code",
               "filterCode": "classification-feature-code",
               "groupLabel": "name",
@@ -2057,7 +2070,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "value",
             },
-            Object {
+            {
               "code": "code",
               "filterCode": "generalInformation.materials",
               "groupLabel": "Material",
@@ -2067,7 +2080,7 @@ describe("transformProduct", () => {
               "unit": undefined,
               "value": "Concrete",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "measurements.length",
               "groupLabel": "Length",
@@ -2077,7 +2090,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "6",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "measurements.width",
               "groupLabel": "Width",
@@ -2087,7 +2100,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "7",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "measurements.height",
               "groupLabel": "Height",
@@ -2097,7 +2110,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "8",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "measurements.thickness",
               "groupLabel": "Thickness",
@@ -2107,7 +2120,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "9",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "measurements.volume",
               "groupLabel": "Volume",
@@ -2117,7 +2130,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "10",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "weightAttributes.grossweight",
               "groupLabel": "Gross Weight",
@@ -2127,7 +2140,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "6",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "weightAttributes.netweight",
               "groupLabel": "Net Weight",
@@ -2137,7 +2150,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "7",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "weightAttributes.weightperpallet",
               "groupLabel": "Weight per Pallet",
@@ -2147,7 +2160,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "8",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "weightAttributes.weightperpiece",
               "groupLabel": "Weight per Piece",
@@ -2157,7 +2170,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "9",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "weightAttributes.weightpersqm",
               "groupLabel": "Weight per sq m",
@@ -2167,7 +2180,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "10",
             },
-            Object {
+            {
               "code": "code",
               "filterCode": "Brand",
               "groupLabel": undefined,
@@ -2176,7 +2189,7 @@ describe("transformProduct", () => {
               "parentFilterCode": "parent-category-code",
               "value": "code",
             },
-            Object {
+            {
               "code": "parent-category",
               "filterCode": "Category",
               "groupLabel": undefined,
@@ -2185,7 +2198,7 @@ describe("transformProduct", () => {
               "parentFilterCode": "",
               "value": "parent-category",
             },
-            Object {
+            {
               "code": "child-category",
               "filterCode": "Category",
               "groupLabel": "Parent Category",
@@ -2196,62 +2209,68 @@ describe("transformProduct", () => {
             },
           ],
           "fixingToolIframeUrl": "http://localhost:8000",
-          "galleryImages": Array [
-            Object {
+          "galleryImages": [
+            {
               "altText": "name",
               "mainSource": "http://localhost:8000",
               "thumbnail": "http://localhost:8000",
             },
           ],
-          "groups": Array [
-            Object {
+          "groups": [
+            {
               "code": "parent-category",
               "label": "Parent Category",
             },
           ],
-          "guaranteesAndWarrantiesImages": Array [],
-          "guaranteesAndWarrantiesLinks": Array [],
+          "guaranteesAndWarrantiesImages": [],
+          "guaranteesAndWarrantiesLinks": [],
           "hashedCode": "3464354221",
           "isSampleOrderAllowed": true,
           "isVisualiserAvailable": false,
-          "masterImage": Object {
+          "masterImage": {
             "altText": "name",
             "mainSource": "http://localhost:8000",
             "thumbnail": "http://localhost:8000",
           },
           "materials": "Concrete",
-          "measurements": Object {
-            "height": Object {
+          "measurements": {
+            "height": {
               "unit": "symbol",
               "value": "8",
             },
             "label": "6x7x8x9symbol",
-            "length": Object {
+            "length": {
               "unit": "symbol",
               "value": "6",
             },
-            "thickness": Object {
+            "thickness": {
               "unit": "symbol",
               "value": "9",
             },
-            "volume": Object {
+            "volume": {
               "unit": "symbol",
               "value": "10",
             },
-            "width": Object {
+            "width": {
               "unit": "symbol",
               "value": "7",
             },
           },
           "name": "name",
           "path": "/p/name-shadow-black-gloss-concrete-3464354221",
-          "productBenefits": Array [
+          "productBenefits": [
             "product-benefits",
           ],
-          "relatedVariants": Array [],
+          "relatedVariants": [],
+          "seoDescription": "seo_descr",
+          "seoTags": [
+            "seo",
+            "test",
+          ],
+          "seoTitle": "test",
           "specificationIframeUrl": "http://localhost:8000",
-          "techDrawings": Array [
-            Object {
+          "techDrawings": [
+            {
               "altText": undefined,
               "mainSource": "http://localhost:8000",
               "thumbnail": undefined,
@@ -2260,8 +2279,8 @@ describe("transformProduct", () => {
           "textureFamily": "Gloss",
           "textureFamilyMicrocopy": "Texture Family",
           "variantAttribute": "Shadow Black Gloss 6x7x8x9x10",
-          "videos": Array [
-            Object {
+          "videos": [
+            {
               "label": "name",
               "previewMedia": null,
               "subtitle": null,
@@ -2270,24 +2289,1688 @@ describe("transformProduct", () => {
               "videoUrl": "https://www.youtube.com/watch?v=3901c0ds7oo",
             },
           ],
-          "weight": Object {
-            "grossWeight": Object {
+          "weight": {
+            "grossWeight": {
               "unit": "symbol",
               "value": "6",
             },
-            "netWeight": Object {
+            "netWeight": {
               "unit": "symbol",
               "value": "7",
             },
-            "weightPerPallet": Object {
+            "weightPerPallet": {
               "unit": "symbol",
               "value": "8",
             },
-            "weightPerPiece": Object {
+            "weightPerPiece": {
               "unit": "symbol",
               "value": "9",
             },
-            "weightPerSqm": Object {
+            "weightPerSqm": {
+              "unit": "symbol",
+              "value": "10",
+            },
+          },
+        },
+      ]
+    `);
+  });
+
+  it("transforms a fully populated product with base discontinued status and variant approved", async () => {
+    const product = createFullyPopulatedProduct({
+      approvalStatus: "discontinued",
+      variantOptions: [
+        createFullyPopulatedVariantOption({ approvalStatus: "approved" })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
+    expect(transformedProducts).toMatchInlineSnapshot(`
+      [
+        {
+          "approvalStatus": "discontinued",
+          "awardsAndCertificateDocuments": [
+            {
+              "allowedToDownload": true,
+              "assetType": "AWARDS",
+              "fileSize": 10,
+              "format": "pdf",
+              "mime": "application/pdf",
+              "name": "name",
+              "realFileName": "real-file-name.pdf",
+              "url": "http://localhost:8000",
+            },
+            {
+              "allowedToDownload": true,
+              "assetType": "CERTIFICATES",
+              "fileSize": 10,
+              "format": "pdf",
+              "mime": "application/pdf",
+              "name": "name",
+              "realFileName": "real-file-name.pdf",
+              "url": "http://localhost:8000",
+            },
+            {
+              "allowedToDownload": false,
+              "assetType": "CERTIFICATES",
+              "fileSize": 10,
+              "format": "pdf",
+              "mime": "application/pdf",
+              "name": "name",
+              "realFileName": "real-file-name.pdf",
+              "url": "http://localhost:8000",
+            },
+            {
+              "allowedToDownload": true,
+              "assetType": "CERTIFICATES",
+              "fileSize": 10,
+              "format": "pdf",
+              "mime": undefined,
+              "name": "name",
+              "realFileName": "real-file-name.pdf",
+              "url": "http://localhost:8000",
+            },
+            {
+              "allowedToDownload": true,
+              "assetType": "CERTIFICATES",
+              "fileSize": 1.7976931348623157e+308,
+              "format": "pdf",
+              "mime": "application/pdf",
+              "name": "name",
+              "realFileName": "real-file-name.pdf",
+              "url": "http://localhost:8000",
+            },
+            {
+              "allowedToDownload": true,
+              "assetType": "CERTIFICATES",
+              "fileSize": undefined,
+              "format": "pdf",
+              "mime": "application/pdf",
+              "name": "name",
+              "realFileName": "real-file-name.pdf",
+              "url": "http://localhost:8000",
+            },
+            {
+              "allowedToDownload": true,
+              "assetType": "CERTIFICATES",
+              "fileSize": 10,
+              "format": "pdf",
+              "mime": "application/pdf",
+              "name": "name",
+              "realFileName": "real-file-name.pdf",
+              "url": undefined,
+            },
+          ],
+          "awardsAndCertificateImages": [
+            {
+              "allowedToDownload": true,
+              "assetType": "CERTIFICATES",
+              "fileSize": 10,
+              "format": "pdf",
+              "mime": "application/pdf",
+              "name": "name",
+              "realFileName": undefined,
+              "url": "http://localhost:8000",
+            },
+            {
+              "allowedToDownload": true,
+              "assetType": "CERTIFICATES",
+              "fileSize": undefined,
+              "format": "pdf",
+              "mime": "application/pdf",
+              "name": "name",
+              "realFileName": undefined,
+              "url": "http://localhost:8000",
+            },
+          ],
+          "baseCode": "base-code",
+          "baseScoringWeight": 100,
+          "bimIframeUrl": "http://localhost:8000",
+          "brand": {
+            "code": "code",
+            "logo": "http://localhost:8000",
+            "name": "name",
+          },
+          "categories": [
+            {
+              "categoryType": "Brand",
+              "code": "code",
+              "image": {
+                "allowedToDownload": true,
+                "fileSize": 10,
+                "mime": "image/png",
+                "name": "name",
+                "realFileName": "real-file-name.png",
+                "url": "http://localhost:8000",
+              },
+              "name": "name",
+              "parentCategoryCode": "parent-category-code",
+            },
+            {
+              "categoryType": "Category",
+              "code": "parent-category",
+              "image": {
+                "allowedToDownload": true,
+                "fileSize": 10,
+                "mime": "image/png",
+                "name": "name",
+                "realFileName": "real-file-name.png",
+                "url": "http://localhost:8000",
+              },
+              "name": "Parent Category",
+              "parentCategoryCode": "",
+            },
+            {
+              "categoryType": "Category",
+              "code": "child-category",
+              "image": {
+                "allowedToDownload": true,
+                "fileSize": 10,
+                "mime": "image/png",
+                "name": "name",
+                "realFileName": "real-file-name.png",
+                "url": "http://localhost:8000",
+              },
+              "name": "Child Category",
+              "parentCategoryCode": "parent-category",
+            },
+          ],
+          "classifications": [
+            {
+              "features": [
+                {
+                  "name": "Material",
+                  "value": "Concrete",
+                },
+              ],
+              "name": "General",
+            },
+            {
+              "features": [
+                {
+                  "name": "Length",
+                  "value": "6 symbol",
+                },
+                {
+                  "name": "Width",
+                  "value": "7 symbol",
+                },
+                {
+                  "name": "Height",
+                  "value": "8 symbol",
+                },
+                {
+                  "name": "Thickness",
+                  "value": "9 symbol",
+                },
+                {
+                  "name": "Volume",
+                  "value": "10 symbol",
+                },
+              ],
+              "name": "Measurements",
+            },
+            {
+              "features": [
+                {
+                  "name": "Gross Weight",
+                  "value": "6 symbol",
+                },
+                {
+                  "name": "Net Weight",
+                  "value": "7 symbol",
+                },
+                {
+                  "name": "Weight per Pallet",
+                  "value": "8 symbol",
+                },
+                {
+                  "name": "Weight per Piece",
+                  "value": "9 symbol",
+                },
+                {
+                  "name": "Weight per sq m",
+                  "value": "10 symbol",
+                },
+              ],
+              "name": "Weight",
+            },
+            {
+              "features": [
+                {
+                  "name": "name",
+                  "value": "value symbol",
+                },
+              ],
+              "name": "name",
+            },
+          ],
+          "code": "variant-code",
+          "colour": "Shadow Black",
+          "colourFamily": "Black",
+          "colourMicrocopy": "Colour",
+          "description": "<p>Long description</p>",
+          "documents": [
+            {
+              "assetType": "ASSEMBLY_INSTRUCTIONS",
+              "extension": "pdf",
+              "fileSize": 10,
+              "format": "application/pdf",
+              "id": "2583923841",
+              "isLinkDocument": false,
+              "productBaseCode": "base-code",
+              "productCategories": [
+                {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "realFileName": "real-file-name.pdf",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+            {
+              "assetType": "AWARDS",
+              "extension": "pdf",
+              "fileSize": 10,
+              "format": "application/pdf",
+              "id": "2583923841",
+              "isLinkDocument": false,
+              "productBaseCode": "base-code",
+              "productCategories": [
+                {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "realFileName": "real-file-name.pdf",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+            {
+              "assetType": "CERTIFICATES",
+              "extension": "pdf",
+              "fileSize": 10,
+              "format": "application/pdf",
+              "id": "2583923841",
+              "isLinkDocument": false,
+              "productBaseCode": "base-code",
+              "productCategories": [
+                {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "realFileName": "real-file-name.pdf",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+            {
+              "assetType": "CERTIFICATES",
+              "id": "2583923841",
+              "isLinkDocument": true,
+              "productBaseCode": "base-code",
+              "productCategories": [
+                {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+            {
+              "assetType": "CERTIFICATES",
+              "extension": "pdf",
+              "fileSize": 10,
+              "format": "application/pdf",
+              "id": "2583923841",
+              "isLinkDocument": false,
+              "productBaseCode": "base-code",
+              "productCategories": [
+                {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "realFileName": "real-file-name.pdf",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+            {
+              "assetType": "CERTIFICATES",
+              "id": "2583923841",
+              "isLinkDocument": true,
+              "productBaseCode": "base-code",
+              "productCategories": [
+                {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+            {
+              "assetType": "CERTIFICATES",
+              "id": "2583923841",
+              "isLinkDocument": true,
+              "productBaseCode": "base-code",
+              "productCategories": [
+                {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+            {
+              "assetType": "BIM",
+              "extension": "pdf",
+              "fileSize": 10,
+              "format": "application/pdf",
+              "id": "2583923841",
+              "isLinkDocument": false,
+              "productBaseCode": "base-code",
+              "productCategories": [
+                {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "realFileName": "real-file-name.pdf",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+            {
+              "assetType": "FIXING_TOOL",
+              "extension": "pdf",
+              "fileSize": 10,
+              "format": "application/pdf",
+              "id": "2583923841",
+              "isLinkDocument": false,
+              "productBaseCode": "base-code",
+              "productCategories": [
+                {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "realFileName": "real-file-name.pdf",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+            {
+              "assetType": "GUARANTIES",
+              "extension": "pdf",
+              "fileSize": 10,
+              "format": "application/pdf",
+              "id": "2583923841",
+              "isLinkDocument": false,
+              "productBaseCode": "base-code",
+              "productCategories": [
+                {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "realFileName": "real-file-name.pdf",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+            {
+              "assetType": "SPECIFICATION",
+              "extension": "pdf",
+              "fileSize": 10,
+              "format": "application/pdf",
+              "id": "2583923841",
+              "isLinkDocument": false,
+              "productBaseCode": "base-code",
+              "productCategories": [
+                {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "realFileName": "real-file-name.pdf",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+            {
+              "assetType": "VIDEO",
+              "extension": "pdf",
+              "fileSize": 10,
+              "format": "application/pdf",
+              "id": "84587715",
+              "isLinkDocument": false,
+              "productBaseCode": "base-code",
+              "productCategories": [
+                {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "realFileName": "real-file-name.pdf",
+              "title": "name",
+              "url": "https://www.youtube.com/watch?v=3901c0ds7oo",
+            },
+            {
+              "assetType": "WARRANTIES",
+              "extension": "pdf",
+              "fileSize": 10,
+              "format": "application/pdf",
+              "id": "2583923841",
+              "isLinkDocument": false,
+              "productBaseCode": "base-code",
+              "productCategories": [
+                {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "realFileName": "real-file-name.pdf",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+          ],
+          "externalProductCode": "external-product-code",
+          "filters": [
+            {
+              "code": "code",
+              "filterCode": "classification-feature-code",
+              "groupLabel": "name",
+              "isCategory": false,
+              "name": "name",
+              "parentFilterCode": "",
+              "unit": "symbol",
+              "value": "value",
+            },
+            {
+              "code": "code",
+              "filterCode": "generalInformation.materials",
+              "groupLabel": "Material",
+              "isCategory": false,
+              "name": "Material",
+              "parentFilterCode": "",
+              "unit": undefined,
+              "value": "Concrete",
+            },
+            {
+              "code": "",
+              "filterCode": "measurements.length",
+              "groupLabel": "Length",
+              "isCategory": false,
+              "name": "Length",
+              "parentFilterCode": "",
+              "unit": "symbol",
+              "value": "6",
+            },
+            {
+              "code": "",
+              "filterCode": "measurements.width",
+              "groupLabel": "Width",
+              "isCategory": false,
+              "name": "Width",
+              "parentFilterCode": "",
+              "unit": "symbol",
+              "value": "7",
+            },
+            {
+              "code": "",
+              "filterCode": "measurements.height",
+              "groupLabel": "Height",
+              "isCategory": false,
+              "name": "Height",
+              "parentFilterCode": "",
+              "unit": "symbol",
+              "value": "8",
+            },
+            {
+              "code": "",
+              "filterCode": "measurements.thickness",
+              "groupLabel": "Thickness",
+              "isCategory": false,
+              "name": "Thickness",
+              "parentFilterCode": "",
+              "unit": "symbol",
+              "value": "9",
+            },
+            {
+              "code": "",
+              "filterCode": "measurements.volume",
+              "groupLabel": "Volume",
+              "isCategory": false,
+              "name": "Volume",
+              "parentFilterCode": "",
+              "unit": "symbol",
+              "value": "10",
+            },
+            {
+              "code": "",
+              "filterCode": "weightAttributes.grossweight",
+              "groupLabel": "Gross Weight",
+              "isCategory": false,
+              "name": "Gross Weight",
+              "parentFilterCode": "",
+              "unit": "symbol",
+              "value": "6",
+            },
+            {
+              "code": "",
+              "filterCode": "weightAttributes.netweight",
+              "groupLabel": "Net Weight",
+              "isCategory": false,
+              "name": "Net Weight",
+              "parentFilterCode": "",
+              "unit": "symbol",
+              "value": "7",
+            },
+            {
+              "code": "",
+              "filterCode": "weightAttributes.weightperpallet",
+              "groupLabel": "Weight per Pallet",
+              "isCategory": false,
+              "name": "Weight per Pallet",
+              "parentFilterCode": "",
+              "unit": "symbol",
+              "value": "8",
+            },
+            {
+              "code": "",
+              "filterCode": "weightAttributes.weightperpiece",
+              "groupLabel": "Weight per Piece",
+              "isCategory": false,
+              "name": "Weight per Piece",
+              "parentFilterCode": "",
+              "unit": "symbol",
+              "value": "9",
+            },
+            {
+              "code": "",
+              "filterCode": "weightAttributes.weightpersqm",
+              "groupLabel": "Weight per sq m",
+              "isCategory": false,
+              "name": "Weight per sq m",
+              "parentFilterCode": "",
+              "unit": "symbol",
+              "value": "10",
+            },
+            {
+              "code": "code",
+              "filterCode": "Brand",
+              "groupLabel": undefined,
+              "isCategory": true,
+              "name": "name",
+              "parentFilterCode": "parent-category-code",
+              "value": "code",
+            },
+            {
+              "code": "parent-category",
+              "filterCode": "Category",
+              "groupLabel": undefined,
+              "isCategory": true,
+              "name": "Parent Category",
+              "parentFilterCode": "",
+              "value": "parent-category",
+            },
+            {
+              "code": "child-category",
+              "filterCode": "Category",
+              "groupLabel": "Parent Category",
+              "isCategory": true,
+              "name": "Child Category",
+              "parentFilterCode": "parent-category",
+              "value": "child-category",
+            },
+          ],
+          "fixingToolIframeUrl": "http://localhost:8000",
+          "galleryImages": [
+            {
+              "altText": "name",
+              "mainSource": "http://localhost:8000",
+              "thumbnail": "http://localhost:8000",
+            },
+          ],
+          "groups": [
+            {
+              "code": "parent-category",
+              "label": "Parent Category",
+            },
+          ],
+          "guaranteesAndWarrantiesImages": [],
+          "guaranteesAndWarrantiesLinks": [],
+          "hashedCode": "3464354221",
+          "isSampleOrderAllowed": true,
+          "isVisualiserAvailable": false,
+          "masterImage": {
+            "altText": "name",
+            "mainSource": "http://localhost:8000",
+            "thumbnail": "http://localhost:8000",
+          },
+          "materials": "Concrete",
+          "measurements": {
+            "height": {
+              "unit": "symbol",
+              "value": "8",
+            },
+            "label": "6x7x8x9symbol",
+            "length": {
+              "unit": "symbol",
+              "value": "6",
+            },
+            "thickness": {
+              "unit": "symbol",
+              "value": "9",
+            },
+            "volume": {
+              "unit": "symbol",
+              "value": "10",
+            },
+            "width": {
+              "unit": "symbol",
+              "value": "7",
+            },
+          },
+          "name": "name",
+          "path": "/p/name-shadow-black-gloss-concrete-3464354221",
+          "productBenefits": [
+            "product-benefits",
+          ],
+          "relatedVariants": [],
+          "seoDescription": "seo_descr",
+          "seoTags": [
+            "seo",
+            "test",
+          ],
+          "seoTitle": "test",
+          "specificationIframeUrl": "http://localhost:8000",
+          "techDrawings": [
+            {
+              "altText": undefined,
+              "mainSource": "http://localhost:8000",
+              "thumbnail": undefined,
+            },
+          ],
+          "textureFamily": "Gloss",
+          "textureFamilyMicrocopy": "Texture Family",
+          "variantAttribute": "Shadow Black Gloss 6x7x8x9x10",
+          "videos": [
+            {
+              "label": "name",
+              "previewMedia": null,
+              "subtitle": null,
+              "title": "",
+              "videoRatio": null,
+              "videoUrl": "https://www.youtube.com/watch?v=3901c0ds7oo",
+            },
+          ],
+          "weight": {
+            "grossWeight": {
+              "unit": "symbol",
+              "value": "6",
+            },
+            "netWeight": {
+              "unit": "symbol",
+              "value": "7",
+            },
+            "weightPerPallet": {
+              "unit": "symbol",
+              "value": "8",
+            },
+            "weightPerPiece": {
+              "unit": "symbol",
+              "value": "9",
+            },
+            "weightPerSqm": {
+              "unit": "symbol",
+              "value": "10",
+            },
+          },
+        },
+      ]
+    `);
+  });
+
+  it("transforms a fully populated product with base approved status and variant discontinued", async () => {
+    const product = createFullyPopulatedProduct({
+      approvalStatus: "approved",
+      variantOptions: [
+        createFullyPopulatedVariantOption({ approvalStatus: "discontinued" })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
+    expect(transformedProducts).toMatchInlineSnapshot(`
+      [
+        {
+          "approvalStatus": "discontinued",
+          "awardsAndCertificateDocuments": [
+            {
+              "allowedToDownload": true,
+              "assetType": "AWARDS",
+              "fileSize": 10,
+              "format": "pdf",
+              "mime": "application/pdf",
+              "name": "name",
+              "realFileName": "real-file-name.pdf",
+              "url": "http://localhost:8000",
+            },
+            {
+              "allowedToDownload": true,
+              "assetType": "CERTIFICATES",
+              "fileSize": 10,
+              "format": "pdf",
+              "mime": "application/pdf",
+              "name": "name",
+              "realFileName": "real-file-name.pdf",
+              "url": "http://localhost:8000",
+            },
+            {
+              "allowedToDownload": false,
+              "assetType": "CERTIFICATES",
+              "fileSize": 10,
+              "format": "pdf",
+              "mime": "application/pdf",
+              "name": "name",
+              "realFileName": "real-file-name.pdf",
+              "url": "http://localhost:8000",
+            },
+            {
+              "allowedToDownload": true,
+              "assetType": "CERTIFICATES",
+              "fileSize": 10,
+              "format": "pdf",
+              "mime": undefined,
+              "name": "name",
+              "realFileName": "real-file-name.pdf",
+              "url": "http://localhost:8000",
+            },
+            {
+              "allowedToDownload": true,
+              "assetType": "CERTIFICATES",
+              "fileSize": 1.7976931348623157e+308,
+              "format": "pdf",
+              "mime": "application/pdf",
+              "name": "name",
+              "realFileName": "real-file-name.pdf",
+              "url": "http://localhost:8000",
+            },
+            {
+              "allowedToDownload": true,
+              "assetType": "CERTIFICATES",
+              "fileSize": undefined,
+              "format": "pdf",
+              "mime": "application/pdf",
+              "name": "name",
+              "realFileName": "real-file-name.pdf",
+              "url": "http://localhost:8000",
+            },
+            {
+              "allowedToDownload": true,
+              "assetType": "CERTIFICATES",
+              "fileSize": 10,
+              "format": "pdf",
+              "mime": "application/pdf",
+              "name": "name",
+              "realFileName": "real-file-name.pdf",
+              "url": undefined,
+            },
+          ],
+          "awardsAndCertificateImages": [
+            {
+              "allowedToDownload": true,
+              "assetType": "CERTIFICATES",
+              "fileSize": 10,
+              "format": "pdf",
+              "mime": "application/pdf",
+              "name": "name",
+              "realFileName": undefined,
+              "url": "http://localhost:8000",
+            },
+            {
+              "allowedToDownload": true,
+              "assetType": "CERTIFICATES",
+              "fileSize": undefined,
+              "format": "pdf",
+              "mime": "application/pdf",
+              "name": "name",
+              "realFileName": undefined,
+              "url": "http://localhost:8000",
+            },
+          ],
+          "baseCode": "base-code",
+          "baseScoringWeight": 100,
+          "bimIframeUrl": "http://localhost:8000",
+          "brand": {
+            "code": "code",
+            "logo": "http://localhost:8000",
+            "name": "name",
+          },
+          "categories": [
+            {
+              "categoryType": "Brand",
+              "code": "code",
+              "image": {
+                "allowedToDownload": true,
+                "fileSize": 10,
+                "mime": "image/png",
+                "name": "name",
+                "realFileName": "real-file-name.png",
+                "url": "http://localhost:8000",
+              },
+              "name": "name",
+              "parentCategoryCode": "parent-category-code",
+            },
+            {
+              "categoryType": "Category",
+              "code": "parent-category",
+              "image": {
+                "allowedToDownload": true,
+                "fileSize": 10,
+                "mime": "image/png",
+                "name": "name",
+                "realFileName": "real-file-name.png",
+                "url": "http://localhost:8000",
+              },
+              "name": "Parent Category",
+              "parentCategoryCode": "",
+            },
+            {
+              "categoryType": "Category",
+              "code": "child-category",
+              "image": {
+                "allowedToDownload": true,
+                "fileSize": 10,
+                "mime": "image/png",
+                "name": "name",
+                "realFileName": "real-file-name.png",
+                "url": "http://localhost:8000",
+              },
+              "name": "Child Category",
+              "parentCategoryCode": "parent-category",
+            },
+          ],
+          "classifications": [
+            {
+              "features": [
+                {
+                  "name": "Material",
+                  "value": "Concrete",
+                },
+              ],
+              "name": "General",
+            },
+            {
+              "features": [
+                {
+                  "name": "Length",
+                  "value": "6 symbol",
+                },
+                {
+                  "name": "Width",
+                  "value": "7 symbol",
+                },
+                {
+                  "name": "Height",
+                  "value": "8 symbol",
+                },
+                {
+                  "name": "Thickness",
+                  "value": "9 symbol",
+                },
+                {
+                  "name": "Volume",
+                  "value": "10 symbol",
+                },
+              ],
+              "name": "Measurements",
+            },
+            {
+              "features": [
+                {
+                  "name": "Gross Weight",
+                  "value": "6 symbol",
+                },
+                {
+                  "name": "Net Weight",
+                  "value": "7 symbol",
+                },
+                {
+                  "name": "Weight per Pallet",
+                  "value": "8 symbol",
+                },
+                {
+                  "name": "Weight per Piece",
+                  "value": "9 symbol",
+                },
+                {
+                  "name": "Weight per sq m",
+                  "value": "10 symbol",
+                },
+              ],
+              "name": "Weight",
+            },
+            {
+              "features": [
+                {
+                  "name": "name",
+                  "value": "value symbol",
+                },
+              ],
+              "name": "name",
+            },
+          ],
+          "code": "variant-code",
+          "colour": "Shadow Black",
+          "colourFamily": "Black",
+          "colourMicrocopy": "Colour",
+          "description": "<p>Long description</p>",
+          "documents": [
+            {
+              "assetType": "ASSEMBLY_INSTRUCTIONS",
+              "extension": "pdf",
+              "fileSize": 10,
+              "format": "application/pdf",
+              "id": "2583923841",
+              "isLinkDocument": false,
+              "productBaseCode": "base-code",
+              "productCategories": [
+                {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "realFileName": "real-file-name.pdf",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+            {
+              "assetType": "AWARDS",
+              "extension": "pdf",
+              "fileSize": 10,
+              "format": "application/pdf",
+              "id": "2583923841",
+              "isLinkDocument": false,
+              "productBaseCode": "base-code",
+              "productCategories": [
+                {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "realFileName": "real-file-name.pdf",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+            {
+              "assetType": "CERTIFICATES",
+              "extension": "pdf",
+              "fileSize": 10,
+              "format": "application/pdf",
+              "id": "2583923841",
+              "isLinkDocument": false,
+              "productBaseCode": "base-code",
+              "productCategories": [
+                {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "realFileName": "real-file-name.pdf",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+            {
+              "assetType": "CERTIFICATES",
+              "id": "2583923841",
+              "isLinkDocument": true,
+              "productBaseCode": "base-code",
+              "productCategories": [
+                {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+            {
+              "assetType": "CERTIFICATES",
+              "extension": "pdf",
+              "fileSize": 10,
+              "format": "application/pdf",
+              "id": "2583923841",
+              "isLinkDocument": false,
+              "productBaseCode": "base-code",
+              "productCategories": [
+                {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "realFileName": "real-file-name.pdf",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+            {
+              "assetType": "CERTIFICATES",
+              "id": "2583923841",
+              "isLinkDocument": true,
+              "productBaseCode": "base-code",
+              "productCategories": [
+                {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+            {
+              "assetType": "CERTIFICATES",
+              "id": "2583923841",
+              "isLinkDocument": true,
+              "productBaseCode": "base-code",
+              "productCategories": [
+                {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+            {
+              "assetType": "BIM",
+              "extension": "pdf",
+              "fileSize": 10,
+              "format": "application/pdf",
+              "id": "2583923841",
+              "isLinkDocument": false,
+              "productBaseCode": "base-code",
+              "productCategories": [
+                {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "realFileName": "real-file-name.pdf",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+            {
+              "assetType": "FIXING_TOOL",
+              "extension": "pdf",
+              "fileSize": 10,
+              "format": "application/pdf",
+              "id": "2583923841",
+              "isLinkDocument": false,
+              "productBaseCode": "base-code",
+              "productCategories": [
+                {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "realFileName": "real-file-name.pdf",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+            {
+              "assetType": "GUARANTIES",
+              "extension": "pdf",
+              "fileSize": 10,
+              "format": "application/pdf",
+              "id": "2583923841",
+              "isLinkDocument": false,
+              "productBaseCode": "base-code",
+              "productCategories": [
+                {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "realFileName": "real-file-name.pdf",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+            {
+              "assetType": "SPECIFICATION",
+              "extension": "pdf",
+              "fileSize": 10,
+              "format": "application/pdf",
+              "id": "2583923841",
+              "isLinkDocument": false,
+              "productBaseCode": "base-code",
+              "productCategories": [
+                {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "realFileName": "real-file-name.pdf",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+            {
+              "assetType": "VIDEO",
+              "extension": "pdf",
+              "fileSize": 10,
+              "format": "application/pdf",
+              "id": "84587715",
+              "isLinkDocument": false,
+              "productBaseCode": "base-code",
+              "productCategories": [
+                {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "realFileName": "real-file-name.pdf",
+              "title": "name",
+              "url": "https://www.youtube.com/watch?v=3901c0ds7oo",
+            },
+            {
+              "assetType": "WARRANTIES",
+              "extension": "pdf",
+              "fileSize": 10,
+              "format": "application/pdf",
+              "id": "2583923841",
+              "isLinkDocument": false,
+              "productBaseCode": "base-code",
+              "productCategories": [
+                {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "realFileName": "real-file-name.pdf",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+          ],
+          "externalProductCode": "external-product-code",
+          "filters": [
+            {
+              "code": "code",
+              "filterCode": "classification-feature-code",
+              "groupLabel": "name",
+              "isCategory": false,
+              "name": "name",
+              "parentFilterCode": "",
+              "unit": "symbol",
+              "value": "value",
+            },
+            {
+              "code": "code",
+              "filterCode": "generalInformation.materials",
+              "groupLabel": "Material",
+              "isCategory": false,
+              "name": "Material",
+              "parentFilterCode": "",
+              "unit": undefined,
+              "value": "Concrete",
+            },
+            {
+              "code": "",
+              "filterCode": "measurements.length",
+              "groupLabel": "Length",
+              "isCategory": false,
+              "name": "Length",
+              "parentFilterCode": "",
+              "unit": "symbol",
+              "value": "6",
+            },
+            {
+              "code": "",
+              "filterCode": "measurements.width",
+              "groupLabel": "Width",
+              "isCategory": false,
+              "name": "Width",
+              "parentFilterCode": "",
+              "unit": "symbol",
+              "value": "7",
+            },
+            {
+              "code": "",
+              "filterCode": "measurements.height",
+              "groupLabel": "Height",
+              "isCategory": false,
+              "name": "Height",
+              "parentFilterCode": "",
+              "unit": "symbol",
+              "value": "8",
+            },
+            {
+              "code": "",
+              "filterCode": "measurements.thickness",
+              "groupLabel": "Thickness",
+              "isCategory": false,
+              "name": "Thickness",
+              "parentFilterCode": "",
+              "unit": "symbol",
+              "value": "9",
+            },
+            {
+              "code": "",
+              "filterCode": "measurements.volume",
+              "groupLabel": "Volume",
+              "isCategory": false,
+              "name": "Volume",
+              "parentFilterCode": "",
+              "unit": "symbol",
+              "value": "10",
+            },
+            {
+              "code": "",
+              "filterCode": "weightAttributes.grossweight",
+              "groupLabel": "Gross Weight",
+              "isCategory": false,
+              "name": "Gross Weight",
+              "parentFilterCode": "",
+              "unit": "symbol",
+              "value": "6",
+            },
+            {
+              "code": "",
+              "filterCode": "weightAttributes.netweight",
+              "groupLabel": "Net Weight",
+              "isCategory": false,
+              "name": "Net Weight",
+              "parentFilterCode": "",
+              "unit": "symbol",
+              "value": "7",
+            },
+            {
+              "code": "",
+              "filterCode": "weightAttributes.weightperpallet",
+              "groupLabel": "Weight per Pallet",
+              "isCategory": false,
+              "name": "Weight per Pallet",
+              "parentFilterCode": "",
+              "unit": "symbol",
+              "value": "8",
+            },
+            {
+              "code": "",
+              "filterCode": "weightAttributes.weightperpiece",
+              "groupLabel": "Weight per Piece",
+              "isCategory": false,
+              "name": "Weight per Piece",
+              "parentFilterCode": "",
+              "unit": "symbol",
+              "value": "9",
+            },
+            {
+              "code": "",
+              "filterCode": "weightAttributes.weightpersqm",
+              "groupLabel": "Weight per sq m",
+              "isCategory": false,
+              "name": "Weight per sq m",
+              "parentFilterCode": "",
+              "unit": "symbol",
+              "value": "10",
+            },
+            {
+              "code": "code",
+              "filterCode": "Brand",
+              "groupLabel": undefined,
+              "isCategory": true,
+              "name": "name",
+              "parentFilterCode": "parent-category-code",
+              "value": "code",
+            },
+            {
+              "code": "parent-category",
+              "filterCode": "Category",
+              "groupLabel": undefined,
+              "isCategory": true,
+              "name": "Parent Category",
+              "parentFilterCode": "",
+              "value": "parent-category",
+            },
+            {
+              "code": "child-category",
+              "filterCode": "Category",
+              "groupLabel": "Parent Category",
+              "isCategory": true,
+              "name": "Child Category",
+              "parentFilterCode": "parent-category",
+              "value": "child-category",
+            },
+          ],
+          "fixingToolIframeUrl": "http://localhost:8000",
+          "galleryImages": [
+            {
+              "altText": "name",
+              "mainSource": "http://localhost:8000",
+              "thumbnail": "http://localhost:8000",
+            },
+          ],
+          "groups": [
+            {
+              "code": "parent-category",
+              "label": "Parent Category",
+            },
+          ],
+          "guaranteesAndWarrantiesImages": [],
+          "guaranteesAndWarrantiesLinks": [],
+          "hashedCode": "3464354221",
+          "isSampleOrderAllowed": true,
+          "isVisualiserAvailable": false,
+          "masterImage": {
+            "altText": "name",
+            "mainSource": "http://localhost:8000",
+            "thumbnail": "http://localhost:8000",
+          },
+          "materials": "Concrete",
+          "measurements": {
+            "height": {
+              "unit": "symbol",
+              "value": "8",
+            },
+            "label": "6x7x8x9symbol",
+            "length": {
+              "unit": "symbol",
+              "value": "6",
+            },
+            "thickness": {
+              "unit": "symbol",
+              "value": "9",
+            },
+            "volume": {
+              "unit": "symbol",
+              "value": "10",
+            },
+            "width": {
+              "unit": "symbol",
+              "value": "7",
+            },
+          },
+          "name": "name",
+          "path": "/p/name-shadow-black-gloss-concrete-3464354221",
+          "productBenefits": [
+            "product-benefits",
+          ],
+          "relatedVariants": [],
+          "seoDescription": "seo_descr",
+          "seoTags": [
+            "seo",
+            "test",
+          ],
+          "seoTitle": "test",
+          "specificationIframeUrl": "http://localhost:8000",
+          "techDrawings": [
+            {
+              "altText": undefined,
+              "mainSource": "http://localhost:8000",
+              "thumbnail": undefined,
+            },
+          ],
+          "textureFamily": "Gloss",
+          "textureFamilyMicrocopy": "Texture Family",
+          "variantAttribute": "Shadow Black Gloss 6x7x8x9x10",
+          "videos": [
+            {
+              "label": "name",
+              "previewMedia": null,
+              "subtitle": null,
+              "title": "",
+              "videoRatio": null,
+              "videoUrl": "https://www.youtube.com/watch?v=3901c0ds7oo",
+            },
+          ],
+          "weight": {
+            "grossWeight": {
+              "unit": "symbol",
+              "value": "6",
+            },
+            "netWeight": {
+              "unit": "symbol",
+              "value": "7",
+            },
+            "weightPerPallet": {
+              "unit": "symbol",
+              "value": "8",
+            },
+            "weightPerPiece": {
+              "unit": "symbol",
+              "value": "9",
+            },
+            "weightPerSqm": {
               "unit": "symbol",
               "value": "10",
             },
@@ -2412,11 +4095,11 @@ describe("transformProduct", () => {
     product.classifications = [classification1, classification2];
     const transformedProducts = await transformProduct(product);
     expect(transformedProducts).toMatchInlineSnapshot(`
-      Array [
-        Object {
+      [
+        {
           "approvalStatus": "approved",
-          "awardsAndCertificateDocuments": Array [
-            Object {
+          "awardsAndCertificateDocuments": [
+            {
               "allowedToDownload": true,
               "assetType": "AWARDS",
               "fileSize": 10,
@@ -2426,7 +4109,7 @@ describe("transformProduct", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -2436,7 +4119,7 @@ describe("transformProduct", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": false,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -2446,7 +4129,7 @@ describe("transformProduct", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -2456,7 +4139,7 @@ describe("transformProduct", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 1.7976931348623157e+308,
@@ -2466,7 +4149,7 @@ describe("transformProduct", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": undefined,
@@ -2476,7 +4159,7 @@ describe("transformProduct", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -2487,8 +4170,8 @@ describe("transformProduct", () => {
               "url": undefined,
             },
           ],
-          "awardsAndCertificateImages": Array [
-            Object {
+          "awardsAndCertificateImages": [
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -2498,7 +4181,7 @@ describe("transformProduct", () => {
               "realFileName": undefined,
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": undefined,
@@ -2512,16 +4195,16 @@ describe("transformProduct", () => {
           "baseCode": "base-code",
           "baseScoringWeight": 0,
           "bimIframeUrl": "http://localhost:8000",
-          "brand": Object {
+          "brand": {
             "code": "code",
             "logo": "http://localhost:8000",
             "name": "name",
           },
-          "categories": Array [
-            Object {
+          "categories": [
+            {
               "categoryType": "Brand",
               "code": "code",
-              "image": Object {
+              "image": {
                 "allowedToDownload": true,
                 "fileSize": 10,
                 "mime": "image/png",
@@ -2532,10 +4215,10 @@ describe("transformProduct", () => {
               "name": "name",
               "parentCategoryCode": "parent-category-code",
             },
-            Object {
+            {
               "categoryType": "Category",
               "code": "parent-category",
-              "image": Object {
+              "image": {
                 "allowedToDownload": true,
                 "fileSize": 10,
                 "mime": "image/png",
@@ -2546,10 +4229,10 @@ describe("transformProduct", () => {
               "name": "Parent Category",
               "parentCategoryCode": "",
             },
-            Object {
+            {
               "categoryType": "Category",
               "code": "child-category",
-              "image": Object {
+              "image": {
                 "allowedToDownload": true,
                 "fileSize": 10,
                 "mime": "image/png",
@@ -2561,81 +4244,81 @@ describe("transformProduct", () => {
               "parentCategoryCode": "parent-category",
             },
           ],
-          "classifications": Array [
-            Object {
-              "features": Array [
-                Object {
+          "classifications": [
+            {
+              "features": [
+                {
                   "name": "Material",
                   "value": "Concrete",
                 },
               ],
               "name": "General",
             },
-            Object {
-              "features": Array [
-                Object {
+            {
+              "features": [
+                {
                   "name": "Length",
                   "value": "6 symbol",
                 },
-                Object {
+                {
                   "name": "Width",
                   "value": "7 symbol",
                 },
-                Object {
+                {
                   "name": "Height",
                   "value": "8 symbol",
                 },
-                Object {
+                {
                   "name": "Thickness",
                   "value": "9 symbol",
                 },
-                Object {
+                {
                   "name": "Volume",
                   "value": "10 symbol",
                 },
-                Object {
+                {
                   "name": "Volume",
                   "value": "5 mm",
                 },
-                Object {
+                {
                   "name": "Volume",
                   "value": "5 mm",
                 },
-                Object {
+                {
                   "name": "Volume",
                   "value": "5",
                 },
               ],
               "name": "Measurements",
             },
-            Object {
-              "features": Array [
-                Object {
+            {
+              "features": [
+                {
                   "name": "Gross Weight",
                   "value": "6 symbol",
                 },
-                Object {
+                {
                   "name": "Net Weight",
                   "value": "7 symbol",
                 },
-                Object {
+                {
                   "name": "Weight per Pallet",
                   "value": "8 symbol",
                 },
-                Object {
+                {
                   "name": "Weight per Piece",
                   "value": "9 symbol",
                 },
-                Object {
+                {
                   "name": "Weight per sq m",
                   "value": "10 symbol",
                 },
               ],
               "name": "Weight",
             },
-            Object {
-              "features": Array [
-                Object {
+            {
+              "features": [
+                {
                   "name": "name",
                   "value": "value symbol",
                 },
@@ -2648,8 +4331,8 @@ describe("transformProduct", () => {
           "colourFamily": "Black",
           "colourMicrocopy": "Colour",
           "description": "<p>Long description</p>",
-          "documents": Array [
-            Object {
+          "documents": [
+            {
               "assetType": "ASSEMBLY_INSTRUCTIONS",
               "extension": "pdf",
               "fileSize": 10,
@@ -2657,16 +4340,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -2676,7 +4359,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "AWARDS",
               "extension": "pdf",
               "fileSize": 10,
@@ -2684,16 +4367,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -2703,7 +4386,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "CERTIFICATES",
               "extension": "pdf",
               "fileSize": 10,
@@ -2711,16 +4394,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -2730,21 +4413,21 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "CERTIFICATES",
               "id": "2583923841",
               "isLinkDocument": true,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -2753,7 +4436,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "CERTIFICATES",
               "extension": "pdf",
               "fileSize": 10,
@@ -2761,16 +4444,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -2780,21 +4463,21 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "CERTIFICATES",
               "id": "2583923841",
               "isLinkDocument": true,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -2803,21 +4486,21 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "CERTIFICATES",
               "id": "2583923841",
               "isLinkDocument": true,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -2826,7 +4509,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "BIM",
               "extension": "pdf",
               "fileSize": 10,
@@ -2834,16 +4517,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -2853,7 +4536,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "FIXING_TOOL",
               "extension": "pdf",
               "fileSize": 10,
@@ -2861,16 +4544,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -2880,7 +4563,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "GUARANTIES",
               "extension": "pdf",
               "fileSize": 10,
@@ -2888,16 +4571,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -2907,7 +4590,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "SPECIFICATION",
               "extension": "pdf",
               "fileSize": 10,
@@ -2915,16 +4598,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -2934,7 +4617,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "VIDEO",
               "extension": "pdf",
               "fileSize": 10,
@@ -2942,16 +4625,16 @@ describe("transformProduct", () => {
               "id": "84587715",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -2961,7 +4644,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "https://www.youtube.com/watch?v=3901c0ds7oo",
             },
-            Object {
+            {
               "assetType": "WARRANTIES",
               "extension": "pdf",
               "fileSize": 10,
@@ -2969,16 +4652,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -2990,8 +4673,8 @@ describe("transformProduct", () => {
             },
           ],
           "externalProductCode": "external-product-code",
-          "filters": Array [
-            Object {
+          "filters": [
+            {
               "code": "code",
               "filterCode": "classification-feature-code",
               "groupLabel": "name",
@@ -3001,7 +4684,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "value",
             },
-            Object {
+            {
               "code": "code",
               "filterCode": "generalInformation.materials",
               "groupLabel": "Material",
@@ -3011,7 +4694,7 @@ describe("transformProduct", () => {
               "unit": undefined,
               "value": "Concrete",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "measurements.length",
               "groupLabel": "Length",
@@ -3021,7 +4704,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "6",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "measurements.width",
               "groupLabel": "Width",
@@ -3031,7 +4714,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "7",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "measurements.height",
               "groupLabel": "Height",
@@ -3041,7 +4724,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "8",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "measurements.thickness",
               "groupLabel": "Thickness",
@@ -3051,7 +4734,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "9",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "measurements.volume",
               "groupLabel": "Volume",
@@ -3061,7 +4744,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "10",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "measurements.grossweight",
               "groupLabel": "Volume",
@@ -3071,7 +4754,7 @@ describe("transformProduct", () => {
               "unit": "mm",
               "value": "5",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "measurements.netweight",
               "groupLabel": "Volume",
@@ -3081,7 +4764,7 @@ describe("transformProduct", () => {
               "unit": "mm",
               "value": "5",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "measurements.weightperpallet",
               "groupLabel": "Volume",
@@ -3091,7 +4774,7 @@ describe("transformProduct", () => {
               "unit": undefined,
               "value": "5",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "weightAttributes.grossweight",
               "groupLabel": "Gross Weight",
@@ -3101,7 +4784,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "6",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "weightAttributes.netweight",
               "groupLabel": "Net Weight",
@@ -3111,7 +4794,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "7",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "weightAttributes.weightperpallet",
               "groupLabel": "Weight per Pallet",
@@ -3121,7 +4804,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "8",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "weightAttributes.weightperpiece",
               "groupLabel": "Weight per Piece",
@@ -3131,7 +4814,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "9",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "weightAttributes.weightpersqm",
               "groupLabel": "Weight per sq m",
@@ -3141,7 +4824,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "10",
             },
-            Object {
+            {
               "code": "code",
               "filterCode": "Brand",
               "groupLabel": undefined,
@@ -3150,7 +4833,7 @@ describe("transformProduct", () => {
               "parentFilterCode": "parent-category-code",
               "value": "code",
             },
-            Object {
+            {
               "code": "parent-category",
               "filterCode": "Category",
               "groupLabel": undefined,
@@ -3159,7 +4842,7 @@ describe("transformProduct", () => {
               "parentFilterCode": "",
               "value": "parent-category",
             },
-            Object {
+            {
               "code": "child-category",
               "filterCode": "Category",
               "groupLabel": "Parent Category",
@@ -3170,62 +4853,68 @@ describe("transformProduct", () => {
             },
           ],
           "fixingToolIframeUrl": "http://localhost:8000",
-          "galleryImages": Array [
-            Object {
+          "galleryImages": [
+            {
               "altText": "name",
               "mainSource": "http://localhost:8000",
               "thumbnail": "http://localhost:8000",
             },
           ],
-          "groups": Array [
-            Object {
+          "groups": [
+            {
               "code": "parent-category",
               "label": "Parent Category",
             },
           ],
-          "guaranteesAndWarrantiesImages": Array [],
-          "guaranteesAndWarrantiesLinks": Array [],
+          "guaranteesAndWarrantiesImages": [],
+          "guaranteesAndWarrantiesLinks": [],
           "hashedCode": "3464354221",
           "isSampleOrderAllowed": true,
           "isVisualiserAvailable": false,
-          "masterImage": Object {
+          "masterImage": {
             "altText": "name",
             "mainSource": "http://localhost:8000",
             "thumbnail": "http://localhost:8000",
           },
           "materials": "Concrete",
-          "measurements": Object {
-            "height": Object {
+          "measurements": {
+            "height": {
               "unit": "symbol",
               "value": "8",
             },
             "label": "6x7x8x9symbol",
-            "length": Object {
+            "length": {
               "unit": "symbol",
               "value": "6",
             },
-            "thickness": Object {
+            "thickness": {
               "unit": "symbol",
               "value": "9",
             },
-            "volume": Object {
+            "volume": {
               "unit": "symbol",
               "value": "10",
             },
-            "width": Object {
+            "width": {
               "unit": "symbol",
               "value": "7",
             },
           },
           "name": "name",
           "path": "/p/name-shadow-black-gloss-concrete-3464354221",
-          "productBenefits": Array [
+          "productBenefits": [
             "product-benefits",
           ],
-          "relatedVariants": Array [],
+          "relatedVariants": [],
+          "seoDescription": "seo_descr",
+          "seoTags": [
+            "seo",
+            "test",
+          ],
+          "seoTitle": "test",
           "specificationIframeUrl": "http://localhost:8000",
-          "techDrawings": Array [
-            Object {
+          "techDrawings": [
+            {
               "altText": undefined,
               "mainSource": "http://localhost:8000",
               "thumbnail": undefined,
@@ -3234,8 +4923,8 @@ describe("transformProduct", () => {
           "textureFamily": "Gloss",
           "textureFamilyMicrocopy": "Texture Family",
           "variantAttribute": "Shadow Black Gloss 6x7x8x9x10",
-          "videos": Array [
-            Object {
+          "videos": [
+            {
               "label": "name",
               "previewMedia": null,
               "subtitle": null,
@@ -3244,24 +4933,24 @@ describe("transformProduct", () => {
               "videoUrl": "https://www.youtube.com/watch?v=3901c0ds7oo",
             },
           ],
-          "weight": Object {
-            "grossWeight": Object {
+          "weight": {
+            "grossWeight": {
               "unit": "symbol",
               "value": "6",
             },
-            "netWeight": Object {
+            "netWeight": {
               "unit": "symbol",
               "value": "7",
             },
-            "weightPerPallet": Object {
+            "weightPerPallet": {
               "unit": "symbol",
               "value": "8",
             },
-            "weightPerPiece": Object {
+            "weightPerPiece": {
               "unit": "symbol",
               "value": "9",
             },
-            "weightPerSqm": Object {
+            "weightPerSqm": {
               "unit": "symbol",
               "value": "10",
             },
@@ -3280,11 +4969,11 @@ describe("transformProduct", () => {
     });
     const transformedProducts = await transformProduct(product);
     expect(transformedProducts).toMatchInlineSnapshot(`
-      Array [
-        Object {
+      [
+        {
           "approvalStatus": "approved",
-          "awardsAndCertificateDocuments": Array [
-            Object {
+          "awardsAndCertificateDocuments": [
+            {
               "allowedToDownload": true,
               "assetType": "AWARDS",
               "fileSize": 10,
@@ -3294,7 +4983,7 @@ describe("transformProduct", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -3304,7 +4993,7 @@ describe("transformProduct", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": false,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -3314,7 +5003,7 @@ describe("transformProduct", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -3324,7 +5013,7 @@ describe("transformProduct", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 1.7976931348623157e+308,
@@ -3334,7 +5023,7 @@ describe("transformProduct", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": undefined,
@@ -3344,7 +5033,7 @@ describe("transformProduct", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -3355,8 +5044,8 @@ describe("transformProduct", () => {
               "url": undefined,
             },
           ],
-          "awardsAndCertificateImages": Array [
-            Object {
+          "awardsAndCertificateImages": [
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -3366,7 +5055,7 @@ describe("transformProduct", () => {
               "realFileName": undefined,
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": undefined,
@@ -3380,16 +5069,16 @@ describe("transformProduct", () => {
           "baseCode": "base-code",
           "baseScoringWeight": 100,
           "bimIframeUrl": "http://localhost:8000",
-          "brand": Object {
+          "brand": {
             "code": "code",
             "logo": "http://localhost:8000",
             "name": "name",
           },
-          "categories": Array [
-            Object {
+          "categories": [
+            {
               "categoryType": "Brand",
               "code": "code",
-              "image": Object {
+              "image": {
                 "allowedToDownload": true,
                 "fileSize": 10,
                 "mime": "image/png",
@@ -3400,10 +5089,10 @@ describe("transformProduct", () => {
               "name": "name",
               "parentCategoryCode": "parent-category-code",
             },
-            Object {
+            {
               "categoryType": "Category",
               "code": "parent-category",
-              "image": Object {
+              "image": {
                 "allowedToDownload": true,
                 "fileSize": 10,
                 "mime": "image/png",
@@ -3414,10 +5103,10 @@ describe("transformProduct", () => {
               "name": "Parent Category",
               "parentCategoryCode": "",
             },
-            Object {
+            {
               "categoryType": "Category",
               "code": "child-category",
-              "image": Object {
+              "image": {
                 "allowedToDownload": true,
                 "fileSize": 10,
                 "mime": "image/png",
@@ -3429,86 +5118,86 @@ describe("transformProduct", () => {
               "parentCategoryCode": "parent-category",
             },
           ],
-          "classifications": Array [
-            Object {
-              "features": Array [
-                Object {
+          "classifications": [
+            {
+              "features": [
+                {
                   "name": "Colour",
                   "value": "Shadow Black",
                 },
-                Object {
+                {
                   "name": "Texture Family",
                   "value": "Gloss",
                 },
-                Object {
+                {
                   "name": "Variant Attribute",
                   "value": "Shadow Black Gloss 6x7x8x9x10",
                 },
               ],
               "name": "Appearance",
             },
-            Object {
-              "features": Array [
-                Object {
+            {
+              "features": [
+                {
                   "name": "Material",
                   "value": "Concrete",
                 },
               ],
               "name": "General",
             },
-            Object {
-              "features": Array [
-                Object {
+            {
+              "features": [
+                {
                   "name": "Length",
                   "value": "6 symbol",
                 },
-                Object {
+                {
                   "name": "Width",
                   "value": "7 symbol",
                 },
-                Object {
+                {
                   "name": "Height",
                   "value": "8 symbol",
                 },
-                Object {
+                {
                   "name": "Thickness",
                   "value": "9 symbol",
                 },
-                Object {
+                {
                   "name": "Volume",
                   "value": "10 symbol",
                 },
               ],
               "name": "Measurements",
             },
-            Object {
-              "features": Array [
-                Object {
+            {
+              "features": [
+                {
                   "name": "Gross Weight",
                   "value": "6 symbol",
                 },
-                Object {
+                {
                   "name": "Net Weight",
                   "value": "7 symbol",
                 },
-                Object {
+                {
                   "name": "Weight per Pallet",
                   "value": "8 symbol",
                 },
-                Object {
+                {
                   "name": "Weight per Piece",
                   "value": "9 symbol",
                 },
-                Object {
+                {
                   "name": "Weight per sq m",
                   "value": "10 symbol",
                 },
               ],
               "name": "Weight",
             },
-            Object {
-              "features": Array [
-                Object {
+            {
+              "features": [
+                {
                   "name": "name",
                   "value": "value symbol",
                 },
@@ -3521,8 +5210,8 @@ describe("transformProduct", () => {
           "colourFamily": "Black",
           "colourMicrocopy": "Colour",
           "description": "<p>Long description</p>",
-          "documents": Array [
-            Object {
+          "documents": [
+            {
               "assetType": "ASSEMBLY_INSTRUCTIONS",
               "extension": "pdf",
               "fileSize": 10,
@@ -3530,16 +5219,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -3549,7 +5238,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "AWARDS",
               "extension": "pdf",
               "fileSize": 10,
@@ -3557,16 +5246,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -3576,7 +5265,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "CERTIFICATES",
               "extension": "pdf",
               "fileSize": 10,
@@ -3584,16 +5273,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -3603,21 +5292,21 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "CERTIFICATES",
               "id": "2583923841",
               "isLinkDocument": true,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -3626,7 +5315,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "CERTIFICATES",
               "extension": "pdf",
               "fileSize": 10,
@@ -3634,16 +5323,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -3653,21 +5342,21 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "CERTIFICATES",
               "id": "2583923841",
               "isLinkDocument": true,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -3676,21 +5365,21 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "CERTIFICATES",
               "id": "2583923841",
               "isLinkDocument": true,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -3699,7 +5388,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "BIM",
               "extension": "pdf",
               "fileSize": 10,
@@ -3707,16 +5396,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -3726,7 +5415,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "FIXING_TOOL",
               "extension": "pdf",
               "fileSize": 10,
@@ -3734,16 +5423,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -3753,7 +5442,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "GUARANTIES",
               "extension": "pdf",
               "fileSize": 10,
@@ -3761,16 +5450,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -3780,7 +5469,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "SPECIFICATION",
               "extension": "pdf",
               "fileSize": 10,
@@ -3788,16 +5477,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -3807,7 +5496,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "VIDEO",
               "extension": "pdf",
               "fileSize": 10,
@@ -3815,16 +5504,16 @@ describe("transformProduct", () => {
               "id": "84587715",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -3834,7 +5523,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "https://www.youtube.com/watch?v=3901c0ds7oo",
             },
-            Object {
+            {
               "assetType": "WARRANTIES",
               "extension": "pdf",
               "fileSize": 10,
@@ -3842,16 +5531,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -3863,8 +5552,8 @@ describe("transformProduct", () => {
             },
           ],
           "externalProductCode": "external-product-code",
-          "filters": Array [
-            Object {
+          "filters": [
+            {
               "code": "code",
               "filterCode": "classification-feature-code",
               "groupLabel": "name",
@@ -3874,7 +5563,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "value",
             },
-            Object {
+            {
               "code": "code",
               "filterCode": "appearanceAttributes.colour",
               "groupLabel": "Colour",
@@ -3884,7 +5573,7 @@ describe("transformProduct", () => {
               "unit": undefined,
               "value": "Shadow Black",
             },
-            Object {
+            {
               "code": "code",
               "filterCode": "appearanceAttributes.colourfamily",
               "groupLabel": "Colour Family",
@@ -3894,7 +5583,7 @@ describe("transformProduct", () => {
               "unit": undefined,
               "value": "Black",
             },
-            Object {
+            {
               "code": "code",
               "filterCode": "appearanceAttributes.texturefamily",
               "groupLabel": "Texture Family",
@@ -3904,7 +5593,7 @@ describe("transformProduct", () => {
               "unit": undefined,
               "value": "Gloss",
             },
-            Object {
+            {
               "code": "code",
               "filterCode": "appearanceAttributes.variantattribute",
               "groupLabel": "Variant Attribute",
@@ -3914,7 +5603,7 @@ describe("transformProduct", () => {
               "unit": undefined,
               "value": "Shadow Black Gloss 6x7x8x9x10",
             },
-            Object {
+            {
               "code": "code",
               "filterCode": "generalInformation.materials",
               "groupLabel": "Material",
@@ -3924,7 +5613,7 @@ describe("transformProduct", () => {
               "unit": undefined,
               "value": "Concrete",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "measurements.length",
               "groupLabel": "Length",
@@ -3934,7 +5623,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "6",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "measurements.width",
               "groupLabel": "Width",
@@ -3944,7 +5633,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "7",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "measurements.height",
               "groupLabel": "Height",
@@ -3954,7 +5643,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "8",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "measurements.thickness",
               "groupLabel": "Thickness",
@@ -3964,7 +5653,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "9",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "measurements.volume",
               "groupLabel": "Volume",
@@ -3974,7 +5663,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "10",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "weightAttributes.grossweight",
               "groupLabel": "Gross Weight",
@@ -3984,7 +5673,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "6",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "weightAttributes.netweight",
               "groupLabel": "Net Weight",
@@ -3994,7 +5683,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "7",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "weightAttributes.weightperpallet",
               "groupLabel": "Weight per Pallet",
@@ -4004,7 +5693,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "8",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "weightAttributes.weightperpiece",
               "groupLabel": "Weight per Piece",
@@ -4014,7 +5703,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "9",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "weightAttributes.weightpersqm",
               "groupLabel": "Weight per sq m",
@@ -4024,7 +5713,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "10",
             },
-            Object {
+            {
               "code": "code",
               "filterCode": "Brand",
               "groupLabel": undefined,
@@ -4033,7 +5722,7 @@ describe("transformProduct", () => {
               "parentFilterCode": "parent-category-code",
               "value": "code",
             },
-            Object {
+            {
               "code": "parent-category",
               "filterCode": "Category",
               "groupLabel": undefined,
@@ -4042,7 +5731,7 @@ describe("transformProduct", () => {
               "parentFilterCode": "",
               "value": "parent-category",
             },
-            Object {
+            {
               "code": "child-category",
               "filterCode": "Category",
               "groupLabel": "Parent Category",
@@ -4053,84 +5742,84 @@ describe("transformProduct", () => {
             },
           ],
           "fixingToolIframeUrl": "http://localhost:8000",
-          "galleryImages": Array [
-            Object {
+          "galleryImages": [
+            {
               "altText": "name",
               "mainSource": "http://localhost:8000",
               "thumbnail": "http://localhost:8000",
             },
           ],
-          "groups": Array [
-            Object {
+          "groups": [
+            {
               "code": "parent-category",
               "label": "Parent Category",
             },
           ],
-          "guaranteesAndWarrantiesImages": Array [],
-          "guaranteesAndWarrantiesLinks": Array [],
+          "guaranteesAndWarrantiesImages": [],
+          "guaranteesAndWarrantiesLinks": [],
           "hashedCode": "3903870044",
           "isSampleOrderAllowed": true,
           "isVisualiserAvailable": false,
-          "masterImage": Object {
+          "masterImage": {
             "altText": "name",
             "mainSource": "http://localhost:8000",
             "thumbnail": "http://localhost:8000",
           },
           "materials": "Concrete",
-          "measurements": Object {
-            "height": Object {
+          "measurements": {
+            "height": {
               "unit": "symbol",
               "value": "8",
             },
             "label": "6x7x8x9symbol",
-            "length": Object {
+            "length": {
               "unit": "symbol",
               "value": "6",
             },
-            "thickness": Object {
+            "thickness": {
               "unit": "symbol",
               "value": "9",
             },
-            "volume": Object {
+            "volume": {
               "unit": "symbol",
               "value": "10",
             },
-            "width": Object {
+            "width": {
               "unit": "symbol",
               "value": "7",
             },
           },
           "name": "name",
           "path": "/p/name-shadow-black-gloss-concrete-3903870044",
-          "productBenefits": Array [
+          "productBenefits": [
             "product-benefits",
           ],
-          "relatedVariants": Array [
-            Object {
+          "relatedVariants": [
+            {
               "code": "variant2",
               "colour": "Shadow Black",
               "colourFamily": "Black",
               "hashedCode": "2671178359",
               "materials": "Concrete",
-              "measurements": Object {
-                "height": Object {
+              "measurements": {
+                "height": {
                   "unit": "symbol",
                   "value": "8",
                 },
                 "label": "6x7x8x9symbol",
-                "length": Object {
+                "length": {
                   "unit": "symbol",
                   "value": "6",
                 },
-                "thickness": Object {
+                "thickness": {
                   "unit": "symbol",
                   "value": "9",
                 },
-                "volume": Object {
+                "volume": {
                   "unit": "symbol",
                   "value": "10",
                 },
-                "width": Object {
+                "width": {
                   "unit": "symbol",
                   "value": "7",
                 },
@@ -4142,9 +5831,15 @@ describe("transformProduct", () => {
               "variantAttribute": "Shadow Black Gloss 6x7x8x9x10",
             },
           ],
+          "seoDescription": "seo_descr",
+          "seoTags": [
+            "seo",
+            "test",
+          ],
+          "seoTitle": "test",
           "specificationIframeUrl": "http://localhost:8000",
-          "techDrawings": Array [
-            Object {
+          "techDrawings": [
+            {
               "altText": undefined,
               "mainSource": "http://localhost:8000",
               "thumbnail": undefined,
@@ -4153,8 +5848,8 @@ describe("transformProduct", () => {
           "textureFamily": "Gloss",
           "textureFamilyMicrocopy": "Texture Family",
           "variantAttribute": "Shadow Black Gloss 6x7x8x9x10",
-          "videos": Array [
-            Object {
+          "videos": [
+            {
               "label": "name",
               "previewMedia": null,
               "subtitle": null,
@@ -4163,33 +5858,33 @@ describe("transformProduct", () => {
               "videoUrl": "https://www.youtube.com/watch?v=3901c0ds7oo",
             },
           ],
-          "weight": Object {
-            "grossWeight": Object {
+          "weight": {
+            "grossWeight": {
               "unit": "symbol",
               "value": "6",
             },
-            "netWeight": Object {
+            "netWeight": {
               "unit": "symbol",
               "value": "7",
             },
-            "weightPerPallet": Object {
+            "weightPerPallet": {
               "unit": "symbol",
               "value": "8",
             },
-            "weightPerPiece": Object {
+            "weightPerPiece": {
               "unit": "symbol",
               "value": "9",
             },
-            "weightPerSqm": Object {
+            "weightPerSqm": {
               "unit": "symbol",
               "value": "10",
             },
           },
         },
-        Object {
+        {
           "approvalStatus": "approved",
-          "awardsAndCertificateDocuments": Array [
-            Object {
+          "awardsAndCertificateDocuments": [
+            {
               "allowedToDownload": true,
               "assetType": "AWARDS",
               "fileSize": 10,
@@ -4199,7 +5894,7 @@ describe("transformProduct", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -4209,7 +5904,7 @@ describe("transformProduct", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": false,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -4219,7 +5914,7 @@ describe("transformProduct", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -4229,7 +5924,7 @@ describe("transformProduct", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 1.7976931348623157e+308,
@@ -4239,7 +5934,7 @@ describe("transformProduct", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": undefined,
@@ -4249,7 +5944,7 @@ describe("transformProduct", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -4260,8 +5955,8 @@ describe("transformProduct", () => {
               "url": undefined,
             },
           ],
-          "awardsAndCertificateImages": Array [
-            Object {
+          "awardsAndCertificateImages": [
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -4271,7 +5966,7 @@ describe("transformProduct", () => {
               "realFileName": undefined,
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": undefined,
@@ -4285,16 +5980,16 @@ describe("transformProduct", () => {
           "baseCode": "base-code",
           "baseScoringWeight": 100,
           "bimIframeUrl": "http://localhost:8000",
-          "brand": Object {
+          "brand": {
             "code": "code",
             "logo": "http://localhost:8000",
             "name": "name",
           },
-          "categories": Array [
-            Object {
+          "categories": [
+            {
               "categoryType": "Brand",
               "code": "code",
-              "image": Object {
+              "image": {
                 "allowedToDownload": true,
                 "fileSize": 10,
                 "mime": "image/png",
@@ -4305,10 +6000,10 @@ describe("transformProduct", () => {
               "name": "name",
               "parentCategoryCode": "parent-category-code",
             },
-            Object {
+            {
               "categoryType": "Category",
               "code": "parent-category",
-              "image": Object {
+              "image": {
                 "allowedToDownload": true,
                 "fileSize": 10,
                 "mime": "image/png",
@@ -4319,10 +6014,10 @@ describe("transformProduct", () => {
               "name": "Parent Category",
               "parentCategoryCode": "",
             },
-            Object {
+            {
               "categoryType": "Category",
               "code": "child-category",
-              "image": Object {
+              "image": {
                 "allowedToDownload": true,
                 "fileSize": 10,
                 "mime": "image/png",
@@ -4334,86 +6029,86 @@ describe("transformProduct", () => {
               "parentCategoryCode": "parent-category",
             },
           ],
-          "classifications": Array [
-            Object {
-              "features": Array [
-                Object {
+          "classifications": [
+            {
+              "features": [
+                {
                   "name": "Colour",
                   "value": "Shadow Black",
                 },
-                Object {
+                {
                   "name": "Texture Family",
                   "value": "Gloss",
                 },
-                Object {
+                {
                   "name": "Variant Attribute",
                   "value": "Shadow Black Gloss 6x7x8x9x10",
                 },
               ],
               "name": "Appearance",
             },
-            Object {
-              "features": Array [
-                Object {
+            {
+              "features": [
+                {
                   "name": "Material",
                   "value": "Concrete",
                 },
               ],
               "name": "General",
             },
-            Object {
-              "features": Array [
-                Object {
+            {
+              "features": [
+                {
                   "name": "Length",
                   "value": "6 symbol",
                 },
-                Object {
+                {
                   "name": "Width",
                   "value": "7 symbol",
                 },
-                Object {
+                {
                   "name": "Height",
                   "value": "8 symbol",
                 },
-                Object {
+                {
                   "name": "Thickness",
                   "value": "9 symbol",
                 },
-                Object {
+                {
                   "name": "Volume",
                   "value": "10 symbol",
                 },
               ],
               "name": "Measurements",
             },
-            Object {
-              "features": Array [
-                Object {
+            {
+              "features": [
+                {
                   "name": "Gross Weight",
                   "value": "6 symbol",
                 },
-                Object {
+                {
                   "name": "Net Weight",
                   "value": "7 symbol",
                 },
-                Object {
+                {
                   "name": "Weight per Pallet",
                   "value": "8 symbol",
                 },
-                Object {
+                {
                   "name": "Weight per Piece",
                   "value": "9 symbol",
                 },
-                Object {
+                {
                   "name": "Weight per sq m",
                   "value": "10 symbol",
                 },
               ],
               "name": "Weight",
             },
-            Object {
-              "features": Array [
-                Object {
+            {
+              "features": [
+                {
                   "name": "name",
                   "value": "value symbol",
                 },
@@ -4426,8 +6121,8 @@ describe("transformProduct", () => {
           "colourFamily": "Black",
           "colourMicrocopy": "Colour",
           "description": "<p>Long description</p>",
-          "documents": Array [
-            Object {
+          "documents": [
+            {
               "assetType": "ASSEMBLY_INSTRUCTIONS",
               "extension": "pdf",
               "fileSize": 10,
@@ -4435,16 +6130,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -4454,7 +6149,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "AWARDS",
               "extension": "pdf",
               "fileSize": 10,
@@ -4462,16 +6157,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -4481,7 +6176,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "CERTIFICATES",
               "extension": "pdf",
               "fileSize": 10,
@@ -4489,16 +6184,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -4508,21 +6203,21 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "CERTIFICATES",
               "id": "2583923841",
               "isLinkDocument": true,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -4531,7 +6226,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "CERTIFICATES",
               "extension": "pdf",
               "fileSize": 10,
@@ -4539,16 +6234,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -4558,21 +6253,21 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "CERTIFICATES",
               "id": "2583923841",
               "isLinkDocument": true,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -4581,21 +6276,21 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "CERTIFICATES",
               "id": "2583923841",
               "isLinkDocument": true,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -4604,7 +6299,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "BIM",
               "extension": "pdf",
               "fileSize": 10,
@@ -4612,16 +6307,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -4631,7 +6326,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "FIXING_TOOL",
               "extension": "pdf",
               "fileSize": 10,
@@ -4639,16 +6334,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -4658,7 +6353,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "GUARANTIES",
               "extension": "pdf",
               "fileSize": 10,
@@ -4666,16 +6361,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -4685,7 +6380,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "SPECIFICATION",
               "extension": "pdf",
               "fileSize": 10,
@@ -4693,16 +6388,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -4712,7 +6407,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "VIDEO",
               "extension": "pdf",
               "fileSize": 10,
@@ -4720,16 +6415,16 @@ describe("transformProduct", () => {
               "id": "84587715",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -4739,7 +6434,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "https://www.youtube.com/watch?v=3901c0ds7oo",
             },
-            Object {
+            {
               "assetType": "WARRANTIES",
               "extension": "pdf",
               "fileSize": 10,
@@ -4747,16 +6442,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -4768,8 +6463,8 @@ describe("transformProduct", () => {
             },
           ],
           "externalProductCode": "external-product-code",
-          "filters": Array [
-            Object {
+          "filters": [
+            {
               "code": "code",
               "filterCode": "classification-feature-code",
               "groupLabel": "name",
@@ -4779,7 +6474,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "value",
             },
-            Object {
+            {
               "code": "code",
               "filterCode": "appearanceAttributes.colour",
               "groupLabel": "Colour",
@@ -4789,7 +6484,7 @@ describe("transformProduct", () => {
               "unit": undefined,
               "value": "Shadow Black",
             },
-            Object {
+            {
               "code": "code",
               "filterCode": "appearanceAttributes.colourfamily",
               "groupLabel": "Colour Family",
@@ -4799,7 +6494,7 @@ describe("transformProduct", () => {
               "unit": undefined,
               "value": "Black",
             },
-            Object {
+            {
               "code": "code",
               "filterCode": "appearanceAttributes.texturefamily",
               "groupLabel": "Texture Family",
@@ -4809,7 +6504,7 @@ describe("transformProduct", () => {
               "unit": undefined,
               "value": "Gloss",
             },
-            Object {
+            {
               "code": "code",
               "filterCode": "appearanceAttributes.variantattribute",
               "groupLabel": "Variant Attribute",
@@ -4819,7 +6514,7 @@ describe("transformProduct", () => {
               "unit": undefined,
               "value": "Shadow Black Gloss 6x7x8x9x10",
             },
-            Object {
+            {
               "code": "code",
               "filterCode": "generalInformation.materials",
               "groupLabel": "Material",
@@ -4829,7 +6524,7 @@ describe("transformProduct", () => {
               "unit": undefined,
               "value": "Concrete",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "measurements.length",
               "groupLabel": "Length",
@@ -4839,7 +6534,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "6",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "measurements.width",
               "groupLabel": "Width",
@@ -4849,7 +6544,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "7",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "measurements.height",
               "groupLabel": "Height",
@@ -4859,7 +6554,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "8",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "measurements.thickness",
               "groupLabel": "Thickness",
@@ -4869,7 +6564,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "9",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "measurements.volume",
               "groupLabel": "Volume",
@@ -4879,7 +6574,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "10",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "weightAttributes.grossweight",
               "groupLabel": "Gross Weight",
@@ -4889,7 +6584,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "6",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "weightAttributes.netweight",
               "groupLabel": "Net Weight",
@@ -4899,7 +6594,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "7",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "weightAttributes.weightperpallet",
               "groupLabel": "Weight per Pallet",
@@ -4909,7 +6604,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "8",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "weightAttributes.weightperpiece",
               "groupLabel": "Weight per Piece",
@@ -4919,7 +6614,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "9",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "weightAttributes.weightpersqm",
               "groupLabel": "Weight per sq m",
@@ -4929,7 +6624,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "10",
             },
-            Object {
+            {
               "code": "code",
               "filterCode": "Brand",
               "groupLabel": undefined,
@@ -4938,7 +6633,7 @@ describe("transformProduct", () => {
               "parentFilterCode": "parent-category-code",
               "value": "code",
             },
-            Object {
+            {
               "code": "parent-category",
               "filterCode": "Category",
               "groupLabel": undefined,
@@ -4947,7 +6642,7 @@ describe("transformProduct", () => {
               "parentFilterCode": "",
               "value": "parent-category",
             },
-            Object {
+            {
               "code": "child-category",
               "filterCode": "Category",
               "groupLabel": "Parent Category",
@@ -4958,84 +6653,84 @@ describe("transformProduct", () => {
             },
           ],
           "fixingToolIframeUrl": "http://localhost:8000",
-          "galleryImages": Array [
-            Object {
+          "galleryImages": [
+            {
               "altText": "name",
               "mainSource": "http://localhost:8000",
               "thumbnail": "http://localhost:8000",
             },
           ],
-          "groups": Array [
-            Object {
+          "groups": [
+            {
               "code": "parent-category",
               "label": "Parent Category",
             },
           ],
-          "guaranteesAndWarrantiesImages": Array [],
-          "guaranteesAndWarrantiesLinks": Array [],
+          "guaranteesAndWarrantiesImages": [],
+          "guaranteesAndWarrantiesLinks": [],
           "hashedCode": "2671178359",
           "isSampleOrderAllowed": true,
           "isVisualiserAvailable": false,
-          "masterImage": Object {
+          "masterImage": {
             "altText": "name",
             "mainSource": "http://localhost:8000",
             "thumbnail": "http://localhost:8000",
           },
           "materials": "Concrete",
-          "measurements": Object {
-            "height": Object {
+          "measurements": {
+            "height": {
               "unit": "symbol",
               "value": "8",
             },
             "label": "6x7x8x9symbol",
-            "length": Object {
+            "length": {
               "unit": "symbol",
               "value": "6",
             },
-            "thickness": Object {
+            "thickness": {
               "unit": "symbol",
               "value": "9",
             },
-            "volume": Object {
+            "volume": {
               "unit": "symbol",
               "value": "10",
             },
-            "width": Object {
+            "width": {
               "unit": "symbol",
               "value": "7",
             },
           },
           "name": "name",
           "path": "/p/name-shadow-black-gloss-concrete-2671178359",
-          "productBenefits": Array [
+          "productBenefits": [
             "product-benefits",
           ],
-          "relatedVariants": Array [
-            Object {
+          "relatedVariants": [
+            {
               "code": "variant1",
               "colour": "Shadow Black",
               "colourFamily": "Black",
               "hashedCode": "3903870044",
               "materials": "Concrete",
-              "measurements": Object {
-                "height": Object {
+              "measurements": {
+                "height": {
                   "unit": "symbol",
                   "value": "8",
                 },
                 "label": "6x7x8x9symbol",
-                "length": Object {
+                "length": {
                   "unit": "symbol",
                   "value": "6",
                 },
-                "thickness": Object {
+                "thickness": {
                   "unit": "symbol",
                   "value": "9",
                 },
-                "volume": Object {
+                "volume": {
                   "unit": "symbol",
                   "value": "10",
                 },
-                "width": Object {
+                "width": {
                   "unit": "symbol",
                   "value": "7",
                 },
@@ -5047,9 +6742,15 @@ describe("transformProduct", () => {
               "variantAttribute": "Shadow Black Gloss 6x7x8x9x10",
             },
           ],
+          "seoDescription": "seo_descr",
+          "seoTags": [
+            "seo",
+            "test",
+          ],
+          "seoTitle": "test",
           "specificationIframeUrl": "http://localhost:8000",
-          "techDrawings": Array [
-            Object {
+          "techDrawings": [
+            {
               "altText": undefined,
               "mainSource": "http://localhost:8000",
               "thumbnail": undefined,
@@ -5058,8 +6759,8 @@ describe("transformProduct", () => {
           "textureFamily": "Gloss",
           "textureFamilyMicrocopy": "Texture Family",
           "variantAttribute": "Shadow Black Gloss 6x7x8x9x10",
-          "videos": Array [
-            Object {
+          "videos": [
+            {
               "label": "name",
               "previewMedia": null,
               "subtitle": null,
@@ -5068,24 +6769,24 @@ describe("transformProduct", () => {
               "videoUrl": "https://www.youtube.com/watch?v=3901c0ds7oo",
             },
           ],
-          "weight": Object {
-            "grossWeight": Object {
+          "weight": {
+            "grossWeight": {
               "unit": "symbol",
               "value": "6",
             },
-            "netWeight": Object {
+            "netWeight": {
               "unit": "symbol",
               "value": "7",
             },
-            "weightPerPallet": Object {
+            "weightPerPallet": {
               "unit": "symbol",
               "value": "8",
             },
-            "weightPerPiece": Object {
+            "weightPerPiece": {
               "unit": "symbol",
               "value": "9",
             },
-            "weightPerSqm": Object {
+            "weightPerSqm": {
               "unit": "symbol",
               "value": "10",
             },
@@ -5960,186 +7661,84 @@ describe("transformProduct", () => {
       ]
     });
     const transformedProducts = await transformProduct(product);
-    expect(transformedProducts[0].classifications).toMatchInlineSnapshot(
+    expect(transformedProducts[0].classifications).toMatchInlineSnapshot(`
       [
         {
-          name: "cartonUomAttributes",
-          features: [
+          "features": [
             {
-              name: "name",
-              value: "cartonUomAttributes.categoryOfEan11 symbol"
-            },
-
-            {
-              name: "name",
-              value: "cartonUomAttributes.denominatorForConversion symbol"
-            },
-
-            {
-              name: "name",
-              value: "cartonUomAttributes.ean11 symbol"
-            },
-
-            {
-              name: "name",
-              value: "cartonUomAttributes.grossWeight symbol"
-            },
-
-            {
-              name: "name",
-              value: "cartonUomAttributes.height symbol"
-            },
-
-            {
-              name: "name",
-              value: "cartonUomAttributes.length symbol"
-            },
-
-            {
-              name: "name",
-              value: "cartonUomAttributes.numeratorForConversion symbol"
-            },
-
-            {
-              name: "name",
-              value: "cartonUomAttributes.volume symbol"
-            },
-
-            {
-              name: "name",
-              value: "cartonUomAttributes.width symbol"
-            }
-          ]
-        },
-
-        {
-          name: "drumUomAttributes",
-          features: [
-            {
-              name: "name",
-              value: "drumUomAttributes.categoryOfEan11 symbol"
-            },
-
-            {
-              name: "name",
-              value: "drumUomAttributes.denominatorForConversion symbol"
-            },
-
-            {
-              name: "name",
-              value: "drumUomAttributes.ean11 symbol"
-            },
-
-            {
-              name: "name",
-              value: "drumUomAttributes.grossWeight symbol"
-            },
-
-            {
-              name: "name",
-              value: "drumUomAttributes.height symbol"
-            },
-
-            {
-              name: "name",
-              value: "drumUomAttributes.length symbol"
-            },
-
-            {
-              name: "name",
-              value: "drumUomAttributes.numeratorForConversion symbol"
-            },
-
-            {
-              name: "name",
-              value: "drumUomAttributes.volume symbol"
-            },
-
-            {
-              name: "name",
-              value: "drumUomAttributes.width symbol"
-            }
-          ]
-        }
-      ],
-      `
-      Array [
-        Object {
-          "features": Array [
-            Object {
               "name": "name",
               "value": "cartonUomAttributes.categoryOfEan11 symbol",
             },
-            Object {
+            {
               "name": "name",
               "value": "cartonUomAttributes.denominatorForConversion symbol",
             },
-            Object {
+            {
               "name": "name",
               "value": "cartonUomAttributes.ean11 symbol",
             },
-            Object {
+            {
               "name": "name",
               "value": "cartonUomAttributes.grossWeight symbol",
             },
-            Object {
+            {
               "name": "name",
               "value": "cartonUomAttributes.height symbol",
             },
-            Object {
+            {
               "name": "name",
               "value": "cartonUomAttributes.length symbol",
             },
-            Object {
+            {
               "name": "name",
               "value": "cartonUomAttributes.numeratorForConversion symbol",
             },
-            Object {
+            {
               "name": "name",
               "value": "cartonUomAttributes.volume symbol",
             },
-            Object {
+            {
               "name": "name",
               "value": "cartonUomAttributes.width symbol",
             },
           ],
           "name": "cartonUomAttributes",
         },
-        Object {
-          "features": Array [
-            Object {
+        {
+          "features": [
+            {
               "name": "name",
               "value": "drumUomAttributes.categoryOfEan11 symbol",
             },
-            Object {
+            {
               "name": "name",
               "value": "drumUomAttributes.denominatorForConversion symbol",
             },
-            Object {
+            {
               "name": "name",
               "value": "drumUomAttributes.ean11 symbol",
             },
-            Object {
+            {
               "name": "name",
               "value": "drumUomAttributes.grossWeight symbol",
             },
-            Object {
+            {
               "name": "name",
               "value": "drumUomAttributes.height symbol",
             },
-            Object {
+            {
               "name": "name",
               "value": "drumUomAttributes.length symbol",
             },
-            Object {
+            {
               "name": "name",
               "value": "drumUomAttributes.numeratorForConversion symbol",
             },
-            Object {
+            {
               "name": "name",
               "value": "drumUomAttributes.volume symbol",
             },
-            Object {
+            {
               "name": "name",
               "value": "drumUomAttributes.width symbol",
             },
@@ -6147,8 +7746,7 @@ describe("transformProduct", () => {
           "name": "drumUomAttributes",
         },
       ]
-    `
-    );
+    `);
   });
 
   it("filters out unwanted classification features from variant", async () => {
@@ -6161,186 +7759,84 @@ describe("transformProduct", () => {
       ]
     });
     const transformedProducts = await transformProduct(product);
-    expect(transformedProducts[0].classifications).toMatchInlineSnapshot(
+    expect(transformedProducts[0].classifications).toMatchInlineSnapshot(`
       [
         {
-          name: "cartonUomAttributes",
-          features: [
+          "features": [
             {
-              name: "name",
-              value: "cartonUomAttributes.categoryOfEan11 symbol"
-            },
-
-            {
-              name: "name",
-              value: "cartonUomAttributes.denominatorForConversion symbol"
-            },
-
-            {
-              name: "name",
-              value: "cartonUomAttributes.ean11 symbol"
-            },
-
-            {
-              name: "name",
-              value: "cartonUomAttributes.grossWeight symbol"
-            },
-
-            {
-              name: "name",
-              value: "cartonUomAttributes.height symbol"
-            },
-
-            {
-              name: "name",
-              value: "cartonUomAttributes.length symbol"
-            },
-
-            {
-              name: "name",
-              value: "cartonUomAttributes.numeratorForConversion symbol"
-            },
-
-            {
-              name: "name",
-              value: "cartonUomAttributes.volume symbol"
-            },
-
-            {
-              name: "name",
-              value: "cartonUomAttributes.width symbol"
-            }
-          ]
-        },
-
-        {
-          name: "drumUomAttributes",
-          features: [
-            {
-              name: "name",
-              value: "drumUomAttributes.categoryOfEan11 symbol"
-            },
-
-            {
-              name: "name",
-              value: "drumUomAttributes.denominatorForConversion symbol"
-            },
-
-            {
-              name: "name",
-              value: "drumUomAttributes.ean11 symbol"
-            },
-
-            {
-              name: "name",
-              value: "drumUomAttributes.grossWeight symbol"
-            },
-
-            {
-              name: "name",
-              value: "drumUomAttributes.height symbol"
-            },
-
-            {
-              name: "name",
-              value: "drumUomAttributes.length symbol"
-            },
-
-            {
-              name: "name",
-              value: "drumUomAttributes.numeratorForConversion symbol"
-            },
-
-            {
-              name: "name",
-              value: "drumUomAttributes.volume symbol"
-            },
-
-            {
-              name: "name",
-              value: "drumUomAttributes.width symbol"
-            }
-          ]
-        }
-      ],
-      `
-      Array [
-        Object {
-          "features": Array [
-            Object {
               "name": "name",
               "value": "cartonUomAttributes.categoryOfEan11 symbol",
             },
-            Object {
+            {
               "name": "name",
               "value": "cartonUomAttributes.denominatorForConversion symbol",
             },
-            Object {
+            {
               "name": "name",
               "value": "cartonUomAttributes.ean11 symbol",
             },
-            Object {
+            {
               "name": "name",
               "value": "cartonUomAttributes.grossWeight symbol",
             },
-            Object {
+            {
               "name": "name",
               "value": "cartonUomAttributes.height symbol",
             },
-            Object {
+            {
               "name": "name",
               "value": "cartonUomAttributes.length symbol",
             },
-            Object {
+            {
               "name": "name",
               "value": "cartonUomAttributes.numeratorForConversion symbol",
             },
-            Object {
+            {
               "name": "name",
               "value": "cartonUomAttributes.volume symbol",
             },
-            Object {
+            {
               "name": "name",
               "value": "cartonUomAttributes.width symbol",
             },
           ],
           "name": "cartonUomAttributes",
         },
-        Object {
-          "features": Array [
-            Object {
+        {
+          "features": [
+            {
               "name": "name",
               "value": "drumUomAttributes.categoryOfEan11 symbol",
             },
-            Object {
+            {
               "name": "name",
               "value": "drumUomAttributes.denominatorForConversion symbol",
             },
-            Object {
+            {
               "name": "name",
               "value": "drumUomAttributes.ean11 symbol",
             },
-            Object {
+            {
               "name": "name",
               "value": "drumUomAttributes.grossWeight symbol",
             },
-            Object {
+            {
               "name": "name",
               "value": "drumUomAttributes.height symbol",
             },
-            Object {
+            {
               "name": "name",
               "value": "drumUomAttributes.length symbol",
             },
-            Object {
+            {
               "name": "name",
               "value": "drumUomAttributes.numeratorForConversion symbol",
             },
-            Object {
+            {
               "name": "name",
               "value": "drumUomAttributes.volume symbol",
             },
-            Object {
+            {
               "name": "name",
               "value": "drumUomAttributes.width symbol",
             },
@@ -6348,8 +7844,7 @@ describe("transformProduct", () => {
           "name": "drumUomAttributes",
         },
       ]
-    `
-    );
+    `);
   });
 
   it("handles video asset without URL", async () => {
@@ -8055,11 +9550,11 @@ describe("transformProduct", () => {
     });
     const transformedProducts = await transformProduct(product);
     expect(transformedProducts).toMatchInlineSnapshot(`
-      Array [
-        Object {
+      [
+        {
           "approvalStatus": "approved",
-          "awardsAndCertificateDocuments": Array [
-            Object {
+          "awardsAndCertificateDocuments": [
+            {
               "allowedToDownload": true,
               "assetType": "AWARDS",
               "fileSize": 10,
@@ -8069,7 +9564,7 @@ describe("transformProduct", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -8079,7 +9574,7 @@ describe("transformProduct", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": false,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -8089,7 +9584,7 @@ describe("transformProduct", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -8099,7 +9594,7 @@ describe("transformProduct", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 1.7976931348623157e+308,
@@ -8109,7 +9604,7 @@ describe("transformProduct", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": undefined,
@@ -8119,7 +9614,7 @@ describe("transformProduct", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -8130,8 +9625,8 @@ describe("transformProduct", () => {
               "url": undefined,
             },
           ],
-          "awardsAndCertificateImages": Array [
-            Object {
+          "awardsAndCertificateImages": [
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -8141,7 +9636,7 @@ describe("transformProduct", () => {
               "realFileName": undefined,
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": undefined,
@@ -8155,16 +9650,16 @@ describe("transformProduct", () => {
           "baseCode": "base-code",
           "baseScoringWeight": 100,
           "bimIframeUrl": "http://localhost:8000",
-          "brand": Object {
+          "brand": {
             "code": "code",
             "logo": "http://localhost:8000",
             "name": "name",
           },
-          "categories": Array [
-            Object {
+          "categories": [
+            {
               "categoryType": "Brand",
               "code": "code",
-              "image": Object {
+              "image": {
                 "allowedToDownload": true,
                 "fileSize": 10,
                 "mime": "image/png",
@@ -8175,10 +9670,10 @@ describe("transformProduct", () => {
               "name": "name",
               "parentCategoryCode": "parent-category-code",
             },
-            Object {
+            {
               "categoryType": "Category",
               "code": "parent-category",
-              "image": Object {
+              "image": {
                 "allowedToDownload": true,
                 "fileSize": 10,
                 "mime": "image/png",
@@ -8189,10 +9684,10 @@ describe("transformProduct", () => {
               "name": "Parent Category",
               "parentCategoryCode": "",
             },
-            Object {
+            {
               "categoryType": "Category",
               "code": "child-category",
-              "image": Object {
+              "image": {
                 "allowedToDownload": true,
                 "fileSize": 10,
                 "mime": "image/png",
@@ -8204,60 +9699,60 @@ describe("transformProduct", () => {
               "parentCategoryCode": "parent-category",
             },
           ],
-          "classifications": Array [
-            Object {
-              "features": Array [
-                Object {
+          "classifications": [
+            {
+              "features": [
+                {
                   "name": "Material",
                   "value": "Clay",
                 },
               ],
               "name": "General",
             },
-            Object {
-              "features": Array [
-                Object {
+            {
+              "features": [
+                {
                   "name": "Length",
                   "value": "1 symbol",
                 },
-                Object {
+                {
                   "name": "width",
                   "value": "2 symbol",
                 },
-                Object {
+                {
                   "name": "Height",
                   "value": "3 symbol",
                 },
-                Object {
+                {
                   "name": "Thickness",
                   "value": "4 symbol",
                 },
-                Object {
+                {
                   "name": "Volume",
                   "value": "5 symbol",
                 },
               ],
               "name": "Measurements",
             },
-            Object {
-              "features": Array [
-                Object {
+            {
+              "features": [
+                {
                   "name": "name",
                   "value": "1 symbol",
                 },
-                Object {
+                {
                   "name": "name",
                   "value": "2 symbol",
                 },
-                Object {
+                {
                   "name": "name",
                   "value": "3 symbol",
                 },
-                Object {
+                {
                   "name": "name",
                   "value": "4 symbol",
                 },
-                Object {
+                {
                   "name": "name",
                   "value": "5 symbol",
                 },
@@ -8270,8 +9765,8 @@ describe("transformProduct", () => {
           "colourFamily": "Red",
           "colourMicrocopy": "Colour",
           "description": "<p>Long description</p>",
-          "documents": Array [
-            Object {
+          "documents": [
+            {
               "assetType": "ASSEMBLY_INSTRUCTIONS",
               "extension": "pdf",
               "fileSize": 10,
@@ -8279,16 +9774,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -8298,7 +9793,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "AWARDS",
               "extension": "pdf",
               "fileSize": 10,
@@ -8306,16 +9801,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -8325,7 +9820,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "CERTIFICATES",
               "extension": "pdf",
               "fileSize": 10,
@@ -8333,16 +9828,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -8352,21 +9847,21 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "CERTIFICATES",
               "id": "2583923841",
               "isLinkDocument": true,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -8375,7 +9870,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "CERTIFICATES",
               "extension": "pdf",
               "fileSize": 10,
@@ -8383,16 +9878,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -8402,21 +9897,21 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "CERTIFICATES",
               "id": "2583923841",
               "isLinkDocument": true,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -8425,21 +9920,21 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "CERTIFICATES",
               "id": "2583923841",
               "isLinkDocument": true,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -8448,7 +9943,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "BIM",
               "extension": "pdf",
               "fileSize": 10,
@@ -8456,16 +9951,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -8475,7 +9970,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "FIXING_TOOL",
               "extension": "pdf",
               "fileSize": 10,
@@ -8483,16 +9978,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -8502,7 +9997,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "GUARANTIES",
               "extension": "pdf",
               "fileSize": 10,
@@ -8510,16 +10005,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -8529,7 +10024,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "SPECIFICATION",
               "extension": "pdf",
               "fileSize": 10,
@@ -8537,16 +10032,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -8556,7 +10051,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "VIDEO",
               "extension": "pdf",
               "fileSize": 10,
@@ -8564,16 +10059,16 @@ describe("transformProduct", () => {
               "id": "84587715",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -8583,7 +10078,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "https://www.youtube.com/watch?v=3901c0ds7oo",
             },
-            Object {
+            {
               "assetType": "WARRANTIES",
               "extension": "pdf",
               "fileSize": 10,
@@ -8591,16 +10086,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -8612,8 +10107,8 @@ describe("transformProduct", () => {
             },
           ],
           "externalProductCode": "external-product-code",
-          "filters": Array [
-            Object {
+          "filters": [
+            {
               "code": "code",
               "filterCode": "GeneralInformation.Materials",
               "groupLabel": "Material",
@@ -8623,7 +10118,7 @@ describe("transformProduct", () => {
               "unit": undefined,
               "value": "Clay",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "Measurements.Length",
               "groupLabel": "Length",
@@ -8633,7 +10128,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "1",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "Measurements.Width",
               "groupLabel": "width",
@@ -8643,7 +10138,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "2",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "Measurements.Height",
               "groupLabel": "Height",
@@ -8653,7 +10148,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "3",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "Measurements.Thickness",
               "groupLabel": "Thickness",
@@ -8663,7 +10158,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "4",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "Measurements.Volume",
               "groupLabel": "Volume",
@@ -8673,7 +10168,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "5",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "WeightAttributes.GrossWeight",
               "groupLabel": "name",
@@ -8683,7 +10178,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "1",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "WeightAttributes.NetWeight",
               "groupLabel": "name",
@@ -8693,7 +10188,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "2",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "WeightAttributes.WeightPerPallet",
               "groupLabel": "name",
@@ -8703,7 +10198,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "3",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "WeightAttributes.WeightPerPiece",
               "groupLabel": "name",
@@ -8713,7 +10208,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "4",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "WeightAttributes.WeightPerSqm",
               "groupLabel": "name",
@@ -8723,7 +10218,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "5",
             },
-            Object {
+            {
               "code": "code",
               "filterCode": "Brand",
               "groupLabel": undefined,
@@ -8732,7 +10227,7 @@ describe("transformProduct", () => {
               "parentFilterCode": "parent-category-code",
               "value": "code",
             },
-            Object {
+            {
               "code": "parent-category",
               "filterCode": "Category",
               "groupLabel": undefined,
@@ -8741,7 +10236,7 @@ describe("transformProduct", () => {
               "parentFilterCode": "",
               "value": "parent-category",
             },
-            Object {
+            {
               "code": "child-category",
               "filterCode": "Category",
               "groupLabel": "Parent Category",
@@ -8752,62 +10247,68 @@ describe("transformProduct", () => {
             },
           ],
           "fixingToolIframeUrl": "http://localhost:8000",
-          "galleryImages": Array [
-            Object {
+          "galleryImages": [
+            {
               "altText": "name",
               "mainSource": "http://localhost:8000",
               "thumbnail": "http://localhost:8000",
             },
           ],
-          "groups": Array [
-            Object {
+          "groups": [
+            {
               "code": "parent-category",
               "label": "Parent Category",
             },
           ],
-          "guaranteesAndWarrantiesImages": Array [],
-          "guaranteesAndWarrantiesLinks": Array [],
+          "guaranteesAndWarrantiesImages": [],
+          "guaranteesAndWarrantiesLinks": [],
           "hashedCode": "3464354221",
           "isSampleOrderAllowed": true,
           "isVisualiserAvailable": false,
-          "masterImage": Object {
+          "masterImage": {
             "altText": "name",
             "mainSource": "http://localhost:8000",
             "thumbnail": "http://localhost:8000",
           },
           "materials": "Clay",
-          "measurements": Object {
-            "height": Object {
+          "measurements": {
+            "height": {
               "unit": "symbol",
               "value": "3",
             },
             "label": "1x2x3x4symbol",
-            "length": Object {
+            "length": {
               "unit": "symbol",
               "value": "1",
             },
-            "thickness": Object {
+            "thickness": {
               "unit": "symbol",
               "value": "4",
             },
-            "volume": Object {
+            "volume": {
               "unit": "symbol",
               "value": "5",
             },
-            "width": Object {
+            "width": {
               "unit": "symbol",
               "value": "2",
             },
           },
           "name": "name",
           "path": "/p/name-rustic-red-matt-clay-3464354221",
-          "productBenefits": Array [
+          "productBenefits": [
             "product-benefits",
           ],
-          "relatedVariants": Array [],
+          "relatedVariants": [],
+          "seoDescription": "seo_descr",
+          "seoTags": [
+            "seo",
+            "test",
+          ],
+          "seoTitle": "test",
           "specificationIframeUrl": "http://localhost:8000",
-          "techDrawings": Array [
-            Object {
+          "techDrawings": [
+            {
               "altText": undefined,
               "mainSource": "http://localhost:8000",
               "thumbnail": undefined,
@@ -8816,8 +10317,8 @@ describe("transformProduct", () => {
           "textureFamily": "Matt",
           "textureFamilyMicrocopy": "Texture Family",
           "variantAttribute": "Rustic Red Matt 1x2x3x4x5",
-          "videos": Array [
-            Object {
+          "videos": [
+            {
               "label": "name",
               "previewMedia": null,
               "subtitle": null,
@@ -8826,24 +10327,24 @@ describe("transformProduct", () => {
               "videoUrl": "https://www.youtube.com/watch?v=3901c0ds7oo",
             },
           ],
-          "weight": Object {
-            "grossWeight": Object {
+          "weight": {
+            "grossWeight": {
               "unit": "symbol",
               "value": "1",
             },
-            "netWeight": Object {
+            "netWeight": {
               "unit": "symbol",
               "value": "2",
             },
-            "weightPerPallet": Object {
+            "weightPerPallet": {
               "unit": "symbol",
               "value": "3",
             },
-            "weightPerPiece": Object {
+            "weightPerPiece": {
               "unit": "symbol",
               "value": "4",
             },
-            "weightPerSqm": Object {
+            "weightPerSqm": {
               "unit": "symbol",
               "value": "5",
             },
@@ -9009,11 +10510,11 @@ describe("transformProduct", () => {
     });
     const transformedProducts = await transformProduct(product);
     expect(transformedProducts).toMatchInlineSnapshot(`
-      Array [
-        Object {
+      [
+        {
           "approvalStatus": "approved",
-          "awardsAndCertificateDocuments": Array [
-            Object {
+          "awardsAndCertificateDocuments": [
+            {
               "allowedToDownload": true,
               "assetType": "AWARDS",
               "fileSize": 10,
@@ -9023,7 +10524,7 @@ describe("transformProduct", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -9033,7 +10534,7 @@ describe("transformProduct", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": false,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -9043,7 +10544,7 @@ describe("transformProduct", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -9053,7 +10554,7 @@ describe("transformProduct", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 1.7976931348623157e+308,
@@ -9063,7 +10564,7 @@ describe("transformProduct", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": undefined,
@@ -9073,7 +10574,7 @@ describe("transformProduct", () => {
               "realFileName": "real-file-name.pdf",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -9084,8 +10585,8 @@ describe("transformProduct", () => {
               "url": undefined,
             },
           ],
-          "awardsAndCertificateImages": Array [
-            Object {
+          "awardsAndCertificateImages": [
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": 10,
@@ -9095,7 +10596,7 @@ describe("transformProduct", () => {
               "realFileName": undefined,
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "allowedToDownload": true,
               "assetType": "CERTIFICATES",
               "fileSize": undefined,
@@ -9109,16 +10610,16 @@ describe("transformProduct", () => {
           "baseCode": "base-code",
           "baseScoringWeight": 0,
           "bimIframeUrl": "http://localhost:8000",
-          "brand": Object {
+          "brand": {
             "code": "code",
             "logo": "http://localhost:8000",
             "name": "name",
           },
-          "categories": Array [
-            Object {
+          "categories": [
+            {
               "categoryType": "Brand",
               "code": "code",
-              "image": Object {
+              "image": {
                 "allowedToDownload": true,
                 "fileSize": 10,
                 "mime": "image/png",
@@ -9129,10 +10630,10 @@ describe("transformProduct", () => {
               "name": "name",
               "parentCategoryCode": "parent-category-code",
             },
-            Object {
+            {
               "categoryType": "Category",
               "code": "parent-category",
-              "image": Object {
+              "image": {
                 "allowedToDownload": true,
                 "fileSize": 10,
                 "mime": "image/png",
@@ -9143,10 +10644,10 @@ describe("transformProduct", () => {
               "name": "Parent Category",
               "parentCategoryCode": "",
             },
-            Object {
+            {
               "categoryType": "Category",
               "code": "child-category",
-              "image": Object {
+              "image": {
                 "allowedToDownload": true,
                 "fileSize": 10,
                 "mime": "image/png",
@@ -9158,60 +10659,60 @@ describe("transformProduct", () => {
               "parentCategoryCode": "parent-category",
             },
           ],
-          "classifications": Array [
-            Object {
-              "features": Array [
-                Object {
+          "classifications": [
+            {
+              "features": [
+                {
                   "name": "Material",
                   "value": "Concrete",
                 },
               ],
               "name": "General",
             },
-            Object {
-              "features": Array [
-                Object {
+            {
+              "features": [
+                {
                   "name": "Length",
                   "value": "6 symbol",
                 },
-                Object {
+                {
                   "name": "Width",
                   "value": "7 symbol",
                 },
-                Object {
+                {
                   "name": "Height",
                   "value": "8 symbol",
                 },
-                Object {
+                {
                   "name": "Thickness",
                   "value": "9 symbol",
                 },
-                Object {
+                {
                   "name": "Volume",
                   "value": "10 symbol",
                 },
               ],
               "name": "Measurements",
             },
-            Object {
-              "features": Array [
-                Object {
+            {
+              "features": [
+                {
                   "name": "Gross Weight",
                   "value": "6 symbol",
                 },
-                Object {
+                {
                   "name": "Net Weight",
                   "value": "7 symbol",
                 },
-                Object {
+                {
                   "name": "Weight per Pallet",
                   "value": "8 symbol",
                 },
-                Object {
+                {
                   "name": "Weight per Piece",
                   "value": "9 symbol",
                 },
-                Object {
+                {
                   "name": "Weight per sq m",
                   "value": "10 symbol",
                 },
@@ -9224,8 +10725,8 @@ describe("transformProduct", () => {
           "colourFamily": "Black",
           "colourMicrocopy": "Colour",
           "description": "<p>Long description</p>",
-          "documents": Array [
-            Object {
+          "documents": [
+            {
               "assetType": "ASSEMBLY_INSTRUCTIONS",
               "extension": "pdf",
               "fileSize": 10,
@@ -9233,16 +10734,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -9252,7 +10753,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "AWARDS",
               "extension": "pdf",
               "fileSize": 10,
@@ -9260,16 +10761,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -9279,7 +10780,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "CERTIFICATES",
               "extension": "pdf",
               "fileSize": 10,
@@ -9287,16 +10788,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -9306,21 +10807,21 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "CERTIFICATES",
               "id": "2583923841",
               "isLinkDocument": true,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -9329,7 +10830,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "CERTIFICATES",
               "extension": "pdf",
               "fileSize": 10,
@@ -9337,16 +10838,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -9356,21 +10857,21 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "CERTIFICATES",
               "id": "2583923841",
               "isLinkDocument": true,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -9379,21 +10880,21 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "CERTIFICATES",
               "id": "2583923841",
               "isLinkDocument": true,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -9402,7 +10903,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "BIM",
               "extension": "pdf",
               "fileSize": 10,
@@ -9410,16 +10911,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -9429,7 +10930,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "FIXING_TOOL",
               "extension": "pdf",
               "fileSize": 10,
@@ -9437,16 +10938,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -9456,7 +10957,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "GUARANTIES",
               "extension": "pdf",
               "fileSize": 10,
@@ -9464,16 +10965,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -9483,7 +10984,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "SPECIFICATION",
               "extension": "pdf",
               "fileSize": 10,
@@ -9491,16 +10992,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -9510,7 +11011,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "http://localhost:8000",
             },
-            Object {
+            {
               "assetType": "VIDEO",
               "extension": "pdf",
               "fileSize": 10,
@@ -9518,16 +11019,16 @@ describe("transformProduct", () => {
               "id": "84587715",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -9537,7 +11038,7 @@ describe("transformProduct", () => {
               "title": "name",
               "url": "https://www.youtube.com/watch?v=3901c0ds7oo",
             },
-            Object {
+            {
               "assetType": "WARRANTIES",
               "extension": "pdf",
               "fileSize": 10,
@@ -9545,16 +11046,16 @@ describe("transformProduct", () => {
               "id": "2583923841",
               "isLinkDocument": false,
               "productBaseCode": "base-code",
-              "productCategories": Array [
-                Object {
+              "productCategories": [
+                {
                   "code": "code",
                   "parentCategoryCode": "parent-category-code",
                 },
-                Object {
+                {
                   "code": "parent-category",
                   "parentCategoryCode": "",
                 },
-                Object {
+                {
                   "code": "child-category",
                   "parentCategoryCode": "parent-category",
                 },
@@ -9566,8 +11067,8 @@ describe("transformProduct", () => {
             },
           ],
           "externalProductCode": "external-product-code",
-          "filters": Array [
-            Object {
+          "filters": [
+            {
               "code": "code",
               "filterCode": "GeneralInformation.Materials",
               "groupLabel": "Material",
@@ -9577,7 +11078,7 @@ describe("transformProduct", () => {
               "unit": undefined,
               "value": "Concrete",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "Measurements.Length",
               "groupLabel": "Length",
@@ -9587,7 +11088,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "6",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "Measurements.Width",
               "groupLabel": "Width",
@@ -9597,7 +11098,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "7",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "Measurements.Height",
               "groupLabel": "Height",
@@ -9607,7 +11108,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "8",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "Measurements.Thickness",
               "groupLabel": "Thickness",
@@ -9617,7 +11118,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "9",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "Measurements.Volume",
               "groupLabel": "Volume",
@@ -9627,7 +11128,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "10",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "WeightAttributes.GrossWeight",
               "groupLabel": "Gross Weight",
@@ -9637,7 +11138,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "6",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "weightAttributes.netweight",
               "groupLabel": "Net Weight",
@@ -9647,7 +11148,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "7",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "WeightAttributes.WeightPerPallet",
               "groupLabel": "Weight per Pallet",
@@ -9657,7 +11158,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "8",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "WeightAttributes.WeightPerPiece",
               "groupLabel": "Weight per Piece",
@@ -9667,7 +11168,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "9",
             },
-            Object {
+            {
               "code": "",
               "filterCode": "WeightAttributes.WeightPerSqm",
               "groupLabel": "Weight per sq m",
@@ -9677,7 +11178,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "10",
             },
-            Object {
+            {
               "code": "code",
               "filterCode": "Brand",
               "groupLabel": undefined,
@@ -9686,7 +11187,7 @@ describe("transformProduct", () => {
               "parentFilterCode": "parent-category-code",
               "value": "code",
             },
-            Object {
+            {
               "code": "parent-category",
               "filterCode": "Category",
               "groupLabel": undefined,
@@ -9695,7 +11196,7 @@ describe("transformProduct", () => {
               "parentFilterCode": "",
               "value": "parent-category",
             },
-            Object {
+            {
               "code": "child-category",
               "filterCode": "Category",
               "groupLabel": "Parent Category",
@@ -9706,62 +11207,68 @@ describe("transformProduct", () => {
             },
           ],
           "fixingToolIframeUrl": "http://localhost:8000",
-          "galleryImages": Array [
-            Object {
+          "galleryImages": [
+            {
               "altText": "name",
               "mainSource": "http://localhost:8000",
               "thumbnail": "http://localhost:8000",
             },
           ],
-          "groups": Array [
-            Object {
+          "groups": [
+            {
               "code": "parent-category",
               "label": "Parent Category",
             },
           ],
-          "guaranteesAndWarrantiesImages": Array [],
-          "guaranteesAndWarrantiesLinks": Array [],
+          "guaranteesAndWarrantiesImages": [],
+          "guaranteesAndWarrantiesLinks": [],
           "hashedCode": "3464354221",
           "isSampleOrderAllowed": true,
           "isVisualiserAvailable": false,
-          "masterImage": Object {
+          "masterImage": {
             "altText": "name",
             "mainSource": "http://localhost:8000",
             "thumbnail": "http://localhost:8000",
           },
           "materials": "Concrete",
-          "measurements": Object {
-            "height": Object {
+          "measurements": {
+            "height": {
               "unit": "symbol",
               "value": "8",
             },
             "label": "6x7x8x9symbol",
-            "length": Object {
+            "length": {
               "unit": "symbol",
               "value": "6",
             },
-            "thickness": Object {
+            "thickness": {
               "unit": "symbol",
               "value": "9",
             },
-            "volume": Object {
+            "volume": {
               "unit": "symbol",
               "value": "10",
             },
-            "width": Object {
+            "width": {
               "unit": "symbol",
               "value": "7",
             },
           },
           "name": "name",
           "path": "/p/name-shadow-black-gloss-concrete-3464354221",
-          "productBenefits": Array [
+          "productBenefits": [
             "product-benefits",
           ],
-          "relatedVariants": Array [],
+          "relatedVariants": [],
+          "seoDescription": "seo_descr",
+          "seoTags": [
+            "seo",
+            "test",
+          ],
+          "seoTitle": "test",
           "specificationIframeUrl": "http://localhost:8000",
-          "techDrawings": Array [
-            Object {
+          "techDrawings": [
+            {
               "altText": undefined,
               "mainSource": "http://localhost:8000",
               "thumbnail": undefined,
@@ -9770,8 +11277,8 @@ describe("transformProduct", () => {
           "textureFamily": "Gloss",
           "textureFamilyMicrocopy": "Texture Family",
           "variantAttribute": "Shadow Black Gloss 6x7x8x9x10",
-          "videos": Array [
-            Object {
+          "videos": [
+            {
               "label": "name",
               "previewMedia": null,
               "subtitle": null,
@@ -9780,24 +11287,24 @@ describe("transformProduct", () => {
               "videoUrl": "https://www.youtube.com/watch?v=3901c0ds7oo",
             },
           ],
-          "weight": Object {
-            "grossWeight": Object {
+          "weight": {
+            "grossWeight": {
               "unit": "symbol",
               "value": "6",
             },
-            "netWeight": Object {
+            "netWeight": {
               "unit": "symbol",
               "value": "7",
             },
-            "weightPerPallet": Object {
+            "weightPerPallet": {
               "unit": "symbol",
               "value": "8",
             },
-            "weightPerPiece": Object {
+            "weightPerPiece": {
               "unit": "symbol",
               "value": "9",
             },
-            "weightPerSqm": Object {
+            "weightPerSqm": {
               "unit": "symbol",
               "value": "10",
             },
@@ -11019,5 +12526,37 @@ describe("transformProduct", () => {
     });
     const transformedProduct = await transformProduct(product);
     expect(transformedProduct[0].isVisualiserAvailable).toBe(true);
+  });
+
+  it("should ignore assets of base product if variant has assets", async () => {
+    const product = createProduct({
+      assets: [createAsset({ assetType: "AWARDS" })],
+      variantOptions: [
+        createVariantOption({
+          assets: [createAsset({ assetType: "ASSEMBLY_INSTRUCTIONS" })]
+        })
+      ]
+    });
+
+    const transformedProduct = await transformProduct(product);
+    expect(transformedProduct[0].documents.length).toBe(1);
+    expect(transformedProduct[0].documents[0].assetType).toBe(
+      "ASSEMBLY_INSTRUCTIONS"
+    );
+  });
+
+  it("should use assets of base product if variant has no assets", async () => {
+    const product = createProduct({
+      assets: [createAsset({ assetType: "AWARDS" })],
+      variantOptions: [
+        createVariantOption({
+          assets: undefined
+        })
+      ]
+    });
+
+    const transformedProduct = await transformProduct(product);
+    expect(transformedProduct[0].documents.length).toBe(1);
+    expect(transformedProduct[0].documents[0].assetType).toBe("AWARDS");
   });
 });

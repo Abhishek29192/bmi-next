@@ -2,6 +2,7 @@ import {
   Button,
   ClickableAction,
   Icon,
+  replaceSpaces,
   Typography
 } from "@bmi-digital/components";
 import { ArrowForward as ArrowForwardIcon } from "@bmi-digital/components/icon";
@@ -37,7 +38,7 @@ const SampleBasketDialog = ({
   maximumSamples,
   toggleCart
 }: {
-  title?: string;
+  title: string;
   basketAction?: ClickableAction;
   maximumSamples: number | null;
   toggleCart?: () => void;
@@ -57,9 +58,9 @@ const SampleBasketDialog = ({
     });
   };
 
-  return title && productsInBasket.length > 0 ? (
+  return (
     <StyledBasketDialogContainer data-testid={"shopping-cart-dialog"}>
-      <TopContainer>
+      <TopContainer data-testid={"shopping-cart-dialog-header-container"}>
         <CloseButton
           accessibilityLabel={getMicroCopy(microCopy.DIALOG_CLOSE)}
           isIconButton
@@ -68,7 +69,11 @@ const SampleBasketDialog = ({
         >
           <Icon source={Close} />
         </CloseButton>
-        <Typography variant="h3" hasUnderline>
+        <Typography
+          variant="h3"
+          hasUnderline
+          data-testid={"shopping-cart-dialog-title"}
+        >
           {title}
         </Typography>
 
@@ -94,33 +99,33 @@ const SampleBasketDialog = ({
 
       <ProductList data-testid={"shopping-cart-dialog-product-list"}>
         {productsInBasket.map((product) => (
-          <Product key={product.code}>
+          <Product
+            key={product.code}
+            data-testid={"shopping-cart-dialog-product"}
+          >
             <ImageContainer>
               <CartImage src={product.image} />
             </ImageContainer>
             <InfoContainer>
               <ProductTitle
                 variant="h6"
-                data-testid={`shopping-cart-dialog-product-title-${product.name.replace(
-                  / /g,
-                  "-"
+                data-testid={`shopping-cart-dialog-product-title-${replaceSpaces(
+                  product.name
                 )}`}
               >
                 {product.name}
               </ProductTitle>
               <ProductColour
                 variant="h6"
-                data-testid={`shopping-cart-dialog-product-colour-${product.colour?.replace(
-                  / /g,
-                  "-"
+                data-testid={`shopping-cart-dialog-product-colour-${replaceSpaces(
+                  product.colour
                 )}`}
               >
                 {product.colour}
               </ProductColour>
               <ProductSize
-                data-testid={`shopping-cart-dialog-product-size-${product.measurements?.replace(
-                  / /g,
-                  "-"
+                data-testid={`shopping-cart-dialog-product-size-${replaceSpaces(
+                  product.measurements
                 )}`}
               >
                 {product.measurements}
@@ -134,9 +139,8 @@ const SampleBasketDialog = ({
                 variant="text"
                 isIconButton
                 onClick={(event: Event) => removeFromBasket(event, product)}
-                data-testid={`shopping-cart-dialog-remove-product-${product.name.replace(
-                  / /g,
-                  "-"
+                data-testid={`shopping-cart-dialog-remove-product-${replaceSpaces(
+                  product.name
                 )}`}
               >
                 <Icon source={DeleteIcon} />
@@ -164,7 +168,7 @@ const SampleBasketDialog = ({
         )}
       </CartActions>
     </StyledBasketDialogContainer>
-  ) : null;
+  );
 };
 
 export default SampleBasketDialog;

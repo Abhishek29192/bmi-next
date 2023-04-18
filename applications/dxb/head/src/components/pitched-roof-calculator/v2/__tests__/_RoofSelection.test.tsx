@@ -33,7 +33,7 @@ afterEach(() => {
 const render = (props: Partial<RoofSelectionProps> = {}) => {
   const finalProps = { ...defaultProps, ...props };
 
-  const Wrapper: React.FC = (props) => (
+  const Wrapper: React.FC = (props: { children: React.ReactNode }) => (
     <ThemeProvider>
       <MicroCopy.Provider values={en}>{props.children}</MicroCopy.Provider>
     </ThemeProvider>
@@ -48,10 +48,10 @@ describe("PitchedRoofCalculator RoofSelection component", () => {
     expect(screen.getAllByText("MC: roofSelection.roof").length).toBe(1);
   });
 
-  it("calls analytics event when user selects roof shape", () => {
+  it("calls analytics event when user selects roof shape", async () => {
     render();
     fireEvent.click(screen.getByText("MC: roofSelection.roof"));
-    waitFor(() =>
+    await waitFor(() =>
       expect(pushEvent).toBeCalledWith({
         event: "dxb.button_click",
         id: "rc-roof-type",

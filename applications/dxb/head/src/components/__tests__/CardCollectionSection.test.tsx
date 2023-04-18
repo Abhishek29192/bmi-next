@@ -1,5 +1,5 @@
 import { ThemeProvider } from "@bmi-digital/components";
-import { fireEvent, render } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import CardCollectionSection, { Data } from "../CardCollectionSection";
 import { Data as LinkData, DataTypeEnum } from "../Link";
@@ -27,7 +27,7 @@ const card1: PageInfoData = {
   brandLogo: null,
   featuredMedia: null,
   featuredVideo: null,
-  date: "2021-06-01T00:00:00",
+  date: "1 June 2021",
   tags: [testTag1, testTag3]
 };
 const card2: PageInfoData = {
@@ -40,7 +40,7 @@ const card2: PageInfoData = {
   brandLogo: null,
   featuredMedia: null,
   featuredVideo: null,
-  date: "2021-06-02T00:00:00",
+  date: "2 June 2021",
   tags: [testTag2, testTag4]
 };
 const card3: PageInfoData = {
@@ -53,7 +53,7 @@ const card3: PageInfoData = {
   brandLogo: null,
   featuredMedia: null,
   featuredVideo: null,
-  date: "2021-06-03T00:00:00",
+  date: "3 June 2021",
   tags: [testTag1, testTag2]
 };
 const card4: PromoData = {
@@ -71,10 +71,10 @@ const card4: PromoData = {
   featuredVideo: null
 };
 
-const getSiteContext = (countryCode = "en", nodeLocale = "en-GB") => ({
-  countryCode: countryCode,
+const getSiteContext = () => ({
+  countryCode: "no",
   getMicroCopy: (microCopy: string) => `MC: ${microCopy}`,
-  node_locale: nodeLocale,
+  node_locale: "en-GB",
   homePage: {
     title: "Home page title"
   }
@@ -102,7 +102,7 @@ describe("CardCollectionSection component", () => {
         sortOrder: null
       };
 
-      const wrapper = render(
+      const { baseElement } = render(
         <ThemeProvider>
           <SiteContextProvider value={getSiteContext()}>
             <CardCollectionSection
@@ -112,13 +112,13 @@ describe("CardCollectionSection component", () => {
           </SiteContextProvider>
         </ThemeProvider>
       );
-      const titleElement = wrapper.getByText(data.title);
+      const titleElement = screen.getByText(data.title);
       expect(titleElement).not.toBeNull();
 
-      const richTextElement = wrapper.getByText("test rich text");
+      const richTextElement = screen.getByText("test rich text");
       expect(richTextElement).not.toBeNull();
 
-      expect(wrapper.baseElement).toMatchSnapshot();
+      expect(baseElement).toMatchSnapshot();
     });
 
     it("When heading 2 is present", () => {
@@ -141,20 +141,20 @@ describe("CardCollectionSection component", () => {
         sortOrder: null
       };
 
-      const wrapper = render(
+      const { baseElement } = render(
         <ThemeProvider>
           <SiteContextProvider value={getSiteContext()}>
-            <CardCollectionSection data={data} theme="" />
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
-      const titleElement = wrapper.getByText(data.title);
+      const titleElement = screen.getByText(data.title);
       expect(titleElement).not.toBeNull();
 
-      const richTextElement = wrapper.getByText("test rich text");
+      const richTextElement = screen.getByText("test rich text");
       expect(richTextElement).not.toBeNull();
 
-      expect(wrapper.baseElement).toMatchSnapshot();
+      expect(baseElement).toMatchSnapshot();
     });
 
     it("When heading 3 is present", () => {
@@ -177,20 +177,20 @@ describe("CardCollectionSection component", () => {
         displaySingleRow: null
       };
 
-      const wrapper = render(
+      const { baseElement } = render(
         <ThemeProvider>
           <SiteContextProvider value={getSiteContext()}>
-            <CardCollectionSection data={data} theme="" />
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
-      const titleElement = wrapper.getByText(data.title);
+      const titleElement = screen.getByText(data.title);
       expect(titleElement).not.toBeNull();
 
-      const richTextElement = wrapper.getByText("test rich text");
+      const richTextElement = screen.getByText("test rich text");
       expect(richTextElement).not.toBeNull();
 
-      expect(wrapper.baseElement).toMatchSnapshot();
+      expect(baseElement).toMatchSnapshot();
     });
 
     it("When heading 4 is present", () => {
@@ -213,20 +213,20 @@ describe("CardCollectionSection component", () => {
         displaySingleRow: null
       };
 
-      const wrapper = render(
+      const { baseElement } = render(
         <ThemeProvider>
           <SiteContextProvider value={getSiteContext()}>
-            <CardCollectionSection data={data} theme="" />
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
-      const titleElement = wrapper.getByText(data.title);
+      const titleElement = screen.getByText(data.title);
       expect(titleElement).not.toBeNull();
 
-      const richTextElement = wrapper.getByText("test rich text");
+      const richTextElement = screen.getByText("test rich text");
       expect(richTextElement).not.toBeNull();
 
-      expect(wrapper.baseElement).toMatchSnapshot();
+      expect(baseElement).toMatchSnapshot();
     });
 
     it("When heading 5 is present", () => {
@@ -249,20 +249,20 @@ describe("CardCollectionSection component", () => {
         displaySingleRow: null
       };
 
-      const wrapper = render(
+      const { baseElement } = render(
         <ThemeProvider>
           <SiteContextProvider value={getSiteContext()}>
-            <CardCollectionSection data={data} theme="" />
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
-      const titleElement = wrapper.getByText(data.title);
+      const titleElement = screen.getByText(data.title);
       expect(titleElement).not.toBeNull();
 
-      const richTextElement = wrapper.getByText("test rich text");
+      const richTextElement = screen.getByText("test rich text");
       expect(richTextElement).not.toBeNull();
 
-      expect(wrapper.baseElement).toMatchSnapshot();
+      expect(baseElement).toMatchSnapshot();
     });
 
     it("When heading 6 is present", () => {
@@ -285,20 +285,20 @@ describe("CardCollectionSection component", () => {
         displaySingleRow: null
       };
 
-      const wrapper = render(
+      const { baseElement } = render(
         <ThemeProvider>
           <SiteContextProvider value={getSiteContext()}>
-            <CardCollectionSection data={data} theme="" />
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
-      const titleElement = wrapper.getByText(data.title);
+      const titleElement = screen.getByText(data.title);
       expect(titleElement).not.toBeNull();
 
-      const richTextElement = wrapper.getByText("test rich text");
+      const richTextElement = screen.getByText("test rich text");
       expect(richTextElement).not.toBeNull();
 
-      expect(wrapper.baseElement).toMatchSnapshot();
+      expect(baseElement).toMatchSnapshot();
     });
 
     it("When entry-hyperlink is present", () => {
@@ -321,20 +321,20 @@ describe("CardCollectionSection component", () => {
         displaySingleRow: null
       };
 
-      const wrapper = render(
+      const { baseElement } = render(
         <ThemeProvider>
           <SiteContextProvider value={getSiteContext()}>
-            <CardCollectionSection data={data} theme="" />
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
-      const titleElement = wrapper.getByText(data.title);
+      const titleElement = screen.getByText(data.title);
       expect(titleElement).not.toBeNull();
 
-      const richTextElement = wrapper.getByText("test rich text");
+      const richTextElement = screen.getByText("test rich text");
       expect(richTextElement).not.toBeNull();
 
-      expect(wrapper.baseElement).toMatchSnapshot();
+      expect(baseElement).toMatchSnapshot();
     });
 
     it("When text length = 0", () => {
@@ -357,17 +357,17 @@ describe("CardCollectionSection component", () => {
         displaySingleRow: null
       };
 
-      const wrapper = render(
+      const { baseElement } = render(
         <ThemeProvider>
           <SiteContextProvider value={getSiteContext()}>
-            <CardCollectionSection data={data} theme="" />
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
-      const titleElement = wrapper.getByText(data.title);
+      const titleElement = screen.getByText(data.title);
       expect(titleElement).not.toBeNull();
 
-      expect(wrapper.baseElement).toMatchSnapshot();
+      expect(baseElement).toMatchSnapshot();
     });
 
     it("When dialogContent link is provided", () => {
@@ -417,20 +417,20 @@ describe("CardCollectionSection component", () => {
         displaySingleRow: null
       };
 
-      const wrapper = render(
+      const { baseElement } = render(
         <ThemeProvider>
           <SiteContextProvider value={getSiteContext()}>
-            <CardCollectionSection data={data} theme="" />
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
-      const titleElement = wrapper.getByText(data.title);
+      const titleElement = screen.getByText(data.title);
       expect(titleElement).not.toBeNull();
 
-      const richTextElement = wrapper.getByText("test rich text");
+      const richTextElement = screen.getByText("test rich text");
       expect(richTextElement).not.toBeNull();
 
-      expect(wrapper.baseElement).toMatchSnapshot();
+      expect(baseElement).toMatchSnapshot();
     });
   });
 
@@ -457,37 +457,37 @@ describe("CardCollectionSection component", () => {
         displaySingleRow: null
       };
 
-      const wrapper = render(
+      const { rerender } = render(
         <ThemeProvider>
           <SiteContextProvider value={getSiteContext()}>
-            <CardCollectionSection data={data} theme="" />
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
 
       //find filter tag 1
-      const tagFilterButton1 = wrapper.getByText(testTag1.title);
+      const tagFilterButton1 = screen.getByText(testTag1.title);
       //click the filter to filter it
-      tagFilterButton1.click();
+      fireEvent.click(tagFilterButton1);
 
       //get the rerendered output, which should remove any items without the tag
-      wrapper.rerender(
+      rerender(
         <ThemeProvider>
           <SiteContextProvider value={getSiteContext()}>
-            <CardCollectionSection data={data} theme="" />
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
 
       //card 1 has the selected tag
-      const titleElement = wrapper.getByText(card1.title);
+      const titleElement = screen.getByText(card1.title);
       expect(titleElement).not.toBeNull();
 
       //card 2 IS NOT tagged with tag 1, so should not be shown
-      expect(wrapper.queryByText(card2.title)).toBeNull();
+      expect(screen.queryByText(card2.title)).toBeNull();
 
       //card 3 has the selected tag
-      const titleElement3 = wrapper.getByText(card3.title);
+      const titleElement3 = screen.getByText(card3.title);
       expect(titleElement3).not.toBeNull();
     });
 
@@ -513,30 +513,30 @@ describe("CardCollectionSection component", () => {
         displaySingleRow: null
       };
 
-      const wrapper = render(
+      const { rerender } = render(
         <ThemeProvider>
           <SiteContextProvider value={getSiteContext()}>
-            <CardCollectionSection data={data} theme="" />
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
 
       //find filter tag 2
-      const tagFilterButton = wrapper.getByText(testTag2.title);
+      const tagFilterButton = screen.getByText(testTag2.title);
       //click the filter to filter it
-      tagFilterButton.click();
+      fireEvent.click(tagFilterButton);
 
       //get the rerendered output, which should remove any items without the tag
-      wrapper.rerender(
+      rerender(
         <ThemeProvider>
           <SiteContextProvider value={getSiteContext()}>
-            <CardCollectionSection data={data} theme="" />
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
 
       //card 3 has the selected tag
-      const titleElement3 = wrapper.getByText(card3.title);
+      const titleElement3 = screen.getByText(card3.title);
       expect(titleElement3).not.toBeNull();
     });
 
@@ -562,45 +562,45 @@ describe("CardCollectionSection component", () => {
         displaySingleRow: null
       };
 
-      const wrapper = render(
+      const { rerender } = render(
         <ThemeProvider>
           <SiteContextProvider value={getSiteContext()}>
-            <CardCollectionSection data={data} theme="" />
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
 
       //find filter tag 1
-      const tagFilterButton1 = wrapper.getByText(testTag1.title);
+      const tagFilterButton1 = screen.getByText(testTag1.title);
       //click the filter to filter it
-      tagFilterButton1.click();
+      fireEvent.click(tagFilterButton1);
 
       //find filter tag 2
-      const tagFilterButton2 = wrapper.getByText(testTag2.title);
+      const tagFilterButton2 = screen.getByText(testTag2.title);
       //click the filter to filter it
-      tagFilterButton2.click();
+      fireEvent.click(tagFilterButton2);
 
       //get the rerendered output, which should remove any items without the tag
-      wrapper.rerender(
+      rerender(
         <ThemeProvider>
           <SiteContextProvider value={getSiteContext()}>
-            <CardCollectionSection data={data} theme="" />
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
 
       //card 1 has the selected tag
-      const titleElement = wrapper.getAllByText(card1.title);
+      const titleElement = screen.getAllByText(card1.title);
       expect(titleElement).not.toBeNull();
       expect(titleElement.length).toEqual(1);
 
       //card 2 has the selected tag
-      const titleElement2 = wrapper.getAllByText(card2.title);
+      const titleElement2 = screen.getAllByText(card2.title);
       expect(titleElement2).not.toBeNull();
       expect(titleElement2.length).toEqual(1);
 
       //card 3 has the selected tag
-      const titleElement3 = wrapper.getAllByText(card3.title);
+      const titleElement3 = screen.getAllByText(card3.title);
       expect(titleElement3).not.toBeNull();
       // shouldn't be 2 copies of the result just because it is in both tags
       expect(titleElement3.length).toEqual(1);
@@ -632,24 +632,55 @@ describe("CardCollectionSection component", () => {
       displaySingleRow: null
     };
 
-    const wrapper = render(
+    render(
       <ThemeProvider>
         <SiteContextProvider value={getSiteContext()}>
-          <CardCollectionSection data={data} theme="" />
+          <CardCollectionSection data={data} />
         </SiteContextProvider>
       </ThemeProvider>
     );
 
-    const renderedCards = wrapper.getAllByText("test card title");
+    const renderedCards = screen.getAllByText("test card title");
     expect(renderedCards).toHaveLength(10);
-    expect(wrapper.container.getElementsByClassName("hidden")).toHaveLength(2);
+    expect(
+      screen.getByTestId(`card-collection-grid-item-${data.cards[0].id}`)
+    ).not.toHaveClass("hidden");
+    expect(
+      screen.getByTestId(`card-collection-grid-item-${data.cards[1].id}`)
+    ).not.toHaveClass("hidden");
+    expect(
+      screen.getByTestId(`card-collection-grid-item-${data.cards[2].id}`)
+    ).not.toHaveClass("hidden");
+    expect(
+      screen.getByTestId(`card-collection-grid-item-${data.cards[3].id}`)
+    ).not.toHaveClass("hidden");
+    expect(
+      screen.getByTestId(`card-collection-grid-item-${data.cards[4].id}`)
+    ).not.toHaveClass("hidden");
+    expect(
+      screen.getByTestId(`card-collection-grid-item-${data.cards[5].id}`)
+    ).not.toHaveClass("hidden");
+    expect(
+      screen.getByTestId(`card-collection-grid-item-${data.cards[6].id}`)
+    ).not.toHaveClass("hidden");
+    expect(
+      screen.getByTestId(`card-collection-grid-item-${data.cards[7].id}`)
+    ).not.toHaveClass("hidden");
+    expect(
+      screen.getByTestId(`card-collection-grid-item-${data.cards[8].id}`)
+    ).toHaveClass("hidden");
+    expect(
+      screen.getByTestId(`card-collection-grid-item-${data.cards[9].id}`)
+    ).toHaveClass("hidden");
 
-    const showMoreButton = wrapper.getByText("global.showMore", {
-      exact: false
-    });
-    fireEvent.click(showMoreButton);
+    fireEvent.click(screen.getByText("MC: global.showMore"));
 
-    expect(wrapper.container.getElementsByClassName("hidden")).toHaveLength(0);
+    expect(
+      screen.getByTestId(`card-collection-grid-item-${data.cards[8].id}`)
+    ).not.toHaveClass("hidden");
+    expect(
+      screen.getByTestId(`card-collection-grid-item-${data.cards[9].id}`)
+    ).not.toHaveClass("hidden");
   });
 
   describe("Card label", () => {
@@ -685,15 +716,15 @@ describe("CardCollectionSection component", () => {
         }
       };
 
-      const wrapper = render(
+      render(
         <ThemeProvider>
           <SiteContextProvider value={getSiteContext()}>
-            <CardCollectionSection data={data} theme="" />
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
 
-      const cardLink = wrapper.getByTestId("card-link");
+      const cardLink = screen.getByTestId("card-link");
       expect(cardLink.textContent).toEqual(data.cardLabel);
     });
 
@@ -749,14 +780,14 @@ describe("CardCollectionSection component", () => {
         }
       };
 
-      const wrapper = render(
+      const { baseElement } = render(
         <ThemeProvider>
           <SiteContextProvider value={getSiteContext()}>
-            <CardCollectionSection data={data} theme="" />
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
-      expect(wrapper.container).toMatchSnapshot();
+      expect(baseElement).toMatchSnapshot();
     });
 
     it("renders as cardLabel with the title replaced with the card title", () => {
@@ -791,15 +822,15 @@ describe("CardCollectionSection component", () => {
         }
       };
 
-      const wrapper = render(
+      render(
         <ThemeProvider>
           <SiteContextProvider value={getSiteContext()}>
-            <CardCollectionSection data={data} theme="" />
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
 
-      const cardLink = wrapper.getByTestId("card-link");
+      const cardLink = screen.getByTestId("card-link");
       expect(cardLink.textContent).toEqual(`a ${card1.title}`);
     });
 
@@ -861,15 +892,15 @@ describe("CardCollectionSection component", () => {
         }
       };
 
-      const wrapper = render(
+      render(
         <ThemeProvider>
           <SiteContextProvider value={getSiteContext()}>
-            <CardCollectionSection data={data} theme="" />
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
 
-      const cardLink = wrapper.getByTestId("card-link");
+      const cardLink = screen.getByTestId("card-link");
       expect(cardLink.textContent).toEqual(card.cta.label);
     });
 
@@ -920,15 +951,15 @@ describe("CardCollectionSection component", () => {
         }
       };
 
-      const wrapper = render(
+      render(
         <ThemeProvider>
           <SiteContextProvider value={getSiteContext()}>
-            <CardCollectionSection data={data} theme="" />
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
 
-      const cardLink = wrapper.queryByTestId("card-link");
+      const cardLink = screen.queryByTestId("card-link");
       expect(cardLink).toBeNull();
     });
 
@@ -994,7 +1025,7 @@ describe("CardCollectionSection component", () => {
       const { container } = render(
         <ThemeProvider>
           <SiteContextProvider value={getSiteContext()}>
-            <CardCollectionSection data={data} theme="" />
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
@@ -1036,20 +1067,20 @@ describe("CardCollectionSection component", () => {
         }
       };
 
-      const wrapper = render(
+      render(
         <ThemeProvider>
           <VisualiserContext.Provider
             value={{ isOpen: false, open: undefined }}
           >
             <SiteContextProvider value={getSiteContext()}>
-              <CardCollectionSection data={data} theme="" />
+              <CardCollectionSection data={data} />
             </SiteContextProvider>
           </VisualiserContext.Provider>
         </ThemeProvider>
       );
 
-      const visualiserLink = wrapper.getByText(data.link.label);
-      visualiserLink.click();
+      const visualiserLink = screen.getByText(data.link.label);
+      fireEvent.click(visualiserLink);
     });
 
     it("calls visualiserOpen with null when link parameters are null", async () => {
@@ -1085,20 +1116,20 @@ describe("CardCollectionSection component", () => {
       };
       const visualiserOpen = jest.fn().mockImplementation(() => {});
 
-      const wrapper = render(
+      render(
         <ThemeProvider>
           <VisualiserContext.Provider
             value={{ isOpen: false, open: visualiserOpen }}
           >
             <SiteContextProvider value={getSiteContext()}>
-              <CardCollectionSection data={data} theme="" />
+              <CardCollectionSection data={data} />
             </SiteContextProvider>
           </VisualiserContext.Provider>
         </ThemeProvider>
       );
 
-      const visualiserLink = wrapper.getByText(data.link.label);
-      visualiserLink.click();
+      const visualiserLink = screen.getByText(data.link.label);
+      fireEvent.click(visualiserLink);
       expect(visualiserOpen).toBeCalledWith(null);
     });
 
@@ -1136,20 +1167,20 @@ describe("CardCollectionSection component", () => {
 
       const visualiserOpen = jest.fn().mockImplementation(() => {});
 
-      const wrapper = render(
+      render(
         <ThemeProvider>
           <VisualiserContext.Provider
             value={{ isOpen: false, open: visualiserOpen }}
           >
             <SiteContextProvider value={getSiteContext()}>
-              <CardCollectionSection data={data} theme="" />
+              <CardCollectionSection data={data} />
             </SiteContextProvider>
           </VisualiserContext.Provider>
         </ThemeProvider>
       );
 
-      const visualiserLink = wrapper.getByText(data.link.label);
-      visualiserLink.click();
+      const visualiserLink = screen.getByText(data.link.label);
+      fireEvent.click(visualiserLink);
       expect(visualiserOpen).toBeCalledWith(data.link.parameters);
     });
   });
@@ -1187,20 +1218,20 @@ describe("CardCollectionSection component", () => {
         }
       };
 
-      const wrapper = render(
+      render(
         <ThemeProvider>
           <CalculatorContext.Provider
             value={{ isOpen: false, open: undefined }}
           >
             <SiteContextProvider value={getSiteContext()}>
-              <CardCollectionSection data={data} theme="" />
+              <CardCollectionSection data={data} />
             </SiteContextProvider>
           </CalculatorContext.Provider>
         </ThemeProvider>
       );
 
-      const calculatorLink = wrapper.getByText(data.link.label);
-      calculatorLink.click();
+      const calculatorLink = screen.getByText(data.link.label);
+      fireEvent.click(calculatorLink);
     });
 
     it("calls calculatorOpen with null when link parameters are null", async () => {
@@ -1237,20 +1268,20 @@ describe("CardCollectionSection component", () => {
 
       const calculatorOpen = jest.fn().mockImplementation(() => {});
 
-      const wrapper = render(
+      render(
         <ThemeProvider>
           <CalculatorContext.Provider
             value={{ isOpen: false, open: calculatorOpen }}
           >
             <SiteContextProvider value={getSiteContext()}>
-              <CardCollectionSection data={data} theme="" />
+              <CardCollectionSection data={data} />
             </SiteContextProvider>
           </CalculatorContext.Provider>
         </ThemeProvider>
       );
 
-      const calculatorLink = wrapper.getByText(data.link.label);
-      calculatorLink.click();
+      const calculatorLink = screen.getByText(data.link.label);
+      fireEvent.click(calculatorLink);
       expect(calculatorOpen).toBeCalledWith(null);
     });
 
@@ -1288,20 +1319,20 @@ describe("CardCollectionSection component", () => {
 
       const calculatorOpen = jest.fn().mockImplementation(() => {});
 
-      const wrapper = render(
+      render(
         <ThemeProvider>
           <CalculatorContext.Provider
             value={{ isOpen: false, open: calculatorOpen }}
           >
             <SiteContextProvider value={getSiteContext()}>
-              <CardCollectionSection data={data} theme="" />
+              <CardCollectionSection data={data} />
             </SiteContextProvider>
           </CalculatorContext.Provider>
         </ThemeProvider>
       );
 
-      const calculatorLink = wrapper.getByText(data.link.label);
-      calculatorLink.click();
+      const calculatorLink = screen.getByText(data.link.label);
+      fireEvent.click(calculatorLink);
       expect(calculatorOpen).toBeCalledWith(data.link.parameters);
     });
   });
@@ -1324,14 +1355,14 @@ describe("CardCollectionSection component", () => {
         sortOrder: "Default (Contentful)"
       };
 
-      const wrapper = render(
+      const { baseElement } = render(
         <ThemeProvider>
-          <SiteContextProvider value={getSiteContext("no", "nb-NO")}>
-            <CardCollectionSection data={data} theme="" />
+          <SiteContextProvider value={getSiteContext()}>
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
-      expect(wrapper.baseElement).toMatchSnapshot();
+      expect(baseElement).toMatchSnapshot();
     });
 
     it("By newest date first", () => {
@@ -1351,14 +1382,14 @@ describe("CardCollectionSection component", () => {
         sortOrder: "Date (Newest first)"
       };
 
-      const wrapper = render(
+      const { baseElement } = render(
         <ThemeProvider>
-          <SiteContextProvider value={getSiteContext("no", "nb-NO")}>
-            <CardCollectionSection data={data} theme="" />
+          <SiteContextProvider value={getSiteContext()}>
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
-      expect(wrapper.baseElement).toMatchSnapshot();
+      expect(baseElement).toMatchSnapshot();
     });
 
     it("By oldest date first", () => {
@@ -1378,14 +1409,14 @@ describe("CardCollectionSection component", () => {
         sortOrder: "Date (Oldest first)"
       };
 
-      const wrapper = render(
+      const { baseElement } = render(
         <ThemeProvider>
-          <SiteContextProvider value={getSiteContext("no", "nb-NO")}>
-            <CardCollectionSection data={data} theme="" />
+          <SiteContextProvider value={getSiteContext()}>
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
-      expect(wrapper.baseElement).toMatchSnapshot();
+      expect(baseElement).toMatchSnapshot();
     });
   });
 
@@ -1407,25 +1438,18 @@ describe("CardCollectionSection component", () => {
         sortOrder: "Date (Oldest first)"
       };
 
-      const wrapper = render(
+      const { baseElement } = render(
         <ThemeProvider>
-          <SiteContextProvider value={getSiteContext("no", "nb-NO")}>
-            <CardCollectionSection data={data} theme="" />
+          <SiteContextProvider value={getSiteContext()}>
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
-      expect(wrapper.baseElement).toMatchSnapshot();
-      expect(
-        wrapper.baseElement.querySelectorAll("[class*='Grid']").length
-      ).toBeFalsy();
-      expect(
-        wrapper.baseElement.querySelectorAll("[class*='Carousel']").length
-      ).toBeTruthy();
-      expect(
-        wrapper.baseElement.getElementsByClassName(
-          "react-swipeable-view-container"
-        ).length
-      ).toBeTruthy();
+
+      expect(baseElement).toMatchSnapshot();
+      expect(screen.queryByTestId("grid-container")).not.toBeInTheDocument();
+      expect(screen.getByTestId("carousel")).toBeInTheDocument();
+      expect(screen.getByTestId("carousel-swipable-slide")).toBeInTheDocument();
     });
     it("renders correctly on a multiple row when displaySingleRow is set to false", () => {
       const cards: Card[] = [card4, card1, card2, card3];
@@ -1444,20 +1468,17 @@ describe("CardCollectionSection component", () => {
         sortOrder: "Date (Oldest first)"
       };
 
-      const wrapper = render(
+      const { baseElement } = render(
         <ThemeProvider>
-          <SiteContextProvider value={getSiteContext("no", "nb-NO")}>
-            <CardCollectionSection data={data} theme="" />
+          <SiteContextProvider value={getSiteContext()}>
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
-      expect(wrapper.baseElement).toMatchSnapshot();
-      expect(
-        wrapper.baseElement.querySelectorAll("[class*='Grid']").length
-      ).toBeTruthy();
-      expect(
-        wrapper.baseElement.querySelectorAll("[class*='Carousel']").length
-      ).toBeFalsy();
+
+      expect(baseElement).toMatchSnapshot();
+      expect(screen.getByTestId("grid-container")).toBeInTheDocument();
+      expect(screen.queryByTestId("carousel")).not.toBeInTheDocument();
     });
     it("renders correctly on a multiple row when displaySingleRow is null", () => {
       const cards: Card[] = [card4, card1, card2, card3];
@@ -1476,21 +1497,17 @@ describe("CardCollectionSection component", () => {
         sortOrder: "Date (Oldest first)"
       };
 
-      const wrapper = render(
+      const { baseElement } = render(
         <ThemeProvider>
-          <SiteContextProvider value={getSiteContext("no", "nb-NO")}>
-            <CardCollectionSection data={data} theme="" />
+          <SiteContextProvider value={getSiteContext()}>
+            <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
       );
-      expect(
-        wrapper.baseElement.querySelectorAll("[class*='Grid']").length
-      ).toBeTruthy();
-      expect(
-        wrapper.baseElement.querySelectorAll("[class*='Carousel']").length
-      ).toBeFalsy();
 
-      expect(wrapper.baseElement).toMatchSnapshot();
+      expect(screen.getByTestId("grid-container")).toBeInTheDocument();
+      expect(screen.queryByTestId("carousel")).not.toBeInTheDocument();
+      expect(baseElement).toMatchSnapshot();
     });
   });
 });

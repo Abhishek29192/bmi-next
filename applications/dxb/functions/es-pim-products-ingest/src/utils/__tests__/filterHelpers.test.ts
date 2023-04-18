@@ -100,7 +100,10 @@ describe("getClassificationFilters", () => {
       variantOptions: [createVariantOption({ classifications: undefined })]
     });
 
-    const classificationFilters = getClassificationsFilters(product);
+    const classificationFilters = getClassificationsFilters(
+      product.classifications,
+      product.variantOptions?.[0].classifications
+    );
 
     expect(classificationFilters).toEqual({});
   });
@@ -126,7 +129,10 @@ describe("getClassificationFilters", () => {
       ]
     });
 
-    const classificationFilters = getClassificationsFilters(product);
+    const classificationFilters = getClassificationsFilters(
+      product.classifications,
+      product.variantOptions?.[0].classifications
+    );
 
     expect(classificationFilters).toEqual({
       APPEARANCEATTRIBUTES$TEXTUREFAMILY: [{ code: "gloss", name: "Gloss" }]
@@ -154,7 +160,10 @@ describe("getClassificationFilters", () => {
       ]
     });
 
-    const classificationFilters = getClassificationsFilters(product);
+    const classificationFilters = getClassificationsFilters(
+      product.classifications,
+      product.variantOptions?.[0].classifications
+    );
 
     expect(classificationFilters).toEqual({
       APPEARANCEATTRIBUTES$TEXTUREFAMILY: [{ code: "gloss", name: "Gloss" }]
@@ -193,7 +202,10 @@ describe("getClassificationFilters", () => {
       ]
     });
 
-    const classificationFilters = getClassificationsFilters(product);
+    const classificationFilters = getClassificationsFilters(
+      product.classifications,
+      product.variantOptions?.[0].classifications
+    );
 
     expect(classificationFilters).toEqual({
       APPEARANCEATTRIBUTES$TEXTUREFAMILY: [{ code: "gloss", name: "Gloss" }]
@@ -228,31 +240,19 @@ describe("getClassificationFilters", () => {
               ]
             })
           ]
-        }),
-        createVariantOption({
-          classifications: [
-            createClassification({
-              code: "appearanceAttributes",
-              features: [
-                createFeature({
-                  code: "bmiClassificationCatalog/1.0/appearanceAttributes.textureFamily",
-                  featureValues: [{ code: "satin", value: "Satin" }],
-                  featureUnit: createFeatureUnit()
-                })
-              ]
-            })
-          ]
         })
       ]
     });
 
-    const classificationFilters = getClassificationsFilters(product);
+    const classificationFilters = getClassificationsFilters(
+      product.classifications,
+      product.variantOptions?.[0].classifications
+    );
 
     expect(classificationFilters).toEqual({
       APPEARANCEATTRIBUTES$TEXTUREFAMILY: [
         { code: "matte", name: "Matte" },
-        { code: "gloss", name: "Gloss" },
-        { code: "satin", name: "Satin" }
+        { code: "gloss", name: "Gloss" }
       ]
     });
   });
@@ -285,25 +285,14 @@ describe("getClassificationFilters", () => {
               ]
             })
           ]
-        }),
-        createVariantOption({
-          classifications: [
-            createClassification({
-              code: "measurements",
-              features: [
-                createFeature({
-                  code: "bmiClassificationCatalog/1.0/measurements.length",
-                  featureValues: [{ code: "100", value: "100" }],
-                  featureUnit: createFeatureUnit({ symbol: "mm" })
-                })
-              ]
-            })
-          ]
         })
       ]
     });
 
-    const classificationFilters = getClassificationsFilters(product);
+    const classificationFilters = getClassificationsFilters(
+      product.classifications,
+      product.variantOptions?.[0].classifications
+    );
 
     expect(classificationFilters).toEqual({});
   });

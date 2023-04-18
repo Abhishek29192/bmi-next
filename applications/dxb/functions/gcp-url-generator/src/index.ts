@@ -1,10 +1,10 @@
 import logger from "@bmi-digital/functions-logger";
 import { Message } from "@bmi/pub-sub-types";
-import type { EventFunction } from "@google-cloud/functions-framework/build/src/functions";
 import { PubSub, Topic } from "@google-cloud/pubsub";
 import { transformProduct } from "./productTransformer";
 import { transformSystem } from "./systemTransformer";
 import { PubSubMessage } from "./types";
+import type { EventFunction } from "@google-cloud/functions-framework/build/src/functions";
 
 const { PIM_PROJECT_ID, ENV_PREFIX, NON_PROD_ENV_NAME } = process.env;
 export const TOPIC_NAME = `bmi-${ENV_PREFIX}-dxb-pim-${

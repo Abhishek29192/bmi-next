@@ -1,14 +1,13 @@
 import { mockRequest, mockResponse } from "@bmi-digital/fetch-mocks";
 import { ClientAPI, Environment, Space } from "contentful-management";
 import { Request, Response } from "express";
-import mockConsole from "jest-mock-console";
 import SampleAssetWebhook from "./resources/contentfulWebhook_asset.json";
 import SampleEntryWebhook from "./resources/contentfulWebhook_entry.json";
 import SampleContentfulAsset from "./resources/sample_asset.json";
 import SampleContentfulEntry from "./resources/sample_entry.json";
 
 const fill = async (request: Partial<Request>, response: Partial<Response>) =>
-  await await (
+  await (
     await import("../index")
   ).fill(request as Request, response as Response);
 
@@ -58,10 +57,6 @@ jest.mock("@bmi/cms-consolidation-utility", () => {
   return { findIrrelevantLocales, copyDefaultValues };
 });
 
-beforeEach(() => {
-  mockConsole();
-});
-
 describe("fill", () => {
   it.each([
     "DEFAULT_VALUES_REQUEST",
@@ -75,7 +70,7 @@ describe("fill", () => {
     // eslint-disable-next-line security/detect-object-injection
     delete process.env[name];
 
-    const request = mockRequest("POST");
+    const request = mockRequest({ method: "POST" });
     const response = mockResponse();
 
     await fill(request, response);
@@ -96,7 +91,7 @@ describe("fill", () => {
     "PATCH",
     "OPTIONS"
   ])("Returns 405, when %s method is used", async (method) => {
-    const request = mockRequest(method);
+    const request = mockRequest({ method });
     const response = mockResponse();
 
     await fill(request, response);
@@ -105,7 +100,7 @@ describe("fill", () => {
   });
 
   it("Returns 401 when authorisation header is empty", async () => {
-    const mockReq = mockRequest("POST");
+    const mockReq = mockRequest({ method: "POST" });
     const mockRes = mockResponse();
 
     await fill(mockReq, mockRes);
@@ -114,7 +109,10 @@ describe("fill", () => {
   });
 
   it("Returns 401 when 'Bearer ' string is missing", async () => {
-    const mockReq = mockRequest("POST", { authorization: "some value" });
+    const mockReq = mockRequest({
+      method: "POST",
+      headers: { authorization: "some value" }
+    });
     const mockRes = mockResponse();
 
     await fill(mockReq, mockRes);
@@ -123,7 +121,10 @@ describe("fill", () => {
   });
 
   it("Returns 401 when Bearer token is missing", async () => {
-    const mockReq = mockRequest("POST", { authorization: "Bearer " });
+    const mockReq = mockRequest({
+      method: "POST",
+      headers: { authorization: "Bearer " }
+    });
     const mockRes = mockResponse();
 
     await fill(mockReq, mockRes);
@@ -133,8 +134,11 @@ describe("fill", () => {
 
   it("Returns 401 when Bearer token is less than 10 characters long", async () => {
     const shortSecret = "123";
-    const mockReq = mockRequest("POST", {
-      authorization: `Bearer ${shortSecret}`
+    const mockReq = mockRequest({
+      method: "POST",
+      headers: {
+        authorization: `Bearer ${shortSecret}`
+      }
     });
     const mockRes = mockResponse();
 
@@ -144,14 +148,13 @@ describe("fill", () => {
   });
 
   it("Returns 500 if entry is not found", async () => {
-    const request = mockRequest(
-      "POST",
-      {
+    const request = mockRequest({
+      method: "POST",
+      headers: {
         authorization: `Bearer ${REQUEST_SECRET}`
       },
-      undefined,
-      SampleEntryWebhook
-    );
+      body: SampleEntryWebhook
+    });
     const response = mockResponse();
     getEntry.mockReturnValueOnce(undefined);
 
@@ -161,14 +164,13 @@ describe("fill", () => {
   });
 
   it("Returns 500 if asset is not found", async () => {
-    const request = mockRequest(
-      "POST",
-      {
+    const request = mockRequest({
+      method: "POST",
+      headers: {
         authorization: `Bearer ${REQUEST_SECRET}`
       },
-      undefined,
-      SampleAssetWebhook
-    );
+      body: SampleAssetWebhook
+    });
     const response = mockResponse();
     getAsset.mockReturnValueOnce(undefined);
 
@@ -177,15 +179,13 @@ describe("fill", () => {
     expect(response.sendStatus).toBeCalledWith(500);
   });
 
-  it("Returns 500 if request body is not correclty formatted", async () => {
-    const request = mockRequest(
-      "POST",
-      {
+  it("Returns 500 if request body is not correctly formatted", async () => {
+    const request = mockRequest({
+      method: "POST",
+      headers: {
         authorization: `Bearer ${REQUEST_SECRET}`
-      },
-      undefined,
-      undefined
-    );
+      }
+    });
     const response = mockResponse();
 
     await fill(request, response);
@@ -194,14 +194,13 @@ describe("fill", () => {
   });
 
   it("Returns 400 if locale could not be found from the market tags", async () => {
-    const request = mockRequest(
-      "POST",
-      {
+    const request = mockRequest({
+      method: "POST",
+      headers: {
         authorization: `Bearer ${REQUEST_SECRET}`
       },
-      undefined,
-      SampleEntryWebhook
-    );
+      body: SampleEntryWebhook
+    });
     const response = mockResponse();
     findLocalesFromTag.mockReturnValueOnce(undefined);
 
@@ -211,14 +210,13 @@ describe("fill", () => {
   });
 
   it("Returns 400 if all the locales in the environment belong to this market", async () => {
-    const request = mockRequest(
-      "POST",
-      {
+    const request = mockRequest({
+      method: "POST",
+      headers: {
         authorization: `Bearer ${REQUEST_SECRET}`
       },
-      undefined,
-      SampleEntryWebhook
-    );
+      body: SampleEntryWebhook
+    });
     const response = mockResponse();
     findIrrelevantLocales.mockReturnValueOnce(undefined);
 
@@ -228,14 +226,13 @@ describe("fill", () => {
   });
 
   it("Sends 200 if default values are already up to date", async () => {
-    const request = mockRequest(
-      "POST",
-      {
+    const request = mockRequest({
+      method: "POST",
+      headers: {
         authorization: `Bearer ${REQUEST_SECRET}`
       },
-      undefined,
-      SampleEntryWebhook
-    );
+      body: SampleEntryWebhook
+    });
     const response = mockResponse();
     copyDefaultValues.mockResolvedValueOnce(false);
 
@@ -245,14 +242,13 @@ describe("fill", () => {
   });
 
   it("Sends 201 if the default values have been set up successfully", async () => {
-    const request = mockRequest(
-      "POST",
-      {
+    const request = mockRequest({
+      method: "POST",
+      headers: {
         authorization: `Bearer ${REQUEST_SECRET}`
       },
-      undefined,
-      SampleEntryWebhook
-    );
+      body: SampleEntryWebhook
+    });
     const response = mockResponse();
     copyDefaultValues.mockResolvedValueOnce(true);
 

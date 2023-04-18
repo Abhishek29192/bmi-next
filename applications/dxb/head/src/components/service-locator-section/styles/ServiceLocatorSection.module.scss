@@ -3,6 +3,9 @@
 .ServiceLocationSection {
   .body {
     margin-bottom: 24px;
+    &+.controls{
+      margin-top: 0;
+    }
   }
 
   .controls {
@@ -12,16 +15,23 @@
   .product-details-card {
     border-radius: 0;
 
+    .product-details-card-body {
+      overflow-y: auto;
+    }
+
     :global {
       [class*="MuiCardHeader-root"] {
-        padding: 30px 30px 10px;
+        padding: 30px 30px 0;
       }
       [class*="MuiCardContent-root"] {
-        padding: 10px 30px 30px;
+        padding: 0 30px 12px;
       }
       [class*="MuiCardHeader-action"] {
         margin-top: -24px;
         margin-right: -24px;
+      }
+      [class*="MuiCardHeader-avatar"] {
+        margin-right: 0;
       }
     }
 
@@ -37,6 +47,10 @@
           width: 100%;
         }
       }
+    }
+
+    &-summary{
+      margin-bottom: 18px;
     }
 
     .product-details-card__close-button {

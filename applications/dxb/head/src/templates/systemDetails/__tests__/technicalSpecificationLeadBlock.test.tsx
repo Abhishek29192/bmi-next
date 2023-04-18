@@ -1,5 +1,5 @@
 import { ThemeProvider } from "@bmi-digital/components";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import React from "react";
 import { Data as SDPSpecificationNotesData } from "../../../components/ContentfulSpecificationNotes";
 import { DataTypeEnum } from "../../../components/Link";
@@ -73,43 +73,57 @@ describe("TechnicalSpecificationLeadBlock tests", () => {
   describe("should render correctly", () => {
     describe("when no classifications provided", () => {
       it("With tech spec an empty set", () => {
-        const { container, queryByText } = render(
+        const { container } = render(
           <ThemeProvider>
             <Component technicalSpecClassifications={[]} />
           </ThemeProvider>
         );
-        const accordion = container.querySelectorAll(".Accordion");
-        const techTable = container.querySelectorAll(
-          ".SystemDetailsTechnicalSpec"
-        );
-        const unitTypeText = queryByText(featureUnit.symbol, { exact: false });
 
         expect(container).toMatchSnapshot();
-        expect(accordion.length).toBeFalsy();
-        expect(techTable.length).toBeFalsy();
-        expect(unitTypeText).not.toBeInTheDocument();
+        expect(
+          screen.queryByTestId(
+            "technical-specification-classifications-accordion-wrapper"
+          )
+        ).not.toBeInTheDocument();
+        expect(
+          screen.queryByTestId(
+            "technical-specification-classifications-table-wrapper"
+          )
+        ).not.toBeInTheDocument();
+        expect(
+          screen.queryByText(featureUnit.symbol, {
+            exact: false
+          })
+        ).not.toBeInTheDocument();
       });
     });
 
     describe("when One classifications provided", () => {
       it("With no feature units", () => {
-        const { container, queryByText } = render(
+        const { container } = render(
           <ThemeProvider>
             <Component
               technicalSpecClassifications={technicalSpecClassifications}
             />
           </ThemeProvider>
         );
-        const accordion = container.querySelectorAll(".Accordion");
-        const techTable = container.querySelectorAll(
-          ".SystemDetailsTechnicalSpec"
-        );
-        const unitTypeText = queryByText(featureUnit.symbol, { exact: false });
 
         expect(container).toMatchSnapshot();
-        expect(accordion.length).toBeFalsy();
-        expect(techTable.length).toBeTruthy();
-        expect(unitTypeText).not.toBeInTheDocument();
+        expect(
+          screen.queryByTestId(
+            "technical-specification-classifications-accordion-wrapper"
+          )
+        ).not.toBeInTheDocument();
+        expect(
+          screen.getByTestId(
+            "technical-specification-classifications-table-wrapper"
+          )
+        ).toBeInTheDocument();
+        expect(
+          screen.queryByText(featureUnit.symbol, {
+            exact: false
+          })
+        ).not.toBeInTheDocument();
       });
 
       it("With a feature units", () => {
@@ -119,23 +133,24 @@ describe("TechnicalSpecificationLeadBlock tests", () => {
             features: [featureWithUnit]
           }
         ];
-        const { container, queryByText } = render(
+        const { container } = render(
           <ThemeProvider>
             <Component technicalSpecClassifications={classifications} />
           </ThemeProvider>
         );
-        const unitTypeText = queryByText(featureWithUnit.value, {
-          exact: false
-        });
 
         expect(container).toMatchSnapshot();
-        expect(unitTypeText).toBeInTheDocument();
+        expect(
+          screen.getByText(featureWithUnit.value, {
+            exact: false
+          })
+        ).toBeInTheDocument();
       });
     });
 
     describe("when Multiple classifications provided", () => {
       it("With no feature units", () => {
-        const { container, queryByText } = render(
+        const { container } = render(
           <ThemeProvider>
             <Component
               technicalSpecClassifications={[
@@ -145,16 +160,23 @@ describe("TechnicalSpecificationLeadBlock tests", () => {
             />
           </ThemeProvider>
         );
-        const accordion = container.querySelectorAll(".MuiAccordion-root");
-        const techTable = container.querySelectorAll(
-          ".SystemDetailsTechnicalSpec"
-        );
-        const unitTypeText = queryByText(featureUnit.symbol, { exact: false });
 
         expect(container).toMatchSnapshot();
-        expect(accordion.length).toBeTruthy();
-        expect(techTable.length).toBeTruthy();
-        expect(unitTypeText).not.toBeInTheDocument();
+        expect(
+          screen.getByTestId(
+            "technical-specification-classifications-accordion-wrapper"
+          )
+        ).toBeInTheDocument();
+        expect(
+          screen.queryByTestId(
+            "technical-specification-classifications-table-wrapper"
+          )
+        ).not.toBeInTheDocument();
+        expect(
+          screen.queryByText(featureUnit.symbol, {
+            exact: false
+          })
+        ).not.toBeInTheDocument();
       });
 
       it("With more than one feature units", () => {
@@ -168,23 +190,24 @@ describe("TechnicalSpecificationLeadBlock tests", () => {
             features: [featureWithUnit, featureWithUnit]
           }
         ];
-        const { container, queryAllByText } = render(
+        const { container } = render(
           <ThemeProvider>
             <Component technicalSpecClassifications={classifications} />
           </ThemeProvider>
         );
-        const unitTypeText = queryAllByText(featureWithUnit.value, {
-          exact: false
-        });
 
         expect(container).toMatchSnapshot();
-        expect(unitTypeText.length).toBeTruthy();
+        expect(
+          screen.getAllByText(featureWithUnit.value, {
+            exact: false
+          })
+        ).toBeTruthy();
       });
     });
 
     describe("when specification provided", () => {
       it("With specification", () => {
-        const { container, queryByTestId } = render(
+        const { container } = render(
           <ThemeProvider>
             <Component
               technicalSpecClassifications={[
@@ -196,13 +219,12 @@ describe("TechnicalSpecificationLeadBlock tests", () => {
           </ThemeProvider>
         );
 
-        const specificationNotes = queryByTestId("specificationNotes");
         expect(container).toMatchSnapshot();
-        expect(specificationNotes).toBeInTheDocument();
+        expect(screen.getByTestId("specificationNotes")).toBeInTheDocument();
       });
 
       it("With no specification", () => {
-        const { container, queryByTestId } = render(
+        const { container } = render(
           <ThemeProvider>
             <Component
               technicalSpecClassifications={[
@@ -213,9 +235,10 @@ describe("TechnicalSpecificationLeadBlock tests", () => {
           </ThemeProvider>
         );
 
-        const specificationNotes = queryByTestId("specificationNotes");
         expect(container).toMatchSnapshot();
-        expect(specificationNotes).not.toBeInTheDocument();
+        expect(
+          screen.queryByTestId("specificationNotes")
+        ).not.toBeInTheDocument();
       });
       it("should pass correct gtm data data", async () => {
         const expectedGTM = JSON.stringify({
@@ -223,7 +246,7 @@ describe("TechnicalSpecificationLeadBlock tests", () => {
           label: "specification notes title - ImALink",
           action: "https://www.external.co.uk"
         });
-        const { getByRole } = render(
+        render(
           <ThemeProvider>
             <Component
               technicalSpecClassifications={[
@@ -235,7 +258,9 @@ describe("TechnicalSpecificationLeadBlock tests", () => {
           </ThemeProvider>
         );
 
-        const specificationNotesCTA = getByRole("button", { name: "ImALink" });
+        const specificationNotesCTA = screen.getByRole("button", {
+          name: "ImALink"
+        });
         expect(specificationNotesCTA).toHaveAttribute("data-gtm", expectedGTM);
       });
     });

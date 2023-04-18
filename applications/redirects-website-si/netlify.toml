@@ -1,0 +1,102 @@
+# Settings in the [build] context are global and are applied to all contexts
+# unless otherwise overridden by more specific contexts.
+
+[build]
+  # nothing to build here, this instance is for redirects only
+  ignore = "git diff --quiet HEAD^ HEAD sub_dir/"
+
+  publish = "public/"
+
+  # Default build command.
+  
+[[redirects]]
+from="/posevne-strehe/"
+to="https://www.bmigroup.com/si/posevne-strehe/"
+status = 301
+
+[[redirects]]
+from="/stresniki/"
+to="https://www.bmigroup.com/si/posevne-strehe/betonski-stresniki/"
+status = 301
+
+[[redirects]]
+from="/univerzalni-originalni-dodatni-elementi/"
+to="https://www.bmigroup.com/si/posevne-strehe/univerzalni-originalni-dodatni-elementi/"
+status = 301
+
+[[redirects]]
+from="/termoizolacija/"
+to="https://www.bmigroup.com/si/posevne-strehe/termoizolacija/"
+status = 301
+
+[[redirects]]
+from="/ravne-strehe/"
+to="https://www.bmigroup.com/si/ravne-strehe/"
+status = 301
+
+[[redirects]]
+from="/sinteticki-proizvodi/"
+to="https://www.bmigroup.com/si/ravne-strehe/sinteticki-proizvodi/"
+status = 301
+
+[[redirects]]
+from="/graditeljstvo/"
+to="https://www.bmigroup.com/si/graditeljstvo/"
+status = 301
+
+[[redirects]]
+from="/aktivne-strehe/"
+to="https://www.bmigroup.com/si/aktivne-strehe/"
+status = 301
+
+[[redirects]]
+from="/#tehnologije"
+to="https://www.bmigroup.com/si/bramac/"
+status = 301
+
+[[redirects]]
+from="/prospektni-materiali/"
+to="https://www.bmigroup.com/si/brosure-in-katalogi/"
+status = 301
+
+[[redirects]]
+from="/#o_nama"
+to="https://www.bmigroup.com/si/o-nas/"
+status = 301
+
+[[redirects]]
+from="/prodajna-obmocja/"
+to="https://www.bmigroup.com/si/prodajna-obmocja/"
+status = 301
+
+[[redirects]]
+from="/#kontakt"
+to="https://www.bmigroup.com/si/kontaktirajte-nas/"
+status = 301
+
+[[redirects]]
+from="/impressum/"
+to="https://www.bmigroup.com/si/impressum/"
+status = 301
+
+[[redirects]]
+from="/piskotki-cookies/"
+to="https://www.bmigroup.com/si/piskotki/"
+status = 301
+
+[[redirects]]
+from="/zascita-vasih-podatkov/"
+to="https://www.bmigroup.com/si/zascita-vasih-podatkov/"
+status = 301
+
+[[redirects]]
+from="/izjava-o-omejitvi-odgovornosti/"
+to="https://www.bmigroup.com/si/izjava-o-omejitvi-odgovornosti/"
+status = 301
+
+# if no redirects are found, fall back to market homepage
+
+[[redirects]]
+from="/"
+to="https://www.bmigroup.com/si"
+status = 301

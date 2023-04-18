@@ -13,20 +13,20 @@ describe("transformDocuments", () => {
     });
     const transformedDocuments = transformDocuments([contentfulDocument]);
     expect(transformedDocuments).toMatchInlineSnapshot(`
-      Array [
-        Object {
+      [
+        {
           "__typename": "ContentfulDocument",
-          "asset": Object {
-            "file": Object {
+          "asset": {
+            "file": {
               "contentType": "application/pdf",
-              "details": Object {
+              "details": {
                 "size": 1,
               },
               "fileName": "asset-filename.pdf",
               "url": "https://localhost:9000/asset-filename.pdf",
             },
           },
-          "assetType": Object {
+          "assetType": {
             "code": "contentful asset type code",
             "name": "contentful asset type name",
           },
@@ -47,35 +47,35 @@ describe("transformDocuments", () => {
     });
     const transformedDocuments = transformDocuments([contentfulDocument]);
     expect(transformedDocuments).toMatchInlineSnapshot(`
-      Array [
-        Object {
-          "BRAND": Object {
+      [
+        {
+          "BRAND": {
             "code": "AeroDek",
             "name": "AeroDek",
           },
           "__typename": "ContentfulDocument",
-          "asset": Object {
-            "file": Object {
+          "asset": {
+            "file": {
               "contentType": "image/jpeg",
-              "details": Object {
+              "details": {
                 "size": 1,
               },
               "fileName": "asset-filename.jpg",
               "url": "https://localhost:9000/asset-filename.jpg",
             },
           },
-          "assetType": Object {
+          "assetType": {
             "code": "contentful asset type code",
             "name": "contentful asset type name",
           },
-          "featuredMedia": Object {
+          "featuredMedia": {
             "altText": "image alt text",
-            "focalPoint": Object {
+            "focalPoint": {
               "x": 0,
               "y": 0,
             },
-            "image": Object {
-              "file": Object {
+            "image": {
+              "file": {
                 "fileName": "asset-filename.jpg",
                 "url": "https://localhost:9000/asset-filename.jpg",
               },

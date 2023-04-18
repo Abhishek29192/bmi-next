@@ -22,11 +22,22 @@ import {
   updateFilterValue
 } from "../utils/filters";
 import DocumentResultsFooter from "./DocumentResultsFooter";
-import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
+import DocumentSimpleTableResults, {
+  AvailableHeader
+} from "./DocumentSimpleTableResults";
 import { useSiteContext } from "./Site";
 
 const PAGE_SIZE = 24;
 const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_DOCUMENTS;
+export const availabilityFilterCode = "availability";
+const documentTableHeaders: AvailableHeader[] = [
+  "typeCode",
+  "title",
+  "productStatus",
+  "validityDate",
+  "download",
+  "add"
+];
 
 // Creates filters from aggregations
 // Requires contentful asset types for the localised labels
@@ -52,6 +63,20 @@ const getPagesFilters = (
           label: findLabel(key) || key,
           value: key
         }))
+    },
+    {
+      filterCode: availabilityFilterCode,
+      label: getMicroCopy(
+        microCopy.FILTER_LABELS_SUMMERY_ACCORDION_AVAILABILITY
+      ),
+      name: availabilityFilterCode,
+      options: [
+        {
+          label: getMicroCopy(microCopy.FILTER_LABELS_AVAILABILITY_HEADING),
+          value: availabilityFilterCode
+        }
+      ],
+      value: [availabilityFilterCode]
     }
   ];
 };
@@ -81,9 +106,7 @@ const SearchTabPanelDocuments = (props: Props) => {
 
   const { getMicroCopy } = useSiteContext();
 
-  const {
-    config: { documentDownloadMaxLimit }
-  } = useConfig();
+  const { documentDownloadMaxLimit } = useConfig();
 
   // TODO: Not sure if we need this, would be nice to remove
   const isInitialLoad = useRef(true);
@@ -217,10 +240,15 @@ const SearchTabPanelDocuments = (props: Props) => {
   useEffect(() => {
     // Clearing filters has the effect of refetching data
     clearFilters();
+
+    handleFiltersChange(() => ({
+      filterName: availabilityFilterCode,
+      filterValue: availabilityFilterCode,
+      checked: true
+    }));
   }, []);
 
   const maxSize = documentDownloadMaxLimit * 1048576;
-
   return (
     <DownloadList maxSize={maxSize}>
       <Grid container spacing={3} ref={resultsElement}>
@@ -236,7 +264,10 @@ const SearchTabPanelDocuments = (props: Props) => {
           </DownloadListContext.Consumer>
         </Grid>
         <Grid xs={12} md={12} lg={9} style={{ paddingTop: 0 }}>
-          <DocumentSimpleTableResults documents={results} />
+          <DocumentSimpleTableResults
+            documents={results}
+            headers={documentTableHeaders}
+          />
           <div>
             <DocumentResultsFooter
               page={page + 1}

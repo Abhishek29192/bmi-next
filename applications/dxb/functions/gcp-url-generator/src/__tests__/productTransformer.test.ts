@@ -76,8 +76,8 @@ describe("transformProduct", () => {
     const product = createFullyPopulatedProduct();
     const transformedProducts = await transformProduct(product);
     expect(transformedProducts).toMatchInlineSnapshot(`
-      Array [
-        Object {
+      [
+        {
           "catalog": "pim-catalog-name",
           "url": "http://localhost:8000/no/p/name-shadow-black-gloss-concrete-3464354221",
           "variantCode": "variant-code",
@@ -176,8 +176,8 @@ describe("transformProduct", () => {
     product.classifications = [classification1, classification2];
     const transformedProducts = await transformProduct(product);
     expect(transformedProducts).toMatchInlineSnapshot(`
-      Array [
-        Object {
+      [
+        {
           "catalog": "pim-catalog-name",
           "url": "http://localhost:8000/no/p/name-shadow-black-gloss-concrete-3464354221",
           "variantCode": "variant-code",

@@ -1,5 +1,5 @@
 import { ThemeProvider } from "@bmi-digital/components";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import React from "react";
 import createRelatedProduct from "../../__tests__/helpers/RelatedProductHelper";
 import { RelatedProduct } from "../../types/pim";
@@ -57,7 +57,7 @@ describe("RelatedProducts component", () => {
   it("renders with correct gtmLabel", () => {
     const relatedProducts: RelatedProduct[] = [createRelatedProduct()];
 
-    const { container, getByTestId } = render(
+    const { container } = render(
       <ThemeProvider>
         <RelatedProducts countryCode="en" products={relatedProducts} />
       </ThemeProvider>
@@ -70,8 +70,8 @@ describe("RelatedProducts component", () => {
       action: "/en/path/"
     });
 
-    expect(getByTestId("GTMOverviewCard").getAttribute("data-gtm")).toEqual(
-      expectedDataGtm
-    );
+    expect(
+      screen.getByTestId("GTMOverviewCard").getAttribute("data-gtm")
+    ).toEqual(expectedDataGtm);
   });
 });

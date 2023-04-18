@@ -1,10 +1,5 @@
 import logger from "@bmi-digital/functions-logger";
-import {
-  Category,
-  FeatureValue,
-  Product as PIMProduct,
-  VariantOption
-} from "@bmi/pim-types";
+import { Category, Classification, FeatureValue } from "@bmi/pim-types";
 import { ESIndexObject, groupBy, IndexedItemGroup } from "../CLONE";
 
 export const getCategoryFilters = (
@@ -54,15 +49,16 @@ export const getCategoryFilters = (
   return allCategoriesAsProps;
 };
 
-export const getClassificationsFilters = (product: PIMProduct) => {
-  let classifications = product.classifications
-    ? [...product.classifications]
+export const getClassificationsFilters = (
+  productClassifications?: readonly Classification[],
+  variantClassifications?: readonly Classification[]
+) => {
+  let classifications = productClassifications
+    ? [...productClassifications]
     : [];
-  product.variantOptions?.forEach((variant: VariantOption) => {
-    if (variant.classifications) {
-      classifications = [...classifications, ...variant.classifications];
-    }
-  });
+  if (variantClassifications) {
+    classifications = [...classifications, ...variantClassifications];
+  }
   const appearanceAttributes = classifications.filter(
     (classification) => classification.code === "appearanceAttributes"
   );

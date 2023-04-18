@@ -1,4 +1,3 @@
-import { Asset, AssetAssetType } from "@bmi/pim-types";
 import classnames from "classnames";
 import React from "react";
 import styles from "./styles/AssetsIframe.module.scss";
@@ -9,15 +8,9 @@ type Props = {
   className?: string;
 };
 
-export const getAssetsIframeUrl = (
-  assets?: ReadonlyArray<Asset>,
-  assetType?: AssetAssetType
-): string | null =>
-  assets?.find((asset) => asset.assetType === assetType && asset.url)?.url ||
-  null;
-
 const AssetsIframe = ({ url, title, className, ...rest }: Props) => (
   <iframe
+    data-testid="assets-iframe-element"
     className={classnames(styles["assetsIframe"], className)}
     src={url}
     title={title}

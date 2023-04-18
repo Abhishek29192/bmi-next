@@ -25,7 +25,7 @@ type Props = {
 
 const ResultsPagination = ({ page, count, onPageChange }: Props) => {
   // const globalClasses = useGlobalResPaginationStyles();
-  return (
+  return count > 1 ? (
     <div className={styles["ResultsPagination"]}>
       <StyledPagination
         page={page}
@@ -34,7 +34,7 @@ const ResultsPagination = ({ page, count, onPageChange }: Props) => {
         className={classnames(styles["pagination"], classes.paginationRoot)}
       />
     </div>
-  );
+  ) : null;
 };
 
 export default ResultsPagination;

@@ -1,5 +1,5 @@
-import React from "react";
 import { render, waitFor } from "@testing-library/react";
+import React from "react";
 import { useScrollToOnLoad } from "../useScrollToOnLoad";
 
 const SCROLL_Y = 500;
@@ -22,8 +22,8 @@ const node = {
 
 let setRef;
 
-const Component = ({ skip, wait }: { skip?: boolean; wait?: number }) => {
-  setRef = useScrollToOnLoad(skip, wait);
+const Component = ({ skip, delay }: { skip?: boolean; delay?: number }) => {
+  setRef = useScrollToOnLoad(skip, delay);
 
   return null;
 };
@@ -62,7 +62,7 @@ describe("useScrollToOnLoad hook", () => {
   it("waits before scrolling", async () => {
     const defaultSetTimeout = window.setTimeout;
     window.setTimeout = jest.fn() as any;
-    render(<Component wait={1000} />);
+    render(<Component delay={1000} />);
     setRef(node);
 
     expect(

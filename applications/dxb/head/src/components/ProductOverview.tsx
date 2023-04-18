@@ -62,9 +62,7 @@ const ProductOverview = ({
 }: Props) => {
   const { getMicroCopy } = useSiteContext();
   const { open: openVisualiser } = useContext(VisualiserContext);
-  const {
-    config: { isV2VisualiserEnabled }
-  } = useConfig();
+  const { isV2VisualiserEnabled } = useConfig();
 
   const getVisualiserMedia = () => {
     if (isV2VisualiserEnabled && !isNavigationToVisualiserAvailable) {

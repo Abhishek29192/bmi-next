@@ -2,7 +2,6 @@ import logger from "@bmi-digital/functions-logger";
 import fetchRetry from "@bmi/fetch-retry";
 import { fetchData } from "@bmi/pim-api";
 import { PimTypes } from "@bmi/pim-types";
-import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import fetch, { Response } from "node-fetch";
 import { getNumberOfDocuments } from "./contentful";
 import {
@@ -12,6 +11,7 @@ import {
 } from "./elasticsearch";
 import { deleteFirestoreCollection } from "./firestore";
 import { FirestoreCollections } from "./firestoreCollections";
+import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 
 const {
   BUILD_TRIGGER_ENDPOINT,

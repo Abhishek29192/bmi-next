@@ -3,20 +3,19 @@ import {
   createSystem as createEsSystem,
   System as EsSystem
 } from "@bmi/elasticsearch-types";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import React from "react";
 import { RelatedSystem, System } from "../../types/pim";
 import createRelatedSystem from "../../__tests__/helpers/RelatedSystemHelper";
 import createSystem from "../../__tests__/helpers/SystemHelper";
 import RelatedSystems, { SystemCard } from "../RelatedSystems";
+import createPimImage from "../../__tests__/helpers/PimImageHelper";
 
 describe("RelatedSystems component", () => {
   it("renders correctly with no systems", () => {
-    const systems: System[] = [];
-
     const { container } = render(
       <ThemeProvider>
-        <RelatedSystems countryCode="en" systems={systems} />
+        <RelatedSystems countryCode="en" systems={[]} />
       </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
@@ -144,5 +143,72 @@ describe("SystemCard", () => {
       </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
+  });
+
+  it("should render with masterImage", () => {
+    const system: RelatedSystem = createRelatedSystem({
+      name: "Fake system",
+      masterImage: createPimImage({
+        mainSource: "https://fake_master_image.jpg"
+      })
+    });
+
+    render(
+      <ThemeProvider>
+        <SystemCard
+          system={system}
+          countryCode="en"
+          path={system.path}
+          gtm={{ id: "gtm-id" }}
+        />
+      </ThemeProvider>
+    );
+    expect(screen.getByAltText(system.name).getAttribute("src")).toBe(
+      system.masterImage.mainSource
+    );
+  });
+
+  it("should take first gallery image if masterImage does not exist", () => {
+    const system: RelatedSystem = createRelatedSystem({
+      name: "Fake system",
+      masterImage: undefined,
+      galleryImages: [
+        createPimImage({ mainSource: "https://fake_gallery_image.jpg" })
+      ]
+    });
+
+    render(
+      <ThemeProvider>
+        <SystemCard
+          system={system}
+          countryCode="en"
+          path={system.path}
+          gtm={{ id: "gtm-id" }}
+        />
+      </ThemeProvider>
+    );
+    expect(screen.getByAltText(system.name).getAttribute("src")).toBe(
+      system.galleryImages[0].mainSource
+    );
+  });
+
+  it("works correctly if there is no images", () => {
+    const system: RelatedSystem = createRelatedSystem({
+      name: "Fake system",
+      masterImage: undefined,
+      galleryImages: []
+    });
+
+    render(
+      <ThemeProvider>
+        <SystemCard
+          system={system}
+          countryCode="en"
+          path={system.path}
+          gtm={{ id: "gtm-id" }}
+        />
+      </ThemeProvider>
+    );
+    expect(screen.queryByAltText(system.name)).not.toBeInTheDocument();
   });
 });

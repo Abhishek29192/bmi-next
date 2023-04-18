@@ -1,5 +1,5 @@
 import { ThemeProvider } from "@bmi-digital/components";
-import { fireEvent, render } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import {
   Data as LinkData,
@@ -37,7 +37,7 @@ describe("Link component", () => {
         hubSpotCTAID: null
       };
 
-      const { getByText } = render(
+      render(
         <ThemeProvider>
           <Link component="a" data={cta} onClick={onClick}>
             {cta.label}
@@ -45,7 +45,7 @@ describe("Link component", () => {
         </ThemeProvider>
       );
 
-      fireEvent.click(getByText("ImALink"));
+      fireEvent.click(screen.getByText("ImALink"));
       expect(onClick).toHaveBeenCalledTimes(1);
     });
 
@@ -64,7 +64,7 @@ describe("Link component", () => {
         hubSpotCTAID: null
       };
 
-      const { getByText } = render(
+      render(
         <ThemeProvider>
           <Link component="a" data={cta} onClick={onClick}>
             {cta.label}
@@ -72,7 +72,7 @@ describe("Link component", () => {
         </ThemeProvider>
       );
 
-      fireEvent.click(getByText("ImALink"));
+      fireEvent.click(screen.getByText("ImALink"));
       expect(onClick).toHaveBeenCalledTimes(1);
     });
 
@@ -91,7 +91,7 @@ describe("Link component", () => {
         hubSpotCTAID: null
       };
 
-      const { getByText } = render(
+      render(
         <ThemeProvider>
           <Link component="a" data={cta} onClick={onClick}>
             {cta.label}
@@ -99,7 +99,7 @@ describe("Link component", () => {
         </ThemeProvider>
       );
 
-      fireEvent.click(getByText("ImALink"));
+      fireEvent.click(screen.getByText("ImALink"));
       expect(onClick).toHaveBeenCalledTimes(1);
     });
 
@@ -118,7 +118,7 @@ describe("Link component", () => {
         hubSpotCTAID: null
       };
 
-      const { getByText } = render(
+      render(
         <ThemeProvider>
           <Link component="a" data={cta} onClick={onClick}>
             {cta.label}
@@ -126,7 +126,7 @@ describe("Link component", () => {
         </ThemeProvider>
       );
 
-      fireEvent.click(getByText("ImALink"));
+      fireEvent.click(screen.getByText("ImALink"));
       expect(onClick).toHaveBeenCalledTimes(1);
     });
 
@@ -155,7 +155,7 @@ describe("Link component", () => {
         },
         hubSpotCTAID: null
       };
-      const { getByText, getByRole } = render(
+      render(
         <ThemeProvider>
           <SiteContextProvider value={getMockSiteContext()}>
             <Link data={data}>{data.label}</Link>
@@ -163,12 +163,12 @@ describe("Link component", () => {
         </ThemeProvider>
       );
 
-      const openDialog = getByText("ImALink");
-      openDialog.click();
-      expect(getByText(/Test form/i)).toBeVisible();
-      const closeDialogButton = getByRole("button", { name: "Close" });
-      closeDialogButton.click();
-      expect(getByText(/Test form/i)).not.toBeVisible();
+      const openDialog = screen.getByText("ImALink");
+      fireEvent.click(openDialog);
+      expect(screen.getByText(/Test form/i)).toBeVisible();
+      const closeDialogButton = screen.getByRole("button", { name: "Close" });
+      fireEvent.click(closeDialogButton);
+      expect(screen.getByText(/Test form/i)).not.toBeVisible();
     });
   });
 

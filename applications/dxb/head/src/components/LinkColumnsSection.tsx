@@ -63,7 +63,7 @@ const LinkColumnsSection = ({ data }: { data: Data }) => {
   );
 
   return (
-    <Section backgroundColor="pearl">
+    <Section backgroundColor="pearl" data-testid="link-columns-section">
       {title && <Section.Title>{title}</Section.Title>}
       <MasonryGrid>
         {columns &&

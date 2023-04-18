@@ -1,4 +1,10 @@
-import { Button, ButtonProps, Section, Table } from "@bmi-digital/components";
+import {
+  Button,
+  ButtonProps,
+  replaceSpaces,
+  Section,
+  Table
+} from "@bmi-digital/components";
 import filesize from "filesize";
 import { graphql } from "gatsby";
 import React from "react";
@@ -6,10 +12,10 @@ import fileIconsMap from "../components/FileIconsMap";
 import { microCopy } from "../constants/microCopies";
 import { ContentfulDocument as DocumentData } from "../types/Document";
 import withGTM from "../utils/google-tag-manager";
-import Icon from "./Icon";
 import { getClickableActionFromUrl } from "./Link";
 import RichText, { RichTextData } from "./RichText";
 import { useSiteContext } from "./Site";
+import Icon from "./Icon";
 
 export type Data = {
   __typename: "ContentfulDocumentDownloadSection";
@@ -35,7 +41,10 @@ const DocumentDownloadSection = ({
   });
 
   return (
-    <Section backgroundColor="white">
+    <Section
+      backgroundColor="white"
+      data-testid={`document-download-section-${replaceSpaces(title)}`}
+    >
       {title && <Section.Title>{title}</Section.Title>}
       {description && (
         <div style={{ marginBottom: "40px" }}>
@@ -43,7 +52,7 @@ const DocumentDownloadSection = ({
         </div>
       )}
       {documents.length > 0 && (
-        <Table>
+        <Table data-testid={"document-download-section-table"}>
           <Table.Head>
             <Table.Row>
               <Table.Cell>
@@ -85,9 +94,10 @@ const DocumentDownloadSection = ({
                           }
                           // TODO: consider responsibility of icon styles
                           style={iconStyle}
+                          data-testid="document-download-section-file-download-icon"
                         />
                       }
-                      data-testid="docment-download-section-download-button"
+                      data-testid="document-download-section-download-button"
                     >
                       {filesize(details.size)}
                     </GTMButton>

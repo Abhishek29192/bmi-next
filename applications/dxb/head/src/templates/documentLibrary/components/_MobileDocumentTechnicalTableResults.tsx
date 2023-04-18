@@ -79,6 +79,7 @@ const MobileDocumentTechnicalTableResults = ({
                             classes.formatIcon,
                             "format-icon"
                           )}
+                          data-testid={"format-icon"}
                         />
                       ) : (
                         <Icon

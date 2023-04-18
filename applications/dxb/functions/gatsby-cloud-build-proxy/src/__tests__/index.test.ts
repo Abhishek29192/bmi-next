@@ -6,7 +6,6 @@ import {
 import { ClientAPI, Environment, Space } from "contentful-management";
 import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
-import mockConsole from "jest-mock-console";
 import * as mockContentfulWebhook from "./resources/contentfulWebhook.json";
 
 const getAsset = jest.fn().mockReturnValue(mockContentfulWebhook);
@@ -54,7 +53,6 @@ const build = async (req: Partial<Request>, res: Partial<Response>) =>
 describe("Error responses", () => {
   beforeEach(() => {
     fetchMock.mockReset();
-    mockConsole();
   });
   it("Return error, when preivew is set but preview build webhooks are not set", async () => {
     const previewBuildWebhooks = process.env.PREVIEW_BUILD_WEBHOOKS;
@@ -62,7 +60,7 @@ describe("Error responses", () => {
     delete process.env.PREVIEW_BUILD_WEBHOOKS;
     process.env.PREVIEW_BUILD = "true";
 
-    const mockReq = mockRequest("POST");
+    const mockReq = mockRequest({ method: "POST" });
     const mockRes = mockResponse();
 
     await build(mockReq, mockRes);
@@ -79,7 +77,7 @@ describe("Error responses", () => {
     delete process.env.PREVIEW_BUILD;
     delete process.env.BUILD_WEBHOOKS;
 
-    const mockReq = mockRequest("POST");
+    const mockReq = mockRequest({ method: "POST" });
     const mockRes = mockResponse();
 
     await build(mockReq, mockRes);
@@ -93,7 +91,7 @@ describe("Error responses", () => {
     const contentfulEnviroment = process.env.CONTENTFUL_ENVIRONMENT;
     delete process.env.CONTENTFUL_ENVIRONMENT;
 
-    const mockReq = mockRequest("POST");
+    const mockReq = mockRequest({ method: "POST" });
     const mockRes = mockResponse();
 
     await build(mockReq, mockRes);
@@ -107,7 +105,7 @@ describe("Error responses", () => {
     const magementAccessToken = process.env.MANAGEMENT_ACCESS_TOKEN;
     delete process.env.MANAGEMENT_ACCESS_TOKEN;
 
-    const mockReq = mockRequest("POST");
+    const mockReq = mockRequest({ method: "POST" });
     const mockRes = mockResponse();
 
     await build(mockReq, mockRes);
@@ -121,7 +119,7 @@ describe("Error responses", () => {
     const buildRequestSecret = process.env.BUILD_REQUEST;
     delete process.env.BUILD_REQUEST;
 
-    const mockReq = mockRequest("POST");
+    const mockReq = mockRequest({ method: "POST" });
     const mockRes = mockResponse();
 
     await build(mockReq, mockRes);
@@ -135,7 +133,7 @@ describe("Error responses", () => {
     const managementAccessToken = process.env.MANAGEMENT_ACCESS_TOKEN;
     delete process.env.MANAGEMENT_ACCESS_TOKEN;
 
-    const mockReq = mockRequest("POST");
+    const mockReq = mockRequest({ method: "POST" });
     const mockRes = mockResponse();
 
     await build(mockReq, mockRes);
@@ -149,7 +147,7 @@ describe("Error responses", () => {
     const contentfulEnvironment = process.env.CONTENTFUL_ENVIRONMENT;
     delete process.env.CONTENTFUL_ENVIRONMENT;
 
-    const mockReq = mockRequest("POST");
+    const mockReq = mockRequest({ method: "POST" });
     const mockRes = mockResponse();
 
     await build(mockReq, mockRes);
@@ -160,7 +158,7 @@ describe("Error responses", () => {
   });
 
   it("Returns 401 when authorisation header is empty", async () => {
-    const mockReq = mockRequest("POST");
+    const mockReq = mockRequest({ method: "POST" });
     const mockRes = mockResponse();
 
     await build(mockReq, mockRes);
@@ -169,7 +167,10 @@ describe("Error responses", () => {
   });
 
   it("Returns 401 when 'Bearer ' string is missing", async () => {
-    const mockReq = mockRequest("POST", { authorization: "some value" });
+    const mockReq = mockRequest({
+      method: "POST",
+      headers: { authorization: "some value" }
+    });
     const mockRes = mockResponse();
 
     await build(mockReq, mockRes);
@@ -178,7 +179,10 @@ describe("Error responses", () => {
   });
 
   it("Returns 401 when Bearer token is missing", async () => {
-    const mockReq = mockRequest("POST", { authorization: "Bearer " });
+    const mockReq = mockRequest({
+      method: "POST",
+      headers: { authorization: "Bearer " }
+    });
     const mockRes = mockResponse();
 
     await build(mockReq, mockRes);
@@ -188,8 +192,11 @@ describe("Error responses", () => {
 
   it("Returns 401 when Bearer token is less than 10 characters long", async () => {
     const shortSecret = "123";
-    const mockReq = mockRequest("POST", {
-      authorization: `Bearer ${shortSecret}`
+    const mockReq = mockRequest({
+      method: "POST",
+      headers: {
+        authorization: `Bearer ${shortSecret}`
+      }
     });
     const mockRes = mockResponse();
 
@@ -201,7 +208,7 @@ describe("Error responses", () => {
   it.each(["GET", "HEAD", "PUT", "DELETE", "CONNECT", "TRACE", "PATCH"])(
     "Returns 405, when request method is %s",
     async (method) => {
-      const mockReq = mockRequest(method);
+      const mockReq = mockRequest({ method });
       const mockRes = mockResponse();
 
       await build(mockReq, mockRes);
@@ -211,17 +218,16 @@ describe("Error responses", () => {
   );
 
   it("Returns 500, when not found Entry/Asset by id", async () => {
-    const mockReq = mockRequest(
-      "POST",
-      {
+    const mockReq = mockRequest({
+      method: "POST",
+      headers: {
         authorization: `Bearer ${REQUEST_SECRET}`
       },
-      undefined,
-      {
+      body: {
         ...mockContentfulWebhook,
         metadata: undefined
       }
-    );
+    });
     const mockRes = mockResponse();
 
     await build(mockReq, mockRes);
@@ -232,14 +238,13 @@ describe("Error responses", () => {
   it.each([null, undefined])(
     "Returns 404, when build webhook is %s",
     async (param) => {
-      const mockReq = mockRequest(
-        "POST",
-        {
+      const mockReq = mockRequest({
+        method: "POST",
+        headers: {
           authorization: `Bearer ${REQUEST_SECRET}`
         },
-        undefined,
-        mockContentfulWebhook
-      );
+        body: mockContentfulWebhook
+      });
       const mockRes = mockResponse();
       findBuildWebhooks.mockReturnValueOnce(param);
 
@@ -250,14 +255,13 @@ describe("Error responses", () => {
   );
 
   it("Returns 500, when either of build webhook fetches return an error", async () => {
-    const mockReq = mockRequest(
-      "POST",
-      {
+    const mockReq = mockRequest({
+      method: "POST",
+      headers: {
         authorization: `Bearer ${REQUEST_SECRET}`
       },
-      undefined,
-      mockContentfulWebhook
-    );
+      body: mockContentfulWebhook
+    });
     const mockRes = mockResponse();
 
     mockResponses(fetchMock, {
@@ -280,14 +284,13 @@ describe("Error responses", () => {
 
   it("Returns 500, when build webhook fetch returns an error", async () => {
     const buildWebhook = "https://norway.local";
-    const mockReq = mockRequest(
-      "POST",
-      {
+    const mockReq = mockRequest({
+      method: "POST",
+      headers: {
         authorization: `Bearer ${REQUEST_SECRET}`
       },
-      undefined,
-      mockContentfulWebhook
-    );
+      body: mockContentfulWebhook
+    });
     const mockRes = mockResponse();
     findBuildWebhooks.mockReturnValueOnce(buildWebhook);
     fetchMock.mock(buildWebhook, { throws: new Error("error") });
@@ -301,11 +304,10 @@ describe("Error responses", () => {
 describe("Making an OPTIONS request", () => {
   beforeEach(() => {
     fetchMock.mockReset();
-    mockConsole();
   });
 
   it("Sends CORS headers", async () => {
-    const req = mockRequest("OPTIONS");
+    const req = mockRequest({ method: "OPTIONS" });
     const res = mockResponse();
 
     await build(req, res);
@@ -328,7 +330,7 @@ describe("Making an OPTIONS request", () => {
   });
 
   it("Sends 204 response", async () => {
-    const req = mockRequest("OPTIONS");
+    const req = mockRequest({ method: "OPTIONS" });
     const res = mockResponse();
 
     await build(req, res);
@@ -340,7 +342,6 @@ describe("Making an OPTIONS request", () => {
 describe("Making a POST request", () => {
   beforeEach(() => {
     fetchMock.mockReset();
-    mockConsole();
   });
 
   it("Sends 204 if preview and request body is empty", async () => {
@@ -348,7 +349,7 @@ describe("Making a POST request", () => {
     const previewBuildWebhooks = process.env.PREVIEW_BUILD_WEBHOOKS;
     process.env.PREVIEW_BUILD = "true";
     process.env.PREVIEW_BUILD_WEBHOOKS = "true";
-    const req = mockRequest("POST", undefined, undefined, "{}");
+    const req = mockRequest({ method: "POST", body: "{}" });
     const res = mockResponse();
 
     await build(req, res);
@@ -359,12 +360,12 @@ describe("Making a POST request", () => {
   });
 
   it("Calls gatbsy cloud build, if called with a recognised tag, ", async () => {
-    const req = mockRequest(
-      "POST",
-      { authorization: `Bearer ${REQUEST_SECRET}` },
-      "https://someurl.local",
-      mockContentfulWebhook
-    );
+    const req = mockRequest({
+      method: "POST",
+      headers: { authorization: `Bearer ${REQUEST_SECRET}` },
+      url: "https://someurl.local",
+      body: mockContentfulWebhook
+    });
     const res = mockResponse();
 
     mockResponses(fetchMock, {
@@ -379,12 +380,12 @@ describe("Making a POST request", () => {
   });
 
   it("Calls all gatbsy cloud build webhooks, if called with a recognised tag, ", async () => {
-    const req = mockRequest(
-      "POST",
-      { authorization: `Bearer ${REQUEST_SECRET}` },
-      "https://someurl.local",
-      mockContentfulWebhook
-    );
+    const req = mockRequest({
+      method: "POST",
+      headers: { authorization: `Bearer ${REQUEST_SECRET}` },
+      url: "https://someurl.local",
+      body: mockContentfulWebhook
+    });
     const res = mockResponse();
 
     mockResponses(fetchMock, {
@@ -405,12 +406,12 @@ describe("Making a POST request", () => {
 
   it("sends original request body to the POST request", async () => {
     const reqHeaders = { authorization: `Bearer ${REQUEST_SECRET}` };
-    const req = mockRequest(
-      "POST",
-      reqHeaders,
-      "https://someurl.local",
-      mockContentfulWebhook
-    );
+    const req = mockRequest({
+      method: "POST",
+      headers: reqHeaders,
+      url: "https://someurl.local",
+      body: mockContentfulWebhook
+    });
     const res = mockResponse();
 
     mockResponses(fetchMock, {
@@ -443,12 +444,12 @@ describe("Making a POST request", () => {
       "X-Contentful-Webhook-Name": "some value 2",
       "Content-Type": "application/vnd.contentful.management.v1+json"
     };
-    const req = mockRequest(
-      "POST",
-      requestHeaders,
-      "https://someurl.local",
-      mockContentfulWebhook
-    );
+    const req = mockRequest({
+      method: "POST",
+      headers: requestHeaders,
+      url: "https://someurl.local",
+      body: mockContentfulWebhook
+    });
     const res = mockResponse();
 
     mockResponses(fetchMock, {
@@ -477,12 +478,12 @@ describe("Making a POST request", () => {
         type: "DeletedEntry"
       }
     };
-    const req = mockRequest(
-      "POST",
-      reqHeaders,
-      "https://someurl.local",
-      requestBody
-    );
+    const req = mockRequest({
+      method: "POST",
+      headers: reqHeaders,
+      url: "https://someurl.local",
+      body: requestBody
+    });
     const res = mockResponse();
 
     mockResponses(fetchMock, {
@@ -511,12 +512,12 @@ describe("Making a POST request", () => {
         type: "DeletedAsset"
       }
     };
-    const req = mockRequest(
-      "POST",
-      reqHeaders,
-      "https://someurl.local",
-      requestBody
-    );
+    const req = mockRequest({
+      method: "POST",
+      headers: reqHeaders,
+      url: "https://someurl.local",
+      body: requestBody
+    });
     const res = mockResponse();
 
     mockResponses(fetchMock, {

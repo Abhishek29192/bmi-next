@@ -3,10 +3,10 @@
 exports[`DocumentsLeadBlock tests should render correctly 1`] = `
 <div>
   <div
-    class="css-wepxue"
+    class="css-asoc7f"
   >
     <div
-      class="css-1xaekgw"
+      class="css-eler5f"
     >
       <div>
         <div
@@ -14,6 +14,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
         >
           <div
             class="DocumentSimpleTableResults css-1iwuinm"
+            data-testid="document-simple-table-results"
           >
             <div
               class="css-ya57aw"
@@ -60,7 +61,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
                 >
                   <tr
                     class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
-                    data-test-id="document-table-row-pim-link-document-id"
+                    data-testid="document-table-row-pim-link-document-id"
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
@@ -84,7 +85,6 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
                     >
                       <a
                         class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-                        data-testid="document-table-external-link-button"
                         href="http://localhost/pim-link-document-id"
                         rel="noopener noreferrer"
                         tabindex="0"
@@ -122,127 +122,63 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
         </div>
         <div
           class="DocumentResultsFooter"
+          data-testid="document-results-footer"
         >
-          <nav
-            aria-label="pagination navigation"
-            class="MuiPagination-root MuiPagination-text pagination docResultsFooterStyles-paginationRoot css-ys6i0r-MuiPagination-root"
-            data-testid="pagination-root"
+          <div
+            class="MuiBox-root css-h5fkc8"
           >
-            <ul
-              class="MuiPagination-ul css-wjh20t-MuiPagination-ul"
-            >
-              <li>
-                <button
-                  aria-label="Go to previous page"
-                  class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-disabled MuiPaginationItem-previousNext Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
-                  data-testid="pagination-0-button"
-                  disabled=""
-                  tabindex="-1"
-                  type="button"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiPaginationItem-icon css-g2z002-MuiSvgIcon-root-MuiPaginationItem-icon"
-                    data-testid="NavigateBeforeIcon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-                    />
-                  </svg>
-                </button>
-              </li>
-              <li>
-                <button
-                  aria-current="true"
-                  aria-label="page 1"
-                  class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-selected MuiPaginationItem-page Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
-                  data-testid="pagination-1-button"
-                  tabindex="0"
-                  type="button"
-                >
-                  1
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                  />
-                </button>
-              </li>
-              <li>
-                <button
-                  aria-label="Go to next page"
-                  class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-disabled MuiPaginationItem-previousNext Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
-                  data-testid="pagination-2-button"
-                  disabled=""
-                  tabindex="-1"
-                  type="button"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiPaginationItem-icon css-g2z002-MuiSvgIcon-root-MuiPaginationItem-icon"
-                    data-testid="NavigateNextIcon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                    />
-                  </svg>
-                </button>
-              </li>
-            </ul>
-          </nav>
-          <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-            data-testid="anchor-link"
-            type="button"
-          >
-            <span>
-              MC: downloadList.clear
-            </span>
-          </a>
-          <button
-            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-            data-gtm="{\\"id\\":\\"download3-button1\\",\\"label\\":\\"MC: downloadList.download (0)\\",\\"action\\":\\"[]\\"}"
-            data-testid="document-table-download-button"
-            tabindex="0"
-            type="button"
-          >
-            MC: downloadList.download (0)
-            <span
-              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-            />
-          </button>
-          <p
-            class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-87ejlm-MuiTypography-root"
-            data-testid="typography"
-          >
-            This site is protected by reCAPTCHA and the Google 
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
               data-testid="anchor-link"
-              href="https://policies.google.com/privacy"
-              rel="noreferrer noopener"
-              target="_blank"
+              type="button"
             >
               <span>
-                Privacy Policy
+                MC: downloadList.clear
               </span>
             </a>
-             and 
-            <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-              data-testid="anchor-link"
-              href="https://policies.google.com/terms"
-              rel="noreferrer noopener"
-              target="_blank"
+            <button
+              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+              data-gtm="{"id":"download3-button1","label":"MC: downloadList.download (0)","action":"[]"}"
+              data-testid="document-table-download-button"
+              tabindex="0"
+              type="button"
             >
-              <span>
-                Terms of Service
-              </span>
-            </a>
-             apply.
-          </p>
+              MC: downloadList.download (0)
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </button>
+            <p
+              class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
+              data-testid="typography"
+            >
+              This site is protected by reCAPTCHA and the Google 
+              <a
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                data-testid="recaptcha-privacy-policy-link"
+                href="https://policies.google.com/privacy"
+                rel="noreferrer noopener"
+                target="_blank"
+              >
+                <span>
+                  Privacy Policy
+                </span>
+              </a>
+               and 
+              <a
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                data-testid="recaptcha-terms-of-service-link"
+                href="https://policies.google.com/terms"
+                rel="noreferrer noopener"
+                target="_blank"
+              >
+                <span>
+                  Terms of Service
+                </span>
+              </a>
+               apply.
+            </p>
+          </div>
         </div>
       </div>
     </div>

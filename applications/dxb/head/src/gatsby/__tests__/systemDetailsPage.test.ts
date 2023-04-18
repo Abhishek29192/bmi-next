@@ -1,4 +1,3 @@
-import mockConsole from "jest-mock-console";
 import { createSystemPages } from "../systemDetailsPages";
 import { getPathWithCountryCode } from "../../utils/path";
 
@@ -55,7 +54,6 @@ const systemCheck = {
 };
 
 beforeEach(() => {
-  mockConsole();
   jest.resetAllMocks();
 });
 

@@ -1,6 +1,6 @@
 import { ThemeProvider } from "@bmi-digital/components";
 import { LocationProvider } from "@reach/router";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import React from "react";
 import FourOFour from "../../pages/404";
 import { ContentfulSite } from "../../schema/resolvers/types/Contentful";
@@ -11,19 +11,19 @@ import { renderWithRouter } from "../../test/renderWithRouter";
 describe("404 page tests", () => {
   describe("When site data and error page data are null", () => {
     it("renders place holder content", async () => {
-      const { container, findByText, getByText } = render(
+      const { container } = render(
         <ThemeProvider>
           <FourOFour
             data={{ fourOFour: { siteData: null, errorPageData: null } }}
           />
         </ThemeProvider>
       );
-      await findByText(
+      await screen.findByText(
         "It's not you, it's us - something went wrong on our web server."
       );
       expect(container).toMatchSnapshot();
       expect(async () => {
-        await getByText(
+        screen.getByText(
           "It's not you, it's us - something went wrong on our web server."
         );
       }).not.toBeNull();
@@ -32,36 +32,35 @@ describe("404 page tests", () => {
   describe("When site data and error page data are fully populated", () => {
     it("renders page content and FourOFour content", async () => {
       const errorData = createContentfulPromoCard();
-      const { container, findByText, getByText, getAllByText, getByAltText } =
-        renderWithRouter(
-          <ThemeProvider>
-            <LocationProvider>
-              <FourOFour
-                data={{
-                  fourOFour: {
-                    siteData: createMockSiteData() as ContentfulSite,
-                    errorPageData: errorData
-                  }
-                }}
-              />
-            </LocationProvider>
-          </ThemeProvider>
-        );
-      await findByText(errorData.subtitle);
+      const { container } = renderWithRouter(
+        <ThemeProvider>
+          <LocationProvider>
+            <FourOFour
+              data={{
+                fourOFour: {
+                  siteData: createMockSiteData() as ContentfulSite,
+                  errorPageData: errorData
+                }
+              }}
+            />
+          </LocationProvider>
+        </ThemeProvider>
+      );
+      await screen.findByText(errorData.subtitle);
       expect(container).toMatchSnapshot();
       // title is rendered twice(page title and promo title)
-      const titles = await getAllByText(errorData.title);
+      const titles = screen.getAllByText(errorData.title);
       expect(titles).toHaveLength(2);
 
-      const subtitle = await getByText(errorData.subtitle);
+      const subtitle = screen.getByText(errorData.subtitle);
       expect(subtitle).toBeInTheDocument();
 
-      //verify CTA button is rendrered
-      const button = await getByText(errorData.cta.label);
+      //verify CTA button is rendered
+      const button = screen.getByText(errorData.cta.label);
       expect(button).toBeInTheDocument();
 
-      //verify image is rendrered
-      const img = await getByAltText(errorData.featuredMedia.altText);
+      //verify image is rendered
+      const img = screen.getByAltText(errorData.featuredMedia.altText);
       expect(img).toBeInTheDocument();
       expect(img).toHaveAttribute(
         "src",
@@ -79,13 +78,7 @@ describe("404 page tests", () => {
       errorData.title = null;
       errorData.subtitle = null;
       errorData.cta.label = null;
-      const {
-        container,
-        findAllByText,
-        getByText,
-        getAllByText,
-        getByAltText
-      } = renderWithRouter(
+      const { container } = renderWithRouter(
         <ThemeProvider>
           <LocationProvider>
             <FourOFour
@@ -99,21 +92,21 @@ describe("404 page tests", () => {
           </LocationProvider>
         </ThemeProvider>
       );
-      await findAllByText(expectedTitle);
+      await screen.findAllByText(expectedTitle);
       expect(container).toMatchSnapshot();
       // title is rendered twice(page title and promo title)
-      const titles = await getAllByText(expectedTitle);
+      const titles = screen.getAllByText(expectedTitle);
       expect(titles).toHaveLength(2);
 
-      const subtitle = await getByText(expectedSubTitle);
+      const subtitle = screen.getByText(expectedSubTitle);
       expect(subtitle).toBeInTheDocument();
 
-      // verify CTA button is rendrered
-      const button = await getByText(expectedPlaceholderCTALabel);
+      // verify CTA button is rendered
+      const button = screen.getByText(expectedPlaceholderCTALabel);
       expect(button).toBeInTheDocument();
 
-      // verify image is rendrered
-      const img = await getByAltText(errorData.featuredMedia.altText);
+      // verify image is rendered
+      const img = screen.getByAltText(errorData.featuredMedia.altText);
       expect(img).toBeInTheDocument();
       expect(img).toHaveAttribute(
         "src",

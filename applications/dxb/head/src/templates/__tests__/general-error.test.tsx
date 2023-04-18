@@ -1,5 +1,6 @@
 import { RegionCode, ThemeProvider } from "@bmi-digital/components";
 import React from "react";
+import { screen } from "@testing-library/react";
 import { Data as LinkData } from "../../components/Link";
 import { Data as SiteData } from "../../components/Site";
 import { renderWithRouter } from "../../test/renderWithRouter";
@@ -116,19 +117,20 @@ describe("General Error", () => {
   };
 
   it("render correctly", () => {
-    const { container, queryAllByText, getByTestId } = renderWithRouter(
+    const { container } = renderWithRouter(
       <ThemeProvider>
         <GeneralError data={data} pageContext={{ variantCodeToPathMap: {} }} />
       </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
-    expect(container.querySelector("header")).toBeTruthy();
-    expect(getByTestId("footer")).toBeTruthy();
-    expect(getByTestId("brand-colors-provider")).toBeTruthy();
-    expect(container.querySelector("[class*='PromoSection']")).toBeTruthy();
+    expect(screen.getByRole("banner")).toBeTruthy();
+    expect(screen.getByTestId("footer")).toBeTruthy();
+    expect(screen.getByTestId("brand-colors-provider")).toBeTruthy();
+    expect(screen.getByTestId("promo-section")).toBeInTheDocument();
     expect(
-      queryAllByText(data.contentfulSite.resources.errorGeneral.title).length
+      screen.queryAllByText(data.contentfulSite.resources.errorGeneral.title)
+        .length
     ).toBe(2);
   });
 
@@ -136,16 +138,17 @@ describe("General Error", () => {
     const newData = JSON.parse(JSON.stringify(data));
     newData.contentfulSite.resources.errorGeneral = null;
 
-    const { container, queryAllByText } = renderWithRouter(
+    const { container } = renderWithRouter(
       <ThemeProvider>
         <GeneralError data={newData} />
       </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
-    expect(container.querySelector("[class*='PromoSection']")).toBeTruthy();
+    expect(screen.getByTestId("promo-section")).toBeInTheDocument();
     expect(
-      queryAllByText(data.contentfulSite.resources.errorGeneral.title).length
+      screen.queryAllByText(data.contentfulSite.resources.errorGeneral.title)
+        .length
     ).toBe(0);
   });
 });

@@ -93,9 +93,7 @@ const PitchedRoofCalculatorSteps = ({
   });
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [loading, setLoading] = useState<boolean>(false);
-  const {
-    config: { esIndexNameProduct }
-  } = useConfig();
+  const { esIndexNameProduct } = useConfig();
 
   const fetchCalculatorData = async (dimensions: DimensionsValues) => {
     setLoading(true);

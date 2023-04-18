@@ -1,22 +1,22 @@
 import {
-  AnchorLink,
   AnchorLinkProps,
   Grid,
   HeroProps,
   IconList,
   LeadBlock,
   PLPFilterResponse,
+  replaceSpaces,
   Section,
   SpotlightHeroProps,
   Typography
 } from "@bmi-digital/components";
-import type { Product as ESProduct } from "@bmi/elasticsearch-types";
 import { Check as CheckIcon } from "@mui/icons-material";
 import { styled } from "@mui/material/styles";
 import { useLocation } from "@reach/router";
 import { graphql } from "gatsby";
 import queryString from "query-string";
 import React, { useEffect, useMemo, useRef, useState } from "react";
+import type { Product as ESProduct } from "@bmi/elasticsearch-types";
 import Breadcrumbs, {
   Data as BreadcrumbsData
 } from "../../../components/Breadcrumbs";
@@ -57,7 +57,7 @@ import {
 } from "../../../utils/heroLevelUtils";
 import { renderHero } from "../../../utils/heroTypesUI";
 import { removePLPFilterPrefix } from "../../../utils/product-filters";
-import { ProductListWrapperGrid } from "../styles";
+import { FeaturesLink, ProductListWrapperGrid } from "../styles";
 import {
   renderProducts,
   resolveFilters
@@ -116,7 +116,7 @@ const BlueCheckIcon = () => {
   return <StyledBlueCheckIcon />;
 };
 
-const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
+const GTMAnchorLink = withGTM<AnchorLinkProps>(FeaturesLink);
 
 const ProductListerPage = ({ pageContext, data }: Props) => {
   const {
@@ -141,9 +141,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
   );
   const initialProducts = data.initialProducts || [];
 
-  const {
-    config: { isPreviewMode, isBrandProviderEnabled }
-  } = useConfig();
+  const { isPreviewMode, isBrandProviderEnabled } = useConfig();
 
   const heroLevel = generateHeroLevel(heroType, enhancedBreadcrumbs);
   const heroProps: HeroProps | SpotlightHeroProps = generateHeroProps(
@@ -363,6 +361,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     <Breadcrumbs
       data={enhancedBreadcrumbs}
       isDarkThemed={heroType === "Spotlight" || heroLevel !== 3}
+      data-testid="product-lister-page-breadcrumbs-top"
     />
   );
 
@@ -389,7 +388,10 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
             isHeroKeyLine: isHeroKeyLine,
             isSpotlightHeroKeyLine: isHeroKeyLine
           })}
-          <Section backgroundColor="white">
+          <Section
+            backgroundColor="white"
+            data-testid={`product-lister-page-lead-block-section`}
+          >
             <LeadBlock>
               <LeadBlock.Content>
                 <RichText
@@ -444,7 +446,11 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
               ) : null}
             </LeadBlock>
           </Section>
-          <Section backgroundColor="pearl" overflowVisible>
+          <Section
+            backgroundColor="pearl"
+            overflowVisible
+            data-testid={`product-lister-page-section-${replaceSpaces(title)}`}
+          >
             {pageTitle && (
               <Section.Title hasUnderline>{pageTitle}</Section.Title>
             )}
@@ -487,8 +493,15 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
               </Grid>
             </Grid>
           </Section>
-          <Section backgroundColor="alabaster" isSlim>
-            <Breadcrumbs data={enhancedBreadcrumbs} />
+          <Section
+            backgroundColor="alabaster"
+            isSlim
+            data-testid={`product-lister-page-breadcrumb-bottom`}
+          >
+            <Breadcrumbs
+              data={enhancedBreadcrumbs}
+              data-testid="product-lister-page-breadcrumbs-bottom"
+            />
           </Section>
         </>
       )}
@@ -506,7 +519,7 @@ export const pageQuery = graphql`
     $allowFilterBy: [String!]
   ) {
     contentfulProductListerPage(id: { eq: $pageId }) {
-      ...PageInfoFragment
+      ...PageInfoHeroFragment
       ...PageFragment
       ...BreadcrumbsFragment
       content {

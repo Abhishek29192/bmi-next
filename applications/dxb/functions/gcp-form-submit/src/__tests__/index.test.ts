@@ -5,7 +5,6 @@ import {
 } from "@bmi-digital/fetch-mocks";
 import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
-import mockConsole from "jest-mock-console";
 
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
@@ -23,7 +22,8 @@ const mockRequest = (
     values: { files: ["path/to/file"], a: "b" }
   },
   headers: IncomingHttpHeaders = { "X-Recaptcha-Token": validToken }
-): Partial<Request> => fetchMockRequest("POST", headers, "/", body);
+): Partial<Request> =>
+  fetchMockRequest({ method: "POST", headers, url: "/", body });
 
 const verifyRecaptchaToken = jest.fn();
 jest.mock("@bmi/functions-recaptcha", () => ({
@@ -58,10 +58,6 @@ jest.mock("@sendgrid/mail", () => {
 
 const submit = async (request: Partial<Request>, response: Partial<Response>) =>
   (await import("../index")).submit(request as Request, response as Response);
-
-beforeAll(() => {
-  mockConsole();
-});
 
 beforeEach(() => {
   process.env.CONTENTFUL_SPACE_ID = "TEST_CONTENTFUL_SPACE_ID";

@@ -2,7 +2,6 @@
 import path from "path";
 import { mockResponses } from "@bmi-digital/fetch-mocks";
 import fetchMockJest from "fetch-mock-jest";
-import mockConsole from "jest-mock-console";
 
 const fetchMock = fetchMockJest.sandbox();
 
@@ -130,7 +129,6 @@ mockResponses(fetchMock, {
 beforeEach(() => {
   jest.clearAllMocks();
   jest.resetModules();
-  mockConsole();
 });
 
 const argv = process.argv;

@@ -16,7 +16,7 @@ exports[`DownloadListAlertBanner should render correctly 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h5
-          class="MuiTypography-root MuiTypography-h5 css-16m68f8-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h5 css-1bb7vpk-MuiTypography-root"
           data-testid="alert-banner-title"
         >
           <svg

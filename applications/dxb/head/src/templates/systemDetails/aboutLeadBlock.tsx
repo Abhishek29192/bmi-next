@@ -5,6 +5,7 @@ import {
   ButtonProps,
   IconList,
   LeadBlock,
+  replaceSpaces,
   transformHyphens,
   Typography
 } from "@bmi-digital/components";
@@ -82,6 +83,7 @@ const AboutLeadBlock = ({ system, sidebarItem }: Props) => {
         <LeadBlock.Content.Section>
           <Typography
             component="div"
+            className={classes.description}
             dangerouslySetInnerHTML={{
               __html: transformHyphens(system.description) as string
             }}
@@ -105,7 +107,7 @@ const AboutLeadBlock = ({ system, sidebarItem }: Props) => {
                 alt={item.name}
                 className={classes.image}
                 data-testid={`guarantee-image${
-                  item.name ? `-${item.name.replace(/ /g, "-")}` : ""
+                  item.name ? `-${replaceSpaces(item.name)}` : ""
                 }`}
               />
             ))}
@@ -128,7 +130,7 @@ const AboutLeadBlock = ({ system, sidebarItem }: Props) => {
                   {...(isExternalUrl(item.url) ? { isExternal: true } : {})}
                   className={classes.inlineLink}
                   data-testid={`guarantee-inline-link${
-                    item.name ? `-${item.name.replace(/ /g, "-")}` : ""
+                    item.name ? `-${replaceSpaces(item.name)}` : ""
                   }`}
                 >
                   {item.name}
@@ -179,6 +181,7 @@ const AboutLeadBlock = ({ system, sidebarItem }: Props) => {
                 label: system.specification.name,
                 action: system.specification.url
               }}
+              data-testid="specification-button"
             >
               {system.specification.name}
             </GTMButton>

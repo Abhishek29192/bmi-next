@@ -1,5 +1,6 @@
 import { ThemeProvider } from "@bmi-digital/components";
 import React from "react";
+import { screen } from "@testing-library/react";
 import { renderWithRouter } from "../../../test/renderWithRouter";
 import createService from "../../../__tests__/helpers/ServiceHelper";
 import { EntryTypeEnum } from "../../Service";
@@ -40,16 +41,14 @@ describe("ServiceLocatorSection resulst list pannel component", () => {
       ]
     };
 
-    const wrapper = renderWithRouter(
+    const { container } = renderWithRouter(
       <ThemeProvider>
         <ServiceLocatorSection data={data} />
       </ThemeProvider>
     );
-    const text = wrapper.getByText("MC: findARoofer.listLabel");
-    expect(
-      wrapper.container.querySelector(".tabs .tab-panel .list")
-    ).toBeTruthy();
+    const text = screen.getByText("MC: findARoofer.listLabel");
+    expect(screen.getByTestId("results-list-section")).toBeTruthy();
     expect(text).toBeTruthy();
-    expect(wrapper.container).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

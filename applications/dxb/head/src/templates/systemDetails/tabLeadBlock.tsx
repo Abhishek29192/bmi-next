@@ -1,4 +1,4 @@
-import { LeadBlock, Section, Tabs, Typography } from "@bmi-digital/components";
+import { LeadBlock, Section, Tabs } from "@bmi-digital/components";
 import Tab, { TabProps } from "@mui/material/Tab";
 import React from "react";
 import AssetsIframe from "../../components/AssetsIframe";
@@ -47,8 +47,13 @@ const TabLeadBlock = ({
       <Tabs.TabPanel
         heading={getMicroCopy(microCopy.SDP_LEAD_BLOCK_ABOUT)}
         index="one"
+        data-testid="tab-panel-lead-block-about"
       >
-        <Section className={styles["section"]} backgroundColor="white">
+        <Section
+          className={styles["section"]}
+          backgroundColor="white"
+          data-testid="tab-system-about-lead-block-section"
+        >
           <AboutLeadBlock
             system={system}
             sidebarItem={aboutLeadBlockGenericContent}
@@ -61,8 +66,13 @@ const TabLeadBlock = ({
             microCopy.SDP_LEAD_BLOCK_TECHNICAL_SPECIFICATION
           )}
           index="two"
+          data-testid="tab-panel-lead-block-technical-specification"
         >
-          <Section className={styles["section"]} backgroundColor="white">
+          <Section
+            className={styles["section"]}
+            backgroundColor="white"
+            data-testid="tab-system-tech-spec-lead-block-section"
+          >
             <TechnicalSpecificationLeadBlock
               specificationNotes={specificationNotes}
               technicalSpecClassifications={system.classifications}
@@ -76,8 +86,13 @@ const TabLeadBlock = ({
             microCopy.SDP_LEAD_BLOCK_DOCUMENTS_AND_DOWNLOADS
           )}
           index="three"
+          data-testid="tab-panel-lead-block-documents-and-downloads"
         >
-          <Section className={styles["section"]} backgroundColor="white">
+          <Section
+            className={styles["section"]}
+            backgroundColor="white"
+            data-testid="tab-system-documents-section"
+          >
             <DocumentLeadBlock documents={system.documents} />
           </Section>
         </Tabs.TabPanel>
@@ -86,18 +101,19 @@ const TabLeadBlock = ({
         <Tabs.TabPanel
           heading={getMicroCopy(microCopy.SDP_TABS_BIM)}
           index="four"
+          data-testid="tab-panel-lead-block-bim"
         >
           <div className={styles["bimLeadBlock"]}>
-            <Section className={styles["section"]} backgroundColor="pearl">
+            <Section
+              className={styles["section"]}
+              backgroundColor="pearl"
+              data-testid="tab-system-bim-lead-block-section"
+            >
               <LeadBlock>
                 <LeadBlock.Content>
-                  <LeadBlock.Content.Section>
-                    <LeadBlock.Content.Heading>
-                      <Typography hasUnderline={true} variant="h2">
-                        {system.bim.name}
-                      </Typography>
-                    </LeadBlock.Content.Heading>
-                  </LeadBlock.Content.Section>
+                  <LeadBlock.Content.Heading hasUnderline={true} variant="h2">
+                    {system.bim.name}
+                  </LeadBlock.Content.Heading>
                   <LeadBlock.Content.Section>
                     <RichText document={bimDescription} />
                   </LeadBlock.Content.Section>

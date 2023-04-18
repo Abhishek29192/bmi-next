@@ -15,6 +15,22 @@ include:
   - local: "/applications/redirects-website-nl-monier/.gitlab-ci.yml"
   - local: "/applications/redirects-website-uk-redland/.gitlab-ci.yml"
   - local: "/applications/redirects-website-uk-icopal/.gitlab-ci.yml"
+  - local: "/applications/redirects-website-ie-necoflex/.gitlab-ci.yml"
+  - local: "/applications/redirects-website-ba/.gitlab-ci.yml"
+  - local: "/applications/redirects-website-pt-es-blogs/.gitlab-ci.yml"
+  - local: "/applications/redirects-website-rs/.gitlab-ci.yml"
+  - local: "/applications/redirects-website-hr/.gitlab-ci.yml"
+  - local: "/applications/redirects-website-si/.gitlab-ci.yml"
+  - local: "/applications/redirects-website-al/.gitlab-ci.yml"
+  - local: "/applications/redirects-website-dk/.gitlab-ci.yml"
+
+# Mainly used because it includes `git`
+.node-full-image:
+  image: node:18
+
+# Can't use official alpine image as we need `autoconf` to be installed
+.node-slim-image:
+  image: node:18-slim
 
 variables:
   ARTIFACT_COMPRESSION_LEVEL: fastest
@@ -50,20 +66,20 @@ variables:
 
 install_yarn:
   rules:
-    - !reference [.ingore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - !reference [ .ingore_release_mrs, rules ]
+    - if: !reference [ .run_for_changes_on_main, rules, if ]
       changes:
         - modules-sha
-    - if: !reference [.run_for_changes_on_mr, rules, if]
+    - if: !reference [ .run_for_changes_on_mr, rules, if ]
       changes:
         - modules-sha
     - if: '$WHICH_SCHEDULE == "install_yarn"'
 
 code_quality:
   rules:
-    - !reference [.ingore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_mr, rules, if]
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - !reference [ .ingore_release_mrs, rules ]
+    - if: !reference [ .run_for_changes_on_mr, rules, if ]
+    - if: !reference [ .run_for_changes_on_main, rules, if ]
 
 eslint-sast:
   rules:
@@ -79,15 +95,15 @@ semgrep-sast:
 
 lint_yarn:
   rules:
-    - !reference [.ingore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_mr, rules, if]
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - !reference [ .ingore_release_mrs, rules ]
+    - if: !reference [ .run_for_changes_on_mr, rules, if ]
+    - if: !reference [ .run_for_changes_on_main, rules, if ]
 
 secret_detection:
   rules:
-    - !reference [.ingore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_mr, rules, if]
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - !reference [ .ingore_release_mrs, rules ]
+    - if: !reference [ .run_for_changes_on_mr, rules, if ]
+    - if: !reference [ .run_for_changes_on_main, rules, if ]
 
 release:
   stage: release
@@ -145,7 +161,7 @@ open_mr_prod_to_preprod_to_master:
 environment_definer:
   stage: post deploy
   rules:
-    - if: !reference [.run_for_prod_release, rules, if]
+    - if: !reference [ .run_for_prod_release, rules, if ]
   when: manual
   script:
     - |
@@ -165,7 +181,7 @@ environment_definer:
 .auto_tests:
   stage: post deploy
   rules:
-    - if: !reference [.run_for_prod_release, rules, if]
+    - if: !reference [ .run_for_prod_release, rules, if ]
   variables:
     project: $market
     browser: $browser

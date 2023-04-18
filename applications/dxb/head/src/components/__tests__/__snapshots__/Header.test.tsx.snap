@@ -3,7 +3,7 @@
 exports[`Header component renders correctly 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1vmtas-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1n3l0bu-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -23,7 +23,7 @@ exports[`Header component renders correctly 1`] = `
             >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/gb/landing-page/\\"}"
+                data-gtm="{"id":"nav-top-utilities-bar","label":"Our story","action":"/gb/landing-page/"}"
                 href="/gb/landing-page/"
                 tabindex="0"
                 target="_blank"
@@ -40,7 +40,7 @@ exports[`Header component renders correctly 1`] = `
               <button
                 aria-label="MC: menu.language"
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"open panel\\",\\"action\\":\\"open panel\\"}"
+                data-gtm="{"id":"nav-country-selector","label":"open panel","action":"open panel"}"
                 data-testid="language-button"
                 tabindex="0"
                 type="button"
@@ -74,7 +74,7 @@ exports[`Header component renders correctly 1`] = `
       <button
         aria-label="MC: global.close"
         class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-extra-small Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-        data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
+        data-gtm="{"id":"nav-country-selector","label":"close panel","action":"close panel"}"
         data-testid="language-close-button"
         tabindex="0"
         type="button"
@@ -102,7 +102,7 @@ exports[`Header component renders correctly 1`] = `
         >
           <div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pn037-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -110,17 +110,17 @@ exports[`Header component renders correctly 1`] = `
                 data-testid="grid-item"
               >
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 css-8200kz-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 css-1j4kt3i-MuiTypography-root"
                   data-testid="typography"
                 >
                   Europe
                 </h6>
                 <div
-                  class="css-1vqzkso"
+                  class="css-1qjezyi"
                 >
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                     href="/al"
                     tabindex="0"
                   >
@@ -141,8 +141,8 @@ exports[`Header component renders correctly 1`] = `
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                     href="/at"
                     tabindex="0"
                   >
@@ -163,8 +163,8 @@ exports[`Header component renders correctly 1`] = `
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/gb/\\"}"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/gb/"}"
                     href="/gb"
                     tabindex="0"
                   >
@@ -250,7 +250,7 @@ exports[`Header component renders correctly 1`] = `
                     <a
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
-                      data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
+                      data-gtm="{"id":"nav-main-menu"}"
                       data-testid="header-navigation-tab-0"
                       href="tel:+4401234567890"
                       role="tab"
@@ -264,7 +264,7 @@ exports[`Header component renders correctly 1`] = `
                     <a
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
-                      data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
+                      data-gtm="{"id":"nav-main-menu"}"
                       data-testid="header-navigation-tab-1"
                       href="/gb/landing-page/"
                       role="tab"
@@ -278,7 +278,7 @@ exports[`Header component renders correctly 1`] = `
                     <a
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
-                      data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
+                      data-gtm="{"id":"nav-main-menu"}"
                       data-testid="header-navigation-tab-2"
                       href="https://www.external.co.uk"
                       role="tab"
@@ -383,7 +383,7 @@ exports[`Header component renders correctly 1`] = `
         />
       </button>
       <nav
-        class="css-1q3sjsb"
+        class="css-12skhd1"
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
@@ -392,7 +392,7 @@ exports[`Header component renders correctly 1`] = `
           <ul>
             <li>
               <h6
-                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1nuwz6u-MuiTypography-root"
                 data-testid="navigation-list-footer"
               >
                 MC: menu.mainTitle
@@ -401,7 +401,7 @@ exports[`Header component renders correctly 1`] = `
             <li>
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Get in touch\\"}"
+                data-gtm="{"id":"nav-main-menu","label":"Get in touch"}"
                 href="tel:+4401234567890"
                 tabindex="0"
                 target="_blank"
@@ -422,56 +422,60 @@ exports[`Header component renders correctly 1`] = `
               <ul>
                 <li>
                   <div
-                    class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
-                    data-gatsby-image-wrapper=""
-                    style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
+                    class="Navigation-image"
                   >
                     <div
-                      style="max-width: 948px; display: block;"
+                      class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
+                      data-gatsby-image-wrapper=""
+                      style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                     >
-                      <img
-                        alt=""
+                      <div
+                        style="max-width: 948px; display: block;"
+                      >
+                        <img
+                          alt=""
+                          aria-hidden="true"
+                          role="presentation"
+                          src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                          style="max-width: 100%; display: block; position: static;"
+                        />
+                      </div>
+                      <div
                         aria-hidden="true"
-                        role="presentation"
-                        src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
-                        style="max-width: 100%; display: block; position: static;"
+                        data-placeholder-image=""
+                        style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
                       />
+                      <picture>
+                        <source
+                          data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
+                          sizes="(min-width: 948px) 948px, 100vw"
+                          type="image/webp"
+                        />
+                        <img
+                          alt="Image alt text"
+                          data-gatsby-image-ssr=""
+                          data-main-image=""
+                          data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+                          data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+                          decoding="async"
+                          draggable="false"
+                          loading="lazy"
+                          sizes="(min-width: 948px) 948px, 100vw"
+                          style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
+                        />
+                      </picture>
+                      <noscript />
+                      <script
+                        type="module"
+                      >
+                        const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}
+                      </script>
                     </div>
-                    <div
-                      aria-hidden="true"
-                      data-placeholder-image=""
-                      style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-                    />
-                    <picture>
-                      <source
-                        data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
-                        sizes="(min-width: 948px) 948px, 100vw"
-                        type="image/webp"
-                      />
-                      <img
-                        alt="Lorem ipsum"
-                        data-gatsby-image-ssr=""
-                        data-main-image=""
-                        data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                        data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
-                        decoding="async"
-                        draggable="false"
-                        loading="lazy"
-                        sizes="(min-width: 948px) 948px, 100vw"
-                        style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
-                      />
-                    </picture>
-                    <noscript />
-                    <script
-                      type="module"
-                    >
-                      const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}
-                    </script>
                   </div>
                 </li>
                 <li>
                   <h6
-                    class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                     data-testid="typography"
                   >
                     cardTitle1
@@ -479,56 +483,60 @@ exports[`Header component renders correctly 1`] = `
                 </li>
                 <li>
                   <div
-                    class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
-                    data-gatsby-image-wrapper=""
-                    style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
+                    class="Navigation-image"
                   >
                     <div
-                      style="max-width: 948px; display: block;"
+                      class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
+                      data-gatsby-image-wrapper=""
+                      style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                     >
-                      <img
-                        alt=""
+                      <div
+                        style="max-width: 948px; display: block;"
+                      >
+                        <img
+                          alt=""
+                          aria-hidden="true"
+                          role="presentation"
+                          src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                          style="max-width: 100%; display: block; position: static;"
+                        />
+                      </div>
+                      <div
                         aria-hidden="true"
-                        role="presentation"
-                        src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
-                        style="max-width: 100%; display: block; position: static;"
+                        data-placeholder-image=""
+                        style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
                       />
+                      <picture>
+                        <source
+                          data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
+                          sizes="(min-width: 948px) 948px, 100vw"
+                          type="image/webp"
+                        />
+                        <img
+                          alt="Image alt text"
+                          data-gatsby-image-ssr=""
+                          data-main-image=""
+                          data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+                          data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+                          decoding="async"
+                          draggable="false"
+                          loading="lazy"
+                          sizes="(min-width: 948px) 948px, 100vw"
+                          style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
+                        />
+                      </picture>
+                      <noscript />
+                      <script
+                        type="module"
+                      >
+                        const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}
+                      </script>
                     </div>
-                    <div
-                      aria-hidden="true"
-                      data-placeholder-image=""
-                      style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-                    />
-                    <picture>
-                      <source
-                        data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
-                        sizes="(min-width: 948px) 948px, 100vw"
-                        type="image/webp"
-                      />
-                      <img
-                        alt="Lorem ipsum"
-                        data-gatsby-image-ssr=""
-                        data-main-image=""
-                        data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                        data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
-                        decoding="async"
-                        draggable="false"
-                        loading="lazy"
-                        sizes="(min-width: 948px) 948px, 100vw"
-                        style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
-                      />
-                    </picture>
-                    <noscript />
-                    <script
-                      type="module"
-                    >
-                      const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}
-                    </script>
                   </div>
                 </li>
                 <li>
                   <h6
-                    class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                     data-testid="typography"
                   >
                     cardName2
@@ -539,7 +547,7 @@ exports[`Header component renders correctly 1`] = `
             <li>
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"About BMI\\",\\"action\\":\\"/gb/landing-page/\\"}"
+                data-gtm="{"id":"nav-main-menu","label":"About BMI","action":"/gb/landing-page/"}"
                 href="/gb/landing-page/"
                 tabindex="0"
                 target="_blank"
@@ -553,7 +561,7 @@ exports[`Header component renders correctly 1`] = `
             <li>
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
+                data-gtm="{"id":"nav-main-menu","label":"string"}"
                 href="https://www.external.co.uk"
                 tabindex="0"
                 target="_blank"
@@ -577,7 +585,7 @@ exports[`Header component renders correctly 1`] = `
               <li>
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/gb/landing-page/\\"}"
+                  data-gtm="{"id":"nav-main-menu","label":"Our story","action":"/gb/landing-page/"}"
                   href="/gb/landing-page/"
                   tabindex="0"
                 >
@@ -591,7 +599,7 @@ exports[`Header component renders correctly 1`] = `
             <li>
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"GB\\"}"
+                data-gtm="{"id":"nav-main-menu","label":"GB"}"
                 tabindex="0"
                 type="button"
               >
@@ -661,7 +669,7 @@ exports[`Header component renders correctly 1`] = `
           />
         </button>
         <h4
-          class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
           data-testid="typography"
         >
           MC: search.title
@@ -675,7 +683,7 @@ exports[`Header component renders correctly 1`] = `
 exports[`Header component renders correctly when flag doesn't exist 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1vmtas-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1n3l0bu-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -695,7 +703,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
             >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/grp/landing-page/\\"}"
+                data-gtm="{"id":"nav-top-utilities-bar","label":"Our story","action":"/grp/landing-page/"}"
                 href="/grp/landing-page/"
                 tabindex="0"
                 target="_blank"
@@ -712,7 +720,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
               <button
                 aria-label="MC: menu.language"
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"open panel\\",\\"action\\":\\"open panel\\"}"
+                data-gtm="{"id":"nav-country-selector","label":"open panel","action":"open panel"}"
                 data-testid="language-button"
                 tabindex="0"
                 type="button"
@@ -746,7 +754,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
       <button
         aria-label="MC: global.close"
         class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-extra-small Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-        data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
+        data-gtm="{"id":"nav-country-selector","label":"close panel","action":"close panel"}"
         data-testid="language-close-button"
         tabindex="0"
         type="button"
@@ -774,7 +782,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
         >
           <div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pn037-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -782,17 +790,17 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                 data-testid="grid-item"
               >
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 css-8200kz-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 css-1j4kt3i-MuiTypography-root"
                   data-testid="typography"
                 >
                   Europe
                 </h6>
                 <div
-                  class="css-1vqzkso"
+                  class="css-1qjezyi"
                 >
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                     href="/al"
                     tabindex="0"
                   >
@@ -813,8 +821,8 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                     href="/at"
                     tabindex="0"
                   >
@@ -835,8 +843,8 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/gb/\\"}"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/gb/"}"
                     href="/gb"
                     tabindex="0"
                   >
@@ -922,7 +930,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                     <a
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
-                      data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
+                      data-gtm="{"id":"nav-main-menu"}"
                       data-testid="header-navigation-tab-0"
                       href="tel:+4401234567890"
                       role="tab"
@@ -936,7 +944,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                     <a
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
-                      data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
+                      data-gtm="{"id":"nav-main-menu"}"
                       data-testid="header-navigation-tab-1"
                       href="/grp/landing-page/"
                       role="tab"
@@ -950,7 +958,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                     <a
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
-                      data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
+                      data-gtm="{"id":"nav-main-menu"}"
                       data-testid="header-navigation-tab-2"
                       href="https://www.external.co.uk"
                       role="tab"
@@ -1055,7 +1063,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
         />
       </button>
       <nav
-        class="css-1q3sjsb"
+        class="css-12skhd1"
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
@@ -1064,7 +1072,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
           <ul>
             <li>
               <h6
-                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1nuwz6u-MuiTypography-root"
                 data-testid="navigation-list-footer"
               >
                 MC: menu.mainTitle
@@ -1073,7 +1081,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
             <li>
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Get in touch\\"}"
+                data-gtm="{"id":"nav-main-menu","label":"Get in touch"}"
                 href="tel:+4401234567890"
                 tabindex="0"
                 target="_blank"
@@ -1094,56 +1102,60 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
               <ul>
                 <li>
                   <div
-                    class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
-                    data-gatsby-image-wrapper=""
-                    style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
+                    class="Navigation-image"
                   >
                     <div
-                      style="max-width: 948px; display: block;"
+                      class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
+                      data-gatsby-image-wrapper=""
+                      style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                     >
-                      <img
-                        alt=""
+                      <div
+                        style="max-width: 948px; display: block;"
+                      >
+                        <img
+                          alt=""
+                          aria-hidden="true"
+                          role="presentation"
+                          src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                          style="max-width: 100%; display: block; position: static;"
+                        />
+                      </div>
+                      <div
                         aria-hidden="true"
-                        role="presentation"
-                        src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
-                        style="max-width: 100%; display: block; position: static;"
+                        data-placeholder-image=""
+                        style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
                       />
+                      <picture>
+                        <source
+                          data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
+                          sizes="(min-width: 948px) 948px, 100vw"
+                          type="image/webp"
+                        />
+                        <img
+                          alt="Image alt text"
+                          data-gatsby-image-ssr=""
+                          data-main-image=""
+                          data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+                          data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+                          decoding="async"
+                          draggable="false"
+                          loading="lazy"
+                          sizes="(min-width: 948px) 948px, 100vw"
+                          style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
+                        />
+                      </picture>
+                      <noscript />
+                      <script
+                        type="module"
+                      >
+                        const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}
+                      </script>
                     </div>
-                    <div
-                      aria-hidden="true"
-                      data-placeholder-image=""
-                      style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-                    />
-                    <picture>
-                      <source
-                        data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
-                        sizes="(min-width: 948px) 948px, 100vw"
-                        type="image/webp"
-                      />
-                      <img
-                        alt="Lorem ipsum"
-                        data-gatsby-image-ssr=""
-                        data-main-image=""
-                        data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                        data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
-                        decoding="async"
-                        draggable="false"
-                        loading="lazy"
-                        sizes="(min-width: 948px) 948px, 100vw"
-                        style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
-                      />
-                    </picture>
-                    <noscript />
-                    <script
-                      type="module"
-                    >
-                      const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}
-                    </script>
                   </div>
                 </li>
                 <li>
                   <h6
-                    class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                     data-testid="typography"
                   >
                     cardTitle1
@@ -1151,56 +1163,60 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                 </li>
                 <li>
                   <div
-                    class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
-                    data-gatsby-image-wrapper=""
-                    style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
+                    class="Navigation-image"
                   >
                     <div
-                      style="max-width: 948px; display: block;"
+                      class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
+                      data-gatsby-image-wrapper=""
+                      style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                     >
-                      <img
-                        alt=""
+                      <div
+                        style="max-width: 948px; display: block;"
+                      >
+                        <img
+                          alt=""
+                          aria-hidden="true"
+                          role="presentation"
+                          src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                          style="max-width: 100%; display: block; position: static;"
+                        />
+                      </div>
+                      <div
                         aria-hidden="true"
-                        role="presentation"
-                        src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
-                        style="max-width: 100%; display: block; position: static;"
+                        data-placeholder-image=""
+                        style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
                       />
+                      <picture>
+                        <source
+                          data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
+                          sizes="(min-width: 948px) 948px, 100vw"
+                          type="image/webp"
+                        />
+                        <img
+                          alt="Image alt text"
+                          data-gatsby-image-ssr=""
+                          data-main-image=""
+                          data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+                          data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+                          decoding="async"
+                          draggable="false"
+                          loading="lazy"
+                          sizes="(min-width: 948px) 948px, 100vw"
+                          style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
+                        />
+                      </picture>
+                      <noscript />
+                      <script
+                        type="module"
+                      >
+                        const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}
+                      </script>
                     </div>
-                    <div
-                      aria-hidden="true"
-                      data-placeholder-image=""
-                      style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-                    />
-                    <picture>
-                      <source
-                        data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
-                        sizes="(min-width: 948px) 948px, 100vw"
-                        type="image/webp"
-                      />
-                      <img
-                        alt="Lorem ipsum"
-                        data-gatsby-image-ssr=""
-                        data-main-image=""
-                        data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                        data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
-                        decoding="async"
-                        draggable="false"
-                        loading="lazy"
-                        sizes="(min-width: 948px) 948px, 100vw"
-                        style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
-                      />
-                    </picture>
-                    <noscript />
-                    <script
-                      type="module"
-                    >
-                      const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}
-                    </script>
                   </div>
                 </li>
                 <li>
                   <h6
-                    class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                     data-testid="typography"
                   >
                     cardName2
@@ -1211,7 +1227,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
             <li>
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"About BMI\\",\\"action\\":\\"/grp/landing-page/\\"}"
+                data-gtm="{"id":"nav-main-menu","label":"About BMI","action":"/grp/landing-page/"}"
                 href="/grp/landing-page/"
                 tabindex="0"
                 target="_blank"
@@ -1225,7 +1241,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
             <li>
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
+                data-gtm="{"id":"nav-main-menu","label":"string"}"
                 href="https://www.external.co.uk"
                 tabindex="0"
                 target="_blank"
@@ -1249,7 +1265,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
               <li>
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/grp/landing-page/\\"}"
+                  data-gtm="{"id":"nav-main-menu","label":"Our story","action":"/grp/landing-page/"}"
                   href="/grp/landing-page/"
                   tabindex="0"
                 >
@@ -1263,7 +1279,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
             <li>
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"EN\\"}"
+                data-gtm="{"id":"nav-main-menu","label":"EN"}"
                 tabindex="0"
                 type="button"
               >
@@ -1333,7 +1349,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
           />
         </button>
         <h4
-          class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
           data-testid="typography"
         >
           MC: search.title
@@ -1349,7 +1365,7 @@ exports[`Header component renders without navigation props 1`] = `<div />`;
 exports[`Header component shows sample basket icon 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1vmtas-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1n3l0bu-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -1369,7 +1385,7 @@ exports[`Header component shows sample basket icon 1`] = `
             >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/gb/landing-page/\\"}"
+                data-gtm="{"id":"nav-top-utilities-bar","label":"Our story","action":"/gb/landing-page/"}"
                 href="/gb/landing-page/"
                 tabindex="0"
                 target="_blank"
@@ -1386,7 +1402,7 @@ exports[`Header component shows sample basket icon 1`] = `
               <button
                 aria-label="MC: menu.language"
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"open panel\\",\\"action\\":\\"open panel\\"}"
+                data-gtm="{"id":"nav-country-selector","label":"open panel","action":"open panel"}"
                 data-testid="language-button"
                 tabindex="0"
                 type="button"
@@ -1420,7 +1436,7 @@ exports[`Header component shows sample basket icon 1`] = `
       <button
         aria-label="MC: global.close"
         class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-extra-small Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-        data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
+        data-gtm="{"id":"nav-country-selector","label":"close panel","action":"close panel"}"
         data-testid="language-close-button"
         tabindex="0"
         type="button"
@@ -1448,7 +1464,7 @@ exports[`Header component shows sample basket icon 1`] = `
         >
           <div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pn037-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -1456,17 +1472,17 @@ exports[`Header component shows sample basket icon 1`] = `
                 data-testid="grid-item"
               >
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 css-8200kz-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 css-1j4kt3i-MuiTypography-root"
                   data-testid="typography"
                 >
                   Europe
                 </h6>
                 <div
-                  class="css-1vqzkso"
+                  class="css-1qjezyi"
                 >
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                     href="/al"
                     tabindex="0"
                   >
@@ -1487,8 +1503,8 @@ exports[`Header component shows sample basket icon 1`] = `
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                     href="/at"
                     tabindex="0"
                   >
@@ -1509,8 +1525,8 @@ exports[`Header component shows sample basket icon 1`] = `
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/gb/\\"}"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/gb/"}"
                     href="/gb"
                     tabindex="0"
                   >
@@ -1596,7 +1612,7 @@ exports[`Header component shows sample basket icon 1`] = `
                     <a
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
-                      data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
+                      data-gtm="{"id":"nav-main-menu"}"
                       data-testid="header-navigation-tab-0"
                       href="tel:+4401234567890"
                       role="tab"
@@ -1610,7 +1626,7 @@ exports[`Header component shows sample basket icon 1`] = `
                     <a
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
-                      data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
+                      data-gtm="{"id":"nav-main-menu"}"
                       data-testid="header-navigation-tab-1"
                       href="/gb/landing-page/"
                       role="tab"
@@ -1624,7 +1640,7 @@ exports[`Header component shows sample basket icon 1`] = `
                     <a
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
-                      data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
+                      data-gtm="{"id":"nav-main-menu"}"
                       data-testid="header-navigation-tab-2"
                       href="https://www.external.co.uk"
                       role="tab"
@@ -1647,38 +1663,6 @@ exports[`Header component shows sample basket icon 1`] = `
               class="Header-navigationBarButtons"
               data-testid="navigationBar-buttons"
             >
-              <a
-                aria-label="MC: basket.label"
-                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-basketButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-                data-testid="shopping-cart-button"
-                role="button"
-                tabindex="0"
-                type="button"
-              >
-                <span
-                  class="MuiBadge-root MuiBadge-root css-anxmnr-MuiBadge-root"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                    data-testid="ShoppingCartOutlinedIcon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M15.55 13c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.37-.66-.11-1.48-.87-1.48H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2h7.45zM6.16 6h12.15l-2.76 5H8.53L6.16 6zM7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"
-                    />
-                  </svg>
-                  <span
-                    class="MuiBadge-badge MuiBadge-standard MuiBadge-anchorOriginTopRight MuiBadge-anchorOriginTopRightRectangular MuiBadge-overlapRectangular MuiBadge-colorError MuiBadge-badge css-12zkn4t-MuiBadge-badge"
-                  >
-                    1
-                  </span>
-                </span>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </a>
               <button
                 aria-label="MC: search.label"
                 class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-searchButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
@@ -1701,6 +1685,40 @@ exports[`Header component shows sample basket icon 1`] = `
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
+              <a
+                aria-label="MC: basket.label"
+                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-basketButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                data-testid="shopping-cart-button"
+                role="button"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiBadge-root css-anxmnr-MuiBadge-root"
+                  data-testid="shopping-cart-button-badge"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                    data-testid="ShoppingCartOutlinedIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M15.55 13c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.37-.66-.11-1.48-.87-1.48H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2h7.45zM6.16 6h12.15l-2.76 5H8.53L6.16 6zM7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"
+                    />
+                  </svg>
+                  <span
+                    class="MuiBadge-badge MuiBadge-standard MuiBadge-anchorOriginTopRight MuiBadge-anchorOriginTopRightRectangular MuiBadge-overlapRectangular MuiBadge-colorError css-12zkn4t-MuiBadge-badge"
+                    data-testid="shopping-cart-button-badge-slot"
+                  >
+                    1
+                  </span>
+                </span>
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
+              </a>
               <button
                 aria-label="MC: menu.open"
                 class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-hiqdti-MuiButtonBase-root-MuiIconButton-root"
@@ -1761,7 +1779,7 @@ exports[`Header component shows sample basket icon 1`] = `
         />
       </button>
       <nav
-        class="css-1q3sjsb"
+        class="css-12skhd1"
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
@@ -1770,7 +1788,7 @@ exports[`Header component shows sample basket icon 1`] = `
           <ul>
             <li>
               <h6
-                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1nuwz6u-MuiTypography-root"
                 data-testid="navigation-list-footer"
               >
                 MC: menu.mainTitle
@@ -1779,7 +1797,7 @@ exports[`Header component shows sample basket icon 1`] = `
             <li>
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Get in touch\\"}"
+                data-gtm="{"id":"nav-main-menu","label":"Get in touch"}"
                 href="tel:+4401234567890"
                 tabindex="0"
                 target="_blank"
@@ -1800,56 +1818,60 @@ exports[`Header component shows sample basket icon 1`] = `
               <ul>
                 <li>
                   <div
-                    class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
-                    data-gatsby-image-wrapper=""
-                    style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
+                    class="Navigation-image"
                   >
                     <div
-                      style="max-width: 948px; display: block;"
+                      class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
+                      data-gatsby-image-wrapper=""
+                      style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                     >
-                      <img
-                        alt=""
+                      <div
+                        style="max-width: 948px; display: block;"
+                      >
+                        <img
+                          alt=""
+                          aria-hidden="true"
+                          role="presentation"
+                          src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                          style="max-width: 100%; display: block; position: static;"
+                        />
+                      </div>
+                      <div
                         aria-hidden="true"
-                        role="presentation"
-                        src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
-                        style="max-width: 100%; display: block; position: static;"
+                        data-placeholder-image=""
+                        style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
                       />
+                      <picture>
+                        <source
+                          data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
+                          sizes="(min-width: 948px) 948px, 100vw"
+                          type="image/webp"
+                        />
+                        <img
+                          alt="Image alt text"
+                          data-gatsby-image-ssr=""
+                          data-main-image=""
+                          data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+                          data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+                          decoding="async"
+                          draggable="false"
+                          loading="lazy"
+                          sizes="(min-width: 948px) 948px, 100vw"
+                          style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
+                        />
+                      </picture>
+                      <noscript />
+                      <script
+                        type="module"
+                      >
+                        const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}
+                      </script>
                     </div>
-                    <div
-                      aria-hidden="true"
-                      data-placeholder-image=""
-                      style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-                    />
-                    <picture>
-                      <source
-                        data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
-                        sizes="(min-width: 948px) 948px, 100vw"
-                        type="image/webp"
-                      />
-                      <img
-                        alt="Lorem ipsum"
-                        data-gatsby-image-ssr=""
-                        data-main-image=""
-                        data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                        data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
-                        decoding="async"
-                        draggable="false"
-                        loading="lazy"
-                        sizes="(min-width: 948px) 948px, 100vw"
-                        style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
-                      />
-                    </picture>
-                    <noscript />
-                    <script
-                      type="module"
-                    >
-                      const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}
-                    </script>
                   </div>
                 </li>
                 <li>
                   <h6
-                    class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                     data-testid="typography"
                   >
                     cardTitle1
@@ -1857,56 +1879,60 @@ exports[`Header component shows sample basket icon 1`] = `
                 </li>
                 <li>
                   <div
-                    class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
-                    data-gatsby-image-wrapper=""
-                    style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
+                    class="Navigation-image"
                   >
                     <div
-                      style="max-width: 948px; display: block;"
+                      class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
+                      data-gatsby-image-wrapper=""
+                      style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                     >
-                      <img
-                        alt=""
+                      <div
+                        style="max-width: 948px; display: block;"
+                      >
+                        <img
+                          alt=""
+                          aria-hidden="true"
+                          role="presentation"
+                          src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                          style="max-width: 100%; display: block; position: static;"
+                        />
+                      </div>
+                      <div
                         aria-hidden="true"
-                        role="presentation"
-                        src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
-                        style="max-width: 100%; display: block; position: static;"
+                        data-placeholder-image=""
+                        style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
                       />
+                      <picture>
+                        <source
+                          data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
+                          sizes="(min-width: 948px) 948px, 100vw"
+                          type="image/webp"
+                        />
+                        <img
+                          alt="Image alt text"
+                          data-gatsby-image-ssr=""
+                          data-main-image=""
+                          data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+                          data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+                          decoding="async"
+                          draggable="false"
+                          loading="lazy"
+                          sizes="(min-width: 948px) 948px, 100vw"
+                          style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
+                        />
+                      </picture>
+                      <noscript />
+                      <script
+                        type="module"
+                      >
+                        const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}
+                      </script>
                     </div>
-                    <div
-                      aria-hidden="true"
-                      data-placeholder-image=""
-                      style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-                    />
-                    <picture>
-                      <source
-                        data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
-                        sizes="(min-width: 948px) 948px, 100vw"
-                        type="image/webp"
-                      />
-                      <img
-                        alt="Lorem ipsum"
-                        data-gatsby-image-ssr=""
-                        data-main-image=""
-                        data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                        data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
-                        decoding="async"
-                        draggable="false"
-                        loading="lazy"
-                        sizes="(min-width: 948px) 948px, 100vw"
-                        style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
-                      />
-                    </picture>
-                    <noscript />
-                    <script
-                      type="module"
-                    >
-                      const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}
-                    </script>
                   </div>
                 </li>
                 <li>
                   <h6
-                    class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                     data-testid="typography"
                   >
                     cardName2
@@ -1917,7 +1943,7 @@ exports[`Header component shows sample basket icon 1`] = `
             <li>
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"About BMI\\",\\"action\\":\\"/gb/landing-page/\\"}"
+                data-gtm="{"id":"nav-main-menu","label":"About BMI","action":"/gb/landing-page/"}"
                 href="/gb/landing-page/"
                 tabindex="0"
                 target="_blank"
@@ -1931,7 +1957,7 @@ exports[`Header component shows sample basket icon 1`] = `
             <li>
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
+                data-gtm="{"id":"nav-main-menu","label":"string"}"
                 href="https://www.external.co.uk"
                 tabindex="0"
                 target="_blank"
@@ -1955,7 +1981,7 @@ exports[`Header component shows sample basket icon 1`] = `
               <li>
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/gb/landing-page/\\"}"
+                  data-gtm="{"id":"nav-main-menu","label":"Our story","action":"/gb/landing-page/"}"
                   href="/gb/landing-page/"
                   tabindex="0"
                 >
@@ -1969,7 +1995,7 @@ exports[`Header component shows sample basket icon 1`] = `
             <li>
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"GB\\"}"
+                data-gtm="{"id":"nav-main-menu","label":"GB"}"
                 tabindex="0"
                 type="button"
               >
@@ -2039,7 +2065,7 @@ exports[`Header component shows sample basket icon 1`] = `
           />
         </button>
         <h4
-          class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
           data-testid="typography"
         >
           MC: search.title
@@ -2051,15 +2077,16 @@ exports[`Header component shows sample basket icon 1`] = `
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <div
-        class="css-1baqf78"
+        class="css-1syuv4f"
         data-testid="shopping-cart-dialog"
       >
         <div
           class="css-1g1g7av"
+          data-testid="shopping-cart-dialog-header-container"
         >
           <button
             aria-label="MC: dialog.close"
-            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge css-ljulll-MuiButtonBase-root-MuiIconButton-root"
+            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge css-m5soyh-MuiButtonBase-root-MuiIconButton-root"
             data-testid="shopping-cart-dialog-close-button"
             tabindex="0"
             type="button"
@@ -2080,13 +2107,13 @@ exports[`Header component shows sample basket icon 1`] = `
             />
           </button>
           <h3
-            class="MuiTypography-root MuiTypography-h3 Typography-underline css-d7brak-MuiTypography-root"
-            data-testid="typography"
+            class="MuiTypography-root MuiTypography-h3 Typography-underline css-2221f6-MuiTypography-root"
+            data-testid="shopping-cart-dialog-title"
           >
             Basket title
           </h3>
           <div
-            class="css-1eavfav"
+            class="css-z7ajsi"
             data-testid="shopping-cart-dialog-info"
           >
             <p>
@@ -2102,10 +2129,11 @@ exports[`Header component shows sample basket icon 1`] = `
           data-testid="shopping-cart-dialog-product-list"
         >
           <div
-            class="css-oy3w3v"
+            class="css-1x0xcnn"
+            data-testid="shopping-cart-dialog-product"
           >
             <div
-              class="css-1833v6z"
+              class="css-jvcwke"
             >
               <img
                 class="css-1eq6imq"
@@ -2116,18 +2144,18 @@ exports[`Header component shows sample basket icon 1`] = `
               class="css-1rr4qq7"
             >
               <h6
-                class="MuiTypography-root MuiTypography-h6 css-i3j6pb-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 css-flrefr-MuiTypography-root"
                 data-testid="shopping-cart-dialog-product-title-test-product"
               >
                 test product
               </h6>
               <h6
-                class="MuiTypography-root MuiTypography-h6 css-1l4dji9-MuiTypography-root"
-                data-testid="shopping-cart-dialog-product-colour-undefined"
+                class="MuiTypography-root MuiTypography-h6 css-o5xt41-MuiTypography-root"
+                data-testid="shopping-cart-dialog-product-colour-"
               />
               <p
-                class="MuiTypography-root MuiTypography-body1 css-oexxqj-MuiTypography-root"
-                data-testid="shopping-cart-dialog-product-size-undefined"
+                class="MuiTypography-root MuiTypography-body1 css-1aqw78m-MuiTypography-root"
+                data-testid="shopping-cart-dialog-product-size-"
               />
             </div>
             <div
@@ -2159,12 +2187,12 @@ exports[`Header component shows sample basket icon 1`] = `
           </div>
         </div>
         <div
-          class="css-vkdgoq"
+          class="css-eulom"
           data-testid="shopping-cart-dialog-actions"
         >
           <a
             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-            data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/gb/sample-basket/\\",\\"label\\":\\"sample-basket\\"}"
+            data-gtm="{"id":"cta-click1","action":"/gb/sample-basket/","label":"sample-basket"}"
             data-testid="shopping-cart-dialog-complete-order-button"
             href="/gb/sample-basket/"
             tabindex="0"
@@ -2210,7 +2238,7 @@ exports[`Header component shows sample basket icon 1`] = `
 exports[`Header component toggles search 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1vmtas-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1n3l0bu-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -2230,7 +2258,7 @@ exports[`Header component toggles search 1`] = `
             >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/gb/landing-page/\\"}"
+                data-gtm="{"id":"nav-top-utilities-bar","label":"Our story","action":"/gb/landing-page/"}"
                 href="/gb/landing-page/"
                 tabindex="0"
                 target="_blank"
@@ -2247,7 +2275,7 @@ exports[`Header component toggles search 1`] = `
               <button
                 aria-label="MC: menu.language"
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"open panel\\",\\"action\\":\\"open panel\\"}"
+                data-gtm="{"id":"nav-country-selector","label":"open panel","action":"open panel"}"
                 data-testid="language-button"
                 tabindex="0"
                 type="button"
@@ -2281,7 +2309,7 @@ exports[`Header component toggles search 1`] = `
       <button
         aria-label="MC: global.close"
         class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-extra-small Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-        data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
+        data-gtm="{"id":"nav-country-selector","label":"close panel","action":"close panel"}"
         data-testid="language-close-button"
         tabindex="0"
         type="button"
@@ -2309,7 +2337,7 @@ exports[`Header component toggles search 1`] = `
         >
           <div>
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pxw8jr-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pn037-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -2317,17 +2345,17 @@ exports[`Header component toggles search 1`] = `
                 data-testid="grid-item"
               >
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 css-8200kz-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 css-1j4kt3i-MuiTypography-root"
                   data-testid="typography"
                 >
                   Europe
                 </h6>
                 <div
-                  class="css-1vqzkso"
+                  class="css-1qjezyi"
                 >
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                     href="/al"
                     tabindex="0"
                   >
@@ -2348,8 +2376,8 @@ exports[`Header component toggles search 1`] = `
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                     href="/at"
                     tabindex="0"
                   >
@@ -2370,8 +2398,8 @@ exports[`Header component toggles search 1`] = `
                     />
                   </a>
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/gb/\\"}"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/gb/"}"
                     href="/gb"
                     tabindex="0"
                   >
@@ -2457,7 +2485,7 @@ exports[`Header component toggles search 1`] = `
                     <a
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
-                      data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
+                      data-gtm="{"id":"nav-main-menu"}"
                       data-testid="header-navigation-tab-0"
                       href="tel:+4401234567890"
                       role="tab"
@@ -2471,7 +2499,7 @@ exports[`Header component toggles search 1`] = `
                     <a
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
-                      data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
+                      data-gtm="{"id":"nav-main-menu"}"
                       data-testid="header-navigation-tab-1"
                       href="/gb/landing-page/"
                       role="tab"
@@ -2485,7 +2513,7 @@ exports[`Header component toggles search 1`] = `
                     <a
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
-                      data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
+                      data-gtm="{"id":"nav-main-menu"}"
                       data-testid="header-navigation-tab-2"
                       href="https://www.external.co.uk"
                       role="tab"
@@ -2590,7 +2618,7 @@ exports[`Header component toggles search 1`] = `
         />
       </button>
       <nav
-        class="css-1q3sjsb"
+        class="css-12skhd1"
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
@@ -2599,7 +2627,7 @@ exports[`Header component toggles search 1`] = `
           <ul>
             <li>
               <h6
-                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1nuwz6u-MuiTypography-root"
                 data-testid="navigation-list-footer"
               >
                 MC: menu.mainTitle
@@ -2608,7 +2636,7 @@ exports[`Header component toggles search 1`] = `
             <li>
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Get in touch\\"}"
+                data-gtm="{"id":"nav-main-menu","label":"Get in touch"}"
                 href="tel:+4401234567890"
                 tabindex="0"
                 target="_blank"
@@ -2629,56 +2657,60 @@ exports[`Header component toggles search 1`] = `
               <ul>
                 <li>
                   <div
-                    class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
-                    data-gatsby-image-wrapper=""
-                    style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
+                    class="Navigation-image"
                   >
                     <div
-                      style="max-width: 948px; display: block;"
+                      class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
+                      data-gatsby-image-wrapper=""
+                      style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                     >
-                      <img
-                        alt=""
+                      <div
+                        style="max-width: 948px; display: block;"
+                      >
+                        <img
+                          alt=""
+                          aria-hidden="true"
+                          role="presentation"
+                          src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                          style="max-width: 100%; display: block; position: static;"
+                        />
+                      </div>
+                      <div
                         aria-hidden="true"
-                        role="presentation"
-                        src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
-                        style="max-width: 100%; display: block; position: static;"
+                        data-placeholder-image=""
+                        style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
                       />
+                      <picture>
+                        <source
+                          data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
+                          sizes="(min-width: 948px) 948px, 100vw"
+                          type="image/webp"
+                        />
+                        <img
+                          alt="Image alt text"
+                          data-gatsby-image-ssr=""
+                          data-main-image=""
+                          data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+                          data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+                          decoding="async"
+                          draggable="false"
+                          loading="lazy"
+                          sizes="(min-width: 948px) 948px, 100vw"
+                          style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
+                        />
+                      </picture>
+                      <noscript />
+                      <script
+                        type="module"
+                      >
+                        const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}
+                      </script>
                     </div>
-                    <div
-                      aria-hidden="true"
-                      data-placeholder-image=""
-                      style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-                    />
-                    <picture>
-                      <source
-                        data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
-                        sizes="(min-width: 948px) 948px, 100vw"
-                        type="image/webp"
-                      />
-                      <img
-                        alt="Lorem ipsum"
-                        data-gatsby-image-ssr=""
-                        data-main-image=""
-                        data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                        data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
-                        decoding="async"
-                        draggable="false"
-                        loading="lazy"
-                        sizes="(min-width: 948px) 948px, 100vw"
-                        style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
-                      />
-                    </picture>
-                    <noscript />
-                    <script
-                      type="module"
-                    >
-                      const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}
-                    </script>
                   </div>
                 </li>
                 <li>
                   <h6
-                    class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                     data-testid="typography"
                   >
                     cardTitle1
@@ -2686,56 +2718,60 @@ exports[`Header component toggles search 1`] = `
                 </li>
                 <li>
                   <div
-                    class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
-                    data-gatsby-image-wrapper=""
-                    style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
+                    class="Navigation-image"
                   >
                     <div
-                      style="max-width: 948px; display: block;"
+                      class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
+                      data-gatsby-image-wrapper=""
+                      style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                     >
-                      <img
-                        alt=""
+                      <div
+                        style="max-width: 948px; display: block;"
+                      >
+                        <img
+                          alt=""
+                          aria-hidden="true"
+                          role="presentation"
+                          src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                          style="max-width: 100%; display: block; position: static;"
+                        />
+                      </div>
+                      <div
                         aria-hidden="true"
-                        role="presentation"
-                        src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
-                        style="max-width: 100%; display: block; position: static;"
+                        data-placeholder-image=""
+                        style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
                       />
+                      <picture>
+                        <source
+                          data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
+                          sizes="(min-width: 948px) 948px, 100vw"
+                          type="image/webp"
+                        />
+                        <img
+                          alt="Image alt text"
+                          data-gatsby-image-ssr=""
+                          data-main-image=""
+                          data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+                          data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+                          decoding="async"
+                          draggable="false"
+                          loading="lazy"
+                          sizes="(min-width: 948px) 948px, 100vw"
+                          style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
+                        />
+                      </picture>
+                      <noscript />
+                      <script
+                        type="module"
+                      >
+                        const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}
+                      </script>
                     </div>
-                    <div
-                      aria-hidden="true"
-                      data-placeholder-image=""
-                      style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-                    />
-                    <picture>
-                      <source
-                        data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
-                        sizes="(min-width: 948px) 948px, 100vw"
-                        type="image/webp"
-                      />
-                      <img
-                        alt="Lorem ipsum"
-                        data-gatsby-image-ssr=""
-                        data-main-image=""
-                        data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                        data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
-                        decoding="async"
-                        draggable="false"
-                        loading="lazy"
-                        sizes="(min-width: 948px) 948px, 100vw"
-                        style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
-                      />
-                    </picture>
-                    <noscript />
-                    <script
-                      type="module"
-                    >
-                      const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}
-                    </script>
                   </div>
                 </li>
                 <li>
                   <h6
-                    class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                     data-testid="typography"
                   >
                     cardName2
@@ -2746,7 +2782,7 @@ exports[`Header component toggles search 1`] = `
             <li>
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"About BMI\\",\\"action\\":\\"/gb/landing-page/\\"}"
+                data-gtm="{"id":"nav-main-menu","label":"About BMI","action":"/gb/landing-page/"}"
                 href="/gb/landing-page/"
                 tabindex="0"
                 target="_blank"
@@ -2760,7 +2796,7 @@ exports[`Header component toggles search 1`] = `
             <li>
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
+                data-gtm="{"id":"nav-main-menu","label":"string"}"
                 href="https://www.external.co.uk"
                 tabindex="0"
                 target="_blank"
@@ -2784,7 +2820,7 @@ exports[`Header component toggles search 1`] = `
               <li>
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/gb/landing-page/\\"}"
+                  data-gtm="{"id":"nav-main-menu","label":"Our story","action":"/gb/landing-page/"}"
                   href="/gb/landing-page/"
                   tabindex="0"
                 >
@@ -2798,7 +2834,7 @@ exports[`Header component toggles search 1`] = `
             <li>
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"GB\\"}"
+                data-gtm="{"id":"nav-main-menu","label":"GB"}"
                 tabindex="0"
                 type="button"
               >
@@ -2868,7 +2904,7 @@ exports[`Header component toggles search 1`] = `
           />
         </button>
         <h4
-          class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
           data-testid="typography"
         >
           MC: search.title
@@ -2888,8 +2924,8 @@ exports[`Header component toggles search 1`] = `
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled css-1wb2lss-MuiFormLabel-root-MuiInputLabel-root"
                 data-shrink="false"
-                for="mui-1"
-                id="mui-1-label"
+                for="search-input-text"
+                id="search-input-text-label"
               >
                 MC: search.placeholder.header
               </label>
@@ -2899,7 +2935,8 @@ exports[`Header component toggles search 1`] = `
                 <input
                   aria-invalid="false"
                   class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
-                  id="mui-1"
+                  data-testid="search-input-text-input"
+                  id="search-input-text"
                   name="q"
                   type="text"
                   value=""
@@ -2909,7 +2946,7 @@ exports[`Header component toggles search 1`] = `
             <button
               aria-label="MC: search.label"
               class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge InputGroup-button css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-              data-gtm="{\\"id\\":\\"search1\\",\\"label\\":\\"MC: search.label\\"}"
+              data-gtm="{"id":"search1","label":"MC: search.label"}"
               data-testid="search-submit-button"
               tabindex="0"
               type="submit"

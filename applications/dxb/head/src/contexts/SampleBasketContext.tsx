@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useReducer } from "react";
+import { useIsClient } from "@bmi-digital/components";
 import { useSiteContext } from "../components/Site";
 import { Product } from "../types/pim";
 import { local } from "../utils/storage";
@@ -7,7 +8,8 @@ import { local } from "../utils/storage";
 export enum ACTION_TYPES {
   BASKET_ADD,
   BASKET_REMOVE,
-  BASKET_CLEAR
+  BASKET_CLEAR,
+  BASKET_REPLACE
 }
 
 export interface Sample {
@@ -38,10 +40,18 @@ export const createSample = (product: Product): Sample => ({
   image: product.masterImage?.mainSource
 });
 
-export interface BasketAction {
-  type: ACTION_TYPES;
-  payload?: Sample;
-}
+export type BasketAction =
+  | {
+      type:
+        | ACTION_TYPES.BASKET_ADD
+        | ACTION_TYPES.BASKET_REMOVE
+        | ACTION_TYPES.BASKET_CLEAR;
+      payload?: Sample;
+    }
+  | {
+      type: ACTION_TYPES.BASKET_REPLACE;
+      payload: Sample[];
+    };
 
 export interface BasketState {
   products: Sample[];
@@ -74,6 +84,10 @@ export const basketReducer = (
           (product) => product.code !== payload.code
         )
       };
+    case ACTION_TYPES.BASKET_REPLACE:
+      return {
+        products: payload
+      };
 
     case ACTION_TYPES.BASKET_CLEAR:
       return initialBasketState;
@@ -100,31 +114,32 @@ export const BasketContextConsumer = BasketContext.Consumer;
 export const BasketContextProvider = ({
   children
 }: {
-  children: React.ReactChild | React.ReactChildren;
+  children: React.ReactNode;
 }) => {
   const { countryCode } = useSiteContext();
+  const { isClient } = useIsClient();
   //for context setup for sample shopping basket
   const [basketState, basketDispatch] = useReducer(
     basketReducer,
     initialBasketState,
-    () => {
-      return typeof window !== "undefined"
-        ? {
-            products:
-              JSON.parse(local.getItem(`${countryCode}-basketItems`)) || []
-          }
-        : { products: [] };
-    }
+    () => ({ products: [] })
   );
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
+    if (isClient) {
       local.setItem(
         `${countryCode}-basketItems`,
         JSON.stringify(basketState.products)
       );
     }
-  }, [basketState]);
+  }, [basketState, countryCode, isClient]);
+
+  useEffect(() => {
+    basketDispatch({
+      type: ACTION_TYPES.BASKET_REPLACE,
+      payload: JSON.parse(local.getItem(`${countryCode}-basketItems`)) || []
+    });
+  }, []);
 
   const basketContextValues = {
     basketState,

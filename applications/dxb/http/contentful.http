@@ -21,10 +21,17 @@ Authorization: Bearer {{contentfulToken}}
 
 ###
 
-# @name Get entry by ID
+# @name CMA - Get entry by ID
 @id=40Z3K649zdfmvyffw08q3y
 GET https://api.contentful.com/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}/entries/{{id}}
 Authorization: Bearer {{contentfulToken}}
+
+###
+
+# @name CDA - Get entry by ID
+@id=IE_4S7B0U7d6TXjIL7LabkipE
+GET https://cdn.contentful.com/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}/entries/{{id}}
+Authorization: Bearer {{contentfulDeliveryToken}}
 
 ###
 
@@ -154,5 +161,19 @@ Authorization: Bearer {{contentfulDeliveryToken}}
 
 # @name Sync all data from sync token
 @sync_token=wonDrcKnRgcSOF4-wrDCgcKefWzCgsOxXQhzISXDm3fCoMOIw5fDk8OTw6zDsTzCkcO9UHDDtcKKworDjDVpwrJ5wrXDtcOjw4oNNlZpwqLDm8O6wo94w7fCm1VKSk7CmsKZIsKjw59-wqPDvRBLaMK8Y8OLJEUiPCIow4XDuA7CtCYhAn_CtVHCrMKZf8KTw7AAwoHDuX0qacK1bcO9wqluw5PCsjzCusKuwrpRDDYfwoDCsUlGb2nDpMOuw6TCkknDs8OlwoM_LMOOwq_Co8KDwofCp2kzwpJ5
+GET https://cdn.contentful.com/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}/sync?sync_token={{sync_token}}
+Authorization: Bearer {{contentfulDeliveryToken}}
+
+###
+
+# @name Sync data by content type initial
+@content_type=page
+GET https://cdn.contentful.com/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}/sync?initial=true&type=Entry&content_type={{content_type}}
+Authorization: Bearer {{contentfulDeliveryToken}}
+
+###
+
+# @name Sync data from sync token
+@sync_token=w7Ese3kdwpMbMhhgw7QAUsKiw6bCiwHCgMKzCsKmwobCl8KHZsKlRsOMwqMrbsORwoDDtF3Dkhg0HG_Dr21ewqk2XsKHABNOUsOjW8KVdEXCj8KmwqpLwp_DmMOmKMOnWTxow43DnQnDqsKGwqbDiA3CuirCrMOQZBzDgD08wpLCm8KYLCQUMMOFwo7DicKdwqgHTsO4PElDw6jDmnHDj3IEw4Fjw63DuSfCpXxpw4rDvXjDhMO_ch_ClsOsJm3CrDlSXzjDocKPSEpcwqrCsMKlwo_DgHtLJhTCqcOPw4ISw5fCjRDCjsKcB8OvwpVDwq3Cg09hJzFoUTDCq8KQw4M_Ej83
 GET https://cdn.contentful.com/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}/sync?sync_token={{sync_token}}
 Authorization: Bearer {{contentfulDeliveryToken}}

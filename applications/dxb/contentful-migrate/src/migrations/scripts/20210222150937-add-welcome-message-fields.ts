@@ -1,6 +1,6 @@
+import { brands as icons } from "../../variables/icons/20210120155354";
 import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
-import { brands as icons } from "../../variables/icons/20210120155354";
 
 export const description = "Add Welcome message for homepage";
 

@@ -1,6 +1,6 @@
+import { hyphenSymbol } from "../../variables/hyphenSymbol/20220504110700";
 import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
-import { hyphenSymbol } from "../../variables/hyphenSymbol/20220504110700";
 
 export const description = "Change hyphen symbol for input banner type";
 

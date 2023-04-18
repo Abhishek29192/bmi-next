@@ -7,6 +7,7 @@ import {
   ChipProps,
   Grid,
   OverviewCard,
+  replaceSpaces,
   Section,
   transformHyphens,
   Typography,
@@ -19,7 +20,7 @@ import React, { memo, useMemo, useState } from "react";
 import { microCopy } from "../constants/microCopies";
 import withGTM from "../utils/google-tag-manager";
 import BrandLogo from "./BrandLogo";
-import { renderImage } from "./Image";
+import Image from "./Image";
 import Link, { Data as LinkData } from "./Link";
 import { Data as PageInfoData } from "./PageInfo";
 import { Data as PromoData } from "./Promo";
@@ -27,7 +28,7 @@ import RichText, { RichTextData } from "./RichText";
 import { useSiteContext } from "./Site";
 import styles from "./styles/CardCollectionSection.module.scss";
 import { TagData } from "./Tag";
-import { renderVideo } from "./Video";
+import Video from "./Video";
 
 type Card = PageInfoData | PromoData;
 
@@ -52,13 +53,11 @@ export type Data = {
 const CardCollectionItem = ({
   card,
   label,
-  type,
-  date
+  type
 }: {
   card: Card;
   label?: string;
   type: Data["cardType"];
-  date?: string;
 }) => {
   const {
     name,
@@ -76,6 +75,8 @@ const CardCollectionItem = ({
   transformedCardLabel = transformHyphens(transformedCardLabel);
   const GTMButton = withGTM<ButtonProps>(Button);
   const GTMButtonBase = withGTM<ButtonBaseProps>(withClickable(ButtonBase));
+
+  const date = "date" in card && card.date ? card.date : undefined;
 
   const CardButton = (props) => (
     <Link
@@ -96,11 +97,13 @@ const CardCollectionItem = ({
     <OverviewCard
       title={title || name}
       media={
-        type !== "Text Card"
-          ? featuredVideo
-            ? renderVideo(featuredVideo)
-            : renderImage(featuredMedia)
-          : undefined
+        type !== "Text Card" ? (
+          featuredVideo ? (
+            <Video {...featuredVideo} />
+          ) : featuredMedia ? (
+            <Image {...featuredMedia} />
+          ) : undefined
+        ) : undefined
       }
       isFlat={isFlat}
       brandImageSource={
@@ -124,6 +127,7 @@ const CardCollectionItem = ({
           {link && transformedCardLabel ? (
             isFlat ? (
               <CardButton
+                className={styles["footer-button"]}
                 data-testid={"card-link"}
                 component={GTMButton}
                 variant="outlined"
@@ -133,6 +137,7 @@ const CardCollectionItem = ({
               </CardButton>
             ) : (
               <Button
+                className={styles["footer-button"]}
                 data-testid={"card-link"}
                 component="span"
                 variant="outlined"
@@ -143,9 +148,8 @@ const CardCollectionItem = ({
           ) : undefined}
         </>
       }
-      data-testid={`card-collection-section-item-${(title || name)?.replace(
-        / /g,
-        "-"
+      data-testid={`card-collection-section-item-${replaceSpaces(
+        title || name
       )}`}
     >
       {subtitle}
@@ -215,8 +219,9 @@ const CardCollectionSection = ({
   theme
 }: {
   data: Data;
-  // TODO: Type me.
-  theme: any;
+  theme?: {
+    cardCollectionRowType: "single-row";
+  };
 }) => {
   const allKeys = cards.flatMap((x) => x.tags);
   const allKeysGrouped = [];
@@ -228,15 +233,12 @@ const CardCollectionSection = ({
   const groupKeys = moveRestKeyLast(allKeysGrouped.map((c) => c.title));
   const [activeGroups, setActiveGroups] = useState<Record<string, boolean>>({});
   const [showMoreIterator, setShowMoreIterator] = useState(1);
-  const { getMicroCopy, node_locale } = useSiteContext();
+  const { getMicroCopy } = useSiteContext();
 
   const shouldDisplayGroups = groupCards && groupKeys.length > 1;
 
   const getCards = (title: string) => {
-    const cardsBySection = cards.filter((x) =>
-      x.tags?.find((tag) => tag.title == title)
-    );
-    return cardsBySection;
+    return cards.filter((x) => x.tags?.find((tag) => tag.title == title));
   };
 
   const activeCards = [
@@ -247,18 +249,7 @@ const CardCollectionSection = ({
     )
   ];
 
-  const formatDate = (date: string): string =>
-    new Intl.DateTimeFormat(
-      // Required until Norway's locale is fixed in V8 https://bugs.chromium.org/p/v8/issues/detail?id=11897
-      node_locale === "nb-NO" ? "no" : node_locale || undefined,
-      {
-        year: "numeric",
-        month: "long",
-        day: "numeric"
-      }
-    ).format(new Date(date));
-
-  const iteratableCards =
+  const iterableCards =
     shouldDisplayGroups && activeCards.length ? activeCards : cards;
 
   const noDateSortWeight = sortOrder === "Date (Newest first)" ? 0 : Infinity;
@@ -266,7 +257,7 @@ const CardCollectionSection = ({
   const sortedIterableCards = useMemo(
     () =>
       sortOrder
-        ? [...iteratableCards].sort((first, second) => {
+        ? [...iterableCards].sort((first, second) => {
             const firstWeight =
               "date" in first && first.date
                 ? new Date(first.date).getTime()
@@ -286,8 +277,8 @@ const CardCollectionSection = ({
                 return 0;
             }
           })
-        : iteratableCards,
-    [sortOrder, iteratableCards]
+        : iterableCards,
+    [sortOrder, iterableCards]
   );
 
   const cardsPerLoad = 8;
@@ -312,7 +303,7 @@ const CardCollectionSection = ({
   return (
     <div
       className={styles["CardCollectionSection"]}
-      data-testid={`card-collection-section-${title?.replace(/ /g, "-")}`}
+      data-testid={`card-collection-section-${replaceSpaces(title)}`}
     >
       <Section backgroundColor={cardType === "Story Card" ? "white" : "pearl"}>
         {title && (
@@ -385,6 +376,7 @@ const CardCollectionSection = ({
             scroll="finite"
             hasGutter
             enableAnimateHeightMobile={false}
+            disableLazyLoading={true}
           >
             {sortedIterableCards.map((card, i) => {
               const { id } = card;
@@ -394,11 +386,6 @@ const CardCollectionSection = ({
                     card={card}
                     label={cardLabel}
                     type={cardType}
-                    date={
-                      "date" in card && card.date
-                        ? formatDate(card.date)
-                        : undefined
-                    }
                   />
                 </Carousel.Slide>
               );
@@ -419,16 +406,12 @@ const CardCollectionSection = ({
                   lg={4}
                   xl={3}
                   className={cardIsVisible ? styles["hidden"] : ""}
+                  data-testid={`card-collection-grid-item-${card.id}`}
                 >
                   <CardCollectionItem
                     card={card}
                     label={cardLabel}
                     type={cardType}
-                    date={
-                      "date" in card && card.date
-                        ? formatDate(card.date)
-                        : undefined
-                    }
                   />
                 </Grid>
               );

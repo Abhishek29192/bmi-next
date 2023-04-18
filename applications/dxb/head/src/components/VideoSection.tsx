@@ -1,9 +1,9 @@
-import { Section } from "@bmi-digital/components";
+import { replaceSpaces, Section } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
 import RichText, { RichTextData } from "./RichText";
 import styles from "./styles/VideoSection.module.scss";
-import { ContentfulVideoData, renderVideo } from "./Video";
+import Video, { ContentfulVideoData } from "./Video";
 
 export type Data = {
   __typename: "ContentfulVideoSection";
@@ -18,17 +18,18 @@ const VideoSection = ({
 }: {
   data: Data;
 }) => {
-  const videoNode = React.cloneElement(renderVideo(video), {
-    layout: "inline"
-  });
-
   return (
-    <Section className={styles["VideoSection"]}>
+    <Section
+      className={styles["VideoSection"]}
+      data-testid={`video-section-${replaceSpaces(title)}`}
+    >
       {title && (
         <Section.Title className={styles["heading"]}>{title}</Section.Title>
       )}
-      {description && <RichText document={description} />}
-      <div className={styles["video"]}>{videoNode}</div>
+      {description && <RichText document={description} hasNoBottomMargin />}
+      <div className={styles["video"]}>
+        <Video layout={"inline"} {...video} />
+      </div>
     </Section>
   );
 };

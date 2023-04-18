@@ -21,16 +21,7 @@ export default (url: string) => {
 
     const loader = new GLTFLoader().setPath(path);
 
-    loader.load(
-      name,
-      function onLoad(tileGltf: GLTF) {
-        resolve(tileGltf);
-      },
-      undefined,
-      function onError(err) {
-        reject(err);
-      }
-    );
+    loader.load(name, resolve, undefined, reject);
   });
 
   // eslint-disable-next-line security/detect-object-injection

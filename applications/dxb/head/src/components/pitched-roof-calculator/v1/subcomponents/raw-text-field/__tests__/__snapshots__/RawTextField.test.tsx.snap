@@ -19,6 +19,7 @@ exports[`RawTextField component does not display rightAdornment if provided and 
       <input
         aria-invalid="true"
         class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"
+        data-testid="undefined-input"
         id="email"
         placeholder="e.g. lorem@ipsum.com"
         type="text"
@@ -76,6 +77,7 @@ exports[`RawTextField component renders correctly 1`] = `
       <input
         aria-invalid="false"
         class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+        data-testid="undefined-input"
         id="email"
         placeholder="e.g. lorem@ipsum.com"
         type="text"
@@ -117,6 +119,7 @@ exports[`RawTextField component renders correctly if error is true 1`] = `
       <input
         aria-invalid="true"
         class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"
+        data-testid="undefined-input"
         id="email"
         placeholder="e.g. lorem@ipsum.com"
         type="text"
@@ -175,6 +178,7 @@ exports[`RawTextField component renders correctly if errorText is populated 1`] 
         aria-describedby="email-helper-text"
         aria-invalid="true"
         class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"
+        data-testid="undefined-input"
         id="email"
         placeholder="e.g. lorem@ipsum.com"
         type="text"
@@ -239,6 +243,7 @@ exports[`RawTextField component renders correctly if helperText is populated 1`]
         aria-describedby="email-helper-text"
         aria-invalid="false"
         class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+        data-testid="undefined-input"
         id="email"
         placeholder="e.g. lorem@ipsum.com"
         type="text"
@@ -286,6 +291,7 @@ exports[`RawTextField component renders correctly if isRequired is true 1`] = `
       <input
         aria-invalid="false"
         class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+        data-testid="undefined-input"
         id="email"
         placeholder="e.g. lorem@ipsum.com"
         type="text"
@@ -327,6 +333,7 @@ exports[`RawTextField component renders correctly if isTextArea is true 1`] = `
       <textarea
         aria-invalid="false"
         class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline css-1sqnrkk-MuiInputBase-input-MuiOutlinedInput-input"
+        data-testid="undefined-input"
         id="email"
         placeholder="e.g. lorem@ipsum.com"
         style="height: 0px; overflow: hidden;"
@@ -374,6 +381,7 @@ exports[`RawTextField component renders correctly if variant === hybrid 1`] = `
       <input
         aria-invalid="false"
         class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
+        data-testid="undefined-input"
         id="email"
         placeholder="e.g. lorem@ipsum.com"
         type="text"
@@ -403,6 +411,7 @@ exports[`RawTextField component renders correctly if variant === outlined 1`] = 
       <input
         aria-invalid="false"
         class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+        data-testid="undefined-input"
         id="email"
         placeholder="e.g. lorem@ipsum.com"
         type="text"
@@ -444,6 +453,7 @@ exports[`RawTextField component renders correctly with leftAdornment 1`] = `
       <input
         aria-invalid="false"
         class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"
+        data-testid="undefined-input"
         id="email"
         placeholder="e.g. lorem@ipsum.com"
         type="text"
@@ -492,6 +502,7 @@ exports[`RawTextField component renders correctly with rightAdornment 1`] = `
       <input
         aria-invalid="false"
         class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"
+        data-testid="undefined-input"
         id="email"
         placeholder="e.g. lorem@ipsum.com"
         type="text"

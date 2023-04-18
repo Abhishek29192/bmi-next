@@ -1,6 +1,5 @@
 import logger from "@bmi-digital/functions-logger";
 import { tagEntity } from "@bmi/cms-consolidation-utility";
-import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import {
   Asset,
   createClient,
@@ -14,6 +13,7 @@ import {
   findOwner,
   getMarketName
 } from "./membership";
+import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 
 const SECRET_MIN_LENGTH = 10;
 

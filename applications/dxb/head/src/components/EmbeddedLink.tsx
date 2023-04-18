@@ -1,6 +1,7 @@
 import { Button, ButtonProps } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
+import classnames from "classnames";
 import withGTM from "../utils/google-tag-manager";
 import Link, { Data as LinkData } from "./Link";
 import styles from "./styles/EmbeddedLink.module.scss";
@@ -39,7 +40,7 @@ const EmbeddedLink = ({
       variant={theme === "primary" ? "contained" : "opaqueOutlined"}
       hasDarkBackground={backgroundTheme === "dark"}
       data={transformedFields}
-      className={styles["EmbeddedLink"]}
+      className={classnames(styles["EmbeddedLink"], "embeddedLink")}
     >
       {fields.label}
     </Link>

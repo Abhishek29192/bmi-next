@@ -4,7 +4,7 @@ import {
   createMemorySource,
   LocationProvider
 } from "@reach/router";
-import { render, RenderResult } from "@testing-library/react";
+import { render, RenderResult, screen } from "@testing-library/react";
 import React from "react";
 import { Data as ExploreBarData } from "../../../components/ExploreBar";
 import { Data as LeadBlockSectionData } from "../../../components/LeadBlockSection";
@@ -14,7 +14,6 @@ import { Data as NextBestActionsData } from "../../../components/NextBestActions
 import { Data as SectionsData } from "../../../components/Sections";
 import { Data as ShareWidgetSectionData } from "../../../components/ShareWidgetSection";
 import { Data as SiteData } from "../../../components/Site";
-import ProvideStyles from "../../../components/__tests__/utils/StylesProvider";
 import { ConfigProvider } from "../../../contexts/ConfigProvider";
 import { createMockSiteData } from "../../../test/mockSiteData";
 import SimplePage, { Data, Props } from "../components/simple-page";
@@ -40,12 +39,10 @@ const renderWithStylesAndLocationProvider = (
 ): RenderResult =>
   render(
     <ThemeProvider>
-      <ConfigProvider configObject={{ isBrandProviderEnabled: true }}>
-        <ProvideStyles>
-          <LocationProvider history={history}>
-            <SimplePage data={pageData} pageContext={pageContext} />
-          </LocationProvider>
-        </ProvideStyles>
+      <ConfigProvider configOverride={{ isBrandProviderEnabled: true }}>
+        <LocationProvider history={history}>
+          <SimplePage data={pageData} pageContext={pageContext} />
+        </LocationProvider>
       </ConfigProvider>
     </ThemeProvider>
   );
@@ -121,11 +118,8 @@ describe("Simple page", () => {
         leadBlock: null
       }
     };
-    const { getByTestId } = renderWithStylesAndLocationProvider(
-      customData,
-      pageContext
-    );
-    expect(getByTestId("spotLightHero")).toBeTruthy();
+    renderWithStylesAndLocationProvider(customData, pageContext);
+    expect(screen.getByTestId("spotLightHero")).toBeTruthy();
   });
 
   it("renders correctly when no feature media", () => {
@@ -144,9 +138,9 @@ describe("Simple page", () => {
       pageContext
     );
     expect(container).toMatchSnapshot();
-    const ogImageTag = Array.from(document.getElementsByTagName("meta")).find(
-      (meta) => meta.getAttribute("property") === "og:image"
-    );
-    expect(ogImageTag).toBeFalsy();
+    expect(
+      // eslint-disable-next-line testing-library/no-node-access -- head components can't be found with screen
+      document.querySelector("[data-testid='meta-og-image']")
+    ).not.toBeInTheDocument();
   });
 });

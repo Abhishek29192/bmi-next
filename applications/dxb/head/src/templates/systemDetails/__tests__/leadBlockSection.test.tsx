@@ -4,7 +4,7 @@ import {
   createMemorySource,
   LocationProvider
 } from "@reach/router";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import React from "react";
 import { Data as LinkData, DataTypeEnum } from "../../../components/Link";
 import LeadBlockSection from "../leadBlockSection";
@@ -30,7 +30,7 @@ const linkData: LinkData = {
 
 describe("LeadBlockSection tests", () => {
   it("should render", () => {
-    const { container, queryByText } = render(
+    const { container } = render(
       <ThemeProvider>
         <LocationProvider>
           <LeadBlockSection
@@ -42,15 +42,15 @@ describe("LeadBlockSection tests", () => {
       </ThemeProvider>
     );
 
-    const setionName = queryByText(leadBlockSectionName);
-    const ctaLabelElement = queryByText(ctaLabel);
+    const sectionName = screen.queryByText(leadBlockSectionName);
+    const ctaLabelElement = screen.queryByText(ctaLabel);
     expect(container).toMatchSnapshot();
-    expect(setionName).toBeInTheDocument();
+    expect(sectionName).toBeInTheDocument();
     expect(ctaLabelElement).toBeInTheDocument();
   });
 
   it("should render with uniqueSellingPropositions", () => {
-    const { container, queryByText, queryByTestId } = render(
+    const { container } = render(
       <ThemeProvider>
         <LocationProvider>
           <LeadBlockSection
@@ -63,19 +63,21 @@ describe("LeadBlockSection tests", () => {
       </ThemeProvider>
     );
 
-    const setionName = queryByText(leadBlockSectionName);
-    const ctaLabelElement = queryByText(ctaLabel);
-    const systemAttributesContent = queryByTestId("system-attributes-card");
-    const feature = queryByText(uniqueSellingPropositions[0]);
+    const sectionName = screen.queryByText(leadBlockSectionName);
+    const ctaLabelElement = screen.queryByText(ctaLabel);
+    const systemAttributesContent = screen.queryByTestId(
+      "system-attributes-card"
+    );
+    const feature = screen.queryByText(uniqueSellingPropositions[0]);
     expect(container).toMatchSnapshot();
-    expect(setionName).toBeInTheDocument();
+    expect(sectionName).toBeInTheDocument();
     expect(ctaLabelElement).toBeInTheDocument();
     expect(systemAttributesContent).toBeTruthy();
     expect(feature).toBeInTheDocument();
   });
 
   it("should not render systemAttributes Card with empty uniqueSellingPropositions", () => {
-    const { container, queryByText, queryByTestId } = render(
+    const { container } = render(
       <ThemeProvider>
         <LocationProvider>
           <LeadBlockSection
@@ -88,11 +90,13 @@ describe("LeadBlockSection tests", () => {
       </ThemeProvider>
     );
 
-    const setionName = queryByText(leadBlockSectionName);
-    const ctaLabelElement = queryByText(ctaLabel);
-    const systemAttributesContent = queryByTestId("system-attributes-card");
+    const sectionName = screen.queryByText(leadBlockSectionName);
+    const ctaLabelElement = screen.queryByText(ctaLabel);
+    const systemAttributesContent = screen.queryByTestId(
+      "system-attributes-card"
+    );
     expect(container).toMatchSnapshot();
-    expect(setionName).toBeInTheDocument();
+    expect(sectionName).toBeInTheDocument();
     expect(ctaLabelElement).toBeInTheDocument();
     expect(systemAttributesContent).toBeFalsy();
   });
@@ -102,7 +106,7 @@ describe("LeadBlockSection tests", () => {
       const route =
         "/jest-test-page?selected_system=123&prev_page=system-configurator-page&referer=sys_details";
       const history = createHistory(createMemorySource(route));
-      const { container, queryByText } = render(
+      const { container } = render(
         <ThemeProvider>
           <LocationProvider history={history}>
             <LeadBlockSection
@@ -114,12 +118,14 @@ describe("LeadBlockSection tests", () => {
         </ThemeProvider>
       );
 
-      const setionName = queryByText(leadBlockSectionName);
-      const ctaLabelElement = queryByText(ctaLabel);
-      const backToYourSelectionBtn = queryByText(backToYourSelectionLabel);
+      const sectionName = screen.queryByText(leadBlockSectionName);
+      const ctaLabelElement = screen.queryByText(ctaLabel);
+      const backToYourSelectionBtn = screen.queryByText(
+        backToYourSelectionLabel
+      );
 
       expect(container).toMatchSnapshot();
-      expect(setionName).toBeInTheDocument();
+      expect(sectionName).toBeInTheDocument();
       expect(ctaLabelElement).toBeInTheDocument();
       expect(backToYourSelectionBtn).toBeInTheDocument();
       expect((backToYourSelectionBtn as HTMLAnchorElement).href).toContain(

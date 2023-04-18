@@ -1,5 +1,5 @@
 import { ThemeProvider } from "@bmi-digital/components";
-import { fireEvent, render, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import MockDate from "mockdate";
 import React from "react";
 import * as ClientDownloadUtils from "../../utils/client-download";
@@ -42,10 +42,8 @@ let isPreviewMode;
 let documentDownloadEndpoint;
 jest.mock("../../contexts/ConfigProvider", () => ({
   useConfig: () => ({
-    config: {
-      isPreviewMode,
-      documentDownloadEndpoint
-    }
+    isPreviewMode,
+    documentDownloadEndpoint
   })
 }));
 
@@ -113,13 +111,13 @@ describe("KeyAssetTypesDownloadSection component", () => {
         }
       ];
 
-      const { getByTestId } = render(
+      render(
         <ThemeProvider>
           <KeyAssetTypesDownloadSection keyAssetDocuments={assetDocuments} />
         </ThemeProvider>
       );
 
-      const downloadButton = getByTestId(
+      const downloadButton = screen.getByTestId(
         `${document.assetType.pimCode}Download`
       );
 
@@ -147,13 +145,13 @@ describe("KeyAssetTypesDownloadSection component", () => {
           documents: [document]
         }
       ];
-      const { getByTestId } = render(
+      render(
         <ThemeProvider>
           <KeyAssetTypesDownloadSection keyAssetDocuments={assetDocuments} />
         </ThemeProvider>
       );
 
-      const downloadButton = getByTestId(
+      const downloadButton = screen.getByTestId(
         `${document.assetType.pimCode}Download`
       );
 
@@ -185,13 +183,13 @@ describe("KeyAssetTypesDownloadSection component", () => {
       executeRecaptcha.mockResolvedValueOnce("token");
       fetchMock.mockReturnValueOnce(getFetchResponse({ url: "url" }));
 
-      const { getByTestId } = render(
+      render(
         <ThemeProvider>
           <KeyAssetTypesDownloadSection keyAssetDocuments={assetDocuments} />
         </ThemeProvider>
       );
 
-      const downloadButton = getByTestId(
+      const downloadButton = screen.getByTestId(
         `${document1.assetType.pimCode}Download`
       );
       fireEvent.click(downloadButton);
@@ -250,13 +248,13 @@ describe("KeyAssetTypesDownloadSection component", () => {
 
       fetchMock.mockReturnValueOnce(getFetchResponse({ url: "url" }));
 
-      const { getByTestId } = render(
+      render(
         <ThemeProvider>
           <KeyAssetTypesDownloadSection keyAssetDocuments={assetDocuments} />
         </ThemeProvider>
       );
 
-      const downloadButton = getByTestId(
+      const downloadButton = screen.getByTestId(
         `${document1.assetType.pimCode}Download`
       );
       fireEvent.click(downloadButton);
@@ -311,13 +309,13 @@ describe("KeyAssetTypesDownloadSection component", () => {
       ];
       isPreviewMode = true;
 
-      const { getByTestId } = render(
+      render(
         <ThemeProvider>
           <KeyAssetTypesDownloadSection keyAssetDocuments={assetDocuments} />
         </ThemeProvider>
       );
 
-      const downloadButton = getByTestId(
+      const downloadButton = screen.getByTestId(
         `${document1.assetType.pimCode}Download`
       );
       fireEvent.click(downloadButton);
@@ -347,13 +345,13 @@ describe("KeyAssetTypesDownloadSection component", () => {
       ];
       documentDownloadEndpoint = undefined;
 
-      const { getByTestId } = render(
+      render(
         <ThemeProvider>
           <KeyAssetTypesDownloadSection keyAssetDocuments={assetDocuments} />
         </ThemeProvider>
       );
 
-      const downloadButton = getByTestId(
+      const downloadButton = screen.getByTestId(
         `${document1.assetType.pimCode}Download`
       );
       fireEvent.click(downloadButton);
@@ -381,13 +379,13 @@ describe("KeyAssetTypesDownloadSection component", () => {
       executeRecaptcha.mockResolvedValueOnce("token");
       fetchMock.mockRejectedValue(Error("Expected Error"));
 
-      const { getByTestId } = render(
+      render(
         <ThemeProvider>
           <KeyAssetTypesDownloadSection keyAssetDocuments={assetDocuments} />
         </ThemeProvider>
       );
 
-      const downloadButton = getByTestId(
+      const downloadButton = screen.getByTestId(
         `${document1.assetType.pimCode}Download`
       );
       fireEvent.click(downloadButton);
@@ -445,13 +443,13 @@ describe("KeyAssetTypesDownloadSection component", () => {
       ];
       fetchMock.mockRejectedValue(Error("Expected Error"));
 
-      const { getByTestId } = render(
+      render(
         <ThemeProvider>
           <KeyAssetTypesDownloadSection keyAssetDocuments={assetDocuments} />
         </ThemeProvider>
       );
 
-      const downloadButton = getByTestId(
+      const downloadButton = screen.getByTestId(
         `${document1.assetType.pimCode}Download`
       );
       fireEvent.click(downloadButton);

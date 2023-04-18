@@ -1,6 +1,6 @@
+import { backgroundColor } from "../../variables/colours/20210601130010";
 import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
-import { backgroundColor } from "../../variables/colours/20210601130010";
 
 export const description = "Add background colour";
 

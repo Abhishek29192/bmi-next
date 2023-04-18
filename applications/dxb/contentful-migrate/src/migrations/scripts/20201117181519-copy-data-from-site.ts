@@ -1,3 +1,4 @@
+import MurmurHash3 from "imurmurhash";
 import type { CollectionResponse } from "@bmi-digital/contentful-migration";
 import type { EntryProps } from "contentful-management";
 import type Migration from "contentful-migration";
@@ -6,7 +7,6 @@ import type {
   MigrationContext,
   MigrationFunction
 } from "contentful-migration";
-import MurmurHash3 from "imurmurhash";
 
 export const description =
   "Copy data from site sign up banner to input banner content type";

@@ -3,8 +3,8 @@
 exports[`ServiceLocatorSection resulst list pannel component should render results list panel on page load if at list one chip exists in query params 1`] = `
 <div>
   <div
-    class="ServiceLocationSection Section-root Section-white css-cxq310"
-    data-testid="section"
+    class="ServiceLocationSection Section-root Section-white css-10chrh8"
+    data-testid="service-locator-section-Main"
   >
     <div
       class=" css-ze8cyt"
@@ -13,13 +13,13 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
           data-testid="typography"
         >
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-vvjsjl-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
@@ -27,14 +27,14 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
             data-testid="grid-item"
           >
             <div
-              class="MuiAutocomplete-root company-autocomplete css-1qqsdnr-MuiAutocomplete-root"
+              class="MuiAutocomplete-root company-autocomplete css-l3ln04-MuiAutocomplete-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
-                data-testid="text-field-company-autocomplete"
+                data-testid="company-autocomplete"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-taxj8h-MuiFormLabel-root-MuiInputLabel-root"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="true"
                   for="company-autocomplete"
                   id="company-autocomplete-label"
@@ -68,6 +68,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiAutocomplete-input MuiAutocomplete-inputFocused css-1o9s3wi-MuiInputBase-input-MuiOutlinedInput-input"
+                    data-testid="company-autocomplete-input"
                     id="company-autocomplete"
                     name="autocomplete-field"
                     role="combobox"
@@ -91,7 +92,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
               </div>
             </div>
             <p
-              class="MuiTypography-root MuiTypography-body1 and-or-label css-87ejlm-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 and-or-label css-1o02bdp-MuiTypography-root"
               data-testid="typography"
             >
               <span>
@@ -156,14 +157,14 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                 class="chips"
               >
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 chips-label css-1le86ss-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 chips-label css-1nuwz6u-MuiTypography-root"
                   data-testid="typography"
                 >
                   MC: findARoofer.filtersLabel
                 </h6>
                 <div
                   class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-gtm="{"id":"selector-cards1","label":"Flat Roof","action":"Selector - Cards Filter"}"
                   data-testid="service-locator-chip-Flat-Roof"
                   role="button"
                   tabindex="0"
@@ -179,7 +180,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                 </div>
                 <div
                   class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorPrimary MuiChip-clickable MuiChip-clickableColorPrimary MuiChip-filledPrimary  css-1qhn9w6-MuiButtonBase-root-MuiChip-root"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Pitched Roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-gtm="{"id":"selector-cards1","label":"Pitched Roof","action":"Selector - Cards Filter"}"
                   data-testid="service-locator-chip-Pitched-Roof"
                   role="button"
                   tabindex="0"
@@ -195,7 +196,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                 </div>
                 <div
                   class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof 1\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-gtm="{"id":"selector-cards1","label":"Flat Roof 1","action":"Selector - Cards Filter"}"
                   data-testid="service-locator-chip-Flat-Roof-1"
                   role="button"
                   tabindex="0"
@@ -211,7 +212,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                 </div>
                 <div
                   class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Pitched Roof 2\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-gtm="{"id":"selector-cards1","label":"Pitched Roof 2","action":"Selector - Cards Filter"}"
                   data-testid="service-locator-chip-Pitched-Roof-2"
                   role="button"
                   tabindex="0"
@@ -296,7 +297,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
           </div>
           <div
             aria-labelledby="tab-list"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1rk7w2f"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
             data-testid="tabpanel-list"
             heading="MC: findARoofer.listLabel"
             id="tabpanel-list"
@@ -304,13 +305,14 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
           >
             <div
               class=""
+              data-testid="results-list-section"
             >
               <div
                 class="list"
               >
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
-                  data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-gtm="{"id":"selector-cards6","label":"roofer 1 - address 1 - Roofer - selected","action":"Expanded company details"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
@@ -318,13 +320,13 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                     data-testid="linkCard-item"
                   >
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom  css-1vyiy8g-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
                       data-testid="typography"
                     >
                       roofer 1
                     </h6>
                     <p
-                      class="MuiTypography-root MuiTypography-body1 css-sd7cbl-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                       data-testid="typography"
                     >
                       address 1
@@ -361,7 +363,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                         >
                           <div>
                             <dl
-                              class="css-axlavq"
+                              class="css-jmzo47"
                             >
                               <div
                                 class="CompanyDetails-row"
@@ -382,7 +384,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                                     />
                                   </svg>
                                   <span
-                                    class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-87ejlm-MuiTypography-root"
+                                    class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-1o02bdp-MuiTypography-root"
                                     data-testid="typography"
                                   >
                                     MC: global.telephone
@@ -413,7 +415,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                                     />
                                   </svg>
                                   <span
-                                    class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-87ejlm-MuiTypography-root"
+                                    class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-1o02bdp-MuiTypography-root"
                                     data-testid="typography"
                                   >
                                     MC: global.email
@@ -444,7 +446,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                                     />
                                   </svg>
                                   <span
-                                    class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-87ejlm-MuiTypography-root"
+                                    class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-1o02bdp-MuiTypography-root"
                                     data-testid="typography"
                                   >
                                     MC: global.website
@@ -464,7 +466,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                                   class="css-10edjq1"
                                 >
                                   <span
-                                    class="MuiTypography-root MuiTypography-body1 CompanyDetails-label css-87ejlm-MuiTypography-root"
+                                    class="MuiTypography-root MuiTypography-body1 CompanyDetails-label css-1o02bdp-MuiTypography-root"
                                     data-testid="typography"
                                   >
                                     MC: findARoofer.roofTypeLabel
@@ -480,7 +482,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                               </div>
                             </dl>
                             <p
-                              class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                               data-testid="typography"
                             >
                               roofer summary
@@ -496,7 +498,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-71osed"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""

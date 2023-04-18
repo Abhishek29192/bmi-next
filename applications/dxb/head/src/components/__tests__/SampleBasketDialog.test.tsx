@@ -9,6 +9,7 @@ import { local } from "../../utils/storage";
 import { getClickableActionFromUrl } from "../Link";
 import SampleBasketDialog from "../SampleBasketDialog";
 import { SiteContextProvider } from "../Site";
+import { microCopy } from "../../constants/microCopies";
 
 const getSiteContext = () => ({
   countryCode: "en",
@@ -56,7 +57,7 @@ describe("SampleBasketDialog component", () => {
 
   it("renders correctly", () => {
     const toggleCart = jest.fn();
-    const { queryByRole, getByTestId } = render(
+    render(
       <ThemeProvider>
         <BasketContextProvider>
           <SampleBasketDialog
@@ -67,31 +68,42 @@ describe("SampleBasketDialog component", () => {
         </BasketContextProvider>
       </ThemeProvider>
     );
-    expect(getByTestId("shopping-cart-dialog")).toBeInTheDocument();
+    expect(screen.getByTestId("shopping-cart-dialog")).toBeInTheDocument();
+    expect(screen.getAllByTestId("shopping-cart-dialog-product")).toHaveLength(
+      3
+    );
+    expect(screen.getByTestId("shopping-cart-dialog-info")).toBeInTheDocument();
     expect(
-      getByTestId("shopping-cart-dialog-product-list").children.length
-    ).toBe(3);
-    expect(getByTestId("shopping-cart-dialog-info")).toBeInTheDocument();
-    expect(
-      queryByRole("button", { name: "MC: pdp.overview.completeSampleOrder" })
+      screen.getByRole("button", {
+        name: "MC: pdp.overview.completeSampleOrder"
+      })
     ).toBeInTheDocument();
     expect(
-      queryByRole("button", { name: "MC: pdp.overview.continueBrowsing" })
+      screen.getByRole("button", {
+        name: "MC: pdp.overview.continueBrowsing"
+      })
     ).toBeInTheDocument();
     expect(
-      queryByRole("button", { name: "MC: dialog.close" })
+      screen.getByRole("button", { name: "MC: dialog.close" })
     ).toBeInTheDocument();
   });
+
   it("renders correctly when sample basket is empty", () => {
     jest.spyOn(local, "getItem").mockReturnValue(JSON.stringify([]));
-    const { container } = render(
+    render(
       <ThemeProvider>
         <BasketContextProvider>
           <SampleBasketDialog title="Basket title" maximumSamples={3} />
         </BasketContextProvider>
       </ThemeProvider>
     );
-    expect(container.querySelector(".cart-drawer")).not.toBeInTheDocument();
+    expect(screen.getByTestId("shopping-cart-dialog")).toBeInTheDocument();
+    expect(
+      screen.getByText(`MC: ${microCopy.PDP_OVERVIEW_SAMPLE_DIALOG_MESSAGE}`)
+    ).toBeInTheDocument();
+    expect(
+      screen.queryByTestId("shopping-cart-dialog-product")
+    ).not.toBeInTheDocument();
   });
 
   it("should remove sample", () => {
@@ -118,7 +130,7 @@ describe("SampleBasketDialog component", () => {
       `/no/sample-basket/`
     );
 
-    const { getByRole } = render(
+    render(
       <ThemeProvider>
         <SiteContextProvider value={getSiteContext()}>
           <BasketContextProvider>
@@ -132,9 +144,10 @@ describe("SampleBasketDialog component", () => {
       </ThemeProvider>
     );
     expect(
-      getByRole("link", { name: "MC: pdp.overview.completeSampleOrder" })
+      screen.getByRole("link", { name: "MC: pdp.overview.completeSampleOrder" })
     ).toHaveAttribute("href", "/no/sample-basket/");
   });
+
   it("should call toggleCart on continue browsing", () => {
     const toggleCart = jest.fn();
 

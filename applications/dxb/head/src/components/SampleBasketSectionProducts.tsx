@@ -16,7 +16,7 @@ import {
   useBasketContext
 } from "../contexts/SampleBasketContext";
 import { getPathWithCountryCode } from "../utils/path";
-import { renderImage } from "./Image";
+import Image from "./Image";
 import { useSiteContext } from "./Site";
 import styles from "./styles/SampleBasketSectionProducts.module.scss";
 
@@ -28,21 +28,19 @@ const SampleBasketSectionProducts = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 
   const sampleCards = basketState.products.map((sample) => {
-    const media = renderImage(
-      {
-        type: "Descriptive",
-        altText: sample.name,
-        image: {
+    const media = (
+      <Image
+        type="Descriptive"
+        altText={sample.name}
+        image={{
           file: {
             fileName: sample.name,
             url: sample.image
           }
-        },
-        focalPoint: { x: 0, y: 0 }
-      },
-      {
-        className: styles["product-image"]
-      }
+        }}
+        focalPoint={{ x: 0, y: 0 }}
+        className={styles["product-image"]}
+      />
     );
 
     const removeFromBasket = (payload: Sample) => {

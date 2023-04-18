@@ -2,6 +2,7 @@ import {
   Grid,
   RadioPane,
   RadioPaneProps,
+  replaceSpaces,
   Section
 } from "@bmi-digital/components";
 import { System as EsSystem } from "@bmi/elasticsearch-types";
@@ -16,7 +17,10 @@ import React, {
   useLayoutEffect,
   useState
 } from "react";
-import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import {
+  useGoogleReCaptcha,
+  IGoogleReCaptchaConsumerProps
+} from "react-google-recaptcha-v3";
 import { QA_AUTH_TOKEN } from "../constants/cookieConstants";
 import { SYSTEM_CONFIG_QUERY_KEY_REFERER } from "../constants/queryConstants";
 import { useConfig } from "../contexts/ConfigProvider";
@@ -110,6 +114,7 @@ const saveStateToLocalStorage = (stateToStore: string) => {
 const GTMRadioPane = withGTM<RadioPaneProps>(RadioPane);
 
 type SystemConfiguratorQuestionData = {
+  executeRecaptcha: IGoogleReCaptchaConsumerProps["executeRecaptcha"];
   index: number;
   id: string;
   question: QuestionData;
@@ -124,18 +129,16 @@ const SystemConfiguratorQuestion = ({
   question,
   storedAnswers,
   isReload,
+  executeRecaptcha,
   stateSoFar = []
 }: SystemConfiguratorQuestionData) => {
   const [myStoredAnswerId, ...remainingStoredAnswers] = storedAnswers;
   const [nextId, setNextId] = useState<string>(myStoredAnswerId);
-  const { executeRecaptcha } = useGoogleReCaptcha();
   const qaAuthToken = getCookie(QA_AUTH_TOKEN);
   const [nextStep, setNextStep] = useState<NextStepData>({});
   const { locale, openIndex, setState } = useContext(SystemConfiguratorContext);
   const ref = useScrollToOnLoad(index === 0, ACCORDION_TRANSITION);
-  const {
-    config: { gcpSystemConfiguratorEndpoint }
-  } = useConfig();
+  const { gcpSystemConfiguratorEndpoint } = useConfig();
 
   const singleAnswer =
     question.answers.length === 1 ? question.answers[0] : undefined;
@@ -145,74 +148,77 @@ const SystemConfiguratorQuestion = ({
   // Needed so the "go back to your selection" states aren't stored with the user interactions
   const allStateSoFar = [...stateSoFar, nextId];
 
-  const getData = useCallback(async (answerId, locale) => {
-    setState((state) => ({ ...state, isLoading: true }));
+  const getData = useCallback(
+    async (answerId, locale) => {
+      setState((state) => ({ ...state, isLoading: true }));
 
-    const controller = new AbortController();
+      const controller = new AbortController();
 
-    const recaptchaToken = qaAuthToken ? undefined : await executeRecaptcha();
+      const recaptchaToken = qaAuthToken ? undefined : await executeRecaptcha();
 
-    let headers: HeadersInit = {
-      "X-Recaptcha-Token": recaptchaToken
-    };
-    if (qaAuthToken) {
-      headers = { ...headers, authorization: `Bearer ${qaAuthToken}` };
-    }
-    try {
-      const response: Response = await fetch(
-        `${gcpSystemConfiguratorEndpoint}?answerId=${answerId}&locale=${locale}`,
-        {
-          method: "GET",
-          headers,
-          signal: controller.signal
+      let headers: HeadersInit = {
+        "X-Recaptcha-Token": recaptchaToken
+      };
+      if (qaAuthToken) {
+        headers = { ...headers, authorization: `Bearer ${qaAuthToken}` };
+      }
+      try {
+        const response: Response = await fetch(
+          `${gcpSystemConfiguratorEndpoint}?answerId=${answerId}&locale=${locale}`,
+          {
+            method: "GET",
+            headers,
+            signal: controller.signal
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error(response.statusText);
         }
-      );
 
-      if (!response.ok) {
-        throw new Error(response.statusText);
+        const data: QuestionData | ResultData | TitleWithContentData =
+          await response.json();
+
+        if (data.__typename === "ContentfulTitleWithContent") {
+          setNextStep({ nextNoResult: data });
+          setState((state) => ({
+            ...state,
+            noResult: data,
+            result: undefined,
+            isLoading: false,
+            isComplete: true
+          }));
+        } else if (data.__typename === "ContentfulSystemConfiguratorQuestion") {
+          setNextStep({ nextQuestion: data });
+          setState((state) => ({
+            ...state,
+            noResult: undefined,
+            result: undefined,
+            isLoading: false,
+            isComplete: false
+          }));
+        } else if (data.__typename === "ContentfulSystemConfiguratorResult") {
+          setNextStep({ nextResult: data });
+          setState((state) => ({
+            ...state,
+            noResult: undefined,
+            result: data,
+            isLoading: false,
+            isComplete: true
+          }));
+        }
+      } catch (error) {
+        devLog(error);
+        controller.abort();
+        setState((state) => ({
+          ...state,
+          error,
+          isLoading: false
+        }));
       }
-
-      const data: QuestionData | ResultData | TitleWithContentData =
-        await response.json();
-
-      if (data.__typename === "ContentfulTitleWithContent") {
-        setNextStep({ nextNoResult: data });
-        setState((state) => ({
-          ...state,
-          noResult: data,
-          result: undefined,
-          isLoading: false,
-          isComplete: true
-        }));
-      } else if (data.__typename === "ContentfulSystemConfiguratorQuestion") {
-        setNextStep({ nextQuestion: data });
-        setState((state) => ({
-          ...state,
-          noResult: undefined,
-          result: undefined,
-          isLoading: false,
-          isComplete: false
-        }));
-      } else if (data.__typename === "ContentfulSystemConfiguratorResult") {
-        setNextStep({ nextResult: data });
-        setState((state) => ({
-          ...state,
-          noResult: undefined,
-          result: data,
-          isLoading: false,
-          isComplete: true
-        }));
-      }
-    } catch (error) {
-      devLog(error);
-      controller.abort();
-      setState((state) => ({
-        ...state,
-        error,
-        isLoading: false
-      }));
-    }
-  }, []);
+    },
+    [executeRecaptcha]
+  );
 
   useEffect(() => {
     if ((selectedAnswer && isReload) || singleAnswer) {
@@ -292,6 +298,7 @@ const SystemConfiguratorQuestion = ({
           stateSoFar={allStateSoFar}
           isReload={isReload}
           question={nextStep.nextQuestion}
+          executeRecaptcha={executeRecaptcha}
         />
       ) : null}
     </>
@@ -315,7 +322,10 @@ const SystemConfiguratorNoResult = ({
 
   return (
     <div ref={ref}>
-      <Section backgroundColor="alabaster">
+      <Section
+        backgroundColor="alabaster"
+        data-testid={`system-configuration-section-${replaceSpaces(title)}`}
+      >
         <Section.Title>{title}</Section.Title>
         <RichText document={content} />
       </Section>
@@ -333,9 +343,7 @@ const SystemConfiguratorResult = ({
   const { countryCode } = useSiteContext();
   const [recommendedSystemPimObjects, setRecommendedSystemPimObjects] =
     useState<EsSystem[]>([]);
-  const {
-    config: { esIndexNameSystem }
-  } = useConfig();
+  const { esIndexNameSystem } = useConfig();
 
   useEffect(() => {
     const fetchESData = async () => {
@@ -384,6 +392,7 @@ const SystemConfiguratorResult = ({
       <Section
         backgroundColor="pearl"
         className={styles["SystemConfigurator-result"]}
+        data-testid={`system-configuration-section-${replaceSpaces(title)}`}
       >
         <Section.Title className={styles["title"]}>{title}</Section.Title>
         {description && (
@@ -393,7 +402,11 @@ const SystemConfiguratorResult = ({
         )}
         {recommendedSystems.length > 0 &&
           recommendedSystemPimObjects.length > 0 && (
-            <Grid container spacing={3}>
+            <Grid
+              container
+              spacing={3}
+              data-testid="system-configuration-results-grid"
+            >
               {recommendedSystemPimObjects.map((system, id) => {
                 const linkToSDP = `${system.path}/?selected_system=${system.code}&prev_page=${window.location.pathname}&referer=sys_details`;
                 return (
@@ -427,6 +440,7 @@ const SystemConfiguratorSection = ({ data }: { data: Data }) => {
   const [storedAnswers, setStoredAnswers] =
     useState<StoredStateType>(undefined);
   const location = useLocation();
+  const { executeRecaptcha } = useGoogleReCaptcha();
   // useLayoutEffect for getting value from local storage
   // as Local storage in ssr value appears after first rendering
   // see useStickyState hook
@@ -472,7 +486,7 @@ const SystemConfiguratorSection = ({ data }: { data: Data }) => {
 
   return (
     <>
-      {isLoading ? (
+      {isLoading || !executeRecaptcha ? (
         <Scrim theme="light">
           <ProgressIndicator theme="light" />
         </Scrim>
@@ -480,11 +494,11 @@ const SystemConfiguratorSection = ({ data }: { data: Data }) => {
       <Section
         backgroundColor="white"
         className={styles["SystemConfigurator"]}
-        data-testid="system-config-section"
+        data-testid={`system-configuration-section-${replaceSpaces(title)}`}
       >
         <Section.Title>{title}</Section.Title>
         {description && <RichText document={description} />}
-        {storedAnswers ? (
+        {storedAnswers && executeRecaptcha ? (
           <SystemConfiguratorContext.Provider value={{ ...state, setState }}>
             <SystemConfiguratorQuestion
               key={question.id}
@@ -493,6 +507,7 @@ const SystemConfiguratorSection = ({ data }: { data: Data }) => {
               storedAnswers={storedAnswers.selectedAnswers}
               isReload={(referer || "").length > 0}
               question={question}
+              executeRecaptcha={executeRecaptcha}
             />
           </SystemConfiguratorContext.Provider>
         ) : null}

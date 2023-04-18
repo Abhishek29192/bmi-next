@@ -30,12 +30,8 @@ const IntegratedSignupBlock = ({
   data?: Data;
   theme?: SignupBlockColor;
 }) => {
-  if (!data) {
-    return null;
-  }
   const { getMicroCopy } = useSiteContext();
   const [dialogOpen, setDialogOpen] = useState(false);
-  const { title, description, signupLabel, signupDialogContent } = data;
   const GTMButton = withGTM<ButtonProps>(Button);
   const [formSubmitted, setFormSubmitted] = useState<boolean>(false);
   const [hubSpotForm, setHubSpotForm] = useState<HTMLFormElement | null>(null);
@@ -43,6 +39,12 @@ const IntegratedSignupBlock = ({
   const [legalConsentProcessing, setLegalConsentProcessing] = useState(false);
   const [legalConsentSubscription, setLegalConsentSubscription] =
     useState(false);
+
+  if (!data) {
+    return null;
+  }
+
+  const { title, description, signupLabel, signupDialogContent } = data;
 
   const onSuccess = () => {
     setFormSubmitted(true);
@@ -100,8 +102,15 @@ const IntegratedSignupBlock = ({
         }}
       />
       {dialogOpen && (
-        <Dialog open={dialogOpen} onCloseClick={handleDialogClose}>
-          <Dialog.Title hasUnderline> {title} </Dialog.Title>
+        <Dialog
+          open={dialogOpen}
+          onCloseClick={handleDialogClose}
+          data-testid={"signup-block-dialog"}
+        >
+          <Dialog.Title hasUnderline className={styles["dialogTitle"]}>
+            {" "}
+            {title}{" "}
+          </Dialog.Title>
           <Dialog.Content>
             <FormSection
               data={signupDialogContent}
@@ -109,6 +118,7 @@ const IntegratedSignupBlock = ({
               isDialog
               onSuccess={onSuccess}
               onFormReady={onFormReady}
+              hasNoPadding
             />
           </Dialog.Content>
           <Dialog.Actions

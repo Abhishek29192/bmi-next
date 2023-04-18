@@ -5,7 +5,7 @@ import {
   DownloadListContext,
   Pagination
 } from "@bmi-digital/components";
-import { useMediaQuery } from "@mui/material";
+import { Box, useMediaQuery } from "@mui/material";
 import { styled, useTheme } from "@mui/material/styles";
 import classnames from "classnames";
 import fetch, { Response } from "node-fetch";
@@ -13,7 +13,7 @@ import React, { useContext } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { QA_AUTH_TOKEN } from "../constants/cookieConstants";
 import { microCopy } from "../constants/microCopies";
-import { EnvConfig, useConfig } from "../contexts/ConfigProvider";
+import { Config, useConfig } from "../contexts/ConfigProvider";
 import { DocumentResultData } from "../templates/documentLibrary/components/DocumentResults";
 import { downloadAs, getDownloadLink } from "../utils/client-download";
 import { devLog } from "../utils/devLog";
@@ -32,13 +32,13 @@ const classes = {
   paginationRoot: `${PREFIX}-paginationRoot`
 };
 
-const StyledPagination = styled(Pagination)(({ theme }) => ({
+const StyledPagination = styled(Pagination)({
   [`&.${classes.paginationRoot}`]: {
     "& ul": {
       justifyContent: "flex-end"
     }
   }
-}));
+});
 
 type Props = {
   page: number;
@@ -51,7 +51,7 @@ const GTMButton = withGTM<ButtonProps>(Button);
 
 export const handleDownloadClick = async (
   list: Record<string, any>,
-  config: EnvConfig["config"],
+  config: Config,
   token?: string,
   callback?: () => void,
   qaAuthToken?: string
@@ -168,22 +168,28 @@ const DocumentResultsFooter = ({
 }: Props) => {
   const { getMicroCopy } = useSiteContext();
   const { resetList, list } = useContext(DownloadListContext);
-  const { config } = useConfig();
+  const config = useConfig();
   const { executeRecaptcha } = useGoogleReCaptcha();
   const qaAuthToken = getCookie(QA_AUTH_TOKEN);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
+  const displayPagination = count > 1;
 
   return (
-    <div className={styles["DocumentResultsFooter"]}>
-      <StyledPagination
-        page={page}
-        onChange={onPageChange}
-        count={count}
-        className={classnames(styles["pagination"], classes.paginationRoot)}
-      />
+    <div
+      className={styles["DocumentResultsFooter"]}
+      data-testid="document-results-footer"
+    >
+      {displayPagination && (
+        <StyledPagination
+          page={page}
+          onChange={onPageChange}
+          count={count}
+          className={classnames(styles["pagination"], classes.paginationRoot)}
+        />
+      )}
       {isDownloadButton && !isMobile && (
-        <>
+        <Box mt={4}>
           <DownloadList.Clear
             label={getMicroCopy(microCopy.DOWNLOAD_LIST_CLEAR)}
             className={styles["clear-downloads"]}
@@ -215,7 +221,7 @@ const DocumentResultsFooter = ({
             data-testid="document-table-download-button"
           />
           <RecaptchaPrivacyLinks />
-        </>
+        </Box>
       )}
     </div>
   );

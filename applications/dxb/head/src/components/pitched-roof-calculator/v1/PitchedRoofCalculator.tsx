@@ -1,4 +1,4 @@
-import { ContainerDialog } from "@bmi-digital/components";
+import { ContainerDialog, useIsClient } from "@bmi-digital/components";
 import React, { Suspense, useCallback, useEffect, useState } from "react";
 import { AnalyticsContext, OnAnalyticsEvent } from "../helpers/analytics";
 import { Data } from "../types";
@@ -58,7 +58,7 @@ const PitchedRoofCalculator = ({
     }
   }, [isOpen]);
 
-  const isSSR = typeof window === "undefined";
+  const { isClient } = useIsClient();
 
   const loading = (
     <div className={styles["spinnerContainer"]}>
@@ -87,7 +87,7 @@ const PitchedRoofCalculator = ({
         }}
       >
         <div className={styles["PitchedRoofCalculator"]}>
-          {!isSSR ? (
+          {isClient ? (
             <Suspense fallback={loading}>
               {data ? (
                 <PitchedRoofCalculatorSteps

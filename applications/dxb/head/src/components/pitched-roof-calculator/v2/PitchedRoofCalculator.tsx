@@ -1,7 +1,8 @@
 import {
   BMI as brandLogo,
   ContainerDialog,
-  Icon
+  Icon,
+  useIsClient
 } from "@bmi-digital/components";
 import { LinearProgress } from "@mui/material";
 import { graphql } from "gatsby";
@@ -59,9 +60,10 @@ const PitchedRoofCalculator = ({
     CalculatorSteps.SelectRoof
   );
 
+  const { isClient } = useIsClient();
+
   // eslint-disable-next-line security/detect-object-injection
   const progress = stepProgress[selected];
-  const isSSR = typeof window === "undefined";
 
   const loading = (
     <div className={styles["spinnerContainer"]}>
@@ -102,7 +104,7 @@ const PitchedRoofCalculator = ({
           />
         </ContainerDialog.Header>
         <div className={styles["dialogBody"]}>
-          {!isSSR ? (
+          {isClient ? (
             <Suspense fallback={loading}>
               <PitchedRoofCalculatorSteps
                 isDebugging={isDebugging}

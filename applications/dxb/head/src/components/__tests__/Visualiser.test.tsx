@@ -1,4 +1,4 @@
-import { ThemeProvider, Button } from "@bmi-digital/components";
+import { Button, ThemeProvider } from "@bmi-digital/components";
 import React from "react";
 import { mockResponses } from "@bmi-digital/fetch-mocks";
 import { createProduct, Product } from "@bmi/elasticsearch-types";
@@ -14,7 +14,7 @@ import { SiteContextProvider } from "../Site";
 import { shareWidgetData } from "../../templates/simplePage/__mocks__/simplePage";
 import { Data as ShareWidgetSectionData } from "../ShareWidgetSection";
 import Visualiser, { VisualiserContext } from "../Visualiser";
-import { ConfigProvider, EnvConfig } from "../../contexts/ConfigProvider";
+import { Config, ConfigProvider } from "../../contexts/ConfigProvider";
 import { devLog } from "../../utils/devLog";
 import { getMockSiteContext } from "./utils/SiteContextProvider";
 
@@ -79,14 +79,14 @@ const renderWithProvider = (
     config,
     route = `/no?tileId=${tile.code}`
   }: {
-    config?: EnvConfig["config"];
+    config?: Partial<Config>;
     route?: string;
   }
 ) => {
   const history = createHistory(createMemorySource(route));
 
   const utils = rtlRender(
-    <ConfigProvider configObject={config}>
+    <ConfigProvider configOverride={config}>
       <ThemeProvider>
         <LocationProvider history={history}>
           <SiteContextProvider value={getMockSiteContext("no")}>

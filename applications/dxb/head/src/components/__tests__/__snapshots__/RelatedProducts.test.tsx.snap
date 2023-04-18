@@ -5,8 +5,8 @@ exports[`RelatedProducts component renders correctly with no related products 1`
 exports[`RelatedProducts component renders correctly with related products 1`] = `
 <div>
   <div
-    class="Section-root Section-alabaster css-cxq310"
-    data-testid="section"
+    class="Section-root Section-alabaster css-10chrh8"
+    data-testid="related-products-section"
   >
     <div
       class=" css-ze8cyt"
@@ -15,7 +15,7 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
           data-testid="typography"
         >
           MC: pdp.relatedProducts.title
@@ -74,7 +74,7 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
                           aria-controls="tabpanel-group"
                           aria-selected="true"
                           class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                          data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"group\\",\\"action\\":\\"Filter – Related Products\\"}"
+                          data-gtm="{"id":"related-products-filter1","label":"group","action":"Filter – Related Products"}"
                           data-testid="tab-group"
                           id="tab-group"
                           role="tab"
@@ -116,14 +116,14 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
             </div>
             <div
               aria-labelledby="tab-group"
-              class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
+              class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-923awc"
               data-testid="tabpanel-group"
               heading="group"
               id="tabpanel-group"
               role="tabpanel"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
                 data-testid="grid-container"
               >
                 <div
@@ -131,8 +131,8 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
                   data-testid="grid-item"
                 >
                   <a
-                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-iozq77-MuiButtonBase-root"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/path/\\"}"
+                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                    data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
                     data-testid="GTMOverviewCard"
                     href="/en/path/"
                     tabindex="0"
@@ -149,19 +149,19 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
                         class="OverviewCard-brandLogo OverviewCard-negative"
                       />
                       <h5
-                        class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-10q7alf-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
                         data-testid="overview-card-body-title"
                       >
                         name
                       </h5>
                       <h6
-                        class="MuiTypography-root MuiTypography-h6 OverviewCard-text css-1le86ss-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h6 OverviewCard-text css-1nuwz6u-MuiTypography-root"
                         data-testid="overview-card-body-subtitle"
                       >
                         Shadow Black, Gloss, 6x7x8symbol
                       </h6>
                       <div
-                        class="OverviewCard-text css-fm25tm"
+                        class="OverviewCard-text css-kl66ak"
                         data-testid="overview-card-body-description"
                       >
                         MC: pdp.nobb.label
@@ -172,11 +172,11 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
                         </b>
                       </div>
                       <div
-                        class="css-1tho2wt"
+                        class="css-ekp6jg"
                         data-testid="overview-card-body-footer"
                       >
                         <span
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways footer-anchor-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                           data-testid="anchor-link"
                           type="button"
                         >
@@ -185,7 +185,7 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
                           </span>
                           <svg
                             aria-hidden="true"
-                            class=" css-em5iqk"
+                            class=" css-1r2mexx"
                             data-testid="internal"
                             focusable="false"
                             viewBox="0 0 16 16"
@@ -218,8 +218,8 @@ exports[`RelatedProducts component renders correctly with related products witho
 exports[`RelatedProducts component renders correctly without Brand and External Product code on related products 1`] = `
 <div>
   <div
-    class="Section-root Section-alabaster css-cxq310"
-    data-testid="section"
+    class="Section-root Section-alabaster css-10chrh8"
+    data-testid="related-products-section"
   >
     <div
       class=" css-ze8cyt"
@@ -228,7 +228,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
           data-testid="typography"
         >
           MC: pdp.relatedProducts.title
@@ -287,7 +287,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                           aria-controls="tabpanel-group"
                           aria-selected="true"
                           class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                          data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"group\\",\\"action\\":\\"Filter – Related Products\\"}"
+                          data-gtm="{"id":"related-products-filter1","label":"group","action":"Filter – Related Products"}"
                           data-testid="tab-group"
                           id="tab-group"
                           role="tab"
@@ -329,14 +329,14 @@ exports[`RelatedProducts component renders correctly without Brand and External 
             </div>
             <div
               aria-labelledby="tab-group"
-              class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
+              class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-923awc"
               data-testid="tabpanel-group"
               heading="group"
               id="tabpanel-group"
               role="tabpanel"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
                 data-testid="grid-container"
               >
                 <div
@@ -344,8 +344,8 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                   data-testid="grid-item"
                 >
                   <a
-                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-iozq77-MuiButtonBase-root"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/path/\\"}"
+                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                    data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
                     data-testid="GTMOverviewCard"
                     href="/en/path/"
                     tabindex="0"
@@ -362,19 +362,19 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                         class="OverviewCard-brandLogo OverviewCard-negative"
                       />
                       <h5
-                        class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-10q7alf-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
                         data-testid="overview-card-body-title"
                       >
                         name
                       </h5>
                       <h6
-                        class="MuiTypography-root MuiTypography-h6 OverviewCard-text css-1le86ss-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h6 OverviewCard-text css-1nuwz6u-MuiTypography-root"
                         data-testid="overview-card-body-subtitle"
                       >
                         Shadow Black, Gloss, 6x7x8symbol
                       </h6>
                       <div
-                        class="OverviewCard-text css-fm25tm"
+                        class="OverviewCard-text css-kl66ak"
                         data-testid="overview-card-body-description"
                       >
                         MC: pdp.nobb.label
@@ -385,11 +385,11 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                         </b>
                       </div>
                       <div
-                        class="css-1tho2wt"
+                        class="css-ekp6jg"
                         data-testid="overview-card-body-footer"
                       >
                         <span
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways footer-anchor-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                           data-testid="anchor-link"
                           type="button"
                         >
@@ -398,7 +398,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                           </span>
                           <svg
                             aria-hidden="true"
-                            class=" css-em5iqk"
+                            class=" css-1r2mexx"
                             data-testid="internal"
                             focusable="false"
                             viewBox="0 0 16 16"
@@ -421,8 +421,8 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                   data-testid="grid-item"
                 >
                   <a
-                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-iozq77-MuiButtonBase-root"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/path/\\"}"
+                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                    data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
                     data-testid="GTMOverviewCard"
                     href="/en/path/"
                     tabindex="0"
@@ -439,27 +439,27 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                         class="OverviewCard-brandLogo OverviewCard-negative"
                       />
                       <h5
-                        class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-10q7alf-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
                         data-testid="overview-card-body-title"
                       >
                         name
                       </h5>
                       <h6
-                        class="MuiTypography-root MuiTypography-h6 OverviewCard-text css-1le86ss-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h6 OverviewCard-text css-1nuwz6u-MuiTypography-root"
                         data-testid="overview-card-body-subtitle"
                       >
                         Shadow Black, Gloss, 6x7x8symbol
                       </h6>
                       <div
-                        class="OverviewCard-text css-fm25tm"
+                        class="OverviewCard-text css-kl66ak"
                         data-testid="overview-card-body-description"
                       />
                       <div
-                        class="css-1tho2wt"
+                        class="css-ekp6jg"
                         data-testid="overview-card-body-footer"
                       >
                         <span
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways footer-anchor-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                           data-testid="anchor-link"
                           type="button"
                         >
@@ -468,7 +468,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                           </span>
                           <svg
                             aria-hidden="true"
-                            class=" css-em5iqk"
+                            class=" css-1r2mexx"
                             data-testid="internal"
                             focusable="false"
                             viewBox="0 0 16 16"
@@ -491,8 +491,8 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                   data-testid="grid-item"
                 >
                   <a
-                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-iozq77-MuiButtonBase-root"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/path/\\"}"
+                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                    data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
                     data-testid="GTMOverviewCard"
                     href="/en/path/"
                     tabindex="0"
@@ -509,27 +509,27 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                         class="OverviewCard-brandLogo OverviewCard-negative"
                       />
                       <h5
-                        class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-10q7alf-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
                         data-testid="overview-card-body-title"
                       >
                         name
                       </h5>
                       <h6
-                        class="MuiTypography-root MuiTypography-h6 OverviewCard-text css-1le86ss-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h6 OverviewCard-text css-1nuwz6u-MuiTypography-root"
                         data-testid="overview-card-body-subtitle"
                       >
                         Shadow Black, Gloss, 6x7x8symbol
                       </h6>
                       <div
-                        class="OverviewCard-text css-fm25tm"
+                        class="OverviewCard-text css-kl66ak"
                         data-testid="overview-card-body-description"
                       />
                       <div
-                        class="css-1tho2wt"
+                        class="css-ekp6jg"
                         data-testid="overview-card-body-footer"
                       >
                         <span
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways footer-anchor-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                           data-testid="anchor-link"
                           type="button"
                         >
@@ -538,7 +538,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                           </span>
                           <svg
                             aria-hidden="true"
-                            class=" css-em5iqk"
+                            class=" css-1r2mexx"
                             data-testid="internal"
                             focusable="false"
                             viewBox="0 0 16 16"
@@ -569,8 +569,8 @@ exports[`RelatedProducts component renders correctly without Brand and External 
 exports[`RelatedProducts component renders with correct gtmLabel 1`] = `
 <div>
   <div
-    class="Section-root Section-alabaster css-cxq310"
-    data-testid="section"
+    class="Section-root Section-alabaster css-10chrh8"
+    data-testid="related-products-section"
   >
     <div
       class=" css-ze8cyt"
@@ -579,7 +579,7 @@ exports[`RelatedProducts component renders with correct gtmLabel 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
           data-testid="typography"
         >
           MC: pdp.relatedProducts.title
@@ -638,7 +638,7 @@ exports[`RelatedProducts component renders with correct gtmLabel 1`] = `
                           aria-controls="tabpanel-group"
                           aria-selected="true"
                           class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                          data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"group\\",\\"action\\":\\"Filter – Related Products\\"}"
+                          data-gtm="{"id":"related-products-filter1","label":"group","action":"Filter – Related Products"}"
                           data-testid="tab-group"
                           id="tab-group"
                           role="tab"
@@ -680,14 +680,14 @@ exports[`RelatedProducts component renders with correct gtmLabel 1`] = `
             </div>
             <div
               aria-labelledby="tab-group"
-              class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
+              class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-923awc"
               data-testid="tabpanel-group"
               heading="group"
               id="tabpanel-group"
               role="tabpanel"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
                 data-testid="grid-container"
               >
                 <div
@@ -695,8 +695,8 @@ exports[`RelatedProducts component renders with correct gtmLabel 1`] = `
                   data-testid="grid-item"
                 >
                   <a
-                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-iozq77-MuiButtonBase-root"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/path/\\"}"
+                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                    data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
                     data-testid="GTMOverviewCard"
                     href="/en/path/"
                     tabindex="0"
@@ -713,19 +713,19 @@ exports[`RelatedProducts component renders with correct gtmLabel 1`] = `
                         class="OverviewCard-brandLogo OverviewCard-negative"
                       />
                       <h5
-                        class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-10q7alf-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
                         data-testid="overview-card-body-title"
                       >
                         name
                       </h5>
                       <h6
-                        class="MuiTypography-root MuiTypography-h6 OverviewCard-text css-1le86ss-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h6 OverviewCard-text css-1nuwz6u-MuiTypography-root"
                         data-testid="overview-card-body-subtitle"
                       >
                         Shadow Black, Gloss, 6x7x8symbol
                       </h6>
                       <div
-                        class="OverviewCard-text css-fm25tm"
+                        class="OverviewCard-text css-kl66ak"
                         data-testid="overview-card-body-description"
                       >
                         MC: pdp.nobb.label
@@ -736,11 +736,11 @@ exports[`RelatedProducts component renders with correct gtmLabel 1`] = `
                         </b>
                       </div>
                       <div
-                        class="css-1tho2wt"
+                        class="css-ekp6jg"
                         data-testid="overview-card-body-footer"
                       >
                         <span
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways footer-anchor-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                           data-testid="anchor-link"
                           type="button"
                         >
@@ -749,7 +749,7 @@ exports[`RelatedProducts component renders with correct gtmLabel 1`] = `
                           </span>
                           <svg
                             aria-hidden="true"
-                            class=" css-em5iqk"
+                            class=" css-1r2mexx"
                             data-testid="internal"
                             focusable="false"
                             viewBox="0 0 16 16"

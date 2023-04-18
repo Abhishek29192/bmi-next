@@ -13,3 +13,9 @@ export type MessageFunction = (
 export type ProductDocumentNameMap =
   | "Product name + asset type"
   | "Document name";
+
+export type ContentfulAssetType = {
+  code: string;
+  name: string;
+  pimCode: string;
+};

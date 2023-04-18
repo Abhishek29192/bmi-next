@@ -1,6 +1,7 @@
 import { FormContext, ThemeProvider } from "@bmi-digital/components";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import React from "react";
+import { AnalyticsContext } from "../../helpers/analytics";
 import { MicroCopy } from "../../helpers/microCopy";
 import { createProduct } from "../../helpers/products";
 import en from "../../samples/copy/en.json";
@@ -23,20 +24,13 @@ const tiles: Tile[] = [
 ];
 
 const pushEvent = jest.fn();
-jest.mock("../../helpers/analytics", () => {
-  const actual = jest.requireActual("../../helpers/analytics");
-  return {
-    ...actual,
-    useAnalyticsContext: () => pushEvent
-  };
-});
 
 afterEach(() => {
   jest.clearAllMocks();
 });
 
 describe("PitchedRoofCalculator VariantSelection component", () => {
-  it("calls analytics event", () => {
+  it("calls analytics event", async () => {
     render(
       <ThemeProvider>
         <MicroCopy.Provider values={en}>
@@ -48,14 +42,16 @@ describe("PitchedRoofCalculator VariantSelection component", () => {
               values: {}
             }}
           >
-            <VariantSelection options={tiles} />
+            <AnalyticsContext.Provider value={pushEvent}>
+              <VariantSelection options={tiles} />
+            </AnalyticsContext.Provider>
           </FormContext.Provider>
         </MicroCopy.Provider>
       </ThemeProvider>
     );
 
     fireEvent.click(screen.getByText(tiles[0].color));
-    waitFor(() => expect(pushEvent).toBeCalledTimes(1));
+    await waitFor(() => expect(pushEvent).toBeCalledTimes(1));
   });
 
   it("renders with no variants", () => {

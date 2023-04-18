@@ -10,8 +10,6 @@ import {
   Typography
 } from "@bmi-digital/components";
 import { SVGImport } from "@bmi-digital/svg-import";
-import { useTheme } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import classnames from "classnames";
 import React from "react";
 import { microCopy } from "../../../constants/microCopies";
@@ -55,14 +53,13 @@ export const ServiceLocatorResultList = ({
   pageCount
 }: ResultListProps) => {
   const { getMicroCopy } = useSiteContext();
-  const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up("lg"));
 
   return roofersList.length ? (
     <div
       className={classnames({
         [styles["results-list-section"]]: pageCount > 1
       })}
+      data-testid={"results-list-section"}
     >
       <div className={styles["list"]}>
         {roofersList.map((service) => (
@@ -73,12 +70,14 @@ export const ServiceLocatorResultList = ({
             isOpen={selectedRoofer && selectedRoofer.id === service.id}
             title={service.name}
             logo={
-              <Image
-                data={service.companyLogo}
-                className={styles["company-logo"]}
-              />
+              service.companyLogo && (
+                <Image
+                  className={styles["company-logo"]}
+                  {...service.companyLogo}
+                />
+              )
             }
-            gtm={getResultDataGtm(service, matches)}
+            gtm={getResultDataGtm(service)}
             data-testid={"GTMIntegratedLinkCard-test-id"}
             subtitle={
               <>
