@@ -1,44 +1,24 @@
-import { IncomingHttpHeaders } from "http";
 import logger from "@bmi-digital/functions-logger";
 import { Status } from "simple-http-status";
-import { getList, saveBuildStatus } from "./db";
-import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
+import { BuildLog } from "@bmi/firestore-types";
+import { getFirestore } from "@bmi/functions-firestore";
+import { GatsbyLog as RequestBody, BuildStatusType } from "./types";
+import type { HttpFunction } from "@google-cloud/functions-framework";
 
-type BuildStatusBase = {
-  timestamp: number;
-  event: string;
-};
-
-export type BuildStatusData = BuildStatusBase & {
-  body: string;
-  isError: boolean;
-};
-export type ContentfulTriggeredBuildStatusData = BuildStatusBase & {
-  userId: string;
-};
-
-const getIsValidToken = (headers: IncomingHttpHeaders) => {
-  const auth = headers.authorization || headers.Authorization;
-  return Boolean(auth && auth === `Bearer ${process.env.BEARER_TOKEN_SECRET}`);
-};
+const firestore = getFirestore();
 
 export const buildStatusLogger: HttpFunction = async (req, res) => {
-  if (!process.env.FIRESTORE_BUILD_STATUS_COLLECTION) {
+  if (!process.env.GCP_PROJECT_ID) {
     logger.error({
-      message: "FIRESTORE_BUILD_STATUS_COLLECTION has not been set"
+      message: "GCP_PROJECT_ID has not been set"
     });
     return res.sendStatus(Status.HTTP_500_INTERNAL_SERVER_ERROR);
   }
 
-  if (!process.env.FIRESTORE_TRIGGERED_BUILDS_COLLECTION) {
+  if (!process.env.FIRESTORE_ROOT_COLLECTION) {
     logger.error({
-      message: "FIRESTORE_BUILD_STATUS_COLLECTION has not been set"
+      message: "FIRESTORE_ROOT_COLLECTION has not been set"
     });
-    return res.sendStatus(Status.HTTP_500_INTERNAL_SERVER_ERROR);
-  }
-
-  if (!process.env.BEARER_TOKEN_SECRET) {
-    logger.error({ message: "BEARER_TOKEN_SECRET has not been set" });
     return res.sendStatus(Status.HTTP_500_INTERNAL_SERVER_ERROR);
   }
 
@@ -46,63 +26,44 @@ export const buildStatusLogger: HttpFunction = async (req, res) => {
     res.set("Access-Control-Allow-Origin", "*");
 
     if (req.method === "OPTIONS") {
-      res.set("Access-Control-Allow-Methods", "POST,GET");
+      res.set("Access-Control-Allow-Methods", "POST");
       res.set("Access-Control-Allow-Headers", [
         "Content-Type",
-        "Access-Control-Allow-Origin",
-        "Authorization"
+        "Access-Control-Allow-Origin"
       ]);
       res.set("Access-Control-Max-Age", "3600");
       return res.sendStatus(Status.HTTP_204_NO_CONTENT);
     }
+    res.set("Content-Type", "application/json");
 
-    if (req.body && req.method === "POST") {
-      res.set("Content-Type", "application/json");
-      let eventDetails: ContentfulTriggeredBuildStatusData | BuildStatusData;
-      let collectionId;
-      if (req.headers["x-contentful-webhook-name"]) {
-        eventDetails = {
-          event: "BUILD TRIGGERED",
-          timestamp: new Date(req.body.sys.updatedAt).getTime(),
-          userId: req.body.sys.updatedBy.sys.id
-        };
-        collectionId = process.env.FIRESTORE_TRIGGERED_BUILDS_COLLECTION!;
-      } else {
-        const { event, body } = req.body;
+    const { event: eventType, body, buildId }: RequestBody = req.body;
 
-        eventDetails = {
-          event: event.replace("_", " "),
-          isError: event.includes("FAILED"),
-          timestamp: new Date().getTime(),
-          body: body
-        };
-        collectionId = process.env.FIRESTORE_BUILD_STATUS_COLLECTION!;
-      }
-
-      await saveBuildStatus(eventDetails, collectionId);
-
-      logger.info({
-        message: `Stored Data for ${collectionId}: ${JSON.stringify(
-          eventDetails
-        )}`
-      });
-
-      return res.status(Status.HTTP_201_CREATED).send(eventDetails);
-    } else if (req.method === "GET") {
-      const valid = getIsValidToken(req.headers);
-      if (!valid) {
-        return res.status(Status.HTTP_401_UNAUTHORIZED).send({
-          message: "Please provide a valid access token."
-        });
-      }
-      const buildStatusDetailsResponse = await getList(
-        Number(process.env.LOGS_LIST_SIZE) || 5
-      );
-      if (buildStatusDetailsResponse) {
-        return res.status(Status.HTTP_200_OK).send(buildStatusDetailsResponse);
-      }
+    if (!eventType || !body || !buildId) {
+      return res
+        .status(Status.HTTP_400_BAD_REQUEST)
+        .send("Fields 'event', 'body', and 'buildId' are required");
     }
-  } catch (err: any) {
+
+    const eventDetails: BuildLog = {
+      eventType,
+      timestamp: new Date().getTime(),
+      body,
+      buildId
+    };
+
+    const isPreviewEvent = getIsPreviewEvent(eventType);
+    const docPath = `${process.env.FIRESTORE_ROOT_COLLECTION}/root/${
+      isPreviewEvent ? "preview" : "production"
+    }/${buildId}`;
+
+    await firestore.doc(docPath).set(eventDetails);
+
+    logger.info({
+      message: `Stored Data for ${docPath}: ${JSON.stringify(eventDetails)}`
+    });
+
+    return res.status(Status.HTTP_201_CREATED).send(eventDetails);
+  } catch (err) {
     logger.error({ message: (err as Error).message });
 
     return res.status(Status.HTTP_500_INTERNAL_SERVER_ERROR).send({
@@ -110,3 +71,10 @@ export const buildStatusLogger: HttpFunction = async (req, res) => {
     });
   }
 };
+
+const getIsPreviewEvent = (eventType: BuildStatusType): boolean =>
+  [
+    BuildStatusType.PREVIEW_FAILED,
+    BuildStatusType.PREVIEW_SUCCEEDED,
+    BuildStatusType.PREVIEW_TIMED_OUT
+  ].includes(eventType);
