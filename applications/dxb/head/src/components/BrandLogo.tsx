@@ -89,7 +89,6 @@ export type Logo =
   | "Wolfin"
   | "Zanda"
   | string; // Handle PIM data
-
 export const getLogo = (logo?: Logo) => {
   switch (logo) {
     case "AeroDek":
@@ -179,13 +178,11 @@ export const getLogo = (logo?: Logo) => {
       return undefined;
   }
 };
-
 type Props = {
   brandName: Logo;
   className?: string;
   brandWhiteBox?: boolean;
 };
-
 const BrandLogo = ({
   brandName,
   className,
@@ -193,18 +190,18 @@ const BrandLogo = ({
   ...props
 }: Props) => {
   const iconLogo = getLogo(brandName);
-
   return iconLogo ? (
     <Logo
       source={iconLogo}
-      className={classnames(styles["BrandLogo"], className, {
-        [styles["BrandLogo-whiteBox"]]: brandWhiteBox
-      })}
+      className={classnames(
+        styles["BrandLogo"],
+        className,
+        brandWhiteBox && styles["BrandLogo-whiteBox"]
+      )}
       boxed={brandWhiteBox}
       data-testid={"brand-logo"}
       {...props}
     />
   ) : null;
 };
-
 export default BrandLogo;
