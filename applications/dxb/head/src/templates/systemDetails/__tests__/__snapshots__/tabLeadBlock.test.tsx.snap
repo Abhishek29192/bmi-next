@@ -661,6 +661,12 @@ exports[`TabLeadBlock tests should render 1`] = `
                               class="MuiTableRow-root MuiTableRow-head css-47w8l6-MuiTableRow-root"
                             >
                               <th
+                                class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableHeader css-1tbee56-MuiTableCell-root"
+                                scope="col"
+                              >
+                                MC: documentLibrary.headers.add
+                              </th>
+                              <th
                                 class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
                                 scope="col"
                               >
@@ -673,16 +679,16 @@ exports[`TabLeadBlock tests should render 1`] = `
                                 MC: documentLibrary.headers.title
                               </th>
                               <th
-                                class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableHeader css-1tbee56-MuiTableCell-root"
+                                class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
                                 scope="col"
                               >
-                                MC: documentLibrary.headers.download
+                                MC: documentLibrary.headers.size
                               </th>
                               <th
                                 class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableHeader css-1tbee56-MuiTableCell-root"
                                 scope="col"
                               >
-                                MC: documentLibrary.headers.add
+                                MC: documentLibrary.headers.actions
                               </th>
                             </tr>
                           </thead>
@@ -694,79 +700,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                               data-testid="document-table-row-pim-link-document-id"
                             >
                               <td
-                                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
-                                data-testid="document-table-type-pim-link-document-id"
-                              >
-                                asset-name
-                              </td>
-                              <td
-                                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ggd0b4-MuiTableCell-root"
-                                data-testid="document-table-title-pim-link-document-id"
-                              >
-                                <p
-                                  class="css-1d9wl9h"
-                                >
-                                  pim-link-document-title
-                                </p>
-                              </td>
-                              <td
-                                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
-                                data-testid="document-table-download-pim-link-document-id"
-                              >
-                                <a
-                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                                  data-gtm="{"id":"download1","label":"Download","action":"http://localhost/pim-link-document-id"}"
-                                  data-testid="document-table-download-application/pdf-button"
-                                  href="http://localhost/pim-link-document-id"
-                                  rel="noopener noreferrer"
-                                  tabindex="0"
-                                  target="_blank"
-                                >
-                                  <span
-                                    class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
-                                  >
-                                    <svg
-                                      class="download-icon css-x3wokz"
-                                      viewBox="0 0 32 32"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        d="M0 0h32v32H0z"
-                                        fill="none"
-                                      />
-                                      <path
-                                        d="M21 2H8v28h21V10Z"
-                                        fill="#aeb1b1"
-                                      />
-                                      <path
-                                        d="M9 29V3h12v7h7v19Z"
-                                        fill="#fff"
-                                      />
-                                      <rect
-                                        fill="#d43533"
-                                        height="10"
-                                        rx="1"
-                                        width="21"
-                                        x="3"
-                                        y="15"
-                                      />
-                                      <g
-                                        fill="#fff"
-                                      >
-                                        <path
-                                          d="M6 23v-6h1.944c.737 0 2.556.132 2.556 2 0 1.9-1.95 2-2.5 2H7v2Zm1-5v2h.874c.672 0 1.474-.121 1.474-1 0-.814-.7-1-1.551-1ZM11 17h2.214A2.838 2.838 0 0 1 16 19.885V20a2.8 2.8 0 0 1-2.592 2.994.914.914 0 0 0-.128.006H11Zm1 1v4h1.116a1.757 1.757 0 0 0 1.9-1.602v-.004A1.729 1.729 0 0 0 15 20c0-1.628-1.222-2-2.244-2ZM17 23v-6h4v1h-3v1.5h2.5v1H18V23Z"
-                                        />
-                                      </g>
-                                    </svg>
-                                  </span>
-                                  10 B
-                                  <span
-                                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                                  />
-                                </a>
-                              </td>
-                              <td
-                                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1wzxo7t-MuiTableCell-root"
+                                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-hsmwoy-MuiTableCell-root"
                                 data-testid="document-table-add-pim-link-document-id"
                               >
                                 <span
@@ -775,7 +709,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                                   data-mui-internal-clone-element="true"
                                 >
                                   <div
-                                    class="MuiFormControl-root css-1gluykh-MuiFormControl-root"
+                                    class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
                                   >
                                     <label
                                       class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -809,13 +743,8 @@ exports[`TabLeadBlock tests should render 1`] = `
                                   </div>
                                 </span>
                               </td>
-                            </tr>
-                            <tr
-                              class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
-                              data-testid="document-table-row-pim-link-document-id"
-                            >
                               <td
-                                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
+                                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
                                 data-testid="document-table-type-pim-link-document-id"
                               >
                                 asset-name
@@ -824,46 +753,266 @@ exports[`TabLeadBlock tests should render 1`] = `
                                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ggd0b4-MuiTableCell-root"
                                 data-testid="document-table-title-pim-link-document-id"
                               >
-                                <p
-                                  class="css-1d9wl9h"
-                                >
-                                  pim-link-document-title
-                                </p>
-                              </td>
-                              <td
-                                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
-                                data-testid="document-table-download-pim-link-document-id"
-                              >
                                 <a
-                                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-pxqw1r-MuiButtonBase-root-MuiButton-root"
+                                  data-gtm="{"id":"download1","label":"Download","action":"http://localhost/pim-link-document-id"}"
+                                  data-testid="document-table-download-application/pdf-button"
                                   href="http://localhost/pim-link-document-id"
                                   rel="noopener noreferrer"
                                   tabindex="0"
                                   target="_blank"
                                 >
-                                  <svg
-                                    class="css-154ktap"
-                                    viewBox="0 0 32 32"
-                                    xmlns="http://www.w3.org/2000/svg"
+                                  <span
+                                    class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                                   >
-                                    <path
-                                      d="M28 2H10l-8 8v18a2.006 2.006 0 0 0 2 2h24a2.006 2.006 0 0 0 2-2V4a2.006 2.006 0 0 0-2-2Zm-4.12 8.54-6.96 6.96-2.41-2.41 6.96-6.96L18.34 5l8.65.01.01 8.65Z"
-                                    />
-                                  </svg>
+                                    <svg
+                                      class="download-icon css-z6lod7"
+                                      viewBox="0 0 32 32"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        d="M0 0h32v32H0z"
+                                        fill="none"
+                                      />
+                                      <path
+                                        d="M21 2H8v28h21V10Z"
+                                        fill="#aeb1b1"
+                                      />
+                                      <path
+                                        d="M9 29V3h12v7h7v19Z"
+                                        fill="#fff"
+                                      />
+                                      <rect
+                                        fill="#d43533"
+                                        height="10"
+                                        rx="1"
+                                        width="21"
+                                        x="3"
+                                        y="15"
+                                      />
+                                      <g
+                                        fill="#fff"
+                                      >
+                                        <path
+                                          d="M6 23v-6h1.944c.737 0 2.556.132 2.556 2 0 1.9-1.95 2-2.5 2H7v2Zm1-5v2h.874c.672 0 1.474-.121 1.474-1 0-.814-.7-1-1.551-1ZM11 17h2.214A2.838 2.838 0 0 1 16 19.885V20a2.8 2.8 0 0 1-2.592 2.994.914.914 0 0 0-.128.006H11Zm1 1v4h1.116a1.757 1.757 0 0 0 1.9-1.602v-.004A1.729 1.729 0 0 0 15 20c0-1.628-1.222-2-2.244-2ZM17 23v-6h4v1h-3v1.5h2.5v1H18V23Z"
+                                        />
+                                      </g>
+                                    </svg>
+                                  </span>
+                                  <p
+                                    class="css-1cigd93"
+                                  >
+                                    pim-link-document-title
+                                  </p>
                                   <span
                                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                                   />
                                 </a>
                               </td>
                               <td
-                                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1wzxo7t-MuiTableCell-root"
+                                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
+                                data-testid="document-table-size-pim-link-document-id"
+                              >
+                                10 B
+                              </td>
+                              <td
+                                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
+                                data-testid="document-table-actions-pim-link-document-id"
+                              >
+                                <div
+                                  class="css-aphyn4"
+                                >
+                                  <div
+                                    aria-label="MC: document.library.download.tooltip.title"
+                                    class=""
+                                    data-mui-internal-clone-element="true"
+                                    data-testid="tooltip"
+                                  >
+                                    <a
+                                      aria-label="Download pim-link-document-title"
+                                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                                      data-gtm="{"id":"download1","label":"Download","action":"http://localhost/pim-link-document-id"}"
+                                      data-testid="document-table-actions-download-pim-link-document-id"
+                                      href="http://localhost/pim-link-document-id"
+                                      rel="noopener noreferrer"
+                                      tabindex="0"
+                                      target="_blank"
+                                    >
+                                      <svg
+                                        class="css-546mkb"
+                                        viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <path
+                                          d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
+                                          fill="currentColor"
+                                        />
+                                      </svg>
+                                      <span
+                                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                      />
+                                    </a>
+                                  </div>
+                                  <div
+                                    aria-label="MC: document.library.copyLink.tooltip.title"
+                                    class="MuiBox-root css-zdpt2t"
+                                    data-mui-internal-clone-element="true"
+                                    data-testid="tooltip"
+                                  >
+                                    <button
+                                      aria-label="Copy pim-link-document-title"
+                                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                                      data-testid="document-table-actions-copy-url-pim-link-document-id"
+                                      tabindex="0"
+                                      type="button"
+                                    >
+                                      <svg
+                                        class="css-546mkb"
+                                        viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <path
+                                          d="M15.0786 3.99902H6.86837C6.11356 4.0012 5.50221 4.6036 5.5 5.34736V14.7857H6.86837V5.34736H15.0786V3.99902ZM17.1327 6.69556H9.60665C8.85184 6.69794 8.24049 7.35835 8.23828 8.17373V18.5209C8.24049 19.3363 8.85184 19.9967 9.60665 19.9991H17.1327C17.8875 19.9967 18.4989 19.3363 18.5011 18.5209V8.17373C18.4989 7.35835 17.8875 6.69794 17.1327 6.69556ZM17.1315 18.521H9.60547V8.17383H17.1315V18.521Z"
+                                        />
+                                      </svg>
+                                      <span
+                                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                      />
+                                    </button>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr
+                              class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
+                              data-testid="document-table-row-pim-link-document-id"
+                            >
+                              <td
+                                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-hsmwoy-MuiTableCell-root"
                                 data-testid="document-table-add-pim-link-document-id"
                               >
                                 <span
-                                  class="css-1ytj21s"
+                                  aria-label="MC: documents.download.maxReached"
+                                  class=""
+                                  data-mui-internal-clone-element="true"
                                 >
-                                  -
+                                  <div
+                                    class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                                  >
+                                    <label
+                                      class="MuiFormControlLabel-root Mui-disabled MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+                                    >
+                                      <span
+                                        aria-disabled="true"
+                                        class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                        tabindex="-1"
+                                      >
+                                        <input
+                                          aria-label="MC: documentLibrary.download pim-link-document-title"
+                                          class="PrivateSwitchBase-input css-1m9pwf3"
+                                          data-indeterminate="false"
+                                          disabled=""
+                                          name="pim-link-document-id-pim-link-document-title"
+                                          type="checkbox"
+                                        />
+                                        <svg
+                                          aria-hidden="true"
+                                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                          data-testid="CheckBoxOutlineBlankIcon"
+                                          focusable="false"
+                                          viewBox="0 0 24 24"
+                                        >
+                                          <path
+                                            d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                                          />
+                                        </svg>
+                                      </span>
+                                    </label>
+                                  </div>
                                 </span>
+                              </td>
+                              <td
+                                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
+                                data-testid="document-table-type-pim-link-document-id"
+                              >
+                                asset-name
+                              </td>
+                              <td
+                                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ggd0b4-MuiTableCell-root"
+                                data-testid="document-table-title-pim-link-document-id"
+                              >
+                                <a
+                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-pxqw1r-MuiButtonBase-root-MuiButton-root"
+                                  data-testid="document-table-external-link-button"
+                                  href="http://localhost/pim-link-document-id"
+                                  rel="noopener noreferrer"
+                                  tabindex="0"
+                                  target="_blank"
+                                >
+                                  <span
+                                    class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                                  >
+                                    <svg
+                                      class="css-dxpxcg"
+                                      viewBox="0 0 32 32"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        d="M28 2H10l-8 8v18a2.006 2.006 0 0 0 2 2h24a2.006 2.006 0 0 0 2-2V4a2.006 2.006 0 0 0-2-2Zm-4.12 8.54-6.96 6.96-2.41-2.41 6.96-6.96L18.34 5l8.65.01.01 8.65Z"
+                                      />
+                                    </svg>
+                                  </span>
+                                  <p
+                                    class="css-1cigd93"
+                                  >
+                                    pim-link-document-title
+                                  </p>
+                                  <span
+                                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                  />
+                                </a>
+                              </td>
+                              <td
+                                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
+                                data-testid="document-table-size-pim-link-document-id"
+                              >
+                                -
+                              </td>
+                              <td
+                                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
+                                data-testid="document-table-actions-pim-link-document-id"
+                              >
+                                <div
+                                  class="css-aphyn4"
+                                >
+                                  <div
+                                    aria-label="MC: document.library.copyLink.tooltip.title"
+                                    class="MuiBox-root css-zdpt2t"
+                                    data-mui-internal-clone-element="true"
+                                    data-testid="tooltip"
+                                  >
+                                    <button
+                                      aria-label="Copy pim-link-document-title"
+                                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                                      data-testid="document-table-actions-copy-url-pim-link-document-id"
+                                      tabindex="0"
+                                      type="button"
+                                    >
+                                      <svg
+                                        class="css-546mkb"
+                                        viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <path
+                                          d="M15.0786 3.99902H6.86837C6.11356 4.0012 5.50221 4.6036 5.5 5.34736V14.7857H6.86837V5.34736H15.0786V3.99902ZM17.1327 6.69556H9.60665C8.85184 6.69794 8.24049 7.35835 8.23828 8.17373V18.5209C8.24049 19.3363 8.85184 19.9967 9.60665 19.9991H17.1327C17.8875 19.9967 18.4989 19.3363 18.5011 18.5209V8.17373C18.4989 7.35835 17.8875 6.69794 17.1327 6.69556ZM17.1315 18.521H9.60547V8.17383H17.1315V18.521Z"
+                                        />
+                                      </svg>
+                                      <span
+                                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                      />
+                                    </button>
+                                  </div>
+                                </div>
                               </td>
                             </tr>
                           </tbody>
@@ -991,6 +1140,12 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                           class="MuiTableRow-root MuiTableRow-head css-47w8l6-MuiTableRow-root"
                         >
                           <th
+                            class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableHeader css-1tbee56-MuiTableCell-root"
+                            scope="col"
+                          >
+                            MC: documentLibrary.headers.add
+                          </th>
+                          <th
                             class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
                             scope="col"
                           >
@@ -1003,16 +1158,16 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                             MC: documentLibrary.headers.title
                           </th>
                           <th
-                            class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableHeader css-1tbee56-MuiTableCell-root"
+                            class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
                             scope="col"
                           >
-                            MC: documentLibrary.headers.download
+                            MC: documentLibrary.headers.size
                           </th>
                           <th
                             class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableHeader css-1tbee56-MuiTableCell-root"
                             scope="col"
                           >
-                            MC: documentLibrary.headers.add
+                            MC: documentLibrary.headers.actions
                           </th>
                         </tr>
                       </thead>
@@ -1024,79 +1179,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                           data-testid="document-table-row-pim-link-document-id"
                         >
                           <td
-                            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
-                            data-testid="document-table-type-pim-link-document-id"
-                          >
-                            asset-name
-                          </td>
-                          <td
-                            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ggd0b4-MuiTableCell-root"
-                            data-testid="document-table-title-pim-link-document-id"
-                          >
-                            <p
-                              class="css-1d9wl9h"
-                            >
-                              pim-link-document-title
-                            </p>
-                          </td>
-                          <td
-                            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
-                            data-testid="document-table-download-pim-link-document-id"
-                          >
-                            <a
-                              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                              data-gtm="{"id":"download1","label":"Download","action":"http://localhost/pim-link-document-id"}"
-                              data-testid="document-table-download-application/pdf-button"
-                              href="http://localhost/pim-link-document-id"
-                              rel="noopener noreferrer"
-                              tabindex="0"
-                              target="_blank"
-                            >
-                              <span
-                                class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
-                              >
-                                <svg
-                                  class="download-icon css-x3wokz"
-                                  viewBox="0 0 32 32"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path
-                                    d="M0 0h32v32H0z"
-                                    fill="none"
-                                  />
-                                  <path
-                                    d="M21 2H8v28h21V10Z"
-                                    fill="#aeb1b1"
-                                  />
-                                  <path
-                                    d="M9 29V3h12v7h7v19Z"
-                                    fill="#fff"
-                                  />
-                                  <rect
-                                    fill="#d43533"
-                                    height="10"
-                                    rx="1"
-                                    width="21"
-                                    x="3"
-                                    y="15"
-                                  />
-                                  <g
-                                    fill="#fff"
-                                  >
-                                    <path
-                                      d="M6 23v-6h1.944c.737 0 2.556.132 2.556 2 0 1.9-1.95 2-2.5 2H7v2Zm1-5v2h.874c.672 0 1.474-.121 1.474-1 0-.814-.7-1-1.551-1ZM11 17h2.214A2.838 2.838 0 0 1 16 19.885V20a2.8 2.8 0 0 1-2.592 2.994.914.914 0 0 0-.128.006H11Zm1 1v4h1.116a1.757 1.757 0 0 0 1.9-1.602v-.004A1.729 1.729 0 0 0 15 20c0-1.628-1.222-2-2.244-2ZM17 23v-6h4v1h-3v1.5h2.5v1H18V23Z"
-                                    />
-                                  </g>
-                                </svg>
-                              </span>
-                              10 B
-                              <span
-                                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                              />
-                            </a>
-                          </td>
-                          <td
-                            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1wzxo7t-MuiTableCell-root"
+                            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-hsmwoy-MuiTableCell-root"
                             data-testid="document-table-add-pim-link-document-id"
                           >
                             <span
@@ -1105,7 +1188,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                               data-mui-internal-clone-element="true"
                             >
                               <div
-                                class="MuiFormControl-root css-1gluykh-MuiFormControl-root"
+                                class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
                               >
                                 <label
                                   class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -1139,13 +1222,8 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                               </div>
                             </span>
                           </td>
-                        </tr>
-                        <tr
-                          class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
-                          data-testid="document-table-row-pim-link-document-id"
-                        >
                           <td
-                            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
+                            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
                             data-testid="document-table-type-pim-link-document-id"
                           >
                             asset-name
@@ -1154,46 +1232,266 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ggd0b4-MuiTableCell-root"
                             data-testid="document-table-title-pim-link-document-id"
                           >
-                            <p
-                              class="css-1d9wl9h"
-                            >
-                              pim-link-document-title
-                            </p>
-                          </td>
-                          <td
-                            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
-                            data-testid="document-table-download-pim-link-document-id"
-                          >
                             <a
-                              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-pxqw1r-MuiButtonBase-root-MuiButton-root"
+                              data-gtm="{"id":"download1","label":"Download","action":"http://localhost/pim-link-document-id"}"
+                              data-testid="document-table-download-application/pdf-button"
                               href="http://localhost/pim-link-document-id"
                               rel="noopener noreferrer"
                               tabindex="0"
                               target="_blank"
                             >
-                              <svg
-                                class="css-154ktap"
-                                viewBox="0 0 32 32"
-                                xmlns="http://www.w3.org/2000/svg"
+                              <span
+                                class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                               >
-                                <path
-                                  d="M28 2H10l-8 8v18a2.006 2.006 0 0 0 2 2h24a2.006 2.006 0 0 0 2-2V4a2.006 2.006 0 0 0-2-2Zm-4.12 8.54-6.96 6.96-2.41-2.41 6.96-6.96L18.34 5l8.65.01.01 8.65Z"
-                                />
-                              </svg>
+                                <svg
+                                  class="download-icon css-z6lod7"
+                                  viewBox="0 0 32 32"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M0 0h32v32H0z"
+                                    fill="none"
+                                  />
+                                  <path
+                                    d="M21 2H8v28h21V10Z"
+                                    fill="#aeb1b1"
+                                  />
+                                  <path
+                                    d="M9 29V3h12v7h7v19Z"
+                                    fill="#fff"
+                                  />
+                                  <rect
+                                    fill="#d43533"
+                                    height="10"
+                                    rx="1"
+                                    width="21"
+                                    x="3"
+                                    y="15"
+                                  />
+                                  <g
+                                    fill="#fff"
+                                  >
+                                    <path
+                                      d="M6 23v-6h1.944c.737 0 2.556.132 2.556 2 0 1.9-1.95 2-2.5 2H7v2Zm1-5v2h.874c.672 0 1.474-.121 1.474-1 0-.814-.7-1-1.551-1ZM11 17h2.214A2.838 2.838 0 0 1 16 19.885V20a2.8 2.8 0 0 1-2.592 2.994.914.914 0 0 0-.128.006H11Zm1 1v4h1.116a1.757 1.757 0 0 0 1.9-1.602v-.004A1.729 1.729 0 0 0 15 20c0-1.628-1.222-2-2.244-2ZM17 23v-6h4v1h-3v1.5h2.5v1H18V23Z"
+                                    />
+                                  </g>
+                                </svg>
+                              </span>
+                              <p
+                                class="css-1cigd93"
+                              >
+                                pim-link-document-title
+                              </p>
                               <span
                                 class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                               />
                             </a>
                           </td>
                           <td
-                            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1wzxo7t-MuiTableCell-root"
+                            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
+                            data-testid="document-table-size-pim-link-document-id"
+                          >
+                            10 B
+                          </td>
+                          <td
+                            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
+                            data-testid="document-table-actions-pim-link-document-id"
+                          >
+                            <div
+                              class="css-aphyn4"
+                            >
+                              <div
+                                aria-label="MC: document.library.download.tooltip.title"
+                                class=""
+                                data-mui-internal-clone-element="true"
+                                data-testid="tooltip"
+                              >
+                                <a
+                                  aria-label="Download pim-link-document-title"
+                                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                                  data-gtm="{"id":"download1","label":"Download","action":"http://localhost/pim-link-document-id"}"
+                                  data-testid="document-table-actions-download-pim-link-document-id"
+                                  href="http://localhost/pim-link-document-id"
+                                  rel="noopener noreferrer"
+                                  tabindex="0"
+                                  target="_blank"
+                                >
+                                  <svg
+                                    class="css-546mkb"
+                                    viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
+                                      fill="currentColor"
+                                    />
+                                  </svg>
+                                  <span
+                                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                  />
+                                </a>
+                              </div>
+                              <div
+                                aria-label="MC: document.library.copyLink.tooltip.title"
+                                class="MuiBox-root css-zdpt2t"
+                                data-mui-internal-clone-element="true"
+                                data-testid="tooltip"
+                              >
+                                <button
+                                  aria-label="Copy pim-link-document-title"
+                                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                                  data-testid="document-table-actions-copy-url-pim-link-document-id"
+                                  tabindex="0"
+                                  type="button"
+                                >
+                                  <svg
+                                    class="css-546mkb"
+                                    viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M15.0786 3.99902H6.86837C6.11356 4.0012 5.50221 4.6036 5.5 5.34736V14.7857H6.86837V5.34736H15.0786V3.99902ZM17.1327 6.69556H9.60665C8.85184 6.69794 8.24049 7.35835 8.23828 8.17373V18.5209C8.24049 19.3363 8.85184 19.9967 9.60665 19.9991H17.1327C17.8875 19.9967 18.4989 19.3363 18.5011 18.5209V8.17373C18.4989 7.35835 17.8875 6.69794 17.1327 6.69556ZM17.1315 18.521H9.60547V8.17383H17.1315V18.521Z"
+                                    />
+                                  </svg>
+                                  <span
+                                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                  />
+                                </button>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr
+                          class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
+                          data-testid="document-table-row-pim-link-document-id"
+                        >
+                          <td
+                            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-hsmwoy-MuiTableCell-root"
                             data-testid="document-table-add-pim-link-document-id"
                           >
                             <span
-                              class="css-1ytj21s"
+                              aria-label="MC: documents.download.maxReached"
+                              class=""
+                              data-mui-internal-clone-element="true"
                             >
-                              -
+                              <div
+                                class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                              >
+                                <label
+                                  class="MuiFormControlLabel-root Mui-disabled MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+                                >
+                                  <span
+                                    aria-disabled="true"
+                                    class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                    tabindex="-1"
+                                  >
+                                    <input
+                                      aria-label="MC: documentLibrary.download pim-link-document-title"
+                                      class="PrivateSwitchBase-input css-1m9pwf3"
+                                      data-indeterminate="false"
+                                      disabled=""
+                                      name="pim-link-document-id-pim-link-document-title"
+                                      type="checkbox"
+                                    />
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                      data-testid="CheckBoxOutlineBlankIcon"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </label>
+                              </div>
                             </span>
+                          </td>
+                          <td
+                            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
+                            data-testid="document-table-type-pim-link-document-id"
+                          >
+                            asset-name
+                          </td>
+                          <td
+                            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ggd0b4-MuiTableCell-root"
+                            data-testid="document-table-title-pim-link-document-id"
+                          >
+                            <a
+                              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-pxqw1r-MuiButtonBase-root-MuiButton-root"
+                              data-testid="document-table-external-link-button"
+                              href="http://localhost/pim-link-document-id"
+                              rel="noopener noreferrer"
+                              tabindex="0"
+                              target="_blank"
+                            >
+                              <span
+                                class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                              >
+                                <svg
+                                  class="css-dxpxcg"
+                                  viewBox="0 0 32 32"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M28 2H10l-8 8v18a2.006 2.006 0 0 0 2 2h24a2.006 2.006 0 0 0 2-2V4a2.006 2.006 0 0 0-2-2Zm-4.12 8.54-6.96 6.96-2.41-2.41 6.96-6.96L18.34 5l8.65.01.01 8.65Z"
+                                  />
+                                </svg>
+                              </span>
+                              <p
+                                class="css-1cigd93"
+                              >
+                                pim-link-document-title
+                              </p>
+                              <span
+                                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                              />
+                            </a>
+                          </td>
+                          <td
+                            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
+                            data-testid="document-table-size-pim-link-document-id"
+                          >
+                            -
+                          </td>
+                          <td
+                            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
+                            data-testid="document-table-actions-pim-link-document-id"
+                          >
+                            <div
+                              class="css-aphyn4"
+                            >
+                              <div
+                                aria-label="MC: document.library.copyLink.tooltip.title"
+                                class="MuiBox-root css-zdpt2t"
+                                data-mui-internal-clone-element="true"
+                                data-testid="tooltip"
+                              >
+                                <button
+                                  aria-label="Copy pim-link-document-title"
+                                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                                  data-testid="document-table-actions-copy-url-pim-link-document-id"
+                                  tabindex="0"
+                                  type="button"
+                                >
+                                  <svg
+                                    class="css-546mkb"
+                                    viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M15.0786 3.99902H6.86837C6.11356 4.0012 5.50221 4.6036 5.5 5.34736V14.7857H6.86837V5.34736H15.0786V3.99902ZM17.1327 6.69556H9.60665C8.85184 6.69794 8.24049 7.35835 8.23828 8.17373V18.5209C8.24049 19.3363 8.85184 19.9967 9.60665 19.9991H17.1327C17.8875 19.9967 18.4989 19.3363 18.5011 18.5209V8.17373C18.4989 7.35835 17.8875 6.69794 17.1327 6.69556ZM17.1315 18.521H9.60547V8.17383H17.1315V18.521Z"
+                                    />
+                                  </svg>
+                                  <span
+                                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                  />
+                                </button>
+                              </div>
+                            </div>
                           </td>
                         </tr>
                       </tbody>

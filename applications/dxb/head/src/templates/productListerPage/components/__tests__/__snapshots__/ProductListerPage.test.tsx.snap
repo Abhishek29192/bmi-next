@@ -2734,7 +2734,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                                   >
                                     <div>
                                       <div
-                                        class="MuiFormControl-root css-1gluykh-MuiFormControl-root"
+                                        class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
                                       >
                                         <label
                                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -2782,7 +2782,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                                     </div>
                                     <div>
                                       <div
-                                        class="MuiFormControl-root css-1gluykh-MuiFormControl-root"
+                                        class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
                                       >
                                         <label
                                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -3939,7 +3939,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                                   >
                                     <div>
                                       <div
-                                        class="MuiFormControl-root css-1gluykh-MuiFormControl-root"
+                                        class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
                                       >
                                         <label
                                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -3980,7 +3980,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                                     </div>
                                     <div>
                                       <div
-                                        class="MuiFormControl-root css-1gluykh-MuiFormControl-root"
+                                        class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
                                       >
                                         <label
                                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -5060,7 +5060,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                                   >
                                     <div>
                                       <div
-                                        class="MuiFormControl-root css-1gluykh-MuiFormControl-root"
+                                        class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
                                       >
                                         <label
                                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -5105,7 +5105,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                                     </div>
                                     <div>
                                       <div
-                                        class="MuiFormControl-root css-1gluykh-MuiFormControl-root"
+                                        class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
                                       >
                                         <label
                                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -9222,7 +9222,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                                   >
                                     <div>
                                       <div
-                                        class="MuiFormControl-root css-1gluykh-MuiFormControl-root"
+                                        class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
                                       >
                                         <label
                                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -9263,7 +9263,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                                     </div>
                                     <div>
                                       <div
-                                        class="MuiFormControl-root css-1gluykh-MuiFormControl-root"
+                                        class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
                                       >
                                         <label
                                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -10400,7 +10400,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
                                   >
                                     <div>
                                       <div
-                                        class="MuiFormControl-root css-1gluykh-MuiFormControl-root"
+                                        class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
                                       >
                                         <label
                                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -10441,7 +10441,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
                                     </div>
                                     <div>
                                       <div
-                                        class="MuiFormControl-root css-1gluykh-MuiFormControl-root"
+                                        class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
                                       >
                                         <label
                                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -11591,7 +11591,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                                   >
                                     <div>
                                       <div
-                                        class="MuiFormControl-root css-1gluykh-MuiFormControl-root"
+                                        class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
                                       >
                                         <label
                                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -11632,7 +11632,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                                     </div>
                                     <div>
                                       <div
-                                        class="MuiFormControl-root css-1gluykh-MuiFormControl-root"
+                                        class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
                                       >
                                         <label
                                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -12782,7 +12782,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
                                   >
                                     <div>
                                       <div
-                                        class="MuiFormControl-root css-1gluykh-MuiFormControl-root"
+                                        class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
                                       >
                                         <label
                                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -12830,7 +12830,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
                                     </div>
                                     <div>
                                       <div
-                                        class="MuiFormControl-root css-1gluykh-MuiFormControl-root"
+                                        class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
                                       >
                                         <label
                                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -13987,7 +13987,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                                   >
                                     <div>
                                       <div
-                                        class="MuiFormControl-root css-1gluykh-MuiFormControl-root"
+                                        class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
                                       >
                                         <label
                                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -14028,7 +14028,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                                     </div>
                                     <div>
                                       <div
-                                        class="MuiFormControl-root css-1gluykh-MuiFormControl-root"
+                                        class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
                                       >
                                         <label
                                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -15383,7 +15383,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                                   >
                                     <div>
                                       <div
-                                        class="MuiFormControl-root css-1gluykh-MuiFormControl-root"
+                                        class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
                                       >
                                         <label
                                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -15424,7 +15424,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                                     </div>
                                     <div>
                                       <div
-                                        class="MuiFormControl-root css-1gluykh-MuiFormControl-root"
+                                        class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
                                       >
                                         <label
                                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"

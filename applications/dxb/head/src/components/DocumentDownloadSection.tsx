@@ -1,21 +1,22 @@
-import {
-  Button,
-  ButtonProps,
-  replaceSpaces,
-  Section,
-  Table
-} from "@bmi-digital/components";
-import filesize from "filesize";
+import { DownloadList, Section, replaceSpaces } from "@bmi-digital/components";
 import { graphql } from "gatsby";
-import React from "react";
-import fileIconsMap from "../components/FileIconsMap";
-import { microCopy } from "../constants/microCopies";
-import { ContentfulDocument as DocumentData } from "../types/Document";
-import withGTM from "../utils/google-tag-manager";
-import { getClickableActionFromUrl } from "./Link";
+import React, { useRef, useState } from "react";
+import { useConfig } from "../contexts/ConfigProvider";
+import {
+  ContentfulDocument as DocumentData,
+  DocumentTableHeader
+} from "../types/Document";
+import DocumentResultsFooter from "./DocumentResultsFooter";
+import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
 import RichText, { RichTextData } from "./RichText";
-import { useSiteContext } from "./Site";
-import Icon from "./Icon";
+
+const DOCUMENTS_PER_PAGE = 24;
+const TABLE_HEADERS: DocumentTableHeader[] = [
+  "add",
+  "title",
+  "size",
+  "actions"
+];
 
 export type Data = {
   __typename: "ContentfulDocumentDownloadSection";
@@ -23,22 +24,33 @@ export type Data = {
   description: RichTextData | null;
   documents: DocumentData[];
 };
-
-const iconStyle = {
-  width: "1em",
-  height: "1em"
-};
-
 const DocumentDownloadSection = ({
-  data: { title, description, documents }
+  data: { title, description, documents: allDocuments }
 }: {
   data: Data;
 }) => {
-  const { getMicroCopy } = useSiteContext();
+  const [page, setPage] = useState(1);
+  const [documents, setDocuments] = useState(
+    allDocuments.slice(0, DOCUMENTS_PER_PAGE)
+  );
+  const { documentDownloadMaxLimit } = useConfig();
+  const documentsTable = useRef<HTMLDivElement>(null);
+  const count = Math.ceil(allDocuments.length / DOCUMENTS_PER_PAGE);
+  const maxSize = documentDownloadMaxLimit * 1048576;
 
-  const GTMButton = withGTM<ButtonProps>(Button, {
-    label: "children"
-  });
+  const handlePageChange = (_, page) => {
+    const scrollY = documentsTable.current
+      ? documentsTable.current.offsetTop - 200
+      : 0;
+    window.scrollTo(0, scrollY);
+    setPage(page);
+    setDocuments(
+      allDocuments.slice(
+        (page - 1) * DOCUMENTS_PER_PAGE,
+        page * DOCUMENTS_PER_PAGE
+      )
+    );
+  };
 
   return (
     <Section
@@ -52,61 +64,22 @@ const DocumentDownloadSection = ({
         </div>
       )}
       {documents.length > 0 && (
-        <Table data-testid={"document-download-section-table"}>
-          <Table.Head>
-            <Table.Row>
-              <Table.Cell>
-                {getMicroCopy(
-                  microCopy.DOCUMENT_DOWNLOAD_SECTION_DOCUMENT_TITLE
-                )}
-              </Table.Cell>
-              <Table.Cell align="right">
-                {getMicroCopy(microCopy.DOCUMENT_DOWNLOAD_SECTION_DOWNLOAD)}
-              </Table.Cell>
-            </Table.Row>
-          </Table.Head>
-          <Table.Body>
-            {documents.map(({ title, asset }, index) => {
-              const { url, details, contentType } = asset.file;
-
-              return (
-                <Table.Row key={`${title}-${index}`}>
-                  <Table.Cell>{title}</Table.Cell>
-                  <Table.Cell align="right">
-                    <GTMButton
-                      gtm={{
-                        id: "download1",
-                        label: "Download",
-                        action: url
-                      }}
-                      action={getClickableActionFromUrl(
-                        null,
-                        null,
-                        null,
-                        `https:${url}`
-                      )}
-                      variant="text"
-                      startIcon={
-                        <Icon
-                          name={
-                            // eslint-disable-next-line security/detect-object-injection
-                            fileIconsMap[contentType] || "FileUniversal"
-                          }
-                          // TODO: consider responsibility of icon styles
-                          style={iconStyle}
-                          data-testid="document-download-section-file-download-icon"
-                        />
-                      }
-                      data-testid="document-download-section-download-button"
-                    >
-                      {filesize(details.size)}
-                    </GTMButton>
-                  </Table.Cell>
-                </Table.Row>
-              );
-            })}
-          </Table.Body>
-        </Table>
+        <div
+          ref={documentsTable}
+          data-testid={"document-download-section-table"}
+        >
+          <DownloadList maxSize={maxSize}>
+            <DocumentSimpleTableResults
+              documents={documents}
+              headers={TABLE_HEADERS}
+            />
+            <DocumentResultsFooter
+              page={page}
+              count={count}
+              onPageChange={handlePageChange}
+            />
+          </DownloadList>
+        </div>
       )}
     </Section>
   );
