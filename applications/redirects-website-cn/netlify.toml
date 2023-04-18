@@ -1,0 +1,24 @@
+# Settings in the [build] context are global and are applied to all contexts
+# unless otherwise overridden by more specific contexts.
+
+[[redirects]]
+ from="/index.php?id=5621"
+ to="https://bmidxbchinacfprod.gatsbyjs.io/cn/roofing-system-solution/"
+ status = 301
+
+[[redirects]]
+ from="/index.php?id=5621&tx_monierproduct_list%5Bid%5D=42&cHash=e339e3a0f2bd128834c9a02da39cb5c4"
+ to="https://bmidxbchinacfprod.gatsbyjs.io/cn/roofing-system-solution/clay-tile/"
+ status = 301
+ 
+[[redirects]]
+ from="/index.php?id=4039&tx_monierproduct_single%5Bid%5D=2707072&cHash=aeb8c14df251bd861fdeab17e1808f73"
+ to="https://bmidxbchinacfprod.gatsbyjs.io/cn/roofing-system-solution/clay-tile/lusa/"
+ status = 301 
+
+# General China redirect
+
+[[redirects]]
+ from="/"
+ to="https://bmidxbchinacfprod.gatsbyjs.io/cn"
+ status = 301
