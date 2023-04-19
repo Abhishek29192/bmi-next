@@ -295,7 +295,7 @@ const ProductLeadBlock = ({
               <DownloadList maxSize={documentDownloadMaxLimit * 1048576}>
                 <DocumentSimpleTableResults
                   documents={documents}
-                  headers={[displayBy, "download", "add"]}
+                  headers={["add", displayBy, "size", "actions"]}
                 />
                 <DocumentResultsFooter
                   page={page}

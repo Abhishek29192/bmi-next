@@ -13,18 +13,19 @@ import { microCopy } from "../constants/microCopies";
 import { PseudoZipPIMDocument } from "../types/pim";
 import { getDownloadLink } from "../utils/client-download";
 import withGTM from "../utils/google-tag-manager";
+import { Document, DocumentTableHeader } from "../types/Document";
 import {
-  Document,
   FileDownloadButtonProps,
-  mapAssetToFileDownload,
-  MultipleAssetToFileDownload
-} from "./DocumentSimpleTableResults";
+  mapAssetToFileDownload
+} from "../utils/documentUtils";
+import { MultipleAssetToFileDownload } from "./DocumentSimpleTableResultCommon";
 import fileIconsMap from "./FileIconsMap";
 import Icon from "./Icon";
 import { useSiteContext } from "./Site";
 
 type ListProps = {
   documents: readonly Document[];
+  headers: DocumentTableHeader[];
 };
 
 const GTMButton = withGTM<
@@ -126,13 +127,19 @@ const MultipleDocumentsToZipFile = ({
       </StyledListTitleRow>
       <StyledListDownloadRow>
         <StyledDocumentType>{document.assetType.name}</StyledDocumentType>
-        <MultipleAssetToFileDownload document={document} isMobile />
+        <MultipleAssetToFileDownload document={document} />
       </StyledListDownloadRow>
     </StyledListItem>
   );
 };
 
-const ListItem = ({ asset }: { asset: FileDownloadButtonProps }) => {
+const ListItem = ({
+  asset,
+  headers
+}: {
+  asset: FileDownloadButtonProps;
+  headers: DocumentTableHeader[];
+}) => {
   const { getMicroCopy } = useSiteContext();
   return (
     <StyledListItem>
@@ -148,14 +155,18 @@ const ListItem = ({ asset }: { asset: FileDownloadButtonProps }) => {
         )}
         <StyledDocumentTitle>{asset.title}</StyledDocumentTitle>
       </StyledListTitleRow>
-      <StyledListRow>
-        {getMicroCopy(microCopy.DOCUMENT_LIBRARY_HEADERS_PRODUCT_STATUS)}:{" "}
-        {asset.productStatus}
-      </StyledListRow>
-      <StyledListRow>
-        {getMicroCopy(microCopy.DOCUMENT_LIBRARY_HEADERS_VALIDITY_DATE)}:{" "}
-        {asset.validUntil}
-      </StyledListRow>
+      {headers.includes("productStatus") ? (
+        <StyledListRow>
+          {getMicroCopy(microCopy.DOCUMENT_LIBRARY_HEADERS_PRODUCT_STATUS)}:{" "}
+          {asset.productStatus}
+        </StyledListRow>
+      ) : null}
+      {headers.includes("validityDate") ? (
+        <StyledListRow>
+          {getMicroCopy(microCopy.DOCUMENT_LIBRARY_HEADERS_VALIDITY_DATE)}:{" "}
+          {asset.validUntil}
+        </StyledListRow>
+      ) : null}
       <StyledListDownloadRow>
         <StyledDocumentType>{asset.assetTypeName}</StyledDocumentType>
         {!asset.isLinkDocument ? (
@@ -195,7 +206,8 @@ const ListItem = ({ asset }: { asset: FileDownloadButtonProps }) => {
 };
 
 export const DocumentSimpleTableResultsMobile = ({
-  documents
+  documents,
+  headers
 }: ListProps): React.ReactElement => {
   const { getMicroCopy } = useSiteContext();
 
@@ -206,6 +218,7 @@ export const DocumentSimpleTableResultsMobile = ({
     }
     return (
       <ListItem
+        headers={headers}
         asset={mapAssetToFileDownload(document, getMicroCopy)}
         key={document.id}
       />

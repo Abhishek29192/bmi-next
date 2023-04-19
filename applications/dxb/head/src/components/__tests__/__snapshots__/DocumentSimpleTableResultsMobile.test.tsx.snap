@@ -55,22 +55,6 @@ exports[`DocumentSimpleTableResultsMobile component renders correctly 1`] = `
         </p>
       </div>
       <div
-        class="css-17gjgil"
-      >
-        MC: documentLibrary.headers.productStatus
-        :
-         
-        -
-      </div>
-      <div
-        class="css-17gjgil"
-      >
-        MC: documentLibrary.headers.validityDate
-        :
-         
-        -
-      </div>
-      <div
         class="css-axrk4p"
       >
         <p
@@ -166,22 +150,6 @@ exports[`DocumentSimpleTableResultsMobile component renders correctly when valid
         >
           contentful-document-title
         </p>
-      </div>
-      <div
-        class="css-17gjgil"
-      >
-        MC: documentLibrary.headers.productStatus
-        :
-         
-        -
-      </div>
-      <div
-        class="css-17gjgil"
-      >
-        MC: documentLibrary.headers.validityDate
-        :
-         
-        -
       </div>
       <div
         class="css-axrk4p"
@@ -281,22 +249,6 @@ exports[`DocumentSimpleTableResultsMobile component renders multiple documents o
         </p>
       </div>
       <div
-        class="css-17gjgil"
-      >
-        MC: documentLibrary.headers.productStatus
-        :
-         
-        -
-      </div>
-      <div
-        class="css-17gjgil"
-      >
-        MC: documentLibrary.headers.validityDate
-        :
-         
-        -
-      </div>
-      <div
         class="css-axrk4p"
       >
         <p
@@ -392,22 +344,6 @@ exports[`DocumentSimpleTableResultsMobile component renders pim documents correc
         >
           Pim Document
         </p>
-      </div>
-      <div
-        class="css-17gjgil"
-      >
-        MC: documentLibrary.headers.productStatus
-        :
-         
-        -
-      </div>
-      <div
-        class="css-17gjgil"
-      >
-        MC: documentLibrary.headers.validityDate
-        :
-         
-        -
       </div>
       <div
         class="css-axrk4p"

@@ -51,54 +51,6 @@ const document = createContentfulDocument({
 const title = "Document Downloads title";
 
 describe("DocumentDownloadSection component", () => {
-  it("renders correctly with all data", () => {
-    const { container } = render(
-      <ThemeProvider>
-        <DocumentDownloadSection
-          data={{
-            __typename: "ContentfulDocumentDownloadSection",
-            title,
-            description: {
-              raw: mockDescription,
-              references: []
-            },
-            documents: [document]
-          }}
-        />
-      </ThemeProvider>
-    );
-
-    expect(container).toMatchSnapshot();
-    const downloadButtons = screen.getByTestId(
-      "document-download-section-download-button"
-    );
-
-    expect(screen.getByText(title)).toBeInTheDocument();
-    expect(screen.getByText(mockDescriptionText)).toBeInTheDocument();
-    expect(
-      screen.getByText("MC: documentDownloadSection.documentTitle")
-    ).toBeInTheDocument();
-    expect(
-      screen.getByText("MC: documentDownloadSection.download")
-    ).toBeInTheDocument();
-    expect(screen.getByText(document.title)).toBeInTheDocument();
-    expect(downloadButtons).toBeInTheDocument();
-
-    fireEvent.click(
-      screen.getByTestId("document-download-section-download-button")
-    );
-
-    expect(mockGetClickableActionFromUrl).toHaveBeenCalledWith(
-      null,
-      null,
-      null,
-      `https:${document.asset.file.url}`
-    );
-    expect(
-      screen.getByTestId("document-download-section-file-download-icon")
-    ).toBeInTheDocument();
-  });
-
   it("renders correctly without data", () => {
     render(
       <ThemeProvider>
@@ -114,42 +66,32 @@ describe("DocumentDownloadSection component", () => {
     );
 
     expect(
-      screen.queryByTestId("document-download-section-table")
+      screen.queryByTestId("document-simple-table-results")
     ).not.toBeInTheDocument();
   });
 
-  it("render FileUniversal icon for document with unknown content type", () => {
-    const documentWithUnknownContentType = createContentfulDocument({
-      asset: {
-        file: {
-          url: "http://doesnot-exist.com/fileName",
-          fileName: "test.onlv",
-          contentType: "test/test",
-          details: {
-            size: 89898
-          }
-        }
-      },
-      __typename: "ContentfulDocument"
-    });
+  it("moves to second page", () => {
     render(
       <ThemeProvider>
         <DocumentDownloadSection
           data={{
             __typename: "ContentfulDocumentDownloadSection",
-            title: null,
-            description: null,
-            documents: [documentWithUnknownContentType]
+            title,
+            description: {
+              raw: mockDescription,
+              references: []
+            },
+            documents: new Array(30).fill(document)
           }}
         />
       </ThemeProvider>
     );
 
-    expect(
-      screen.getByTestId("document-download-section-download-button")
-    ).toBeInTheDocument();
-    expect(
-      screen.getByTestId("document-download-section-file-download-icon")
-    ).toBeInTheDocument();
+    let tableRows = screen.getAllByTestId(/^document-table-row-/);
+    expect(tableRows.length).toBe(24);
+
+    fireEvent.click(screen.getByLabelText("Go to page 2"));
+    tableRows = screen.getAllByTestId(/^document-table-row-/);
+    expect(tableRows.length).toBe(6);
   });
 });

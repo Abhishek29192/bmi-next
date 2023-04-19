@@ -21,22 +21,22 @@ import {
   sortAlphabeticallyBy,
   updateFilterValue
 } from "../utils/filters";
+import { DocumentTableHeader } from "../types/Document";
 import DocumentResultsFooter from "./DocumentResultsFooter";
-import DocumentSimpleTableResults, {
-  AvailableHeader
-} from "./DocumentSimpleTableResults";
+import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
 import { useSiteContext } from "./Site";
 
 const PAGE_SIZE = 24;
 const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_DOCUMENTS;
 export const availabilityFilterCode = "availability";
-const documentTableHeaders: AvailableHeader[] = [
+const documentTableHeaders: DocumentTableHeader[] = [
+  "add",
   "typeCode",
   "title",
   "productStatus",
   "validityDate",
-  "download",
-  "add"
+  "size",
+  "actions"
 ];
 
 // Creates filters from aggregations

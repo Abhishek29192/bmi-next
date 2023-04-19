@@ -4,9 +4,21 @@ import React from "react";
 import createContentfulDocument from "../../__tests__/helpers/ContentfulDocumentHelper";
 import createPimDocument from "../../__tests__/helpers/PimDocumentHelper";
 import { DocumentSimpleTableResultsMobile } from "../DocumentSimpleTableResultsMobile";
+import { DocumentTableHeader } from "../../types/Document";
+
+beforeEach(() => {
+  jest.clearAllMocks();
+});
 
 describe("DocumentSimpleTableResultsMobile component", () => {
   const pimDocument = createPimDocument();
+  const defaultTableHeaders: DocumentTableHeader[] = [
+    "add",
+    "typeCode",
+    "title",
+    "size",
+    "actions"
+  ];
 
   it("renders correctly", () => {
     const document = createContentfulDocument({
@@ -24,7 +36,10 @@ describe("DocumentSimpleTableResultsMobile component", () => {
 
     const { container } = render(
       <ThemeProvider>
-        <DocumentSimpleTableResultsMobile documents={[document]} />
+        <DocumentSimpleTableResultsMobile
+          documents={[document]}
+          headers={defaultTableHeaders}
+        />
       </ThemeProvider>
     );
 
@@ -48,7 +63,10 @@ describe("DocumentSimpleTableResultsMobile component", () => {
 
     const { container } = render(
       <ThemeProvider>
-        <DocumentSimpleTableResultsMobile documents={[document]} />
+        <DocumentSimpleTableResultsMobile
+          documents={[document]}
+          headers={defaultTableHeaders}
+        />
       </ThemeProvider>
     );
 
@@ -58,7 +76,10 @@ describe("DocumentSimpleTableResultsMobile component", () => {
   it("renders pim documents correctly", () => {
     const { container } = render(
       <ThemeProvider>
-        <DocumentSimpleTableResultsMobile documents={[pimDocument]} />
+        <DocumentSimpleTableResultsMobile
+          documents={[pimDocument]}
+          headers={defaultTableHeaders}
+        />
       </ThemeProvider>
     );
 
@@ -69,7 +90,10 @@ describe("DocumentSimpleTableResultsMobile component", () => {
   it("renders multiple documents of same asset type as zip file", () => {
     const { container } = render(
       <ThemeProvider>
-        <DocumentSimpleTableResultsMobile documents={[pimDocument]} />
+        <DocumentSimpleTableResultsMobile
+          documents={[pimDocument]}
+          headers={defaultTableHeaders}
+        />
       </ThemeProvider>
     );
 
@@ -96,11 +120,44 @@ describe("DocumentSimpleTableResultsMobile component", () => {
     try {
       render(
         <ThemeProvider>
-          <DocumentSimpleTableResultsMobile documents={[document]} />
+          <DocumentSimpleTableResultsMobile
+            documents={[document]}
+            headers={defaultTableHeaders}
+          />
         </ThemeProvider>
       );
     } catch (iconError) {
       expect(iconError).not.toBe(null);
     }
+  });
+
+  it("renders with productStatus field", () => {
+    const document = createPimDocument();
+    render(
+      <ThemeProvider>
+        <DocumentSimpleTableResultsMobile
+          documents={[document]}
+          headers={[...defaultTableHeaders, "productStatus"]}
+        />
+      </ThemeProvider>
+    );
+    expect(
+      screen.getByText(/^MC: documentLibrary.headers.productStatus/)
+    ).toBeInTheDocument();
+  });
+
+  it("renders with validityDate field", () => {
+    const document = createPimDocument();
+    render(
+      <ThemeProvider>
+        <DocumentSimpleTableResultsMobile
+          documents={[document]}
+          headers={[...defaultTableHeaders, "validityDate"]}
+        />
+      </ThemeProvider>
+    );
+    expect(
+      screen.getByText(/^MC: documentLibrary.headers.validityDate/)
+    ).toBeInTheDocument();
   });
 });
