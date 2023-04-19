@@ -9,37 +9,35 @@ import classnames from "classnames";
 import filesize from "filesize";
 import React, { useContext } from "react";
 import { microCopy } from "../constants/microCopies";
+import { Document, DocumentTableHeader } from "../types/Document";
 import {
   getFileSizeByDocumentType,
   getFileUrlByDocumentType,
+  getIsLinkDocument,
   getProductStatus,
   getValidityDate
 } from "../utils/documentUtils";
-import { Document, DocumentTableHeader } from "../types/Document";
-import { DocumentSimpleTableResultsMobile } from "./DocumentSimpleTableResultsMobile";
-import { useSiteContext } from "./Site";
-import {
-  ActionsContainer,
-  classes,
-  DocumentRow,
-  DocumentStatus,
-  StyledSimpleTableResults,
-  StyledTableCell,
-  StyledTitleTableCell
-} from "./styles/DocumentSimpleTableResultsStyles";
 import {
   CopyToClipboard,
-  DownloadDocumentButton,
-  DocumentTitle
+  DocumentTitle,
+  DownloadDocumentButton
 } from "./DocumentSimpleTableResultCommon";
+import { DocumentSimpleTableResultsMobile } from "./DocumentSimpleTableResultsMobile";
+import { useSiteContext } from "./Site";
+import { DocumentStatus } from "./styles/DocumentSimpleTableResultsCommonStyles";
+import {
+  ActionsContainer,
+  DocumentRow,
+  StyledSimpleTableResults,
+  StyledTableCell,
+  StyledTitleTableCell,
+  classes
+} from "./styles/DocumentSimpleTableResultsStyles";
 
 export type Props = {
   documents: readonly Document[];
   headers?: DocumentTableHeader[];
 };
-
-export const getIsLinkDocument = (document: Document): boolean =>
-  "isLinkDocument" in document && document.isLinkDocument;
 
 const PIM_TYPES = ["PIMDocument", "PIMSystemDocument"];
 

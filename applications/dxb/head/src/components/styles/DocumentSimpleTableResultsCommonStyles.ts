@@ -1,6 +1,13 @@
-import { styled } from "@mui/material/styles";
 import { Button } from "@bmi-digital/components";
+import { ApprovalStatus } from "@bmi/pim-types/src";
+import { buttonClasses } from "@mui/material/Button";
+import { styled } from "@mui/material/styles";
 import Icon from "../Icon";
+
+const PREFIX = "documentSimpleTableResultCommon";
+export const classes = {
+  actionBtnWrapper: `${PREFIX}-actionBtnWrapper`
+};
 
 export const ActionIcon = styled(Icon)(({ theme }) => ({
   "&, & path": {
@@ -47,5 +54,26 @@ export const TitleButton = styled(Button)(({ theme }) => ({
   justifyContent: "start",
   [`&:hover p`]: {
     color: theme.colours.inter
+  },
+  [theme.breakpoints.down("lg")]: {
+    padding: 0,
+    transition: "none",
+    [`.${buttonClasses.startIcon}`]: {
+      marginLeft: 0
+    },
+    "&&:hover": {
+      backgroundColor: "unset",
+      "& p": {
+        color: theme.colours.slate
+      }
+    }
   }
 }));
+
+export const DocumentStatus = styled("span")<{ status: ApprovalStatus }>(
+  ({ theme, status }) => ({
+    fontWeight: 400,
+    fontFamily: "Effra Medium",
+    color: status === "approved" ? theme.colours.success : theme.colours.blue300
+  })
+);

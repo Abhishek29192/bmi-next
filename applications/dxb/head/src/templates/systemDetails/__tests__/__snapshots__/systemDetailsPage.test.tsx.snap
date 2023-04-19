@@ -3566,7 +3566,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                                 data-testid="document-table-title-pim-link-document-id"
                               >
                                 <a
-                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-pxqw1r-MuiButtonBase-root-MuiButton-root"
+                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"download1","label":"Download","action":"http://localhost/pim-link-document-id"}"
                                   data-testid="document-table-download-application/pdf-button"
                                   href="http://localhost/pim-link-document-id"
@@ -3636,7 +3636,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                                 >
                                   <div
                                     aria-label="MC: document.library.download.tooltip.title"
-                                    class=""
+                                    class="documentSimpleTableResultCommon-actionBtnWrapper"
                                     data-mui-internal-clone-element="true"
                                     data-testid="tooltip"
                                   >
@@ -3667,7 +3667,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                                   </div>
                                   <div
                                     aria-label="MC: document.library.copyLink.tooltip.title"
-                                    class="MuiBox-root css-zdpt2t"
+                                    class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
                                     data-mui-internal-clone-element="true"
                                     data-testid="tooltip"
                                   >
@@ -3754,7 +3754,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                                 data-testid="document-table-title-pim-link-document-id"
                               >
                                 <a
-                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-pxqw1r-MuiButtonBase-root-MuiButton-root"
+                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
                                   data-testid="document-table-external-link-button"
                                   href="http://localhost/pim-link-document-id"
                                   rel="noopener noreferrer"
@@ -3799,7 +3799,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                                 >
                                   <div
                                     aria-label="MC: document.library.copyLink.tooltip.title"
-                                    class="MuiBox-root css-zdpt2t"
+                                    class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
                                     data-mui-internal-clone-element="true"
                                     data-testid="tooltip"
                                   >
@@ -8057,7 +8057,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                                 data-testid="document-table-title-pim-link-document-id"
                               >
                                 <a
-                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-pxqw1r-MuiButtonBase-root-MuiButton-root"
+                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"download1","label":"Download","action":"http://localhost/pim-link-document-id"}"
                                   data-testid="document-table-download-application/pdf-button"
                                   href="http://localhost/pim-link-document-id"
@@ -8127,7 +8127,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                                 >
                                   <div
                                     aria-label="MC: document.library.download.tooltip.title"
-                                    class=""
+                                    class="documentSimpleTableResultCommon-actionBtnWrapper"
                                     data-mui-internal-clone-element="true"
                                     data-testid="tooltip"
                                   >
@@ -8158,7 +8158,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                                   </div>
                                   <div
                                     aria-label="MC: document.library.copyLink.tooltip.title"
-                                    class="MuiBox-root css-zdpt2t"
+                                    class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
                                     data-mui-internal-clone-element="true"
                                     data-testid="tooltip"
                                   >
@@ -8245,7 +8245,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                                 data-testid="document-table-title-pim-link-document-id"
                               >
                                 <a
-                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-pxqw1r-MuiButtonBase-root-MuiButton-root"
+                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
                                   data-testid="document-table-external-link-button"
                                   href="http://localhost/pim-link-document-id"
                                   rel="noopener noreferrer"
@@ -8290,7 +8290,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                                 >
                                   <div
                                     aria-label="MC: document.library.copyLink.tooltip.title"
-                                    class="MuiBox-root css-zdpt2t"
+                                    class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
                                     data-mui-internal-clone-element="true"
                                     data-testid="tooltip"
                                   >
@@ -12552,7 +12552,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                                   data-testid="document-table-title-pim-link-document-id"
                                 >
                                   <a
-                                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-pxqw1r-MuiButtonBase-root-MuiButton-root"
+                                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
                                     data-gtm="{"id":"download1","label":"Download","action":"http://localhost/pim-link-document-id"}"
                                     data-testid="document-table-download-application/pdf-button"
                                     href="http://localhost/pim-link-document-id"
@@ -12622,7 +12622,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                                   >
                                     <div
                                       aria-label="MC: document.library.download.tooltip.title"
-                                      class=""
+                                      class="documentSimpleTableResultCommon-actionBtnWrapper"
                                       data-mui-internal-clone-element="true"
                                       data-testid="tooltip"
                                     >
@@ -12653,7 +12653,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                                     </div>
                                     <div
                                       aria-label="MC: document.library.copyLink.tooltip.title"
-                                      class="MuiBox-root css-zdpt2t"
+                                      class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
                                       data-mui-internal-clone-element="true"
                                       data-testid="tooltip"
                                     >
@@ -12740,7 +12740,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                                   data-testid="document-table-title-pim-link-document-id"
                                 >
                                   <a
-                                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-pxqw1r-MuiButtonBase-root-MuiButton-root"
+                                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
                                     data-testid="document-table-external-link-button"
                                     href="http://localhost/pim-link-document-id"
                                     rel="noopener noreferrer"
@@ -12785,7 +12785,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                                   >
                                     <div
                                       aria-label="MC: document.library.copyLink.tooltip.title"
-                                      class="MuiBox-root css-zdpt2t"
+                                      class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
                                       data-mui-internal-clone-element="true"
                                       data-testid="tooltip"
                                     >
@@ -17044,7 +17044,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                                 data-testid="document-table-title-pim-link-document-id"
                               >
                                 <a
-                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-pxqw1r-MuiButtonBase-root-MuiButton-root"
+                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"download1","label":"Download","action":"http://localhost/pim-link-document-id"}"
                                   data-testid="document-table-download-application/pdf-button"
                                   href="http://localhost/pim-link-document-id"
@@ -17114,7 +17114,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                                 >
                                   <div
                                     aria-label="MC: document.library.download.tooltip.title"
-                                    class=""
+                                    class="documentSimpleTableResultCommon-actionBtnWrapper"
                                     data-mui-internal-clone-element="true"
                                     data-testid="tooltip"
                                   >
@@ -17145,7 +17145,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                                   </div>
                                   <div
                                     aria-label="MC: document.library.copyLink.tooltip.title"
-                                    class="MuiBox-root css-zdpt2t"
+                                    class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
                                     data-mui-internal-clone-element="true"
                                     data-testid="tooltip"
                                   >
@@ -17232,7 +17232,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                                 data-testid="document-table-title-pim-link-document-id"
                               >
                                 <a
-                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-pxqw1r-MuiButtonBase-root-MuiButton-root"
+                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
                                   data-testid="document-table-external-link-button"
                                   href="http://localhost/pim-link-document-id"
                                   rel="noopener noreferrer"
@@ -17277,7 +17277,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                                 >
                                   <div
                                     aria-label="MC: document.library.copyLink.tooltip.title"
-                                    class="MuiBox-root css-zdpt2t"
+                                    class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
                                     data-mui-internal-clone-element="true"
                                     data-testid="tooltip"
                                   >
@@ -21495,7 +21495,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                                 data-testid="document-table-title-pim-link-document-id"
                               >
                                 <a
-                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-pxqw1r-MuiButtonBase-root-MuiButton-root"
+                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"download1","label":"Download","action":"http://localhost/pim-link-document-id"}"
                                   data-testid="document-table-download-application/pdf-button"
                                   href="http://localhost/pim-link-document-id"
@@ -21565,7 +21565,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                                 >
                                   <div
                                     aria-label="MC: document.library.download.tooltip.title"
-                                    class=""
+                                    class="documentSimpleTableResultCommon-actionBtnWrapper"
                                     data-mui-internal-clone-element="true"
                                     data-testid="tooltip"
                                   >
@@ -21596,7 +21596,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                                   </div>
                                   <div
                                     aria-label="MC: document.library.copyLink.tooltip.title"
-                                    class="MuiBox-root css-zdpt2t"
+                                    class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
                                     data-mui-internal-clone-element="true"
                                     data-testid="tooltip"
                                   >
@@ -21683,7 +21683,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                                 data-testid="document-table-title-pim-link-document-id"
                               >
                                 <a
-                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-pxqw1r-MuiButtonBase-root-MuiButton-root"
+                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
                                   data-testid="document-table-external-link-button"
                                   href="http://localhost/pim-link-document-id"
                                   rel="noopener noreferrer"
@@ -21728,7 +21728,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                                 >
                                   <div
                                     aria-label="MC: document.library.copyLink.tooltip.title"
-                                    class="MuiBox-root css-zdpt2t"
+                                    class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
                                     data-mui-internal-clone-element="true"
                                     data-testid="tooltip"
                                   >
@@ -25986,7 +25986,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                                 data-testid="document-table-title-pim-link-document-id"
                               >
                                 <a
-                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-pxqw1r-MuiButtonBase-root-MuiButton-root"
+                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"download1","label":"Download","action":"http://localhost/pim-link-document-id"}"
                                   data-testid="document-table-download-application/pdf-button"
                                   href="http://localhost/pim-link-document-id"
@@ -26056,7 +26056,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                                 >
                                   <div
                                     aria-label="MC: document.library.download.tooltip.title"
-                                    class=""
+                                    class="documentSimpleTableResultCommon-actionBtnWrapper"
                                     data-mui-internal-clone-element="true"
                                     data-testid="tooltip"
                                   >
@@ -26087,7 +26087,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                                   </div>
                                   <div
                                     aria-label="MC: document.library.copyLink.tooltip.title"
-                                    class="MuiBox-root css-zdpt2t"
+                                    class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
                                     data-mui-internal-clone-element="true"
                                     data-testid="tooltip"
                                   >
@@ -26174,7 +26174,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                                 data-testid="document-table-title-pim-link-document-id"
                               >
                                 <a
-                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-pxqw1r-MuiButtonBase-root-MuiButton-root"
+                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
                                   data-testid="document-table-external-link-button"
                                   href="http://localhost/pim-link-document-id"
                                   rel="noopener noreferrer"
@@ -26219,7 +26219,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                                 >
                                   <div
                                     aria-label="MC: document.library.copyLink.tooltip.title"
-                                    class="MuiBox-root css-zdpt2t"
+                                    class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
                                     data-mui-internal-clone-element="true"
                                     data-testid="tooltip"
                                   >
@@ -30603,7 +30603,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                                 data-testid="document-table-title-pim-link-document-id"
                               >
                                 <a
-                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-pxqw1r-MuiButtonBase-root-MuiButton-root"
+                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"download1","label":"Download","action":"http://localhost/pim-link-document-id"}"
                                   data-testid="document-table-download-application/pdf-button"
                                   href="http://localhost/pim-link-document-id"
@@ -30673,7 +30673,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                                 >
                                   <div
                                     aria-label="MC: document.library.download.tooltip.title"
-                                    class=""
+                                    class="documentSimpleTableResultCommon-actionBtnWrapper"
                                     data-mui-internal-clone-element="true"
                                     data-testid="tooltip"
                                   >
@@ -30704,7 +30704,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                                   </div>
                                   <div
                                     aria-label="MC: document.library.copyLink.tooltip.title"
-                                    class="MuiBox-root css-zdpt2t"
+                                    class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
                                     data-mui-internal-clone-element="true"
                                     data-testid="tooltip"
                                   >
@@ -30791,7 +30791,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                                 data-testid="document-table-title-pim-link-document-id"
                               >
                                 <a
-                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-pxqw1r-MuiButtonBase-root-MuiButton-root"
+                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
                                   data-testid="document-table-external-link-button"
                                   href="http://localhost/pim-link-document-id"
                                   rel="noopener noreferrer"
@@ -30836,7 +30836,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                                 >
                                   <div
                                     aria-label="MC: document.library.copyLink.tooltip.title"
-                                    class="MuiBox-root css-zdpt2t"
+                                    class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
                                     data-mui-internal-clone-element="true"
                                     data-testid="tooltip"
                                   >
@@ -35220,7 +35220,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                                 data-testid="document-table-title-pim-link-document-id"
                               >
                                 <a
-                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-pxqw1r-MuiButtonBase-root-MuiButton-root"
+                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"download1","label":"Download","action":"http://localhost/pim-link-document-id"}"
                                   data-testid="document-table-download-application/pdf-button"
                                   href="http://localhost/pim-link-document-id"
@@ -35290,7 +35290,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                                 >
                                   <div
                                     aria-label="MC: document.library.download.tooltip.title"
-                                    class=""
+                                    class="documentSimpleTableResultCommon-actionBtnWrapper"
                                     data-mui-internal-clone-element="true"
                                     data-testid="tooltip"
                                   >
@@ -35321,7 +35321,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                                   </div>
                                   <div
                                     aria-label="MC: document.library.copyLink.tooltip.title"
-                                    class="MuiBox-root css-zdpt2t"
+                                    class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
                                     data-mui-internal-clone-element="true"
                                     data-testid="tooltip"
                                   >
@@ -35408,7 +35408,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                                 data-testid="document-table-title-pim-link-document-id"
                               >
                                 <a
-                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-pxqw1r-MuiButtonBase-root-MuiButton-root"
+                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
                                   data-testid="document-table-external-link-button"
                                   href="http://localhost/pim-link-document-id"
                                   rel="noopener noreferrer"
@@ -35453,7 +35453,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                                 >
                                   <div
                                     aria-label="MC: document.library.copyLink.tooltip.title"
-                                    class="MuiBox-root css-zdpt2t"
+                                    class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
                                     data-mui-internal-clone-element="true"
                                     data-testid="tooltip"
                                   >

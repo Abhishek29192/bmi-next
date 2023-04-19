@@ -1,27 +1,25 @@
-import React, { useMemo, useState } from "react";
 import {
   ButtonProps,
   ClickableAction,
   IconButtonProps,
   Tooltip
 } from "@bmi-digital/components";
-import { Box, useMediaQuery } from "@mui/material";
+import { Box } from "@mui/material";
+import React, { useMemo, useState } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
-import filesize from "filesize";
-import { GetApp } from "@mui/icons-material";
-import { useTheme } from "@mui/material/styles";
-import { Document } from "../types/Document";
-import { microCopy } from "../constants/microCopies";
-import { getDownloadLink } from "../utils/client-download";
-import getCookie from "../utils/getCookie";
 import { QA_AUTH_TOKEN } from "../constants/cookieConstants";
-import withGTM, { GTM } from "../utils/google-tag-manager";
+import { microCopy } from "../constants/microCopies";
+import { Document } from "../types/Document";
+import { PseudoZipPIMDocument } from "../types/pim";
+import { getDownloadLink } from "../utils/client-download";
 import {
   downloadMultipleFiles,
   getFileUrlByDocumentType,
   mapAssetToFileDownload
 } from "../utils/documentUtils";
-import { PseudoZipPIMDocument } from "../types/pim";
+import getCookie from "../utils/getCookie";
+import withGTM, { GTM } from "../utils/google-tag-manager";
+import fileIconsMap from "./FileIconsMap";
 import { useSiteContext } from "./Site";
 import {
   ActionIcon,
@@ -29,9 +27,9 @@ import {
   StyledButton,
   StyledDocumentIcon,
   Title,
-  TitleButton
+  TitleButton,
+  classes
 } from "./styles/DocumentSimpleTableResultsCommonStyles";
-import fileIconsMap from "./FileIconsMap";
 
 const GTMButton = withGTM<
   (ButtonProps | IconButtonProps) & {
@@ -46,41 +44,18 @@ const GTMDocumentTitleButton = withGTM<
 >(TitleButton);
 
 export const MultipleAssetToFileDownload = ({
-  document
+  document,
+  disableRipple
 }: {
   document: PseudoZipPIMDocument;
+  disableRipple?: boolean;
 }): React.ReactElement => {
   const { executeRecaptcha } = useGoogleReCaptcha();
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
   const qaAuthToken = getCookie(QA_AUTH_TOKEN);
-
-  if (isMobile) {
-    return (
-      <GTMButton
-        gtm={{
-          id: "download1",
-          label: "Download",
-          action: JSON.stringify(
-            Object.values(document.documentList).map((asset) => asset.url)
-          )
-        }}
-        variant="text"
-        endIcon={<GetApp />}
-        action={{
-          model: "default",
-          onClick: () =>
-            downloadMultipleFiles(document, qaAuthToken, executeRecaptcha)
-        }}
-        data-testid={`document-table-download-zip-button`}
-      >
-        {filesize(document.fileSize)}
-      </GTMButton>
-    );
-  }
 
   return (
     <GTMDocumentTitleButton
+      disableRipple={disableRipple}
       gtm={{
         id: "download1",
         label: "Download",
@@ -108,7 +83,10 @@ export const MultipleAssetToFileDownload = ({
   );
 };
 
-export const DocumentTitle = (props: { document: Document }) => {
+export const DocumentTitle = (props: {
+  document: Document;
+  disableRipple?: boolean;
+}) => {
   const { getMicroCopy } = useSiteContext();
   const mappedDocument = mapAssetToFileDownload(props.document, getMicroCopy);
 
@@ -116,6 +94,7 @@ export const DocumentTitle = (props: { document: Document }) => {
     return (
       <TitleButton
         variant="text"
+        disableRipple={props.disableRipple}
         action={{
           model: "htmlLink",
           href: mappedDocument.url,
@@ -131,11 +110,17 @@ export const DocumentTitle = (props: { document: Document }) => {
   }
 
   if (props.document.__typename === "PIMDocumentWithPseudoZip") {
-    return <MultipleAssetToFileDownload document={props.document} />;
+    return (
+      <MultipleAssetToFileDownload
+        document={props.document}
+        disableRipple={props.disableRipple}
+      />
+    );
   }
 
   return (
     <GTMDocumentTitleButton
+      disableRipple={props.disableRipple}
       gtm={{ id: "download1", label: "Download", action: mappedDocument.url }}
       action={{
         model: "download",
@@ -162,27 +147,37 @@ export const CopyToClipboard = (props: {
   title: string;
 }) => {
   const { getMicroCopy } = useSiteContext();
-  const [isActive, setIsActive] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isLinkCopied, setIsLinkCopied] = useState<boolean>(false);
 
   const saveToClipboard = async (): Promise<void> => {
     const downloadLink = getDownloadLink(props.url);
     await navigator.clipboard.writeText(downloadLink);
-    setIsActive(true);
+    setIsLinkCopied(true);
+    setIsOpen(true);
+  };
+
+  const handleTooltipClose = () => {
+    setIsOpen(false);
+    setIsLinkCopied(false);
   };
 
   return (
     <Tooltip
       PopperProps={{ disablePortal: true }}
       TransitionProps={{ exit: false }}
+      open={isOpen}
+      leaveTouchDelay={5000}
+      onOpen={() => setIsOpen(true)}
       placement="left"
       title={getMicroCopy(
-        isActive
+        isLinkCopied
           ? microCopy.DOCUMENT_LIBRARY_LINK_COPIED_TOOLTIP_TITLE
           : microCopy.DOCUMENT_LIBRARY_COPY_LINK_TOOLTIP_TITLE
       )}
-      onClose={() => setIsActive(false)}
+      onClose={handleTooltipClose}
     >
-      <Box ml="auto">
+      <Box ml={{ lg: "auto" }} className={classes.actionBtnWrapper}>
         <StyledButton
           isIconButton
           variant="text"
@@ -244,9 +239,10 @@ export const DownloadDocumentButton = ({
     <Tooltip
       PopperProps={{ disablePortal: true }}
       placement="left"
+      disableTouchListener
       title={getMicroCopy(microCopy.DOCUMENT_LIBRARY_DOWNLOAD_TOOLTIP_TITLE)}
     >
-      <div>
+      <div className={classes.actionBtnWrapper}>
         <GTMButton
           {...downloadButtonConfig}
           isIconButton

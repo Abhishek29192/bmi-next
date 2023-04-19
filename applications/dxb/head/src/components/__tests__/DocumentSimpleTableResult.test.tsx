@@ -11,7 +11,6 @@ import createPimDocument, {
 import createPimSystemDocument from "../../__tests__/helpers/PimSystemDocumentHelper";
 import DocumentSimpleTableResults, {
   getUniqueId,
-  getIsLinkDocument,
   isPIMDocument,
   Props
 } from "../DocumentSimpleTableResults";
@@ -48,27 +47,6 @@ const renderDocumentResults = (props?: Partial<Props>) => {
     </ThemeProvider>
   );
 };
-
-describe("isLinkDocument", () => {
-  it("should return true if the document has the 'isLinkDocument' property and its value is true", () => {
-    const pimLinkDocument: PIMDocument = createPimDocument({
-      isLinkDocument: true
-    });
-    expect(getIsLinkDocument(pimLinkDocument)).toBe(true);
-  });
-
-  it("should return false if the document does not have the 'isLinkDocument' property", () => {
-    const pimLinkDocument: PIMDocument = createPimDocument({});
-    expect(getIsLinkDocument(pimLinkDocument)).toBe(false);
-  });
-
-  it("should return false if the 'isLinkDocument' property is present but its value is false", () => {
-    const pimLinkDocument: PIMDocument = createPimDocument({
-      isLinkDocument: false
-    });
-    expect(getIsLinkDocument(pimLinkDocument)).toBe(false);
-  });
-});
 
 describe("isPimDocument", () => {
   it("should return true for PimDocument", () => {

@@ -1,24 +1,26 @@
-import {
-  createPimProductDocument,
-  createContentfulDocument,
-  createPimProductDocument as createESPimProductDocument
-} from "@bmi/elasticsearch-types";
-import logger from "@bmi-digital/functions-logger";
 import { mockResponses } from "@bmi-digital/fetch-mocks";
-import fetchMockJest from "fetch-mock-jest";
+import logger from "@bmi-digital/functions-logger";
 import {
-  getFileUrlByDocumentType,
-  getFileSizeByDocumentType,
+  createContentfulDocument,
+  createPimProductDocument as createESPimProductDocument,
+  createPimProductDocument
+} from "@bmi/elasticsearch-types";
+import fetchMockJest from "fetch-mock-jest";
+import createPimDocument, {
+  createPseudoZipDocument
+} from "../../__tests__/helpers/PimDocumentHelper";
+import createPimSystemDocument from "../../__tests__/helpers/PimSystemDocumentHelper";
+import { ProductDocument as PIMDocument } from "../../types/pim";
+import { downloadAs } from "../client-download";
+import {
   downloadMultipleFiles,
+  getFileSizeByDocumentType,
+  getFileUrlByDocumentType,
+  getIsLinkDocument,
   getProductStatus,
   getValidityDate,
   mapAssetToFileDownload
 } from "../documentUtils";
-import createPimDocument, {
-  createPseudoZipDocument
-} from "../../__tests__/helpers/PimDocumentHelper";
-import { downloadAs } from "../client-download";
-import createPimSystemDocument from "../../__tests__/helpers/PimSystemDocumentHelper";
 
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => {
@@ -48,6 +50,27 @@ jest.mock("../client-download", () => {
 beforeEach(() => {
   fetchMock.reset();
   jest.clearAllMocks();
+});
+
+describe("getIsLinkDocument", () => {
+  it("should return true if the document has the 'isLinkDocument' property and its value is true", () => {
+    const pimLinkDocument: PIMDocument = createPimDocument({
+      isLinkDocument: true
+    });
+    expect(getIsLinkDocument(pimLinkDocument)).toBe(true);
+  });
+
+  it("should return false if the document does not have the 'isLinkDocument' property", () => {
+    const pimLinkDocument: PIMDocument = createPimDocument({});
+    expect(getIsLinkDocument(pimLinkDocument)).toBe(false);
+  });
+
+  it("should return false if the 'isLinkDocument' property is present but its value is false", () => {
+    const pimLinkDocument: PIMDocument = createPimDocument({
+      isLinkDocument: false
+    });
+    expect(getIsLinkDocument(pimLinkDocument)).toBe(false);
+  });
 });
 
 describe("getFileUrlByDocumentType", () => {

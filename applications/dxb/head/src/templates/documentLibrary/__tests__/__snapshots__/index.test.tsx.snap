@@ -3721,7 +3721,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             data-testid="document-table-title-pim-document-id"
           >
             <a
-              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-pxqw1r-MuiButtonBase-root-MuiButton-root"
+              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
               data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
               data-testid="document-table-download-application/pdf-button"
               href="http://localhost:9000/document.pdf"
@@ -3791,7 +3791,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             >
               <div
                 aria-label="MC: document.library.download.tooltip.title"
-                class=""
+                class="documentSimpleTableResultCommon-actionBtnWrapper"
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >
@@ -3822,7 +3822,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               </div>
               <div
                 aria-label="MC: document.library.copyLink.tooltip.title"
-                class="MuiBox-root css-zdpt2t"
+                class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >
@@ -3957,7 +3957,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             data-testid="document-table-title-contentful-document-id"
           >
             <a
-              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-pxqw1r-MuiButtonBase-root-MuiButton-root"
+              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
               data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/asset-filename.jpg"}"
               data-testid="document-table-download-image/jpeg-button"
               href="http://localhost:9000/asset-filename.jpg"
@@ -4030,7 +4030,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             >
               <div
                 aria-label="MC: document.library.download.tooltip.title"
-                class=""
+                class="documentSimpleTableResultCommon-actionBtnWrapper"
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >
@@ -4061,7 +4061,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               </div>
               <div
                 aria-label="MC: document.library.copyLink.tooltip.title"
-                class="MuiBox-root css-zdpt2t"
+                class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >
@@ -4196,7 +4196,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             data-testid="document-table-title-pim-document-id"
           >
             <a
-              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-pxqw1r-MuiButtonBase-root-MuiButton-root"
+              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
               data-gtm="{"id":"download1","label":"Download","action":"https://url"}"
               data-testid="document-table-download-application/pdf-button"
               href="https://url/"
@@ -4266,7 +4266,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             >
               <div
                 aria-label="MC: document.library.download.tooltip.title"
-                class=""
+                class="documentSimpleTableResultCommon-actionBtnWrapper"
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >
@@ -4297,7 +4297,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               </div>
               <div
                 aria-label="MC: document.library.copyLink.tooltip.title"
-                class="MuiBox-root css-zdpt2t"
+                class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >
@@ -4432,7 +4432,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             data-testid="document-table-title-contentful-document-id"
           >
             <a
-              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-pxqw1r-MuiButtonBase-root-MuiButton-root"
+              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
               data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/asset-filename.jpg"}"
               data-testid="document-table-download-image/jpeg-button"
               href="http://localhost:9000/asset-filename.jpg"
@@ -4505,7 +4505,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             >
               <div
                 aria-label="MC: document.library.download.tooltip.title"
-                class=""
+                class="documentSimpleTableResultCommon-actionBtnWrapper"
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >
@@ -4536,7 +4536,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               </div>
               <div
                 aria-label="MC: document.library.copyLink.tooltip.title"
-                class="MuiBox-root css-zdpt2t"
+                class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >
@@ -4671,7 +4671,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             data-testid="document-table-title-pim-document-id"
           >
             <a
-              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-pxqw1r-MuiButtonBase-root-MuiButton-root"
+              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
               data-gtm="{"id":"download1","label":"Download","action":"https://url"}"
               data-testid="document-table-download-application/pdf-button"
               href="https://url/"
@@ -4741,7 +4741,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             >
               <div
                 aria-label="MC: document.library.download.tooltip.title"
-                class=""
+                class="documentSimpleTableResultCommon-actionBtnWrapper"
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >
@@ -4772,7 +4772,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               </div>
               <div
                 aria-label="MC: document.library.copyLink.tooltip.title"
-                class="MuiBox-root css-zdpt2t"
+                class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >
@@ -4907,7 +4907,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             data-testid="document-table-title-pim-document-id"
           >
             <a
-              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-pxqw1r-MuiButtonBase-root-MuiButton-root"
+              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
               data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
               data-testid="document-table-download-application/pdf-button"
               href="http://localhost:9000/document.pdf"
@@ -4977,7 +4977,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             >
               <div
                 aria-label="MC: document.library.download.tooltip.title"
-                class=""
+                class="documentSimpleTableResultCommon-actionBtnWrapper"
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >
@@ -5008,7 +5008,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               </div>
               <div
                 aria-label="MC: document.library.copyLink.tooltip.title"
-                class="MuiBox-root css-zdpt2t"
+                class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >
@@ -5143,7 +5143,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             data-testid="document-table-title-pim-document-id"
           >
             <a
-              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-pxqw1r-MuiButtonBase-root-MuiButton-root"
+              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
               data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
               data-testid="document-table-download-application/pdf-button"
               href="http://localhost:9000/document.pdf"
@@ -5213,7 +5213,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             >
               <div
                 aria-label="MC: document.library.download.tooltip.title"
-                class=""
+                class="documentSimpleTableResultCommon-actionBtnWrapper"
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >
@@ -5244,7 +5244,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               </div>
               <div
                 aria-label="MC: document.library.copyLink.tooltip.title"
-                class="MuiBox-root css-zdpt2t"
+                class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >
@@ -5391,7 +5391,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             data-testid="document-table-title-pim-document-id"
           >
             <a
-              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-pxqw1r-MuiButtonBase-root-MuiButton-root"
+              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
               data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
               data-testid="document-table-download-application/pdf-button"
               href="http://localhost:9000/document.pdf"
@@ -5450,11 +5450,11 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
             data-testid="document-table-productStatus-pim-document-id"
           >
-            <p
-              class="css-1i5s96j"
+            <span
+              class="css-1b3a2ae"
             >
               MC: document.status.available
-            </p>
+            </span>
           </td>
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
@@ -5477,7 +5477,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             >
               <div
                 aria-label="MC: document.library.download.tooltip.title"
-                class=""
+                class="documentSimpleTableResultCommon-actionBtnWrapper"
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >
@@ -5508,7 +5508,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               </div>
               <div
                 aria-label="MC: document.library.copyLink.tooltip.title"
-                class="MuiBox-root css-zdpt2t"
+                class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >
@@ -5655,7 +5655,7 @@ exports[`Document Library page should render DocumentSimpleTableResults if sourc
             data-testid="document-table-title-pim-document-id"
           >
             <a
-              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-pxqw1r-MuiButtonBase-root-MuiButton-root"
+              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
               data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
               data-testid="document-table-download-application/pdf-button"
               href="http://localhost:9000/document.pdf"
@@ -5714,11 +5714,11 @@ exports[`Document Library page should render DocumentSimpleTableResults if sourc
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
             data-testid="document-table-productStatus-pim-document-id"
           >
-            <p
-              class="css-1i5s96j"
+            <span
+              class="css-1b3a2ae"
             >
               MC: document.status.available
-            </p>
+            </span>
           </td>
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
@@ -5741,7 +5741,7 @@ exports[`Document Library page should render DocumentSimpleTableResults if sourc
             >
               <div
                 aria-label="MC: document.library.download.tooltip.title"
-                class=""
+                class="documentSimpleTableResultCommon-actionBtnWrapper"
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >
@@ -5772,7 +5772,7 @@ exports[`Document Library page should render DocumentSimpleTableResults if sourc
               </div>
               <div
                 aria-label="MC: document.library.copyLink.tooltip.title"
-                class="MuiBox-root css-zdpt2t"
+                class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >
