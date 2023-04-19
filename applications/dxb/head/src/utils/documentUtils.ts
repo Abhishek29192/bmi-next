@@ -1,17 +1,20 @@
-import fetch, { Response } from "node-fetch";
 import logger from "@bmi-digital/functions-logger";
+import fetch, { Response } from "node-fetch";
 import { IGoogleReCaptchaConsumerProps } from "react-google-recaptcha-v3";
 import createAssetFileCountMap, {
   AssetUniqueFileCountMap,
   generateFilenameByRealFileName,
   generateFileNamebyTitle
 } from "../components/DocumentFileUtils";
-import { PseudoZipPIMDocument } from "../types/pim";
-import { Document } from "../types/Document";
 import { GetMicroCopy } from "../components/MicroCopy";
 import { microCopy } from "../constants/microCopies";
+import { Document } from "../types/Document";
+import { PseudoZipPIMDocument } from "../types/pim";
 import { downloadAs } from "./client-download";
 import { formatDate, getCurrentTimeString } from "./dateUtils";
+
+export const getIsLinkDocument = (document: Document): boolean =>
+  "isLinkDocument" in document && document.isLinkDocument;
 
 export const getFileSizeByDocumentType = (document: Document): number => {
   if (document.__typename === "ContentfulDocument") {

@@ -1,17 +1,16 @@
+import { ThemeProvider } from "@bmi-digital/components";
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
-import { ThemeProvider } from "@bmi-digital/components";
-import { useMediaQuery } from "@mui/material";
-import {
-  DocumentTitle,
-  CopyToClipboard,
-  DownloadDocumentButton
-} from "../DocumentSimpleTableResultCommon";
 import createPimDocument, {
   createPseudoZipDocument
 } from "../../__tests__/helpers/PimDocumentHelper";
-import { downloadMultipleFiles } from "../../utils/documentUtils";
 import { getDownloadLink } from "../../utils/client-download";
+import { downloadMultipleFiles } from "../../utils/documentUtils";
+import {
+  CopyToClipboard,
+  DocumentTitle,
+  DownloadDocumentButton
+} from "../DocumentSimpleTableResultCommon";
 
 jest.mock("../../utils/documentUtils", () => {
   const origin = jest.requireActual("../../utils/documentUtils");
@@ -28,11 +27,6 @@ jest.mock("../../utils/client-download", () => {
     getDownloadLink: jest.fn()
   };
 });
-
-jest.mock("@mui/material", () => ({
-  ...jest.requireActual("@mui/material"),
-  useMediaQuery: jest.fn().mockReturnValue(false)
-}));
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -78,7 +72,7 @@ describe("DocumentTitle component", () => {
     ).toBeInTheDocument();
   });
 
-  it("calls downloadMultipleFiles function if user clicks on the PIMDocumentWithPseudoZip document title on desktop", () => {
+  it("calls downloadMultipleFiles function if user clicks on the PIMDocumentWithPseudoZip document title", () => {
     const zipDocument = createPseudoZipDocument({
       title: "PIMDocumentWithPseudoZip"
     });
@@ -88,20 +82,6 @@ describe("DocumentTitle component", () => {
       </ThemeProvider>
     );
     fireEvent.click(screen.getByText(zipDocument.title));
-    expect(downloadMultipleFiles).toHaveBeenCalled();
-  });
-
-  it("calls downloadMultipleFiles function if user clicks on the PIMDocumentWithPseudoZip document title on mobile devices", () => {
-    (useMediaQuery as jest.Mock).mockReturnValue(true);
-    const zipDocument = createPseudoZipDocument({
-      fileSize: 100
-    });
-    render(
-      <ThemeProvider>
-        <DocumentTitle document={zipDocument} />
-      </ThemeProvider>
-    );
-    fireEvent.click(screen.getByText("100 B"));
     expect(downloadMultipleFiles).toHaveBeenCalled();
   });
 

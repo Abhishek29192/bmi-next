@@ -118,7 +118,7 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
               data-testid="document-table-title-contentful-document-id"
             >
               <a
-                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-pxqw1r-MuiButtonBase-root-MuiButton-root"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/asset-filename.jpg"}"
                 data-testid="document-table-download-image/jpeg-button"
                 href="http://localhost:9000/asset-filename.jpg"
@@ -191,7 +191,7 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
               >
                 <div
                   aria-label="MC: document.library.download.tooltip.title"
-                  class=""
+                  class="documentSimpleTableResultCommon-actionBtnWrapper"
                   data-mui-internal-clone-element="true"
                   data-testid="tooltip"
                 >
@@ -222,7 +222,7 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
                 </div>
                 <div
                   aria-label="MC: document.library.copyLink.tooltip.title"
-                  class="MuiBox-root css-zdpt2t"
+                  class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
                   data-mui-internal-clone-element="true"
                   data-testid="tooltip"
                 >
@@ -313,7 +313,7 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
               data-testid="document-table-title-pim-document-id"
             >
               <a
-                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-pxqw1r-MuiButtonBase-root-MuiButton-root"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                 data-testid="document-table-download-application/pdf-button"
                 href="http://localhost:9000/document.pdf"
@@ -383,7 +383,7 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
               >
                 <div
                   aria-label="MC: document.library.download.tooltip.title"
-                  class=""
+                  class="documentSimpleTableResultCommon-actionBtnWrapper"
                   data-mui-internal-clone-element="true"
                   data-testid="tooltip"
                 >
@@ -414,7 +414,7 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
                 </div>
                 <div
                   aria-label="MC: document.library.copyLink.tooltip.title"
-                  class="MuiBox-root css-zdpt2t"
+                  class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
                   data-mui-internal-clone-element="true"
                   data-testid="tooltip"
                 >

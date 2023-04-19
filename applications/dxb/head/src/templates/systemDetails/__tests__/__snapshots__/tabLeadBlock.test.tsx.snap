@@ -754,7 +754,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                                 data-testid="document-table-title-pim-link-document-id"
                               >
                                 <a
-                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-pxqw1r-MuiButtonBase-root-MuiButton-root"
+                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"download1","label":"Download","action":"http://localhost/pim-link-document-id"}"
                                   data-testid="document-table-download-application/pdf-button"
                                   href="http://localhost/pim-link-document-id"
@@ -824,7 +824,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                                 >
                                   <div
                                     aria-label="MC: document.library.download.tooltip.title"
-                                    class=""
+                                    class="documentSimpleTableResultCommon-actionBtnWrapper"
                                     data-mui-internal-clone-element="true"
                                     data-testid="tooltip"
                                   >
@@ -855,7 +855,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                                   </div>
                                   <div
                                     aria-label="MC: document.library.copyLink.tooltip.title"
-                                    class="MuiBox-root css-zdpt2t"
+                                    class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
                                     data-mui-internal-clone-element="true"
                                     data-testid="tooltip"
                                   >
@@ -942,7 +942,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                                 data-testid="document-table-title-pim-link-document-id"
                               >
                                 <a
-                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-pxqw1r-MuiButtonBase-root-MuiButton-root"
+                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
                                   data-testid="document-table-external-link-button"
                                   href="http://localhost/pim-link-document-id"
                                   rel="noopener noreferrer"
@@ -987,7 +987,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                                 >
                                   <div
                                     aria-label="MC: document.library.copyLink.tooltip.title"
-                                    class="MuiBox-root css-zdpt2t"
+                                    class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
                                     data-mui-internal-clone-element="true"
                                     data-testid="tooltip"
                                   >
@@ -1233,7 +1233,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                             data-testid="document-table-title-pim-link-document-id"
                           >
                             <a
-                              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-pxqw1r-MuiButtonBase-root-MuiButton-root"
+                              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
                               data-gtm="{"id":"download1","label":"Download","action":"http://localhost/pim-link-document-id"}"
                               data-testid="document-table-download-application/pdf-button"
                               href="http://localhost/pim-link-document-id"
@@ -1303,7 +1303,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                             >
                               <div
                                 aria-label="MC: document.library.download.tooltip.title"
-                                class=""
+                                class="documentSimpleTableResultCommon-actionBtnWrapper"
                                 data-mui-internal-clone-element="true"
                                 data-testid="tooltip"
                               >
@@ -1334,7 +1334,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                               </div>
                               <div
                                 aria-label="MC: document.library.copyLink.tooltip.title"
-                                class="MuiBox-root css-zdpt2t"
+                                class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
                                 data-mui-internal-clone-element="true"
                                 data-testid="tooltip"
                               >
@@ -1421,7 +1421,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                             data-testid="document-table-title-pim-link-document-id"
                           >
                             <a
-                              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-pxqw1r-MuiButtonBase-root-MuiButton-root"
+                              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
                               data-testid="document-table-external-link-button"
                               href="http://localhost/pim-link-document-id"
                               rel="noopener noreferrer"
@@ -1466,7 +1466,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                             >
                               <div
                                 aria-label="MC: document.library.copyLink.tooltip.title"
-                                class="MuiBox-root css-zdpt2t"
+                                class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
                                 data-mui-internal-clone-element="true"
                                 data-testid="tooltip"
                               >
