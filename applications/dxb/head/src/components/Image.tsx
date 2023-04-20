@@ -1,5 +1,5 @@
 import { graphql } from "gatsby";
-import { GatsbyImage as Img, IGatsbyImageData } from "gatsby-plugin-image";
+import { IGatsbyImageData, GatsbyImage as Img } from "gatsby-plugin-image";
 import React from "react";
 
 type ImageData = {
@@ -12,7 +12,7 @@ type ImageData = {
 };
 
 export type Data = {
-  altText: string | null;
+  altText: string;
   type?: "Decorative" | "Descriptive" | null;
   image: ImageData;
   focalPoint?: {
@@ -25,6 +25,7 @@ type Options = {
   className?: string;
   size?: "cover" | "contain";
   position?: string;
+  isMobile?: boolean;
 };
 
 const typeToObjectFitMap: Record<Data["type"], Options["size"]> = {
@@ -35,10 +36,15 @@ const typeToObjectFitMap: Record<Data["type"], Options["size"]> = {
 const getPosition = ({
   size,
   position,
-  focalPoint
+  focalPoint,
+  isMobile
 }: Options & Pick<Data, "focalPoint">): Options["position"] => {
   if (position) {
     return position;
+  }
+
+  if (isMobile) {
+    return "center";
   }
 
   if (size === "cover" && focalPoint) {
@@ -56,6 +62,7 @@ const Image = ({
   type,
   position,
   className,
+  isMobile,
   ...props
 }: Data & Options) => {
   if (!image?.gatsbyImageData) {
@@ -69,7 +76,8 @@ const Image = ({
           objectPosition: getPosition({
             size,
             position,
-            focalPoint: focalPoint
+            focalPoint: focalPoint,
+            isMobile: isMobile
           })
         }}
         {...props}
@@ -86,7 +94,8 @@ const Image = ({
       objectPosition={getPosition({
         size,
         position,
-        focalPoint: focalPoint
+        focalPoint: focalPoint,
+        isMobile: isMobile
       })}
       className={className}
       {...props}

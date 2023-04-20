@@ -1,5 +1,4 @@
 import { ThemeProvider } from "@bmi-digital/components";
-import { createPimProductDocument as createESPimProductDocument } from "@bmi/elasticsearch-types";
 import { useMediaQuery } from "@mui/material";
 import { render, screen } from "@testing-library/react";
 import React from "react";
@@ -11,12 +10,8 @@ import createPimDocument, {
 } from "../../__tests__/helpers/PimDocumentHelper";
 import createPimSystemDocument from "../../__tests__/helpers/PimSystemDocumentHelper";
 import DocumentSimpleTableResults, {
-  formatDate,
-  getProductStatus,
   getUniqueId,
-  isLinkDocument,
   isPIMDocument,
-  mapAssetToFileDownload,
   Props
 } from "../DocumentSimpleTableResults";
 
@@ -52,27 +47,6 @@ const renderDocumentResults = (props?: Partial<Props>) => {
     </ThemeProvider>
   );
 };
-
-describe("isLinkDocument", () => {
-  it("should return true if the document has the 'isLinkDocument' property and its value is true", () => {
-    const pimLinkDocument: PIMDocument = createPimDocument({
-      isLinkDocument: true
-    });
-    expect(isLinkDocument(pimLinkDocument)).toBe(true);
-  });
-
-  it("should return false if the document does not have the 'isLinkDocument' property", () => {
-    const pimLinkDocument: PIMDocument = createPimDocument({});
-    expect(isLinkDocument(pimLinkDocument)).toBe(false);
-  });
-
-  it("should return false if the 'isLinkDocument' property is present but its value is false", () => {
-    const pimLinkDocument: PIMDocument = createPimDocument({
-      isLinkDocument: false
-    });
-    expect(isLinkDocument(pimLinkDocument)).toBe(false);
-  });
-});
 
 describe("isPimDocument", () => {
   it("should return true for PimDocument", () => {
@@ -112,6 +86,14 @@ describe("DocumentSimpleTableResult", () => {
       mockUseMediaQuery.mockReturnValueOnce(false);
     });
 
+    it("should not render copy url button if document is PIMDocumentWithPseudoZip", () => {
+      renderDocumentResults({ documents: [pseudoZipPIMDocument] });
+      expect(screen.getByText(pseudoZipPIMDocument.title)).toBeInTheDocument();
+      expect(
+        screen.queryByLabelText(`Copy ${pseudoZipPIMDocument.title}`)
+      ).not.toBeInTheDocument();
+    });
+
     describe("when there are PIMLinkDocuments", () => {
       it("should render external link icon", () => {
         renderDocumentResults({ documents: [pimLinkDocument] });
@@ -120,178 +102,108 @@ describe("DocumentSimpleTableResult", () => {
         expect(link).toHaveAttribute("href", pimLinkDocument.url);
       });
 
-      it("should render checkboxes for selection", () => {
-        renderDocumentResults({ documents: [pimDocument] });
+      it("should not render file size and download button if document is PIMLinkDocuments", () => {
+        renderDocumentResults({ documents: [pimLinkDocument] });
+        const fileSizeCell = screen.getByTestId(
+          `document-table-size-${pimLinkDocument.id}`
+        );
+        expect(fileSizeCell.textContent).toBe("-");
         expect(
-          screen.getByRole("checkbox", {
-            name: "MC: documentLibrary.download Pim Document"
-          })
-        ).toBeInTheDocument();
-      });
-
-      it("should render productStatus and validityDate headers", () => {
-        renderDocumentResults({
-          documents: [pimDocument],
-          headers: ["name", "title", "validityDate", "productStatus"]
-        });
-        expect(
-          screen.getByText("MC: documentLibrary.headers.productStatus")
-        ).toBeInTheDocument();
-        expect(
-          screen.getByText("MC: documentLibrary.headers.validityDate")
-        ).toBeInTheDocument();
-      });
-
-      it("should render document with product status cell", () => {
-        renderDocumentResults({
-          headers: ["productStatus"],
-          documents: [{ ...pimDocument, approvalStatus: "approved" }]
-        });
-        expect(
-          screen.getByText("MC: document.status.available")
-        ).toBeInTheDocument();
+          screen.queryByTestId(
+            `document-table-actions-download-${pimDocument.id}`
+          )
+        ).not.toBeInTheDocument();
       });
     });
 
-    describe("when all headers are present", () => {
-      it("should render documents", () => {
-        renderDocumentResults({
-          documents: [pimDocument],
-          headers: ["typeCode", "type", "name", "title", "download", "add"]
-        });
-        expect(
-          screen.getByRole("checkbox", {
-            name: "MC: documentLibrary.download Pim Document"
-          })
-        ).toBeInTheDocument();
-      });
+    it("should render checkboxes for selection", () => {
+      renderDocumentResults({ documents: [pimDocument] });
+      expect(
+        screen.getByRole("checkbox", {
+          name: "MC: documentLibrary.download Pim Document"
+        })
+      ).toBeInTheDocument();
     });
 
-    describe("when multiple types of documents are present", () => {
-      it("should render documents", () => {
-        renderDocumentResults({
-          documents: [pimDocument, pseudoZipPIMDocument],
-          headers: ["typeCode", "type", "name", "title", "download", "add"]
-        });
-        expect(
-          screen.getByRole("checkbox", {
-            name: "MC: documentLibrary.download Pim Document"
-          })
-        ).toBeInTheDocument();
-        expect(
-          screen.getByRole("checkbox", {
-            name: `MC: documentLibrary.download ${pseudoZipAssetTypeName}`
-          })
-        ).toBeInTheDocument();
+    it("should render productStatus and validityDate headers", () => {
+      renderDocumentResults({
+        documents: [pimDocument],
+        headers: ["name", "title", "validityDate", "productStatus"]
       });
+      expect(
+        screen.getByText("MC: documentLibrary.headers.productStatus")
+      ).toBeInTheDocument();
+      expect(
+        screen.getByText("MC: documentLibrary.headers.validityDate")
+      ).toBeInTheDocument();
     });
 
-    describe("when multiple types of documents are present with pagination", () => {
-      it("should render documents", () => {
-        renderDocumentResults({
-          documents: [null],
-          headers: ["typeCode", "type", "name", "title", "download", "add"]
-        });
-        expect(
-          screen.queryAllByRole("checkbox", {
-            name: "MC: documentLibrary.download Pim Document"
-          }).length
-        ).toEqual(0);
+    it("should render document with product status cell", () => {
+      renderDocumentResults({
+        headers: ["productStatus"],
+        documents: [{ ...pimDocument, approvalStatus: "approved" }]
       });
+      expect(
+        screen.getByText("MC: document.status.available")
+      ).toBeInTheDocument();
     });
   });
 
-  describe("in mobile view", () => {
-    beforeEach(() => {
-      mockUseMediaQuery.mockReturnValueOnce(true);
+  describe("when all headers are present", () => {
+    it("should render documents", () => {
+      renderDocumentResults({
+        documents: [pimDocument],
+        headers: ["add", "typeCode", "type", "name", "title", "size", "actions"]
+      });
+      expect(
+        screen.getByRole("checkbox", {
+          name: "MC: documentLibrary.download Pim Document"
+        })
+      ).toBeInTheDocument();
     });
+  });
 
-    it("should render mobile results view", () => {
-      renderDocumentResults();
-      expect(screen.getByText("Mobile Results")).toBeInTheDocument();
+  describe("when multiple types of documents are present", () => {
+    it("should render documents", () => {
+      renderDocumentResults({
+        documents: [pimDocument, pseudoZipPIMDocument],
+        headers: ["add", "typeCode", "type", "name", "title", "size", "actions"]
+      });
+      expect(
+        screen.getByRole("checkbox", {
+          name: "MC: documentLibrary.download Pim Document"
+        })
+      ).toBeInTheDocument();
+      expect(
+        screen.getByRole("checkbox", {
+          name: `MC: documentLibrary.download ${pseudoZipAssetTypeName}`
+        })
+      ).toBeInTheDocument();
+    });
+  });
+
+  describe("when multiple types of documents are present with pagination", () => {
+    it("should render documents", () => {
+      renderDocumentResults({
+        documents: [null],
+        headers: ["add", "typeCode", "type", "name", "title", "size", "actions"]
+      });
+      expect(
+        screen.queryAllByRole("checkbox", {
+          name: "MC: documentLibrary.download Pim Document"
+        }).length
+      ).toEqual(0);
     });
   });
 });
 
-describe("getProductStatus", () => {
-  it("should return '-'", () => {
-    const document = createESPimProductDocument();
-    delete document.approvalStatus;
-    const productStatus = getProductStatus(document, jest.fn());
-    expect(productStatus).toBe("-");
+describe("in mobile view", () => {
+  beforeEach(() => {
+    mockUseMediaQuery.mockReturnValueOnce(true);
   });
 
-  it("should return status 'Available'", () => {
-    const getMicroCopy = jest.fn();
-    const document = createESPimProductDocument({ approvalStatus: "approved" });
-    getProductStatus(document, getMicroCopy);
-    expect(getMicroCopy).toHaveBeenCalledWith("document.status.available");
-  });
-
-  it("should return status 'Discontinued'", () => {
-    const getMicroCopy = jest.fn();
-    const document = createESPimProductDocument({
-      approvalStatus: "discontinued"
-    });
-    getProductStatus(document, getMicroCopy);
-    expect(getMicroCopy).toHaveBeenCalledWith("document.status.discontinued");
-  });
-});
-
-describe("formatDate", () => {
-  it("should return '-'", () => {
-    const document = createESPimProductDocument();
-    delete document.validUntil;
-    const formattedDate = formatDate(document);
-    expect(formattedDate).toBe("-");
-
-    document.validUntil = undefined;
-    expect(formattedDate).toBe("-");
-  });
-
-  it("should return date", () => {
-    const document = createESPimProductDocument({
-      validUntil: new Date("2023-10-27T08:23:59+0000").getTime()
-    });
-    const formattedDate = formatDate(document);
-    expect(formattedDate).toBe("27.10.2023");
-  });
-
-  it("should return date in correct format if day or month is less than 10", () => {
-    const document = createESPimProductDocument({
-      validUntil: new Date("2023-08-03T08:23:59+0000").getTime()
-    });
-    const formattedDate = formatDate(document);
-    expect(formattedDate).toBe("03.08.2023");
-  });
-});
-
-describe("mapAssetToFileDownload", () => {
-  const expectedCommonProperties = {
-    format: "application/pdf",
-    size: 10,
-    assetTypeName: "asset-name",
-    productStatus: "-",
-    validUntil: "-"
-  };
-  it("should map PIMDocument types to FileDownloadButtonProps correctly", () => {
-    const document = createPimDocument();
-    const getMicroCopy = jest.fn();
-    expect(mapAssetToFileDownload(document, getMicroCopy)).toEqual({
-      ...expectedCommonProperties,
-      title: "Pim Document",
-      url: "http://pimDocument",
-      isLinkDocument: false
-    });
-  });
-  it("should map PIMSystemDocument types to FileDownloadButtonProps correctly", () => {
-    const document = createPimSystemDocument();
-    const getMicroCopy = jest.fn();
-    expect(mapAssetToFileDownload(document, getMicroCopy)).toEqual({
-      ...expectedCommonProperties,
-      title: "pim-link-document-title",
-      url: "http://localhost/pim-link-document-id",
-      isLinkDocument: true
-    });
+  it("should render mobile results view", () => {
+    renderDocumentResults();
+    expect(screen.getByText("Mobile Results")).toBeInTheDocument();
   });
 });

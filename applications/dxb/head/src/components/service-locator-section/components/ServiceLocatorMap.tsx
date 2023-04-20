@@ -5,8 +5,8 @@ import {
   CardHeader,
   CompanyDetailProps,
   CompanyDetails,
-  GoogleMap,
   LatLngLiteral as GoogleLatLngLiteral,
+  GoogleMap,
   MarkerOptionsWithData,
   Typography
 } from "@bmi-digital/components";
@@ -56,11 +56,12 @@ export const ServiceLocatorMap = ({
       >
         {selectedRoofer && (
           <Card
-            className={classnames(styles["product-details-card"], {
+            className={classnames(
+              styles["product-details-card"],
               // eslint-disable-next-line security/detect-object-injection
-              [styles["product-details-card--with_logo"]]:
-                selectedRoofer.companyLogo
-            })}
+              selectedRoofer.companyLogo &&
+                styles["product-details-card--with_logo"]
+            )}
             data-testid={`service-locator-service-details-card-${selectedRoofer.id}`}
           >
             <CardHeader

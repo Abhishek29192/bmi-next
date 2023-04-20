@@ -1,216 +1,130 @@
-import {
-  Button,
-  ButtonProps,
-  ClickableAction,
-  Typography
-} from "@bmi-digital/components";
-import { GetApp } from "@mui/icons-material";
-import { styled } from "@mui/material/styles";
-import classnames from "classnames";
 import filesize from "filesize";
 import React from "react";
 import { microCopy } from "../constants/microCopies";
-import { PseudoZipPIMDocument } from "../types/pim";
-import { getDownloadLink } from "../utils/client-download";
-import withGTM from "../utils/google-tag-manager";
+import { Document, DocumentTableHeader } from "../types/Document";
 import {
-  Document,
-  FileDownloadButtonProps,
-  mapAssetToFileDownload,
-  MultipleAssetToFileDownload
-} from "./DocumentSimpleTableResults";
-import fileIconsMap from "./FileIconsMap";
-import Icon from "./Icon";
+  getFileSizeByDocumentType,
+  getFileUrlByDocumentType,
+  getIsLinkDocument,
+  getProductStatus,
+  getValidityDate
+} from "../utils/documentUtils";
+import {
+  CopyToClipboard,
+  DocumentTitle,
+  DownloadDocumentButton
+} from "./DocumentSimpleTableResultCommon";
 import { useSiteContext } from "./Site";
+import { DocumentStatus } from "./styles/DocumentSimpleTableResultsCommonStyles";
+import {
+  Actions,
+  FieldTitle,
+  FieldValue,
+  StyledListItem,
+  StyledListRow,
+  StyledListRowItem,
+  StyledListTitleRow
+} from "./styles/DocumentSimpleTableResultsMobileStyles";
 
 type ListProps = {
   documents: readonly Document[];
+  headers: DocumentTableHeader[];
 };
 
-const GTMButton = withGTM<
-  ButtonProps & {
-    action?: ClickableAction;
-  }
->(Button);
-
-const StyledListItem = styled("div")(({ theme }) => ({
-  padding: "20px 0 12px",
-  position: "relative",
-  minHeight: "126px",
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "space-between",
-
-  "&:nth-child(2n + 1)": {
-    "&::before": {
-      content: "''",
-      display: "block",
-      position: "absolute",
-      left: "-20px",
-      right: "-20px",
-      bottom: 0,
-      top: 0,
-      "background-color": theme.colours.pearl
-    }
-  }
-}));
-
-const StyledListTitleRow = styled("div")(({ theme }) => ({
-  display: "flex",
-  position: "relative"
-}));
-
-const StyledListRow = styled("div")(({ theme }) => ({
-  color: theme.colours.slate,
-  fontSize: "16px",
-  padding: "8px 0",
-  position: "relative"
-}));
-
-const StyledListDownloadRow = styled("div")(({ theme }) => ({
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "space-between",
-  position: "relative"
-}));
-
-const StyledDocumentTitle = styled(Typography)(({ theme }) => ({
-  lineHeight: "31px",
-  color: theme.colours.slate,
-  paddingTop: "5px",
-  fontFamily: "Effra Medium",
-  display: "-webkit-box",
-  WebkitLineClamp: 3,
-  WebkitBoxOrient: "vertical",
-  overflow: "hidden"
-}));
-
-const StyledDocumentType = styled(Typography)(({ theme }) => ({
-  color: theme.colours.slate,
-  lineHeight: "19px"
-}));
-
-const StyledListIcon = styled("div")(({ theme }) => ({
-  marginRight: "12px",
-  display: "flex"
-}));
-
-const StyledExternalLinkIcon = styled(Icon)(({ theme }) => ({
-  fill: theme.colours.inter,
-  width: "16px",
-  height: "16px",
-  margin: "6px 8px"
-}));
-
-const StyledDownloadIcon = styled(Icon)(({ theme }) => ({
-  width: "32px",
-  height: "32px"
-}));
-
-const MultipleDocumentsToZipFile = ({
-  document
+const ListItem = ({
+  document,
+  headers
 }: {
-  document: PseudoZipPIMDocument;
+  document: Document;
+  headers: DocumentTableHeader[];
 }) => {
-  return (
-    <StyledListItem>
-      <StyledListTitleRow>
-        <StyledListIcon>
-          <StyledDownloadIcon
-            name={"FileZIP"}
-            className={classnames("download-icon")}
-            data-testid={"download-icon"}
-          />
-        </StyledListIcon>
-        <StyledDocumentTitle>{document.assetType.name}</StyledDocumentTitle>
-      </StyledListTitleRow>
-      <StyledListDownloadRow>
-        <StyledDocumentType>{document.assetType.name}</StyledDocumentType>
-        <MultipleAssetToFileDownload document={document} isMobile />
-      </StyledListDownloadRow>
-    </StyledListItem>
-  );
-};
-
-const ListItem = ({ asset }: { asset: FileDownloadButtonProps }) => {
   const { getMicroCopy } = useSiteContext();
+  const isLinkDocument = getIsLinkDocument(document);
+
   return (
     <StyledListItem>
       <StyledListTitleRow>
-        {!asset.isLinkDocument && (
-          <StyledListIcon>
-            <StyledDownloadIcon
-              name={fileIconsMap[asset.format] || "External"}
-              className={classnames("download-icon")}
-              data-testid={"download-icon"}
-            />
-          </StyledListIcon>
-        )}
-        <StyledDocumentTitle>{asset.title}</StyledDocumentTitle>
+        <DocumentTitle document={document} disableRipple />
       </StyledListTitleRow>
       <StyledListRow>
-        {getMicroCopy(microCopy.DOCUMENT_LIBRARY_HEADERS_PRODUCT_STATUS)}:{" "}
-        {asset.productStatus}
+        {headers.includes("typeCode") ? (
+          <StyledListRowItem>
+            <FieldTitle>
+              {getMicroCopy(microCopy.DOCUMENT_LIBRARY_HEADERS_TYPE_CODE)}:
+            </FieldTitle>{" "}
+            <FieldValue>
+              <abbr>{document.assetType.code}</abbr>
+            </FieldValue>
+          </StyledListRowItem>
+        ) : null}
+        {headers.includes("type") ? (
+          <StyledListRowItem>
+            <FieldTitle>
+              {getMicroCopy(microCopy.DOCUMENT_LIBRARY_HEADERS_TYPE)}:
+            </FieldTitle>{" "}
+            <FieldValue>{document.assetType.name}</FieldValue>
+          </StyledListRowItem>
+        ) : null}
+        <StyledListRowItem>
+          <FieldTitle>
+            {getMicroCopy(microCopy.DOCUMENT_LIBRARY_HEADERS_SIZE)}:
+          </FieldTitle>
+          <FieldValue>
+            {filesize(getFileSizeByDocumentType(document))}
+          </FieldValue>
+        </StyledListRowItem>
+        {headers.includes("productStatus") ? (
+          <StyledListRowItem>
+            <FieldTitle>
+              {getMicroCopy(microCopy.DOCUMENT_LIBRARY_HEADERS_PRODUCT_STATUS)}:
+            </FieldTitle>
+            <FieldValue>
+              {"approvalStatus" in document ? (
+                <DocumentStatus status={document.approvalStatus}>
+                  {getProductStatus(document, getMicroCopy)}
+                </DocumentStatus>
+              ) : (
+                "-"
+              )}
+            </FieldValue>
+          </StyledListRowItem>
+        ) : null}
+        {headers.includes("validityDate") ? (
+          <StyledListRowItem>
+            <FieldTitle>
+              {getMicroCopy(microCopy.DOCUMENT_LIBRARY_HEADERS_VALIDITY_DATE)}:
+            </FieldTitle>
+            <FieldValue>{getValidityDate(document)}</FieldValue>
+          </StyledListRowItem>
+        ) : null}
       </StyledListRow>
       <StyledListRow>
-        {getMicroCopy(microCopy.DOCUMENT_LIBRARY_HEADERS_VALIDITY_DATE)}:{" "}
-        {asset.validUntil}
+        <Actions>
+          {!isLinkDocument ? (
+            <DownloadDocumentButton document={document} />
+          ) : null}
+          {document.__typename !== "PIMDocumentWithPseudoZip" ? (
+            <CopyToClipboard
+              id={document.id}
+              url={getFileUrlByDocumentType(document)}
+              title={document.title}
+            />
+          ) : null}
+        </Actions>
       </StyledListRow>
-      <StyledListDownloadRow>
-        <StyledDocumentType>{asset.assetTypeName}</StyledDocumentType>
-        {!asset.isLinkDocument ? (
-          <GTMButton
-            gtm={{
-              id: "download1",
-              label: "Download",
-              action: asset.url
-            }}
-            variant="text"
-            endIcon={<GetApp />}
-            action={{
-              model: "download",
-              href: getDownloadLink(asset.url)
-            }}
-          >
-            {filesize(asset.size)}
-          </GTMButton>
-        ) : (
-          <Button
-            isIconButton
-            variant="text"
-            size="small"
-            action={{
-              model: "htmlLink",
-              href: asset.url,
-              target: "_blank",
-              rel: "noopener noreferrer"
-            }}
-          >
-            <StyledExternalLinkIcon name={"ExternalMobile"} />
-          </Button>
-        )}
-      </StyledListDownloadRow>
     </StyledListItem>
   );
 };
 
 export const DocumentSimpleTableResultsMobile = ({
-  documents
+  documents,
+  headers
 }: ListProps): React.ReactElement => {
-  const { getMicroCopy } = useSiteContext();
-
-  const list = documents.map((document, index) => {
-    if (document.__typename === "PIMDocumentWithPseudoZip") {
-      const key = `${document.__typename}-${index}`;
-      return <MultipleDocumentsToZipFile key={key} document={document} />;
-    }
-    return (
-      <ListItem
-        asset={mapAssetToFileDownload(document, getMicroCopy)}
-        key={document.id}
-      />
-    );
-  });
-
-  return <div>{list}</div>;
+  return (
+    <div>
+      {documents.map((document) => (
+        <ListItem headers={headers} document={document} key={document.id} />
+      ))}
+    </div>
+  );
 };

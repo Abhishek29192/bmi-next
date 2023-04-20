@@ -71,7 +71,7 @@ const IntegratedPostItCard = ({
                       link.linkedPage,
                       link.url,
                       countryCode,
-                      null,
+                      undefined,
                       link.label
                     )}
                     gtm={{
@@ -87,7 +87,7 @@ const IntegratedPostItCard = ({
                       link.linkedPage,
                       link.url,
                       countryCode,
-                      null,
+                      undefined,
                       link.label
                     )}
                     gtm={{

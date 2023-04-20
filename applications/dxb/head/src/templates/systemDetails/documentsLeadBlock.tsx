@@ -42,7 +42,7 @@ const DocumentsLeadBlock = ({ documents: initialDocuments }: Props) => {
             <div className={styles["tableContainer"]}>
               <DocumentSimpleTableResults
                 documents={documents}
-                headers={["type", "title", "download", "add"]}
+                headers={["add", "type", "title", "size", "actions"]}
               />
             </div>
             <DocumentResultsFooter

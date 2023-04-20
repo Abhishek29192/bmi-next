@@ -103,6 +103,7 @@ export const pimFragments = graphql`
     isLinkDocument
     productBaseCode
     productName
+    title
   }
 
   fragment PIMDocumentCommonFragment on ProductDocumentResponse {

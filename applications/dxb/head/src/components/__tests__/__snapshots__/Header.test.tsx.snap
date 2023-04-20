@@ -1694,12 +1694,12 @@ exports[`Header component shows sample basket icon 1`] = `
                 type="button"
               >
                 <span
-                  class="MuiBadge-root css-anxmnr-MuiBadge-root"
+                  class="MuiBadge-root css-nde7kb-MuiBadge-root"
                   data-testid="shopping-cart-button-badge"
                 >
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium IconClasses-white css-1hwmxis-MuiSvgIcon-root"
                     data-testid="ShoppingCartOutlinedIcon"
                     focusable="false"
                     viewBox="0 0 24 24"

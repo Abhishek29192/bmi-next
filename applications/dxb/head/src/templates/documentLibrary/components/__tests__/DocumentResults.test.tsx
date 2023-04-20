@@ -54,9 +54,6 @@ describe("DocumentResults component", () => {
           screen.getByText("MC: documentLibrary.headers.title")
         ).toBeInTheDocument();
         expect(
-          screen.getByText("MC: documentLibrary.headers.download")
-        ).toBeInTheDocument();
-        expect(
           screen.getByText("MC: documentLibrary.headers.add")
         ).toBeInTheDocument();
         expect(container).toMatchSnapshot();
@@ -91,9 +88,6 @@ describe("DocumentResults component", () => {
           screen.getByText("MC: documentLibrary.headers.title")
         ).toBeInTheDocument();
         expect(
-          screen.getByText("MC: documentLibrary.headers.download")
-        ).toBeInTheDocument();
-        expect(
           screen.getByText("MC: documentLibrary.headers.add")
         ).toBeInTheDocument();
       });
@@ -124,9 +118,6 @@ describe("DocumentResults component", () => {
         ).not.toBeInTheDocument();
         expect(
           screen.getByText("MC: documentLibrary.headers.title")
-        ).toBeInTheDocument();
-        expect(
-          screen.getByText("MC: documentLibrary.headers.download")
         ).toBeInTheDocument();
         expect(
           screen.getByText("MC: documentLibrary.headers.add")

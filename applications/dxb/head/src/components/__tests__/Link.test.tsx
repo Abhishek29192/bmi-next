@@ -2,12 +2,12 @@ import { ThemeProvider } from "@bmi-digital/components";
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import {
-  Data as LinkData,
   DataTypeEnum,
-  getClickableActionFromUrl,
+  Link,
+  Data as LinkData,
   getCTA,
-  getLinkURL,
-  Link
+  getClickableActionFromUrl,
+  getLinkURL
 } from "../Link";
 import { SiteContextProvider } from "../Site";
 import { SourceType } from "../types/FormSectionTypes";
@@ -235,7 +235,7 @@ describe("Link component", () => {
         { path: "some-page" },
         undefined,
         "en",
-        null,
+        undefined,
         "ImALabel",
         DataTypeEnum.External
       );
@@ -283,10 +283,10 @@ describe("Link component", () => {
         null,
         "foo.com",
         "en",
-        null,
+        undefined,
         "ImALabel",
         null,
-        null,
+        undefined,
         { id: "foo1", label: "foo", action: "foo.com" }
       );
       expect(clickableAction["data-gtm"]).toBe(

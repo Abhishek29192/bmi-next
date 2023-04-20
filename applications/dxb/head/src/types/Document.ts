@@ -1,7 +1,28 @@
 import { graphql } from "gatsby";
+import {
+  ContentfulDocument as EsContentfulDocument,
+  PimProductDocument as EsPimDocument,
+  PimSystemDocument as EsPimSystemDocument
+} from "@bmi/elasticsearch-types/src";
 import { Data as ImageData } from "../components/Image";
 import { RichTextData } from "../components/RichText";
 import { ContentfulAssetType as AssetTypeData } from "./AssetType";
+import {
+  ProductDocument as FsPimDocument,
+  PseudoZipPIMDocument,
+  SystemDocument as FsPimSystemDocument
+} from "./pim";
+
+export type DocumentTableHeader =
+  | "typeCode"
+  | "type"
+  | "name"
+  | "title"
+  | "size"
+  | "add"
+  | "productStatus"
+  | "actions"
+  | "validityDate";
 
 export type ContentfulDocument = {
   __typename: "ContentfulDocument";
@@ -24,6 +45,15 @@ export type ContentfulDocument = {
   brand: string | null;
   noIndex: boolean;
 };
+
+export type Document =
+  | ContentfulDocument
+  | FsPimDocument
+  | FsPimSystemDocument
+  | PseudoZipPIMDocument
+  | EsContentfulDocument
+  | EsPimDocument
+  | EsPimSystemDocument;
 
 export const query = graphql`
   fragment DocumentFragment on ContentfulDocument {
