@@ -1,0 +1,169 @@
+# Settings in the [build] context are global and are applied to all contexts
+# unless otherwise overridden by more specific contexts.
+
+[[redirects]]
+ from="/index.php?id=5621"
+ to="https://www.bmigroup.com/cn/roofing-system-solution/"
+ status = 301
+
+[[redirects]]
+ from="/index.php?id=30964"
+ to="https://www.bmigroup.com/cn/roof-renovation/"
+ status = 301
+
+[[redirects]]
+ from="/index.php?id=33346"
+ to="https://www.bmigroup.com/cn/roof-renovation/waterproofing/"
+ status = 301
+
+[[redirects]]
+ from="/index.php?id=33348"
+ to="https://www.bmigroup.com/cn/roof-renovation/%E9%9A%94%E7%83%AD%E4%BF%9D%E6%B8%A9/"
+ status = 301
+
+[[redirects]]
+ from="/index.php?id=33350"
+ to="https://www.bmigroup.com/cn/roof-renovation/%E5%B1%8B%E9%9D%A2%E5%AE%89%E5%85%A8/"
+ status = 301
+
+[[redirects]]
+ from="/index.php?id=33352"
+ to="https://www.bmigroup.com/cn/roof-renovation/architectural-aesthetics-%E7%BE%8E%E8%A7%82/"
+ status = 301
+
+[[redirects]]
+ from="/index.php?id=5645"
+ to="https://www.bmigroup.com/cn/roof-renovation/new-roof-construction/"
+ status = 301
+
+[[redirects]]
+ from="/index.php?id=7183"
+ to="https://www.bmigroup.com/cn/roof-renovation/faq/"
+ status = 301
+
+[[redirects]]
+ from="/index.php?id=5608"
+ to="https://www.bmigroup.com/cn/customer/"
+ status = 301
+
+[[redirects]]
+ from="/index.php?id=30524"
+ to="https://www.bmigroup.com/cn/customer/distributor/"
+ status = 301
+
+[[redirects]]
+ from="/index.php?id=5638"
+ to="https://www.bmigroup.com/cn/customer/distributor/real-estate-developer/"
+ status = 301
+
+[[redirects]]
+ from="/index.php?id=7184"
+ to="https://www.bmigroup.com/cn/customer/distributor/real-estate-developer/roofing-product-series/"
+ status = 301
+
+[[redirects]]
+ from="/index.php?id=7185"
+ to="https://www.bmigroup.com/cn/customer/distributor/real-estate-developer/production-and-sales-network/"
+ status = 301
+
+[[redirects]]
+ from="/index.php?id=7186"
+ to="https://www.bmigroup.com/cn/customer/distributor/real-estate-developer/roofing-technical-service/"
+ status = 301
+
+[[redirects]]
+ from="/index.php?id=7376"
+ to="https://www.bmigroup.com/cn/customer/distributor/real-estate-developer/value-of-monier-brand/"
+ status = 301
+
+[[redirects]]
+ from="/index.php?id=7182"
+ to="https://www.bmigroup.com/cn/customer/individual-proprietor/"
+ status = 301
+
+[[redirects]]
+ from="/index.php?id=5640"
+ to="https://www.bmigroup.com/cn/customer/architects/"
+ status = 301
+
+[[redirects]]
+ from="/index.php?id=7354"
+ to="https://www.bmigroup.com/cn/customer/architects/roof-style/"
+ status = 301
+
+[[redirects]]
+ from="/index.php?id=7355"
+ to="https://www.bmigroup.com/cn/customer/architects/roof-style/spanish-roof/"
+ status = 301
+
+[[redirects]]
+ from="/index.php?id=7356"
+ to="https://www.bmigroup.com/cn/customer/architects/roof-style/american-roof/"
+ status = 301
+
+[[redirects]]
+ from="/index.php?id=7357"
+ to="https://www.bmigroup.com/cn/customer/architects/roof-style/chinese-roof/"
+ status = 301
+
+[[redirects]]
+ from="/index.php?id=7551"
+ to="https://www.bmigroup.com/cn/customer/architects/roof-style/innovation-roof/"
+ status = 301
+
+[[redirects]]
+ from="/index.php?id=8583"
+ to="https://www.bmigroup.com/cn/customer/architects/roof-style/complex-roof/"
+ status = 301
+
+[[redirects]]
+ from="/index.php?id=5617"
+ to="https://www.bmigroup.com/cn/bmi-group/"
+ status = 301
+
+[[redirects]]
+ from="/index.php?id=20475"
+ to="https://www.bmigroup.com/cn/vision-and-mission/"
+ status = 301
+
+[[redirects]]
+ from="/index.php?id=7397"
+ to="https://www.bmigroup.com/cn/bmi-group/history/"
+ status = 301
+
+[[redirects]]
+ from="/index.php?id=20478"
+ to="https://www.bmigroup.com/cn/sustainable-development/"
+ status = 301
+
+[[redirects]]
+ from="/index.php?id=20479"
+ to="https://www.bmigroup.com/cn/sustainable-development/economic-responsibility/"
+ status = 301
+
+[[redirects]]
+ from="/index.php?id=20484"
+ to="https://www.bmigroup.com/cn/sustainable-development/environment-responsibility/"
+ status = 301
+
+[[redirects]]
+ from="/index.php?id=20485"
+ to="https://www.bmigroup.com/cn/sustainable-development/corperate-and-society/"
+ status = 301
+
+[[redirects]]
+ from="/index.php?id=5657"
+ to="https://www.bmigroup.com/cn/press-release/"
+ status = 301
+
+[[redirects]]
+ from="/index.php?id=5611"
+ to="https://www.bmigroup.com/cn/contact-us/"
+ status = 301
+
+# General China redirect
+
+[[redirects]]
+ from="/"
+ to="https://www.bmigroup.com/cn"
+ status = 301

@@ -23,6 +23,7 @@ include:
   - local: "/applications/redirects-website-si/.gitlab-ci.yml"
   - local: "/applications/redirects-website-al/.gitlab-ci.yml"
   - local: "/applications/redirects-website-dk/.gitlab-ci.yml"
+  - local: "/applications/redirects-website-cn/.gitlab-ci.yml"
 
 # Mainly used because it includes `git`
 .node-full-image:
