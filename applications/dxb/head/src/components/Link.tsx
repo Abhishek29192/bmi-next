@@ -4,7 +4,7 @@ import {
   Dialog,
   transformHyphens
 } from "@bmi-digital/components";
-import { graphql, Link as GatsbyLink } from "gatsby";
+import { Link as GatsbyLink, graphql } from "gatsby";
 import uniqueId from "lodash-es/uniqueId";
 import React, { useCallback, useContext, useMemo, useState } from "react";
 import { Data as SimplePageData } from "../templates/simplePage/components/simple-page";
@@ -15,8 +15,8 @@ import { CalculatorContext } from "./PitchedRoofCalcualtor";
 import { Data as PromoData } from "./Promo";
 import { SectionData, sectionsMap } from "./Sections";
 import { useSiteContext } from "./Site";
-import styles from "./styles/Link.module.scss";
 import { VisualiserContext } from "./Visualiser";
+import styles from "./styles/Link.module.scss";
 
 const checkUrlAction = (url: string): boolean => {
   const actionUrls = ["mailto:", "tel:", "callto:"];
@@ -51,7 +51,7 @@ export const getClickableActionFromUrl = (
   linkedPage?: Data["linkedPage"],
   url?: Data["url"],
   countryCode?: string,
-  assetUrl?: string,
+  assetUrl?: string | null,
   label?: string,
   type?: Data["type"],
   onClick?: (...args: any) => void,
@@ -182,7 +182,7 @@ export const getCTA = (
       { path },
       null,
       countryCode,
-      null,
+      undefined,
       linkLabel
     ),
     label: linkLabel

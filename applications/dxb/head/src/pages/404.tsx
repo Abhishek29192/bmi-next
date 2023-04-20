@@ -49,7 +49,7 @@ const FourOFour = ({ data }: { data: Data }) => {
                 errorFourOFour.cta?.linkedPage,
                 errorFourOFour.cta?.url,
                 siteData?.countryCode,
-                null,
+                undefined,
                 errorFourOFour.cta?.label || placeholderCTALabel
               )}
             >

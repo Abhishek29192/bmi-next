@@ -12,7 +12,7 @@ type ImageData = {
 };
 
 export type Data = {
-  altText: string | null;
+  altText: string;
   type?: "Decorative" | "Descriptive" | null;
   image: ImageData;
   focalPoint?: {

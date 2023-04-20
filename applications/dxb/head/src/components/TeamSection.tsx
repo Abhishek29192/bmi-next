@@ -6,7 +6,7 @@ import React from "react";
 import RichText, { RichTextData } from "../components/RichText";
 import TeamList, { Data as TeamMemberData } from "../components/TeamList";
 import withGTM from "../utils/google-tag-manager";
-import { classes, StyledSection, Title } from "./styles/TeamSectionStyles";
+import { StyledSection, Title, classes } from "./styles/TeamSectionStyles";
 
 export type Data = {
   __typename: "ContentfulTeamSection";
@@ -44,7 +44,7 @@ const TeamSection = ({ data, className }: Props) => {
             className={classes.tabs}
             tabComponent={(props: TabProps) => (
               <GTMTab
-                gtm={{ id: "selector-tabs2", action: "Selector – Tabs" }}
+                gtm={{ id: "selector-tabs2", action: "Selector - Tabs" }}
                 {...props}
               />
             )}

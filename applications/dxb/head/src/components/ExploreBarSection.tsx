@@ -2,7 +2,7 @@ import { ExploreBar, replaceSpaces, Section } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
 import { devLog } from "../utils/devLog";
-import { Data as LinkData, getClickableActionFromUrl } from "./Link";
+import { getClickableActionFromUrl, Data as LinkData } from "./Link";
 import { useSiteContext } from "./Site";
 
 export type Data = {

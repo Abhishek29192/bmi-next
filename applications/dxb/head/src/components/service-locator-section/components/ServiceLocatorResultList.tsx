@@ -56,9 +56,9 @@ export const ServiceLocatorResultList = ({
 
   return roofersList.length ? (
     <div
-      className={classnames({
-        [styles["results-list-section"]]: pageCount > 1
-      })}
+      className={classnames(
+        pageCount > 1 && styles["results-list-section--with-pagination"]
+      )}
       data-testid={"results-list-section"}
     >
       <div className={styles["list"]}>

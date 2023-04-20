@@ -3,9 +3,9 @@ import classnames from "classnames";
 import React from "react";
 import {
   Data as LinkData,
-  getClickableActionFromUrl,
   NavigationData,
-  NavigationItem
+  NavigationItem,
+  getClickableActionFromUrl
 } from "./Link";
 import { useSiteContext } from "./Site";
 import styles from "./styles/SitemapBlock.module.scss";
@@ -38,7 +38,6 @@ const isValidSitemapType = (
 ): item is NavigationData | LinkData => {
   return item.__typename !== "ContentfulNavigationItem";
 };
-
 const WrapperComponent = ({
   isChild,
   children
@@ -47,9 +46,10 @@ const WrapperComponent = ({
   children: React.ReactNode;
 }) => (
   <div
-    className={classnames(styles.SitemapBlock, {
-      [styles["SitemapBlock--child"]]: isChild
-    })}
+    className={classnames(
+      styles.SitemapBlock,
+      isChild && styles["SitemapBlock--child"]
+    )}
   >
     {isChild ? <div>{children}</div> : <MasonryGrid>{children}</MasonryGrid>}
   </div>
@@ -79,7 +79,7 @@ const SitemapBlock = ({ links, label, level = 0 }: Props) => {
                   linkedPage,
                   url,
                   countryCode,
-                  null,
+                  undefined,
                   label
                 )}
                 data-testid={"sitemap-link"}
@@ -106,7 +106,7 @@ const SitemapBlock = ({ links, label, level = 0 }: Props) => {
                         link.linkedPage,
                         link.url,
                         countryCode,
-                        null,
+                        undefined,
                         link.label
                       )}
                     >
