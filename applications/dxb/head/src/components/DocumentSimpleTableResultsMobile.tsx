@@ -69,8 +69,10 @@ const ListItem = ({
           <FieldTitle>
             {getMicroCopy(microCopy.DOCUMENT_LIBRARY_HEADERS_SIZE)}:
           </FieldTitle>
-          <FieldValue>
-            {filesize(getFileSizeByDocumentType(document))}
+          <FieldValue data-testid={`document-table-size-${document.id}`}>
+            {isLinkDocument
+              ? "-"
+              : filesize(getFileSizeByDocumentType(document))}
           </FieldValue>
         </StyledListRowItem>
         {headers.includes("productStatus") ? (
