@@ -25,13 +25,9 @@ include:
   - local: "/applications/redirects-website-dk/.gitlab-ci.yml"
   - local: "/applications/redirects-website-cn/.gitlab-ci.yml"
 
-# Mainly used because it includes `git`
-.node-full-image:
-  image: node:18
-
-# Can't use official alpine image as we need `autoconf` to be installed
-.node-slim-image:
-  image: node:18-slim
+# Latest version requires lhci >= 0.12.0, but it requires yarn 1.22.19 and node >= 16, which breaks licensefinder (stuck on node 14)
+.cypress-image:
+  image: cypress/browsers:node14.17.0-chrome91-ff89
 
 variables:
   ARTIFACT_COMPRESSION_LEVEL: fastest
@@ -110,10 +106,10 @@ update_dependabot_config:
   stage: audit
   rules:
     - when: never # Enable when we have dependabot setup
-#    - if: ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')
-  needs: []
+  #    - if: ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')
+  needs: [ ]
   image: bash:latest
-  cache: {}
+  cache: { }
   script:
     - scripts/create_dependabot_file.sh
 
@@ -121,8 +117,8 @@ release:
   stage: release
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'pre-production' || $CI_COMMIT_BRANCH == 'production')"
-  needs: []
-  cache: {}
+  needs: [ ]
+  cache: { }
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
