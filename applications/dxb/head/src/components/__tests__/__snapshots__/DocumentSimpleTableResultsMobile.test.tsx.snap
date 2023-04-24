@@ -76,6 +76,7 @@ exports[`DocumentSimpleTableResultsMobile component renders correctly 1`] = `
           </span>
           <span
             class="css-m75dnw"
+            data-testid="document-table-size-contentful-document-id"
           >
             87.79 KB
           </span>

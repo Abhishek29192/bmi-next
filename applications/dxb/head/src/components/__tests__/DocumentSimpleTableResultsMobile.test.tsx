@@ -165,9 +165,13 @@ describe("DocumentSimpleTableResultsMobile component", () => {
         />
       </ThemeProvider>
     );
+
     expect(
       screen.queryByLabelText(`Download ${document.title}`)
     ).not.toBeInTheDocument();
+    expect(
+      screen.getByTestId(`document-table-size-${document.id}`)
+    ).toHaveTextContent("-");
   });
 
   it("should not render 'Copy URL' button if document is PIMDocumentWithPseudoZip", () => {
