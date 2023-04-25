@@ -323,13 +323,6 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   target="_blank"
                 >
                   string
-                  <span
-                    class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                  >
-                    <span
-                      class="Navigation-iconWrapper"
-                    />
-                  </span>
                 </a>
               </li>
               <ul
@@ -1269,13 +1262,6 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   target="_blank"
                 >
                   string
-                  <span
-                    class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                  >
-                    <span
-                      class="Navigation-iconWrapper"
-                    />
-                  </span>
                 </a>
               </li>
               <ul
@@ -2255,13 +2241,6 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   target="_blank"
                 >
                   string
-                  <span
-                    class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                  >
-                    <span
-                      class="Navigation-iconWrapper"
-                    />
-                  </span>
                   <span
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
@@ -3461,13 +3440,6 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 >
                   string
                   <span
-                    class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                  >
-                    <span
-                      class="Navigation-iconWrapper"
-                    />
-                  </span>
-                  <span
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </a>
@@ -4617,13 +4589,6 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   target="_blank"
                 >
                   string
-                  <span
-                    class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                  >
-                    <span
-                      class="Navigation-iconWrapper"
-                    />
-                  </span>
                 </a>
               </li>
               <ul
@@ -5743,13 +5708,6 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                   target="_blank"
                 >
                   string
-                  <span
-                    class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                  >
-                    <span
-                      class="Navigation-iconWrapper"
-                    />
-                  </span>
                 </a>
               </li>
               <ul
@@ -6714,13 +6672,6 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                   target="_blank"
                 >
                   string
-                  <span
-                    class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                  >
-                    <span
-                      class="Navigation-iconWrapper"
-                    />
-                  </span>
                 </a>
               </li>
               <ul
@@ -7787,13 +7738,6 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                   target="_blank"
                 >
                   string
-                  <span
-                    class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                  >
-                    <span
-                      class="Navigation-iconWrapper"
-                    />
-                  </span>
                 </a>
               </li>
               <ul
@@ -8756,13 +8700,6 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                   target="_blank"
                 >
                   string
-                  <span
-                    class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                  >
-                    <span
-                      class="Navigation-iconWrapper"
-                    />
-                  </span>
                   <span
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
@@ -9935,13 +9872,6 @@ exports[`ProductListerPage template renders an default image if there is no imag
                 >
                   string
                   <span
-                    class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                  >
-                    <span
-                      class="Navigation-iconWrapper"
-                    />
-                  </span>
-                  <span
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </a>
@@ -11112,13 +11042,6 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                   target="_blank"
                 >
                   string
-                  <span
-                    class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                  >
-                    <span
-                      class="Navigation-iconWrapper"
-                    />
-                  </span>
                   <span
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
@@ -12303,13 +12226,6 @@ exports[`ProductListerPage template test handle change url by click on filters a
                   target="_blank"
                 >
                   string
-                  <span
-                    class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                  >
-                    <span
-                      class="Navigation-iconWrapper"
-                    />
-                  </span>
                   <span
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
@@ -13508,13 +13424,6 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                   target="_blank"
                 >
                   string
-                  <span
-                    class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                  >
-                    <span
-                      class="Navigation-iconWrapper"
-                    />
-                  </span>
                   <span
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
@@ -14904,13 +14813,6 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                   target="_blank"
                 >
                   string
-                  <span
-                    class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                  >
-                    <span
-                      class="Navigation-iconWrapper"
-                    />
-                  </span>
                   <span
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />

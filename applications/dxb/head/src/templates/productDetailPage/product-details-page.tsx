@@ -20,9 +20,7 @@ import { Product } from "../../types/pim";
 import { transformMediaSrc } from "../../utils/media";
 import {
   getProductAttributes,
-  transformImages,
-  UnavailableMicroCopies,
-  UnavailableMicroCopiesEnum
+  transformImages
 } from "../../utils/product-details-transforms";
 import { PdpCardsSection } from "./components/pdp-cards";
 
@@ -82,19 +80,6 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
       variantProduct={product}
     >
       {({ siteContext: { getMicroCopy } }) => {
-        const attributeUnavailableMicroCopy: UnavailableMicroCopies = [
-          UnavailableMicroCopiesEnum.COLOUR,
-          UnavailableMicroCopiesEnum.SIZE,
-          UnavailableMicroCopiesEnum.VARIANT_ATTRIBUTE,
-          UnavailableMicroCopiesEnum.TEXTURE_FAMILY
-        ].reduce(
-          (carry, key) => ({
-            ...carry,
-            [key]: getMicroCopy(`pdp.unavailable.${key}`)
-          }),
-          {} as Record<keyof UnavailableMicroCopies, string>
-        );
-
         return (
           <>
             <Section
@@ -126,7 +111,6 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                         microCopy.PDP_OVERVIEW_VARIANT_ATTRIBUTE
                       )
                     },
-                    attributeUnavailableMicroCopy,
                     queryParams,
                     pageContext?.variantCodeToPathMap
                   ),

@@ -568,13 +568,6 @@ exports[`Header component renders correctly 1`] = `
               >
                 string
                 <span
-                  class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                >
-                  <span
-                    class="Navigation-iconWrapper"
-                  />
-                </span>
-                <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </a>
@@ -1247,13 +1240,6 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                 target="_blank"
               >
                 string
-                <span
-                  class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                >
-                  <span
-                    class="Navigation-iconWrapper"
-                  />
-                </span>
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
@@ -1963,13 +1949,6 @@ exports[`Header component shows sample basket icon 1`] = `
                 target="_blank"
               >
                 string
-                <span
-                  class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                >
-                  <span
-                    class="Navigation-iconWrapper"
-                  />
-                </span>
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
@@ -2802,13 +2781,6 @@ exports[`Header component toggles search 1`] = `
                 target="_blank"
               >
                 string
-                <span
-                  class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                >
-                  <span
-                    class="Navigation-iconWrapper"
-                  />
-                </span>
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
