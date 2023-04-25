@@ -59,8 +59,8 @@ const parseNavigation = (
 };
 
 type Props = {
-  mainNavigation: NavigationData;
-  secondaryNavigation: NavigationData;
+  mainNavigation: NavigationData | null;
+  secondaryNavigation: NavigationData | null;
 };
 
 const BmiFooter = ({ mainNavigation, secondaryNavigation }: Props) => {
@@ -68,8 +68,11 @@ const BmiFooter = ({ mainNavigation, secondaryNavigation }: Props) => {
   const { isSpaEnabled } = useConfig();
   const main = isSpaEnabled
     ? []
-    : parseNavigation(mainNavigation?.links, countryCode);
-  const secondary = parseNavigation(secondaryNavigation?.links, countryCode);
+    : parseNavigation(mainNavigation?.links || [], countryCode);
+  const secondary = parseNavigation(
+    secondaryNavigation?.links || [],
+    countryCode
+  );
   const secondaryWithSitemap = [
     ...secondary,
     {

@@ -9,20 +9,20 @@ import { Data as SiteData } from "../../components/Site";
 import styles from "./styles/ie-dialog.module.scss";
 
 export type Data = {
-  ieDialogTitle: string | null;
-  ieDialogBody: RichTextData | null;
-  ieDialogActionLabel: string | null;
-  ieDialogActionLink: string | null;
+  ieDialogTitle?: string | null;
+  ieDialogBody?: RichTextData | null;
+  ieDialogActionLabel?: string | null;
+  ieDialogActionLink?: string | null;
 };
 
 const IEDialog = ({ data }: { data: { contentfulSite: SiteData } }) => {
   const { resources } = data.contentfulSite;
 
   const ieDialogData: Data = {
-    ieDialogTitle: resources.ieDialogTitle,
-    ieDialogBody: resources.ieDialogBody,
-    ieDialogActionLabel: resources.ieDialogActionLabel,
-    ieDialogActionLink: resources.ieDialogActionLink
+    ieDialogTitle: resources?.ieDialogTitle,
+    ieDialogBody: resources?.ieDialogBody,
+    ieDialogActionLabel: resources?.ieDialogActionLabel,
+    ieDialogActionLink: resources?.ieDialogActionLink
   };
 
   return (

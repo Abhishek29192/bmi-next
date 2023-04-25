@@ -82,6 +82,7 @@ export type ContentfulSite = Node & {
   footerSecondaryNavigation: null;
   menuNavigation: null;
   menuUtilities: null;
+  headScripts: null;
   resources: null;
   regions: Region[] | null;
   pitchedRoofCalculatorConfig: CalculatorConfig | null;

@@ -10,7 +10,7 @@ const ErrorFallback = ({
   promo
 }: {
   countryCode: string;
-  promo: PromoData;
+  promo?: PromoData | null;
 }) => {
   const {
     title = "Error:General.title",

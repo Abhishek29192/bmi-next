@@ -37,12 +37,12 @@ export type Data = {
     title: string;
   };
   countryCode: string;
-  footerMainNavigation: NavigationData;
-  footerSecondaryNavigation: NavigationData;
+  footerMainNavigation: NavigationData | null;
+  footerSecondaryNavigation: NavigationData | null;
   menuNavigation: NavigationData;
-  menuUtilities: NavigationData;
-  resources: ResourcesData;
-  headScripts?: {
+  menuUtilities: NavigationData | null;
+  resources: ResourcesData | null;
+  headScripts: {
     headScripts: string;
   } | null;
   regions: Region[];

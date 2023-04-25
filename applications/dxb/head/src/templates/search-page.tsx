@@ -6,15 +6,15 @@ import {
   QUERY_KEY,
   Section,
   Tabs,
-  useIsClient,
-  Tile
+  Tile,
+  useIsClient
 } from "@bmi-digital/components";
+import { Article, Folder } from "@mui/icons-material";
 import { useMediaQuery } from "@mui/material";
+import SvgIcon from "@mui/material/SvgIcon";
 import { useTheme } from "@mui/material/styles";
-import { Folder, Article } from "@mui/icons-material";
 import { graphql } from "gatsby";
 import React, { FormEvent, useEffect, useMemo, useState } from "react";
-import SvgIcon from "@mui/material/SvgIcon";
 import Breadcrumbs from "../components/Breadcrumbs";
 import ExploreBar from "../components/ExploreBar";
 import { generateGetMicroCopy } from "../components/MicroCopy";
@@ -77,7 +77,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
   }, [isClient]);
 
   const { countryCode, resources } = contentfulSite;
-  const getMicroCopy = generateGetMicroCopy(resources.microCopy);
+  const getMicroCopy = generateGetMicroCopy(resources?.microCopy);
   const defaultTitle = getMicroCopy(microCopy.SEARCH_PAGE_TITLE);
 
   const queryString = useMemo(() => {
@@ -356,8 +356,8 @@ const SearchPage = ({ pageContext, data }: Props) => {
           helperText={getMicroCopy(microCopy.SEARCH_PAGE_HELPER_TEXT)}
           placeholder={getMicroCopy(microCopy.SEARCH_PAGE_PLACEHOLDER)}
           query={areTabsResolved ? queryString : ""}
-          searchPageSearchTips={resources.searchPageSearchTips}
-          searchPageSidebarItems={resources.searchPageSidebarItems}
+          searchPageSearchTips={resources?.searchPageSearchTips}
+          searchPageSidebarItems={resources?.searchPageSidebarItems}
           handleSubmit={isPreviewMode && handleSubmit}
         />
       </Section>
@@ -371,16 +371,16 @@ const SearchPage = ({ pageContext, data }: Props) => {
         </Tabs>
       ) : null}
       {!pageHasResults && !pageIsLoading
-        ? resources.searchPageNextBestActions && (
+        ? resources?.searchPageNextBestActions && (
             <NextBestActions data={resources.searchPageNextBestActions} />
           )
-        : resources.searchPageExploreBar && (
+        : resources?.searchPageExploreBar && (
             <Section
               backgroundColor="pearl"
               isSlim
               id={`search-block-explorer-bar`}
             >
-              <ExploreBar data={resources.searchPageExploreBar} />
+              <ExploreBar data={resources?.searchPageExploreBar} />
             </Section>
           )}
     </Page>
