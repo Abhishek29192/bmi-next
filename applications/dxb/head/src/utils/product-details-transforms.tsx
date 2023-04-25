@@ -96,15 +96,7 @@ export const transformImages = (
   }));
 };
 
-export enum UnavailableMicroCopiesEnum {
-  COLOUR = "color",
-  SIZE = "size",
-  VARIANT_ATTRIBUTE = "variantattribute",
-  TEXTURE_FAMILY = "texturefamily"
-}
-
 export type Options = { size: string; variantAttribute: string };
-export type UnavailableMicroCopies = Record<UnavailableMicroCopiesEnum, string>;
 
 const getPropValue = (
   variant: RelatedVariant,
@@ -133,27 +125,28 @@ export const getProductAttributes = (
   product: Product,
   countryCode: string,
   options: Options,
-  unavailableMicroCopies: UnavailableMicroCopies,
   queryParams = "",
   variantCodeToPathMap: Record<string, string> | undefined = undefined // when this is provided then ``
 ): ProductOverviewPaneProps["attributes"] => {
   const selectedTextureFamily = product.textureFamily;
-  const allTextureFamilies = getAllValues(product, "textureFamily") as string[];
+  const allTextureFamilies = selectedTextureFamily
+    ? (getAllValues(product, "textureFamily") as string[])
+    : [];
 
   const selectedColour = product.colour;
-  const allColours = getAllValues(product, "colour") as string[];
+  const allColours = selectedColour
+    ? (getAllValues(product, "colour") as string[])
+    : [];
 
   const selectedSize = product.measurements;
-  const allMeasurements = getAllValues(
-    product,
-    "measurements"
-  ) as Measurements[];
+  const allMeasurements = selectedSize
+    ? (getAllValues(product, "measurements") as Measurements[])
+    : [];
 
   const selectedVariantAttribute = product.variantAttribute;
-  const allVariantAttributes = getAllValues(
-    product,
-    "variantAttribute"
-  ) as string[];
+  const allVariantAttributes = selectedVariantAttribute
+    ? (getAllValues(product, "variantAttribute") as string[])
+    : [];
 
   const propHierarchy: FilterKeys[] = [
     { propName: "colour" as const, values: allColours },
@@ -235,7 +228,6 @@ export const getProductAttributes = (
     if (!bestMatch.matches) {
       return;
     }
-
     if (bestMatch.matches < propHierarchy.indexOf(property)) {
       return;
     }
@@ -243,71 +235,10 @@ export const getProductAttributes = (
     return bestMatch.variant;
   };
 
-  // colour availability is based on all other selected values
-  const checkColourAvailability = (colour: string) => {
-    const variants: { value?: string; propName: keyof RelatedVariant }[] = [
-      {
-        value: selectedTextureFamily,
-        propName: "textureFamily" as const
-      },
-      {
-        value: selectedSize && selectedSize.label,
-        propName: "measurements" as const
-      },
-      {
-        value: selectedVariantAttribute,
-        propName: "variantAttribute" as const
-      }
-    ].filter(({ value }) => !!value);
-    if (variants.length === 0) return true;
-    const allColourVariants = product.relatedVariants.filter((variant) => {
-      return variant.colour === colour;
-    });
-    const matchColourVariants = allColourVariants.filter((variant) => {
-      const matches = variants.reduce(
-        (prev, { value: variantValue, propName }) => {
-          if (getPropValue(variant, propName) === variantValue) {
-            return [...prev, propName];
-          }
-          return prev;
-        },
-        []
-      );
-      return matches.length === variants.length;
-    });
-    return matchColourVariants.length > 0;
-  };
-
-  const getUnavailableCTA = (
-    variantValue: string,
-    propName: "colour" | "textureFamily" | "measurements" | "variantAttribute",
-    variantCodeToPathMap?: Record<string, string> | null
-  ) => {
-    const bestMatch = product.relatedVariants.find((variant) => {
-      if (propName === "measurements") {
-        return variant.measurements.label === variantValue;
-      }
-      // eslint-disable-next-line security/detect-object-injection
-      return variant[propName] === variantValue;
-    });
-
-    if (!bestMatch) {
-      return undefined;
-    }
-    let variantPath = variantCodeToPathMap?.[bestMatch.code] || bestMatch.path;
-    if (queryParams && queryParams.length > 0 && variantPath.indexOf("?") < 0) {
-      variantPath = queryParams.startsWith("?")
-        ? `${variantPath}${queryParams}`
-        : `${variantPath}?${queryParams}`;
-    }
-    return getPathWithCountryCode(countryCode, variantPath);
-  };
-
   return [
     {
       name: product.colourMicrocopy,
       type: "thumbnails",
-      unavailableMicroCopy: unavailableMicroCopies.color,
       variants: allColours.map((colour) => {
         const variant = findVariant(
           {
@@ -316,14 +247,14 @@ export const getProductAttributes = (
           "colour"
         );
         const isSelected = selectedColour && colour === selectedColour;
-        const path = variant
+        const path = !isSelected
           ? generateVariantPathWithQuery(
               variant,
               queryParams,
               countryCode,
               variantCodeToPathMap
             )
-          : getUnavailableCTA(colour, "colour", variantCodeToPathMap);
+          : undefined;
 
         return {
           label: colour,
@@ -334,7 +265,6 @@ export const getProductAttributes = (
             !variant?.thumbnail && !product?.masterImage?.thumbnail ? (
               <DefaultImage />
             ) : null,
-          availability: checkColourAvailability(colour),
           ...(!isSelected &&
             allColours.length > 1 &&
             path && {
@@ -350,8 +280,7 @@ export const getProductAttributes = (
     {
       name: product.textureFamilyMicrocopy,
       type: "chips",
-      unavailableMicroCopy: unavailableMicroCopies.texturefamily,
-      variants: allTextureFamilies.map((textureFamily) => {
+      variants: allTextureFamilies.reduce((acc, textureFamily) => {
         const variant = findVariant(
           {
             textureFamily
@@ -361,40 +290,41 @@ export const getProductAttributes = (
         const isSelected =
           selectedTextureFamily && textureFamily === selectedTextureFamily;
 
-        const path = variant
+        if (!variant && !isSelected) {
+          return acc;
+        }
+
+        const path = !isSelected
           ? generateVariantPathWithQuery(
               variant,
               queryParams,
               countryCode,
               variantCodeToPathMap
             )
-          : getUnavailableCTA(
-              textureFamily,
-              "textureFamily",
-              variantCodeToPathMap
-            );
+          : undefined;
 
-        return {
-          label: textureFamily,
-          isSelected,
-          availability: !!variant,
-          ...(!isSelected &&
-            path &&
-            allTextureFamilies.length > 1 && {
-              action: {
-                model: "routerLink",
-                linkComponent: Link,
-                to: path
-              }
-            })
-        };
-      })
+        return [
+          ...acc,
+          {
+            label: textureFamily,
+            isSelected,
+            ...(!isSelected &&
+              path &&
+              allTextureFamilies.length > 1 && {
+                action: {
+                  model: "routerLink",
+                  linkComponent: Link,
+                  to: path
+                }
+              })
+          }
+        ];
+      }, [])
     },
     {
       name: options.size || "Size",
       type: "chips",
-      unavailableMicroCopy: unavailableMicroCopies.size,
-      variants: allMeasurements.map((measurements) => {
+      variants: allMeasurements.reduce((acc, measurements) => {
         const key = measurements.label;
         const variant = findVariant(
           {
@@ -403,37 +333,41 @@ export const getProductAttributes = (
           "measurements"
         );
         const isSelected = key === selectedSize.label;
+        if (!variant && !isSelected) {
+          return acc;
+        }
 
-        const path = variant
+        const path = !isSelected
           ? generateVariantPathWithQuery(
               variant,
               queryParams,
               countryCode,
               variantCodeToPathMap
             )
-          : getUnavailableCTA(key, "measurements", variantCodeToPathMap);
+          : undefined;
 
-        return {
-          label: measurements.label,
-          isSelected,
-          availability: !!variant,
-          ...(!isSelected &&
-            path &&
-            allMeasurements.length > 1 && {
-              action: {
-                model: "routerLink",
-                linkComponent: Link,
-                to: path
-              }
-            })
-        };
-      })
+        return [
+          ...acc,
+          {
+            label: measurements.label,
+            isSelected,
+            ...(!isSelected &&
+              path &&
+              allMeasurements.length > 1 && {
+                action: {
+                  model: "routerLink",
+                  linkComponent: Link,
+                  to: path
+                }
+              })
+          }
+        ];
+      }, [])
     },
     {
       name: options.variantAttribute,
       type: "chips",
-      unavailableMicroCopy: unavailableMicroCopies.variantattribute,
-      variants: allVariantAttributes.map((variantAttribute) => {
+      variants: allVariantAttributes.reduce((acc, variantAttribute) => {
         const variant = findVariant(
           {
             variantAttribute
@@ -445,34 +379,36 @@ export const getProductAttributes = (
             selectedVariantAttribute === variantAttribute) ||
           false;
 
-        const path = variant
+        if (!variant && !isSelected) {
+          return acc;
+        }
+
+        const path = !isSelected
           ? generateVariantPathWithQuery(
               variant,
               queryParams,
               countryCode,
               variantCodeToPathMap
             )
-          : getUnavailableCTA(
-              variantAttribute,
-              "variantAttribute",
-              variantCodeToPathMap
-            );
+          : undefined;
 
-        return {
-          label: variantAttribute,
-          isSelected,
-          availability: !!variant,
-          ...(!isSelected &&
-            path &&
-            allVariantAttributes.length > 1 && {
-              action: {
-                model: "routerLink",
-                linkComponent: Link,
-                to: path
-              }
-            })
-        };
-      })
+        return [
+          ...acc,
+          {
+            label: variantAttribute,
+            isSelected,
+            ...(!isSelected &&
+              path &&
+              allVariantAttributes.length > 1 && {
+                action: {
+                  model: "routerLink",
+                  linkComponent: Link,
+                  to: path
+                }
+              })
+          }
+        ];
+      }, [])
     }
   ];
 };
