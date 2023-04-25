@@ -6,7 +6,7 @@ export type Redirect = {
   from: string;
   to: string;
   force?: boolean;
-  status?: string;
+  status?: number;
 };
 
 export const getRedirects = async (
@@ -22,7 +22,8 @@ export const getRedirects = async (
       }
     } catch (error) {
       console.log(
-        `Could not fetch redirects file: ${redirectsFileName} from Contentful. Error: ${error.message}`
+        `Could not fetch redirects file: ${redirectsFileName} from Contentful. Error:`,
+        error
       );
     }
   }

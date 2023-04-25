@@ -1,0 +1,19 @@
+{
+  "name": "@bmi/redirects-editor",
+  "private": true,
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "src": "src/index.ts",
+  "scripts": {
+    "build": "tsc",
+    "compile": "tsc",
+    "debug": "node --inspect ./dist/index.js",
+    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "start": "node ./dist/index.js",
+    "test": "jest --coverage --reporters=default --reporters=jest-junit"
+  },
+  "dependencies": {
+    "@iarna/toml": "^3.0.0",
+    "csvtojson": "^2.0.10"
+  }
+}
