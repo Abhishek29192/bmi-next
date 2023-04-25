@@ -28,7 +28,9 @@ type Options = {
   isMobile?: boolean;
 };
 
-const typeToObjectFitMap: Record<Data["type"], Options["size"]> = {
+const typeToObjectFitMap: {
+  [key in NonNullable<Data["type"]>]: Options["size"];
+} = {
   Decorative: "cover",
   Descriptive: "contain"
 };

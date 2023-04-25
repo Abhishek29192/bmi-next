@@ -24,9 +24,9 @@ import React from "react";
 import withGTM from "../utils/google-tag-manager";
 import ContactDetails, { Data as ContactDetailsData } from "./ContactDetails";
 import RichText from "./RichText";
+import { Data as TitleWithContentData } from "./TitleWithContent";
 import borderedItemStyles from "./styles/BorderedItem.module.scss";
 import { BodyTitle, FooterTitle } from "./styles/ContactTopicsStyles";
-import { Data as TitleWithContentData } from "./TitleWithContent";
 
 const StyledEmojiOutlinedIcon = styled(EmojiObjectsOutlinedIcon)(
   ({ theme }) => ({
@@ -80,7 +80,7 @@ const Body = ({ bodyTitle, bodyList }: BodyProps) => {
             <IconList.Item
               key={index}
               icon={<StyledEmojiOutlinedIcon />}
-              title={title}
+              title={title || ""}
               component="h5"
             >
               <RichText document={content} hasNoBottomMargin />

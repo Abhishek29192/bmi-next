@@ -35,7 +35,7 @@ import { isRichText } from "../utils/isRichText";
 import { getPathWithCountryCode } from "../utils/path";
 import ControlledCheckboxGroup from "./CheckboxGroup";
 import HiddenInput from "./HiddenInput";
-import { Data as LinkData, isExternalUrl } from "./Link";
+import { isExternalUrl, Data as LinkData } from "./Link";
 import ProgressIndicator from "./ProgressIndicator";
 import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
 import RichText, { RichTextData } from "./RichText";
@@ -203,7 +203,7 @@ const Input = ({
           mapBody={mapBody}
           mapValue={mapValue}
           onUploadRequest={async () => {
-            const token = qaAuthToken ? undefined : await executeRecaptcha();
+            const token = qaAuthToken ? undefined : await executeRecaptcha?.();
             let headers: HeadersInit = {
               "X-Recaptcha-Token": token
             };
@@ -546,7 +546,7 @@ const FormSection = ({
       recipientsFromValues && isEmailPresent ? recipientEmail : recipients;
 
     try {
-      const token = qaAuthToken ? undefined : await executeRecaptcha();
+      const token = qaAuthToken ? undefined : await executeRecaptcha?.();
 
       // remove all blank values
       const valuesToSent = Object.entries(values).reduce(
