@@ -83,7 +83,7 @@ export const downloadMultipleFiles = async (
           }.zip`
         : `BMI_${document.assetType.pimCode + currentTime}.zip`;
 
-    const token = qaAuthToken ? undefined : await executeRecaptcha();
+    const token = qaAuthToken ? undefined : await executeRecaptcha?.();
     const assetFileCountMap: AssetUniqueFileCountMap = createAssetFileCountMap(
       document.documentList
     );

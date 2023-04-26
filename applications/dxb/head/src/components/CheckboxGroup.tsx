@@ -29,7 +29,7 @@ const CheckboxGroup = ({
   disabled,
   ...props
 }: Props) => {
-  const [selected, setSelected] = useState([]);
+  const [selected, setSelected] = useState<string[]>([]);
   const handleOnChange = (v: React.SyntheticEvent) => {
     let val = [];
     if ((v.target as HTMLInputElement).checked) {
@@ -38,7 +38,7 @@ const CheckboxGroup = ({
       val = selected.filter((el) => el !== (v.target as HTMLInputElement).name);
     }
     setSelected(val);
-    onChange && onChange(val as string[]);
+    onChange && onChange(val);
   };
   return (
     <FormControl error={!!error}>
@@ -46,7 +46,7 @@ const CheckboxGroup = ({
         {isRequired && <span>*</span>}
         {groupName}
       </Typography>
-      {options.split(/, |,/).map((option: string, $i: number) => (
+      {options?.split(/, |,/).map((option: string, $i: number) => (
         <FormControl key={$i} disabled={disabled} fullWidth>
           <FormControlLabel
             control={<MuiCheckbox color="primary" {...props} name={option} />}

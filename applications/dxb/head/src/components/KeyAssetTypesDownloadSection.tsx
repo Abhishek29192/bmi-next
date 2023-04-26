@@ -112,7 +112,7 @@ const KeyAssetTypesDownloadSection = ({ keyAssetDocuments }: Props) => {
 
                       const token = qaAuthToken
                         ? undefined
-                        : await executeRecaptcha();
+                        : await executeRecaptcha?.();
                       await handleDownloadClick(
                         documents,
                         documentDownloadEndpoint,

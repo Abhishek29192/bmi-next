@@ -18,8 +18,8 @@ import React, {
   useState
 } from "react";
 import {
-  useGoogleReCaptcha,
-  IGoogleReCaptchaConsumerProps
+  IGoogleReCaptchaConsumerProps,
+  useGoogleReCaptcha
 } from "react-google-recaptcha-v3";
 import { QA_AUTH_TOKEN } from "../constants/cookieConstants";
 import { SYSTEM_CONFIG_QUERY_KEY_REFERER } from "../constants/queryConstants";
@@ -154,7 +154,9 @@ const SystemConfiguratorQuestion = ({
 
       const controller = new AbortController();
 
-      const recaptchaToken = qaAuthToken ? undefined : await executeRecaptcha();
+      const recaptchaToken = qaAuthToken
+        ? undefined
+        : await executeRecaptcha?.();
 
       let headers: HeadersInit = {
         "X-Recaptcha-Token": recaptchaToken

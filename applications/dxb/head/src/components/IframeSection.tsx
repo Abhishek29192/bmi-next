@@ -5,7 +5,11 @@ import { useHasOptanonBoxClosed } from "../utils/useHasOptanonBoxClosed";
 import RichText, { RichTextData } from "./RichText";
 import styles from "./styles/IframeSection.module.scss";
 
-const cookieTypeToClassMap = {
+type CookieTypeToClass = {
+  [key: string]: string;
+};
+
+const cookieTypeToClassMap: CookieTypeToClass = {
   "Strictly Necessary": "C0001",
   Analytics: "C0002",
   Functional: "C0003",
@@ -53,7 +57,7 @@ const IframeSection = ({ data }: Props) => {
         <iframe
           id={`iframe-section-${replaceSpaces(data.title)}-iframe`}
           key={`iframe-section-${replaceSpaces(data.title)}-iframe`}
-          title={data.title}
+          title={data.title || undefined}
           className={`${styles["iFrame"]}${
             cookieClasses.length > 0 ? ` optanon-category-${cookieClasses}` : ""
           }`}

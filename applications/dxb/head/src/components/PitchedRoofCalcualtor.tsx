@@ -110,7 +110,7 @@ const CalculatorProvider = ({ children, onError, calculatorConfig }: Props) => {
           return;
         }
 
-        const token = qaAuthToken ? undefined : await executeRecaptcha();
+        const token = qaAuthToken ? undefined : await executeRecaptcha?.();
 
         let headers: HeadersInit = {
           "Content-Type": "application/json",

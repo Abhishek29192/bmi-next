@@ -209,7 +209,9 @@ const DocumentResultsFooter = ({
               microCopy.DOWNLOAD_LIST_DOWNLOAD
             )} ({{count}})`}
             onClick={async (list) => {
-              const token = qaAuthToken ? undefined : await executeRecaptcha();
+              const token = qaAuthToken
+                ? undefined
+                : await executeRecaptcha?.();
               await handleDownloadClick(
                 list,
                 config,
