@@ -23,6 +23,7 @@ import IconComponent, {
   FileUniversal,
   FileXLSX,
   FileZIP,
+  Filter,
   FlatRoof,
   Folder,
   FolderZip,
@@ -80,6 +81,7 @@ export type IconName =
   | "FileUniversal"
   | "FileXLSX"
   | "FileZIP"
+  | "Filter"
   | "GetApp"
   | "Cross"
   | "Design"
@@ -160,6 +162,8 @@ const getIcon = (icon: string) => {
       return FileXLSX;
     case "FileZIP":
       return FileZIP;
+    case "Filter":
+      return Filter;
     case "Cross":
       return Cross;
     case "Design":

@@ -341,6 +341,8 @@ export const microCopy = {
   FILTER_LABELS_AVAILABILITY_HEADING: "filterLabels.Availability.Heading",
   FILTER_LABELS_SUMMERY_ACCORDION_AVAILABILITY:
     "filterLabels.Summery.Accordion.Availability",
+  FILTER_SHOW_WORLD_BTN: "filterLabels.Show.World.Btn",
+  FILTER_RESULT_WORLD_BTN: "filterLabels.Result.World.Btn",
 
   FIND_A_ROOFER_FILTERS_FLAT_ROOF: "findARoofer.filters.flatRoof",
   UPLOAD_SUPPORTED_FORMATS: "upload.supportedFormats",
