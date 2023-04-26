@@ -754,31 +754,37 @@
 - - :approve
   - msgpackr-extract-darwin-arm64
   - :who: Eugene Stepanenko
-    :why: Needed for gcp-build-status-logger
+    :why: Brought in by lmdb as part of Gatsby
     :versions: []
     :when: 2022-10-19 17:15:03.988615000 Z
 - - :approve
   - msgpackr-extract-darwin-x64
   - :who: Eugene Stepanenko
-    :why: Needed for gcp-build-status-logger
+    :why: Brought in by lmdb as part of Gatsby
     :versions: []
     :when: 2022-10-19 17:15:03.988615000 Z
 - - :approve
   - msgpackr-extract-linux-arm
   - :who: Eugene Stepanenko
-    :why: Needed for gcp-build-status-logger
+    :why: Brought in by lmdb as part of Gatsby
     :versions: []
     :when: 2022-10-19 17:15:03.988615000 Z
 - - :approve
   - msgpackr-extract-linux-arm64
   - :who: Eugene Stepanenko
-    :why: Needed for gcp-build-status-logger
+    :why: Brought in by lmdb as part of Gatsby
+    :versions: []
+    :when: 2022-10-19 17:15:03.988615000 Z
+- - :approve
+  - msgpackr-extract-linux-x64
+  - :who: Eugene Stepanenko
+    :why: Brought in by lmdb as part of Gatsby
     :versions: []
     :when: 2022-10-19 17:15:03.988615000 Z
 - - :approve
   - msgpackr-extract-win32-x64
   - :who: Eugene Stepanenko
-    :why: Needed for gcp-build-status-logger
+    :why: Brought in by lmdb as part of Gatsby
     :versions: []
     :when: 2022-10-19 17:15:03.988615000 Z
 - - :approve

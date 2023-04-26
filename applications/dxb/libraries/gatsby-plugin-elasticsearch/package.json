@@ -26,6 +26,6 @@
     "gatsby-node.js"
   ],
   "devDependencies": {
-    "eslint": "^8.35.0"
+    "eslint": "^8.39.0"
   }
 }
