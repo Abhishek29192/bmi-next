@@ -40,7 +40,7 @@ const data = { contentfulSite: createMockSiteData() };
 data.contentfulSite.resources = {
   ...data.contentfulSite.resources,
   ieDialogTitle: "IE Dialog Title",
-  ieDialogBody: { raw: JSON.stringify(richTextRaw), references: null },
+  ieDialogBody: { raw: JSON.stringify(richTextRaw), references: [] },
   ieDialogActionLabel: "Label",
   ieDialogActionLink: "http://localhost"
 };

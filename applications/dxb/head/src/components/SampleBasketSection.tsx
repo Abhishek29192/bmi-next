@@ -75,10 +75,11 @@ const SampleBasketSection = ({
     };
   });
 
-  const basketCta =
-    browseProductsCTALabel &&
-    browseProductsCTA &&
-    getCTA(browseProductsCTA, countryCode, browseProductsCTALabel);
+  const basketCta = getCTA(
+    browseProductsCTA,
+    countryCode,
+    browseProductsCTALabel
+  );
   return (
     <>
       <Section

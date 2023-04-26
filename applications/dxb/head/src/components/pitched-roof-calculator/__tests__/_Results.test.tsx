@@ -5,6 +5,7 @@ import fetchMockJest from "fetch-mock-jest";
 import React, { useEffect, useRef } from "react";
 import { renderToString } from "react-dom/server";
 import { useIsMobileDevice } from "../../../utils/useIsMobileDevice";
+import Results, { ResultProps, replaceImageURLWithImage } from "../_Results";
 import { MicroCopy } from "../helpers/microCopy";
 import { createProduct } from "../helpers/products";
 import { Props } from "../subcomponents/quantity-table/QuantityTable";
@@ -21,7 +22,6 @@ import {
   VergeVariant,
   WidthBasedProduct
 } from "../types";
-import Results, { replaceImageURLWithImage, ResultProps } from "../_Results";
 import en from "./samples/copy/en.json";
 
 jest.mock("../../../utils/useIsMobileDevice", () => ({
@@ -210,7 +210,7 @@ const resultsProps: ResultProps = {
         data: {},
         content: []
       }),
-      references: null
+      references: []
     }
   },
   measurements: {

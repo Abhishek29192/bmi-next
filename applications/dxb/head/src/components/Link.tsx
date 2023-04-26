@@ -54,7 +54,7 @@ export const getClickableActionFromUrl = (
   assetUrl?: string | null,
   label?: string,
   type?: Data["type"],
-  onClick?: (...args: any) => void,
+  onClick?: (...args: unknown[]) => void,
   gtmData?: {
     id: string;
     label: string;
@@ -206,11 +206,10 @@ export type Data = {
   icon: IconName | null;
   isLabelHidden: boolean | null;
   url: string | null;
-  type: DataTypeEnum | null;
-  parameters: { [key: string]: any } | null;
+  type: DataTypeEnum;
+  parameters: { [key: string]: unknown } | null;
   dialogContent: SectionData | null;
   linkedPage: {
-    // NOTE: null is for Homepage type
     path: string | null;
   } | null;
   asset?: {
@@ -266,7 +265,7 @@ export const Link = ({
   children: React.ReactNode;
   component?: React.ElementType;
   data: Data;
-  onClick?: (...args: any) => void;
+  onClick?: (...args: unknown[]) => void;
 }) => {
   const [dialogIsOpen, setDialogIsOpen] = useState(false);
   const { countryCode } = useSiteContext();
@@ -274,7 +273,7 @@ export const Link = ({
   const { open: openCalculator } = useContext(CalculatorContext);
 
   const handleOnClick = useCallback(
-    (...args) => {
+    (...args: unknown[]) => {
       onClick && onClick(...args);
 
       if (data?.type === "Visualiser" && openVisualiser) {
@@ -285,7 +284,7 @@ export const Link = ({
         setDialogIsOpen(true);
       }
     },
-    [data?.parameters, data?.type, onClick]
+    [data?.parameters, data?.type, onClick, openCalculator, openVisualiser]
   );
 
   const action = useMemo(
@@ -308,7 +307,7 @@ export const Link = ({
 
   const memoedRenderDialog = useMemo(
     () => renderDialog(data, dialogIsOpen, handleDialogCloseClick),
-    [data?.dialogContent, dialogIsOpen]
+    [data, dialogIsOpen, handleDialogCloseClick]
   );
 
   return (

@@ -25,11 +25,11 @@ export const createImageAsset = (asset?: Partial<Asset>): Asset => ({
 export const createLinkAsset = (asset?: Partial<Asset>): Asset => ({
   allowedToDownload: false,
   assetType: "WARRANTIES",
-  fileSize: null,
+  fileSize: 10,
   format: null,
   mime: null,
-  name: null,
-  realFileName: null,
+  name: "asset-name",
+  realFileName: "asset-real-file-name.jpg",
   url: "http://localhost:8000/",
   ...asset
 });

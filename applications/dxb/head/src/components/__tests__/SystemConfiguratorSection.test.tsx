@@ -8,9 +8,9 @@ import {
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import { ErrorBoundary } from "react-error-boundary";
+import createRelatedSystem from "../../__tests__/helpers/RelatedSystemHelper";
 import * as elasticSearch from "../../utils/elasticSearch";
 import * as GTM from "../../utils/google-tag-manager";
-import createRelatedSystem from "../../__tests__/helpers/RelatedSystemHelper";
 import { SiteContextProvider } from "../Site";
 import SystemConfiguratorSection, {
   AnswerData,
@@ -213,7 +213,7 @@ describe("SystemConfiguratorSection component", () => {
               ...initialData,
               description: {
                 raw: JSON.stringify(richTextRaw),
-                references: null
+                references: []
               }
             }}
           />

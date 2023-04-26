@@ -1,10 +1,10 @@
 import { ThemeProvider } from "@bmi-digital/components";
 import { render } from "@testing-library/react";
 import React from "react";
-import { renderWithRouter } from "../../test/renderWithRouter";
 import createGallerySectionImage from "../../__tests__/helpers/GallerySectionImageHelper";
 import createImageData from "../../__tests__/helpers/ImageDataHelper";
 import createService from "../../__tests__/helpers/ServiceHelper";
+import { renderWithRouter } from "../../test/renderWithRouter";
 import { DataTypeEnum } from "../Link";
 import Sections, { Data } from "../Sections";
 import { EntryTypeEnum } from "../Service";
@@ -142,7 +142,7 @@ describe("Sections component", () => {
           linkedPage: {
             path: "contact-us"
           },
-          type: null,
+          type: DataTypeEnum.Internal,
           parameters: null,
           dialogContent: null,
           hubSpotCTAID: null
@@ -168,7 +168,7 @@ describe("Sections component", () => {
               linkedPage: {
                 path: "contact-us"
               },
-              type: null,
+              type: DataTypeEnum.Internal,
               parameters: null,
               dialogContent: null,
               hubSpotCTAID: null

@@ -8,7 +8,7 @@ const createCommonLinkData = (): Data => ({
   icon: null,
   isLabelHidden: null,
   url: null,
-  type: null,
+  type: DataTypeEnum.Internal,
   parameters: null,
   dialogContent: null,
   linkedPage: null,

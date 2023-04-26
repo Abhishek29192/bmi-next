@@ -15,7 +15,7 @@ describe("WelcomeDialog component", () => {
         welcomeDialogTitle: null,
         welcomeDialogBody: {
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: null
+          references: []
         },
         welcomeDialogBrands: []
       };
@@ -51,7 +51,7 @@ describe("WelcomeDialog component", () => {
         welcomeDialogTitle: "Dialog Title",
         welcomeDialogBody: {
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: null
+          references: []
         },
         welcomeDialogBrands: []
       };
@@ -77,7 +77,7 @@ describe("WelcomeDialog component", () => {
         welcomeDialogTitle: "Dialog Title",
         welcomeDialogBody: {
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: null
+          references: []
         },
         welcomeDialogBrands: ["Icopal", "Monier", "Monarplan"]
       };
@@ -108,7 +108,7 @@ describe("WelcomeDialog component", () => {
         welcomeDialogTitle: "Dialog Title",
         welcomeDialogBody: {
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: null
+          references: []
         },
         welcomeDialogBrands: []
       };

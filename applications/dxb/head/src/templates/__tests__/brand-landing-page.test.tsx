@@ -1,11 +1,11 @@
 import { ThemeProvider } from "@bmi-digital/components";
 import { fireEvent, screen } from "@testing-library/react";
 import React from "react";
+import createImageData from "../../__tests__/helpers/ImageDataHelper";
 import { DataTypeEnum } from "../../components/Link";
 import { Data as SlideData } from "../../components/Promo";
 import { createMockSiteData } from "../../test/mockSiteData";
 import { renderWithRouter } from "../../test/renderWithRouter";
-import createImageData from "../../__tests__/helpers/ImageDataHelper";
 import BrandLandingPage, {
   Props as BrandLandingPageData
 } from "../brand-landing-page";
@@ -258,7 +258,7 @@ describe("Brand Landing Page Template", () => {
           icon: null,
           isLabelHidden: false,
           url: null,
-          type: null,
+          type: DataTypeEnum.Internal,
           parameters: null,
           dialogContent: null,
           linkedPage: null,
@@ -294,7 +294,7 @@ describe("Brand Landing Page Template", () => {
           icon: null,
           isLabelHidden: false,
           url: null,
-          type: null,
+          type: DataTypeEnum.Internal,
           parameters: null,
           dialogContent: null,
           linkedPage: null,

@@ -2,6 +2,7 @@ import { ThemeProvider } from "@bmi-digital/components";
 import { render } from "@testing-library/react";
 import React from "react";
 import Footer from "../Footer";
+import { DataTypeEnum } from "../Link";
 import { SiteContextProvider } from "../Site";
 
 const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
@@ -46,7 +47,7 @@ describe("Footer component", () => {
                     isLabelHidden: null,
                     icon: "Phone",
                     linkedPage: null,
-                    type: null,
+                    type: DataTypeEnum.Internal,
                     parameters: null,
                     dialogContent: null,
                     hubSpotCTAID: null
@@ -68,7 +69,7 @@ describe("Footer component", () => {
                     linkedPage: {
                       path: "landing-page"
                     },
-                    type: null,
+                    type: DataTypeEnum.Internal,
                     parameters: null,
                     dialogContent: null,
                     hubSpotCTAID: null
@@ -92,7 +93,7 @@ describe("Footer component", () => {
                 linkedPage: {
                   path: "landing-page"
                 },
-                type: null,
+                type: DataTypeEnum.Internal,
                 parameters: null,
                 dialogContent: null,
                 hubSpotCTAID: null
@@ -126,7 +127,7 @@ describe("Footer component", () => {
                     isLabelHidden: null,
                     icon: "Phone",
                     linkedPage: null,
-                    type: null,
+                    type: DataTypeEnum.Internal,
                     parameters: null,
                     dialogContent: null,
                     hubSpotCTAID: null
@@ -148,7 +149,7 @@ describe("Footer component", () => {
                     linkedPage: {
                       path: "landing-page"
                     },
-                    type: null,
+                    type: DataTypeEnum.Internal,
                     parameters: null,
                     dialogContent: null,
                     hubSpotCTAID: null
@@ -172,7 +173,7 @@ describe("Footer component", () => {
                 linkedPage: {
                   path: "landing-page"
                 },
-                type: null,
+                type: DataTypeEnum.Internal,
                 parameters: null,
                 dialogContent: null,
                 hubSpotCTAID: null
