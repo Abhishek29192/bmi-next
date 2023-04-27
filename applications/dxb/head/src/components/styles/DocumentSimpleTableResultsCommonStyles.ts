@@ -4,11 +4,6 @@ import { buttonClasses } from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
 import Icon from "../Icon";
 
-const PREFIX = "documentSimpleTableResultCommon";
-export const classes = {
-  actionBtnWrapper: `${PREFIX}-actionBtnWrapper`
-};
-
 export const ActionIcon = styled(Icon)(({ theme }) => ({
   "&, & path": {
     fill: theme.colours.inter

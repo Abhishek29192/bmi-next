@@ -520,7 +520,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
           class="document-library"
         >
           <div
-            class="DocumentSimpleTableResults css-1iwuinm"
+            class="DocumentSimpleTableResults css-qjwvo"
             data-testid="document-simple-table-results"
           >
             <div
@@ -580,7 +580,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                         data-mui-internal-clone-element="true"
                       >
                         <div
-                          class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                          class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
                         >
                           <label
                             class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -689,7 +689,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                       >
                         <div
                           aria-label="MC: document.library.download.tooltip.title"
-                          class="documentSimpleTableResultCommon-actionBtnWrapper"
+                          class=""
                           data-mui-internal-clone-element="true"
                           data-testid="tooltip"
                         >
@@ -720,7 +720,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                         </div>
                         <div
                           aria-label="MC: document.library.copyLink.tooltip.title"
-                          class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
+                          class="MuiBox-root css-mvc5fa"
                           data-mui-internal-clone-element="true"
                           data-testid="tooltip"
                         >
@@ -762,7 +762,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                         data-mui-internal-clone-element="true"
                       >
                         <div
-                          class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                          class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
                         >
                           <label
                             class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -871,7 +871,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                       >
                         <div
                           aria-label="MC: document.library.download.tooltip.title"
-                          class="documentSimpleTableResultCommon-actionBtnWrapper"
+                          class=""
                           data-mui-internal-clone-element="true"
                           data-testid="tooltip"
                         >
@@ -902,7 +902,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                         </div>
                         <div
                           aria-label="MC: document.library.copyLink.tooltip.title"
-                          class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
+                          class="MuiBox-root css-mvc5fa"
                           data-mui-internal-clone-element="true"
                           data-testid="tooltip"
                         >
@@ -944,7 +944,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                         data-mui-internal-clone-element="true"
                       >
                         <div
-                          class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                          class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
                         >
                           <label
                             class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -1053,7 +1053,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                       >
                         <div
                           aria-label="MC: document.library.download.tooltip.title"
-                          class="documentSimpleTableResultCommon-actionBtnWrapper"
+                          class=""
                           data-mui-internal-clone-element="true"
                           data-testid="tooltip"
                         >
@@ -1084,7 +1084,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                         </div>
                         <div
                           aria-label="MC: document.library.copyLink.tooltip.title"
-                          class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
+                          class="MuiBox-root css-mvc5fa"
                           data-mui-internal-clone-element="true"
                           data-testid="tooltip"
                         >
@@ -1126,7 +1126,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                         data-mui-internal-clone-element="true"
                       >
                         <div
-                          class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                          class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
                         >
                           <label
                             class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -1235,7 +1235,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                       >
                         <div
                           aria-label="MC: document.library.download.tooltip.title"
-                          class="documentSimpleTableResultCommon-actionBtnWrapper"
+                          class=""
                           data-mui-internal-clone-element="true"
                           data-testid="tooltip"
                         >
@@ -1266,7 +1266,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                         </div>
                         <div
                           aria-label="MC: document.library.copyLink.tooltip.title"
-                          class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
+                          class="MuiBox-root css-mvc5fa"
                           data-mui-internal-clone-element="true"
                           data-testid="tooltip"
                         >
@@ -1970,7 +1970,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
           class="document-library"
         >
           <div
-            class="DocumentSimpleTableResults css-1iwuinm"
+            class="DocumentSimpleTableResults css-qjwvo"
             data-testid="document-simple-table-results"
           >
             <div
@@ -2030,7 +2030,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                         data-mui-internal-clone-element="true"
                       >
                         <div
-                          class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                          class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
                         >
                           <label
                             class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -2085,7 +2085,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                       >
                         <div
                           aria-label="MC: document.library.download.tooltip.title"
-                          class="documentSimpleTableResultCommon-actionBtnWrapper"
+                          class=""
                           data-mui-internal-clone-element="true"
                           data-testid="tooltip"
                         >
@@ -2116,7 +2116,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                         </div>
                         <div
                           aria-label="MC: document.library.copyLink.tooltip.title"
-                          class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
+                          class="MuiBox-root css-mvc5fa"
                           data-mui-internal-clone-element="true"
                           data-testid="tooltip"
                         >
@@ -2158,7 +2158,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                         data-mui-internal-clone-element="true"
                       >
                         <div
-                          class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                          class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
                         >
                           <label
                             class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -2213,7 +2213,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                       >
                         <div
                           aria-label="MC: document.library.download.tooltip.title"
-                          class="documentSimpleTableResultCommon-actionBtnWrapper"
+                          class=""
                           data-mui-internal-clone-element="true"
                           data-testid="tooltip"
                         >
@@ -2244,7 +2244,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                         </div>
                         <div
                           aria-label="MC: document.library.copyLink.tooltip.title"
-                          class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
+                          class="MuiBox-root css-mvc5fa"
                           data-mui-internal-clone-element="true"
                           data-testid="tooltip"
                         >
@@ -3027,7 +3027,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
     class="document-library"
   >
     <div
-      class="DocumentSimpleTableResults css-1iwuinm"
+      class="DocumentSimpleTableResults css-qjwvo"
       data-testid="document-simple-table-results"
     >
       <div
@@ -3087,7 +3087,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                   data-mui-internal-clone-element="true"
                 >
                   <div
-                    class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                    class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
                   >
                     <label
                       class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -3142,7 +3142,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                 >
                   <div
                     aria-label="MC: document.library.download.tooltip.title"
-                    class="documentSimpleTableResultCommon-actionBtnWrapper"
+                    class=""
                     data-mui-internal-clone-element="true"
                     data-testid="tooltip"
                   >
@@ -3173,7 +3173,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                   </div>
                   <div
                     aria-label="MC: document.library.copyLink.tooltip.title"
-                    class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
+                    class="MuiBox-root css-mvc5fa"
                     data-mui-internal-clone-element="true"
                     data-testid="tooltip"
                   >
@@ -3215,7 +3215,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                   data-mui-internal-clone-element="true"
                 >
                   <div
-                    class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                    class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
                   >
                     <label
                       class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -3270,7 +3270,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                 >
                   <div
                     aria-label="MC: document.library.download.tooltip.title"
-                    class="documentSimpleTableResultCommon-actionBtnWrapper"
+                    class=""
                     data-mui-internal-clone-element="true"
                     data-testid="tooltip"
                   >
@@ -3301,7 +3301,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                   </div>
                   <div
                     aria-label="MC: document.library.copyLink.tooltip.title"
-                    class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
+                    class="MuiBox-root css-mvc5fa"
                     data-mui-internal-clone-element="true"
                     data-testid="tooltip"
                   >
@@ -3343,7 +3343,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                   data-mui-internal-clone-element="true"
                 >
                   <div
-                    class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                    class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
                   >
                     <label
                       class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -3398,7 +3398,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                 >
                   <div
                     aria-label="MC: document.library.download.tooltip.title"
-                    class="documentSimpleTableResultCommon-actionBtnWrapper"
+                    class=""
                     data-mui-internal-clone-element="true"
                     data-testid="tooltip"
                   >
@@ -3429,7 +3429,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                   </div>
                   <div
                     aria-label="MC: document.library.copyLink.tooltip.title"
-                    class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
+                    class="MuiBox-root css-mvc5fa"
                     data-mui-internal-clone-element="true"
                     data-testid="tooltip"
                   >
@@ -3471,7 +3471,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                   data-mui-internal-clone-element="true"
                 >
                   <div
-                    class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                    class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
                   >
                     <label
                       class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -3526,7 +3526,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                 >
                   <div
                     aria-label="MC: document.library.download.tooltip.title"
-                    class="documentSimpleTableResultCommon-actionBtnWrapper"
+                    class=""
                     data-mui-internal-clone-element="true"
                     data-testid="tooltip"
                   >
@@ -3557,7 +3557,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                   </div>
                   <div
                     aria-label="MC: document.library.copyLink.tooltip.title"
-                    class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
+                    class="MuiBox-root css-mvc5fa"
                     data-mui-internal-clone-element="true"
                     data-testid="tooltip"
                   >
@@ -3915,7 +3915,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
     class="document-library"
   >
     <div
-      class="DocumentSimpleTableResults css-1iwuinm"
+      class="DocumentSimpleTableResults css-qjwvo"
       data-testid="document-simple-table-results"
     >
       <div
@@ -3975,7 +3975,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                   data-mui-internal-clone-element="true"
                 >
                   <div
-                    class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                    class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
                   >
                     <label
                       class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -4030,7 +4030,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                 >
                   <div
                     aria-label="MC: document.library.download.tooltip.title"
-                    class="documentSimpleTableResultCommon-actionBtnWrapper"
+                    class=""
                     data-mui-internal-clone-element="true"
                     data-testid="tooltip"
                   >
@@ -4061,7 +4061,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                   </div>
                   <div
                     aria-label="MC: document.library.copyLink.tooltip.title"
-                    class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
+                    class="MuiBox-root css-mvc5fa"
                     data-mui-internal-clone-element="true"
                     data-testid="tooltip"
                   >
@@ -4103,7 +4103,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                   data-mui-internal-clone-element="true"
                 >
                   <div
-                    class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                    class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
                   >
                     <label
                       class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -4158,7 +4158,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                 >
                   <div
                     aria-label="MC: document.library.download.tooltip.title"
-                    class="documentSimpleTableResultCommon-actionBtnWrapper"
+                    class=""
                     data-mui-internal-clone-element="true"
                     data-testid="tooltip"
                   >
@@ -4189,7 +4189,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                   </div>
                   <div
                     aria-label="MC: document.library.copyLink.tooltip.title"
-                    class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
+                    class="MuiBox-root css-mvc5fa"
                     data-mui-internal-clone-element="true"
                     data-testid="tooltip"
                   >
@@ -4231,7 +4231,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                   data-mui-internal-clone-element="true"
                 >
                   <div
-                    class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                    class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
                   >
                     <label
                       class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -4286,7 +4286,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                 >
                   <div
                     aria-label="MC: document.library.download.tooltip.title"
-                    class="documentSimpleTableResultCommon-actionBtnWrapper"
+                    class=""
                     data-mui-internal-clone-element="true"
                     data-testid="tooltip"
                   >
@@ -4317,7 +4317,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                   </div>
                   <div
                     aria-label="MC: document.library.copyLink.tooltip.title"
-                    class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
+                    class="MuiBox-root css-mvc5fa"
                     data-mui-internal-clone-element="true"
                     data-testid="tooltip"
                   >
@@ -4359,7 +4359,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                   data-mui-internal-clone-element="true"
                 >
                   <div
-                    class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                    class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
                   >
                     <label
                       class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -4414,7 +4414,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                 >
                   <div
                     aria-label="MC: document.library.download.tooltip.title"
-                    class="documentSimpleTableResultCommon-actionBtnWrapper"
+                    class=""
                     data-mui-internal-clone-element="true"
                     data-testid="tooltip"
                   >
@@ -4445,7 +4445,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                   </div>
                   <div
                     aria-label="MC: document.library.copyLink.tooltip.title"
-                    class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
+                    class="MuiBox-root css-mvc5fa"
                     data-mui-internal-clone-element="true"
                     data-testid="tooltip"
                   >

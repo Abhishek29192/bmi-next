@@ -8,6 +8,7 @@ import createPimDocument, {
 } from "../../__tests__/helpers/PimDocumentHelper";
 import { DocumentTableHeader } from "../../types/Document";
 import { DocumentSimpleTableResultsMobile } from "../DocumentSimpleTableResultsMobile";
+import { getUniqueId } from "../../utils/documentUtils";
 
 beforeEach(() => {
   jest.clearAllMocks();
@@ -40,6 +41,7 @@ describe("DocumentSimpleTableResultsMobile component", () => {
         <DocumentSimpleTableResultsMobile
           documents={[document]}
           headers={defaultTableHeaders}
+          selectedDocuments={{}}
         />
       </ThemeProvider>
     );
@@ -68,6 +70,7 @@ describe("DocumentSimpleTableResultsMobile component", () => {
           <DocumentSimpleTableResultsMobile
             documents={[document]}
             headers={defaultTableHeaders}
+            selectedDocuments={{}}
           />
         </ThemeProvider>
       );
@@ -83,6 +86,7 @@ describe("DocumentSimpleTableResultsMobile component", () => {
         <DocumentSimpleTableResultsMobile
           documents={[document]}
           headers={[...defaultTableHeaders, "productStatus"]}
+          selectedDocuments={{}}
         />
       </ThemeProvider>
     );
@@ -98,6 +102,7 @@ describe("DocumentSimpleTableResultsMobile component", () => {
         <DocumentSimpleTableResultsMobile
           documents={[{ ...document, approvalStatus: "approved" }]}
           headers={[...defaultTableHeaders, "productStatus"]}
+          selectedDocuments={{}}
         />
       </ThemeProvider>
     );
@@ -113,6 +118,7 @@ describe("DocumentSimpleTableResultsMobile component", () => {
         <DocumentSimpleTableResultsMobile
           documents={[document]}
           headers={[...defaultTableHeaders, "validityDate"]}
+          selectedDocuments={{}}
         />
       </ThemeProvider>
     );
@@ -130,6 +136,7 @@ describe("DocumentSimpleTableResultsMobile component", () => {
         <DocumentSimpleTableResultsMobile
           documents={[document]}
           headers={[...defaultTableHeaders, "typeCode"]}
+          selectedDocuments={{}}
         />
       </ThemeProvider>
     );
@@ -147,6 +154,7 @@ describe("DocumentSimpleTableResultsMobile component", () => {
         <DocumentSimpleTableResultsMobile
           documents={[document]}
           headers={[...defaultTableHeaders, "type"]}
+          selectedDocuments={{}}
         />
       </ThemeProvider>
     );
@@ -162,6 +170,7 @@ describe("DocumentSimpleTableResultsMobile component", () => {
         <DocumentSimpleTableResultsMobile
           documents={[document]}
           headers={defaultTableHeaders}
+          selectedDocuments={{}}
         />
       </ThemeProvider>
     );
@@ -181,11 +190,29 @@ describe("DocumentSimpleTableResultsMobile component", () => {
         <DocumentSimpleTableResultsMobile
           documents={[zipDocument]}
           headers={defaultTableHeaders}
+          selectedDocuments={{}}
         />
       </ThemeProvider>
     );
     expect(
       screen.queryByLabelText(`Copy ${zipDocument.title}`)
     ).not.toBeInTheDocument();
+  });
+
+  it("renders correctly with selected document", () => {
+    const document = createPimDocument();
+    render(
+      <ThemeProvider>
+        <DocumentSimpleTableResultsMobile
+          documents={[document]}
+          headers={defaultTableHeaders}
+          selectedDocuments={{ [getUniqueId(document)]: document }}
+        />
+      </ThemeProvider>
+    );
+
+    expect(screen.getByTestId(`document-table-row-${document.id}`)).toHaveClass(
+      "documentSimpleTableResultsMobile-selected"
+    );
   });
 });

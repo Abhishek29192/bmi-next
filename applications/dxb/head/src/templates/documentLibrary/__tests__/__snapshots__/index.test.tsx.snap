@@ -3390,7 +3390,7 @@ exports[`Document Library page should render DocumentCardsResults correctly if s
 
 exports[`Document Library page should render DocumentSimpleTableResults correctly if source === ALL and resultsType === Card Collection 1`] = `
 <div
-  class="DocumentSimpleTableResults css-1iwuinm"
+  class="DocumentSimpleTableResults css-qjwvo"
   data-testid="document-simple-table-results"
 >
   <div
@@ -3450,7 +3450,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               data-mui-internal-clone-element="true"
             >
               <div
-                class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
               >
                 <label
                   class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -3559,7 +3559,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             >
               <div
                 aria-label="MC: document.library.download.tooltip.title"
-                class="documentSimpleTableResultCommon-actionBtnWrapper"
+                class=""
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >
@@ -3590,7 +3590,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               </div>
               <div
                 aria-label="MC: document.library.copyLink.tooltip.title"
-                class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
+                class="MuiBox-root css-mvc5fa"
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >
@@ -3626,7 +3626,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
 
 exports[`Document Library page should render DocumentSimpleTableResults correctly if source === ALL and resultsType === Simple 1`] = `
 <div
-  class="DocumentSimpleTableResults css-1iwuinm"
+  class="DocumentSimpleTableResults css-qjwvo"
   data-testid="document-simple-table-results"
 >
   <div
@@ -3686,7 +3686,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               data-mui-internal-clone-element="true"
             >
               <div
-                class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
               >
                 <label
                   class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -3798,7 +3798,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             >
               <div
                 aria-label="MC: document.library.download.tooltip.title"
-                class="documentSimpleTableResultCommon-actionBtnWrapper"
+                class=""
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >
@@ -3829,7 +3829,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               </div>
               <div
                 aria-label="MC: document.library.copyLink.tooltip.title"
-                class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
+                class="MuiBox-root css-mvc5fa"
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >
@@ -3865,7 +3865,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
 
 exports[`Document Library page should render DocumentSimpleTableResults correctly if source === ALL and resultsType === Technical 1`] = `
 <div
-  class="DocumentSimpleTableResults css-1iwuinm"
+  class="DocumentSimpleTableResults css-qjwvo"
   data-testid="document-simple-table-results"
 >
   <div
@@ -3925,7 +3925,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               data-mui-internal-clone-element="true"
             >
               <div
-                class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
               >
                 <label
                   class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -4034,7 +4034,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             >
               <div
                 aria-label="MC: document.library.download.tooltip.title"
-                class="documentSimpleTableResultCommon-actionBtnWrapper"
+                class=""
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >
@@ -4065,7 +4065,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               </div>
               <div
                 aria-label="MC: document.library.copyLink.tooltip.title"
-                class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
+                class="MuiBox-root css-mvc5fa"
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >
@@ -4101,7 +4101,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
 
 exports[`Document Library page should render DocumentSimpleTableResults correctly if source === CMS and resultsType === Simple 1`] = `
 <div
-  class="DocumentSimpleTableResults css-1iwuinm"
+  class="DocumentSimpleTableResults css-qjwvo"
   data-testid="document-simple-table-results"
 >
   <div
@@ -4161,7 +4161,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               data-mui-internal-clone-element="true"
             >
               <div
-                class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
               >
                 <label
                   class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -4273,7 +4273,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             >
               <div
                 aria-label="MC: document.library.download.tooltip.title"
-                class="documentSimpleTableResultCommon-actionBtnWrapper"
+                class=""
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >
@@ -4304,7 +4304,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               </div>
               <div
                 aria-label="MC: document.library.copyLink.tooltip.title"
-                class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
+                class="MuiBox-root css-mvc5fa"
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >
@@ -4340,7 +4340,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
 
 exports[`Document Library page should render DocumentSimpleTableResults correctly if source === CMS and resultsType === Technical 1`] = `
 <div
-  class="DocumentSimpleTableResults css-1iwuinm"
+  class="DocumentSimpleTableResults css-qjwvo"
   data-testid="document-simple-table-results"
 >
   <div
@@ -4400,7 +4400,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               data-mui-internal-clone-element="true"
             >
               <div
-                class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
               >
                 <label
                   class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -4509,7 +4509,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             >
               <div
                 aria-label="MC: document.library.download.tooltip.title"
-                class="documentSimpleTableResultCommon-actionBtnWrapper"
+                class=""
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >
@@ -4540,7 +4540,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               </div>
               <div
                 aria-label="MC: document.library.copyLink.tooltip.title"
-                class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
+                class="MuiBox-root css-mvc5fa"
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >
@@ -4576,7 +4576,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
 
 exports[`Document Library page should render DocumentSimpleTableResults correctly if source === PIM and resultsType === Card Collection 1`] = `
 <div
-  class="DocumentSimpleTableResults css-1iwuinm"
+  class="DocumentSimpleTableResults css-qjwvo"
   data-testid="document-simple-table-results"
 >
   <div
@@ -4636,7 +4636,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               data-mui-internal-clone-element="true"
             >
               <div
-                class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
               >
                 <label
                   class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -4745,7 +4745,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             >
               <div
                 aria-label="MC: document.library.download.tooltip.title"
-                class="documentSimpleTableResultCommon-actionBtnWrapper"
+                class=""
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >
@@ -4776,7 +4776,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               </div>
               <div
                 aria-label="MC: document.library.copyLink.tooltip.title"
-                class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
+                class="MuiBox-root css-mvc5fa"
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >
@@ -4812,7 +4812,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
 
 exports[`Document Library page should render DocumentSimpleTableResults correctly if source === PIM and resultsType === Simple 1`] = `
 <div
-  class="DocumentSimpleTableResults css-1iwuinm"
+  class="DocumentSimpleTableResults css-qjwvo"
   data-testid="document-simple-table-results"
 >
   <div
@@ -4872,7 +4872,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               data-mui-internal-clone-element="true"
             >
               <div
-                class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
               >
                 <label
                   class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -4981,7 +4981,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             >
               <div
                 aria-label="MC: document.library.download.tooltip.title"
-                class="documentSimpleTableResultCommon-actionBtnWrapper"
+                class=""
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >
@@ -5012,7 +5012,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               </div>
               <div
                 aria-label="MC: document.library.copyLink.tooltip.title"
-                class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
+                class="MuiBox-root css-mvc5fa"
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >
@@ -5048,7 +5048,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
 
 exports[`Document Library page should render DocumentSimpleTableResults correctly if source === PIM and resultsType === Simple Archive 1`] = `
 <div
-  class="DocumentSimpleTableResults css-1iwuinm"
+  class="DocumentSimpleTableResults css-qjwvo"
   data-testid="document-simple-table-results"
 >
   <div
@@ -5120,7 +5120,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               data-mui-internal-clone-element="true"
             >
               <div
-                class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
               >
                 <label
                   class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -5245,7 +5245,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             >
               <div
                 aria-label="MC: document.library.download.tooltip.title"
-                class="documentSimpleTableResultCommon-actionBtnWrapper"
+                class=""
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >
@@ -5276,7 +5276,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               </div>
               <div
                 aria-label="MC: document.library.copyLink.tooltip.title"
-                class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
+                class="MuiBox-root css-mvc5fa"
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >
@@ -5312,7 +5312,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
 
 exports[`Document Library page should render DocumentSimpleTableResults if source === ALL and resultsType === Simple Archive 1`] = `
 <div
-  class="DocumentSimpleTableResults css-1iwuinm"
+  class="DocumentSimpleTableResults css-qjwvo"
   data-testid="document-simple-table-results"
 >
   <div
@@ -5384,7 +5384,7 @@ exports[`Document Library page should render DocumentSimpleTableResults if sourc
               data-mui-internal-clone-element="true"
             >
               <div
-                class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
               >
                 <label
                   class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -5509,7 +5509,7 @@ exports[`Document Library page should render DocumentSimpleTableResults if sourc
             >
               <div
                 aria-label="MC: document.library.download.tooltip.title"
-                class="documentSimpleTableResultCommon-actionBtnWrapper"
+                class=""
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >
@@ -5540,7 +5540,7 @@ exports[`Document Library page should render DocumentSimpleTableResults if sourc
               </div>
               <div
                 aria-label="MC: document.library.copyLink.tooltip.title"
-                class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
+                class="MuiBox-root css-mvc5fa"
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >

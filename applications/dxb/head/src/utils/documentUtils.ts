@@ -16,12 +16,15 @@ import { formatDate, getCurrentTimeString } from "./dateUtils";
 export const getIsLinkDocument = (document: Document): boolean =>
   "isLinkDocument" in document && document.isLinkDocument;
 
+export const getUniqueId = (document: Document): string =>
+  `${document.id}-${document.title}`.replace(/ /g, "_");
+
 export const getFileSizeByDocumentType = (document: Document): number => {
   if (document.__typename === "ContentfulDocument") {
     return document.asset.file.details.size;
   }
 
-  return document.fileSize;
+  return document.fileSize || 0;
 };
 
 export const getFileUrlByDocumentType = (

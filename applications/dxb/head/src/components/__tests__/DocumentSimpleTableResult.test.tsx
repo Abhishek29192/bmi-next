@@ -10,7 +10,6 @@ import createPimDocument, {
 } from "../../__tests__/helpers/PimDocumentHelper";
 import createPimSystemDocument from "../../__tests__/helpers/PimSystemDocumentHelper";
 import DocumentSimpleTableResults, {
-  getUniqueId,
   isPIMDocument,
   Props
 } from "../DocumentSimpleTableResults";
@@ -62,17 +61,6 @@ describe("isPimDocument", () => {
   test("returns false for a non-PIM document", () => {
     const document: any = createContentfulDocument();
     expect(isPIMDocument(document)).toBe(false);
-  });
-});
-
-describe("getUniqueID", () => {
-  it("should return a concatenated string with spaces between words replaced with underscores", () => {
-    const document: PIMDocument = createPimDocument({
-      id: "123",
-      title: "This is a Test Document"
-    });
-    const expectedID = "123-This_is_a_Test_Document";
-    expect(getUniqueId(document)).toBe(expectedID);
   });
 });
 
