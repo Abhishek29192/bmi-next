@@ -24,7 +24,7 @@ const Sitemap = ({ data, pageContext }: Props) => {
     menuUtilities
   } = siteData;
 
-  const getMicroCopy = generateGetMicroCopy(siteData.resources.microCopy);
+  const getMicroCopy = generateGetMicroCopy(siteData.resources?.microCopy);
 
   return (
     <Page
