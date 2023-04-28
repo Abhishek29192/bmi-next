@@ -25,7 +25,7 @@ const ResultSection = ({
 }: Props) => {
   const { getMicroCopy } = useSiteContext();
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up("md"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 
   return (
     <>
@@ -41,9 +41,10 @@ const ResultSection = ({
               page={page + 1}
               count={pageCount}
               isDownloadButton={
-                format === "cards" || (!matches && format === "technicalTable")
-                  ? false
-                  : true
+                !(
+                  format === "cards" ||
+                  (format === "technicalTable" && isMobile)
+                )
               }
               onPageChange={handlePageChange}
             />

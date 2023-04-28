@@ -1,24 +1,19 @@
 import { Table } from "@bmi-digital/components";
 import { ApprovalStatus } from "@bmi/pim-types";
-import { alpha, formControlLabelClasses } from "@mui/material";
+import { alpha } from "@mui/material";
 import { tooltipClasses } from "@mui/material/Tooltip";
 import { styled } from "@mui/material/styles";
 
 const PREFIX = "documentSimpleTableResultsStyles";
 export const classes = {
   tableHeader: `${PREFIX}-tableHeader`,
-  checked: `${PREFIX}-checked`,
-  actionsTooltip: `${PREFIX}-tooltip`,
-  actionsTooltipPlacementLeft: `${PREFIX}-actionTooltipPlacementLeft`
+  checked: `${PREFIX}-checked`
 };
 
 export const StyledSimpleTableResults = styled("div")(({ theme }) => ({
   [`& .${classes.tableHeader}`]: {
     width: "92px",
     whiteSpace: "nowrap"
-  },
-  [`& .${formControlLabelClasses.root}`]: {
-    marginRight: 0
   },
   "abbr[title]::after": {
     content: "''",

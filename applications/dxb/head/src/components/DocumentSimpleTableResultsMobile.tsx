@@ -1,8 +1,11 @@
 import filesize from "filesize";
 import React from "react";
+import { DownloadList, DownloadListContextType } from "@bmi-digital/components";
+import classnames from "classnames";
 import { microCopy } from "../constants/microCopies";
 import { Document, DocumentTableHeader } from "../types/Document";
 import {
+  getUniqueId,
   getFileSizeByDocumentType,
   getFileUrlByDocumentType,
   getIsLinkDocument,
@@ -17,32 +20,43 @@ import {
 import { useSiteContext } from "./Site";
 import { DocumentStatus } from "./styles/DocumentSimpleTableResultsCommonStyles";
 import {
-  Actions,
+  ActionBtnWrapper,
+  ActionsRow,
   FieldTitle,
   FieldValue,
   StyledListItem,
   StyledListRow,
   StyledListRowItem,
-  StyledListTitleRow
+  StyledListTitleRow,
+  Divider,
+  classes
 } from "./styles/DocumentSimpleTableResultsMobileStyles";
 
 type ListProps = {
   documents: readonly Document[];
   headers: DocumentTableHeader[];
+  selectedDocuments: DownloadListContextType["list"];
 };
 
 const ListItem = ({
   document,
-  headers
+  headers,
+  isSelected
 }: {
   document: Document;
   headers: DocumentTableHeader[];
+  isSelected: boolean;
 }) => {
   const { getMicroCopy } = useSiteContext();
   const isLinkDocument = getIsLinkDocument(document);
+  const size = getFileSizeByDocumentType(document);
+  const isZipDocument = document.__typename === "PIMDocumentWithPseudoZip";
 
   return (
-    <StyledListItem>
+    <StyledListItem
+      data-testid={`document-table-row-${document.id}`}
+      className={classnames(isSelected && classes.selected)}
+    >
       <StyledListTitleRow>
         <DocumentTitle document={document} disableRipple />
       </StyledListTitleRow>
@@ -100,33 +114,54 @@ const ListItem = ({
           </StyledListRowItem>
         ) : null}
       </StyledListRow>
-      <StyledListRow>
-        <Actions>
-          {!isLinkDocument ? (
+      <ActionsRow>
+        {!isLinkDocument ? (
+          <ActionBtnWrapper>
             <DownloadDocumentButton document={document} />
-          ) : null}
-          {document.__typename !== "PIMDocumentWithPseudoZip" ? (
+          </ActionBtnWrapper>
+        ) : null}
+        {!isZipDocument ? (
+          <ActionBtnWrapper>
             <CopyToClipboard
               id={document.id}
               url={getFileUrlByDocumentType(document)}
               title={document.title}
             />
-          ) : null}
-        </Actions>
-      </StyledListRow>
+          </ActionBtnWrapper>
+        ) : null}
+        <Divider />
+        <DownloadList.Checkbox
+          name={getUniqueId(document)}
+          ariaLabel={`${getMicroCopy(microCopy.DOCUMENT_LIBRARY_DOWNLOAD)} ${
+            document.title
+          }`}
+          value={isZipDocument ? document.documentList : document}
+          fileSize={size}
+          disabled={isLinkDocument}
+        />
+      </ActionsRow>
     </StyledListItem>
   );
 };
 
 export const DocumentSimpleTableResultsMobile = ({
   documents,
-  headers
+  headers,
+  selectedDocuments
 }: ListProps): React.ReactElement => {
   return (
     <div>
-      {documents.map((document) => (
-        <ListItem headers={headers} document={document} key={document.id} />
-      ))}
+      {documents.map((document) => {
+        const isSelected = Boolean(selectedDocuments[getUniqueId(document)]);
+        return (
+          <ListItem
+            headers={headers}
+            document={document}
+            key={document.id}
+            isSelected={isSelected}
+          />
+        );
+      })}
     </div>
   );
 };

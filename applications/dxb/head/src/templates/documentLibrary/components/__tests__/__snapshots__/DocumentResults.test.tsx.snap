@@ -3,7 +3,7 @@
 exports[`DocumentResults component When SimpleTable documents have multiple unique asset type code for documents And same no of contentful Asset Types are present with matching asset type code SimpleTable: renders correctly with ALL columns 1`] = `
 <div>
   <div
-    class="DocumentSimpleTableResults css-1iwuinm"
+    class="DocumentSimpleTableResults css-qjwvo"
     data-testid="document-simple-table-results"
   >
     <div
@@ -69,7 +69,7 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
                 data-mui-internal-clone-element="true"
               >
                 <div
-                  class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                  class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
                 >
                   <label
                     class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -191,7 +191,7 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
               >
                 <div
                   aria-label="MC: document.library.download.tooltip.title"
-                  class="documentSimpleTableResultCommon-actionBtnWrapper"
+                  class=""
                   data-mui-internal-clone-element="true"
                   data-testid="tooltip"
                 >
@@ -222,7 +222,7 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
                 </div>
                 <div
                   aria-label="MC: document.library.copyLink.tooltip.title"
-                  class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
+                  class="MuiBox-root css-mvc5fa"
                   data-mui-internal-clone-element="true"
                   data-testid="tooltip"
                 >
@@ -264,7 +264,7 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
                 data-mui-internal-clone-element="true"
               >
                 <div
-                  class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                  class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
                 >
                   <label
                     class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -383,7 +383,7 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
               >
                 <div
                   aria-label="MC: document.library.download.tooltip.title"
-                  class="documentSimpleTableResultCommon-actionBtnWrapper"
+                  class=""
                   data-mui-internal-clone-element="true"
                   data-testid="tooltip"
                 >
@@ -414,7 +414,7 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
                 </div>
                 <div
                   aria-label="MC: document.library.copyLink.tooltip.title"
-                  class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
+                  class="MuiBox-root css-mvc5fa"
                   data-mui-internal-clone-element="true"
                   data-testid="tooltip"
                 >

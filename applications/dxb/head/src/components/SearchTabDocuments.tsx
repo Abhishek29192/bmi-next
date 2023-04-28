@@ -25,6 +25,7 @@ import { DocumentTableHeader } from "../types/Document";
 import DocumentResultsFooter from "./DocumentResultsFooter";
 import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
 import { useSiteContext } from "./Site";
+import { StyledGridContainer } from "./styles/SearchTabDocumentsStyles";
 
 const PAGE_SIZE = 24;
 const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_DOCUMENTS;
@@ -251,7 +252,7 @@ const SearchTabPanelDocuments = (props: Props) => {
   const maxSize = documentDownloadMaxLimit * 1048576;
   return (
     <DownloadList maxSize={maxSize}>
-      <Grid container spacing={3} ref={resultsElement}>
+      <StyledGridContainer container spacing={3} ref={resultsElement}>
         <Grid xs={12} md={12} lg={3}>
           <DownloadListContext.Consumer>
             {({ resetList }) => (
@@ -263,7 +264,7 @@ const SearchTabPanelDocuments = (props: Props) => {
             )}
           </DownloadListContext.Consumer>
         </Grid>
-        <Grid xs={12} md={12} lg={9} style={{ paddingTop: 0 }}>
+        <Grid xs={12} md={12} lg={9} sx={{ pt: { lg: 0 } }}>
           <DocumentSimpleTableResults
             documents={results}
             headers={documentTableHeaders}
@@ -276,7 +277,7 @@ const SearchTabPanelDocuments = (props: Props) => {
             />
           </div>
         </Grid>
-      </Grid>
+      </StyledGridContainer>
     </DownloadList>
   );
 };

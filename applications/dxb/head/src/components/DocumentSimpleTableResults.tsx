@@ -11,6 +11,7 @@ import React, { useContext } from "react";
 import { microCopy } from "../constants/microCopies";
 import { Document, DocumentTableHeader } from "../types/Document";
 import {
+  getUniqueId,
   getFileSizeByDocumentType,
   getFileUrlByDocumentType,
   getIsLinkDocument,
@@ -44,9 +45,6 @@ const PIM_TYPES = ["PIMDocument", "PIMSystemDocument"];
 export const isPIMDocument = (document: Document): boolean =>
   PIM_TYPES.includes(document.__typename);
 
-export const getUniqueId = (document: Document): string =>
-  `${document.id}-${document.title}`.replace(/ /g, "_");
-
 const DocumentCells = ({
   document,
   headers
@@ -55,9 +53,10 @@ const DocumentCells = ({
   headers: DocumentTableHeader[];
 }) => {
   const { getMicroCopy } = useSiteContext();
-  const isLinkDocument = getIsLinkDocument(document);
-  const fileSize = getFileSizeByDocumentType(document);
   const { __typename } = document;
+  const isLinkDocument = getIsLinkDocument(document);
+  const isZipDocument = __typename === "PIMDocumentWithPseudoZip";
+  const fileSize = getFileSizeByDocumentType(document);
 
   return (
     <>
@@ -148,7 +147,7 @@ const DocumentCells = ({
               </StyledTableCell>
             );
           case "add":
-            return !(document.__typename === "PIMDocumentWithPseudoZip") ? (
+            return (
               <StyledTableCell
                 align="center"
                 key={key}
@@ -161,27 +160,10 @@ const DocumentCells = ({
                   )}
                   ariaLabel={`${getMicroCopy(
                     microCopy.DOCUMENT_LIBRARY_DOWNLOAD
-                  )} ${document.title}`}
-                  value={document}
-                  fileSize={fileSize || 0}
-                  disabled={isLinkDocument}
-                />
-              </StyledTableCell>
-            ) : (
-              <StyledTableCell
-                align="center"
-                key={key}
-                data-testid={`document-table-add-${document.id}`}
-              >
-                <DownloadList.Checkbox
-                  name={getUniqueId(document)}
-                  maxLimitReachedLabel={getMicroCopy(
-                    microCopy.DOCUMENTS_DOWNLOAD_MAX_REACHED
-                  )}
-                  ariaLabel={`${getMicroCopy(
-                    microCopy.DOCUMENT_LIBRARY_DOWNLOAD
-                  )} ${document.assetType.name}`}
-                  value={document.documentList}
+                  )} ${
+                    isZipDocument ? document.assetType.name : document.title
+                  }`}
+                  value={isZipDocument ? document.documentList : document}
                   fileSize={fileSize}
                   disabled={isLinkDocument}
                 />
@@ -227,6 +209,7 @@ const DocumentSimpleTableResults = ({
       <DocumentSimpleTableResultsMobile
         documents={documents}
         headers={headers}
+        selectedDocuments={list}
       />
     );
   }

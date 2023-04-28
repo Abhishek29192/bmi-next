@@ -3,7 +3,7 @@
 exports[`DocumentsLeadBlock tests should render correctly 1`] = `
 <div>
   <div
-    class="css-asoc7f"
+    class="DocumentLeadBlock css-asoc7f"
   >
     <div
       class="css-eler5f"
@@ -13,7 +13,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
           class="tableContainer"
         >
           <div
-            class="DocumentSimpleTableResults css-1iwuinm"
+            class="DocumentSimpleTableResults css-qjwvo"
             data-testid="document-simple-table-results"
           >
             <div
@@ -79,7 +79,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
                         data-mui-internal-clone-element="true"
                       >
                         <div
-                          class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                          class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
                         >
                           <label
                             class="MuiFormControlLabel-root Mui-disabled MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -169,7 +169,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
                       >
                         <div
                           aria-label="MC: document.library.copyLink.tooltip.title"
-                          class="documentSimpleTableResultCommon-actionBtnWrapper MuiBox-root css-mvc5fa"
+                          class="MuiBox-root css-mvc5fa"
                           data-mui-internal-clone-element="true"
                           data-testid="tooltip"
                         >

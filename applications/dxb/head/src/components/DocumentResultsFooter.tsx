@@ -5,8 +5,8 @@ import {
   DownloadListContext,
   Pagination
 } from "@bmi-digital/components";
-import { Box, useMediaQuery } from "@mui/material";
-import { styled, useTheme } from "@mui/material/styles";
+import { Box } from "@mui/material";
+import { styled } from "@mui/material/styles";
 import classnames from "classnames";
 import fetch, { Response } from "node-fetch";
 import React, { useContext } from "react";
@@ -171,8 +171,6 @@ const DocumentResultsFooter = ({
   const config = useConfig();
   const { executeRecaptcha } = useGoogleReCaptcha();
   const qaAuthToken = getCookie(QA_AUTH_TOKEN);
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
   const displayPagination = count > 1;
 
   return (
@@ -188,7 +186,7 @@ const DocumentResultsFooter = ({
           className={classnames(styles["pagination"], classes.paginationRoot)}
         />
       )}
-      {isDownloadButton && !isMobile && (
+      {isDownloadButton && (
         <Box mt={4}>
           <DownloadList.Clear
             label={getMicroCopy(microCopy.DOWNLOAD_LIST_CLEAR)}

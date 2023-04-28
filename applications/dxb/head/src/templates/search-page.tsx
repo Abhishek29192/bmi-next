@@ -278,7 +278,10 @@ const SearchPage = ({ pageContext, data }: Props) => {
             icon={icon}
           >
             {hasBeenDisplayed ? (
-              <Container data-testid={`container-${tabKey}`}>
+              <Container
+                data-testid={`container-${tabKey}`}
+                disableGutters={tabKey === "documents" && !isDesktop}
+              >
                 <Component
                   queryString={queryString}
                   pageContext={pageContext}

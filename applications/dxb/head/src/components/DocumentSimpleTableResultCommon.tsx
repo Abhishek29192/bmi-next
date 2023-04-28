@@ -27,8 +27,7 @@ import {
   StyledButton,
   StyledDocumentIcon,
   Title,
-  TitleButton,
-  classes
+  TitleButton
 } from "./styles/DocumentSimpleTableResultsCommonStyles";
 
 const GTMButton = withGTM<
@@ -177,7 +176,7 @@ export const CopyToClipboard = (props: {
       )}
       onClose={handleTooltipClose}
     >
-      <Box ml={{ lg: "auto" }} className={classes.actionBtnWrapper}>
+      <Box ml={{ lg: "auto" }}>
         <StyledButton
           isIconButton
           variant="text"
@@ -242,7 +241,7 @@ export const DownloadDocumentButton = ({
       disableTouchListener
       title={getMicroCopy(microCopy.DOCUMENT_LIBRARY_DOWNLOAD_TOOLTIP_TITLE)}
     >
-      <div className={classes.actionBtnWrapper}>
+      <div>
         <GTMButton
           {...downloadButtonConfig}
           isIconButton
