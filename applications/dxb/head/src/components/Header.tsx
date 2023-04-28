@@ -127,7 +127,7 @@ const parseNavigation = (
 
       return result.concat({
         label,
-        icon: <Icon name={iconName} />,
+        ...(iconName && { icon: <Icon name={iconName} /> }),
         isLabelHidden,
         action
       });

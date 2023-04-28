@@ -208,6 +208,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       role="tablist"
                     >
                       <a
+                        aria-label="string"
                         aria-selected="false"
                         class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                         data-gtm="{"id":"nav-main-menu"}"
@@ -1147,6 +1148,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       role="tablist"
                     >
                       <a
+                        aria-label="string"
                         aria-selected="false"
                         class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                         data-gtm="{"id":"nav-main-menu"}"
@@ -2110,6 +2112,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       role="tablist"
                     >
                       <a
+                        aria-label="string"
                         aria-selected="false"
                         class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                         data-gtm="{"id":"nav-main-menu"}"
@@ -3308,6 +3311,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       role="tablist"
                     >
                       <a
+                        aria-label="string"
                         aria-selected="false"
                         class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                         data-gtm="{"id":"nav-main-menu"}"
@@ -4474,6 +4478,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       role="tablist"
                     >
                       <a
+                        aria-label="string"
                         aria-selected="false"
                         class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                         data-gtm="{"id":"nav-main-menu"}"
@@ -5593,6 +5598,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                       role="tablist"
                     >
                       <a
+                        aria-label="string"
                         aria-selected="false"
                         class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                         data-gtm="{"id":"nav-main-menu"}"
@@ -6557,6 +6563,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                       role="tablist"
                     >
                       <a
+                        aria-label="string"
                         aria-selected="false"
                         class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                         data-gtm="{"id":"nav-main-menu"}"
@@ -7623,6 +7630,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                       role="tablist"
                     >
                       <a
+                        aria-label="string"
                         aria-selected="false"
                         class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                         data-gtm="{"id":"nav-main-menu"}"
@@ -8569,6 +8577,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                       role="tablist"
                     >
                       <a
+                        aria-label="string"
                         aria-selected="false"
                         class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                         data-gtm="{"id":"nav-main-menu"}"
@@ -9740,6 +9749,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
                       role="tablist"
                     >
                       <a
+                        aria-label="string"
                         aria-selected="false"
                         class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                         data-gtm="{"id":"nav-main-menu"}"
@@ -10911,6 +10921,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                       role="tablist"
                     >
                       <a
+                        aria-label="string"
                         aria-selected="false"
                         class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                         data-gtm="{"id":"nav-main-menu"}"
@@ -12095,6 +12106,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
                       role="tablist"
                     >
                       <a
+                        aria-label="string"
                         aria-selected="false"
                         class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                         data-gtm="{"id":"nav-main-menu"}"
@@ -13293,6 +13305,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       role="tablist"
                     >
                       <a
+                        aria-label="string"
                         aria-selected="false"
                         class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                         data-gtm="{"id":"nav-main-menu"}"
@@ -14682,6 +14695,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       role="tablist"
                     >
                       <a
+                        aria-label="string"
                         aria-selected="false"
                         class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                         data-gtm="{"id":"nav-main-menu"}"

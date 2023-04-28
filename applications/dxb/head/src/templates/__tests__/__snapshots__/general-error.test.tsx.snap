@@ -248,6 +248,7 @@ exports[`General Error render correctly 1`] = `
                     role="tablist"
                   >
                     <a
+                      aria-label="string"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu"}"
@@ -956,6 +957,7 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
                     role="tablist"
                   >
                     <a
+                      aria-label="string"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu"}"
