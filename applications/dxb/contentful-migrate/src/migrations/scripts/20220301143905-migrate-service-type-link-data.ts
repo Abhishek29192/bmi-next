@@ -8,7 +8,7 @@ import {
   getLocales,
   publishEntry
 } from "@bmi-digital/contentful-migration";
-import { camelCase } from "lodash";
+import { camelCase } from "lodash-es";
 import branchTypes from "../../variables/branchTypes/20210928085352.js";
 import merchantTypes from "../../variables/merchantTypes/20210929064001.js";
 import rooferTypes from "../../variables/roofer/20211124094158.js";

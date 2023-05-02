@@ -99,6 +99,28 @@ type BreadcrumbItem @dontInfer {
   slug: String
 }
 
+type ContentfulCookiePolicyPage implements ContentfulObject & ContentfulPage & Node @dontInfer {
+  id: ID!
+  contentful_id: String!
+  metadata: ContentfulMetadata!
+  title: String
+  slug: String!
+  path: String!
+  heroType: String
+  subtitle: String
+  leadBlock: ContentfulLeadBlockSection @link(from: "leadBlock___NODE")
+  sections: [ContentfulSection] @link(from: "sections___NODE")
+  breadcrumbs: [BreadcrumbItem]
+  breadcrumbTitle: String
+  seo: ContentfulSeoContent @link(from: "seo___NODE")
+  
+  brandLogo: String
+  featuredMedia: ContentfulImage @link(by: "id", from: "featuredMedia___NODE")
+  featuredVideo: ContentfulVideo @link(from: "featuredVideo___NODE")
+  signupBlock: ContentfulSignupBlock @link(from: "signupBlock___NODE")
+  tags: [ContentfulCategory] @link(from: "tags___NODE")
+}
+
 type ContentfulSimplePage implements ContentfulObject & ContentfulPage & Node @dontInfer {
   id: ID!
   contentful_id: String!
@@ -592,6 +614,7 @@ union LinkedPage =
   | ContentfulDocumentLibraryPage
   | ContentfulHomePage
   | ContentfulBrandLandingPage
+  | ContentfulCookiePolicyPage
 
 type ContentfulLink implements ContentfulObject & Node @dontInfer {
   id: ID!

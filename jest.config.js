@@ -18,7 +18,7 @@ module.exports = {
     "!**/dist/**"
   ],
   preset: "ts-jest",
-  projects: ["./applications/**/jest.config.js"],
+  projects: ["./applications/**/jest.config.(cjs|js)"],
   testMatch: ["**/__tests__/**/*.+(test).(ts|tsx|js)"],
   testPathIgnorePatterns: ["node_modules", "dist"],
   moduleNameMapper: {
