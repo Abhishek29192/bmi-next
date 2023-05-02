@@ -28,6 +28,7 @@ const card1: PageInfoData = {
   featuredMedia: null,
   featuredVideo: null,
   date: "1 June 2021",
+  rawDate: "2021-06-01T00:00:00",
   tags: [testTag1, testTag3]
 };
 const card2: PageInfoData = {
@@ -41,6 +42,7 @@ const card2: PageInfoData = {
   featuredMedia: null,
   featuredVideo: null,
   date: "2 June 2021",
+  rawDate: "2021-06-02T00:00:00",
   tags: [testTag2, testTag4]
 };
 const card3: PageInfoData = {
@@ -54,6 +56,7 @@ const card3: PageInfoData = {
   featuredMedia: null,
   featuredVideo: null,
   date: "3 June 2021",
+  rawDate: "2021-06-03T00:00:00",
   tags: [testTag1, testTag2]
 };
 const card4: PromoData = {

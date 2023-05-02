@@ -14,5 +14,13 @@ export default {
           }).format(new Date(source.date))
         : null;
     }
+  },
+  // intl formatted dates cannot be converted back to date object
+  // hence sorting doesnt work for many markets ES and PT reporeted this
+  // for fix: https://bmigroup.atlassian.net/browse/DXB-5312
+  rawDate: {
+    resolve(source: { date: string | null }) {
+      return source.date;
+    }
   }
 };

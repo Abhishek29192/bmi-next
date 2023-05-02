@@ -87,6 +87,7 @@ const data: Data = {
     path: "zanda-brand/torvtak/",
     featuredMedia: null,
     date: null,
+    rawDate: null,
     tags: null,
     featuredVideo: null
   }

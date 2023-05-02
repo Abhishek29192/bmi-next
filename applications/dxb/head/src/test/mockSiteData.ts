@@ -1040,6 +1040,7 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
         slug: "zanda-arktis",
         path: "zanda-arktis/",
         date: null,
+        rawDate: null,
         tags: null,
         featuredVideo: null,
         featuredMedia: createImageData()
@@ -1054,6 +1055,7 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
         slug: "stone-roof-tiles",
         path: "roof-tiles/stone-roof-tiles/",
         date: null,
+        rawDate: null,
         tags: [
           {
             title: "Roof Tile",
@@ -1073,6 +1075,7 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
         slug: "betongtakstein",
         path: "roof-tiles/betongtakstein/",
         date: null,
+        rawDate: null,
         tags: null,
         featuredVideo: null,
         featuredMedia: createImageData()

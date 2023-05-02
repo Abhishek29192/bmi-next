@@ -21,6 +21,7 @@ const card1: PageInfoData = {
   featuredMedia: null,
   featuredVideo: null,
   date: "2021-06-01T00:00:00",
+  rawDate: "2021-06-01T00:00:00",
   tags: [testTag1]
 };
 

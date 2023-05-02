@@ -120,6 +120,7 @@ type ContentfulSimplePage implements ContentfulObject & ContentfulPage & Node @d
   linkColumns: ContentfulLinkColumnsSection @link(from: "linkColumns___NODE")
   leadBlock: ContentfulLeadBlockSection @link(from: "leadBlock___NODE")
   date: String
+  rawDate: String
   sections: [ContentfulSection] @link(from: "sections___NODE")
   parentPage: LinkedPage @link(from: "parentPage___NODE")
   seo: ContentfulSeoContent @link(from: "seo___NODE")

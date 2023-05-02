@@ -57,3 +57,27 @@ describe("date", () => {
     process.env.GATSBY_MARKET_LOCALE_CODE = originalGatsbyMarketLocaleCode;
   });
 });
+
+describe("rawDate", () => {
+  it("returns null if date is not present", () => {
+    const formattedDate = ContentfulSimplePage.rawDate.resolve({
+      date: null
+    });
+
+    expect(formattedDate).toBeNull();
+  });
+
+  it("returns correctly NON formatted date if present", () => {
+    const originalGatsbyMarketLocaleCode =
+      process.env.GATSBY_MARKET_LOCALE_CODE;
+    process.env.GATSBY_MARKET_LOCALE_CODE = "en-GB";
+
+    const formattedDate = ContentfulSimplePage.rawDate.resolve({
+      date: "2023-08-03T08:23:59+0000"
+    });
+
+    expect(formattedDate).toEqual("2023-08-03T08:23:59+0000");
+
+    process.env.GATSBY_MARKET_LOCALE_CODE = originalGatsbyMarketLocaleCode;
+  });
+});

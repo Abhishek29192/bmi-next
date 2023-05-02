@@ -2,26 +2,26 @@ import { Filter, RegionCode, ThemeProvider } from "@bmi-digital/components";
 import * as all from "@bmi-digital/use-dimensions";
 import { createProduct as createESProduct } from "@bmi/elasticsearch-types";
 import {
-  LocationProvider,
   createHistory,
-  createMemorySource
+  createMemorySource,
+  LocationProvider
 } from "@reach/router";
 import {
-  RenderResult,
   fireEvent,
   render,
+  RenderResult,
   screen,
   waitFor
 } from "@testing-library/react";
 import React from "react";
 import type { Product as ESProduct } from "@bmi/elasticsearch-types";
-import createImageData from "../../../../__tests__/helpers/ImageDataHelper";
 import { DataTypeEnum, NavigationData } from "../../../../components/Link";
 import { Data as SiteData } from "../../../../components/Site";
 import { Config, ConfigProvider } from "../../../../contexts/ConfigProvider";
+import createImageData from "../../../../__tests__/helpers/ImageDataHelper";
 import ProductListerPage, {
-  PageContextType,
   Data as PlpPageInfoData,
+  PageContextType,
   Props
 } from "../product-lister-page";
 
@@ -36,6 +36,7 @@ const pageInfo: PlpPageInfoData = {
   brandLogo: null,
   tags: null,
   date: null,
+  rawDate: null,
   featuredMedia: createImageData(),
   breadcrumbs: [
     {

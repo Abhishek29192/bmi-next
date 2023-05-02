@@ -61,6 +61,7 @@ describe("Brand Landing Page Template", () => {
       slug: "slug",
       path: "path",
       date: null,
+      rawDate: null,
       tags: null,
       featuredMedia: createImageData(),
       heroType: null,
@@ -204,6 +205,7 @@ describe("Brand Landing Page Template", () => {
         slug: "ContentfulSimplePageSlug",
         path: "ContentfulSimplePagePath",
         date: null,
+        rawDate: null,
         tags: null,
         featuredMedia: null,
         featuredVideo: null
@@ -331,6 +333,7 @@ describe("Brand Landing Page Template", () => {
         slug: "ContentfulSimplePageSlug",
         path: null,
         date: null,
+        rawDate: null,
         tags: null,
         featuredMedia: null,
         featuredVideo: null

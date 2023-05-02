@@ -180,6 +180,7 @@ const sampleBasketLinkInfo: PageInfoData = {
   featuredMedia: null,
   featuredVideo: null,
   date: null,
+  rawDate: null,
   tags: null,
   sections: [
     {
