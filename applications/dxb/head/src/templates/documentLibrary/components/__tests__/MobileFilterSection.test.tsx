@@ -12,14 +12,15 @@ describe("MobileFilters", () => {
     handleDrawerToggle: mockHandleDrawerToggle,
     clearFilters: mockClearFilters,
     filtersComponent: <div>Filters component</div>,
-    documentsCount: 10
+    documentsCount: 10,
+    isTechnicalTable: false
   };
 
   afterEach(() => {
     jest.clearAllMocks();
   });
 
-  it("should render with correct props", () => {
+  it("should render with correct props when it is simple table", () => {
     render(
       <ThemeProvider>
         <MobileFilters {...props} />
@@ -34,6 +35,25 @@ describe("MobileFilters", () => {
     );
     expect(showAllResultsBtn).toBeInTheDocument();
     expect(showAllResultsBtn).toHaveTextContent(`${props.documentsCount}`);
+  });
+
+  it("should render with correct props  when it is technical table", () => {
+    render(
+      <ThemeProvider>
+        <MobileFilters {...props} isTechnicalTable={true} />
+      </ThemeProvider>
+    );
+    expect(
+      screen.getByText("MC: documentLibrary.filters.title")
+    ).toBeInTheDocument();
+    expect(screen.getByTestId("filters-clear-all-mobile")).toBeInTheDocument();
+    const showAllResultsBtn = screen.getByTestId(
+      "filters-show-all-results-btn"
+    );
+    expect(showAllResultsBtn).toBeInTheDocument();
+    expect(
+      screen.getByText("MC: filterLabels.Show.All.Result.Btn")
+    ).toBeInTheDocument();
   });
 
   it("should call handleDrawerToggle when close button is clicked", () => {

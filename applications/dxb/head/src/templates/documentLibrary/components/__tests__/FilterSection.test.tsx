@@ -35,7 +35,8 @@ describe("FilterSection", () => {
       }
     ],
     handleFiltersChange,
-    clearFilters
+    clearFilters,
+    isTechnicalTable: false
   };
 
   it("render correctly", () => {
@@ -108,6 +109,7 @@ describe("Mobile view", () => {
           handleFiltersChange={handleFiltersChange}
           clearFilters={clearFilters}
           documentsCount={documentsCount}
+          isTechnicalTable={false}
         />
       </ThemeProvider>
     );

@@ -282,6 +282,7 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
                   handleFiltersChange={handleFiltersChange}
                   clearFilters={handleClearFilters}
                   documentsCount={mobileShowAllDocuments}
+                  isTechnicalTable={resultsType === "Technical"}
                 />
               </Grid>
               <Grid xs={12} md={12} lg={9}>

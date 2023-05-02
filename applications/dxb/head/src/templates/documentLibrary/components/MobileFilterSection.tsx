@@ -11,6 +11,7 @@ type MobileFiltersProps = {
   clearFilters: () => void;
   filtersComponent: React.ReactNode;
   documentsCount?: number;
+  isTechnicalTable: boolean;
 };
 
 const MobileFilters = ({
@@ -18,7 +19,8 @@ const MobileFilters = ({
   handleDrawerToggle,
   clearFilters,
   filtersComponent,
-  documentsCount
+  documentsCount,
+  isTechnicalTable
 }: MobileFiltersProps): JSX.Element => {
   const { getMicroCopy } = useSiteContext();
   return (
@@ -61,11 +63,13 @@ const MobileFilters = ({
             onClick={handleDrawerToggle}
             data-testid="filters-show-all-results-btn"
           >
-            {`${getMicroCopy(
-              "filterLabels.Show.World.Btn"
-            )} ${documentsCount} ${getMicroCopy(
-              "filterLabels.Result.World.Btn"
-            )}`}
+            {!isTechnicalTable
+              ? `${getMicroCopy(
+                  "filterLabels.Show.World.Btn"
+                )} ${documentsCount} ${getMicroCopy(
+                  "filterLabels.Result.World.Btn"
+                )}`
+              : getMicroCopy("filterLabels.Show.All.Result.Btn")}
           </Button>
         )}
       </>
