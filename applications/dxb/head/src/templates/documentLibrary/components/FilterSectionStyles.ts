@@ -19,6 +19,7 @@ export const Root = styled("div")(({ theme }) => ({
     minWidth: "200px",
     maxWidth: "100%",
     marginBottom: "11px",
+    transitionDuration: "280ms",
     [theme.breakpoints!.down!("sm")]: {
       minWidth: "100%"
     }
@@ -60,6 +61,17 @@ export const StyledDrawer = styled(Drawer)(({ theme }) => ({
       "& path": {
         fill: theme.colours.charcoal
       }
+    }
+  },
+
+  "& .top-box-close": {
+    color: theme.colours.slate
+  },
+
+  "& .filterContainer": {
+    paddingTop: "60px",
+    div: {
+      maxHeight: "100%"
     }
   }
 }));

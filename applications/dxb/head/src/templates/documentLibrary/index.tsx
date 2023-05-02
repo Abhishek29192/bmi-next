@@ -46,6 +46,7 @@ export const PAGE_SIZE = 25;
 const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
   const location = useLocation();
   const [documents, setDocuments] = useState([]);
+  const [mobileShowAllDocuments, setMobileShowAllDocuments] = useState(0);
   // Largely duplicated from product-lister-page.tsx
   const [isLoading, setIsLoading] = useState(true);
   const [initialLoading, setInitialLoading] = useState(true);
@@ -112,6 +113,7 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
       const { hits } = result;
       const uniqDocumentsCount =
         result.aggregations?.unique_documents_count.value || 0;
+      setMobileShowAllDocuments(uniqDocumentsCount);
       const newPageCount = Math.ceil(uniqDocumentsCount / PAGE_SIZE);
       setPageCount(newPageCount);
       setPage(newPageCount < page ? 0 : page);
@@ -279,7 +281,7 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
                   filters={filters}
                   handleFiltersChange={handleFiltersChange}
                   clearFilters={handleClearFilters}
-                  documentsCount={documents.length}
+                  documentsCount={mobileShowAllDocuments}
                 />
               </Grid>
               <Grid xs={12} md={12} lg={9}>
