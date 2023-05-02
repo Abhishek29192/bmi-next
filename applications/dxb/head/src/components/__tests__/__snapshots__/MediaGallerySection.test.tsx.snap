@@ -90,7 +90,7 @@ exports[`MediaGallerySection component renders correctly 1`] = `
                   </script>
                 </div>
                 <div
-                  class="css-7y46ji"
+                  class="css-gy9mja"
                   data-testid="media-gallery-caption-text"
                 >
                   <p
@@ -160,7 +160,7 @@ exports[`MediaGallerySection component renders correctly 1`] = `
                   style="margin-right: 0%;"
                 >
                   <button
-                    class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-selected Thumbnail-large Thumbnail-selected css-yh72z7-MuiButtonBase-root"
+                    class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-selected Thumbnail-large Thumbnail-selected css-1ojnbyf-MuiButtonBase-root"
                     data-gtm="{"id":"media-gallery1","label":"alt text","action":"//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"}"
                     data-testid="default-thumbnail"
                     tabindex="0"
@@ -217,7 +217,7 @@ exports[`MediaGallerySection component renders correctly 1`] = `
                     </div>
                   </button>
                   <button
-                    class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-large css-yh72z7-MuiButtonBase-root"
+                    class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-large css-1ojnbyf-MuiButtonBase-root"
                     data-gtm="{"id":"media-gallery1","label":"label","action":"//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"}"
                     data-testid="default-thumbnail"
                     style="background-image: url(//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png);"
@@ -229,17 +229,38 @@ exports[`MediaGallerySection component renders correctly 1`] = `
                     >
                       label
                     </span>
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium Thumbnail-playIcon css-7r6ast-MuiSvgIcon-root"
-                      data-testid="thumbnail-play-icon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
+                    <div
+                      class="css-z7rmfo"
                     >
-                      <path
-                        d="M8 5v14l11-7z"
+                      <div
+                        class="css-t93cf4"
+                      >
+                        <div
+                          class="css-1y1tflw"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-19q1qvb-MuiSvgIcon-root"
+                            data-testid="PlayArrowIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M8 5v14l11-7z"
+                            />
+                          </svg>
+                        </div>
+                        <p
+                          class="MuiTypography-root MuiTypography-body1 css-1ezfe9h-MuiTypography-root"
+                          data-testid="typography"
+                        >
+                          Video
+                        </p>
+                      </div>
+                      <div
+                        class="css-156fqrw"
                       />
-                    </svg>
+                    </div>
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
@@ -365,7 +386,7 @@ exports[`MediaGallerySection component renders correctly with long description 1
                   </script>
                 </div>
                 <div
-                  class="css-7y46ji"
+                  class="css-gy9mja"
                   data-testid="media-gallery-caption-text"
                 >
                   <p
