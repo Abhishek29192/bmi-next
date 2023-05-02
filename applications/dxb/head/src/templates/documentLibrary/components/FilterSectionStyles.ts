@@ -70,7 +70,7 @@ export const StyledDrawer = styled(Drawer)(({ theme }) => ({
 
   "& .filterContainer": {
     paddingTop: "60px",
-    " div": {
+    div: {
       maxHeight: "100%"
     }
   }
