@@ -45,11 +45,15 @@ const MobileFilters = ({
           >
             {getMicroCopy("documentLibrary.filters.clearAll")}
           </Button>
-          <Button onClick={handleDrawerToggle} variant="text">
+          <Button
+            onClick={handleDrawerToggle}
+            variant="text"
+            className={"top-box-close"}
+          >
             <Icon source={Close} />
           </Button>
         </div>
-        <div style={{ paddingTop: "60px" }}>{filtersComponent}</div>
+        <div className={"filterContainer"}>{filtersComponent}</div>
         {!!documentsCount && (
           <Button
             className={"showBtn"}
