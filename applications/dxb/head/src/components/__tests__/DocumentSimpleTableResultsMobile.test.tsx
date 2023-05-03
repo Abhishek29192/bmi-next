@@ -7,8 +7,8 @@ import createPimDocument, {
   createPseudoZipDocument
 } from "../../__tests__/helpers/PimDocumentHelper";
 import { DocumentTableHeader } from "../../types/Document";
-import { DocumentSimpleTableResultsMobile } from "../DocumentSimpleTableResultsMobile";
 import { getUniqueId } from "../../utils/documentUtils";
+import { DocumentSimpleTableResultsMobile } from "../DocumentSimpleTableResultsMobile";
 
 beforeEach(() => {
   jest.clearAllMocks();
@@ -42,6 +42,7 @@ describe("DocumentSimpleTableResultsMobile component", () => {
           documents={[document]}
           headers={defaultTableHeaders}
           selectedDocuments={{}}
+          titleField="title"
         />
       </ThemeProvider>
     );
@@ -71,6 +72,7 @@ describe("DocumentSimpleTableResultsMobile component", () => {
             documents={[document]}
             headers={defaultTableHeaders}
             selectedDocuments={{}}
+            titleField="title"
           />
         </ThemeProvider>
       );
@@ -87,6 +89,7 @@ describe("DocumentSimpleTableResultsMobile component", () => {
           documents={[document]}
           headers={[...defaultTableHeaders, "productStatus"]}
           selectedDocuments={{}}
+          titleField="title"
         />
       </ThemeProvider>
     );
@@ -103,6 +106,7 @@ describe("DocumentSimpleTableResultsMobile component", () => {
           documents={[{ ...document, approvalStatus: "approved" }]}
           headers={[...defaultTableHeaders, "productStatus"]}
           selectedDocuments={{}}
+          titleField="title"
         />
       </ThemeProvider>
     );
@@ -119,6 +123,7 @@ describe("DocumentSimpleTableResultsMobile component", () => {
           documents={[document]}
           headers={[...defaultTableHeaders, "validityDate"]}
           selectedDocuments={{}}
+          titleField="title"
         />
       </ThemeProvider>
     );
@@ -137,12 +142,32 @@ describe("DocumentSimpleTableResultsMobile component", () => {
           documents={[document]}
           headers={[...defaultTableHeaders, "typeCode"]}
           selectedDocuments={{}}
+          titleField="title"
         />
       </ThemeProvider>
     );
     expect(
       screen.getByText(/^MC: documentLibrary.headers.typeCode/)
     ).toBeInTheDocument();
+  });
+
+  it("should not render type field if it is a title", () => {
+    const document = createPimDocument({
+      assetType: createAssetType({ name: "Assembly Instruction" })
+    });
+    render(
+      <ThemeProvider>
+        <DocumentSimpleTableResultsMobile
+          documents={[document]}
+          headers={["type"]}
+          selectedDocuments={{}}
+          titleField="type"
+        />
+      </ThemeProvider>
+    );
+    expect(
+      screen.queryByText(/^MC: documentLibrary.headers.type/)
+    ).not.toBeInTheDocument();
   });
 
   it("renders with type field", () => {
@@ -155,6 +180,7 @@ describe("DocumentSimpleTableResultsMobile component", () => {
           documents={[document]}
           headers={[...defaultTableHeaders, "type"]}
           selectedDocuments={{}}
+          titleField="title"
         />
       </ThemeProvider>
     );
@@ -171,6 +197,7 @@ describe("DocumentSimpleTableResultsMobile component", () => {
           documents={[document]}
           headers={defaultTableHeaders}
           selectedDocuments={{}}
+          titleField="title"
         />
       </ThemeProvider>
     );
@@ -191,6 +218,7 @@ describe("DocumentSimpleTableResultsMobile component", () => {
           documents={[zipDocument]}
           headers={defaultTableHeaders}
           selectedDocuments={{}}
+          titleField="title"
         />
       </ThemeProvider>
     );
@@ -207,6 +235,7 @@ describe("DocumentSimpleTableResultsMobile component", () => {
           documents={[document]}
           headers={defaultTableHeaders}
           selectedDocuments={{ [getUniqueId(document)]: document }}
+          titleField="title"
         />
       </ThemeProvider>
     );

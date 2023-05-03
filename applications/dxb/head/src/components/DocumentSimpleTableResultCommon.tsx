@@ -9,7 +9,7 @@ import React, { useMemo, useState } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { QA_AUTH_TOKEN } from "../constants/cookieConstants";
 import { microCopy } from "../constants/microCopies";
-import { Document } from "../types/Document";
+import { Document, TitleField } from "../types/Document";
 import { PseudoZipPIMDocument } from "../types/pim";
 import { getDownloadLink } from "../utils/client-download";
 import {
@@ -44,10 +44,12 @@ const GTMDocumentTitleButton = withGTM<
 
 export const MultipleAssetToFileDownload = ({
   document,
-  disableRipple
+  disableRipple,
+  title
 }: {
   document: PseudoZipPIMDocument;
   disableRipple?: boolean;
+  title: string;
 }): React.ReactElement => {
   const { executeRecaptcha } = useGoogleReCaptcha();
   const qaAuthToken = getCookie(QA_AUTH_TOKEN);
@@ -77,7 +79,7 @@ export const MultipleAssetToFileDownload = ({
       }
       data-testid={`document-table-download-zip-button`}
     >
-      <Title>{document.title}</Title>
+      <Title>{title}</Title>
     </GTMDocumentTitleButton>
   );
 };
@@ -85,9 +87,14 @@ export const MultipleAssetToFileDownload = ({
 export const DocumentTitle = (props: {
   document: Document;
   disableRipple?: boolean;
+  titleField?: TitleField;
 }) => {
   const { getMicroCopy } = useSiteContext();
   const mappedDocument = mapAssetToFileDownload(props.document, getMicroCopy);
+  const title =
+    props.titleField === "type"
+      ? props.document.assetType.name
+      : props.document.title;
 
   if (mappedDocument.isLinkDocument) {
     return (
@@ -103,7 +110,7 @@ export const DocumentTitle = (props: {
         startIcon={<ExternalLinkIcon name="External" />}
         data-testid="document-table-external-link-button"
       >
-        <Title>{mappedDocument.title}</Title>
+        <Title>{title}</Title>
       </TitleButton>
     );
   }
@@ -113,6 +120,7 @@ export const DocumentTitle = (props: {
       <MultipleAssetToFileDownload
         document={props.document}
         disableRipple={props.disableRipple}
+        title={title}
       />
     );
   }
@@ -135,7 +143,7 @@ export const DocumentTitle = (props: {
       }
       data-testid={`document-table-download-${mappedDocument.format}-button`}
     >
-      <Title>{mappedDocument.title}</Title>
+      <Title>{title}</Title>
     </GTMDocumentTitleButton>
   );
 };

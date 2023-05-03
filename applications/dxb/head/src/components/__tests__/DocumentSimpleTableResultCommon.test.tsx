@@ -1,6 +1,7 @@
 import { ThemeProvider } from "@bmi-digital/components";
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
+import createAssetType from "../../__tests__/helpers/AssetTypeHelper";
 import createPimDocument, {
   createPseudoZipDocument
 } from "../../__tests__/helpers/PimDocumentHelper";
@@ -96,6 +97,20 @@ describe("DocumentTitle component", () => {
     );
     fireEvent.click(screen.getByText(pimDocument.title));
     expect(getDownloadLink).toHaveBeenCalled();
+  });
+
+  it("renders assetType field as a title", () => {
+    const document = createPimDocument({
+      title: "Fake title",
+      assetType: createAssetType({ name: "Assembly instructions" })
+    });
+
+    render(
+      <ThemeProvider>
+        <DocumentTitle document={document} titleField="type" />
+      </ThemeProvider>
+    );
+    expect(screen.getByText("Assembly instructions")).toBeInTheDocument();
   });
 });
 

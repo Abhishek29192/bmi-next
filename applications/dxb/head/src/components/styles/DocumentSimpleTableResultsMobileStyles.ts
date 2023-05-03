@@ -1,6 +1,6 @@
+import { alpha } from "@mui/material";
 import { tooltipClasses } from "@mui/material/Tooltip";
 import { styled } from "@mui/material/styles";
-import { alpha } from "@mui/material";
 
 const PREFIX = "documentSimpleTableResultsMobile";
 export const classes = {
@@ -74,7 +74,8 @@ export const StyledListRowItem = styled("div")({
 
 export const FieldTitle = styled("span")(({ theme }) => ({
   fontWeight: 500,
-  color: theme.colours.charcoal
+  color: theme.colours.charcoal,
+  fontFamily: "Effra Medium"
 }));
 
 export const FieldValue = styled("span")({
