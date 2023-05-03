@@ -278,7 +278,7 @@ const CardCollectionSection = ({
             }
           })
         : iterableCards,
-    [sortOrder, iterableCards]
+    [sortOrder, iterableCards, noDateSortWeight]
   );
 
   const cardsPerLoad = 8;
