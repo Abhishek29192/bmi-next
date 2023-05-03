@@ -328,9 +328,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                     <p
                       class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                       data-testid="typography"
-                    >
-                      address 1
-                    </p>
+                    />
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -367,6 +365,31 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                             <dl
                               class="css-1uk1gs8"
                             >
+                              <div
+                                class="css-igq6na"
+                                data-testid="company-details-address"
+                                type="address"
+                              >
+                                <dt
+                                  class="css-12o4wow"
+                                >
+                                  <p
+                                    class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                    data-testid="typography"
+                                  >
+                                    MC: global.address
+                                  </p>
+                                </dt>
+                                <dd
+                                  class="css-bp47jm"
+                                >
+                                  <address
+                                    class="css-kfzuyj"
+                                  >
+                                    address 1
+                                  </address>
+                                </dd>
+                              </div>
                               <div
                                 class="css-1nzacgw"
                                 data-testid="company-details-phone"

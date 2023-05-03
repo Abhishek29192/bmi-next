@@ -1,15 +1,9 @@
 import {
   CompanyDetailProps,
   CompanyDetails,
-  Logo,
   Pagination,
-  RoofProElite,
-  RoofProExpert,
-  RoofProLevel,
-  RoofProPartnerSmall,
   Typography
 } from "@bmi-digital/components";
-import { SVGImport } from "@bmi-digital/svg-import";
 import classnames from "classnames";
 import React from "react";
 import { microCopy } from "../../../constants/microCopies";
@@ -32,14 +26,7 @@ interface ResultListProps {
     isAddressHidden?: boolean
   ) => CompanyDetailProps[];
   selectedRoofer: Service;
-  shouldListCertification: boolean;
 }
-
-const iconSourceMap: Record<RoofProLevel, SVGImport> = {
-  expert: RoofProExpert,
-  partner: RoofProPartnerSmall,
-  elite: RoofProElite
-};
 
 export const ServiceLocatorResultList = ({
   onListItemClick,
@@ -47,7 +34,6 @@ export const ServiceLocatorResultList = ({
   onCloseCard,
   getCompanyDetails,
   selectedRoofer,
-  shouldListCertification,
   onPageChange,
   page,
   pageCount
@@ -79,24 +65,8 @@ export const ServiceLocatorResultList = ({
             }
             gtm={getResultDataGtm(service)}
             data-testid={"GTMIntegratedLinkCard-test-id"}
-            subtitle={
-              <>
-                {service.address}
-                {service.certification && shouldListCertification && (
-                  <div className={styles["roofpro-certification"]}>
-                    {getMicroCopy(microCopy.FIND_A_ROOFER_CERTIFICATION_LABEL)}:
-                    <Logo
-                      source={
-                        iconSourceMap[service.certification.toLowerCase()]
-                      }
-                      className={styles["roofpro-icon"]}
-                    />
-                  </div>
-                )}
-              </>
-            }
           >
-            <CompanyDetails details={getCompanyDetails(service, true)}>
+            <CompanyDetails details={getCompanyDetails(service)}>
               <Typography>{service.summary}</Typography>
             </CompanyDetails>
           </GTMIntegratedLinkCard>

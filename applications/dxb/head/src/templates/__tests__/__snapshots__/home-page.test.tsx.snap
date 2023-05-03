@@ -2450,7 +2450,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
     data-testid="brand-colors-provider"
   >
     <div
-      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-nueu6n"
+      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-dpq035"
       data-test-class-name="hero"
       data-testid="hero"
     >

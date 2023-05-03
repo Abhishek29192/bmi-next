@@ -86,7 +86,6 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   } = data;
 
   const shouldEnableSearch = sectionType !== EntryTypeEnum.BRANCH_TYPE;
-  const shouldListCertification = sectionType === EntryTypeEnum.ROOFER_TYPE;
   const isBranchLocator = sectionType == EntryTypeEnum.BRANCH_TYPE;
 
   const { getMicroCopy, countryCode } = useSiteContext();
@@ -220,10 +219,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     setCentre(centre || null);
   };
 
-  const getCompanyDetails = (
-    service: Service,
-    isAddressHidden?: boolean
-  ): CompanyDetailProps[] => {
+  const getCompanyDetails = (service: Service): CompanyDetailProps[] => {
     const googleURLLatLng = centre ? `${centre.lat},+${centre.lng}` : "";
 
     return createCompanyDetails(
@@ -231,7 +227,6 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
       service,
       countryCode,
       getMicroCopy,
-      isAddressHidden,
       googleURLLatLng
     );
   };
@@ -403,7 +398,6 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                 page={page}
                 pageCount={pageCount}
                 getCompanyDetails={getCompanyDetails}
-                shouldListCertification={shouldListCertification}
                 selectedRoofer={selectedRoofer}
               />
             </ResultListTabPanel>
