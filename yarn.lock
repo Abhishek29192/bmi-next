@@ -1274,38 +1274,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@bmi-digital/components@^1.32.4":
-  version "1.32.6"
-  resolved "https://registry.yarnpkg.com/@bmi-digital/components/-/components-1.32.6.tgz#eb3f76aca7b2e33f3ea4126247acba08eca1e9d2"
-  integrity sha512-eVFgbN5R9LlQ/Hv4CjNt5T92tSBi33TMggBRfOrUAOtNCqaPsQsaQiT9/z3wLlpBbFIf2cSM18otMWzMm0lbng==
-  dependencies:
-    "@bmi-digital/use-dimensions" "^1.5.1"
-    "@emotion/react" "^11.10.6"
-    "@emotion/styled" "^11.10.6"
-    "@googlemaps/js-api-loader" "^1.15.1"
-    "@googlemaps/markerclusterer" "^2.0.15"
-    "@mui/icons-material" "^5.11.16"
-    "@mui/lab" "^5.0.0-alpha.125"
-    "@mui/material" "^5.11.16"
-    "@mui/styles" "^5.11.16"
-    "@mui/system" "^5.11.16"
-    autosuggest-highlight "^3.3.4"
-    axios "^1.3.4"
-    classnames "^2.3.2"
-    csstype "^3.1.1"
-    escape-string-regexp "^5.0.0"
-    react-is "^18.2.0"
-    react-lines-ellipsis "^0.15.3"
-    react-masonry-css "^1.0.16"
-    react-player "^2.12.0"
-    react-swipeable-views "^0.14.0"
-    react-swipeable-views-core "^0.14.0"
-    react-swipeable-views-utils "^0.14.0"
-
-"@bmi-digital/components@^1.32.3":
-  version "1.32.3"
-  resolved "https://registry.yarnpkg.com/@bmi-digital/components/-/components-1.32.3.tgz#8916056286f0c0c98e9082b38a4d9d1495f32888"
-  integrity sha512-7LIKVNLWaMCvq2ZM3/HUTI/N9KpqEyGztDKMp3+91izpvjE5ou7HHOPz6TRbNyke8mnwkmdPs9aWoD/d4nyVMw==
+"@bmi-digital/components@^1.32.5":
+  version "1.32.5"
+  resolved "https://registry.yarnpkg.com/@bmi-digital/components/-/components-1.32.5.tgz#920460c9856eefd6514e82e5091ef9d159757bb3"
+  integrity sha512-lgbYl0rkp5mzaapk3o3VRewtmY9FsVdLuz8qZl/MO4CoC9bkH5K/poFFbuLn866hsDKWuQ+lT01D7wNSac3yhw==
   dependencies:
     "@bmi-digital/use-dimensions" "^1.5.1"
     "@emotion/react" "^11.10.6"
