@@ -6,6 +6,7 @@ import React from "react";
 import LeadBlockSection, {
   Data as LeadBlockSectionProps
 } from "../LeadBlockSection";
+import { DataTypeEnum } from "../Link";
 
 const leadBlockSectionData: LeadBlockSectionProps = {
   __typename: "ContentfulLeadBlockSection",
@@ -21,7 +22,7 @@ const leadBlockSectionData: LeadBlockSectionProps = {
     icon: null,
     isLabelHidden: null,
     url: "contact-us/",
-    type: null,
+    type: DataTypeEnum.Internal,
     parameters: null,
     dialogContent: null,
     linkedPage: null,

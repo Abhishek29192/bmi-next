@@ -1698,11 +1698,13 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               <div>
                 <a
                   class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
-                  data-gtm="{"id":"cta-click1","action":"http://localhost:8000/"}"
-                  data-testid="guarantee-inline-link"
+                  data-gtm="{"id":"cta-click1","label":"asset-name","action":"http://localhost:8000/"}"
+                  data-testid="guarantee-inline-link-asset-name"
                   type="button"
                 >
-                  <span />
+                  <span>
+                    asset-name
+                  </span>
                   <svg
                     aria-hidden="true"
                     class=" css-1r2mexx"
@@ -1720,11 +1722,13 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               <div>
                 <a
                   class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
-                  data-gtm="{"id":"cta-click1","action":"http://localhost:8000/"}"
-                  data-testid="guarantee-inline-link"
+                  data-gtm="{"id":"cta-click1","label":"asset-name","action":"http://localhost:8000/"}"
+                  data-testid="guarantee-inline-link-asset-name"
                   type="button"
                 >
-                  <span />
+                  <span>
+                    asset-name
+                  </span>
                   <svg
                     aria-hidden="true"
                     class=" css-1r2mexx"
@@ -2660,11 +2664,13 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
               <div>
                 <a
                   class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
-                  data-gtm="{"id":"cta-click1","action":"http://localhost:8000/"}"
-                  data-testid="guarantee-inline-link"
+                  data-gtm="{"id":"cta-click1","label":"asset-name","action":"http://localhost:8000/"}"
+                  data-testid="guarantee-inline-link-asset-name"
                   type="button"
                 >
-                  <span />
+                  <span>
+                    asset-name
+                  </span>
                   <svg
                     aria-hidden="true"
                     class=" css-1r2mexx"
@@ -2682,11 +2688,13 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
               <div>
                 <a
                   class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
-                  data-gtm="{"id":"cta-click1","action":"http://localhost:8000/"}"
-                  data-testid="guarantee-inline-link"
+                  data-gtm="{"id":"cta-click1","label":"asset-name","action":"http://localhost:8000/"}"
+                  data-testid="guarantee-inline-link-asset-name"
                   type="button"
                 >
-                  <span />
+                  <span>
+                    asset-name
+                  </span>
                   <svg
                     aria-hidden="true"
                     class=" css-1r2mexx"

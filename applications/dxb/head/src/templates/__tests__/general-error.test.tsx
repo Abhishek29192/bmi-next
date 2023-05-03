@@ -1,7 +1,7 @@
 import { RegionCode, ThemeProvider } from "@bmi-digital/components";
-import React from "react";
 import { screen } from "@testing-library/react";
-import { Data as LinkData } from "../../components/Link";
+import React from "react";
+import { DataTypeEnum, Data as LinkData } from "../../components/Link";
 import { Data as SiteData } from "../../components/Site";
 import { renderWithRouter } from "../../test/renderWithRouter";
 import GeneralError from "../general-error";
@@ -15,7 +15,7 @@ describe("General Error", () => {
     isLabelHidden: null,
     url: "https://www.external.co.uk",
     linkedPage: null,
-    type: null,
+    type: DataTypeEnum.Internal,
     parameters: null,
     dialogContent: null,
     hubSpotCTAID: null

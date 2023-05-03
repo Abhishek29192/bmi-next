@@ -8,9 +8,9 @@ export type Data = {
   title?: string | null;
   description: RichTextData | null;
   checkoutFormSection: FormData | null;
-  emptyBasketMessage: RichTextData | null;
-  browseProductsCTALabel: string | null;
-  browseProductsCTA: PageInfoData | null;
+  emptyBasketMessage: RichTextData;
+  browseProductsCTALabel: string;
+  browseProductsCTA: PageInfoData;
 };
 
 export const query = graphql`
