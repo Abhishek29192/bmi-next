@@ -2,16 +2,16 @@ import { ThemeProvider } from "@bmi-digital/components";
 import { useMediaQuery } from "@mui/material";
 import { render, screen } from "@testing-library/react";
 import React from "react";
-import { ProductDocument as PIMDocument } from "../../types/pim";
 import createAssetType from "../../__tests__/helpers/AssetTypeHelper";
 import createContentfulDocument from "../../__tests__/helpers/ContentfulDocumentHelper";
 import createPimDocument, {
   createPseudoZipDocument
 } from "../../__tests__/helpers/PimDocumentHelper";
 import createPimSystemDocument from "../../__tests__/helpers/PimSystemDocumentHelper";
+import { ProductDocument as PIMDocument } from "../../types/pim";
 import DocumentSimpleTableResults, {
-  isPIMDocument,
-  Props
+  Props,
+  isPIMDocument
 } from "../DocumentSimpleTableResults";
 
 jest.mock("@mui/material", () => ({
@@ -134,6 +134,19 @@ describe("DocumentSimpleTableResult", () => {
       expect(
         screen.getByText("MC: document.status.available")
       ).toBeInTheDocument();
+    });
+
+    it("renders assetType field as a title if title header does not exist", () => {
+      renderDocumentResults({
+        headers: ["type"],
+        documents: [
+          {
+            ...pimDocument,
+            assetType: createAssetType({ name: "Assembly instructions" })
+          }
+        ]
+      });
+      expect(screen.getByText("Assembly instructions")).toBeInTheDocument();
     });
   });
 

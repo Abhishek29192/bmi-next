@@ -1,15 +1,15 @@
-import filesize from "filesize";
-import React from "react";
 import { DownloadList, DownloadListContextType } from "@bmi-digital/components";
 import classnames from "classnames";
+import filesize from "filesize";
+import React from "react";
 import { microCopy } from "../constants/microCopies";
-import { Document, DocumentTableHeader } from "../types/Document";
+import { Document, DocumentTableHeader, TitleField } from "../types/Document";
 import {
-  getUniqueId,
   getFileSizeByDocumentType,
   getFileUrlByDocumentType,
   getIsLinkDocument,
   getProductStatus,
+  getUniqueId,
   getValidityDate
 } from "../utils/documentUtils";
 import {
@@ -22,13 +22,13 @@ import { DocumentStatus } from "./styles/DocumentSimpleTableResultsCommonStyles"
 import {
   ActionBtnWrapper,
   ActionsRow,
+  Divider,
   FieldTitle,
   FieldValue,
   StyledListItem,
   StyledListRow,
   StyledListRowItem,
   StyledListTitleRow,
-  Divider,
   classes
 } from "./styles/DocumentSimpleTableResultsMobileStyles";
 
@@ -36,16 +36,19 @@ type ListProps = {
   documents: readonly Document[];
   headers: DocumentTableHeader[];
   selectedDocuments: DownloadListContextType["list"];
+  titleField: TitleField;
 };
 
 const ListItem = ({
   document,
   headers,
-  isSelected
+  isSelected,
+  titleField
 }: {
   document: Document;
   headers: DocumentTableHeader[];
   isSelected: boolean;
+  titleField: TitleField;
 }) => {
   const { getMicroCopy } = useSiteContext();
   const isLinkDocument = getIsLinkDocument(document);
@@ -58,7 +61,11 @@ const ListItem = ({
       className={classnames(isSelected && classes.selected)}
     >
       <StyledListTitleRow>
-        <DocumentTitle document={document} disableRipple />
+        <DocumentTitle
+          document={document}
+          disableRipple
+          titleField={titleField}
+        />
       </StyledListTitleRow>
       <StyledListRow>
         {headers.includes("typeCode") ? (
@@ -71,7 +78,7 @@ const ListItem = ({
             </FieldValue>
           </StyledListRowItem>
         ) : null}
-        {headers.includes("type") ? (
+        {titleField !== "type" && headers.includes("type") ? (
           <StyledListRowItem>
             <FieldTitle>
               {getMicroCopy(microCopy.DOCUMENT_LIBRARY_HEADERS_TYPE)}:
@@ -147,7 +154,8 @@ const ListItem = ({
 export const DocumentSimpleTableResultsMobile = ({
   documents,
   headers,
-  selectedDocuments
+  selectedDocuments,
+  titleField
 }: ListProps): React.ReactElement => {
   return (
     <div>
@@ -159,6 +167,7 @@ export const DocumentSimpleTableResultsMobile = ({
             document={document}
             key={document.id}
             isSelected={isSelected}
+            titleField={titleField}
           />
         );
       })}

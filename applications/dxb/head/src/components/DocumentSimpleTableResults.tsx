@@ -9,13 +9,13 @@ import classnames from "classnames";
 import filesize from "filesize";
 import React, { useContext } from "react";
 import { microCopy } from "../constants/microCopies";
-import { Document, DocumentTableHeader } from "../types/Document";
+import { Document, DocumentTableHeader, TitleField } from "../types/Document";
 import {
-  getUniqueId,
   getFileSizeByDocumentType,
   getFileUrlByDocumentType,
   getIsLinkDocument,
   getProductStatus,
+  getUniqueId,
   getValidityDate
 } from "../utils/documentUtils";
 import {
@@ -47,10 +47,12 @@ export const isPIMDocument = (document: Document): boolean =>
 
 const DocumentCells = ({
   document,
-  headers
+  headers,
+  titleField
 }: {
   document: Document;
   headers: DocumentTableHeader[];
+  titleField: TitleField;
 }) => {
   const { getMicroCopy } = useSiteContext();
   const { __typename } = document;
@@ -81,7 +83,11 @@ const DocumentCells = ({
                 key={key}
                 data-testid={`document-table-type-${document.id}`}
               >
-                {document.assetType.name}
+                {titleField === "title" ? (
+                  document.assetType.name
+                ) : (
+                  <DocumentTitle document={document} titleField="type" />
+                )}
               </StyledTableCell>
             );
           case "productStatus":
@@ -203,6 +209,8 @@ const DocumentSimpleTableResults = ({
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
   const { list } = useContext(DownloadListContext);
+  const titleField =
+    headers.includes("type") && !headers.includes("title") ? "type" : "title";
 
   if (isMobile) {
     return (
@@ -210,6 +218,7 @@ const DocumentSimpleTableResults = ({
         documents={documents}
         headers={headers}
         selectedDocuments={list}
+        titleField={titleField}
       />
     );
   }
@@ -253,7 +262,11 @@ const DocumentSimpleTableResults = ({
                 selected={!!list[getUniqueId(document)]}
                 data-testid={`document-table-row-${document.id}`}
               >
-                <DocumentCells document={document} headers={headers} />
+                <DocumentCells
+                  document={document}
+                  headers={headers}
+                  titleField={titleField}
+                />
               </DocumentRow>
             );
           })}
