@@ -229,18 +229,22 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               >
                 MC: pdp.leadBlock.guaranteesWarranties
               </h5>
-              <img
-                alt="asset-1"
-                class="image"
-                data-testid="guarantee-image-asset-1"
-                src="http://localhost:8000/asset-real-file-name.jpg"
-              />
-              <img
-                alt="asset-2"
-                class="image"
-                data-testid="guarantee-image-asset-2"
-                src="http://localhost:8000/asset-real-file-name.jpg"
-              />
+              <div
+                class="imagesContainer"
+              >
+                <img
+                  alt="asset-1"
+                  class="image"
+                  data-testid="guarantee-image-asset-1"
+                  src="http://localhost:8000/asset-real-file-name.jpg"
+                />
+                <img
+                  alt="asset-2"
+                  class="image"
+                  data-testid="guarantee-image-asset-2"
+                  src="http://localhost:8000/asset-real-file-name.jpg"
+                />
+              </div>
               <div>
                 <a
                   class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
@@ -300,16 +304,20 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               >
                 MC: pdp.leadBlock.awardsCertificates
               </h5>
-              <img
-                alt="asset-name"
-                class="image"
-                src="http://localhost:8000/asset-real-file-name.jpg"
-              />
-              <img
-                alt="asset-name"
-                class="image"
-                src="http://localhost:8000/asset-real-file-name.jpg"
-              />
+              <div
+                class="imagesContainer"
+              >
+                <img
+                  alt="asset-name"
+                  class="image"
+                  src="http://localhost:8000/asset-real-file-name.jpg"
+                />
+                <img
+                  alt="asset-name"
+                  class="image"
+                  src="http://localhost:8000/asset-real-file-name.jpg"
+                />
+              </div>
               <br />
               <span
                 class="document"
@@ -1683,18 +1691,22 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               >
                 MC: pdp.leadBlock.guaranteesWarranties
               </h5>
-              <img
-                alt="asset-name"
-                class="image"
-                data-testid="guarantee-image-asset-name"
-                src="http://localhost:8000/asset-real-file-name.jpg"
-              />
-              <img
-                alt="asset-name"
-                class="image"
-                data-testid="guarantee-image-asset-name"
-                src="http://localhost:8000/asset-real-file-name.jpg"
-              />
+              <div
+                class="imagesContainer"
+              >
+                <img
+                  alt="asset-name"
+                  class="image"
+                  data-testid="guarantee-image-asset-name"
+                  src="http://localhost:8000/asset-real-file-name.jpg"
+                />
+                <img
+                  alt="asset-name"
+                  class="image"
+                  data-testid="guarantee-image-asset-name"
+                  src="http://localhost:8000/asset-real-file-name.jpg"
+                />
+              </div>
               <div>
                 <a
                   class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
@@ -1754,16 +1766,20 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               >
                 MC: pdp.leadBlock.awardsCertificates
               </h5>
-              <img
-                alt="asset-name"
-                class="image"
-                src="http://localhost:8000/asset-real-file-name.jpg"
-              />
-              <img
-                alt="asset-name"
-                class="image"
-                src="http://localhost:8000/asset-real-file-name.jpg"
-              />
+              <div
+                class="imagesContainer"
+              >
+                <img
+                  alt="asset-name"
+                  class="image"
+                  src="http://localhost:8000/asset-real-file-name.jpg"
+                />
+                <img
+                  alt="asset-name"
+                  class="image"
+                  src="http://localhost:8000/asset-real-file-name.jpg"
+                />
+              </div>
               <br />
               <span
                 class="document"
@@ -2757,18 +2773,22 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
               >
                 MC: pdp.leadBlock.guaranteesWarranties
               </h5>
-              <img
-                alt="asset-name"
-                class="image"
-                data-testid="guarantee-image-asset-name"
-                src="http://localhost:8000/asset-real-file-name.jpg"
-              />
-              <img
-                alt="asset-name"
-                class="image"
-                data-testid="guarantee-image-asset-name"
-                src="http://localhost:8000/asset-real-file-name.jpg"
-              />
+              <div
+                class="imagesContainer"
+              >
+                <img
+                  alt="asset-name"
+                  class="image"
+                  data-testid="guarantee-image-asset-name"
+                  src="http://localhost:8000/asset-real-file-name.jpg"
+                />
+                <img
+                  alt="asset-name"
+                  class="image"
+                  data-testid="guarantee-image-asset-name"
+                  src="http://localhost:8000/asset-real-file-name.jpg"
+                />
+              </div>
               <div>
                 <a
                   class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
@@ -2828,16 +2848,20 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
               >
                 MC: pdp.leadBlock.awardsCertificates
               </h5>
-              <img
-                alt="asset-name"
-                class="image"
-                src="http://localhost:8000/asset-real-file-name.jpg"
-              />
-              <img
-                alt="asset-name"
-                class="image"
-                src="http://localhost:8000/asset-real-file-name.jpg"
-              />
+              <div
+                class="imagesContainer"
+              >
+                <img
+                  alt="asset-name"
+                  class="image"
+                  src="http://localhost:8000/asset-real-file-name.jpg"
+                />
+                <img
+                  alt="asset-name"
+                  class="image"
+                  src="http://localhost:8000/asset-real-file-name.jpg"
+                />
+              </div>
               <br />
               <span
                 class="document"
@@ -4023,18 +4047,22 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
         >
           MC: pdp.leadBlock.guaranteesWarranties
         </h5>
-        <img
-          alt="asset-1"
-          class="image"
-          data-testid="guarantee-image-asset-1"
-          src="http://localhost:8000/asset-real-file-name.jpg"
-        />
-        <img
-          alt="asset-2"
-          class="image"
-          data-testid="guarantee-image-asset-2"
-          src="http://localhost:8000/asset-real-file-name.jpg"
-        />
+        <div
+          class="imagesContainer"
+        >
+          <img
+            alt="asset-1"
+            class="image"
+            data-testid="guarantee-image-asset-1"
+            src="http://localhost:8000/asset-real-file-name.jpg"
+          />
+          <img
+            alt="asset-2"
+            class="image"
+            data-testid="guarantee-image-asset-2"
+            src="http://localhost:8000/asset-real-file-name.jpg"
+          />
+        </div>
         <div>
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
@@ -4094,16 +4122,20 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
         >
           MC: pdp.leadBlock.awardsCertificates
         </h5>
-        <img
-          alt="asset-name"
-          class="image"
-          src="http://localhost:8000/asset-real-file-name.jpg"
-        />
-        <img
-          alt="asset-name"
-          class="image"
-          src="http://localhost:8000/asset-real-file-name.jpg"
-        />
+        <div
+          class="imagesContainer"
+        >
+          <img
+            alt="asset-name"
+            class="image"
+            src="http://localhost:8000/asset-real-file-name.jpg"
+          />
+          <img
+            alt="asset-name"
+            class="image"
+            src="http://localhost:8000/asset-real-file-name.jpg"
+          />
+        </div>
         <br />
         <span
           class="document"
