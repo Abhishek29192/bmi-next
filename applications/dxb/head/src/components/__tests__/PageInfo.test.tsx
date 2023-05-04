@@ -1,4 +1,4 @@
-import { query, Data } from "../PageInfo";
+import { Data, query } from "../PageInfo";
 
 describe("Promo component", () => {
   it("has no change to props", () => {
@@ -11,6 +11,7 @@ describe("Promo component", () => {
       slug: "page-slug",
       path: "page-slug",
       date: null,
+      rawDate: null,
       tags: null,
       featuredMedia: null,
       featuredVideo: null

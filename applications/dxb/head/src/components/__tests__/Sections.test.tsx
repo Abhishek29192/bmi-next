@@ -200,6 +200,7 @@ describe("Sections component", () => {
             brandLogo: null,
             subtitle: "page subtitle",
             date: null,
+            rawDate: null,
             featuredMedia: createImageData(),
             featuredVideo: null
           }
