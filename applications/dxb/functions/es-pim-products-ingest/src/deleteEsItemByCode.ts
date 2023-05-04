@@ -37,8 +37,10 @@ export const deleteEsItemByCode = async (
   item: DeleteItem,
   itemType: string
 ) => {
-  const index = `${process.env.ES_INDEX_PREFIX}_${itemType}`.toLowerCase();
-  const documentIndex = `${process.env.ES_INDEX_NAME_DOCUMENTS}`.toLowerCase();
+  const index =
+    `${process.env.ES_INDEX_PREFIX}_${itemType}_write`.toLowerCase();
+  const documentIndex =
+    `${process.env.ES_INDEX_NAME_DOCUMENTS}_write`.toLowerCase();
 
   const client = await getEsClient();
   const { objType, code } = item;
