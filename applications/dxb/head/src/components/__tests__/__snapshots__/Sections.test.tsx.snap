@@ -1708,9 +1708,7 @@ exports[`Sections component renders correctly 1`] = `
                       <p
                         class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                         data-testid="typography"
-                      >
-                        address 1
-                      </p>
+                      />
                     </div>
                     <div
                       class="LinkCard-icon"
@@ -1747,6 +1745,38 @@ exports[`Sections component renders correctly 1`] = `
                               <dl
                                 class="css-1uk1gs8"
                               >
+                                <div
+                                  class="css-igq6na"
+                                  data-testid="company-details-address"
+                                  type="address"
+                                >
+                                  <dt
+                                    class="css-12o4wow"
+                                  >
+                                    <p
+                                      class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                      data-testid="typography"
+                                    >
+                                      global.address
+                                    </p>
+                                  </dt>
+                                  <dd
+                                    class="css-bp47jm"
+                                  >
+                                    <a
+                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-swxrni-MuiTypography-root-MuiLink-root"
+                                      data-gtm="{"id":"cta-click1","label":"roofer 1 - address 1 - Pitched Roof","action":"https://www.google.com/maps/dir//address%201/"}"
+                                      data-testid="anchor-link"
+                                      href="https://www.google.com/maps/dir//address%201/"
+                                      rel="noopener noreferrer"
+                                      target="_blank"
+                                    >
+                                      <span>
+                                        address 1
+                                      </span>
+                                    </a>
+                                  </dd>
+                                </div>
                                 <div
                                   class="css-1nzacgw"
                                   data-testid="company-details-phone"
@@ -1893,9 +1923,7 @@ exports[`Sections component renders correctly 1`] = `
                       <p
                         class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                         data-testid="typography"
-                      >
-                        address 1
-                      </p>
+                      />
                     </div>
                     <div
                       class="LinkCard-icon"
@@ -1932,6 +1960,38 @@ exports[`Sections component renders correctly 1`] = `
                               <dl
                                 class="css-1uk1gs8"
                               >
+                                <div
+                                  class="css-igq6na"
+                                  data-testid="company-details-address"
+                                  type="address"
+                                >
+                                  <dt
+                                    class="css-12o4wow"
+                                  >
+                                    <p
+                                      class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                      data-testid="typography"
+                                    >
+                                      global.address
+                                    </p>
+                                  </dt>
+                                  <dd
+                                    class="css-bp47jm"
+                                  >
+                                    <a
+                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-swxrni-MuiTypography-root-MuiLink-root"
+                                      data-gtm="{"id":"cta-click1","label":"roofer 2 - address 1 - Pitched Roof","action":"https://www.google.com/maps/dir//address%201/"}"
+                                      data-testid="anchor-link"
+                                      href="https://www.google.com/maps/dir//address%201/"
+                                      rel="noopener noreferrer"
+                                      target="_blank"
+                                    >
+                                      <span>
+                                        address 1
+                                      </span>
+                                    </a>
+                                  </dd>
+                                </div>
                                 <div
                                   class="css-1nzacgw"
                                   data-testid="company-details-phone"

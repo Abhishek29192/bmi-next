@@ -345,9 +345,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                       <p
                         class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                         data-testid="typography"
-                      >
-                        address 1
-                      </p>
+                      />
                     </div>
                     <div
                       class="LinkCard-icon"
@@ -384,6 +382,31 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                               <dl
                                 class="css-1uk1gs8"
                               >
+                                <div
+                                  class="css-igq6na"
+                                  data-testid="company-details-address"
+                                  type="address"
+                                >
+                                  <dt
+                                    class="css-12o4wow"
+                                  >
+                                    <p
+                                      class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                      data-testid="typography"
+                                    >
+                                      MC: global.address
+                                    </p>
+                                  </dt>
+                                  <dd
+                                    class="css-bp47jm"
+                                  >
+                                    <address
+                                      class="css-kfzuyj"
+                                    >
+                                      address 1
+                                    </address>
+                                  </dd>
+                                </div>
                                 <div
                                   class="css-1nzacgw"
                                   data-testid="company-details-phone"
@@ -761,9 +784,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                       <p
                         class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                         data-testid="typography"
-                      >
-                        address 1
-                      </p>
+                      />
                     </div>
                     <div
                       class="LinkCard-icon"
@@ -800,6 +821,31 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                               <dl
                                 class="css-1uk1gs8"
                               >
+                                <div
+                                  class="css-igq6na"
+                                  data-testid="company-details-address"
+                                  type="address"
+                                >
+                                  <dt
+                                    class="css-12o4wow"
+                                  >
+                                    <p
+                                      class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                      data-testid="typography"
+                                    >
+                                      MC: global.address
+                                    </p>
+                                  </dt>
+                                  <dd
+                                    class="css-bp47jm"
+                                  >
+                                    <address
+                                      class="css-kfzuyj"
+                                    >
+                                      address 1
+                                    </address>
+                                  </dd>
+                                </div>
                                 <div
                                   class="css-1nzacgw"
                                   data-testid="company-details-phone"
@@ -894,9 +940,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                       <p
                         class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                         data-testid="typography"
-                      >
-                        address 1
-                      </p>
+                      />
                     </div>
                     <div
                       class="LinkCard-icon"
@@ -933,6 +977,31 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                               <dl
                                 class="css-1uk1gs8"
                               >
+                                <div
+                                  class="css-igq6na"
+                                  data-testid="company-details-address"
+                                  type="address"
+                                >
+                                  <dt
+                                    class="css-12o4wow"
+                                  >
+                                    <p
+                                      class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                      data-testid="typography"
+                                    >
+                                      MC: global.address
+                                    </p>
+                                  </dt>
+                                  <dd
+                                    class="css-bp47jm"
+                                  >
+                                    <address
+                                      class="css-kfzuyj"
+                                    >
+                                      address 1
+                                    </address>
+                                  </dd>
+                                </div>
                                 <div
                                   class="css-1nzacgw"
                                   data-testid="company-details-phone"
@@ -1565,9 +1634,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                       <p
                         class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                         data-testid="typography"
-                      >
-                        address 1
-                      </p>
+                      />
                     </div>
                     <div
                       class="LinkCard-icon"
@@ -1604,6 +1671,31 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                               <dl
                                 class="css-1uk1gs8"
                               >
+                                <div
+                                  class="css-igq6na"
+                                  data-testid="company-details-address"
+                                  type="address"
+                                >
+                                  <dt
+                                    class="css-12o4wow"
+                                  >
+                                    <p
+                                      class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                      data-testid="typography"
+                                    >
+                                      MC: global.address
+                                    </p>
+                                  </dt>
+                                  <dd
+                                    class="css-bp47jm"
+                                  >
+                                    <address
+                                      class="css-kfzuyj"
+                                    >
+                                      address 1
+                                    </address>
+                                  </dd>
+                                </div>
                                 <div
                                   class="css-1nzacgw"
                                   data-testid="company-details-phone"
@@ -1981,9 +2073,7 @@ exports[`ServiceLocatorSection component close button 1`] = `
                       <p
                         class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                         data-testid="typography"
-                      >
-                        address 1
-                      </p>
+                      />
                     </div>
                     <div
                       class="LinkCard-icon"
@@ -2020,6 +2110,31 @@ exports[`ServiceLocatorSection component close button 1`] = `
                               <dl
                                 class="css-1uk1gs8"
                               >
+                                <div
+                                  class="css-igq6na"
+                                  data-testid="company-details-address"
+                                  type="address"
+                                >
+                                  <dt
+                                    class="css-12o4wow"
+                                  >
+                                    <p
+                                      class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                      data-testid="typography"
+                                    >
+                                      MC: global.address
+                                    </p>
+                                  </dt>
+                                  <dd
+                                    class="css-bp47jm"
+                                  >
+                                    <address
+                                      class="css-kfzuyj"
+                                    >
+                                      address 1
+                                    </address>
+                                  </dd>
+                                </div>
                                 <div
                                   class="css-1nzacgw"
                                   data-testid="company-details-phone"
@@ -2114,9 +2229,7 @@ exports[`ServiceLocatorSection component close button 1`] = `
                       <p
                         class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                         data-testid="typography"
-                      >
-                        address 1
-                      </p>
+                      />
                     </div>
                     <div
                       class="LinkCard-icon"
@@ -2153,6 +2266,31 @@ exports[`ServiceLocatorSection component close button 1`] = `
                               <dl
                                 class="css-1uk1gs8"
                               >
+                                <div
+                                  class="css-igq6na"
+                                  data-testid="company-details-address"
+                                  type="address"
+                                >
+                                  <dt
+                                    class="css-12o4wow"
+                                  >
+                                    <p
+                                      class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                      data-testid="typography"
+                                    >
+                                      MC: global.address
+                                    </p>
+                                  </dt>
+                                  <dd
+                                    class="css-bp47jm"
+                                  >
+                                    <address
+                                      class="css-kfzuyj"
+                                    >
+                                      address 1
+                                    </address>
+                                  </dd>
+                                </div>
                                 <div
                                   class="css-1nzacgw"
                                   data-testid="company-details-phone"
@@ -2533,9 +2671,7 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
                       <p
                         class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                         data-testid="typography"
-                      >
-                        address 1
-                      </p>
+                      />
                     </div>
                     <div
                       class="LinkCard-icon"
@@ -2572,6 +2708,31 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
                               <dl
                                 class="css-1uk1gs8"
                               >
+                                <div
+                                  class="css-igq6na"
+                                  data-testid="company-details-address"
+                                  type="address"
+                                >
+                                  <dt
+                                    class="css-12o4wow"
+                                  >
+                                    <p
+                                      class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                      data-testid="typography"
+                                    >
+                                      MC: global.address
+                                    </p>
+                                  </dt>
+                                  <dd
+                                    class="css-bp47jm"
+                                  >
+                                    <address
+                                      class="css-kfzuyj"
+                                    >
+                                      address 1
+                                    </address>
+                                  </dd>
+                                </div>
                                 <div
                                   class="css-1nzacgw"
                                   data-testid="company-details-phone"
@@ -2865,9 +3026,7 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
                       <p
                         class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                         data-testid="typography"
-                      >
-                        address 1
-                      </p>
+                      />
                     </div>
                     <div
                       class="LinkCard-icon"
@@ -2904,6 +3063,31 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
                               <dl
                                 class="css-1uk1gs8"
                               >
+                                <div
+                                  class="css-igq6na"
+                                  data-testid="company-details-address"
+                                  type="address"
+                                >
+                                  <dt
+                                    class="css-12o4wow"
+                                  >
+                                    <p
+                                      class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                      data-testid="typography"
+                                    >
+                                      MC: global.address
+                                    </p>
+                                  </dt>
+                                  <dd
+                                    class="css-bp47jm"
+                                  >
+                                    <address
+                                      class="css-kfzuyj"
+                                    >
+                                      address 1
+                                    </address>
+                                  </dd>
+                                </div>
                                 <div
                                   class="css-1nzacgw"
                                   data-testid="company-details-phone"
@@ -3330,9 +3514,7 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
                       <p
                         class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                         data-testid="typography"
-                      >
-                        address 1
-                      </p>
+                      />
                     </div>
                     <div
                       class="LinkCard-icon"
@@ -3369,6 +3551,31 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
                               <dl
                                 class="css-1uk1gs8"
                               >
+                                <div
+                                  class="css-igq6na"
+                                  data-testid="company-details-address"
+                                  type="address"
+                                >
+                                  <dt
+                                    class="css-12o4wow"
+                                  >
+                                    <p
+                                      class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                      data-testid="typography"
+                                    >
+                                      MC: global.address
+                                    </p>
+                                  </dt>
+                                  <dd
+                                    class="css-bp47jm"
+                                  >
+                                    <address
+                                      class="css-kfzuyj"
+                                    >
+                                      address 1
+                                    </address>
+                                  </dd>
+                                </div>
                                 <div
                                   class="css-1nzacgw"
                                   data-testid="company-details-phone"
@@ -3774,9 +3981,7 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                       <p
                         class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                         data-testid="typography"
-                      >
-                        address 1
-                      </p>
+                      />
                     </div>
                     <div
                       class="LinkCard-icon"
@@ -3813,6 +4018,31 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                               <dl
                                 class="css-1uk1gs8"
                               >
+                                <div
+                                  class="css-igq6na"
+                                  data-testid="company-details-address"
+                                  type="address"
+                                >
+                                  <dt
+                                    class="css-12o4wow"
+                                  >
+                                    <p
+                                      class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                      data-testid="typography"
+                                    >
+                                      MC: global.address
+                                    </p>
+                                  </dt>
+                                  <dd
+                                    class="css-bp47jm"
+                                  >
+                                    <address
+                                      class="css-kfzuyj"
+                                    >
+                                      address 1
+                                    </address>
+                                  </dd>
+                                </div>
                                 <div
                                   class="css-1nzacgw"
                                   data-testid="company-details-phone"
@@ -4329,9 +4559,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                     <p
                       class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                       data-testid="typography"
-                    >
-                      address 1
-                    </p>
+                    />
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -4368,6 +4596,31 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                             <dl
                               class="css-1uk1gs8"
                             >
+                              <div
+                                class="css-igq6na"
+                                data-testid="company-details-address"
+                                type="address"
+                              >
+                                <dt
+                                  class="css-12o4wow"
+                                >
+                                  <p
+                                    class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                    data-testid="typography"
+                                  >
+                                    MC: global.address
+                                  </p>
+                                </dt>
+                                <dd
+                                  class="css-bp47jm"
+                                >
+                                  <address
+                                    class="css-kfzuyj"
+                                  >
+                                    address 1
+                                  </address>
+                                </dd>
+                              </div>
                               <div
                                 class="css-1nzacgw"
                                 data-testid="company-details-phone"
@@ -4483,9 +4736,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                     <p
                       class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                       data-testid="typography"
-                    >
-                      address 1
-                    </p>
+                    />
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -4522,6 +4773,31 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                             <dl
                               class="css-1uk1gs8"
                             >
+                              <div
+                                class="css-igq6na"
+                                data-testid="company-details-address"
+                                type="address"
+                              >
+                                <dt
+                                  class="css-12o4wow"
+                                >
+                                  <p
+                                    class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                    data-testid="typography"
+                                  >
+                                    MC: global.address
+                                  </p>
+                                </dt>
+                                <dd
+                                  class="css-bp47jm"
+                                >
+                                  <address
+                                    class="css-kfzuyj"
+                                  >
+                                    address 1
+                                  </address>
+                                </dd>
+                              </div>
                               <div
                                 class="css-1nzacgw"
                                 data-testid="company-details-phone"
@@ -4770,9 +5046,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                     <p
                       class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                       data-testid="typography"
-                    >
-                      address 1
-                    </p>
+                    />
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -4809,6 +5083,31 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                             <dl
                               class="css-1uk1gs8"
                             >
+                              <div
+                                class="css-igq6na"
+                                data-testid="company-details-address"
+                                type="address"
+                              >
+                                <dt
+                                  class="css-12o4wow"
+                                >
+                                  <p
+                                    class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                    data-testid="typography"
+                                  >
+                                    MC: global.address
+                                  </p>
+                                </dt>
+                                <dd
+                                  class="css-bp47jm"
+                                >
+                                  <address
+                                    class="css-kfzuyj"
+                                  >
+                                    address 1
+                                  </address>
+                                </dd>
+                              </div>
                               <div
                                 class="css-1nzacgw"
                                 data-testid="company-details-phone"
@@ -4924,9 +5223,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                     <p
                       class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                       data-testid="typography"
-                    >
-                      address 1
-                    </p>
+                    />
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -4963,6 +5260,31 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                             <dl
                               class="css-1uk1gs8"
                             >
+                              <div
+                                class="css-igq6na"
+                                data-testid="company-details-address"
+                                type="address"
+                              >
+                                <dt
+                                  class="css-12o4wow"
+                                >
+                                  <p
+                                    class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                    data-testid="typography"
+                                  >
+                                    MC: global.address
+                                  </p>
+                                </dt>
+                                <dd
+                                  class="css-bp47jm"
+                                >
+                                  <address
+                                    class="css-kfzuyj"
+                                  >
+                                    address 1
+                                  </address>
+                                </dd>
+                              </div>
                               <div
                                 class="css-1nzacgw"
                                 data-testid="company-details-phone"
@@ -5336,9 +5658,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                     <p
                       class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                       data-testid="typography"
-                    >
-                      address 1
-                    </p>
+                    />
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -5375,6 +5695,31 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                             <dl
                               class="css-1uk1gs8"
                             >
+                              <div
+                                class="css-igq6na"
+                                data-testid="company-details-address"
+                                type="address"
+                              >
+                                <dt
+                                  class="css-12o4wow"
+                                >
+                                  <p
+                                    class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                    data-testid="typography"
+                                  >
+                                    MC: global.address
+                                  </p>
+                                </dt>
+                                <dd
+                                  class="css-bp47jm"
+                                >
+                                  <address
+                                    class="css-kfzuyj"
+                                  >
+                                    address 1
+                                  </address>
+                                </dd>
+                              </div>
                               <div
                                 class="css-1nzacgw"
                                 data-testid="company-details-phone"
@@ -5469,9 +5814,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                     <p
                       class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                       data-testid="typography"
-                    >
-                      address 1
-                    </p>
+                    />
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -5508,6 +5851,31 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                             <dl
                               class="css-1uk1gs8"
                             >
+                              <div
+                                class="css-igq6na"
+                                data-testid="company-details-address"
+                                type="address"
+                              >
+                                <dt
+                                  class="css-12o4wow"
+                                >
+                                  <p
+                                    class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                    data-testid="typography"
+                                  >
+                                    MC: global.address
+                                  </p>
+                                </dt>
+                                <dd
+                                  class="css-bp47jm"
+                                >
+                                  <address
+                                    class="css-kfzuyj"
+                                  >
+                                    address 1
+                                  </address>
+                                </dd>
+                              </div>
                               <div
                                 class="css-1nzacgw"
                                 data-testid="company-details-phone"
@@ -5860,9 +6228,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                     <p
                       class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                       data-testid="typography"
-                    >
-                      address 1
-                    </p>
+                    />
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -5899,6 +6265,31 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                             <dl
                               class="css-1uk1gs8"
                             >
+                              <div
+                                class="css-igq6na"
+                                data-testid="company-details-address"
+                                type="address"
+                              >
+                                <dt
+                                  class="css-12o4wow"
+                                >
+                                  <p
+                                    class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                    data-testid="typography"
+                                  >
+                                    MC: global.address
+                                  </p>
+                                </dt>
+                                <dd
+                                  class="css-bp47jm"
+                                >
+                                  <address
+                                    class="css-kfzuyj"
+                                  >
+                                    address 1
+                                  </address>
+                                </dd>
+                              </div>
                               <div
                                 class="css-1nzacgw"
                                 data-testid="company-details-phone"
@@ -5993,9 +6384,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                     <p
                       class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                       data-testid="typography"
-                    >
-                      address 1
-                    </p>
+                    />
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -6032,6 +6421,31 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                             <dl
                               class="css-1uk1gs8"
                             >
+                              <div
+                                class="css-igq6na"
+                                data-testid="company-details-address"
+                                type="address"
+                              >
+                                <dt
+                                  class="css-12o4wow"
+                                >
+                                  <p
+                                    class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                    data-testid="typography"
+                                  >
+                                    MC: global.address
+                                  </p>
+                                </dt>
+                                <dd
+                                  class="css-bp47jm"
+                                >
+                                  <address
+                                    class="css-kfzuyj"
+                                  >
+                                    address 1
+                                  </address>
+                                </dd>
+                              </div>
                               <div
                                 class="css-1nzacgw"
                                 data-testid="company-details-phone"
@@ -6384,9 +6798,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
                     <p
                       class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                       data-testid="typography"
-                    >
-                      address 1
-                    </p>
+                    />
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -6423,6 +6835,31 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
                             <dl
                               class="css-1uk1gs8"
                             >
+                              <div
+                                class="css-igq6na"
+                                data-testid="company-details-address"
+                                type="address"
+                              >
+                                <dt
+                                  class="css-12o4wow"
+                                >
+                                  <p
+                                    class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                    data-testid="typography"
+                                  >
+                                    MC: global.address
+                                  </p>
+                                </dt>
+                                <dd
+                                  class="css-bp47jm"
+                                >
+                                  <address
+                                    class="css-kfzuyj"
+                                  >
+                                    address 1
+                                  </address>
+                                </dd>
+                              </div>
                               <div
                                 class="css-1nzacgw"
                                 data-testid="company-details-phone"
@@ -6517,9 +6954,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
                     <p
                       class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                       data-testid="typography"
-                    >
-                      address 1
-                    </p>
+                    />
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -6556,6 +6991,31 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
                             <dl
                               class="css-1uk1gs8"
                             >
+                              <div
+                                class="css-igq6na"
+                                data-testid="company-details-address"
+                                type="address"
+                              >
+                                <dt
+                                  class="css-12o4wow"
+                                >
+                                  <p
+                                    class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                    data-testid="typography"
+                                  >
+                                    MC: global.address
+                                  </p>
+                                </dt>
+                                <dd
+                                  class="css-bp47jm"
+                                >
+                                  <address
+                                    class="css-kfzuyj"
+                                  >
+                                    address 1
+                                  </address>
+                                </dd>
+                              </div>
                               <div
                                 class="css-1nzacgw"
                                 data-testid="company-details-phone"
@@ -7055,9 +7515,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                     <p
                       class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                       data-testid="typography"
-                    >
-                      address 1
-                    </p>
+                    />
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -7094,6 +7552,31 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                             <dl
                               class="css-1uk1gs8"
                             >
+                              <div
+                                class="css-igq6na"
+                                data-testid="company-details-address"
+                                type="address"
+                              >
+                                <dt
+                                  class="css-12o4wow"
+                                >
+                                  <p
+                                    class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                    data-testid="typography"
+                                  >
+                                    MC: global.address
+                                  </p>
+                                </dt>
+                                <dd
+                                  class="css-bp47jm"
+                                >
+                                  <address
+                                    class="css-kfzuyj"
+                                  >
+                                    address 1
+                                  </address>
+                                </dd>
+                              </div>
                               <div
                                 class="css-1nzacgw"
                                 data-testid="company-details-phone"
@@ -7211,9 +7694,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                     <p
                       class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                       data-testid="typography"
-                    >
-                      address 1
-                    </p>
+                    />
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -7250,6 +7731,31 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                             <dl
                               class="css-1uk1gs8"
                             >
+                              <div
+                                class="css-igq6na"
+                                data-testid="company-details-address"
+                                type="address"
+                              >
+                                <dt
+                                  class="css-12o4wow"
+                                >
+                                  <p
+                                    class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                    data-testid="typography"
+                                  >
+                                    MC: global.address
+                                  </p>
+                                </dt>
+                                <dd
+                                  class="css-bp47jm"
+                                >
+                                  <address
+                                    class="css-kfzuyj"
+                                  >
+                                    address 1
+                                  </address>
+                                </dd>
+                              </div>
                               <div
                                 class="css-1nzacgw"
                                 data-testid="company-details-phone"
@@ -7625,9 +8131,7 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
                     <p
                       class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                       data-testid="typography"
-                    >
-                      address 1
-                    </p>
+                    />
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -7664,6 +8168,31 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
                             <dl
                               class="css-1uk1gs8"
                             >
+                              <div
+                                class="css-igq6na"
+                                data-testid="company-details-address"
+                                type="address"
+                              >
+                                <dt
+                                  class="css-12o4wow"
+                                >
+                                  <p
+                                    class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                    data-testid="typography"
+                                  >
+                                    MC: global.address
+                                  </p>
+                                </dt>
+                                <dd
+                                  class="css-bp47jm"
+                                >
+                                  <address
+                                    class="css-kfzuyj"
+                                  >
+                                    address 1
+                                  </address>
+                                </dd>
+                              </div>
                               <div
                                 class="css-1nzacgw"
                                 data-testid="company-details-phone"
@@ -7758,9 +8287,7 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
                     <p
                       class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                       data-testid="typography"
-                    >
-                      address 1
-                    </p>
+                    />
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -7797,6 +8324,31 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
                             <dl
                               class="css-1uk1gs8"
                             >
+                              <div
+                                class="css-igq6na"
+                                data-testid="company-details-address"
+                                type="address"
+                              >
+                                <dt
+                                  class="css-12o4wow"
+                                >
+                                  <p
+                                    class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                    data-testid="typography"
+                                  >
+                                    MC: global.address
+                                  </p>
+                                </dt>
+                                <dd
+                                  class="css-bp47jm"
+                                >
+                                  <address
+                                    class="css-kfzuyj"
+                                  >
+                                    address 1
+                                  </address>
+                                </dd>
+                              </div>
                               <div
                                 class="css-1nzacgw"
                                 data-testid="company-details-phone"
@@ -8232,9 +8784,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                     <p
                       class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                       data-testid="typography"
-                    >
-                      address 1
-                    </p>
+                    />
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -8271,6 +8821,31 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                             <dl
                               class="css-1uk1gs8"
                             >
+                              <div
+                                class="css-igq6na"
+                                data-testid="company-details-address"
+                                type="address"
+                              >
+                                <dt
+                                  class="css-12o4wow"
+                                >
+                                  <p
+                                    class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                    data-testid="typography"
+                                  >
+                                    MC: global.address
+                                  </p>
+                                </dt>
+                                <dd
+                                  class="css-bp47jm"
+                                >
+                                  <address
+                                    class="css-kfzuyj"
+                                  >
+                                    address 1
+                                  </address>
+                                </dd>
+                              </div>
                               <div
                                 class="css-1nzacgw"
                                 data-testid="company-details-phone"
@@ -8388,9 +8963,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                     <p
                       class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                       data-testid="typography"
-                    >
-                      address 1
-                    </p>
+                    />
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -8427,6 +9000,31 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                             <dl
                               class="css-1uk1gs8"
                             >
+                              <div
+                                class="css-igq6na"
+                                data-testid="company-details-address"
+                                type="address"
+                              >
+                                <dt
+                                  class="css-12o4wow"
+                                >
+                                  <p
+                                    class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                    data-testid="typography"
+                                  >
+                                    MC: global.address
+                                  </p>
+                                </dt>
+                                <dd
+                                  class="css-bp47jm"
+                                >
+                                  <address
+                                    class="css-kfzuyj"
+                                  >
+                                    address 1
+                                  </address>
+                                </dd>
+                              </div>
                               <div
                                 class="css-1nzacgw"
                                 data-testid="company-details-phone"
@@ -8802,9 +9400,7 @@ exports[`ServiceLocatorSection component renders multiple services with single s
                     <p
                       class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                       data-testid="typography"
-                    >
-                      address 1
-                    </p>
+                    />
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -8841,6 +9437,31 @@ exports[`ServiceLocatorSection component renders multiple services with single s
                             <dl
                               class="css-1uk1gs8"
                             >
+                              <div
+                                class="css-igq6na"
+                                data-testid="company-details-address"
+                                type="address"
+                              >
+                                <dt
+                                  class="css-12o4wow"
+                                >
+                                  <p
+                                    class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                    data-testid="typography"
+                                  >
+                                    MC: global.address
+                                  </p>
+                                </dt>
+                                <dd
+                                  class="css-bp47jm"
+                                >
+                                  <address
+                                    class="css-kfzuyj"
+                                  >
+                                    address 1
+                                  </address>
+                                </dd>
+                              </div>
                               <div
                                 class="css-1nzacgw"
                                 data-testid="company-details-phone"
@@ -8958,9 +9579,7 @@ exports[`ServiceLocatorSection component renders multiple services with single s
                     <p
                       class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                       data-testid="typography"
-                    >
-                      address 1
-                    </p>
+                    />
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -8997,6 +9616,31 @@ exports[`ServiceLocatorSection component renders multiple services with single s
                             <dl
                               class="css-1uk1gs8"
                             >
+                              <div
+                                class="css-igq6na"
+                                data-testid="company-details-address"
+                                type="address"
+                              >
+                                <dt
+                                  class="css-12o4wow"
+                                >
+                                  <p
+                                    class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                    data-testid="typography"
+                                  >
+                                    MC: global.address
+                                  </p>
+                                </dt>
+                                <dd
+                                  class="css-bp47jm"
+                                >
+                                  <address
+                                    class="css-kfzuyj"
+                                  >
+                                    address 1
+                                  </address>
+                                </dd>
+                              </div>
                               <div
                                 class="css-1nzacgw"
                                 data-testid="company-details-phone"
@@ -9372,9 +10016,7 @@ exports[`ServiceLocatorSection component renders single service with No service 
                     <p
                       class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                       data-testid="typography"
-                    >
-                      address 1
-                    </p>
+                    />
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -9411,6 +10053,31 @@ exports[`ServiceLocatorSection component renders single service with No service 
                             <dl
                               class="css-1uk1gs8"
                             >
+                              <div
+                                class="css-igq6na"
+                                data-testid="company-details-address"
+                                type="address"
+                              >
+                                <dt
+                                  class="css-12o4wow"
+                                >
+                                  <p
+                                    class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                    data-testid="typography"
+                                  >
+                                    MC: global.address
+                                  </p>
+                                </dt>
+                                <dd
+                                  class="css-bp47jm"
+                                >
+                                  <address
+                                    class="css-kfzuyj"
+                                  >
+                                    address 1
+                                  </address>
+                                </dd>
+                              </div>
                               <div
                                 class="css-1nzacgw"
                                 data-testid="company-details-phone"
@@ -9763,9 +10430,7 @@ exports[`ServiceLocatorSection component renders single service with empty servi
                     <p
                       class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                       data-testid="typography"
-                    >
-                      address 1
-                    </p>
+                    />
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -9802,6 +10467,31 @@ exports[`ServiceLocatorSection component renders single service with empty servi
                             <dl
                               class="css-1uk1gs8"
                             >
+                              <div
+                                class="css-igq6na"
+                                data-testid="company-details-address"
+                                type="address"
+                              >
+                                <dt
+                                  class="css-12o4wow"
+                                >
+                                  <p
+                                    class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                    data-testid="typography"
+                                  >
+                                    MC: global.address
+                                  </p>
+                                </dt>
+                                <dd
+                                  class="css-bp47jm"
+                                >
+                                  <address
+                                    class="css-kfzuyj"
+                                  >
+                                    address 1
+                                  </address>
+                                </dd>
+                              </div>
                               <div
                                 class="css-1nzacgw"
                                 data-testid="company-details-phone"
@@ -10205,9 +10895,7 @@ exports[`ServiceLocatorSection component renders single service with multiple se
                     <p
                       class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                       data-testid="typography"
-                    >
-                      address 1
-                    </p>
+                    />
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -10244,6 +10932,31 @@ exports[`ServiceLocatorSection component renders single service with multiple se
                             <dl
                               class="css-1uk1gs8"
                             >
+                              <div
+                                class="css-igq6na"
+                                data-testid="company-details-address"
+                                type="address"
+                              >
+                                <dt
+                                  class="css-12o4wow"
+                                >
+                                  <p
+                                    class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                    data-testid="typography"
+                                  >
+                                    MC: global.address
+                                  </p>
+                                </dt>
+                                <dd
+                                  class="css-bp47jm"
+                                >
+                                  <address
+                                    class="css-kfzuyj"
+                                  >
+                                    address 1
+                                  </address>
+                                </dd>
+                              </div>
                               <div
                                 class="css-1nzacgw"
                                 data-testid="company-details-phone"
@@ -10619,9 +11332,7 @@ exports[`ServiceLocatorSection component renders single service with single serv
                     <p
                       class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                       data-testid="typography"
-                    >
-                      address 1
-                    </p>
+                    />
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -10658,6 +11369,31 @@ exports[`ServiceLocatorSection component renders single service with single serv
                             <dl
                               class="css-1uk1gs8"
                             >
+                              <div
+                                class="css-igq6na"
+                                data-testid="company-details-address"
+                                type="address"
+                              >
+                                <dt
+                                  class="css-12o4wow"
+                                >
+                                  <p
+                                    class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                    data-testid="typography"
+                                  >
+                                    MC: global.address
+                                  </p>
+                                </dt>
+                                <dd
+                                  class="css-bp47jm"
+                                >
+                                  <address
+                                    class="css-kfzuyj"
+                                  >
+                                    address 1
+                                  </address>
+                                </dd>
+                              </div>
                               <div
                                 class="css-1nzacgw"
                                 data-testid="company-details-phone"
@@ -11060,9 +11796,7 @@ exports[`ServiceLocatorSection component searches for a service: Filtered main l
                       <p
                         class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                         data-testid="typography"
-                      >
-                        address 1
-                      </p>
+                      />
                     </div>
                     <div
                       class="LinkCard-icon"
@@ -11099,6 +11833,31 @@ exports[`ServiceLocatorSection component searches for a service: Filtered main l
                               <dl
                                 class="css-1uk1gs8"
                               >
+                                <div
+                                  class="css-igq6na"
+                                  data-testid="company-details-address"
+                                  type="address"
+                                >
+                                  <dt
+                                    class="css-12o4wow"
+                                  >
+                                    <p
+                                      class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                      data-testid="typography"
+                                    >
+                                      MC: global.address
+                                    </p>
+                                  </dt>
+                                  <dd
+                                    class="css-bp47jm"
+                                  >
+                                    <address
+                                      class="css-kfzuyj"
+                                    >
+                                      address 1
+                                    </address>
+                                  </dd>
+                                </div>
                                 <div
                                   class="css-1nzacgw"
                                   data-testid="company-details-phone"
@@ -11481,9 +12240,7 @@ exports[`ServiceLocatorSection component searches for a service: Filtered option
                       <p
                         class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                         data-testid="typography"
-                      >
-                        address 1
-                      </p>
+                      />
                     </div>
                     <div
                       class="LinkCard-icon"
@@ -11520,6 +12277,31 @@ exports[`ServiceLocatorSection component searches for a service: Filtered option
                               <dl
                                 class="css-1uk1gs8"
                               >
+                                <div
+                                  class="css-igq6na"
+                                  data-testid="company-details-address"
+                                  type="address"
+                                >
+                                  <dt
+                                    class="css-12o4wow"
+                                  >
+                                    <p
+                                      class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                      data-testid="typography"
+                                    >
+                                      MC: global.address
+                                    </p>
+                                  </dt>
+                                  <dd
+                                    class="css-bp47jm"
+                                  >
+                                    <address
+                                      class="css-kfzuyj"
+                                    >
+                                      address 1
+                                    </address>
+                                  </dd>
+                                </div>
                                 <div
                                   class="css-1nzacgw"
                                   data-testid="company-details-phone"
@@ -11614,9 +12396,7 @@ exports[`ServiceLocatorSection component searches for a service: Filtered option
                       <p
                         class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                         data-testid="typography"
-                      >
-                        address 1
-                      </p>
+                      />
                     </div>
                     <div
                       class="LinkCard-icon"
@@ -11653,6 +12433,31 @@ exports[`ServiceLocatorSection component searches for a service: Filtered option
                               <dl
                                 class="css-1uk1gs8"
                               >
+                                <div
+                                  class="css-igq6na"
+                                  data-testid="company-details-address"
+                                  type="address"
+                                >
+                                  <dt
+                                    class="css-12o4wow"
+                                  >
+                                    <p
+                                      class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                      data-testid="typography"
+                                    >
+                                      MC: global.address
+                                    </p>
+                                  </dt>
+                                  <dd
+                                    class="css-bp47jm"
+                                  >
+                                    <address
+                                      class="css-kfzuyj"
+                                    >
+                                      address 1
+                                    </address>
+                                  </dd>
+                                </div>
                                 <div
                                   class="css-1nzacgw"
                                   data-testid="company-details-phone"
@@ -12038,9 +12843,7 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
                       <p
                         class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                         data-testid="typography"
-                      >
-                        address 1
-                      </p>
+                      />
                     </div>
                     <div
                       class="LinkCard-icon"
@@ -12077,6 +12880,31 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
                               <dl
                                 class="css-1uk1gs8"
                               >
+                                <div
+                                  class="css-igq6na"
+                                  data-testid="company-details-address"
+                                  type="address"
+                                >
+                                  <dt
+                                    class="css-12o4wow"
+                                  >
+                                    <p
+                                      class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                      data-testid="typography"
+                                    >
+                                      MC: global.address
+                                    </p>
+                                  </dt>
+                                  <dd
+                                    class="css-bp47jm"
+                                  >
+                                    <address
+                                      class="css-kfzuyj"
+                                    >
+                                      address 1
+                                    </address>
+                                  </dd>
+                                </div>
                                 <div
                                   class="css-1nzacgw"
                                   data-testid="company-details-phone"
@@ -12431,9 +13259,7 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                       <p
                         class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                         data-testid="typography"
-                      >
-                        address 1
-                      </p>
+                      />
                     </div>
                     <div
                       class="LinkCard-icon"
@@ -12470,6 +13296,31 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                               <dl
                                 class="css-1uk1gs8"
                               >
+                                <div
+                                  class="css-igq6na"
+                                  data-testid="company-details-address"
+                                  type="address"
+                                >
+                                  <dt
+                                    class="css-12o4wow"
+                                  >
+                                    <p
+                                      class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                      data-testid="typography"
+                                    >
+                                      MC: global.address
+                                    </p>
+                                  </dt>
+                                  <dd
+                                    class="css-bp47jm"
+                                  >
+                                    <address
+                                      class="css-kfzuyj"
+                                    >
+                                      address 1
+                                    </address>
+                                  </dd>
+                                </div>
                                 <div
                                   class="css-1nzacgw"
                                   data-testid="company-details-phone"
@@ -12990,9 +13841,7 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
                       <p
                         class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                         data-testid="typography"
-                      >
-                        address 1
-                      </p>
+                      />
                     </div>
                     <div
                       class="LinkCard-icon"
@@ -13029,6 +13878,31 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
                               <dl
                                 class="css-1uk1gs8"
                               >
+                                <div
+                                  class="css-igq6na"
+                                  data-testid="company-details-address"
+                                  type="address"
+                                >
+                                  <dt
+                                    class="css-12o4wow"
+                                  >
+                                    <p
+                                      class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                      data-testid="typography"
+                                    >
+                                      MC: global.address
+                                    </p>
+                                  </dt>
+                                  <dd
+                                    class="css-bp47jm"
+                                  >
+                                    <address
+                                      class="css-kfzuyj"
+                                    >
+                                      address 1
+                                    </address>
+                                  </dd>
+                                </div>
                                 <div
                                   class="css-1nzacgw"
                                   data-testid="company-details-phone"
@@ -13726,9 +14600,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                       <p
                         class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                         data-testid="typography"
-                      >
-                        Helgerødveien 130, 3233 Sandefjord, Norway
-                      </p>
+                      />
                     </div>
                     <div
                       class="LinkCard-icon"
@@ -13765,6 +14637,31 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                               <dl
                                 class="css-1uk1gs8"
                               >
+                                <div
+                                  class="css-igq6na"
+                                  data-testid="company-details-address"
+                                  type="address"
+                                >
+                                  <dt
+                                    class="css-12o4wow"
+                                  >
+                                    <p
+                                      class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                      data-testid="typography"
+                                    >
+                                      MC: global.address
+                                    </p>
+                                  </dt>
+                                  <dd
+                                    class="css-bp47jm"
+                                  >
+                                    <address
+                                      class="css-kfzuyj"
+                                    >
+                                      Helgerødveien 130, 3233 Sandefjord, Norway
+                                    </address>
+                                  </dd>
+                                </div>
                                 <div
                                   class="css-1nzacgw"
                                   data-testid="company-details-phone"
@@ -13859,9 +14756,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                       <p
                         class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                         data-testid="typography"
-                      >
-                        Lundvegen 8, 2316 Hamar, Norwa
-                      </p>
+                      />
                     </div>
                     <div
                       class="LinkCard-icon"
@@ -13898,6 +14793,31 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                               <dl
                                 class="css-1uk1gs8"
                               >
+                                <div
+                                  class="css-igq6na"
+                                  data-testid="company-details-address"
+                                  type="address"
+                                >
+                                  <dt
+                                    class="css-12o4wow"
+                                  >
+                                    <p
+                                      class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                      data-testid="typography"
+                                    >
+                                      MC: global.address
+                                    </p>
+                                  </dt>
+                                  <dd
+                                    class="css-bp47jm"
+                                  >
+                                    <address
+                                      class="css-kfzuyj"
+                                    >
+                                      Lundvegen 8, 2316 Hamar, Norwa
+                                    </address>
+                                  </dd>
+                                </div>
                                 <div
                                   class="css-1nzacgw"
                                   data-testid="company-details-phone"
@@ -13992,9 +14912,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                       <p
                         class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                         data-testid="typography"
-                      >
-                        Vindheiavegen 27, 2406 Elverum, Norway
-                      </p>
+                      />
                     </div>
                     <div
                       class="LinkCard-icon"
@@ -14031,6 +14949,31 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                               <dl
                                 class="css-1uk1gs8"
                               >
+                                <div
+                                  class="css-igq6na"
+                                  data-testid="company-details-address"
+                                  type="address"
+                                >
+                                  <dt
+                                    class="css-12o4wow"
+                                  >
+                                    <p
+                                      class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                      data-testid="typography"
+                                    >
+                                      MC: global.address
+                                    </p>
+                                  </dt>
+                                  <dd
+                                    class="css-bp47jm"
+                                  >
+                                    <address
+                                      class="css-kfzuyj"
+                                    >
+                                      Vindheiavegen 27, 2406 Elverum, Norway
+                                    </address>
+                                  </dd>
+                                </div>
                                 <div
                                   class="css-1nzacgw"
                                   data-testid="company-details-phone"
@@ -14691,9 +15634,7 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
                       <p
                         class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                         data-testid="typography"
-                      >
-                        address 1
-                      </p>
+                      />
                     </div>
                     <div
                       class="LinkCard-icon"
@@ -14730,6 +15671,31 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
                               <dl
                                 class="css-1uk1gs8"
                               >
+                                <div
+                                  class="css-igq6na"
+                                  data-testid="company-details-address"
+                                  type="address"
+                                >
+                                  <dt
+                                    class="css-12o4wow"
+                                  >
+                                    <p
+                                      class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                      data-testid="typography"
+                                    >
+                                      MC: global.address
+                                    </p>
+                                  </dt>
+                                  <dd
+                                    class="css-bp47jm"
+                                  >
+                                    <address
+                                      class="css-kfzuyj"
+                                    >
+                                      address 1
+                                    </address>
+                                  </dd>
+                                </div>
                                 <div
                                   class="css-1nzacgw"
                                   data-testid="company-details-phone"

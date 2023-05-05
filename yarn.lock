@@ -1279,10 +1279,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@bmi-digital/components@^1.32.5":
-  version "1.32.5"
-  resolved "https://registry.yarnpkg.com/@bmi-digital/components/-/components-1.32.5.tgz#920460c9856eefd6514e82e5091ef9d159757bb3"
-  integrity sha512-lgbYl0rkp5mzaapk3o3VRewtmY9FsVdLuz8qZl/MO4CoC9bkH5K/poFFbuLn866hsDKWuQ+lT01D7wNSac3yhw==
+"@bmi-digital/components@^1.32.8":
+  version "1.32.8"
+  resolved "https://registry.yarnpkg.com/@bmi-digital/components/-/components-1.32.8.tgz#41025b563b0ca3f6c85762d6b1cea666b20a4be5"
+  integrity sha512-q4hcpEQYC/i4leJTHmW1jCW0OXFTN+4J/rmXCEeIacHP/UZ1AneSrfdpAlnlEDyrRddKYJIwHtqV1cXZIr+RTg==
   dependencies:
     "@bmi-digital/use-dimensions" "^1.5.1"
     "@emotion/react" "^11.10.6"
