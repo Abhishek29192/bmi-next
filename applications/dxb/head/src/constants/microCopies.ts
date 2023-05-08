@@ -343,6 +343,7 @@ export const microCopy = {
     "filterLabels.Summery.Accordion.Availability",
   FILTER_SHOW_WORLD_BTN: "filterLabels.Show.World.Btn",
   FILTER_RESULT_WORLD_BTN: "filterLabels.Result.World.Btn",
+  FILTER_SHOW_ALL_RESULT_BTN: "filterLabels.Show.All.Result.Btn",
 
   FIND_A_ROOFER_FILTERS_FLAT_ROOF: "findARoofer.filters.flatRoof",
   UPLOAD_SUPPORTED_FORMATS: "upload.supportedFormats",

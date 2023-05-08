@@ -25,6 +25,7 @@ export type Props = {
   handleFiltersChange: FilterProps["onChange"];
   clearFilters: () => void;
   documentsCount?: number;
+  isTechnicalTable: boolean;
 };
 
 const GTMCheckbox = withGTM<CheckboxProps>(Checkbox, {
@@ -50,7 +51,8 @@ const DocumentLibraryFilter = ({
   filters,
   handleFiltersChange,
   clearFilters,
-  documentsCount
+  documentsCount,
+  isTechnicalTable
 }: Props) => {
   const { getMicroCopy } = useSiteContext();
   const theme = useTheme();
@@ -132,6 +134,7 @@ const DocumentLibraryFilter = ({
               handleDrawerToggle={handleDrawerToggle}
               filtersComponent={filtersComponent}
               documentsCount={documentsCount}
+              isTechnicalTable={isTechnicalTable}
             />
           </div>
         ) : (
