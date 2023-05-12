@@ -1,9 +1,9 @@
-import { Filter } from "@bmi-digital/components";
-import QueryString from "query-string";
+import queryString from "query-string";
 import { useEffect, useState } from "react";
-import { ProductFilter } from "../types/pim";
 import { getPathWithCountryCode } from "../utils/path";
 import { removePLPFilterPrefix } from "./product-filters";
+import type { Filter } from "@bmi-digital/components";
+import type { ProductFilter } from "../types/pim";
 
 export type URLFilter = {
   name: string;
@@ -95,7 +95,7 @@ type FiltersLocation = { search: string; pathname: string };
 
 export const getURLFilterValues = (): URLProductFilter[] => {
   const { search } = getWindowLocationFilters();
-  const filters = QueryString.parse(search)[FILTER_KEY.toString()];
+  const filters = queryString.parse(search)[FILTER_KEY.toString()];
 
   if (filters) {
     try {
@@ -151,7 +151,7 @@ export const setFiltersUrl = (newFilters: Filter[]): void => {
     Boolean(value?.length)
   );
 
-  const params = QueryString.parse(location.search);
+  const params = queryString.parse(location.search);
 
   if (urlParams.length > 0) {
     params[FILTER_KEY as string] = JSON.stringify(urlParams);
@@ -161,25 +161,25 @@ export const setFiltersUrl = (newFilters: Filter[]): void => {
 
   replaceHistoryState({
     pathname: location.pathname,
-    search: QueryString.stringify(params)
+    search: queryString.stringify(params)
   });
 };
 
 export const setSearchTabUrl = (tab: string): void => {
   const location = getWindowLocationFilters();
-  const params = QueryString.parse(location.search);
+  const params = queryString.parse(location.search);
 
   params[SEARCHTAB_KEY as string] = tab;
 
   replaceHistoryState({
     pathname: location.pathname,
-    search: QueryString.stringify(params)
+    search: queryString.stringify(params)
   });
 };
 
 export const getSearchTabUrl = (): string => {
   const { search } = getWindowLocationFilters();
-  const searchtab = QueryString.parse(search)[SEARCHTAB_KEY as string] ?? null;
+  const searchtab = queryString.parse(search)[SEARCHTAB_KEY as string] ?? null;
 
   return Array.isArray(searchtab) ? searchtab[0] : searchtab;
 };
@@ -224,22 +224,22 @@ export const useSearchParams = (): string => {
 };
 
 export const getSearchParams = (search?: string) => {
-  const params = QueryString.parse(search || getWindowLocationFilters().search);
+  const params = queryString.parse(search || getWindowLocationFilters().search);
 
   params[PATHNAME_KEY.toString()] = location.pathname;
 
-  return `?${QueryString.stringify(params)}`;
+  return `?${queryString.stringify(params)}`;
 };
 
 export const getBackToResultsPath = (countryCode: string): string => {
   const location = getWindowLocationFilters();
-  const params = QueryString.parse(location.search);
+  const params = queryString.parse(location.search);
 
   const pathname = params[PATHNAME_KEY.toString()];
   if (pathname) {
     delete params[PATHNAME_KEY.toString()];
     return params && Object.keys(params).length > 0
-      ? `${pathname}?${QueryString.stringify(params)}`
+      ? `${pathname}?${queryString.stringify(params)}`
       : `${pathname}`;
   }
   return `${getPathWithCountryCode(countryCode, "search")}${location.search}`;

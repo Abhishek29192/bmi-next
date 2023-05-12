@@ -28,7 +28,6 @@ module.exports = {
     "\\.(css|scss)$": "identity-obj-proxy",
     "\\.svg$": require.resolve("./jest/src/SVGImport.tsx"),
     "\\.(woff2|ttf)$": require.resolve("./jest/src/FontImport.ts"),
-    "^@bmi/(?!visualiser/data)(.*)$": "<rootDir>/node_modules/@bmi/$1/src",
     "^gatsby-page-utils/(.*)$":
       "<rootDir>/node_modules/gatsby-page-utils/dist/$1" // Workaround for https://github.com/facebook/jest/issues/9771
   },
@@ -39,10 +38,34 @@ module.exports = {
         isolatedModules: true
       }
     ],
-    "^.+\\.(js|jsx)$": "babel-jest"
+    "^.+\\.(js|jsx|mjs)$": "babel-jest"
   },
   transformIgnorePatterns: [
-    "node_modules/(?!(three|lodash-es|escape-string-regexp|@bmi-digital/components)/)"
+    `node_modules/(?!(${[
+      "three",
+      "lodash-es",
+      "escape-string-regexp",
+      "@bmi-digital/components",
+      "ora",
+      // Dependencies of ora start
+      "chalk",
+      "cli-cursor",
+      "restore-cursor",
+      "log-symbols",
+      "is-unicode-supported",
+      "strip-ansi",
+      "ansi-regex",
+      "is-interactive",
+      "stdin-discarder",
+      // Dependencies of ora end
+      "semver-parser",
+      "file-type",
+      // Dependencies of file-type start
+      "strtok3",
+      "peek-readable",
+      "token-types"
+      // Dependencies of file-type end
+    ].join("|")})/)`
   ],
   setupFiles: ["<rootDir>/jest/src/setEnvVars.ts"],
   setupFilesAfterEnv: [

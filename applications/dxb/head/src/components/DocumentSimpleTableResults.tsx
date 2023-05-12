@@ -6,7 +6,7 @@ import {
 import { useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import classnames from "classnames";
-import filesize from "filesize";
+import { filesize } from "filesize";
 import React, { useContext } from "react";
 import { microCopy } from "../constants/microCopies";
 import { Document, DocumentTableHeader, TitleField } from "../types/Document";
@@ -28,11 +28,11 @@ import { useSiteContext } from "./Site";
 import { DocumentStatus } from "./styles/DocumentSimpleTableResultsCommonStyles";
 import {
   ActionsContainer,
+  classes,
   DocumentRow,
   StyledSimpleTableResults,
   StyledTableCell,
-  StyledTitleTableCell,
-  classes
+  StyledTitleTableCell
 } from "./styles/DocumentSimpleTableResultsStyles";
 
 export type Props = {
@@ -149,7 +149,9 @@ const DocumentCells = ({
                 key={key}
                 data-testid={`document-table-size-${document.id}`}
               >
-                {isLinkDocument ? "-" : filesize(fileSize)}
+                {isLinkDocument
+                  ? "-"
+                  : (filesize(fileSize, { output: "string" }) as string)}
               </StyledTableCell>
             );
           case "add":

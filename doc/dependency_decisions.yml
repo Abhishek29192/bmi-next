@@ -823,3 +823,65 @@
     :why: Our own project
     :versions: []
     :when: 2023-04-14 19:49:58.710689000 Z
+- - :license
+  - commander
+  - MIT
+  - :who: Benjamin Sproule
+    :why: LicenseFinder can't find the license, even though it's defined in the package.json
+    :versions: []
+    :when: 2023-01-11 10:06:26.579737000 Z
+- - :approve
+  - find
+  - :who: Benjamin Sproule
+    :why: Does not have a license, but is brought in by find-in-files
+    :versions: []
+    :when: 2023-01-11 10:17:16.922460000 Z
+- - :approve
+  - png-js
+  - :who: Benjamin Sproule
+    :why: Does not have a license, but is brought in by pdfkit
+    :versions: []
+    :when: 2023-01-11 10:18:07.481983000 Z
+- - :approve
+  - rework
+  - :who: Benjamin Sproule
+    :why: Does not have a license, but is brought in by resolve-url-loader
+    :versions: []
+    :when: 2023-01-11 10:18:37.619118000 Z
+- - :license
+  - trim
+  - MIT
+  - :who: Benjamin Sproule
+    :why: Early version not licensed, but later version MIT
+    :versions: []
+    :when: 2023-01-11 10:19:45.081663000 Z
+- - :approve
+  - valid-url
+  - :who: Benjamin Sproule
+    :why: Does not have a license, but is brought in by gatsby-source-filesystem
+    :versions: []
+    :when: 2023-01-11 10:20:20.406593000 Z
+- - :approve
+  - main
+  - :who: Benjamin Sproule
+    :why: I think this is our root project which license_finder is borked on
+    :versions: []
+    :when: 2023-01-11 10:24:03.038760000 Z
+- - :permit
+  - BlueOak-1.0.0
+  - :who: Benjamin Sproule
+    :why: Acceptable license
+    :versions: []
+    :when: 2023-04-25 16:13:18.549157000 Z
+- - :approve
+  - map-stream
+  - :who: Benjamin Sproule
+    :why: MIT licensed, but license_finder can't find it
+    :versions: []
+    :when: 2023-04-25 16:15:52.414059000 Z
+- - :approve
+  - pause-stream
+  - :who: Benjamin Sproule
+    :why: MIT and Apache 2 licensed, but license_finder can't find it
+    :versions: []
+    :when: 2023-04-25 16:16:27.611163000 Z

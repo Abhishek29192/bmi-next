@@ -234,12 +234,13 @@ exports[`OverlapCards component IntegratedOverlapCards component renders correct
                   />
                 </a>
                 <div
-                  class="css-1dx0f0v-Media"
+                  class="css-778yut-Media"
                   data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=TDNEwZbm_Nk-video label","action":"Play"}"
                   data-testid="overlap-cards-video"
+                  style="position: relative;"
                 >
                   <button
-                    aria-label="video label"
+                    aria-label="media.video"
                     class="YoutubeVideo-thumbnail"
                     data-testid="thumbnail"
                     type="button"
@@ -311,10 +312,11 @@ exports[`OverlapCards component IntegratedOverlapCards component renders correct
                         />
                       </svg>
                       <p
+                        aria-label="media.video"
                         class="MuiTypography-root MuiTypography-body1 css-1rzqf9i-MuiTypography-root"
                         data-testid="typography"
                       >
-                        Video
+                        media.video
                       </p>
                     </div>
                   </button>
@@ -563,12 +565,13 @@ exports[`OverlapCards component renders correctly 1`] = `
                   />
                 </a>
                 <div
-                  class="css-1dx0f0v-Media"
+                  class="css-778yut-Media"
                   data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=TDNEwZbm_Nk-video label","action":"Play"}"
                   data-testid="overlap-cards-video"
+                  style="position: relative;"
                 >
                   <button
-                    aria-label="video label"
+                    aria-label="media.video"
                     class="YoutubeVideo-thumbnail"
                     data-testid="thumbnail"
                     type="button"
@@ -640,10 +643,11 @@ exports[`OverlapCards component renders correctly 1`] = `
                         />
                       </svg>
                       <p
+                        aria-label="media.video"
                         class="MuiTypography-root MuiTypography-body1 css-1rzqf9i-MuiTypography-root"
                         data-testid="typography"
                       >
-                        Video
+                        media.video
                       </p>
                     </div>
                   </button>

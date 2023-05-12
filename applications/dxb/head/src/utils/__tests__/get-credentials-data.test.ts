@@ -1,4 +1,4 @@
-import getCredentialsData from "../get-credentials-data";
+import getCredentialsData from "../get-credentials-data.mjs";
 
 describe("getCredentialsData function", () => {
   it("returns a single space", () => {

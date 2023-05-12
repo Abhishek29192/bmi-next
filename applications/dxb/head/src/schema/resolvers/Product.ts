@@ -1,14 +1,12 @@
-import { Product } from "../../../../libraries/firestore-types/src";
-import {
-  generateHashFromString,
-  isDefined
-} from "../../../../libraries/utils/src";
-import { Data } from "../../components/Resources";
-import { AssetType, ProductDocumentWithAssetType } from "../../types/pim";
-import { Resource } from "./types/Contentful";
-import { Context, Node, ResolveArgs } from "./types/Gatsby";
+import { generateHashFromString, isDefined } from "@bmi/utils";
+import type { Product } from "@bmi/firestore-types";
 import { getDefaultYoutubePreviewImage } from "./utils/getDefaultYoutubePreviewImage";
-import { getUrlFromPath, Path, resolvePath } from "./utils/path";
+import { getUrlFromPath, resolvePath } from "./utils/path";
+import type { Path } from "./utils/path";
+import type { Data } from "../../components/Resources";
+import type { AssetType, ProductDocumentWithAssetType } from "../../types/pim";
+import type { Resource } from "./types/Contentful";
+import type { Context, Node, ResolveArgs } from "./types/Gatsby";
 
 const getSlugAttributes = (source: Product) =>
   [source.colour, source.textureFamily].filter(isDefined);

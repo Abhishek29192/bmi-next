@@ -5,9 +5,13 @@
   "license": "UNLICENSED",
   "main": "./index.js",
   "bin": "./index.js",
+  "scripts": {
+    "lint": "eslint \"**/*.{js,ts,tsx}\""
+  },
   "dependencies": {
     "contentful-graph": "^1.6.2",
-    "dotenv-cli": "^4.0.0",
-    "node-graphviz": "^0.1.0"
+    "dotenv-cli": "^7.2.1",
+    "eslint": "^8.40.0",
+    "node-graphviz": "^0.1.1"
   }
 }

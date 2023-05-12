@@ -2450,8 +2450,9 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
     data-testid="brand-colors-provider"
   >
     <div
-      class="Hero-lvl1 css-17es170"
+      class="Hero-lvl1 css-1sopae"
       data-testid="hero"
+      style="position: relative;"
     >
       <div
         class=" css-ze8cyt"
@@ -2620,12 +2621,13 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
         </div>
       </div>
       <div
-        class="Hero-image css-baoeyh-Media"
+        class="Hero-image css-94zf8x-Media"
         data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
         data-testid="hero-image"
+        style="position: relative;"
       >
         <button
-          aria-label="label"
+          aria-label="MC: media.video"
           class="YoutubeVideo-thumbnail"
           data-testid="thumbnail"
           type="button"
@@ -2656,10 +2658,11 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
               />
             </svg>
             <p
+              aria-label="MC: media.video"
               class="MuiTypography-root MuiTypography-body1 css-1rzqf9i-MuiTypography-root"
               data-testid="typography"
             >
-              media.video
+              MC: media.video
             </p>
           </div>
         </button>
@@ -3278,12 +3281,13 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                     type="button"
                   >
                     <div
-                      class="OverviewCard-headerPicture css-baoeyh-Media"
+                      class="OverviewCard-headerPicture css-94zf8x-Media"
                       data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=TDNEwZbm_Nk-BMI Group VIDEO LABEL","action":"Play"}"
                       data-testid="youtube-dialog-wrapper"
+                      style="position: relative;"
                     >
                       <button
-                        aria-label="BMI Group VIDEO LABEL"
+                        aria-label="MC: media.video"
                         class="YoutubeVideo-thumbnail"
                         data-testid="thumbnail"
                         type="button"
@@ -3314,10 +3318,11 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                             />
                           </svg>
                           <p
+                            aria-label="MC: media.video"
                             class="MuiTypography-root MuiTypography-body1 css-1rzqf9i-MuiTypography-root"
                             data-testid="typography"
                           >
-                            media.video
+                            MC: media.video
                           </p>
                         </div>
                       </button>
@@ -6946,8 +6951,9 @@ exports[`Contact us page render Sections correctly 1`] = `
     data-testid="brand-colors-provider"
   >
     <div
-      class="Hero-lvl1 css-17es170"
+      class="Hero-lvl1 css-1sopae"
       data-testid="hero"
+      style="position: relative;"
     >
       <div
         class=" css-ze8cyt"
@@ -7116,12 +7122,13 @@ exports[`Contact us page render Sections correctly 1`] = `
         </div>
       </div>
       <div
-        class="Hero-image css-baoeyh-Media"
+        class="Hero-image css-94zf8x-Media"
         data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
         data-testid="hero-image"
+        style="position: relative;"
       >
         <button
-          aria-label="label"
+          aria-label="MC: media.video"
           class="YoutubeVideo-thumbnail"
           data-testid="thumbnail"
           type="button"
@@ -7152,10 +7159,11 @@ exports[`Contact us page render Sections correctly 1`] = `
               />
             </svg>
             <p
+              aria-label="MC: media.video"
               class="MuiTypography-root MuiTypography-body1 css-1rzqf9i-MuiTypography-root"
               data-testid="typography"
             >
-              media.video
+              MC: media.video
             </p>
           </div>
         </button>
@@ -7774,12 +7782,13 @@ exports[`Contact us page render Sections correctly 1`] = `
                     type="button"
                   >
                     <div
-                      class="OverviewCard-headerPicture css-baoeyh-Media"
+                      class="OverviewCard-headerPicture css-94zf8x-Media"
                       data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=TDNEwZbm_Nk-BMI Group VIDEO LABEL","action":"Play"}"
                       data-testid="youtube-dialog-wrapper"
+                      style="position: relative;"
                     >
                       <button
-                        aria-label="BMI Group VIDEO LABEL"
+                        aria-label="MC: media.video"
                         class="YoutubeVideo-thumbnail"
                         data-testid="thumbnail"
                         type="button"
@@ -7810,10 +7819,11 @@ exports[`Contact us page render Sections correctly 1`] = `
                             />
                           </svg>
                           <p
+                            aria-label="MC: media.video"
                             class="MuiTypography-root MuiTypography-body1 css-1rzqf9i-MuiTypography-root"
                             data-testid="typography"
                           >
-                            media.video
+                            MC: media.video
                           </p>
                         </div>
                       </button>
@@ -11442,8 +11452,9 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
     data-testid="brand-colors-provider"
   >
     <div
-      class="Hero-lvl1 css-17es170"
+      class="Hero-lvl1 css-1sopae"
       data-testid="hero"
+      style="position: relative;"
     >
       <div
         class=" css-ze8cyt"
@@ -12273,12 +12284,13 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
                     type="button"
                   >
                     <div
-                      class="OverviewCard-headerPicture css-baoeyh-Media"
+                      class="OverviewCard-headerPicture css-94zf8x-Media"
                       data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=TDNEwZbm_Nk-BMI Group VIDEO LABEL","action":"Play"}"
                       data-testid="youtube-dialog-wrapper"
+                      style="position: relative;"
                     >
                       <button
-                        aria-label="BMI Group VIDEO LABEL"
+                        aria-label="MC: media.video"
                         class="YoutubeVideo-thumbnail"
                         data-testid="thumbnail"
                         type="button"
@@ -12309,10 +12321,11 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
                             />
                           </svg>
                           <p
+                            aria-label="MC: media.video"
                             class="MuiTypography-root MuiTypography-body1 css-1rzqf9i-MuiTypography-root"
                             data-testid="typography"
                           >
-                            media.video
+                            MC: media.video
                           </p>
                         </div>
                       </button>
@@ -15941,8 +15954,9 @@ exports[`Contact us page render iframe correctly 1`] = `
     data-testid="brand-colors-provider"
   >
     <div
-      class="Hero-lvl1 css-17es170"
+      class="Hero-lvl1 css-1sopae"
       data-testid="hero"
+      style="position: relative;"
     >
       <div
         class=" css-ze8cyt"
@@ -16111,12 +16125,13 @@ exports[`Contact us page render iframe correctly 1`] = `
         </div>
       </div>
       <div
-        class="Hero-image css-baoeyh-Media"
+        class="Hero-image css-94zf8x-Media"
         data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
         data-testid="hero-image"
+        style="position: relative;"
       >
         <button
-          aria-label="label"
+          aria-label="MC: media.video"
           class="YoutubeVideo-thumbnail"
           data-testid="thumbnail"
           type="button"
@@ -16147,10 +16162,11 @@ exports[`Contact us page render iframe correctly 1`] = `
               />
             </svg>
             <p
+              aria-label="MC: media.video"
               class="MuiTypography-root MuiTypography-body1 css-1rzqf9i-MuiTypography-root"
               data-testid="typography"
             >
-              media.video
+              MC: media.video
             </p>
           </div>
         </button>
@@ -16769,12 +16785,13 @@ exports[`Contact us page render iframe correctly 1`] = `
                     type="button"
                   >
                     <div
-                      class="OverviewCard-headerPicture css-baoeyh-Media"
+                      class="OverviewCard-headerPicture css-94zf8x-Media"
                       data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=TDNEwZbm_Nk-BMI Group VIDEO LABEL","action":"Play"}"
                       data-testid="youtube-dialog-wrapper"
+                      style="position: relative;"
                     >
                       <button
-                        aria-label="BMI Group VIDEO LABEL"
+                        aria-label="MC: media.video"
                         class="YoutubeVideo-thumbnail"
                         data-testid="thumbnail"
                         type="button"
@@ -16805,10 +16822,11 @@ exports[`Contact us page render iframe correctly 1`] = `
                             />
                           </svg>
                           <p
+                            aria-label="MC: media.video"
                             class="MuiTypography-root MuiTypography-body1 css-1rzqf9i-MuiTypography-root"
                             data-testid="typography"
                           >
-                            media.video
+                            MC: media.video
                           </p>
                         </div>
                       </button>
@@ -20437,8 +20455,9 @@ exports[`Contact us page render location correctly 1`] = `
     data-testid="brand-colors-provider"
   >
     <div
-      class="Hero-lvl1 css-17es170"
+      class="Hero-lvl1 css-1sopae"
       data-testid="hero"
+      style="position: relative;"
     >
       <div
         class=" css-ze8cyt"
@@ -20607,12 +20626,13 @@ exports[`Contact us page render location correctly 1`] = `
         </div>
       </div>
       <div
-        class="Hero-image css-baoeyh-Media"
+        class="Hero-image css-94zf8x-Media"
         data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
         data-testid="hero-image"
+        style="position: relative;"
       >
         <button
-          aria-label="label"
+          aria-label="MC: media.video"
           class="YoutubeVideo-thumbnail"
           data-testid="thumbnail"
           type="button"
@@ -20643,10 +20663,11 @@ exports[`Contact us page render location correctly 1`] = `
               />
             </svg>
             <p
+              aria-label="MC: media.video"
               class="MuiTypography-root MuiTypography-body1 css-1rzqf9i-MuiTypography-root"
               data-testid="typography"
             >
-              media.video
+              MC: media.video
             </p>
           </div>
         </button>
@@ -21265,12 +21286,13 @@ exports[`Contact us page render location correctly 1`] = `
                     type="button"
                   >
                     <div
-                      class="OverviewCard-headerPicture css-baoeyh-Media"
+                      class="OverviewCard-headerPicture css-94zf8x-Media"
                       data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=TDNEwZbm_Nk-BMI Group VIDEO LABEL","action":"Play"}"
                       data-testid="youtube-dialog-wrapper"
+                      style="position: relative;"
                     >
                       <button
-                        aria-label="BMI Group VIDEO LABEL"
+                        aria-label="MC: media.video"
                         class="YoutubeVideo-thumbnail"
                         data-testid="thumbnail"
                         type="button"
@@ -21301,10 +21323,11 @@ exports[`Contact us page render location correctly 1`] = `
                             />
                           </svg>
                           <p
+                            aria-label="MC: media.video"
                             class="MuiTypography-root MuiTypography-body1 css-1rzqf9i-MuiTypography-root"
                             data-testid="typography"
                           >
-                            media.video
+                            MC: media.video
                           </p>
                         </div>
                       </button>
@@ -24933,8 +24956,9 @@ exports[`Contact us page renders correctly 1`] = `
     data-testid="brand-colors-provider"
   >
     <div
-      class="Hero-lvl1 css-17es170"
+      class="Hero-lvl1 css-1sopae"
       data-testid="hero"
+      style="position: relative;"
     >
       <div
         class=" css-ze8cyt"
@@ -25103,12 +25127,13 @@ exports[`Contact us page renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="Hero-image css-baoeyh-Media"
+        class="Hero-image css-94zf8x-Media"
         data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
         data-testid="hero-image"
+        style="position: relative;"
       >
         <button
-          aria-label="label"
+          aria-label="MC: media.video"
           class="YoutubeVideo-thumbnail"
           data-testid="thumbnail"
           type="button"
@@ -25139,10 +25164,11 @@ exports[`Contact us page renders correctly 1`] = `
               />
             </svg>
             <p
+              aria-label="MC: media.video"
               class="MuiTypography-root MuiTypography-body1 css-1rzqf9i-MuiTypography-root"
               data-testid="typography"
             >
-              media.video
+              MC: media.video
             </p>
           </div>
         </button>
@@ -25761,12 +25787,13 @@ exports[`Contact us page renders correctly 1`] = `
                     type="button"
                   >
                     <div
-                      class="OverviewCard-headerPicture css-baoeyh-Media"
+                      class="OverviewCard-headerPicture css-94zf8x-Media"
                       data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=TDNEwZbm_Nk-BMI Group VIDEO LABEL","action":"Play"}"
                       data-testid="youtube-dialog-wrapper"
+                      style="position: relative;"
                     >
                       <button
-                        aria-label="BMI Group VIDEO LABEL"
+                        aria-label="MC: media.video"
                         class="YoutubeVideo-thumbnail"
                         data-testid="thumbnail"
                         type="button"
@@ -25797,10 +25824,11 @@ exports[`Contact us page renders correctly 1`] = `
                             />
                           </svg>
                           <p
+                            aria-label="MC: media.video"
                             class="MuiTypography-root MuiTypography-body1 css-1rzqf9i-MuiTypography-root"
                             data-testid="typography"
                           >
-                            media.video
+                            MC: media.video
                           </p>
                         </div>
                       </button>

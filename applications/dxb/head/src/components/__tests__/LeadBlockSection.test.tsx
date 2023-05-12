@@ -3,6 +3,7 @@ import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import { ContentfulRichTextGatsbyReference } from "gatsby-source-contentful/rich-text";
 import React from "react";
+import { BLOCKS } from "@contentful/rich-text-types";
 import LeadBlockSection, {
   Data as LeadBlockSectionProps
 } from "../LeadBlockSection";
@@ -42,7 +43,7 @@ const leadBlockSectionData: LeadBlockSectionProps = {
       } as ContentfulRichTextGatsbyReference
     ],
     raw: JSON.stringify({
-      nodeType: "paragraph",
+      nodeType: BLOCKS.PARAGRAPH,
       content: [
         {
           data: {

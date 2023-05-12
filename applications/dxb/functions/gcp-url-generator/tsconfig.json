@@ -1,6 +1,17 @@
 {
-  "extends": "../../../../tsconfig.json",
+  "extends": "../../../../tsconfig.common.json",
   "compilerOptions": {
     "outDir": "dist"
-  }
+  },
+  "references": [
+    {
+      "path": "../../libraries/utils"
+    },
+    {
+      "path": "../../libraries/pim-types"
+    },
+    {
+      "path": "../../libraries/pub-sub-types"
+    }
+  ]
 }

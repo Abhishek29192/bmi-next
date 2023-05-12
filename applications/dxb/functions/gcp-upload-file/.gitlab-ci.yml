@@ -1,14 +1,26 @@
-test_gcp-upload-file:
-  extends: .test_function
+lint_gcp-upload-file:
+  extends: .lint_yarn_workspace
+  rules:
+    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [ .run_for_changes_on_mr, rules ]
   variables:
+    ROOT_DIR: "applications/dxb/functions/gcp-upload-file"
     WORKSPACE: "@bmi/gcp-upload-file"
-    ROOT_DIR: "applications/functions/gcp-upload-file"
 
 build_gcp-upload-file:
   extends: .build_function
   variables:
     WORKSPACE: "@bmi/gcp-upload-file"
     ROOT_DIR: "applications/dxb/functions/gcp-upload-file"
+
+test_gcp-upload-file:
+  extends: .test_function
+  variables:
+    WORKSPACE: "@bmi/gcp-upload-file"
+    ROOT_DIR: "applications/functions/gcp-upload-file"
+  needs:
+    - build_gcp-upload-file
 
 package_gcp-upload-file:
   extends: .package_function

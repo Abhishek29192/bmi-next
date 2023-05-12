@@ -35,7 +35,7 @@ import { isRichText } from "../utils/isRichText";
 import { getPathWithCountryCode } from "../utils/path";
 import ControlledCheckboxGroup from "./CheckboxGroup";
 import HiddenInput from "./HiddenInput";
-import { isExternalUrl, Data as LinkData } from "./Link";
+import { Data as LinkData, isExternalUrl } from "./Link";
 import ProgressIndicator from "./ProgressIndicator";
 import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
 import RichText, { RichTextData } from "./RichText";
@@ -137,7 +137,6 @@ const Input = ({
   const { executeRecaptcha } = useGoogleReCaptcha();
   const qaAuthToken = getCookie(QA_AUTH_TOKEN);
 
-  const mapBody = (file: File): Record<string, unknown> => ({ ...file });
   const mapValue = ({ name, type }, upload) => ({
     fileName: name,
     contentType: type,
@@ -200,7 +199,6 @@ const Input = ({
                 )}: ${getFileSizeString(maxSize * 1048576)}`
               : "")
           }
-          mapBody={mapBody}
           mapValue={mapValue}
           onUploadRequest={async () => {
             const token = qaAuthToken ? undefined : await executeRecaptcha?.();

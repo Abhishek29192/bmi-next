@@ -1,5 +1,0 @@
-# Redirect root to /sk
-[[redirects]]
-from = "/"
-to = "/sk"
-status = 301

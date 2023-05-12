@@ -347,7 +347,10 @@ export const microCopy = {
 
   FIND_A_ROOFER_FILTERS_FLAT_ROOF: "findARoofer.filters.flatRoof",
   UPLOAD_SUPPORTED_FORMATS: "upload.supportedFormats",
-  SEARCH_PLACEHOLDER: "search.placeholder"
+  SEARCH_PLACEHOLDER: "search.placeholder",
+
+  MEDIA_VIDEO: "media.video",
+  MEDIA_3D: "media.3d"
 } as const;
 
 export type MicroCopyObj = typeof microCopy;

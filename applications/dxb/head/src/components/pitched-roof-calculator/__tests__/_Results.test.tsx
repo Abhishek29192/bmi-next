@@ -4,8 +4,9 @@ import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import fetchMockJest from "fetch-mock-jest";
 import React, { useEffect, useRef } from "react";
 import { renderToString } from "react-dom/server";
+import { BLOCKS } from "@contentful/rich-text-types";
 import { useIsMobileDevice } from "../../../utils/useIsMobileDevice";
-import Results, { ResultProps, replaceImageURLWithImage } from "../_Results";
+import Results, { replaceImageURLWithImage, ResultProps } from "../_Results";
 import { MicroCopy } from "../helpers/microCopy";
 import { createProduct } from "../helpers/products";
 import { Props } from "../subcomponents/quantity-table/QuantityTable";
@@ -206,7 +207,7 @@ const resultsProps: ResultProps = {
     name: "",
     content: {
       raw: JSON.stringify({
-        nodeType: "document",
+        nodeType: BLOCKS.DOCUMENT,
         data: {},
         content: []
       }),

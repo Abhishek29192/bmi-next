@@ -178,8 +178,10 @@ const SystemConfiguratorQuestion = ({
           throw new Error(response.statusText);
         }
 
-        const data: QuestionData | ResultData | TitleWithContentData =
-          await response.json();
+        const data = (await response.json()) as
+          | QuestionData
+          | ResultData
+          | TitleWithContentData;
 
         if (data.__typename === "ContentfulTitleWithContent") {
           setNextStep({ nextNoResult: data });

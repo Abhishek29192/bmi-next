@@ -1,14 +1,26 @@
-test_gcp-contentful-documents-ingest:
-  extends: .test_function
+lint_gcp-contentful-documents-ingest:
+  extends: .lint_yarn_workspace
+  rules:
+    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [ .run_for_changes_on_mr, rules ]
   variables:
-    WORKSPACE: "@bmi/gcp-contentful-documents-ingest"
     ROOT_DIR: "applications/dxb/functions/gcp-contentful-documents-ingest"
+    WORKSPACE: "@bmi/gcp-contentful-documents-ingest"
 
 build_gcp-contentful-documents-ingest:
   extends: .build_function
   variables:
     WORKSPACE: "@bmi/gcp-contentful-documents-ingest"
     ROOT_DIR: "applications/dxb/functions/gcp-contentful-documents-ingest"
+
+test_gcp-contentful-documents-ingest:
+  extends: .test_function
+  variables:
+    WORKSPACE: "@bmi/gcp-contentful-documents-ingest"
+    ROOT_DIR: "applications/dxb/functions/gcp-contentful-documents-ingest"
+  needs:
+    - build_gcp-contentful-documents-ingest
 
 package_gcp-contentful-documents-ingest:
   extends: .package_function

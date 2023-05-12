@@ -1,8 +1,10 @@
 import { Layout, YoutubeVideo } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React, { useMemo } from "react";
+import { microCopy } from "../constants/microCopies";
 import { useGTM } from "../utils/google-tag-manager";
 import Image, { Data as ContentfulImageData } from "./Image";
+import { useSiteContext } from "./Site";
 
 export type Data = {
   title: string;
@@ -30,6 +32,8 @@ const Video = ({
   layout,
   ...props
 }: Data) => {
+  const { getMicroCopy } = useSiteContext();
+
   const gtm = useMemo(
     () => ({
       id: "cta-click--video-youtube",
@@ -43,6 +47,7 @@ const Video = ({
 
   return (
     <YoutubeVideo
+      buttonLabel={getMicroCopy(microCopy.MEDIA_VIDEO)}
       label={label}
       subtitle={subtitle}
       videoUrl={videoUrl}

@@ -1,9 +1,9 @@
 import { config } from "dotenv";
 import { google } from "googleapis";
-import fetchRetry from "../../../../libraries/fetch-retry/src/index";
-import { getYoutubeId } from "../../../../libraries/utils/src/youtube";
-import { Node } from "./types/Gatsby";
+import fetchRetry from "@bmi/fetch-retry";
+import { getYoutubeId } from "@bmi/utils";
 import { getDefaultYoutubePreviewImage } from "./utils/getDefaultYoutubePreviewImage";
+import type { Node } from "./types/Gatsby";
 
 config({
   path: `./.env.${process.env.NODE_ENV}`
@@ -66,7 +66,10 @@ const getYoutubeDetailsFromCache = async (youtubeId: string) => {
     }
   );
 
-  const data = await response.json();
+  const data = (await response.json()) as {
+    embedWidth: number;
+    embedHeight: number;
+  };
   return { width: data.embedWidth, height: data.embedHeight };
 };
 

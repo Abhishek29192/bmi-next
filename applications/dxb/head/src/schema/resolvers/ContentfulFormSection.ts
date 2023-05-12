@@ -1,9 +1,6 @@
 import { config } from "dotenv";
-import {
-  generateDigestFromData,
-  generateHashFromString
-} from "../../../../libraries/utils/src/encryption";
-import {
+import { generateDigestFromData, generateHashFromString } from "@bmi/utils";
+import type {
   Context,
   LegalConsent,
   MetaData,

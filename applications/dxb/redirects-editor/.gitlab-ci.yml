@@ -1,8 +1,36 @@
+lint_redirects-editor:
+  extends: .lint_yarn_workspace
+  rules:
+    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [ .run_for_changes_on_mr, rules ]
+  variables:
+    ROOT_DIR: "applications/dxb/redirects-editor"
+    WORKSPACE: "@bmi/redirects-editor"
+
 build_redirects-editor:
   extends: .build_yarn_workspace
   rules:
-    - !reference [ .ingore_release_mrs, rules ]
+    - !reference [  .ignore_release_mrs, rules ]
     - !reference [ .run_for_changes_on_mr, rules ]
   variables:
     WORKSPACE: "@bmi/redirects-editor"
     ROOT_DIR: "applications/dxb/redirects-editor"
+
+test_redirects-editor:
+  extends: .test_yarn_workspace
+  rules:
+    - !reference [  .ignore_release_mrs, rules ]
+    - if: !reference [ .run_for_changes_on_main, rules, if ]
+      changes:
+        - $ROOT_DIR/**/*
+        - yarn.lock
+    - if: !reference [ .run_for_changes_on_mr, rules, if ]
+      changes:
+        - $ROOT_DIR/**/*
+        - yarn.lock
+  variables:
+    WORKSPACE: "@bmi/redirects-editor"
+    ROOT_DIR: "applications/dxb/redirects-editor"
+  needs:
+    - build_redirects-editor

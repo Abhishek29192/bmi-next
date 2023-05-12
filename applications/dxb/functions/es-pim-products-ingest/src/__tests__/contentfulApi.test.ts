@@ -1,5 +1,4 @@
 import {
-  createEntry,
   createFullyPopulatedAssetType,
   createFullyPopulatedResources,
   createResponse
@@ -63,13 +62,20 @@ describe("getAssetTypes", () => {
     const locale = "en-US";
     const assetType = createFullyPopulatedAssetType();
     getEntries.mockResolvedValueOnce(
-      createResponse({ items: [createEntry({ fields: assetType })], total: 1 })
+      createResponse({
+        items: [assetType],
+        total: 1
+      })
     );
 
     const assetTypes = await getAssetTypes(locale);
 
     expect(assetTypes).toEqual([
-      { code: assetType.code, name: assetType.name, pimCode: assetType.pimCode }
+      {
+        code: assetType.fields.code,
+        name: assetType.fields.name,
+        pimCode: assetType.fields.pimCode
+      }
     ]);
     expect(getContentfulClient).toBeCalled();
     expect(getEntries).toBeCalledWith({
@@ -85,7 +91,7 @@ describe("getAssetTypes", () => {
     const assetType = createFullyPopulatedAssetType();
     getEntries.mockResolvedValue(
       createResponse({
-        items: [createEntry({ fields: assetType })],
+        items: [assetType],
         total: 10,
         limit: 1
       })
@@ -95,9 +101,9 @@ describe("getAssetTypes", () => {
 
     expect(assetTypes).toEqual([
       {
-        code: assetType.code,
-        name: assetType.name,
-        pimCode: assetType.pimCode
+        code: assetType.fields.code,
+        name: assetType.fields.name,
+        pimCode: assetType.fields.pimCode
       }
     ]);
     expect(getContentfulClient).toBeCalled();
@@ -119,17 +125,16 @@ describe("getAssetTypes", () => {
   it("should ignore asset types without a PIM code", async () => {
     const locale = "en-US";
     const excludeAssetType = createFullyPopulatedAssetType({
-      pimCode: undefined
+      fields: {
+        pimCode: undefined
+      }
     });
     const includeAssetType = createFullyPopulatedAssetType({
-      pimCode: "pimCode"
+      fields: { pimCode: "pimCode" }
     });
     getEntries.mockResolvedValueOnce(
       createResponse({
-        items: [
-          createEntry({ fields: excludeAssetType }),
-          createEntry({ fields: includeAssetType })
-        ],
+        items: [excludeAssetType, includeAssetType],
         total: 2
       })
     );
@@ -138,9 +143,9 @@ describe("getAssetTypes", () => {
 
     expect(assetTypes).toEqual([
       {
-        code: includeAssetType.code,
-        name: includeAssetType.name,
-        pimCode: includeAssetType.pimCode
+        code: includeAssetType.fields.code,
+        name: includeAssetType.fields.name,
+        pimCode: includeAssetType.fields.pimCode
       }
     ]);
     expect(getContentfulClient).toBeCalled();
@@ -157,16 +162,16 @@ describe("getAssetTypes", () => {
     const tag = "contentful-tag";
     const assetType = createFullyPopulatedAssetType();
     getEntries.mockResolvedValueOnce(
-      createResponse({ items: [createEntry({ fields: assetType })], total: 1 })
+      createResponse({ items: [assetType], total: 1 })
     );
 
     const assetTypes = await getAssetTypes(locale, tag);
 
     expect(assetTypes).toEqual([
       {
-        code: assetType.code,
-        name: assetType.name,
-        pimCode: assetType.pimCode
+        code: assetType.fields.code,
+        name: assetType.fields.name,
+        pimCode: assetType.fields.pimCode
       }
     ]);
     expect(getContentfulClient).toBeCalled();
@@ -239,15 +244,13 @@ describe("getProductDocumentNameMap", () => {
   it("should return productDocumentNameMap value from resource", async () => {
     const locale = "en-US";
     const resource = createFullyPopulatedResources({
-      productDocumentNameMap: "Product name + asset type"
+      fields: { productDocumentNameMap: "Product name + asset type" }
     });
-    getEntries.mockResolvedValueOnce(
-      createResponse({ items: [createEntry({ fields: resource })] })
-    );
+    getEntries.mockResolvedValueOnce(createResponse({ items: [resource] }));
 
     const productDocumentMap = await getProductDocumentNameMap(locale);
 
-    expect(productDocumentMap).toEqual(resource.productDocumentNameMap);
+    expect(productDocumentMap).toEqual(resource.fields.productDocumentNameMap);
     expect(getContentfulClient).toBeCalled();
     expect(getEntries).toBeCalledWith({
       content_type: "resources",
@@ -259,11 +262,9 @@ describe("getProductDocumentNameMap", () => {
   it("should return 'Document name' if resource is missing productDocumentNameMap", async () => {
     const locale = "en-US";
     const resource = createFullyPopulatedResources({
-      productDocumentNameMap: undefined
+      fields: { productDocumentNameMap: undefined }
     });
-    getEntries.mockResolvedValueOnce(
-      createResponse({ items: [createEntry({ fields: resource })] })
-    );
+    getEntries.mockResolvedValueOnce(createResponse({ items: [resource] }));
 
     const productDocumentMap = await getProductDocumentNameMap(locale);
 
@@ -280,13 +281,11 @@ describe("getProductDocumentNameMap", () => {
     const locale = "en-US";
     const tag = "contentful-tag";
     const resource = createFullyPopulatedResources();
-    getEntries.mockResolvedValueOnce(
-      createResponse({ items: [createEntry({ fields: resource })] })
-    );
+    getEntries.mockResolvedValueOnce(createResponse({ items: [resource] }));
 
     const productDocumentMap = await getProductDocumentNameMap(locale, tag);
 
-    expect(productDocumentMap).toEqual(resource.productDocumentNameMap);
+    expect(productDocumentMap).toEqual(resource.fields.productDocumentNameMap);
     expect(getContentfulClient).toBeCalled();
     expect(getEntries).toBeCalledWith({
       content_type: "resources",

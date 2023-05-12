@@ -1,4 +1,4 @@
-import { Context, Node, ResolveArgs } from "./types/Gatsby";
+import type { Context, Node, ResolveArgs } from "./types/Gatsby";
 
 const getFocalPoint = (size: number, position: number) =>
   parseFloat(((100 * position) / size).toFixed(0));

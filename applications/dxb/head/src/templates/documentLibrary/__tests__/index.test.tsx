@@ -11,6 +11,7 @@ import {
   createContentfulDocument,
   createPimProductDocument
 } from "@bmi/elasticsearch-types";
+import { BLOCKS } from "@contentful/rich-text-types";
 import DocumentLibraryPage, { PAGE_SIZE } from "../";
 import * as documentResultsFooter from "../../../components/DocumentResultsFooter";
 import { ConfigProvider, Config } from "../../../contexts/ConfigProvider";
@@ -105,11 +106,11 @@ describe("Document Library page", () => {
   it("renders description correctly", () => {
     const paragraphText = "this is a test paragraph";
     const raw = {
-      nodeType: "document",
+      nodeType: BLOCKS.DOCUMENT,
       data: {},
       content: [
         {
-          nodeType: "paragraph",
+          nodeType: BLOCKS.PARAGRAPH,
           content: [
             {
               nodeType: "text",

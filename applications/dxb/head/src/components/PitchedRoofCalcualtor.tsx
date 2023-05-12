@@ -1,4 +1,3 @@
-import logger from "@bmi-digital/functions-logger";
 import fetch from "node-fetch";
 import React, {
   createContext,
@@ -83,11 +82,11 @@ const CalculatorProvider = ({ children, onError, calculatorConfig }: Props) => {
           throw new Error(response.statusText);
         }
 
-        const data = await response.json();
+        const data = (await response.json()) as Data;
 
         setData(data);
       } catch (error) {
-        logger.error({ message: error.message });
+        devLog({ message: error.message });
         onError();
       }
     };

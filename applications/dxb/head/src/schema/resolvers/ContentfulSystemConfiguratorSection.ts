@@ -1,4 +1,4 @@
-import { Context, Node, ResolveArgs } from "./types/Gatsby";
+import type { Context, Node, ResolveArgs } from "./types/Gatsby";
 
 const getTitleWithContentNodes = async (
   node: Node,

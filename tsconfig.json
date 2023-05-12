@@ -1,11 +1,153 @@
 {
-  "extends": "@bmi-digital/tsconfig/tsconfig.json",
-  "compilerOptions": {
-    "module": "CommonJS",
-    "baseUrl": ".",
-    "paths": {
-      "@bmi/*": ["./node_modules/@bmi/*/src"]
+  "extends": "./tsconfig.common.json",
+  "files": [],
+  "references": [
+    {
+      "path": "applications/frc-website"
     },
-    "typeRoots": ["node_modules/@types", "@types"]
-  }
+    {
+      "path": "applications/dxb/contentful-migrate"
+    },
+    {
+      "path": "applications/dxb/csp-creator"
+    },
+    {
+      "path": "applications/dxb/head"
+    },
+    {
+      "path": "applications/dxb/redirects-checker"
+    },
+    {
+      "path": "applications/dxb/redirects-editor"
+    },
+    {
+      "path": "applications/dxb/webtools-contentful-migrate"
+    },
+    {
+      "path": "applications/dxb/functions/contentful-default-values"
+    },
+    {
+      "path": "applications/dxb/functions/contentful-tagger"
+    },
+    {
+      "path": "applications/dxb/functions/es-pim-products-ingest"
+    },
+    {
+      "path": "applications/dxb/functions/gatsby-cloud-build-proxy"
+    },
+    {
+      "path": "applications/dxb/functions/gcp-apsis-integration"
+    },
+    {
+      "path": "applications/dxb/functions/gcp-build-status-logger"
+    },
+    {
+      "path": "applications/dxb/functions/gcp-build-trigger"
+    },
+    {
+      "path": "applications/dxb/functions/gcp-contentful-documents-ingest"
+    },
+    {
+      "path": "applications/dxb/functions/gcp-download-zip"
+    },
+    {
+      "path": "applications/dxb/functions/gcp-es-proxy"
+    },
+    {
+      "path": "applications/dxb/functions/gcp-firestore-writer"
+    },
+    {
+      "path": "applications/dxb/functions/gcp-form-submit"
+    },
+    {
+      "path": "applications/dxb/functions/gcp-functions-deployer"
+    },
+    {
+      "path": "applications/dxb/functions/gcp-pim-full-fetch"
+    },
+    {
+      "path": "applications/dxb/functions/gcp-pim-full-fetch-coordinator"
+    },
+    {
+      "path": "applications/dxb/functions/gcp-pim-message-handler"
+    },
+    {
+      "path": "applications/dxb/functions/gcp-system-configurator"
+    },
+    {
+      "path": "applications/dxb/functions/gcp-update-webtools-bucket"
+    },
+    {
+      "path": "applications/dxb/functions/gcp-upload-file"
+    },
+    {
+      "path": "applications/dxb/functions/gcp-url-generator"
+    },
+    {
+      "path": "applications/dxb/functions/gcp-youtube-cache"
+    },
+    {
+      "path": "applications/dxb/libraries/cms-consolidation-utility"
+    },
+    {
+      "path": "applications/dxb/libraries/contentful-default-values-cli"
+    },
+    {
+      "path": "applications/dxb/libraries/contentful-tag-cli"
+    },
+    {
+      "path": "applications/dxb/libraries/contentful-types"
+    },
+    {
+      "path": "applications/dxb/libraries/contentful-upload"
+    },
+    {
+      "path": "applications/dxb/libraries/elasticsearch-types"
+    },
+    {
+      "path": "applications/dxb/libraries/fetch-retry"
+    },
+    {
+      "path": "applications/dxb/libraries/firestore-types"
+    },
+    {
+      "path": "applications/dxb/libraries/functions-contentful-client"
+    },
+    {
+      "path": "applications/dxb/libraries/functions-es-client"
+    },
+    {
+      "path": "applications/dxb/libraries/functions-firestore"
+    },
+    {
+      "path": "applications/dxb/libraries/functions-recaptcha"
+    },
+    {
+      "path": "applications/dxb/libraries/gatsby-plugin-elasticsearch"
+    },
+    {
+      "path": "applications/dxb/libraries/gatsby-plugin-leadoo"
+    },
+    {
+      "path": "applications/dxb/libraries/gatsby-plugin-meta-redirect"
+    },
+    {
+      "path": "applications/dxb/libraries/gatsby-source-firestore"
+    },
+    {
+      "path": "applications/dxb/libraries/pim-api"
+    },
+    {
+      "path": "applications/dxb/libraries/pim-types"
+    },
+    {
+      "path": "applications/dxb/libraries/pub-sub-types"
+    },
+    {
+      "path": "applications/dxb/libraries/utils"
+    },
+    {
+      "path": "applications/dxb/scripts/contentful-roles"
+    }
+  ]
 }

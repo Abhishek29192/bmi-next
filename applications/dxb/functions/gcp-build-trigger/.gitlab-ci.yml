@@ -1,14 +1,26 @@
-test_gcp-build-trigger:
-  extends: .test_function
+lint_gcp-build-trigger:
+  extends: .lint_yarn_workspace
+  rules:
+    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [ .run_for_changes_on_mr, rules ]
   variables:
-    WORKSPACE: "@bmi/gcp-build-trigger"
     ROOT_DIR: "applications/dxb/functions/gcp-build-trigger"
+    WORKSPACE: "@bmi/gcp-build-trigger"
 
 build_gcp-build-trigger:
   extends: .build_function
   variables:
     WORKSPACE: "@bmi/gcp-build-trigger"
     ROOT_DIR: "applications/dxb/functions/gcp-build-trigger"
+
+test_gcp-build-trigger:
+  extends: .test_function
+  variables:
+    WORKSPACE: "@bmi/gcp-build-trigger"
+    ROOT_DIR: "applications/dxb/functions/gcp-build-trigger"
+  needs:
+    - build_gcp-build-trigger
 
 package_gcp-build-trigger:
   extends: .package_function

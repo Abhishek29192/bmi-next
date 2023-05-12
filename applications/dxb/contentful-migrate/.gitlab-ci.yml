@@ -1,5 +1,9 @@
-test_contentful_migrate:
-  extends: .test_yarn_workspace
+lint_contentful_migrate:
+  extends: .lint_yarn_workspace
+  rules:
+    - !reference [  .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [ .run_for_changes_on_mr, rules ]
   variables:
     ROOT_DIR: "applications/dxb/contentful-migrate"
     WORKSPACE: "@bmi/dxb-contentful-migrate"
@@ -7,8 +11,8 @@ test_contentful_migrate:
 build_contentful_migrate:
   extends: .build_yarn_workspace
   rules:
-    - !reference [.run_for_changes_on_main, rules]
-    - !reference [.run_for_changes_on_mr, rules]
+    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [ .run_for_changes_on_mr, rules ]
     - if: "$CI_COMMIT_TAG"
   variables:
     ROOT_DIR: "applications/dxb/contentful-migrate"
@@ -18,6 +22,18 @@ build_contentful_migrate:
     paths:
       - applications/dxb/contentful-migrate/dist
       - applications/dxb/libraries/utils/dist
+
+test_contentful_migrate:
+  extends: .test_yarn_workspace
+  rules:
+    - !reference [  .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [ .run_for_changes_on_mr, rules ]
+  variables:
+    ROOT_DIR: "applications/dxb/contentful-migrate"
+    WORKSPACE: "@bmi/dxb-contentful-migrate"
+  needs:
+    - build_contentful_migrate
 
 ###############################################################################
 # Templates used by each market to run content migrations and trigger a build
@@ -31,7 +47,7 @@ build_contentful_migrate:
 .migrate_content:
   stage: pre deploy
   rules:
-    - !reference [.run_for_changes_on_main, rules]
+    - !reference [ .run_for_changes_on_main, rules ]
     - if: "$CI_COMMIT_TAG"
   needs:
     - job: install_yarn
@@ -74,12 +90,12 @@ build_contentful_migrate:
 .deploy_gatsby_cloud:
   stage: deploy
   rules:
-    - !reference [.run_for_changes_on_main, rules]
+    - !reference [ .run_for_changes_on_main, rules ]
     - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "" # Market/space ID (as specified in GitLab CI Vars) - i.e. NO/FR/GROUP/space_2
     ROOT_DIR: "applications/dxb/contentful-migrate"
-  cache: {}
+  cache: { }
   script:
     - |
       apt-get update
@@ -112,11 +128,11 @@ build_contentful_migrate:
     - job: install_yarn
       optional: true
   rules:
-    - if: !reference [.run_for_preprod_release, rules, if]
+    - if: !reference [ .run_for_preprod_release, rules, if ]
       variables:
         CONTENTFUL_ENVIRONMENT: pre-production
         DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_PREPROD
-    - if: !reference [.run_for_prod_release, rules, if]
+    - if: !reference [ .run_for_prod_release, rules, if ]
       variables:
         CONTENTFUL_ENVIRONMENT: master
         DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_PROD
@@ -134,7 +150,7 @@ build_contentful_migrate:
 migrate_content_qa:
   extends: .migrate_content
   rules:
-    - !reference [.run_for_changes_on_main, rules]
+    - !reference [ .run_for_changes_on_main, rules ]
   variables:
     CONTENTFUL_ENVIRONMENT: staging
     DXB_MARKET_ID: "NO"
@@ -143,7 +159,7 @@ migrate_content_qa:
 deploy_gatsby_cloud_qa:
   extends: .deploy_gatsby_cloud
   rules:
-    - !reference [.run_for_changes_on_main, rules]
+    - !reference [ .run_for_changes_on_main, rules ]
   needs:
     - migrate_content_qa
   variables:
@@ -154,7 +170,7 @@ deploy_gatsby_cloud_qa:
 migrate_content_one_page_qa:
   extends: .migrate_content
   rules:
-    - !reference [.run_for_changes_on_main, rules]
+    - !reference [ .run_for_changes_on_main, rules ]
   variables:
     CONTENTFUL_ENVIRONMENT: one-page-qa
     DXB_MARKET_ID: "NO"
@@ -163,7 +179,7 @@ migrate_content_one_page_qa:
 deploy_gatsby_cloud_one_page_qa:
   extends: .deploy_gatsby_cloud
   rules:
-    - !reference [.run_for_changes_on_main, rules]
+    - !reference [ .run_for_changes_on_main, rules ]
   needs:
     - migrate_content_one_page_qa
   variables:
@@ -817,7 +833,7 @@ deploy_gatsby_cloud_blueprint:
 update_mc_poc:
   extends: .update_mc
   rules:
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - if: !reference [ .run_for_changes_on_main, rules, if ]
       changes:
         - applications/dxb/contentful-migrate/src/**/*
         - applications/dxb/head/src/constants/microCopies.ts
@@ -831,7 +847,7 @@ update_mc_poc:
 update_mc_qa:
   extends: .update_mc
   rules:
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - if: !reference [ .run_for_changes_on_main, rules, if ]
       changes:
         - applications/dxb/contentful-migrate/src/**/*
         - applications/dxb/head/src/constants/microCopies.ts
@@ -974,7 +990,7 @@ update_mc_group:
 update_mc_sandpit:
   extends: .update_mc
   rules:
-    - if: !reference [.run_for_prod_release, rules, if]
+    - if: !reference [ .run_for_prod_release, rules, if ]
   variables:
     DXB_MARKET_ID: "SANDPIT"
     CONTENTFUL_ENVIRONMENT: master
@@ -983,7 +999,7 @@ update_mc_sandpit:
 update_mc_blueprint:
   extends: .update_mc
   rules:
-    - if: !reference [.run_for_prod_release, rules, if]
+    - if: !reference [ .run_for_prod_release, rules, if ]
   variables:
     DXB_MARKET_ID: "BLUEPRINT"
     CONTENTFUL_ENVIRONMENT: master

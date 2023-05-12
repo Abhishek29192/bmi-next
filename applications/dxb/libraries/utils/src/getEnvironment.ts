@@ -1,4 +1,5 @@
-import { createClient, Environment } from "contentful-management";
+import { createClient } from "contentful-management";
+import type { Environment } from "contentful-management";
 
 let environmentCache: Environment;
 

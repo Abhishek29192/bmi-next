@@ -24,22 +24,20 @@ include:
 .test_function:
   extends: .test_yarn_workspace
   rules:
-    - !reference [.ingore_release_mrs, rules]
+    - !reference [ .ignore_release_mrs, rules]
     - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - $ROOT_DIR/**/*
-        - jest/**/*
         - yarn.lock
     - if: !reference [.run_for_changes_on_mr, rules, if]
       changes:
         - $ROOT_DIR/**/*
-        - jest/**/*
         - yarn.lock
 
 .build_function:
   extends: .build_function_yarn_workspace
   rules:
-    - !reference [.ingore_release_mrs, rules]
+    - !reference [ .ignore_release_mrs, rules]
     - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - $ROOT_DIR/**/*

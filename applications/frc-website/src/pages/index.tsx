@@ -2,10 +2,7 @@ import { Button, Grid, Hero, Typography } from "@bmi-digital/components";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import { Link } from "gatsby";
-import {
-  parse as queryString,
-  stringify as stringifyQueryString
-} from "query-string";
+import queryString from "query-string";
 import React from "react";
 import Container from "../components/Container";
 import DescriptionCard from "../components/DescriptionCard";
@@ -18,8 +15,10 @@ const VALUES_PARAM = "v";
 
 const getLink = (page: string, values: Record<string, unknown>): string => {
   const currentQueryParams =
-    typeof window === "undefined" ? {} : queryString(window.location.search);
-  const encoded = stringifyQueryString({
+    typeof window === "undefined"
+      ? {}
+      : queryString.parse(window.location.search);
+  const encoded = queryString.stringify({
     ...currentQueryParams,
     [VALUES_PARAM]: encodeURIComponent(JSON.stringify(values)) // encode `"` to avoid Azure 403 error.
   });

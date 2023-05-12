@@ -1,8 +1,5 @@
 import { FormProps } from "@bmi-digital/components";
-import {
-  parse as queryString,
-  stringify as stringifyQueryString
-} from "query-string";
+import queryString from "query-string";
 import React, { useMemo, useState } from "react";
 import { calculateQuantities } from "./calculations/calculateQuantities";
 import { getSystem } from "./calculations/getSystem";
@@ -42,8 +39,8 @@ const VALUES_PARAM = "v";
 
 const getShareableLink = (values: FormValues): string => {
   if (typeof window === "undefined") return "";
-  const currentQueryParams = queryString(window.location.search);
-  const encoded = stringifyQueryString({
+  const currentQueryParams = queryString.parse(window.location.search);
+  const encoded = queryString.stringify({
     ...currentQueryParams,
     [VALUES_PARAM]: encodeURIComponent(JSON.stringify(values)) // encode `"` to avoid Azure 403 error.
   });
@@ -69,7 +66,7 @@ export const fieldLabels: FieldLabels = {
 function getDefaultValues(treeFieldsDisplay: FieldsDisplay) {
   let urlDefaults: any = {};
   if (typeof window !== "undefined") {
-    const params = queryString(window.location.search);
+    const params = queryString.parse(window.location.search);
 
     // eslint-disable-next-line security/detect-object-injection
     if (params[VALUES_PARAM]) {
@@ -99,7 +96,7 @@ function getInitialResult(typeTree: Tree) {
     submittedValues: FormValues | null = null;
 
   if (typeof window !== "undefined") {
-    const params = queryString(window.location.search);
+    const params = queryString.parse(window.location.search);
 
     // eslint-disable-next-line security/detect-object-injection
     if (params[VALUES_PARAM]) {

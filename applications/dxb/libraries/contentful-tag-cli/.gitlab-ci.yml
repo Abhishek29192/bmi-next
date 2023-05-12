@@ -1,26 +1,31 @@
-test_contentful-tag-cli:
-  extends: .test_yarn_workspace
+lint_contentful-tag-cli:
+  extends: .lint_yarn_workspace
   rules:
-    - !reference [.ingore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_main, rules, if]
-      changes:
-        - $ROOT_DIR/**/*
-        - jest/**/*
-        - yarn.lock
-    - if: !reference [.run_for_changes_on_mr, rules, if]
-      changes:
-        - $ROOT_DIR/**/*
-        - jest/**/*
-        - yarn.lock
+    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [ .run_for_changes_on_mr, rules ]
   variables:
-    WORKSPACE: "@bmi/contentful-tag-cli"
     ROOT_DIR: "applications/dxb/libraries/contentful-tag-cli"
+    WORKSPACE: "@bmi/contentful-tag-cli"
 
 build_contentful-tag-cli:
   extends: .build_yarn_workspace
   rules:
-    - !reference [.ingore_release_mrs, rules]
-    - !reference [.run_for_changes_on_main, rules]
+    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [ .run_for_changes_on_mr, rules ]
   variables:
     WORKSPACE: "@bmi/contentful-tag-cli"
     ROOT_DIR: "applications/dxb/libraries/contentful-tag-cli"
+
+test_contentful-tag-cli:
+  extends: .test_yarn_workspace
+  rules:
+    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [ .run_for_changes_on_mr, rules ]
+  variables:
+    WORKSPACE: "@bmi/contentful-tag-cli"
+    ROOT_DIR: "applications/dxb/libraries/contentful-tag-cli"
+  needs:
+    - build_contentful-tag-cli

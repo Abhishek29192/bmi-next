@@ -5,7 +5,6 @@ module.exports = {
   ignorePatterns: [
     "**/node_modules/**",
     "**/dist/**",
-    "@types/**",
     "coverage/**",
     "coverage-ts/**",
     "**/public/**",

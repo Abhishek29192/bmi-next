@@ -21,15 +21,18 @@ async function writeRedirectsFile(redirects, folder, pathPrefix) {
       "index.html"
     );
 
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
     const fileExists = existsSync(FILE_PATH);
     if (!fileExists) {
       try {
+        // eslint-disable-next-line security/detect-non-literal-fs-filename
         mkdirSync(path.dirname(FILE_PATH), { recursive: true });
       } catch (err) {
         // ignore if the directory already exists;
       }
 
       const data = getMetaRedirect(toPath, isPermanent);
+      // eslint-disable-next-line security/detect-non-literal-fs-filename
       writeFileSync(FILE_PATH, data);
     }
   }

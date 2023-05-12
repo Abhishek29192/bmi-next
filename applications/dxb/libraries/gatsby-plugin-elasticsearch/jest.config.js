@@ -11,6 +11,7 @@ module.exports = {
   roots: ["<rootDir>/applications/dxb/libraries/gatsby-plugin-elasticsearch"],
   collectCoverageFrom: [
     "<rootDir>/applications/dxb/libraries/gatsby-plugin-elasticsearch/**/*.{ts,tsx,js}",
+    "!**/.eslintrc.js",
     "!**/jest.config.js"
   ]
 };

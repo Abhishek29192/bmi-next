@@ -1,6 +1,6 @@
 import { DownloadList, DownloadListContextType } from "@bmi-digital/components";
 import classnames from "classnames";
-import filesize from "filesize";
+import { filesize } from "filesize";
 import React from "react";
 import { microCopy } from "../constants/microCopies";
 import { Document, DocumentTableHeader, TitleField } from "../types/Document";
@@ -22,14 +22,14 @@ import { DocumentStatus } from "./styles/DocumentSimpleTableResultsCommonStyles"
 import {
   ActionBtnWrapper,
   ActionsRow,
+  classes,
   Divider,
   FieldTitle,
   FieldValue,
   StyledListItem,
   StyledListRow,
   StyledListRowItem,
-  StyledListTitleRow,
-  classes
+  StyledListTitleRow
 } from "./styles/DocumentSimpleTableResultsMobileStyles";
 
 type ListProps = {
@@ -93,7 +93,9 @@ const ListItem = ({
           <FieldValue data-testid={`document-table-size-${document.id}`}>
             {isLinkDocument
               ? "-"
-              : filesize(getFileSizeByDocumentType(document))}
+              : (filesize(getFileSizeByDocumentType(document), {
+                  output: "string"
+                }) as string)}
           </FieldValue>
         </StyledListRowItem>
         {headers.includes("productStatus") ? (

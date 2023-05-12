@@ -8,6 +8,7 @@ import { createMockSiteData } from "../../test/mockSiteData";
 import { renderWithRouter } from "../../test/renderWithRouter";
 import createImageData from "../../__tests__/helpers/ImageDataHelper";
 import ContactUsPage, { Data } from "../contact-us-page";
+import { SourceType } from "../../components/types/FormSectionTypes";
 
 describe("Contact us page", () => {
   const data: { contentfulContactUsPage: Data; contentfulSite: SiteData } = {
@@ -169,7 +170,7 @@ describe("Contact us page", () => {
           ],
           submitText: "signmeup",
           successRedirect: null,
-          source: null
+          source: SourceType.Contentful
         }
       },
       seo: {

@@ -1,26 +1,31 @@
-test_utils:
-  extends: .test_yarn_workspace
+lint_utils:
+  extends: .lint_yarn_workspace
   rules:
-    - !reference [.ingore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_main, rules, if]
-      changes:
-        - $ROOT_DIR/**/*
-        - jest/**/*
-        - yarn.lock
-    - if: !reference [.run_for_changes_on_mr, rules, if]
-      changes:
-        - $ROOT_DIR/**/*
-        - jest/**/*
-        - yarn.lock
+    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [ .run_for_changes_on_mr, rules ]
   variables:
-    WORKSPACE: "@bmi/utils"
     ROOT_DIR: "applications/dxb/libraries/utils"
+    WORKSPACE: "@bmi/utils"
 
 build_utils:
   extends: .build_yarn_workspace
   rules:
-    - !reference [.ingore_release_mrs, rules]
-    - !reference [.run_for_changes_on_main, rules]
+    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [ .run_for_changes_on_mr, rules ]
   variables:
     WORKSPACE: "@bmi/utils"
     ROOT_DIR: "applications/dxb/libraries/utils"
+
+test_utils:
+  extends: .test_yarn_workspace
+  rules:
+    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [ .run_for_changes_on_mr, rules ]
+  variables:
+    WORKSPACE: "@bmi/utils"
+    ROOT_DIR: "applications/dxb/libraries/utils"
+  needs:
+    - build_utils
