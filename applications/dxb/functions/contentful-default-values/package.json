@@ -10,8 +10,8 @@
     "build": "run compile && webpack --mode=production",
     "compile": "tsc --build",
     "test": "jest --coverage --reporters=default --reporters=jest-junit",
-    "dev": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json functions-framework --source=dist --target=tag --port=9072",
-    "dev:top": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json process-top $(yarn bin functions-framework) --source=dist --target=tag --port=9072",
+    "dev": "yarn build && env-cmd functions-framework --source=dist --target=tag --port=9072",
+    "dev:top": "yarn build && env-cmd process-top $(yarn bin functions-framework) --source=dist --target=tag --port=9072",
     "lint": "eslint \"**/*.{js,ts,tsx}\""
   },
   "dependencies": {
@@ -39,7 +39,6 @@
     "eslint-plugin-you-dont-need-lodash-underscore": "^6.12.0",
     "inspectpack": "^4.7.1",
     "jest": "^29.5.0",
-    "js-yaml": "^4.1.0",
     "prettier": "^2.8.8",
     "process-top": "^1.2.0",
     "typescript": "^5.0.4",

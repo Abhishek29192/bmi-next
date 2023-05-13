@@ -12,30 +12,21 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "scripts": {
-    "build": "gatsby build --prefix-paths",
+    "build": "gatsby build",
     "debug": "node --nolazy --inspect node_modules/.bin/gatsby develop",
     "dev": "gatsby clean && gatsby develop",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "start": "gatsby build && gatsby serve"
   },
   "dependencies": {
-    "core-js": "^3.30.2",
-    "dotenv": "^16.0.3",
     "gatsby": "^5.9.1",
     "gatsby-plugin-gatsby-cloud": "^5.9.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "toml": "^3.0.0",
-    "tsconfig-paths-webpack-plugin": "^4.0.1",
-    "webpack": "^5.82.1"
+    "toml": "^3.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.21.8",
-    "@types/babel__core": "^7.20.0",
-    "@types/eslint": "^8.37.0",
-    "@types/react-dom": "^18.2.4",
-    "babel-preset-gatsby": "^3.9.0",
     "eslint": "^8.40.0",
-    "jest-preset-gatsby": "^1.0.134"
+    "webpack": "^5.82.1"
   }
 }

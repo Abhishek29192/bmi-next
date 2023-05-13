@@ -10,7 +10,7 @@
     "build": "run compile && webpack --mode=production",
     "compile": "tsc --build",
     "test": "jest --coverage --reporters=default --reporters=jest-junit",
-    "dev": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json functions-framework --source=dist/dist/function --target=youtubeCache --port=9060",
+    "dev": "yarn build && env-cmd functions-framework --source=dist/dist/function --target=youtubeCache --port=9060",
     "dev:top": "yarn build && js-yaml ./.env.yaml > ./.env.json && process-top $(yarn bin functions-framework) --source=dist/dist/function --target=youtubeCache --port=9060",
     "lint": "eslint \"**/*.{js,ts,tsx}\""
   },
@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "@bmi/firestore-types": "workspace:*",
+    "@types/node": "^18.16.8",
     "@types/prettier": "^2.7.2",
     "@typescript-eslint/eslint-plugin": "^5.59.5",
     "@typescript-eslint/parser": "^5.59.5",
