@@ -13,17 +13,13 @@ monorepo, e.g.
 $ yarn workspace @bmi-digital/components/button add react
 ```
 
-Development dependencies should be instead installed at root level, e.g.
-
-```shell
-$ yarn add --dev -W jest
-```
-
 You can also install inter-dependencies between the monorepo packages, e.g.
 
 ```shell
-$ yarn workspace @bmi-digital/components/button add @bmi-digital/components/icon@0.0.0
+$ yarn workspace @bmi-digital/components/button add @bmi-digital/components/icon
 ```
+
+Because we have inter-dependencies with project references, it is important to remember that it is necessary to run `compile` against the required project first, so it can build the other workspace projects first. For example, if you want to run `head`, you will need to run `yarn workspace @bmi/head compile` before you can run `yarn workspace @bmi/head dev` (assuming you haven't run it before).
 
 ## Commit messages
 
