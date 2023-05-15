@@ -213,7 +213,7 @@ describe("ConfigProvider", () => {
       key: "gcpSystemConfiguratorEndpoint",
       env: "GATSBY_GCP_SYSTEM_CONFIGURATOR_ENDPOINT"
     },
-    { key: "oneTrustId", env: "ONETRUST_ID" }
+    { key: "oneTrustId", env: "GATSBY_ONETRUST_ID" }
   ])(
     "String config - $key",
     ({ key, env, defaultValue, invalidValue, customValue }) => {
