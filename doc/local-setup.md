@@ -4,17 +4,8 @@
 
 #### NPM TOKEN
 
-The workspace packages are also published to a private NPM registry.
-You will need to authenticate against the NPM registry by adding a `.npmrc` file to your home directory.
-
-There is a `.npmrc` file in this repo, which is setup for our CI runs. Remove .npmrc locally. Stop tracking .npmrc changes on git to not commit the removed file.
-
-```bash
-rm .npmrc
-git update-index --skip-worktree .npmrc
-```
-
-See [this guide by NPM](https://blog.npmjs.org/post/118393368555/deploying-with-npm-private-modules) for more details.
+There are some common BMI packages which are published to a private NPM registry.
+You will need to authenticate against the NPM registry by exporting the environment variable `NPM_AUTH_READ_TOKEN`.
 
 ### Mac
 
