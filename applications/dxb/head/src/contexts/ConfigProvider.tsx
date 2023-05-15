@@ -81,7 +81,7 @@ const envConfig = (): Config => ({
   isGatsbyDisabledElasticSearch: convertStrToBool(
     process.env.GATSBY_DISABLE_SEARCH
   ),
-  oneTrustId: process.env.ONETRUST_ID,
+  oneTrustId: process.env.GATSBY_ONETRUST_ID,
   isSampleOrderingEnabled: convertStrToBool(
     process.env.GATSBY_ENABLE_SAMPLE_ORDERING
   )
