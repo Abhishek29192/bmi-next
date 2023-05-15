@@ -23,13 +23,6 @@ include:
   - local: "/applications/redirects-website-dk/.gitlab-ci.yml"
   - local: "/applications/redirects-website-cn/.gitlab-ci.yml"
 
-# Latest version requires lhci >= 0.12.0, but it requires yarn 1.22.19 and node >= 16, which breaks licensefinder (stuck on node 14)
-.cypress-image:
-  image: cypress/browsers:node14.17.0-chrome91-ff89
-
-.license-finder-image:
-  image: ${CI_REGISTRY}/bmi-digital/gitlab-templates/license-finder-js:latest
-
 variables:
   ARTIFACT_COMPRESSION_LEVEL: fastest
   CACHE_COMPRESSION_LEVEL: fastest

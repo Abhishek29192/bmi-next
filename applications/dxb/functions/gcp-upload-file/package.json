@@ -10,8 +10,8 @@
     "build": "run compile && webpack --mode=production",
     "compile": "tsc --build",
     "test": "jest --coverage --reporters=default --reporters=jest-junit",
-    "dev": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json functions-framework --source=dist --target=upload --port=9057",
-    "dev:top": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json process-top $(yarn bin functions-framework) --source=dist --target=upload --port=9057",
+    "dev": "yarn build && env-cmd functions-framework --source=dist --target=upload --port=9057",
+    "dev:top": "yarn build && env-cmd process-top $(yarn bin functions-framework) --source=dist --target=upload --port=9057",
     "lint": "eslint \"**/*.{js,ts,tsx}\""
   },
   "dependencies": {

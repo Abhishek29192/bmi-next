@@ -1,3 +1,2 @@
-.env.yaml
-.env.json
-!.env.example.yaml
+.env*
+!.env.example
