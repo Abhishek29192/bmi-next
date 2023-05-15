@@ -1,9 +1,9 @@
 lint_contentful_migrate:
   extends: .lint_yarn_workspace
   rules:
-    - !reference [  .ignore_release_mrs, rules ]
-    - !reference [ .run_for_changes_on_main, rules ]
-    - !reference [ .run_for_changes_on_mr, rules ]
+    - !reference [.ignore_release_mrs, rules]
+    - !reference [.run_for_changes_on_main, rules]
+    - !reference [.run_for_changes_on_mr, rules]
   variables:
     ROOT_DIR: "applications/dxb/contentful-migrate"
     WORKSPACE: "@bmi/dxb-contentful-migrate"
@@ -11,8 +11,8 @@ lint_contentful_migrate:
 build_contentful_migrate:
   extends: .build_yarn_workspace
   rules:
-    - !reference [ .run_for_changes_on_main, rules ]
-    - !reference [ .run_for_changes_on_mr, rules ]
+    - !reference [.run_for_changes_on_main, rules]
+    - !reference [.run_for_changes_on_mr, rules]
     - if: "$CI_COMMIT_TAG"
   variables:
     ROOT_DIR: "applications/dxb/contentful-migrate"
@@ -26,9 +26,9 @@ build_contentful_migrate:
 test_contentful_migrate:
   extends: .test_yarn_workspace
   rules:
-    - !reference [  .ignore_release_mrs, rules ]
-    - !reference [ .run_for_changes_on_main, rules ]
-    - !reference [ .run_for_changes_on_mr, rules ]
+    - !reference [.ignore_release_mrs, rules]
+    - !reference [.run_for_changes_on_main, rules]
+    - !reference [.run_for_changes_on_mr, rules]
   variables:
     ROOT_DIR: "applications/dxb/contentful-migrate"
     WORKSPACE: "@bmi/dxb-contentful-migrate"
@@ -47,7 +47,7 @@ test_contentful_migrate:
 .migrate_content:
   stage: pre deploy
   rules:
-    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [.run_for_changes_on_main, rules]
     - if: "$CI_COMMIT_TAG"
   needs:
     - job: install_yarn
@@ -55,7 +55,6 @@ test_contentful_migrate:
     - build_contentful_migrate
   variables:
     DXB_MARKET_ID: "" # Market/space ID (as specified in GitLab CI Vars) - i.e. NO/FR/GROUP/space_2
-    ROOT_DIR: "applications/dxb/contentful-migrate"
   script:
     - |
       apt-get update
@@ -90,12 +89,12 @@ test_contentful_migrate:
 .deploy_gatsby_cloud:
   stage: deploy
   rules:
-    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [.run_for_changes_on_main, rules]
     - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "" # Market/space ID (as specified in GitLab CI Vars) - i.e. NO/FR/GROUP/space_2
     ROOT_DIR: "applications/dxb/contentful-migrate"
-  cache: { }
+  cache: {}
   script:
     - |
       apt-get update
@@ -128,11 +127,11 @@ test_contentful_migrate:
     - job: install_yarn
       optional: true
   rules:
-    - if: !reference [ .run_for_preprod_release, rules, if ]
+    - if: !reference [.run_for_preprod_release, rules, if]
       variables:
         CONTENTFUL_ENVIRONMENT: pre-production
         DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_PREPROD
-    - if: !reference [ .run_for_prod_release, rules, if ]
+    - if: !reference [.run_for_prod_release, rules, if]
       variables:
         CONTENTFUL_ENVIRONMENT: master
         DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_PROD
@@ -150,18 +149,35 @@ test_contentful_migrate:
 migrate_content_qa:
   extends: .migrate_content
   rules:
-    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [.run_for_changes_on_main, rules]
   variables:
     CONTENTFUL_ENVIRONMENT: staging
     DXB_MARKET_ID: "NO"
     ROOT_DIR: "applications/dxb/contentful-migrate"
 
+update_mc_qa:
+  extends: .update_mc
+  needs:
+    - !reference [.update_mc, needs]
+    - migrate_content_qa
+  rules:
+    - if: !reference [.run_for_changes_on_main, rules, if]
+      changes:
+        - applications/dxb/contentful-migrate/src/**/*
+        - applications/dxb/head/src/constants/microCopies.ts
+      variables:
+        CONTENTFUL_ENVIRONMENT: staging
+        DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_QA
+  variables:
+    DXB_MARKET_ID: "NO"
+
 deploy_gatsby_cloud_qa:
   extends: .deploy_gatsby_cloud
   rules:
-    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [.run_for_changes_on_main, rules]
   needs:
     - migrate_content_qa
+    - update_mc_qa
   variables:
     DXB_BUILD_HOOKS: $DXB_BUILD_HOOKS_QA
     DXB_MARKET_ID: "NO"
@@ -170,7 +186,7 @@ deploy_gatsby_cloud_qa:
 migrate_content_one_page_qa:
   extends: .migrate_content
   rules:
-    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [.run_for_changes_on_main, rules]
   variables:
     CONTENTFUL_ENVIRONMENT: one-page-qa
     DXB_MARKET_ID: "NO"
@@ -179,7 +195,7 @@ migrate_content_one_page_qa:
 deploy_gatsby_cloud_one_page_qa:
   extends: .deploy_gatsby_cloud
   rules:
-    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [.run_for_changes_on_main, rules]
   needs:
     - migrate_content_one_page_qa
   variables:
@@ -193,7 +209,14 @@ migrate_content_norway:
     - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "NO"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
+
+update_mc_norway:
+  extends: .update_mc
+  needs:
+    - !reference [.update_mc, needs]
+    - migrate_content_norway
+  variables:
+    DXB_MARKET_ID: "NO"
 
 deploy_gatsby_cloud_norway:
   extends: .deploy_gatsby_cloud
@@ -201,9 +224,9 @@ deploy_gatsby_cloud_norway:
     - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_norway
+    - update_mc_norway
   variables:
     DXB_MARKET_ID: "NO"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
 
 migrate_content_italy:
   extends: .migrate_content
@@ -211,7 +234,14 @@ migrate_content_italy:
     - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "IT"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
+
+update_mc_italy:
+  extends: .update_mc
+  needs:
+    - !reference [.update_mc, needs]
+    - migrate_content_italy
+  variables:
+    DXB_MARKET_ID: "IT"
 
 deploy_gatsby_cloud_italy:
   extends: .deploy_gatsby_cloud
@@ -219,9 +249,9 @@ deploy_gatsby_cloud_italy:
     - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_italy
+    - update_mc_italy
   variables:
     DXB_MARKET_ID: "IT"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
 
 migrate_content_finland:
   extends: .migrate_content
@@ -229,7 +259,14 @@ migrate_content_finland:
     - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "FI"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
+
+update_mc_finland:
+  extends: .update_mc
+  needs:
+    - !reference [.update_mc, needs]
+    - migrate_content_finland
+  variables:
+    DXB_MARKET_ID: "FI"
 
 deploy_gatsby_cloud_finland:
   extends: .deploy_gatsby_cloud
@@ -237,9 +274,9 @@ deploy_gatsby_cloud_finland:
     - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_finland
+    - update_mc_finland
   variables:
     DXB_MARKET_ID: "FI"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
 
 migrate_content_france:
   extends: .migrate_content
@@ -247,7 +284,14 @@ migrate_content_france:
     - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "FR"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
+
+update_mc_france:
+  extends: .update_mc
+  needs:
+    - !reference [.update_mc, needs]
+    - migrate_content_france
+  variables:
+    DXB_MARKET_ID: "FR"
 
 deploy_gatsby_cloud_france:
   extends: .deploy_gatsby_cloud
@@ -255,9 +299,9 @@ deploy_gatsby_cloud_france:
     - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_france
+    - update_mc_france
   variables:
     DXB_MARKET_ID: "FR"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
 
 migrate_content_germany:
   extends: .migrate_content
@@ -265,7 +309,14 @@ migrate_content_germany:
     - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "DE"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
+
+update_mc_germany:
+  extends: .update_mc
+  needs:
+    - !reference [.update_mc, needs]
+    - migrate_content_germany
+  variables:
+    DXB_MARKET_ID: "DE"
 
 deploy_gatsby_cloud_germany:
   extends: .deploy_gatsby_cloud
@@ -273,9 +324,9 @@ deploy_gatsby_cloud_germany:
     - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_germany
+    - update_mc_germany
   variables:
     DXB_MARKET_ID: "DE"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
 
 migrate_content_austria:
   extends: .migrate_content
@@ -283,7 +334,14 @@ migrate_content_austria:
     - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "AT"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
+
+update_mc_austria:
+  extends: .update_mc
+  needs:
+    - !reference [.update_mc, needs]
+    - migrate_content_austria
+  variables:
+    DXB_MARKET_ID: "AT"
 
 deploy_gatsby_cloud_austria:
   extends: .deploy_gatsby_cloud
@@ -291,9 +349,9 @@ deploy_gatsby_cloud_austria:
     - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_austria
+    - update_mc_austria
   variables:
     DXB_MARKET_ID: "AT"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
 
 migrate_content_netherlands:
   extends: .migrate_content
@@ -301,7 +359,14 @@ migrate_content_netherlands:
     - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "NL"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
+
+update_mc_netherlands:
+  extends: .update_mc
+  needs:
+    - !reference [.update_mc, needs]
+    - migrate_content_netherlands
+  variables:
+    DXB_MARKET_ID: "NL"
 
 deploy_gatsby_cloud_netherlands:
   extends: .deploy_gatsby_cloud
@@ -309,9 +374,9 @@ deploy_gatsby_cloud_netherlands:
     - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_netherlands
+    - update_mc_netherlands
   variables:
     DXB_MARKET_ID: "NL"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
 
 migrate_content_unitedkingdom:
   extends: .migrate_content
@@ -319,7 +384,14 @@ migrate_content_unitedkingdom:
     - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "UK"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
+
+update_mc_unitedkingdom:
+  extends: .update_mc
+  needs:
+    - !reference [.update_mc, needs]
+    - migrate_content_unitedkingdom
+  variables:
+    DXB_MARKET_ID: "UK"
 
 deploy_gatsby_cloud_unitedkingdom:
   extends: .deploy_gatsby_cloud
@@ -327,9 +399,9 @@ deploy_gatsby_cloud_unitedkingdom:
     - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_unitedkingdom
+    - update_mc_unitedkingdom
   variables:
     DXB_MARKET_ID: "UK"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
 
 migrate_content_southafrica:
   extends: .migrate_content
@@ -337,7 +409,14 @@ migrate_content_southafrica:
     - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "ZA"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
+
+update_mc_southafrica:
+  extends: .update_mc
+  needs:
+    - !reference [.update_mc, needs]
+    - migrate_content_southafrica
+  variables:
+    DXB_MARKET_ID: "ZA"
 
 deploy_gatsby_cloud_southafrica:
   extends: .deploy_gatsby_cloud
@@ -345,9 +424,9 @@ deploy_gatsby_cloud_southafrica:
     - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_southafrica
+    - update_mc_southafrica
   variables:
     DXB_MARKET_ID: "ZA"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
 
 migrate_content_turkey:
   extends: .migrate_content
@@ -355,7 +434,14 @@ migrate_content_turkey:
     - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "TR"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
+
+update_mc_turkey:
+  extends: .update_mc
+  needs:
+    - !reference [.update_mc, needs]
+    - migrate_content_turkey
+  variables:
+    DXB_MARKET_ID: "TR"
 
 deploy_gatsby_cloud_turkey:
   extends: .deploy_gatsby_cloud
@@ -363,9 +449,9 @@ deploy_gatsby_cloud_turkey:
     - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_turkey
+    - update_mc_turkey
   variables:
     DXB_MARKET_ID: "TR"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
 
 migrate_content_spain:
   extends: .migrate_content
@@ -373,7 +459,14 @@ migrate_content_spain:
     - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "ES"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
+
+update_mc_spain:
+  extends: .update_mc
+  needs:
+    - !reference [.update_mc, needs]
+    - migrate_content_spain
+  variables:
+    DXB_MARKET_ID: "ES"
 
 deploy_gatsby_cloud_spain:
   extends: .deploy_gatsby_cloud
@@ -381,9 +474,9 @@ deploy_gatsby_cloud_spain:
     - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_spain
+    - update_mc_spain
   variables:
     DXB_MARKET_ID: "ES"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
 
 migrate_content_portugal:
   extends: .migrate_content
@@ -391,7 +484,14 @@ migrate_content_portugal:
     - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "PT"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
+
+update_mc_portugal:
+  extends: .update_mc
+  needs:
+    - !reference [.update_mc, needs]
+    - migrate_content_portugal
+  variables:
+    DXB_MARKET_ID: "PT"
 
 deploy_gatsby_cloud_portugal:
   extends: .deploy_gatsby_cloud
@@ -399,9 +499,9 @@ deploy_gatsby_cloud_portugal:
     - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_portugal
+    - update_mc_portugal
   variables:
     DXB_MARKET_ID: "PT"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
 
 migrate_content_malaysia:
   extends: .migrate_content
@@ -409,7 +509,14 @@ migrate_content_malaysia:
     - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "MY"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
+
+update_mc_malaysia:
+  extends: .update_mc
+  needs:
+    - !reference [.update_mc, needs]
+    - migrate_content_malaysia
+  variables:
+    DXB_MARKET_ID: "MY"
 
 deploy_gatsby_cloud_malaysia:
   extends: .deploy_gatsby_cloud
@@ -417,9 +524,9 @@ deploy_gatsby_cloud_malaysia:
     - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_malaysia
+    - update_mc_malaysia
   variables:
     DXB_MARKET_ID: "MY"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
 
 migrate_content_space_1:
   extends: .migrate_content
@@ -427,17 +534,17 @@ migrate_content_space_1:
     - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "space_1"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
 
-deploy_gatsby_cloud_space_1:
-  extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
+update_mc_space_1:
+  extends: .update_mc
   needs:
+    - !reference [.update_mc, needs]
     - migrate_content_space_1
   variables:
     DXB_MARKET_ID: "space_1"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
+    IS_CONSOLIDATED: "true"
+
+# TODO: Move South Africa, Sweden and Germany here when consolidated
 
 migrate_content_space_2:
   extends: .migrate_content
@@ -445,18 +552,27 @@ migrate_content_space_2:
     - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "space_2"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
+
+update_mc_space_2:
+  extends: .update_mc
+  needs:
+    - !reference [.update_mc, needs]
+    - migrate_content_space_2
+  variables:
+    DXB_MARKET_ID: "space_2"
+    IS_CONSOLIDATED: "true"
 
 # TODO: Move Finland and Turkey here when consolidated
+
 deploy_gatsby_belgium:
   extends: .deploy_gatsby_cloud
   rules:
     - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_2
+    - update_mc_space_2
   variables:
     DXB_MARKET_ID: "BE"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
 
 deploy_gatsby_belgium_fr:
   extends: .deploy_gatsby_cloud
@@ -464,9 +580,9 @@ deploy_gatsby_belgium_fr:
     - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_2
+    - update_mc_space_2
   variables:
     DXB_MARKET_ID: "FR-BE"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
 
 migrate_content_space_3:
   extends: .migrate_content
@@ -474,7 +590,15 @@ migrate_content_space_3:
     - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "space_3"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
+
+update_mc_space_3:
+  extends: .update_mc
+  needs:
+    - !reference [.update_mc, needs]
+    - migrate_content_space_3
+  variables:
+    DXB_MARKET_ID: "space_3"
+    IS_CONSOLIDATED: "true"
 
 # TODO: Move Italy and France here when consolidated
 
@@ -484,9 +608,9 @@ deploy_gatsby_cloud_croatia:
     - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_3
+    - update_mc_space_3
   variables:
     DXB_MARKET_ID: "HR"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
 
 migrate_content_space_4:
   extends: .migrate_content
@@ -494,7 +618,15 @@ migrate_content_space_4:
     - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "space_4"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
+
+update_mc_space_4:
+  extends: .update_mc
+  needs:
+    - !reference [.update_mc, needs]
+    - migrate_content_space_4
+  variables:
+    DXB_MARKET_ID: "space_4"
+    IS_CONSOLIDATED: "true"
 
 # TODO: Move Austria here when consolidated
 
@@ -504,9 +636,9 @@ deploy_gatsby_cloud_albania:
     - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_4
+    - update_mc_space_4
   variables:
     DXB_MARKET_ID: "AL"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
 
 deploy_gatsby_cloud_denmark:
   extends: .deploy_gatsby_cloud
@@ -514,9 +646,9 @@ deploy_gatsby_cloud_denmark:
     - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_4
+    - update_mc_space_4
   variables:
     DXB_MARKET_ID: "DK"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
 
 migrate_content_space_5:
   extends: .migrate_content
@@ -524,7 +656,15 @@ migrate_content_space_5:
     - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "space_5"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
+
+update_mc_space_5:
+  extends: .update_mc
+  needs:
+    - !reference [.update_mc, needs]
+    - migrate_content_space_5
+  variables:
+    DXB_MARKET_ID: "space_5"
+    IS_CONSOLIDATED: "true"
 
 # TODO: Add Netherlands here when consolidated
 
@@ -534,9 +674,9 @@ deploy_gatsby_cloud_poland:
     - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_5
+    - update_mc_space_5
   variables:
     DXB_MARKET_ID: "PL"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
 
 deploy_gatsby_cloud_latvia:
   extends: .deploy_gatsby_cloud
@@ -544,9 +684,9 @@ deploy_gatsby_cloud_latvia:
     - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_5
+    - update_mc_space_5
   variables:
     DXB_MARKET_ID: "LV"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
 
 migrate_content_space_6:
   extends: .migrate_content
@@ -554,7 +694,15 @@ migrate_content_space_6:
     - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "space_6"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
+
+update_mc_space_6:
+  extends: .update_mc
+  needs:
+    - !reference [.update_mc, needs]
+    - migrate_content_space_6
+  variables:
+    DXB_MARKET_ID: "space_6"
+    IS_CONSOLIDATED: "true"
 
 # TODO: Add UK and Group here when consolidated
 
@@ -564,9 +712,9 @@ deploy_gatsby_cloud_bosnia:
     - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_6
+    - update_mc_space_6
   variables:
     DXB_MARKET_ID: "BA"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
 
 deploy_gatsby_cloud_lithuania:
   extends: .deploy_gatsby_cloud
@@ -574,9 +722,9 @@ deploy_gatsby_cloud_lithuania:
     - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_6
+    - update_mc_space_6
   variables:
     DXB_MARKET_ID: "LT"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
 
 migrate_content_space_7:
   extends: .migrate_content
@@ -584,7 +732,15 @@ migrate_content_space_7:
     - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "space_7"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
+
+update_mc_space_7:
+  extends: .update_mc
+  needs:
+    - !reference [.update_mc, needs]
+    - migrate_content_space_7
+  variables:
+    DXB_MARKET_ID: "space_7"
+    IS_CONSOLIDATED: "true"
 
 # TODO: Add Malaysia here when consolidated
 
@@ -594,9 +750,9 @@ deploy_gatsby_cloud_china:
     - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_7
+    - update_mc_space_7
   variables:
     DXB_MARKET_ID: "CN"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
 
 deploy_gatsby_cloud_indonesia:
   extends: .deploy_gatsby_cloud
@@ -604,9 +760,9 @@ deploy_gatsby_cloud_indonesia:
     - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_7
+    - update_mc_space_7
   variables:
     DXB_MARKET_ID: "ID"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
 
 migrate_content_space_8:
   extends: .migrate_content
@@ -614,7 +770,15 @@ migrate_content_space_8:
     - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "space_8"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
+
+update_mc_space_8:
+  extends: .update_mc
+  needs:
+    - !reference [.update_mc, needs]
+    - migrate_content_space_8
+  variables:
+    DXB_MARKET_ID: "space_8"
+    IS_CONSOLIDATED: "true"
 
 # TODO: Add Norway and Spain here when consolidated
 
@@ -624,9 +788,9 @@ deploy_gatsby_cloud_india:
     - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_8
+    - update_mc_space_8
   variables:
     DXB_MARKET_ID: "IN"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
 
 deploy_gatsby_cloud_slovenia:
   extends: .deploy_gatsby_cloud
@@ -634,9 +798,9 @@ deploy_gatsby_cloud_slovenia:
     - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_8
+    - update_mc_space_8
   variables:
     DXB_MARKET_ID: "SI"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
 
 migrate_content_space_9:
   extends: .migrate_content
@@ -644,7 +808,15 @@ migrate_content_space_9:
     - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "space_9"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
+
+update_mc_space_9:
+  extends: .update_mc
+  needs:
+    - !reference [.update_mc, needs]
+    - migrate_content_space_9
+  variables:
+    DXB_MARKET_ID: "space_9"
+    IS_CONSOLIDATED: "true"
 
 deploy_gatsby_cloud_czechia:
   extends: .deploy_gatsby_cloud
@@ -652,9 +824,9 @@ deploy_gatsby_cloud_czechia:
     - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_9
+    - update_mc_space_9
   variables:
     DXB_MARKET_ID: "CZ"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
 
 deploy_gatsby_cloud_hungary:
   extends: .deploy_gatsby_cloud
@@ -662,9 +834,9 @@ deploy_gatsby_cloud_hungary:
     - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_9
+    - update_mc_space_9
   variables:
     DXB_MARKET_ID: "HU"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
 
 deploy_gatsby_cloud_romania:
   extends: .deploy_gatsby_cloud
@@ -672,9 +844,9 @@ deploy_gatsby_cloud_romania:
     - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_9
+    - update_mc_space_9
   variables:
     DXB_MARKET_ID: "RO"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
 
 deploy_gatsby_cloud_slovakia:
   extends: .deploy_gatsby_cloud
@@ -682,9 +854,9 @@ deploy_gatsby_cloud_slovakia:
     - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_9
+    - update_mc_space_9
   variables:
     DXB_MARKET_ID: "SK"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
 
 migrate_content_space_10:
   extends: .migrate_content
@@ -692,7 +864,15 @@ migrate_content_space_10:
     - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "space_10"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
+
+update_mc_space_10:
+  extends: .update_mc
+  needs:
+    - !reference [.update_mc, needs]
+    - migrate_content_space_10
+  variables:
+    DXB_MARKET_ID: "space_10"
+    IS_CONSOLIDATED: "true"
 
 deploy_gatsby_cloud_ireland:
   extends: .deploy_gatsby_cloud
@@ -700,9 +880,9 @@ deploy_gatsby_cloud_ireland:
     - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_10
+    - update_mc_space_10
   variables:
     DXB_MARKET_ID: "IE"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
 
 deploy_gatsby_cloud_serbia:
   extends: .deploy_gatsby_cloud
@@ -710,9 +890,9 @@ deploy_gatsby_cloud_serbia:
     - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_10
+    - update_mc_space_10
   variables:
     DXB_MARKET_ID: "RS"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
 
 deploy_gatsby_cloud_switzerland:
   extends: .deploy_gatsby_cloud
@@ -720,9 +900,9 @@ deploy_gatsby_cloud_switzerland:
     - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_10
+    - update_mc_space_10
   variables:
     DXB_MARKET_ID: "CH"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
 
 deploy_gatsby_cloud_switzerland_fr:
   extends: .deploy_gatsby_cloud
@@ -730,9 +910,9 @@ deploy_gatsby_cloud_switzerland_fr:
     - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_10
+    - update_mc_space_10
   variables:
     DXB_MARKET_ID: "FR-CH"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
 
 migrate_content_space_11:
   extends: .migrate_content
@@ -740,7 +920,15 @@ migrate_content_space_11:
     - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "space_11"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
+
+update_mc_space_11:
+  extends: .update_mc
+  needs:
+    - !reference [.update_mc, needs]
+    - migrate_content_space_11
+  variables:
+    DXB_MARKET_ID: "space_11"
+    IS_CONSOLIDATED: "true"
 
 # TODO: Add Portugal here when consolidated
 
@@ -750,9 +938,9 @@ deploy_gatsby_cloud_bulgaria:
     - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_11
+    - update_mc_space_11
   variables:
     DXB_MARKET_ID: "BG"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
 
 deploy_gatsby_cloud_estonia:
   extends: .deploy_gatsby_cloud
@@ -760,9 +948,9 @@ deploy_gatsby_cloud_estonia:
     - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_11
+    - update_mc_space_11
   variables:
     DXB_MARKET_ID: "EE"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
 
 migrate_content_group:
   extends: .migrate_content
@@ -770,7 +958,14 @@ migrate_content_group:
     - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "GROUP"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
+
+update_mc_group:
+  extends: .update_mc
+  needs:
+    - !reference [.update_mc, needs]
+    - migrate_content_group
+  variables:
+    DXB_MARKET_ID: "GROUP"
 
 deploy_gatsby_cloud_group:
   extends: .deploy_gatsby_cloud
@@ -778,9 +973,9 @@ deploy_gatsby_cloud_group:
     - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_group
+    - update_mc_group
   variables:
     DXB_MARKET_ID: "GROUP"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
 
 migrate_content_sandpit:
   extends: .migrate_content
@@ -791,7 +986,18 @@ migrate_content_sandpit:
     - if: '$CI_COMMIT_TAG =~ /^v[0-9]+\.[0-9]+\.[0-9]+$/'
   variables:
     DXB_MARKET_ID: "SANDPIT"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
+
+update_mc_sandpit:
+  extends: .update_mc
+  needs:
+    - !reference [.update_mc, needs]
+    - migrate_content_sandpit
+  rules:
+    - if: !reference [.run_for_prod_release, rules, if]
+  variables:
+    DXB_MARKET_ID: "SANDPIT"
+    CONTENTFUL_ENVIRONMENT: master
+    DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_PROD
 
 deploy_gatsby_cloud_sandpit:
   extends: .deploy_gatsby_cloud
@@ -802,9 +1008,9 @@ deploy_gatsby_cloud_sandpit:
     - if: '$CI_COMMIT_TAG =~ /^v[0-9]+\.[0-9]+\.[0-9]+$/'
   needs:
     - migrate_content_sandpit
+    - update_mc_sandpit
   variables:
     DXB_MARKET_ID: "SANDPIT"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
 
 migrate_content_blueprint:
   extends: .migrate_content
@@ -815,7 +1021,18 @@ migrate_content_blueprint:
     - if: '$CI_COMMIT_TAG =~ /^v[0-9]+\.[0-9]+\.[0-9]+$/'
   variables:
     DXB_MARKET_ID: "BLUEPRINT"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
+
+update_mc_blueprint:
+  extends: .update_mc
+  needs:
+    - !reference [.update_mc, needs]
+    - migrate_content_blueprint
+  rules:
+    - if: !reference [.run_for_prod_release, rules, if]
+  variables:
+    DXB_MARKET_ID: "BLUEPRINT"
+    CONTENTFUL_ENVIRONMENT: master
+    DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_PROD
 
 deploy_gatsby_cloud_blueprint:
   extends: .deploy_gatsby_cloud
@@ -826,14 +1043,14 @@ deploy_gatsby_cloud_blueprint:
     - if: '$CI_COMMIT_TAG =~ /^v[0-9]+\.[0-9]+\.[0-9]+$/'
   needs:
     - migrate_content_blueprint
+    - update_mc_blueprint
   variables:
     DXB_MARKET_ID: "BLUEPRINT"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
 
 update_mc_poc:
   extends: .update_mc
   rules:
-    - if: !reference [ .run_for_changes_on_main, rules, if ]
+    - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - applications/dxb/contentful-migrate/src/**/*
         - applications/dxb/head/src/constants/microCopies.ts
@@ -843,164 +1060,3 @@ update_mc_poc:
   variables:
     DXB_MARKET_ID: "POC"
     IS_CONSOLIDATED: "true"
-
-update_mc_qa:
-  extends: .update_mc
-  rules:
-    - if: !reference [ .run_for_changes_on_main, rules, if ]
-      changes:
-        - applications/dxb/contentful-migrate/src/**/*
-        - applications/dxb/head/src/constants/microCopies.ts
-      variables:
-        CONTENTFUL_ENVIRONMENT: staging
-        DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_QA
-  variables:
-    DXB_MARKET_ID: "NO"
-
-update_mc_norway:
-  extends: .update_mc
-  variables:
-    DXB_MARKET_ID: "NO"
-
-update_mc_italy:
-  extends: .update_mc
-  variables:
-    DXB_MARKET_ID: "IT"
-
-update_mc_finland:
-  extends: .update_mc
-  variables:
-    DXB_MARKET_ID: "FI"
-
-update_mc_france:
-  extends: .update_mc
-  variables:
-    DXB_MARKET_ID: "FR"
-
-update_mc_germany:
-  extends: .update_mc
-  variables:
-    DXB_MARKET_ID: "DE"
-
-update_mc_austria:
-  extends: .update_mc
-  variables:
-    DXB_MARKET_ID: "AT"
-
-update_mc_netherlands:
-  extends: .update_mc
-  variables:
-    DXB_MARKET_ID: "NL"
-
-update_mc_unitedkingdom:
-  extends: .update_mc
-  variables:
-    DXB_MARKET_ID: "UK"
-
-update_mc_southafrica:
-  extends: .update_mc
-  variables:
-    DXB_MARKET_ID: "ZA"
-
-update_mc_turkey:
-  extends: .update_mc
-  variables:
-    DXB_MARKET_ID: "TR"
-
-update_mc_spain:
-  extends: .update_mc
-  variables:
-    DXB_MARKET_ID: "ES"
-
-update_mc_portugal:
-  extends: .update_mc
-  variables:
-    DXB_MARKET_ID: "PT"
-
-update_mc_malaysia:
-  extends: .update_mc
-  variables:
-    DXB_MARKET_ID: "MY"
-
-update_mc_space_1:
-  extends: .update_mc
-  variables:
-    DXB_MARKET_ID: "space_1"
-    IS_CONSOLIDATED: "true"
-
-update_mc_space_2:
-  extends: .update_mc
-  variables:
-    DXB_MARKET_ID: "space_2"
-    IS_CONSOLIDATED: "true"
-
-update_mc_space_4:
-  extends: .update_mc
-  variables:
-    DXB_MARKET_ID: "space_4"
-    IS_CONSOLIDATED: "true"
-
-update_mc_space_5:
-  extends: .update_mc
-  variables:
-    DXB_MARKET_ID: "space_5"
-    IS_CONSOLIDATED: "true"
-
-update_mc_space_6:
-  extends: .update_mc
-  variables:
-    DXB_MARKET_ID: "space_6"
-    IS_CONSOLIDATED: "true"
-
-update_mc_space_7:
-  extends: .update_mc
-  variables:
-    DXB_MARKET_ID: "space_7"
-    IS_CONSOLIDATED: "true"
-
-update_mc_space_8:
-  extends: .update_mc
-  variables:
-    DXB_MARKET_ID: "space_8"
-    IS_CONSOLIDATED: "true"
-
-update_mc_space_9:
-  extends: .update_mc
-  variables:
-    DXB_MARKET_ID: "space_9"
-    IS_CONSOLIDATED: "true"
-
-update_mc_space_10:
-  extends: .update_mc
-  variables:
-    DXB_MARKET_ID: "space_10"
-    IS_CONSOLIDATED: "true"
-
-update_mc_space_11:
-  extends: .update_mc
-  variables:
-    DXB_MARKET_ID: "space_11"
-    IS_CONSOLIDATED: "true"
-
-update_mc_group:
-  extends: .update_mc
-  variables:
-    DXB_MARKET_ID: "GROUP"
-
-update_mc_sandpit:
-  extends: .update_mc
-  rules:
-    - if: !reference [ .run_for_prod_release, rules, if ]
-  variables:
-    DXB_MARKET_ID: "SANDPIT"
-    CONTENTFUL_ENVIRONMENT: master
-    DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_PROD
-
-update_mc_blueprint:
-  extends: .update_mc
-  rules:
-    - if: !reference [ .run_for_prod_release, rules, if ]
-  variables:
-    DXB_MARKET_ID: "BLUEPRINT"
-    CONTENTFUL_ENVIRONMENT: master
-    DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_PROD
