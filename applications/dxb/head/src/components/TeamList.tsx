@@ -18,8 +18,8 @@ import { ProfileRow } from "./styles/TeamListStyles";
 
 export type Data = {
   name: string;
-  jobTitle: string;
-  profileImage: ImageData | null;
+  jobTitle: string | null;
+  profileImage: ImageData;
   links: LinkData[];
 }[];
 
@@ -43,7 +43,7 @@ const TeamList = ({ data }: { data: Data | null }) => {
             return (
               <Grid xs={12} sm={6} lg={3} key={index}>
                 <ProfileCard
-                  imageSource={profileImage && <Image {...profileImage} />}
+                  imageSource={<Image {...profileImage} />}
                   body={
                     <EqualHeights.Consumer shouldDisableBoxSizing>
                       {({ addRef, equalHeight }) => {

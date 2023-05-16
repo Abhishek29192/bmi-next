@@ -39,11 +39,11 @@ export type ContentfulDocument = {
         size: number;
       };
     };
-  } | null;
+  };
   // TODO: add validations for this Rich Text field in CMS
   description: RichTextData | null;
   brand: string | null;
-  noIndex: boolean;
+  noIndex: boolean | null;
 };
 
 export type Document =

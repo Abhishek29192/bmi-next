@@ -348,7 +348,7 @@ describe("Sections component", () => {
                 name: "Bob McBobbinson",
                 jobTitle: "CEO",
                 profileImage: null,
-                links: null
+                links: []
               }
             ]
           }
@@ -370,7 +370,7 @@ describe("Sections component", () => {
                 name: "Bob McBobbinson",
                 jobTitle: "CEO",
                 profileImage: null,
-                links: null
+                links: []
               }
             ]
           },
@@ -382,7 +382,7 @@ describe("Sections component", () => {
                 name: "Johnny McJohnson",
                 jobTitle: "CEO",
                 profileImage: null,
-                links: null
+                links: []
               }
             ]
           }
@@ -419,52 +419,52 @@ describe("Sections component", () => {
           {
             label: "First name",
             name: "first-name",
-            options: null,
+            options: undefined,
             type: "text",
             required: true,
             width: "half",
-            accept: null,
-            maxSize: null
+            accept: undefined,
+            maxSize: undefined
           },
           {
             label: "Second name",
             name: "second-names",
-            options: null,
+            options: undefined,
             type: "text",
             required: true,
             width: "half",
-            accept: null,
-            maxSize: null
+            accept: undefined,
+            maxSize: undefined
           },
           {
             label: "Email address",
             name: "email",
-            options: null,
+            options: undefined,
             type: "email",
             required: true,
             width: "half",
-            accept: null,
-            maxSize: null
+            accept: undefined,
+            maxSize: undefined
           },
           {
             label: "Company name(if Applicable)",
             name: "company",
-            options: null,
+            options: undefined,
             type: "text",
             required: false,
             width: "half",
-            accept: null,
-            maxSize: null
+            accept: undefined,
+            maxSize: undefined
           },
           {
             label: "Telephone",
             name: "telephone",
-            options: null,
+            options: undefined,
             type: "phone",
             required: false,
             width: "half",
-            accept: null,
-            maxSize: null
+            accept: undefined,
+            maxSize: undefined
           },
           {
             label: "Type of query",
@@ -474,13 +474,13 @@ describe("Sections component", () => {
             type: "select",
             required: true,
             width: "half",
-            accept: null,
-            maxSize: null
+            accept: undefined,
+            maxSize: undefined
           },
           {
             label: "Attach Files (optional)",
             name: "files",
-            options: null,
+            options: undefined,
             type: "upload",
             required: false,
             width: "full",
@@ -490,54 +490,54 @@ describe("Sections component", () => {
           {
             label: "Your message",
             name: "message",
-            options: null,
+            options: undefined,
             type: "textarea",
             required: true,
             width: "full",
-            accept: null,
-            maxSize: null
+            accept: undefined,
+            maxSize: undefined
           },
           {
             label: "Send a copy of this message to my email address",
             name: "send-copy",
-            options: null,
+            options: undefined,
             type: "checkbox",
             required: false,
             width: "full",
-            accept: null,
-            maxSize: null
+            accept: undefined,
+            maxSize: undefined
           },
           {
             label: "Sign up for BMI newsletter",
             name: "sign-up",
-            options: null,
+            options: undefined,
             type: "checkbox",
             required: false,
             width: "full",
-            accept: null,
-            maxSize: null
+            accept: undefined,
+            maxSize: undefined
           },
           {
             label:
               "I agree with BMI's [Data Protection Policy](https://google.co.uk)",
             name: "data-protection",
-            options: null,
+            options: undefined,
             type: "checkbox",
             required: true,
             width: "full",
-            accept: null,
-            maxSize: null
+            accept: undefined,
+            maxSize: undefined
           },
           {
             label:
               "I accept that my information may be processed and used solely for the submission of information and advertising about products, services and other activities. I have the right to revoke this agreement in writing at any time.",
             name: "gdpr",
-            options: null,
+            options: undefined,
             type: "checkbox",
             required: true,
             width: "full",
-            accept: null,
-            maxSize: null
+            accept: undefined,
+            maxSize: undefined
           }
         ],
         submitText: "Submit",
@@ -685,7 +685,7 @@ describe("Sections component", () => {
   it("doesnt render correctly if doesnt resolve to component", () => {
     const data: Data = [
       {
-        __typename: null, // null is an invalid typename
+        __typename: "ContentfulDocumentDownloadSection",
         title: "Document Downloads",
         description: {
           raw: contentMock,
@@ -700,7 +700,7 @@ describe("Sections component", () => {
         <Sections data={data} />
       </MockSiteContext>
     );
-    expect(container).toMatchInlineSnapshot(`<div />`);
+    expect(container).toMatchSnapshot();
   });
 
   it("renders alternate backgrounds for promos", () => {

@@ -89,7 +89,7 @@ export type Logo =
   | "Wolfin"
   | "Zanda"
   | string; // Handle PIM data
-export const getLogo = (logo?: Logo) => {
+export const getLogo = (logo: Logo | null) => {
   switch (logo) {
     case "AeroDek":
       return AeroDek;
@@ -175,11 +175,11 @@ export const getLogo = (logo?: Logo) => {
     case "Zanda":
       return Zanda;
     default:
-      return undefined;
+      return null;
   }
 };
 type Props = {
-  brandName: Logo;
+  brandName: Logo | null;
   className?: string;
   brandWhiteBox?: boolean;
 };

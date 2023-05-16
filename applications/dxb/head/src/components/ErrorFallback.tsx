@@ -22,7 +22,7 @@ const ErrorFallback = ({
     },
     featuredMedia = null,
     featuredVideo = null
-  } = promo || {};
+  } = promo ?? {};
   return (
     <PromoSection
       title={title}

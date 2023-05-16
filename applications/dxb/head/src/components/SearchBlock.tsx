@@ -10,13 +10,13 @@ import classnames from "classnames";
 import React, { FormEvent, useEffect, useState } from "react";
 import RichText from "../components/RichText";
 import { getPathWithCountryCode } from "../utils/path";
-import { Data as TitleWithContentData } from "./TitleWithContent";
 import styles from "./styles/SearchBlock.module.scss";
+import { Data as TitleWithContentData } from "./TitleWithContent";
 
 export type QueryInput = Extract<string, InputValue>;
 
 // Search is enabled if there is any truthy value at all
-const isInputValueValid = (value) => !!value;
+const isInputValueValid = (value?: InputValue) => !!value;
 
 type Props = {
   buttonText?: string;
@@ -29,9 +29,9 @@ type Props = {
   isLoading?: boolean;
   helperText?: string;
   placeholder?: string;
-  query?: string;
-  searchPageSearchTips?: TitleWithContentData;
-  searchPageSidebarItems?: TitleWithContentData;
+  query?: string | null;
+  searchPageSearchTips?: TitleWithContentData | null;
+  searchPageSidebarItems?: TitleWithContentData | null;
 };
 
 const SearchPageBlock = ({
@@ -53,7 +53,7 @@ const SearchPageBlock = ({
     setIsSubmitDisabled(!isInputValueValid(query));
   }, [query]);
 
-  const handleInputOnChange = (value) => {
+  const handleInputOnChange = (value: InputValue) => {
     setIsSubmitDisabled(!isInputValueValid(value));
   };
 
