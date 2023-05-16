@@ -48,29 +48,33 @@ export const ServiceLocatorResultList = ({
       data-testid={"results-list-section"}
     >
       <div className={styles["list"]}>
-        {roofersList.map((service) => (
-          <GTMIntegratedLinkCard
-            key={service.id}
-            onClick={() => onListItemClick(service)}
-            onCloseClick={onCloseCard}
-            isOpen={selectedRoofer && selectedRoofer.id === service.id}
-            title={service.name}
-            logo={
-              service.companyLogo && (
-                <Image
-                  className={styles["company-logo"]}
-                  {...service.companyLogo}
-                />
-              )
-            }
-            gtm={getResultDataGtm(service)}
-            data-testid={"GTMIntegratedLinkCard-test-id"}
-          >
-            <CompanyDetails details={getCompanyDetails(service)}>
-              <Typography>{service.summary}</Typography>
-            </CompanyDetails>
-          </GTMIntegratedLinkCard>
-        ))}
+        {roofersList
+          .filter((service): service is Service => service !== undefined)
+          .map((service) => (
+            <GTMIntegratedLinkCard
+              key={service.id}
+              onClick={() => onListItemClick(service)}
+              onCloseClick={onCloseCard}
+              isOpen={selectedRoofer?.id === service?.id}
+              title={service.name}
+              logo={
+                service.companyLogo && (
+                  <Image
+                    className={styles["company-logo"]}
+                    {...service.companyLogo}
+                  />
+                )
+              }
+              gtm={getResultDataGtm(service)}
+              data-testid={"GTMIntegratedLinkCard-test-id"}
+            >
+              <CompanyDetails details={getCompanyDetails(service)}>
+                {service.summary ? (
+                  <Typography>{service.summary}</Typography>
+                ) : null}
+              </CompanyDetails>
+            </GTMIntegratedLinkCard>
+          ))}
       </div>
       {pageCount > 1 && (
         <Pagination

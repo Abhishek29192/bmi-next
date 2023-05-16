@@ -1,13 +1,13 @@
 import { GoogleApi, ThemeProvider } from "@bmi-digital/components";
 import { act, fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
-import { SearchLocationBlock } from "../components";
 import { googleMock } from "../__mocks__/google";
+import { SearchLocationBlock } from "../components";
 
 afterEach(() => jest.clearAllMocks());
 
 describe("SearchLocationBlock component", () => {
-  it("should renders correctly with CircularProgress component if google === undefined", () => {
+  it("should render correctly with CircularProgress component if google === undefined", () => {
     render(
       <ThemeProvider>
         <SearchLocationBlock
@@ -16,7 +16,7 @@ describe("SearchLocationBlock component", () => {
           handlePlaceChange={jest.fn}
           options={[]}
           getPosition={jest.fn}
-          userPosition={null}
+          userPosition={{ location: { lat: 50.0318143, lng: 36.2084215 } }}
         />
       </ThemeProvider>
     );
@@ -31,7 +31,7 @@ describe("SearchLocationBlock component", () => {
     expect(circularProgress).toBeInTheDocument();
     expect(geolocationButton).toBeInTheDocument();
   });
-  it("should renders autocomplete options list if prop options provided", () => {
+  it("should render autocomplete options list if prop options provided", () => {
     const options = ["test1", "test2", "test3"];
     const testValue = "test2";
     render(
@@ -42,7 +42,7 @@ describe("SearchLocationBlock component", () => {
           handlePlaceChange={jest.fn}
           options={["test1", "test2", "test3"]}
           getPosition={jest.fn}
-          userPosition={null}
+          userPosition={{ location: { lat: 50.0318143, lng: 36.2084215 } }}
         />
       </ThemeProvider>
     );
@@ -56,7 +56,7 @@ describe("SearchLocationBlock component", () => {
       options.filter((item) => item === testValue).length
     );
   });
-  it("should renders GoogleAutocomplete if google !== undefined", () => {
+  it("should render GoogleAutocomplete if google !== undefined", () => {
     render(
       <ThemeProvider>
         <GoogleApi.Provider value={googleMock}>
@@ -66,7 +66,7 @@ describe("SearchLocationBlock component", () => {
             handlePlaceChange={jest.fn}
             options={[]}
             getPosition={jest.fn}
-            userPosition={null}
+            userPosition={{ location: { lat: 50.0318143, lng: 36.2084215 } }}
           />
         </GoogleApi.Provider>
       </ThemeProvider>
@@ -102,7 +102,7 @@ describe("SearchLocationBlock component", () => {
             handlePlaceChange={jest.fn}
             options={[]}
             getPosition={getPosition}
-            userPosition={null}
+            userPosition={{ location: { lat: 50.0318143, lng: 36.2084215 } }}
           />
         </GoogleApi.Provider>
       </ThemeProvider>
@@ -123,7 +123,7 @@ describe("SearchLocationBlock component", () => {
           handlePlaceChange={jest.fn}
           options={["test1", "test2", "test3"]}
           getPosition={jest.fn}
-          userPosition={null}
+          userPosition={{ location: { lat: 50.0318143, lng: 36.2084215 } }}
         />
       </ThemeProvider>
     );
