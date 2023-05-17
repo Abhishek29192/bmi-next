@@ -53,7 +53,7 @@ describe("PostItCard", () => {
         <PostItCard {...postItCardProps} cardSections={[linkSectionData]} />
       </ThemeProvider>
     );
-    expect(screen.getByText(linkSectionData.link.label)).toBeInTheDocument();
+    expect(screen.getByText(linkSectionData.link!.label)).toBeInTheDocument();
   });
 
   it("renders component with button section", () => {
@@ -62,7 +62,7 @@ describe("PostItCard", () => {
         <PostItCard {...postItCardProps} cardSections={[buttonSectionData]} />
       </ThemeProvider>
     );
-    expect(screen.getByText(buttonSectionData.link.label)).toBeInTheDocument();
+    expect(screen.getByText(buttonSectionData.link!.label)).toBeInTheDocument();
   });
 
   it("renders both link and button sections", () => {
@@ -74,7 +74,7 @@ describe("PostItCard", () => {
         />
       </ThemeProvider>
     );
-    expect(screen.getByText(buttonSectionData.link.label)).toBeInTheDocument();
-    expect(screen.getByText(linkSectionData.link.label)).toBeInTheDocument();
+    expect(screen.getByText(buttonSectionData.link!.label)).toBeInTheDocument();
+    expect(screen.getByText(linkSectionData.link!.label)).toBeInTheDocument();
   });
 });

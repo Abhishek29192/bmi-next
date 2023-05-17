@@ -70,7 +70,7 @@ const SampleOrderSection = ({
     }
     setIsBasketFull(basketState?.products?.length >= maximumSamples);
     setBasketHasProducts(basketState?.products?.length > 0);
-  }, [basketState]);
+  }, [basketState, maximumSamples, product]);
   const cta =
     sampleBasketLinkInfo &&
     getCTA(sampleBasketLinkInfo, countryCode, sampleBasketLinkInfo.slug);

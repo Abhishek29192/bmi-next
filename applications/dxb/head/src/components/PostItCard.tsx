@@ -13,9 +13,9 @@ import { Data as LinkData, getClickableActionFromUrl } from "./Link";
 import { useSiteContext } from "./Site";
 
 export type Props = {
-  cardTheme: "pearl" | "blue-900";
+  cardTheme: "pearl" | "blue900";
   cardSections: Data[];
-  Component?: any;
+  Component?: typeof PostItCard;
 };
 
 export type Data = {
@@ -53,7 +53,7 @@ const IntegratedPostItCard = ({
           <Component.Section key={id}>
             <Component.Heading
               hasUnderline={hasUnderline}
-              hasDarkBackground={cardTheme === "blue-900"}
+              hasDarkBackground={cardTheme === "blue900"}
             >
               {title}
             </Component.Heading>
@@ -64,7 +64,7 @@ const IntegratedPostItCard = ({
               <Component.Action>
                 {linkType === "button" ? (
                   <GTMButton
-                    {...(cardTheme === "blue-900"
+                    {...(cardTheme === "blue900"
                       ? { hasDarkBackground: true, variant: "outlined" }
                       : {})}
                     action={getClickableActionFromUrl(

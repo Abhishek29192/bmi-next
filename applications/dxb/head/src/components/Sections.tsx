@@ -97,7 +97,7 @@ export const SectionsContext = createContext<Context>({});
 // TODO: This should be exported by the card collection.
 type ThemeOptions = "cardCollectionRowType";
 
-type Theme = Partial<Record<ThemeOptions, any>>;
+type Theme = Partial<Record<ThemeOptions, unknown>>;
 
 const pageTypenameToThemeMap: Record<string, Theme> = {
   ContentfulHomePage: {
@@ -151,7 +151,7 @@ const Sections = ({
           }
         };
       }, {}),
-    [data]
+    [data, isSpaEnabled]
   );
 
   return (

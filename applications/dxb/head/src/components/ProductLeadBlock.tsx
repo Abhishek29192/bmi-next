@@ -298,7 +298,7 @@ const ProductLeadBlock = ({
             data-testid="documentsTab"
           >
             <div className={styles["document-library"]} ref={resultsElement}>
-              <DownloadList maxSize={documentDownloadMaxLimit * 1048576}>
+              <DownloadList maxSize={(documentDownloadMaxLimit ?? 0) * 1048576}>
                 <DocumentSimpleTableResults
                   documents={documents}
                   headers={["add", displayBy, "size", "actions"]}
@@ -312,7 +312,7 @@ const ProductLeadBlock = ({
             </div>
           </Tabs.TabPanel>
         )}
-        {Boolean(product.bimIframeUrl) && (
+        {product.bimIframeUrl && (
           <Tabs.TabPanel
             heading={getMicroCopy(microCopy.PDP_LEAD_BLOCK_BIM)}
             index="four"
@@ -339,7 +339,7 @@ const ProductLeadBlock = ({
             </LeadBlock>
           </Tabs.TabPanel>
         )}
-        {Boolean(product.specificationIframeUrl) && (
+        {product.specificationIframeUrl && (
           <Tabs.TabPanel
             heading={getMicroCopy(microCopy.PDP_LEAD_BLOCK_SPECIFICATION)}
             index="seven"
@@ -361,7 +361,7 @@ const ProductLeadBlock = ({
             />
           </Tabs.TabPanel>
         )}
-        {Boolean(product.fixingToolIframeUrl) && (
+        {product.fixingToolIframeUrl && (
           <Tabs.TabPanel
             heading={getMicroCopy(microCopy.PDP_LEAD_BLOCK_FIXING_TOOL)}
             index="six"

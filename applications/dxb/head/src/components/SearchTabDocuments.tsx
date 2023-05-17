@@ -8,6 +8,7 @@ import React, { useEffect, useRef, useState } from "react";
 import FiltersSidebar from "../components/FiltersSidebar";
 import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
+import { DocumentTableHeader } from "../types/Document";
 import { devLog } from "../utils/devLog";
 import {
   Aggregations,
@@ -21,7 +22,6 @@ import {
   sortAlphabeticallyBy,
   updateFilterValue
 } from "../utils/filters";
-import { DocumentTableHeader } from "../types/Document";
 import DocumentResultsFooter from "./DocumentResultsFooter";
 import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
 import { useSiteContext } from "./Site";
@@ -91,7 +91,7 @@ type Props = {
   };
 };
 
-export const getCount = async (queryString) => {
+export const getCount = async (queryString: string) => {
   const esQueryObject = getDocumentQueryObject(queryString, PAGE_SIZE);
 
   const countResult = await queryElasticSearch(

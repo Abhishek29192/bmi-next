@@ -14,7 +14,7 @@ export type Data = {
   teamCategories: {
     title: string;
     description: RichTextData | null;
-    team_member: TeamMemberData;
+    team_member: TeamMemberData | null;
   }[];
   backgroundColor: "Alabaster" | "White" | null;
 };
@@ -62,7 +62,9 @@ const TeamSection = ({ data, className }: Props) => {
                       <RichText document={category.description} />
                     </div>
                   ) : null}
-                  <TeamList data={category.team_member} />
+                  {category.team_member ? (
+                    <TeamList data={category.team_member} />
+                  ) : null}
                 </Container>
               </Tabs.TabPanel>
             ))}

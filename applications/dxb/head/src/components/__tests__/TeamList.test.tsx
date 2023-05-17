@@ -43,7 +43,7 @@ describe("TeamList component", () => {
             }
           }
         },
-        links: null
+        links: []
       }
     ];
 
@@ -93,7 +93,7 @@ describe("TeamList component", () => {
             }
           }
         },
-        links: null
+        links: []
       },
       {
         name: "Name",
@@ -131,7 +131,7 @@ describe("TeamList component", () => {
             }
           }
         },
-        links: null
+        links: []
       },
       {
         name: "Name",
@@ -169,7 +169,7 @@ describe("TeamList component", () => {
             }
           }
         },
-        links: null
+        links: []
       },
       {
         name: "Name",
@@ -207,7 +207,7 @@ describe("TeamList component", () => {
             }
           }
         },
-        links: null
+        links: []
       },
       {
         name: "Name",
@@ -245,7 +245,7 @@ describe("TeamList component", () => {
             }
           }
         },
-        links: null
+        links: []
       },
       {
         name: "Name",
@@ -283,7 +283,7 @@ describe("TeamList component", () => {
             }
           }
         },
-        links: null
+        links: []
       },
       {
         name: "Name",
@@ -321,7 +321,7 @@ describe("TeamList component", () => {
             }
           }
         },
-        links: null
+        links: []
       },
       {
         name: "Name",
@@ -359,7 +359,7 @@ describe("TeamList component", () => {
             }
           }
         },
-        links: null
+        links: []
       },
       {
         name: "Name",
@@ -397,7 +397,7 @@ describe("TeamList component", () => {
             }
           }
         },
-        links: null
+        links: []
       }
     ];
 

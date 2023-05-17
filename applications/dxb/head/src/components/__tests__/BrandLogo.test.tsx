@@ -99,11 +99,11 @@ describe("getLogo", () => {
   });
 
   it("returns undefined if the logo parameter string is not of a valid type", () => {
-    expect(getLogo("invalidLogo")).toBeUndefined();
+    expect(getLogo("invalidLogo")).toBeNull();
   });
 
   it("returns undefined if the logo parameter is an empty string", () => {
-    expect(getLogo("")).toBeUndefined();
+    expect(getLogo("")).toBeNull();
   });
 });
 
@@ -120,7 +120,7 @@ describe("BrandLogo component", () => {
   it("should not render the component if brandName is undefined", () => {
     render(
       <ThemeProvider>
-        <BrandLogo brandName={undefined} />
+        <BrandLogo brandName={null} />
       </ThemeProvider>
     );
     expect(screen.queryByTestId("brand-logo")).not.toBeInTheDocument();
