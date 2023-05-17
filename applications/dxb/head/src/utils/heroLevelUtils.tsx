@@ -11,7 +11,7 @@ import Link, { Data as LinkData } from "../components/Link";
 import Video, { Data as VideoData } from "../components/Video";
 
 export const generateHeroLevel = (
-  heroType: string,
+  heroType: string | null,
   enhancedBreadcrumbs: BreadcrumbsData
 ): 1 | 2 | 3 => {
   if (heroType == "Spotlight" || heroType == "Hierarchy") {
@@ -32,10 +32,10 @@ export const generateHeroLevel = (
 export const generateHeroProps = (
   title: string,
   level: 1 | 2 | 3,
-  subtitle: string,
-  featuredVideo: VideoData,
-  featuredMedia: ContentfulImageData,
-  cta: LinkData
+  subtitle: string | null,
+  featuredVideo: VideoData | null,
+  featuredMedia: ContentfulImageData | null,
+  cta?: LinkData
 ): HeroProps | SpotlightHeroProps => {
   return {
     title: transformHyphens(title),

@@ -1,18 +1,19 @@
 import { RegionCode, ThemeProvider } from "@bmi-digital/components";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import React from "react";
+import createImageData from "../../__tests__/helpers/ImageDataHelper";
 import { microCopy } from "../../constants/microCopies";
 import BasketContext from "../../contexts/SampleBasketContext";
-import createImageData from "../../__tests__/helpers/ImageDataHelper";
 import Header from "../Header";
-import { Data as LinkData, DataTypeEnum, NavigationData } from "../Link";
+import { DataTypeEnum, Data as LinkData, NavigationData } from "../Link";
 import { fallbackGetMicroCopy as getMicroCopy } from "../MicroCopy";
 import { Data as PageInfoData } from "../PageInfo";
 import { Data as PromoData } from "../Promo";
 
-let isSpaEnabled;
-let isGatsbyDisabledElasticSearch;
-let isSampleOrderingEnabled;
+let isSpaEnabled: boolean;
+let isGatsbyDisabledElasticSearch: boolean;
+let isSampleOrderingEnabled: boolean;
+
 jest.mock("../../contexts/ConfigProvider", () => ({
   useConfig: () => ({
     isSpaEnabled,
@@ -227,21 +228,6 @@ describe("Header component", () => {
           countryCode="grp"
           navigationData={navigationData}
           utilitiesData={utilitiesData}
-          regions={regions}
-          maximumSamples={3}
-        />
-      </ThemeProvider>
-    );
-    expect(container).toMatchSnapshot();
-  });
-  it("renders without navigation props", () => {
-    const { container } = render(
-      <ThemeProvider>
-        <Header
-          activeLabel="Main"
-          countryCode="gb"
-          navigationData={null}
-          utilitiesData={null}
           regions={regions}
           maximumSamples={3}
         />

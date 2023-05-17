@@ -2494,6 +2494,8 @@ exports[`Sections component renders correctly 1`] = `
                                     data-testid="profile-card-head-picture"
                                   >
                                     <img
+                                      alt="alt text"
+                                      src="https://testImage.jpg"
                                       style="object-fit: cover; object-position: center;"
                                     />
                                   </div>
@@ -2727,6 +2729,8 @@ exports[`Sections component renders correctly 1`] = `
                                     data-testid="profile-card-head-picture"
                                   >
                                     <img
+                                      alt="alt text"
+                                      src="https://testImage.jpg"
                                       style="object-fit: cover; object-position: center;"
                                     />
                                   </div>
@@ -2801,6 +2805,8 @@ exports[`Sections component renders correctly 1`] = `
                                     data-testid="profile-card-head-picture"
                                   >
                                     <img
+                                      alt="alt text"
+                                      src="https://testImage.jpg"
                                       style="object-fit: cover; object-position: center;"
                                     />
                                   </div>

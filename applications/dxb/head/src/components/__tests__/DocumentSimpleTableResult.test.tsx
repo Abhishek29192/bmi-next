@@ -186,7 +186,7 @@ describe("DocumentSimpleTableResult", () => {
   describe("when multiple types of documents are present with pagination", () => {
     it("should render documents", () => {
       renderDocumentResults({
-        documents: [null],
+        documents: [],
         headers: ["add", "typeCode", "type", "name", "title", "size", "actions"]
       });
       expect(

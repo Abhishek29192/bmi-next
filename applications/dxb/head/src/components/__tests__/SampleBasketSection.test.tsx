@@ -102,7 +102,7 @@ jest.mock("node-fetch", () => {
   return {
     ...original,
     __esModule: true,
-    default: (...config) => fetchMock(...config)
+    default: (...config: unknown[]) => fetchMock(...config)
   };
 });
 

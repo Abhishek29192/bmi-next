@@ -164,7 +164,7 @@ jest.mock("node-fetch", () => {
   return {
     ...original,
     __esModule: true,
-    default: (...config) => fetchMock(...config)
+    default: (...config: unknown[]) => fetchMock(...config)
   };
 });
 
@@ -226,10 +226,10 @@ describe("FormSection component", () => {
 
     // eslint-disable-next-line testing-library/no-container,testing-library/no-node-access -- can't set test ID on text field
     const emailInput = container.querySelector(`input[id="email"]`);
-    fireEvent.change(emailInput, {
+    fireEvent.change(emailInput!, {
       target: { value: "test-email" }
     });
-    fireEvent.blur(emailInput);
+    fireEvent.blur(emailInput!);
     expect(container).toMatchSnapshot();
   });
 
@@ -254,10 +254,10 @@ describe("FormSection component", () => {
 
     // eslint-disable-next-line testing-library/no-container,testing-library/no-node-access -- can't set test ID on text field
     const emailInput = container.querySelector(`input[id="email"]`);
-    fireEvent.change(emailInput, {
+    fireEvent.change(emailInput!, {
       target: { value: "test@gmail.com" }
     });
-    fireEvent.blur(emailInput);
+    fireEvent.blur(emailInput!);
     expect(container).toMatchSnapshot();
   });
 
@@ -387,7 +387,7 @@ describe("FormSection component", () => {
 
     // eslint-disable-next-line testing-library/no-container,testing-library/no-node-access -- can't set test ID on text field
     const textInput = container.querySelector(`input[id="text"]`);
-    fireEvent.change(textInput, {
+    fireEvent.change(textInput!, {
       target: { value: "text value" }
     });
     fireEvent.submit(screen.getByTestId("test-form"));
@@ -458,7 +458,7 @@ describe("FormSection component", () => {
 
     // eslint-disable-next-line testing-library/no-container,testing-library/no-node-access -- can't set test ID on text field
     const textInput = container.querySelector(`input[name="text"]`);
-    fireEvent.change(textInput, {
+    fireEvent.change(textInput!, {
       target: { value: "text value" }
     });
     fireEvent.submit(screen.getByTestId("test-form"));
@@ -521,7 +521,7 @@ describe("FormSection component", () => {
 
     // eslint-disable-next-line testing-library/no-container,testing-library/no-node-access -- can't set test ID on text field
     const textInput = container.querySelector(`input[id="text"]`);
-    fireEvent.change(textInput, {
+    fireEvent.change(textInput!, {
       target: { value: "text value" }
     });
     fireEvent.submit(screen.getByTestId("test-form"));
@@ -592,7 +592,7 @@ describe("FormSection component", () => {
 
     // eslint-disable-next-line testing-library/no-container,testing-library/no-node-access -- can't set test ID on text field
     const textInput = container.querySelector(`input[name="text"]`);
-    fireEvent.change(textInput, {
+    fireEvent.change(textInput!, {
       target: { value: "text value" }
     });
     fireEvent.submit(screen.getByTestId("test-form"));
@@ -644,7 +644,7 @@ describe("FormSection component", () => {
 
     // eslint-disable-next-line testing-library/no-container,testing-library/no-node-access -- can't set test ID on text field
     const textInput = container.querySelector(`input[id="text"]`);
-    fireEvent.change(textInput, {
+    fireEvent.change(textInput!, {
       target: { value: "text value" }
     });
     fireEvent.submit(screen.getByTestId("test-form"));

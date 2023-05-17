@@ -177,7 +177,7 @@ export const setSearchTabUrl = (tab: string): void => {
   });
 };
 
-export const getSearchTabUrl = (): string => {
+export const getSearchTabUrl = (): string | null => {
   const { search } = getWindowLocationFilters();
   const searchtab = queryString.parse(search)[SEARCHTAB_KEY as string] ?? null;
 
