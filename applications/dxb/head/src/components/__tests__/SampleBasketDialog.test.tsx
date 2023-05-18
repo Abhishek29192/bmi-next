@@ -163,7 +163,7 @@ describe("SampleBasketDialog component", () => {
       </ThemeProvider>
     );
 
-    fireEvent.click(screen.queryByText("MC: pdp.overview.continueBrowsing"));
+    fireEvent.click(screen.queryByText("MC: pdp.overview.continueBrowsing")!);
 
     expect(toggleCart).toHaveBeenCalledTimes(1);
   });

@@ -2,14 +2,14 @@ import { DownloadListContext, ThemeProvider } from "@bmi-digital/components";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import MockDate from "mockdate";
 import React from "react";
-import * as ClientDownloadUtils from "../../utils/client-download";
-import { devLog } from "../../utils/devLog";
 import createContentfulDocument from "../../__tests__/helpers/ContentfulDocumentHelper";
 import createPimDocument from "../../__tests__/helpers/PimDocumentHelper";
+import { Config } from "../../contexts/ConfigProvider";
+import * as ClientDownloadUtils from "../../utils/client-download";
+import { devLog } from "../../utils/devLog";
 import DocumentResultsFooter, {
   handleDownloadClick
 } from "../DocumentResultsFooter";
-import { Config } from "../../contexts/ConfigProvider";
 
 jest.mock("../../utils/devLog");
 
@@ -19,11 +19,11 @@ jest.mock("node-fetch", () => {
   return {
     ...original,
     __esModule: true,
-    default: (...config) => fetchMock(...config)
+    default: (...config: unknown[]) => fetchMock(...config)
   };
 });
 
-const getFetchResponse = (response) => ({
+const getFetchResponse = (response: unknown) => ({
   ok: true,
   json: () => response
 });

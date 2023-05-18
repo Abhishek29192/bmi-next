@@ -122,7 +122,7 @@ describe("IframeSection component", () => {
       expect(
         screen.getByTestId(`iframe-section-${replaceSpaces(data.title)}`)
       ).toBeInTheDocument();
-      expect(screen.getByText(data.title)).toBeInTheDocument();
+      expect(screen.getByText(data.title!)).toBeInTheDocument();
       expect(screen.getByText("Summary")).not.toBeNull();
       expect(
         screen.queryByTestId(

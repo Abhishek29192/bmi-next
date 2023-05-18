@@ -61,7 +61,7 @@ describe("WelcomeDialog component", () => {
           <WelcomeDialog data={data} />
         </ThemeProvider>
       );
-      const titleElement = screen.getByText(data.welcomeDialogTitle);
+      const titleElement = screen.getByText(data.welcomeDialogTitle!);
       expect(titleElement).not.toBeNull();
 
       const richTextElement = screen.getByText("test rich text");
@@ -87,7 +87,7 @@ describe("WelcomeDialog component", () => {
           <WelcomeDialog data={data} />
         </ThemeProvider>
       );
-      const titleElement = screen.getByText(data.welcomeDialogTitle);
+      const titleElement = screen.getByText(data.welcomeDialogTitle!);
       expect(titleElement).not.toBeNull();
 
       const richTextElement = screen.getByText("test rich text");
@@ -96,7 +96,7 @@ describe("WelcomeDialog component", () => {
       const closeButton = screen.getByLabelText("Close");
       expect(closeButton).not.toBeNull();
 
-      data.welcomeDialogBrands.forEach((brandName) =>
+      data.welcomeDialogBrands!.forEach((brandName) =>
         expect(
           screen.getByTestId(`welcome-brand-${brandName}`)
         ).toBeInTheDocument()

@@ -1,7 +1,7 @@
 import { ThemeProvider } from "@bmi-digital/components";
+import { BLOCKS } from "@contentful/rich-text-types";
 import { render } from "@testing-library/react";
 import React from "react";
-import { BLOCKS } from "@contentful/rich-text-types";
 import createGallerySectionImage from "../../__tests__/helpers/GallerySectionImageHelper";
 import createImageData from "../../__tests__/helpers/ImageDataHelper";
 import createService from "../../__tests__/helpers/ServiceHelper";
@@ -347,7 +347,15 @@ describe("Sections component", () => {
               {
                 name: "Bob McBobbinson",
                 jobTitle: "CEO",
-                profileImage: null,
+                profileImage: {
+                  altText: "alt text",
+                  image: {
+                    file: {
+                      fileName: "test-filename",
+                      url: "https://testImage.jpg"
+                    }
+                  }
+                },
                 links: []
               }
             ]
@@ -369,7 +377,15 @@ describe("Sections component", () => {
               {
                 name: "Bob McBobbinson",
                 jobTitle: "CEO",
-                profileImage: null,
+                profileImage: {
+                  altText: "alt text",
+                  image: {
+                    file: {
+                      fileName: "test-filename",
+                      url: "https://testImage.jpg"
+                    }
+                  }
+                },
                 links: []
               }
             ]
@@ -381,7 +397,15 @@ describe("Sections component", () => {
               {
                 name: "Johnny McJohnson",
                 jobTitle: "CEO",
-                profileImage: null,
+                profileImage: {
+                  altText: "alt text",
+                  image: {
+                    file: {
+                      fileName: "test-filename",
+                      url: "https://testImage.jpg"
+                    }
+                  }
+                },
                 links: []
               }
             ]

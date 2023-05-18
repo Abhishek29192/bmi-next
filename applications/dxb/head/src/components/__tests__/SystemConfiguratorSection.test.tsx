@@ -1,4 +1,5 @@
 import { ThemeProvider } from "@bmi-digital/components";
+import { BLOCKS } from "@contentful/rich-text-types";
 import * as ReactRouter from "@reach/router";
 import {
   createHistory,
@@ -8,7 +9,6 @@ import {
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import { ErrorBoundary } from "react-error-boundary";
-import { BLOCKS } from "@contentful/rich-text-types";
 import createRelatedSystem from "../../__tests__/helpers/RelatedSystemHelper";
 import * as elasticSearch from "../../utils/elasticSearch";
 import * as GTM from "../../utils/google-tag-manager";
@@ -35,11 +35,11 @@ jest.mock("node-fetch", () => {
   return {
     ...original,
     __esModule: true,
-    default: (...config) => fetchMock(...config)
+    default: (...config: unknown[]) => fetchMock(...config)
   };
 });
 
-const getFetchResponse = (response) => ({
+const getFetchResponse = (response: unknown) => ({
   ok: true,
   json: () => response
 });
