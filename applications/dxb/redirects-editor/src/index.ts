@@ -1,8 +1,8 @@
 import fs from "fs";
 import { parseArgs } from "util";
+import { Redirect } from "@bmi/head/src/utils/get-redirects";
 import toml from "@iarna/toml";
 import csv from "csvtojson";
-import { Redirect } from "@bmi/head/src/utils/get-redirects";
 
 const validCsvContents = (csvRedirects: { [x: string]: unknown }[]) =>
   csvRedirects.length > 0 &&
@@ -54,6 +54,9 @@ const getNewRedirects = async (
  * @param removeHost whet to remove the host from the URL
  */
 const formatUrl = (url: string, removeHost?: boolean): string => {
+  if (url === "/") {
+    return url;
+  }
   let formattedUrl = url;
   while (formattedUrl.includes("%")) {
     formattedUrl = decodeURI(formattedUrl);
