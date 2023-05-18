@@ -35,7 +35,6 @@ export const main = async () => {
       );
       for (const role of roles) {
         const roleToUpdate = allExistingSpaceRoles.items.find(
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           (existingRole: any) =>
             existingRole.name === `DXB - ${market.name} content ${role}`
         );

@@ -32,10 +32,10 @@ export const main = async () => {
           otherMarketsTags
         );
         await createRoles(body);
+        console.info(`Created contentful roles`);
       }
     })
   );
-  console.info(`Created contentful roles`);
 };
 
 main();
