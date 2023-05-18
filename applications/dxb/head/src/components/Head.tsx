@@ -41,7 +41,7 @@ export const Head = ({
     useConfig();
   const imageUrl = getJpgImage(ogImageUrl);
 
-  const isScriptOnetrustEnabled = Boolean(!isPreviewMode && oneTrustId);
+  const isScriptOnetrustEnabled = Boolean(oneTrustId);
   const enableHubSpot = Boolean(!isPreviewMode && hubSpotId);
 
   const schemaOrgActivated =
