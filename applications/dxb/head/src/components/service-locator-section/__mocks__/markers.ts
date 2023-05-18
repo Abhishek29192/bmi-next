@@ -51,7 +51,7 @@ export const selectedRooferMock: Service = {
   linkedIn: null,
   twitter: null,
   fax: null,
-  companyLogo: null,
+  companyLogo: undefined,
   serviceTypes: [{ __typename: "ContentfulServiceType", name: "Pitched roof" }],
   certification: null,
   summary: "test summary",

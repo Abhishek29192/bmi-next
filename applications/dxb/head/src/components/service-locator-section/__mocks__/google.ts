@@ -249,8 +249,11 @@ export const googleMock: Google = {
     places: {
       AutocompleteService: jest.fn().mockImplementation(() => {
         return {
-          getPlacePredictions: (params, calback) => {
-            return calback(options);
+          getPlacePredictions: (
+            params: unknown,
+            callback: (results: unknown) => void
+          ) => {
+            return callback(options);
           }
         };
       }),
@@ -265,7 +268,7 @@ export const googleMock: Google = {
     },
     Geocoder: jest.fn().mockImplementation(() => {
       return {
-        geocode: (request, callback) => {
+        geocode: (request: unknown, callback: (results: unknown) => void) => {
           return callback(geoCodeMock);
         }
       };

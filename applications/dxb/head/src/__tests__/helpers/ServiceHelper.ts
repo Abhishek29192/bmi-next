@@ -19,7 +19,7 @@ const createRoofer = (service?: Partial<Service>): Service => ({
   instagram: null,
   twitter: null,
   fax: "fax 1",
-  companyLogo: null,
+  companyLogo: undefined,
   serviceTypes: null,
   certification: null,
   summary: "roofer summary",

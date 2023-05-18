@@ -14,6 +14,6 @@ export const useScrollTo = (
           behavior: "smooth"
         });
     }
-  }, [isOpen, hasElementExpansionCompleted, htmlElement.current]);
+  }, [isOpen, hasElementExpansionCompleted, htmlElement]);
   return [setElementExpansionCompleted];
 };
