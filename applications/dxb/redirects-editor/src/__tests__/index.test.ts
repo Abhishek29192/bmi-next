@@ -1,8 +1,8 @@
 import fs from "fs";
-import * as path from "path";
 import * as os from "os";
-import { Redirect } from "@bmi/head/src/utils/get-redirects";
+import * as path from "path";
 import toml from "@iarna/toml";
+import { Redirect } from "@bmi/head/src/utils/get-redirects";
 import { main } from "../index";
 
 const mockParseArgs = jest.fn();
@@ -772,6 +772,31 @@ status = ${args.values.status}
 from = "/existing-from"
 to = "/existing-to"
 status = 301
+`
+    );
+
+    deleteRedirectsFile(args.values.redirectsFile!);
+  });
+
+  it("should produce TOML file with / if from is just /", async () => {
+    const args = createParseArgs({
+      redirectsFile: createTomlFile(),
+      from: "/",
+      csvFile: undefined
+    });
+    mockParseArgs.mockReturnValueOnce(args);
+
+    await main();
+
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
+    const contents = fs
+      .readFileSync(args.values.redirectsFile!)
+      .toString("utf-8");
+    expect(contents).toEqual(
+      `[[redirects]]
+from = "/"
+to = "${args.values.to}"
+status = ${args.values.status}
 `
     );
 
