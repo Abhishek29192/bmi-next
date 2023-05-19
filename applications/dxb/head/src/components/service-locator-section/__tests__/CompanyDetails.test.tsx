@@ -1,7 +1,7 @@
 import { SocialMediaLinks } from "@bmi-digital/components";
 import React from "react";
-import * as devLog from "../../../utils/devLog";
 import createService from "../../../__tests__/helpers/ServiceHelper";
+import * as devLog from "../../../utils/devLog";
 import { EntryTypeEnum } from "../../Service";
 import { createCompanyDetails } from "../components";
 
@@ -24,6 +24,7 @@ describe("createCompanyDetails", () => {
       service,
       "en",
       getMicroCopyMock,
+      false,
       "googleURLLatLng"
     );
     const typeObject = details.find(
@@ -42,6 +43,7 @@ describe("createCompanyDetails", () => {
       service,
       "en",
       getMicroCopyMock,
+      false,
       "googleURLLatLng"
     );
     const faxObject = details.find((item) => item.label === "global.fax");
@@ -54,6 +56,7 @@ describe("createCompanyDetails", () => {
       service,
       "en",
       getMicroCopyMock,
+      false,
       "googleURLLatLng"
     );
     const faxObject = details.find((item) => item.label === "global.fax");
@@ -71,6 +74,7 @@ describe("createCompanyDetails", () => {
       service,
       "en",
       getMicroCopyMock,
+      false,
       "googleURLLatLng"
     );
     expect(devLog.devLog).toHaveBeenCalledWith(
@@ -96,6 +100,7 @@ describe("createCompanyDetails", () => {
         service,
         "en",
         getMicroCopyMock,
+        false,
         "googleURLLatLng"
       );
       const phoneObject = details.find((item) => item.type === "phone");
@@ -132,6 +137,7 @@ describe("createCompanyDetails", () => {
         service,
         "en",
         getMicroCopyMock,
+        false,
         "googleURLLatLng"
       );
       const certificationObject = details.find(
@@ -156,6 +162,7 @@ describe("createCompanyDetails", () => {
         "en",
         getMicroCopyMock,
 
+        false,
         "googleURLLatLng"
       );
       const certificationObject = details.find(
@@ -182,6 +189,7 @@ describe("createCompanyDetails", () => {
           service,
           "en",
           getMicroCopyMock,
+          false,
           "googleURLLatLng"
         );
 
@@ -204,6 +212,7 @@ describe("createCompanyDetails", () => {
           service,
           "en",
           getMicroCopyMock,
+          false,
           "googleURLLatLng"
         );
 
@@ -228,6 +237,7 @@ describe("createCompanyDetails", () => {
           service,
           "en",
           getMicroCopyMock,
+          false,
           "googleURLLatLng"
         );
 
@@ -258,6 +268,7 @@ describe("createCompanyDetails", () => {
           service,
           "en",
           getMicroCopyMock,
+          false,
           "googleURLLatLng"
         );
 
@@ -287,6 +298,7 @@ describe("createCompanyDetails", () => {
           createService(),
           "en",
           getMicroCopyMock,
+          false,
           "googleURLLatLng"
         );
 

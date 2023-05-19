@@ -24,6 +24,7 @@ describe("ServiceLocatorResultList component", () => {
           onCloseCard={jest.fn()}
           onListItemClick={jest.fn}
           selectedRoofer={{ ...selectedRooferMock }}
+          shouldListCertification={false}
         />
       </ThemeProvider>
     );
@@ -57,6 +58,7 @@ describe("ServiceLocatorResultList component", () => {
           onCloseCard={jest.fn()}
           onListItemClick={jest.fn}
           selectedRoofer={{ ...selectedRooferMock }}
+          shouldListCertification={false}
         />
       </ThemeProvider>
     );
@@ -79,12 +81,36 @@ describe("ServiceLocatorResultList component", () => {
           onCloseCard={jest.fn()}
           onListItemClick={onListItemClick}
           selectedRoofer={{ ...selectedRooferMock }}
+          shouldListCertification={false}
         />
       </ThemeProvider>
     );
     const listItem = screen.getByTestId(listItemTestId);
     fireEvent.click(listItem);
     expect(onListItemClick).toBeCalled();
+  });
+
+  it("should print subtitle if shouldListCertification === true", () => {
+    const service = createService({ certification: "expert" });
+    const onListItemClick = jest.fn();
+    render(
+      <ThemeProvider>
+        <ServiceLocatorResultList
+          page={1}
+          pageCount={1}
+          onPageChange={handlePageChange}
+          roofersList={[service]}
+          getCompanyDetails={jest.fn()}
+          onCloseCard={jest.fn()}
+          onListItemClick={onListItemClick}
+          selectedRoofer={null}
+          shouldListCertification={true}
+        />
+      </ThemeProvider>
+    );
+    const listItem = screen.getByText("MC: findARoofer.certificationLabel:");
+
+    expect(listItem).toBeDefined();
   });
 
   it("should render correctly if pageCount larger then 1", () => {
@@ -101,6 +127,7 @@ describe("ServiceLocatorResultList component", () => {
           onCloseCard={jest.fn()}
           onListItemClick={onListItemClick}
           selectedRoofer={{ ...selectedRooferMock }}
+          shouldListCertification={false}
         />
       </ThemeProvider>
     );
@@ -123,6 +150,7 @@ describe("ServiceLocatorResultList component", () => {
           onCloseCard={jest.fn()}
           onListItemClick={onListItemClick}
           selectedRoofer={service}
+          shouldListCertification={false}
         />
       </ThemeProvider>
     );

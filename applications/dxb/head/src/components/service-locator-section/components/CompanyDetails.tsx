@@ -18,6 +18,7 @@ interface Props {
     service: Service,
     countryCode: string,
     localizationCb: (s: string) => string,
+    isAddressHidden: boolean,
     googleURLLatLng: string
   ): CompanyDetailProps[];
 }
@@ -27,6 +28,7 @@ export const createCompanyDetails: Props = (
   service,
   countryCode,
   localizationCb,
+  isAddressHidden,
   googleURLLatLng
 ) => {
   if (!service) {
@@ -246,7 +248,9 @@ export const createCompanyDetails: Props = (
 
   const details = [];
 
-  details.push(address);
+  if (!isAddressHidden) {
+    details.push(address);
+  }
 
   if (sectionType === ROOFER_TYPE) {
     details.push(certification);
