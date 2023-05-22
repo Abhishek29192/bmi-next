@@ -1,9 +1,9 @@
-import { SocialMediaLinks } from "@bmi-digital/components";
 import React from "react";
-import * as devLog from "../../../utils/devLog";
 import createService from "../../../__tests__/helpers/ServiceHelper";
+import * as devLog from "../../../utils/devLog";
 import { EntryTypeEnum } from "../../Service";
 import { createCompanyDetails } from "../components";
+import { SocialMediaLinks } from "../components/SocialMediaLinks/SocialMediaLinks";
 
 const { ROOFER_TYPE, BRANCH_TYPE, MERCHANT_TYPE } = EntryTypeEnum;
 
@@ -266,14 +266,7 @@ describe("createCompanyDetails", () => {
             expect.objectContaining({
               type: "content",
               label: "findARoofer.socialMediaLabel",
-              text: (
-                <SocialMediaLinks
-                  facebook={channels.facebook}
-                  instagram={channels.instagram}
-                  linkedIn={channels.linkedIn}
-                  twitter={channels.twitter}
-                />
-              )
+              text: <SocialMediaLinks service={service} />
             })
           ])
         );
