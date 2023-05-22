@@ -4,7 +4,6 @@ import {
   Pagination,
   Typography
 } from "@bmi-digital/components";
-import classnames from "classnames";
 import React from "react";
 import { microCopy } from "../../../constants/microCopies";
 import Image from "../../Image";
@@ -42,9 +41,7 @@ export const ServiceLocatorResultList = ({
 
   return roofersList.length ? (
     <div
-      className={classnames(
-        pageCount > 1 && styles["results-list-section--with-pagination"]
-      )}
+      className={`${pageCount > 1 ? `${styles["results-list-section"]}` : ""}`}
       data-testid={"results-list-section"}
     >
       <div className={styles["list"]}>
