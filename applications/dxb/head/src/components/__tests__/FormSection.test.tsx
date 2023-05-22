@@ -149,9 +149,10 @@ const dataHubSpot: Data = {
   hubSpotFormGuid: "abc123"
 };
 
+const mockExecutRecaptcha = jest.fn();
 jest.mock("react-google-recaptcha-v3", () => ({
   useGoogleReCaptcha: () => ({
-    executeRecaptcha: () => "RECAPTCHA"
+    executeRecaptcha: () => mockExecutRecaptcha()
   })
 }));
 
@@ -166,6 +167,10 @@ jest.mock("node-fetch", () => {
     __esModule: true,
     default: (...config: unknown[]) => fetchMock(...config)
   };
+});
+
+beforeEach(() => {
+  mockExecutRecaptcha.mockReturnValue("RECAPTCHA");
 });
 
 afterEach(() => {
@@ -486,6 +491,7 @@ describe("FormSection component", () => {
 
     expect(onSuccess).toHaveBeenCalled();
     expect(Gatsby.navigate).toBeCalledWith("link-to-page");
+    expect(mockExecutRecaptcha).not.toHaveBeenCalled();
   });
 
   it("test submit form with no redirect url", async () => {
@@ -618,6 +624,7 @@ describe("FormSection component", () => {
     );
 
     expect(Gatsby.navigate).toBeCalledWith("/");
+    expect(mockExecutRecaptcha).not.toHaveBeenCalled();
   });
 
   it("test submit form with error", async () => {
