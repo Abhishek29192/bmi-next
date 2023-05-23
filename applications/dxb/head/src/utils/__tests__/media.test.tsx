@@ -50,7 +50,7 @@ describe("transformMediaSrc function", () => {
     const expectResult = transformMediaSrc(mockMedia);
 
     expect(expectResult[0]).toEqual({
-      thumbnail: image.image.thumbnail.images.fallback.src,
+      thumbnail: image.image.thumbnail?.images.fallback?.src,
       isVideo: false,
       caption: "CAPTION",
       altText: "alt text",
@@ -159,7 +159,7 @@ describe("transformMediaSrc function", () => {
 
     expect(expectResult[0]).toEqual(
       expect.objectContaining({
-        thumbnail: image.image.thumbnail.images.fallback.src,
+        thumbnail: image.image.thumbnail?.images.fallback?.src,
         isVideo: false,
         caption: undefined,
         altText: "alt text"
@@ -175,7 +175,7 @@ describe("transformMediaSrc function", () => {
 
     expect(expectResult[0]).toEqual(
       expect.objectContaining({
-        thumbnail: image.image.thumbnail.images.fallback.src,
+        thumbnail: image.image.thumbnail?.images.fallback?.src,
         isVideo: false,
         caption: "CAPTION",
         altText: undefined

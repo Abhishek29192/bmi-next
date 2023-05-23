@@ -49,7 +49,7 @@ describe("TabLeadBlock tests", () => {
   });
 
   it("should not render the documents and downloads", () => {
-    systemDetailsMockData.documents = null;
+    systemDetailsMockData.documents = [];
     renderWithRouter(
       <ThemeProvider>
         <Component system={systemDetailsMockData} />

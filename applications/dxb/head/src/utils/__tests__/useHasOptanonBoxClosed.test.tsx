@@ -26,7 +26,7 @@ describe("when isClient = true", () => {
     it("should return hasAcceptedOptanonCookie = true", async () => {
       useClientSpy.mockImplementation(() => ({ isClient: true, key: "" }));
 
-      const configuredClasses = [];
+      const configuredClasses = [] as string[];
       const { result } = renderHook(() =>
         useHasOptanonBoxClosed(configuredClasses)
       );
