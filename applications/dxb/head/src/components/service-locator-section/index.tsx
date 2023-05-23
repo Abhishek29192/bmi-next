@@ -222,7 +222,10 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     setCentre(centre || null);
   };
 
-  const getCompanyDetails = (service: Service): CompanyDetailProps[] => {
+  const getCompanyDetails = (
+    service: Service,
+    isAddressHidden?: boolean
+  ): CompanyDetailProps[] => {
     const googleURLLatLng = centre ? `${centre.lat},+${centre.lng}` : "";
 
     return createCompanyDetails(
@@ -230,6 +233,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
       service,
       countryCode,
       getMicroCopy,
+      isAddressHidden,
       googleURLLatLng
     );
   };
@@ -402,6 +406,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                 pageCount={pageCount}
                 getCompanyDetails={getCompanyDetails}
                 selectedRoofer={selectedRoofer}
+                shouldListCertification
               />
             </ResultListTabPanel>
           )}

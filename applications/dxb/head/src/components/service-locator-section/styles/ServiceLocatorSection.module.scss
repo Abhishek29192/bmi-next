@@ -126,6 +126,7 @@
       max-height: 640px;
       border-bottom: 1px solid $color-storm;
       border-top: 1px solid $color-storm;
+      margin-bottom: 10px;
     }
   }
 
@@ -155,6 +156,10 @@
     height: 18px;
     vertical-align: middle;
     margin-left: 5px;
+  }
+
+  .subtitle {
+    margin-bottom: 12px;
   }
 
   .tabs {
