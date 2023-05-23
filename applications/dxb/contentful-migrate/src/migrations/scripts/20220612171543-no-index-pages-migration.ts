@@ -1,12 +1,8 @@
-import type Migration from "contentful-migration";
-import type { MigrationContext, MigrationFunction } from "contentful-migration";
+import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Migrate pages to reflect the new noindex setting";
 
-export const up: MigrationFunction = (
-  migration: Migration,
-  context?: MigrationContext
-) => {
+export const up: MigrationFunction = (migration, context) => {
   migration.transformEntries({
     contentType: "page",
     from: ["seo", "slug"],
@@ -62,4 +58,4 @@ export const up: MigrationFunction = (
 };
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function
-export const down: MigrationFunction = (migration: Migration) => {};
+export const down: MigrationFunction = (migration) => {};

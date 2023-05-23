@@ -1,5 +1,7 @@
 import { promises as fs } from "fs";
 import { join } from "path";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import {
   Asset,
   Collection,
@@ -183,7 +185,9 @@ const uploadData = async (
   const promises = await Promise.allSettled(
     chunk.map(async (roofShape) => {
       // eslint-disable-next-line security/detect-non-literal-fs-filename
-      const file = await fs.readFile(join(__dirname, roofShape.imagePath));
+      const file = await fs.readFile(
+        join(path.dirname(fileURLToPath(import.meta.url)), roofShape.imagePath)
+      );
       const asset = await createAsset(env, roofShape, file, locales);
 
       const roof = await createRoofShapeEntry(env, roofShape, asset, locales);

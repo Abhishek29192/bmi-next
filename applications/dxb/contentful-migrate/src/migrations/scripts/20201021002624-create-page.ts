@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Create content model for Simple Page";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const page = migration
     .createContentType("page")
     .name("Simple Page")
@@ -78,5 +77,5 @@ export const up: MigrationFunction = (migration: Migration) => {
   page.changeFieldControl("showSignUpBanner", "builtin", "boolean");
 };
 
-export const down: MigrationFunction = (migration: Migration) =>
+export const down: MigrationFunction = (migration) =>
   migration.deleteContentType("page");

@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Add asset field";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const link = migration
     .editContentType("link")
     .description("This links to a Page, Asset, or URL");
@@ -12,7 +11,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   link.moveField("icon").afterField("type");
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const link = migration
     .editContentType("link")
     .description("This links to a Page or URL");

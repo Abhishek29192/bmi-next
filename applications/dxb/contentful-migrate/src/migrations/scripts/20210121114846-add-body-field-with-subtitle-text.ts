@@ -1,4 +1,3 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Add body field with subtitle text to content type";
@@ -20,7 +19,7 @@ const enabledNodeTypes = [
   "embedded-entry-inline"
 ];
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const promo = migration.editContentType("promo");
 
   promo
@@ -86,7 +85,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   });
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const promo = migration.editContentType("promo");
 
   promo.changeFieldControl("subtitle", "builtin", "singleLine", {

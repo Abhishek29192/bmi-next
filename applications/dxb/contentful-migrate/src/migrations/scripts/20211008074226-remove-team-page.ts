@@ -1,10 +1,9 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description =
   "Remove team page field from documentLibraryPage parentPage.";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const page = migration.editContentType("documentLibraryPage");
 
   page.editField("parentPage").validations([
@@ -21,7 +20,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   ]);
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const page = migration.editContentType("documentLibraryPage");
 
   page.editField("parentPage").validations([

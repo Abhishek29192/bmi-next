@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "license": "UNLICENSED",
+  "type": "module",
   "src": "src/index.ts",
   "scripts": {
     "build": "tsc --build && copyfiles './src/images/**/*' ./dist/contentful-migrate",
@@ -14,7 +15,8 @@
     "down": "node ./dist/contentful-migrate/src/down.js",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "start": "node ./dist/contentful-migrate/src/index.js",
-    "test": "jest --coverage --reporters=default --reporters=jest-junit",
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest --coverage --reporters=default --reporters=jest-junit",
+    "test:debug": "node --experimental-vm-modules --inspect $(yarn bin jest) --runInBand",
     "up": "node ./dist/contentful-migrate/src/up.js"
   },
   "dependencies": {

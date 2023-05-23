@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Add visualiser house types to the site";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const resources = migration.editContentType("site");
 
   resources
@@ -17,7 +16,7 @@ export const up: MigrationFunction = (migration: Migration) => {
     });
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const resources = migration.editContentType("site");
   resources.deleteField("visualiserHouseTypes");
 };

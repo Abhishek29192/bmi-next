@@ -1,19 +1,18 @@
-import prevDocumentBrands from "../../variables/icons/20210512134828";
-import { brands as prevBrandIcons } from "../../variables/icons/20210803135831";
+import prevDocumentBrands from "../../variables/icons/20210512134828.js";
+import { brands as prevBrandIcons } from "../../variables/icons/20210803135831.js";
 import prevLinkIcons, {
   brands as prevBrands
-} from "../../variables/icons/20220404105849";
+} from "../../variables/icons/20220404105849.js";
 import {
   brands,
   doumentBrands,
   linkIcons
-} from "../../variables/icons/20221208120944";
+} from "../../variables/icons/20221208120944.js";
 import type { MigrationFunction } from "contentful-migration";
-import type Migration from "contentful-migration";
 
 export const description = "Add Canopia brand for all pages";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const brandLandingPage = migration.editContentType("brandLandingPage");
   brandLandingPage.editField("brandLogo", {
     type: "Symbol",
@@ -57,7 +56,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   });
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const document = migration.editContentType("document");
   document.editField("brand", {
     type: "Symbol",

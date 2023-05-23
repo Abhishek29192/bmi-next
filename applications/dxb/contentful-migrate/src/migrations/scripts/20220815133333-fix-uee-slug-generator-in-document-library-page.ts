@@ -1,11 +1,10 @@
 import { getExtensions } from "@bmi-digital/contentful-migration";
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description =
   "This migration will fix previous one. Change slug control from default to Slug Generator";
 
-export const up: MigrationFunction = async (migration: Migration, context) => {
+export const up: MigrationFunction = async (migration, context) => {
   const extensions = await getExtensions(context!.makeRequest);
 
   const slugGenerator = extensions.items.find(
@@ -24,7 +23,7 @@ export const up: MigrationFunction = async (migration: Migration, context) => {
   );
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const documentLibraryPage = migration.editContentType("documentLibraryPage");
 
   documentLibraryPage.resetFieldControl("slug");

@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Create content type for SEO content";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const seoContent = migration
     .createContentType("seoContent")
     .name("SEO content")
@@ -20,5 +19,5 @@ export const up: MigrationFunction = (migration: Migration) => {
     .type("Symbol");
 };
 
-export const down: MigrationFunction = (migration: Migration) =>
+export const down: MigrationFunction = (migration) =>
   migration.deleteContentType("seoContent");

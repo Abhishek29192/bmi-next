@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Edit the title field for the Lead Block Section";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const leadBlockSection = migration.editContentType("leadBlockSection");
 
   leadBlockSection.editField("title").required(true);
@@ -13,7 +12,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   });
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const leadBlockSection = migration.editContentType("leadBlockSection");
 
   leadBlockSection.editField("title").required(false);

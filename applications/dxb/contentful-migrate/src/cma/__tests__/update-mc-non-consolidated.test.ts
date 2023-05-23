@@ -1,10 +1,11 @@
-import { microCopy } from "../../../../head/src/constants/microCopies";
-import { BULK_SIZE, CHUNK_SIZE } from "../constants";
+import { jest } from "@jest/globals";
+import { microCopy } from "../../../../head/src/constants/microCopies.js";
+import { BULK_SIZE, CHUNK_SIZE } from "../constants.js";
 import {
   getContentfulLocales,
   getContentfulTags,
   getMockContentfulEntries
-} from "./helpers";
+} from "./helpers.js";
 
 const envMock = {
   getEntries: jest.fn().mockReturnValue(getMockContentfulEntries([], [])),
@@ -28,7 +29,7 @@ jest.mock("@bmi/utils", () => {
 });
 
 const main = async (isToBePublished: boolean, isConsolidated: boolean) =>
-  (await import("../update-mc")).main(isToBePublished, isConsolidated);
+  (await import("../update-mc.js")).main(isToBePublished, isConsolidated);
 
 beforeEach(() => {
   jest.clearAllMocks();
@@ -60,8 +61,10 @@ describe("main", () => {
           `${expectedEntries} entries created in contentful.`
         );
         // there was no call to publish and hence no message!
-        const publishedMessage = (console.log as jest.Mock).mock.calls.filter(
-          (call: string[]) => call[0].endsWith("successfully published")
+        const publishedMessage = (
+          console.log as jest.Mock<Console["log"]>
+        ).mock.calls.filter((call) =>
+          call[0].endsWith("successfully published")
         );
         expect(publishedMessage).toEqual([]);
         expect(console.log).lastCalledWith("Done");
@@ -122,9 +125,9 @@ describe("main", () => {
         );
 
         // there was no call to publish and hence no message!
-        const rejectedEntries = (console.log as jest.Mock).mock.calls.filter(
-          (call: string[]) => call[0].startsWith("Failed to upload: ")
-        );
+        const rejectedEntries = (
+          console.log as jest.Mock<Console["log"]>
+        ).mock.calls.filter((call) => call[0].startsWith("Failed to upload: "));
         expect(rejectedEntries.length).toEqual(expectedEntries);
         expect(console.log).lastCalledWith("Done");
       });

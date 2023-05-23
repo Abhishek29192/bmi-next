@@ -1,13 +1,9 @@
 import { getItemsValidations } from "@bmi-digital/contentful-migration";
-import type Migration from "contentful-migration";
-import type { MigrationContext, MigrationFunction } from "contentful-migration";
+import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Remove team page links from simple page.";
 
-export const up: MigrationFunction = async (
-  migration: Migration,
-  context?: MigrationContext
-) => {
+export const up: MigrationFunction = async (migration, context) => {
   const page = migration.editContentType("page");
 
   //remove from parentPage field
@@ -44,10 +40,7 @@ export const up: MigrationFunction = async (
   });
 };
 
-export const down: MigrationFunction = async (
-  migration: Migration,
-  context?: MigrationContext
-) => {
+export const down: MigrationFunction = async (migration, context) => {
   const page = migration.editContentType("page");
 
   page.editField("parentPage").validations([

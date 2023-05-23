@@ -7,12 +7,11 @@ import type {
   EditorInterfaceProps,
   EntryProps
 } from "contentful-management";
-import type Migration from "contentful-migration";
 import type {
-  FieldType as MigrationFieldType,
   IValidation,
   MakeRequest,
-  MigrationContext,
+  default as Migration,
+  FieldType as MigrationFieldType,
   MigrationFunction
 } from "contentful-migration";
 
@@ -234,7 +233,7 @@ const getToFieldFromData = (data: EntryProps[]) => {
 };
 
 const transformContentType = async (
-  migration: Migration,
+  migration: Migration.default,
   makeRequest: MakeRequest,
   contentType: ContentTypeProps,
   fields: ContentMigrationConfig["fields"],
@@ -330,10 +329,7 @@ const transformContentType = async (
   });
 };
 
-export const up: MigrationFunction = async (
-  migration: Migration,
-  context?: MigrationContext
-) => {
+export const up: MigrationFunction = async (migration, context) => {
   const task = ora("Retrieving all the Content-Types").start();
   const spaceContentTypes: ContentTypeProps[] = (
     await context!.makeRequest({
@@ -383,7 +379,7 @@ export const up: MigrationFunction = async (
   }
 };
 
-export const down: MigrationFunction = async (migration: Migration) => {
+export const down: MigrationFunction = async (migration) => {
   for (const contentTypeMigration of contentMigrationConfig) {
     const editingContentType = migration.editContentType(
       contentTypeMigration.id

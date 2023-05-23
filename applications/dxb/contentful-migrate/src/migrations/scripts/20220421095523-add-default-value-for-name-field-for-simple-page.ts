@@ -1,11 +1,10 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description =
   "add default valur for nam files if empty title for simple page";
 const titleNotFound = "Untitled";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   migration.transformEntries({
     contentType: "page",
     from: ["title"],
@@ -26,7 +25,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   });
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   migration.transformEntries({
     contentType: "page",
     from: ["name", "title"],

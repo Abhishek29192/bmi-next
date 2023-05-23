@@ -1,4 +1,4 @@
-import Migration from "contentful-migration";
+import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Add social-media links to Service";
 
@@ -13,7 +13,7 @@ const fields: Fields = {
 
 const keys = Object.keys(fields);
 
-module.exports.up = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const roofer = migration.editContentType("roofer");
 
   keys.forEach((key, index) => {
@@ -28,7 +28,7 @@ module.exports.up = (migration: Migration) => {
   });
 };
 
-module.exports.down = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const roofer = migration.editContentType("roofer");
 
   keys.forEach((key) => {

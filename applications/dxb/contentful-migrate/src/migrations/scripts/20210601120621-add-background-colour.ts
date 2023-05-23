@@ -1,10 +1,9 @@
-import { backgroundColor } from "../../variables/colours/20210601130010";
-import type Migration from "contentful-migration";
+import { backgroundColor } from "../../variables/colours/20210601130010.js";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Add background colour";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   migration
     .editContentType("promo")
     .createField("backgroundColor")
@@ -13,6 +12,6 @@ export const up: MigrationFunction = (migration: Migration) => {
     .validations([{ in: backgroundColor }]);
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   migration.editContentType("promo").deleteField("backgroundColor");
 };

@@ -1,14 +1,22 @@
-import path from "path";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { jest } from "@jest/globals";
+import { migrateCreate } from "@bmi-digital/contentful-migration/dist/migrate.js";
 
-jest.mock("dotenv/config", () => ({ config: jest.fn() }), { virtual: true });
+jest.unstable_mockModule("dotenv/config", () => ({ config: jest.fn() }));
 
-const mockMigrateCreate = jest.fn();
+const mockMigrateCreate = jest.fn<typeof migrateCreate>();
 jest.mock("@bmi-digital/contentful-migration", () => ({
-  migrateCreate: (...any: unknown[]) => mockMigrateCreate(...any)
+  migrateCreate: (
+    script: string,
+    contentType: string,
+    projectPath: string,
+    dryRun?: boolean
+  ) => mockMigrateCreate(script, contentType, projectPath, dryRun)
 }));
 
 const main = async (script?: string) =>
-  (await import("../create")).main(script);
+  (await import("../create.js")).main(script);
 
 beforeEach(() => {
   jest.clearAllMocks();
@@ -38,7 +46,14 @@ describe("main", () => {
     expect(mockMigrateCreate).toHaveBeenCalledWith(
       "some-script.js",
       "scripts",
-      path.join(__dirname, "..", "..", "..", "..", "src"),
+      path.join(
+        path.dirname(fileURLToPath(import.meta.url)),
+        "..",
+        "..",
+        "..",
+        "..",
+        "src"
+      ),
       false
     );
   });
@@ -49,7 +64,14 @@ describe("main", () => {
     expect(mockMigrateCreate).toHaveBeenCalledWith(
       "some-script.js",
       "scripts",
-      path.join(__dirname, "..", "..", "..", "..", "src"),
+      path.join(
+        path.dirname(fileURLToPath(import.meta.url)),
+        "..",
+        "..",
+        "..",
+        "..",
+        "src"
+      ),
       false
     );
   });
@@ -62,7 +84,14 @@ describe("main", () => {
     expect(mockMigrateCreate).toHaveBeenCalledWith(
       "some-script.js",
       "scripts",
-      path.join(__dirname, "..", "..", "..", "..", "src"),
+      path.join(
+        path.dirname(fileURLToPath(import.meta.url)),
+        "..",
+        "..",
+        "..",
+        "..",
+        "src"
+      ),
       false
     );
   });
@@ -75,7 +104,14 @@ describe("main", () => {
     expect(mockMigrateCreate).toHaveBeenCalledWith(
       "some-script.js",
       "scripts",
-      path.join(__dirname, "..", "..", "..", "..", "src"),
+      path.join(
+        path.dirname(fileURLToPath(import.meta.url)),
+        "..",
+        "..",
+        "..",
+        "..",
+        "src"
+      ),
       false
     );
   });
@@ -88,7 +124,14 @@ describe("main", () => {
     expect(mockMigrateCreate).toHaveBeenCalledWith(
       "some-script.js",
       "scripts",
-      path.join(__dirname, "..", "..", "..", "..", "src"),
+      path.join(
+        path.dirname(fileURLToPath(import.meta.url)),
+        "..",
+        "..",
+        "..",
+        "..",
+        "src"
+      ),
       true
     );
   });

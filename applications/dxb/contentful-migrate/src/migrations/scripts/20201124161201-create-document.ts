@@ -1,10 +1,9 @@
-import { brands } from "../../variables/icons/20201111103444";
-import type Migration from "contentful-migration";
+import { brands } from "../../variables/icons/20201111103444.js";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Create content type for Document";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const document = migration
     .createContentType("document")
     .name("Document")
@@ -45,5 +44,5 @@ export const up: MigrationFunction = (migration: Migration) => {
   document.changeFieldControl("brand", "builtin", "dropdown");
 };
 
-export const down: MigrationFunction = (migration: Migration) =>
+export const down: MigrationFunction = (migration) =>
   migration.deleteContentType("document");

@@ -1,10 +1,9 @@
 import fs from "fs";
 import path from "path";
 import { getLocales } from "@bmi-digital/contentful-migration";
-import { createClient } from "contentful-management";
 import { waitFor } from "@bmi/utils";
-import type Migration from "contentful-migration";
-import type { MigrationContext, MigrationFunction } from "contentful-migration";
+import { createClient } from "contentful-management";
+import type { MigrationFunction } from "contentful-migration";
 
 export const description = "upload 1x1px file for place holder image";
 
@@ -13,10 +12,7 @@ export const description = "upload 1x1px file for place holder image";
 // for this task, as per CMA documentation
 const assetId = "d31e89cb31c3490f881d3f96dc8612d5";
 
-export const up: MigrationFunction = async (
-  migration: Migration,
-  context?: MigrationContext
-) => {
+export const up: MigrationFunction = async (migration, context) => {
   if (!context) {
     return;
   }
@@ -117,10 +113,7 @@ export const up: MigrationFunction = async (
   }
 };
 
-export const down: MigrationFunction = async (
-  migration: Migration,
-  context?: MigrationContext
-) => {
+export const down: MigrationFunction = async (migration, context) => {
   if (!context) {
     return;
   }

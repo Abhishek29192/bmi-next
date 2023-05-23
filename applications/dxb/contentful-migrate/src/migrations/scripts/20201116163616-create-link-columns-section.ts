@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Create content type for Link Columns Section";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const linksColumnsSection = migration
     .createContentType("linkColumnsSection")
     .name("Link Columns Section")
@@ -28,5 +27,5 @@ export const up: MigrationFunction = (migration: Migration) => {
     });
 };
 
-export const down: MigrationFunction = (migration: Migration) =>
+export const down: MigrationFunction = (migration) =>
   migration.deleteContentType("linkColumnsSection");

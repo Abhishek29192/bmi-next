@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Add sections field";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const contactUsPage = migration.editContentType("contactUsPage");
 
   contactUsPage
@@ -23,6 +22,6 @@ export const up: MigrationFunction = (migration: Migration) => {
   contactUsPage.moveField("sections").afterField("contentTopics");
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   migration.editContentType("contactUsPage").deleteField("sections");
 };

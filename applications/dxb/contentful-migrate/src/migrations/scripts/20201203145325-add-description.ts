@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Add Long Description for Brand Landing Page";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const brandLandingPage = migration.editContentType("brandLandingPage");
 
   brandLandingPage
@@ -28,7 +27,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   brandLandingPage.moveField("description").afterField("subtitle");
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const brandLandingPage = migration.editContentType("brandLandingPage");
   brandLandingPage.deleteField("description");
   brandLandingPage.changeFieldControl("subtitle", "builtin", "singleLine");
