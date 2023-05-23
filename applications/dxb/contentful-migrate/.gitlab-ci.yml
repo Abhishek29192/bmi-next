@@ -176,8 +176,10 @@ deploy_gatsby_cloud_qa:
   rules:
     - !reference [.run_for_changes_on_main, rules]
   needs:
-    - migrate_content_qa
-    - update_mc_qa
+    - job: migrate_content_qa
+      optional: true
+    - job: update_mc_qa
+      optional: true
   variables:
     DXB_BUILD_HOOKS: $DXB_BUILD_HOOKS_QA
     DXB_MARKET_ID: "NO"
