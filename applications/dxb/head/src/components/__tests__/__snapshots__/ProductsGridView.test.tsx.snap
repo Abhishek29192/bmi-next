@@ -18,60 +18,65 @@ exports[`ProductsGridView component renders correctly when not empty 1`] = `
     data-testid="grid-item"
   >
     <a
-      class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+      class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
       data-gtm="{"id":"cta-click1","label":"MC: plp.product.viewDetails","action":"/no/name-code/?pathname=%2F"}"
       href="/no/name-code/?pathname=%2F"
       tabindex="0"
     >
-      <img
-        alt=" name"
-        class="OverviewCard-headerPicture css-10hd0hb-Media"
-        src="http://localhost:8000"
-      />
       <div
-        class="OverviewCard-body"
+        class="OverviewCard-main"
+        data-testid="overview-card-main"
       >
-        <div
-          class="OverviewCard-brandLogo OverviewCard-negative"
+        <img
+          alt=" name"
+          class="OverviewCard-headerPicture css-10hd0hb-Media"
+          src="http://localhost:8000"
         />
-        <h5
-          class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
-          data-testid="overview-card-body-title"
-        >
-          name
-        </h5>
         <div
-          class="OverviewCard-text css-kl66ak"
-          data-testid="overview-card-body-description"
+          class="OverviewCard-body"
         >
-          short-description
-        </div>
-        <div
-          class="css-ekp6jg"
-          data-testid="overview-card-body-footer"
-        >
-          <span
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-zs2uof-MuiTypography-root-MuiLink-root"
-            data-testid="anchor-link"
-            type="button"
+          <div
+            class="OverviewCard-brandLogo OverviewCard-negative"
+          />
+          <h5
+            class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
+            data-testid="overview-card-body-title"
           >
-            <span>
-              MC: plp.product.viewDetails
-            </span>
-            <svg
-              aria-hidden="true"
-              class=" css-1r2mexx"
-              data-testid="internal"
-              focusable="false"
-              viewBox="0 0 16 16"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
-              />
-            </svg>
-          </span>
+            name
+          </h5>
+          <div
+            class="OverviewCard-text css-kl66ak"
+            data-testid="overview-card-body-description"
+          >
+            short-description
+          </div>
         </div>
+      </div>
+      <div
+        class="css-197a1cq"
+        data-testid="overview-card-body-footer"
+      >
+        <span
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-zs2uof-MuiTypography-root-MuiLink-root"
+          data-testid="anchor-link"
+          type="button"
+        >
+          <span>
+            MC: plp.product.viewDetails
+          </span>
+          <svg
+            aria-hidden="true"
+            class=" css-1r2mexx"
+            data-testid="internal"
+            focusable="false"
+            viewBox="0 0 16 16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
+            />
+          </svg>
+        </span>
       </div>
       <span
         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -88,60 +93,65 @@ exports[`ProductsGridView component renders correctly when not empty with filter
     data-testid="grid-item"
   >
     <a
-      class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+      class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
       data-gtm="{"id":"cta-click1","label":"MC: plp.product.viewDetails","action":"/no/name-code/?filters=%5B%7B%22name%22%3A%22brand%22%2C%22value%22%3A%5B%22BMI_Components%22%5D%7D%5D&pathname=search&q=query"}"
       href="/no/name-code/?filters=%5B%7B%22name%22%3A%22brand%22%2C%22value%22%3A%5B%22BMI_Components%22%5D%7D%5D&pathname=search&q=query"
       tabindex="0"
     >
-      <img
-        alt=" name"
-        class="OverviewCard-headerPicture css-10hd0hb-Media"
-        src="http://localhost:8000"
-      />
       <div
-        class="OverviewCard-body"
+        class="OverviewCard-main"
+        data-testid="overview-card-main"
       >
-        <div
-          class="OverviewCard-brandLogo OverviewCard-negative"
+        <img
+          alt=" name"
+          class="OverviewCard-headerPicture css-10hd0hb-Media"
+          src="http://localhost:8000"
         />
-        <h5
-          class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
-          data-testid="overview-card-body-title"
-        >
-          name
-        </h5>
         <div
-          class="OverviewCard-text css-kl66ak"
-          data-testid="overview-card-body-description"
+          class="OverviewCard-body"
         >
-          short-description
-        </div>
-        <div
-          class="css-ekp6jg"
-          data-testid="overview-card-body-footer"
-        >
-          <span
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-zs2uof-MuiTypography-root-MuiLink-root"
-            data-testid="anchor-link"
-            type="button"
+          <div
+            class="OverviewCard-brandLogo OverviewCard-negative"
+          />
+          <h5
+            class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
+            data-testid="overview-card-body-title"
           >
-            <span>
-              MC: plp.product.viewDetails
-            </span>
-            <svg
-              aria-hidden="true"
-              class=" css-1r2mexx"
-              data-testid="internal"
-              focusable="false"
-              viewBox="0 0 16 16"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
-              />
-            </svg>
-          </span>
+            name
+          </h5>
+          <div
+            class="OverviewCard-text css-kl66ak"
+            data-testid="overview-card-body-description"
+          >
+            short-description
+          </div>
         </div>
+      </div>
+      <div
+        class="css-197a1cq"
+        data-testid="overview-card-body-footer"
+      >
+        <span
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-zs2uof-MuiTypography-root-MuiLink-root"
+          data-testid="anchor-link"
+          type="button"
+        >
+          <span>
+            MC: plp.product.viewDetails
+          </span>
+          <svg
+            aria-hidden="true"
+            class=" css-1r2mexx"
+            data-testid="internal"
+            focusable="false"
+            viewBox="0 0 16 16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
+            />
+          </svg>
+        </span>
       </div>
       <span
         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"

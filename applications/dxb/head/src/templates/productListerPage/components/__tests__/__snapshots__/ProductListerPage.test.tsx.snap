@@ -420,9 +420,8 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       data-testid="brand-colors-provider"
     >
       <div
-        class=" css-169f4j6"
+        class=" css-1b0bdi5"
         data-testid="spotLightHero"
-        style="position: relative;"
       >
         <div
           class="css-1gvvjth"
@@ -1361,9 +1360,8 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       data-testid="brand-colors-provider"
     >
       <div
-        class=" css-169f4j6"
+        class=" css-1b0bdi5"
         data-testid="spotLightHero"
-        style="position: relative;"
       >
         <div
           class="css-1gvvjth"
@@ -2378,9 +2376,8 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         </span>
       </div>
       <div
-        class="Hero-lvl1 css-1sopae"
+        class="Hero-lvl1 css-17es170"
         data-testid="hero"
-        style="position: relative;"
       >
         <div
           class=" css-ze8cyt"
@@ -3578,9 +3575,8 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         </span>
       </div>
       <div
-        class="Hero-lvl1 css-1sopae"
+        class="Hero-lvl1 css-17es170"
         data-testid="hero"
-        style="position: relative;"
       >
         <div
           class=" css-ze8cyt"
@@ -4694,9 +4690,8 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       data-testid="brand-colors-provider"
     >
       <div
-        class="Hero-lvl1 css-1sopae"
+        class="Hero-lvl1 css-17es170"
         data-testid="hero"
-        style="position: relative;"
       >
         <div
           class=" css-ze8cyt"
@@ -5815,9 +5810,8 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
       data-testid="brand-colors-provider"
     >
       <div
-        class=" css-169f4j6"
+        class=" css-1b0bdi5"
         data-testid="spotLightHero"
-        style="position: relative;"
       >
         <div
           class="css-1gvvjth"
@@ -6781,9 +6775,8 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
       data-testid="brand-colors-provider"
     >
       <div
-        class=" css-169f4j6"
+        class=" css-1b0bdi5"
         data-testid="spotLightHero"
-        style="position: relative;"
       >
         <div
           class="css-1gvvjth"
@@ -7849,9 +7842,8 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
       data-testid="brand-colors-provider"
     >
       <div
-        class="Hero-lvl1 css-1sopae"
+        class="Hero-lvl1 css-17es170"
         data-testid="hero"
-        style="position: relative;"
       >
         <div
           class=" css-ze8cyt"
@@ -8825,9 +8817,8 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
       data-testid="brand-colors-provider"
     >
       <div
-        class=" css-169f4j6"
+        class=" css-1b0bdi5"
         data-testid="spotLightHero"
-        style="position: relative;"
       >
         <div
           class="css-1gvvjth"
@@ -9998,9 +9989,8 @@ exports[`ProductListerPage template renders an default image if there is no imag
       data-testid="brand-colors-provider"
     >
       <div
-        class=" css-169f4j6"
+        class=" css-1b0bdi5"
         data-testid="spotLightHero"
-        style="position: relative;"
       >
         <div
           class="css-1gvvjth"
@@ -11195,9 +11185,8 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
         </span>
       </div>
       <div
-        class="Hero-lvl1 css-1sopae"
+        class="Hero-lvl1 css-17es170"
         data-testid="hero"
-        style="position: relative;"
       >
         <div
           class=" css-ze8cyt"
@@ -12381,9 +12370,8 @@ exports[`ProductListerPage template test handle change url by click on filters a
         </span>
       </div>
       <div
-        class="Hero-lvl1 css-1sopae"
+        class="Hero-lvl1 css-17es170"
         data-testid="hero"
-        style="position: relative;"
       >
         <div
           class=" css-ze8cyt"
@@ -13581,9 +13569,8 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
         </span>
       </div>
       <div
-        class="Hero-lvl1 css-1sopae"
+        class="Hero-lvl1 css-17es170"
         data-testid="hero"
-        style="position: relative;"
       >
         <div
           class=" css-ze8cyt"
@@ -14972,9 +14959,8 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
         </span>
       </div>
       <div
-        class="Hero-lvl1 css-1sopae"
+        class="Hero-lvl1 css-17es170"
         data-testid="hero"
-        style="position: relative;"
       >
         <div
           class=" css-ze8cyt"
