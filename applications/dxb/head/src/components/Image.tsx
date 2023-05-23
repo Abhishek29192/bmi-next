@@ -125,6 +125,13 @@ export const query = graphql`
     }
   }
 
+  # Image "breakpoints" values were taken from the maximum of each theme breakpoint, except XL, which is set to be 2000px (who is realistically using our site larger than that?)
+  # xs: 599px
+  # sm: 719px
+  # md: 839px
+  # lg: 1439px
+  # xl: 2000px
+
   fragment VideoImageFragment on ContentfulImage {
     ...BaseImageFragment
     image {
@@ -138,6 +145,7 @@ export const query = graphql`
     }
   }
 
+  # Although this is used, the resutling data is never used anywhere
   fragment ImageDocumentFragment on ContentfulImage {
     ...BaseImageFragment
     image {

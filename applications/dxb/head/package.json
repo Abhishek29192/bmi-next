@@ -163,6 +163,7 @@
     "prettier": "^2.8.8",
     "puppeteer": "^20.2.0",
     "schema-dts": "^1.1.2",
-    "typescript": "^5.0.4"
+    "typescript": "^5.0.4",
+    "yalc": "^1.0.0-pre.53"
   }
 }
