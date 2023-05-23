@@ -2090,9 +2090,8 @@ exports[`Simple page renders correctly when no feature media 1`] = `
     </div>
   </header>
   <div
-    class="Hero-keyline Hero-lvl1 css-1sopae"
+    class="Hero-keyline Hero-lvl1 css-17es170"
     data-testid="hero"
-    style="position: relative;"
   >
     <div
       class=" css-ze8cyt"
@@ -5361,9 +5360,8 @@ exports[`Simple page renders correctly with full data 1`] = `
     </div>
   </header>
   <div
-    class="Hero-keyline Hero-lvl1 css-1sopae"
+    class="Hero-keyline Hero-lvl1 css-17es170"
     data-testid="hero"
-    style="position: relative;"
   >
     <div
       class=" css-ze8cyt"
@@ -5753,78 +5751,80 @@ exports[`Simple page renders correctly with full data 1`] = `
                   data-testid="card-collection-grid-item-id"
                 >
                   <div
-                    class=" MuiBox-root css-13ealx6"
-                    data-testid="card-collection-section-item-BMI-test-video-on-PROMO"
-                    type="button"
+                    class=" MuiBox-root css-mnk4x4"
                   >
                     <div
-                      class="OverviewCard-headerPicture css-94zf8x-Media"
-                      data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=TDNEwZbm_Nk-BMI Group VIDEO LABEL","action":"Play"}"
-                      data-testid="youtube-dialog-wrapper"
-                      style="position: relative;"
+                      class="OverviewCard-main"
+                      data-testid="overview-card-main"
                     >
-                      <button
-                        aria-label="MC: media.video"
-                        class="YoutubeVideo-thumbnail"
-                        data-testid="thumbnail"
-                        type="button"
+                      <div
+                        class="OverviewCard-headerPicture css-baoeyh-Media"
+                        data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=TDNEwZbm_Nk-BMI Group VIDEO LABEL","action":"Play"}"
+                        data-testid="youtube-dialog-wrapper"
                       >
-                        <img
-                          alt="BMI Group VIDEO LABEL"
-                          class="YoutubeVideo-previewImage"
-                          data-testid="youtube-preview-image"
-                          src="https://i.ytimg.com/vi/TDNEwZbm_Nk/maxresdefault.jpg"
-                        />
-                        <span
-                          class="css-1ptr1nd"
+                        <button
+                          aria-label="MC: media.video"
+                          class="YoutubeVideo-thumbnail"
+                          data-testid="thumbnail"
+                          type="button"
                         >
-                          BMI Group VIDEO LABEL
-                        </span>
+                          <img
+                            alt="BMI Group VIDEO LABEL"
+                            class="YoutubeVideo-previewImage"
+                            data-testid="youtube-preview-image"
+                            src="https://i.ytimg.com/vi/TDNEwZbm_Nk/maxresdefault.jpg"
+                          />
+                          <span
+                            class="css-1ptr1nd"
+                          >
+                            BMI Group VIDEO LABEL
+                          </span>
+                          <div
+                            class="css-1syhldt"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1kv9oq9-MuiSvgIcon-root"
+                              data-testid="PlayArrowIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M8 5v14l11-7z"
+                              />
+                            </svg>
+                            <p
+                              aria-label="MC: media.video"
+                              class="MuiTypography-root MuiTypography-body1 css-1rzqf9i-MuiTypography-root"
+                              data-testid="typography"
+                            >
+                              MC: media.video
+                            </p>
+                          </div>
+                        </button>
+                      </div>
+                      <div
+                        class="OverviewCard-body"
+                      >
                         <div
-                          class="css-1syhldt"
+                          class="OverviewCard-brandLogo OverviewCard-negative"
+                        />
+                        <h4
+                          class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
+                          data-testid="overview-card-body-title"
                         >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1kv9oq9-MuiSvgIcon-root"
-                            data-testid="PlayArrowIcon"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M8 5v14l11-7z"
-                            />
-                          </svg>
-                          <p
-                            aria-label="MC: media.video"
-                            class="MuiTypography-root MuiTypography-body1 css-1rzqf9i-MuiTypography-root"
-                            data-testid="typography"
-                          >
-                            MC: media.video
-                          </p>
-                        </div>
-                      </button>
+                          BMI test video on PROMO
+                        </h4>
+                        <div
+                          class="OverviewCard-text css-kl66ak"
+                          data-testid="overview-card-body-description"
+                        />
+                      </div>
                     </div>
                     <div
-                      class="OverviewCard-body"
-                    >
-                      <div
-                        class="OverviewCard-brandLogo OverviewCard-negative"
-                      />
-                      <h4
-                        class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
-                        data-testid="overview-card-body-title"
-                      >
-                        BMI test video on PROMO
-                      </h4>
-                      <div
-                        class="OverviewCard-text css-kl66ak"
-                        data-testid="overview-card-body-description"
-                      />
-                      <div
-                        class="css-ekp6jg"
-                        data-testid="overview-card-body-footer"
-                      />
-                    </div>
+                      class="css-197a1cq"
+                      data-testid="overview-card-body-footer"
+                    />
                   </div>
                 </div>
               </div>

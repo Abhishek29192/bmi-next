@@ -2829,10 +2829,9 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                       style="width: 100%;"
                     >
                       <div
-                        class="CarouselHero-image css-94zf8x-Media"
+                        class="CarouselHero-image css-baoeyh-Media"
                         data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                         data-testid="hero-image-carousel-media"
-                        style="position: relative;"
                       >
                         <button
                           aria-label="MC: media.video"
@@ -2938,10 +2937,9 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                     />
                   </a>
                   <div
-                    class="css-778yut-Media"
+                    class="css-1dx0f0v-Media"
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
-                    style="position: relative;"
                   >
                     <button
                       aria-label="MC: media.video"
@@ -3027,10 +3025,9 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                     />
                   </a>
                   <div
-                    class="css-778yut-Media"
+                    class="css-1dx0f0v-Media"
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
-                    style="position: relative;"
                   >
                     <button
                       aria-label="MC: media.video"
@@ -9968,10 +9965,9 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                     />
                   </a>
                   <div
-                    class="css-778yut-Media"
+                    class="css-1dx0f0v-Media"
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
-                    style="position: relative;"
                   >
                     <button
                       aria-label="MC: media.video"
@@ -10057,10 +10053,9 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                     />
                   </a>
                   <div
-                    class="css-778yut-Media"
+                    class="css-1dx0f0v-Media"
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
-                    style="position: relative;"
                   >
                     <button
                       aria-label="MC: media.video"
@@ -13610,10 +13605,9 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                     />
                   </a>
                   <div
-                    class="css-778yut-Media"
+                    class="css-1dx0f0v-Media"
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
-                    style="position: relative;"
                   >
                     <button
                       aria-label="MC: media.video"
@@ -13699,10 +13693,9 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                     />
                   </a>
                   <div
-                    class="css-778yut-Media"
+                    class="css-1dx0f0v-Media"
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
-                    style="position: relative;"
                   >
                     <button
                       aria-label="MC: media.video"
@@ -17254,10 +17247,9 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                     />
                   </a>
                   <div
-                    class="css-778yut-Media"
+                    class="css-1dx0f0v-Media"
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
-                    style="position: relative;"
                   >
                     <button
                       aria-label="MC: media.video"
@@ -17343,10 +17335,9 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                     />
                   </a>
                   <div
-                    class="css-778yut-Media"
+                    class="css-1dx0f0v-Media"
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
-                    style="position: relative;"
                   >
                     <button
                       aria-label="MC: media.video"
@@ -20868,10 +20859,9 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                     />
                   </a>
                   <div
-                    class="css-778yut-Media"
+                    class="css-1dx0f0v-Media"
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
-                    style="position: relative;"
                   >
                     <button
                       aria-label="MC: media.video"
@@ -20957,10 +20947,9 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                     />
                   </a>
                   <div
-                    class="css-778yut-Media"
+                    class="css-1dx0f0v-Media"
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
-                    style="position: relative;"
                   >
                     <button
                       aria-label="MC: media.video"
@@ -24512,10 +24501,9 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                     />
                   </a>
                   <div
-                    class="css-778yut-Media"
+                    class="css-1dx0f0v-Media"
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
-                    style="position: relative;"
                   >
                     <button
                       aria-label="MC: media.video"
@@ -24601,10 +24589,9 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                     />
                   </a>
                   <div
-                    class="css-778yut-Media"
+                    class="css-1dx0f0v-Media"
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
-                    style="position: relative;"
                   >
                     <button
                       aria-label="MC: media.video"
@@ -28168,10 +28155,9 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                     />
                   </a>
                   <div
-                    class="css-778yut-Media"
+                    class="css-1dx0f0v-Media"
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
-                    style="position: relative;"
                   >
                     <button
                       aria-label="MC: media.video"
@@ -28257,10 +28243,9 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                     />
                   </a>
                   <div
-                    class="css-778yut-Media"
+                    class="css-1dx0f0v-Media"
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
-                    style="position: relative;"
                   >
                     <button
                       aria-label="MC: media.video"
@@ -31822,10 +31807,9 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                     />
                   </a>
                   <div
-                    class="css-778yut-Media"
+                    class="css-1dx0f0v-Media"
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
-                    style="position: relative;"
                   >
                     <button
                       aria-label="MC: media.video"
@@ -31911,10 +31895,9 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                     />
                   </a>
                   <div
-                    class="css-778yut-Media"
+                    class="css-1dx0f0v-Media"
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
-                    style="position: relative;"
                   >
                     <button
                       aria-label="MC: media.video"
@@ -35478,10 +35461,9 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                     />
                   </a>
                   <div
-                    class="css-778yut-Media"
+                    class="css-1dx0f0v-Media"
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
-                    style="position: relative;"
                   >
                     <button
                       aria-label="MC: media.video"
@@ -35567,10 +35549,9 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                     />
                   </a>
                   <div
-                    class="css-778yut-Media"
+                    class="css-1dx0f0v-Media"
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
-                    style="position: relative;"
                   >
                     <button
                       aria-label="MC: media.video"
@@ -39134,10 +39115,9 @@ exports[`Brand Landing Page Template when description is more than 400 character
                     />
                   </a>
                   <div
-                    class="css-778yut-Media"
+                    class="css-1dx0f0v-Media"
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
-                    style="position: relative;"
                   >
                     <button
                       aria-label="MC: media.video"
@@ -39223,10 +39203,9 @@ exports[`Brand Landing Page Template when description is more than 400 character
                     />
                   </a>
                   <div
-                    class="css-778yut-Media"
+                    class="css-1dx0f0v-Media"
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
-                    style="position: relative;"
                   >
                     <button
                       aria-label="MC: media.video"

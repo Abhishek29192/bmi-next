@@ -246,44 +246,49 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
               data-testid="efgh"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                 data-gtm="{"id":"system-configurator01-results","label":"efgh name","action":"/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details"}"
                 href="/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
               >
                 <div
-                  class="OverviewCard-body"
+                  class="OverviewCard-main"
+                  data-testid="overview-card-main"
                 >
                   <div
-                    class="OverviewCard-brandLogo"
-                  />
-                  <h5
-                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
-                    data-testid="overview-card-body-title"
+                    class="OverviewCard-body"
                   >
-                    efgh name
-                  </h5>
-                  <div
-                    class="OverviewCard-text css-kl66ak"
-                    data-testid="overview-card-body-description"
-                  >
-                    efgh description
-                  </div>
-                  <div
-                    class="css-ekp6jg"
-                    data-testid="overview-card-body-footer"
-                  >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                      tabindex="0"
-                      type="button"
+                    <div
+                      class="OverviewCard-brandLogo"
+                    />
+                    <h5
+                      class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
+                      data-testid="overview-card-body-title"
                     >
-                      MC: sdp.system.readMore
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
+                      efgh name
+                    </h5>
+                    <div
+                      class="OverviewCard-text css-kl66ak"
+                      data-testid="overview-card-body-description"
+                    >
+                      efgh description
+                    </div>
                   </div>
+                </div>
+                <div
+                  class="css-197a1cq"
+                  data-testid="overview-card-body-footer"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    tabindex="0"
+                    type="button"
+                  >
+                    MC: sdp.system.readMore
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -544,44 +549,49 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
               data-testid="efgh"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                 data-gtm="{"id":"system-configurator01-results","label":"efgh name","action":"/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details"}"
                 href="/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
               >
                 <div
-                  class="OverviewCard-body"
+                  class="OverviewCard-main"
+                  data-testid="overview-card-main"
                 >
                   <div
-                    class="OverviewCard-brandLogo"
-                  />
-                  <h5
-                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
-                    data-testid="overview-card-body-title"
+                    class="OverviewCard-body"
                   >
-                    efgh name
-                  </h5>
-                  <div
-                    class="OverviewCard-text css-kl66ak"
-                    data-testid="overview-card-body-description"
-                  >
-                    efgh description
-                  </div>
-                  <div
-                    class="css-ekp6jg"
-                    data-testid="overview-card-body-footer"
-                  >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                      tabindex="0"
-                      type="button"
+                    <div
+                      class="OverviewCard-brandLogo"
+                    />
+                    <h5
+                      class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
+                      data-testid="overview-card-body-title"
                     >
-                      MC: sdp.system.readMore
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
+                      efgh name
+                    </h5>
+                    <div
+                      class="OverviewCard-text css-kl66ak"
+                      data-testid="overview-card-body-description"
+                    >
+                      efgh description
+                    </div>
                   </div>
+                </div>
+                <div
+                  class="css-197a1cq"
+                  data-testid="overview-card-body-footer"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    tabindex="0"
+                    type="button"
+                  >
+                    MC: sdp.system.readMore
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -1520,44 +1530,49 @@ exports[`SystemConfiguratorSection component renders a result section when answe
               data-testid="efgh"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                 data-gtm="{"id":"system-configurator01-results","label":"efgh name","action":"/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details"}"
                 href="/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
               >
                 <div
-                  class="OverviewCard-body"
+                  class="OverviewCard-main"
+                  data-testid="overview-card-main"
                 >
                   <div
-                    class="OverviewCard-brandLogo"
-                  />
-                  <h5
-                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
-                    data-testid="overview-card-body-title"
+                    class="OverviewCard-body"
                   >
-                    efgh name
-                  </h5>
-                  <div
-                    class="OverviewCard-text css-kl66ak"
-                    data-testid="overview-card-body-description"
-                  >
-                    efgh description
-                  </div>
-                  <div
-                    class="css-ekp6jg"
-                    data-testid="overview-card-body-footer"
-                  >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                      tabindex="0"
-                      type="button"
+                    <div
+                      class="OverviewCard-brandLogo"
+                    />
+                    <h5
+                      class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
+                      data-testid="overview-card-body-title"
                     >
-                      MC: sdp.system.readMore
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
+                      efgh name
+                    </h5>
+                    <div
+                      class="OverviewCard-text css-kl66ak"
+                      data-testid="overview-card-body-description"
+                    >
+                      efgh description
+                    </div>
                   </div>
+                </div>
+                <div
+                  class="css-197a1cq"
+                  data-testid="overview-card-body-footer"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    tabindex="0"
+                    type="button"
+                  >
+                    MC: sdp.system.readMore
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -3457,46 +3472,51 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
               data-testid="ijkl"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                 data-gtm="{"id":"system-configurator01-results","label":"ijkl name","action":"/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details"}"
                 href="/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
               >
-                <img
-                  alt="ijkl name"
-                  class="OverviewCard-headerPicture css-10hd0hb-Media"
-                  src="http://localhost:8000/image-main-source.jpg"
-                />
                 <div
-                  class="OverviewCard-body"
+                  class="OverviewCard-main"
+                  data-testid="overview-card-main"
                 >
-                  <div
-                    class="OverviewCard-brandLogo OverviewCard-negative"
+                  <img
+                    alt="ijkl name"
+                    class="OverviewCard-headerPicture css-10hd0hb-Media"
+                    src="http://localhost:8000/image-main-source.jpg"
                   />
-                  <h5
-                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
-                    data-testid="overview-card-body-title"
-                  >
-                    ijkl name
-                  </h5>
                   <div
-                    class="OverviewCard-text css-kl66ak"
-                    data-testid="overview-card-body-description"
+                    class="OverviewCard-body"
                   >
-                    related-short-desc
-                  </div>
-                  <div
-                    class="css-ekp6jg"
-                    data-testid="overview-card-body-footer"
-                  >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                      tabindex="0"
-                      type="button"
+                    <div
+                      class="OverviewCard-brandLogo OverviewCard-negative"
+                    />
+                    <h5
+                      class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
+                      data-testid="overview-card-body-title"
                     >
-                      MC: sdp.system.readMore
-                    </button>
+                      ijkl name
+                    </h5>
+                    <div
+                      class="OverviewCard-text css-kl66ak"
+                      data-testid="overview-card-body-description"
+                    >
+                      related-short-desc
+                    </div>
                   </div>
+                </div>
+                <div
+                  class="css-197a1cq"
+                  data-testid="overview-card-body-footer"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    tabindex="0"
+                    type="button"
+                  >
+                    MC: sdp.system.readMore
+                  </button>
                 </div>
               </a>
             </div>
@@ -3505,46 +3525,51 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
               data-testid="efgh"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                 data-gtm="{"id":"system-configurator01-results","label":"efgh name","action":"/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details"}"
                 href="/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
               >
-                <img
-                  alt="efgh name"
-                  class="OverviewCard-headerPicture css-10hd0hb-Media"
-                  src="http://localhost:8000/image-main-source.jpg"
-                />
                 <div
-                  class="OverviewCard-body"
+                  class="OverviewCard-main"
+                  data-testid="overview-card-main"
                 >
-                  <div
-                    class="OverviewCard-brandLogo OverviewCard-negative"
+                  <img
+                    alt="efgh name"
+                    class="OverviewCard-headerPicture css-10hd0hb-Media"
+                    src="http://localhost:8000/image-main-source.jpg"
                   />
-                  <h5
-                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
-                    data-testid="overview-card-body-title"
-                  >
-                    efgh name
-                  </h5>
                   <div
-                    class="OverviewCard-text css-kl66ak"
-                    data-testid="overview-card-body-description"
+                    class="OverviewCard-body"
                   >
-                    related-short-desc
-                  </div>
-                  <div
-                    class="css-ekp6jg"
-                    data-testid="overview-card-body-footer"
-                  >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                      tabindex="0"
-                      type="button"
+                    <div
+                      class="OverviewCard-brandLogo OverviewCard-negative"
+                    />
+                    <h5
+                      class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
+                      data-testid="overview-card-body-title"
                     >
-                      MC: sdp.system.readMore
-                    </button>
+                      efgh name
+                    </h5>
+                    <div
+                      class="OverviewCard-text css-kl66ak"
+                      data-testid="overview-card-body-description"
+                    >
+                      related-short-desc
+                    </div>
                   </div>
+                </div>
+                <div
+                  class="css-197a1cq"
+                  data-testid="overview-card-body-footer"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    tabindex="0"
+                    type="button"
+                  >
+                    MC: sdp.system.readMore
+                  </button>
                 </div>
               </a>
             </div>
@@ -3553,46 +3578,51 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
               data-testid="abcd"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                 data-gtm="{"id":"system-configurator01-results","label":"abcd name","action":"/no/related-system-path/?selected_system=abcd&prev_page=/test-path&referer=sys_details"}"
                 href="/no/related-system-path/?selected_system=abcd&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
               >
-                <img
-                  alt="abcd name"
-                  class="OverviewCard-headerPicture css-10hd0hb-Media"
-                  src="http://localhost:8000/image-main-source.jpg"
-                />
                 <div
-                  class="OverviewCard-body"
+                  class="OverviewCard-main"
+                  data-testid="overview-card-main"
                 >
-                  <div
-                    class="OverviewCard-brandLogo OverviewCard-negative"
+                  <img
+                    alt="abcd name"
+                    class="OverviewCard-headerPicture css-10hd0hb-Media"
+                    src="http://localhost:8000/image-main-source.jpg"
                   />
-                  <h5
-                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
-                    data-testid="overview-card-body-title"
-                  >
-                    abcd name
-                  </h5>
                   <div
-                    class="OverviewCard-text css-kl66ak"
-                    data-testid="overview-card-body-description"
+                    class="OverviewCard-body"
                   >
-                    related-short-desc
-                  </div>
-                  <div
-                    class="css-ekp6jg"
-                    data-testid="overview-card-body-footer"
-                  >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                      tabindex="0"
-                      type="button"
+                    <div
+                      class="OverviewCard-brandLogo OverviewCard-negative"
+                    />
+                    <h5
+                      class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
+                      data-testid="overview-card-body-title"
                     >
-                      MC: sdp.system.readMore
-                    </button>
+                      abcd name
+                    </h5>
+                    <div
+                      class="OverviewCard-text css-kl66ak"
+                      data-testid="overview-card-body-description"
+                    >
+                      related-short-desc
+                    </div>
                   </div>
+                </div>
+                <div
+                  class="css-197a1cq"
+                  data-testid="overview-card-body-footer"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    tabindex="0"
+                    type="button"
+                  >
+                    MC: sdp.system.readMore
+                  </button>
                 </div>
               </a>
             </div>
@@ -3601,46 +3631,51 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
               data-testid="mnop"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                 data-gtm="{"id":"system-configurator01-results","label":"mnop name","action":"/no/related-system-path/?selected_system=mnop&prev_page=/test-path&referer=sys_details"}"
                 href="/no/related-system-path/?selected_system=mnop&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
               >
-                <img
-                  alt="mnop name"
-                  class="OverviewCard-headerPicture css-10hd0hb-Media"
-                  src="http://localhost:8000/image-main-source.jpg"
-                />
                 <div
-                  class="OverviewCard-body"
+                  class="OverviewCard-main"
+                  data-testid="overview-card-main"
                 >
-                  <div
-                    class="OverviewCard-brandLogo OverviewCard-negative"
+                  <img
+                    alt="mnop name"
+                    class="OverviewCard-headerPicture css-10hd0hb-Media"
+                    src="http://localhost:8000/image-main-source.jpg"
                   />
-                  <h5
-                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
-                    data-testid="overview-card-body-title"
-                  >
-                    mnop name
-                  </h5>
                   <div
-                    class="OverviewCard-text css-kl66ak"
-                    data-testid="overview-card-body-description"
+                    class="OverviewCard-body"
                   >
-                    related-short-desc
-                  </div>
-                  <div
-                    class="css-ekp6jg"
-                    data-testid="overview-card-body-footer"
-                  >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                      tabindex="0"
-                      type="button"
+                    <div
+                      class="OverviewCard-brandLogo OverviewCard-negative"
+                    />
+                    <h5
+                      class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
+                      data-testid="overview-card-body-title"
                     >
-                      MC: sdp.system.readMore
-                    </button>
+                      mnop name
+                    </h5>
+                    <div
+                      class="OverviewCard-text css-kl66ak"
+                      data-testid="overview-card-body-description"
+                    >
+                      related-short-desc
+                    </div>
                   </div>
+                </div>
+                <div
+                  class="css-197a1cq"
+                  data-testid="overview-card-body-footer"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    tabindex="0"
+                    type="button"
+                  >
+                    MC: sdp.system.readMore
+                  </button>
                 </div>
               </a>
             </div>
@@ -3898,49 +3933,54 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
               data-testid="ijkl"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                 data-gtm="{"id":"system-configurator01-results","label":"ijkl name","action":"/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details"}"
                 href="/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
               >
-                <img
-                  alt="ijkl name"
-                  class="OverviewCard-headerPicture css-10hd0hb-Media"
-                  src="http://localhost:8000/image-main-source.jpg"
-                />
                 <div
-                  class="OverviewCard-body"
+                  class="OverviewCard-main"
+                  data-testid="overview-card-main"
                 >
-                  <div
-                    class="OverviewCard-brandLogo OverviewCard-negative"
+                  <img
+                    alt="ijkl name"
+                    class="OverviewCard-headerPicture css-10hd0hb-Media"
+                    src="http://localhost:8000/image-main-source.jpg"
                   />
-                  <h5
-                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
-                    data-testid="overview-card-body-title"
-                  >
-                    ijkl name
-                  </h5>
                   <div
-                    class="OverviewCard-text css-kl66ak"
-                    data-testid="overview-card-body-description"
+                    class="OverviewCard-body"
                   >
-                    related-short-desc
-                  </div>
-                  <div
-                    class="css-ekp6jg"
-                    data-testid="overview-card-body-footer"
-                  >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                      tabindex="0"
-                      type="button"
+                    <div
+                      class="OverviewCard-brandLogo OverviewCard-negative"
+                    />
+                    <h5
+                      class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
+                      data-testid="overview-card-body-title"
                     >
-                      MC: sdp.system.readMore
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
+                      ijkl name
+                    </h5>
+                    <div
+                      class="OverviewCard-text css-kl66ak"
+                      data-testid="overview-card-body-description"
+                    >
+                      related-short-desc
+                    </div>
                   </div>
+                </div>
+                <div
+                  class="css-197a1cq"
+                  data-testid="overview-card-body-footer"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    tabindex="0"
+                    type="button"
+                  >
+                    MC: sdp.system.readMore
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -3952,49 +3992,54 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
               data-testid="efgh"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                 data-gtm="{"id":"system-configurator01-results","label":"efgh name","action":"/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details"}"
                 href="/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
               >
-                <img
-                  alt="efgh name"
-                  class="OverviewCard-headerPicture css-10hd0hb-Media"
-                  src="http://localhost:8000/image-main-source.jpg"
-                />
                 <div
-                  class="OverviewCard-body"
+                  class="OverviewCard-main"
+                  data-testid="overview-card-main"
                 >
-                  <div
-                    class="OverviewCard-brandLogo OverviewCard-negative"
+                  <img
+                    alt="efgh name"
+                    class="OverviewCard-headerPicture css-10hd0hb-Media"
+                    src="http://localhost:8000/image-main-source.jpg"
                   />
-                  <h5
-                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
-                    data-testid="overview-card-body-title"
-                  >
-                    efgh name
-                  </h5>
                   <div
-                    class="OverviewCard-text css-kl66ak"
-                    data-testid="overview-card-body-description"
+                    class="OverviewCard-body"
                   >
-                    related-short-desc
-                  </div>
-                  <div
-                    class="css-ekp6jg"
-                    data-testid="overview-card-body-footer"
-                  >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                      tabindex="0"
-                      type="button"
+                    <div
+                      class="OverviewCard-brandLogo OverviewCard-negative"
+                    />
+                    <h5
+                      class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
+                      data-testid="overview-card-body-title"
                     >
-                      MC: sdp.system.readMore
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
+                      efgh name
+                    </h5>
+                    <div
+                      class="OverviewCard-text css-kl66ak"
+                      data-testid="overview-card-body-description"
+                    >
+                      related-short-desc
+                    </div>
                   </div>
+                </div>
+                <div
+                  class="css-197a1cq"
+                  data-testid="overview-card-body-footer"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    tabindex="0"
+                    type="button"
+                  >
+                    MC: sdp.system.readMore
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"

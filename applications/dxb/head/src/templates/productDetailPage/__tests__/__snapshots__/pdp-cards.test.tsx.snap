@@ -63,10 +63,9 @@ exports[`PdpCardsSection should render CTACard with video 1`] = `
                     />
                   </a>
                   <div
-                    class="css-778yut-Media"
+                    class="css-1dx0f0v-Media"
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=testId-mockLabel","action":"Play"}"
                     data-testid="youtube-dialog-wrapper"
-                    style="position: relative;"
                   >
                     <button
                       aria-label="MC: media.video"

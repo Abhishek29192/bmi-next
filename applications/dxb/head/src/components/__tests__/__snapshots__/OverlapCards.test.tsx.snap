@@ -234,10 +234,9 @@ exports[`OverlapCards component IntegratedOverlapCards component renders correct
                   />
                 </a>
                 <div
-                  class="css-778yut-Media"
+                  class="css-1dx0f0v-Media"
                   data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=TDNEwZbm_Nk-video label","action":"Play"}"
                   data-testid="overlap-cards-video"
-                  style="position: relative;"
                 >
                   <button
                     aria-label="media.video"
@@ -565,10 +564,9 @@ exports[`OverlapCards component renders correctly 1`] = `
                   />
                 </a>
                 <div
-                  class="css-778yut-Media"
+                  class="css-1dx0f0v-Media"
                   data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=TDNEwZbm_Nk-video label","action":"Play"}"
                   data-testid="overlap-cards-video"
-                  style="position: relative;"
                 >
                   <button
                     aria-label="media.video"
