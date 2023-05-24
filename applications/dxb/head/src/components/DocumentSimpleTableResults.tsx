@@ -28,11 +28,11 @@ import { useSiteContext } from "./Site";
 import { DocumentStatus } from "./styles/DocumentSimpleTableResultsCommonStyles";
 import {
   ActionsContainer,
-  classes,
   DocumentRow,
   StyledSimpleTableResults,
   StyledTableCell,
-  StyledTitleTableCell
+  StyledTitleTableCell,
+  classes
 } from "./styles/DocumentSimpleTableResultsStyles";
 
 export type Props = {

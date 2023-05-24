@@ -1,16 +1,16 @@
-import {
-  Button,
-  Grid,
-  OverviewCard,
-  OverviewCardProps
-} from "@bmi-digital/components";
+import { Grid, OverviewCard, OverviewCardProps } from "@bmi-digital/components";
 import { ContentfulDocument } from "@bmi/elasticsearch-types";
 import React from "react";
-import BrandLogo from "../../../components/BrandLogo";
-import Image from "../../../components/Image";
-import { useSiteContext } from "../../../components/Site";
-import { microCopy } from "../../../constants/microCopies";
-import withGTM from "../../../utils/google-tag-manager";
+import BrandLogo from "../../../../components/BrandLogo";
+import {
+  CopyToClipboard,
+  DownloadDocumentButton
+} from "../../../../components/DocumentSimpleTableResultCommon";
+import Image from "../../../../components/Image";
+import { useSiteContext } from "../../../../components/Site";
+import { microCopy } from "../../../../constants/microCopies";
+import withGTM from "../../../../utils/google-tag-manager";
+import { Actions, Divider } from "./styles";
 
 type Props = {
   documents: ContentfulDocument[];
@@ -33,6 +33,7 @@ const DocumentCardsResults = ({ documents }: Props) => {
             xl={4}
           >
             <GTMOverviewCard
+              hasActions
               title={document.title}
               media={
                 document.featuredMedia && <Image {...document.featuredMedia} />
@@ -40,20 +41,21 @@ const DocumentCardsResults = ({ documents }: Props) => {
               brandImageSource={
                 document.BRAND && <BrandLogo brandName={document.BRAND?.name} />
               }
-              action={{
-                model: "download",
-                href: `https:${document.asset.file.url}`,
-                ...(document.noIndex && { rel: "noindex" })
-              }}
               gtm={{
                 id: "cta-click1",
                 label: getMicroCopy(microCopy.DOCUMENT_LIBRARY_CARD_DOWNLOAD),
                 action: document.asset.file.url
               }}
               footer={
-                <Button component="span">
-                  {getMicroCopy(microCopy.DOCUMENT_LIBRARY_CARD_DOWNLOAD)}
-                </Button>
+                <Actions>
+                  <CopyToClipboard
+                    id={document.id}
+                    url={document.asset.file.url}
+                    title={document.title}
+                  />
+                  <Divider />
+                  <DownloadDocumentButton document={document} />
+                </Actions>
               }
             />
           </Grid>

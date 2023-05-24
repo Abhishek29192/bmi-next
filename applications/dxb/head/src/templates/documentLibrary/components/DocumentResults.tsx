@@ -7,7 +7,7 @@ import DocumentSimpleTableResults from "../../../components/DocumentSimpleTableR
 import { DocumentTableHeader } from "../../../types/Document";
 import groupBy from "../../../utils/groupBy";
 import { AssetType } from "../types";
-import DocumentCardsResults from "./DocumentCardsResults";
+import DocumentCardsResults from "./DocumentCardsResults/DocumentCardsResults";
 import DocumentTechnicalTableResults from "./DocumentTechnicalTableResults";
 
 export type DocumentResultData = ContentfulDocument | PimProductDocument;
