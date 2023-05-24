@@ -57,7 +57,6 @@ Authorization: Bearer {{contentfulToken}}
 
 # @name Get system configurator next step
 @answerId=6WmMQzsO3A3yHy7rmihXC0
-@locale=en-US
 POST https://graphql.contentful.com/content/v1/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}
 Content-Type: application/json
 Authorization: Bearer {{contentfulDeliveryToken}}
@@ -147,7 +146,7 @@ query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
 
 {
   "answerId": "{{answerId}}",
-  "locale": "{{locale}}",
+  "locale": "{{contentfulLocale}}",
   "preview": true
 }
 
