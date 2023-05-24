@@ -349,7 +349,17 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                         <div
                           class="subtitle"
                         >
-                          address 1
+                          <a
+                            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                            data-testid="anchor-link"
+                            href="https://www.google.com/maps/dir/address%201"
+                            target="_blank"
+                            type="button"
+                          >
+                            <span>
+                              address 1
+                            </span>
+                          </a>
                         </div>
                       </p>
                     </div>
@@ -769,7 +779,17 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                         <div
                           class="subtitle"
                         >
-                          address 1
+                          <a
+                            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                            data-testid="anchor-link"
+                            href="https://www.google.com/maps/dir/address%201"
+                            target="_blank"
+                            type="button"
+                          >
+                            <span>
+                              address 1
+                            </span>
+                          </a>
                         </div>
                       </p>
                     </div>
@@ -906,7 +926,17 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                         <div
                           class="subtitle"
                         >
-                          address 1
+                          <a
+                            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                            data-testid="anchor-link"
+                            href="https://www.google.com/maps/dir/address%201"
+                            target="_blank"
+                            type="button"
+                          >
+                            <span>
+                              address 1
+                            </span>
+                          </a>
                         </div>
                       </p>
                     </div>
@@ -1581,7 +1611,17 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                         <div
                           class="subtitle"
                         >
-                          address 1
+                          <a
+                            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                            data-testid="anchor-link"
+                            href="https://www.google.com/maps/dir/address%201"
+                            target="_blank"
+                            type="button"
+                          >
+                            <span>
+                              address 1
+                            </span>
+                          </a>
                         </div>
                       </p>
                     </div>
@@ -2001,7 +2041,17 @@ exports[`ServiceLocatorSection component close button 1`] = `
                         <div
                           class="subtitle"
                         >
-                          address 1
+                          <a
+                            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                            data-testid="anchor-link"
+                            href="https://www.google.com/maps/dir/address%201"
+                            target="_blank"
+                            type="button"
+                          >
+                            <span>
+                              address 1
+                            </span>
+                          </a>
                         </div>
                       </p>
                     </div>
@@ -2138,7 +2188,17 @@ exports[`ServiceLocatorSection component close button 1`] = `
                         <div
                           class="subtitle"
                         >
-                          address 1
+                          <a
+                            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                            data-testid="anchor-link"
+                            href="https://www.google.com/maps/dir/address%201"
+                            target="_blank"
+                            type="button"
+                          >
+                            <span>
+                              address 1
+                            </span>
+                          </a>
                         </div>
                       </p>
                     </div>
@@ -2561,7 +2621,17 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
                         <div
                           class="subtitle"
                         >
-                          address 1
+                          <a
+                            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                            data-testid="anchor-link"
+                            href="https://www.google.com/maps/dir/address%201"
+                            target="_blank"
+                            type="button"
+                          >
+                            <span>
+                              address 1
+                            </span>
+                          </a>
                         </div>
                       </p>
                     </div>
@@ -2897,7 +2967,17 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
                         <div
                           class="subtitle"
                         >
-                          address 1
+                          <a
+                            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                            data-testid="anchor-link"
+                            href="https://www.google.com/maps/dir/address%201"
+                            target="_blank"
+                            type="button"
+                          >
+                            <span>
+                              address 1
+                            </span>
+                          </a>
                         </div>
                       </p>
                     </div>
@@ -3366,7 +3446,17 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
                         <div
                           class="subtitle"
                         >
-                          address 1
+                          <a
+                            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                            data-testid="anchor-link"
+                            href="https://www.google.com/maps/dir/address%201"
+                            target="_blank"
+                            type="button"
+                          >
+                            <span>
+                              address 1
+                            </span>
+                          </a>
                         </div>
                       </p>
                     </div>
@@ -3814,7 +3904,17 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                         <div
                           class="subtitle"
                         >
-                          address 1
+                          <a
+                            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                            data-testid="anchor-link"
+                            href="https://www.google.com/maps/dir/address%201"
+                            target="_blank"
+                            type="button"
+                          >
+                            <span>
+                              address 1
+                            </span>
+                          </a>
                         </div>
                       </p>
                     </div>
@@ -4373,7 +4473,17 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                       <div
                         class="subtitle"
                       >
-                        address 1
+                        <a
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          data-testid="anchor-link"
+                          href="https://www.google.com/maps/dir/address%201"
+                          target="_blank"
+                          type="button"
+                        >
+                          <span>
+                            address 1
+                          </span>
+                        </a>
                       </div>
                     </p>
                   </div>
@@ -4531,7 +4641,17 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                       <div
                         class="subtitle"
                       >
-                        address 1
+                        <a
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          data-testid="anchor-link"
+                          href="https://www.google.com/maps/dir/address%201"
+                          target="_blank"
+                          type="button"
+                        >
+                          <span>
+                            address 1
+                          </span>
+                        </a>
                       </div>
                     </p>
                   </div>
@@ -4822,7 +4942,17 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                       <div
                         class="subtitle"
                       >
-                        address 1
+                        <a
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          data-testid="anchor-link"
+                          href="https://www.google.com/maps/dir/address%201"
+                          target="_blank"
+                          type="button"
+                        >
+                          <span>
+                            address 1
+                          </span>
+                        </a>
                       </div>
                     </p>
                   </div>
@@ -4980,7 +5110,17 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                       <div
                         class="subtitle"
                       >
-                        address 1
+                        <a
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          data-testid="anchor-link"
+                          href="https://www.google.com/maps/dir/address%201"
+                          target="_blank"
+                          type="button"
+                        >
+                          <span>
+                            address 1
+                          </span>
+                        </a>
                       </div>
                     </p>
                   </div>
@@ -5396,7 +5536,17 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                       <div
                         class="subtitle"
                       >
-                        address 1
+                        <a
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          data-testid="anchor-link"
+                          href="https://www.google.com/maps/dir/address%201"
+                          target="_blank"
+                          type="button"
+                        >
+                          <span>
+                            address 1
+                          </span>
+                        </a>
                       </div>
                     </p>
                   </div>
@@ -5533,7 +5683,17 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                       <div
                         class="subtitle"
                       >
-                        address 1
+                        <a
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          data-testid="anchor-link"
+                          href="https://www.google.com/maps/dir/address%201"
+                          target="_blank"
+                          type="button"
+                        >
+                          <span>
+                            address 1
+                          </span>
+                        </a>
                       </div>
                     </p>
                   </div>
@@ -5928,7 +6088,17 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                       <div
                         class="subtitle"
                       >
-                        address 1
+                        <a
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          data-testid="anchor-link"
+                          href="https://www.google.com/maps/dir/address%201"
+                          target="_blank"
+                          type="button"
+                        >
+                          <span>
+                            address 1
+                          </span>
+                        </a>
                       </div>
                     </p>
                   </div>
@@ -6065,7 +6235,17 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                       <div
                         class="subtitle"
                       >
-                        address 1
+                        <a
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          data-testid="anchor-link"
+                          href="https://www.google.com/maps/dir/address%201"
+                          target="_blank"
+                          type="button"
+                        >
+                          <span>
+                            address 1
+                          </span>
+                        </a>
                       </div>
                     </p>
                   </div>
@@ -6460,7 +6640,17 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
                       <div
                         class="subtitle"
                       >
-                        address 1
+                        <a
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          data-testid="anchor-link"
+                          href="https://www.google.com/maps/dir/address%201"
+                          target="_blank"
+                          type="button"
+                        >
+                          <span>
+                            address 1
+                          </span>
+                        </a>
                       </div>
                     </p>
                   </div>
@@ -6597,7 +6787,17 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
                       <div
                         class="subtitle"
                       >
-                        address 1
+                        <a
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          data-testid="anchor-link"
+                          href="https://www.google.com/maps/dir/address%201"
+                          target="_blank"
+                          type="button"
+                        >
+                          <span>
+                            address 1
+                          </span>
+                        </a>
                       </div>
                     </p>
                   </div>
@@ -7139,7 +7339,17 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                       <div
                         class="subtitle"
                       >
-                        address 1
+                        <a
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          data-testid="anchor-link"
+                          href="https://www.google.com/maps/dir/address%201"
+                          target="_blank"
+                          type="button"
+                        >
+                          <span>
+                            address 1
+                          </span>
+                        </a>
                       </div>
                     </p>
                   </div>
@@ -7299,7 +7509,17 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                       <div
                         class="subtitle"
                       >
-                        address 1
+                        <a
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          data-testid="anchor-link"
+                          href="https://www.google.com/maps/dir/address%201"
+                          target="_blank"
+                          type="button"
+                        >
+                          <span>
+                            address 1
+                          </span>
+                        </a>
                       </div>
                     </p>
                   </div>
@@ -7717,7 +7937,17 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
                       <div
                         class="subtitle"
                       >
-                        address 1
+                        <a
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          data-testid="anchor-link"
+                          href="https://www.google.com/maps/dir/address%201"
+                          target="_blank"
+                          type="button"
+                        >
+                          <span>
+                            address 1
+                          </span>
+                        </a>
                       </div>
                     </p>
                   </div>
@@ -7854,7 +8084,17 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
                       <div
                         class="subtitle"
                       >
-                        address 1
+                        <a
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          data-testid="anchor-link"
+                          href="https://www.google.com/maps/dir/address%201"
+                          target="_blank"
+                          type="button"
+                        >
+                          <span>
+                            address 1
+                          </span>
+                        </a>
                       </div>
                     </p>
                   </div>
@@ -8332,7 +8572,17 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                       <div
                         class="subtitle"
                       >
-                        address 1
+                        <a
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          data-testid="anchor-link"
+                          href="https://www.google.com/maps/dir/address%201"
+                          target="_blank"
+                          type="button"
+                        >
+                          <span>
+                            address 1
+                          </span>
+                        </a>
                       </div>
                     </p>
                   </div>
@@ -8492,7 +8742,17 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                       <div
                         class="subtitle"
                       >
-                        address 1
+                        <a
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          data-testid="anchor-link"
+                          href="https://www.google.com/maps/dir/address%201"
+                          target="_blank"
+                          type="button"
+                        >
+                          <span>
+                            address 1
+                          </span>
+                        </a>
                       </div>
                     </p>
                   </div>
@@ -8910,7 +9170,17 @@ exports[`ServiceLocatorSection component renders multiple services with single s
                       <div
                         class="subtitle"
                       >
-                        address 1
+                        <a
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          data-testid="anchor-link"
+                          href="https://www.google.com/maps/dir/address%201"
+                          target="_blank"
+                          type="button"
+                        >
+                          <span>
+                            address 1
+                          </span>
+                        </a>
                       </div>
                     </p>
                   </div>
@@ -9070,7 +9340,17 @@ exports[`ServiceLocatorSection component renders multiple services with single s
                       <div
                         class="subtitle"
                       >
-                        address 1
+                        <a
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          data-testid="anchor-link"
+                          href="https://www.google.com/maps/dir/address%201"
+                          target="_blank"
+                          type="button"
+                        >
+                          <span>
+                            address 1
+                          </span>
+                        </a>
                       </div>
                     </p>
                   </div>
@@ -9488,7 +9768,17 @@ exports[`ServiceLocatorSection component renders single service with No service 
                       <div
                         class="subtitle"
                       >
-                        address 1
+                        <a
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          data-testid="anchor-link"
+                          href="https://www.google.com/maps/dir/address%201"
+                          target="_blank"
+                          type="button"
+                        >
+                          <span>
+                            address 1
+                          </span>
+                        </a>
                       </div>
                     </p>
                   </div>
@@ -9883,7 +10173,17 @@ exports[`ServiceLocatorSection component renders single service with empty servi
                       <div
                         class="subtitle"
                       >
-                        address 1
+                        <a
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          data-testid="anchor-link"
+                          href="https://www.google.com/maps/dir/address%201"
+                          target="_blank"
+                          type="button"
+                        >
+                          <span>
+                            address 1
+                          </span>
+                        </a>
                       </div>
                     </p>
                   </div>
@@ -10329,7 +10629,17 @@ exports[`ServiceLocatorSection component renders single service with multiple se
                       <div
                         class="subtitle"
                       >
-                        address 1
+                        <a
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          data-testid="anchor-link"
+                          href="https://www.google.com/maps/dir/address%201"
+                          target="_blank"
+                          type="button"
+                        >
+                          <span>
+                            address 1
+                          </span>
+                        </a>
                       </div>
                     </p>
                   </div>
@@ -10747,7 +11057,17 @@ exports[`ServiceLocatorSection component renders single service with single serv
                       <div
                         class="subtitle"
                       >
-                        address 1
+                        <a
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          data-testid="anchor-link"
+                          href="https://www.google.com/maps/dir/address%201"
+                          target="_blank"
+                          type="button"
+                        >
+                          <span>
+                            address 1
+                          </span>
+                        </a>
                       </div>
                     </p>
                   </div>
@@ -11192,7 +11512,17 @@ exports[`ServiceLocatorSection component searches for a service: Filtered main l
                         <div
                           class="subtitle"
                         >
-                          address 1
+                          <a
+                            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                            data-testid="anchor-link"
+                            href="https://www.google.com/maps/dir/address%201"
+                            target="_blank"
+                            type="button"
+                          >
+                            <span>
+                              address 1
+                            </span>
+                          </a>
                         </div>
                       </p>
                     </div>
@@ -11617,7 +11947,17 @@ exports[`ServiceLocatorSection component searches for a service: Filtered option
                         <div
                           class="subtitle"
                         >
-                          address 1
+                          <a
+                            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                            data-testid="anchor-link"
+                            href="https://www.google.com/maps/dir/address%201"
+                            target="_blank"
+                            type="button"
+                          >
+                            <span>
+                              address 1
+                            </span>
+                          </a>
                         </div>
                       </p>
                     </div>
@@ -11754,7 +12094,17 @@ exports[`ServiceLocatorSection component searches for a service: Filtered option
                         <div
                           class="subtitle"
                         >
-                          address 1
+                          <a
+                            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                            data-testid="anchor-link"
+                            href="https://www.google.com/maps/dir/address%201"
+                            target="_blank"
+                            type="button"
+                          >
+                            <span>
+                              address 1
+                            </span>
+                          </a>
                         </div>
                       </p>
                     </div>
@@ -12182,7 +12532,17 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
                         <div
                           class="subtitle"
                         >
-                          address 1
+                          <a
+                            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                            data-testid="anchor-link"
+                            href="https://www.google.com/maps/dir/address%201"
+                            target="_blank"
+                            type="button"
+                          >
+                            <span>
+                              address 1
+                            </span>
+                          </a>
                         </div>
                       </p>
                     </div>
@@ -12579,7 +12939,17 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                         <div
                           class="subtitle"
                         >
-                          address 1
+                          <a
+                            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                            data-testid="anchor-link"
+                            href="https://www.google.com/maps/dir/address%201"
+                            target="_blank"
+                            type="button"
+                          >
+                            <span>
+                              address 1
+                            </span>
+                          </a>
                         </div>
                       </p>
                     </div>
@@ -13142,7 +13512,17 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
                         <div
                           class="subtitle"
                         >
-                          address 1
+                          <a
+                            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                            data-testid="anchor-link"
+                            href="https://www.google.com/maps/dir/address%201"
+                            target="_blank"
+                            type="button"
+                          >
+                            <span>
+                              address 1
+                            </span>
+                          </a>
                         </div>
                       </p>
                     </div>
@@ -13882,7 +14262,17 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                         <div
                           class="subtitle"
                         >
-                          Helgerødveien 130, 3233 Sandefjord, Norway
+                          <a
+                            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                            data-testid="anchor-link"
+                            href="https://www.google.com/maps/dir/Helger%C3%B8dveien%20130,%203233%20Sandefjord,%20Norway"
+                            target="_blank"
+                            type="button"
+                          >
+                            <span>
+                              Helgerødveien 130, 3233 Sandefjord, Norway
+                            </span>
+                          </a>
                         </div>
                       </p>
                     </div>
@@ -14019,7 +14409,17 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                         <div
                           class="subtitle"
                         >
-                          Lundvegen 8, 2316 Hamar, Norwa
+                          <a
+                            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                            data-testid="anchor-link"
+                            href="https://www.google.com/maps/dir/Lundvegen%208,%202316%20Hamar,%20Norwa"
+                            target="_blank"
+                            type="button"
+                          >
+                            <span>
+                              Lundvegen 8, 2316 Hamar, Norwa
+                            </span>
+                          </a>
                         </div>
                       </p>
                     </div>
@@ -14156,7 +14556,17 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                         <div
                           class="subtitle"
                         >
-                          Vindheiavegen 27, 2406 Elverum, Norway
+                          <a
+                            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                            data-testid="anchor-link"
+                            href="https://www.google.com/maps/dir/Vindheiavegen%2027,%202406%20Elverum,%20Norway"
+                            target="_blank"
+                            type="button"
+                          >
+                            <span>
+                              Vindheiavegen 27, 2406 Elverum, Norway
+                            </span>
+                          </a>
                         </div>
                       </p>
                     </div>
@@ -14859,7 +15269,17 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
                         <div
                           class="subtitle"
                         >
-                          address 1
+                          <a
+                            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                            data-testid="anchor-link"
+                            href="https://www.google.com/maps/dir/address%201"
+                            target="_blank"
+                            type="button"
+                          >
+                            <span>
+                              address 1
+                            </span>
+                          </a>
                         </div>
                       </p>
                     </div>

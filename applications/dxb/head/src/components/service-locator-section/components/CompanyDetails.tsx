@@ -4,7 +4,7 @@ import { Service } from "..";
 import { devLog } from "../../../utils/devLog";
 import { getClickableActionFromUrl } from "../../Link";
 import { EntryTypeEnum } from "../../Service";
-import { EVENT_CAT_ID_LINK_CLICKS } from "../constants";
+import { EVENT_CAT_ID_LINK_CLICKS, GOOGLE_MAPS_URL } from "../constants";
 import { SocialMediaLinks } from "./SocialMediaLinks/SocialMediaLinks";
 
 const { ROOFER_TYPE, MERCHANT_TYPE, BRANCH_TYPE } = EntryTypeEnum;
@@ -36,8 +36,6 @@ export const createCompanyDetails: Props = (
     devLog("Invalid section type passed to service locator:", sectionType);
     return [];
   }
-  const isAddressClickable = sectionType !== MERCHANT_TYPE;
-
   const localization = {
     globalAddress: localizationCb("global.address"),
     distanceLabel: localizationCb("findARoofer.distanceLabel"),
@@ -116,18 +114,14 @@ export const createCompanyDetails: Props = (
   const actions = {
     address: getClickableActionFromUrl(
       undefined,
-      `https://www.google.com/maps/dir/${googleURLLatLng}/${encodeURI(
-        service.address
-      )}/`,
+      `${GOOGLE_MAPS_URL}${googleURLLatLng}/${encodeURI(service.address)}/`,
       countryCode,
       undefined,
       localization.globalAddress,
       undefined,
       undefined,
       getServiceDataGTM(
-        `https://www.google.com/maps/dir/${googleURLLatLng}/${encodeURI(
-          service.address
-        )}/`,
+        `${GOOGLE_MAPS_URL}${googleURLLatLng}/${encodeURI(service.address)}/`,
         localization.globalAddress
       )
     ),
@@ -168,7 +162,7 @@ export const createCompanyDetails: Props = (
     display: "contentOnly",
     text: service.address,
     label: localization.globalAddress,
-    action: isAddressClickable ? actions.address : undefined
+    action: actions.address
   };
 
   const distance = service.distance

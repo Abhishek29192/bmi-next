@@ -1,4 +1,5 @@
 import {
+  AnchorLink,
   CompanyDetailProps,
   CompanyDetails,
   Logo,
@@ -10,10 +11,11 @@ import {
   Typography
 } from "@bmi-digital/components";
 import { SVGImport } from "@bmi-digital/svg-import";
-import React from "react";
+import React, { MouseEvent } from "react";
 import { microCopy } from "../../../constants/microCopies";
 import Image from "../../Image";
 import { useSiteContext } from "../../Site";
+import { GOOGLE_MAPS_URL } from "../constants";
 import { getResultDataGtm } from "../helpers";
 import { Service } from "../index";
 import styles from "../styles/ServiceLocatorSection.module.scss";
@@ -53,6 +55,10 @@ export const ServiceLocatorResultList = ({
 }: ResultListProps) => {
   const { getMicroCopy } = useSiteContext();
 
+  const handleAddressClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    event.stopPropagation();
+  };
+
   return roofersList.length ? (
     <div
       className={`${pageCount > 1 ? `${styles["results-list-section"]}` : ""}`}
@@ -80,7 +86,14 @@ export const ServiceLocatorResultList = ({
               data-testid={"GTMIntegratedLinkCard-test-id"}
               subtitle={
                 <div className={styles["subtitle"]}>
-                  {service.address}
+                  <AnchorLink
+                    onClick={handleAddressClick}
+                    href={`${GOOGLE_MAPS_URL}${encodeURI(service.address)}`}
+                    target="_blank"
+                  >
+                    {service.address}
+                  </AnchorLink>
+
                   {service.certification && shouldListCertification && (
                     <div className={styles["roofpro-certification"]}>
                       {getMicroCopy(

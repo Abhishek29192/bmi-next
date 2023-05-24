@@ -163,4 +163,29 @@ describe("ServiceLocatorResultList component", () => {
     });
     expect(hasSelectedClass).toBeTruthy();
   });
+
+  describe("When the address is clicked", () => {
+    it("should NOT execute callback fn", () => {
+      const service = createService({ serviceTypes: [] });
+      const onListItemClick = jest.fn();
+
+      render(
+        <ThemeProvider>
+          <ServiceLocatorResultList
+            page={1}
+            pageCount={1}
+            onPageChange={handlePageChange}
+            roofersList={[service]}
+            getCompanyDetails={jest.fn()}
+            onCloseCard={jest.fn()}
+            onListItemClick={onListItemClick}
+            selectedRoofer={{ ...selectedRooferMock }}
+            shouldListCertification={false}
+          />
+        </ThemeProvider>
+      );
+      fireEvent.click(screen.getByRole("link", { name: service.address }));
+      expect(onListItemClick).not.toBeCalled();
+    });
+  });
 });
