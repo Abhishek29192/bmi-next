@@ -249,7 +249,7 @@ export const extractAllowedFeatures = (
 };
 
 export const extractAllowedCategories = (
-  allowedFilters: string[]
+  allowedFilters: string[] | null
 ): Map<string, string[]> => {
   if (!allowedFilters) {
     return new Map();
