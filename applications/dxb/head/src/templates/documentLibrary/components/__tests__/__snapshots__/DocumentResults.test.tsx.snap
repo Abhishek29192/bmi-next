@@ -459,17 +459,14 @@ exports[`DocumentResults component cards: renders correctly 1`] = `
       class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-12 MuiGrid2-grid-lg-6 MuiGrid2-grid-xl-4 Grid-item css-8c4xmf-MuiGrid2-root"
       data-testid="grid-item"
     >
-      <a
-        class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
-        data-gtm="{"id":"cta-click1","label":"MC: documentLibrary.card.download","action":"http://localhost:9000/asset-filename.jpg"}"
-        href="https:http://localhost:9000/asset-filename.jpg"
-        rel="noopener noreferrer"
-        tabindex="0"
-        target="_blank"
+      <div
+        class="OverviewCard-clickable MuiBox-root css-mnk4x4"
       >
-        <div
-          class="OverviewCard-main"
-          data-testid="overview-card-main"
+        <button
+          class="MuiButtonBase-root OverviewCard-main css-10d1a0h-MuiButtonBase-root"
+          data-gtm="{"id":"cta-click1","label":"MC: documentLibrary.card.download","action":"http://localhost:9000/asset-filename.jpg"}"
+          tabindex="0"
+          type="button"
         >
           <div
             class="OverviewCard-body"
@@ -502,27 +499,81 @@ exports[`DocumentResults component cards: renders correctly 1`] = `
               data-testid="overview-card-body-description"
             />
           </div>
-        </div>
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </button>
         <div
           class="css-197a1cq"
           data-testid="overview-card-body-footer"
         >
-          <span
-            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-            role="button"
-            tabindex="0"
-            type="button"
+          <div
+            class="css-1elv8vm"
           >
-            MC: documentLibrary.card.download
-            <span
-              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            <div
+              aria-label="MC: document.library.copyLink.tooltip.title"
+              class="MuiBox-root css-mvc5fa"
+              data-mui-internal-clone-element="true"
+              data-testid="tooltip"
+            >
+              <button
+                aria-label="Copy contentful document title"
+                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                data-testid="document-table-actions-copy-url-contentful-document-id"
+                tabindex="0"
+                type="button"
+              >
+                <svg
+                  class="css-546mkb"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15.0786 3.99902H6.86837C6.11356 4.0012 5.50221 4.6036 5.5 5.34736V14.7857H6.86837V5.34736H15.0786V3.99902ZM17.1327 6.69556H9.60665C8.85184 6.69794 8.24049 7.35835 8.23828 8.17373V18.5209C8.24049 19.3363 8.85184 19.9967 9.60665 19.9991H17.1327C17.8875 19.9967 18.4989 19.3363 18.5011 18.5209V8.17373C18.4989 7.35835 17.8875 6.69794 17.1327 6.69556ZM17.1315 18.521H9.60547V8.17383H17.1315V18.521Z"
+                  />
+                </svg>
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
+              </button>
+            </div>
+            <div
+              class="css-1cbei78"
             />
-          </span>
+            <div
+              aria-label="MC: document.library.download.tooltip.title"
+              class=""
+              data-mui-internal-clone-element="true"
+              data-testid="tooltip"
+            >
+              <a
+                aria-label="Download contentful document title"
+                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/asset-filename.jpg"}"
+                data-testid="document-table-actions-download-contentful-document-id"
+                href="http://localhost:9000/asset-filename.jpg"
+                rel="noopener noreferrer"
+                tabindex="0"
+                target="_blank"
+              >
+                <svg
+                  class="css-546mkb"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
+                    fill="currentColor"
+                  />
+                </svg>
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
+              </a>
+            </div>
+          </div>
         </div>
-        <span
-          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-        />
-      </a>
+      </div>
     </div>
   </div>
 </div>
