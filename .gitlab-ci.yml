@@ -1,5 +1,5 @@
 include:
-  - project: "$CI_PROJECT_NAMESPACE/gitlab-templates"
+  - project: "bmi-digital/gitlab-templates"
     file: "yarn.gitlab-ci.yml"
     ref: "v1.0.0"
   - local: "/applications/frc-website/.gitlab-ci.yml"
