@@ -3210,7 +3210,6 @@ exports[`SystemConfiguratorSection component renders no result section with the 
               <img
                 alt="image 2"
                 class="embedded-asset"
-                data-main-image="true"
                 decoding="async"
                 draggable="false"
                 loading="lazy"
