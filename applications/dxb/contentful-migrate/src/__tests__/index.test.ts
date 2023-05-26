@@ -13,7 +13,10 @@ jest.unstable_mockModule("dotenv/config", () => ({ config: jest.fn() }));
 
 const mockCreateClient = jest.fn();
 jest.unstable_mockModule("contentful-management", () => ({
-  createClient: (...args: unknown[]) => mockCreateClient(...args)
+  __esModule: true,
+  default: {
+    createClient: (...args: unknown[]) => mockCreateClient(...args)
+  }
 }));
 
 const mockCleanupOldEnvironments = jest.fn<typeof cleanupOldEnvironments>();

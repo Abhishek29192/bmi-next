@@ -1,5 +1,5 @@
 import { jest } from "@jest/globals";
-import { Environment } from "contentful-management";
+import type { Environment } from "contentful-management";
 
 export const createEnvironmentWithId = (id: string): Environment => {
   const environment = createEnvironment();

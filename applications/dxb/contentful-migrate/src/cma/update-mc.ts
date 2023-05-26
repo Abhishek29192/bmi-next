@@ -39,7 +39,6 @@
 import { argv } from "node:process";
 import { pathToFileURL } from "node:url";
 import { getEnvironment, waitFor } from "@bmi/utils";
-import { Entry, Environment, Link, Locale, Tag } from "contentful-management";
 import { microCopy } from "../../../head/src/constants/microCopies.js";
 import {
   BULK_SIZE,
@@ -47,6 +46,13 @@ import {
   KEYS_REQUEST_PAGE_SIZE,
   TIMEOUT
 } from "./constants.js";
+import type {
+  Entry,
+  Environment,
+  Link,
+  Locale,
+  Tag
+} from "contentful-management";
 
 let TO_BE_PUBLISHED = process.argv.includes("--publish");
 let IS_CONSOLIDATED = process.argv.includes("--isConsolidated=true");

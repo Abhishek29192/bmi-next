@@ -1,5 +1,5 @@
 import { getApp, removeAppFromSpace } from "@bmi-digital/contentful-migration";
-import { CreateAppDefinitionProps } from "contentful-management";
+import type { CreateAppDefinitionProps } from "contentful-management";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description =

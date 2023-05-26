@@ -1,5 +1,5 @@
 import { isDryRun } from "@bmi-digital/contentful-migration";
-import { EntryProps, SysLink } from "contentful-management";
+import type { EntryProps, SysLink } from "contentful-management";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Migrate otherAreas to tabsOrAccordionSection";
