@@ -1,5 +1,5 @@
 import { jest } from "@jest/globals";
-import { Collection, CollectionProp } from "contentful-management";
+import type { Collection, CollectionProp } from "contentful-management";
 
 const createCollection = <T, TProps = CollectionProp<T>>(
   collection?: Partial<Collection<T, TProps>>

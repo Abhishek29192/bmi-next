@@ -1,5 +1,5 @@
 import { jest } from "@jest/globals";
-import { EnvironmentAlias } from "contentful-management";
+import type { EnvironmentAlias } from "contentful-management";
 
 export const createEnvironmentAliasWithEnvironmentId = (
   environmentId: string

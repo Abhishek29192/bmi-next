@@ -1,7 +1,7 @@
 import { pathToFileURL } from "node:url";
 import { types } from "node:util";
 import { waitFor } from "@bmi/utils";
-import { createClient } from "contentful-management";
+import contentfulManagement from "contentful-management";
 import "dotenv/config";
 import ora from "ora";
 import { cleanupOldEnvironments } from "./cleanup.js";
@@ -63,7 +63,7 @@ const buildContentful = async (
     return;
   }
 
-  const client = createClient({
+  const client = contentfulManagement.createClient({
     accessToken: managementAccessToken
   });
   const space = await client.getSpace(spaceId);

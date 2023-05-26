@@ -1,8 +1,8 @@
-import fs from "fs";
-import path from "path";
+import fs from "node:fs";
+import path from "node:path";
 import { getLocales } from "@bmi-digital/contentful-migration";
 import { waitFor } from "@bmi/utils";
-import { createClient } from "contentful-management";
+import contentfulManagement from "contentful-management";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "upload 1x1px file for place holder image";
@@ -28,7 +28,7 @@ export const up: MigrationFunction = async (migration, context) => {
       `${path.join(__dirname, "..", "..", "images", "1x1.png")}`
     );
 
-    const client = createClient({
+    const client = contentfulManagement.createClient({
       accessToken: accessToken!
     });
     const space = await client.getSpace(spaceId!);
@@ -122,7 +122,7 @@ export const down: MigrationFunction = async (migration, context) => {
   // wrap in try, so that, even if the down migration fails.. the script should not fail
   try {
     const { accessToken, spaceId, environmentId } = context;
-    const client = createClient({
+    const client = contentfulManagement.createClient({
       accessToken: accessToken!
     });
     const space = await client.getSpace(spaceId!);

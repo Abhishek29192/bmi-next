@@ -1,5 +1,5 @@
 import { jest } from "@jest/globals";
-import { Space } from "contentful-management";
+import type { Space } from "contentful-management";
 
 const createSpace = (space?: Partial<Space>): Space => ({
   sys: {

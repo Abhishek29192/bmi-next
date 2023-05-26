@@ -2,7 +2,8 @@ import { promises as fs } from "fs";
 import { join } from "path";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import {
+import { getEnvironment, waitFor } from "@bmi/utils";
+import type {
   Asset,
   Collection,
   Entry,
@@ -12,7 +13,6 @@ import {
   LocaleProps,
   VersionedLink
 } from "contentful-management";
-import { getEnvironment, waitFor } from "@bmi/utils";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Upload WebTool Calculator Roof Shapes";
