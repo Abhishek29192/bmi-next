@@ -32,7 +32,6 @@ describe("ProductOverview component", () => {
       {
         media: (
           <YoutubeVideo
-            buttonLabel={"test button label"}
             label="test video"
             videoUrl="https://youtu.be/A-RfHC91Ewc"
             embedHeight={720}
