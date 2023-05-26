@@ -1764,7 +1764,17 @@ exports[`Sections component renders correctly 1`] = `
                         <div
                           class="subtitle"
                         >
-                          address 1
+                          <a
+                            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                            data-testid="anchor-link"
+                            href="https://www.google.com/maps/dir/address%201"
+                            target="_blank"
+                            type="button"
+                          >
+                            <span>
+                              address 1
+                            </span>
+                          </a>
                         </div>
                       </p>
                     </div>
@@ -1953,7 +1963,17 @@ exports[`Sections component renders correctly 1`] = `
                         <div
                           class="subtitle"
                         >
-                          address 1
+                          <a
+                            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                            data-testid="anchor-link"
+                            href="https://www.google.com/maps/dir/address%201"
+                            target="_blank"
+                            type="button"
+                          >
+                            <span>
+                              address 1
+                            </span>
+                          </a>
                         </div>
                       </p>
                     </div>

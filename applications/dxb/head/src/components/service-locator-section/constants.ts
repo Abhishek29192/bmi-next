@@ -9,6 +9,8 @@ export const QUERY_CHIP_FILTER_KEY = "chip";
 export const EVENT_CAT_ID_SELECTOR_CARDS = "selector-cards6";
 export const EVENT_CAT_ID_SELECTOR_CARDS_MAP_PIN = "selector-cards6-map-pin";
 
+export const GOOGLE_MAPS_URL = "https://www.google.com/maps/dir/";
+
 const radius = 50; // @todo: To come from CMS.
 export const FILTER_RADIUS = radius ? radius * 1000 : Infinity;
 export const DEFAULT_MAP_CENTRE = {
