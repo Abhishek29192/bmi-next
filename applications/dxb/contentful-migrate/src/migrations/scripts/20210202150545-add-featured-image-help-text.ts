@@ -1,10 +1,9 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description =
   "Add help text to featuredImage field on teamPage content type.";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const teamPage = migration.editContentType("teamPage");
   teamPage.changeFieldControl("featuredImage", "builtin", "assetLinkEditor", {
     helpText:
@@ -12,7 +11,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   });
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const teamPage = migration.editContentType("teamPage");
   teamPage.changeFieldControl("featuredImage", "builtin", "assetLinkEditor", {
     helpText: ""

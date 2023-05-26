@@ -1,12 +1,11 @@
-import { hyphenSymbol } from "../../variables/hyphenSymbol/20220504110700";
-import type Migration from "contentful-migration";
+import { hyphenSymbol } from "../../variables/hyphenSymbol/20220504110700.js";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Change hyphen symbol for carousel section type";
 
 const titleNotFound = "Untitled";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   migration.transformEntries({
     contentType: "carouselSection",
     from: ["title"],
@@ -27,7 +26,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   });
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   migration.transformEntries({
     contentType: "carouselSection",
     from: ["name", "title"],

@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "add brands field to hompepage";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const homePage = migration.editContentType("homePage");
   homePage
     .createField("spaBrands")
@@ -22,7 +21,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   homePage.moveField("spaBrands").afterField("overlapCards");
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const homePage = migration.editContentType("homePage");
   homePage.deleteField("spaBrands");
 };

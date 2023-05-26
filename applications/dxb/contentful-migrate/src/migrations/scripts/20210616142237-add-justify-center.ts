@@ -1,4 +1,3 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Add justify center option";
@@ -6,7 +5,7 @@ export const description = "Add justify center option";
 const contentType = "cardCollectionSection";
 const fieldName = "justifyCenter";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const cardCollectionSection = migration.editContentType(contentType);
 
   cardCollectionSection
@@ -17,7 +16,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   cardCollectionSection.changeFieldControl(fieldName, "builtin", "boolean");
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const cardCollectionSection = migration.editContentType(contentType);
   cardCollectionSection.deleteField(fieldName);
 };

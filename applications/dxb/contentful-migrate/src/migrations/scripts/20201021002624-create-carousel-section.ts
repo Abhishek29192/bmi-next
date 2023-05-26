@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Create content model for Carousel Section";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const carouselSection = migration
     .createContentType("carouselSection")
     .name("Carousel Section")
@@ -51,5 +50,5 @@ export const up: MigrationFunction = (migration: Migration) => {
   carouselSection.changeFieldControl("link", "builtin", "entryLinkEditor");
 };
 
-export const down: MigrationFunction = (migration: Migration) =>
+export const down: MigrationFunction = (migration) =>
   migration.deleteContentType("carouselSection");

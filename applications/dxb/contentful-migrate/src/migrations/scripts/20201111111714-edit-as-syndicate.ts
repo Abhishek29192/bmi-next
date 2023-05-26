@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Convert villainSection into syndicateSection";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const syndicateSection = migration.editContentType("villainSection");
 
   syndicateSection.name("Syndicate Section");
@@ -32,7 +31,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   syndicateSection.deleteField("promo");
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const villainSection = migration.editContentType("villainSection");
 
   villainSection.name("Villain Section");

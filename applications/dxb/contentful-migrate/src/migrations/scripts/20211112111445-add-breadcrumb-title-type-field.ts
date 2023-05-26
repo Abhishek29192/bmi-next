@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Add breadcrumb title field to brandLandingPage.";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const page = migration.editContentType("brandLandingPage");
 
   page
@@ -13,7 +12,7 @@ export const up: MigrationFunction = (migration: Migration) => {
     .required(false);
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const brandLandingPage = migration.editContentType("brandLandingPage");
   brandLandingPage.deleteField("breadcrumbTitle");
 };

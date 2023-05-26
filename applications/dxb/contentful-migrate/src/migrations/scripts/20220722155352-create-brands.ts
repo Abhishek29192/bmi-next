@@ -1,10 +1,9 @@
-import { brands } from "../../variables/icons/20220404105849";
-import type Migration from "contentful-migration";
+import { brands } from "../../variables/icons/20220404105849.js";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Create content model for Brand";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const brand = migration
     .createContentType("brand")
     .name("Brand")
@@ -28,6 +27,6 @@ export const up: MigrationFunction = (migration: Migration) => {
   brand.changeFieldControl("path", "builtin", "urlEditor");
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   migration.deleteContentType("brand");
 };

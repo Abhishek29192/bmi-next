@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Add recipients field and remove method and action";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const form = migration.editContentType("form");
   form.deleteField("action");
   form.deleteField("method");
@@ -21,7 +20,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   form.moveField("recipients").afterField("description");
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const form = migration.editContentType("form");
   form.createField("action").name("Action").type("Symbol");
   form

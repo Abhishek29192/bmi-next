@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Remove image field from content type promo";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const promo = migration.editContentType("promo");
 
   migration.transformEntries({
@@ -22,7 +21,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   promo.deleteField("image");
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const promo = migration.editContentType("promo");
 
   promo

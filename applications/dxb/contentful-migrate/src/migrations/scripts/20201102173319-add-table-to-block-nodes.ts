@@ -1,10 +1,9 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description =
   "Add Table as a valid embeddable block to TitleWithContent";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const titleWithContent = migration.editContentType("titleWithContent");
 
   titleWithContent.editField("content").validations([
@@ -38,7 +37,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   ]);
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const titleWithContent = migration.editContentType("titleWithContent");
 
   titleWithContent.editField("content").validations([

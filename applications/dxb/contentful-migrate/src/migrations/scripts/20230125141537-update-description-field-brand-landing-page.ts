@@ -1,10 +1,9 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description =
   "Update description field on brand landing page to have maximum of 5000 characters";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const brandLandingPage = migration.editContentType("brandLandingPage");
 
   brandLandingPage
@@ -13,4 +12,4 @@ export const up: MigrationFunction = (migration: Migration) => {
 };
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function
-export const down: MigrationFunction = (migration: Migration) => {};
+export const down: MigrationFunction = (migration) => {};

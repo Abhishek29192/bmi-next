@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Create content model for Calculator Rood Shape";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const calculatorRoofShape = migration
     .createContentType("calculatorRoofShape")
     .name("Calculator Roof Shape")
@@ -32,5 +31,5 @@ export const up: MigrationFunction = (migration: Migration) => {
     .linkType("Asset");
 };
 
-export const down: MigrationFunction = (migration: Migration) =>
+export const down: MigrationFunction = (migration) =>
   migration.deleteContentType("calculatorRoofShape");

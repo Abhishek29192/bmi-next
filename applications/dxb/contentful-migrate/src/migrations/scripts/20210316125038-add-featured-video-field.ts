@@ -1,10 +1,9 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description =
   "Create featuredVideo field to accept video content type link.";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const teamPage = migration.editContentType("teamPage");
   teamPage
     .createField("featuredVideo")
@@ -20,7 +19,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   teamPage.moveField("featuredVideo").afterField("featuredImage");
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const teamPage = migration.editContentType("teamPage");
   teamPage.deleteField("featuredVideo");
 };

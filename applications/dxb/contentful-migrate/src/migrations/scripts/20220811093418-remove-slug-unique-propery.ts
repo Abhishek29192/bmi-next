@@ -1,4 +1,3 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description =
@@ -12,7 +11,7 @@ const CT_WITH_SLUG = [
   "brandLandingPage"
 ];
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   CT_WITH_SLUG.forEach((ct) => {
     const contentType = migration.editContentType(ct);
 
@@ -22,7 +21,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   });
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   CT_WITH_SLUG.forEach((ct) => {
     const contentType = migration.editContentType(ct);
 

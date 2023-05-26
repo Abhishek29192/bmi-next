@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Add featuredImage field to content type Promo";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const promo = migration.editContentType("promo");
 
   promo
@@ -17,7 +16,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   promo.moveField("featuredImage").afterField("image");
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const promo = migration.editContentType("promo");
 
   migration.transformEntries({

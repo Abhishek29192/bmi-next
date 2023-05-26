@@ -1,13 +1,12 @@
 import {
   enabledNodeTypes,
   nodes
-} from "../../variables/richText/20210413104316";
-import type Migration from "contentful-migration";
+} from "../../variables/richText/20210413104316.js";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Create video section";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const videoSection = migration
     .createContentType("videoSection")
     .name("Video Section")
@@ -47,5 +46,5 @@ export const up: MigrationFunction = (migration: Migration) => {
   });
 };
 
-export const down: MigrationFunction = (migration: Migration) =>
+export const down: MigrationFunction = (migration) =>
   migration.deleteContentType("videoSection");

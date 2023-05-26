@@ -1,6 +1,5 @@
-import { brands as previousIcons } from "../../variables/icons/20210324110455";
-import { brands as newIcons } from "../../variables/icons/20210512134828";
-import type Migration from "contentful-migration";
+import { brands as previousIcons } from "../../variables/icons/20210324110455.js";
+import { brands as newIcons } from "../../variables/icons/20210512134828.js";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Adding new brand logos called Icopal Katto.";
@@ -8,14 +7,14 @@ export const description = "Adding new brand logos called Icopal Katto.";
 const contentTypeName = "brandLandingPage";
 const fieldName = "brandLogo";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   migration.editContentType(contentTypeName).editField(fieldName, {
     type: "Symbol",
     validations: [{ in: newIcons }]
   });
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   migration.editContentType(contentTypeName).editField(fieldName, {
     type: "Symbol",
     validations: [{ in: previousIcons }]

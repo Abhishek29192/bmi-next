@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Create content type for Document Download Section";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const documentDownloadSection = migration
     .createContentType("documentDownloadSection")
     .name("Document Download Section")
@@ -62,5 +61,5 @@ export const up: MigrationFunction = (migration: Migration) => {
     });
 };
 
-export const down: MigrationFunction = (migration: Migration) =>
+export const down: MigrationFunction = (migration) =>
   migration.deleteContentType("documentDownloadSection");

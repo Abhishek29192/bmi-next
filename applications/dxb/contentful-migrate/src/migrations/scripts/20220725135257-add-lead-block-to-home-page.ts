@@ -1,4 +1,3 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Add lead block to homepage sections field";
@@ -15,7 +14,7 @@ const homePageLinkContentType = [
   "signupBlock"
 ];
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const homePage = migration.editContentType("homePage");
 
   homePage.editField("sections", {
@@ -32,7 +31,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   });
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const homePage = migration.editContentType("homePage");
 
   homePage.editField("sections", {

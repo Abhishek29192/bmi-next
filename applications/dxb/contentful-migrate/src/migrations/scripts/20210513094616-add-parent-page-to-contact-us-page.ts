@@ -1,10 +1,9 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description =
   "Add parentPage field to contactUsPage content type.";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const page = migration.editContentType("contactUsPage");
 
   page
@@ -27,7 +26,7 @@ export const up: MigrationFunction = (migration: Migration) => {
     .linkType("Entry");
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const page = migration.editContentType("contactUsPage");
   page.deleteField("parentPage");
 };

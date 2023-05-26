@@ -36,16 +36,17 @@
   ii) It will publish newly created entries
   iii) `value` of each entry will same as its `key`
 */
-import { argv } from "process";
+import { argv } from "node:process";
+import { pathToFileURL } from "node:url";
 import { getEnvironment, waitFor } from "@bmi/utils";
 import { Entry, Environment, Link, Locale, Tag } from "contentful-management";
-import { microCopy } from "../../../head/src/constants/microCopies";
+import { microCopy } from "../../../head/src/constants/microCopies.js";
 import {
   BULK_SIZE,
   CHUNK_SIZE,
   KEYS_REQUEST_PAGE_SIZE,
   TIMEOUT
-} from "./constants";
+} from "./constants.js";
 
 let TO_BE_PUBLISHED = process.argv.includes("--publish");
 let IS_CONSOLIDATED = process.argv.includes("--isConsolidated=true");
@@ -502,7 +503,7 @@ export const main = async (
 };
 
 // istanbul ignore if - can't override require.main
-if (require.main === module) {
+if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   main(
     argv.includes("--publish"),
     argv.includes("--isConsolidated=true")

@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Create content model for Title With Content";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const titleWithContent = migration
     .createContentType("titleWithContent")
     .name("Title With Content")
@@ -55,5 +54,5 @@ export const up: MigrationFunction = (migration: Migration) => {
   titleWithContent.changeFieldControl("content", "builtin", "richTextEditor");
 };
 
-export const down: MigrationFunction = (migration: Migration) =>
+export const down: MigrationFunction = (migration) =>
   migration.deleteContentType("titleWithContent");

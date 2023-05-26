@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Add website as label field";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const roofer = migration.editContentType("roofer");
 
   roofer
@@ -19,7 +18,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   roofer.moveField("websiteLinkAsLabel").afterField("website");
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const roofer = migration.editContentType("roofer");
   roofer.deleteField("websiteLinkAsLabel");
 };

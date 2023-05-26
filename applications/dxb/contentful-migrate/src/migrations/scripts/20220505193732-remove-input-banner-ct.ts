@@ -6,15 +6,11 @@ import { up as retryFieldMigrationUp } from "./20210301151440-add-retry-fields.j
 import { up as nameFieldIBMigrationUp } from "./20220419133700-change-source-content-type-for-name-field-for-input-banner.js";
 import type { CollectionResponse } from "@bmi-digital/contentful-migration";
 import type { EntryProps } from "contentful-management";
-import type Migration from "contentful-migration";
-import type { MigrationContext, MigrationFunction } from "contentful-migration";
+import type { MigrationFunction } from "contentful-migration";
 
 export const description = "remove input banner content type";
 
-export const up: MigrationFunction = async (
-  migration: Migration,
-  context?: MigrationContext
-) => {
+export const up: MigrationFunction = async (migration, context) => {
   const resp: CollectionResponse<EntryProps> = await context!.makeRequest({
     method: "GET",
     url: `/entries?content_type=inputBanner&limit=1000`
@@ -45,7 +41,7 @@ export const up: MigrationFunction = async (
   inputBannerMigrationDown(migration);
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   inputBannerMigrationUp(migration);
   retryFieldMigrationUp(migration);
   nameFieldIBMigrationUp(migration);

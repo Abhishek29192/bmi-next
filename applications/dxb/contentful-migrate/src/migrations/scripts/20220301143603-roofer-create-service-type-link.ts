@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Add Roofer Service Type field";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const roofer = migration.editContentType("roofer");
 
   roofer
@@ -24,7 +23,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   roofer.moveField("serviceTypes").afterField("merchantType");
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const roofer = migration.editContentType("roofer");
   roofer.deleteField("serviceTypes");
 };

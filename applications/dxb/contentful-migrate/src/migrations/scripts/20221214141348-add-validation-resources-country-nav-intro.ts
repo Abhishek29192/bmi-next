@@ -1,10 +1,9 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description =
   "Add validation for countryNavigationIntroduction(resources)";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const resource = migration.editContentType("resources");
 
   resource.editField("countryNavigationIntroduction", {
@@ -13,7 +12,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   });
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const resource = migration.editContentType("resources");
 
   resource.editField("countryNavigationIntroduction", {

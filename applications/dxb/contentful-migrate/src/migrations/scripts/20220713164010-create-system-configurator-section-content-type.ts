@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Create System Configurator Section content type";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const systemConfiguratorSection = migration
     .createContentType("systemConfiguratorSection")
     .name("System Configurator Section")
@@ -85,6 +84,6 @@ export const up: MigrationFunction = (migration: Migration) => {
   );
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   migration.deleteContentType("systemConfiguratorSection");
 };

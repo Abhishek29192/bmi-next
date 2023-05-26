@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Add help text to code";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const assetType = migration.editContentType("assetType");
 
   assetType.editField("code").validations([{ size: { max: 4 } }]);
@@ -13,7 +12,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   });
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const assetType = migration.editContentType("assetType");
 
   assetType.editField("code").validations([]);

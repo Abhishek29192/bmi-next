@@ -1,10 +1,9 @@
 import branchTypes from "../../variables/branchTypes/20210928085352.js";
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Add Branch Types and options";
 
-export const up: MigrationFunction = async (migration: Migration) => {
+export const up: MigrationFunction = async (migration) => {
   const roofer = migration.editContentType("roofer");
 
   roofer
@@ -25,7 +24,7 @@ export const up: MigrationFunction = async (migration: Migration) => {
   roofer.changeFieldControl("branchType", "builtin", "checkbox");
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const roofer = migration.editContentType("roofer");
 
   roofer.deleteField("branchType");

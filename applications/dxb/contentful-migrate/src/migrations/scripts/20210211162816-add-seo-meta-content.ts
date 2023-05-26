@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Add SEO meta content";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   migration
     .editContentType("documentLibraryPage")
     .createField("seo")
@@ -13,6 +12,6 @@ export const up: MigrationFunction = (migration: Migration) => {
     .linkType("Entry");
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   migration.editContentType("documentLibraryPage").deleteField("seo");
 };

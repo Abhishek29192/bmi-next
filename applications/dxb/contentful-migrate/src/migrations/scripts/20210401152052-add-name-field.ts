@@ -1,13 +1,12 @@
 import {
   internalName,
   optionalTitle
-} from "../../variables/helpText/20210421160910";
-import type Migration from "contentful-migration";
+} from "../../variables/helpText/20210421160910.js";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Add required name field";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const linkColumnsSection = migration.editContentType("linkColumnsSection");
 
   linkColumnsSection
@@ -38,7 +37,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   });
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const linkColumnsSection = migration.editContentType("linkColumnsSection");
 
   linkColumnsSection.displayField("title");

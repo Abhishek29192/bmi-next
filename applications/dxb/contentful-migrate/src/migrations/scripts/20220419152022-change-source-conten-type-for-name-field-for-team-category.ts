@@ -1,10 +1,9 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Copy title to name field for team category";
 const titleNotFound = "Untitled";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   migration.transformEntries({
     contentType: "teamCategory",
     from: ["title"],
@@ -25,7 +24,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   });
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   migration.transformEntries({
     contentType: "teamCategory",
     from: ["name", "title"],

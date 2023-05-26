@@ -1,4 +1,3 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Create PDP specification title and description";
@@ -6,7 +5,7 @@ export const description = "Create PDP specification title and description";
 const titleField = "pdpSpecificationTitle";
 const descriptionField = "pdpSpecificationDescription";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const resources = migration.editContentType("resources");
 
   resources
@@ -20,7 +19,7 @@ export const up: MigrationFunction = (migration: Migration) => {
     .type("RichText");
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const resources = migration.editContentType("resources");
   resources.deleteField(titleField);
   resources.deleteField(descriptionField);

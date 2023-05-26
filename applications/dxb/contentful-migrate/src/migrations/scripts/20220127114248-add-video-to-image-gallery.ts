@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Add video content type to image gallery";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const gallery = migration.editContentType("imageGallerySection");
   gallery.editField("medias").items({
     type: "Link",
@@ -12,7 +11,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   });
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const gallery = migration.editContentType("imageGallerySection");
   gallery.editField("medias").items({
     type: "Link",

@@ -1,10 +1,9 @@
 import merchantTypes from "../../variables/merchantTypes/20210929064001.js";
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Add Merchant Types and options";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const roofer = migration.editContentType("roofer");
   roofer
     .createField("merchantType")
@@ -24,7 +23,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   roofer.changeFieldControl("merchantType", "builtin", "checkbox");
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const roofer = migration.editContentType("roofer");
   roofer.deleteField("merchantType");
 };

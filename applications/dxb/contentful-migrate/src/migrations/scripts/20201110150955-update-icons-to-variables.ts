@@ -1,10 +1,9 @@
-import icons from "../../variables/icons/20201110150955";
-import type Migration from "contentful-migration";
+import icons from "../../variables/icons/20201110150955.js";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Update icons to use a variable file";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const link = migration.editContentType("link");
 
   link.editField("icon", {
@@ -13,7 +12,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   });
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const link = migration.editContentType("link");
 
   link.editField("icon", {
