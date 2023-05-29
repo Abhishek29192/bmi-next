@@ -1,13 +1,14 @@
 import {
   DownloadList,
   DownloadListContext,
-  Table
+  Table,
+  Checkbox
 } from "@bmi-digital/components";
 import { useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import classnames from "classnames";
 import { filesize } from "filesize";
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { microCopy } from "../constants/microCopies";
 import { Document, DocumentTableHeader, TitleField } from "../types/Document";
 import {
@@ -210,9 +211,51 @@ const DocumentSimpleTableResults = ({
   const { getMicroCopy } = useSiteContext();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
-  const { list } = useContext(DownloadListContext);
+  const { list, updateList, count } = useContext(DownloadListContext);
+  const [selectedAll, setSelectedAll] = useState(false);
+  const [selectedDoc, setSelectedDoc] = useState(0);
   const titleField =
     headers.includes("type") && !headers.includes("title") ? "type" : "title";
+  const filteredDocs = documents.filter((d) => !getIsLinkDocument(d));
+  const howManyIsAlreadySelected = (doc: Document[]): number => {
+    let counts = 0;
+    doc.forEach((d) => {
+      if (list[getUniqueId(d)]) {
+        counts = counts + 1;
+      }
+    });
+    setSelectedDoc(() => counts);
+    return counts;
+  };
+  const handleSelectAll = (selectedAll: boolean): void => {
+    if (selectedAll) {
+      if (selectedDoc === filteredDocs.length) {
+        return;
+      }
+      filteredDocs.forEach((d) => updateList(getUniqueId(d), d));
+    } else {
+      if (count === 0 || selectedDoc !== filteredDocs.length) {
+        return;
+      }
+      documents.forEach((d) => updateList(getUniqueId(d), false));
+    }
+  };
+  useEffect(() => {
+    handleSelectAll(selectedAll);
+  }, [selectedAll]);
+
+  useEffect(() => {
+    const alreadySelected = howManyIsAlreadySelected(filteredDocs);
+    if (alreadySelected === filteredDocs.length) {
+      setSelectedAll(true);
+    } else {
+      setSelectedAll(false);
+    }
+  }, [list, documents]);
+
+  const setSelectAll = () => {
+    setSelectedAll(!selectedAll);
+  };
 
   if (isMobile) {
     return (
@@ -237,10 +280,25 @@ const DocumentSimpleTableResults = ({
               <Table.Cell
                 key={`header-${header}`}
                 className={classnames(
-                  ["actions", "add"].includes(header) && classes.tableHeader
+                  ["actions", "add"].includes(header) && classes.tableHeader,
+                  ["add"].includes(header) && classes.tableHeaderCentered
                 )}
               >
-                {getMicroCopy(`documentLibrary.headers.${header}`)}
+                {header === "add" ? (
+                  <Checkbox
+                    data-testid={`document-table-select-all`}
+                    name="add"
+                    aria-label={`${getMicroCopy(
+                      `documentLibrary.headers.add`
+                    )}`}
+                    value={selectedAll}
+                    checked={selectedAll}
+                    onChange={setSelectAll}
+                    disabled={!filteredDocs.length}
+                  />
+                ) : (
+                  getMicroCopy(`documentLibrary.headers.${header}`)
+                )}
               </Table.Cell>
             ))}
           </Table.Row>
