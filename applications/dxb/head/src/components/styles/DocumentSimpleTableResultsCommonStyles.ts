@@ -1,8 +1,14 @@
-import { Button } from "@bmi-digital/components";
+import { Button, IconButtonProps } from "@bmi-digital/components";
 import { ApprovalStatus } from "@bmi/pim-types/src";
 import { buttonClasses } from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
 import Icon from "../Icon";
+
+const PREFIX = "document-simple-table-results";
+
+export const classes = {
+  actionIcon: `${PREFIX}-actionIcon`
+};
 
 export const ActionIcon = styled(Icon)(({ theme }) => ({
   "&, & path": {
@@ -29,11 +35,17 @@ export const StyledDocumentIcon = styled(Icon)({
   minWidth: "32px"
 });
 
-export const StyledButton = styled(Button)({
-  width: "unset !important",
-  height: "unset !important",
-  display: "block"
-});
+export const StyledButton = styled(Button)<IconButtonProps>(({ size }) => ({
+  alignItems: "center",
+  display: "flex",
+  justifyContent: "center",
+  width: size === "large" ? "60px" : "unset !important",
+  height: size === "large" ? "60px" : "unset !important",
+  [`.${classes["actionIcon"]}`]: {
+    height: "32px",
+    width: "32px"
+  }
+}));
 
 export const Title = styled("p")(({ theme }) => ({
   color: theme.colours.slate,

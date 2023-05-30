@@ -3394,14 +3394,21 @@ exports[`Document Library page should render DocumentCardsResults correctly if s
     <div
       class="OverviewCard-clickable MuiBox-root css-mnk4x4"
     >
-      <button
+      <a
         class="MuiButtonBase-root OverviewCard-main css-10d1a0h-MuiButtonBase-root"
         data-gtm="{"id":"cta-click1","label":"MC: documentLibrary.card.download","action":"http://localhost:9000/asset-filename.jpg"}"
+        href="https:http://localhost:9000/asset-filename.jpg"
+        rel="noopener noreferrer"
         tabindex="0"
-        type="button"
+        target="_blank"
       >
-        <div
-          class="OverviewCard-body"
+        <a
+          class="MuiButtonBase-root OverviewCard-body css-10d1a0h-MuiButtonBase-root"
+          data-gtm="{"id":"cta-click1","label":"MC: documentLibrary.card.download","action":"http://localhost:9000/asset-filename.jpg"}"
+          href="https:http://localhost:9000/asset-filename.jpg"
+          rel="noopener noreferrer"
+          tabindex="0"
+          target="_blank"
         >
           <div
             class="OverviewCard-brandLogo"
@@ -3430,11 +3437,14 @@ exports[`Document Library page should render DocumentCardsResults correctly if s
             class="OverviewCard-text css-kl66ak"
             data-testid="overview-card-body-description"
           />
-        </div>
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </a>
         <span
           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
-      </button>
+      </a>
       <div
         class="css-197a1cq"
         data-testid="overview-card-body-footer"
@@ -3450,13 +3460,13 @@ exports[`Document Library page should render DocumentCardsResults correctly if s
           >
             <button
               aria-label="Copy contentful document title"
-              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-large Button-text MuiIconButton-sizeLarge css-aq4cim-MuiButtonBase-root-MuiIconButton-root"
               data-testid="document-table-actions-copy-url-contentful-document-id"
               tabindex="0"
               type="button"
             >
               <svg
-                class="css-546mkb"
+                class="document-simple-table-results-actionIcon css-546mkb"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -3470,7 +3480,7 @@ exports[`Document Library page should render DocumentCardsResults correctly if s
             </button>
           </div>
           <div
-            class="css-1cbei78"
+            class="css-b7sks0"
           />
           <div
             aria-label="MC: document.library.download.tooltip.title"
@@ -3480,7 +3490,7 @@ exports[`Document Library page should render DocumentCardsResults correctly if s
           >
             <a
               aria-label="Download contentful document title"
-              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-large Button-text MuiIconButton-sizeLarge css-aq4cim-MuiButtonBase-root-MuiIconButton-root"
               data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/asset-filename.jpg"}"
               data-testid="document-table-actions-download-contentful-document-id"
               href="http://localhost:9000/asset-filename.jpg"
@@ -3489,7 +3499,7 @@ exports[`Document Library page should render DocumentCardsResults correctly if s
               target="_blank"
             >
               <svg
-                class="css-546mkb"
+                class="document-simple-table-results-actionIcon css-546mkb"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -3687,7 +3697,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               >
                 <a
                   aria-label="Download pim document title"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
                   data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                   data-testid="document-table-actions-download-pim-document-id"
                   href="http://localhost:9000/document.pdf"
@@ -3696,7 +3706,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                   target="_blank"
                 >
                   <svg
-                    class="css-546mkb"
+                    class="false css-546mkb"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -3718,13 +3728,13 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               >
                 <button
                   aria-label="Copy pim document title"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="document-table-actions-copy-url-pim-document-id"
                   tabindex="0"
                   type="button"
                 >
                   <svg
-                    class="css-546mkb"
+                    class="false css-546mkb"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -3926,7 +3936,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               >
                 <a
                   aria-label="Download contentful document title"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
                   data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/asset-filename.jpg"}"
                   data-testid="document-table-actions-download-contentful-document-id"
                   href="http://localhost:9000/asset-filename.jpg"
@@ -3935,7 +3945,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                   target="_blank"
                 >
                   <svg
-                    class="css-546mkb"
+                    class="false css-546mkb"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -3957,13 +3967,13 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               >
                 <button
                   aria-label="Copy contentful document title"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="document-table-actions-copy-url-contentful-document-id"
                   tabindex="0"
                   type="button"
                 >
                   <svg
-                    class="css-546mkb"
+                    class="false css-546mkb"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -4162,7 +4172,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               >
                 <a
                   aria-label="Download pim document title"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
                   data-gtm="{"id":"download1","label":"Download","action":"https://url"}"
                   data-testid="document-table-actions-download-pim-document-id"
                   href="https://url/"
@@ -4171,7 +4181,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                   target="_blank"
                 >
                   <svg
-                    class="css-546mkb"
+                    class="false css-546mkb"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -4193,13 +4203,13 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               >
                 <button
                   aria-label="Copy pim document title"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="document-table-actions-copy-url-pim-document-id"
                   tabindex="0"
                   type="button"
                 >
                   <svg
-                    class="css-546mkb"
+                    class="false css-546mkb"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -4401,7 +4411,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               >
                 <a
                   aria-label="Download contentful document title"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
                   data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/asset-filename.jpg"}"
                   data-testid="document-table-actions-download-contentful-document-id"
                   href="http://localhost:9000/asset-filename.jpg"
@@ -4410,7 +4420,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                   target="_blank"
                 >
                   <svg
-                    class="css-546mkb"
+                    class="false css-546mkb"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -4432,13 +4442,13 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               >
                 <button
                   aria-label="Copy contentful document title"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="document-table-actions-copy-url-contentful-document-id"
                   tabindex="0"
                   type="button"
                 >
                   <svg
-                    class="css-546mkb"
+                    class="false css-546mkb"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -4637,7 +4647,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               >
                 <a
                   aria-label="Download pim document title"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
                   data-gtm="{"id":"download1","label":"Download","action":"https://url"}"
                   data-testid="document-table-actions-download-pim-document-id"
                   href="https://url/"
@@ -4646,7 +4656,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                   target="_blank"
                 >
                   <svg
-                    class="css-546mkb"
+                    class="false css-546mkb"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -4668,13 +4678,13 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               >
                 <button
                   aria-label="Copy pim document title"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="document-table-actions-copy-url-pim-document-id"
                   tabindex="0"
                   type="button"
                 >
                   <svg
-                    class="css-546mkb"
+                    class="false css-546mkb"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -4873,7 +4883,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               >
                 <a
                   aria-label="Download pim document title"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
                   data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                   data-testid="document-table-actions-download-pim-document-id"
                   href="http://localhost:9000/document.pdf"
@@ -4882,7 +4892,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                   target="_blank"
                 >
                   <svg
-                    class="css-546mkb"
+                    class="false css-546mkb"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -4904,13 +4914,13 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               >
                 <button
                   aria-label="Copy pim document title"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="document-table-actions-copy-url-pim-document-id"
                   tabindex="0"
                   type="button"
                 >
                   <svg
-                    class="css-546mkb"
+                    class="false css-546mkb"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -5109,7 +5119,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               >
                 <a
                   aria-label="Download pim document title"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
                   data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                   data-testid="document-table-actions-download-pim-document-id"
                   href="http://localhost:9000/document.pdf"
@@ -5118,7 +5128,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                   target="_blank"
                 >
                   <svg
-                    class="css-546mkb"
+                    class="false css-546mkb"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -5140,13 +5150,13 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               >
                 <button
                   aria-label="Copy pim document title"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="document-table-actions-copy-url-pim-document-id"
                   tabindex="0"
                   type="button"
                 >
                   <svg
-                    class="css-546mkb"
+                    class="false css-546mkb"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -5373,7 +5383,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               >
                 <a
                   aria-label="Download pim document title"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
                   data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                   data-testid="document-table-actions-download-pim-document-id"
                   href="http://localhost:9000/document.pdf"
@@ -5382,7 +5392,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                   target="_blank"
                 >
                   <svg
-                    class="css-546mkb"
+                    class="false css-546mkb"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -5404,13 +5414,13 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               >
                 <button
                   aria-label="Copy pim document title"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="document-table-actions-copy-url-pim-document-id"
                   tabindex="0"
                   type="button"
                 >
                   <svg
-                    class="css-546mkb"
+                    class="false css-546mkb"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -5637,7 +5647,7 @@ exports[`Document Library page should render DocumentSimpleTableResults if sourc
               >
                 <a
                   aria-label="Download pim document title"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
                   data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                   data-testid="document-table-actions-download-pim-document-id"
                   href="http://localhost:9000/document.pdf"
@@ -5646,7 +5656,7 @@ exports[`Document Library page should render DocumentSimpleTableResults if sourc
                   target="_blank"
                 >
                   <svg
-                    class="css-546mkb"
+                    class="false css-546mkb"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -5668,13 +5678,13 @@ exports[`Document Library page should render DocumentSimpleTableResults if sourc
               >
                 <button
                   aria-label="Copy pim document title"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="document-table-actions-copy-url-pim-document-id"
                   tabindex="0"
                   type="button"
                 >
                   <svg
-                    class="css-546mkb"
+                    class="false css-546mkb"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                   >

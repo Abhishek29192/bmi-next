@@ -3463,7 +3463,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                             >
                               <a
                                 aria-label="Download pim-link-document-title"
-                                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
                                 data-gtm="{"id":"download1","label":"Download","action":"http://localhost/pim-link-document-id"}"
                                 data-testid="document-table-actions-download-pim-link-document-id"
                                 href="http://localhost/pim-link-document-id"
@@ -3472,7 +3472,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                                 target="_blank"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="false css-546mkb"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -3494,13 +3494,13 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                             >
                               <button
                                 aria-label="Copy pim-link-document-title"
-                                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
                                 data-testid="document-table-actions-copy-url-pim-link-document-id"
                                 tabindex="0"
                                 type="button"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="false css-546mkb"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -3626,13 +3626,13 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                             >
                               <button
                                 aria-label="Copy pim-link-document-title"
-                                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
                                 data-testid="document-table-actions-copy-url-pim-link-document-id"
                                 tabindex="0"
                                 type="button"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="false css-546mkb"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -7777,7 +7777,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                             >
                               <a
                                 aria-label="Download pim-link-document-title"
-                                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
                                 data-gtm="{"id":"download1","label":"Download","action":"http://localhost/pim-link-document-id"}"
                                 data-testid="document-table-actions-download-pim-link-document-id"
                                 href="http://localhost/pim-link-document-id"
@@ -7786,7 +7786,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                                 target="_blank"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="false css-546mkb"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -7808,13 +7808,13 @@ exports[`SystemDetailsPage template component should render 1`] = `
                             >
                               <button
                                 aria-label="Copy pim-link-document-title"
-                                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
                                 data-testid="document-table-actions-copy-url-pim-link-document-id"
                                 tabindex="0"
                                 type="button"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="false css-546mkb"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -7940,13 +7940,13 @@ exports[`SystemDetailsPage template component should render 1`] = `
                             >
                               <button
                                 aria-label="Copy pim-link-document-title"
-                                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
                                 data-testid="document-table-actions-copy-url-pim-link-document-id"
                                 tabindex="0"
                                 type="button"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="false css-546mkb"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -12095,7 +12095,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                               >
                                 <a
                                   aria-label="Download pim-link-document-title"
-                                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
                                   data-gtm="{"id":"download1","label":"Download","action":"http://localhost/pim-link-document-id"}"
                                   data-testid="document-table-actions-download-pim-link-document-id"
                                   href="http://localhost/pim-link-document-id"
@@ -12104,7 +12104,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                                   target="_blank"
                                 >
                                   <svg
-                                    class="css-546mkb"
+                                    class="false css-546mkb"
                                     viewBox="0 0 24 24"
                                     xmlns="http://www.w3.org/2000/svg"
                                   >
@@ -12126,13 +12126,13 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                               >
                                 <button
                                   aria-label="Copy pim-link-document-title"
-                                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
                                   data-testid="document-table-actions-copy-url-pim-link-document-id"
                                   tabindex="0"
                                   type="button"
                                 >
                                   <svg
-                                    class="css-546mkb"
+                                    class="false css-546mkb"
                                     viewBox="0 0 24 24"
                                     xmlns="http://www.w3.org/2000/svg"
                                   >
@@ -12258,13 +12258,13 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                               >
                                 <button
                                   aria-label="Copy pim-link-document-title"
-                                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
                                   data-testid="document-table-actions-copy-url-pim-link-document-id"
                                   tabindex="0"
                                   type="button"
                                 >
                                   <svg
-                                    class="css-546mkb"
+                                    class="false css-546mkb"
                                     viewBox="0 0 24 24"
                                     xmlns="http://www.w3.org/2000/svg"
                                   >
@@ -16410,7 +16410,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                             >
                               <a
                                 aria-label="Download pim-link-document-title"
-                                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
                                 data-gtm="{"id":"download1","label":"Download","action":"http://localhost/pim-link-document-id"}"
                                 data-testid="document-table-actions-download-pim-link-document-id"
                                 href="http://localhost/pim-link-document-id"
@@ -16419,7 +16419,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                                 target="_blank"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="false css-546mkb"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -16441,13 +16441,13 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                             >
                               <button
                                 aria-label="Copy pim-link-document-title"
-                                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
                                 data-testid="document-table-actions-copy-url-pim-link-document-id"
                                 tabindex="0"
                                 type="button"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="false css-546mkb"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -16573,13 +16573,13 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                             >
                               <button
                                 aria-label="Copy pim-link-document-title"
-                                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
                                 data-testid="document-table-actions-copy-url-pim-link-document-id"
                                 tabindex="0"
                                 type="button"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="false css-546mkb"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -20684,7 +20684,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                             >
                               <a
                                 aria-label="Download pim-link-document-title"
-                                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
                                 data-gtm="{"id":"download1","label":"Download","action":"http://localhost/pim-link-document-id"}"
                                 data-testid="document-table-actions-download-pim-link-document-id"
                                 href="http://localhost/pim-link-document-id"
@@ -20693,7 +20693,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                                 target="_blank"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="false css-546mkb"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -20715,13 +20715,13 @@ exports[`SystemDetailsPage template component should render without specificatio
                             >
                               <button
                                 aria-label="Copy pim-link-document-title"
-                                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
                                 data-testid="document-table-actions-copy-url-pim-link-document-id"
                                 tabindex="0"
                                 type="button"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="false css-546mkb"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -20847,13 +20847,13 @@ exports[`SystemDetailsPage template component should render without specificatio
                             >
                               <button
                                 aria-label="Copy pim-link-document-title"
-                                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
                                 data-testid="document-table-actions-copy-url-pim-link-document-id"
                                 tabindex="0"
                                 type="button"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="false css-546mkb"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -24998,7 +24998,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                             >
                               <a
                                 aria-label="Download pim-link-document-title"
-                                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
                                 data-gtm="{"id":"download1","label":"Download","action":"http://localhost/pim-link-document-id"}"
                                 data-testid="document-table-actions-download-pim-link-document-id"
                                 href="http://localhost/pim-link-document-id"
@@ -25007,7 +25007,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                                 target="_blank"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="false css-546mkb"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -25029,13 +25029,13 @@ exports[`SystemDetailsPage template component should render without systemLayers
                             >
                               <button
                                 aria-label="Copy pim-link-document-title"
-                                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
                                 data-testid="document-table-actions-copy-url-pim-link-document-id"
                                 tabindex="0"
                                 type="button"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="false css-546mkb"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -25161,13 +25161,13 @@ exports[`SystemDetailsPage template component should render without systemLayers
                             >
                               <button
                                 aria-label="Copy pim-link-document-title"
-                                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
                                 data-testid="document-table-actions-copy-url-pim-link-document-id"
                                 tabindex="0"
                                 type="button"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="false css-546mkb"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -29438,7 +29438,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                             >
                               <a
                                 aria-label="Download pim-link-document-title"
-                                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
                                 data-gtm="{"id":"download1","label":"Download","action":"http://localhost/pim-link-document-id"}"
                                 data-testid="document-table-actions-download-pim-link-document-id"
                                 href="http://localhost/pim-link-document-id"
@@ -29447,7 +29447,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                                 target="_blank"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="false css-546mkb"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -29469,13 +29469,13 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                             >
                               <button
                                 aria-label="Copy pim-link-document-title"
-                                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
                                 data-testid="document-table-actions-copy-url-pim-link-document-id"
                                 tabindex="0"
                                 type="button"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="false css-546mkb"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -29601,13 +29601,13 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                             >
                               <button
                                 aria-label="Copy pim-link-document-title"
-                                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
                                 data-testid="document-table-actions-copy-url-pim-link-document-id"
                                 tabindex="0"
                                 type="button"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="false css-546mkb"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -33878,7 +33878,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                             >
                               <a
                                 aria-label="Download pim-link-document-title"
-                                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
                                 data-gtm="{"id":"download1","label":"Download","action":"http://localhost/pim-link-document-id"}"
                                 data-testid="document-table-actions-download-pim-link-document-id"
                                 href="http://localhost/pim-link-document-id"
@@ -33887,7 +33887,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                                 target="_blank"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="false css-546mkb"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -33909,13 +33909,13 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                             >
                               <button
                                 aria-label="Copy pim-link-document-title"
-                                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
                                 data-testid="document-table-actions-copy-url-pim-link-document-id"
                                 tabindex="0"
                                 type="button"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="false css-546mkb"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -34041,13 +34041,13 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                             >
                               <button
                                 aria-label="Copy pim-link-document-title"
-                                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-i46dl-MuiButtonBase-root-MuiIconButton-root"
+                                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
                                 data-testid="document-table-actions-copy-url-pim-link-document-id"
                                 tabindex="0"
                                 type="button"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="false css-546mkb"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >

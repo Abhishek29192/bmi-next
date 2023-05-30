@@ -27,8 +27,23 @@ import {
   StyledButton,
   StyledDocumentIcon,
   Title,
-  TitleButton
+  TitleButton,
+  classes
 } from "./styles/DocumentSimpleTableResultsCommonStyles";
+
+type ButtonSizes = "small" | "large";
+
+interface CopyToClipboardProps {
+  id: string;
+  url: string;
+  title: string;
+  size?: ButtonSizes;
+}
+
+interface DownloadDocumentButtonProps {
+  document: Document;
+  size?: ButtonSizes;
+}
 
 const GTMButton = withGTM<
   (ButtonProps | IconButtonProps) & {
@@ -148,17 +163,18 @@ export const DocumentTitle = (props: {
   );
 };
 
-export const CopyToClipboard = (props: {
-  id: string;
-  url: string;
-  title: string;
-}) => {
+export const CopyToClipboard = ({
+  url,
+  title,
+  id,
+  size = "small"
+}: CopyToClipboardProps) => {
   const { getMicroCopy } = useSiteContext();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isLinkCopied, setIsLinkCopied] = useState<boolean>(false);
 
   const saveToClipboard = async (): Promise<void> => {
-    const downloadLink = getDownloadLink(props.url);
+    const downloadLink = getDownloadLink(url);
     await navigator.clipboard.writeText(downloadLink);
     setIsLinkCopied(true);
     setIsOpen(true);
@@ -188,11 +204,15 @@ export const CopyToClipboard = (props: {
         <StyledButton
           isIconButton
           variant="text"
-          aria-label={`Copy ${props.title}`}
-          data-testid={`document-table-actions-copy-url-${props.id}`}
+          accessibilityLabel={`Copy ${title}`}
+          data-testid={`document-table-actions-copy-url-${id}`}
           onClick={saveToClipboard}
+          size={size}
         >
-          <ActionIcon name="CopyContent" />
+          <ActionIcon
+            className={size === "large" && classes["actionIcon"]}
+            name="CopyContent"
+          />
         </StyledButton>
       </Box>
     </Tooltip>
@@ -200,10 +220,9 @@ export const CopyToClipboard = (props: {
 };
 
 export const DownloadDocumentButton = ({
-  document
-}: {
-  document: Document;
-}) => {
+  document,
+  size = "small"
+}: DownloadDocumentButtonProps) => {
   const { getMicroCopy } = useSiteContext();
   const { executeRecaptcha } = useGoogleReCaptcha();
   const qaAuthToken = getCookie(QA_AUTH_TOKEN);
@@ -256,8 +275,12 @@ export const DownloadDocumentButton = ({
           variant="text"
           accessibilityLabel={`Download ${document.title}`}
           data-testid={`document-table-actions-download-${document.id}`}
+          size={size}
         >
-          <ActionIcon name="Download" />
+          <ActionIcon
+            className={size === "large" && classes["actionIcon"]}
+            name="Download"
+          />
         </GTMButton>
       </div>
     </Tooltip>

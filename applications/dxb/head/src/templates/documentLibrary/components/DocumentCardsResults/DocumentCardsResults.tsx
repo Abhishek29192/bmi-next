@@ -33,6 +33,12 @@ const DocumentCardsResults = ({ documents }: Props) => {
             xl={4}
           >
             <GTMOverviewCard
+              clickableArea="body"
+              action={{
+                model: "download",
+                href: `https:${document.asset.file.url}`,
+                ...(document.noIndex && { rel: "noindex" })
+              }}
               hasActions
               title={document.title}
               media={
@@ -51,10 +57,11 @@ const DocumentCardsResults = ({ documents }: Props) => {
                   <CopyToClipboard
                     id={document.id}
                     url={document.asset.file.url}
+                    size="large"
                     title={document.title}
                   />
                   <Divider />
-                  <DownloadDocumentButton document={document} />
+                  <DownloadDocumentButton document={document} size="large" />
                 </Actions>
               }
             />
