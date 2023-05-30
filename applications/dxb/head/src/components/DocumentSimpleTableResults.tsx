@@ -224,7 +224,7 @@ const DocumentSimpleTableResults = ({
         counts = counts + 1;
       }
     });
-    setSelectedDoc(() => counts);
+    setSelectedDoc(counts);
     return counts;
   };
   const handleSelectAll = (selectedAll: boolean): void => {
