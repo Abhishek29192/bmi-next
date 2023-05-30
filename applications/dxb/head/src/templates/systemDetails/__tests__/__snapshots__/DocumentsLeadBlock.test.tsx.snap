@@ -13,7 +13,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
           class="tableContainer"
         >
           <div
-            class="DocumentSimpleTableResults css-358n7x"
+            class="DocumentSimpleTableResults css-qjwvo"
             data-testid="document-simple-table-results"
           >
             <div
@@ -31,44 +31,10 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
                     class="MuiTableRow-root MuiTableRow-head css-47w8l6-MuiTableRow-root"
                   >
                     <th
-                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableHeader documentSimpleTableResultsStyles-tableHeaderCentered css-1tbee56-MuiTableCell-root"
+                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableHeader css-1tbee56-MuiTableCell-root"
                       scope="col"
                     >
-                      <div
-                        class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
-                      >
-                        <label
-                          class="MuiFormControlLabel-root Mui-disabled MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
-                        >
-                          <span
-                            aria-disabled="true"
-                            aria-label="MC: documentLibrary.headers.add"
-                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-checked Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
-                            data-testid="document-table-select-all"
-                            tabindex="-1"
-                          >
-                            <input
-                              class="PrivateSwitchBase-input css-1m9pwf3"
-                              data-indeterminate="false"
-                              disabled=""
-                              name="add"
-                              type="checkbox"
-                              value="true"
-                            />
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                              data-testid="CheckBoxIcon"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-                              />
-                            </svg>
-                          </span>
-                        </label>
-                      </div>
+                      MC: documentLibrary.headers.add
                     </th>
                     <th
                       class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
