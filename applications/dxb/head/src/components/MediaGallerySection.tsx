@@ -13,8 +13,8 @@ import { microCopy } from "../constants/microCopies";
 import withGTM from "../utils/google-tag-manager";
 import { GallerySectionMedias, transformMediaSrc } from "../utils/media";
 import RichText, { RichTextData } from "./RichText";
-import styles from "./styles/MediaGallerySection.module.scss";
 import { useSiteContext } from "./Site";
+import styles from "./styles/MediaGallerySection.module.scss";
 
 export type Data = {
   __typename: "ContentfulMediaGallerySection";
@@ -60,6 +60,7 @@ const IntegratedMediaGallerySection = ({ data }: { data: Data }) => {
             )}
             videoButtonLabel={getMicroCopy(microCopy.MEDIA_VIDEO)}
             visualiserButtonLabel={getMicroCopy(microCopy.MEDIA_3D)}
+            visualiserText={getMicroCopy(microCopy.MEDIA_VISUALIZER_TEXT)}
           />
         </Grid>
       </Grid>

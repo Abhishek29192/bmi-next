@@ -114,7 +114,6 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
                 <GTMThumbnail gtm={{ id: "media-gallery1" }} {...props} />
               )}
               videoButtonLabel={getMicroCopy(microCopy.MEDIA_VIDEO)}
-              visualiserButtonLabel={getMicroCopy(microCopy.MEDIA_3D)}
             />
           </Grid>
           {system && system.systemLayers && system.systemLayers.length > 0 && (
