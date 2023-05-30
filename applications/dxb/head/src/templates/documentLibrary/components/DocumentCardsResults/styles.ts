@@ -9,6 +9,5 @@ export const Actions = styled("div")({
 export const Divider = styled("div")(({ theme }) => ({
   backgroundColor: theme.colours.storm,
   height: "32px",
-  margin: "0 20px",
   width: "1px"
 }));
