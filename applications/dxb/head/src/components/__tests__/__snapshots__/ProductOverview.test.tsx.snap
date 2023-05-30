@@ -45,7 +45,7 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
             </div>
           </div>
           <div
-            class="css-1tlzhc3"
+            class="css-135vyok"
             data-testid="thumbnails-root"
           >
             <button
@@ -98,7 +98,7 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
               style="margin-right: 0%;"
             >
               <button
-                class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-selected Thumbnail-large Thumbnail-selected css-1ojnbyf-MuiButtonBase-root"
+                class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-selected Thumbnail-large Thumbnail-selected css-yh72z7-MuiButtonBase-root"
                 data-gtm="{"id":"media-gallery1","label":"undefined","action":"https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"}"
                 data-testid="thumbnail-default"
                 tabindex="0"
@@ -110,7 +110,7 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
                 />
               </button>
               <button
-                class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-large css-1ojnbyf-MuiButtonBase-root"
+                class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-large css-yh72z7-MuiButtonBase-root"
                 data-gtm="{"id":"media-gallery1","label":"undefined","action":"https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"}"
                 data-testid="thumbnail-default"
                 tabindex="0"
@@ -125,7 +125,7 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
                 />
               </button>
               <button
-                class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-large css-1ojnbyf-MuiButtonBase-root"
+                class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-large css-yh72z7-MuiButtonBase-root"
                 data-gtm="{"id":"media-gallery1","label":"test video","action":"[object Object]"}"
                 data-testid="thumbnail-video"
                 tabindex="0"
@@ -278,7 +278,7 @@ exports[`ProductOverview component renders correctly without Recaptcha 1`] = `
             </div>
           </div>
           <div
-            class="css-1tlzhc3"
+            class="css-135vyok"
             data-testid="thumbnails-root"
           >
             <button
@@ -331,7 +331,7 @@ exports[`ProductOverview component renders correctly without Recaptcha 1`] = `
               style="margin-right: 0%;"
             >
               <button
-                class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-selected Thumbnail-large Thumbnail-selected css-1ojnbyf-MuiButtonBase-root"
+                class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-selected Thumbnail-large Thumbnail-selected css-yh72z7-MuiButtonBase-root"
                 data-gtm="{"id":"media-gallery1","label":"undefined","action":"https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"}"
                 data-testid="thumbnail-default"
                 tabindex="0"
@@ -343,7 +343,7 @@ exports[`ProductOverview component renders correctly without Recaptcha 1`] = `
                 />
               </button>
               <button
-                class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-large css-1ojnbyf-MuiButtonBase-root"
+                class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-large css-yh72z7-MuiButtonBase-root"
                 data-gtm="{"id":"media-gallery1","label":"undefined","action":"https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"}"
                 data-testid="thumbnail-default"
                 tabindex="0"
@@ -358,7 +358,7 @@ exports[`ProductOverview component renders correctly without Recaptcha 1`] = `
                 />
               </button>
               <button
-                class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-large css-1ojnbyf-MuiButtonBase-root"
+                class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-large css-yh72z7-MuiButtonBase-root"
                 data-gtm="{"id":"media-gallery1","label":"test video","action":"[object Object]"}"
                 data-testid="thumbnail-video"
                 tabindex="0"
