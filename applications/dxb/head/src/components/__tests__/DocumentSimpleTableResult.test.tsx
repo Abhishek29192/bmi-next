@@ -1,6 +1,6 @@
-import { ThemeProvider } from "@bmi-digital/components";
+import { DownloadListContext, ThemeProvider } from "@bmi-digital/components";
 import { useMediaQuery } from "@mui/material";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import React from "react";
 import createAssetType from "../../__tests__/helpers/AssetTypeHelper";
 import createContentfulDocument from "../../__tests__/helpers/ContentfulDocumentHelper";
@@ -196,11 +196,49 @@ describe("DocumentSimpleTableResult", () => {
       ).toEqual(0);
     });
   });
+
+  describe("test selectAll functionality", () => {
+    it("select all functionality", async () => {
+      const documents = [createPimDocument()];
+      const updateList = jest.fn();
+
+      const MockDownloadListProvider = ({ children }) => (
+        <DownloadListContext.Provider
+          value={{
+            list: {},
+            updateList,
+            resetList: jest.fn(),
+            count: 0,
+            remainingSize: Infinity,
+            isLoading: false,
+            setIsLoading: jest.fn()
+          }}
+        >
+          {children}
+        </DownloadListContext.Provider>
+      );
+
+      render(
+        <ThemeProvider>
+          <MockDownloadListProvider>
+            <DocumentSimpleTableResults documents={documents} />
+          </MockDownloadListProvider>
+        </ThemeProvider>
+      );
+      const selectAllCheckbox = screen.getByTestId("document-table-select-all");
+      fireEvent.click(selectAllCheckbox);
+      expect(selectAllCheckbox).toHaveClass("Mui-checked");
+      expect(updateList).toHaveBeenCalledTimes(1);
+
+      fireEvent.click(selectAllCheckbox);
+      expect(selectAllCheckbox).not.toHaveClass("Mui-checked");
+    });
+  });
 });
 
 describe("in mobile view", () => {
   beforeEach(() => {
-    mockUseMediaQuery.mockReturnValueOnce(true);
+    mockUseMediaQuery.mockReturnValue(true);
   });
 
   it("should render mobile results view", () => {
