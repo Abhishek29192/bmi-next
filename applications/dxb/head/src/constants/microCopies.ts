@@ -350,7 +350,8 @@ export const microCopy = {
   SEARCH_PLACEHOLDER: "search.placeholder",
 
   MEDIA_VIDEO: "media.video",
-  MEDIA_3D: "media.3d"
+  MEDIA_3D: "media.3d",
+  MEDIA_VISUALIZER_TEXT: "media.visualizer_text"
 } as const;
 
 export type MicroCopyObj = typeof microCopy;

@@ -333,6 +333,9 @@ const ProductLeadBlock = ({
                     media={transformImages(product.techDrawings)}
                     videoButtonLabel={getMicroCopy(microCopy.MEDIA_VIDEO)}
                     visualiserButtonLabel={getMicroCopy(microCopy.MEDIA_3D)}
+                    visualiserText={getMicroCopy(
+                      microCopy.MEDIA_VISUALIZER_TEXT
+                    )}
                   />
                 </LeadBlock.Content.Section>
               </LeadBlock.Content>
