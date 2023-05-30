@@ -248,6 +248,36 @@ const recaptchaContent_SE: RecaptchaPolicyContentType = {
   termsOfServiceUrl: "https://policies.google.com/terms?hl=sv"
 };
 
+const recaptchaContent_EE: RecaptchaPolicyContentType = {
+  startText: "See leht on kaitstud Google reCAPTCHA-ga ",
+  privacyPloicyText: "Privaatsuspoliitika",
+  andText: " ja ",
+  termsOfServiceText: "Lepingu tingimused",
+  endText: " rakenda.",
+  privacyPolicyUrl: "https://policies.google.com/privacy?hl=et",
+  termsOfServiceUrl: "https://policies.google.com/terms?hl=et"
+};
+
+const recaptchaContent_LT: RecaptchaPolicyContentType = {
+  startText: "Ši svetainė yra apsaugota reCAPTCHA ir taikoma “Google” ",
+  privacyPloicyText: "privatumo politika",
+  andText: " ir ",
+  termsOfServiceText: "paslaugų tiekimo sąlygos",
+  endText: ".",
+  privacyPolicyUrl: "https://policies.google.com/privacy?hl=lt",
+  termsOfServiceUrl: "https://policies.google.com/terms?hl=lt"
+};
+
+const recaptchaContent_LV: RecaptchaPolicyContentType = {
+  startText: "Šo vietni aizsargā reCAPTCHA kā arī spēkā ir Google ",
+  privacyPloicyText: "privātuma politika",
+  andText: " un ",
+  termsOfServiceText: "vietnes lietošanas noteikumi",
+  endText: ".",
+  privacyPolicyUrl: "https://policies.google.com/privacy?hl=lv",
+  termsOfServiceUrl: "https://policies.google.com/terms?hl=lv"
+};
+
 const RecaptchaPrivacyContentMap: Map<string, RecaptchaPolicyContentType> =
   new Map<string, RecaptchaPolicyContentType>();
 RecaptchaPrivacyContentMap["no"] = recaptchaContent_NO;
@@ -273,6 +303,9 @@ RecaptchaPrivacyContentMap["cz"] = recaptchaContent_CZ;
 RecaptchaPrivacyContentMap["sk"] = recaptchaContent_SK;
 RecaptchaPrivacyContentMap["dk"] = recaptchaContent_DK;
 RecaptchaPrivacyContentMap["se"] = recaptchaContent_SE;
+RecaptchaPrivacyContentMap["ee"] = recaptchaContent_EE;
+RecaptchaPrivacyContentMap["lt"] = recaptchaContent_LT;
+RecaptchaPrivacyContentMap["lv"] = recaptchaContent_LV;
 
 const getRecaptchaPrivacyContent = (
   countryCode: string
