@@ -162,7 +162,7 @@ exports[`MediaGallerySection component renders correctly 1`] = `
                   <button
                     class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-selected Thumbnail-large Thumbnail-selected css-1ojnbyf-MuiButtonBase-root"
                     data-gtm="{"id":"media-gallery1","label":"alt text","action":"//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"}"
-                    data-testid="default-thumbnail"
+                    data-testid="thumbnail-default"
                     tabindex="0"
                     type="button"
                   >
@@ -219,7 +219,7 @@ exports[`MediaGallerySection component renders correctly 1`] = `
                   <button
                     class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-large css-1ojnbyf-MuiButtonBase-root"
                     data-gtm="{"id":"media-gallery1","label":"label","action":"//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"}"
-                    data-testid="default-thumbnail"
+                    data-testid="thumbnail-video"
                     style="background-image: url(//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png);"
                     tabindex="0"
                     type="button"

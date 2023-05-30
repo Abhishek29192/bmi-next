@@ -100,7 +100,7 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
               <button
                 class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-selected Thumbnail-large Thumbnail-selected css-1ojnbyf-MuiButtonBase-root"
                 data-gtm="{"id":"media-gallery1","label":"undefined","action":"https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"}"
-                data-testid="default-thumbnail"
+                data-testid="thumbnail-default"
                 tabindex="0"
                 type="button"
               >
@@ -112,7 +112,7 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
               <button
                 class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-large css-1ojnbyf-MuiButtonBase-root"
                 data-gtm="{"id":"media-gallery1","label":"undefined","action":"https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"}"
-                data-testid="default-thumbnail"
+                data-testid="thumbnail-default"
                 tabindex="0"
                 type="button"
               >
@@ -127,7 +127,7 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
               <button
                 class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-large css-1ojnbyf-MuiButtonBase-root"
                 data-gtm="{"id":"media-gallery1","label":"test video","action":"[object Object]"}"
-                data-testid="default-thumbnail"
+                data-testid="thumbnail-video"
                 tabindex="0"
                 type="button"
               >
@@ -333,7 +333,7 @@ exports[`ProductOverview component renders correctly without Recaptcha 1`] = `
               <button
                 class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-selected Thumbnail-large Thumbnail-selected css-1ojnbyf-MuiButtonBase-root"
                 data-gtm="{"id":"media-gallery1","label":"undefined","action":"https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"}"
-                data-testid="default-thumbnail"
+                data-testid="thumbnail-default"
                 tabindex="0"
                 type="button"
               >
@@ -345,7 +345,7 @@ exports[`ProductOverview component renders correctly without Recaptcha 1`] = `
               <button
                 class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-large css-1ojnbyf-MuiButtonBase-root"
                 data-gtm="{"id":"media-gallery1","label":"undefined","action":"https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"}"
-                data-testid="default-thumbnail"
+                data-testid="thumbnail-default"
                 tabindex="0"
                 type="button"
               >
@@ -360,7 +360,7 @@ exports[`ProductOverview component renders correctly without Recaptcha 1`] = `
               <button
                 class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-large css-1ojnbyf-MuiButtonBase-root"
                 data-gtm="{"id":"media-gallery1","label":"test video","action":"[object Object]"}"
-                data-testid="default-thumbnail"
+                data-testid="thumbnail-video"
                 tabindex="0"
                 type="button"
               >
