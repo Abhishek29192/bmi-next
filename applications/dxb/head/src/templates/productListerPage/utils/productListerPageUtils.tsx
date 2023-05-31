@@ -33,7 +33,21 @@ export const resolveFilters = (filters: readonly Filter[]) => {
 };
 
 const GTMOverviewCard = withGTM<OverviewCardProps>(OverviewCard);
-
+export const createSizeLabel = (product: EsProduct): string => {
+  if (!product["MEASUREMENTS$LENGTH"]) return;
+  const l = product["MEASUREMENTS$LENGTH"];
+  const w = product["MEASUREMENTS$WIDTH"];
+  let res: string[] = [];
+  l.forEach((el, i) => {
+    const isSameUnit = el.name.split(" ")[1] === w[`${i}`].name.split(" ")[1];
+    if (isSameUnit) {
+      res = [...res, `${el.value}x${w[`${i}`].code}`];
+    } else {
+      res = [...res, `${el.code} x ${w[`${i}`].code}`];
+    }
+  });
+  return res.join(" | ");
+};
 export const renderProducts = (
   products: EsProduct[],
   pageContext: PageContextType,
@@ -52,6 +66,18 @@ export const renderProducts = (
     const moreOptionsAvailable =
       variant.all_variants?.length > 1 &&
       getMicroCopy("plp.product.moreOptionsAvailable");
+    const surface = variant.classifications.find(
+      (cl) => cl.code === "appearanceAttributes"
+    );
+    const textureFamily =
+      surface &&
+      surface.features.find((el) => el.code.includes("textureFamily"));
+    const surfaceValue =
+      (textureFamily &&
+        textureFamily.featureValues.map((feat) => feat.value).join(" | ")) ||
+      "";
+    const sizeLabel = createSizeLabel(variant);
+
     return (
       <Grid
         key={`${product.code}-${variant.code}`}
@@ -97,6 +123,14 @@ export const renderProducts = (
             </FooterAnchorLink>
           }
           moreOptionsAvailable={moreOptionsAvailable}
+          size={{
+            microCopy: !!sizeLabel && getMicroCopy("pdp.overview.size"),
+            value: sizeLabel
+          }}
+          surface={{
+            microCopy: (surfaceValue && surface.name) || "",
+            value: surfaceValue
+          }}
         >
           {variant.shortDescription}
         </GTMOverviewCard>
