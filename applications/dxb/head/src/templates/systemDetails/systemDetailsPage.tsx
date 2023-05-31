@@ -9,12 +9,13 @@ import { graphql } from "gatsby";
 import React from "react";
 import BrandLogo from "../../components/BrandLogo";
 import Breadcrumbs from "../../components/Breadcrumbs";
+import { generateGetMicroCopy } from "../../components/MicroCopy";
 import Page from "../../components/Page";
 import RelatedSystems from "../../components/RelatedSystems";
 import ShareWidgetSection, {
   Data as ShareWidgetSectionData
 } from "../../components/ShareWidgetSection";
-import { Data as SiteData, useSiteContext } from "../../components/Site";
+import { Data as SiteData } from "../../components/Site";
 import { microCopy } from "../../constants/microCopies";
 import { System } from "../../types/pim";
 import withGTM from "../../utils/google-tag-manager";
@@ -48,7 +49,8 @@ type Props = {
 const SystemDetailsPage = ({ pageContext, data }: Props) => {
   const { contentfulSite, system } = data;
   const { countryCode, resources } = contentfulSite;
-  const { getMicroCopy } = useSiteContext();
+
+  const getMicroCopy = generateGetMicroCopy(resources?.microCopy);
 
   const BreadcrumbSection = ({ location }: { location: "top" | "bottom" }) => (
     <Section
@@ -81,6 +83,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
     label: "media",
     action: "media"
   });
+
   return (
     <Page
       brand={system.brand?.code}
