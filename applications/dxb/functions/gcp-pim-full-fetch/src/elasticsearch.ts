@@ -9,13 +9,15 @@ import {
 
 export const indexIntoES = async (documents: ContentfulDocument[]) => {
   const client = await getEsClient();
+  const documentWriteIndexName =
+    `${process.env.ES_INDEX_NAME_DOCUMENTS}_write`.toLowerCase();
 
   const bulkOperations = getChunks(documents).map((documents) =>
     documents.reduce<(IndexOperation | ContentfulDocument)[]>(
       (allOperations, document) => [
         ...allOperations,
         ...getIndexOperation<ContentfulDocument>(
-          process.env.ES_INDEX_NAME_DOCUMENTS!,
+          documentWriteIndexName,
           document,
           document.id
         )
@@ -24,9 +26,5 @@ export const indexIntoES = async (documents: ContentfulDocument[]) => {
     )
   );
 
-  await performBulkOperations(
-    client,
-    bulkOperations,
-    process.env.ES_INDEX_NAME_DOCUMENTS!
-  );
+  await performBulkOperations(client, bulkOperations, documentWriteIndexName);
 };
