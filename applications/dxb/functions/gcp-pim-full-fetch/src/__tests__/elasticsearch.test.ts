@@ -59,14 +59,14 @@ describe("indexIntoES", () => {
     expect(getEsClient).toHaveBeenCalled();
     expect(getChunks).toHaveBeenCalledWith(esContentfulDocuments);
     expect(getIndexOperation).toHaveBeenCalledWith(
-      process.env.ES_INDEX_NAME_DOCUMENTS,
+      `${process.env.ES_INDEX_NAME_DOCUMENTS}_write`.toLowerCase(),
       esContentfulDocuments[0],
       esContentfulDocuments[0].id
     );
     expect(performBulkOperations).toHaveBeenCalledWith(
       esClient,
       [bulkOperations],
-      process.env.ES_INDEX_NAME_DOCUMENTS
+      `${process.env.ES_INDEX_NAME_DOCUMENTS}_write`.toLowerCase()
     );
   });
 
@@ -91,14 +91,14 @@ describe("indexIntoES", () => {
     expect(getEsClient).toHaveBeenCalled();
     expect(getChunks).toHaveBeenCalledWith(esContentfulDocuments);
     expect(getIndexOperation).toHaveBeenCalledWith(
-      process.env.ES_INDEX_NAME_DOCUMENTS,
+      `${process.env.ES_INDEX_NAME_DOCUMENTS}_write`.toLowerCase(),
       esContentfulDocuments[0],
       esContentfulDocuments[0].id
     );
     expect(performBulkOperations).toHaveBeenCalledWith(
       esClient,
       [bulkOperations],
-      process.env.ES_INDEX_NAME_DOCUMENTS
+      `${process.env.ES_INDEX_NAME_DOCUMENTS}_write`.toLowerCase()
     );
   });
 });
