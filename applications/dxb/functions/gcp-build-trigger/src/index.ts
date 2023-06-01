@@ -62,11 +62,10 @@ export const build: HttpFunction = async (_req, res) => {
     } catch (e) {
       return defaultPayload;
     }
-    return defaultPayload;
   };
-  const reqBody = parseOrReturnDefaultPayload(_req.body);
+  const reqBody = parseOrReturnDefaultPayload(_req.body || "");
   logger.debug({
-    message: `reqBody: ${reqBody}`
+    message: `reqBody.isFullFetch: ${reqBody.isFullFetch}`
   });
   if (reqBody.isFullFetch === true) {
     logger.debug({ message: "isFullFetch is true: swapping indexes" });
