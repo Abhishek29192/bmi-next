@@ -53,6 +53,9 @@ variables:
 
 install_yarn:
   rules:
+    - if: "$CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'pre-production' || $CI_COMMIT_BRANCH == 'production')"
+      changes:
+        - yarn.lock
     - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - yarn.lock
