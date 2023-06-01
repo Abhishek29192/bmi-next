@@ -151,7 +151,7 @@ describe("Making a POST request", () => {
   });
   it("returns status code 200 when payload is null", async () => {
     const req = mockRequest();
-    req.body = null;
+    req.body = {};
     const res = mockResponse();
 
     mockResponses(fetchMock, {
@@ -173,7 +173,7 @@ describe("Making a POST request", () => {
 
   it("returns status code 200 when build hook is triggered successfully", async () => {
     const req = mockRequest();
-    req.body = JSON.stringify({ isFullFetch: true });
+    req.body = { isFullFetch: true };
     const res = mockResponse();
 
     mockResponses(fetchMock, {
@@ -195,7 +195,7 @@ describe("Making a POST request", () => {
 
   it("waits for the DELAY_MILLISECONDS milliseconds before making any requests", async () => {
     const req = mockRequest();
-    req.body = JSON.stringify({ isFullFetch: true });
+    req.body = { isFullFetch: true };
     const res = mockResponse();
 
     mockResponses(fetchMock, {
