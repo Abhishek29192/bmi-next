@@ -1575,7 +1575,7 @@ describe("handleRequest", () => {
         "Content-Type": "application/json",
         Authorization: `bearer ${token}`
       },
-      body: { foo: "bar" }
+      body: { isFullFetch: true }
     });
     expect(response.status).toHaveBeenCalledWith(200);
   });
@@ -1710,7 +1710,7 @@ describe("handleRequest", () => {
         "Content-Type": "application/json",
         Authorization: `bearer ${token}`
       },
-      body: { foo: "bar" }
+      body: { isFullFetch: true }
     });
     expect(response.status).toHaveBeenCalledWith(200);
   });
@@ -1845,7 +1845,7 @@ describe("handleRequest", () => {
         "Content-Type": "application/json",
         Authorization: `bearer ${token}`
       },
-      body: { foo: "bar" }
+      body: { isFullFetch: true }
     });
     expect(response.status).toHaveBeenCalledWith(200);
   });
@@ -2028,7 +2028,7 @@ describe("handleRequest", () => {
         "Content-Type": "application/json",
         Authorization: `bearer ${token}`
       },
-      body: { foo: "bar" }
+      body: { isFullFetch: true }
     });
     expect(response.status).toHaveBeenCalledWith(200);
   });
@@ -2157,7 +2157,7 @@ describe("handleRequest", () => {
         "Content-Type": "application/json",
         Authorization: `bearer ${token}`
       },
-      body: { foo: "bar" }
+      body: { isFullFetch: true }
     });
     expect(response.status).toHaveBeenCalledWith(200);
   });
@@ -2282,7 +2282,7 @@ describe("handleRequest", () => {
         "Content-Type": "application/json",
         Authorization: `bearer ${token}`
       },
-      body: { foo: "bar" }
+      body: { isFullFetch: true }
     });
     expect(response.status).toHaveBeenCalledWith(200);
   });
@@ -2401,7 +2401,7 @@ describe("handleRequest", () => {
         "Content-Type": "application/json",
         Authorization: `bearer ${token}`
       },
-      body: { foo: "bar" }
+      body: { isFullFetch: true }
     });
     expect(response.status).toHaveBeenCalledWith(200);
   });
@@ -2526,7 +2526,7 @@ describe("handleRequest", () => {
         "Content-Type": "application/json",
         Authorization: `bearer ${token}`
       },
-      body: { foo: "bar" }
+      body: { isFullFetch: true }
     });
     expect(response.status).toHaveBeenCalledWith(200);
   });
@@ -2651,7 +2651,7 @@ describe("handleRequest", () => {
         "Content-Type": "application/json",
         Authorization: `bearer ${token}`
       },
-      body: { foo: "bar" }
+      body: { isFullFetch: true }
     });
     expect(response.status).toHaveBeenCalledWith(200);
   });
@@ -2789,7 +2789,7 @@ describe("handleRequest", () => {
         "Content-Type": "application/json",
         Authorization: `bearer ${token}`
       },
-      body: { foo: "bar" }
+      body: { isFullFetch: true }
     });
 
     expect(response.status).toHaveBeenCalledWith(200);

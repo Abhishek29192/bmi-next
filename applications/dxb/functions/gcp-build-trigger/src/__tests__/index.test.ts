@@ -106,6 +106,7 @@ describe("Invalid environment variables", () => {
 describe("Making a POST request", () => {
   it("throw error if build hook trigger fails", async () => {
     const req = mockRequest();
+    req.body = JSON.stringify({ isFullFetch: false });
     const res = mockResponse();
 
     mockResponses(fetchMock, {
@@ -129,6 +130,7 @@ describe("Making a POST request", () => {
 
   it("returns status code 200 when build hook is triggered successfully", async () => {
     const req = mockRequest();
+    req.body = JSON.stringify({ isFullFetch: true });
     const res = mockResponse();
 
     mockResponses(fetchMock, {
@@ -150,6 +152,7 @@ describe("Making a POST request", () => {
 
   it("waits for the DELAY_MILLISECONDS milliseconds before making any requests", async () => {
     const req = mockRequest();
+    req.body = JSON.stringify({ isFullFetch: true });
     const res = mockResponse();
 
     mockResponses(fetchMock, {
