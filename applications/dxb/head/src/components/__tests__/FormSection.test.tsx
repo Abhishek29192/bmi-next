@@ -169,6 +169,11 @@ jest.mock("node-fetch", () => {
   };
 });
 
+jest.mock("lodash-es/uniqueId", () => ({
+  __esModule: true,
+  default: (value: string) => value
+}));
+
 beforeEach(() => {
   mockExecutRecaptcha.mockReturnValue("RECAPTCHA");
 });
@@ -868,6 +873,10 @@ describe("FormSection component", () => {
         </ThemeProvider>
       );
 
+      expect(screen.getByTestId("hubspot-form-Test-form")).toHaveAttribute(
+        "id",
+        "bmi-hubspot-form-Test-form"
+      );
       expect(container).toMatchSnapshot();
     });
 
@@ -984,5 +993,23 @@ describe("FormSection component", () => {
       )
     ).not.toBeInTheDocument();
     expect(container).toMatchSnapshot();
+  });
+
+  it("renders HubSpot form with the correct Id if it exists", () => {
+    render(
+      <ThemeProvider>
+        <FormSection
+          data={dataHubSpot}
+          id="fake-form-id"
+          backgroundColor="white"
+          isDialog
+        />
+      </ThemeProvider>
+    );
+
+    expect(screen.getByTestId("hubspot-form-Test-form")).toHaveAttribute(
+      "id",
+      "bmi-hubspot-form-fake-form-id"
+    );
   });
 });
