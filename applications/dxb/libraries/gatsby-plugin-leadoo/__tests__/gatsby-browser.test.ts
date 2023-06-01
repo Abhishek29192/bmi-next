@@ -1,4 +1,5 @@
 import { onInitialClientRender, onRouteUpdate } from "../gatsby-browser";
+import type { RouteUpdateArgs } from "gatsby";
 
 const ldanalytics = window["ldanalytics"];
 const OLD_ENV = process.env;
@@ -35,7 +36,14 @@ describe("gatsby browser", () => {
       Object.assign(process.env, {
         NODE_ENV: "test"
       });
-      onInitialClientRender(null, { productionOnly: true });
+      onInitialClientRender!(
+        {
+          getResourceURLsForPathname: () => {
+            // no-op
+          }
+        },
+        { plugins: [], productionOnly: true }
+      );
 
       expect(window.requestAnimationFrame).not.toHaveBeenCalled();
     });
@@ -44,7 +52,14 @@ describe("gatsby browser", () => {
         NODE_ENV: "test"
       });
       window["ldanalytics"] = undefined;
-      onInitialClientRender(null, { productionOnly: false });
+      onInitialClientRender!(
+        {
+          getResourceURLsForPathname: () => {
+            // no-op
+          }
+        },
+        { plugins: [], productionOnly: false }
+      );
 
       expect(window.requestAnimationFrame).not.toHaveBeenCalled();
     });
@@ -54,7 +69,14 @@ describe("gatsby browser", () => {
         NODE_ENV: "production"
       });
       window["ldanalytics"] = undefined;
-      onInitialClientRender(null, { productionOnly: true });
+      onInitialClientRender!(
+        {
+          getResourceURLsForPathname: () => {
+            // no-op
+          }
+        },
+        { plugins: [], productionOnly: true }
+      );
 
       expect(window.requestAnimationFrame).not.toHaveBeenCalled();
     });
@@ -64,7 +86,14 @@ describe("gatsby browser", () => {
         pageVisit: mockPageVisit
       };
       window["ldanalytics"] = [];
-      onInitialClientRender(null, { productionOnly: false });
+      onInitialClientRender!(
+        {
+          getResourceURLsForPathname: () => {
+            // no-op
+          }
+        },
+        { plugins: [], productionOnly: false }
+      );
 
       expect(window.requestAnimationFrame).toHaveBeenCalled();
       expect(window["ldanalytics"].length).toEqual(1);
@@ -76,9 +105,18 @@ describe("gatsby browser", () => {
         pageVisit: mockPageVisit
       };
       const timer = jest.spyOn(window, "setTimeout");
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment -- Ignoring as this is a library we've brought in, not written by us
+      // @ts-ignore
       window.requestAnimationFrame = undefined;
       window["ldanalytics"] = [];
-      onInitialClientRender(null, { productionOnly: false });
+      onInitialClientRender!(
+        {
+          getResourceURLsForPathname: () => {
+            // no-op
+          }
+        },
+        { plugins: [], productionOnly: false }
+      );
 
       expect(timer).toHaveBeenCalled();
       await sleep(32);
@@ -92,7 +130,10 @@ describe("gatsby browser", () => {
       Object.assign(process.env, {
         NODE_ENV: "test"
       });
-      onRouteUpdate(null, { productionOnly: true });
+      onRouteUpdate!({} as unknown as RouteUpdateArgs, {
+        plugins: [],
+        productionOnly: true
+      });
 
       expect(window.requestAnimationFrame).not.toHaveBeenCalled();
     });
@@ -101,7 +142,10 @@ describe("gatsby browser", () => {
         NODE_ENV: "test"
       });
       window["ldanalytics"] = undefined;
-      onRouteUpdate(null, { productionOnly: false });
+      onRouteUpdate!({} as unknown as RouteUpdateArgs, {
+        plugins: [],
+        productionOnly: false
+      });
 
       expect(window.requestAnimationFrame).not.toHaveBeenCalled();
     });
@@ -111,7 +155,10 @@ describe("gatsby browser", () => {
         NODE_ENV: "production"
       });
       window["ldanalytics"] = undefined;
-      onRouteUpdate(null, { productionOnly: true });
+      onRouteUpdate!({} as unknown as RouteUpdateArgs, {
+        plugins: [],
+        productionOnly: true
+      });
 
       expect(window.requestAnimationFrame).not.toHaveBeenCalled();
     });
@@ -121,7 +168,10 @@ describe("gatsby browser", () => {
         pageVisit: mockPageVisit
       };
       window["ldanalytics"] = [];
-      onRouteUpdate(null, { productionOnly: false });
+      onRouteUpdate!({} as unknown as RouteUpdateArgs, {
+        plugins: [],
+        productionOnly: false
+      });
 
       expect(window.requestAnimationFrame).toHaveBeenCalled();
       expect(window["ldanalytics"].length).toEqual(1);
@@ -133,9 +183,14 @@ describe("gatsby browser", () => {
         pageVisit: mockPageVisit
       };
       const timer = jest.spyOn(window, "setTimeout");
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment -- Ignoring as this is a library we've brought in, not written by us
+      // @ts-ignore
       window.requestAnimationFrame = undefined;
       window["ldanalytics"] = [];
-      onRouteUpdate(null, { productionOnly: false });
+      onRouteUpdate!({} as unknown as RouteUpdateArgs, {
+        plugins: [],
+        productionOnly: false
+      });
 
       expect(timer).toHaveBeenCalled();
       await sleep(32);

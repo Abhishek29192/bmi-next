@@ -1,25 +1,51 @@
-test_head:
-  extends: .test_yarn_workspace
+lint_head:
+  extends: .lint_yarn_workspace
   rules:
-    - !reference [.ingore_release_mrs, rules]
+    - !reference [.ignore_release_mrs, rules]
+    - !reference [.run_for_changes_on_main, rules]
+    - !reference [.run_for_changes_on_mr, rules]
+  variables:
+    ROOT_DIR: "applications/dxb/head"
+    WORKSPACE: "@bmi/head"
+
+compile_head:
+  extends: .compile_yarn_workspace
+  rules:
+    - !reference [.ignore_release_mrs, rules]
     - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - applications/dxb/head/**/*
-        - jest/**/*
         - yarn.lock
     - if: !reference [.run_for_changes_on_mr, rules, if]
       changes:
         - applications/dxb/head/**/*
-        - jest/**/*
         - yarn.lock
   variables:
     WORKSPACE: "@bmi/head"
     ROOT_DIR: "applications/dxb/head"
+
+test_head:
+  extends: .test_yarn_workspace
+  rules:
+    - !reference [.ignore_release_mrs, rules]
+    - if: !reference [.run_for_changes_on_main, rules, if]
+      changes:
+        - applications/dxb/head/**/*
+        - yarn.lock
+    - if: !reference [.run_for_changes_on_mr, rules, if]
+      changes:
+        - applications/dxb/head/**/*
+        - yarn.lock
+  variables:
+    WORKSPACE: "@bmi/head"
+    ROOT_DIR: "applications/dxb/head"
+  needs:
+    - compile_head
 
 test_mr_coverage_head:
   extends: .test_mr_coverage_yarn_workspace
   rules:
-    - !reference [.ingore_release_mrs, rules]
+    - !reference [.ignore_release_mrs, rules]
     - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - applications/dxb/head/**/*
@@ -29,28 +55,14 @@ test_mr_coverage_head:
   variables:
     WORKSPACE: "@bmi/head"
     ROOT_DIR: "applications/dxb/head"
-
-compile_head_mr:
-  extends: .compile_yarn_workspace
-  rules:
-    - !reference [.ingore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_main, rules, if]
-      changes:
-        - applications/dxb/head/**/*
-        - yarn.lock
-    - if: !reference [.run_for_changes_on_mr, rules, if]
-      changes:
-        - applications/dxb/head/**/*
-        - yarn.lock
-  variables:
-    WORKSPACE: "@bmi/head"
-    ROOT_DIR: "applications/dxb/head"
+  needs:
+    - compile_head
 
 wait_until_head_deployed_to_gatsby:
   stage: deploy
   image: !reference [.node-full-image, image]
   rules:
-    - !reference [.ingore_release_mrs, rules]
+    - !reference [.ignore_release_mrs, rules]
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
         - "applications/dxb/contentful-migrate/**/*"
@@ -116,7 +128,7 @@ wait_until_head_deployed_to_gatsby:
 baseline_scan_head_preview:
   extends: .base_scan
   rules:
-    - !reference [.ingore_release_mrs, rules]
+    - !reference [.ignore_release_mrs, rules]
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
         - "applications/dxb/contentful-migrate/**/*"
@@ -172,8 +184,10 @@ baseline_scan_head_prod:
   rules:
     - when: never
   image: !reference [.cypress-image, image]
+  cache: {}
   script:
     - |
+      yarn install # puppeteer requires "Chrome for Testing" to be downloaded
       params="--collect.settings.pwd=${NETLIFY_PWD}"
       for url in ${LIGHTHOUSE_URLS[@]}; do
         params="$params --collect.url=${url}"
@@ -188,7 +202,7 @@ baseline_scan_head_prod:
 lighthouseci_scan_head_preview:
   extends: .lighthouse_scan
   rules:
-    - !reference [.ingore_release_mrs, rules]
+    - !reference [.ignore_release_mrs, rules]
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
         - "applications/dxb/contentful-migrate/**/*"
@@ -197,8 +211,6 @@ lighthouseci_scan_head_preview:
       changes:
         - applications/dxb/head/**/*
   needs:
-    - job: install_yarn
-      optional: true
     - wait_until_head_deployed_to_gatsby
   variables:
     # Required as QA password has a `$` in it

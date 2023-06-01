@@ -1,23 +1,35 @@
 import { mockRequest, mockResponse } from "@bmi-digital/fetch-mocks";
 import { Request, Response } from "express";
+import { Status } from "simple-http-status";
+import { GatsbyLog, BuildStatusType } from "../types";
+
+const createGatsbyBuildLog = (log: Partial<GatsbyLog> = {}): GatsbyLog => ({
+  body: "build body",
+  buildId: "fake-build-id",
+  workspaceName: "fake-workspace-name",
+  siteName: "dxb-qa",
+  deployPreviewUrl: "https://fake-deploy-preview-url",
+  logsUrl: "https://fake-logs-url",
+  duration: "433",
+  resourceId: "fake-resource-id",
+  resourceType: "SITE",
+  event: BuildStatusType.BUILD_SUCCEEDED,
+  ...log
+});
 
 const handleRequest = async (req: Partial<Request>, res: Partial<Response>) =>
   (await import("../index")).buildStatusLogger(req as Request, res as Response);
 
-const mockGetFirestore = jest.fn();
+const setDocumentMock = jest.fn();
+const accessDocumentMock = jest.fn();
+const mockGetFirestore = jest.fn().mockReturnValue({
+  doc: accessDocumentMock.mockReturnValue({ set: setDocumentMock })
+});
 jest.mock("@bmi/functions-firestore", () => {
   return {
-    getFirestore: (...args: any[]) => {
-      return { getFirestore: mockGetFirestore(...args), settings: jest.fn() };
-    }
+    getFirestore: mockGetFirestore
   };
 });
-const mockSaveBuildStatus = jest.fn();
-const mockGetList = jest.fn();
-jest.mock("../db", () => ({
-  saveBuildStatus: (...args: any[]) => mockSaveBuildStatus(...args),
-  getList: (...args: any[]) => mockGetList(...args)
-}));
 
 jest.useFakeTimers().setSystemTime(new Date("10/10/2022"));
 
@@ -29,46 +41,32 @@ beforeEach(() => {
 });
 
 describe("buildStatusLogger", () => {
-  it("should return 500 if BUILD_TRIGGER_ENDPOINT is not set", async () => {
-    const originalValue = process.env.FIRESTORE_BUILD_STATUS_COLLECTION;
-    delete process.env.FIRESTORE_BUILD_STATUS_COLLECTION;
+  it("should return 500 if GCP_PROJECT_ID is not set", async () => {
+    const originalValue = process.env.GCP_PROJECT_ID;
+    delete process.env.GCP_PROJECT_ID;
 
-    const req = mockRequest({ method: "GET", headers: {}, url: "/" });
+    const req = mockRequest({ method: "POST", url: "/" });
     const res = mockResponse();
 
     await handleRequest(req, res);
-
-    expect(res.sendStatus).toHaveBeenCalledWith(500);
-
-    process.env.FIRESTORE_BUILD_STATUS_COLLECTION = originalValue;
+    expect(res.sendStatus).toHaveBeenCalledWith(
+      Status.HTTP_500_INTERNAL_SERVER_ERROR
+    );
+    process.env.GCP_PROJECT_ID = originalValue;
   });
 
-  it("should return 500 if FIRESTORE_TRIGGERED_BUILDS_COLLECTION is not set", async () => {
-    const originalValue = process.env.FIRESTORE_TRIGGERED_BUILDS_COLLECTION;
-    delete process.env.FIRESTORE_TRIGGERED_BUILDS_COLLECTION;
+  it("should return 500 if FIRESTORE_ROOT_COLLECTION is not set", async () => {
+    const originalValue = process.env.FIRESTORE_ROOT_COLLECTION;
+    delete process.env.FIRESTORE_ROOT_COLLECTION;
 
-    const req = mockRequest({ method: "GET", headers: {}, url: "/" });
+    const req = mockRequest({ method: "POST", headers: {}, url: "/" });
     const res = mockResponse();
 
     await handleRequest(req, res);
-
-    expect(res.sendStatus).toHaveBeenCalledWith(500);
-
-    process.env.FIRESTORE_TRIGGERED_BUILDS_COLLECTION = originalValue;
-  });
-
-  it("should return 500 if BEARER_TOKEN_SECRET is not set", async () => {
-    const originalValue = process.env.BEARER_TOKEN_SECRET;
-    delete process.env.BEARER_TOKEN_SECRET;
-
-    const req = mockRequest({ method: "GET", headers: {}, url: "/" });
-    const res = mockResponse();
-
-    await handleRequest(req, res);
-
-    expect(res.sendStatus).toHaveBeenCalledWith(500);
-
-    process.env.BEARER_TOKEN_SECRET = originalValue;
+    expect(res.sendStatus).toHaveBeenCalledWith(
+      Status.HTTP_500_INTERNAL_SERVER_ERROR
+    );
+    process.env.FIRESTORE_ROOT_COLLECTION = originalValue;
   });
 
   it("should return 204 if method is OPTIONS", async () => {
@@ -76,131 +74,124 @@ describe("buildStatusLogger", () => {
     const res = mockResponse();
 
     await handleRequest(req, res);
-
-    expect(res.sendStatus).toHaveBeenCalledWith(204);
+    expect(res.sendStatus).toHaveBeenCalledWith(Status.HTTP_204_NO_CONTENT);
   });
 
-  it("should write build triggered event to firestore", async () => {
+  it("should return 400 if 'event' field does not exist", async () => {
     const req = mockRequest({
       method: "POST",
-      headers: { "x-contentful-webhook-name": "webhookName" },
       url: "/",
-      body: {
-        sys: {
-          updatedBy: { sys: { id: "userID" } },
-          updatedAt: "2022-10-11T00:00:00.000Z"
-        }
-      }
+      body: createGatsbyBuildLog({
+        event: undefined
+      })
+    });
+
+    const res = mockResponse();
+    await handleRequest(req, res);
+    expect(res.status).toHaveBeenCalledWith(Status.HTTP_400_BAD_REQUEST);
+    expect(res.send).toHaveBeenCalledWith(
+      "Fields 'event', 'body', and 'buildId' are required"
+    );
+  });
+
+  it("should return 400 if 'body' field does not exist", async () => {
+    const req = mockRequest({
+      method: "POST",
+      url: "/",
+      body: createGatsbyBuildLog({
+        body: undefined
+      })
     });
     const res = mockResponse();
 
     await handleRequest(req, res);
-
-    expect(res.status).toHaveBeenCalledWith(201);
-    expect(res.send).toHaveBeenCalledWith({
-      event: "BUILD TRIGGERED",
-      timestamp: 1665446400000,
-      userId: "userID"
-    });
+    expect(res.status).toHaveBeenCalledWith(Status.HTTP_400_BAD_REQUEST);
+    expect(res.send).toHaveBeenCalledWith(
+      "Fields 'event', 'body', and 'buildId' are required"
+    );
   });
 
-  it("should write build status event to firestore", async () => {
+  it("should return 400 if 'buildId' field does not exist", async () => {
     const req = mockRequest({
       method: "POST",
-      headers: {},
       url: "/",
-      body: {
-        body: "some body",
-        event: "BUILD_SUCCEEDED"
-      }
+      body: createGatsbyBuildLog({
+        buildId: undefined
+      })
     });
     const res = mockResponse();
 
     await handleRequest(req, res);
+    expect(res.status).toHaveBeenCalledWith(Status.HTTP_400_BAD_REQUEST);
+    expect(res.send).toHaveBeenCalledWith(
+      "Fields 'event', 'body', and 'buildId' are required"
+    );
+  });
 
-    expect(res.status).toHaveBeenCalledWith(201);
-    expect(res.send).toHaveBeenCalledWith({
-      event: "BUILD SUCCEEDED",
+  it("should write build event to firestore correctly", async () => {
+    const buildLog = createGatsbyBuildLog();
+    const req = mockRequest({
+      method: "POST",
+      url: "/",
+      body: buildLog
+    });
+    const res = mockResponse();
+
+    await handleRequest(req, res);
+    const expectedLog = {
+      eventType: buildLog.event,
       timestamp: 1665360000000,
-      body: "some body",
-      isError: false
-    });
+      body: buildLog.body,
+      buildId: buildLog.buildId
+    };
+    expect(accessDocumentMock).toHaveBeenCalledWith(
+      `${process.env.FIRESTORE_ROOT_COLLECTION}/root/production/${buildLog.buildId}`
+    );
+    expect(setDocumentMock).toHaveBeenCalledWith(expectedLog);
+    expect(res.status).toHaveBeenCalledWith(Status.HTTP_201_CREATED);
+    expect(res.send).toHaveBeenCalledWith(expectedLog);
   });
 
-  it("should return unauthorized status if token is invalid", async () => {
+  it("should write preview event to firestore correctly", async () => {
+    const previewLog = createGatsbyBuildLog({
+      event: BuildStatusType.PREVIEW_SUCCEEDED
+    });
     const req = mockRequest({
-      method: "GET",
-      headers: { authorization: "Bearer someRandomTOken" },
-      url: "/"
+      method: "POST",
+      url: "/",
+      body: previewLog
     });
     const res = mockResponse();
 
     await handleRequest(req, res);
 
-    expect(res.status).toHaveBeenCalledWith(401);
-    expect(res.send).toHaveBeenCalledWith({
-      message: "Please provide a valid access token."
-    });
+    const expectedLog = {
+      eventType: previewLog.event,
+      timestamp: 1665360000000,
+      body: previewLog.body,
+      buildId: previewLog.buildId
+    };
+    expect(accessDocumentMock).toHaveBeenCalledWith(
+      `${process.env.FIRESTORE_ROOT_COLLECTION}/root/preview/${previewLog.buildId}`
+    );
+    expect(setDocumentMock).toHaveBeenCalledWith(expectedLog);
+    expect(res.status).toHaveBeenCalledWith(Status.HTTP_201_CREATED);
+    expect(res.send).toHaveBeenCalledWith(expectedLog);
   });
 
-  it("should return last build status events and build trigger events", async () => {
+  it("should return 500 status code if an error occurs", async () => {
+    const gatsbyLog = createGatsbyBuildLog();
     const req = mockRequest({
-      method: "GET",
-      headers: { authorization: "Bearer bearerToken" },
-      url: "/"
+      method: "POST",
+      url: "/",
+      body: gatsbyLog
     });
-    const mockedData = [
-      {
-        event: "BUILD SUCCEEDED",
-        timestamp: "10/10/2022, 12:00:00 AM",
-        body: "some body",
-        isError: false
-      }
-    ];
-    mockGetList.mockResolvedValueOnce(mockedData);
+    setDocumentMock.mockRejectedValueOnce(new Error("Internal server error"));
     const res = mockResponse();
-
     await handleRequest(req, res);
-
-    expect(res.status).toHaveBeenCalledWith(200);
-    expect(res.send).toHaveBeenCalledWith(mockedData);
-  });
-
-  it("should return last build status events and build trigger events if Authorization is started from upper case", async () => {
-    const req = mockRequest({
-      method: "GET",
-      headers: { Authorization: "Bearer bearerToken" },
-      url: "/"
-    });
-    const mockedData = [
-      {
-        event: "BUILD SUCCEEDED",
-        timestamp: "10/10/2022, 12:00:00 AM",
-        body: "some body",
-        isError: false
-      }
-    ];
-    mockGetList.mockResolvedValueOnce(mockedData);
-    const res = mockResponse();
-
-    await handleRequest(req, res);
-
-    expect(res.status).toHaveBeenCalledWith(200);
-    expect(res.send).toHaveBeenCalledWith(mockedData);
-  });
-
-  it("should return a HTTP_500_INTERNAL_SERVER_ERROR if some error happened", async () => {
-    const req = mockRequest({
-      method: "GET",
-      headers: { Authorization: "Bearer bearerToken" },
-      url: "/"
-    });
-    mockGetList.mockRejectedValueOnce(new Error("Internal server error"));
-    const res = mockResponse();
-
-    await handleRequest(req, res);
-
-    expect(res.status).toHaveBeenCalledWith(500);
+    expect(res.status).toHaveBeenCalledWith(
+      Status.HTTP_500_INTERNAL_SERVER_ERROR
+    );
     expect(res.send).toHaveBeenCalledWith({
       message: "Something went wrong, try again later."
     });

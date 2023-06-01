@@ -41,12 +41,20 @@ export const microCopy = {
   DOCUMENT_LIBRARY_HEADERS_NAME: "documentLibrary.headers.name",
   DOCUMENT_LIBRARY_HEADERS_TITLE: "documentLibrary.headers.title",
   DOCUMENT_LIBRARY_HEADERS_DOWNLOAD: "documentLibrary.headers.download",
+  DOCUMENT_LIBRARY_HEADERS_SIZE: "documentLibrary.headers.size",
+  DOCUMENT_LIBRARY_HEADERS_ACTIONS: "documentLibrary.headers.actions",
   DOCUMENT_LIBRARY_HEADERS_ADD: "documentLibrary.headers.add",
   DOCUMENT_LIBRARY_HEADERS_PRODUCT_STATUS:
     "documentLibrary.headers.productStatus",
   DOCUMENT_LIBRARY_HEADERS_VALIDITY_DATE:
     "documentLibrary.headers.validityDate",
   DOCUMENT_LIBRARY_DOWNLOAD: "documentLibrary.download",
+  DOCUMENT_LIBRARY_DOWNLOAD_TOOLTIP_TITLE:
+    "document.library.download.tooltip.title",
+  DOCUMENT_LIBRARY_COPY_LINK_TOOLTIP_TITLE:
+    "document.library.copyLink.tooltip.title",
+  DOCUMENT_LIBRARY_LINK_COPIED_TOOLTIP_TITLE:
+    "document.library.linkCopied.tooltip.title",
   DOCUMENT_LIBRARY_CARD_DOWNLOAD: "documentLibrary.card.download",
   DOCUMENT_LIBRARY_FILTERS_TITLE: "documentLibrary.filters.title",
   DOCUMENT_LIBRARY_FILTERS_CLEAR_ALL: "documentLibrary.filters.clearAll",
@@ -333,10 +341,17 @@ export const microCopy = {
   FILTER_LABELS_AVAILABILITY_HEADING: "filterLabels.Availability.Heading",
   FILTER_LABELS_SUMMERY_ACCORDION_AVAILABILITY:
     "filterLabels.Summery.Accordion.Availability",
+  FILTER_SHOW_WORLD_BTN: "filterLabels.Show.World.Btn",
+  FILTER_RESULT_WORLD_BTN: "filterLabels.Result.World.Btn",
+  FILTER_SHOW_ALL_RESULT_BTN: "filterLabels.Show.All.Result.Btn",
 
   FIND_A_ROOFER_FILTERS_FLAT_ROOF: "findARoofer.filters.flatRoof",
   UPLOAD_SUPPORTED_FORMATS: "upload.supportedFormats",
-  SEARCH_PLACEHOLDER: "search.placeholder"
+  SEARCH_PLACEHOLDER: "search.placeholder",
+
+  MEDIA_VIDEO: "media.video",
+  MEDIA_3D: "media.3d",
+  MEDIA_VISUALIZER_TEXT: "media.visualizer_text"
 } as const;
 
 export type MicroCopyObj = typeof microCopy;

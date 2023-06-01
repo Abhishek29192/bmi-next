@@ -1,10 +1,11 @@
-import { microCopy } from "../../../../head/src/constants/microCopies";
-import { BULK_SIZE, CHUNK_SIZE } from "../constants";
+import { jest } from "@jest/globals";
+import { microCopy } from "../../../../head/src/constants/microCopies.js";
+import { BULK_SIZE, CHUNK_SIZE } from "../constants.js";
 import {
   getContentfulLocales,
   getContentfulTags,
   getMockContentfulEntries
-} from "./helpers";
+} from "./helpers.js";
 
 const allTags = getContentfulTags();
 const allTagIds = allTags.items.map((tag) => tag.sys.id);
@@ -31,7 +32,7 @@ jest.mock("@bmi/utils", () => {
 });
 
 const main = async (isToBePublished: boolean, isConsolidated: boolean) =>
-  (await import("../update-mc")).main(isToBePublished, isConsolidated);
+  (await import("../update-mc.js")).main(isToBePublished, isConsolidated);
 
 beforeEach(() => {
   jest.clearAllMocks();
@@ -79,8 +80,10 @@ describe("main", () => {
           `${expectedEntries} entries created in contentful.`
         );
         // there was no call to publish and hence no message!
-        const publishedMessage = (console.log as jest.Mock).mock.calls.filter(
-          (call: string[]) => call[0].endsWith("successfully published")
+        const publishedMessage = (
+          console.log as jest.Mock<Console["log"]>
+        ).mock.calls.filter((call) =>
+          call[0].endsWith("successfully published")
         );
         expect(publishedMessage).toEqual([]);
         expect(console.log).lastCalledWith("Done");
@@ -132,7 +135,7 @@ describe("main", () => {
             const mockContentfulEntriesWithALLTags = getMockContentfulEntries(
               contentfulEntryKeys,
               allTagIds,
-              jest.fn().mockReturnValue(true)
+              () => true
             );
             envMock.getEntries = jest
               .fn()
@@ -177,7 +180,7 @@ describe("main", () => {
             const mockContentfulEntriesWithALLTags = getMockContentfulEntries(
               contentfulEntryKeys,
               allTagIds,
-              jest.fn().mockReturnValue(true)
+              () => true
             );
             const contentfulSingleTagEntryKeys = [
               "documentLibrary.headers.product",
@@ -186,7 +189,7 @@ describe("main", () => {
             const mockContentfulEntriesWithSingleTag = getMockContentfulEntries(
               contentfulSingleTagEntryKeys,
               singleTag,
-              jest.fn().mockReturnValue(true)
+              () => true
             );
             envMock.getEntries = jest.fn().mockReturnValue({
               items: [
@@ -232,7 +235,7 @@ describe("main", () => {
             const mockContentfulEntriesWithALLTags = getMockContentfulEntries(
               contentfulEntryKeys,
               allTagIds,
-              jest.fn().mockReturnValue(true)
+              () => true
             );
             mockContentfulEntriesWithALLTags.items[0].metadata.tags.push({
               sys: { id: "market__germany" }
@@ -272,7 +275,7 @@ describe("main", () => {
             const mockContentfulEntriesWithALLTags = getMockContentfulEntries(
               contentfulEntryKeys,
               allTagIds,
-              jest.fn().mockReturnValue(true)
+              () => true
             );
             //set the value of the first entry to have error!
             const allLocales = getContentfulLocales();
@@ -330,7 +333,7 @@ describe("main", () => {
             const mockContentfulEntries = getMockContentfulEntries(
               contentfulEntryKeys,
               allTagIds,
-              jest.fn().mockReturnValue(true)
+              () => true
             );
 
             const contentfulDraftEntryKeys = [
@@ -340,7 +343,7 @@ describe("main", () => {
             const mockContentfulDraftEntries = getMockContentfulEntries(
               contentfulDraftEntryKeys,
               allTagIds,
-              jest.fn().mockReturnValue(false)
+              () => false
             );
             envMock.getEntries = jest.fn().mockReturnValue({
               items: [
@@ -394,7 +397,7 @@ describe("main", () => {
             const mockContentfulEntries = getMockContentfulEntries(
               contentfulEntryKeys,
               allTagIds,
-              jest.fn().mockReturnValue(true)
+              () => true
             );
 
             const contentfulEntryKeysWithSingleTag = [
@@ -404,7 +407,7 @@ describe("main", () => {
             const mockContentfulEntriesWithSingleTag = getMockContentfulEntries(
               contentfulEntryKeysWithSingleTag,
               singleTagId,
-              jest.fn().mockReturnValue(true)
+              () => true
             );
 
             const contentfulDraftEntryKeys = [
@@ -414,7 +417,7 @@ describe("main", () => {
             const mockContentfulDraftEntries = getMockContentfulEntries(
               contentfulDraftEntryKeys,
               allTagIds,
-              jest.fn().mockReturnValue(false)
+              () => false
             );
             envMock.getEntries = jest.fn().mockReturnValue({
               items: [
@@ -473,7 +476,7 @@ describe("main", () => {
           const mockContentfulEntries = getMockContentfulEntries(
             contentfulEntryKeys,
             allTagIds,
-            jest.fn().mockReturnValue(true)
+            () => true
           );
           envMock.getEntries = jest.fn().mockReturnValue(mockContentfulEntries);
 
@@ -494,7 +497,7 @@ describe("main", () => {
           const mockContentfulEntries = getMockContentfulEntries(
             contentfulEntryKeys,
             allTagIds,
-            jest.fn().mockReturnValue(false)
+            () => false
           );
           envMock.getEntries = jest.fn().mockReturnValue(mockContentfulEntries);
 

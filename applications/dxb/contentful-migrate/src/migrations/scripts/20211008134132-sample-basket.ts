@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Create sample basket content type";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const sampleBasket = migration
     .createContentType("sampleBasket")
     .name("Sample Basket Section")
@@ -23,5 +22,5 @@ export const up: MigrationFunction = (migration: Migration) => {
     .localized(true);
 };
 
-export const down: MigrationFunction = (migration: Migration) =>
+export const down: MigrationFunction = (migration) =>
   migration.deleteContentType("sampleBasket");

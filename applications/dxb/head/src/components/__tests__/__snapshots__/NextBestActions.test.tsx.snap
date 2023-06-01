@@ -306,7 +306,7 @@ exports[`NextBestActions component renders with no promo cta label 1`] = `
           >
             <a
               class="MuiButtonBase-root NBACard-clickable ColorPair-secondary1 css-bkdr6q-MuiButtonBase-root"
-              data-gtm="{"id":"cta-click1","action":"https://www.external.co.uk","label":null}"
+              data-gtm="{"id":"cta-click1","action":"https://www.external.co.uk","label":""}"
               href="https://www.external.co.uk"
               rel="noopener noreferrer"
               tabindex="0"

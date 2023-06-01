@@ -109,6 +109,6 @@ describe("ProductOverview component", () => {
       </ThemeProvider>
     );
 
-    expect(screen.getByTestId("thumbnail-cube-icon")).toBeInTheDocument();
+    expect(screen.getByText("MC: media.3d")).toBeInTheDocument();
   });
 });

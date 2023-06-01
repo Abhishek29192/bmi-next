@@ -1,11 +1,10 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Add key asset types field";
 
 const field = "keyAssetTypes";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const resources = migration.editContentType("resources");
   resources
     .createField(field)
@@ -22,7 +21,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   });
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const resources = migration.editContentType("resources");
   resources.deleteField(field);
 };

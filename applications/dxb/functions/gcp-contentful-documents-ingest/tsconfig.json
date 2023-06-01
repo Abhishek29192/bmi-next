@@ -1,7 +1,21 @@
 {
-  "extends": "../../../../tsconfig.json",
+  "extends": "../../../../tsconfig.common.json",
   "compilerOptions": {
     "noEmit": false,
     "outDir": "dist"
-  }
+  },
+  "references": [
+    {
+      "path": "../../libraries/functions-contentful-client"
+    },
+    {
+      "path": "../../libraries/functions-es-client"
+    },
+    {
+      "path": "../../libraries/contentful-types"
+    },
+    {
+      "path": "../../libraries/elasticsearch-types"
+    }
+  ]
 }

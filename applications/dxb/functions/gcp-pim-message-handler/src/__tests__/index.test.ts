@@ -289,13 +289,43 @@ describe("handleMessage", () => {
     getProductsByMessageId.mockResolvedValueOnce({
       totalPageCount: 1
     });
+    const token = "authentication-token";
+    mockResponses(
+      fetchMock,
+      {
+        method: "GET",
+        url: `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
+        body: token
+      },
+      {
+        method: "POST",
+        url: process.env.BUILD_TRIGGER_ENDPOINT
+      }
+    );
 
     await handleRequest(req, res);
 
     expect(getProductsByMessageId).toHaveBeenCalledTimes(1);
     expect(getSystemsByMessageId).toHaveBeenCalledTimes(0);
     expect(pubsubTopicPublisher).toHaveBeenCalledTimes(0);
-    expect(fetchMock).toHaveFetchedTimes(0);
+    expect(fetchMock).toHaveFetchedTimes(2);
+    expect(fetchMock).toHaveFetched(
+      `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
+      {
+        method: "GET",
+        headers: {
+          "Metadata-Flavor": "Google"
+        }
+      }
+    );
+    expect(fetchMock).toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `bearer ${token}`
+      },
+      body: { data: "filler data" }
+    });
     expect(res.status).toHaveBeenCalledWith(200);
     expect(res.send).toHaveBeenCalledWith("ok");
   });
@@ -624,16 +654,43 @@ describe("handleMessage", () => {
       }
     });
     const res = mockResponse();
-    getSystemsByMessageId.mockResolvedValueOnce({
-      totalPageCount: 1
-    });
+    const token = "authentication-token";
+    mockResponses(
+      fetchMock,
+      {
+        method: "GET",
+        url: `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
+        body: token
+      },
+      {
+        method: "POST",
+        url: process.env.BUILD_TRIGGER_ENDPOINT
+      }
+    );
 
     await handleRequest(req, res);
 
     expect(getProductsByMessageId).toHaveBeenCalledTimes(0);
     expect(getSystemsByMessageId).toHaveBeenCalledTimes(0);
     expect(pubsubTopicPublisher).toHaveBeenCalledTimes(4);
-    expect(fetchMock).toHaveFetchedTimes(0);
+    expect(fetchMock).toHaveFetchedTimes(2);
+    expect(fetchMock).toHaveFetched(
+      `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
+      {
+        method: "GET",
+        headers: {
+          "Metadata-Flavor": "Google"
+        }
+      }
+    );
+    expect(fetchMock).toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `bearer ${token}`
+      },
+      body: { data: "filler data" }
+    });
     expect(res.status).toHaveBeenCalledWith(200);
     expect(res.send).toHaveBeenCalledWith("ok");
   });

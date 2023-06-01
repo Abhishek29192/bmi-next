@@ -1,11 +1,11 @@
 import { createProduct, ProductReference } from "@bmi/elasticsearch-types";
-import { ProductCategory } from "../../types";
 import {
   mainTileReferencesMapper,
+  ProductCategory,
   ProductType,
   ReferencedTileProducts,
   VergeVariant
-} from "../../types/v2";
+} from "../../types";
 import {
   convertToCentimeters,
   getVergeOption,

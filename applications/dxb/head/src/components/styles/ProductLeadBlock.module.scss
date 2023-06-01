@@ -7,9 +7,18 @@
     }
   }
 
-  .image {
-    height: 60px;
-    padding-right: 10px;
+  .imagesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+
+    .image {
+      height: 100px;
+
+      @media (max-width: $breakpoint-lg) {
+        height: 80px;
+      }
+    }
   }
 
   .document {
@@ -50,8 +59,8 @@
   }
 
   .productDescription {
-    &>*:first-child{
-        margin-top: 0;
+    & > *:first-child {
+      margin-top: 0;
     }
   }
 }

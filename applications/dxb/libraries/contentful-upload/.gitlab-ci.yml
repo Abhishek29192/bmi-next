@@ -1,16 +1,24 @@
+lint_contentful-upload:
+  extends: .lint_yarn_workspace
+  rules:
+    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [ .run_for_changes_on_mr, rules ]
+  variables:
+    ROOT_DIR: "applications/dxb/libraries/contentful-upload"
+    WORKSPACE: "@bmi/contentful-upload"
+
 test_contentful-upload:
   extends: .test_yarn_workspace
   rules:
-    - !reference [.ingore_release_mrs, rules]
+    - !reference [ .ignore_release_mrs, rules]
     - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - $ROOT_DIR/**/*
-        - jest/**/*
         - yarn.lock
     - if: !reference [.run_for_changes_on_mr, rules, if]
       changes:
         - $ROOT_DIR/**/*
-        - jest/**/*
         - yarn.lock
   variables:
     WORKSPACE: "@bmi/contentful-upload"

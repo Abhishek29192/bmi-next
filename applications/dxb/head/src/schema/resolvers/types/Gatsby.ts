@@ -1,9 +1,17 @@
-import { ProductDocument } from "@bmi/firestore-types";
-import { Asset, Category, Classification, VariantOption } from "@bmi/pim-types";
-import { Node as GatsbyNode } from "gatsby";
-import { GraphQLOutputType } from "graphql-compose/lib/graphql";
-import { HubspotFieldNames, HubspotFieldTypes } from "../ContentfulFormSection";
-import { DocumentsFilters } from "./DocumentsFilters";
+import type { ProductDocument } from "@bmi/firestore-types";
+import type {
+  Asset,
+  Category,
+  Classification,
+  VariantOption
+} from "@bmi/pim-types";
+import type { Node as GatsbyNode } from "gatsby";
+import type { GraphQLOutputType } from "graphql-compose/lib/graphql";
+import type {
+  HubspotFieldNames,
+  HubspotFieldTypes
+} from "../ContentfulFormSection";
+import type { DocumentsFilters } from "./DocumentsFilters";
 import type { GatsbyIterable } from "gatsby/dist/datastore/common/iterable";
 
 export interface MetaData {

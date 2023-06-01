@@ -7,7 +7,7 @@ import Video from "../Video";
 const mockPushGTMEvent = jest.fn();
 
 jest.mock("../../utils/google-tag-manager", () => ({
-  useGTM: (gtm) => ({
+  useGTM: (gtm: unknown) => ({
     pushGTMEvent: mockPushGTMEvent,
     dataGTM: gtm
   })

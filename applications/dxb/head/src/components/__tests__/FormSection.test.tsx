@@ -121,7 +121,7 @@ const data: Data = {
     dialogContent: null,
     hubSpotCTAID: null
   },
-  source: null,
+  source: SourceType.Contentful,
   hubSpotFormGuid: null
 };
 const dataHubSpot: Data = {
@@ -149,9 +149,10 @@ const dataHubSpot: Data = {
   hubSpotFormGuid: "abc123"
 };
 
+const mockExecutRecaptcha = jest.fn();
 jest.mock("react-google-recaptcha-v3", () => ({
   useGoogleReCaptcha: () => ({
-    executeRecaptcha: () => "RECAPTCHA"
+    executeRecaptcha: () => mockExecutRecaptcha()
   })
 }));
 
@@ -164,8 +165,12 @@ jest.mock("node-fetch", () => {
   return {
     ...original,
     __esModule: true,
-    default: (...config) => fetchMock(...config)
+    default: (...config: unknown[]) => fetchMock(...config)
   };
+});
+
+beforeEach(() => {
+  mockExecutRecaptcha.mockReturnValue("RECAPTCHA");
 });
 
 afterEach(() => {
@@ -226,10 +231,10 @@ describe("FormSection component", () => {
 
     // eslint-disable-next-line testing-library/no-container,testing-library/no-node-access -- can't set test ID on text field
     const emailInput = container.querySelector(`input[id="email"]`);
-    fireEvent.change(emailInput, {
+    fireEvent.change(emailInput!, {
       target: { value: "test-email" }
     });
-    fireEvent.blur(emailInput);
+    fireEvent.blur(emailInput!);
     expect(container).toMatchSnapshot();
   });
 
@@ -254,10 +259,10 @@ describe("FormSection component", () => {
 
     // eslint-disable-next-line testing-library/no-container,testing-library/no-node-access -- can't set test ID on text field
     const emailInput = container.querySelector(`input[id="email"]`);
-    fireEvent.change(emailInput, {
+    fireEvent.change(emailInput!, {
       target: { value: "test@gmail.com" }
     });
-    fireEvent.blur(emailInput);
+    fireEvent.blur(emailInput!);
     expect(container).toMatchSnapshot();
   });
 
@@ -387,7 +392,7 @@ describe("FormSection component", () => {
 
     // eslint-disable-next-line testing-library/no-container,testing-library/no-node-access -- can't set test ID on text field
     const textInput = container.querySelector(`input[id="text"]`);
-    fireEvent.change(textInput, {
+    fireEvent.change(textInput!, {
       target: { value: "text value" }
     });
     fireEvent.submit(screen.getByTestId("test-form"));
@@ -458,7 +463,7 @@ describe("FormSection component", () => {
 
     // eslint-disable-next-line testing-library/no-container,testing-library/no-node-access -- can't set test ID on text field
     const textInput = container.querySelector(`input[name="text"]`);
-    fireEvent.change(textInput, {
+    fireEvent.change(textInput!, {
       target: { value: "text value" }
     });
     fireEvent.submit(screen.getByTestId("test-form"));
@@ -486,6 +491,7 @@ describe("FormSection component", () => {
 
     expect(onSuccess).toHaveBeenCalled();
     expect(Gatsby.navigate).toBeCalledWith("link-to-page");
+    expect(mockExecutRecaptcha).not.toHaveBeenCalled();
   });
 
   it("test submit form with no redirect url", async () => {
@@ -521,7 +527,7 @@ describe("FormSection component", () => {
 
     // eslint-disable-next-line testing-library/no-container,testing-library/no-node-access -- can't set test ID on text field
     const textInput = container.querySelector(`input[id="text"]`);
-    fireEvent.change(textInput, {
+    fireEvent.change(textInput!, {
       target: { value: "text value" }
     });
     fireEvent.submit(screen.getByTestId("test-form"));
@@ -592,7 +598,7 @@ describe("FormSection component", () => {
 
     // eslint-disable-next-line testing-library/no-container,testing-library/no-node-access -- can't set test ID on text field
     const textInput = container.querySelector(`input[name="text"]`);
-    fireEvent.change(textInput, {
+    fireEvent.change(textInput!, {
       target: { value: "text value" }
     });
     fireEvent.submit(screen.getByTestId("test-form"));
@@ -618,6 +624,7 @@ describe("FormSection component", () => {
     );
 
     expect(Gatsby.navigate).toBeCalledWith("/");
+    expect(mockExecutRecaptcha).not.toHaveBeenCalled();
   });
 
   it("test submit form with error", async () => {
@@ -644,7 +651,7 @@ describe("FormSection component", () => {
 
     // eslint-disable-next-line testing-library/no-container,testing-library/no-node-access -- can't set test ID on text field
     const textInput = container.querySelector(`input[id="text"]`);
-    fireEvent.change(textInput, {
+    fireEvent.change(textInput!, {
       target: { value: "text value" }
     });
     fireEvent.submit(screen.getByTestId("test-form"));

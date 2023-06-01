@@ -1,5 +1,4 @@
-import { brands as icons } from "../../variables/icons/20210120155354";
-import type Migration from "contentful-migration";
+import { brands as icons } from "../../variables/icons/20210120155354.js";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Add Welcome message for homepage";
@@ -21,7 +20,7 @@ const enabledNodeTypes = [
   "embedded-entry-inline"
 ];
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const resources = migration.editContentType("resources");
 
   resources
@@ -70,7 +69,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   );
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const resources = migration.editContentType("resources");
 
   resources.deleteField("welcomeDialogTitle");

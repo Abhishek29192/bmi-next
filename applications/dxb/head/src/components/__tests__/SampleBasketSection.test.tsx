@@ -52,7 +52,7 @@ const data: Data = {
   __typename: "SampleBasketSection",
   description: {
     raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-    references: null
+    references: []
   },
   checkoutFormSection: {
     __typename: "ContentfulFormSection",
@@ -74,7 +74,7 @@ const data: Data = {
   },
   emptyBasketMessage: {
     raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"your basket is empty.","marks":[],"data":{}}],"data":{}}]}',
-    references: null
+    references: []
   },
   browseProductsCTALabel: "browse all products",
   browseProductsCTA: {
@@ -87,6 +87,7 @@ const data: Data = {
     path: "zanda-brand/torvtak/",
     featuredMedia: null,
     date: null,
+    rawDate: null,
     tags: null,
     featuredVideo: null
   }
@@ -101,7 +102,7 @@ jest.mock("node-fetch", () => {
   return {
     ...original,
     __esModule: true,
-    default: (...config) => fetchMock(...config)
+    default: (...config: unknown[]) => fetchMock(...config)
   };
 });
 

@@ -125,6 +125,7 @@ const slide: PageInfoData = {
   path: getPathWithCountryCode("en", "search"),
   tags: null,
   date: null,
+  rawDate: null,
   featuredMedia: {
     type: null,
     altText: "Lorem ipsum",
@@ -206,6 +207,7 @@ const siteData: SiteData = {
   resources: null,
   pitchedRoofCalculatorConfig: null,
   visualiserHouseTypes: null,
+  headScripts: null,
   regions: [
     {
       label: "Europe",

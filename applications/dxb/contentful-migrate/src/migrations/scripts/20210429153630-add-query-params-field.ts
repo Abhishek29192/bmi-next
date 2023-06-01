@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "add query params field to internal links";
 
-export const up: MigrationFunction = async (migration: Migration) => {
+export const up: MigrationFunction = async (migration) => {
   const link = migration.editContentType("link");
 
   link.createField("queryParams").name("Query Params").type("Symbol");
@@ -16,7 +15,7 @@ export const up: MigrationFunction = async (migration: Migration) => {
   link.moveField("queryParams").afterField("linkedPage");
 };
 
-export const down: MigrationFunction = async (migration: Migration) => {
+export const down: MigrationFunction = async (migration) => {
   const link = migration.editContentType("link");
 
   link.deleteField("queryParams");

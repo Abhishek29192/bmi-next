@@ -2,7 +2,7 @@ import logger from "@bmi-digital/functions-logger";
 import { verifyRecaptchaToken } from "@bmi/functions-recaptcha";
 import { createClient } from "contentful-management";
 import { Environment } from "contentful-management/dist/typings/entities/environment";
-import { fromBuffer } from "file-type";
+import { fileTypeFromBuffer } from "file-type";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 
 const {
@@ -116,7 +116,7 @@ export const upload: HttpFunction = async (request, response) => {
         }
       }
 
-      const fileType = await fromBuffer(request.body);
+      const fileType = await fileTypeFromBuffer(request.body);
       if (!fileType || validMimeTypes.indexOf(fileType.mime) === -1) {
         const error = Error(`Cannot upload files of type ${fileType?.mime}`);
         logger.error({ message: error.message });

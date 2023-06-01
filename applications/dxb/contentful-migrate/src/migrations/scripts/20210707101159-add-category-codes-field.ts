@@ -1,10 +1,9 @@
 import { isDryRun } from "@bmi-digital/contentful-migration";
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Update Category Codes field on Product Lister Page";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const productListerPage = migration.editContentType("productListerPage");
 
   productListerPage
@@ -40,7 +39,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   productListerPage.editField("categoryCode").disabled(true).omitted(true);
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const productListerPage = migration.editContentType("productListerPage");
 
   productListerPage.editField("categoryCode").disabled(false).omitted(false);

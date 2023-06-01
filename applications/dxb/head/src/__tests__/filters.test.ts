@@ -1,10 +1,10 @@
-import { ProductFilter } from "../types/pim";
 import {
   clearFilterValues,
   convertToURLFilters,
   sortAlphabeticallyBy,
   updateFilterValue
 } from "../utils/filters";
+import type { Filter } from "@bmi-digital/components";
 
 describe("filters tests", () => {
   describe("sortAlphabeticallyBy tests", () => {
@@ -312,7 +312,7 @@ describe("filters tests", () => {
   });
 
   describe("convertToURLFilters tests", () => {
-    const input = (firstValue: string[] = []): ProductFilter[] => [
+    const input = (firstValue: string[] = []): readonly Filter[] => [
       {
         filterCode: "colour",
         label: "Colour",
@@ -346,7 +346,7 @@ describe("filters tests", () => {
     });
 
     it("converts multiple filters with multple values correctly", () => {
-      const input: ProductFilter[] = [
+      const input: readonly Filter[] = [
         {
           filterCode: "colour",
           label: "Colour",

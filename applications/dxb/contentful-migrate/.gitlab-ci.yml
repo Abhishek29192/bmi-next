@@ -1,5 +1,9 @@
-test_contentful_migrate:
-  extends: .test_yarn_workspace
+lint_contentful_migrate:
+  extends: .lint_yarn_workspace
+  rules:
+    - !reference [.ignore_release_mrs, rules]
+    - !reference [.run_for_changes_on_main, rules]
+    - !reference [.run_for_changes_on_mr, rules]
   variables:
     ROOT_DIR: "applications/dxb/contentful-migrate"
     WORKSPACE: "@bmi/dxb-contentful-migrate"
@@ -18,6 +22,18 @@ build_contentful_migrate:
     paths:
       - applications/dxb/contentful-migrate/dist
       - applications/dxb/libraries/utils/dist
+
+test_contentful_migrate:
+  extends: .test_yarn_workspace
+  rules:
+    - !reference [.ignore_release_mrs, rules]
+    - !reference [.run_for_changes_on_main, rules]
+    - !reference [.run_for_changes_on_mr, rules]
+  variables:
+    ROOT_DIR: "applications/dxb/contentful-migrate"
+    WORKSPACE: "@bmi/dxb-contentful-migrate"
+  needs:
+    - build_contentful_migrate
 
 ###############################################################################
 # Templates used by each market to run content migrations and trigger a build
@@ -77,6 +93,7 @@ build_contentful_migrate:
     - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "" # Market/space ID (as specified in GitLab CI Vars) - i.e. NO/FR/GROUP/space_2
+    ROOT_DIR: "applications/dxb/contentful-migrate"
   cache: {}
   script:
     - |
@@ -159,8 +176,10 @@ deploy_gatsby_cloud_qa:
   rules:
     - !reference [.run_for_changes_on_main, rules]
   needs:
-    - migrate_content_qa
-    - update_mc_qa
+    - job: migrate_content_qa
+      optional: true
+    - job: update_mc_qa
+      optional: true
   variables:
     DXB_BUILD_HOOKS: $DXB_BUILD_HOOKS_QA
     DXB_MARKET_ID: "NO"

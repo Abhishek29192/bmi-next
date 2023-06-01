@@ -1,4 +1,3 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 const pageContentTypes = [
@@ -15,7 +14,7 @@ export const description =
   "Link signup block entity for the following pages: " +
   pageContentTypes.join(", ");
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   pageContentTypes.forEach((contentType) => {
     const currentContentType = migration.editContentType(contentType);
     if (contentType === "resources") {
@@ -26,7 +25,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   });
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   pageContentTypes.forEach((contentType) => {
     const currentContentType = migration.editContentType(contentType);
     if (contentType === "resources") {

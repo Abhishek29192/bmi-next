@@ -55,11 +55,11 @@ const IntegratedPromoSection = ({ data }: { data: Data }) => {
       className={styles["PromoSection"]}
       backgroundColor={
         theme
-          ? backgroundColorMap[theme.backgroundColor]
+          ? backgroundColorMap[theme.backgroundColor ?? "White"]
           : // eslint-disable-next-line security/detect-object-injection
-            backgroundColorMap[backgroundColor]
+            backgroundColorMap[backgroundColor ?? "White"]
       }
-      isReversed={theme ? theme.isReversed : null}
+      isReversed={theme ? theme.isReversed : undefined}
       data-testid="promo-section"
     >
       {body ? <RichText document={body} hasNoBottomMargin /> : subtitle}

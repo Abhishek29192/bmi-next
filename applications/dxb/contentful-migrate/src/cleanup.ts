@@ -1,5 +1,5 @@
-import { Space } from "contentful-management";
 import { compareSemVer, isValidSemVer, parseSemVer } from "semver-parser";
+import type { Space } from "contentful-management";
 
 export const cleanupOldEnvironments = async (tag: string, space: Space) => {
   const envs = await space.getEnvironments();

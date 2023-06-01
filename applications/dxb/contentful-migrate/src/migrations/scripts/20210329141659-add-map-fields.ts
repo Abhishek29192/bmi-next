@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Add map centre and zoom fields for initial state";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const serviceLocatorSection = migration.editContentType(
     "serviceLocatorSection"
   );
@@ -33,7 +32,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   });
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const serviceLocatorSection = migration.editContentType(
     "serviceLocatorSection"
   );

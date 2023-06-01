@@ -1,4 +1,4 @@
-import {
+import type {
   Asset as FirestoreAsset,
   AssetAssetType as FirestoreAssetType,
   BIM as FirestoreBIM,
@@ -12,15 +12,15 @@ import {
   Image as FirestoreImage,
   KeyFeatures as FirestoreKeyFeatures,
   Measurements as FirestoreMeasurements,
-  Mime,
   Product as FirestoreProduct,
   ProductDocument as FirestoreProductDocument,
   RelatedVariant as FirestoreRelatedVariant,
   System as FirestoreSystem,
   SystemDocument as FirestoreSystemDocument,
   SystemLayer as FirestoreSystemLayer,
-  UnitValue,
-  Video as FirestoreVideo
+  Video as FirestoreVideo,
+  Mime,
+  UnitValue
 } from "@bmi/firestore-types";
 
 export type BreadcrumbItem = {
@@ -232,7 +232,7 @@ export type Image = Omit<
   FirestoreImage,
   "mainSource" | "thumbnail" | "altText"
 > & {
-  mainSource: string | null;
+  mainSource: string | undefined;
   thumbnail: string | null;
   altText: string | null;
 };

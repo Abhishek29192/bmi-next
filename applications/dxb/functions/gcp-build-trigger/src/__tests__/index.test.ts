@@ -6,6 +6,20 @@ import {
 import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
 
+const swapReadWriteAliases = jest.fn();
+jest.mock("../elasticsearch", () => {
+  // Throws "ReferenceError: setImmediate is not defined" with jest.requireActual
+  enum ElasticsearchIndexes {
+    Products = "products",
+    Systems = "systems"
+  }
+  return {
+    ElasticsearchIndexes: ElasticsearchIndexes,
+    swapReadWriteAliases: (aliasPrefix: string) =>
+      swapReadWriteAliases(aliasPrefix)
+  };
+});
+
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
 
@@ -23,6 +37,32 @@ beforeEach(() => {
 });
 
 describe("Invalid environment variables", () => {
+  it("should return 500 if ES_INDEX_NAME_DOCUMENTS is not set", async () => {
+    const esIndexDocuments = process.env.ES_INDEX_NAME_DOCUMENTS;
+    delete process.env.ES_INDEX_NAME_DOCUMENTS;
+
+    const res = mockResponse();
+
+    await build(mockRequest(), res);
+
+    expect(res.sendStatus).toBeCalledWith(500);
+
+    process.env.ES_INDEX_NAME_DOCUMENTS = esIndexDocuments;
+  });
+
+  it("should return 500 if ES_INDEX_PREFIX is not set", async () => {
+    const esIndexPrefix = process.env.ES_INDEX_PREFIX;
+    delete process.env.ES_INDEX_PREFIX;
+
+    const res = mockResponse();
+
+    await build(mockRequest(), res);
+
+    expect(res.sendStatus).toBeCalledWith(500);
+
+    process.env.ES_INDEX_PREFIX = esIndexPrefix;
+  });
+
   it("should return 500 if NETLIFY_BUILD_HOOK is not set", async () => {
     const netlifyBuildHook = process.env.NETLIFY_BUILD_HOOK;
     delete process.env.NETLIFY_BUILD_HOOK;
@@ -103,6 +143,9 @@ describe("Making a POST request", () => {
     expect(fetchMock).toHaveFetched(process.env.NETLIFY_BUILD_HOOK, {
       method: "POST"
     });
+    // `ES_INDEX_PREFIX` and `ES_INDEX_NAME_DOCUMENTS` are globally setup for testing
+    // see `jest/src/setEnvVars.ts`
+    expect(swapReadWriteAliases).toBeCalledTimes(3);
   });
 
   it("waits for the DELAY_MILLISECONDS milliseconds before making any requests", async () => {
@@ -134,6 +177,9 @@ describe("Making a POST request", () => {
       method: "POST"
     });
 
+    // `ES_INDEX_PREFIX` and `ES_INDEX_NAME_DOCUMENTS` are globally setup for testing
+    // see `jest/src/setEnvVars.ts`
+    expect(swapReadWriteAliases).toBeCalledTimes(6);
     delete process.env.METRIC_LATENCY_DELAY;
   });
 });

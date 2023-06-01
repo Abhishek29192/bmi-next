@@ -1,10 +1,9 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description =
   "Add tags field to product lister product lister page content type with entries";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const productListerPage = migration.editContentType("productListerPage");
 
   productListerPage
@@ -47,7 +46,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   productListerPage.editField("tag").disabled(true).omitted(true);
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const productListerPage = migration.editContentType("productListerPage");
 
   productListerPage.editField("tag").disabled(false).omitted(false);

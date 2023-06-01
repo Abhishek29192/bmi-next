@@ -1,4 +1,4 @@
-import { Container, CTACard, Grid } from "@bmi-digital/components";
+import { Card, Container, CTACard, Grid } from "@bmi-digital/components";
 import ButtonBase, { ButtonBaseProps } from "@mui/material/ButtonBase";
 import { graphql } from "gatsby";
 import React from "react";
@@ -33,41 +33,43 @@ const IntegratedOverlapCards = ({ data }: { data?: Data }) => {
     <div className={styles["OverlapCards"]} data-testid="overlap-cards-wrapper">
       <Container>
         <Grid spacing={3} container justifyContent="center">
-          {data.map(({ title, featuredMedia, featuredVideo, ...rest }, key) => {
-            const cta = getCTA(rest, countryCode);
-            return (
-              <Grid key={key} xs={12} sm={6} md={5} lg={3}>
-                <CTACard
-                  title={title}
-                  buttonComponent={(props: ButtonBaseProps) => (
-                    <GTMButton
-                      gtm={{
-                        id: "cta-click1",
-                        label: title
-                      }}
-                      {...props}
-                    />
-                  )}
-                  media={
-                    featuredVideo ? (
-                      <Video
-                        {...featuredVideo}
-                        data-testid={"overlap-cards-video"}
+          {data?.map(
+            ({ title, featuredMedia, featuredVideo, ...rest }, key) => {
+              const cta = getCTA(rest, countryCode);
+              return (
+                <Grid key={key} xs={12} sm={6} md={5} lg={3}>
+                  <CTACard
+                    title={title}
+                    buttonComponent={(props: ButtonBaseProps) => (
+                      <GTMButton
+                        gtm={{
+                          id: "cta-click1",
+                          label: title ?? undefined
+                        }}
+                        {...props}
                       />
-                    ) : featuredMedia ? (
-                      <Image
-                        {...featuredMedia}
-                        data-testid={"overlap-cards-image"}
-                      />
-                    ) : undefined
-                  }
-                  clickableArea={featuredVideo ? "heading" : "full"}
-                  action={cta?.action}
-                  data-testid="overlap-card"
-                />
-              </Grid>
-            );
-          })}
+                    )}
+                    media={
+                      featuredVideo ? (
+                        <Video
+                          {...featuredVideo}
+                          data-testid={"overlap-cards-video"}
+                        />
+                      ) : featuredMedia ? (
+                        <Image
+                          {...featuredMedia}
+                          data-testid={"overlap-cards-image"}
+                        />
+                      ) : undefined
+                    }
+                    clickableArea={featuredVideo ? "heading" : "full"}
+                    action={cta?.action}
+                    data-testid="overlap-card"
+                  />
+                </Grid>
+              );
+            }
+          )}
         </Grid>
       </Container>
     </div>

@@ -182,8 +182,19 @@ export const getDocumentQueryObject = (
     if (filter.filterCode === availabilityFilterCode) {
       if (!filter.value.length) {
         return {
-          term: {
-            ["approvalStatus.keyword"]: "approved"
+          bool: {
+            should: [
+              {
+                term: {
+                  ["approvalStatus.keyword"]: "approved"
+                }
+              },
+              {
+                term: {
+                  ["__typename.keyword"]: "ContentfulDocument"
+                }
+              }
+            ]
           }
         };
       }

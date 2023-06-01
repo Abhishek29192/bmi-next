@@ -3,8 +3,10 @@ import { Product, System } from "@bmi/firestore-types";
 import { getFirestore } from "@bmi/functions-firestore";
 import { SystemLayer } from "@bmi/pim-types";
 import { DeleteItem, Message, ObjType } from "@bmi/pub-sub-types";
+
 import { transformProduct } from "./productTransformer";
 import { transformSystem } from "./systemTransformer";
+
 import type { EventFunction } from "@google-cloud/functions-framework/build/src/functions";
 
 const { FIRESTORE_ROOT_COLLECTION, ENABLE_SAMPLE_ORDERING } = process.env;
@@ -39,6 +41,43 @@ const updateDocument = (
   });
 };
 
+const productsBasePath = `${FIRESTORE_ROOT_COLLECTION}/${COLLECTIONS["PRODUCTS"]}`;
+
+export const updateSiblingProductsRelatedVariants = async (
+  prodVariantCode: string,
+  baseCode: string,
+  batch: FirebaseFirestore.WriteBatch
+) => {
+  const siblingProductsQuerySnapshot = await db
+    .collection(productsBasePath)
+    .where("baseCode", "==", baseCode)
+    .get();
+
+  if (!siblingProductsQuerySnapshot.empty) {
+    // Find all sibling products with same basecode
+    const siblingProductDocs = siblingProductsQuerySnapshot.docs;
+
+    // Remove the variant from relatedVariant property of siblings
+    siblingProductDocs
+      .filter((doc) => doc.exists)
+      .forEach((doc) => {
+        const relatedVariantsData = (doc.data() as Product).relatedVariants;
+
+        if (relatedVariantsData.length !== 0) {
+          batch.update(doc.ref, {
+            relatedVariants: relatedVariantsData.filter(
+              (prodVariantObj) => prodVariantObj.code !== prodVariantCode
+            )
+          });
+        }
+      });
+
+    logger.info({
+      message: `Removed document variant ${prodVariantCode} from sibling relatedVariants`
+    });
+  }
+};
+
 const deleteDocument = (batch: FirebaseFirestore.WriteBatch, path: string) => {
   const docRef = db.doc(path);
   batch.delete(docRef);
@@ -47,14 +86,39 @@ const deleteDocument = (batch: FirebaseFirestore.WriteBatch, path: string) => {
   });
 };
 
+const deleteProductsByVariantCode = async (
+  productVariantCode: string,
+  collectionPath: string,
+  batch: FirebaseFirestore.WriteBatch
+) => {
+  const productVariantQuerySnapshot = await db
+    .collection(productsBasePath)
+    .where("code", "==", productVariantCode)
+    .get();
+
+  if (!productVariantQuerySnapshot.empty) {
+    // Find the variant
+    const prodVariant = productVariantQuerySnapshot.docs[0].data() as Product;
+
+    await updateSiblingProductsRelatedVariants(
+      productVariantCode,
+      prodVariant.baseCode,
+      batch
+    );
+
+    deleteDocument(
+      batch,
+      `${FIRESTORE_ROOT_COLLECTION}/${collectionPath}/${productVariantCode}`
+    );
+  }
+};
+
 const deleteByBaseCode = async (
   productBaseCode: string,
   batch: FirebaseFirestore.WriteBatch
 ) => {
-  const basePath = `${FIRESTORE_ROOT_COLLECTION}/${COLLECTIONS["PRODUCTS"]}`;
-
   const documents = await db
-    .collection(basePath)
+    .collection(productsBasePath)
     .where("baseCode", "==", productBaseCode)
     .get();
   documents.docs
@@ -124,7 +188,9 @@ const deleteItemsFromFirestore = async (
 ) => {
   const batch = db.batch();
 
-  if (item.objType === ObjType.Variant || item.objType === ObjType.System) {
+  if (item.objType === ObjType.Variant) {
+    await deleteProductsByVariantCode(item.code, collectionPath, batch);
+  } else if (item.objType === ObjType.System) {
     deleteDocument(
       batch,
       `${FIRESTORE_ROOT_COLLECTION}/${collectionPath}/${item.code}`

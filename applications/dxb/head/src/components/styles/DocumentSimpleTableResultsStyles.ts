@@ -1,8 +1,8 @@
 import { Table } from "@bmi-digital/components";
 import { ApprovalStatus } from "@bmi/pim-types";
-import { alpha, formControlLabelClasses } from "@mui/material";
+import { alpha } from "@mui/material";
+import { tooltipClasses } from "@mui/material/Tooltip";
 import { styled } from "@mui/material/styles";
-import Icon from "../Icon";
 
 const PREFIX = "documentSimpleTableResultsStyles";
 export const classes = {
@@ -14,9 +14,6 @@ export const StyledSimpleTableResults = styled("div")(({ theme }) => ({
   [`& .${classes.tableHeader}`]: {
     width: "92px",
     whiteSpace: "nowrap"
-  },
-  [`& .${formControlLabelClasses.root}`]: {
-    marginRight: 0
   },
   "abbr[title]::after": {
     content: "''",
@@ -42,40 +39,24 @@ export const DocumentRow = styled(Table.Row)(({ theme }) => ({
   }
 }));
 
-export const StyledTableCell = styled(Table.Cell)({
+export const StyledTableCell = styled(Table.Cell)(({ theme }) => ({
   verticalAlign: "middle !important",
-  whiteSpace: "nowrap"
-});
+  whiteSpace: "nowrap",
+  color: theme.colours.slate
+}));
 
 export const StyledTitleTableCell = styled(Table.Cell)({
   verticalAlign: "middle !important"
 });
 
-export const Title = styled("p")({
-  WebkitLineClamp: "3",
-  WebkitBoxOrient: "vertical",
-  display: "-webkit-box",
-  margin: 0,
-  overflow: "hidden"
+export const ActionsContainer = styled("div")({
+  display: "flex",
+  width: "64px",
+  justifyContent: "space-between",
+  [`&& .${tooltipClasses.tooltip}.${tooltipClasses.tooltipPlacementLeft}`]: {
+    marginRight: "8px"
+  }
 });
-
-export const ExternalLinkIcon = styled(Icon)(({ theme }) => ({
-  fill: theme.colours.inter,
-  width: "24px",
-  height: "24px"
-}));
-
-export const DownloadIcon = styled(Icon)({
-  width: "32px",
-  height: "32px"
-});
-
-export const NoDocumentIcon = styled("span")(({ theme }) => ({
-  width: "16px",
-  height: "16px",
-  color: theme.colours.charcoal,
-  opacity: 0.24
-}));
 
 export const DocumentStatus = styled("p")<{ status: ApprovalStatus }>(
   ({ theme, status }) => ({

@@ -20,7 +20,7 @@ const node = {
   getBoundingClientRect: jest.fn().mockReturnValue(nodePosition)
 };
 
-let setRef;
+let setRef: (node: { getBoundingClientRect: () => void }) => void;
 
 const Component = ({ skip, delay }: { skip?: boolean; delay?: number }) => {
   setRef = useScrollToOnLoad(skip, delay);

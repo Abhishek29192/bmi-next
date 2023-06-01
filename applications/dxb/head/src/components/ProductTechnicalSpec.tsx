@@ -20,7 +20,8 @@ const ProductTechnicalSpec = ({ product }: ProductTechnicalSpecProps) => {
     </div>
   );
   const classifications = product.classifications;
-  if (classifications.length === 0) {
+
+  if (!classifications || classifications.length === 0) {
     return <NoTechSpecMessage />;
   }
 

@@ -1,5 +1,3 @@
-import { MicroCopy } from "@bmi-digital/components";
-import logger from "@bmi-digital/functions-logger";
 import fetch from "node-fetch";
 import React, {
   createContext,
@@ -14,16 +12,10 @@ import { useConfig } from "../contexts/ConfigProvider";
 import { devLog } from "../utils/devLog";
 import getCookie from "../utils/getCookie";
 import { pushToDataLayer } from "../utils/google-tag-manager";
-import no from "./pitched-roof-calculator/samples/copy/no.json";
-import sampleData from "./pitched-roof-calculator/samples/data.json";
 import { CalculatorConfig, Data } from "./pitched-roof-calculator/types";
 
-const PitchedRoofCalculatorV1 = React.lazy(
-  () => import("./pitched-roof-calculator/v1/PitchedRoofCalculator")
-);
-
-const PitchedRoofCalculatorV2 = React.lazy(
-  () => import("./pitched-roof-calculator/v2/PitchedRoofCalculator")
+const PitchedRoofCalculator = React.lazy(
+  () => import("./pitched-roof-calculator/PitchedRoofCalculator")
 );
 
 type Parameters = {
@@ -55,8 +47,7 @@ const CalculatorProvider = ({ children, onError, calculatorConfig }: Props) => {
   const {
     webtoolsCalculatorDataUrl,
     isWebToolsCalculatorEnabled,
-    webToolsCalculatorApsisEndpoint,
-    isV2WebToolsCalculatorEnabled
+    webToolsCalculatorApsisEndpoint
   } = useConfig();
   const showCalculatorDialog = !(typeof window === "undefined") && isOpen;
 
@@ -77,8 +68,7 @@ const CalculatorProvider = ({ children, onError, calculatorConfig }: Props) => {
 
     const fetchAndSetData = async () => {
       if (!webtoolsCalculatorDataUrl) {
-        devLog("Calculator data url was not found, using sample data instead.");
-        setData(sampleData as Data);
+        devLog("Calculator data url was not found.");
         return;
       }
 
@@ -92,11 +82,11 @@ const CalculatorProvider = ({ children, onError, calculatorConfig }: Props) => {
           throw new Error(response.statusText);
         }
 
-        const data = await response.json();
+        const data = (await response.json()) as Data;
 
         setData(data);
       } catch (error) {
-        logger.error({ message: error.message });
+        devLog({ message: error.message });
         onError();
       }
     };
@@ -119,7 +109,7 @@ const CalculatorProvider = ({ children, onError, calculatorConfig }: Props) => {
           return;
         }
 
-        const token = qaAuthToken ? undefined : await executeRecaptcha();
+        const token = qaAuthToken ? undefined : await executeRecaptcha?.();
 
         let headers: HeadersInit = {
           "Content-Type": "application/json",
@@ -154,6 +144,23 @@ const CalculatorProvider = ({ children, onError, calculatorConfig }: Props) => {
     ]
   );
 
+  if (!showCalculatorDialog || typeof window === "undefined") {
+    return (
+      <CalculatorContext.Provider
+        value={{
+          isOpen,
+          open: isWebToolsCalculatorEnabled
+            ? open
+            : () => {
+                // no-op
+              }
+        }}
+      >
+        {children}
+      </CalculatorContext.Provider>
+    );
+  }
+
   return (
     <CalculatorContext.Provider
       value={{
@@ -166,21 +173,12 @@ const CalculatorProvider = ({ children, onError, calculatorConfig }: Props) => {
       }}
     >
       {children}
-      {/* Currently, this is only available for Norway */}
-      {!showCalculatorDialog ? null : isV2WebToolsCalculatorEnabled ? (
-        <Suspense fallback={<div>Loading...</div>}>
-          <PitchedRoofCalculatorV2
-            {...calculatorProps}
-            calculatorConfig={calculatorConfig}
-          />
-        </Suspense>
-      ) : (
-        <MicroCopy.Provider values={no}>
-          <Suspense fallback={<div>Loading...</div>}>
-            <PitchedRoofCalculatorV1 {...calculatorProps} />
-          </Suspense>
-        </MicroCopy.Provider>
-      )}
+      <Suspense fallback={<div>Loading...</div>}>
+        <PitchedRoofCalculator
+          {...calculatorProps}
+          calculatorConfig={calculatorConfig}
+        />
+      </Suspense>
     </CalculatorContext.Provider>
   );
 };

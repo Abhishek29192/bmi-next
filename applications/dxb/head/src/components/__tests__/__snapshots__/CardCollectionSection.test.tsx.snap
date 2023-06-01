@@ -41,33 +41,37 @@ exports[`CardCollectionSection component Card label doesn't render button if car
               data-testid="card-collection-grid-item-test"
             >
               <button
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                 data-gtm="{"id":"cta-click1","label":"test","action":"visualiser"}"
-                data-testid="card-collection-section-item-test"
                 tabindex="0"
                 type="button"
               >
                 <div
-                  class="OverviewCard-body"
+                  class="OverviewCard-main"
+                  data-testid="overview-card-main"
                 >
                   <div
-                    class="OverviewCard-brandLogo"
-                  />
-                  <h4
-                    class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
-                    data-testid="overview-card-body-title"
+                    class="OverviewCard-body"
                   >
-                    test
-                  </h4>
-                  <div
-                    class="OverviewCard-text css-kl66ak"
-                    data-testid="overview-card-body-description"
-                  />
-                  <div
-                    class="css-ekp6jg"
-                    data-testid="overview-card-body-footer"
-                  />
+                    <div
+                      class="OverviewCard-brandLogo"
+                    />
+                    <h4
+                      class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
+                      data-testid="overview-card-body-title"
+                    >
+                      test
+                    </h4>
+                    <div
+                      class="OverviewCard-text css-kl66ak"
+                      data-testid="overview-card-body-description"
+                    />
+                  </div>
                 </div>
+                <div
+                  class="css-197a1cq"
+                  data-testid="overview-card-body-footer"
+                />
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
@@ -149,67 +153,71 @@ exports[`CardCollectionSection component Card label renders as name if title is 
                 data-testid="card-collection-grid-item-1234"
               >
                 <div
-                  class="OverviewCard-flat MuiBox-root css-13ealx6"
+                  class="OverviewCard-flat MuiBox-root css-mnk4x4"
                 >
                   <div
-                    class="OverviewCard-body"
+                    class="OverviewCard-main"
+                    data-testid="overview-card-main"
                   >
                     <div
-                      class="OverviewCard-brandLogo"
-                    />
-                    <h4
-                      class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
-                      data-testid="overview-card-body-title"
+                      class="OverviewCard-body"
                     >
-                      <button
-                        class="MuiButtonBase-root OverviewCard-clickableArea css-10d1a0h-MuiButtonBase-root"
-                        data-gtm="{"id":"cta-click1","label":"test Name - a string","action":"visualiser"}"
-                        data-testid="card-collection-section-item-test-Name"
-                        tabindex="0"
-                        type="button"
+                      <div
+                        class="OverviewCard-brandLogo"
+                      />
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
+                        data-testid="overview-card-body-title"
                       >
-                        test Name
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </button>
-                    </h4>
-                    <div
-                      class="OverviewCard-text css-kl66ak"
-                      data-testid="overview-card-body-description"
-                    />
-                    <div
-                      class="css-ekp6jg"
-                      data-testid="overview-card-body-footer"
-                    >
-                      <button
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"cta-click1","label":"test Name - a string","action":"visualiser"}"
-                        data-testid="card-link"
-                        tabindex="0"
-                        type="button"
-                      >
-                        <span
-                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                        <button
+                          class="MuiButtonBase-root OverviewCard-clickableArea css-10d1a0h-MuiButtonBase-root"
+                          data-gtm="{"id":"cta-click1","label":"test Name - a string","action":"visualiser"}"
+                          tabindex="0"
+                          type="button"
                         >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                            data-testid="ArrowForwardIcon"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                            />
-                          </svg>
-                        </span>
-                        a string
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </button>
+                          test Name
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          />
+                        </button>
+                      </h4>
+                      <div
+                        class="OverviewCard-text css-kl66ak"
+                        data-testid="overview-card-body-description"
+                      />
                     </div>
+                  </div>
+                  <div
+                    class="css-197a1cq"
+                    data-testid="overview-card-body-footer"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-gtm="{"id":"cta-click1","label":"test Name - a string","action":"visualiser"}"
+                      data-testid="card-link"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="ArrowForwardIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                          />
+                        </svg>
+                      </span>
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
                   </div>
                 </div>
               </div>
@@ -336,7 +344,7 @@ exports[`CardCollectionSection component Renders correctly When Title rich text 
               </button>
             </div>
             <div
-              class="Carousel-wrapperGutter css-xi64lz"
+              class="Carousel-wrapperGutter css-1gp2hrh"
             >
               <div
                 class="Carousel-opacity Carousel-carouselGutter Carousel-slideConstantHeight css-1s5ge7u"
@@ -366,52 +374,56 @@ exports[`CardCollectionSection component Renders correctly When Title rich text 
                           style="width: 100%;"
                         >
                           <a
-                            class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                            class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                             data-gtm="{"id":"cta-click1","label":"test - a string","action":"/no/"}"
-                            data-testid="card-collection-section-item-test"
                             href="/no/"
                             tabindex="0"
                             type="button"
                           >
                             <div
-                              class="OverviewCard-body"
+                              class="OverviewCard-main"
+                              data-testid="overview-card-main"
                             >
                               <div
-                                class="OverviewCard-brandLogo"
-                              />
-                              <h4
-                                class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
-                                data-testid="overview-card-body-title"
+                                class="OverviewCard-body"
                               >
-                                test
-                              </h4>
-                              <div
-                                class="OverviewCard-text css-kl66ak"
-                                data-testid="overview-card-body-description"
-                              />
-                              <div
-                                class="css-ekp6jg"
-                                data-testid="overview-card-body-footer"
-                              >
-                                <h6
-                                  class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
-                                  data-testid="typography"
+                                <div
+                                  class="OverviewCard-brandLogo"
+                                />
+                                <h4
+                                  class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
+                                  data-testid="overview-card-body-title"
                                 >
-                                  1 June 2021
-                                </h6>
-                                <span
-                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                                  data-testid="card-link"
-                                  role="button"
-                                  tabindex="0"
-                                  type="button"
-                                >
-                                  a string
-                                  <span
-                                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                                  />
-                                </span>
+                                  test
+                                </h4>
+                                <div
+                                  class="OverviewCard-text css-kl66ak"
+                                  data-testid="overview-card-body-description"
+                                />
                               </div>
+                            </div>
+                            <div
+                              class="css-197a1cq"
+                              data-testid="overview-card-body-footer"
+                            >
+                              <h6
+                                class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                                data-testid="typography"
+                              >
+                                1 June 2021
+                              </h6>
+                              <span
+                                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                                data-testid="card-link"
+                                role="button"
+                                tabindex="0"
+                                type="button"
+                              >
+                                a string
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </span>
                             </div>
                             <span
                               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -528,52 +540,56 @@ exports[`CardCollectionSection component Renders correctly When dialogContent li
                 data-testid="card-collection-grid-item-test"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test - a string","action":"/no/"}"
-                  data-testid="card-collection-section-item-test"
                   href="/no/"
                   tabindex="0"
                   type="button"
                 >
                   <div
-                    class="OverviewCard-body"
+                    class="OverviewCard-main"
+                    data-testid="overview-card-main"
                   >
                     <div
-                      class="OverviewCard-brandLogo"
-                    />
-                    <h4
-                      class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
-                      data-testid="overview-card-body-title"
+                      class="OverviewCard-body"
                     >
-                      test
-                    </h4>
-                    <div
-                      class="OverviewCard-text css-kl66ak"
-                      data-testid="overview-card-body-description"
-                    />
-                    <div
-                      class="css-ekp6jg"
-                      data-testid="overview-card-body-footer"
-                    >
-                      <h6
-                        class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
-                        data-testid="typography"
+                      <div
+                        class="OverviewCard-brandLogo"
+                      />
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
+                        data-testid="overview-card-body-title"
                       >
-                        1 June 2021
-                      </h6>
-                      <span
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                        data-testid="card-link"
-                        role="button"
-                        tabindex="0"
-                        type="button"
-                      >
-                        a string
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </span>
+                        test
+                      </h4>
+                      <div
+                        class="OverviewCard-text css-kl66ak"
+                        data-testid="overview-card-body-description"
+                      />
                     </div>
+                  </div>
+                  <div
+                    class="css-197a1cq"
+                    data-testid="overview-card-body-footer"
+                  >
+                    <h6
+                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      1 June 2021
+                    </h6>
+                    <span
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-testid="card-link"
+                      role="button"
+                      tabindex="0"
+                      type="button"
+                    >
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </span>
                   </div>
                   <span
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -708,52 +724,56 @@ exports[`CardCollectionSection component Renders correctly When entry-hyperlink 
                 data-testid="card-collection-grid-item-test"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test - a string","action":"/no/"}"
-                  data-testid="card-collection-section-item-test"
                   href="/no/"
                   tabindex="0"
                   type="button"
                 >
                   <div
-                    class="OverviewCard-body"
+                    class="OverviewCard-main"
+                    data-testid="overview-card-main"
                   >
                     <div
-                      class="OverviewCard-brandLogo"
-                    />
-                    <h4
-                      class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
-                      data-testid="overview-card-body-title"
+                      class="OverviewCard-body"
                     >
-                      test
-                    </h4>
-                    <div
-                      class="OverviewCard-text css-kl66ak"
-                      data-testid="overview-card-body-description"
-                    />
-                    <div
-                      class="css-ekp6jg"
-                      data-testid="overview-card-body-footer"
-                    >
-                      <h6
-                        class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
-                        data-testid="typography"
+                      <div
+                        class="OverviewCard-brandLogo"
+                      />
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
+                        data-testid="overview-card-body-title"
                       >
-                        1 June 2021
-                      </h6>
-                      <span
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                        data-testid="card-link"
-                        role="button"
-                        tabindex="0"
-                        type="button"
-                      >
-                        a string
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </span>
+                        test
+                      </h4>
+                      <div
+                        class="OverviewCard-text css-kl66ak"
+                        data-testid="overview-card-body-description"
+                      />
                     </div>
+                  </div>
+                  <div
+                    class="css-197a1cq"
+                    data-testid="overview-card-body-footer"
+                  >
+                    <h6
+                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      1 June 2021
+                    </h6>
+                    <span
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-testid="card-link"
+                      role="button"
+                      tabindex="0"
+                      type="button"
+                    >
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </span>
                   </div>
                   <span
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -865,52 +885,56 @@ exports[`CardCollectionSection component Renders correctly When heading 2 is pre
                 data-testid="card-collection-grid-item-test"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test - a string","action":"/no/"}"
-                  data-testid="card-collection-section-item-test"
                   href="/no/"
                   tabindex="0"
                   type="button"
                 >
                   <div
-                    class="OverviewCard-body"
+                    class="OverviewCard-main"
+                    data-testid="overview-card-main"
                   >
                     <div
-                      class="OverviewCard-brandLogo"
-                    />
-                    <h4
-                      class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
-                      data-testid="overview-card-body-title"
+                      class="OverviewCard-body"
                     >
-                      test
-                    </h4>
-                    <div
-                      class="OverviewCard-text css-kl66ak"
-                      data-testid="overview-card-body-description"
-                    />
-                    <div
-                      class="css-ekp6jg"
-                      data-testid="overview-card-body-footer"
-                    >
-                      <h6
-                        class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
-                        data-testid="typography"
+                      <div
+                        class="OverviewCard-brandLogo"
+                      />
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
+                        data-testid="overview-card-body-title"
                       >
-                        1 June 2021
-                      </h6>
-                      <span
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                        data-testid="card-link"
-                        role="button"
-                        tabindex="0"
-                        type="button"
-                      >
-                        a string
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </span>
+                        test
+                      </h4>
+                      <div
+                        class="OverviewCard-text css-kl66ak"
+                        data-testid="overview-card-body-description"
+                      />
                     </div>
+                  </div>
+                  <div
+                    class="css-197a1cq"
+                    data-testid="overview-card-body-footer"
+                  >
+                    <h6
+                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      1 June 2021
+                    </h6>
+                    <span
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-testid="card-link"
+                      role="button"
+                      tabindex="0"
+                      type="button"
+                    >
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </span>
                   </div>
                   <span
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -1022,52 +1046,56 @@ exports[`CardCollectionSection component Renders correctly When heading 3 is pre
                 data-testid="card-collection-grid-item-test"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test - a string","action":"/no/"}"
-                  data-testid="card-collection-section-item-test"
                   href="/no/"
                   tabindex="0"
                   type="button"
                 >
                   <div
-                    class="OverviewCard-body"
+                    class="OverviewCard-main"
+                    data-testid="overview-card-main"
                   >
                     <div
-                      class="OverviewCard-brandLogo"
-                    />
-                    <h4
-                      class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
-                      data-testid="overview-card-body-title"
+                      class="OverviewCard-body"
                     >
-                      test
-                    </h4>
-                    <div
-                      class="OverviewCard-text css-kl66ak"
-                      data-testid="overview-card-body-description"
-                    />
-                    <div
-                      class="css-ekp6jg"
-                      data-testid="overview-card-body-footer"
-                    >
-                      <h6
-                        class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
-                        data-testid="typography"
+                      <div
+                        class="OverviewCard-brandLogo"
+                      />
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
+                        data-testid="overview-card-body-title"
                       >
-                        1 June 2021
-                      </h6>
-                      <span
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                        data-testid="card-link"
-                        role="button"
-                        tabindex="0"
-                        type="button"
-                      >
-                        a string
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </span>
+                        test
+                      </h4>
+                      <div
+                        class="OverviewCard-text css-kl66ak"
+                        data-testid="overview-card-body-description"
+                      />
                     </div>
+                  </div>
+                  <div
+                    class="css-197a1cq"
+                    data-testid="overview-card-body-footer"
+                  >
+                    <h6
+                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      1 June 2021
+                    </h6>
+                    <span
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-testid="card-link"
+                      role="button"
+                      tabindex="0"
+                      type="button"
+                    >
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </span>
                   </div>
                   <span
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -1179,52 +1207,56 @@ exports[`CardCollectionSection component Renders correctly When heading 4 is pre
                 data-testid="card-collection-grid-item-test"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test - a string","action":"/no/"}"
-                  data-testid="card-collection-section-item-test"
                   href="/no/"
                   tabindex="0"
                   type="button"
                 >
                   <div
-                    class="OverviewCard-body"
+                    class="OverviewCard-main"
+                    data-testid="overview-card-main"
                   >
                     <div
-                      class="OverviewCard-brandLogo"
-                    />
-                    <h4
-                      class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
-                      data-testid="overview-card-body-title"
+                      class="OverviewCard-body"
                     >
-                      test
-                    </h4>
-                    <div
-                      class="OverviewCard-text css-kl66ak"
-                      data-testid="overview-card-body-description"
-                    />
-                    <div
-                      class="css-ekp6jg"
-                      data-testid="overview-card-body-footer"
-                    >
-                      <h6
-                        class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
-                        data-testid="typography"
+                      <div
+                        class="OverviewCard-brandLogo"
+                      />
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
+                        data-testid="overview-card-body-title"
                       >
-                        1 June 2021
-                      </h6>
-                      <span
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                        data-testid="card-link"
-                        role="button"
-                        tabindex="0"
-                        type="button"
-                      >
-                        a string
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </span>
+                        test
+                      </h4>
+                      <div
+                        class="OverviewCard-text css-kl66ak"
+                        data-testid="overview-card-body-description"
+                      />
                     </div>
+                  </div>
+                  <div
+                    class="css-197a1cq"
+                    data-testid="overview-card-body-footer"
+                  >
+                    <h6
+                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      1 June 2021
+                    </h6>
+                    <span
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-testid="card-link"
+                      role="button"
+                      tabindex="0"
+                      type="button"
+                    >
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </span>
                   </div>
                   <span
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -1336,52 +1368,56 @@ exports[`CardCollectionSection component Renders correctly When heading 5 is pre
                 data-testid="card-collection-grid-item-test"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test - a string","action":"/no/"}"
-                  data-testid="card-collection-section-item-test"
                   href="/no/"
                   tabindex="0"
                   type="button"
                 >
                   <div
-                    class="OverviewCard-body"
+                    class="OverviewCard-main"
+                    data-testid="overview-card-main"
                   >
                     <div
-                      class="OverviewCard-brandLogo"
-                    />
-                    <h4
-                      class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
-                      data-testid="overview-card-body-title"
+                      class="OverviewCard-body"
                     >
-                      test
-                    </h4>
-                    <div
-                      class="OverviewCard-text css-kl66ak"
-                      data-testid="overview-card-body-description"
-                    />
-                    <div
-                      class="css-ekp6jg"
-                      data-testid="overview-card-body-footer"
-                    >
-                      <h6
-                        class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
-                        data-testid="typography"
+                      <div
+                        class="OverviewCard-brandLogo"
+                      />
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
+                        data-testid="overview-card-body-title"
                       >
-                        1 June 2021
-                      </h6>
-                      <span
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                        data-testid="card-link"
-                        role="button"
-                        tabindex="0"
-                        type="button"
-                      >
-                        a string
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </span>
+                        test
+                      </h4>
+                      <div
+                        class="OverviewCard-text css-kl66ak"
+                        data-testid="overview-card-body-description"
+                      />
                     </div>
+                  </div>
+                  <div
+                    class="css-197a1cq"
+                    data-testid="overview-card-body-footer"
+                  >
+                    <h6
+                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      1 June 2021
+                    </h6>
+                    <span
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-testid="card-link"
+                      role="button"
+                      tabindex="0"
+                      type="button"
+                    >
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </span>
                   </div>
                   <span
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -1493,52 +1529,56 @@ exports[`CardCollectionSection component Renders correctly When heading 6 is pre
                 data-testid="card-collection-grid-item-test"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test - a string","action":"/no/"}"
-                  data-testid="card-collection-section-item-test"
                   href="/no/"
                   tabindex="0"
                   type="button"
                 >
                   <div
-                    class="OverviewCard-body"
+                    class="OverviewCard-main"
+                    data-testid="overview-card-main"
                   >
                     <div
-                      class="OverviewCard-brandLogo"
-                    />
-                    <h4
-                      class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
-                      data-testid="overview-card-body-title"
+                      class="OverviewCard-body"
                     >
-                      test
-                    </h4>
-                    <div
-                      class="OverviewCard-text css-kl66ak"
-                      data-testid="overview-card-body-description"
-                    />
-                    <div
-                      class="css-ekp6jg"
-                      data-testid="overview-card-body-footer"
-                    >
-                      <h6
-                        class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
-                        data-testid="typography"
+                      <div
+                        class="OverviewCard-brandLogo"
+                      />
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
+                        data-testid="overview-card-body-title"
                       >
-                        1 June 2021
-                      </h6>
-                      <span
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                        data-testid="card-link"
-                        role="button"
-                        tabindex="0"
-                        type="button"
-                      >
-                        a string
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </span>
+                        test
+                      </h4>
+                      <div
+                        class="OverviewCard-text css-kl66ak"
+                        data-testid="overview-card-body-description"
+                      />
                     </div>
+                  </div>
+                  <div
+                    class="css-197a1cq"
+                    data-testid="overview-card-body-footer"
+                  >
+                    <h6
+                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      1 June 2021
+                    </h6>
+                    <span
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-testid="card-link"
+                      role="button"
+                      tabindex="0"
+                      type="button"
+                    >
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </span>
                   </div>
                   <span
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -1648,52 +1688,56 @@ exports[`CardCollectionSection component Renders correctly When text length = 0 
                 data-testid="card-collection-grid-item-test"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test - a string","action":"/no/"}"
-                  data-testid="card-collection-section-item-test"
                   href="/no/"
                   tabindex="0"
                   type="button"
                 >
                   <div
-                    class="OverviewCard-body"
+                    class="OverviewCard-main"
+                    data-testid="overview-card-main"
                   >
                     <div
-                      class="OverviewCard-brandLogo"
-                    />
-                    <h4
-                      class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
-                      data-testid="overview-card-body-title"
+                      class="OverviewCard-body"
                     >
-                      test
-                    </h4>
-                    <div
-                      class="OverviewCard-text css-kl66ak"
-                      data-testid="overview-card-body-description"
-                    />
-                    <div
-                      class="css-ekp6jg"
-                      data-testid="overview-card-body-footer"
-                    >
-                      <h6
-                        class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
-                        data-testid="typography"
+                      <div
+                        class="OverviewCard-brandLogo"
+                      />
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
+                        data-testid="overview-card-body-title"
                       >
-                        1 June 2021
-                      </h6>
-                      <span
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                        data-testid="card-link"
-                        role="button"
-                        tabindex="0"
-                        type="button"
-                      >
-                        a string
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </span>
+                        test
+                      </h4>
+                      <div
+                        class="OverviewCard-text css-kl66ak"
+                        data-testid="overview-card-body-description"
+                      />
                     </div>
+                  </div>
+                  <div
+                    class="css-197a1cq"
+                    data-testid="overview-card-body-footer"
+                  >
+                    <h6
+                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      1 June 2021
+                    </h6>
+                    <span
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-testid="card-link"
+                      role="button"
+                      tabindex="0"
+                      type="button"
+                    >
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </span>
                   </div>
                   <span
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -1825,31 +1869,34 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                 data-testid="card-collection-grid-item-1234"
               >
                 <div
-                  class=" MuiBox-root css-13ealx6"
-                  data-testid="card-collection-section-item-Villain-1"
-                  type="button"
+                  class=" MuiBox-root css-mnk4x4"
                 >
                   <div
-                    class="OverviewCard-body"
+                    class="OverviewCard-main"
+                    data-testid="overview-card-main"
                   >
                     <div
-                      class="OverviewCard-brandLogo"
-                    />
-                    <h4
-                      class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
-                      data-testid="overview-card-body-title"
+                      class="OverviewCard-body"
                     >
-                      Villain 1
-                    </h4>
-                    <div
-                      class="OverviewCard-text css-kl66ak"
-                      data-testid="overview-card-body-description"
-                    />
-                    <div
-                      class="css-ekp6jg"
-                      data-testid="overview-card-body-footer"
-                    />
+                      <div
+                        class="OverviewCard-brandLogo"
+                      />
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
+                        data-testid="overview-card-body-title"
+                      >
+                        Villain 1
+                      </h4>
+                      <div
+                        class="OverviewCard-text css-kl66ak"
+                        data-testid="overview-card-body-description"
+                      />
+                    </div>
                   </div>
+                  <div
+                    class="css-197a1cq"
+                    data-testid="overview-card-body-footer"
+                  />
                 </div>
               </div>
               <div
@@ -1857,52 +1904,56 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                 data-testid="card-collection-grid-item-test"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test - a string","action":"/no/"}"
-                  data-testid="card-collection-section-item-test"
                   href="/no/"
                   tabindex="0"
                   type="button"
                 >
                   <div
-                    class="OverviewCard-body"
+                    class="OverviewCard-main"
+                    data-testid="overview-card-main"
                   >
                     <div
-                      class="OverviewCard-brandLogo"
-                    />
-                    <h4
-                      class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
-                      data-testid="overview-card-body-title"
+                      class="OverviewCard-body"
                     >
-                      test
-                    </h4>
-                    <div
-                      class="OverviewCard-text css-kl66ak"
-                      data-testid="overview-card-body-description"
-                    />
-                    <div
-                      class="css-ekp6jg"
-                      data-testid="overview-card-body-footer"
-                    >
-                      <h6
-                        class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
-                        data-testid="typography"
+                      <div
+                        class="OverviewCard-brandLogo"
+                      />
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
+                        data-testid="overview-card-body-title"
                       >
-                        1 June 2021
-                      </h6>
-                      <span
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                        data-testid="card-link"
-                        role="button"
-                        tabindex="0"
-                        type="button"
-                      >
-                        a string
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </span>
+                        test
+                      </h4>
+                      <div
+                        class="OverviewCard-text css-kl66ak"
+                        data-testid="overview-card-body-description"
+                      />
                     </div>
+                  </div>
+                  <div
+                    class="css-197a1cq"
+                    data-testid="overview-card-body-footer"
+                  >
+                    <h6
+                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      1 June 2021
+                    </h6>
+                    <span
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-testid="card-link"
+                      role="button"
+                      tabindex="0"
+                      type="button"
+                    >
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </span>
                   </div>
                   <span
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -1914,52 +1965,56 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                 data-testid="card-collection-grid-item-test 2"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/no/"}"
-                  data-testid="card-collection-section-item-test-2"
                   href="/no/"
                   tabindex="0"
                   type="button"
                 >
                   <div
-                    class="OverviewCard-body"
+                    class="OverviewCard-main"
+                    data-testid="overview-card-main"
                   >
                     <div
-                      class="OverviewCard-brandLogo"
-                    />
-                    <h4
-                      class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
-                      data-testid="overview-card-body-title"
+                      class="OverviewCard-body"
                     >
-                      test 2
-                    </h4>
-                    <div
-                      class="OverviewCard-text css-kl66ak"
-                      data-testid="overview-card-body-description"
-                    />
-                    <div
-                      class="css-ekp6jg"
-                      data-testid="overview-card-body-footer"
-                    >
-                      <h6
-                        class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
-                        data-testid="typography"
+                      <div
+                        class="OverviewCard-brandLogo"
+                      />
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
+                        data-testid="overview-card-body-title"
                       >
-                        2 June 2021
-                      </h6>
-                      <span
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                        data-testid="card-link"
-                        role="button"
-                        tabindex="0"
-                        type="button"
-                      >
-                        a string
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </span>
+                        test 2
+                      </h4>
+                      <div
+                        class="OverviewCard-text css-kl66ak"
+                        data-testid="overview-card-body-description"
+                      />
                     </div>
+                  </div>
+                  <div
+                    class="css-197a1cq"
+                    data-testid="overview-card-body-footer"
+                  >
+                    <h6
+                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      2 June 2021
+                    </h6>
+                    <span
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-testid="card-link"
+                      role="button"
+                      tabindex="0"
+                      type="button"
+                    >
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </span>
                   </div>
                   <span
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -1971,52 +2026,56 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                 data-testid="card-collection-grid-item-test 3"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/no/"}"
-                  data-testid="card-collection-section-item-test-3"
                   href="/no/"
                   tabindex="0"
                   type="button"
                 >
                   <div
-                    class="OverviewCard-body"
+                    class="OverviewCard-main"
+                    data-testid="overview-card-main"
                   >
                     <div
-                      class="OverviewCard-brandLogo"
-                    />
-                    <h4
-                      class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
-                      data-testid="overview-card-body-title"
+                      class="OverviewCard-body"
                     >
-                      test 3
-                    </h4>
-                    <div
-                      class="OverviewCard-text css-kl66ak"
-                      data-testid="overview-card-body-description"
-                    />
-                    <div
-                      class="css-ekp6jg"
-                      data-testid="overview-card-body-footer"
-                    >
-                      <h6
-                        class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
-                        data-testid="typography"
+                      <div
+                        class="OverviewCard-brandLogo"
+                      />
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
+                        data-testid="overview-card-body-title"
                       >
-                        3 June 2021
-                      </h6>
-                      <span
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                        data-testid="card-link"
-                        role="button"
-                        tabindex="0"
-                        type="button"
-                      >
-                        a string
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </span>
+                        test 3
+                      </h4>
+                      <div
+                        class="OverviewCard-text css-kl66ak"
+                        data-testid="overview-card-body-description"
+                      />
                     </div>
+                  </div>
+                  <div
+                    class="css-197a1cq"
+                    data-testid="overview-card-body-footer"
+                  >
+                    <h6
+                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      3 June 2021
+                    </h6>
+                    <span
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-testid="card-link"
+                      role="button"
+                      tabindex="0"
+                      type="button"
+                    >
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </span>
                   </div>
                   <span
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -2148,52 +2207,56 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                 data-testid="card-collection-grid-item-test 3"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/no/"}"
-                  data-testid="card-collection-section-item-test-3"
                   href="/no/"
                   tabindex="0"
                   type="button"
                 >
                   <div
-                    class="OverviewCard-body"
+                    class="OverviewCard-main"
+                    data-testid="overview-card-main"
                   >
                     <div
-                      class="OverviewCard-brandLogo"
-                    />
-                    <h4
-                      class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
-                      data-testid="overview-card-body-title"
+                      class="OverviewCard-body"
                     >
-                      test 3
-                    </h4>
-                    <div
-                      class="OverviewCard-text css-kl66ak"
-                      data-testid="overview-card-body-description"
-                    />
-                    <div
-                      class="css-ekp6jg"
-                      data-testid="overview-card-body-footer"
-                    >
-                      <h6
-                        class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
-                        data-testid="typography"
+                      <div
+                        class="OverviewCard-brandLogo"
+                      />
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
+                        data-testid="overview-card-body-title"
                       >
-                        3 June 2021
-                      </h6>
-                      <span
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                        data-testid="card-link"
-                        role="button"
-                        tabindex="0"
-                        type="button"
-                      >
-                        a string
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </span>
+                        test 3
+                      </h4>
+                      <div
+                        class="OverviewCard-text css-kl66ak"
+                        data-testid="overview-card-body-description"
+                      />
                     </div>
+                  </div>
+                  <div
+                    class="css-197a1cq"
+                    data-testid="overview-card-body-footer"
+                  >
+                    <h6
+                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      3 June 2021
+                    </h6>
+                    <span
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-testid="card-link"
+                      role="button"
+                      tabindex="0"
+                      type="button"
+                    >
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </span>
                   </div>
                   <span
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -2205,52 +2268,56 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                 data-testid="card-collection-grid-item-test 2"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/no/"}"
-                  data-testid="card-collection-section-item-test-2"
                   href="/no/"
                   tabindex="0"
                   type="button"
                 >
                   <div
-                    class="OverviewCard-body"
+                    class="OverviewCard-main"
+                    data-testid="overview-card-main"
                   >
                     <div
-                      class="OverviewCard-brandLogo"
-                    />
-                    <h4
-                      class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
-                      data-testid="overview-card-body-title"
+                      class="OverviewCard-body"
                     >
-                      test 2
-                    </h4>
-                    <div
-                      class="OverviewCard-text css-kl66ak"
-                      data-testid="overview-card-body-description"
-                    />
-                    <div
-                      class="css-ekp6jg"
-                      data-testid="overview-card-body-footer"
-                    >
-                      <h6
-                        class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
-                        data-testid="typography"
+                      <div
+                        class="OverviewCard-brandLogo"
+                      />
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
+                        data-testid="overview-card-body-title"
                       >
-                        2 June 2021
-                      </h6>
-                      <span
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                        data-testid="card-link"
-                        role="button"
-                        tabindex="0"
-                        type="button"
-                      >
-                        a string
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </span>
+                        test 2
+                      </h4>
+                      <div
+                        class="OverviewCard-text css-kl66ak"
+                        data-testid="overview-card-body-description"
+                      />
                     </div>
+                  </div>
+                  <div
+                    class="css-197a1cq"
+                    data-testid="overview-card-body-footer"
+                  >
+                    <h6
+                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      2 June 2021
+                    </h6>
+                    <span
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-testid="card-link"
+                      role="button"
+                      tabindex="0"
+                      type="button"
+                    >
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </span>
                   </div>
                   <span
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -2262,52 +2329,56 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                 data-testid="card-collection-grid-item-test"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test - a string","action":"/no/"}"
-                  data-testid="card-collection-section-item-test"
                   href="/no/"
                   tabindex="0"
                   type="button"
                 >
                   <div
-                    class="OverviewCard-body"
+                    class="OverviewCard-main"
+                    data-testid="overview-card-main"
                   >
                     <div
-                      class="OverviewCard-brandLogo"
-                    />
-                    <h4
-                      class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
-                      data-testid="overview-card-body-title"
+                      class="OverviewCard-body"
                     >
-                      test
-                    </h4>
-                    <div
-                      class="OverviewCard-text css-kl66ak"
-                      data-testid="overview-card-body-description"
-                    />
-                    <div
-                      class="css-ekp6jg"
-                      data-testid="overview-card-body-footer"
-                    >
-                      <h6
-                        class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
-                        data-testid="typography"
+                      <div
+                        class="OverviewCard-brandLogo"
+                      />
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
+                        data-testid="overview-card-body-title"
                       >
-                        1 June 2021
-                      </h6>
-                      <span
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                        data-testid="card-link"
-                        role="button"
-                        tabindex="0"
-                        type="button"
-                      >
-                        a string
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </span>
+                        test
+                      </h4>
+                      <div
+                        class="OverviewCard-text css-kl66ak"
+                        data-testid="overview-card-body-description"
+                      />
                     </div>
+                  </div>
+                  <div
+                    class="css-197a1cq"
+                    data-testid="overview-card-body-footer"
+                  >
+                    <h6
+                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      1 June 2021
+                    </h6>
+                    <span
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-testid="card-link"
+                      role="button"
+                      tabindex="0"
+                      type="button"
+                    >
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </span>
                   </div>
                   <span
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -2319,31 +2390,34 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                 data-testid="card-collection-grid-item-1234"
               >
                 <div
-                  class=" MuiBox-root css-13ealx6"
-                  data-testid="card-collection-section-item-Villain-1"
-                  type="button"
+                  class=" MuiBox-root css-mnk4x4"
                 >
                   <div
-                    class="OverviewCard-body"
+                    class="OverviewCard-main"
+                    data-testid="overview-card-main"
                   >
                     <div
-                      class="OverviewCard-brandLogo"
-                    />
-                    <h4
-                      class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
-                      data-testid="overview-card-body-title"
+                      class="OverviewCard-body"
                     >
-                      Villain 1
-                    </h4>
-                    <div
-                      class="OverviewCard-text css-kl66ak"
-                      data-testid="overview-card-body-description"
-                    />
-                    <div
-                      class="css-ekp6jg"
-                      data-testid="overview-card-body-footer"
-                    />
+                      <div
+                        class="OverviewCard-brandLogo"
+                      />
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
+                        data-testid="overview-card-body-title"
+                      >
+                        Villain 1
+                      </h4>
+                      <div
+                        class="OverviewCard-text css-kl66ak"
+                        data-testid="overview-card-body-description"
+                      />
+                    </div>
                   </div>
+                  <div
+                    class="css-197a1cq"
+                    data-testid="overview-card-body-footer"
+                  />
                 </div>
               </div>
             </div>
@@ -2471,52 +2545,56 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                 data-testid="card-collection-grid-item-test"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test - a string","action":"/no/"}"
-                  data-testid="card-collection-section-item-test"
                   href="/no/"
                   tabindex="0"
                   type="button"
                 >
                   <div
-                    class="OverviewCard-body"
+                    class="OverviewCard-main"
+                    data-testid="overview-card-main"
                   >
                     <div
-                      class="OverviewCard-brandLogo"
-                    />
-                    <h4
-                      class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
-                      data-testid="overview-card-body-title"
+                      class="OverviewCard-body"
                     >
-                      test
-                    </h4>
-                    <div
-                      class="OverviewCard-text css-kl66ak"
-                      data-testid="overview-card-body-description"
-                    />
-                    <div
-                      class="css-ekp6jg"
-                      data-testid="overview-card-body-footer"
-                    >
-                      <h6
-                        class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
-                        data-testid="typography"
+                      <div
+                        class="OverviewCard-brandLogo"
+                      />
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
+                        data-testid="overview-card-body-title"
                       >
-                        1 June 2021
-                      </h6>
-                      <span
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                        data-testid="card-link"
-                        role="button"
-                        tabindex="0"
-                        type="button"
-                      >
-                        a string
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </span>
+                        test
+                      </h4>
+                      <div
+                        class="OverviewCard-text css-kl66ak"
+                        data-testid="overview-card-body-description"
+                      />
                     </div>
+                  </div>
+                  <div
+                    class="css-197a1cq"
+                    data-testid="overview-card-body-footer"
+                  >
+                    <h6
+                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      1 June 2021
+                    </h6>
+                    <span
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-testid="card-link"
+                      role="button"
+                      tabindex="0"
+                      type="button"
+                    >
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </span>
                   </div>
                   <span
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -2528,52 +2606,56 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                 data-testid="card-collection-grid-item-test 2"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/no/"}"
-                  data-testid="card-collection-section-item-test-2"
                   href="/no/"
                   tabindex="0"
                   type="button"
                 >
                   <div
-                    class="OverviewCard-body"
+                    class="OverviewCard-main"
+                    data-testid="overview-card-main"
                   >
                     <div
-                      class="OverviewCard-brandLogo"
-                    />
-                    <h4
-                      class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
-                      data-testid="overview-card-body-title"
+                      class="OverviewCard-body"
                     >
-                      test 2
-                    </h4>
-                    <div
-                      class="OverviewCard-text css-kl66ak"
-                      data-testid="overview-card-body-description"
-                    />
-                    <div
-                      class="css-ekp6jg"
-                      data-testid="overview-card-body-footer"
-                    >
-                      <h6
-                        class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
-                        data-testid="typography"
+                      <div
+                        class="OverviewCard-brandLogo"
+                      />
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
+                        data-testid="overview-card-body-title"
                       >
-                        2 June 2021
-                      </h6>
-                      <span
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                        data-testid="card-link"
-                        role="button"
-                        tabindex="0"
-                        type="button"
-                      >
-                        a string
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </span>
+                        test 2
+                      </h4>
+                      <div
+                        class="OverviewCard-text css-kl66ak"
+                        data-testid="overview-card-body-description"
+                      />
                     </div>
+                  </div>
+                  <div
+                    class="css-197a1cq"
+                    data-testid="overview-card-body-footer"
+                  >
+                    <h6
+                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      2 June 2021
+                    </h6>
+                    <span
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-testid="card-link"
+                      role="button"
+                      tabindex="0"
+                      type="button"
+                    >
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </span>
                   </div>
                   <span
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -2585,52 +2667,56 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                 data-testid="card-collection-grid-item-test 3"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/no/"}"
-                  data-testid="card-collection-section-item-test-3"
                   href="/no/"
                   tabindex="0"
                   type="button"
                 >
                   <div
-                    class="OverviewCard-body"
+                    class="OverviewCard-main"
+                    data-testid="overview-card-main"
                   >
                     <div
-                      class="OverviewCard-brandLogo"
-                    />
-                    <h4
-                      class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
-                      data-testid="overview-card-body-title"
+                      class="OverviewCard-body"
                     >
-                      test 3
-                    </h4>
-                    <div
-                      class="OverviewCard-text css-kl66ak"
-                      data-testid="overview-card-body-description"
-                    />
-                    <div
-                      class="css-ekp6jg"
-                      data-testid="overview-card-body-footer"
-                    >
-                      <h6
-                        class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
-                        data-testid="typography"
+                      <div
+                        class="OverviewCard-brandLogo"
+                      />
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
+                        data-testid="overview-card-body-title"
                       >
-                        3 June 2021
-                      </h6>
-                      <span
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                        data-testid="card-link"
-                        role="button"
-                        tabindex="0"
-                        type="button"
-                      >
-                        a string
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </span>
+                        test 3
+                      </h4>
+                      <div
+                        class="OverviewCard-text css-kl66ak"
+                        data-testid="overview-card-body-description"
+                      />
                     </div>
+                  </div>
+                  <div
+                    class="css-197a1cq"
+                    data-testid="overview-card-body-footer"
+                  >
+                    <h6
+                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      3 June 2021
+                    </h6>
+                    <span
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-testid="card-link"
+                      role="button"
+                      tabindex="0"
+                      type="button"
+                    >
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </span>
                   </div>
                   <span
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -2642,31 +2728,34 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                 data-testid="card-collection-grid-item-1234"
               >
                 <div
-                  class=" MuiBox-root css-13ealx6"
-                  data-testid="card-collection-section-item-Villain-1"
-                  type="button"
+                  class=" MuiBox-root css-mnk4x4"
                 >
                   <div
-                    class="OverviewCard-body"
+                    class="OverviewCard-main"
+                    data-testid="overview-card-main"
                   >
                     <div
-                      class="OverviewCard-brandLogo"
-                    />
-                    <h4
-                      class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
-                      data-testid="overview-card-body-title"
+                      class="OverviewCard-body"
                     >
-                      Villain 1
-                    </h4>
-                    <div
-                      class="OverviewCard-text css-kl66ak"
-                      data-testid="overview-card-body-description"
-                    />
-                    <div
-                      class="css-ekp6jg"
-                      data-testid="overview-card-body-footer"
-                    />
+                      <div
+                        class="OverviewCard-brandLogo"
+                      />
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
+                        data-testid="overview-card-body-title"
+                      >
+                        Villain 1
+                      </h4>
+                      <div
+                        class="OverviewCard-text css-kl66ak"
+                        data-testid="overview-card-body-description"
+                      />
+                    </div>
                   </div>
+                  <div
+                    class="css-197a1cq"
+                    data-testid="overview-card-body-footer"
+                  />
                 </div>
               </div>
             </div>
@@ -2794,52 +2883,56 @@ exports[`CardCollectionSection component single & multiple row display renders c
                 data-testid="card-collection-grid-item-test"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test - a string","action":"/no/"}"
-                  data-testid="card-collection-section-item-test"
                   href="/no/"
                   tabindex="0"
                   type="button"
                 >
                   <div
-                    class="OverviewCard-body"
+                    class="OverviewCard-main"
+                    data-testid="overview-card-main"
                   >
                     <div
-                      class="OverviewCard-brandLogo"
-                    />
-                    <h4
-                      class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
-                      data-testid="overview-card-body-title"
+                      class="OverviewCard-body"
                     >
-                      test
-                    </h4>
-                    <div
-                      class="OverviewCard-text css-kl66ak"
-                      data-testid="overview-card-body-description"
-                    />
-                    <div
-                      class="css-ekp6jg"
-                      data-testid="overview-card-body-footer"
-                    >
-                      <h6
-                        class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
-                        data-testid="typography"
+                      <div
+                        class="OverviewCard-brandLogo"
+                      />
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
+                        data-testid="overview-card-body-title"
                       >
-                        1 June 2021
-                      </h6>
-                      <span
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                        data-testid="card-link"
-                        role="button"
-                        tabindex="0"
-                        type="button"
-                      >
-                        a string
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </span>
+                        test
+                      </h4>
+                      <div
+                        class="OverviewCard-text css-kl66ak"
+                        data-testid="overview-card-body-description"
+                      />
                     </div>
+                  </div>
+                  <div
+                    class="css-197a1cq"
+                    data-testid="overview-card-body-footer"
+                  >
+                    <h6
+                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      1 June 2021
+                    </h6>
+                    <span
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-testid="card-link"
+                      role="button"
+                      tabindex="0"
+                      type="button"
+                    >
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </span>
                   </div>
                   <span
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -2851,52 +2944,56 @@ exports[`CardCollectionSection component single & multiple row display renders c
                 data-testid="card-collection-grid-item-test 2"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/no/"}"
-                  data-testid="card-collection-section-item-test-2"
                   href="/no/"
                   tabindex="0"
                   type="button"
                 >
                   <div
-                    class="OverviewCard-body"
+                    class="OverviewCard-main"
+                    data-testid="overview-card-main"
                   >
                     <div
-                      class="OverviewCard-brandLogo"
-                    />
-                    <h4
-                      class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
-                      data-testid="overview-card-body-title"
+                      class="OverviewCard-body"
                     >
-                      test 2
-                    </h4>
-                    <div
-                      class="OverviewCard-text css-kl66ak"
-                      data-testid="overview-card-body-description"
-                    />
-                    <div
-                      class="css-ekp6jg"
-                      data-testid="overview-card-body-footer"
-                    >
-                      <h6
-                        class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
-                        data-testid="typography"
+                      <div
+                        class="OverviewCard-brandLogo"
+                      />
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
+                        data-testid="overview-card-body-title"
                       >
-                        2 June 2021
-                      </h6>
-                      <span
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                        data-testid="card-link"
-                        role="button"
-                        tabindex="0"
-                        type="button"
-                      >
-                        a string
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </span>
+                        test 2
+                      </h4>
+                      <div
+                        class="OverviewCard-text css-kl66ak"
+                        data-testid="overview-card-body-description"
+                      />
                     </div>
+                  </div>
+                  <div
+                    class="css-197a1cq"
+                    data-testid="overview-card-body-footer"
+                  >
+                    <h6
+                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      2 June 2021
+                    </h6>
+                    <span
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-testid="card-link"
+                      role="button"
+                      tabindex="0"
+                      type="button"
+                    >
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </span>
                   </div>
                   <span
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -2908,52 +3005,56 @@ exports[`CardCollectionSection component single & multiple row display renders c
                 data-testid="card-collection-grid-item-test 3"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/no/"}"
-                  data-testid="card-collection-section-item-test-3"
                   href="/no/"
                   tabindex="0"
                   type="button"
                 >
                   <div
-                    class="OverviewCard-body"
+                    class="OverviewCard-main"
+                    data-testid="overview-card-main"
                   >
                     <div
-                      class="OverviewCard-brandLogo"
-                    />
-                    <h4
-                      class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
-                      data-testid="overview-card-body-title"
+                      class="OverviewCard-body"
                     >
-                      test 3
-                    </h4>
-                    <div
-                      class="OverviewCard-text css-kl66ak"
-                      data-testid="overview-card-body-description"
-                    />
-                    <div
-                      class="css-ekp6jg"
-                      data-testid="overview-card-body-footer"
-                    >
-                      <h6
-                        class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
-                        data-testid="typography"
+                      <div
+                        class="OverviewCard-brandLogo"
+                      />
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
+                        data-testid="overview-card-body-title"
                       >
-                        3 June 2021
-                      </h6>
-                      <span
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                        data-testid="card-link"
-                        role="button"
-                        tabindex="0"
-                        type="button"
-                      >
-                        a string
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </span>
+                        test 3
+                      </h4>
+                      <div
+                        class="OverviewCard-text css-kl66ak"
+                        data-testid="overview-card-body-description"
+                      />
                     </div>
+                  </div>
+                  <div
+                    class="css-197a1cq"
+                    data-testid="overview-card-body-footer"
+                  >
+                    <h6
+                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      3 June 2021
+                    </h6>
+                    <span
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-testid="card-link"
+                      role="button"
+                      tabindex="0"
+                      type="button"
+                    >
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </span>
                   </div>
                   <span
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -2965,31 +3066,34 @@ exports[`CardCollectionSection component single & multiple row display renders c
                 data-testid="card-collection-grid-item-1234"
               >
                 <div
-                  class=" MuiBox-root css-13ealx6"
-                  data-testid="card-collection-section-item-Villain-1"
-                  type="button"
+                  class=" MuiBox-root css-mnk4x4"
                 >
                   <div
-                    class="OverviewCard-body"
+                    class="OverviewCard-main"
+                    data-testid="overview-card-main"
                   >
                     <div
-                      class="OverviewCard-brandLogo"
-                    />
-                    <h4
-                      class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
-                      data-testid="overview-card-body-title"
+                      class="OverviewCard-body"
                     >
-                      Villain 1
-                    </h4>
-                    <div
-                      class="OverviewCard-text css-kl66ak"
-                      data-testid="overview-card-body-description"
-                    />
-                    <div
-                      class="css-ekp6jg"
-                      data-testid="overview-card-body-footer"
-                    />
+                      <div
+                        class="OverviewCard-brandLogo"
+                      />
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
+                        data-testid="overview-card-body-title"
+                      >
+                        Villain 1
+                      </h4>
+                      <div
+                        class="OverviewCard-text css-kl66ak"
+                        data-testid="overview-card-body-description"
+                      />
+                    </div>
                   </div>
+                  <div
+                    class="css-197a1cq"
+                    data-testid="overview-card-body-footer"
+                  />
                 </div>
               </div>
             </div>
@@ -3117,52 +3221,56 @@ exports[`CardCollectionSection component single & multiple row display renders c
                 data-testid="card-collection-grid-item-test"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test - a string","action":"/no/"}"
-                  data-testid="card-collection-section-item-test"
                   href="/no/"
                   tabindex="0"
                   type="button"
                 >
                   <div
-                    class="OverviewCard-body"
+                    class="OverviewCard-main"
+                    data-testid="overview-card-main"
                   >
                     <div
-                      class="OverviewCard-brandLogo"
-                    />
-                    <h4
-                      class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
-                      data-testid="overview-card-body-title"
+                      class="OverviewCard-body"
                     >
-                      test
-                    </h4>
-                    <div
-                      class="OverviewCard-text css-kl66ak"
-                      data-testid="overview-card-body-description"
-                    />
-                    <div
-                      class="css-ekp6jg"
-                      data-testid="overview-card-body-footer"
-                    >
-                      <h6
-                        class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
-                        data-testid="typography"
+                      <div
+                        class="OverviewCard-brandLogo"
+                      />
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
+                        data-testid="overview-card-body-title"
                       >
-                        1 June 2021
-                      </h6>
-                      <span
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                        data-testid="card-link"
-                        role="button"
-                        tabindex="0"
-                        type="button"
-                      >
-                        a string
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </span>
+                        test
+                      </h4>
+                      <div
+                        class="OverviewCard-text css-kl66ak"
+                        data-testid="overview-card-body-description"
+                      />
                     </div>
+                  </div>
+                  <div
+                    class="css-197a1cq"
+                    data-testid="overview-card-body-footer"
+                  >
+                    <h6
+                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      1 June 2021
+                    </h6>
+                    <span
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-testid="card-link"
+                      role="button"
+                      tabindex="0"
+                      type="button"
+                    >
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </span>
                   </div>
                   <span
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -3174,52 +3282,56 @@ exports[`CardCollectionSection component single & multiple row display renders c
                 data-testid="card-collection-grid-item-test 2"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/no/"}"
-                  data-testid="card-collection-section-item-test-2"
                   href="/no/"
                   tabindex="0"
                   type="button"
                 >
                   <div
-                    class="OverviewCard-body"
+                    class="OverviewCard-main"
+                    data-testid="overview-card-main"
                   >
                     <div
-                      class="OverviewCard-brandLogo"
-                    />
-                    <h4
-                      class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
-                      data-testid="overview-card-body-title"
+                      class="OverviewCard-body"
                     >
-                      test 2
-                    </h4>
-                    <div
-                      class="OverviewCard-text css-kl66ak"
-                      data-testid="overview-card-body-description"
-                    />
-                    <div
-                      class="css-ekp6jg"
-                      data-testid="overview-card-body-footer"
-                    >
-                      <h6
-                        class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
-                        data-testid="typography"
+                      <div
+                        class="OverviewCard-brandLogo"
+                      />
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
+                        data-testid="overview-card-body-title"
                       >
-                        2 June 2021
-                      </h6>
-                      <span
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                        data-testid="card-link"
-                        role="button"
-                        tabindex="0"
-                        type="button"
-                      >
-                        a string
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </span>
+                        test 2
+                      </h4>
+                      <div
+                        class="OverviewCard-text css-kl66ak"
+                        data-testid="overview-card-body-description"
+                      />
                     </div>
+                  </div>
+                  <div
+                    class="css-197a1cq"
+                    data-testid="overview-card-body-footer"
+                  >
+                    <h6
+                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      2 June 2021
+                    </h6>
+                    <span
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-testid="card-link"
+                      role="button"
+                      tabindex="0"
+                      type="button"
+                    >
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </span>
                   </div>
                   <span
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -3231,52 +3343,56 @@ exports[`CardCollectionSection component single & multiple row display renders c
                 data-testid="card-collection-grid-item-test 3"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/no/"}"
-                  data-testid="card-collection-section-item-test-3"
                   href="/no/"
                   tabindex="0"
                   type="button"
                 >
                   <div
-                    class="OverviewCard-body"
+                    class="OverviewCard-main"
+                    data-testid="overview-card-main"
                   >
                     <div
-                      class="OverviewCard-brandLogo"
-                    />
-                    <h4
-                      class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
-                      data-testid="overview-card-body-title"
+                      class="OverviewCard-body"
                     >
-                      test 3
-                    </h4>
-                    <div
-                      class="OverviewCard-text css-kl66ak"
-                      data-testid="overview-card-body-description"
-                    />
-                    <div
-                      class="css-ekp6jg"
-                      data-testid="overview-card-body-footer"
-                    >
-                      <h6
-                        class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
-                        data-testid="typography"
+                      <div
+                        class="OverviewCard-brandLogo"
+                      />
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
+                        data-testid="overview-card-body-title"
                       >
-                        3 June 2021
-                      </h6>
-                      <span
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                        data-testid="card-link"
-                        role="button"
-                        tabindex="0"
-                        type="button"
-                      >
-                        a string
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </span>
+                        test 3
+                      </h4>
+                      <div
+                        class="OverviewCard-text css-kl66ak"
+                        data-testid="overview-card-body-description"
+                      />
                     </div>
+                  </div>
+                  <div
+                    class="css-197a1cq"
+                    data-testid="overview-card-body-footer"
+                  >
+                    <h6
+                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      3 June 2021
+                    </h6>
+                    <span
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-testid="card-link"
+                      role="button"
+                      tabindex="0"
+                      type="button"
+                    >
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </span>
                   </div>
                   <span
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -3288,31 +3404,34 @@ exports[`CardCollectionSection component single & multiple row display renders c
                 data-testid="card-collection-grid-item-1234"
               >
                 <div
-                  class=" MuiBox-root css-13ealx6"
-                  data-testid="card-collection-section-item-Villain-1"
-                  type="button"
+                  class=" MuiBox-root css-mnk4x4"
                 >
                   <div
-                    class="OverviewCard-body"
+                    class="OverviewCard-main"
+                    data-testid="overview-card-main"
                   >
                     <div
-                      class="OverviewCard-brandLogo"
-                    />
-                    <h4
-                      class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
-                      data-testid="overview-card-body-title"
+                      class="OverviewCard-body"
                     >
-                      Villain 1
-                    </h4>
-                    <div
-                      class="OverviewCard-text css-kl66ak"
-                      data-testid="overview-card-body-description"
-                    />
-                    <div
-                      class="css-ekp6jg"
-                      data-testid="overview-card-body-footer"
-                    />
+                      <div
+                        class="OverviewCard-brandLogo"
+                      />
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
+                        data-testid="overview-card-body-title"
+                      >
+                        Villain 1
+                      </h4>
+                      <div
+                        class="OverviewCard-text css-kl66ak"
+                        data-testid="overview-card-body-description"
+                      />
+                    </div>
                   </div>
+                  <div
+                    class="css-197a1cq"
+                    data-testid="overview-card-body-footer"
+                  />
                 </div>
               </div>
             </div>
@@ -3432,7 +3551,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
               </button>
             </div>
             <div
-              class="Carousel-wrapperShowOffScreen Carousel-wrapperGutter css-xi64lz"
+              class="Carousel-wrapperShowOffScreen Carousel-wrapperGutter css-1gp2hrh"
             >
               <div
                 class="Carousel-opacity Carousel-carouselGutter Carousel-slideConstantHeight css-1s5ge7u"
@@ -3462,52 +3581,56 @@ exports[`CardCollectionSection component single & multiple row display renders c
                           style="width: 100%;"
                         >
                           <a
-                            class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                            class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                             data-gtm="{"id":"cta-click1","label":"test - a string","action":"/no/"}"
-                            data-testid="card-collection-section-item-test"
                             href="/no/"
                             tabindex="0"
                             type="button"
                           >
                             <div
-                              class="OverviewCard-body"
+                              class="OverviewCard-main"
+                              data-testid="overview-card-main"
                             >
                               <div
-                                class="OverviewCard-brandLogo"
-                              />
-                              <h4
-                                class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
-                                data-testid="overview-card-body-title"
+                                class="OverviewCard-body"
                               >
-                                test
-                              </h4>
-                              <div
-                                class="OverviewCard-text css-kl66ak"
-                                data-testid="overview-card-body-description"
-                              />
-                              <div
-                                class="css-ekp6jg"
-                                data-testid="overview-card-body-footer"
-                              >
-                                <h6
-                                  class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
-                                  data-testid="typography"
+                                <div
+                                  class="OverviewCard-brandLogo"
+                                />
+                                <h4
+                                  class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
+                                  data-testid="overview-card-body-title"
                                 >
-                                  1 June 2021
-                                </h6>
-                                <span
-                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                                  data-testid="card-link"
-                                  role="button"
-                                  tabindex="0"
-                                  type="button"
-                                >
-                                  a string
-                                  <span
-                                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                                  />
-                                </span>
+                                  test
+                                </h4>
+                                <div
+                                  class="OverviewCard-text css-kl66ak"
+                                  data-testid="overview-card-body-description"
+                                />
                               </div>
+                            </div>
+                            <div
+                              class="css-197a1cq"
+                              data-testid="overview-card-body-footer"
+                            >
+                              <h6
+                                class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                                data-testid="typography"
+                              >
+                                1 June 2021
+                              </h6>
+                              <span
+                                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                                data-testid="card-link"
+                                role="button"
+                                tabindex="0"
+                                type="button"
+                              >
+                                a string
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </span>
                             </div>
                             <span
                               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -3532,52 +3655,56 @@ exports[`CardCollectionSection component single & multiple row display renders c
                           style="width: 100%;"
                         >
                           <a
-                            class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                            class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                             data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/no/"}"
-                            data-testid="card-collection-section-item-test-2"
                             href="/no/"
                             tabindex="0"
                             type="button"
                           >
                             <div
-                              class="OverviewCard-body"
+                              class="OverviewCard-main"
+                              data-testid="overview-card-main"
                             >
                               <div
-                                class="OverviewCard-brandLogo"
-                              />
-                              <h4
-                                class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
-                                data-testid="overview-card-body-title"
+                                class="OverviewCard-body"
                               >
-                                test 2
-                              </h4>
-                              <div
-                                class="OverviewCard-text css-kl66ak"
-                                data-testid="overview-card-body-description"
-                              />
-                              <div
-                                class="css-ekp6jg"
-                                data-testid="overview-card-body-footer"
-                              >
-                                <h6
-                                  class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
-                                  data-testid="typography"
+                                <div
+                                  class="OverviewCard-brandLogo"
+                                />
+                                <h4
+                                  class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
+                                  data-testid="overview-card-body-title"
                                 >
-                                  2 June 2021
-                                </h6>
-                                <span
-                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                                  data-testid="card-link"
-                                  role="button"
-                                  tabindex="0"
-                                  type="button"
-                                >
-                                  a string
-                                  <span
-                                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                                  />
-                                </span>
+                                  test 2
+                                </h4>
+                                <div
+                                  class="OverviewCard-text css-kl66ak"
+                                  data-testid="overview-card-body-description"
+                                />
                               </div>
+                            </div>
+                            <div
+                              class="css-197a1cq"
+                              data-testid="overview-card-body-footer"
+                            >
+                              <h6
+                                class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                                data-testid="typography"
+                              >
+                                2 June 2021
+                              </h6>
+                              <span
+                                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                                data-testid="card-link"
+                                role="button"
+                                tabindex="0"
+                                type="button"
+                              >
+                                a string
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </span>
                             </div>
                             <span
                               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -3602,52 +3729,56 @@ exports[`CardCollectionSection component single & multiple row display renders c
                           style="width: 100%;"
                         >
                           <a
-                            class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                            class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                             data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/no/"}"
-                            data-testid="card-collection-section-item-test-3"
                             href="/no/"
                             tabindex="0"
                             type="button"
                           >
                             <div
-                              class="OverviewCard-body"
+                              class="OverviewCard-main"
+                              data-testid="overview-card-main"
                             >
                               <div
-                                class="OverviewCard-brandLogo"
-                              />
-                              <h4
-                                class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
-                                data-testid="overview-card-body-title"
+                                class="OverviewCard-body"
                               >
-                                test 3
-                              </h4>
-                              <div
-                                class="OverviewCard-text css-kl66ak"
-                                data-testid="overview-card-body-description"
-                              />
-                              <div
-                                class="css-ekp6jg"
-                                data-testid="overview-card-body-footer"
-                              >
-                                <h6
-                                  class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
-                                  data-testid="typography"
+                                <div
+                                  class="OverviewCard-brandLogo"
+                                />
+                                <h4
+                                  class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
+                                  data-testid="overview-card-body-title"
                                 >
-                                  3 June 2021
-                                </h6>
-                                <span
-                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                                  data-testid="card-link"
-                                  role="button"
-                                  tabindex="0"
-                                  type="button"
-                                >
-                                  a string
-                                  <span
-                                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                                  />
-                                </span>
+                                  test 3
+                                </h4>
+                                <div
+                                  class="OverviewCard-text css-kl66ak"
+                                  data-testid="overview-card-body-description"
+                                />
                               </div>
+                            </div>
+                            <div
+                              class="css-197a1cq"
+                              data-testid="overview-card-body-footer"
+                            >
+                              <h6
+                                class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                                data-testid="typography"
+                              >
+                                3 June 2021
+                              </h6>
+                              <span
+                                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                                data-testid="card-link"
+                                role="button"
+                                tabindex="0"
+                                type="button"
+                              >
+                                a string
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </span>
                             </div>
                             <span
                               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -3672,31 +3803,34 @@ exports[`CardCollectionSection component single & multiple row display renders c
                           style="width: 100%;"
                         >
                           <div
-                            class=" MuiBox-root css-13ealx6"
-                            data-testid="card-collection-section-item-Villain-1"
-                            type="button"
+                            class=" MuiBox-root css-mnk4x4"
                           >
                             <div
-                              class="OverviewCard-body"
+                              class="OverviewCard-main"
+                              data-testid="overview-card-main"
                             >
                               <div
-                                class="OverviewCard-brandLogo"
-                              />
-                              <h4
-                                class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
-                                data-testid="overview-card-body-title"
+                                class="OverviewCard-body"
                               >
-                                Villain 1
-                              </h4>
-                              <div
-                                class="OverviewCard-text css-kl66ak"
-                                data-testid="overview-card-body-description"
-                              />
-                              <div
-                                class="css-ekp6jg"
-                                data-testid="overview-card-body-footer"
-                              />
+                                <div
+                                  class="OverviewCard-brandLogo"
+                                />
+                                <h4
+                                  class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
+                                  data-testid="overview-card-body-title"
+                                >
+                                  Villain 1
+                                </h4>
+                                <div
+                                  class="OverviewCard-text css-kl66ak"
+                                  data-testid="overview-card-body-description"
+                                />
+                              </div>
                             </div>
+                            <div
+                              class="css-197a1cq"
+                              data-testid="overview-card-body-footer"
+                            />
                           </div>
                         </div>
                       </div>

@@ -2,9 +2,9 @@ import { ThemeProvider } from "@bmi-digital/components";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import MockDate from "mockdate";
 import React from "react";
-import * as ClientDownloadUtils from "../../utils/client-download";
 import createAssetType from "../../__tests__/helpers/AssetTypeHelper";
 import createPimDocument from "../../__tests__/helpers/PimDocumentHelper";
+import * as ClientDownloadUtils from "../../utils/client-download";
 import KeyAssetTypesDownloadSection from "../KeyAssetTypesDownloadSection";
 
 const fetchMock = jest.fn();
@@ -13,11 +13,11 @@ jest.mock("node-fetch", () => {
   return {
     ...original,
     __esModule: true,
-    default: (...config) => fetchMock(...config)
+    default: (...config: unknown[]) => fetchMock(...config)
   };
 });
 
-const getFetchResponse = (response) => ({
+const getFetchResponse = (response: unknown) => ({
   ok: true,
   json: () => response
 });
@@ -38,8 +38,8 @@ jest.mock("react-google-recaptcha-v3", () => ({
   })
 }));
 
-let isPreviewMode;
-let documentDownloadEndpoint;
+let isPreviewMode: boolean;
+let documentDownloadEndpoint: string | undefined;
 jest.mock("../../contexts/ConfigProvider", () => ({
   useConfig: () => ({
     isPreviewMode,
@@ -49,7 +49,7 @@ jest.mock("../../contexts/ConfigProvider", () => ({
 
 const devLog = jest.fn();
 jest.mock("../../utils/devLog", () => ({
-  devLog: (...args) => devLog(...args)
+  devLog: (...args: unknown[]) => devLog(...args)
 }));
 
 const mockedWindowDocumentCookie = jest.spyOn(window.document, "cookie", "get");
@@ -106,7 +106,7 @@ describe("KeyAssetTypesDownloadSection component", () => {
       };
       const assetDocuments = [
         {
-          assetType: document.assetType.pimCode,
+          assetType: document.assetType.pimCode!,
           documents: [document]
         }
       ];
@@ -141,7 +141,7 @@ describe("KeyAssetTypesDownloadSection component", () => {
       };
       const assetDocuments = [
         {
-          assetType: document.assetType.pimCode,
+          assetType: document.assetType.pimCode!,
           documents: [document]
         }
       ];
@@ -175,7 +175,7 @@ describe("KeyAssetTypesDownloadSection component", () => {
 
       const assetDocuments = [
         {
-          assetType: document1.assetType.pimCode,
+          assetType: document1.assetType.pimCode!,
           documents: [document1, document2]
         }
       ];
@@ -241,7 +241,7 @@ describe("KeyAssetTypesDownloadSection component", () => {
 
       const assetDocuments = [
         {
-          assetType: document1.assetType.pimCode,
+          assetType: document1.assetType.pimCode!,
           documents: [document1, document2]
         }
       ];
@@ -303,7 +303,7 @@ describe("KeyAssetTypesDownloadSection component", () => {
 
       const assetDocuments = [
         {
-          assetType: document1.assetType.pimCode,
+          assetType: document1.assetType.pimCode!,
           documents: [document1, document2]
         }
       ];
@@ -339,7 +339,7 @@ describe("KeyAssetTypesDownloadSection component", () => {
 
       const assetDocuments = [
         {
-          assetType: document1.assetType.pimCode,
+          assetType: document1.assetType.pimCode!,
           documents: [document1, document2]
         }
       ];
@@ -372,7 +372,7 @@ describe("KeyAssetTypesDownloadSection component", () => {
       });
       const assetDocuments = [
         {
-          assetType: document1.assetType.pimCode,
+          assetType: document1.assetType.pimCode!,
           documents: [document1, document2]
         }
       ];
@@ -437,7 +437,7 @@ describe("KeyAssetTypesDownloadSection component", () => {
       });
       const assetDocuments = [
         {
-          assetType: document1.assetType.pimCode,
+          assetType: document1.assetType.pimCode!,
           documents: [document1, document2]
         }
       ];

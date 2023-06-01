@@ -2,6 +2,7 @@ import { DataTypeEnum } from "../../../components/Link";
 import { Data as SignUpBlockData } from "../../../components/SignupBlock";
 import createImageData from "../../../__tests__/helpers/ImageDataHelper";
 import { PageContextType } from "../../productListerPage/components/product-lister-page";
+import { SourceType } from "../../../components/types/FormSectionTypes";
 
 export const pageContext: PageContextType = {
   allowFilterBy: [],
@@ -157,6 +158,6 @@ export const signupBlock: SignUpBlockData = {
     ],
     submitText: "signmeup",
     successRedirect: null,
-    source: null
+    source: SourceType.Contentful
   }
 };

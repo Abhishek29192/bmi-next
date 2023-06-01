@@ -1,5 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Sections component doesnt render correctly if doesnt resolve to component 1`] = `
+<div>
+  <div
+    id="Document Downloads"
+    style="margin-top: -150px; padding-top: 150px;"
+  >
+    <div
+      class="Section-root Section-white css-10chrh8"
+      data-testid="document-download-section-Document-Downloads"
+    >
+      <div
+        class=" css-ze8cyt"
+      >
+        <div
+          class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
+        >
+          <h2
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
+            data-testid="typography"
+          >
+            Document Downloads
+          </h2>
+          <div
+            style="margin-bottom: 40px;"
+          >
+            <div
+              class="RichText-root css-1u73y0t"
+            >
+              <p
+                class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
+                data-testid="typography"
+              >
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Sections component renders alternate backgrounds for promos 1`] = `
 <div>
   <div
@@ -532,84 +575,88 @@ exports[`Sections component renders correctly 1`] = `
                 data-testid="card-collection-grid-item-00000000-0000-0000-0000-000000000000"
               >
                 <div
-                  class="OverviewCard-flat MuiBox-root css-13ealx6"
+                  class="OverviewCard-flat MuiBox-root css-mnk4x4"
                 >
                   <div
-                    class="OverviewCard-body"
+                    class="OverviewCard-main"
+                    data-testid="overview-card-main"
                   >
                     <div
-                      class="OverviewCard-brandLogo"
+                      class="OverviewCard-body"
                     >
-                      <svg
-                        class="BrandLogo css-gn1fhj"
-                        data-testid="brand-logo"
-                        preserveAspectRatio="xMinYMin"
-                        viewBox="0 0 244 100"
-                        xml:space="preserve"
-                        xmlns="http://www.w3.org/2000/svg"
+                      <div
+                        class="OverviewCard-brandLogo"
                       >
-                        <path
-                          d="M15.506 29H25.89l15.236 41.02H30.882l-3.187-9.387H13.02L9.833 70.02H0L15.506 29Zm9.833 24.444-4.981-15.466-5.263 15.466H25.34ZM72.008 66.851c-.28.14-.832.55-1.523.97-.832.55-1.664.97-2.636 1.38-1.243.55-2.496.97-3.74 1.24-1.663.409-3.327.549-4.98.549-2.356 0-4.572-.41-6.787-1.11-1.934-.69-3.598-1.8-5.122-3.179-1.383-1.38-2.495-3.04-3.187-4.839-.692-2.07-1.113-4.139-1.113-6.358 0-1.93.28-4.01.972-5.799 1.243-3.729 4.15-6.628 7.759-8.288a16.83 16.83 0 0 1 6.374-1.24c2.226 0 4.29.41 6.235 1.24 1.804.83 3.328 1.93 4.57 3.45a14.765 14.765 0 0 1 2.767 5.248c.692 2.21.973 4.419.973 6.628v1.52H51.66c0 1.66.833 3.04 2.076 4.139 1.523 1.24 3.598 1.93 5.543 1.8 1.934.14 3.878-.28 5.673-.97 1.112-.55 2.215-1.11 3.187-1.8l3.88 5.389-.01.03ZM64.12 52.624c0-.69-.14-1.24-.411-1.93-.27-.689-.692-1.239-1.113-1.799a6.98 6.98 0 0 0-1.934-1.38c-.822-.41-1.804-.55-2.636-.55-.973 0-1.935.14-2.767.55-.691.28-1.383.83-1.934 1.38-.552.55-.973 1.11-1.243 1.8-.281.55-.411 1.24-.411 1.93H64.13h-.01ZM77.692 41.157h8.59l.28 3.59c.832-1.11 1.935-2.07 3.047-2.76 1.524-.97 3.328-1.38 5.122-1.38.692 0 1.384 0 2.075.14l1.664.41-1.383 7.868a13.282 13.282 0 0 0-3.188-.41c-1.934-.14-3.738.55-5.122 1.93-1.383 1.38-2.075 3.32-1.934 5.389V70.02h-9.001l-.14-28.863h-.01ZM99.703 55.524c0-2.07.411-4.14 1.113-5.939.701-1.8 1.804-3.45 3.187-4.839 1.383-1.39 3.047-2.49 4.982-3.319a16.823 16.823 0 0 1 6.374-1.24c2.226 0 4.291.41 6.375 1.24 1.805.69 3.458 1.93 4.982 3.32 1.383 1.379 2.496 3.038 3.187 4.838a16.364 16.364 0 0 1 0 12.017c-.691 1.8-1.804 3.45-3.187 4.84-1.383 1.389-3.047 2.489-4.982 3.318a16.825 16.825 0 0 1-6.375 1.24c-2.225 0-4.43-.41-6.374-1.24a14.767 14.767 0 0 1-8.169-8.148c-.692-1.93-1.113-4.009-1.113-6.078v-.01Zm15.787 7.738c.972 0 2.075-.14 3.047-.69.832-.41 1.664-.97 2.215-1.8.551-.69 1.113-1.52 1.383-2.489.552-1.8.552-3.87 0-5.659-.28-.97-.691-1.8-1.383-2.489-.551-.69-1.383-1.24-2.215-1.66-.972-.41-1.935-.69-3.047-.69-1.113 0-2.075.14-3.047.69-.832.41-1.664.97-2.216 1.66-.551.69-1.112 1.52-1.383 2.49a7.982 7.982 0 0 0 0 5.658c.281.97.692 1.8 1.383 2.49a7.107 7.107 0 0 0 2.216 1.799c.972.55 1.934.83 3.047.69ZM137.231 29h15.786c3.048 0 5.954.41 8.861 1.24 2.626.69 4.982 2.07 7.067 3.729a16.476 16.476 0 0 1 4.57 6.488c1.113 2.9 1.805 6.079 1.664 9.258.141 3.04-.551 6.079-1.664 8.838-1.112 2.49-2.626 4.559-4.711 6.358-2.085 1.8-4.43 3.04-7.066 3.87a32.622 32.622 0 0 1-8.861 1.24h-15.646V29Zm15.235 32.732c4.15 0 7.337-1.11 9.693-3.179 2.355-2.35 3.598-5.529 3.328-8.838 0-1.8-.281-3.45-.832-5.109-.411-1.52-1.243-2.76-2.356-3.869-1.112-1.11-2.496-1.93-4.019-2.49-1.935-.689-3.879-.969-5.814-.829h-5.813v24.314h5.813ZM208.687 66.851c-.28.14-.831.55-1.523.97-.832.55-1.664.97-2.626 1.38-1.243.55-2.496.97-3.739 1.24-1.664.409-3.328.549-4.982.549-2.355 0-4.57-.41-6.785-1.11-1.935-.69-3.599-1.8-5.122-3.179-1.384-1.38-2.496-3.04-3.188-4.839-.691-2.07-1.112-4.139-1.112-6.358 0-1.93.28-4.01.972-5.799 1.243-3.729 4.15-6.628 7.758-8.288 2.075-.83 4.15-1.24 6.375-1.24 2.225 0 4.29.41 6.234 1.24 1.805.83 3.328 1.93 4.571 3.45a14.775 14.775 0 0 1 2.767 5.248c.691 2.21.972 4.419.972 6.628v1.52H188.35c0 1.66.832 3.04 2.075 4.139 1.523 1.24 3.598 1.93 5.543 1.8 1.934.14 3.879-.28 5.673-.97 1.113-.55 2.215-1.11 3.187-1.8l3.88 5.389-.021.03Zm-7.888-14.227c0-.69-.14-1.24-.411-1.93-.271-.689-.692-1.239-1.112-1.799a6.991 6.991 0 0 0-1.935-1.38c-.822-.41-1.804-.55-2.626-.55-.972 0-1.935.14-2.767.55-.691.28-1.383.69-1.934 1.38-.551.55-.972 1.11-1.243 1.8-.281.55-.411 1.24-.411 1.93h12.459-.02ZM214.371 29h9.001v21.275l9.001-9.118h10.244l-10.525 10.638L244 70.03h-10.384l-7.478-12.157-2.626 2.63v9.527h-9.001l-.14-41.02V29Z"
-                          fill="#70706F"
-                        />
-                      </svg>
-                    </div>
-                    <h4
-                      class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
-                      data-testid="overview-card-body-title"
-                    >
-                      <a
-                        class="MuiButtonBase-root OverviewCard-clickableArea css-10d1a0h-MuiButtonBase-root"
-                        data-gtm="{"id":"cta-click1","label":"promo title - Card Label","action":"/uk/contact-us/"}"
-                        data-testid="card-collection-section-item-promo-title"
-                        href="/uk/contact-us/"
-                        tabindex="0"
-                        type="button"
-                      >
-                        promo title
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </a>
-                    </h4>
-                    <div
-                      class="OverviewCard-text css-kl66ak"
-                      data-testid="overview-card-body-description"
-                    >
-                      promo subtitle
-                    </div>
-                    <div
-                      class="css-ekp6jg"
-                      data-testid="overview-card-body-footer"
-                    >
-                      <a
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"cta-click1","label":"promo title - Card Label","action":"/uk/contact-us/"}"
-                        data-testid="card-link"
-                        href="/uk/contact-us/"
-                        tabindex="0"
-                      >
-                        <span
-                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                        <svg
+                          class="BrandLogo css-gn1fhj"
+                          data-testid="brand-logo"
+                          preserveAspectRatio="xMinYMin"
+                          viewBox="0 0 244 100"
+                          xml:space="preserve"
+                          xmlns="http://www.w3.org/2000/svg"
                         >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                            data-testid="ArrowForwardIcon"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                            />
-                          </svg>
-                        </span>
-                        Card Label
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </a>
+                          <path
+                            d="M15.506 29H25.89l15.236 41.02H30.882l-3.187-9.387H13.02L9.833 70.02H0L15.506 29Zm9.833 24.444-4.981-15.466-5.263 15.466H25.34ZM72.008 66.851c-.28.14-.832.55-1.523.97-.832.55-1.664.97-2.636 1.38-1.243.55-2.496.97-3.74 1.24-1.663.409-3.327.549-4.98.549-2.356 0-4.572-.41-6.787-1.11-1.934-.69-3.598-1.8-5.122-3.179-1.383-1.38-2.495-3.04-3.187-4.839-.692-2.07-1.113-4.139-1.113-6.358 0-1.93.28-4.01.972-5.799 1.243-3.729 4.15-6.628 7.759-8.288a16.83 16.83 0 0 1 6.374-1.24c2.226 0 4.29.41 6.235 1.24 1.804.83 3.328 1.93 4.57 3.45a14.765 14.765 0 0 1 2.767 5.248c.692 2.21.973 4.419.973 6.628v1.52H51.66c0 1.66.833 3.04 2.076 4.139 1.523 1.24 3.598 1.93 5.543 1.8 1.934.14 3.878-.28 5.673-.97 1.112-.55 2.215-1.11 3.187-1.8l3.88 5.389-.01.03ZM64.12 52.624c0-.69-.14-1.24-.411-1.93-.27-.689-.692-1.239-1.113-1.799a6.98 6.98 0 0 0-1.934-1.38c-.822-.41-1.804-.55-2.636-.55-.973 0-1.935.14-2.767.55-.691.28-1.383.83-1.934 1.38-.552.55-.973 1.11-1.243 1.8-.281.55-.411 1.24-.411 1.93H64.13h-.01ZM77.692 41.157h8.59l.28 3.59c.832-1.11 1.935-2.07 3.047-2.76 1.524-.97 3.328-1.38 5.122-1.38.692 0 1.384 0 2.075.14l1.664.41-1.383 7.868a13.282 13.282 0 0 0-3.188-.41c-1.934-.14-3.738.55-5.122 1.93-1.383 1.38-2.075 3.32-1.934 5.389V70.02h-9.001l-.14-28.863h-.01ZM99.703 55.524c0-2.07.411-4.14 1.113-5.939.701-1.8 1.804-3.45 3.187-4.839 1.383-1.39 3.047-2.49 4.982-3.319a16.823 16.823 0 0 1 6.374-1.24c2.226 0 4.291.41 6.375 1.24 1.805.69 3.458 1.93 4.982 3.32 1.383 1.379 2.496 3.038 3.187 4.838a16.364 16.364 0 0 1 0 12.017c-.691 1.8-1.804 3.45-3.187 4.84-1.383 1.389-3.047 2.489-4.982 3.318a16.825 16.825 0 0 1-6.375 1.24c-2.225 0-4.43-.41-6.374-1.24a14.767 14.767 0 0 1-8.169-8.148c-.692-1.93-1.113-4.009-1.113-6.078v-.01Zm15.787 7.738c.972 0 2.075-.14 3.047-.69.832-.41 1.664-.97 2.215-1.8.551-.69 1.113-1.52 1.383-2.489.552-1.8.552-3.87 0-5.659-.28-.97-.691-1.8-1.383-2.489-.551-.69-1.383-1.24-2.215-1.66-.972-.41-1.935-.69-3.047-.69-1.113 0-2.075.14-3.047.69-.832.41-1.664.97-2.216 1.66-.551.69-1.112 1.52-1.383 2.49a7.982 7.982 0 0 0 0 5.658c.281.97.692 1.8 1.383 2.49a7.107 7.107 0 0 0 2.216 1.799c.972.55 1.934.83 3.047.69ZM137.231 29h15.786c3.048 0 5.954.41 8.861 1.24 2.626.69 4.982 2.07 7.067 3.729a16.476 16.476 0 0 1 4.57 6.488c1.113 2.9 1.805 6.079 1.664 9.258.141 3.04-.551 6.079-1.664 8.838-1.112 2.49-2.626 4.559-4.711 6.358-2.085 1.8-4.43 3.04-7.066 3.87a32.622 32.622 0 0 1-8.861 1.24h-15.646V29Zm15.235 32.732c4.15 0 7.337-1.11 9.693-3.179 2.355-2.35 3.598-5.529 3.328-8.838 0-1.8-.281-3.45-.832-5.109-.411-1.52-1.243-2.76-2.356-3.869-1.112-1.11-2.496-1.93-4.019-2.49-1.935-.689-3.879-.969-5.814-.829h-5.813v24.314h5.813ZM208.687 66.851c-.28.14-.831.55-1.523.97-.832.55-1.664.97-2.626 1.38-1.243.55-2.496.97-3.739 1.24-1.664.409-3.328.549-4.982.549-2.355 0-4.57-.41-6.785-1.11-1.935-.69-3.599-1.8-5.122-3.179-1.384-1.38-2.496-3.04-3.188-4.839-.691-2.07-1.112-4.139-1.112-6.358 0-1.93.28-4.01.972-5.799 1.243-3.729 4.15-6.628 7.758-8.288 2.075-.83 4.15-1.24 6.375-1.24 2.225 0 4.29.41 6.234 1.24 1.805.83 3.328 1.93 4.571 3.45a14.775 14.775 0 0 1 2.767 5.248c.691 2.21.972 4.419.972 6.628v1.52H188.35c0 1.66.832 3.04 2.075 4.139 1.523 1.24 3.598 1.93 5.543 1.8 1.934.14 3.879-.28 5.673-.97 1.113-.55 2.215-1.11 3.187-1.8l3.88 5.389-.021.03Zm-7.888-14.227c0-.69-.14-1.24-.411-1.93-.271-.689-.692-1.239-1.112-1.799a6.991 6.991 0 0 0-1.935-1.38c-.822-.41-1.804-.55-2.626-.55-.972 0-1.935.14-2.767.55-.691.28-1.383.69-1.934 1.38-.551.55-.972 1.11-1.243 1.8-.281.55-.411 1.24-.411 1.93h12.459-.02ZM214.371 29h9.001v21.275l9.001-9.118h10.244l-10.525 10.638L244 70.03h-10.384l-7.478-12.157-2.626 2.63v9.527h-9.001l-.14-41.02V29Z"
+                            fill="#70706F"
+                          />
+                        </svg>
+                      </div>
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
+                        data-testid="overview-card-body-title"
+                      >
+                        <a
+                          class="MuiButtonBase-root OverviewCard-clickableArea css-10d1a0h-MuiButtonBase-root"
+                          data-gtm="{"id":"cta-click1","label":"promo title - Card Label","action":"/uk/contact-us/"}"
+                          href="/uk/contact-us/"
+                          tabindex="0"
+                          type="button"
+                        >
+                          promo title
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          />
+                        </a>
+                      </h4>
+                      <div
+                        class="OverviewCard-text css-kl66ak"
+                        data-testid="overview-card-body-description"
+                      >
+                        promo subtitle
+                      </div>
                     </div>
+                  </div>
+                  <div
+                    class="css-197a1cq"
+                    data-testid="overview-card-body-footer"
+                  >
+                    <a
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-gtm="{"id":"cta-click1","label":"promo title - Card Label","action":"/uk/contact-us/"}"
+                      data-testid="card-link"
+                      href="/uk/contact-us/"
+                      tabindex="0"
+                    >
+                      <span
+                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="ArrowForwardIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                          />
+                        </svg>
+                      </span>
+                      Card Label
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </a>
                   </div>
                 </div>
               </div>
@@ -678,95 +725,99 @@ exports[`Sections component renders correctly 1`] = `
                 data-testid="card-collection-grid-item-00000000-0000-0000-0000-000000000000"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"page title - Go to page title","action":"/uk/path/"}"
-                  data-testid="card-collection-section-item-page-title"
                   href="/uk/path/"
                   tabindex="0"
                   type="button"
                 >
                   <div
-                    class="gatsby-image-wrapper gatsby-image-wrapper-constrained OverviewCard-headerPicture css-7mgsqw-Media"
-                    data-gatsby-image-wrapper=""
-                    style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
+                    class="OverviewCard-main"
+                    data-testid="overview-card-main"
                   >
                     <div
-                      style="max-width: 948px; display: block;"
+                      class="gatsby-image-wrapper gatsby-image-wrapper-constrained OverviewCard-headerPicture css-7mgsqw-Media"
+                      data-gatsby-image-wrapper=""
+                      style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                     >
-                      <img
-                        alt=""
+                      <div
+                        style="max-width: 948px; display: block;"
+                      >
+                        <img
+                          alt=""
+                          aria-hidden="true"
+                          role="presentation"
+                          src="data:image/svg+xml;charset=utf-8,%3Csvg%20height='720'%20width='948'%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E"
+                          style="max-width: 100%; display: block; position: static;"
+                        />
+                      </div>
+                      <div
                         aria-hidden="true"
-                        role="presentation"
-                        src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
-                        style="max-width: 100%; display: block; position: static;"
+                        data-placeholder-image=""
+                        style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
                       />
+                      <picture>
+                        <source
+                          data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
+                          sizes="(min-width: 948px) 948px, 100vw"
+                          type="image/webp"
+                        />
+                        <img
+                          alt="Image alt text"
+                          data-gatsby-image-ssr=""
+                          data-main-image=""
+                          data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+                          data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+                          decoding="async"
+                          draggable="false"
+                          loading="lazy"
+                          sizes="(min-width: 948px) 948px, 100vw"
+                          style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
+                        />
+                      </picture>
+                      <noscript />
+                      <script
+                        type="module"
+                      >
+                        const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}
+                      </script>
                     </div>
                     <div
-                      aria-hidden="true"
-                      data-placeholder-image=""
-                      style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-                    />
-                    <picture>
-                      <source
-                        data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
-                        sizes="(min-width: 948px) 948px, 100vw"
-                        type="image/webp"
-                      />
-                      <img
-                        alt="Image alt text"
-                        data-gatsby-image-ssr=""
-                        data-main-image=""
-                        data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                        data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
-                        decoding="async"
-                        draggable="false"
-                        loading="lazy"
-                        sizes="(min-width: 948px) 948px, 100vw"
-                        style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
-                      />
-                    </picture>
-                    <noscript />
-                    <script
-                      type="module"
+                      class="OverviewCard-body"
                     >
-                      const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}
-                    </script>
+                      <div
+                        class="OverviewCard-brandLogo OverviewCard-negative"
+                      />
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
+                        data-testid="overview-card-body-title"
+                      >
+                        page title
+                      </h4>
+                      <div
+                        class="OverviewCard-text css-kl66ak"
+                        data-testid="overview-card-body-description"
+                      >
+                        page subtitle
+                      </div>
+                    </div>
                   </div>
                   <div
-                    class="OverviewCard-body"
+                    class="css-197a1cq"
+                    data-testid="overview-card-body-footer"
                   >
-                    <div
-                      class="OverviewCard-brandLogo OverviewCard-negative"
-                    />
-                    <h4
-                      class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
-                      data-testid="overview-card-body-title"
+                    <span
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-testid="card-link"
+                      role="button"
+                      tabindex="0"
+                      type="button"
                     >
-                      page title
-                    </h4>
-                    <div
-                      class="OverviewCard-text css-kl66ak"
-                      data-testid="overview-card-body-description"
-                    >
-                      page subtitle
-                    </div>
-                    <div
-                      class="css-ekp6jg"
-                      data-testid="overview-card-body-footer"
-                    >
+                      Go to page title
                       <span
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                        data-testid="card-link"
-                        role="button"
-                        tabindex="0"
-                        type="button"
-                      >
-                        Go to page title
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </span>
-                    </div>
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </span>
                   </div>
                   <span
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -945,7 +996,7 @@ exports[`Sections component renders correctly 1`] = `
                     alt=""
                     aria-hidden="true"
                     role="presentation"
-                    src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                    src="data:image/svg+xml;charset=utf-8,%3Csvg%20height='720'%20width='948'%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E"
                     style="max-width: 100%; display: block; position: static;"
                   />
                 </div>
@@ -1039,7 +1090,7 @@ exports[`Sections component renders correctly 1`] = `
                         alt=""
                         aria-hidden="true"
                         role="presentation"
-                        src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                        src="data:image/svg+xml;charset=utf-8,%3Csvg%20height='720'%20width='948'%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E"
                         style="max-width: 100%; display: block; position: static;"
                       />
                     </div>
@@ -1078,7 +1129,7 @@ exports[`Sections component renders correctly 1`] = `
                     </script>
                   </div>
                   <div
-                    class="css-7y46ji"
+                    class="css-gy9mja"
                     data-testid="media-gallery-caption-text"
                   >
                     <p
@@ -1162,7 +1213,7 @@ exports[`Sections component renders correctly 1`] = `
               data-testid="grid-item"
             >
               <div
-                class="MuiAutocomplete-root company-autocomplete css-l3ln04-MuiAutocomplete-root"
+                class="MuiAutocomplete-root company-autocomplete css-1h51icj-MuiAutocomplete-root"
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -1441,7 +1492,7 @@ exports[`Sections component renders correctly 1`] = `
               data-testid="grid-item"
             >
               <div
-                class="MuiAutocomplete-root company-autocomplete css-l3ln04-MuiAutocomplete-root"
+                class="MuiAutocomplete-root company-autocomplete css-1h51icj-MuiAutocomplete-root"
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -1711,7 +1762,11 @@ exports[`Sections component renders correctly 1`] = `
                         class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                         data-testid="typography"
                       >
-                        address 1
+                        <div
+                          class="subtitle"
+                        >
+                          address 1
+                        </div>
                       </p>
                     </div>
                     <div
@@ -1743,34 +1798,26 @@ exports[`Sections component renders correctly 1`] = `
                             class="css-hvci11"
                             data-testid="company-details-root"
                           >
-                            <div>
+                            <div
+                              class="css-xdees7"
+                            >
                               <dl
-                                class="css-jmzo47"
+                                class="css-1uk1gs8"
                               >
                                 <div
-                                  class="CompanyDetails-row"
+                                  class="css-1nzacgw"
                                   data-testid="company-details-phone"
+                                  type="phone"
                                 >
                                   <dt
-                                    class="css-10edjq1"
+                                    class="css-fah0r0"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1ylmdkn-MuiSvgIcon-root"
-                                      data-testid="PhoneIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
-                                      />
-                                    </svg>
-                                    <span
-                                      class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-1o02bdp-MuiTypography-root"
+                                    <p
+                                      class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
                                       data-testid="typography"
                                     >
                                       global.telephone
-                                    </span>
+                                    </p>
                                   </dt>
                                   <dd
                                     class="css-bp47jm"
@@ -1788,29 +1835,19 @@ exports[`Sections component renders correctly 1`] = `
                                   </dd>
                                 </div>
                                 <div
-                                  class="CompanyDetails-row"
+                                  class="css-1nzacgw"
                                   data-testid="company-details-email"
+                                  type="email"
                                 >
                                   <dt
-                                    class="css-10edjq1"
+                                    class="css-fah0r0"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1ylmdkn-MuiSvgIcon-root"
-                                      data-testid="MailIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"
-                                      />
-                                    </svg>
-                                    <span
-                                      class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-1o02bdp-MuiTypography-root"
+                                    <p
+                                      class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
                                       data-testid="typography"
                                     >
                                       global.email
-                                    </span>
+                                    </p>
                                   </dt>
                                   <dd
                                     class="css-bp47jm"
@@ -1828,29 +1865,19 @@ exports[`Sections component renders correctly 1`] = `
                                   </dd>
                                 </div>
                                 <div
-                                  class="CompanyDetails-row"
+                                  class="css-1nzacgw"
                                   data-testid="company-details-website"
+                                  type="website"
                                 >
                                   <dt
-                                    class="css-10edjq1"
+                                    class="css-fah0r0"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1ylmdkn-MuiSvgIcon-root"
-                                      data-testid="PublicIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"
-                                      />
-                                    </svg>
-                                    <span
-                                      class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-1o02bdp-MuiTypography-root"
+                                    <p
+                                      class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
                                       data-testid="typography"
                                     >
                                       global.website
-                                    </span>
+                                    </p>
                                   </dt>
                                   <dd
                                     class="css-bp47jm"
@@ -1870,18 +1897,19 @@ exports[`Sections component renders correctly 1`] = `
                                   </dd>
                                 </div>
                                 <div
-                                  class="CompanyDetails-row"
-                                  data-testid="company-details-content"
+                                  class="css-1nzacgw"
+                                  data-testid="company-details-roofType"
+                                  type="roofType"
                                 >
                                   <dt
-                                    class="css-10edjq1"
+                                    class="css-fah0r0"
                                   >
-                                    <span
-                                      class="MuiTypography-root MuiTypography-body1 CompanyDetails-label css-1o02bdp-MuiTypography-root"
+                                    <p
+                                      class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
                                       data-testid="typography"
                                     >
                                       findARoofer.roofTypeLabel
-                                    </span>
+                                    </p>
                                   </dt>
                                   <dd
                                     class="css-bp47jm"
@@ -1923,7 +1951,11 @@ exports[`Sections component renders correctly 1`] = `
                         class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
                         data-testid="typography"
                       >
-                        address 1
+                        <div
+                          class="subtitle"
+                        >
+                          address 1
+                        </div>
                       </p>
                     </div>
                     <div
@@ -1955,34 +1987,26 @@ exports[`Sections component renders correctly 1`] = `
                             class="css-hvci11"
                             data-testid="company-details-root"
                           >
-                            <div>
+                            <div
+                              class="css-xdees7"
+                            >
                               <dl
-                                class="css-jmzo47"
+                                class="css-1uk1gs8"
                               >
                                 <div
-                                  class="CompanyDetails-row"
+                                  class="css-1nzacgw"
                                   data-testid="company-details-phone"
+                                  type="phone"
                                 >
                                   <dt
-                                    class="css-10edjq1"
+                                    class="css-fah0r0"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1ylmdkn-MuiSvgIcon-root"
-                                      data-testid="PhoneIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
-                                      />
-                                    </svg>
-                                    <span
-                                      class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-1o02bdp-MuiTypography-root"
+                                    <p
+                                      class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
                                       data-testid="typography"
                                     >
                                       global.telephone
-                                    </span>
+                                    </p>
                                   </dt>
                                   <dd
                                     class="css-bp47jm"
@@ -2000,29 +2024,19 @@ exports[`Sections component renders correctly 1`] = `
                                   </dd>
                                 </div>
                                 <div
-                                  class="CompanyDetails-row"
+                                  class="css-1nzacgw"
                                   data-testid="company-details-email"
+                                  type="email"
                                 >
                                   <dt
-                                    class="css-10edjq1"
+                                    class="css-fah0r0"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1ylmdkn-MuiSvgIcon-root"
-                                      data-testid="MailIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"
-                                      />
-                                    </svg>
-                                    <span
-                                      class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-1o02bdp-MuiTypography-root"
+                                    <p
+                                      class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
                                       data-testid="typography"
                                     >
                                       global.email
-                                    </span>
+                                    </p>
                                   </dt>
                                   <dd
                                     class="css-bp47jm"
@@ -2040,29 +2054,19 @@ exports[`Sections component renders correctly 1`] = `
                                   </dd>
                                 </div>
                                 <div
-                                  class="CompanyDetails-row"
+                                  class="css-1nzacgw"
                                   data-testid="company-details-website"
+                                  type="website"
                                 >
                                   <dt
-                                    class="css-10edjq1"
+                                    class="css-fah0r0"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1ylmdkn-MuiSvgIcon-root"
-                                      data-testid="PublicIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"
-                                      />
-                                    </svg>
-                                    <span
-                                      class="MuiTypography-root MuiTypography-body1 CompanyDetails-label CompanyDetails-accessibilityLabel css-1o02bdp-MuiTypography-root"
+                                    <p
+                                      class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
                                       data-testid="typography"
                                     >
                                       global.website
-                                    </span>
+                                    </p>
                                   </dt>
                                   <dd
                                     class="css-bp47jm"
@@ -2082,18 +2086,19 @@ exports[`Sections component renders correctly 1`] = `
                                   </dd>
                                 </div>
                                 <div
-                                  class="CompanyDetails-row"
-                                  data-testid="company-details-content"
+                                  class="css-1nzacgw"
+                                  data-testid="company-details-roofType"
+                                  type="roofType"
                                 >
                                   <dt
-                                    class="css-10edjq1"
+                                    class="css-fah0r0"
                                   >
-                                    <span
-                                      class="MuiTypography-root MuiTypography-body1 CompanyDetails-label css-1o02bdp-MuiTypography-root"
+                                    <p
+                                      class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
                                       data-testid="typography"
                                     >
                                       findARoofer.roofTypeLabel
-                                    </span>
+                                    </p>
                                   </dt>
                                   <dd
                                     class="css-bp47jm"
@@ -2342,7 +2347,7 @@ exports[`Sections component renders correctly 1`] = `
                                 aria-controls="tabpanel-0"
                                 aria-selected="true"
                                 class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                                data-gtm="{"id":"selector-tabs2","label":"Team Category 1","action":"Selector – Tabs"}"
+                                data-gtm="{"id":"selector-tabs2","label":"Team Category 1","action":"Selector - Tabs"}"
                                 data-testid="tab-0"
                                 id="tab-0"
                                 role="tab"
@@ -2415,11 +2420,11 @@ exports[`Sections component renders correctly 1`] = `
                       <div>
                         <div>
                           <div
-                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-1jy9zk3-MuiGrid2-root"
+                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-1a8bzh9-MuiGrid2-root"
                             data-testid="grid-container"
                           >
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-1xrs7k5-MuiGrid2-root"
+                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-vmc4ev-MuiGrid2-root"
                               data-testid="grid-item"
                             >
                               <div
@@ -2433,17 +2438,11 @@ exports[`Sections component renders correctly 1`] = `
                                     class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-10ncf94-MuiAvatar-root"
                                     data-testid="profile-card-head-picture"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiAvatar-fallback css-10mi8st-MuiSvgIcon-root-MuiAvatar-fallback"
-                                      data-testid="PersonIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
-                                      />
-                                    </svg>
+                                    <img
+                                      alt="alt text"
+                                      src="https://testImage.jpg"
+                                      style="object-fit: cover; object-position: center;"
+                                    />
                                   </div>
                                 </div>
                                 <div
@@ -2567,7 +2566,7 @@ exports[`Sections component renders correctly 1`] = `
                                 aria-controls="tabpanel-0"
                                 aria-selected="true"
                                 class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                                data-gtm="{"id":"selector-tabs2","label":"Team Category 1","action":"Selector – Tabs"}"
+                                data-gtm="{"id":"selector-tabs2","label":"Team Category 1","action":"Selector - Tabs"}"
                                 data-testid="tab-0"
                                 id="tab-0"
                                 role="tab"
@@ -2583,7 +2582,7 @@ exports[`Sections component renders correctly 1`] = `
                                 aria-controls="tabpanel-1"
                                 aria-selected="false"
                                 class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                                data-gtm="{"id":"selector-tabs2","label":"Team Category 2","action":"Selector – Tabs"}"
+                                data-gtm="{"id":"selector-tabs2","label":"Team Category 2","action":"Selector - Tabs"}"
                                 data-testid="tab-1"
                                 id="tab-1"
                                 role="tab"
@@ -2656,11 +2655,11 @@ exports[`Sections component renders correctly 1`] = `
                       <div>
                         <div>
                           <div
-                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-1jy9zk3-MuiGrid2-root"
+                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-1a8bzh9-MuiGrid2-root"
                             data-testid="grid-container"
                           >
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-1xrs7k5-MuiGrid2-root"
+                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-vmc4ev-MuiGrid2-root"
                               data-testid="grid-item"
                             >
                               <div
@@ -2674,17 +2673,11 @@ exports[`Sections component renders correctly 1`] = `
                                     class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-10ncf94-MuiAvatar-root"
                                     data-testid="profile-card-head-picture"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiAvatar-fallback css-10mi8st-MuiSvgIcon-root-MuiAvatar-fallback"
-                                      data-testid="PersonIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
-                                      />
-                                    </svg>
+                                    <img
+                                      alt="alt text"
+                                      src="https://testImage.jpg"
+                                      style="object-fit: cover; object-position: center;"
+                                    />
                                   </div>
                                 </div>
                                 <div
@@ -2738,11 +2731,11 @@ exports[`Sections component renders correctly 1`] = `
                       <div>
                         <div>
                           <div
-                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-1jy9zk3-MuiGrid2-root"
+                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-1a8bzh9-MuiGrid2-root"
                             data-testid="grid-container"
                           >
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-1xrs7k5-MuiGrid2-root"
+                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-vmc4ev-MuiGrid2-root"
                               data-testid="grid-item"
                             >
                               <div
@@ -2756,17 +2749,11 @@ exports[`Sections component renders correctly 1`] = `
                                     class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-10ncf94-MuiAvatar-root"
                                     data-testid="profile-card-head-picture"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiAvatar-fallback css-10mi8st-MuiSvgIcon-root-MuiAvatar-fallback"
-                                      data-testid="PersonIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
-                                      />
-                                    </svg>
+                                    <img
+                                      alt="alt text"
+                                      src="https://testImage.jpg"
+                                      style="object-fit: cover; object-position: center;"
+                                    />
                                   </div>
                                 </div>
                                 <div
@@ -3313,7 +3300,7 @@ exports[`Sections component renders correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="MuiFormControl-root css-1gluykh-MuiFormControl-root"
+                  class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
                 >
                   <label
                     class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -3355,7 +3342,7 @@ exports[`Sections component renders correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="MuiFormControl-root css-1gluykh-MuiFormControl-root"
+                  class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
                 >
                   <label
                     class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -3397,7 +3384,7 @@ exports[`Sections component renders correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="MuiFormControl-root css-1gluykh-MuiFormControl-root"
+                  class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
                 >
                   <label
                     class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -3455,7 +3442,7 @@ exports[`Sections component renders correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="MuiFormControl-root css-1gluykh-MuiFormControl-root"
+                  class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
                 >
                   <label
                     class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"

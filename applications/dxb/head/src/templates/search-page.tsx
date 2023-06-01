@@ -1,13 +1,17 @@
 import {
   Container,
   Hero,
+  Icon,
   PLPFilterResponse,
   QUERY_KEY,
   Section,
   Tabs,
+  Tile,
   useIsClient
 } from "@bmi-digital/components";
+import { Article, Folder } from "@mui/icons-material";
 import { useMediaQuery } from "@mui/material";
+import SvgIcon from "@mui/material/SvgIcon";
 import { useTheme } from "@mui/material/styles";
 import { graphql } from "gatsby";
 import React, { FormEvent, useEffect, useMemo, useState } from "react";
@@ -73,7 +77,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
   }, [isClient]);
 
   const { countryCode, resources } = contentfulSite;
-  const getMicroCopy = generateGetMicroCopy(resources.microCopy);
+  const getMicroCopy = generateGetMicroCopy(resources?.microCopy);
   const defaultTitle = getMicroCopy(microCopy.SEARCH_PAGE_TITLE);
 
   const queryString = useMemo(() => {
@@ -98,6 +102,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
         heading: string;
         count?: number;
         hasBeenDisplayed?: boolean;
+        icon?: React.ReactNode;
       }
     >
   >({
@@ -106,19 +111,22 @@ const SearchPage = ({ pageContext, data }: Props) => {
       component: SearchTabPanelProducts,
       heading: getMicroCopy(microCopy.SEARCH_TAB_HEADINGS_PRODUCTS),
       count: 0,
-      hasBeenDisplayed: false
+      hasBeenDisplayed: false,
+      icon: <SvgIcon component={Tile} />
     },
     documents: {
       component: SearchTabPanelDocuments,
       heading: getMicroCopy(microCopy.SEARCH_TAB_HEADINGS_DOCUMENTS),
       count: 0,
-      hasBeenDisplayed: false
+      hasBeenDisplayed: false,
+      icon: <Icon source={Folder} />
     },
     pages: {
       component: SearchTabPanelPages,
       heading: getMicroCopy(microCopy.SEARCH_TAB_HEADINGS_PAGES),
       count: 0,
-      hasBeenDisplayed: false
+      hasBeenDisplayed: false,
+      icon: <Icon source={Article} />
     }
   });
 
@@ -255,16 +263,25 @@ const SearchPage = ({ pageContext, data }: Props) => {
           return null;
         }
 
-        const { component: Component, hasBeenDisplayed, heading, count } = data;
-
+        const {
+          component: Component,
+          hasBeenDisplayed,
+          heading,
+          count,
+          icon
+        } = data;
         return (
           <Tabs.TabPanel
             key={tabKey}
             heading={`${heading} (${count})`}
             index={tabKey}
+            icon={icon}
           >
             {hasBeenDisplayed ? (
-              <Container data-testid={`container-${tabKey}`}>
+              <Container
+                data-testid={`container-${tabKey}`}
+                disableGutters={tabKey === "documents" && !isDesktop}
+              >
                 <Component
                   queryString={queryString}
                   pageContext={pageContext}
@@ -342,8 +359,8 @@ const SearchPage = ({ pageContext, data }: Props) => {
           helperText={getMicroCopy(microCopy.SEARCH_PAGE_HELPER_TEXT)}
           placeholder={getMicroCopy(microCopy.SEARCH_PAGE_PLACEHOLDER)}
           query={areTabsResolved ? queryString : ""}
-          searchPageSearchTips={resources.searchPageSearchTips}
-          searchPageSidebarItems={resources.searchPageSidebarItems}
+          searchPageSearchTips={resources?.searchPageSearchTips}
+          searchPageSidebarItems={resources?.searchPageSidebarItems}
           handleSubmit={isPreviewMode && handleSubmit}
         />
       </Section>
@@ -357,16 +374,16 @@ const SearchPage = ({ pageContext, data }: Props) => {
         </Tabs>
       ) : null}
       {!pageHasResults && !pageIsLoading
-        ? resources.searchPageNextBestActions && (
+        ? resources?.searchPageNextBestActions && (
             <NextBestActions data={resources.searchPageNextBestActions} />
           )
-        : resources.searchPageExploreBar && (
+        : resources?.searchPageExploreBar && (
             <Section
               backgroundColor="pearl"
               isSlim
               id={`search-block-explorer-bar`}
             >
-              <ExploreBar data={resources.searchPageExploreBar} />
+              <ExploreBar data={resources?.searchPageExploreBar} />
             </Section>
           )}
     </Page>

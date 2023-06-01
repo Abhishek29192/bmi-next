@@ -3,7 +3,7 @@ import React from "react";
 import Image, { Data as ImageData } from "../components/Image";
 import Video, { Data as VideoData } from "../components/Video";
 
-export const getJpgImage = (ogImageUrl: string) => {
+export const getJpgImage = (ogImageUrl: string | null) => {
   if (
     ogImageUrl?.includes("//images.ctfassets.net/") &&
     !ogImageUrl.includes("fm=")

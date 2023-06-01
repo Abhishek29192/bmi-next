@@ -26,10 +26,10 @@ import { useConfig } from "../contexts/ConfigProvider";
 import { updateBreadcrumbTitleFromContentful } from "../utils/breadcrumbUtils";
 import withGTM from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
+import type { Data as LinkData } from "../components/Link";
 import type { Data as SiteData } from "../components/Site";
 import type { Data as SlideData } from "../components/Promo";
 import type { Data as PageInfoData } from "../components/PageInfo";
-import type { Data as LinkData } from "../components/Link";
 
 type BrandLandingPageData = Omit<PageInfoData, "sections" | "featuredVideo"> &
   Omit<PageData, "breadcrumbs"> & {

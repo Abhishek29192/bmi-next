@@ -9,7 +9,7 @@ import React from "react";
 export const renderHero = (
   heroProps: HeroProps | SpotlightHeroProps,
   breadcrumbsNode: React.ReactNode,
-  heroType: string,
+  heroType: string | null,
   heroKeyLine?: {
     isHeroKeyLine?: boolean;
     isSpotlightHeroKeyLine?: boolean;
@@ -19,13 +19,13 @@ export const renderHero = (
     <SpotlightHero
       {...(heroProps as SpotlightHeroProps)}
       breadcrumbs={breadcrumbsNode}
-      isHeroKeyLine={heroKeyLine.isSpotlightHeroKeyLine}
+      isHeroKeyLine={heroKeyLine?.isSpotlightHeroKeyLine}
     />
   ) : (
     <Hero
       {...(heroProps as HeroProps)}
       breadcrumbs={breadcrumbsNode}
-      isHeroKeyLine={heroKeyLine.isHeroKeyLine}
+      isHeroKeyLine={heroKeyLine?.isHeroKeyLine}
     />
   );
 };

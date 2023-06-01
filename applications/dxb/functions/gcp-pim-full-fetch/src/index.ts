@@ -1,5 +1,4 @@
 import logger from "@bmi-digital/functions-logger";
-import { Document as ContentfulDocument } from "@bmi/contentful-types";
 import { fetchData } from "@bmi/pim-api";
 import {
   PimTypes,
@@ -65,7 +64,7 @@ const handlePimData = async (type: PimTypes, locale: string, page: number) => {
 };
 
 const handleDocuments = async (locale: string, page: number, tag?: string) => {
-  const documents = await getDocuments<ContentfulDocument>(locale, page, tag);
+  const documents = await getDocuments(locale, page, tag);
   logger.info({
     message: `Fetched data for documents body type: ${JSON.stringify(
       documents

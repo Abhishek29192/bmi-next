@@ -1851,7 +1851,22 @@ describe("getDocumentQueryObject function", () => {
               }
             },
             { term: { "assetType.code.keyword": "ASSEMBLY_INSTRUCTIONS" } },
-            { term: { "approvalStatus.keyword": "approved" } }
+            {
+              bool: {
+                should: [
+                  {
+                    term: {
+                      "approvalStatus.keyword": "approved"
+                    }
+                  },
+                  {
+                    term: {
+                      "__typename.keyword": "ContentfulDocument"
+                    }
+                  }
+                ]
+              }
+            }
           ]
         }
       },

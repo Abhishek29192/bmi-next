@@ -21,7 +21,8 @@ export const getFirestore = (): Firestore => {
     }
 
     const app = initializeApp({
-      databaseURL: `https://${process.env.GCP_PROJECT_ID}.firebaseio.com`
+      databaseURL: `https://${process.env.GCP_PROJECT_ID}.firebaseio.com`,
+      projectId: GCP_PROJECT_ID
     });
 
     firestoreCache = getAdminFirestore(app);

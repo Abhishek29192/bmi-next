@@ -30,49 +30,54 @@ exports[`RelatedSystems component renders correctly when scoringweight equal & n
               data-testid="system-card-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                 data-gtm="{"id":"cta-click1","label":"system-1 - MC: sdp.system.readMore","action":"/en/s/path/"}"
                 href="/en/s/path/"
                 tabindex="0"
               >
-                <img
-                  alt="system-1"
-                  class="OverviewCard-headerPicture css-10hd0hb-Media"
-                  src="http://localhost:8000/image-main-source.jpg"
-                />
                 <div
-                  class="OverviewCard-body"
+                  class="OverviewCard-main"
+                  data-testid="overview-card-main"
                 >
-                  <div
-                    class="OverviewCard-brandLogo OverviewCard-negative"
+                  <img
+                    alt="system-1"
+                    class="OverviewCard-headerPicture css-10hd0hb-Media"
+                    src="http://localhost:8000/image-main-source.jpg"
                   />
-                  <h5
-                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
-                    data-testid="overview-card-body-title"
-                  >
-                    system-1
-                  </h5>
                   <div
-                    class="OverviewCard-text css-kl66ak"
-                    data-testid="overview-card-body-description"
+                    class="OverviewCard-body"
                   >
-                    system-desc
-                  </div>
-                  <div
-                    class="css-ekp6jg"
-                    data-testid="overview-card-body-footer"
-                  >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                      tabindex="0"
-                      type="button"
+                    <div
+                      class="OverviewCard-brandLogo OverviewCard-negative"
+                    />
+                    <h5
+                      class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
+                      data-testid="overview-card-body-title"
                     >
-                      MC: sdp.system.readMore
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
+                      system-1
+                    </h5>
+                    <div
+                      class="OverviewCard-text css-kl66ak"
+                      data-testid="overview-card-body-description"
+                    >
+                      system-desc
+                    </div>
                   </div>
+                </div>
+                <div
+                  class="css-197a1cq"
+                  data-testid="overview-card-body-footer"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    tabindex="0"
+                    type="button"
+                  >
+                    MC: sdp.system.readMore
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -84,49 +89,54 @@ exports[`RelatedSystems component renders correctly when scoringweight equal & n
               data-testid="system-card-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                 data-gtm="{"id":"cta-click1","label":"system-1 - MC: sdp.system.readMore","action":"/en/s/path/"}"
                 href="/en/s/path/"
                 tabindex="0"
               >
-                <img
-                  alt="system-1"
-                  class="OverviewCard-headerPicture css-10hd0hb-Media"
-                  src="http://localhost:8000/image-main-source.jpg"
-                />
                 <div
-                  class="OverviewCard-body"
+                  class="OverviewCard-main"
+                  data-testid="overview-card-main"
                 >
-                  <div
-                    class="OverviewCard-brandLogo OverviewCard-negative"
+                  <img
+                    alt="system-1"
+                    class="OverviewCard-headerPicture css-10hd0hb-Media"
+                    src="http://localhost:8000/image-main-source.jpg"
                   />
-                  <h5
-                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
-                    data-testid="overview-card-body-title"
-                  >
-                    system-1
-                  </h5>
                   <div
-                    class="OverviewCard-text css-kl66ak"
-                    data-testid="overview-card-body-description"
+                    class="OverviewCard-body"
                   >
-                    system-desc
-                  </div>
-                  <div
-                    class="css-ekp6jg"
-                    data-testid="overview-card-body-footer"
-                  >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                      tabindex="0"
-                      type="button"
+                    <div
+                      class="OverviewCard-brandLogo OverviewCard-negative"
+                    />
+                    <h5
+                      class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
+                      data-testid="overview-card-body-title"
                     >
-                      MC: sdp.system.readMore
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
+                      system-1
+                    </h5>
+                    <div
+                      class="OverviewCard-text css-kl66ak"
+                      data-testid="overview-card-body-description"
+                    >
+                      system-desc
+                    </div>
                   </div>
+                </div>
+                <div
+                  class="css-197a1cq"
+                  data-testid="overview-card-body-footer"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    tabindex="0"
+                    type="button"
+                  >
+                    MC: sdp.system.readMore
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -203,49 +213,54 @@ exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
               data-testid="system-card-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                 data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
                 href="/en/s/path/"
                 tabindex="0"
               >
-                <img
-                  alt="system-Name"
-                  class="OverviewCard-headerPicture css-10hd0hb-Media"
-                  src="http://localhost:8000/image-main-source.jpg"
-                />
                 <div
-                  class="OverviewCard-body"
+                  class="OverviewCard-main"
+                  data-testid="overview-card-main"
                 >
-                  <div
-                    class="OverviewCard-brandLogo OverviewCard-negative"
+                  <img
+                    alt="system-Name"
+                    class="OverviewCard-headerPicture css-10hd0hb-Media"
+                    src="http://localhost:8000/image-main-source.jpg"
                   />
-                  <h5
-                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
-                    data-testid="overview-card-body-title"
-                  >
-                    system-Name
-                  </h5>
                   <div
-                    class="OverviewCard-text css-kl66ak"
-                    data-testid="overview-card-body-description"
+                    class="OverviewCard-body"
                   >
-                    system-desc
-                  </div>
-                  <div
-                    class="css-ekp6jg"
-                    data-testid="overview-card-body-footer"
-                  >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                      tabindex="0"
-                      type="button"
+                    <div
+                      class="OverviewCard-brandLogo OverviewCard-negative"
+                    />
+                    <h5
+                      class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
+                      data-testid="overview-card-body-title"
                     >
-                      MC: sdp.system.readMore
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
+                      system-Name
+                    </h5>
+                    <div
+                      class="OverviewCard-text css-kl66ak"
+                      data-testid="overview-card-body-description"
+                    >
+                      system-desc
+                    </div>
                   </div>
+                </div>
+                <div
+                  class="css-197a1cq"
+                  data-testid="overview-card-body-footer"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    tabindex="0"
+                    type="button"
+                  >
+                    MC: sdp.system.readMore
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -257,49 +272,54 @@ exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
               data-testid="system-card-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                 data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
                 href="/en/s/path/"
                 tabindex="0"
               >
-                <img
-                  alt="system-Name"
-                  class="OverviewCard-headerPicture css-10hd0hb-Media"
-                  src="http://localhost:8000/image-main-source.jpg"
-                />
                 <div
-                  class="OverviewCard-body"
+                  class="OverviewCard-main"
+                  data-testid="overview-card-main"
                 >
-                  <div
-                    class="OverviewCard-brandLogo OverviewCard-negative"
+                  <img
+                    alt="system-Name"
+                    class="OverviewCard-headerPicture css-10hd0hb-Media"
+                    src="http://localhost:8000/image-main-source.jpg"
                   />
-                  <h5
-                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
-                    data-testid="overview-card-body-title"
-                  >
-                    system-Name
-                  </h5>
                   <div
-                    class="OverviewCard-text css-kl66ak"
-                    data-testid="overview-card-body-description"
+                    class="OverviewCard-body"
                   >
-                    system-desc
-                  </div>
-                  <div
-                    class="css-ekp6jg"
-                    data-testid="overview-card-body-footer"
-                  >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                      tabindex="0"
-                      type="button"
+                    <div
+                      class="OverviewCard-brandLogo OverviewCard-negative"
+                    />
+                    <h5
+                      class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
+                      data-testid="overview-card-body-title"
                     >
-                      MC: sdp.system.readMore
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
+                      system-Name
+                    </h5>
+                    <div
+                      class="OverviewCard-text css-kl66ak"
+                      data-testid="overview-card-body-description"
+                    >
+                      system-desc
+                    </div>
                   </div>
+                </div>
+                <div
+                  class="css-197a1cq"
+                  data-testid="overview-card-body-footer"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    tabindex="0"
+                    type="button"
+                  >
+                    MC: sdp.system.readMore
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -344,49 +364,54 @@ exports[`RelatedSystems component renders correctly with scoringweight equal & n
               data-testid="system-card-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                 data-gtm="{"id":"cta-click1","label":"system-1 - MC: sdp.system.readMore","action":"/en/s/path/"}"
                 href="/en/s/path/"
                 tabindex="0"
               >
-                <img
-                  alt="system-1"
-                  class="OverviewCard-headerPicture css-10hd0hb-Media"
-                  src="http://localhost:8000/image-main-source.jpg"
-                />
                 <div
-                  class="OverviewCard-body"
+                  class="OverviewCard-main"
+                  data-testid="overview-card-main"
                 >
-                  <div
-                    class="OverviewCard-brandLogo OverviewCard-negative"
+                  <img
+                    alt="system-1"
+                    class="OverviewCard-headerPicture css-10hd0hb-Media"
+                    src="http://localhost:8000/image-main-source.jpg"
                   />
-                  <h5
-                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
-                    data-testid="overview-card-body-title"
-                  >
-                    system-1
-                  </h5>
                   <div
-                    class="OverviewCard-text css-kl66ak"
-                    data-testid="overview-card-body-description"
+                    class="OverviewCard-body"
                   >
-                    system-desc
-                  </div>
-                  <div
-                    class="css-ekp6jg"
-                    data-testid="overview-card-body-footer"
-                  >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                      tabindex="0"
-                      type="button"
+                    <div
+                      class="OverviewCard-brandLogo OverviewCard-negative"
+                    />
+                    <h5
+                      class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
+                      data-testid="overview-card-body-title"
                     >
-                      MC: sdp.system.readMore
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
+                      system-1
+                    </h5>
+                    <div
+                      class="OverviewCard-text css-kl66ak"
+                      data-testid="overview-card-body-description"
+                    >
+                      system-desc
+                    </div>
                   </div>
+                </div>
+                <div
+                  class="css-197a1cq"
+                  data-testid="overview-card-body-footer"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    tabindex="0"
+                    type="button"
+                  >
+                    MC: sdp.system.readMore
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -398,49 +423,54 @@ exports[`RelatedSystems component renders correctly with scoringweight equal & n
               data-testid="system-card-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                 data-gtm="{"id":"cta-click1","label":"system-2 - MC: sdp.system.readMore","action":"/en/s/path/"}"
                 href="/en/s/path/"
                 tabindex="0"
               >
-                <img
-                  alt="system-2"
-                  class="OverviewCard-headerPicture css-10hd0hb-Media"
-                  src="http://localhost:8000/image-main-source.jpg"
-                />
                 <div
-                  class="OverviewCard-body"
+                  class="OverviewCard-main"
+                  data-testid="overview-card-main"
                 >
-                  <div
-                    class="OverviewCard-brandLogo OverviewCard-negative"
+                  <img
+                    alt="system-2"
+                    class="OverviewCard-headerPicture css-10hd0hb-Media"
+                    src="http://localhost:8000/image-main-source.jpg"
                   />
-                  <h5
-                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
-                    data-testid="overview-card-body-title"
-                  >
-                    system-2
-                  </h5>
                   <div
-                    class="OverviewCard-text css-kl66ak"
-                    data-testid="overview-card-body-description"
+                    class="OverviewCard-body"
                   >
-                    system-desc
-                  </div>
-                  <div
-                    class="css-ekp6jg"
-                    data-testid="overview-card-body-footer"
-                  >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                      tabindex="0"
-                      type="button"
+                    <div
+                      class="OverviewCard-brandLogo OverviewCard-negative"
+                    />
+                    <h5
+                      class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
+                      data-testid="overview-card-body-title"
                     >
-                      MC: sdp.system.readMore
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
+                      system-2
+                    </h5>
+                    <div
+                      class="OverviewCard-text css-kl66ak"
+                      data-testid="overview-card-body-description"
+                    >
+                      system-desc
+                    </div>
                   </div>
+                </div>
+                <div
+                  class="css-197a1cq"
+                  data-testid="overview-card-body-footer"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    tabindex="0"
+                    type="button"
+                  >
+                    MC: sdp.system.readMore
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -485,49 +515,54 @@ exports[`RelatedSystems component renders correctly with scoringweight equal 1`]
               data-testid="system-card-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                 data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
                 href="/en/s/path/"
                 tabindex="0"
               >
-                <img
-                  alt="system-Name"
-                  class="OverviewCard-headerPicture css-10hd0hb-Media"
-                  src="http://localhost:8000/image-main-source.jpg"
-                />
                 <div
-                  class="OverviewCard-body"
+                  class="OverviewCard-main"
+                  data-testid="overview-card-main"
                 >
-                  <div
-                    class="OverviewCard-brandLogo OverviewCard-negative"
+                  <img
+                    alt="system-Name"
+                    class="OverviewCard-headerPicture css-10hd0hb-Media"
+                    src="http://localhost:8000/image-main-source.jpg"
                   />
-                  <h5
-                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
-                    data-testid="overview-card-body-title"
-                  >
-                    system-Name
-                  </h5>
                   <div
-                    class="OverviewCard-text css-kl66ak"
-                    data-testid="overview-card-body-description"
+                    class="OverviewCard-body"
                   >
-                    system-desc
-                  </div>
-                  <div
-                    class="css-ekp6jg"
-                    data-testid="overview-card-body-footer"
-                  >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                      tabindex="0"
-                      type="button"
+                    <div
+                      class="OverviewCard-brandLogo OverviewCard-negative"
+                    />
+                    <h5
+                      class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
+                      data-testid="overview-card-body-title"
                     >
-                      MC: sdp.system.readMore
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
+                      system-Name
+                    </h5>
+                    <div
+                      class="OverviewCard-text css-kl66ak"
+                      data-testid="overview-card-body-description"
+                    >
+                      system-desc
+                    </div>
                   </div>
+                </div>
+                <div
+                  class="css-197a1cq"
+                  data-testid="overview-card-body-footer"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    tabindex="0"
+                    type="button"
+                  >
+                    MC: sdp.system.readMore
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -539,49 +574,54 @@ exports[`RelatedSystems component renders correctly with scoringweight equal 1`]
               data-testid="system-card-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                 data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
                 href="/en/s/path/"
                 tabindex="0"
               >
-                <img
-                  alt="system-Name"
-                  class="OverviewCard-headerPicture css-10hd0hb-Media"
-                  src="http://localhost:8000/image-main-source.jpg"
-                />
                 <div
-                  class="OverviewCard-body"
+                  class="OverviewCard-main"
+                  data-testid="overview-card-main"
                 >
-                  <div
-                    class="OverviewCard-brandLogo OverviewCard-negative"
+                  <img
+                    alt="system-Name"
+                    class="OverviewCard-headerPicture css-10hd0hb-Media"
+                    src="http://localhost:8000/image-main-source.jpg"
                   />
-                  <h5
-                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
-                    data-testid="overview-card-body-title"
-                  >
-                    system-Name
-                  </h5>
                   <div
-                    class="OverviewCard-text css-kl66ak"
-                    data-testid="overview-card-body-description"
+                    class="OverviewCard-body"
                   >
-                    system-desc
-                  </div>
-                  <div
-                    class="css-ekp6jg"
-                    data-testid="overview-card-body-footer"
-                  >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                      tabindex="0"
-                      type="button"
+                    <div
+                      class="OverviewCard-brandLogo OverviewCard-negative"
+                    />
+                    <h5
+                      class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
+                      data-testid="overview-card-body-title"
                     >
-                      MC: sdp.system.readMore
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
+                      system-Name
+                    </h5>
+                    <div
+                      class="OverviewCard-text css-kl66ak"
+                      data-testid="overview-card-body-description"
+                    >
+                      system-desc
+                    </div>
                   </div>
+                </div>
+                <div
+                  class="css-197a1cq"
+                  data-testid="overview-card-body-footer"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    tabindex="0"
+                    type="button"
+                  >
+                    MC: sdp.system.readMore
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -626,49 +666,54 @@ exports[`RelatedSystems component renders correctly with systems 1`] = `
               data-testid="system-card-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                 data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
                 href="/en/s/path/"
                 tabindex="0"
               >
-                <img
-                  alt="system-Name"
-                  class="OverviewCard-headerPicture css-10hd0hb-Media"
-                  src="http://localhost:8000/image-main-source.jpg"
-                />
                 <div
-                  class="OverviewCard-body"
+                  class="OverviewCard-main"
+                  data-testid="overview-card-main"
                 >
-                  <div
-                    class="OverviewCard-brandLogo OverviewCard-negative"
+                  <img
+                    alt="system-Name"
+                    class="OverviewCard-headerPicture css-10hd0hb-Media"
+                    src="http://localhost:8000/image-main-source.jpg"
                   />
-                  <h5
-                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
-                    data-testid="overview-card-body-title"
-                  >
-                    system-Name
-                  </h5>
                   <div
-                    class="OverviewCard-text css-kl66ak"
-                    data-testid="overview-card-body-description"
+                    class="OverviewCard-body"
                   >
-                    system-desc
-                  </div>
-                  <div
-                    class="css-ekp6jg"
-                    data-testid="overview-card-body-footer"
-                  >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                      tabindex="0"
-                      type="button"
+                    <div
+                      class="OverviewCard-brandLogo OverviewCard-negative"
+                    />
+                    <h5
+                      class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
+                      data-testid="overview-card-body-title"
                     >
-                      MC: sdp.system.readMore
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
+                      system-Name
+                    </h5>
+                    <div
+                      class="OverviewCard-text css-kl66ak"
+                      data-testid="overview-card-body-description"
+                    >
+                      system-desc
+                    </div>
                   </div>
+                </div>
+                <div
+                  class="css-197a1cq"
+                  data-testid="overview-card-body-footer"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    tabindex="0"
+                    type="button"
+                  >
+                    MC: sdp.system.readMore
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -713,49 +758,54 @@ exports[`RelatedSystems component renders correctly without categories 1`] = `
               data-testid="system-card-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                 data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
                 href="/en/s/path/"
                 tabindex="0"
               >
-                <img
-                  alt="system-Name"
-                  class="OverviewCard-headerPicture css-10hd0hb-Media"
-                  src="http://localhost:8000/image-main-source.jpg"
-                />
                 <div
-                  class="OverviewCard-body"
+                  class="OverviewCard-main"
+                  data-testid="overview-card-main"
                 >
-                  <div
-                    class="OverviewCard-brandLogo OverviewCard-negative"
+                  <img
+                    alt="system-Name"
+                    class="OverviewCard-headerPicture css-10hd0hb-Media"
+                    src="http://localhost:8000/image-main-source.jpg"
                   />
-                  <h5
-                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
-                    data-testid="overview-card-body-title"
-                  >
-                    system-Name
-                  </h5>
                   <div
-                    class="OverviewCard-text css-kl66ak"
-                    data-testid="overview-card-body-description"
+                    class="OverviewCard-body"
                   >
-                    system-desc
-                  </div>
-                  <div
-                    class="css-ekp6jg"
-                    data-testid="overview-card-body-footer"
-                  >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                      tabindex="0"
-                      type="button"
+                    <div
+                      class="OverviewCard-brandLogo OverviewCard-negative"
+                    />
+                    <h5
+                      class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
+                      data-testid="overview-card-body-title"
                     >
-                      MC: sdp.system.readMore
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
+                      system-Name
+                    </h5>
+                    <div
+                      class="OverviewCard-text css-kl66ak"
+                      data-testid="overview-card-body-description"
+                    >
+                      system-desc
+                    </div>
                   </div>
+                </div>
+                <div
+                  class="css-197a1cq"
+                  data-testid="overview-card-body-footer"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    tabindex="0"
+                    type="button"
+                  >
+                    MC: sdp.system.readMore
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -800,49 +850,54 @@ exports[`RelatedSystems component renders systems correctly without classificati
               data-testid="system-card-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
                 data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
                 href="/en/s/path/"
                 tabindex="0"
               >
-                <img
-                  alt="system-Name"
-                  class="OverviewCard-headerPicture css-10hd0hb-Media"
-                  src="http://localhost:8000/image-main-source.jpg"
-                />
                 <div
-                  class="OverviewCard-body"
+                  class="OverviewCard-main"
+                  data-testid="overview-card-main"
                 >
-                  <div
-                    class="OverviewCard-brandLogo OverviewCard-negative"
+                  <img
+                    alt="system-Name"
+                    class="OverviewCard-headerPicture css-10hd0hb-Media"
+                    src="http://localhost:8000/image-main-source.jpg"
                   />
-                  <h5
-                    class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
-                    data-testid="overview-card-body-title"
-                  >
-                    system-Name
-                  </h5>
                   <div
-                    class="OverviewCard-text css-kl66ak"
-                    data-testid="overview-card-body-description"
+                    class="OverviewCard-body"
                   >
-                    system-desc
-                  </div>
-                  <div
-                    class="css-ekp6jg"
-                    data-testid="overview-card-body-footer"
-                  >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                      tabindex="0"
-                      type="button"
+                    <div
+                      class="OverviewCard-brandLogo OverviewCard-negative"
+                    />
+                    <h5
+                      class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
+                      data-testid="overview-card-body-title"
                     >
-                      MC: sdp.system.readMore
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
+                      system-Name
+                    </h5>
+                    <div
+                      class="OverviewCard-text css-kl66ak"
+                      data-testid="overview-card-body-description"
+                    >
+                      system-desc
+                    </div>
                   </div>
+                </div>
+                <div
+                  class="css-197a1cq"
+                  data-testid="overview-card-body-footer"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    tabindex="0"
+                    type="button"
+                  >
+                    MC: sdp.system.readMore
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -864,49 +919,54 @@ exports[`SystemCard renders correctly with related system 1`] = `
     data-testid="system-card-related-system-1"
   >
     <a
-      class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+      class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
       data-gtm="{"id":"gtm-id"}"
       href="/en/related-system-path/"
       tabindex="0"
     >
-      <img
-        alt="related-ssytem-name"
-        class="OverviewCard-headerPicture css-10hd0hb-Media"
-        src="http://localhost:8000/image-main-source.jpg"
-      />
       <div
-        class="OverviewCard-body"
+        class="OverviewCard-main"
+        data-testid="overview-card-main"
       >
-        <div
-          class="OverviewCard-brandLogo OverviewCard-negative"
+        <img
+          alt="related-ssytem-name"
+          class="OverviewCard-headerPicture css-10hd0hb-Media"
+          src="http://localhost:8000/image-main-source.jpg"
         />
-        <h5
-          class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
-          data-testid="overview-card-body-title"
-        >
-          related-ssytem-name
-        </h5>
         <div
-          class="OverviewCard-text css-kl66ak"
-          data-testid="overview-card-body-description"
+          class="OverviewCard-body"
         >
-          related-short-desc
-        </div>
-        <div
-          class="css-ekp6jg"
-          data-testid="overview-card-body-footer"
-        >
-          <button
-            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-            tabindex="0"
-            type="button"
+          <div
+            class="OverviewCard-brandLogo OverviewCard-negative"
+          />
+          <h5
+            class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
+            data-testid="overview-card-body-title"
           >
-            MC: sdp.system.readMore
-            <span
-              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-            />
-          </button>
+            related-ssytem-name
+          </h5>
+          <div
+            class="OverviewCard-text css-kl66ak"
+            data-testid="overview-card-body-description"
+          >
+            related-short-desc
+          </div>
         </div>
+      </div>
+      <div
+        class="css-197a1cq"
+        data-testid="overview-card-body-footer"
+      >
+        <button
+          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+          tabindex="0"
+          type="button"
+        >
+          MC: sdp.system.readMore
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </button>
       </div>
       <span
         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -923,49 +983,54 @@ exports[`SystemCard renders correctly with system from elasticsearch 1`] = `
     data-testid="system-card-code"
   >
     <a
-      class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-um3yzr-MuiButtonBase-root"
+      class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
       data-gtm="{"id":"gtm-id"}"
       href="/en/s/code-name-hashed-code/"
       tabindex="0"
     >
-      <img
-        alt="name"
-        class="OverviewCard-headerPicture css-10hd0hb-Media"
-        src="http://localhost:8000/mainSource"
-      />
       <div
-        class="OverviewCard-body"
+        class="OverviewCard-main"
+        data-testid="overview-card-main"
       >
-        <div
-          class="OverviewCard-brandLogo OverviewCard-negative"
+        <img
+          alt="name"
+          class="OverviewCard-headerPicture css-10hd0hb-Media"
+          src="http://localhost:8000/mainSource"
         />
-        <h5
-          class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
-          data-testid="overview-card-body-title"
-        >
-          name
-        </h5>
         <div
-          class="OverviewCard-text css-kl66ak"
-          data-testid="overview-card-body-description"
+          class="OverviewCard-body"
         >
-          Short description
-        </div>
-        <div
-          class="css-ekp6jg"
-          data-testid="overview-card-body-footer"
-        >
-          <button
-            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-            tabindex="0"
-            type="button"
+          <div
+            class="OverviewCard-brandLogo OverviewCard-negative"
+          />
+          <h5
+            class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
+            data-testid="overview-card-body-title"
           >
-            MC: sdp.system.readMore
-            <span
-              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-            />
-          </button>
+            name
+          </h5>
+          <div
+            class="OverviewCard-text css-kl66ak"
+            data-testid="overview-card-body-description"
+          >
+            Short description
+          </div>
         </div>
+      </div>
+      <div
+        class="css-197a1cq"
+        data-testid="overview-card-body-footer"
+      >
+        <button
+          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+          tabindex="0"
+          type="button"
+        >
+          MC: sdp.system.readMore
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </button>
       </div>
       <span
         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"

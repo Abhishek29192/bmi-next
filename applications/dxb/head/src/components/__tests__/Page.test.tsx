@@ -1,7 +1,7 @@
+import { RegionCode, ThemeProvider } from "@bmi-digital/components";
 import { LocationProvider } from "@reach/router";
 import { render } from "@testing-library/react";
 import React from "react";
-import { RegionCode, ThemeProvider } from "@bmi-digital/components";
 import { DataTypeEnum, NavigationData } from "../Link";
 import Page, { Data } from "../Page";
 import { Data as SiteData } from "../Site";
@@ -101,6 +101,7 @@ const siteData: SiteData = {
   menuNavigation: mockNestedNavigation,
   menuUtilities: mockNavigation,
   resources: null,
+  headScripts: null,
   pitchedRoofCalculatorConfig: null,
   visualiserHouseTypes: [],
   regions: [

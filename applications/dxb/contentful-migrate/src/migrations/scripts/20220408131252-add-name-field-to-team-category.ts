@@ -1,10 +1,9 @@
-import { internalName } from "../../variables/helpText/20210421160910";
-import type Migration from "contentful-migration";
+import { internalName } from "../../variables/helpText/20210421160910.js";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Add name field for team category";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const teamCategory = migration.editContentType("teamCategory");
   teamCategory.createField("name").name("Name").type("Symbol").required(true);
   teamCategory.changeFieldControl("name", "builtin", "singleLine", {
@@ -24,7 +23,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   });
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const teamCategory = migration.editContentType("teamCategory");
   teamCategory.deleteField("name");
   teamCategory.displayField("title");

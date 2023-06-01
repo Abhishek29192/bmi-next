@@ -3,9 +3,11 @@ import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import { ContentfulRichTextGatsbyReference } from "gatsby-source-contentful/rich-text";
 import React from "react";
+import { BLOCKS } from "@contentful/rich-text-types";
 import LeadBlockSection, {
   Data as LeadBlockSectionProps
 } from "../LeadBlockSection";
+import { DataTypeEnum } from "../Link";
 
 const leadBlockSectionData: LeadBlockSectionProps = {
   __typename: "ContentfulLeadBlockSection",
@@ -21,7 +23,7 @@ const leadBlockSectionData: LeadBlockSectionProps = {
     icon: null,
     isLabelHidden: null,
     url: "contact-us/",
-    type: null,
+    type: DataTypeEnum.Internal,
     parameters: null,
     dialogContent: null,
     linkedPage: null,
@@ -41,7 +43,7 @@ const leadBlockSectionData: LeadBlockSectionProps = {
       } as ContentfulRichTextGatsbyReference
     ],
     raw: JSON.stringify({
-      nodeType: "paragraph",
+      nodeType: BLOCKS.PARAGRAPH,
       content: [
         {
           data: {

@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Create roofer content type";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const roofer = migration
     .createContentType("roofer")
     .name("Roofer")
@@ -75,5 +74,5 @@ export const up: MigrationFunction = (migration: Migration) => {
   roofer.createField("summary").name("Summary").type("Symbol");
 };
 
-export const down: MigrationFunction = (migration: Migration) =>
+export const down: MigrationFunction = (migration) =>
   migration.deleteContentType("roofer");

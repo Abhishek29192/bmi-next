@@ -57,3 +57,16 @@ Authorization: Bearer {{pimToken}}
 GET {{pimHost}}/bmiwebservices/v2/{{pimCatalogName}}/featureValues
 Content-Type: application/json
 Authorization: Bearer {{pimToken}}
+
+###
+
+# @name Get Products by token
+# @noRejectUnauthorized
+
+@messageId=7782337637862362
+@token=f38129dc96e04f6dbbba290347879cad
+@currentPage=0
+
+GET {{pimHost}}/bmiwebservices/v2/{{pimCatalogName}}/export/products?messageId={{messageId}}&token={{token}}&currentPage={{currentPage}}&lang={{pimLocale}}
+Content-Type: application/json
+Authorization: Bearer {{pimToken}}

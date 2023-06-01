@@ -1,13 +1,9 @@
 import type { SysLink } from "contentful-management";
-import type Migration from "contentful-migration";
-import type { MigrationContext, MigrationFunction } from "contentful-migration";
+import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Add share widget field";
 
-export const up: MigrationFunction = (
-  migration: Migration,
-  context?: MigrationContext
-) => {
+export const up: MigrationFunction = (migration, context) => {
   const page = migration.editContentType("page");
 
   page
@@ -74,7 +70,7 @@ export const up: MigrationFunction = (
   page.moveField("shareWidget").beforeField("leadBlock");
 };
 
-export const down: MigrationFunction = async (migration: Migration) => {
+export const down: MigrationFunction = async (migration) => {
   const page = migration.editContentType("page");
 
   page.deleteField("shareWidget");

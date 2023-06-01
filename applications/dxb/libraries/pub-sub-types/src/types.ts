@@ -1,6 +1,6 @@
 import { Product, System } from "@bmi/pim-types";
 
-export const enum ObjType {
+export enum ObjType {
   System = "system",
   Base_product = "base_product",
   Variant = "variant",

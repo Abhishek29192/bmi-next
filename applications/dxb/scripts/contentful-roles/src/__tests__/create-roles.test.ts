@@ -52,6 +52,15 @@ describe("create roles", () => {
     expect(consoleSpy.mock.calls[0][0]).toEqual(
       "Triggering create roles for uk"
     );
+    expect(consoleSpy.mock.calls[1][0]).toEqual(
+      "Getting request body for publisher role for uk"
+    );
+    expect(consoleSpy.mock.calls[2][0]).toEqual("Created contentful roles");
+    expect(consoleSpy.mock.calls[3][0]).toEqual(
+      "Getting request body for editor role for uk"
+    );
+    expect(consoleSpy.mock.calls[4][0]).toEqual("Created contentful roles");
+
     expect(getRolesPermissionsToCreate).toHaveBeenNthCalledWith(
       1,
       RolesEnum.publisher,
@@ -77,6 +86,25 @@ describe("create roles", () => {
     expect(consoleSpy.mock.calls[0][0]).toEqual(
       "Triggering create roles for uk"
     );
+    expect(consoleSpy.mock.calls[1][0]).toEqual(
+      "Getting request body for publisher role for uk"
+    );
+    expect(consoleSpy.mock.calls[2][0]).toEqual(
+      "Triggering create roles for finland"
+    );
+    expect(consoleSpy.mock.calls[3][0]).toEqual(
+      "Getting request body for publisher role for finland"
+    );
+    expect(consoleSpy.mock.calls[4][0]).toEqual("Created contentful roles");
+    expect(consoleSpy.mock.calls[5][0]).toEqual(
+      "Getting request body for editor role for uk"
+    );
+    expect(consoleSpy.mock.calls[6][0]).toEqual("Created contentful roles");
+    expect(consoleSpy.mock.calls[7][0]).toEqual(
+      "Getting request body for editor role for finland"
+    );
+    expect(consoleSpy.mock.calls[8][0]).toEqual("Created contentful roles");
+
     expect(getRolesPermissionsToCreate).toHaveBeenNthCalledWith(
       1,
       RolesEnum.publisher,

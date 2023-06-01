@@ -17,7 +17,7 @@ import React from "react";
 import type { Product as ESProduct } from "@bmi/elasticsearch-types";
 import { DataTypeEnum, NavigationData } from "../../../../components/Link";
 import { Data as SiteData } from "../../../../components/Site";
-import { ConfigProvider, Config } from "../../../../contexts/ConfigProvider";
+import { Config, ConfigProvider } from "../../../../contexts/ConfigProvider";
 import createImageData from "../../../../__tests__/helpers/ImageDataHelper";
 import ProductListerPage, {
   Data as PlpPageInfoData,
@@ -36,6 +36,7 @@ const pageInfo: PlpPageInfoData = {
   brandLogo: null,
   tags: null,
   date: null,
+  rawDate: null,
   featuredMedia: createImageData(),
   breadcrumbs: [
     {
@@ -90,6 +91,7 @@ const siteData: SiteData = {
   menuNavigation: mockNavigation,
   menuUtilities: mockNavigation,
   resources: null,
+  headScripts: null,
   pitchedRoofCalculatorConfig: null,
   visualiserHouseTypes: null,
   regions: [

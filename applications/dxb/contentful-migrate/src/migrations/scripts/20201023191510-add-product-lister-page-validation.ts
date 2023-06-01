@@ -1,10 +1,9 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description =
   "Add Product Lister Page reference to VillainSection";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const villainSection = migration.editContentType("villainSection");
 
   villainSection.editField("promo", {
@@ -18,7 +17,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   });
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const villainSection = migration.editContentType("villainSection");
 
   villainSection.editField("promo", {

@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Create Video content type";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const video = migration
     .createContentType("video")
     .name("Video")
@@ -29,6 +28,6 @@ export const up: MigrationFunction = (migration: Migration) => {
     .linkType("Asset");
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   migration.deleteContentType("video");
 };

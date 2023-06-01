@@ -11,6 +11,7 @@ module.exports = {
   rootDir: "../../../../",
   roots: ["<rootDir>/applications/dxb/libraries/gatsby-plugin-leadoo"],
   collectCoverageFrom: [
-    "<rootDir>/applications/dxb/libraries/gatsby-plugin-leadoo/**"
+    ...sharedConfig.collectCoverageFrom,
+    "<rootDir>/applications/dxb/libraries/gatsby-plugin-leadoo/**/gatsby-*.js"
   ]
 };

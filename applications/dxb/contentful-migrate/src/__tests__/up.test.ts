@@ -1,13 +1,25 @@
-export {};
+import { jest } from "@jest/globals";
+import { runMigrationScripts } from "../migrationScripts.js";
 
-jest.mock("dotenv/config", () => ({ config: jest.fn() }), { virtual: true });
+jest.unstable_mockModule("dotenv/config", () => ({ config: jest.fn() }));
 
-const mockRunMigrationScripts = jest.fn();
-jest.mock("../migrationScripts", () => ({
-  runMigrationScripts: (...any: unknown[]) => mockRunMigrationScripts(...any)
+const mockRunMigrationScripts = jest.fn<typeof runMigrationScripts>();
+jest.unstable_mockModule("../migrationScripts.js", () => ({
+  runMigrationScripts: (
+    spaceId: string,
+    contentfulAlias: string,
+    managementAccessToken: string,
+    isDryRun: boolean
+  ) =>
+    mockRunMigrationScripts(
+      spaceId,
+      contentfulAlias,
+      managementAccessToken,
+      isDryRun
+    )
 }));
 
-const main = async () => (await import("../up")).main();
+const main = async () => (await import("../up.js")).main();
 
 beforeEach(() => {
   jest.clearAllMocks();
@@ -126,7 +138,7 @@ describe("main", () => {
   });
 
   it("should not run if it's called from the CLI", async () => {
-    await import("../up");
+    await import("../up.js");
     expect(mockRunMigrationScripts).not.toHaveBeenCalled();
   });
 });

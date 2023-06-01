@@ -1,18 +1,21 @@
 import { getContentfulClient } from "@bmi/functions-contentful-client";
-import { Entry } from "contentful";
+import {
+  TypeDocument as ContentfulDocument,
+  TypeDocumentSkeleton as ContentfulDocumentSkeleton
+} from "@bmi/contentful-types";
 
 // The maximum number of entries returned by the API is 1000.
 // The API will throw a BadRequestError for values higher than 1000 and values other than an integer.
 // The default number of entries returned by the API is 100.
 const MAX_NUMBER_OF_DOCUMENTS_PER_RESPONSE = 1000;
 
-export const getDocuments = async <T>(
+export const getDocuments = async (
   locale: string,
   page: number,
   tag?: string
-): Promise<Entry<T>[]> => {
+): Promise<ContentfulDocument<undefined, string>[]> => {
   const client = getContentfulClient();
-  const response = await client.getEntries<T>({
+  const response = await client.getEntries<ContentfulDocumentSkeleton>({
     content_type: "document",
     locale,
     skip: page * MAX_NUMBER_OF_DOCUMENTS_PER_RESPONSE,

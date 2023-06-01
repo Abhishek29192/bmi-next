@@ -1,10 +1,9 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description =
   "Add a location field that links to multiple contactDetails entries.";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const contactUsPage = migration.editContentType("contactUsPage");
 
   contactUsPage
@@ -26,7 +25,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   contactUsPage.moveField("locations").afterField("locationsTitle");
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const contactUsPage = migration.editContentType("contactUsPage");
   contactUsPage.deleteField("locations");
   contactUsPage.deleteField("locationsTitle");

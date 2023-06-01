@@ -5,6 +5,7 @@ import IconComponent, {
   CertificationFlatRoof,
   CertificationOtherTraining,
   CertificationPitchedRoof,
+  CopyContent,
   Cross,
   Cube,
   Design,
@@ -22,6 +23,7 @@ import IconComponent, {
   FileUniversal,
   FileXLSX,
   FileZIP,
+  Filter,
   FlatRoof,
   Folder,
   FolderZip,
@@ -56,6 +58,7 @@ export type IconName =
   | "ArrowBack"
   | "ArrowForward"
   | "Box"
+  | "CopyContent"
   | "Download"
   | "Facebook"
   | "Folder"
@@ -78,6 +81,7 @@ export type IconName =
   | "FileUniversal"
   | "FileXLSX"
   | "FileZIP"
+  | "Filter"
   | "GetApp"
   | "Cross"
   | "Design"
@@ -114,6 +118,8 @@ const getIcon = (icon: string) => {
       return Box;
     case "Download":
       return Download;
+    case "CopyContent":
+      return CopyContent;
     case "Facebook":
       return Facebook;
     case "Folder":
@@ -156,6 +162,8 @@ const getIcon = (icon: string) => {
       return FileXLSX;
     case "FileZIP":
       return FileZIP;
+    case "Filter":
+      return Filter;
     case "Cross":
       return Cross;
     case "Design":

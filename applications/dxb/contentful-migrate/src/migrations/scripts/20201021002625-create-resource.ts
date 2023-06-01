@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Create content model for Resource";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const resource = migration
     .createContentType("resource")
     .name("Resource")
@@ -23,5 +22,5 @@ export const up: MigrationFunction = (migration: Migration) => {
   resource.changeFieldControl("value", "builtin", "singleLine");
 };
 
-export const down: MigrationFunction = (migration: Migration) =>
+export const down: MigrationFunction = (migration) =>
   migration.deleteContentType("resource");

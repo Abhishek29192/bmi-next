@@ -1,11 +1,10 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Add share widget link on SDP";
 
 const field = "sdpShareWidget";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const resources = migration.editContentType("resources");
   resources
     .createField(field)
@@ -15,7 +14,7 @@ export const up: MigrationFunction = (migration: Migration) => {
     .linkType("Entry");
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const resources = migration.editContentType("resources");
   resources.deleteField(field);
 };

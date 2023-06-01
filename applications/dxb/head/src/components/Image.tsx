@@ -1,5 +1,5 @@
 import { graphql } from "gatsby";
-import { GatsbyImage as Img, IGatsbyImageData } from "gatsby-plugin-image";
+import { IGatsbyImageData, GatsbyImage as Img } from "gatsby-plugin-image";
 import React from "react";
 
 type ImageData = {
@@ -12,7 +12,7 @@ type ImageData = {
 };
 
 export type Data = {
-  altText: string | null;
+  altText: string;
   type?: "Decorative" | "Descriptive" | null;
   image: ImageData;
   focalPoint?: {
@@ -25,9 +25,12 @@ type Options = {
   className?: string;
   size?: "cover" | "contain";
   position?: string;
+  isMobile?: boolean;
 };
 
-const typeToObjectFitMap: Record<Data["type"], Options["size"]> = {
+const typeToObjectFitMap: {
+  [key in NonNullable<Data["type"]>]: Options["size"];
+} = {
   Decorative: "cover",
   Descriptive: "contain"
 };
@@ -35,10 +38,15 @@ const typeToObjectFitMap: Record<Data["type"], Options["size"]> = {
 const getPosition = ({
   size,
   position,
-  focalPoint
+  focalPoint,
+  isMobile
 }: Options & Pick<Data, "focalPoint">): Options["position"] => {
   if (position) {
     return position;
+  }
+
+  if (isMobile) {
+    return "center";
   }
 
   if (size === "cover" && focalPoint) {
@@ -56,6 +64,7 @@ const Image = ({
   type,
   position,
   className,
+  isMobile,
   ...props
 }: Data & Options) => {
   if (!image?.gatsbyImageData) {
@@ -69,7 +78,8 @@ const Image = ({
           objectPosition: getPosition({
             size,
             position,
-            focalPoint: focalPoint
+            focalPoint: focalPoint,
+            isMobile: isMobile
           })
         }}
         {...props}
@@ -86,7 +96,8 @@ const Image = ({
       objectPosition={getPosition({
         size,
         position,
-        focalPoint: focalPoint
+        focalPoint: focalPoint,
+        isMobile: isMobile
       })}
       className={className}
       {...props}
@@ -114,6 +125,13 @@ export const query = graphql`
     }
   }
 
+  # Image "breakpoints" values were taken from the maximum of each theme breakpoint, except XL, which is set to be 2000px (who is realistically using our site larger than that?)
+  # xs: 599px
+  # sm: 719px
+  # md: 839px
+  # lg: 1439px
+  # xl: 2000px
+
   fragment VideoImageFragment on ContentfulImage {
     ...BaseImageFragment
     image {
@@ -127,6 +145,7 @@ export const query = graphql`
     }
   }
 
+  # Although this is used, the resutling data is never used anywhere
   fragment ImageDocumentFragment on ContentfulImage {
     ...BaseImageFragment
     image {

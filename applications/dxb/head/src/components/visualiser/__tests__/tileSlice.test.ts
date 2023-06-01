@@ -3,10 +3,12 @@ import isEqual from "lodash-es/isEqual";
 import sliceTile from "../TileSlice";
 
 describe("Visualiser TileSlice", () => {
-  let bufferGeometry;
+  let bufferGeometry: BufferGeometry;
   beforeEach(() => {
     bufferGeometry = new BufferGeometry();
-    bufferGeometry.index = { array: new Uint16Array([]) };
+    bufferGeometry.index = {
+      array: new Uint16Array([])
+    } as unknown as BufferAttribute;
     bufferGeometry.setAttribute(
       "position",
       new BufferAttribute(new Int8Array(), 0)

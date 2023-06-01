@@ -17,7 +17,7 @@ const PageSummaryCard = ({ title, subtitle, countryCode, path }: Props) => (
         { path },
         null,
         countryCode,
-        null,
+        undefined,
         title
       )}
     >

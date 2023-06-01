@@ -9,15 +9,10 @@ import {
   publishEntry
 } from "@bmi-digital/contentful-migration";
 import { camelCase } from "lodash";
-import branchTypes from "../../variables/branchTypes/20210928085352";
-import merchantTypes from "../../variables/merchantTypes/20210929064001";
-import rooferTypes from "../../variables/roofer/20211124094158";
-import type {
-  MakeRequest,
-  MigrationContext,
-  MigrationFunction
-} from "contentful-migration";
-import type Migration from "contentful-migration";
+import branchTypes from "../../variables/branchTypes/20210928085352.js";
+import merchantTypes from "../../variables/merchantTypes/20210929064001.js";
+import rooferTypes from "../../variables/roofer/20211124094158.js";
+import type { MakeRequest, MigrationFunction } from "contentful-migration";
 
 export const description = "migrate data between roofer and service type";
 
@@ -73,10 +68,7 @@ const generateRooferValueToPrefixKeyPair = (
   );
 };
 
-export const up: MigrationFunction = async (
-  migration: Migration,
-  context?: MigrationContext
-) => {
+export const up: MigrationFunction = async (migration, context) => {
   const rooferContentType = migration.editContentType("roofer");
   const serviceTypeContentType = migration.editContentType("serviceType");
   const microCopyContentType = migration.editContentType("resource");
@@ -233,10 +225,7 @@ export const up: MigrationFunction = async (
   rooferContentType.editField("merchantType").disabled(true).omitted(true);
 };
 
-export const down: MigrationFunction = async (
-  migration: Migration,
-  context?: MigrationContext
-) => {
+export const down: MigrationFunction = async (migration, context) => {
   const rooferContentType = migration.editContentType("roofer");
   const serviceTypeContentType = migration.editContentType("serviceType");
   const microCopyContentType = migration.editContentType("resource");

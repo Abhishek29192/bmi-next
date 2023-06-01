@@ -70,8 +70,8 @@ describe("RelatedProducts component", () => {
       action: "/en/path/"
     });
 
-    expect(
-      screen.getByTestId("GTMOverviewCard").getAttribute("data-gtm")
-    ).toEqual(expectedDataGtm);
+    expect(screen.getByRole("link").getAttribute("data-gtm")).toEqual(
+      expectedDataGtm
+    );
   });
 });

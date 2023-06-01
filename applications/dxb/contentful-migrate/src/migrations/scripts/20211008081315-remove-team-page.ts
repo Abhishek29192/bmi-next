@@ -1,10 +1,9 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description =
   "Remove team page links from productListerPage page.";
 
-export const up: MigrationFunction = async (migration: Migration) => {
+export const up: MigrationFunction = async (migration) => {
   const page = migration.editContentType("productListerPage");
 
   page.editField("parentPage").validations([
@@ -21,7 +20,7 @@ export const up: MigrationFunction = async (migration: Migration) => {
   ]);
 };
 
-export const down: MigrationFunction = async (migration: Migration) => {
+export const down: MigrationFunction = async (migration) => {
   const page = migration.editContentType("productListerPage");
 
   page.editField("parentPage").validations([

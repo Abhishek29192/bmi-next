@@ -1,10 +1,9 @@
-import { brands as icons } from "../../variables/icons/20201110150955";
-import type Migration from "contentful-migration";
+import { brands as icons } from "../../variables/icons/20201110150955.js";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Update icons to use avariable file";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const page = migration.editContentType("page");
 
   page.editField("brandLogo", {
@@ -13,7 +12,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   });
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const page = migration.editContentType("page");
 
   page.editField("brandLogo", {

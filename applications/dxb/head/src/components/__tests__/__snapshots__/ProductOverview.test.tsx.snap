@@ -28,7 +28,7 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
               src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"
             />
             <div
-              class="css-7y46ji"
+              class="css-gy9mja"
               data-testid="media-gallery-caption-text"
             >
               <p
@@ -45,7 +45,7 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
             </div>
           </div>
           <div
-            class="css-1tlzhc3"
+            class="css-16v98zi"
             data-testid="thumbnails-root"
           >
             <button
@@ -100,7 +100,7 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
               <button
                 class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-selected Thumbnail-large Thumbnail-selected css-yh72z7-MuiButtonBase-root"
                 data-gtm="{"id":"media-gallery1","label":"undefined","action":"https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"}"
-                data-testid="default-thumbnail"
+                data-testid="thumbnail-default"
                 tabindex="0"
                 type="button"
               >
@@ -112,7 +112,7 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
               <button
                 class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-large css-yh72z7-MuiButtonBase-root"
                 data-gtm="{"id":"media-gallery1","label":"undefined","action":"https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"}"
-                data-testid="default-thumbnail"
+                data-testid="thumbnail-default"
                 tabindex="0"
                 type="button"
               >
@@ -127,21 +127,43 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
               <button
                 class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-large css-yh72z7-MuiButtonBase-root"
                 data-gtm="{"id":"media-gallery1","label":"test video","action":"[object Object]"}"
-                data-testid="default-thumbnail"
+                data-testid="thumbnail-video"
                 tabindex="0"
                 type="button"
               >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium Thumbnail-playIcon css-7r6ast-MuiSvgIcon-root"
-                  data-testid="thumbnail-play-icon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
+                <div
+                  aria-label="MC: media.video"
+                  class="css-z7rmfo"
                 >
-                  <path
-                    d="M8 5v14l11-7z"
+                  <div
+                    class="css-t93cf4"
+                  >
+                    <div
+                      class="css-1y1tflw"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-19q1qvb-MuiSvgIcon-root"
+                        data-testid="PlayArrowIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M8 5v14l11-7z"
+                        />
+                      </svg>
+                    </div>
+                    <p
+                      class="MuiTypography-root MuiTypography-body1 css-1ezfe9h-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      MC: media.video
+                    </p>
+                  </div>
+                  <div
+                    class="css-156fqrw"
                   />
-                </svg>
+                </div>
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
@@ -155,17 +177,17 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
         data-testid="grid-item"
       >
         <div
-          class="css-bgwh3d"
+          class="css-7tl8sb"
           data-testid="product-overview-pane"
         >
           <h1
-            class="MuiTypography-root MuiTypography-h3 css-22inrc-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h3 Typography-underline css-22inrc-MuiTypography-root"
             data-testid="typography"
           >
             name
           </h1>
           <ul
-            class="css-132h8yw"
+            class="css-1wqu3mc"
             data-testid="product-overview-pane-attributes"
           />
           <div>
@@ -239,7 +261,7 @@ exports[`ProductOverview component renders correctly without Recaptcha 1`] = `
               src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"
             />
             <div
-              class="css-7y46ji"
+              class="css-gy9mja"
               data-testid="media-gallery-caption-text"
             >
               <p
@@ -256,7 +278,7 @@ exports[`ProductOverview component renders correctly without Recaptcha 1`] = `
             </div>
           </div>
           <div
-            class="css-1tlzhc3"
+            class="css-16v98zi"
             data-testid="thumbnails-root"
           >
             <button
@@ -311,7 +333,7 @@ exports[`ProductOverview component renders correctly without Recaptcha 1`] = `
               <button
                 class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-selected Thumbnail-large Thumbnail-selected css-yh72z7-MuiButtonBase-root"
                 data-gtm="{"id":"media-gallery1","label":"undefined","action":"https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"}"
-                data-testid="default-thumbnail"
+                data-testid="thumbnail-default"
                 tabindex="0"
                 type="button"
               >
@@ -323,7 +345,7 @@ exports[`ProductOverview component renders correctly without Recaptcha 1`] = `
               <button
                 class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-large css-yh72z7-MuiButtonBase-root"
                 data-gtm="{"id":"media-gallery1","label":"undefined","action":"https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"}"
-                data-testid="default-thumbnail"
+                data-testid="thumbnail-default"
                 tabindex="0"
                 type="button"
               >
@@ -338,21 +360,43 @@ exports[`ProductOverview component renders correctly without Recaptcha 1`] = `
               <button
                 class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-large css-yh72z7-MuiButtonBase-root"
                 data-gtm="{"id":"media-gallery1","label":"test video","action":"[object Object]"}"
-                data-testid="default-thumbnail"
+                data-testid="thumbnail-video"
                 tabindex="0"
                 type="button"
               >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium Thumbnail-playIcon css-7r6ast-MuiSvgIcon-root"
-                  data-testid="thumbnail-play-icon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
+                <div
+                  aria-label="MC: media.video"
+                  class="css-z7rmfo"
                 >
-                  <path
-                    d="M8 5v14l11-7z"
+                  <div
+                    class="css-t93cf4"
+                  >
+                    <div
+                      class="css-1y1tflw"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-19q1qvb-MuiSvgIcon-root"
+                        data-testid="PlayArrowIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M8 5v14l11-7z"
+                        />
+                      </svg>
+                    </div>
+                    <p
+                      class="MuiTypography-root MuiTypography-body1 css-1ezfe9h-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      MC: media.video
+                    </p>
+                  </div>
+                  <div
+                    class="css-156fqrw"
                   />
-                </svg>
+                </div>
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
@@ -366,17 +410,17 @@ exports[`ProductOverview component renders correctly without Recaptcha 1`] = `
         data-testid="grid-item"
       >
         <div
-          class="css-bgwh3d"
+          class="css-7tl8sb"
           data-testid="product-overview-pane"
         >
           <h1
-            class="MuiTypography-root MuiTypography-h3 css-22inrc-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h3 Typography-underline css-22inrc-MuiTypography-root"
             data-testid="typography"
           >
             name
           </h1>
           <ul
-            class="css-132h8yw"
+            class="css-1wqu3mc"
             data-testid="product-overview-pane-attributes"
           />
           <div>
@@ -426,17 +470,17 @@ exports[`ProductOverview component renders with default image if there are no im
         data-testid="grid-item"
       >
         <div
-          class="css-bgwh3d"
+          class="css-7tl8sb"
           data-testid="product-overview-pane"
         >
           <h1
-            class="MuiTypography-root MuiTypography-h3 css-22inrc-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h3 Typography-underline css-22inrc-MuiTypography-root"
             data-testid="typography"
           >
             name
           </h1>
           <ul
-            class="css-132h8yw"
+            class="css-1wqu3mc"
             data-testid="product-overview-pane-attributes"
           />
           <div>

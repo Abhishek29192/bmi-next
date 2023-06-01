@@ -1,0 +1,8 @@
+{
+  "type": "DELETED",
+  "itemType": "PRODUCTS",
+  "item": {
+    "code": "sample product code",
+    "objType": "variant"
+  }
+}

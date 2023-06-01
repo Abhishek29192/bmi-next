@@ -1,12 +1,12 @@
-import { Product } from "@bmi/firestore-types";
-import { PLPFilterResponse } from "../../types/pim";
-import {
+import type { Product } from "@bmi/firestore-types";
+import { getPlpFilters, transformFilterKeys } from "./utils/filters";
+import type { PLPFilterResponse } from "../../types/pim";
+import type {
   ContentfulPromoCard,
   ContentfulSite,
   FourOFourResponse
 } from "./types/Contentful";
-import { Context, Node, ResolveArgs } from "./types/Gatsby";
-import { getPlpFilters, transformFilterKeys } from "./utils/filters";
+import type { Context, Node, ResolveArgs } from "./types/Gatsby";
 
 export default {
   plpFilters: {

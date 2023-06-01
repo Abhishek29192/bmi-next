@@ -1,10 +1,9 @@
 import { richTextFromMarkdown } from "@contentful/rich-text-from-markdown";
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Convert Markdown to RichText";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const contentType = migration.editContentType("imageGallerySection");
 
   contentType
@@ -64,7 +63,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   contentType.editField("description").disabled(true).omitted(true);
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const contentType = migration.editContentType("imageGallerySection");
 
   contentType.editField("description").disabled(false).omitted(false);

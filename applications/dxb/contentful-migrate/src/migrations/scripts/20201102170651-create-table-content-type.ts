@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Create Table content type";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const table = migration
     .createContentType("table")
     .name("Table")
@@ -19,6 +18,6 @@ export const up: MigrationFunction = (migration: Migration) => {
   table.changeFieldControl("data", "extension", "7zdNJV7cj8MpVwN5ontGk2");
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   migration.deleteContentType("table");
 };

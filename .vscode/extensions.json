@@ -12,6 +12,7 @@
     "orta.vscode-jest",
     "redhat.vscode-yaml",
     "foxundermoon.shell-format",
-    "cesium.gltf-vscode"
+    "cesium.gltf-vscode",
+    "arcanis.vscode-zipfs"
   ]
 }

@@ -2,7 +2,7 @@ import { ThemeProvider } from "@bmi-digital/components";
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import CardCollectionSection, { Data } from "../CardCollectionSection";
-import { Data as LinkData, DataTypeEnum } from "../Link";
+import { DataTypeEnum, Data as LinkData } from "../Link";
 import { Data as PageInfoData } from "../PageInfo";
 import { CalculatorContext } from "../PitchedRoofCalcualtor";
 import { Data as PromoData } from "../Promo";
@@ -22,12 +22,13 @@ const card1: PageInfoData = {
   title: "test",
   __typename: "ContentfulSimplePage",
   slug: "test1",
-  path: null,
+  path: "",
   subtitle: null,
   brandLogo: null,
   featuredMedia: null,
   featuredVideo: null,
   date: "1 June 2021",
+  rawDate: "2021-06-01T00:00:00",
   tags: [testTag1, testTag3]
 };
 const card2: PageInfoData = {
@@ -35,12 +36,13 @@ const card2: PageInfoData = {
   title: "test 2",
   __typename: "ContentfulSimplePage",
   slug: "test2",
-  path: null,
+  path: "",
   subtitle: null,
   brandLogo: null,
   featuredMedia: null,
   featuredVideo: null,
   date: "2 June 2021",
+  rawDate: "2021-06-02T00:00:00",
   tags: [testTag2, testTag4]
 };
 const card3: PageInfoData = {
@@ -48,12 +50,13 @@ const card3: PageInfoData = {
   title: "test 3",
   __typename: "ContentfulSimplePage",
   slug: "test3",
-  path: null,
+  path: "",
   subtitle: null,
   brandLogo: null,
   featuredMedia: null,
   featuredVideo: null,
   date: "3 June 2021",
+  rawDate: "2021-06-03T00:00:00",
   tags: [testTag1, testTag2]
 };
 const card4: PromoData = {
@@ -91,7 +94,7 @@ describe("CardCollectionSection component", () => {
         displaySingleRow: false,
         description: {
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: null
+          references: []
         },
         __typename: "ContentfulCardCollectionSection",
         cardType: "Highlight Card",
@@ -112,7 +115,7 @@ describe("CardCollectionSection component", () => {
           </SiteContextProvider>
         </ThemeProvider>
       );
-      const titleElement = screen.getByText(data.title);
+      const titleElement = screen.getByText(data.title!);
       expect(titleElement).not.toBeNull();
 
       const richTextElement = screen.getByText("test rich text");
@@ -128,7 +131,7 @@ describe("CardCollectionSection component", () => {
         title: "test title",
         description: {
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"heading-2","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: null
+          references: []
         },
         displaySingleRow: null,
         justifyCenter: null,
@@ -148,7 +151,7 @@ describe("CardCollectionSection component", () => {
           </SiteContextProvider>
         </ThemeProvider>
       );
-      const titleElement = screen.getByText(data.title);
+      const titleElement = screen.getByText(data.title!);
       expect(titleElement).not.toBeNull();
 
       const richTextElement = screen.getByText("test rich text");
@@ -164,7 +167,7 @@ describe("CardCollectionSection component", () => {
         title: "test title",
         description: {
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"heading-3","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: null
+          references: []
         },
         justifyCenter: null,
         __typename: "ContentfulCardCollectionSection",
@@ -184,7 +187,7 @@ describe("CardCollectionSection component", () => {
           </SiteContextProvider>
         </ThemeProvider>
       );
-      const titleElement = screen.getByText(data.title);
+      const titleElement = screen.getByText(data.title!);
       expect(titleElement).not.toBeNull();
 
       const richTextElement = screen.getByText("test rich text");
@@ -200,7 +203,7 @@ describe("CardCollectionSection component", () => {
         title: "test title",
         description: {
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"heading-4","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: null
+          references: []
         },
         justifyCenter: null,
         __typename: "ContentfulCardCollectionSection",
@@ -220,7 +223,7 @@ describe("CardCollectionSection component", () => {
           </SiteContextProvider>
         </ThemeProvider>
       );
-      const titleElement = screen.getByText(data.title);
+      const titleElement = screen.getByText(data.title!);
       expect(titleElement).not.toBeNull();
 
       const richTextElement = screen.getByText("test rich text");
@@ -236,7 +239,7 @@ describe("CardCollectionSection component", () => {
         title: "test title",
         description: {
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"heading-5","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: null
+          references: []
         },
         justifyCenter: null,
         __typename: "ContentfulCardCollectionSection",
@@ -256,7 +259,7 @@ describe("CardCollectionSection component", () => {
           </SiteContextProvider>
         </ThemeProvider>
       );
-      const titleElement = screen.getByText(data.title);
+      const titleElement = screen.getByText(data.title!);
       expect(titleElement).not.toBeNull();
 
       const richTextElement = screen.getByText("test rich text");
@@ -272,7 +275,7 @@ describe("CardCollectionSection component", () => {
         title: "test title",
         description: {
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"heading-6","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: null
+          references: []
         },
         justifyCenter: null,
         __typename: "ContentfulCardCollectionSection",
@@ -292,7 +295,7 @@ describe("CardCollectionSection component", () => {
           </SiteContextProvider>
         </ThemeProvider>
       );
-      const titleElement = screen.getByText(data.title);
+      const titleElement = screen.getByText(data.title!);
       expect(titleElement).not.toBeNull();
 
       const richTextElement = screen.getByText("test rich text");
@@ -308,7 +311,7 @@ describe("CardCollectionSection component", () => {
         title: "test title",
         description: {
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"entry-hyperlink","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: null
+          references: []
         },
         justifyCenter: null,
         __typename: "ContentfulCardCollectionSection",
@@ -328,7 +331,7 @@ describe("CardCollectionSection component", () => {
           </SiteContextProvider>
         </ThemeProvider>
       );
-      const titleElement = screen.getByText(data.title);
+      const titleElement = screen.getByText(data.title!);
       expect(titleElement).not.toBeNull();
 
       const richTextElement = screen.getByText("test rich text");
@@ -344,7 +347,7 @@ describe("CardCollectionSection component", () => {
         title: "test title",
         description: {
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"","marks":[],"data":{}}],"data":{}}]}',
-          references: null
+          references: []
         },
         justifyCenter: null,
         __typename: "ContentfulCardCollectionSection",
@@ -364,7 +367,7 @@ describe("CardCollectionSection component", () => {
           </SiteContextProvider>
         </ThemeProvider>
       );
-      const titleElement = screen.getByText(data.title);
+      const titleElement = screen.getByText(data.title!);
       expect(titleElement).not.toBeNull();
 
       expect(baseElement).toMatchSnapshot();
@@ -404,7 +407,7 @@ describe("CardCollectionSection component", () => {
         title: "test title",
         description: {
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: null
+          references: []
         },
         justifyCenter: null,
         __typename: "ContentfulCardCollectionSection",
@@ -424,7 +427,7 @@ describe("CardCollectionSection component", () => {
           </SiteContextProvider>
         </ThemeProvider>
       );
-      const titleElement = screen.getByText(data.title);
+      const titleElement = screen.getByText(data.title!);
       expect(titleElement).not.toBeNull();
 
       const richTextElement = screen.getByText("test rich text");
@@ -445,7 +448,7 @@ describe("CardCollectionSection component", () => {
         justifyCenter: false,
         description: {
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: null
+          references: []
         },
         __typename: "ContentfulCardCollectionSection",
         cardType: "Highlight Card",
@@ -501,7 +504,7 @@ describe("CardCollectionSection component", () => {
         justifyCenter: false,
         description: {
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: null
+          references: []
         },
         __typename: "ContentfulCardCollectionSection",
         cardType: "Highlight Card",
@@ -550,7 +553,7 @@ describe("CardCollectionSection component", () => {
         justifyCenter: false,
         description: {
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: null
+          references: []
         },
         __typename: "ContentfulCardCollectionSection",
         cardType: "Highlight Card",
@@ -620,7 +623,7 @@ describe("CardCollectionSection component", () => {
       justifyCenter: true,
       description: {
         raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-        references: null
+        references: []
       },
       __typename: "ContentfulCardCollectionSection",
       cardType: "Highlight Card",
@@ -691,7 +694,7 @@ describe("CardCollectionSection component", () => {
         title: "test title",
         description: {
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: null
+          references: []
         },
         justifyCenter: false,
         displaySingleRow: null,
@@ -754,7 +757,7 @@ describe("CardCollectionSection component", () => {
         title: "test title",
         description: {
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: null
+          references: []
         },
 
         justifyCenter: false,
@@ -797,7 +800,7 @@ describe("CardCollectionSection component", () => {
         title: "test title",
         description: {
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: null
+          references: []
         },
         justifyCenter: false,
         __typename: "ContentfulCardCollectionSection",
@@ -867,7 +870,7 @@ describe("CardCollectionSection component", () => {
         title: "test title",
         description: {
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: null
+          references: []
         },
         justifyCenter: false,
         __typename: "ContentfulCardCollectionSection",
@@ -901,7 +904,7 @@ describe("CardCollectionSection component", () => {
       );
 
       const cardLink = screen.getByTestId("card-link");
-      expect(cardLink.textContent).toEqual(card.cta.label);
+      expect(cardLink.textContent).toEqual(card.cta!.label);
     });
 
     it("not rendered if cardLabel and card link are not provided", async () => {
@@ -926,7 +929,7 @@ describe("CardCollectionSection component", () => {
         title: "test title",
         description: {
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: null
+          references: []
         },
         justifyCenter: false,
         displaySingleRow: null,
@@ -978,7 +981,7 @@ describe("CardCollectionSection component", () => {
           cta: {
             __typename: "ContentfulLink",
             id: "visualiser-id",
-            label: null,
+            label: "",
             icon: null,
             isLabelHidden: null,
             url: null,
@@ -997,7 +1000,7 @@ describe("CardCollectionSection component", () => {
         title: "test title",
         description: {
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: null
+          references: []
         },
         justifyCenter: false,
         displaySingleRow: null,
@@ -1042,7 +1045,7 @@ describe("CardCollectionSection component", () => {
         title: "test title",
         description: {
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: null
+          references: []
         },
         justifyCenter: false,
         displaySingleRow: null,
@@ -1079,7 +1082,7 @@ describe("CardCollectionSection component", () => {
         </ThemeProvider>
       );
 
-      const visualiserLink = screen.getByText(data.link.label);
+      const visualiserLink = screen.getByText(data.link!.label);
       fireEvent.click(visualiserLink);
     });
 
@@ -1091,7 +1094,7 @@ describe("CardCollectionSection component", () => {
         displaySingleRow: null,
         description: {
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: null
+          references: []
         },
         justifyCenter: false,
         __typename: "ContentfulCardCollectionSection",
@@ -1128,7 +1131,7 @@ describe("CardCollectionSection component", () => {
         </ThemeProvider>
       );
 
-      const visualiserLink = screen.getByText(data.link.label);
+      const visualiserLink = screen.getByText(data.link!.label);
       fireEvent.click(visualiserLink);
       expect(visualiserOpen).toBeCalledWith(null);
     });
@@ -1140,7 +1143,7 @@ describe("CardCollectionSection component", () => {
         title: "test title",
         description: {
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: null
+          references: []
         },
         justifyCenter: false,
         displaySingleRow: null,
@@ -1179,9 +1182,9 @@ describe("CardCollectionSection component", () => {
         </ThemeProvider>
       );
 
-      const visualiserLink = screen.getByText(data.link.label);
+      const visualiserLink = screen.getByText(data.link!.label);
       fireEvent.click(visualiserLink);
-      expect(visualiserOpen).toBeCalledWith(data.link.parameters);
+      expect(visualiserOpen).toBeCalledWith(data.link!.parameters);
     });
   });
 
@@ -1193,7 +1196,7 @@ describe("CardCollectionSection component", () => {
         title: "test title",
         description: {
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: null
+          references: []
         },
         justifyCenter: false,
         displaySingleRow: null,
@@ -1230,7 +1233,7 @@ describe("CardCollectionSection component", () => {
         </ThemeProvider>
       );
 
-      const calculatorLink = screen.getByText(data.link.label);
+      const calculatorLink = screen.getByText(data.link!.label);
       fireEvent.click(calculatorLink);
     });
 
@@ -1241,7 +1244,7 @@ describe("CardCollectionSection component", () => {
         title: "test title",
         description: {
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: null
+          references: []
         },
         justifyCenter: false,
         displaySingleRow: null,
@@ -1280,7 +1283,7 @@ describe("CardCollectionSection component", () => {
         </ThemeProvider>
       );
 
-      const calculatorLink = screen.getByText(data.link.label);
+      const calculatorLink = screen.getByText(data.link!.label);
       fireEvent.click(calculatorLink);
       expect(calculatorOpen).toBeCalledWith(null);
     });
@@ -1292,7 +1295,7 @@ describe("CardCollectionSection component", () => {
         title: "test title",
         description: {
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: null
+          references: []
         },
         justifyCenter: false,
         displaySingleRow: null,
@@ -1331,9 +1334,9 @@ describe("CardCollectionSection component", () => {
         </ThemeProvider>
       );
 
-      const calculatorLink = screen.getByText(data.link.label);
+      const calculatorLink = screen.getByText(data.link!.label);
       fireEvent.click(calculatorLink);
-      expect(calculatorOpen).toBeCalledWith(data.link.parameters);
+      expect(calculatorOpen).toBeCalledWith(data.link!.parameters);
     });
   });
 

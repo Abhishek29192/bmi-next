@@ -5,11 +5,11 @@ import {
 } from "@bmi/elasticsearch-types";
 import { render, screen } from "@testing-library/react";
 import React from "react";
-import { RelatedSystem, System } from "../../types/pim";
+import createPimImage from "../../__tests__/helpers/PimImageHelper";
 import createRelatedSystem from "../../__tests__/helpers/RelatedSystemHelper";
 import createSystem from "../../__tests__/helpers/SystemHelper";
+import { RelatedSystem, System } from "../../types/pim";
 import RelatedSystems, { SystemCard } from "../RelatedSystems";
-import createPimImage from "../../__tests__/helpers/PimImageHelper";
 
 describe("RelatedSystems component", () => {
   it("renders correctly with no systems", () => {
@@ -33,7 +33,7 @@ describe("RelatedSystems component", () => {
   });
 
   it("renders correctly without categories", () => {
-    const systems: System[] = [createSystem({ categories: null })];
+    const systems: System[] = [createSystem({ categories: undefined })];
 
     const { container } = render(
       <ThemeProvider>
@@ -44,7 +44,7 @@ describe("RelatedSystems component", () => {
   });
 
   it("renders systems correctly without classifications", () => {
-    const systems: System[] = [createSystem({ classifications: null })];
+    const systems: System[] = [createSystem({ classifications: undefined })];
 
     const { container } = render(
       <ThemeProvider>
@@ -164,7 +164,7 @@ describe("SystemCard", () => {
       </ThemeProvider>
     );
     expect(screen.getByAltText(system.name).getAttribute("src")).toBe(
-      system.masterImage.mainSource
+      system.masterImage!.mainSource
     );
   });
 

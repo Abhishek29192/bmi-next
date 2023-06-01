@@ -1,11 +1,10 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Adds country navigation introduction field";
 
 const fieldName = "countryNavigationIntroduction";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const resources = migration.editContentType("resources");
   resources
     .createField(fieldName)
@@ -14,7 +13,7 @@ export const up: MigrationFunction = (migration: Migration) => {
     .required(true);
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const resources = migration.editContentType("resources");
   resources.deleteField(fieldName);
 };

@@ -55,7 +55,8 @@ export const updateItems = async (
 
   const client = await getEsClient();
 
-  const index = `${process.env.ES_INDEX_PREFIX}_${itemType}`.toLowerCase();
+  const index =
+    `${process.env.ES_INDEX_PREFIX}_${itemType}_write`.toLowerCase();
   // Chunk the request to avoid exceeding ES bulk request limits.
   const bulkOperations = getChunks(items).map((c) =>
     getBulkOperations(index, c)
@@ -84,7 +85,7 @@ export const updateDocuments = async (
 
   const client = await getEsClient();
 
-  const index = `${process.env.ES_INDEX_NAME_DOCUMENTS}`.toLowerCase();
+  const index = `${process.env.ES_INDEX_NAME_DOCUMENTS}_write`.toLowerCase();
 
   // it is possible that the index doesnt exist at first time
   // hence this can throw error, tested using local es server

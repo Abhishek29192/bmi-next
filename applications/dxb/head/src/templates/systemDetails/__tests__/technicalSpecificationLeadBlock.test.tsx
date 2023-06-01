@@ -30,7 +30,7 @@ const specificationNotesData: SDPSpecificationNotesData = {
   title: "specification notes title",
   description: {
     raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"heading-3","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-    references: null
+    references: []
   },
   cta: {
     __typename: "ContentfulLink",

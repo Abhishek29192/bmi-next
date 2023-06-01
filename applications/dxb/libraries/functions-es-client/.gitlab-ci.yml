@@ -1,26 +1,31 @@
-test_functions-es-client:
-  extends: .test_yarn_workspace
+lint_functions-es-client:
+  extends: .lint_yarn_workspace
   rules:
-    - !reference [.ingore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_main, rules, if]
-      changes:
-        - $ROOT_DIR/**/*
-        - jest/**/*
-        - yarn.lock
-    - if: !reference [.run_for_changes_on_mr, rules, if]
-      changes:
-        - $ROOT_DIR/**/*
-        - jest/**/*
-        - yarn.lock
+    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [ .run_for_changes_on_mr, rules ]
   variables:
-    WORKSPACE: "@bmi/functions-es-client"
     ROOT_DIR: "applications/dxb/libraries/functions-es-client"
+    WORKSPACE: "@bmi/functions-es-client"
 
 build_functions-es-client:
   extends: .build_yarn_workspace
   rules:
-    - !reference [.ingore_release_mrs, rules]
-    - !reference [.run_for_changes_on_main, rules]
+    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [ .run_for_changes_on_mr, rules ]
   variables:
     WORKSPACE: "@bmi/functions-es-client"
     ROOT_DIR: "applications/dxb/libraries/functions-es-client"
+
+test_functions-es-client:
+  extends: .test_yarn_workspace
+  rules:
+    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [ .run_for_changes_on_mr, rules ]
+  variables:
+    WORKSPACE: "@bmi/functions-es-client"
+    ROOT_DIR: "applications/dxb/libraries/functions-es-client"
+  needs:
+    - build_functions-es-client

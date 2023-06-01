@@ -1,14 +1,26 @@
-test_gcp-download-zip:
-  extends: .test_function
+lint_gcp-download-zip:
+  extends: .lint_yarn_workspace
+  rules:
+    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [ .run_for_changes_on_mr, rules ]
   variables:
-    WORKSPACE: "@bmi/gcp-download-zip"
     ROOT_DIR: "applications/dxb/functions/gcp-download-zip"
+    WORKSPACE: "@bmi/gcp-download-zip"
 
 build_gcp-download-zip:
   extends: .build_function
   variables:
     WORKSPACE: "@bmi/gcp-download-zip"
     ROOT_DIR: "applications/dxb/functions/gcp-download-zip"
+
+test_gcp-download-zip:
+  extends: .test_function
+  variables:
+    WORKSPACE: "@bmi/gcp-download-zip"
+    ROOT_DIR: "applications/dxb/functions/gcp-download-zip"
+  needs:
+    - build_gcp-download-zip
 
 package_gcp-download-zip:
   extends: .package_function

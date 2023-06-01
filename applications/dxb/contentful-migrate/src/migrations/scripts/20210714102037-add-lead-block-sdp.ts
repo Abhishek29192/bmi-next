@@ -1,11 +1,10 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Create lead block cta on SDP";
 
 const field = "sdpLeadBlockCta";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const resources = migration.editContentType("resources");
   resources
     .createField(field)
@@ -17,7 +16,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   resources.changeFieldControl(field, "builtin", "entryLinkEditor");
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const resources = migration.editContentType("resources");
   resources.deleteField(field);
 };

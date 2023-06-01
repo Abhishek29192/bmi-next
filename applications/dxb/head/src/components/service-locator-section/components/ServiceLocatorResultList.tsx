@@ -10,7 +10,6 @@ import {
   Typography
 } from "@bmi-digital/components";
 import { SVGImport } from "@bmi-digital/svg-import";
-import classnames from "classnames";
 import React from "react";
 import { microCopy } from "../../../constants/microCopies";
 import Image from "../../Image";
@@ -47,60 +46,65 @@ export const ServiceLocatorResultList = ({
   onCloseCard,
   getCompanyDetails,
   selectedRoofer,
-  shouldListCertification,
   onPageChange,
   page,
-  pageCount
+  pageCount,
+  shouldListCertification
 }: ResultListProps) => {
   const { getMicroCopy } = useSiteContext();
 
   return roofersList.length ? (
     <div
-      className={classnames({
-        [styles["results-list-section"]]: pageCount > 1
-      })}
+      className={`${pageCount > 1 ? `${styles["results-list-section"]}` : ""}`}
       data-testid={"results-list-section"}
     >
       <div className={styles["list"]}>
-        {roofersList.map((service) => (
-          <GTMIntegratedLinkCard
-            key={service.id}
-            onClick={() => onListItemClick(service)}
-            onCloseClick={onCloseCard}
-            isOpen={selectedRoofer && selectedRoofer.id === service.id}
-            title={service.name}
-            logo={
-              service.companyLogo && (
-                <Image
-                  className={styles["company-logo"]}
-                  {...service.companyLogo}
-                />
-              )
-            }
-            gtm={getResultDataGtm(service)}
-            data-testid={"GTMIntegratedLinkCard-test-id"}
-            subtitle={
-              <>
-                {service.address}
-                {service.certification && shouldListCertification && (
-                  <div className={styles["roofpro-certification"]}>
-                    {getMicroCopy(microCopy.FIND_A_ROOFER_CERTIFICATION_LABEL)}:
-                    <Logo
-                      source={
-                        iconSourceMap[service.certification.toLowerCase()]
-                      }
-                      className={styles["roofpro-icon"]}
-                    />
-                  </div>
-                )}
-              </>
-            }
-          >
-            <CompanyDetails details={getCompanyDetails(service, true)}>
-              <Typography>{service.summary}</Typography>
-            </CompanyDetails>
-          </GTMIntegratedLinkCard>
-        ))}
+        {roofersList
+          .filter((service): service is Service => service !== undefined)
+          .map((service) => (
+            <GTMIntegratedLinkCard
+              key={service.id}
+              onClick={() => onListItemClick(service)}
+              onCloseClick={onCloseCard}
+              isOpen={selectedRoofer?.id === service?.id}
+              title={service.name}
+              logo={
+                service.companyLogo && (
+                  <Image
+                    className={styles["company-logo"]}
+                    {...service.companyLogo}
+                  />
+                )
+              }
+              gtm={getResultDataGtm(service)}
+              data-testid={"GTMIntegratedLinkCard-test-id"}
+              subtitle={
+                <div className={styles["subtitle"]}>
+                  {service.address}
+                  {service.certification && shouldListCertification && (
+                    <div className={styles["roofpro-certification"]}>
+                      {getMicroCopy(
+                        microCopy.FIND_A_ROOFER_CERTIFICATION_LABEL
+                      )}
+                      :
+                      <Logo
+                        source={
+                          iconSourceMap[service.certification.toLowerCase()]
+                        }
+                        className={styles["roofpro-icon"]}
+                      />
+                    </div>
+                  )}
+                </div>
+              }
+            >
+              <CompanyDetails details={getCompanyDetails(service, true)}>
+                {service.summary ? (
+                  <Typography>{service.summary}</Typography>
+                ) : null}
+              </CompanyDetails>
+            </GTMIntegratedLinkCard>
+          ))}
       </div>
       {pageCount > 1 && (
         <Pagination

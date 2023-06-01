@@ -6,7 +6,7 @@ const BREADCRUMB_TITLE_CHARACTERS_LIMIT = 20; // should be 20 characters include
 
 export const updateBreadcrumbTitleFromContentful = (
   breadcrumbs: BreadcrumbsData,
-  breadcrumbTitle: string
+  breadcrumbTitle: string | null
 ): BreadcrumbsData => {
   if (breadcrumbTitle) {
     breadcrumbs[breadcrumbs.length - 1].label = truncate(

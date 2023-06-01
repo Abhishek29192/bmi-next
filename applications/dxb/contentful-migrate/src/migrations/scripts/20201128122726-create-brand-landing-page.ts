@@ -1,10 +1,9 @@
-import { brands as icons } from "../../variables/icons/20201111103444";
-import type Migration from "contentful-migration";
+import { brands as icons } from "../../variables/icons/20201111103444.js";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Create content type for Brand Panding Page";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const brandLandingPage = migration
     .createContentType("brandLandingPage")
     .name("Brand Landing Page")
@@ -120,5 +119,5 @@ export const up: MigrationFunction = (migration: Migration) => {
   );
 };
 
-export const down: MigrationFunction = (migration: Migration) =>
+export const down: MigrationFunction = (migration) =>
   migration.deleteContentType("brandLandingPage");

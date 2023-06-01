@@ -81,6 +81,7 @@ export const createData = (
     brandLogo: null,
     slug: "slug",
     date: null,
+    rawDate: null,
     tags: null,
     featuredMedia: null,
     featuredVideo: null,

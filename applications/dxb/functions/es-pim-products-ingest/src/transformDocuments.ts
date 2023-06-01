@@ -1,24 +1,24 @@
 import path from "path";
 import logger from "@bmi-digital/functions-logger";
-import {
+import { isDefined } from "@bmi/utils";
+import { v4 as uuid } from "uuid";
+import type {
   PimDocumentBase,
   PimProductDocument,
   PimSystemDocument
 } from "@bmi/elasticsearch-types";
-import {
+import type {
   Asset,
   Product as PIMProduct,
   System,
   VariantOption
 } from "@bmi/pim-types";
-import { isDefined } from "@bmi/utils";
-import { v4 as uuid } from "uuid";
 import { getAssetTypes, getProductDocumentNameMap } from "./contentfulApi";
-import { ContentfulAssetType, ProductDocumentNameMap } from "./types";
 import {
   getCategoryFilters,
   getClassificationsFilters
 } from "./utils/filterHelpers";
+import type { ContentfulAssetType, ProductDocumentNameMap } from "./types";
 
 const MAX_SIZE_ALLOWED_BYTES = 41943040; // 40MB
 
@@ -168,14 +168,18 @@ const getDocument = (
     title,
     approvalStatus: item.approvalStatus,
     url: asset.url,
-    assetType,
+    assetType: {
+      name: assetType.name,
+      pimCode: assetType.pimCode,
+      code: assetType.code
+    },
     isLinkDocument: isPimLinkDocument(asset),
 
     noIndex: false,
     fileSize: asset.fileSize,
     format: asset.mime || getFormatFromFileName(asset.realFileName!),
     extension: asset.realFileName
-      ? path.extname(asset.realFileName!).substring(1)
+      ? path.extname(asset.realFileName).substring(1)
       : "",
     realFileName: asset.realFileName || "",
     titleAndSize: `${asset.name}_${asset.fileSize}`,

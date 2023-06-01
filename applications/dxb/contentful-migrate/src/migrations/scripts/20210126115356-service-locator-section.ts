@@ -1,4 +1,3 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Create content type for find a roofer section";
@@ -21,7 +20,7 @@ const enabledNodeTypes = [
   "embedded-entry-inline"
 ];
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const serviceLocatorSection = migration
     .createContentType("serviceLocatorSection")
     .name("Service Locator Section")
@@ -68,6 +67,6 @@ export const up: MigrationFunction = (migration: Migration) => {
     ]);
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   migration.deleteContentType("serviceLocatorSection");
 };

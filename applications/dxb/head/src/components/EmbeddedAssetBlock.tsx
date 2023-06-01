@@ -55,7 +55,6 @@ const EmbeddedAssetBlock = ({
         />
         <img
           className={className}
-          data-main-image
           draggable={false}
           decoding="async"
           loading="lazy"

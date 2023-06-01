@@ -1,10 +1,9 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description =
   "Add tags field to document library page content type with entries";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const documentLibraryPage = migration.editContentType("documentLibraryPage");
 
   documentLibraryPage
@@ -52,7 +51,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   documentLibraryPage.editField("tag").disabled(true).omitted(true);
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const documentLibraryPage = migration.editContentType("documentLibraryPage");
 
   documentLibraryPage.editField("tag").disabled(false).omitted(false);

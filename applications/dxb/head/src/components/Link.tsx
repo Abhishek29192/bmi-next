@@ -4,7 +4,7 @@ import {
   Dialog,
   transformHyphens
 } from "@bmi-digital/components";
-import { graphql, Link as GatsbyLink } from "gatsby";
+import { Link as GatsbyLink, graphql } from "gatsby";
 import uniqueId from "lodash-es/uniqueId";
 import React, { useCallback, useContext, useMemo, useState } from "react";
 import { Data as SimplePageData } from "../templates/simplePage/components/simple-page";
@@ -15,8 +15,8 @@ import { CalculatorContext } from "./PitchedRoofCalcualtor";
 import { Data as PromoData } from "./Promo";
 import { SectionData, sectionsMap } from "./Sections";
 import { useSiteContext } from "./Site";
-import styles from "./styles/Link.module.scss";
 import { VisualiserContext } from "./Visualiser";
+import styles from "./styles/Link.module.scss";
 
 const checkUrlAction = (url: string): boolean => {
   const actionUrls = ["mailto:", "tel:", "callto:"];
@@ -51,10 +51,10 @@ export const getClickableActionFromUrl = (
   linkedPage?: Data["linkedPage"],
   url?: Data["url"],
   countryCode?: string,
-  assetUrl?: string,
+  assetUrl?: string | null,
   label?: string,
   type?: Data["type"],
-  onClick?: (...args: any) => void,
+  onClick?: (...args: unknown[]) => void,
   gtmData?: {
     id: string;
     label: string;
@@ -182,7 +182,7 @@ export const getCTA = (
       { path },
       null,
       countryCode,
-      null,
+      undefined,
       linkLabel
     ),
     label: linkLabel
@@ -206,11 +206,10 @@ export type Data = {
   icon: IconName | null;
   isLabelHidden: boolean | null;
   url: string | null;
-  type: DataTypeEnum | null;
-  parameters: { [key: string]: any } | null;
+  type: DataTypeEnum;
+  parameters: { [key: string]: unknown } | null;
   dialogContent: SectionData | null;
   linkedPage: {
-    // NOTE: null is for Homepage type
     path: string | null;
   } | null;
   asset?: {
@@ -266,7 +265,7 @@ export const Link = ({
   children: React.ReactNode;
   component?: React.ElementType;
   data: Data;
-  onClick?: (...args: any) => void;
+  onClick?: (...args: unknown[]) => void;
 }) => {
   const [dialogIsOpen, setDialogIsOpen] = useState(false);
   const { countryCode } = useSiteContext();
@@ -274,7 +273,7 @@ export const Link = ({
   const { open: openCalculator } = useContext(CalculatorContext);
 
   const handleOnClick = useCallback(
-    (...args) => {
+    (...args: unknown[]) => {
       onClick && onClick(...args);
 
       if (data?.type === "Visualiser" && openVisualiser) {
@@ -285,7 +284,7 @@ export const Link = ({
         setDialogIsOpen(true);
       }
     },
-    [data?.parameters, data?.type, onClick]
+    [data?.parameters, data?.type, onClick, openCalculator, openVisualiser]
   );
 
   const action = useMemo(
@@ -308,7 +307,7 @@ export const Link = ({
 
   const memoedRenderDialog = useMemo(
     () => renderDialog(data, dialogIsOpen, handleDialogCloseClick),
-    [data?.dialogContent, dialogIsOpen]
+    [data, dialogIsOpen, handleDialogCloseClick]
   );
 
   return (

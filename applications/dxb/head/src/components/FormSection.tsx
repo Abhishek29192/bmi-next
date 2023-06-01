@@ -137,7 +137,6 @@ const Input = ({
   const { executeRecaptcha } = useGoogleReCaptcha();
   const qaAuthToken = getCookie(QA_AUTH_TOKEN);
 
-  const mapBody = (file: File): Record<string, unknown> => ({ ...file });
   const mapValue = ({ name, type }, upload) => ({
     fileName: name,
     contentType: type,
@@ -200,10 +199,9 @@ const Input = ({
                 )}: ${getFileSizeString(maxSize * 1048576)}`
               : "")
           }
-          mapBody={mapBody}
           mapValue={mapValue}
           onUploadRequest={async () => {
-            const token = qaAuthToken ? undefined : await executeRecaptcha();
+            const token = qaAuthToken ? undefined : await executeRecaptcha?.();
             let headers: HeadersInit = {
               "X-Recaptcha-Token": token
             };
@@ -546,7 +544,7 @@ const FormSection = ({
       recipientsFromValues && isEmailPresent ? recipientEmail : recipients;
 
     try {
-      const token = qaAuthToken ? undefined : await executeRecaptcha();
+      const token = qaAuthToken ? undefined : await executeRecaptcha?.();
 
       // remove all blank values
       const valuesToSent = Object.entries(values).reduce(

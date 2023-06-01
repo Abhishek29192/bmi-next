@@ -1,10 +1,9 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description =
   "Add input banner to resources content type and remove the showSignUpBlock";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const resources = migration.editContentType("resources");
 
   resources
@@ -17,7 +16,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   resources.changeFieldControl("pdpInputBanner", "builtin", "entryLinkEditor");
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const resources = migration.editContentType("resources");
 
   resources.deleteField("pdpInputBanner");

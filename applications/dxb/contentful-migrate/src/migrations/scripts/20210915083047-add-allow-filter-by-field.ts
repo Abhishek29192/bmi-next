@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Add allow filter by field on Product Lister Page";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const productListerPage = migration.editContentType("productListerPage");
 
   productListerPage
@@ -29,7 +28,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   productListerPage.moveField("allowFilterBy").afterField("categoryCodes");
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const productListerPage = migration.editContentType("productListerPage");
 
   productListerPage.deleteField("allowFilterBy");

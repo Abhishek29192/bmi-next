@@ -1,6 +1,5 @@
 // Duplicate of 20220809110712-use-unique-fields-app.ts
-import type Migration from "contentful-migration";
-import type { MigrationContext } from "contentful-migration";
+import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Change fields controls to unique fields app";
 
@@ -17,7 +16,7 @@ const FIELDS_TO_EDIT = {
   serviceType: "name"
 };
 
-export const up = async (migration: Migration, context: MigrationContext) => {
+export const up: MigrationFunction = async (migration, context) => {
   Object.entries(FIELDS_TO_EDIT).forEach(([contentType, fieldId]) => {
     const ct = migration.editContentType(contentType);
 
@@ -28,7 +27,7 @@ export const up = async (migration: Migration, context: MigrationContext) => {
   });
 };
 
-export const down = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   Object.entries(FIELDS_TO_EDIT).forEach(([contentType, fieldId]) => {
     const ct = migration.editContentType(contentType);
 

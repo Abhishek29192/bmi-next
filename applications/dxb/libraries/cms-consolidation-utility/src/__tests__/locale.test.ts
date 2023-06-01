@@ -1,6 +1,6 @@
-import AllLocales from "./resources/locales.json";
-import SampleAsset from "./resources/sample_asset.json";
-import SampleEntry from "./resources/sample_entry.json";
+import AllLocales from "./resources/locales";
+import SampleAsset from "./resources/sample_asset";
+import SampleEntry from "./resources/sample_entry";
 import type {
   Asset,
   Entry,

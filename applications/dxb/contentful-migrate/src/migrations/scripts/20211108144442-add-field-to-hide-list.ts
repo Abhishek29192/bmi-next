@@ -1,4 +1,3 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description =
@@ -7,7 +6,7 @@ export const description =
 const contentTypeName = "serviceLocatorSection";
 const fieldName = "showDefaultResultList";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const section = migration.editContentType(contentTypeName);
 
   section.createField(fieldName, {
@@ -33,6 +32,6 @@ export const up: MigrationFunction = (migration: Migration) => {
   });
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   migration.editContentType(contentTypeName).deleteField(fieldName);
 };

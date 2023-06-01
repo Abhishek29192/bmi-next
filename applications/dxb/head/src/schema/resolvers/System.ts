@@ -1,7 +1,7 @@
-import { Product, System } from "@bmi/firestore-types";
-import { AssetType, SystemDocumentWithAssetType } from "../../types/pim";
-import { Context, Node, ResolveArgs } from "./types/Gatsby";
+import type { Product, System } from "@bmi/firestore-types";
 import { getDefaultYoutubePreviewImage } from "./utils/getDefaultYoutubePreviewImage";
+import type { AssetType, SystemDocumentWithAssetType } from "../../types/pim";
+import type { Context, Node, ResolveArgs } from "./types/Gatsby";
 
 const createResolver = (field: keyof Node) => ({
   type: ["Product"],

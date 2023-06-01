@@ -37,7 +37,8 @@ const createCard = (includeVideo = false): PromoData | PageInfoData => {
     tags: null,
     featuredVideo: includeVideo && createMockVideo(),
     featuredMedia: createImageData(),
-    date: ""
+    date: "",
+    rawDate: null
   };
 };
 

@@ -1,6 +1,9 @@
 import { promises as fs } from "fs";
 import { join } from "path";
-import {
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { getEnvironment, waitFor } from "@bmi/utils";
+import type {
   Asset,
   Collection,
   Entry,
@@ -10,7 +13,6 @@ import {
   LocaleProps,
   VersionedLink
 } from "contentful-management";
-import { getEnvironment, waitFor } from "@bmi/utils";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Upload WebTool Calculator Roof Shapes";
@@ -183,7 +185,9 @@ const uploadData = async (
   const promises = await Promise.allSettled(
     chunk.map(async (roofShape) => {
       // eslint-disable-next-line security/detect-non-literal-fs-filename
-      const file = await fs.readFile(join(__dirname, roofShape.imagePath));
+      const file = await fs.readFile(
+        join(path.dirname(fileURLToPath(import.meta.url)), roofShape.imagePath)
+      );
       const asset = await createAsset(env, roofShape, file, locales);
 
       const roof = await createRoofShapeEntry(env, roofShape, asset, locales);

@@ -1,10 +1,7 @@
 include:
-  - project: "$CI_PROJECT_NAMESPACE/gitlab-templates"
-    file: "general.gitlab-ci.yml"
-  - project: "$CI_PROJECT_NAMESPACE/gitlab-templates"
-    file: "dependabot.gitlab-ci.yml"
-  - project: "$CI_PROJECT_NAMESPACE/gitlab-templates"
+  - project: "bmi-digital/gitlab-templates"
     file: "yarn.gitlab-ci.yml"
+    ref: "v1.0.0"
   - local: "/applications/frc-website/.gitlab-ci.yml"
   - local: "/applications/dxb/.gitlab-ci.yml"
   - local: "/applications/redirects-website/.gitlab-ci.yml"
@@ -23,29 +20,19 @@ include:
   - local: "/applications/redirects-website-si/.gitlab-ci.yml"
   - local: "/applications/redirects-website-al/.gitlab-ci.yml"
   - local: "/applications/redirects-website-dk/.gitlab-ci.yml"
-
-# Mainly used because it includes `git`
-.node-full-image:
-  image: node:18
-
-# Can't use official alpine image as we need `autoconf` to be installed
-.node-slim-image:
-  image: node:18-slim
+  - local: "/applications/redirects-website-cn/.gitlab-ci.yml"
 
 variables:
   ARTIFACT_COMPRESSION_LEVEL: fastest
   CACHE_COMPRESSION_LEVEL: fastest
   FF_USE_FASTZIP: "false"
   NODE_OPTIONS: --max-old-space-size=2560
-  POSTGRES_DB: custom_db
-  POSTGRES_USER: postgres
-  POSTGRES_PASSWORD: custom_pass
-  POSTGRES_HOST_AUTH_METHOD: trust
-  # There are a coupld of .java files under node_modules which sometimes triggers spotbugs checks
+  # There are a couple of .java files under node_modules which sometimes triggers spotbugs checks
   SAST_EXCLUDED_ANALYZERS: flawfinder spotbugs
   TRANSFER_METER_FREQUENCY: 5s
+  GET_SOURCES_ATTEMPTS: 3
 
-.ingore_release_mrs:
+.ignore_release_mrs:
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == 'master' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'pre-production'"
       when: never
@@ -66,20 +53,20 @@ variables:
 
 install_yarn:
   rules:
-    - !reference [ .ingore_release_mrs, rules ]
-    - if: !reference [ .run_for_changes_on_main, rules, if ]
+    - !reference [.ignore_release_mrs, rules]
+    - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
-        - modules-sha
-    - if: !reference [ .run_for_changes_on_mr, rules, if ]
+        - yarn.lock
+    - if: !reference [.run_for_changes_on_mr, rules, if]
       changes:
-        - modules-sha
+        - yarn.lock
     - if: '$WHICH_SCHEDULE == "install_yarn"'
 
 code_quality:
   rules:
-    - !reference [ .ingore_release_mrs, rules ]
-    - if: !reference [ .run_for_changes_on_mr, rules, if ]
-    - if: !reference [ .run_for_changes_on_main, rules, if ]
+    - !reference [.ignore_release_mrs, rules]
+    - if: !reference [.run_for_changes_on_mr, rules, if]
+    - if: !reference [.run_for_changes_on_main, rules, if]
 
 eslint-sast:
   rules:
@@ -93,22 +80,34 @@ semgrep-sast:
   rules:
     - when: never
 
+# To be removed when lint_yarn is made configurable everywhere
 lint_yarn:
   rules:
-    - !reference [ .ingore_release_mrs, rules ]
-    - if: !reference [ .run_for_changes_on_mr, rules, if ]
-    - if: !reference [ .run_for_changes_on_main, rules, if ]
+    - when: never
 
 secret_detection:
   rules:
-    - !reference [ .ingore_release_mrs, rules ]
-    - if: !reference [ .run_for_changes_on_mr, rules, if ]
-    - if: !reference [ .run_for_changes_on_main, rules, if ]
+    - !reference [.ignore_release_mrs, rules]
+    - if: !reference [.run_for_changes_on_mr, rules, if]
+    - if: !reference [.run_for_changes_on_main, rules, if]
+
+update_dependabot_config:
+  stage: audit
+  rules:
+    - when: never # Enable when we have dependabot setup
+  #    - if: ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')
+  needs: []
+  image: bash:latest
+  cache: {}
+  script:
+    - scripts/create_dependabot_file.sh
 
 release:
   stage: release
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'pre-production' || $CI_COMMIT_BRANCH == 'production')"
+  needs: []
+  cache: {}
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
@@ -161,7 +160,7 @@ open_mr_prod_to_preprod_to_master:
 environment_definer:
   stage: post deploy
   rules:
-    - if: !reference [ .run_for_prod_release, rules, if ]
+    - if: !reference [.run_for_prod_release, rules, if]
   when: manual
   script:
     - |
@@ -181,7 +180,7 @@ environment_definer:
 .auto_tests:
   stage: post deploy
   rules:
-    - if: !reference [ .run_for_prod_release, rules, if ]
+    - if: !reference [.run_for_prod_release, rules, if]
   variables:
     project: $market
     browser: $browser

@@ -15,8 +15,8 @@ import withGTM from "../utils/google-tag-manager";
 import BrandLogo from "./BrandLogo";
 import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
 import { useSiteContext } from "./Site";
-import styles from "./styles/ProductOverview.module.scss";
 import { VisualiserContext } from "./Visualiser";
+import styles from "./styles/ProductOverview.module.scss";
 import tilesSetData from "./visualiser/data/tiles.json";
 
 export type Data = {
@@ -127,6 +127,9 @@ const ProductOverview = ({
               <GTMMediaThumbnail gtm={{ id: "media-gallery1" }} {...props} />
             )}
             layout="short"
+            videoButtonLabel={getMicroCopy(microCopy.MEDIA_VIDEO)}
+            visualiserButtonLabel={getMicroCopy(microCopy.MEDIA_3D)}
+            visualiserText={getMicroCopy(microCopy.MEDIA_VISUALIZER_TEXT)}
           />
         </Grid>
         <Grid xs={12} md={12} lg={4}>

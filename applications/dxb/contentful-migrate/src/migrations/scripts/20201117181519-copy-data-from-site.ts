@@ -1,20 +1,12 @@
 import MurmurHash3 from "imurmurhash";
 import type { CollectionResponse } from "@bmi-digital/contentful-migration";
 import type { EntryProps } from "contentful-management";
-import type Migration from "contentful-migration";
-import type {
-  ContentFields,
-  MigrationContext,
-  MigrationFunction
-} from "contentful-migration";
+import type { ContentFields, MigrationFunction } from "contentful-migration";
 
 export const description =
   "Copy data from site sign up banner to input banner content type";
 
-export const up: MigrationFunction = (
-  migration: Migration,
-  context?: MigrationContext
-) => {
+export const up: MigrationFunction = (migration, context) => {
   migration.transformEntriesToType({
     sourceContentType: "site",
     targetContentType: "inputBanner",
@@ -72,10 +64,7 @@ export const up: MigrationFunction = (
   });
 };
 
-export const down: MigrationFunction = (
-  migration: Migration,
-  context?: MigrationContext
-) => {
+export const down: MigrationFunction = (migration, context) => {
   migration.transformEntries({
     contentType: "site",
     from: [],

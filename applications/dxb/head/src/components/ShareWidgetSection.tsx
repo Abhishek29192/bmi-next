@@ -87,7 +87,7 @@ const ShareWidgetSection = ({
     >
       <ShareWidget
         title={title}
-        message={message}
+        message={message ?? undefined}
         buttonComponent={(props: ButtonProps) => (
           <GTMButton gtm={{ id: "cta-share1" }} {...props} />
         )}
@@ -99,7 +99,7 @@ const ShareWidgetSection = ({
           clipboardErrorMessage ||
           getMicroCopy(microCopy.SHARE_CLIPBOARD_FAILURE)
         }
-        isLeftAligned={isLeftAligned}
+        isLeftAligned={isLeftAligned ?? undefined}
         channels={availableChannels.filter(
           (channel) => channels[channel.type] && channel
         )}

@@ -1,15 +1,15 @@
 import { graphql } from "gatsby";
-import { Data as LinkData } from "../components/Link";
-import { Data as SDPSpecificationNotesData } from "./ContentfulSpecificationNotes";
-import { Data as ExploreBarData } from "./ExploreBar";
-import { Data as MicroCopyData } from "./MicroCopy";
-import { Data as NextBestActionsData } from "./NextBestActions";
-import { Data as PageInfoData } from "./PageInfo";
-import { Data as PromoData } from "./Promo";
-import { RichTextData } from "./RichText";
-import { Data as ShareWidgetSectionData } from "./ShareWidgetSection";
-import { Data as SignupBlockData } from "./SignupBlock";
-import { Data as TitleWithContentData } from "./TitleWithContent";
+import type { Data as LinkData } from "../components/Link";
+import type { Data as SDPSpecificationNotesData } from "./ContentfulSpecificationNotes";
+import type { Data as ExploreBarData } from "./ExploreBar";
+import type { Data as MicroCopyData } from "./MicroCopy";
+import type { Data as NextBestActionsData } from "./NextBestActions";
+import type { Data as PageInfoData } from "./PageInfo";
+import type { Data as PromoData } from "./Promo";
+import type { RichTextData } from "./RichText";
+import type { Data as ShareWidgetSectionData } from "./ShareWidgetSection";
+import type { Data as SignupBlockData } from "./SignupBlock";
+import type { Data as TitleWithContentData } from "./TitleWithContent";
 
 export type DocumentDisplayFormatType = "Asset type" | "Asset name";
 

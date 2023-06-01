@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Update help text for Promos field";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const navigation = migration.editContentType("navigation");
   navigation.changeFieldControl("promos", "builtin", "entryCardsEditor", {
     helpText: `
@@ -16,7 +15,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   });
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const navigation = migration.editContentType("navigation");
   navigation.changeFieldControl("promos", "builtin", "entryCardsEditor", {
     helpText: `

@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Create content model for Visualiser House Type";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const visualiserHouseType = migration
     .createContentType("visualiserHouseType")
     .name("Visualiser House Type")
@@ -32,5 +31,5 @@ export const up: MigrationFunction = (migration: Migration) => {
     .linkType("Asset");
 };
 
-export const down: MigrationFunction = (migration: Migration) =>
+export const down: MigrationFunction = (migration) =>
   migration.deleteContentType("visualiserHouseType");

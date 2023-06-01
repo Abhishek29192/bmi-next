@@ -259,12 +259,12 @@ const CardCollectionSection = ({
       sortOrder
         ? [...iterableCards].sort((first, second) => {
             const firstWeight =
-              "date" in first && first.date
-                ? new Date(first.date).getTime()
+              "rawDate" in first && first.rawDate
+                ? new Date(first.rawDate).getTime()
                 : noDateSortWeight;
             const secondWeight =
-              "date" in second && second.date
-                ? new Date(second.date).getTime()
+              "rawDate" in second && second.rawDate
+                ? new Date(second.rawDate).getTime()
                 : noDateSortWeight;
 
             switch (sortOrder) {
@@ -278,7 +278,7 @@ const CardCollectionSection = ({
             }
           })
         : iterableCards,
-    [sortOrder, iterableCards]
+    [sortOrder, iterableCards, noDateSortWeight]
   );
 
   const cardsPerLoad = 8;

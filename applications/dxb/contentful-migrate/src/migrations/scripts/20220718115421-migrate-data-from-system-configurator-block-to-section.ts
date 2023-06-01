@@ -1,18 +1,10 @@
 import MurmurHash3 from "imurmurhash";
-import type Migration from "contentful-migration";
-import type {
-  ContentFields,
-  MigrationContext,
-  MigrationFunction
-} from "contentful-migration";
+import type { ContentFields, MigrationFunction } from "contentful-migration";
 
 export const description =
   "Migrate data from System Configurator Block type section to System Configurator Section content type";
 
-export const up: MigrationFunction = (
-  migration: Migration,
-  context?: MigrationContext
-) => {
+export const up: MigrationFunction = (migration, context) => {
   migration.transformEntriesToType({
     sourceContentType: "systemConfiguratorBlock",
     targetContentType: "systemConfiguratorSection",
@@ -77,10 +69,7 @@ export const up: MigrationFunction = (
   });
 };
 
-export const down: MigrationFunction = (
-  migration: Migration,
-  context?: MigrationContext
-) => {
+export const down: MigrationFunction = (migration, context) => {
   migration.transformEntriesToType({
     sourceContentType: "systemConfiguratorSection",
     targetContentType: "systemConfiguratorBlock",

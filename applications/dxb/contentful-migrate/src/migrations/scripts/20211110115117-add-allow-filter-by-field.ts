@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Add allow filter by field on Document Library Page";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const documentLibraryPage = migration.editContentType("documentLibraryPage");
 
   documentLibraryPage
@@ -29,7 +28,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   documentLibraryPage.moveField("allowFilterBy").afterField("categoryCodes");
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const documentLibraryPage = migration.editContentType("documentLibraryPage");
 
   documentLibraryPage.deleteField("allowFilterBy");

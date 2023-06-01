@@ -1,0 +1,269 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PitchedRoofCalculator Protrusions component renders correctly 1`] = `
+<div>
+  <div
+    class="Protrusions"
+  >
+    <h6
+      class="title"
+    >
+      MC: roofDimensions.protrusions.title
+    </h6>
+    <div
+      class="protrusion"
+    >
+      <div
+        class="FieldContainer fieldsContainer"
+      >
+        <div
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-1a8bzh9-MuiGrid2-root"
+          data-testid="grid-container"
+        >
+          <div
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-6 MuiGrid2-grid-lg-2 card css-10sqo8t-MuiGrid2-root"
+            data-testid="grid-item"
+          >
+            <div
+              class="css-tmrmui"
+            >
+              <label
+                data-testid="card-input-label"
+              >
+                <input
+                  class="CardInput-input"
+                  data-testid="card-input-input"
+                  name="select-protrusion-0"
+                  type="radio"
+                  value="protrusion01"
+                />
+                <div
+                  class="MuiButtonBase-root CardInput-card css-6rgev3-MuiButtonBase-root"
+                  role="button"
+                  tabindex="0"
+                >
+                  <div
+                    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root ToggleCard-body css-6erhqq-MuiPaper-root-MuiCard-root"
+                  >
+                    <svg
+                      preserveAspectRatio="xMidYMid"
+                      viewBox="0 0 350 300"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M0 0h350v300H0z"
+                        fill="none"
+                      />
+                      <path
+                        d="M143.053 200.499v61.644l142.308-82.405v-61.644l-142.308 82.405z"
+                        fill="#b2c4d0"
+                      />
+                      <path
+                        d="M143.053 200.499v61.644L50 123.416l93.053 77.083z"
+                        fill="#fff"
+                      />
+                      <path
+                        d="m50 123.416 102.23 90.959L300 128.816l-99.62-90.959L50 123.416z"
+                        fill="#309dd6"
+                      />
+                      <path
+                        d="M188.69 201.054v27.456l23.38-13.539v-27.456l-23.38 13.539zM216.965 184.73v27.455l23.381-13.539v-27.455l-23.381 13.539z"
+                        fill="#255d63"
+                      />
+                      <g
+                        fill="none"
+                      >
+                        <path
+                          d="M285.361 137.292v42.446l-142.308 82.405L50 123.416"
+                          stroke="#3f3f3f"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                        />
+                        <path
+                          d="M143.053 261.075V206.21"
+                          stroke="#3f3f3f"
+                          stroke-miterlimit="10"
+                        />
+                        <path
+                          d="m50 123.416 150.38-85.559L300 128.816l-147.77 85.559L50 123.416z"
+                          stroke="#00232d"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                        />
+                      </g>
+                    </svg>
+                  </div>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </div>
+              </label>
+            </div>
+          </div>
+          <div
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-6 MuiGrid2-grid-lg-2 card css-10sqo8t-MuiGrid2-root"
+            data-testid="grid-item"
+          >
+            <div
+              class="css-tmrmui"
+            >
+              <label
+                data-testid="card-input-label"
+              >
+                <input
+                  class="CardInput-input"
+                  data-testid="card-input-input"
+                  name="select-protrusion-0"
+                  type="radio"
+                  value="protrusion02"
+                />
+                <div
+                  class="MuiButtonBase-root CardInput-card css-6rgev3-MuiButtonBase-root"
+                  role="button"
+                  tabindex="0"
+                >
+                  <div
+                    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root ToggleCard-body css-6erhqq-MuiPaper-root-MuiCard-root"
+                  >
+                    <svg
+                      preserveAspectRatio="xMidYMid"
+                      viewBox="0 0 350 300"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M0 0h350v300H0z"
+                        fill="none"
+                      />
+                      <path
+                        d="M112.68 208.675v40.238l142.307-82.406v-28.908l-67.921-29.357-74.386 100.433z"
+                        fill="#bacbd8"
+                      />
+                      <path
+                        d="M112.68 216.883v32.03l-14.902-21.487 14.902-10.543z"
+                        fill="#fff"
+                      />
+                      <path
+                        d="m82.528 222.459 26.85 15.489 80.245-125.161-106.608-61.7-.487 171.372z"
+                        fill="#45e0ff"
+                      />
+                      <path
+                        d="M157.711 178.12v27.456l23.38-13.539v-27.456l-23.38 13.539zM185.986 161.796v27.455l23.381-13.539v-27.455l-23.381 13.539z"
+                        fill="#255d63"
+                      />
+                      <path
+                        d="m240.622 128.099 26.85 15.489-77.849-30.801-106.608-61.7 157.607 77.012z"
+                        fill="#2580b4"
+                      />
+                      <g
+                        fill="none"
+                      >
+                        <path
+                          d="M254.987 138.594v27.913L112.68 248.913l-10.473-15.102"
+                          stroke="#3f3f3f"
+                          stroke-miterlimit="10"
+                          stroke-width="2"
+                        />
+                        <path
+                          d="M112.68 248.585v-16.028"
+                          stroke="#3f3f3f"
+                          stroke-miterlimit="10"
+                        />
+                        <path
+                          d="m83.015 51.087 106.608 61.7-80.245 125.161-26.85-15.489.487-171.372z"
+                          stroke="#002839"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                        />
+                        <path
+                          d="m83.015 51.087 157.607 77.012 26.85 15.489-77.849-30.801"
+                          stroke="#002839"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                        />
+                      </g>
+                    </svg>
+                  </div>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </div>
+              </label>
+            </div>
+          </div>
+          <div
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-6 MuiGrid2-grid-lg-2 card css-10sqo8t-MuiGrid2-root"
+            data-testid="grid-item"
+          >
+            <div
+              class="css-tmrmui"
+            >
+              <label
+                data-testid="card-input-label"
+              >
+                <input
+                  class="CardInput-input"
+                  data-testid="card-input-input"
+                  name="select-protrusion-0"
+                  type="radio"
+                  value="protrusion03"
+                />
+                <div
+                  class="MuiButtonBase-root CardInput-card css-6rgev3-MuiButtonBase-root"
+                  role="button"
+                  tabindex="0"
+                >
+                  <div
+                    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root ToggleCard-body css-6erhqq-MuiPaper-root-MuiCard-root"
+                  >
+                    <svg
+                      preserveAspectRatio="xMidYMid"
+                      viewBox="0 0 350 300"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M0 0h350v300H0z"
+                        fill="none"
+                      />
+                      <path
+                        d="m267.472 143.588-77.849-30.801-80.245-46.211 158.094 77.012z"
+                        fill="#2681b4"
+                      />
+                      <path
+                        d="M109.378 66.345v171.603l80.245-125.161-80.245-46.442z"
+                        fill="#45e0ff"
+                      />
+                      <path
+                        d="M189.623 112.787 121.41 219.179l133.908-80.397-65.695-25.995z"
+                        fill="#b5c7d4"
+                      />
+                      <g
+                        fill="none"
+                        stroke="#002839"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      >
+                        <path
+                          d="m109.378 66.345 80.245 46.442-80.245 125.161V66.345zM109.378 66.345l158.094 77.243-77.849-30.801"
+                        />
+                      </g>
+                      <path
+                        d="m122.004 218.01 133.314-79.228"
+                        fill="none"
+                        stroke="#3f3f3f"
+                        stroke-miterlimit="10"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

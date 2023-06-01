@@ -2,12 +2,12 @@ import { ThemeProvider } from "@bmi-digital/components";
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import {
-  Data as LinkData,
   DataTypeEnum,
-  getClickableActionFromUrl,
+  Link,
+  Data as LinkData,
   getCTA,
-  getLinkURL,
-  Link
+  getClickableActionFromUrl,
+  getLinkURL
 } from "../Link";
 import { SiteContextProvider } from "../Site";
 import { SourceType } from "../types/FormSectionTypes";
@@ -185,7 +185,7 @@ describe("Link component", () => {
           to: "/en/some-page/"
         })
       );
-      expect(res["data-gtm"]).toEqual(
+      expect(res!["data-gtm"]).toEqual(
         JSON.stringify({ id: "cta-click1", action: "/en/some-page/" })
       );
     });
@@ -203,7 +203,7 @@ describe("Link component", () => {
           target: "_blank"
         })
       );
-      expect(res["data-gtm"]).toEqual(
+      expect(res!["data-gtm"]).toEqual(
         JSON.stringify({ id: "cta-click1", action: "http://example.com" })
       );
     });
@@ -225,7 +225,7 @@ describe("Link component", () => {
           model: "htmlLink"
         })
       );
-      expect(res["data-gtm"]).toEqual(
+      expect(res!["data-gtm"]).toEqual(
         JSON.stringify({ id: "cta-click1", action: "http://www.bmigroup.com" })
       );
     });
@@ -235,7 +235,7 @@ describe("Link component", () => {
         { path: "some-page" },
         undefined,
         "en",
-        null,
+        undefined,
         "ImALabel",
         DataTypeEnum.External
       );
@@ -245,7 +245,7 @@ describe("Link component", () => {
           to: "/en/some-page/"
         })
       );
-      expect(clickableAction["data-gtm"]).toEqual(
+      expect(clickableAction!["data-gtm"]).toEqual(
         JSON.stringify({
           id: "cta-click1",
           action: "/en/some-page/",
@@ -269,7 +269,7 @@ describe("Link component", () => {
           model: "download"
         })
       );
-      expect(clickableAction["data-gtm"]).toEqual(
+      expect(clickableAction!["data-gtm"]).toEqual(
         JSON.stringify({
           id: "cta-click1",
           action: "assetUrl",
@@ -283,13 +283,13 @@ describe("Link component", () => {
         null,
         "foo.com",
         "en",
-        null,
+        undefined,
         "ImALabel",
         null,
-        null,
+        undefined,
         { id: "foo1", label: "foo", action: "foo.com" }
       );
-      expect(clickableAction["data-gtm"]).toBe(
+      expect(clickableAction!["data-gtm"]).toBe(
         JSON.stringify({ id: "foo1", label: "foo", action: "foo.com" })
       );
       expect(clickableAction).toEqual(
@@ -323,7 +323,7 @@ describe("Link component", () => {
         "Go to Page"
       );
 
-      expect(res["action"]).toEqual(
+      expect(res!["action"]).toEqual(
         expect.objectContaining({
           href: "https://www.external.co.uk",
           model: "htmlLink",
@@ -331,14 +331,14 @@ describe("Link component", () => {
           target: "_blank"
         })
       );
-      expect(res["action"]["data-gtm"]).toEqual(
+      expect(res!["action"]!["data-gtm"]).toEqual(
         JSON.stringify({
           id: "cta-click1",
           action: "https://www.external.co.uk",
           label: "string"
         })
       );
-      expect(res["label"]).toEqual("string");
+      expect(res!["label"]).toEqual("string");
     });
     it("returns a cta object with page", () => {
       const res = getCTA(
@@ -349,20 +349,20 @@ describe("Link component", () => {
         "Go to Page"
       );
 
-      expect(res["action"]).toEqual(
+      expect(res!["action"]).toEqual(
         expect.objectContaining({
           model: "routerLink",
           to: "/no/contact-us/"
         })
       );
-      expect(res["action"]["data-gtm"]).toEqual(
+      expect(res!["action"]!["data-gtm"]).toEqual(
         JSON.stringify({
           id: "cta-click1",
           action: "/no/contact-us/",
           label: "Go to Page"
         })
       );
-      expect(res["label"]).toEqual("Go to Page");
+      expect(res!["label"]).toEqual("Go to Page");
     });
     it("returns a cta object with asset url", () => {
       const res = getCTA(
@@ -384,7 +384,7 @@ describe("Link component", () => {
         "no",
         "Go to Page"
       );
-      expect(res["action"]).toEqual(
+      expect(res!["action"]).toEqual(
         expect.objectContaining({
           href: "https://www.external.co.uk",
           model: "htmlLink",
@@ -392,26 +392,14 @@ describe("Link component", () => {
           target: "_blank"
         })
       );
-      expect(res["action"]["data-gtm"]).toEqual(
+      expect(res!["action"]!["data-gtm"]).toEqual(
         JSON.stringify({
           id: "cta-click1",
           action: "https://www.external.co.uk",
           label: "string"
         })
       );
-      expect(res["label"]).toEqual("string");
-    });
-
-    it("returns a null object with page without path", () => {
-      expect(
-        getCTA(
-          {
-            path: null
-          },
-          "no",
-          "Go to Page"
-        )
-      ).toBeNull();
+      expect(res!["label"]).toEqual("string");
     });
 
     it("returns a null object with page with empty path", () => {
@@ -451,20 +439,20 @@ describe("Link component", () => {
         "no",
         "Go to Page"
       );
-      expect(res["action"]).toEqual(
+      expect(res!["action"]).toEqual(
         expect.objectContaining({
           href: "https://somelink.com",
           model: "download"
         })
       );
-      expect(res["action"]["data-gtm"]).toEqual(
+      expect(res!["action"]!["data-gtm"]).toEqual(
         JSON.stringify({
           id: "cta-click1",
           action: "https://somelink.com",
           label: "string"
         })
       );
-      expect(res["label"]).toEqual("string");
+      expect(res!["label"]).toEqual("string");
     });
 
     it("returns a null object when a simple page without cta", () => {

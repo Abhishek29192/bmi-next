@@ -1,16 +1,24 @@
+lint_gatsby-plugin-meta-redirect:
+  extends: .lint_yarn_workspace
+  rules:
+    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [ .run_for_changes_on_mr, rules ]
+  variables:
+    ROOT_DIR: "applications/dxb/libraries/gatsby-plugin-meta-redirect"
+    WORKSPACE: "@bmi/gatsby-plugin-meta-redirect"
+
 test_gatsby-plugin-meta-redirect:
   extends: .test_yarn_workspace
   rules:
-    - !reference [.ingore_release_mrs, rules]
+    - !reference [ .ignore_release_mrs, rules]
     - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - applications/dxb/libraries/gatsby-plugin-meta-redirect/**/*
-        - jest/**/*
         - yarn.lock
     - if: !reference [.run_for_changes_on_mr, rules, if]
       changes:
         - applications/dxb/libraries/gatsby-plugin-meta-redirect/**/*
-        - jest/**/*
         - yarn.lock
   variables:
     WORKSPACE: "@bmi/gatsby-plugin-meta-redirect"

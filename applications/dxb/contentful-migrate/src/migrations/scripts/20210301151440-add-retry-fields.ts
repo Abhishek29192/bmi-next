@@ -1,4 +1,3 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Add retry fields to InputBanner Content Type";
@@ -16,7 +15,7 @@ const enabledNodeTypes = [
   "embedded-entry-inline"
 ];
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const inputBanner = migration.editContentType("inputBanner");
   inputBanner
     .createField("allowRetry")
@@ -71,7 +70,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   });
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const inputBanner = migration.editContentType("inputBanner");
   inputBanner.deleteField("allowRetry");
   inputBanner.deleteField("errorTitle");

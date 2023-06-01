@@ -21,8 +21,8 @@ import { Data as SEOContentData } from "./SEOContent";
 import SignupBlock, { Data as SignupBlockData } from "./SignupBlock";
 import {
   Context as SiteContext,
-  Data as SiteData,
   SiteContextProvider,
+  Data as SiteData,
   useSiteContext
 } from "./Site";
 import VisualiserProvider from "./Visualiser";
@@ -105,7 +105,7 @@ const Page = ({
     reCaptchaNet
   };
 
-  const microCopyContext = resources?.microCopy.reduce(
+  const microCopyContext = resources?.microCopy?.reduce(
     (carry, { key, value }) => ({
       ...carry,
       [key]: value
@@ -145,7 +145,7 @@ const Page = ({
                 fallbackRender={() => (
                   <ErrorFallback
                     countryCode={countryCode}
-                    promo={resources.errorGeneral}
+                    promo={resources?.errorGeneral}
                   />
                 )}
                 onError={() =>
