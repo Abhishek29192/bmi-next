@@ -106,7 +106,9 @@ release:
   stage: release
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'pre-production' || $CI_COMMIT_BRANCH == 'production')"
-  needs: []
+  needs:
+    - job: install_yarn
+      optional: true
   cache: {}
   script:
     - yarn run semantic-release
