@@ -52,22 +52,7 @@ export const build: HttpFunction = async (_req, res) => {
     message: `received request body: ${JSON.stringify(_req.body)}`
   });
 
-  const defaultPayload = { isFullFetch: false };
-  const parseOrReturnDefaultPayload = (str: string) => {
-    try {
-      const parsed = JSON.parse(str);
-      if (parsed && typeof parsed === "object") {
-        return parsed;
-      }
-    } catch (e) {
-      return defaultPayload;
-    }
-  };
-  const reqBody = parseOrReturnDefaultPayload(_req.body || "");
-  logger.debug({
-    message: `reqBody.isFullFetch: ${reqBody.isFullFetch}`
-  });
-  if (reqBody.isFullFetch === true) {
+  if (_req.body.isFullFetch === true) {
     logger.debug({ message: "isFullFetch is true: swapping indexes" });
 
     for (const indexEntity in ElasticsearchIndexes) {
