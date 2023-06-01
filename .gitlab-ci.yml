@@ -108,8 +108,6 @@ release:
     - if: "$CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'pre-production' || $CI_COMMIT_BRANCH == 'production')"
   needs: []
   cache: {}
-  before_script:
-    - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
     - yarn run semantic-release
 
