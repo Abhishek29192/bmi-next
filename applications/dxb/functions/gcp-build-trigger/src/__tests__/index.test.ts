@@ -106,6 +106,7 @@ describe("Invalid environment variables", () => {
 describe("Making a POST request", () => {
   it("throw error if build hook trigger fails", async () => {
     const req = mockRequest();
+    req.body = JSON.stringify({ isFullFetch: false });
     const res = mockResponse();
 
     mockResponses(fetchMock, {
@@ -127,8 +128,52 @@ describe("Making a POST request", () => {
     });
   });
 
+  it("returns status code 200 when payload is not valid json", async () => {
+    const req = mockRequest();
+    req.body = "";
+    const res = mockResponse();
+
+    mockResponses(fetchMock, {
+      url: process.env.NETLIFY_BUILD_HOOK,
+      method: "POST"
+    });
+
+    await build(req, res);
+
+    expect(res.sendStatus).toBeCalledWith(200);
+
+    expect(fetchMock).toHaveFetched(process.env.NETLIFY_BUILD_HOOK, {
+      method: "POST"
+    });
+    // `ES_INDEX_PREFIX` and `ES_INDEX_NAME_DOCUMENTS` are globally setup for testing
+    // see `jest/src/setEnvVars.ts`
+    expect(swapReadWriteAliases).toBeCalledTimes(0);
+  });
+  it("returns status code 200 when payload is null", async () => {
+    const req = mockRequest();
+    req.body = null;
+    const res = mockResponse();
+
+    mockResponses(fetchMock, {
+      url: process.env.NETLIFY_BUILD_HOOK,
+      method: "POST"
+    });
+
+    await build(req, res);
+
+    expect(res.sendStatus).toBeCalledWith(200);
+
+    expect(fetchMock).toHaveFetched(process.env.NETLIFY_BUILD_HOOK, {
+      method: "POST"
+    });
+    // `ES_INDEX_PREFIX` and `ES_INDEX_NAME_DOCUMENTS` are globally setup for testing
+    // see `jest/src/setEnvVars.ts`
+    expect(swapReadWriteAliases).toBeCalledTimes(0);
+  });
+
   it("returns status code 200 when build hook is triggered successfully", async () => {
     const req = mockRequest();
+    req.body = JSON.stringify({ isFullFetch: true });
     const res = mockResponse();
 
     mockResponses(fetchMock, {
@@ -150,6 +195,7 @@ describe("Making a POST request", () => {
 
   it("waits for the DELAY_MILLISECONDS milliseconds before making any requests", async () => {
     const req = mockRequest();
+    req.body = JSON.stringify({ isFullFetch: true });
     const res = mockResponse();
 
     mockResponses(fetchMock, {
