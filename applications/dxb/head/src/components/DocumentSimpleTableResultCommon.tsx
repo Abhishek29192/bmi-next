@@ -5,6 +5,7 @@ import {
   Tooltip
 } from "@bmi-digital/components";
 import { Box } from "@mui/material";
+import classnames from "classnames";
 import React, { useMemo, useState } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { QA_AUTH_TOKEN } from "../constants/cookieConstants";
@@ -28,6 +29,7 @@ import {
   StyledDocumentIcon,
   Title,
   TitleButton,
+  TooltipPopper,
   classes
 } from "./styles/DocumentSimpleTableResultsCommonStyles";
 
@@ -60,11 +62,13 @@ const GTMDocumentTitleButton = withGTM<
 export const MultipleAssetToFileDownload = ({
   document,
   disableRipple,
-  title
+  title,
+  className
 }: {
   document: PseudoZipPIMDocument;
   disableRipple?: boolean;
   title: string;
+  className?: string;
 }): React.ReactElement => {
   const { executeRecaptcha } = useGoogleReCaptcha();
   const qaAuthToken = getCookie(QA_AUTH_TOKEN);
@@ -72,6 +76,7 @@ export const MultipleAssetToFileDownload = ({
   return (
     <GTMDocumentTitleButton
       disableRipple={disableRipple}
+      className={classnames(className, disableRipple && classes.disableRipple)}
       gtm={{
         id: "download1",
         label: "Download",
@@ -103,6 +108,7 @@ export const DocumentTitle = (props: {
   document: Document;
   disableRipple?: boolean;
   titleField?: TitleField;
+  className?: string;
 }) => {
   const { getMicroCopy } = useSiteContext();
   const mappedDocument = mapAssetToFileDownload(props.document, getMicroCopy);
@@ -116,6 +122,10 @@ export const DocumentTitle = (props: {
       <TitleButton
         variant="text"
         disableRipple={props.disableRipple}
+        className={classnames(
+          props.className,
+          props.disableRipple && classes.disableRipple
+        )}
         action={{
           model: "htmlLink",
           href: mappedDocument.url,
@@ -136,6 +146,7 @@ export const DocumentTitle = (props: {
         document={props.document}
         disableRipple={props.disableRipple}
         title={title}
+        className={props.className}
       />
     );
   }
@@ -143,6 +154,10 @@ export const DocumentTitle = (props: {
   return (
     <GTMDocumentTitleButton
       disableRipple={props.disableRipple}
+      className={classnames(
+        props.className,
+        props.disableRipple && classes.disableRipple
+      )}
       gtm={{ id: "download1", label: "Download", action: mappedDocument.url }}
       action={{
         model: "download",
@@ -199,6 +214,9 @@ export const CopyToClipboard = ({
           : microCopy.DOCUMENT_LIBRARY_COPY_LINK_TOOLTIP_TITLE
       )}
       onClose={handleTooltipClose}
+      components={{
+        Tooltip: TooltipPopper
+      }}
     >
       <Box ml={{ lg: "auto" }}>
         <StyledButton
@@ -267,6 +285,9 @@ export const DownloadDocumentButton = ({
       placement="left"
       disableTouchListener
       title={getMicroCopy(microCopy.DOCUMENT_LIBRARY_DOWNLOAD_TOOLTIP_TITLE)}
+      components={{
+        Tooltip: TooltipPopper
+      }}
     >
       <div>
         <GTMButton

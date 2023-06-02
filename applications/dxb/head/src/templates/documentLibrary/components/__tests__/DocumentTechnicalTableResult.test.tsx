@@ -1,59 +1,43 @@
 import { ThemeProvider } from "@bmi-digital/components";
 import { createPimProductDocument } from "@bmi/elasticsearch-types";
-import { useMediaQuery } from "@mui/material";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import React from "react";
 import createAssetType from "../../../../__tests__/helpers/AssetTypeHelper";
 import DocumentTechnicalTableResults from "../DocumentTechnicalTableResults";
 
-jest.mock("@mui/material", () => ({
-  ...(jest.requireActual("@mui/material") as any),
-  useMediaQuery: jest.fn()
-}));
-
-const mockUseMediaQuery = useMediaQuery as jest.Mock<
-  ReturnType<typeof useMediaQuery>
->;
 const pimDocument = createPimProductDocument({
   isLinkDocument: false
 });
 
-const assetType = createAssetType({ code: pimDocument.assetType.code });
-
 describe("DocumentTechnicalTableResults component", () => {
-  describe("in desktop view", () => {
-    beforeEach(() => {
-      mockUseMediaQuery.mockReturnValueOnce(false);
-    });
-    it("renders correctly", () => {
-      const { container } = render(
-        <ThemeProvider>
-          <DocumentTechnicalTableResults
-            documents={[pimDocument]}
-            assetTypes={[assetType]}
-          />
-        </ThemeProvider>
-      );
+  it("Works correctly if there are no assetTypes", () => {
+    render(
+      <ThemeProvider>
+        <DocumentTechnicalTableResults
+          documents={[pimDocument]}
+          assetTypes={[]}
+        />
+      </ThemeProvider>
+    );
 
-      expect(container).toMatchSnapshot();
-    });
+    expect(
+      screen.getByText(
+        "A technical table cannot being shown with no asset types."
+      )
+    ).toBeInTheDocument();
   });
 
-  describe("in mobile view", () => {
-    beforeEach(() => {
-      mockUseMediaQuery.mockReturnValueOnce(true);
-    });
-    it("renders correctly", () => {
-      const { container } = render(
-        <ThemeProvider>
-          <DocumentTechnicalTableResults
-            documents={[pimDocument]}
-            assetTypes={[assetType]}
-          />
-        </ThemeProvider>
-      );
+  it("Works correctly if there are assetTypes", () => {
+    const assetType = createAssetType({ code: pimDocument.assetType.code });
+    render(
+      <ThemeProvider>
+        <DocumentTechnicalTableResults
+          documents={[pimDocument]}
+          assetTypes={[assetType]}
+        />
+      </ThemeProvider>
+    );
 
-      expect(container).toMatchSnapshot();
-    });
+    expect(screen.getByTestId("tech-results-accordion")).toBeInTheDocument();
   });
 });
