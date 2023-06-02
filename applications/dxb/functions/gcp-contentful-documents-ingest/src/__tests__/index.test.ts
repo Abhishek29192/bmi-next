@@ -1,13 +1,13 @@
 import { mockRequest, mockResponse } from "@bmi-digital/fetch-mocks";
-import { createContentfulDocument as createEsContentfulDocument } from "@bmi/elasticsearch-types";
 import {
   createEntrySys,
   createFullyPopulatedDocumentLocalisedUnlinked
 } from "@bmi/contentful-types";
+import { createContentfulDocument as createEsContentfulDocument } from "@bmi/elasticsearch-types";
 import type { ContentfulDocument as EsContentfulDocument } from "@bmi/elasticsearch-types";
 import createContentfulDeletedRequestBody from "./helpers/contentfulDeletedRequestBodyHelper";
-import type { ContentfulDocument } from "../types";
 import type { Request, Response } from "@google-cloud/functions-framework";
+import type { ContentfulDocument } from "../types";
 
 const getEsClient = jest.fn();
 const index = jest.fn();
@@ -289,7 +289,7 @@ describe("updateESDocumentsIndex", () => {
       contentfulPublishedRequestBody
     );
     expect(index).toHaveBeenCalledWith({
-      index: process.env.ES_INDEX_NAME_DOCUMENTS,
+      index: `${process.env.ES_INDEX_NAME_DOCUMENTS}_write`.toLowerCase(),
       id: transformedDocument.id,
       body: transformedDocument
     });
@@ -340,7 +340,7 @@ describe("updateESDocumentsIndex", () => {
       contentfulPublishedRequestBody
     );
     expect(index).toHaveBeenCalledWith({
-      index: process.env.ES_INDEX_NAME_DOCUMENTS,
+      index: `${process.env.ES_INDEX_NAME_DOCUMENTS}_write`.toLowerCase(),
       id: transformedDocument.id,
       body: transformedDocument
     });
@@ -375,7 +375,7 @@ describe("updateESDocumentsIndex", () => {
     expect(checkHttpMethod).toHaveBeenCalledWith(request, response);
     expect(getEsClient).toHaveBeenCalled();
     expect(mockDelete).toHaveBeenCalledWith({
-      index: process.env.ES_INDEX_NAME_DOCUMENTS,
+      index: `${process.env.ES_INDEX_NAME_DOCUMENTS}_write`.toLowerCase(),
       id: request.body.sys.id
     });
     expect(transformDocument).not.toHaveBeenCalled();
@@ -419,7 +419,7 @@ describe("updateESDocumentsIndex", () => {
     expect(checkHttpMethod).toHaveBeenCalledWith(request, response);
     expect(getEsClient).toHaveBeenCalled();
     expect(mockDelete).toHaveBeenCalledWith({
-      index: process.env.ES_INDEX_NAME_DOCUMENTS,
+      index: `${process.env.ES_INDEX_NAME_DOCUMENTS}_write`.toLowerCase(),
       id: request.body.sys.id
     });
     expect(response.sendStatus).toHaveBeenCalledWith(200);

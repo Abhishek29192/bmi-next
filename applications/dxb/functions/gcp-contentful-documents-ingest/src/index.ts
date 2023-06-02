@@ -6,8 +6,8 @@ import {
   checkEnvVariablesMissing,
   checkHttpMethod
 } from "./helpers";
-import type { ContentfulDocument, DeletedEntry } from "./types";
 import type { HttpFunction } from "@google-cloud/functions-framework";
+import type { ContentfulDocument, DeletedEntry } from "./types";
 
 export const updateESDocumentsIndex: HttpFunction = async (
   request,
@@ -31,6 +31,8 @@ export const updateESDocumentsIndex: HttpFunction = async (
     return response.sendStatus(400);
   }
   const client = await getEsClient();
+  const indexName =
+    `${process.env.ES_INDEX_NAME_DOCUMENTS}_write`.toLowerCase();
 
   if (isDocumentEntry(body)) {
     let esDocument;
@@ -41,8 +43,7 @@ export const updateESDocumentsIndex: HttpFunction = async (
     }
 
     const esResponse = await client.index({
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- Enforced to exist in checkEnvVariablesMissing
-      index: process.env.ES_INDEX_NAME_DOCUMENTS!,
+      index: indexName,
       id: esDocument.id,
       body: esDocument
     });
@@ -54,8 +55,7 @@ export const updateESDocumentsIndex: HttpFunction = async (
   }
 
   const esResponse = await client.delete({
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- Enforced to exist in checkEnvVariablesMissing
-    index: process.env.ES_INDEX_NAME_DOCUMENTS!,
+    index: indexName,
     id: request.body?.sys?.id
   });
   logger.info({
