@@ -53,9 +53,7 @@ variables:
 
 install_yarn:
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'pre-production' || $CI_COMMIT_BRANCH == 'production')"
-      changes:
-        - yarn.lock
+    - !reference [.ignore_release_mrs, rules]
     - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - yarn.lock
@@ -108,10 +106,7 @@ release:
   stage: release
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'pre-production' || $CI_COMMIT_BRANCH == 'production')"
-  needs:
-    - job: install_yarn
-      optional: true
-  cache: {}
+  needs: []
   script:
     - yarn run semantic-release
 
