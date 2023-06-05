@@ -213,7 +213,7 @@ const handleRequest: HttpFunction = async (req, res) => {
         "Content-Type": "application/json",
         Authorization: `bearer ${token}`
       },
-      body: JSON.stringify({ foo: "bar" })
+      body: JSON.stringify({ isFullFetch: true })
     });
   } catch (error) {
     logger.error({
