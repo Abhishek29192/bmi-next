@@ -79,7 +79,6 @@
     "eslint-plugin-you-dont-need-lodash-underscore": "^6.12.0",
     "file-saver": "^2.0.5",
     "filesize": "^10.0.7",
-    "find-in-files": "^0.5.0",
     "gatsby": "^5.9.1",
     "gatsby-build-newrelic": "^1.1.17",
     "gatsby-cli": "^5.9.0",
