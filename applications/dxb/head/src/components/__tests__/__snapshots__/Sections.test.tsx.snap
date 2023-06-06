@@ -575,7 +575,7 @@ exports[`Sections component renders correctly 1`] = `
                 data-testid="card-collection-grid-item-00000000-0000-0000-0000-000000000000"
               >
                 <div
-                  class="OverviewCard-flat MuiBox-root css-mnk4x4"
+                  class="OverviewCard-flat MuiBox-root css-lww50j"
                 >
                   <div
                     class="OverviewCard-main"
@@ -627,7 +627,7 @@ exports[`Sections component renders correctly 1`] = `
                     </div>
                   </div>
                   <div
-                    class="css-197a1cq"
+                    class="css-1cyx9t4"
                     data-testid="overview-card-body-footer"
                   >
                     <a
@@ -725,7 +725,7 @@ exports[`Sections component renders correctly 1`] = `
                 data-testid="card-collection-grid-item-00000000-0000-0000-0000-000000000000"
               >
                 <a
-                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
+                  class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1kt3nqz-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"page title - Go to page title","action":"/uk/path/"}"
                   href="/uk/path/"
                   tabindex="0"
@@ -803,7 +803,7 @@ exports[`Sections component renders correctly 1`] = `
                     </div>
                   </div>
                   <div
-                    class="css-197a1cq"
+                    class="OverviewCard-clickable css-1cyx9t4"
                     data-testid="overview-card-body-footer"
                   >
                     <span
