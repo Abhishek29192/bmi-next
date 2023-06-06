@@ -246,7 +246,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
               data-testid="efgh"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-1kt3nqz-MuiButtonBase-root"
                 data-gtm="{"id":"system-configurator01-results","label":"efgh name","action":"/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details"}"
                 href="/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
@@ -276,7 +276,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
                   </div>
                 </div>
                 <div
-                  class="css-197a1cq"
+                  class="OverviewCard-clickable css-1cyx9t4"
                   data-testid="overview-card-body-footer"
                 >
                   <button
@@ -549,7 +549,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
               data-testid="efgh"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-1kt3nqz-MuiButtonBase-root"
                 data-gtm="{"id":"system-configurator01-results","label":"efgh name","action":"/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details"}"
                 href="/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
@@ -579,7 +579,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
                   </div>
                 </div>
                 <div
-                  class="css-197a1cq"
+                  class="OverviewCard-clickable css-1cyx9t4"
                   data-testid="overview-card-body-footer"
                 >
                   <button
@@ -1530,7 +1530,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
               data-testid="efgh"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-1kt3nqz-MuiButtonBase-root"
                 data-gtm="{"id":"system-configurator01-results","label":"efgh name","action":"/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details"}"
                 href="/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
@@ -1560,7 +1560,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
                   </div>
                 </div>
                 <div
-                  class="css-197a1cq"
+                  class="OverviewCard-clickable css-1cyx9t4"
                   data-testid="overview-card-body-footer"
                 >
                   <button
@@ -3471,7 +3471,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
               data-testid="ijkl"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-1kt3nqz-MuiButtonBase-root"
                 data-gtm="{"id":"system-configurator01-results","label":"ijkl name","action":"/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details"}"
                 href="/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
@@ -3506,7 +3506,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                   </div>
                 </div>
                 <div
-                  class="css-197a1cq"
+                  class="OverviewCard-clickable css-1cyx9t4"
                   data-testid="overview-card-body-footer"
                 >
                   <button
@@ -3524,7 +3524,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
               data-testid="efgh"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1kt3nqz-MuiButtonBase-root"
                 data-gtm="{"id":"system-configurator01-results","label":"efgh name","action":"/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details"}"
                 href="/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
@@ -3559,7 +3559,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                   </div>
                 </div>
                 <div
-                  class="css-197a1cq"
+                  class="OverviewCard-clickable css-1cyx9t4"
                   data-testid="overview-card-body-footer"
                 >
                   <button
@@ -3577,7 +3577,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
               data-testid="abcd"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1kt3nqz-MuiButtonBase-root"
                 data-gtm="{"id":"system-configurator01-results","label":"abcd name","action":"/no/related-system-path/?selected_system=abcd&prev_page=/test-path&referer=sys_details"}"
                 href="/no/related-system-path/?selected_system=abcd&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
@@ -3612,7 +3612,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                   </div>
                 </div>
                 <div
-                  class="css-197a1cq"
+                  class="OverviewCard-clickable css-1cyx9t4"
                   data-testid="overview-card-body-footer"
                 >
                   <button
@@ -3630,7 +3630,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
               data-testid="mnop"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1kt3nqz-MuiButtonBase-root"
                 data-gtm="{"id":"system-configurator01-results","label":"mnop name","action":"/no/related-system-path/?selected_system=mnop&prev_page=/test-path&referer=sys_details"}"
                 href="/no/related-system-path/?selected_system=mnop&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
@@ -3665,7 +3665,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                   </div>
                 </div>
                 <div
-                  class="css-197a1cq"
+                  class="OverviewCard-clickable css-1cyx9t4"
                   data-testid="overview-card-body-footer"
                 >
                   <button
@@ -3932,7 +3932,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
               data-testid="ijkl"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-highlighted OverviewCard-clickable MuiBox-root css-1kt3nqz-MuiButtonBase-root"
                 data-gtm="{"id":"system-configurator01-results","label":"ijkl name","action":"/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details"}"
                 href="/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
@@ -3967,7 +3967,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
                   </div>
                 </div>
                 <div
-                  class="css-197a1cq"
+                  class="OverviewCard-clickable css-1cyx9t4"
                   data-testid="overview-card-body-footer"
                 >
                   <button
@@ -3991,7 +3991,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
               data-testid="efgh"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1gkt1q6-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1kt3nqz-MuiButtonBase-root"
                 data-gtm="{"id":"system-configurator01-results","label":"efgh name","action":"/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details"}"
                 href="/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                 tabindex="0"
@@ -4026,7 +4026,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
                   </div>
                 </div>
                 <div
-                  class="css-197a1cq"
+                  class="OverviewCard-clickable css-1cyx9t4"
                   data-testid="overview-card-body-footer"
                 >
                   <button
