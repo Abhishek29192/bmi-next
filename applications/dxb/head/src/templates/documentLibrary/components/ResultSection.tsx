@@ -1,5 +1,3 @@
-import { useTheme } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import React from "react";
 import DocumentResultsFooter from "../../../components/DocumentResultsFooter";
 import { useSiteContext } from "../../../components/Site";
@@ -24,8 +22,6 @@ const ResultSection = ({
   handlePageChange
 }: Props) => {
   const { getMicroCopy } = useSiteContext();
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 
   return (
     <>
@@ -40,12 +36,7 @@ const ResultSection = ({
             <DocumentResultsFooter
               page={page + 1}
               count={pageCount}
-              isDownloadButton={
-                !(
-                  format === "cards" ||
-                  (format === "technicalTable" && isMobile)
-                )
-              }
+              isDownloadButton={format !== "cards"}
               onPageChange={handlePageChange}
             />
           </div>

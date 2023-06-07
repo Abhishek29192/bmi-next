@@ -20,7 +20,10 @@ export const groupDocuments = (
 
 const DocumentTechnicalTableResults = ({ documents, assetTypes }: Props) => {
   const allDocumentsGrouped = useMemo(
-    () => groupDocuments(documents),
+    () =>
+      groupDocuments(documents).filter(
+        ([_, documents]) => documents.length > 0
+      ),
     [documents]
   );
 
