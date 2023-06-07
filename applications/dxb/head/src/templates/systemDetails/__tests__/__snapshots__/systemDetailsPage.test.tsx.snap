@@ -3387,7 +3387,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                           data-testid="document-table-title-pim-link-document-id"
                         >
                           <a
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"download1","label":"Download","action":"http://localhost/pim-link-document-id"}"
                             data-testid="document-table-download-application/pdf-button"
                             href="http://localhost/pim-link-document-id"
@@ -3453,7 +3453,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                           data-testid="document-table-actions-pim-link-document-id"
                         >
                           <div
-                            class="css-aphyn4"
+                            class="css-1kto1mf"
                           >
                             <div
                               aria-label="MC: document.library.download.tooltip.title"
@@ -3575,7 +3575,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                           data-testid="document-table-title-pim-link-document-id"
                         >
                           <a
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
                             data-testid="document-table-external-link-button"
                             href="http://localhost/pim-link-document-id"
                             rel="noopener noreferrer"
@@ -3586,7 +3586,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                               class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                             >
                               <svg
-                                class="css-dxpxcg"
+                                class="css-1y2quof"
                                 viewBox="0 0 32 32"
                                 xmlns="http://www.w3.org/2000/svg"
                               >
@@ -3616,7 +3616,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                           data-testid="document-table-actions-pim-link-document-id"
                         >
                           <div
-                            class="css-aphyn4"
+                            class="css-1kto1mf"
                           >
                             <div
                               aria-label="MC: document.library.copyLink.tooltip.title"
@@ -7701,7 +7701,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                           data-testid="document-table-title-pim-link-document-id"
                         >
                           <a
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"download1","label":"Download","action":"http://localhost/pim-link-document-id"}"
                             data-testid="document-table-download-application/pdf-button"
                             href="http://localhost/pim-link-document-id"
@@ -7767,7 +7767,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                           data-testid="document-table-actions-pim-link-document-id"
                         >
                           <div
-                            class="css-aphyn4"
+                            class="css-1kto1mf"
                           >
                             <div
                               aria-label="MC: document.library.download.tooltip.title"
@@ -7889,7 +7889,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                           data-testid="document-table-title-pim-link-document-id"
                         >
                           <a
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
                             data-testid="document-table-external-link-button"
                             href="http://localhost/pim-link-document-id"
                             rel="noopener noreferrer"
@@ -7900,7 +7900,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                             >
                               <svg
-                                class="css-dxpxcg"
+                                class="css-1y2quof"
                                 viewBox="0 0 32 32"
                                 xmlns="http://www.w3.org/2000/svg"
                               >
@@ -7930,7 +7930,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                           data-testid="document-table-actions-pim-link-document-id"
                         >
                           <div
-                            class="css-aphyn4"
+                            class="css-1kto1mf"
                           >
                             <div
                               aria-label="MC: document.library.copyLink.tooltip.title"
@@ -12019,7 +12019,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                             data-testid="document-table-title-pim-link-document-id"
                           >
                             <a
-                              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
+                              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
                               data-gtm="{"id":"download1","label":"Download","action":"http://localhost/pim-link-document-id"}"
                               data-testid="document-table-download-application/pdf-button"
                               href="http://localhost/pim-link-document-id"
@@ -12085,7 +12085,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                             data-testid="document-table-actions-pim-link-document-id"
                           >
                             <div
-                              class="css-aphyn4"
+                              class="css-1kto1mf"
                             >
                               <div
                                 aria-label="MC: document.library.download.tooltip.title"
@@ -12207,7 +12207,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                             data-testid="document-table-title-pim-link-document-id"
                           >
                             <a
-                              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
+                              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
                               data-testid="document-table-external-link-button"
                               href="http://localhost/pim-link-document-id"
                               rel="noopener noreferrer"
@@ -12218,7 +12218,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                                 class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                               >
                                 <svg
-                                  class="css-dxpxcg"
+                                  class="css-1y2quof"
                                   viewBox="0 0 32 32"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -12248,7 +12248,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                             data-testid="document-table-actions-pim-link-document-id"
                           >
                             <div
-                              class="css-aphyn4"
+                              class="css-1kto1mf"
                             >
                               <div
                                 aria-label="MC: document.library.copyLink.tooltip.title"
@@ -16334,7 +16334,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                           data-testid="document-table-title-pim-link-document-id"
                         >
                           <a
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"download1","label":"Download","action":"http://localhost/pim-link-document-id"}"
                             data-testid="document-table-download-application/pdf-button"
                             href="http://localhost/pim-link-document-id"
@@ -16400,7 +16400,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                           data-testid="document-table-actions-pim-link-document-id"
                         >
                           <div
-                            class="css-aphyn4"
+                            class="css-1kto1mf"
                           >
                             <div
                               aria-label="MC: document.library.download.tooltip.title"
@@ -16522,7 +16522,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                           data-testid="document-table-title-pim-link-document-id"
                         >
                           <a
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
                             data-testid="document-table-external-link-button"
                             href="http://localhost/pim-link-document-id"
                             rel="noopener noreferrer"
@@ -16533,7 +16533,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                             >
                               <svg
-                                class="css-dxpxcg"
+                                class="css-1y2quof"
                                 viewBox="0 0 32 32"
                                 xmlns="http://www.w3.org/2000/svg"
                               >
@@ -16563,7 +16563,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                           data-testid="document-table-actions-pim-link-document-id"
                         >
                           <div
-                            class="css-aphyn4"
+                            class="css-1kto1mf"
                           >
                             <div
                               aria-label="MC: document.library.copyLink.tooltip.title"
@@ -20608,7 +20608,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                           data-testid="document-table-title-pim-link-document-id"
                         >
                           <a
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"download1","label":"Download","action":"http://localhost/pim-link-document-id"}"
                             data-testid="document-table-download-application/pdf-button"
                             href="http://localhost/pim-link-document-id"
@@ -20674,7 +20674,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                           data-testid="document-table-actions-pim-link-document-id"
                         >
                           <div
-                            class="css-aphyn4"
+                            class="css-1kto1mf"
                           >
                             <div
                               aria-label="MC: document.library.download.tooltip.title"
@@ -20796,7 +20796,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                           data-testid="document-table-title-pim-link-document-id"
                         >
                           <a
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
                             data-testid="document-table-external-link-button"
                             href="http://localhost/pim-link-document-id"
                             rel="noopener noreferrer"
@@ -20807,7 +20807,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                               class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                             >
                               <svg
-                                class="css-dxpxcg"
+                                class="css-1y2quof"
                                 viewBox="0 0 32 32"
                                 xmlns="http://www.w3.org/2000/svg"
                               >
@@ -20837,7 +20837,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                           data-testid="document-table-actions-pim-link-document-id"
                         >
                           <div
-                            class="css-aphyn4"
+                            class="css-1kto1mf"
                           >
                             <div
                               aria-label="MC: document.library.copyLink.tooltip.title"
@@ -24922,7 +24922,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                           data-testid="document-table-title-pim-link-document-id"
                         >
                           <a
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"download1","label":"Download","action":"http://localhost/pim-link-document-id"}"
                             data-testid="document-table-download-application/pdf-button"
                             href="http://localhost/pim-link-document-id"
@@ -24988,7 +24988,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                           data-testid="document-table-actions-pim-link-document-id"
                         >
                           <div
-                            class="css-aphyn4"
+                            class="css-1kto1mf"
                           >
                             <div
                               aria-label="MC: document.library.download.tooltip.title"
@@ -25110,7 +25110,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                           data-testid="document-table-title-pim-link-document-id"
                         >
                           <a
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
                             data-testid="document-table-external-link-button"
                             href="http://localhost/pim-link-document-id"
                             rel="noopener noreferrer"
@@ -25121,7 +25121,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                               class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                             >
                               <svg
-                                class="css-dxpxcg"
+                                class="css-1y2quof"
                                 viewBox="0 0 32 32"
                                 xmlns="http://www.w3.org/2000/svg"
                               >
@@ -25151,7 +25151,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                           data-testid="document-table-actions-pim-link-document-id"
                         >
                           <div
-                            class="css-aphyn4"
+                            class="css-1kto1mf"
                           >
                             <div
                               aria-label="MC: document.library.copyLink.tooltip.title"
@@ -29362,7 +29362,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                           data-testid="document-table-title-pim-link-document-id"
                         >
                           <a
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"download1","label":"Download","action":"http://localhost/pim-link-document-id"}"
                             data-testid="document-table-download-application/pdf-button"
                             href="http://localhost/pim-link-document-id"
@@ -29428,7 +29428,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                           data-testid="document-table-actions-pim-link-document-id"
                         >
                           <div
-                            class="css-aphyn4"
+                            class="css-1kto1mf"
                           >
                             <div
                               aria-label="MC: document.library.download.tooltip.title"
@@ -29550,7 +29550,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                           data-testid="document-table-title-pim-link-document-id"
                         >
                           <a
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
                             data-testid="document-table-external-link-button"
                             href="http://localhost/pim-link-document-id"
                             rel="noopener noreferrer"
@@ -29561,7 +29561,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                               class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                             >
                               <svg
-                                class="css-dxpxcg"
+                                class="css-1y2quof"
                                 viewBox="0 0 32 32"
                                 xmlns="http://www.w3.org/2000/svg"
                               >
@@ -29591,7 +29591,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                           data-testid="document-table-actions-pim-link-document-id"
                         >
                           <div
-                            class="css-aphyn4"
+                            class="css-1kto1mf"
                           >
                             <div
                               aria-label="MC: document.library.copyLink.tooltip.title"
@@ -33802,7 +33802,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                           data-testid="document-table-title-pim-link-document-id"
                         >
                           <a
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"download1","label":"Download","action":"http://localhost/pim-link-document-id"}"
                             data-testid="document-table-download-application/pdf-button"
                             href="http://localhost/pim-link-document-id"
@@ -33868,7 +33868,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                           data-testid="document-table-actions-pim-link-document-id"
                         >
                           <div
-                            class="css-aphyn4"
+                            class="css-1kto1mf"
                           >
                             <div
                               aria-label="MC: document.library.download.tooltip.title"
@@ -33990,7 +33990,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                           data-testid="document-table-title-pim-link-document-id"
                         >
                           <a
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
                             data-testid="document-table-external-link-button"
                             href="http://localhost/pim-link-document-id"
                             rel="noopener noreferrer"
@@ -34001,7 +34001,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                               class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                             >
                               <svg
-                                class="css-dxpxcg"
+                                class="css-1y2quof"
                                 viewBox="0 0 32 32"
                                 xmlns="http://www.w3.org/2000/svg"
                               >
@@ -34031,7 +34031,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                           data-testid="document-table-actions-pim-link-document-id"
                         >
                           <div
-                            class="css-aphyn4"
+                            class="css-1kto1mf"
                           >
                             <div
                               aria-label="MC: document.library.copyLink.tooltip.title"

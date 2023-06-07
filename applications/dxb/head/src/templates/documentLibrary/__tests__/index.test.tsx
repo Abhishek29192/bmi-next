@@ -1,30 +1,30 @@
 /* eslint-disable prefer-spread */
 import { ThemeProvider } from "@bmi-digital/components";
 import {
-  fireEvent,
-  RenderResult,
-  screen,
-  waitFor
-} from "@testing-library/react";
-import React from "react";
-import {
   createContentfulDocument,
   createPimProductDocument
 } from "@bmi/elasticsearch-types";
 import { BLOCKS } from "@contentful/rich-text-types";
+import {
+  RenderResult,
+  fireEvent,
+  screen,
+  waitFor
+} from "@testing-library/react";
+import React from "react";
 import DocumentLibraryPage, { PAGE_SIZE } from "../";
 import * as documentResultsFooter from "../../../components/DocumentResultsFooter";
-import { ConfigProvider, Config } from "../../../contexts/ConfigProvider";
+import { Config, ConfigProvider } from "../../../contexts/ConfigProvider";
 import { renderWithRouter } from "../../../test/renderWithRouter";
 import * as elasticSearch from "../../../utils/elasticSearch";
 import { FILTER_KEY } from "../../../utils/filters";
-import { DocumentLibraryPageContext, DocumentLibraryProps } from "../types";
 import {
   createCollapseData,
   createData,
   createESDocumentHitResponseMock,
   filtersMock
 } from "../__mocks__/index.mock";
+import { DocumentLibraryPageContext, DocumentLibraryProps } from "../types";
 
 const count = PAGE_SIZE;
 const executeRecaptchaSpy = jest.fn().mockResolvedValue("RECAPTCHA");
@@ -211,7 +211,7 @@ describe("Document Library page", () => {
     });
 
     await waitFor(() => expect(mockQueryES).toBeCalled());
-    const technicalTable = await screen.findByTestId("tech-results-table");
+    const technicalTable = await screen.findByTestId("tech-results-accordion");
     expect(technicalTable).toMatchSnapshot();
   });
 
@@ -293,7 +293,9 @@ describe("Document Library page", () => {
     expect(
       screen.queryByTestId("document-simple-table-results")
     ).not.toBeInTheDocument();
-    expect(screen.queryByTestId("tech-results-table")).not.toBeInTheDocument();
+    expect(
+      screen.queryByTestId("tech-results-accordion")
+    ).not.toBeInTheDocument();
     expect(
       screen.queryByTestId("document-cards-results-grid")
     ).not.toBeInTheDocument();

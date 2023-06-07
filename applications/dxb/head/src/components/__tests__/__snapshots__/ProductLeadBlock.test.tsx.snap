@@ -627,7 +627,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                       data-testid="document-table-title-id-1"
                     >
                       <a
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
                         data-gtm="{"id":"download1","label":"Download","action":"http://pimDocument"}"
                         data-testid="document-table-download-application/pdf-button"
                         href="http://pimdocument/"
@@ -693,7 +693,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                       data-testid="document-table-actions-id-1"
                     >
                       <div
-                        class="css-aphyn4"
+                        class="css-1kto1mf"
                       >
                         <div
                           aria-label="MC: document.library.download.tooltip.title"
@@ -809,7 +809,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                       data-testid="document-table-title-id-2"
                     >
                       <a
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
                         data-gtm="{"id":"download1","label":"Download","action":"http://pimDocument"}"
                         data-testid="document-table-download-application/pdf-button"
                         href="http://pimdocument/"
@@ -875,7 +875,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                       data-testid="document-table-actions-id-2"
                     >
                       <div
-                        class="css-aphyn4"
+                        class="css-1kto1mf"
                       >
                         <div
                           aria-label="MC: document.library.download.tooltip.title"
@@ -991,7 +991,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                       data-testid="document-table-title-id-3"
                     >
                       <a
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
                         data-gtm="{"id":"download1","label":"Download","action":"http://pimDocument"}"
                         data-testid="document-table-download-application/pdf-button"
                         href="http://pimdocument/"
@@ -1057,7 +1057,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                       data-testid="document-table-actions-id-3"
                     >
                       <div
-                        class="css-aphyn4"
+                        class="css-1kto1mf"
                       >
                         <div
                           aria-label="MC: document.library.download.tooltip.title"
@@ -1173,7 +1173,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                       data-testid="document-table-title-id-3"
                     >
                       <a
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
                         data-gtm="{"id":"download1","label":"Download","action":"http://pimDocument"}"
                         data-testid="document-table-download-application/pdf-button"
                         href="http://pimdocument/"
@@ -1239,7 +1239,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                       data-testid="document-table-actions-id-3"
                     >
                       <div
-                        class="css-aphyn4"
+                        class="css-1kto1mf"
                       >
                         <div
                           aria-label="MC: document.library.download.tooltip.title"
@@ -2089,7 +2089,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                       data-testid="document-table-type-pim-document"
                     >
                       <a
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
                         data-gtm="{"id":"download1","label":"Download","action":"http://pimDocument"}"
                         data-testid="document-table-download-application/pdf-button"
                         href="http://pimdocument/"
@@ -2155,7 +2155,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                       data-testid="document-table-actions-pim-document"
                     >
                       <div
-                        class="css-aphyn4"
+                        class="css-1kto1mf"
                       >
                         <div
                           aria-label="MC: document.library.download.tooltip.title"
@@ -2271,7 +2271,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                       data-testid="document-table-type-pim-document"
                     >
                       <a
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
                         data-gtm="{"id":"download1","label":"Download","action":"http://pimDocument"}"
                         data-testid="document-table-download-application/pdf-button"
                         href="http://pimdocument/"
@@ -2337,7 +2337,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                       data-testid="document-table-actions-pim-document"
                     >
                       <div
-                        class="css-aphyn4"
+                        class="css-1kto1mf"
                       >
                         <div
                           aria-label="MC: document.library.download.tooltip.title"
@@ -3266,7 +3266,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                 data-testid="document-table-type-id-1"
               >
                 <a
-                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"download1","label":"Download","action":"http://pimDocument"}"
                   data-testid="document-table-download-application/pdf-button"
                   href="http://pimdocument/"
@@ -3332,7 +3332,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                 data-testid="document-table-actions-id-1"
               >
                 <div
-                  class="css-aphyn4"
+                  class="css-1kto1mf"
                 >
                   <div
                     aria-label="MC: document.library.download.tooltip.title"
@@ -3448,7 +3448,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                 data-testid="document-table-type-id-2"
               >
                 <a
-                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"download1","label":"Download","action":"http://pimDocument"}"
                   data-testid="document-table-download-application/pdf-button"
                   href="http://pimdocument/"
@@ -3514,7 +3514,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                 data-testid="document-table-actions-id-2"
               >
                 <div
-                  class="css-aphyn4"
+                  class="css-1kto1mf"
                 >
                   <div
                     aria-label="MC: document.library.download.tooltip.title"
@@ -3630,7 +3630,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                 data-testid="document-table-type-id-3"
               >
                 <a
-                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"download1","label":"Download","action":"http://pimDocument"}"
                   data-testid="document-table-download-application/pdf-button"
                   href="http://pimdocument/"
@@ -3696,7 +3696,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                 data-testid="document-table-actions-id-3"
               >
                 <div
-                  class="css-aphyn4"
+                  class="css-1kto1mf"
                 >
                   <div
                     aria-label="MC: document.library.download.tooltip.title"
@@ -3812,7 +3812,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                 data-testid="document-table-type-id-3"
               >
                 <a
-                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"download1","label":"Download","action":"http://pimDocument"}"
                   data-testid="document-table-download-application/pdf-button"
                   href="http://pimdocument/"
@@ -3878,7 +3878,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                 data-testid="document-table-actions-id-3"
               >
                 <div
-                  class="css-aphyn4"
+                  class="css-1kto1mf"
                 >
                   <div
                     aria-label="MC: document.library.download.tooltip.title"
@@ -4378,7 +4378,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                 data-testid="document-table-type-id-1"
               >
                 <a
-                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"download1","label":"Download","action":"http://pimDocument"}"
                   data-testid="document-table-download-application/pdf-button"
                   href="http://pimdocument/"
@@ -4444,7 +4444,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                 data-testid="document-table-actions-id-1"
               >
                 <div
-                  class="css-aphyn4"
+                  class="css-1kto1mf"
                 >
                   <div
                     aria-label="MC: document.library.download.tooltip.title"
@@ -4560,7 +4560,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                 data-testid="document-table-type-id-2"
               >
                 <a
-                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"download1","label":"Download","action":"http://pimDocument"}"
                   data-testid="document-table-download-application/pdf-button"
                   href="http://pimdocument/"
@@ -4626,7 +4626,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                 data-testid="document-table-actions-id-2"
               >
                 <div
-                  class="css-aphyn4"
+                  class="css-1kto1mf"
                 >
                   <div
                     aria-label="MC: document.library.download.tooltip.title"
@@ -4742,7 +4742,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                 data-testid="document-table-type-id-3"
               >
                 <a
-                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"download1","label":"Download","action":"http://pimDocument"}"
                   data-testid="document-table-download-application/pdf-button"
                   href="http://pimdocument/"
@@ -4808,7 +4808,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                 data-testid="document-table-actions-id-3"
               >
                 <div
-                  class="css-aphyn4"
+                  class="css-1kto1mf"
                 >
                   <div
                     aria-label="MC: document.library.download.tooltip.title"
@@ -4924,7 +4924,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                 data-testid="document-table-type-id-3"
               >
                 <a
-                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"download1","label":"Download","action":"http://pimDocument"}"
                   data-testid="document-table-download-application/pdf-button"
                   href="http://pimdocument/"
@@ -4990,7 +4990,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                 data-testid="document-table-actions-id-3"
               >
                 <div
-                  class="css-aphyn4"
+                  class="css-1kto1mf"
                 >
                   <div
                     aria-label="MC: document.library.download.tooltip.title"

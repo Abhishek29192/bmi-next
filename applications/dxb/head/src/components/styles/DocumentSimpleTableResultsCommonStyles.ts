@@ -7,7 +7,8 @@ import Icon from "../Icon";
 const PREFIX = "document-simple-table-results";
 
 export const classes = {
-  actionIcon: `${PREFIX}-actionIcon`
+  actionIcon: `${PREFIX}-actionIcon`,
+  disableRipple: `${PREFIX}-disableRipple`
 };
 
 export const ActionIcon = styled(Icon)(({ theme }) => ({
@@ -24,8 +25,10 @@ export const ActionIcon = styled(Icon)(({ theme }) => ({
 
 export const ExternalLinkIcon = styled(Icon)(({ theme }) => ({
   fill: theme.colours.inter,
-  width: "25px",
-  height: "25px"
+  width: "24px",
+  height: "24px",
+  padding: "4px",
+  boxSizing: "content-box"
 }));
 
 export const StyledDocumentIcon = styled(Icon)({
@@ -56,15 +59,28 @@ export const Title = styled("p")(({ theme }) => ({
   overflow: "hidden"
 }));
 
+export const TooltipPopper = styled("div")(({ theme }) => ({
+  color: theme.colours.white,
+  marginRight: "8px",
+  backgroundColor: theme.colours.slate,
+  borderRadius: "4px",
+  padding: "5px 10px",
+  maxWidth: "300px",
+  fontSize: "12px",
+  lineHeight: "17px",
+  fontWeight: 500
+}));
+
 export const TitleButton = styled(Button)(({ theme }) => ({
   width: "100%",
   justifyContent: "start",
   [`&:hover p`]: {
     color: theme.colours.inter
   },
-  [theme.breakpoints.down("lg")]: {
-    padding: 0,
+  [`&.${classes.disableRipple}`]: {
     transition: "none",
+    padding: 0,
+    width: "max-content",
     [`.${buttonClasses.startIcon}`]: {
       marginLeft: 0
     },

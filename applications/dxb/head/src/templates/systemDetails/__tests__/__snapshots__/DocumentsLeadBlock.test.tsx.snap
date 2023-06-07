@@ -124,7 +124,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
                       data-testid="document-table-title-pim-link-document-id"
                     >
                       <a
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
                         data-testid="document-table-external-link-button"
                         href="http://localhost/pim-link-document-id"
                         rel="noopener noreferrer"
@@ -135,7 +135,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
                           class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         >
                           <svg
-                            class="css-dxpxcg"
+                            class="css-1y2quof"
                             viewBox="0 0 32 32"
                             xmlns="http://www.w3.org/2000/svg"
                           >
@@ -165,7 +165,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
                       data-testid="document-table-actions-pim-link-document-id"
                     >
                       <div
-                        class="css-aphyn4"
+                        class="css-1kto1mf"
                       >
                         <div
                           aria-label="MC: document.library.copyLink.tooltip.title"
