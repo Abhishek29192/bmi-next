@@ -1,0 +1,262 @@
+# Settings in the [build] context are global and are applied to all contexts
+# unless otherwise overridden by more specific contexts.
+
+[[redirects]]
+ from="/zalias-stogas/"
+ to="https://www.bmigroup.com/lt/naujienos/zalias-stogas/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/wraptec/"
+ to="https://www.bmigroup.com/lt/naujienos/wraptec/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/teisingas-stogo-nuolydis-pagal-danga/"
+ to="https://www.bmigroup.com/lt/naujienos/teisingas-stogo-nuolydis-pagal-danga/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/stogo-dengimas-bituminemis-cerpemis/"
+ to="https://www.bmigroup.com/lt/naujienos/stogo-dengimas-bituminemis-cerpemis/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/stogo-dengimas/"
+ to="https://www.bmigroup.com/lt/naujienos/stogo-dengimas/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/renovacija/"
+ to="https://www.bmigroup.com/lt/monier/slaitiniai-stogai/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/produktu-linijas/zanda-protector-2-betonine-cerpe/"
+ to="https://www.bmigroup.com/lt/p/zanda-protector-eilinė-čerpė-pilka-protector-4068937945/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/produktu-linijas/zanda-lux-betonine-cerpe/"
+ to="https://www.bmigroup.com/lt/p/zanda-lux-eilinė-čerpė-classic-novo-matt-4200164266/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/produktu-linijas/zanda-evo-betonine-cerpe/"
+ to="https://www.bmigroup.com/lt/p/evo-eilinė-čerpė-classic-novo-matt-299348691/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/produktu-linijas/teviva-betonine-cerpe/"
+ to="https://www.bmigroup.com/lt/p/teviva-cisar-eilinė-čerpė-juoda-cisar-1056239283/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/produktu-linijas/tegalit-protegon-betonine-cerpe/"
+ to="https://www.bmigroup.com/lt/p/tegalit-protegon-eilinė-čerpė-protegon-seidenmatt-2653459189/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/produktu-linijas/smaragd-keramines-cerpes/"
+ to="https://www.bmigroup.com/lt/p/smaragd-eilinė-čerpė-juoda-angoba-13207569/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/produktu-linijas/rubin-13v-keramine-cerpe/"
+ to="https://www.bmigroup.com/lt/monier/slaitiniai-stogai/keramines-cerpes/rubin-13v/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/produktu-linijas/plano-xl/"
+ to="https://www.bmigroup.com/lt/p/plano-xl-677209301/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/produktu-linijas/plano-tema/"
+ to="https://www.bmigroup.com/lt/p/plano-tema-4067223230/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/produktu-linijas/plano-pro/"
+ to="https://www.bmigroup.com/lt/p/plano-pro-1838692489/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/produktu-linijas/plano-claro/"
+ to="https://www.bmigroup.com/lt/p/plano-claro-1052156788/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/produktu-linijas/plano-antik/"
+ to="https://www.bmigroup.com/lt/p/plano-antik-1478025874/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/produktu-linijas/nordic-cisar-betonine-cerpe/"
+ to="https://www.bmigroup.com/lt/p/baltic-eilinė-čerpė-juoda-cisar-2269053302/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/produktu-linijas/granat-13v-keramikine-cerpe/"
+ to="https://www.bmigroup.com/lt/p/granat-13v-eilinė-čerpė-molio-natūrali-3955191604/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/produktu-linijas/dantegl-keramikine-cerpe/"
+ to="https://www.bmigroup.com/lt/p/dantegl-eilinė-čerpė-molio-natūrali-217930797/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/produktu-linijas/baltic-cisar-betonine-cerpe/"
+ to="https://www.bmigroup.com/lt/monier/slaitiniai-stogai/betonines-cerpes/baltic-cisar/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/plokscio-stogo-irengimas/"
+ to="https://www.bmigroup.com/lt/naujienos/plokscio-stogo-irengimas/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/pl-kategorija/sintetines-dangos-pvc-tpo/"
+ to="https://www.bmigroup.com/lt/bmi-icopal-produktai/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/pl-kategorija/sintetines-dangos-pvc-tpo/"
+ to="https://www.bmigroup.com/lt/bmi-icopal-produktai/ploksti-stogai/sintetines-dangos/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/pl-kategorija/modernus-dizainas/"
+ to="https://www.bmigroup.com/lt/monier/slaitiniai-stogai/betonines-cerpes/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/pl-kategorija/klasika-slaitinis-stogas/"
+ to="https://www.bmigroup.com/lt/monier/slaitiniai-stogai/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/pl-kategorija/istorijos-paveldas/"
+ to="https://www.bmigroup.com/lt/monier/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/pl-kategorija/bitumines-ritinines-dangos/"
+ to="https://www.bmigroup.com/lt/monier/slaitiniai-stogai/pleveles/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/pl-kategorija/bitumines-cerpeles/"
+ to="https://www.bmigroup.com/lt/bmi-icopal-produktai/slaitiniai-stogai-icopal/bitumines-cerpeles/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/paslaugos/"
+ to="https://www.bmigroup.com/lt/paslaugos/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/naujienos/"
+ to="https://www.bmigroup.com/lt/naujienos/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/musu-komanda/"
+ to="https://www.bmigroup.com/lt/bmi-lietuva-biuras/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/montavimo-instrukcijos/"
+ to="https://www.bmigroup.com/lt/paslaugos/montavimo-instrukcijos/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/monier-cerpiu-montavimas/"
+ to="https://www.bmigroup.com/lt/naujienos/monier-cerpiu-montavimas/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/lietuvos-stogu-dangu-evoliucija/"
+ to="https://www.bmigroup.com/lt/naujienos/lietuvos-stogu-dangu-evoliucija/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/lejupielades/"
+ to="https://www.bmigroup.com/lt/atsisiuntimai/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/kokia-stogo-danga-rintkis/"
+ to="https://www.bmigroup.com/lt/naujienos/kokia-stogo-danga-rinktis/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/kokia-stogo-danga-rinktis-terasai/"
+ to="https://www.bmigroup.com/lt/naujienos/kokia-stogo-danga-rinktis-terasai/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/kodel-verta-rinktis-bmi-monier-stoga/"
+ to="https://www.bmigroup.com/lt/naujienos/kodel-verta-rinktis-bmi-monier-stoga/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/kiek-kainuoja-stogas/"
+ to="https://www.bmigroup.com/lt/naujienos/kiek-kainuoja-stogas/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/kaip-patikrinti-savo-stogo-priedu-kokybe/"
+ to="https://www.bmigroup.com/lt/naujienos/kaip-patikrinti-savo-stogo-priedu-kokybe/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/kaip-issirinkti-stogo-plevele/"
+ to="https://www.bmigroup.com/lt/naujienos/kaip-issirinkti-stogo-plevele/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/jaunbuve/"
+ to="https://www.bmigroup.com/lt/monier/slaitiniai-stogai/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/gauti-pasiulyma/"
+ to="https://www.bmigroup.com/lt/namu-savininkams/gaukite-pasiulyma/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/garantija/"
+ to="https://www.bmigroup.com/lt/paslaugos/garantija/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/duk/"
+ to="https://www.bmigroup.com/lt/apie-mus/duk/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/cerpiu-dengimas/"
+ to="https://www.bmigroup.com/lt/naujienos/cerpiu-dengimas/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/bmi-lietuva-ofisas/"
+ to="https://www.bmigroup.com/lt/bmi-lietuva-biuras/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/apie-bmi-lietuva/"
+ to="https://www.bmigroup.com/lt/apie-mus/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301
+
+[[redirects]]
+ from="/360-2/"
+ to="http://virtualastures.com/explore/tours/bmimonier-lt/virtualtour.html/"
+ status = 301
+
+[[redirects]]
+ from="/"
+ to="https://www.bmigroup.com/lt/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ status = 301

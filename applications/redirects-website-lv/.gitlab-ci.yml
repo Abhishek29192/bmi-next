@@ -1,0 +1,19 @@
+lint_redirects_website_lv:
+  extends: .lint_yarn_workspace
+  rules:
+    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [ .run_for_changes_on_mr, rules ]
+  variables:
+    ROOT_DIR: "applications/dxb/redirects-website-lv"
+    WORKSPACE: "@bmi/redirects-website-lv"
+
+build_redirects_website_lv:
+  extends: .build_yarn_workspace
+  rules:
+    - !reference [ .ignore_release_mrs, rules]
+    - !reference [.run_for_changes_on_mr, rules]
+    - !reference [.run_for_changes_on_main, rules]
+  variables:
+    ROOT_DIR: applications/redirects-website-lv
+    WORKSPACE: "@bmi/redirects-website-lv"

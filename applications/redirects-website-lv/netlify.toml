@@ -1,0 +1,577 @@
+# Settings in the [build] context are global and are applied to all contexts
+# unless otherwise overridden by more specific contexts.
+
+[[redirects]]
+ from="/velos-sanemt-piedavajumu/"
+ to="https://www.bmigroup.com/lv/sanemt-piedavajumu/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+ status = 301
+
+[[redirects]]
+from = "/velos-parbaudit-jumtu/"
+to = "https://www.bmigroup.com/lv/jumta-konstrukcijas-novertejums/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/sunas-uz-jumta-but-vai-nebut/"
+to = "https://www.bmigroup.com/lv/noderigi-padomi/sunas-uz-jumta-but-vai-nebut/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/schiedel-dumvadi/"
+to = "https://www.bmigroup.com/lv/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/rudens-jau-puse-luk-kas-tev-jazina-par-jumta-kopsanu/"
+to = "https://www.bmigroup.com/lv/noderigi-padomi/rudens-jau-puse-luk-kas-tev-jazina-par-jumta-kopsanu/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/renovacija-kas-janem-vera-izveloties-jaunu-jumta-segumu-savai-majai/"
+to = "https://www.bmigroup.com/lv/noderigi-padomi/renovacija-kas-janem-vera-izveloties-jaunu-jumta-segumu-savai-majai/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/renovacija/"
+to = "https://www.bmigroup.com/lv/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/zdunbit-wf/"
+to = "https://www.bmigroup.com/lv/p/zdunbit-wf-7-5-speed-profile-kausējams-virsklājs-2899123885/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/zdunbit-pf/"
+to = "https://www.bmigroup.com/lv/p/zdunbit-pf-7-5-speed-profile-kausējams-apakšklājs-2628179610/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/zanda-protector-2-0-betona-dakstini/"
+to = "https://www.bmigroup.com/lv/bmi-monier/betona-dakstini/zanda-protector-2-0/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/zanda-lux-betona-dakstini/"
+to = "https://www.bmigroup.com/lv/bmi-monier/betona-dakstini/zanda-lux/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/zanda-cisar/"
+to = "https://www.bmigroup.com/lv/bmi-monier/betona-dakstini/zanda-cisar/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/vittinge-t11-mala-dakstini/"
+to = "https://www.bmigroup.com/lv/bmi-monier/mala-dakstini/vittinge-t11/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/vittinge-e13-mala-dakstini/"
+to = "https://www.bmigroup.com/lv/bmi-monier/mala-dakstini/vittinge-e13/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/unique-plus/"
+to = "https://www.bmigroup.com/lv/bmi-icopal/terauda-jumta-loksnes/unique-plus/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/turmalin/"
+to = "https://www.bmigroup.com/lv/bmi-monier/mala-dakstini/turmalin/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/tradition-plus/"
+to = "https://www.bmigroup.com/lv/bmi-icopal/terauda-jumta-loksnes/tradition-plus/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/tarra-polar/"
+to = "https://www.bmigroup.com/lv/p/tarra-polar-170-4000-apakšklājs-ar-līmjoslām-2597326015/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/sealoflex-ultima/"
+to = "https://www.bmigroup.com/lv/p/sealoflex-ultima-2384143587/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/rubin-13v-mala-dakstini/"
+to = "https://www.bmigroup.com/lv/bmi-monier/mala-dakstini/rubin-13v/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/robust-plus/"
+to = "https://www.bmigroup.com/lv/bmi-icopal/terauda-jumta-loksnes/robust-plus/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/quickseal/"
+to = "https://www.bmigroup.com/lv/p/quickseal-2253942005/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/quadro-plus/"
+to = "https://www.bmigroup.com/lv/bmi-icopal/terauda-jumta-loksnes/quadro-plus/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/polbit-extra-top/"
+to = "https://www.bmigroup.com/lv/p/polbit-extra-top-5-6-kausējams-virsklājs-3439933232/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/polbit-baza/"
+to = "https://www.bmigroup.com/lv/p/polbit-base-5-0-kausējams-apakšklājs-2252408071/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/polar/"
+to = "https://www.bmigroup.com/lv/p/pintapolar-180-5000-kausējams-virsklājs-3453262962/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/plaster-p/"
+to = "https://www.bmigroup.com/lv/p/plaster-p-pašlīpošs-apakšklājs-4236149748/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/plano-xl/"
+to = "https://www.bmigroup.com/lv/bmi-icopal/bitumena-sindeli/plano-xl/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/plano-pro/"
+to = "https://www.bmigroup.com/lv/bmi-icopal/bitumena-sindeli/plano-pro/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/plano-claro-antik/"
+to = "https://www.bmigroup.com/lv/bmi-icopal/bitumena-sindeli/plano-claro-antik/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/plano-claro/"
+to = "https://www.bmigroup.com/lv/bmi-icopal/bitumena-sindeli/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/plano-antik/"
+to = "https://www.bmigroup.com/lv/bmi-icopal/bitumena-sindeli/plano-antik/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/pinta-polar-fire-smart/"
+to = "https://www.bmigroup.com/lv/p/pintapolar-fs-virsklājs-pašlīpošais-3409879875/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/pinta-polar/"
+to = "https://www.bmigroup.com/lv/p/polar-180-4000-kausējams-apakšklājs-2305496025/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/nova/"
+to = "https://www.bmigroup.com/lv/bmi-monier/mala-dakstini/nova/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/nortegl-mala-dakstini/"
+to = "https://www.bmigroup.com/lv/bmi-monier/mala-dakstini/nortegl/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/monopolar-t/"
+to = "https://www.bmigroup.com/lv/p/monopolar-t-225-550-vienkārtas-segums-3906228131/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/minster-star-betona-dakstini/"
+to = "https://www.bmigroup.com/lv/bmi-monier/betona-dakstini/minster-star/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/minster-pro-dakstini/"
+to = "https://www.bmigroup.com/lv/bmi-monier/betona-dakstini/minster-pro/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/graviflex/"
+to = "https://www.bmigroup.com/lv/p/graviflex-3053482553/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/granat-13v-mala-dakstini/"
+to = "https://www.bmigroup.com/lv/bmi-monier/mala-dakstini/granat-13v/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/fonda-greenxtra/"
+to = "https://www.bmigroup.com/lv/p/fonda-greenxtra-3132834400/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/fonda-green/"
+to = "https://www.bmigroup.com/lv/p/fonda-green-1351389871/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/fonda-geoplex-10/"
+to = "https://www.bmigroup.com/lv/p/fonda-geoplex-10-778426512/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/evo-cisar/"
+to = "https://www.bmigroup.com/lv/bmi-monier/betona-dakstini/evo-cisar/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/evo-betona-dakstini/"
+to = "https://www.bmigroup.com/lv/bmi-monier/betona-dakstini/evo/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/doppel-s-cisar/"
+to = "https://www.bmigroup.com/lv/bmi-monier/betona-dakstini/doppel-s-cisar/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/dantegl-mala-dakstini/"
+to = "https://www.bmigroup.com/lv/bmi-monier/mala-dakstini/dantegl/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/bmi-wolfin-m/"
+to = "https://www.bmigroup.com/lv/p/wolfin-m-pvc-3183152384/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/bmi-wolfin-gwsk/"
+to = "https://www.bmigroup.com/lv/p/wolfin-gwsk-pvc-418396317/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/bmi-tectofin-sk/"
+to = "https://www.bmigroup.com/lv/p/tectofin-sk-pvc-1606574380/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/bmi-tectofin-rv-plus"
+to = "https://www.bmigroup.com/lv/p/tectofin-rv-plus-pvc-4202274073/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/bmi-tectofin-rg"
+to = "https://www.bmigroup.com/lv/p/tectofin-rg-pvc-2128106397/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/bmi-icopal-supermost"
+to = "https://www.bmigroup.com/lv/p/supermost-ce-transportbūvju-hidroizolacija-3296087759/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/bmi-cosmofin-gg-plus"
+to = "https://www.bmigroup.com/lv/p/cosmofin-gg-plus-3194818028/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/baltbit-pf"
+to = "https://www.bmigroup.com/lv/p/baltbit-pf-160-speed-profile-kausējams-apakšklājs-2087731454/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/baltbit-wf/"
+to = "https://www.bmigroup.com/lv/p/baltbit-wf-160-speed-profile-kausējams-virsklājs-1524121240/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/produktu-linijas/aerlox-betona-dakstini"
+to = "https://www.bmigroup.com/lv/bmi-monier/betona-dakstini/aerlox/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/privatuma-politika-sikdatnes/"
+to = "https://www.bmigroup.com/lv/sikdatnu-politika/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/privatuma-politika"
+to = "https://www.bmigroup.com/lv/privatuma-politika/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/pl-kategorija/zalie-jumti"
+to = "https://www.bmigroup.com/lv/bmi-icopal/zalie-jumti/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/pl-kategorija/transportbuvju-produkti/"
+to = "https://www.bmigroup.com/lv/bmi-icopal/transportbuvju-produkti/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/pl-kategorija/skidra-hidroizolacija"
+to = "https://www.bmigroup.com/lv/bmi-icopal/skidra-hidroizolacija/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/pl-kategorija/sintetiskas-pvc-membranas"
+to = "https://www.bmigroup.com/lv/bmi-icopal/sintetiskas-membranas/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/pl-kategorija/mala-dakstini"
+to = "https://www.bmigroup.com/lv/bmi-monier/mala-dakstini/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/pl-kategorija/bitumena-sindeli/"
+to = "https://www.bmigroup.com/lv/bmi-icopal/bitumena-sindeli/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/pl-kategorija/bitumena-rulli/"
+to = "https://www.bmigroup.com/lv/bmi-icopal/bitumena-rulli/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/pl-kategorija/betona-dakstini"
+to = "https://www.bmigroup.com/lv/bmi-monier/betona-dakstini/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/pl-kategorija/aksesuari"
+to = "https://www.bmigroup.com/lv/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/pl-kategorija/aerodek-terauda-loksnes"
+to = "https://www.bmigroup.com/lv/bmi-icopal/terauda-jumta-loksnes/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/pakalpojumi/"
+to = "https://www.bmigroup.com/lv/pakalpojumi/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/musu-komanda"
+to = "https://www.bmigroup.com/lv/kontakti/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/mezglu-rasejumi/"
+to = "https://www.bmigroup.com/lv/lejupielades/mezglu-rasejumi/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/meklet/"
+to = "https://www.bmigroup.com/lv/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/mala-un-betona-dakstini-kada-ir-atskiriba"
+to = "https://www.bmigroup.com/lv/noderigi-padomi/mala-un-betona-dakstini-kada-ir-atskiriba/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/lejupielades"
+to = "https://www.bmigroup.com/lv/lejupielades/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/labakie-risinajumi-jumta-uzstadisanai/"
+to = "https://www.bmigroup.com/lv/noderigi-padomi/labakie-risinajumi-jumta-uzstadisanai/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/kurs-jumta-segums-ir-letaks-un-praktiskaks"
+to = "https://www.bmigroup.com/lv/noderigi-padomi/kurs-jumta-segums-ir-letaks-un-praktiskaks/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/kur-iegadaties"
+to = "https://www.bmigroup.com/lv/kur-iegadaties/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/kas-janem-vera-izveloties-udensnoteku-sistemu/"
+to = "https://www.bmigroup.com/lv/noderigi-padomi/kas-janem-vera-izveloties-udensnoteku-sistemu/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/kadel-butu-verts-izveleties-dakstinu-jumta-segumu"
+to = "https://www.bmigroup.com/lv/noderigi-padomi/kadel-butu-verts-izveleties-dakstinu-jumta-segumu/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/ka-zinat-ka-ir-pienacis-laiks-mainit-jumtu/"
+to = "https://www.bmigroup.com/lv/noderigi-padomi/ka-zinat-ka-ir-pienacis-laiks-mainit-jumtu/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/jumta-un-fasades-restauracija/"
+to = "https://www.bmigroup.com/lv/noderigi-padomi/jumta-un-fasades-restauracija/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/jumta-remonts-kas-tev-par-to-butu-jazina"
+to = "https://www.bmigroup.com/lv/noderigi-padomi/jumta-remonts-kas-tev-par-to-butu-jazina/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/jumta-kopsana-ziema-8-lietas-ko-der-atcereties"
+to = "https://www.bmigroup.com/lv/noderigi-padomi/jumta-kopsana-ziema-8-lietas-ko-der-atcereties/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/jumta-kalkulators/"
+to = "https://www.bmigroup.com/lv/jumta-kalkulators/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/jumta-ieklasanas-parraudziba/"
+to = "https://www.bmigroup.com/lv/jumta-ieklasanas-parraudziba/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/jaunumi/"
+to = "https://www.bmigroup.com/lv/noderigi-padomi/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/jaunbuve/jumta-apkope/"
+to = "https://www.bmigroup.com/lv/noderigi-padomi/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/jaunbuve/"
+to = "https://www.bmigroup.com/lv/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/gatavojamies-jumta-nomainai-ka-pareizi-merit-jumtu/"
+to = "https://www.bmigroup.com/lv/noderigi-padomi/gatavojamies-jumta-nomainai-ka-pareizi-merit-jumtu/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/dakstinu-krasu-kodi/"
+to = "https://www.bmigroup.com/lv/dakstinu-krasu-kodi/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/dakstinu-jumts-plusi-un-minusi/"
+to = "https://www.bmigroup.com/lv/noderigi-padomi/dakstinu-jumts-plusi-un-minusi/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/dakstina-svara-prieksrocibas/"
+to = "https://www.bmigroup.com/lv/noderigi-padomi/dakstina-svara-prieksrocibas/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/cik-ilgs-laiks-nepieciesams-jumta-nomainai/"
+to = "https://www.bmigroup.com/lv/noderigi-padomi/cik-ilgs-laiks-nepieciesams-jumta-nomainai/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/cetri-iemesli-kadel-renovet-jumtu/"
+to = "https://www.bmigroup.com/lv/noderigi-padomi/cetri-iemesli-kadel-renovet-jumtu/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/bmi-wolfin/"
+to = "https://www.bmigroup.com/lv/bmi-wolfin/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/bmi-monier/"
+to = "https://www.bmigroup.com/lv/bmi-monier/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/bmi-latvija-ofiss/"
+to = "https://www.bmigroup.com/lv/par-mums/musu-ofiss/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/bmi-latvija-noliktava/"
+to = "https://www.bmigroup.com/lv/par-mums/musu-noliktava/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/bmi-latvija/"
+to = "https://www.bmigroup.com/lv/par-mums/mes-esam-bmi-latvia/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/bmi-icopal/"
+to = "https://www.bmigroup.com/lv/bmi-icopal/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/bmi-aerodek/"
+to = "https://www.bmigroup.com/lv/bmi-aerodek/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/biezak-uzdotie-jautajumi/meklet-musu-jumtu-materialu-tirdzniecibas-parstavi/"
+to = "https://www.bmigroup.com/lv/kur-iegadaties/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/biezak-uzdotie-jautajumi/meklet-jumiki/"
+to = "https://www.bmigroup.com/lv/atrast-jumta-meistaru/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/biezak-uzdotie-jautajumi/jumta-montazas-instrukcijas/"
+to = "https://www.bmigroup.com/lv/lejupielades/montazas-instrukcijas/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/biezak-uzdotie-jautajumi/"
+to = "https://www.bmigroup.com/lv/kontakti/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/akcija/"
+to = "https://www.bmigroup.com/lv/akcijas/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/7-iemesli-kadel-betona-dakstini-ir-labaka-jumta-seguma-izvele/"
+to = "https://www.bmigroup.com/lv/noderigi-padomi/7-iemesli-kadel-betona-dakstini-ir-labaka-jumta-seguma-izvele/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/6-lietas-kas-tev-jazina-pirms-jumta-nomainas/"
+to = "https://www.bmigroup.com/lv/noderigi-padomi/6-lietas-kas-tev-jazina-pirms-jumta-nomainas/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/4-ieteikumi-ka-salabot-bojatu-jumtu/"
+to = "https://www.bmigroup.com/lv/noderigi-padomi/4-ieteikumi-ka-salabot-bojatu-jumtu/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/360-tures/"
+to = "https://www.bmigroup.com/lv/360-foto-galerija/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/21-iemesls-kapec-iegadaties-dakstina-jumtu/"
+to = "https://www.bmigroup.com/lv/noderigi-padomi/21-iemesls-kapec-iegadaties-dakstina-jumtu/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from = "/10-iemesli-kadel-jumta-rodas-suce/"
+to = "https://www.bmigroup.com/lv/noderigi-padomi/10-iemesli-kadel-jumta-rodas-suce/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status = 301
+
+[[redirects]]
+from="/"
+to="https://www.bmigroup.com/lv/?utm_source=bmilatvija.lv&utm_medium=+referral-redirect&utm_campaign=dxb-redirects/"
+status=301
