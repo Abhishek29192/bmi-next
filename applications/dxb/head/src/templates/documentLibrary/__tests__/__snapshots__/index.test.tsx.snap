@@ -3522,7 +3522,7 @@ exports[`Document Library page should render DocumentCardsResults correctly if s
 
 exports[`Document Library page should render DocumentSimpleTableResults correctly if source === ALL and resultsType === Card Collection 1`] = `
 <div
-  class="DocumentSimpleTableResults css-qjwvo"
+  class="DocumentSimpleTableResults css-358n7x"
   data-testid="document-simple-table-results"
 >
   <div
@@ -3540,10 +3540,44 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
           class="MuiTableRow-root MuiTableRow-head css-47w8l6-MuiTableRow-root"
         >
           <th
-            class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableHeader css-1tbee56-MuiTableCell-root"
+            class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableHeader documentSimpleTableResultsStyles-tableHeaderCentered css-1tbee56-MuiTableCell-root"
             scope="col"
           >
-            MC: documentLibrary.headers.add
+            <div
+              class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+            >
+              <label
+                class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+              >
+                <span
+                  aria-label="MC: documentLibrary.headers.add"
+                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                  data-testid="document-table-select-all"
+                >
+                  <input
+                    class="PrivateSwitchBase-input css-1m9pwf3"
+                    data-indeterminate="false"
+                    name="add"
+                    type="checkbox"
+                    value="false"
+                  />
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                    data-testid="CheckBoxOutlineBlankIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                    />
+                  </svg>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </span>
+              </label>
+            </div>
           </th>
           <th
             class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
@@ -3758,7 +3792,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
 
 exports[`Document Library page should render DocumentSimpleTableResults correctly if source === ALL and resultsType === Simple 1`] = `
 <div
-  class="DocumentSimpleTableResults css-qjwvo"
+  class="DocumentSimpleTableResults css-358n7x"
   data-testid="document-simple-table-results"
 >
   <div
@@ -3776,10 +3810,44 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
           class="MuiTableRow-root MuiTableRow-head css-47w8l6-MuiTableRow-root"
         >
           <th
-            class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableHeader css-1tbee56-MuiTableCell-root"
+            class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableHeader documentSimpleTableResultsStyles-tableHeaderCentered css-1tbee56-MuiTableCell-root"
             scope="col"
           >
-            MC: documentLibrary.headers.add
+            <div
+              class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+            >
+              <label
+                class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+              >
+                <span
+                  aria-label="MC: documentLibrary.headers.add"
+                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                  data-testid="document-table-select-all"
+                >
+                  <input
+                    class="PrivateSwitchBase-input css-1m9pwf3"
+                    data-indeterminate="false"
+                    name="add"
+                    type="checkbox"
+                    value="false"
+                  />
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                    data-testid="CheckBoxOutlineBlankIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                    />
+                  </svg>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </span>
+              </label>
+            </div>
           </th>
           <th
             class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
@@ -3997,7 +4065,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
 
 exports[`Document Library page should render DocumentSimpleTableResults correctly if source === ALL and resultsType === Technical 1`] = `
 <div
-  class="DocumentSimpleTableResults css-qjwvo"
+  class="DocumentSimpleTableResults css-358n7x"
   data-testid="document-simple-table-results"
 >
   <div
@@ -4015,10 +4083,44 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
           class="MuiTableRow-root MuiTableRow-head css-47w8l6-MuiTableRow-root"
         >
           <th
-            class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableHeader css-1tbee56-MuiTableCell-root"
+            class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableHeader documentSimpleTableResultsStyles-tableHeaderCentered css-1tbee56-MuiTableCell-root"
             scope="col"
           >
-            MC: documentLibrary.headers.add
+            <div
+              class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+            >
+              <label
+                class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+              >
+                <span
+                  aria-label="MC: documentLibrary.headers.add"
+                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                  data-testid="document-table-select-all"
+                >
+                  <input
+                    class="PrivateSwitchBase-input css-1m9pwf3"
+                    data-indeterminate="false"
+                    name="add"
+                    type="checkbox"
+                    value="false"
+                  />
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                    data-testid="CheckBoxOutlineBlankIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                    />
+                  </svg>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </span>
+              </label>
+            </div>
           </th>
           <th
             class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
@@ -4233,7 +4335,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
 
 exports[`Document Library page should render DocumentSimpleTableResults correctly if source === CMS and resultsType === Simple 1`] = `
 <div
-  class="DocumentSimpleTableResults css-qjwvo"
+  class="DocumentSimpleTableResults css-358n7x"
   data-testid="document-simple-table-results"
 >
   <div
@@ -4251,10 +4353,44 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
           class="MuiTableRow-root MuiTableRow-head css-47w8l6-MuiTableRow-root"
         >
           <th
-            class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableHeader css-1tbee56-MuiTableCell-root"
+            class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableHeader documentSimpleTableResultsStyles-tableHeaderCentered css-1tbee56-MuiTableCell-root"
             scope="col"
           >
-            MC: documentLibrary.headers.add
+            <div
+              class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+            >
+              <label
+                class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+              >
+                <span
+                  aria-label="MC: documentLibrary.headers.add"
+                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                  data-testid="document-table-select-all"
+                >
+                  <input
+                    class="PrivateSwitchBase-input css-1m9pwf3"
+                    data-indeterminate="false"
+                    name="add"
+                    type="checkbox"
+                    value="false"
+                  />
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                    data-testid="CheckBoxOutlineBlankIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                    />
+                  </svg>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </span>
+              </label>
+            </div>
           </th>
           <th
             class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
@@ -4472,7 +4608,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
 
 exports[`Document Library page should render DocumentSimpleTableResults correctly if source === CMS and resultsType === Technical 1`] = `
 <div
-  class="DocumentSimpleTableResults css-qjwvo"
+  class="DocumentSimpleTableResults css-358n7x"
   data-testid="document-simple-table-results"
 >
   <div
@@ -4490,10 +4626,44 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
           class="MuiTableRow-root MuiTableRow-head css-47w8l6-MuiTableRow-root"
         >
           <th
-            class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableHeader css-1tbee56-MuiTableCell-root"
+            class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableHeader documentSimpleTableResultsStyles-tableHeaderCentered css-1tbee56-MuiTableCell-root"
             scope="col"
           >
-            MC: documentLibrary.headers.add
+            <div
+              class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+            >
+              <label
+                class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+              >
+                <span
+                  aria-label="MC: documentLibrary.headers.add"
+                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                  data-testid="document-table-select-all"
+                >
+                  <input
+                    class="PrivateSwitchBase-input css-1m9pwf3"
+                    data-indeterminate="false"
+                    name="add"
+                    type="checkbox"
+                    value="false"
+                  />
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                    data-testid="CheckBoxOutlineBlankIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                    />
+                  </svg>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </span>
+              </label>
+            </div>
           </th>
           <th
             class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
@@ -4708,7 +4878,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
 
 exports[`Document Library page should render DocumentSimpleTableResults correctly if source === PIM and resultsType === Card Collection 1`] = `
 <div
-  class="DocumentSimpleTableResults css-qjwvo"
+  class="DocumentSimpleTableResults css-358n7x"
   data-testid="document-simple-table-results"
 >
   <div
@@ -4726,10 +4896,44 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
           class="MuiTableRow-root MuiTableRow-head css-47w8l6-MuiTableRow-root"
         >
           <th
-            class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableHeader css-1tbee56-MuiTableCell-root"
+            class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableHeader documentSimpleTableResultsStyles-tableHeaderCentered css-1tbee56-MuiTableCell-root"
             scope="col"
           >
-            MC: documentLibrary.headers.add
+            <div
+              class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+            >
+              <label
+                class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+              >
+                <span
+                  aria-label="MC: documentLibrary.headers.add"
+                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                  data-testid="document-table-select-all"
+                >
+                  <input
+                    class="PrivateSwitchBase-input css-1m9pwf3"
+                    data-indeterminate="false"
+                    name="add"
+                    type="checkbox"
+                    value="false"
+                  />
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                    data-testid="CheckBoxOutlineBlankIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                    />
+                  </svg>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </span>
+              </label>
+            </div>
           </th>
           <th
             class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
@@ -4944,7 +5148,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
 
 exports[`Document Library page should render DocumentSimpleTableResults correctly if source === PIM and resultsType === Simple 1`] = `
 <div
-  class="DocumentSimpleTableResults css-qjwvo"
+  class="DocumentSimpleTableResults css-358n7x"
   data-testid="document-simple-table-results"
 >
   <div
@@ -4962,10 +5166,44 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
           class="MuiTableRow-root MuiTableRow-head css-47w8l6-MuiTableRow-root"
         >
           <th
-            class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableHeader css-1tbee56-MuiTableCell-root"
+            class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableHeader documentSimpleTableResultsStyles-tableHeaderCentered css-1tbee56-MuiTableCell-root"
             scope="col"
           >
-            MC: documentLibrary.headers.add
+            <div
+              class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+            >
+              <label
+                class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+              >
+                <span
+                  aria-label="MC: documentLibrary.headers.add"
+                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                  data-testid="document-table-select-all"
+                >
+                  <input
+                    class="PrivateSwitchBase-input css-1m9pwf3"
+                    data-indeterminate="false"
+                    name="add"
+                    type="checkbox"
+                    value="false"
+                  />
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                    data-testid="CheckBoxOutlineBlankIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                    />
+                  </svg>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </span>
+              </label>
+            </div>
           </th>
           <th
             class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
@@ -5180,7 +5418,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
 
 exports[`Document Library page should render DocumentSimpleTableResults correctly if source === PIM and resultsType === Simple Archive 1`] = `
 <div
-  class="DocumentSimpleTableResults css-qjwvo"
+  class="DocumentSimpleTableResults css-358n7x"
   data-testid="document-simple-table-results"
 >
   <div
@@ -5198,10 +5436,44 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
           class="MuiTableRow-root MuiTableRow-head css-47w8l6-MuiTableRow-root"
         >
           <th
-            class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableHeader css-1tbee56-MuiTableCell-root"
+            class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableHeader documentSimpleTableResultsStyles-tableHeaderCentered css-1tbee56-MuiTableCell-root"
             scope="col"
           >
-            MC: documentLibrary.headers.add
+            <div
+              class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+            >
+              <label
+                class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+              >
+                <span
+                  aria-label="MC: documentLibrary.headers.add"
+                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                  data-testid="document-table-select-all"
+                >
+                  <input
+                    class="PrivateSwitchBase-input css-1m9pwf3"
+                    data-indeterminate="false"
+                    name="add"
+                    type="checkbox"
+                    value="false"
+                  />
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                    data-testid="CheckBoxOutlineBlankIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                    />
+                  </svg>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </span>
+              </label>
+            </div>
           </th>
           <th
             class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
@@ -5444,7 +5716,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
 
 exports[`Document Library page should render DocumentSimpleTableResults if source === ALL and resultsType === Simple Archive 1`] = `
 <div
-  class="DocumentSimpleTableResults css-qjwvo"
+  class="DocumentSimpleTableResults css-358n7x"
   data-testid="document-simple-table-results"
 >
   <div
@@ -5462,10 +5734,44 @@ exports[`Document Library page should render DocumentSimpleTableResults if sourc
           class="MuiTableRow-root MuiTableRow-head css-47w8l6-MuiTableRow-root"
         >
           <th
-            class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableHeader css-1tbee56-MuiTableCell-root"
+            class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableHeader documentSimpleTableResultsStyles-tableHeaderCentered css-1tbee56-MuiTableCell-root"
             scope="col"
           >
-            MC: documentLibrary.headers.add
+            <div
+              class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+            >
+              <label
+                class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+              >
+                <span
+                  aria-label="MC: documentLibrary.headers.add"
+                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                  data-testid="document-table-select-all"
+                >
+                  <input
+                    class="PrivateSwitchBase-input css-1m9pwf3"
+                    data-indeterminate="false"
+                    name="add"
+                    type="checkbox"
+                    value="false"
+                  />
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                    data-testid="CheckBoxOutlineBlankIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                    />
+                  </svg>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </span>
+              </label>
+            </div>
           </th>
           <th
             class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"

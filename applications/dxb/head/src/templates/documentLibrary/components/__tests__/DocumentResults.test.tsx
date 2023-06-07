@@ -53,9 +53,6 @@ describe("DocumentResults component", () => {
         expect(
           screen.getByText("MC: documentLibrary.headers.title")
         ).toBeInTheDocument();
-        expect(
-          screen.getByText("MC: documentLibrary.headers.add")
-        ).toBeInTheDocument();
         expect(container).toMatchSnapshot();
       });
     });
@@ -87,9 +84,6 @@ describe("DocumentResults component", () => {
         expect(
           screen.getByText("MC: documentLibrary.headers.title")
         ).toBeInTheDocument();
-        expect(
-          screen.getByText("MC: documentLibrary.headers.add")
-        ).toBeInTheDocument();
       });
     });
     describe("And contentful Asset Types has one or more non matching asset type code", () => {
@@ -118,9 +112,6 @@ describe("DocumentResults component", () => {
         ).not.toBeInTheDocument();
         expect(
           screen.getByText("MC: documentLibrary.headers.title")
-        ).toBeInTheDocument();
-        expect(
-          screen.getByText("MC: documentLibrary.headers.add")
         ).toBeInTheDocument();
       });
     });

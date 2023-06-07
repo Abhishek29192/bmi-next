@@ -6,6 +6,7 @@ import { styled } from "@mui/material/styles";
 const PREFIX = "documentSimpleTableResultsStyles";
 export const classes = {
   tableHeader: `${PREFIX}-tableHeader`,
+  tableHeaderCentered: `${PREFIX}-tableHeaderCentered`,
   checked: `${PREFIX}-checked`
 };
 
@@ -13,6 +14,12 @@ export const StyledSimpleTableResults = styled("div")(({ theme }) => ({
   [`& .${classes.tableHeader}`]: {
     width: "92px",
     whiteSpace: "nowrap"
+  },
+  [`& .${classes.tableHeaderCentered}`]: {
+    textAlign: "center",
+    label: {
+      margin: 0
+    }
   },
   "abbr[title]::after": {
     content: "''",
