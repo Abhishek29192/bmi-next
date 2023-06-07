@@ -1,8 +1,35 @@
 {
-  "extends": "../../../tsconfig.json",
+  "extends": "../../../tsconfig.common.json",
   "compilerOptions": {
     "noEmit": true,
     "outDir": "dist",
-    "strict": false
-  }
+    "strict": false,
+    "jsx": "react"
+  },
+  "references": [
+    {
+      "path": "../libraries/fetch-retry"
+    },
+    {
+      "path": "../libraries/gatsby-plugin-elasticsearch"
+    },
+    {
+      "path": "../libraries/gatsby-plugin-leadoo"
+    },
+    {
+      "path": "../libraries/gatsby-plugin-meta-redirect"
+    },
+    {
+      "path": "../libraries/gatsby-source-firestore"
+    },
+    {
+      "path": "../libraries/utils"
+    },
+    {
+      "path": "../libraries/elasticsearch-types"
+    },
+    {
+      "path": "../libraries/firestore-types"
+    }
+  ]
 }

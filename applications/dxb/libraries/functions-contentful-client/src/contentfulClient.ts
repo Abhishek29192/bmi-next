@@ -3,7 +3,7 @@ import { ContentfulClientApi, createClient } from "contentful";
 const { CONTENTFUL_DELIVERY_TOKEN, CONTENTFUL_ENVIRONMENT, SPACE_ID } =
   process.env;
 
-let contentfulClientCache: ContentfulClientApi;
+let contentfulClientCache: ContentfulClientApi<undefined>;
 
 export const getContentfulClient = () => {
   if (!contentfulClientCache) {

@@ -1,7 +1,6 @@
 import { getApp, removeAppFromSpace } from "@bmi-digital/contentful-migration";
-import { CreateAppDefinitionProps } from "contentful-management";
-import type Migration from "contentful-migration";
-import type { MigrationContext, MigrationFunction } from "contentful-migration";
+import type { CreateAppDefinitionProps } from "contentful-management";
+import type { MigrationFunction } from "contentful-migration";
 
 export const description =
   "Install the image focal point app and create the Image Content-Type";
@@ -16,10 +15,7 @@ const imageFocalPointAppDefinition: CreateAppDefinitionProps = {
   ]
 };
 
-export const up: MigrationFunction = async (
-  migration: Migration,
-  context?: MigrationContext
-) => {
+export const up: MigrationFunction = async (migration, context) => {
   const { sys } = await getApp(imageFocalPointAppDefinition, context!);
   const image = migration
     .createContentType("image")
@@ -70,10 +66,7 @@ export const up: MigrationFunction = async (
   image.changeFieldControl("caption", "builtin", "multipleLine");
 };
 
-export const down: MigrationFunction = async (
-  migration: Migration,
-  context?: MigrationContext
-) => {
+export const down: MigrationFunction = async (migration, context) => {
   migration.deleteContentType("image");
 
   removeAppFromSpace(imageFocalPointAppDefinition.name, context!);

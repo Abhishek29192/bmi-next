@@ -9,7 +9,7 @@ import {
 } from "@bmi-digital/components";
 import { Add as AddIcon } from "@mui/icons-material";
 import Tab, { TabProps } from "@mui/material/Tab";
-import { graphql, Link } from "gatsby";
+import { Link, graphql } from "gatsby";
 import React, { useMemo, useState } from "react";
 import { microCopy } from "../constants/microCopies";
 import DefaultImage from "../images/DefaultImage.svg";
@@ -88,7 +88,6 @@ const ProductListing = ({
                 subtitle={uniqueClassifications}
                 subtitleVariant="h6"
                 imageSize="contain"
-                data-testid="GTMOverviewCard"
                 media={
                   renderMedia(product.masterImage?.mainSource, altText) || (
                     <DefaultImage />

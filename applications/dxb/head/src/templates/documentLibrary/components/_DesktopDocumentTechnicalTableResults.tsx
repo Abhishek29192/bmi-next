@@ -13,8 +13,8 @@ import React from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import createAssetFileCountMap, {
   AssetUniqueFileCountMap,
-  generateFilenameByRealFileName,
-  generateFileNamebyTitle
+  generateFileNamebyTitle,
+  generateFilenameByRealFileName
 } from "../../../components/DocumentFileUtils";
 import fileIconsMap from "../../../components/FileIconsMap";
 import Icon from "../../../components/Icon";
@@ -26,7 +26,7 @@ import { downloadAs } from "../../../utils/client-download";
 import getCookie from "../../../utils/getCookie";
 import withGTM from "../../../utils/google-tag-manager";
 import { AssetType } from "../types";
-import { classes, Root, Title } from "./DocumentTechnicalTableResultsStyles";
+import { Root, Title, classes } from "./DocumentTechnicalTableResultsStyles";
 import AssetHeader from "./_AssetHeader";
 
 interface Props {
@@ -108,7 +108,7 @@ const DesktopDocumentTechnicalTableResults = ({
           zipFileName = `${assets[0].productName} ${assets[0].assetType.name}.zip`;
         }
 
-        const token = qaAuthToken ? undefined : await executeRecaptcha();
+        const token = qaAuthToken ? undefined : await executeRecaptcha?.();
         const assetFileCountMap: AssetUniqueFileCountMap =
           createAssetFileCountMap(assets);
         const documents = assets.map((asset, index) => ({
@@ -141,7 +141,7 @@ const DesktopDocumentTechnicalTableResults = ({
           throw new Error(response.statusText);
         }
 
-        const data = await response.json();
+        const data = (await response.json()) as { url: string };
         await downloadAs(data.url, zipFileName);
       } catch (error) {
         console.error("Download multiple documents", error); // eslint-disable-line

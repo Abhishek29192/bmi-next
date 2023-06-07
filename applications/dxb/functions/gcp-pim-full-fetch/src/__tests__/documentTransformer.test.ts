@@ -1,16 +1,90 @@
 import {
+  createAsset,
+  createAssetLink,
   createDocument as createContentfulDocument,
-  createEntry,
+  createEntryLink,
   createFullyPopulatedDocument as createFullyPopulatedContentfulDocument,
-  createFullyPopulatedEntry
+  createImage
 } from "@bmi/contentful-types";
 import { transformDocuments } from "../documentTransformer";
 
 describe("transformDocuments", () => {
-  it("should return minimally populated ES Contentful document", () => {
-    const contentfulDocument = createEntry({
-      fields: createContentfulDocument()
+  it("should throw error if document has a broken link to an asset", () => {
+    const contentfulDocument = createContentfulDocument({
+      fields: { asset: { sys: createAssetLink() } }
     });
+    expect(() => transformDocuments([contentfulDocument])).toThrow(
+      `Asset not found for ${contentfulDocument.sys.id}`
+    );
+  });
+
+  it("should throw error if document doesn't have a file", () => {
+    const contentfulDocument = createContentfulDocument({
+      fields: { asset: createAsset({ fields: { file: undefined } }) }
+    });
+    expect(() => transformDocuments([contentfulDocument])).toThrow(
+      `Asset not found for ${contentfulDocument.sys.id}`
+    );
+  });
+
+  it("should throw error if document doesn't have an asset type", () => {
+    const contentfulDocument = createContentfulDocument({
+      fields: { assetType: undefined }
+    });
+    expect(() => transformDocuments([contentfulDocument])).toThrow(
+      `AssetType not found for ${contentfulDocument.sys.id}`
+    );
+  });
+
+  it("should throw error if document has a broken link to an asset type", () => {
+    const contentfulDocument = createContentfulDocument({
+      fields: { assetType: { sys: createEntryLink() } }
+    });
+    expect(() => transformDocuments([contentfulDocument])).toThrow(
+      `AssetType not found for ${contentfulDocument.sys.id}`
+    );
+  });
+
+  it("should throw error if featured media is a broken link", () => {
+    const featuredMediaLink = createEntryLink();
+    const contentfulDocument = createContentfulDocument({
+      fields: { featuredMedia: { sys: featuredMediaLink } }
+    });
+    expect(() => transformDocuments([contentfulDocument])).toThrow(
+      `Unable to find the Image ${featuredMediaLink.id}.`
+    );
+  });
+
+  it("should throw error if featured media has a broken link to an Image", () => {
+    const featuredMedia = createImage({
+      fields: { image: { sys: createAssetLink() } }
+    });
+    const contentfulDocument = createContentfulDocument({
+      fields: {
+        featuredMedia: featuredMedia
+      }
+    });
+    expect(() => transformDocuments([contentfulDocument])).toThrow(
+      `${featuredMedia.sys.id} doesn't have an actual image.`
+    );
+  });
+
+  it("should throw error if featured media image doesn't have a file", () => {
+    const featuredMedia = createImage({
+      fields: { image: createAsset({ fields: { file: undefined } }) }
+    });
+    const contentfulDocument = createContentfulDocument({
+      fields: {
+        featuredMedia: featuredMedia
+      }
+    });
+    expect(() => transformDocuments([contentfulDocument])).toThrow(
+      `${featuredMedia.sys.id} doesn't have an actual image.`
+    );
+  });
+
+  it("should return minimally populated ES Contentful document", () => {
+    const contentfulDocument = createContentfulDocument();
     const transformedDocuments = transformDocuments([contentfulDocument]);
     expect(transformedDocuments).toMatchInlineSnapshot(`
       [
@@ -42,9 +116,7 @@ describe("transformDocuments", () => {
   });
 
   it("should return fully populated ES Contentful document", () => {
-    const contentfulDocument = createFullyPopulatedEntry({
-      fields: createFullyPopulatedContentfulDocument()
-    });
+    const contentfulDocument = createFullyPopulatedContentfulDocument();
     const transformedDocuments = transformDocuments([contentfulDocument]);
     expect(transformedDocuments).toMatchInlineSnapshot(`
       [
@@ -56,12 +128,12 @@ describe("transformDocuments", () => {
           "__typename": "ContentfulDocument",
           "asset": {
             "file": {
-              "contentType": "image/jpeg",
+              "contentType": "application/pdf",
               "details": {
                 "size": 1,
               },
-              "fileName": "asset-filename.jpg",
-              "url": "https://localhost:9000/asset-filename.jpg",
+              "fileName": "asset-filename.pdf",
+              "url": "https://localhost:9000/asset-filename.pdf",
             },
           },
           "assetType": {
@@ -85,7 +157,7 @@ describe("transformDocuments", () => {
           },
           "id": "entry-id",
           "noIndex": false,
-          "realFileName": "asset-filename.jpg",
+          "realFileName": "asset-filename.pdf",
           "title": "contentful document title",
           "titleAndSize": "contentful document title_1",
         },

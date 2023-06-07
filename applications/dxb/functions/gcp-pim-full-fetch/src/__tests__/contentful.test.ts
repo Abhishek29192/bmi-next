@@ -1,8 +1,4 @@
-import {
-  createDocument,
-  createEntry,
-  createResponse
-} from "@bmi/contentful-types";
+import { createDocument, createResponse } from "@bmi/contentful-types";
 
 const mockGetEntries = jest.fn();
 jest.mock("@bmi/functions-contentful-client", () => {
@@ -101,7 +97,7 @@ describe("getDocuments", () => {
 
   it("filters by tag if provided", async () => {
     const contentfulResponse = createResponse({
-      items: [createEntry({ fields: createDocument() })]
+      items: [createDocument()]
     });
     const tag = "market__belgium";
     mockGetEntries.mockResolvedValueOnce(contentfulResponse);

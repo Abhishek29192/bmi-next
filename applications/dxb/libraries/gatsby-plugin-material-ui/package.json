@@ -11,14 +11,16 @@
     "gatsby-plugin"
   ],
   "scripts": {
-    "lint": "eslint \"**/*.{js,ts,tsx}\"",
-    "test": "jest --coverage --reporters=default --reporters=jest-junit"
+    "lint": "eslint \"**/*.{js,ts,tsx}\""
   },
   "dependencies": {
-    "@emotion/cache": "^11.10.5",
-    "@emotion/react": "^11.10.6",
+    "@emotion/cache": "^11.10.8",
+    "@emotion/react": "^11.10.8",
     "@emotion/server": "^11.10.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.40.0"
   }
 }

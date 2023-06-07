@@ -1,10 +1,9 @@
-import { internalName } from "../../variables/helpText/20210421160910";
-import type Migration from "contentful-migration";
+import { internalName } from "../../variables/helpText/20210421160910.js";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Add title field";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const promo = migration.editContentType("promo");
 
   promo.createField("name").name("Name").type("Symbol").required(true);
@@ -27,7 +26,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   });
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const promo = migration.editContentType("promo");
 
   migration.transformEntries({

@@ -1,13 +1,34 @@
-import path from "path";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { jest } from "@jest/globals";
+import type { migrateDown } from "@bmi-digital/contentful-migration";
 
-jest.mock("dotenv/config", () => ({ config: jest.fn() }), { virtual: true });
+jest.unstable_mockModule("dotenv/config", () => ({ config: jest.fn() }));
 
-const mockMigrateDown = jest.fn();
+const mockMigrateDown = jest.fn<typeof migrateDown>();
 jest.mock("@bmi-digital/contentful-migration", () => ({
-  migrateDown: (...any: unknown[]) => mockMigrateDown(...any)
+  migrateDown: (
+    script: string,
+    contentType: string,
+    projectPath: string,
+    spaceId: string,
+    contentfulEnvironment: string,
+    managementAccessToken: string,
+    dryRun?: boolean
+  ) =>
+    mockMigrateDown(
+      script,
+      contentType,
+      projectPath,
+      spaceId,
+      contentfulEnvironment,
+      managementAccessToken,
+      dryRun
+    )
 }));
 
-const main = async (script?: string) => (await import("../down")).main(script);
+const main = async (script?: string) =>
+  (await import("../down.js")).main(script);
 
 beforeEach(() => {
   jest.clearAllMocks();
@@ -79,7 +100,7 @@ describe("main", () => {
     expect(mockMigrateDown).toHaveBeenCalledWith(
       "some-script.js",
       "scripts",
-      path.dirname(__dirname),
+      path.dirname(path.dirname(fileURLToPath(import.meta.url))),
       process.env.SPACE_ID,
       process.env.CONTENTFUL_ENVIRONMENT,
       process.env.MANAGEMENT_ACCESS_TOKEN,
@@ -93,7 +114,7 @@ describe("main", () => {
     expect(mockMigrateDown).toHaveBeenCalledWith(
       "some-script.js",
       "scripts",
-      path.dirname(__dirname),
+      path.dirname(path.dirname(fileURLToPath(import.meta.url))),
       process.env.SPACE_ID,
       process.env.CONTENTFUL_ENVIRONMENT,
       process.env.MANAGEMENT_ACCESS_TOKEN,
@@ -109,7 +130,7 @@ describe("main", () => {
     expect(mockMigrateDown).toHaveBeenCalledWith(
       "some-script.js",
       "scripts",
-      path.dirname(__dirname),
+      path.dirname(path.dirname(fileURLToPath(import.meta.url))),
       process.env.SPACE_ID,
       process.env.CONTENTFUL_ENVIRONMENT,
       process.env.MANAGEMENT_ACCESS_TOKEN,
@@ -125,7 +146,7 @@ describe("main", () => {
     expect(mockMigrateDown).toHaveBeenCalledWith(
       "some-script.js",
       "scripts",
-      path.dirname(__dirname),
+      path.dirname(path.dirname(fileURLToPath(import.meta.url))),
       process.env.SPACE_ID,
       process.env.CONTENTFUL_ENVIRONMENT,
       process.env.MANAGEMENT_ACCESS_TOKEN,
@@ -141,7 +162,7 @@ describe("main", () => {
     expect(mockMigrateDown).toHaveBeenCalledWith(
       "some-script.js",
       "scripts",
-      path.dirname(__dirname),
+      path.dirname(path.dirname(fileURLToPath(import.meta.url))),
       process.env.SPACE_ID,
       process.env.CONTENTFUL_ENVIRONMENT,
       process.env.MANAGEMENT_ACCESS_TOKEN,

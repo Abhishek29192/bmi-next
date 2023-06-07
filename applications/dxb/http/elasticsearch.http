@@ -1,5 +1,32 @@
 ###
 
+# @name get all indexes
+GET {{esHost}}/_cat/indices?pretty&s=index&v
+Content-Type: application/json
+Authorization: ApiKey {{esApiKeyFullCatCoOrdinator}}
+
+# @name get all aliases
+GET {{esHost}}/_cat/aliases?v&s=index:desc&h=alias,index
+Content-Type: application/json
+Authorization: ApiKey {{esApiKeyFullCatCoOrdinator}}
+
+
+# @name put alias on product index
+POST {{esHost}}/_aliases?pretty
+Content-Type: application/json
+Authorization: ApiKey {{esApiKeyFullCatCoOrdinator}}
+
+{
+  "actions": [
+    {
+      "add": {
+        "index": "{{productsIndex}}",
+        "alias": "{{productsIndex}}_read"
+      }
+    }
+  ]
+}
+
 # @name search All request
 POST {{esHost}}/{{productsIndex}}/_search
 Content-Type: application/json
@@ -81,7 +108,9 @@ Authorization: ApiKey {{esApiKey}}
   }
 }
 
-###
+
+### search for documents that are approved state from pim along with all contentful documents
+### JIRA DXB-5317
 
 # @name Document search request
 @term=BMI Icopal Profiles Brochure
@@ -90,37 +119,70 @@ Content-Type: application/json
 Authorization: ApiKey {{esApiKey}}
 
 {
-  "size": 10,
-  "from": 0,
-  "sort": [
-    {
-      "assetType.name.keyword": "asc",
-      "title.keyword": "asc"
-    }
-  ],
-  "aggs": {
-    "assetTypes": {
-      "terms": {
-        "size": "100",
-        "field": "assetType.pimCode.keyword"
+   "size":10000,
+   "from":0,
+   "sort":[
+      {
+         "assetType.name.keyword":"asc",
+         "title.keyword":"asc"
       }
-    }
-  },
-  "query": {
-    "bool": {
-      "must": [
-        {
-          "query_string": {
-            "query": "*{{term}}*",
-            "type": "cross_fields",
-            "fields": [
-              "title"
-            ]
-          }
-        }
-      ]
-    }
-  }
+   ],
+   "aggs":{
+      "assetTypes":{
+         "terms":{
+            "size":"100",
+            "field":"assetType.code.keyword"
+         }
+      },
+      "total":{
+         "cardinality":{
+            "field":"titleAndSize.keyword"
+         }
+      }
+   },
+   "query":{
+      "bool":{
+         "must":[
+            {
+               "query_string":{
+                  "query":"*a*",
+                  "type":"cross_fields",
+                  "fields":[
+                     "title"
+                  ]
+               }
+            },
+            {
+               "query_string":{
+                  "query":"false",
+                  "type":"cross_fields",
+                  "fields":[
+                     "noIndex"
+                  ]
+               }
+            },
+            {
+                "bool":{
+                  "should":[
+                    {
+                      "term": {
+                        "approvalStatus.keyword": "approved"
+                      }
+                    },
+                    {
+                      "term": {
+                        "__typename.keyword": "ContentfulDocument"
+                      }
+                    }
+                  ]
+              }
+            }
+         ]
+      }
+   },
+   "collapse":{
+      "field":"titleAndSize.keyword"
+   }
 }
 
 ###

@@ -45,7 +45,7 @@ const RecaptchaPrivacyLinks = (props: Props) => {
         {recaptchaContent.endText}
       </Typography>
     );
-  }, [countryCode]);
+  }, [countryCode, className]);
 };
 
 export default RecaptchaPrivacyLinks;

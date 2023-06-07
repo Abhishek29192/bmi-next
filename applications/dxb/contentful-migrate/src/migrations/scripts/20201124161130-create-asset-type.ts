@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Create content type for Asset Type";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const assetType = migration
     .createContentType("assetType")
     .name("Asset Type")
@@ -18,5 +17,5 @@ export const up: MigrationFunction = (migration: Migration) => {
   assetType.createField("pimCode").name("PIM Code").type("Symbol");
 };
 
-export const down: MigrationFunction = (migration: Migration) =>
+export const down: MigrationFunction = (migration) =>
   migration.deleteContentType("assetType");

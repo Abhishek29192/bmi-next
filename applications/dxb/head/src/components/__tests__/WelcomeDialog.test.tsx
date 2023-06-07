@@ -15,7 +15,7 @@ describe("WelcomeDialog component", () => {
         welcomeDialogTitle: null,
         welcomeDialogBody: {
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: null
+          references: []
         },
         welcomeDialogBrands: []
       };
@@ -51,7 +51,7 @@ describe("WelcomeDialog component", () => {
         welcomeDialogTitle: "Dialog Title",
         welcomeDialogBody: {
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: null
+          references: []
         },
         welcomeDialogBrands: []
       };
@@ -61,7 +61,7 @@ describe("WelcomeDialog component", () => {
           <WelcomeDialog data={data} />
         </ThemeProvider>
       );
-      const titleElement = screen.getByText(data.welcomeDialogTitle);
+      const titleElement = screen.getByText(data.welcomeDialogTitle!);
       expect(titleElement).not.toBeNull();
 
       const richTextElement = screen.getByText("test rich text");
@@ -77,7 +77,7 @@ describe("WelcomeDialog component", () => {
         welcomeDialogTitle: "Dialog Title",
         welcomeDialogBody: {
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: null
+          references: []
         },
         welcomeDialogBrands: ["Icopal", "Monier", "Monarplan"]
       };
@@ -87,7 +87,7 @@ describe("WelcomeDialog component", () => {
           <WelcomeDialog data={data} />
         </ThemeProvider>
       );
-      const titleElement = screen.getByText(data.welcomeDialogTitle);
+      const titleElement = screen.getByText(data.welcomeDialogTitle!);
       expect(titleElement).not.toBeNull();
 
       const richTextElement = screen.getByText("test rich text");
@@ -96,7 +96,7 @@ describe("WelcomeDialog component", () => {
       const closeButton = screen.getByLabelText("Close");
       expect(closeButton).not.toBeNull();
 
-      data.welcomeDialogBrands.forEach((brandName) =>
+      data.welcomeDialogBrands!.forEach((brandName) =>
         expect(
           screen.getByTestId(`welcome-brand-${brandName}`)
         ).toBeInTheDocument()
@@ -108,7 +108,7 @@ describe("WelcomeDialog component", () => {
         welcomeDialogTitle: "Dialog Title",
         welcomeDialogBody: {
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: null
+          references: []
         },
         welcomeDialogBrands: []
       };

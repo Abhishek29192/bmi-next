@@ -1,13 +1,12 @@
 import path from "path";
 import dotenv from "dotenv";
-import findUp from "find-up";
 import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
 import { createSystemPages } from "./src/gatsby/systemDetailsPages";
 import resolvers from "./src/schema/resolvers";
 import typeDefs from "./src/schema/schema.graphql";
 import { getRedirects, Redirect } from "./src/utils/get-redirects";
 import { getPathWithCountryCode } from "./src/utils/path";
-import type { GatsbyNode } from "gatsby";
+import type { CreateBabelConfigArgs, GatsbyNode } from "gatsby";
 
 dotenv.config({
   path: `./.env.${process.env.NODE_ENV}`
@@ -302,7 +301,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
 const getRedirectConfig = (
   redirect: Redirect
 ): { fromPath: string; toPath: string; isPermanent: boolean } => {
-  const isPermanent = redirect.status === "301";
+  const isPermanent = redirect.status === 301;
   let toPath = redirect.to.endsWith("/") ? redirect.to : `${redirect.to}/`;
 
   //If we use wildcard redirects on production users will be redirected to gatsby domain
@@ -361,11 +360,7 @@ export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({
 }) => {
   actions.setWebpackConfig({
     resolve: {
-      plugins: [
-        new TsconfigPathsPlugin({
-          configFile: findUp.sync("tsconfig.json")
-        })
-      ]
+      plugins: [new TsconfigPathsPlugin()]
     }
   });
   // NOTE: This ignores the order conflict warnings caused by the CSS Modules
@@ -404,4 +399,15 @@ export const createResolvers: GatsbyNode["createResolvers"] = ({
   createResolvers
 }) => {
   createResolvers(resolvers);
+};
+
+export const onCreateBabelConfig = ({ actions }: CreateBabelConfigArgs) => {
+  actions.setBabelPreset({
+    name: "babel-preset-gatsby",
+    options: {
+      targets: {
+        browsers: [">0.25%", "not dead"]
+      }
+    }
+  });
 };

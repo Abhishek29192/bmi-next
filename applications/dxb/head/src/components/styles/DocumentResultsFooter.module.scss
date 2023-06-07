@@ -1,3 +1,5 @@
+@import "~@bmi-digital/styles";
+
 .DocumentResultsFooter {
   text-align: right;
   font-size: 1rem;
@@ -14,5 +16,9 @@
   :global(.RecaptchaPrivacyLinks) {
     margin-top: 1rem;
     font-size: 0.8rem;
+  }
+
+  @media (min-width: $breakpoint-sm) and (max-width: $breakpoint-lg){
+    margin: 0 -8px;
   }
 }

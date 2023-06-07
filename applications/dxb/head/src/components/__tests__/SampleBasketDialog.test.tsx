@@ -1,6 +1,7 @@
 import { ThemeProvider } from "@bmi-digital/components";
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
+import { microCopy } from "../../constants/microCopies";
 import {
   BasketContextProvider,
   Sample
@@ -9,7 +10,6 @@ import { local } from "../../utils/storage";
 import { getClickableActionFromUrl } from "../Link";
 import SampleBasketDialog from "../SampleBasketDialog";
 import { SiteContextProvider } from "../Site";
-import { microCopy } from "../../constants/microCopies";
 
 const getSiteContext = () => ({
   countryCode: "en",
@@ -126,7 +126,7 @@ describe("SampleBasketDialog component", () => {
     const basketAction = getClickableActionFromUrl(
       null,
       null,
-      null,
+      undefined,
       `/no/sample-basket/`
     );
 
@@ -163,7 +163,7 @@ describe("SampleBasketDialog component", () => {
       </ThemeProvider>
     );
 
-    fireEvent.click(screen.queryByText("MC: pdp.overview.continueBrowsing"));
+    fireEvent.click(screen.queryByText("MC: pdp.overview.continueBrowsing")!);
 
     expect(toggleCart).toHaveBeenCalledTimes(1);
   });

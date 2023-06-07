@@ -1,24 +1,47 @@
-export {};
+import { jest } from "@jest/globals";
+import { createEnvironmentAliasWithEnvironmentId } from "./helpers/EnvironmentAliasHelper.js";
+import createEnvironment, {
+  createEnvironmentWithId,
+  createEnvironmentWithStatus
+} from "./helpers/EnvironmentHelper.js";
+import createSpace from "./helpers/SpaceHelper.js";
+import type { ClientAPI, Space } from "contentful-management";
+import type { cleanupOldEnvironments } from "../cleanup.js";
+import type { runMigrationScripts } from "../migrationScripts.js";
 
-jest.mock("dotenv/config", () => ({ config: jest.fn() }), { virtual: true });
+jest.unstable_mockModule("dotenv/config", () => ({ config: jest.fn() }));
 
 const mockCreateClient = jest.fn();
-jest.mock("contentful-management", () => ({
-  createClient: (...args: unknown[]) => mockCreateClient(...args)
+jest.unstable_mockModule("contentful-management", () => ({
+  __esModule: true,
+  default: {
+    createClient: (...args: unknown[]) => mockCreateClient(...args)
+  }
 }));
 
-const mockCleanupOldEnvironments = jest.fn();
-jest.mock("../cleanup", () => ({
-  cleanupOldEnvironments: (...args: unknown[]) =>
-    mockCleanupOldEnvironments(...args)
+const mockCleanupOldEnvironments = jest.fn<typeof cleanupOldEnvironments>();
+jest.unstable_mockModule("../cleanup.js", () => ({
+  cleanupOldEnvironments: (tag: string, space: Space) =>
+    mockCleanupOldEnvironments(tag, space)
 }));
 
-const mockRunMigrationScripts = jest.fn();
-jest.mock("../migrationScripts", () => ({
-  runMigrationScripts: (...args: unknown[]) => mockRunMigrationScripts(...args)
+const mockRunMigrationScripts = jest.fn<typeof runMigrationScripts>();
+jest.unstable_mockModule("../migrationScripts.js", () => ({
+  runMigrationScripts: (
+    spaceId: string,
+    contentfulAlias: string,
+    managementAccessToken: string,
+    isDryRun: boolean
+  ) =>
+    mockRunMigrationScripts(
+      spaceId,
+      contentfulAlias,
+      managementAccessToken,
+      isDryRun
+    )
 }));
 
-const main = async () => (await import("../index")).main();
+const main = async () => (await import("../index.js")).main();
 
 beforeEach(() => {
   jest.clearAllMocks();
@@ -96,10 +119,16 @@ describe("main", () => {
   });
 
   it("should not create new environment, run migration scripts or point alias to it if environment already exists", async () => {
-    const mockSpace = {
-      getEnvironment: jest.fn().mockResolvedValueOnce({})
+    const mockSpace = createSpace({
+      getEnvironment: jest
+        .fn<Space["getEnvironment"]>()
+        .mockResolvedValueOnce(createEnvironment())
+    });
+    const mockClient = {
+      getSpace: jest
+        .fn<ClientAPI["getSpace"]>()
+        .mockResolvedValueOnce(mockSpace)
     };
-    const mockClient = { getSpace: jest.fn().mockResolvedValueOnce(mockSpace) };
     mockCreateClient.mockReturnValueOnce(mockClient);
 
     await main();
@@ -116,12 +145,16 @@ describe("main", () => {
   });
 
   it("should not create new environment, run migration scripts or point alias to it if an error is thrown getting the environment", async () => {
-    const mockSpace = {
+    const mockSpace = createSpace({
       getEnvironment: jest
-        .fn()
+        .fn<Space["getEnvironment"]>()
         .mockRejectedValueOnce(new Error(JSON.stringify({ status: 500 })))
+    });
+    const mockClient = {
+      getSpace: jest
+        .fn<ClientAPI["getSpace"]>()
+        .mockResolvedValueOnce(mockSpace)
     };
-    const mockClient = { getSpace: jest.fn().mockResolvedValueOnce(mockSpace) };
     mockCreateClient.mockReturnValueOnce(mockClient);
 
     try {
@@ -143,15 +176,19 @@ describe("main", () => {
   });
 
   it("should not create new environment, run migration scripts or point alias to it if the alias cannot be found", async () => {
-    const mockSpace = {
+    const mockSpace = createSpace({
       getEnvironment: jest
-        .fn()
+        .fn<Space["getEnvironment"]>()
         .mockRejectedValueOnce(new Error(JSON.stringify({ status: 404 }))),
       getEnvironmentAlias: jest
-        .fn()
+        .fn<Space["getEnvironmentAlias"]>()
         .mockRejectedValueOnce(new Error(JSON.stringify({ status: 404 })))
+    });
+    const mockClient = {
+      getSpace: jest
+        .fn<ClientAPI["getSpace"]>()
+        .mockResolvedValueOnce(mockSpace)
     };
-    const mockClient = { getSpace: jest.fn().mockResolvedValueOnce(mockSpace) };
     mockCreateClient.mockReturnValueOnce(mockClient);
 
     try {
@@ -180,15 +217,19 @@ describe("main", () => {
   it("should not create new environment, run migration scripts or point alias to it if the alias cannot be found using the environment name when alias is not provided", async () => {
     delete process.env.CONTENTFUL_ALIAS;
 
-    const mockSpace = {
+    const mockSpace = createSpace({
       getEnvironment: jest
-        .fn()
+        .fn<Space["getEnvironment"]>()
         .mockRejectedValueOnce(new Error(JSON.stringify({ status: 404 }))),
       getEnvironmentAlias: jest
-        .fn()
+        .fn<Space["getEnvironmentAlias"]>()
         .mockRejectedValueOnce(new Error(JSON.stringify({ status: 404 })))
+    });
+    const mockClient = {
+      getSpace: jest
+        .fn<ClientAPI["getSpace"]>()
+        .mockResolvedValueOnce(mockSpace)
     };
-    const mockClient = { getSpace: jest.fn().mockResolvedValueOnce(mockSpace) };
     mockCreateClient.mockReturnValueOnce(mockClient);
 
     try {
@@ -215,15 +256,19 @@ describe("main", () => {
   });
 
   it("should not create new environment, run migration scripts or point alias to it if an error is thrown getting the alias", async () => {
-    const mockSpace = {
+    const mockSpace = createSpace({
       getEnvironment: jest
-        .fn()
+        .fn<Space["getEnvironment"]>()
         .mockRejectedValueOnce(new Error(JSON.stringify({ status: 404 }))),
       getEnvironmentAlias: jest
-        .fn()
+        .fn<Space["getEnvironmentAlias"]>()
         .mockRejectedValueOnce(new Error(JSON.stringify({ status: 500 })))
+    });
+    const mockClient = {
+      getSpace: jest
+        .fn<ClientAPI["getSpace"]>()
+        .mockResolvedValueOnce(mockSpace)
     };
-    const mockClient = { getSpace: jest.fn().mockResolvedValueOnce(mockSpace) };
     mockCreateClient.mockReturnValueOnce(mockClient);
 
     try {
@@ -245,15 +290,19 @@ describe("main", () => {
   });
 
   it("should not create new environment, run migration scripts and point alias to it if alias does not exist", async () => {
-    const mockSpace = {
+    const mockSpace = createSpace({
       getEnvironment: jest
-        .fn()
+        .fn<Space["getEnvironment"]>()
         .mockRejectedValueOnce(new Error(JSON.stringify({ status: 404 }))),
       getEnvironmentAlias: jest
-        .fn()
+        .fn<Space["getEnvironmentAlias"]>()
         .mockRejectedValueOnce(new Error(JSON.stringify({ status: 500 })))
+    });
+    const mockClient = {
+      getSpace: jest
+        .fn<ClientAPI["getSpace"]>()
+        .mockResolvedValueOnce(mockSpace)
     };
-    const mockClient = { getSpace: jest.fn().mockResolvedValueOnce(mockSpace) };
     mockCreateClient.mockReturnValueOnce(mockClient);
 
     try {
@@ -278,31 +327,30 @@ describe("main", () => {
   });
 
   it("should create new environment, run migration scripts and point alias to it if new environment name is provided", async () => {
-    const mockAlias = {
-      environment: { sys: { id: process.env.NEW_ENVIRONMENT_NAME } },
-      update: jest.fn()
-    };
-    const mockSpace = {
+    const mockAlias = createEnvironmentAliasWithEnvironmentId(
+      process.env.NEW_ENVIRONMENT_NAME!
+    );
+    const mockSpace = createSpace({
       getEnvironment: jest
-        .fn()
+        .fn<Space["getEnvironment"]>()
         .mockRejectedValueOnce(new Error(JSON.stringify({ status: 404 })))
-        .mockResolvedValueOnce({
-          sys: {
-            status: {
-              sys: {
-                id: "ready"
-              }
-            }
-          }
-        }),
-      getEnvironmentAlias: jest.fn().mockResolvedValueOnce(mockAlias),
-      createEnvironmentWithId: jest.fn().mockResolvedValueOnce({
-        sys: {
-          id: mockAlias.environment.sys.id
-        }
-      })
+        .mockResolvedValueOnce(
+          createEnvironment(createEnvironmentWithStatus("ready"))
+        ),
+      getEnvironmentAlias: jest
+        .fn<Space["getEnvironmentAlias"]>()
+        .mockResolvedValueOnce(mockAlias),
+      createEnvironmentWithId: jest
+        .fn<Space["createEnvironmentWithId"]>()
+        .mockResolvedValueOnce(
+          createEnvironmentWithId(mockAlias.environment.sys.id)
+        )
+    });
+    const mockClient = {
+      getSpace: jest
+        .fn<ClientAPI["getSpace"]>()
+        .mockResolvedValueOnce(mockSpace)
     };
-    const mockClient = { getSpace: jest.fn().mockResolvedValueOnce(mockSpace) };
     mockCreateClient.mockReturnValueOnce(mockClient);
 
     await main();
@@ -335,31 +383,28 @@ describe("main", () => {
   it("should create new environment, run migration scripts and point alias (as the environment name) to it if new environment name is provided and alias is not provided", async () => {
     delete process.env.CONTENTFUL_ALIAS;
 
-    const mockAlias = {
-      environment: { sys: { id: process.env.NEW_ENVIRONMENT_NAME } },
-      update: jest.fn()
-    };
-    const mockSpace = {
+    const mockAlias = createEnvironmentAliasWithEnvironmentId(
+      process.env.NEW_ENVIRONMENT_NAME!
+    );
+    const mockSpace = createSpace({
       getEnvironment: jest
-        .fn()
+        .fn<Space["getEnvironment"]>()
         .mockRejectedValueOnce(new Error(JSON.stringify({ status: 404 })))
-        .mockResolvedValueOnce({
-          sys: {
-            status: {
-              sys: {
-                id: "ready"
-              }
-            }
-          }
-        }),
-      getEnvironmentAlias: jest.fn().mockResolvedValueOnce(mockAlias),
-      createEnvironmentWithId: jest.fn().mockResolvedValueOnce({
-        sys: {
-          id: mockAlias.environment.sys.id
-        }
-      })
+        .mockResolvedValueOnce(createEnvironmentWithStatus("ready")),
+      getEnvironmentAlias: jest
+        .fn<Space["getEnvironmentAlias"]>()
+        .mockResolvedValueOnce(mockAlias),
+      createEnvironmentWithId: jest
+        .fn<Space["createEnvironmentWithId"]>()
+        .mockResolvedValueOnce(
+          createEnvironmentWithId(mockAlias.environment.sys.id)
+        )
+    });
+    const mockClient = {
+      getSpace: jest
+        .fn<ClientAPI["getSpace"]>()
+        .mockResolvedValueOnce(mockSpace)
     };
-    const mockClient = { getSpace: jest.fn().mockResolvedValueOnce(mockSpace) };
     mockCreateClient.mockReturnValueOnce(mockClient);
 
     await main();
@@ -392,31 +437,28 @@ describe("main", () => {
   it("should delete old environments if DELETE_OLD_ENVIRONMENTS environment variable is set to true", async () => {
     process.env.DELETE_OLD_ENVIRONMENTS = "true";
 
-    const mockAlias = {
-      environment: { sys: { id: process.env.NEW_ENVIRONMENT_NAME } },
-      update: jest.fn()
-    };
-    const mockSpace = {
+    const mockAlias = createEnvironmentAliasWithEnvironmentId(
+      process.env.NEW_ENVIRONMENT_NAME!
+    );
+    const mockSpace = createSpace({
       getEnvironment: jest
-        .fn()
+        .fn<Space["getEnvironment"]>()
         .mockRejectedValueOnce(new Error(JSON.stringify({ status: 404 })))
-        .mockResolvedValueOnce({
-          sys: {
-            status: {
-              sys: {
-                id: "ready"
-              }
-            }
-          }
-        }),
-      getEnvironmentAlias: jest.fn().mockResolvedValueOnce(mockAlias),
-      createEnvironmentWithId: jest.fn().mockResolvedValueOnce({
-        sys: {
-          id: mockAlias.environment.sys.id
-        }
-      })
+        .mockResolvedValueOnce(createEnvironmentWithStatus("ready")),
+      getEnvironmentAlias: jest
+        .fn<Space["getEnvironmentAlias"]>()
+        .mockResolvedValueOnce(mockAlias),
+      createEnvironmentWithId: jest
+        .fn<Space["createEnvironmentWithId"]>()
+        .mockResolvedValueOnce(
+          createEnvironmentWithId(mockAlias.environment.sys.id)
+        )
+    });
+    const mockClient = {
+      getSpace: jest
+        .fn<ClientAPI["getSpace"]>()
+        .mockResolvedValueOnce(mockSpace)
     };
-    const mockClient = { getSpace: jest.fn().mockResolvedValueOnce(mockSpace) };
     mockCreateClient.mockReturnValueOnce(mockClient);
 
     await main();
@@ -452,35 +494,29 @@ describe("main", () => {
   it("should delete the new environment without changing the alias if a dry run", async () => {
     process.env.MIGRATION_DRY_RUN = "true";
 
-    const mockAlias = {
-      environment: { sys: { id: process.env.NEW_ENVIRONMENT_NAME } },
-      update: jest.fn()
-    };
-    const mockNewEnvironment = {
-      sys: {
-        id: mockAlias.environment.sys.id
-      },
-      delete: jest.fn()
-    };
-    const mockSpace = {
+    const mockAlias = createEnvironmentAliasWithEnvironmentId(
+      process.env.NEW_ENVIRONMENT_NAME!
+    );
+    const mockNewEnvironment = createEnvironmentWithId(
+      mockAlias.environment.sys.id
+    );
+    const mockSpace = createSpace({
       getEnvironment: jest
-        .fn()
+        .fn<Space["getEnvironment"]>()
         .mockRejectedValueOnce(new Error(JSON.stringify({ status: 404 })))
-        .mockResolvedValueOnce({
-          sys: {
-            status: {
-              sys: {
-                id: "ready"
-              }
-            }
-          }
-        }),
-      getEnvironmentAlias: jest.fn().mockResolvedValueOnce(mockAlias),
+        .mockResolvedValueOnce(createEnvironmentWithStatus("ready")),
+      getEnvironmentAlias: jest
+        .fn<Space["getEnvironmentAlias"]>()
+        .mockResolvedValueOnce(mockAlias),
       createEnvironmentWithId: jest
-        .fn()
+        .fn<Space["createEnvironmentWithId"]>()
         .mockResolvedValueOnce(mockNewEnvironment)
+    });
+    const mockClient = {
+      getSpace: jest
+        .fn<ClientAPI["getSpace"]>()
+        .mockResolvedValueOnce(mockSpace)
     };
-    const mockClient = { getSpace: jest.fn().mockResolvedValueOnce(mockSpace) };
     mockCreateClient.mockReturnValueOnce(mockClient);
 
     await main();
@@ -512,35 +548,29 @@ describe("main", () => {
   });
 
   it("should delete the new environment without changing the alias and throw an error if the migration scripts fail", async () => {
-    const mockAlias = {
-      environment: { sys: { id: process.env.NEW_ENVIRONMENT_NAME } },
-      update: jest.fn()
-    };
-    const mockNewEnvironment = {
-      sys: {
-        id: mockAlias.environment.sys.id
-      },
-      delete: jest.fn()
-    };
-    const mockSpace = {
+    const mockAlias = createEnvironmentAliasWithEnvironmentId(
+      process.env.NEW_ENVIRONMENT_NAME!
+    );
+    const mockNewEnvironment = createEnvironmentWithId(
+      mockAlias.environment.sys.id
+    );
+    const mockSpace = createSpace({
       getEnvironment: jest
-        .fn()
+        .fn<Space["getEnvironment"]>()
         .mockRejectedValueOnce(new Error(JSON.stringify({ status: 404 })))
-        .mockResolvedValueOnce({
-          sys: {
-            status: {
-              sys: {
-                id: "ready"
-              }
-            }
-          }
-        }),
-      getEnvironmentAlias: jest.fn().mockResolvedValueOnce(mockAlias),
+        .mockResolvedValueOnce(createEnvironmentWithStatus("ready")),
+      getEnvironmentAlias: jest
+        .fn<Space["getEnvironmentAlias"]>()
+        .mockResolvedValueOnce(mockAlias),
       createEnvironmentWithId: jest
-        .fn()
+        .fn<Space["createEnvironmentWithId"]>()
         .mockResolvedValueOnce(mockNewEnvironment)
+    });
+    const mockClient = {
+      getSpace: jest
+        .fn<ClientAPI["getSpace"]>()
+        .mockResolvedValueOnce(mockSpace)
     };
-    const mockClient = { getSpace: jest.fn().mockResolvedValueOnce(mockSpace) };
     mockCreateClient.mockReturnValueOnce(mockClient);
     mockRunMigrationScripts.mockRejectedValueOnce(new Error("Expected error"));
 
@@ -580,35 +610,29 @@ describe("main", () => {
   });
 
   it("should throw an error after hitting the maximum number of retries", async () => {
-    const mockAlias = {
-      environment: { sys: { id: process.env.NEW_ENVIRONMENT_NAME } },
-      update: jest.fn()
-    };
-    const mockNewEnvironment = {
-      sys: {
-        id: mockAlias.environment.sys.id
-      },
-      delete: jest.fn()
-    };
-    const mockSpace = {
+    const mockAlias = createEnvironmentAliasWithEnvironmentId(
+      process.env.NEW_ENVIRONMENT_NAME!
+    );
+    const mockNewEnvironment = createEnvironmentWithId(
+      mockAlias.environment.sys.id
+    );
+    const mockSpace = createSpace({
       getEnvironment: jest
-        .fn()
+        .fn<Space["getEnvironment"]>()
         .mockRejectedValueOnce(new Error(JSON.stringify({ status: 404 })))
-        .mockResolvedValue({
-          sys: {
-            status: {
-              sys: {
-                id: "waiting"
-              }
-            }
-          }
-        }),
-      getEnvironmentAlias: jest.fn().mockResolvedValueOnce(mockAlias),
+        .mockResolvedValue(createEnvironmentWithStatus("waiting")),
+      getEnvironmentAlias: jest
+        .fn<Space["getEnvironmentAlias"]>()
+        .mockResolvedValueOnce(mockAlias),
       createEnvironmentWithId: jest
-        .fn()
+        .fn<Space["createEnvironmentWithId"]>()
         .mockResolvedValueOnce(mockNewEnvironment)
+    });
+    const mockClient = {
+      getSpace: jest
+        .fn<ClientAPI["getSpace"]>()
+        .mockResolvedValueOnce(mockSpace)
     };
-    const mockClient = { getSpace: jest.fn().mockResolvedValueOnce(mockSpace) };
     mockCreateClient.mockReturnValueOnce(mockClient);
 
     try {
@@ -642,44 +666,30 @@ describe("main", () => {
   });
 
   it("should carry on after retrying, but before maximum number of retries hit", async () => {
-    const mockAlias = {
-      environment: { sys: { id: process.env.NEW_ENVIRONMENT_NAME } },
-      update: jest.fn()
-    };
-    const mockNewEnvironment = {
-      sys: {
-        id: mockAlias.environment.sys.id
-      },
-      delete: jest.fn()
-    };
-    const mockSpace = {
+    const mockAlias = createEnvironmentAliasWithEnvironmentId(
+      process.env.NEW_ENVIRONMENT_NAME!
+    );
+    const mockNewEnvironment = createEnvironmentWithId(
+      mockAlias.environment.sys.id
+    );
+    const mockSpace = createSpace({
       getEnvironment: jest
-        .fn()
+        .fn<Space["getEnvironment"]>()
         .mockRejectedValueOnce(new Error(JSON.stringify({ status: 404 })))
-        .mockResolvedValueOnce({
-          sys: {
-            status: {
-              sys: {
-                id: "waiting"
-              }
-            }
-          }
-        })
-        .mockResolvedValueOnce({
-          sys: {
-            status: {
-              sys: {
-                id: "ready"
-              }
-            }
-          }
-        }),
-      getEnvironmentAlias: jest.fn().mockResolvedValueOnce(mockAlias),
+        .mockResolvedValueOnce(createEnvironmentWithStatus("waiting"))
+        .mockResolvedValueOnce(createEnvironmentWithStatus("ready")),
+      getEnvironmentAlias: jest
+        .fn<Space["getEnvironmentAlias"]>()
+        .mockResolvedValueOnce(mockAlias),
       createEnvironmentWithId: jest
-        .fn()
+        .fn<Space["createEnvironmentWithId"]>()
         .mockResolvedValueOnce(mockNewEnvironment)
+    });
+    const mockClient = {
+      getSpace: jest
+        .fn<ClientAPI["getSpace"]>()
+        .mockResolvedValueOnce(mockSpace)
     };
-    const mockClient = { getSpace: jest.fn().mockResolvedValueOnce(mockSpace) };
     mockCreateClient.mockReturnValueOnce(mockClient);
 
     await main();

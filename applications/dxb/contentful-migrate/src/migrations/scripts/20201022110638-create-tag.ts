@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Create content model for tags";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const tag = migration
     .createContentType("tag")
     .name("Tag")
@@ -13,6 +12,6 @@ export const up: MigrationFunction = (migration: Migration) => {
   tag.createField("title").name("Title").type("Symbol").required(true);
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   migration.deleteContentType("tag");
 };

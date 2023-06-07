@@ -1,13 +1,9 @@
 import { getAllContentTypes } from "@bmi-digital/contentful-migration";
-import type Migration from "contentful-migration";
-import type { MigrationContext, MigrationFunction } from "contentful-migration";
+import type { MigrationFunction } from "contentful-migration";
 
 export const description = "localise all content type fields";
 
-export const up: MigrationFunction = async (
-  migration: Migration,
-  context?: MigrationContext
-) => {
+export const up: MigrationFunction = async (migration, context) => {
   const allContentTypes = await getAllContentTypes(context!.makeRequest);
   allContentTypes.items
     .filter((ctype: any) => ctype.sys.id !== "migration")
@@ -21,10 +17,7 @@ export const up: MigrationFunction = async (
     });
 };
 
-export const down: MigrationFunction = async (
-  migration: Migration,
-  context?: MigrationContext
-) => {
+export const down: MigrationFunction = async (migration, context) => {
   // Below are the content type fields which had localisation set to true
   // when this migration is created. Technically this not a 100% reversal.
   // But this is good enough for dev purposes. Production roll back can/should

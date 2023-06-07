@@ -339,6 +339,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                   >
                     <button
                       aria-controls="navigation-tabpanel-0"
+                      aria-label="Products"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Header-navItem css-1674q4i-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu","label":"Products"}"
@@ -366,6 +367,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                     </button>
                     <button
                       aria-controls="navigation-tabpanel-1"
+                      aria-label="Systems"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Header-navItem css-1674q4i-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu","label":"Systems"}"
@@ -393,6 +395,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                     </button>
                     <button
                       aria-controls="navigation-tabpanel-2"
+                      aria-label="Brands"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Header-navItem css-1674q4i-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu","label":"Brands"}"
@@ -420,6 +423,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                     </button>
                     <button
                       aria-controls="navigation-tabpanel-3"
+                      aria-label="Tips and Inspiration"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Header-navItem css-1674q4i-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu","label":"Tips and Inspiration"}"
@@ -447,6 +451,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                     </button>
                     <button
                       aria-controls="navigation-tabpanel-4"
+                      aria-label="Support"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Header-navItem css-1674q4i-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu","label":"Support"}"
@@ -474,6 +479,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                     </button>
                     <button
                       aria-controls="navigation-tabpanel-5"
+                      aria-label="Documentation"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Header-navItem css-1674q4i-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu","label":"Documentation"}"
@@ -827,13 +833,6 @@ exports[`404 page tests When error page data is partially populated renders plac
                                 >
                                   All Stone Roofs
                                   <span
-                                    class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                                  >
-                                    <span
-                                      class="Navigation-iconWrapper"
-                                    />
-                                  </span>
-                                  <span
                                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                                   />
                                 </a>
@@ -1084,13 +1083,6 @@ exports[`404 page tests When error page data is partially populated renders plac
                                 >
                                   All Shingle
                                   <span
-                                    class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                                  >
-                                    <span
-                                      class="Navigation-iconWrapper"
-                                    />
-                                  </span>
-                                  <span
                                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                                   />
                                 </a>
@@ -1206,13 +1198,6 @@ exports[`404 page tests When error page data is partially populated renders plac
                                   target="_blank"
                                 >
                                    Roof ladder
-                                  <span
-                                    class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                                  >
-                                    <span
-                                      class="Navigation-iconWrapper"
-                                    />
-                                  </span>
                                   <span
                                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                                   />
@@ -1423,13 +1408,6 @@ exports[`404 page tests When error page data is partially populated renders plac
                     >
                       Pitched Roof
                       <span
-                        class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                      >
-                        <span
-                          class="Navigation-iconWrapper"
-                        />
-                      </span>
-                      <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </a>
@@ -1443,13 +1421,6 @@ exports[`404 page tests When error page data is partially populated renders plac
                       target="_blank"
                     >
                       Flat roof
-                      <span
-                        class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                      >
-                        <span
-                          class="Navigation-iconWrapper"
-                        />
-                      </span>
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
@@ -1465,13 +1436,6 @@ exports[`404 page tests When error page data is partially populated renders plac
                     >
                       Membranes
                       <span
-                        class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                      >
-                        <span
-                          class="Navigation-iconWrapper"
-                        />
-                      </span>
-                      <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </a>
@@ -1485,13 +1449,6 @@ exports[`404 page tests When error page data is partially populated renders plac
                       type="button"
                     >
                       Sealing systems
-                      <span
-                        class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                      >
-                        <span
-                          class="Navigation-iconWrapper"
-                        />
-                      </span>
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
@@ -1810,13 +1767,6 @@ exports[`404 page tests When error page data is partially populated renders plac
                           >
                             All Inspiration
                             <span
-                              class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                            >
-                              <span
-                                class="Navigation-iconWrapper"
-                              />
-                            </span>
-                            <span
                               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                             />
                           </a>
@@ -1830,13 +1780,6 @@ exports[`404 page tests When error page data is partially populated renders plac
                             type="button"
                           >
                             Homeowners
-                            <span
-                              class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                            >
-                              <span
-                                class="Navigation-iconWrapper"
-                              />
-                            </span>
                             <span
                               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                             />
@@ -1852,13 +1795,6 @@ exports[`404 page tests When error page data is partially populated renders plac
                           >
                             Professionals
                             <span
-                              class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                            >
-                              <span
-                                class="Navigation-iconWrapper"
-                              />
-                            </span>
-                            <span
                               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                             />
                           </button>
@@ -1873,13 +1809,6 @@ exports[`404 page tests When error page data is partially populated renders plac
                           >
                             Commercial building
                             <span
-                              class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                            >
-                              <span
-                                class="Navigation-iconWrapper"
-                              />
-                            </span>
-                            <span
                               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                             />
                           </button>
@@ -1893,13 +1822,6 @@ exports[`404 page tests When error page data is partially populated renders plac
                             type="button"
                           >
                             Architect and engineer
-                            <span
-                              class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                            >
-                              <span
-                                class="Navigation-iconWrapper"
-                              />
-                            </span>
                             <span
                               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                             />
@@ -1985,13 +1907,6 @@ exports[`404 page tests When error page data is partially populated renders plac
                           >
                             For Professionals
                             <span
-                              class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                            >
-                              <span
-                                class="Navigation-iconWrapper"
-                              />
-                            </span>
-                            <span
                               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                             />
                           </button>
@@ -2073,13 +1988,6 @@ exports[`404 page tests When error page data is partially populated renders plac
                                 >
                                   Build houses
                                   <span
-                                    class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                                  >
-                                    <span
-                                      class="Navigation-iconWrapper"
-                                    />
-                                  </span>
-                                  <span
                                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                                   />
                                 </button>
@@ -2093,13 +2001,6 @@ exports[`404 page tests When error page data is partially populated renders plac
                                   type="button"
                                 >
                                   Build cottage
-                                  <span
-                                    class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                                  >
-                                    <span
-                                      class="Navigation-iconWrapper"
-                                    />
-                                  </span>
                                   <span
                                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                                   />
@@ -2115,13 +2016,6 @@ exports[`404 page tests When error page data is partially populated renders plac
                                 >
                                   Build terrace
                                   <span
-                                    class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                                  >
-                                    <span
-                                      class="Navigation-iconWrapper"
-                                    />
-                                  </span>
-                                  <span
                                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                                   />
                                 </button>
@@ -2135,13 +2029,6 @@ exports[`404 page tests When error page data is partially populated renders plac
                                   type="button"
                                 >
                                   Build garage
-                                  <span
-                                    class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                                  >
-                                    <span
-                                      class="Navigation-iconWrapper"
-                                    />
-                                  </span>
                                   <span
                                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                                   />
@@ -2160,13 +2047,6 @@ exports[`404 page tests When error page data is partially populated renders plac
                           >
                             Other construction tips
                             <span
-                              class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                            >
-                              <span
-                                class="Navigation-iconWrapper"
-                              />
-                            </span>
-                            <span
                               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                             />
                           </button>
@@ -2183,13 +2063,6 @@ exports[`404 page tests When error page data is partially populated renders plac
                       type="button"
                     >
                       News
-                      <span
-                        class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                      >
-                        <span
-                          class="Navigation-iconWrapper"
-                        />
-                      </span>
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
@@ -2275,13 +2148,6 @@ exports[`404 page tests When error page data is partially populated renders plac
                     >
                       Roof Calculator
                       <span
-                        class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                      >
-                        <span
-                          class="Navigation-iconWrapper"
-                        />
-                      </span>
-                      <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </button>
@@ -2296,13 +2162,6 @@ exports[`404 page tests When error page data is partially populated renders plac
                     >
                       FAQs
                       <span
-                        class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                      >
-                        <span
-                          class="Navigation-iconWrapper"
-                        />
-                      </span>
-                      <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </a>
@@ -2316,13 +2175,6 @@ exports[`404 page tests When error page data is partially populated renders plac
                       target="_blank"
                     >
                       Puja's test page
-                      <span
-                        class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                      >
-                        <span
-                          class="Navigation-iconWrapper"
-                        />
-                      </span>
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
@@ -2408,13 +2260,6 @@ exports[`404 page tests When error page data is partially populated renders plac
                     >
                       All Documentation
                       <span
-                        class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                      >
-                        <span
-                          class="Navigation-iconWrapper"
-                        />
-                      </span>
-                      <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </button>
@@ -2429,13 +2274,6 @@ exports[`404 page tests When error page data is partially populated renders plac
                     >
                       Test Doc Lib
                       <span
-                        class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                      >
-                        <span
-                          class="Navigation-iconWrapper"
-                        />
-                      </span>
-                      <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </button>
@@ -2449,13 +2287,6 @@ exports[`404 page tests When error page data is partially populated renders plac
                       target="_blank"
                     >
                       What our roofers say
-                      <span
-                        class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                      >
-                        <span
-                          class="Navigation-iconWrapper"
-                        />
-                      </span>
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
@@ -3415,6 +3246,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                   >
                     <button
                       aria-controls="navigation-tabpanel-0"
+                      aria-label="Products"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Header-navItem css-1674q4i-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu","label":"Products"}"
@@ -3442,6 +3274,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                     </button>
                     <button
                       aria-controls="navigation-tabpanel-1"
+                      aria-label="Systems"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Header-navItem css-1674q4i-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu","label":"Systems"}"
@@ -3469,6 +3302,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                     </button>
                     <button
                       aria-controls="navigation-tabpanel-2"
+                      aria-label="Brands"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Header-navItem css-1674q4i-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu","label":"Brands"}"
@@ -3496,6 +3330,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                     </button>
                     <button
                       aria-controls="navigation-tabpanel-3"
+                      aria-label="Tips and Inspiration"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Header-navItem css-1674q4i-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu","label":"Tips and Inspiration"}"
@@ -3523,6 +3358,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                     </button>
                     <button
                       aria-controls="navigation-tabpanel-4"
+                      aria-label="Support"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Header-navItem css-1674q4i-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu","label":"Support"}"
@@ -3550,6 +3386,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                     </button>
                     <button
                       aria-controls="navigation-tabpanel-5"
+                      aria-label="Documentation"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Header-navItem css-1674q4i-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu","label":"Documentation"}"
@@ -3903,13 +3740,6 @@ exports[`404 page tests When site data and error page data are fully populated r
                                 >
                                   All Stone Roofs
                                   <span
-                                    class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                                  >
-                                    <span
-                                      class="Navigation-iconWrapper"
-                                    />
-                                  </span>
-                                  <span
                                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                                   />
                                 </a>
@@ -4160,13 +3990,6 @@ exports[`404 page tests When site data and error page data are fully populated r
                                 >
                                   All Shingle
                                   <span
-                                    class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                                  >
-                                    <span
-                                      class="Navigation-iconWrapper"
-                                    />
-                                  </span>
-                                  <span
                                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                                   />
                                 </a>
@@ -4282,13 +4105,6 @@ exports[`404 page tests When site data and error page data are fully populated r
                                   target="_blank"
                                 >
                                    Roof ladder
-                                  <span
-                                    class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                                  >
-                                    <span
-                                      class="Navigation-iconWrapper"
-                                    />
-                                  </span>
                                   <span
                                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                                   />
@@ -4499,13 +4315,6 @@ exports[`404 page tests When site data and error page data are fully populated r
                     >
                       Pitched Roof
                       <span
-                        class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                      >
-                        <span
-                          class="Navigation-iconWrapper"
-                        />
-                      </span>
-                      <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </a>
@@ -4519,13 +4328,6 @@ exports[`404 page tests When site data and error page data are fully populated r
                       target="_blank"
                     >
                       Flat roof
-                      <span
-                        class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                      >
-                        <span
-                          class="Navigation-iconWrapper"
-                        />
-                      </span>
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
@@ -4541,13 +4343,6 @@ exports[`404 page tests When site data and error page data are fully populated r
                     >
                       Membranes
                       <span
-                        class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                      >
-                        <span
-                          class="Navigation-iconWrapper"
-                        />
-                      </span>
-                      <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </a>
@@ -4561,13 +4356,6 @@ exports[`404 page tests When site data and error page data are fully populated r
                       type="button"
                     >
                       Sealing systems
-                      <span
-                        class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                      >
-                        <span
-                          class="Navigation-iconWrapper"
-                        />
-                      </span>
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
@@ -4886,13 +4674,6 @@ exports[`404 page tests When site data and error page data are fully populated r
                           >
                             All Inspiration
                             <span
-                              class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                            >
-                              <span
-                                class="Navigation-iconWrapper"
-                              />
-                            </span>
-                            <span
                               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                             />
                           </a>
@@ -4906,13 +4687,6 @@ exports[`404 page tests When site data and error page data are fully populated r
                             type="button"
                           >
                             Homeowners
-                            <span
-                              class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                            >
-                              <span
-                                class="Navigation-iconWrapper"
-                              />
-                            </span>
                             <span
                               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                             />
@@ -4928,13 +4702,6 @@ exports[`404 page tests When site data and error page data are fully populated r
                           >
                             Professionals
                             <span
-                              class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                            >
-                              <span
-                                class="Navigation-iconWrapper"
-                              />
-                            </span>
-                            <span
                               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                             />
                           </button>
@@ -4949,13 +4716,6 @@ exports[`404 page tests When site data and error page data are fully populated r
                           >
                             Commercial building
                             <span
-                              class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                            >
-                              <span
-                                class="Navigation-iconWrapper"
-                              />
-                            </span>
-                            <span
                               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                             />
                           </button>
@@ -4969,13 +4729,6 @@ exports[`404 page tests When site data and error page data are fully populated r
                             type="button"
                           >
                             Architect and engineer
-                            <span
-                              class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                            >
-                              <span
-                                class="Navigation-iconWrapper"
-                              />
-                            </span>
                             <span
                               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                             />
@@ -5061,13 +4814,6 @@ exports[`404 page tests When site data and error page data are fully populated r
                           >
                             For Professionals
                             <span
-                              class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                            >
-                              <span
-                                class="Navigation-iconWrapper"
-                              />
-                            </span>
-                            <span
                               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                             />
                           </button>
@@ -5149,13 +4895,6 @@ exports[`404 page tests When site data and error page data are fully populated r
                                 >
                                   Build houses
                                   <span
-                                    class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                                  >
-                                    <span
-                                      class="Navigation-iconWrapper"
-                                    />
-                                  </span>
-                                  <span
                                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                                   />
                                 </button>
@@ -5169,13 +4908,6 @@ exports[`404 page tests When site data and error page data are fully populated r
                                   type="button"
                                 >
                                   Build cottage
-                                  <span
-                                    class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                                  >
-                                    <span
-                                      class="Navigation-iconWrapper"
-                                    />
-                                  </span>
                                   <span
                                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                                   />
@@ -5191,13 +4923,6 @@ exports[`404 page tests When site data and error page data are fully populated r
                                 >
                                   Build terrace
                                   <span
-                                    class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                                  >
-                                    <span
-                                      class="Navigation-iconWrapper"
-                                    />
-                                  </span>
-                                  <span
                                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                                   />
                                 </button>
@@ -5211,13 +4936,6 @@ exports[`404 page tests When site data and error page data are fully populated r
                                   type="button"
                                 >
                                   Build garage
-                                  <span
-                                    class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                                  >
-                                    <span
-                                      class="Navigation-iconWrapper"
-                                    />
-                                  </span>
                                   <span
                                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                                   />
@@ -5236,13 +4954,6 @@ exports[`404 page tests When site data and error page data are fully populated r
                           >
                             Other construction tips
                             <span
-                              class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                            >
-                              <span
-                                class="Navigation-iconWrapper"
-                              />
-                            </span>
-                            <span
                               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                             />
                           </button>
@@ -5259,13 +4970,6 @@ exports[`404 page tests When site data and error page data are fully populated r
                       type="button"
                     >
                       News
-                      <span
-                        class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                      >
-                        <span
-                          class="Navigation-iconWrapper"
-                        />
-                      </span>
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
@@ -5351,13 +5055,6 @@ exports[`404 page tests When site data and error page data are fully populated r
                     >
                       Roof Calculator
                       <span
-                        class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                      >
-                        <span
-                          class="Navigation-iconWrapper"
-                        />
-                      </span>
-                      <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </button>
@@ -5372,13 +5069,6 @@ exports[`404 page tests When site data and error page data are fully populated r
                     >
                       FAQs
                       <span
-                        class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                      >
-                        <span
-                          class="Navigation-iconWrapper"
-                        />
-                      </span>
-                      <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </a>
@@ -5392,13 +5082,6 @@ exports[`404 page tests When site data and error page data are fully populated r
                       target="_blank"
                     >
                       Puja's test page
-                      <span
-                        class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                      >
-                        <span
-                          class="Navigation-iconWrapper"
-                        />
-                      </span>
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
@@ -5484,13 +5167,6 @@ exports[`404 page tests When site data and error page data are fully populated r
                     >
                       All Documentation
                       <span
-                        class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                      >
-                        <span
-                          class="Navigation-iconWrapper"
-                        />
-                      </span>
-                      <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </button>
@@ -5505,13 +5181,6 @@ exports[`404 page tests When site data and error page data are fully populated r
                     >
                       Test Doc Lib
                       <span
-                        class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                      >
-                        <span
-                          class="Navigation-iconWrapper"
-                        />
-                      </span>
-                      <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </button>
@@ -5525,13 +5194,6 @@ exports[`404 page tests When site data and error page data are fully populated r
                       target="_blank"
                     >
                       What our roofers say
-                      <span
-                        class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                      >
-                        <span
-                          class="Navigation-iconWrapper"
-                        />
-                      </span>
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />

@@ -1,5 +1,5 @@
-import { ProductDocument } from "../../types/pim";
 import createPimDocument from "../../__tests__/helpers/PimDocumentHelper";
+import { ProductDocument } from "../../types/pim";
 import createAssetFileCountMap, {
   AssetUniqueFileCountMap,
   generateFilenameByRealFileName,
@@ -12,7 +12,7 @@ const createAssetsWithRealFileNames = (
   return realFileNames.map((filename) =>
     createPimDocument({
       realFileName: filename,
-      title: null
+      title: undefined
     })
   );
 };
@@ -330,7 +330,7 @@ describe("DocumentFileUtils Tests", () => {
         const generatedFileName = generateFileNamebyTitle(
           uniqueFileMap,
           assets[0].title,
-          assets[0].extension,
+          assets[0].extension!,
           0
         );
         expect(generatedFileName).toEqual("file-title5.pdf");
@@ -361,7 +361,7 @@ describe("DocumentFileUtils Tests", () => {
         let generatedFileName = generateFileNamebyTitle(
           uniqueFileMap,
           assets[0].title,
-          assets[0].extension,
+          assets[0].extension!,
           0
         );
         expect(generatedFileName).toEqual("file-title1-1.pdf");
@@ -369,7 +369,7 @@ describe("DocumentFileUtils Tests", () => {
         generatedFileName = generateFileNamebyTitle(
           uniqueFileMap,
           assets[1].title,
-          assets[1].extension,
+          assets[1].extension!,
           1
         );
         expect(generatedFileName).toEqual("file-title1-2.pdf");
@@ -377,7 +377,7 @@ describe("DocumentFileUtils Tests", () => {
         generatedFileName = generateFileNamebyTitle(
           uniqueFileMap,
           assets[2].title,
-          assets[2].extension,
+          assets[2].extension!,
           2
         );
         expect(generatedFileName).toEqual("file-title2.pdf");
@@ -385,7 +385,7 @@ describe("DocumentFileUtils Tests", () => {
         generatedFileName = generateFileNamebyTitle(
           uniqueFileMap,
           assets[3].title,
-          assets[3].extension,
+          assets[3].extension!,
           3
         );
         expect(generatedFileName).toEqual("file-title3-1.pdf");
@@ -393,7 +393,7 @@ describe("DocumentFileUtils Tests", () => {
         generatedFileName = generateFileNamebyTitle(
           uniqueFileMap,
           assets[4].title,
-          assets[4].extension,
+          assets[4].extension!,
           4
         );
         expect(generatedFileName).toEqual("file-title3-2.pdf");
@@ -401,7 +401,7 @@ describe("DocumentFileUtils Tests", () => {
         generatedFileName = generateFileNamebyTitle(
           uniqueFileMap,
           assets[5].title,
-          assets[5].extension,
+          assets[5].extension!,
           5
         );
         expect(generatedFileName).toEqual("file-title4.pdf");
@@ -430,7 +430,7 @@ describe("DocumentFileUtils Tests", () => {
         let generatedFileName = generateFileNamebyTitle(
           uniqueFileMap,
           assets[0].title,
-          assets[0].extension,
+          assets[0].extension!,
           0
         );
         expect(generatedFileName).toEqual("file-title3-1.pdf");
@@ -438,7 +438,7 @@ describe("DocumentFileUtils Tests", () => {
         generatedFileName = generateFileNamebyTitle(
           uniqueFileMap,
           assets[1].title,
-          assets[1].extension,
+          assets[1].extension!,
           1
         );
         expect(generatedFileName).toEqual("file-title1-1.pdf");
@@ -446,7 +446,7 @@ describe("DocumentFileUtils Tests", () => {
         generatedFileName = generateFileNamebyTitle(
           uniqueFileMap,
           assets[4].title,
-          assets[4].extension,
+          assets[4].extension!,
           4
         );
         expect(generatedFileName).toEqual("file-title3-2.pdf");
@@ -454,7 +454,7 @@ describe("DocumentFileUtils Tests", () => {
         generatedFileName = generateFileNamebyTitle(
           uniqueFileMap,
           assets[3].title,
-          assets[3].extension,
+          assets[3].extension!,
           3
         );
         expect(generatedFileName).toEqual("file-title4.pdf");
@@ -462,7 +462,7 @@ describe("DocumentFileUtils Tests", () => {
         generatedFileName = generateFileNamebyTitle(
           uniqueFileMap,
           assets[2].title,
-          assets[2].extension,
+          assets[2].extension!,
           2
         );
         expect(generatedFileName).toEqual("file-title2.pdf");
@@ -470,7 +470,7 @@ describe("DocumentFileUtils Tests", () => {
         generatedFileName = generateFileNamebyTitle(
           uniqueFileMap,
           assets[5].title,
-          assets[5].extension,
+          assets[5].extension!,
           5
         );
         expect(generatedFileName).toEqual("file-title1-2.pdf");

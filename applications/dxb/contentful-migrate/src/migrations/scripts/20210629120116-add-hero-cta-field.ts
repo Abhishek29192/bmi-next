@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Add hero CTA link field";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const page = migration.editContentType("productListerPage");
   page
     .createField("cta")
@@ -19,7 +18,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   page.moveField("cta").afterField("heroType");
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const page = migration.editContentType("productListerPage");
   page.deleteField("cta");
 };

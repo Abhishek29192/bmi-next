@@ -1,6 +1,26 @@
 {
-  "extends": "../../../../tsconfig.json",
+  "extends": "../../../../tsconfig.common.json",
   "compilerOptions": {
     "outDir": "dist"
-  }
+  },
+  "references": [
+    {
+      "path": "../../libraries/fetch-retry"
+    },
+    {
+      "path": "../../libraries/functions-contentful-client"
+    },
+    {
+      "path": "../../libraries/functions-es-client"
+    },
+    {
+      "path": "../../libraries/functions-firestore"
+    },
+    {
+      "path": "../../libraries/pim-api"
+    },
+    {
+      "path": "../../libraries/pim-types"
+    }
+  ]
 }

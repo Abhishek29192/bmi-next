@@ -1,10 +1,9 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description =
   "Delete System Configurator Block from System Configurator Answer nextStep validations after data is migrated";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const systemConfiguratorAnswer = migration.editContentType(
     "systemConfiguratorAnswer"
   );
@@ -52,7 +51,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   });
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const systemConfiguratorAnswer = migration.editContentType(
     "systemConfiguratorAnswer"
   );

@@ -1,7 +1,7 @@
 import { Button, ButtonProps } from "@bmi-digital/components";
+import classnames from "classnames";
 import { graphql } from "gatsby";
 import React from "react";
-import classnames from "classnames";
 import withGTM from "../utils/google-tag-manager";
 import Link, { Data as LinkData } from "./Link";
 import styles from "./styles/EmbeddedLink.module.scss";
@@ -27,7 +27,7 @@ const EmbeddedLink = ({
   };
   return (
     <Link
-      component={(props) => (
+      component={(props: ButtonProps) => (
         <GTMButton
           gtm={{
             id: "cta-click1",

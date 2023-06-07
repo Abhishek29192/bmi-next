@@ -6,7 +6,7 @@ import fetch, { Response } from "node-fetch";
 import { getNumberOfDocuments } from "./contentful";
 import {
   createElasticSearchIndex,
-  deleteElasticSearchIndex,
+  createIndexAlias,
   ElasticsearchIndexes
 } from "./elasticsearch";
 import { deleteFirestoreCollection } from "./firestore";
@@ -161,18 +161,32 @@ const handleRequest: HttpFunction = async (req, res) => {
     return res.sendStatus(500);
   }
 
-  logger.info({ message: "Clearing out data..." });
+  const timeStamp = new Date().getMilliseconds();
 
+  // this is now read alias!
   const productsIndex = `${ES_INDEX_PREFIX}${ElasticsearchIndexes.Products}`;
   const systemsIndex = `${ES_INDEX_PREFIX}${ElasticsearchIndexes.Systems}`;
   const documentsIndex = ES_INDEX_NAME_DOCUMENTS;
 
-  await deleteElasticSearchIndex(productsIndex);
-  await deleteElasticSearchIndex(systemsIndex);
-  await deleteElasticSearchIndex(documentsIndex);
-  await createElasticSearchIndex(productsIndex);
-  await createElasticSearchIndex(systemsIndex);
-  await createElasticSearchIndex(documentsIndex);
+  const productsIndexNew = `${ES_INDEX_PREFIX}${timeStamp}_${ElasticsearchIndexes.Products}`;
+  const systemsIndexNew = `${ES_INDEX_PREFIX}${timeStamp}_${ElasticsearchIndexes.Systems}`;
+  const documentsIndexNew = `${documentsIndex}_${timeStamp}`;
+
+  // write alias
+  const productsIndexWriteAlias = `${productsIndex}_write`;
+  const systemsIndexWriteAlias = `${systemsIndex}_write`;
+  const documentsIndexWriteAlias = `${documentsIndex}_write`;
+
+  // create new index with new name
+  await createElasticSearchIndex(productsIndexNew);
+  await createElasticSearchIndex(systemsIndexNew);
+  await createElasticSearchIndex(documentsIndexNew);
+
+  // point write alias to the newly created indexes
+  await createIndexAlias(productsIndexNew, productsIndexWriteAlias);
+  await createIndexAlias(systemsIndexNew, systemsIndexWriteAlias);
+  await createIndexAlias(documentsIndexNew, documentsIndexWriteAlias);
+
   await deleteFirestoreCollection(FirestoreCollections.Products);
   await deleteFirestoreCollection(FirestoreCollections.Systems);
 
@@ -199,7 +213,7 @@ const handleRequest: HttpFunction = async (req, res) => {
         "Content-Type": "application/json",
         Authorization: `bearer ${token}`
       },
-      body: JSON.stringify({ foo: "bar" })
+      body: JSON.stringify({ isFullFetch: true })
     });
   } catch (error) {
     logger.error({

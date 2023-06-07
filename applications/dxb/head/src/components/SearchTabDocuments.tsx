@@ -8,6 +8,7 @@ import React, { useEffect, useRef, useState } from "react";
 import FiltersSidebar from "../components/FiltersSidebar";
 import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
+import { DocumentTableHeader } from "../types/Document";
 import { devLog } from "../utils/devLog";
 import {
   Aggregations,
@@ -22,21 +23,21 @@ import {
   updateFilterValue
 } from "../utils/filters";
 import DocumentResultsFooter from "./DocumentResultsFooter";
-import DocumentSimpleTableResults, {
-  AvailableHeader
-} from "./DocumentSimpleTableResults";
+import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
 import { useSiteContext } from "./Site";
+import { StyledGridContainer } from "./styles/SearchTabDocumentsStyles";
 
 const PAGE_SIZE = 24;
 const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_DOCUMENTS;
 export const availabilityFilterCode = "availability";
-const documentTableHeaders: AvailableHeader[] = [
+const documentTableHeaders: DocumentTableHeader[] = [
+  "add",
   "typeCode",
   "title",
   "productStatus",
   "validityDate",
-  "download",
-  "add"
+  "size",
+  "actions"
 ];
 
 // Creates filters from aggregations
@@ -90,7 +91,7 @@ type Props = {
   };
 };
 
-export const getCount = async (queryString) => {
+export const getCount = async (queryString: string) => {
   const esQueryObject = getDocumentQueryObject(queryString, PAGE_SIZE);
 
   const countResult = await queryElasticSearch(
@@ -251,7 +252,7 @@ const SearchTabPanelDocuments = (props: Props) => {
   const maxSize = documentDownloadMaxLimit * 1048576;
   return (
     <DownloadList maxSize={maxSize}>
-      <Grid container spacing={3} ref={resultsElement}>
+      <StyledGridContainer container spacing={3} ref={resultsElement}>
         <Grid xs={12} md={12} lg={3}>
           <DownloadListContext.Consumer>
             {({ resetList }) => (
@@ -263,7 +264,7 @@ const SearchTabPanelDocuments = (props: Props) => {
             )}
           </DownloadListContext.Consumer>
         </Grid>
-        <Grid xs={12} md={12} lg={9} style={{ paddingTop: 0 }}>
+        <Grid xs={12} md={12} lg={9} sx={{ pt: { lg: 0 } }}>
           <DocumentSimpleTableResults
             documents={results}
             headers={documentTableHeaders}
@@ -276,7 +277,7 @@ const SearchTabPanelDocuments = (props: Props) => {
             />
           </div>
         </Grid>
-      </Grid>
+      </StyledGridContainer>
     </DownloadList>
   );
 };

@@ -1,10 +1,12 @@
-import { types } from "util";
-import { createClient, Environment, Space } from "contentful-management";
+import { pathToFileURL } from "node:url";
+import { types } from "node:util";
+import { waitFor } from "@bmi/utils";
+import contentfulManagement from "contentful-management";
 import "dotenv/config";
 import ora from "ora";
-import { waitFor } from "@bmi/utils";
-import { runMigrationScripts } from "./migrationScripts";
-import { cleanupOldEnvironments } from "./cleanup";
+import { cleanupOldEnvironments } from "./cleanup.js";
+import { runMigrationScripts } from "./migrationScripts.js";
+import type { Environment, Space } from "contentful-management";
 
 const {
   CONTENTFUL_ENVIRONMENT,
@@ -61,7 +63,7 @@ const buildContentful = async (
     return;
   }
 
-  const client = createClient({
+  const client = contentfulManagement.createClient({
     accessToken: managementAccessToken
   });
   const space = await client.getSpace(spaceId);
@@ -184,7 +186,7 @@ export const main = async () => {
 };
 
 // istanbul ignore if - can't override require.main
-if (require.main === module) {
+if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   main().catch((error) => {
     console.error(error);
     process.exit(1);

@@ -10,7 +10,7 @@ const ErrorFallback = ({
   promo
 }: {
   countryCode: string;
-  promo: PromoData;
+  promo?: PromoData | null;
 }) => {
   const {
     title = "Error:General.title",
@@ -22,7 +22,7 @@ const ErrorFallback = ({
     },
     featuredMedia = null,
     featuredVideo = null
-  } = promo || {};
+  } = promo ?? {};
   return (
     <PromoSection
       title={title}
@@ -43,7 +43,7 @@ const ErrorFallback = ({
             cta?.linkedPage,
             cta?.url,
             countryCode,
-            null,
+            undefined,
             cta.label
           )}
         >

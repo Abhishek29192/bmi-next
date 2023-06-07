@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Rename content-topic to contact-topic";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const contactTopic = migration.editContentType("contentTopic");
 
   contactTopic.name("Contact Topic");
@@ -15,7 +14,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   });
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const contentTopic = migration.editContentType("contentTopic");
 
   contentTopic.name("Content Topic");

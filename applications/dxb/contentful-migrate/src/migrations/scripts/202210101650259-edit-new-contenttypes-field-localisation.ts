@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "localise new content type fields";
 
-export const up: MigrationFunction = async (migration: Migration) => {
+export const up: MigrationFunction = async (migration) => {
   const brand = migration.editContentType("brand");
   brand.editField("title").localized(true);
   brand.editField("brandLogo").localized(true);
@@ -42,7 +41,7 @@ export const up: MigrationFunction = async (migration: Migration) => {
   roofer.editField("websiteLinkAsLabel").localized(true);
 };
 
-export const down: MigrationFunction = async (migration: Migration) => {
+export const down: MigrationFunction = async (migration) => {
   const brand = migration.editContentType("brand");
   brand.editField("title").localized(false);
   brand.editField("brandLogo").localized(false);

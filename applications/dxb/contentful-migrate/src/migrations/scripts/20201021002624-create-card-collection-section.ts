@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Create content model for Card Collection Section";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const cardCollectionSection = migration
     .createContentType("cardCollectionSection")
     .name("Card Collection Section")
@@ -60,5 +59,5 @@ export const up: MigrationFunction = (migration: Migration) => {
   );
 };
 
-export const down: MigrationFunction = (migration: Migration) =>
+export const down: MigrationFunction = (migration) =>
   migration.deleteContentType("cardCollectionSection");

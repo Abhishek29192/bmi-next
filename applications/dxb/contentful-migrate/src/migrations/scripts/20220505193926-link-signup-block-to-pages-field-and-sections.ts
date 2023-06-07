@@ -1,4 +1,3 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 const homePageLinkContentType = [
@@ -57,7 +56,7 @@ export const description =
   pageContentTypes.join(", ") +
   "and to homepage, brandLandingPage, contactUspage and simple page sections field";
 
-export const up: MigrationFunction = async (migration: Migration) => {
+export const up: MigrationFunction = async (migration) => {
   const homePage = migration.editContentType("homePage");
   const brandLandingPage = migration.editContentType("brandLandingPage");
   const contactUsPage = migration.editContentType("contactUsPage");
@@ -138,7 +137,7 @@ export const up: MigrationFunction = async (migration: Migration) => {
   });
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const homePage = migration.editContentType("homePage");
   const brandLandingPage = migration.editContentType("brandLandingPage");
   const contactUsPage = migration.editContentType("contactUsPage");

@@ -1,10 +1,9 @@
-import { internalName } from "../../variables/helpText/20210421160910";
-import type Migration from "contentful-migration";
+import { internalName } from "../../variables/helpText/20210421160910.js";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Add name field for product lister page";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const productListerPage = migration.editContentType("productListerPage");
   productListerPage
     .createField("name")
@@ -28,7 +27,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   });
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const productListerPage = migration.editContentType("productListerPage");
   productListerPage.deleteField("name");
   productListerPage.displayField("title");

@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Create content model for Form Section";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const form = migration
     .createContentType("form")
     .name("Form Section")
@@ -46,5 +45,5 @@ export const up: MigrationFunction = (migration: Migration) => {
   form.changeFieldControl("submitText", "builtin", "singleLine");
 };
 
-export const down: MigrationFunction = (migration: Migration) =>
+export const down: MigrationFunction = (migration) =>
   migration.deleteContentType("form");

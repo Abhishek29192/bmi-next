@@ -1,13 +1,9 @@
 import type { EntryProps, SysLink } from "contentful-management";
-import type Migration from "contentful-migration";
-import type { MigrationContext, MigrationFunction } from "contentful-migration";
+import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Add lead block field";
 
-export const up: MigrationFunction = (
-  migration: Migration,
-  context?: MigrationContext
-) => {
+export const up: MigrationFunction = (migration, context) => {
   const page = migration.editContentType("page");
 
   page
@@ -68,7 +64,7 @@ export const up: MigrationFunction = (
   page.moveField("leadBlock").beforeField("sections");
 };
 
-export const down: MigrationFunction = async (migration: Migration) => {
+export const down: MigrationFunction = async (migration) => {
   const page = migration.editContentType("page");
 
   page.deleteField("leadBlock");

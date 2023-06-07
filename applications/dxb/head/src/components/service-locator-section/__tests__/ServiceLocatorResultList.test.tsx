@@ -2,6 +2,7 @@ import { ThemeProvider } from "@bmi-digital/components";
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import createService from "../../../__tests__/helpers/ServiceHelper";
+import { selectedRooferMock } from "../__mocks__/markers";
 import { ServiceLocatorResultList } from "../components";
 
 afterEach(() => {
@@ -11,7 +12,7 @@ const listItemTestId = "GTMIntegratedLinkCard-test-id";
 const handlePageChange = jest.fn();
 
 describe("ServiceLocatorResultList component", () => {
-  it("should renders empty list with NO service", () => {
+  it("should render empty list with NO service", () => {
     render(
       <ThemeProvider>
         <ServiceLocatorResultList
@@ -22,7 +23,7 @@ describe("ServiceLocatorResultList component", () => {
           getCompanyDetails={jest.fn()}
           onCloseCard={jest.fn()}
           onListItemClick={jest.fn}
-          selectedRoofer={null}
+          selectedRoofer={{ ...selectedRooferMock }}
           shouldListCertification={false}
         />
       </ThemeProvider>
@@ -32,7 +33,7 @@ describe("ServiceLocatorResultList component", () => {
     });
     expect(noResultHeading).toBeDefined();
   });
-  it("should renders correctly with single service type", () => {
+  it("should render correctly with single service type", () => {
     const service = createService({
       serviceTypes: [
         { __typename: "ContentfulServiceType", name: "Pitched Roof" },
@@ -56,13 +57,13 @@ describe("ServiceLocatorResultList component", () => {
           getCompanyDetails={jest.fn()}
           onCloseCard={jest.fn()}
           onListItemClick={jest.fn}
-          selectedRoofer={null}
+          selectedRoofer={{ ...selectedRooferMock }}
           shouldListCertification={false}
         />
       </ThemeProvider>
     );
     const gtmData = JSON.parse(
-      screen.getByTestId(listItemTestId).getAttribute("data-gtm")
+      screen.getByTestId(listItemTestId).getAttribute("data-gtm")!
     );
     expect(gtmData.label).toEqual(expectedResult);
   });
@@ -79,7 +80,7 @@ describe("ServiceLocatorResultList component", () => {
           getCompanyDetails={jest.fn()}
           onCloseCard={jest.fn()}
           onListItemClick={onListItemClick}
-          selectedRoofer={null}
+          selectedRoofer={{ ...selectedRooferMock }}
           shouldListCertification={false}
         />
       </ThemeProvider>
@@ -88,6 +89,7 @@ describe("ServiceLocatorResultList component", () => {
     fireEvent.click(listItem);
     expect(onListItemClick).toBeCalled();
   });
+
   it("should print subtitle if shouldListCertification === true", () => {
     const service = createService({ certification: "expert" });
     const onListItemClick = jest.fn();
@@ -124,7 +126,7 @@ describe("ServiceLocatorResultList component", () => {
           getCompanyDetails={jest.fn()}
           onCloseCard={jest.fn()}
           onListItemClick={onListItemClick}
-          selectedRoofer={null}
+          selectedRoofer={{ ...selectedRooferMock }}
           shouldListCertification={false}
         />
       </ThemeProvider>
@@ -148,7 +150,7 @@ describe("ServiceLocatorResultList component", () => {
           onCloseCard={jest.fn()}
           onListItemClick={onListItemClick}
           selectedRoofer={service}
-          shouldListCertification={true}
+          shouldListCertification={false}
         />
       </ThemeProvider>
     );

@@ -52,7 +52,8 @@ describe("getFirestore", () => {
     await getFirestore();
 
     expect(mockInitializeApp).toBeCalledWith({
-      databaseURL: `https://${process.env.GCP_PROJECT_ID}.firebaseio.com`
+      databaseURL: `https://${process.env.GCP_PROJECT_ID}.firebaseio.com`,
+      projectId: process.env.GCP_PROJECT_ID
     });
     expect(mockGetFirestore).toBeCalledWith(app);
   });
@@ -68,7 +69,8 @@ describe("getFirestore", () => {
 
     expect(mockInitializeApp).toBeCalledTimes(1);
     expect(mockInitializeApp).toBeCalledWith({
-      databaseURL: `https://${process.env.GCP_PROJECT_ID}.firebaseio.com`
+      databaseURL: `https://${process.env.GCP_PROJECT_ID}.firebaseio.com`,
+      projectId: process.env.GCP_PROJECT_ID
     });
     expect(mockGetFirestore).toBeCalledTimes(1);
     expect(mockGetFirestore).toBeCalledWith(app);

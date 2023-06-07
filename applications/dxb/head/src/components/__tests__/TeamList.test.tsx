@@ -1,6 +1,7 @@
 import { ThemeProvider } from "@bmi-digital/components";
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
+import { DataTypeEnum } from "../Link";
 import TeamList, { Data } from "../TeamList";
 
 describe("TeamList component", () => {
@@ -42,7 +43,7 @@ describe("TeamList component", () => {
             }
           }
         },
-        links: null
+        links: []
       }
     ];
 
@@ -92,7 +93,7 @@ describe("TeamList component", () => {
             }
           }
         },
-        links: null
+        links: []
       },
       {
         name: "Name",
@@ -130,7 +131,7 @@ describe("TeamList component", () => {
             }
           }
         },
-        links: null
+        links: []
       },
       {
         name: "Name",
@@ -168,7 +169,7 @@ describe("TeamList component", () => {
             }
           }
         },
-        links: null
+        links: []
       },
       {
         name: "Name",
@@ -206,7 +207,7 @@ describe("TeamList component", () => {
             }
           }
         },
-        links: null
+        links: []
       },
       {
         name: "Name",
@@ -244,7 +245,7 @@ describe("TeamList component", () => {
             }
           }
         },
-        links: null
+        links: []
       },
       {
         name: "Name",
@@ -282,7 +283,7 @@ describe("TeamList component", () => {
             }
           }
         },
-        links: null
+        links: []
       },
       {
         name: "Name",
@@ -320,7 +321,7 @@ describe("TeamList component", () => {
             }
           }
         },
-        links: null
+        links: []
       },
       {
         name: "Name",
@@ -358,7 +359,7 @@ describe("TeamList component", () => {
             }
           }
         },
-        links: null
+        links: []
       },
       {
         name: "Name",
@@ -396,7 +397,7 @@ describe("TeamList component", () => {
             }
           }
         },
-        links: null
+        links: []
       }
     ];
 
@@ -460,7 +461,7 @@ describe("TeamList component", () => {
             linkedPage: {
               path: "contact-us"
             },
-            type: null,
+            type: DataTypeEnum.Internal,
             parameters: null,
             dialogContent: null,
             hubSpotCTAID: null

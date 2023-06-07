@@ -16,7 +16,6 @@ import Page, { Data as PageData } from "../../components/Page";
 import ProgressIndicator from "../../components/ProgressIndicator";
 import RichText from "../../components/RichText";
 import Scrim from "../../components/Scrim";
-import filterStyles from "../../components/styles/Filters.module.scss";
 import { useConfig } from "../../contexts/ConfigProvider";
 import { updateBreadcrumbTitleFromContentful } from "../../utils/breadcrumbUtils";
 import { devLog } from "../../utils/devLog";
@@ -47,6 +46,7 @@ export const PAGE_SIZE = 25;
 const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
   const location = useLocation();
   const [documents, setDocuments] = useState([]);
+  const [mobileShowAllDocuments, setMobileShowAllDocuments] = useState(0);
   // Largely duplicated from product-lister-page.tsx
   const [isLoading, setIsLoading] = useState(true);
   const [initialLoading, setInitialLoading] = useState(true);
@@ -113,6 +113,7 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
       const { hits } = result;
       const uniqDocumentsCount =
         result.aggregations?.unique_documents_count.value || 0;
+      setMobileShowAllDocuments(uniqDocumentsCount);
       const newPageCount = Math.ceil(uniqDocumentsCount / PAGE_SIZE);
       setPageCount(newPageCount);
       setPage(newPageCount < page ? 0 : page);
@@ -274,29 +275,29 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
         </DownloadListContext.Consumer>
         {!(resultsType === "Simple Archive" && source === "CMS") && (
           <Section backgroundColor="white" id={`document-library-filters`}>
-            <div className={filterStyles["Filters"]}>
-              <Grid container spacing={3} ref={resultsElement}>
-                <Grid xs={12} md={12} lg={3}>
-                  <FilterSection
-                    filters={filters}
-                    handleFiltersChange={handleFiltersChange}
-                    clearFilters={handleClearFilters}
-                  />
-                </Grid>
-                <Grid xs={12} md={12} lg={9}>
-                  {!initialLoading ? (
-                    <ResultSection
-                      results={documents}
-                      assetTypes={contentfulAssetTypes}
-                      format={format}
-                      page={page}
-                      pageCount={pageCount}
-                      handlePageChange={handlePageChange}
-                    />
-                  ) : null}
-                </Grid>
+            <Grid container spacing={3} ref={resultsElement}>
+              <Grid xs={12} md={12} lg={3}>
+                <FilterSection
+                  filters={filters}
+                  handleFiltersChange={handleFiltersChange}
+                  clearFilters={handleClearFilters}
+                  documentsCount={mobileShowAllDocuments}
+                  isTechnicalTable={resultsType === "Technical"}
+                />
               </Grid>
-            </div>
+              <Grid xs={12} md={12} lg={9}>
+                {!initialLoading ? (
+                  <ResultSection
+                    results={documents}
+                    assetTypes={contentfulAssetTypes}
+                    format={format}
+                    page={page}
+                    pageCount={pageCount}
+                    handlePageChange={handlePageChange}
+                  />
+                ) : null}
+              </Grid>
+            </Grid>
           </Section>
         )}
       </DownloadList>

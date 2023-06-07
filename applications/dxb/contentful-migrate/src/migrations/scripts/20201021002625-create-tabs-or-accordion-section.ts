@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Create content model for Tabs Or Accordion Section";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const tabsOrAccordionSection = migration
     .createContentType("tabsOrAccordionSection")
     .name("Tabs Or Accordion Section")
@@ -54,5 +53,5 @@ export const up: MigrationFunction = (migration: Migration) => {
   tabsOrAccordionSection.changeFieldControl("type", "builtin", "dropdown");
 };
 
-export const down: MigrationFunction = (migration: Migration) =>
+export const down: MigrationFunction = (migration) =>
   migration.deleteContentType("tabsOrAccordionSection");

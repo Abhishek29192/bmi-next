@@ -33,6 +33,14 @@
       [class*="MuiCardHeader-avatar"] {
         margin-right: 0;
       }
+      [class*="MuiCardHeader-title"] {
+        font-weight: bold;
+        margin-bottom: 6px;
+
+        @media (min-width: $breakpoint-lg) {
+          margin-bottom: 18px;
+        }
+      }
     }
 
     &--with_logo {
@@ -118,6 +126,7 @@
       max-height: 640px;
       border-bottom: 1px solid $color-storm;
       border-top: 1px solid $color-storm;
+      margin-bottom: 10px;
     }
   }
 
@@ -147,6 +156,10 @@
     height: 18px;
     vertical-align: middle;
     margin-left: 5px;
+  }
+
+  .subtitle {
+    margin-bottom: 12px;
   }
 
   .tabs {
@@ -199,14 +212,14 @@
   }
 
   .company-logo {
-    margin-bottom: 16px;
+    margin-bottom: 18px;
     height: 40px;
     img {
       height: 40px;
     }
 
     &--card {
-      margin-bottom: 24px;
+      margin-bottom: 30px;
       height: 60px;
       img {
         height: 60px;

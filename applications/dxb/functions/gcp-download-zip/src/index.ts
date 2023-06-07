@@ -112,8 +112,7 @@ export const download: HttpFunction = async (request, response) => {
       const fileName = Date.now();
       zipFile = bucket.file(`${fileName}.zip`);
       zipFileWriteStream = zipFile.createWriteStream();
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } catch (error: any) {
+    } catch (error) {
       logger.error({
         message: `Failed to create zip file stream: ${error}`
       });
@@ -164,7 +163,7 @@ export const download: HttpFunction = async (request, response) => {
         })
         .on(
           "close",
-          // istanbul ignore next: cannot be tested
+          // istanbul ignore next: cannot be tested, but recommended to be handled by archiver
           () => {
             logger.info({ message: "Archive close." });
             resolve();
@@ -172,7 +171,7 @@ export const download: HttpFunction = async (request, response) => {
         )
         .on(
           "error",
-          // istanbul ignore next: cannot be tested
+          // istanbul ignore next: cannot be tested, but recommended to be handled by archiver
           (error) => {
             logger.error({ message: `Archive error: ${error}` });
             reject(error);

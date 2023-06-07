@@ -262,3 +262,10 @@ export type YoutubeDetails = {
   embedWidth: number;
   embedHeight: number;
 };
+
+export type BuildLog = {
+  buildId: string;
+  eventType: string;
+  body: string;
+  timestamp: number;
+};

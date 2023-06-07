@@ -38,6 +38,7 @@ export const checkEnvVariablesMissing = (response: Response) => {
 };
 
 export const checkAuthorization = (request: Request, response: Response) => {
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- Enforced to exist in checkEnvVariablesMissing
   const reqSecret = process.env.ES_DOCUMENTS_INGEST_SECRET!;
   if (
     reqSecret.length < SECRET_MIN_LENGTH ||

@@ -2,11 +2,12 @@ import { ThemeProvider } from "@bmi-digital/components";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { ContentfulRichTextGatsbyReference } from "gatsby-source-contentful/rich-text";
 import React from "react";
+import { BLOCKS } from "@contentful/rich-text-types";
 import RichText, { RichTextData } from "../RichText";
 
 describe("RichText component", () => {
   const raw = {
-    nodeType: "document",
+    nodeType: BLOCKS.DOCUMENT,
     data: {},
     content: [
       {
@@ -45,12 +46,12 @@ describe("RichText component", () => {
         data: {}
       },
       {
-        nodeType: "paragraph",
+        nodeType: BLOCKS.PARAGRAPH,
         content: [{ nodeType: "text", value: "", marks: [], data: {} }],
         data: {}
       },
       {
-        nodeType: "paragraph",
+        nodeType: BLOCKS.PARAGRAPH,
         content: [
           { nodeType: "text", value: "Paragraph ", marks: [], data: {} },
           {
@@ -136,7 +137,7 @@ describe("RichText component", () => {
             nodeType: "list-item",
             content: [
               {
-                nodeType: "paragraph",
+                nodeType: BLOCKS.PARAGRAPH,
                 content: [
                   { nodeType: "text", value: "UL", marks: [], data: {} }
                 ],
@@ -155,7 +156,7 @@ describe("RichText component", () => {
             nodeType: "list-item",
             content: [
               {
-                nodeType: "paragraph",
+                nodeType: BLOCKS.PARAGRAPH,
                 content: [
                   { nodeType: "text", value: "OL", marks: [], data: {} }
                 ],
@@ -171,7 +172,7 @@ describe("RichText component", () => {
         nodeType: "blockquote",
         content: [
           {
-            nodeType: "paragraph",
+            nodeType: BLOCKS.PARAGRAPH,
             content: [
               { nodeType: "text", value: "Blockquote", marks: [], data: {} }
             ],
@@ -208,12 +209,12 @@ describe("RichText component", () => {
         }
       },
       {
-        nodeType: "paragraph",
+        nodeType: BLOCKS.PARAGRAPH,
         content: [{ nodeType: "text", value: "", marks: [], data: {} }],
         data: {}
       },
       {
-        nodeType: "paragraph",
+        nodeType: BLOCKS.PARAGRAPH,
         content: [
           {
             nodeType: "entry-hyperlink",
@@ -378,11 +379,11 @@ describe("RichText component", () => {
 
   it("falls back with incorrect data", () => {
     const raw = {
-      nodeType: "document",
+      nodeType: BLOCKS.DOCUMENT,
       data: {},
       content: [
         {
-          nodeType: "paragraph",
+          nodeType: BLOCKS.PARAGRAPH,
           content: [
             {
               nodeType: "embedded-entry-inline",

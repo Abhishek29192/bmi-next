@@ -1,27 +1,17 @@
-test_contentful-tagger:
-  extends: .test_function
+lint_contentful-tagger:
+  extends: .lint_yarn_workspace
   rules:
-    - !reference [.ingore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_main, rules, if]
-      changes:
-        - $ROOT_DIR/**/*
-        - jest/**/*
-        - yarn.lock
-        - applications/dxb/libraries/cms-consolidation-utility/**/*
-    - if: !reference [.run_for_changes_on_mr, rules, if]
-      changes:
-        - $ROOT_DIR/**/*
-        - jest/**/*
-        - yarn.lock
-        - applications/dxb/libraries/cms-consolidation-utility/**/*
+    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [ .run_for_changes_on_mr, rules ]
   variables:
+    ROOT_DIR: "applications/dxb/functions/contentful-tagger"
     WORKSPACE: "@bmi/contentful-tagger"
-    ROOT_DIR: "applications/functions/contentful-tagger"
 
 build_contentful-tagger:
   extends: .build_function
   rules:
-    - !reference [.ingore_release_mrs, rules]
+    - !reference [ .ignore_release_mrs, rules]
     - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - $ROOT_DIR/**/*
@@ -37,6 +27,26 @@ build_contentful-tagger:
   variables:
     WORKSPACE: "@bmi/contentful-tagger"
     ROOT_DIR: "applications/dxb/functions/contentful-tagger"
+
+test_contentful-tagger:
+  extends: .test_function
+  rules:
+    - !reference [ .ignore_release_mrs, rules]
+    - if: !reference [.run_for_changes_on_main, rules, if]
+      changes:
+        - $ROOT_DIR/**/*
+        - yarn.lock
+        - applications/dxb/libraries/cms-consolidation-utility/**/*
+    - if: !reference [.run_for_changes_on_mr, rules, if]
+      changes:
+        - $ROOT_DIR/**/*
+        - yarn.lock
+        - applications/dxb/libraries/cms-consolidation-utility/**/*
+  variables:
+    WORKSPACE: "@bmi/contentful-tagger"
+    ROOT_DIR: "applications/functions/contentful-tagger"
+  needs:
+    - build_contentful-tagger
 
 package_contentful-tagger:
   extends: .package_function

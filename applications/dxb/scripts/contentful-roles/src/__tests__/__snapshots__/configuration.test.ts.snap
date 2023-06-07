@@ -1,0 +1,801 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getRolesPermissionsToCreate should return permission configurations for a editor role if the role is of editor type 1`] = `
+{
+  "description": null,
+  "name": "DXB - uk content editor",
+  "permissions": {
+    "ContentDelivery": [],
+    "ContentModel": [
+      "read",
+    ],
+    "EnvironmentAliases": [],
+    "Environments": [],
+    "Settings": [],
+    "Tags": [],
+  },
+  "policies": [
+    {
+      "actions": [
+        "read",
+      ],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type",
+              },
+              "Entry",
+            ],
+          },
+        ],
+      },
+      "effect": "allow",
+    },
+    {
+      "actions": [
+        "update",
+      ],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type",
+              },
+              "Entry",
+            ],
+          },
+        ],
+      },
+      "effect": "allow",
+    },
+    {
+      "actions": [
+        "delete",
+      ],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type",
+              },
+              "Entry",
+            ],
+          },
+          {
+            "in": [
+              {
+                "doc": "metadata.tags.sys.id",
+              },
+              [
+                "market__uk",
+              ],
+            ],
+          },
+        ],
+      },
+      "effect": "allow",
+    },
+    {
+      "actions": [
+        "create",
+      ],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type",
+              },
+              "Entry",
+            ],
+          },
+        ],
+      },
+      "effect": "allow",
+    },
+    {
+      "actions": [
+        "archive",
+        "unarchive",
+      ],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type",
+              },
+              "Entry",
+            ],
+          },
+          {
+            "in": [
+              {
+                "doc": "metadata.tags.sys.id",
+              },
+              [
+                "market__uk",
+              ],
+            ],
+          },
+        ],
+      },
+      "effect": "allow",
+    },
+    {
+      "actions": [
+        "read",
+      ],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type",
+              },
+              "Entry",
+            ],
+          },
+          {
+            "in": [
+              {
+                "doc": "metadata.tags.sys.id",
+              },
+              [
+                "test",
+              ],
+            ],
+          },
+        ],
+      },
+      "effect": "deny",
+    },
+    {
+      "actions": [
+        "update",
+      ],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type",
+              },
+              "Entry",
+            ],
+          },
+          {
+            "equals": [
+              {
+                "doc": "sys.contentType.sys.id",
+              },
+              "calculatorRoofShape",
+            ],
+          },
+        ],
+      },
+      "effect": "deny",
+    },
+    {
+      "actions": [
+        "delete",
+      ],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type",
+              },
+              "Entry",
+            ],
+          },
+          {
+            "equals": [
+              {
+                "doc": "sys.contentType.sys.id",
+              },
+              "calculatorRoofShape",
+            ],
+          },
+        ],
+      },
+      "effect": "deny",
+    },
+    {
+      "actions": [
+        "publish",
+        "unpublish",
+      ],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type",
+              },
+              "Entry",
+            ],
+          },
+          {
+            "equals": [
+              {
+                "doc": "sys.contentType.sys.id",
+              },
+              "calculatorRoofShape",
+            ],
+          },
+        ],
+      },
+      "effect": "deny",
+    },
+    {
+      "actions": [
+        "read",
+      ],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type",
+              },
+              "Asset",
+            ],
+          },
+        ],
+      },
+      "effect": "allow",
+    },
+    {
+      "actions": [
+        "update",
+      ],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type",
+              },
+              "Asset",
+            ],
+          },
+        ],
+      },
+      "effect": "allow",
+    },
+    {
+      "actions": [
+        "delete",
+      ],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type",
+              },
+              "Asset",
+            ],
+          },
+          {
+            "in": [
+              {
+                "doc": "metadata.tags.sys.id",
+              },
+              [
+                "market__uk",
+              ],
+            ],
+          },
+        ],
+      },
+      "effect": "allow",
+    },
+    {
+      "actions": [
+        "create",
+      ],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type",
+              },
+              "Asset",
+            ],
+          },
+        ],
+      },
+      "effect": "allow",
+    },
+    {
+      "actions": [
+        "archive",
+        "unarchive",
+      ],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type",
+              },
+              "Asset",
+            ],
+          },
+          {
+            "in": [
+              {
+                "doc": "metadata.tags.sys.id",
+              },
+              [
+                "market__uk",
+              ],
+            ],
+          },
+        ],
+      },
+      "effect": "allow",
+    },
+    {
+      "actions": [
+        "read",
+      ],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type",
+              },
+              "Asset",
+            ],
+          },
+          {
+            "in": [
+              {
+                "doc": "metadata.tags.sys.id",
+              },
+              [
+                "test",
+              ],
+            ],
+          },
+        ],
+      },
+      "effect": "deny",
+    },
+  ],
+}
+`;
+
+exports[`getRolesPermissionsToCreate should return permission configurations for a publisher role if the role is of publisher type 1`] = `
+{
+  "description": null,
+  "name": "DXB - uk content publisher",
+  "permissions": {
+    "ContentDelivery": [],
+    "ContentModel": [
+      "read",
+    ],
+    "EnvironmentAliases": [],
+    "Environments": [],
+    "Settings": [],
+    "Tags": [],
+  },
+  "policies": [
+    {
+      "actions": [
+        "read",
+      ],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type",
+              },
+              "Entry",
+            ],
+          },
+        ],
+      },
+      "effect": "allow",
+    },
+    {
+      "actions": [
+        "update",
+      ],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type",
+              },
+              "Entry",
+            ],
+          },
+        ],
+      },
+      "effect": "allow",
+    },
+    {
+      "actions": [
+        "delete",
+      ],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type",
+              },
+              "Entry",
+            ],
+          },
+          {
+            "in": [
+              {
+                "doc": "metadata.tags.sys.id",
+              },
+              [
+                "market__uk",
+              ],
+            ],
+          },
+        ],
+      },
+      "effect": "allow",
+    },
+    {
+      "actions": [
+        "create",
+      ],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type",
+              },
+              "Entry",
+            ],
+          },
+        ],
+      },
+      "effect": "allow",
+    },
+    {
+      "actions": [
+        "archive",
+        "unarchive",
+      ],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type",
+              },
+              "Entry",
+            ],
+          },
+          {
+            "in": [
+              {
+                "doc": "metadata.tags.sys.id",
+              },
+              [
+                "market__uk",
+              ],
+            ],
+          },
+        ],
+      },
+      "effect": "allow",
+    },
+    {
+      "actions": [
+        "publish",
+        "unpublish",
+      ],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type",
+              },
+              "Entry",
+            ],
+          },
+        ],
+      },
+      "effect": "allow",
+    },
+    {
+      "actions": [
+        "read",
+      ],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type",
+              },
+              "Entry",
+            ],
+          },
+          {
+            "in": [
+              {
+                "doc": "metadata.tags.sys.id",
+              },
+              [
+                "test",
+              ],
+            ],
+          },
+        ],
+      },
+      "effect": "deny",
+    },
+    {
+      "actions": [
+        "update",
+      ],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type",
+              },
+              "Entry",
+            ],
+          },
+          {
+            "equals": [
+              {
+                "doc": "sys.contentType.sys.id",
+              },
+              "calculatorRoofShape",
+            ],
+          },
+        ],
+      },
+      "effect": "deny",
+    },
+    {
+      "actions": [
+        "delete",
+      ],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type",
+              },
+              "Entry",
+            ],
+          },
+          {
+            "equals": [
+              {
+                "doc": "sys.contentType.sys.id",
+              },
+              "calculatorRoofShape",
+            ],
+          },
+        ],
+      },
+      "effect": "deny",
+    },
+    {
+      "actions": [
+        "publish",
+        "unpublish",
+      ],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type",
+              },
+              "Entry",
+            ],
+          },
+          {
+            "equals": [
+              {
+                "doc": "sys.contentType.sys.id",
+              },
+              "calculatorRoofShape",
+            ],
+          },
+        ],
+      },
+      "effect": "deny",
+    },
+    {
+      "actions": [
+        "read",
+      ],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type",
+              },
+              "Asset",
+            ],
+          },
+        ],
+      },
+      "effect": "allow",
+    },
+    {
+      "actions": [
+        "update",
+      ],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type",
+              },
+              "Asset",
+            ],
+          },
+        ],
+      },
+      "effect": "allow",
+    },
+    {
+      "actions": [
+        "delete",
+      ],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type",
+              },
+              "Asset",
+            ],
+          },
+          {
+            "in": [
+              {
+                "doc": "metadata.tags.sys.id",
+              },
+              [
+                "market__uk",
+              ],
+            ],
+          },
+        ],
+      },
+      "effect": "allow",
+    },
+    {
+      "actions": [
+        "create",
+      ],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type",
+              },
+              "Asset",
+            ],
+          },
+        ],
+      },
+      "effect": "allow",
+    },
+    {
+      "actions": [
+        "archive",
+        "unarchive",
+      ],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type",
+              },
+              "Asset",
+            ],
+          },
+          {
+            "in": [
+              {
+                "doc": "metadata.tags.sys.id",
+              },
+              [
+                "market__uk",
+              ],
+            ],
+          },
+        ],
+      },
+      "effect": "allow",
+    },
+    {
+      "actions": [
+        "publish",
+        "unpublish",
+      ],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type",
+              },
+              "Asset",
+            ],
+          },
+          {
+            "in": [
+              {
+                "doc": "metadata.tags.sys.id",
+              },
+              [
+                "market__uk",
+              ],
+            ],
+          },
+        ],
+      },
+      "effect": "allow",
+    },
+    {
+      "actions": [
+        "read",
+      ],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type",
+              },
+              "Asset",
+            ],
+          },
+          {
+            "in": [
+              {
+                "doc": "metadata.tags.sys.id",
+              },
+              [
+                "test",
+              ],
+            ],
+          },
+        ],
+      },
+      "effect": "deny",
+    },
+  ],
+}
+`;

@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Create content model for Navigation";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const navigation = migration
     .createContentType("navigation")
     .name("Navigation")
@@ -51,5 +50,5 @@ export const up: MigrationFunction = (migration: Migration) => {
   navigation.changeFieldControl("link", "builtin", "entryLinkEditor");
 };
 
-export const down: MigrationFunction = (migration: Migration) =>
+export const down: MigrationFunction = (migration) =>
   migration.deleteContentType("navigation");

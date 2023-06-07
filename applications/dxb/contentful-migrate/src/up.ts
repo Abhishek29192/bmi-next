@@ -1,5 +1,6 @@
+import { pathToFileURL } from "node:url";
 import "dotenv/config";
-import { runMigrationScripts } from "./migrationScripts";
+import { runMigrationScripts } from "./migrationScripts.js";
 
 const {
   CONTENTFUL_ENVIRONMENT,
@@ -24,7 +25,7 @@ export const main = async () => {
 };
 
 // istanbul ignore if - can't override require.main
-if (require.main === module) {
+if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   main().catch((error) => {
     console.error(error);
   });

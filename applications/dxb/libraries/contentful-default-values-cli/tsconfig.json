@@ -1,7 +1,12 @@
 {
-  "extends": "../../../../tsconfig.json",
+  "extends": "../../../../tsconfig.common.json",
   "compilerOptions": {
     "noEmit": false,
     "outDir": "dist"
-  }
+  },
+  "references": [
+    {
+      "path": "../cms-consolidation-utility"
+    }
+  ]
 }

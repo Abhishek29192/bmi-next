@@ -3,12 +3,11 @@ import {
   PimProductDocument
 } from "@bmi/elasticsearch-types";
 import React from "react";
-import DocumentSimpleTableResults, {
-  AvailableHeader
-} from "../../../components/DocumentSimpleTableResults";
+import DocumentSimpleTableResults from "../../../components/DocumentSimpleTableResults";
+import { DocumentTableHeader } from "../../../types/Document";
 import groupBy from "../../../utils/groupBy";
 import { AssetType } from "../types";
-import DocumentCardsResults from "./DocumentCardsResults";
+import DocumentCardsResults from "./DocumentCardsResults/DocumentCardsResults";
 import DocumentTechnicalTableResults from "./DocumentTechnicalTableResults";
 
 export type DocumentResultData = ContentfulDocument | PimProductDocument;
@@ -27,15 +26,16 @@ type Props = {
 
 const tableHeadersConfig: Record<
   "simpleTable" | "simpleArchiveTable",
-  AvailableHeader[]
+  DocumentTableHeader[]
 > = {
-  simpleTable: ["typeCode", "title", "download", "add"],
+  simpleTable: ["add", "typeCode", "title", "size", "actions"],
   simpleArchiveTable: [
+    "add",
     "title",
     "productStatus",
     "validityDate",
-    "download",
-    "add"
+    "size",
+    "actions"
   ]
 };
 

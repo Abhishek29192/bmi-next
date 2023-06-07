@@ -2,10 +2,10 @@ import { ThemeProvider } from "@bmi-digital/components";
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import React from "react";
-import { Data as LinkProps } from "../../components/Link";
+import { DataTypeEnum, Data as LinkProps } from "../../components/Link";
 import PostItCard, {
-  Data as SectionProps,
-  Props as PostItCradProps
+  Props as PostItCradProps,
+  Data as SectionProps
 } from "../../components/PostItCard";
 
 describe("PostItCard", () => {
@@ -15,7 +15,7 @@ describe("PostItCard", () => {
     label: "Link Label",
     icon: null,
     isLabelHidden: null,
-    type: null,
+    type: DataTypeEnum.Internal,
     url: "https://mocked_link",
     parameters: null,
     dialogContent: null,
@@ -53,7 +53,7 @@ describe("PostItCard", () => {
         <PostItCard {...postItCardProps} cardSections={[linkSectionData]} />
       </ThemeProvider>
     );
-    expect(screen.getByText(linkSectionData.link.label)).toBeInTheDocument();
+    expect(screen.getByText(linkSectionData.link!.label)).toBeInTheDocument();
   });
 
   it("renders component with button section", () => {
@@ -62,7 +62,7 @@ describe("PostItCard", () => {
         <PostItCard {...postItCardProps} cardSections={[buttonSectionData]} />
       </ThemeProvider>
     );
-    expect(screen.getByText(buttonSectionData.link.label)).toBeInTheDocument();
+    expect(screen.getByText(buttonSectionData.link!.label)).toBeInTheDocument();
   });
 
   it("renders both link and button sections", () => {
@@ -74,7 +74,7 @@ describe("PostItCard", () => {
         />
       </ThemeProvider>
     );
-    expect(screen.getByText(buttonSectionData.link.label)).toBeInTheDocument();
-    expect(screen.getByText(linkSectionData.link.label)).toBeInTheDocument();
+    expect(screen.getByText(buttonSectionData.link!.label)).toBeInTheDocument();
+    expect(screen.getByText(linkSectionData.link!.label)).toBeInTheDocument();
   });
 });

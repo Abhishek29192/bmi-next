@@ -1,19 +1,11 @@
 import MurmurHash3 from "imurmurhash";
-import type Migration from "contentful-migration";
-import type {
-  ContentFields,
-  MigrationContext,
-  MigrationFunction
-} from "contentful-migration";
+import type { ContentFields, MigrationFunction } from "contentful-migration";
 
 export const description = "Copy data from teamPage to page content type";
 
 // NOTE: has to be undone manually, once converted there is no way to know that the
 // new simple page came from teamPage originally
-export const up: MigrationFunction = (
-  migration: Migration,
-  context?: MigrationContext
-) => {
+export const up: MigrationFunction = (migration, context) => {
   migration.transformEntriesToType({
     sourceContentType: "teamPage",
     targetContentType: "page",

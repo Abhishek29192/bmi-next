@@ -1,3 +1,5 @@
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { migrateUp } from "@bmi-digital/contentful-migration";
 
 export const runMigrationScripts = async (
@@ -11,7 +13,7 @@ export const runMigrationScripts = async (
   );
 
   const status = await migrateUp(
-    __dirname,
+    path.dirname(fileURLToPath(import.meta.url)),
     spaceId,
     contentfulAlias,
     managementAccessToken,

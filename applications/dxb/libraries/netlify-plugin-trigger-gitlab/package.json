@@ -4,7 +4,13 @@
   "license": "UNLICENSED",
   "private": true,
   "main": "./index",
+  "scripts": {
+    "lint": "eslint \"**/*.{js,ts,tsx}\""
+  },
   "dependencies": {
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.11"
+  },
+  "devDependencies": {
+    "eslint": "^8.40.0"
   }
 }

@@ -1,8 +1,10 @@
 import logger from "@bmi-digital/functions-logger";
-import { AssetType, Resources } from "@bmi/contentful-types";
+import {
+  TypeAssetTypeSkeleton,
+  TypeResourcesSkeleton
+} from "@bmi/contentful-types";
 import { getContentfulClient } from "@bmi/functions-contentful-client";
 import { ContentfulAssetType, ProductDocumentNameMap } from "./types";
-import type { Entry } from "contentful";
 
 const MAX_NUMBER_OF_DOCUMENTS_PER_RESPONSE = 1000;
 
@@ -27,11 +29,11 @@ const getAssetTypes = async (
     };
   };
 
-  const assetTypes = await client.getEntries<AssetType>(
+  const assetTypes = await client.getEntries<TypeAssetTypeSkeleton>(
     generateQuery(foundSoFar)
   );
 
-  const assetTypesToReturn: Entry<AssetType>[] = [...assetTypes.items];
+  const assetTypesToReturn = [...assetTypes.items];
   const totalAssetTypeCount = assetTypes.total;
   const limit = assetTypes.limit;
   foundSoFar = assetTypes.items.length;
@@ -42,7 +44,7 @@ const getAssetTypes = async (
 
   if (totalAssetTypeCount > limit) {
     while (foundSoFar < totalAssetTypeCount) {
-      const assetTypes = await client.getEntries<AssetType>(
+      const assetTypes = await client.getEntries<TypeAssetTypeSkeleton>(
         generateQuery(foundSoFar)
       );
       if (assetTypes && assetTypes.items) {
@@ -77,7 +79,7 @@ const getProductDocumentNameMap = async (
   tag?: string
 ): Promise<ProductDocumentNameMap> => {
   const client = getContentfulClient();
-  const resources = await client.getEntries<Resources>({
+  const resources = await client.getEntries<TypeResourcesSkeleton>({
     content_type: "resources",
     limit: 1,
     locale,

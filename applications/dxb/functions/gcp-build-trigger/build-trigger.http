@@ -1,0 +1,7 @@
+###
+
+# @name post message to build trigger
+POST {{host}}
+Content-Type: application/json
+
+{}

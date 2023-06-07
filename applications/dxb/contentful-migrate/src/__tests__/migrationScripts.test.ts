@@ -1,10 +1,38 @@
-import path from "path";
-import { runMigrationScripts } from "../migrationScripts";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { jest } from "@jest/globals";
+import type { migrateUp } from "@bmi-digital/contentful-migration";
 
-const mockMigrateUp = jest.fn();
+const mockMigrateUp = jest.fn<typeof migrateUp>();
 jest.mock("@bmi-digital/contentful-migration", () => ({
-  migrateUp: (...args: unknown[]) => mockMigrateUp(...args)
+  migrateUp: (
+    projectPath: string,
+    spaceId: string,
+    contentfulEnvironment: string,
+    managementAccessToken: string,
+    dryRun?: boolean
+  ) =>
+    mockMigrateUp(
+      projectPath,
+      spaceId,
+      contentfulEnvironment,
+      managementAccessToken,
+      dryRun
+    )
 }));
+
+const runMigrationScripts = async (
+  spaceId: string,
+  contentfulAlias: string,
+  managementAccessToken: string,
+  isDryRun: boolean
+) =>
+  (await import("../migrationScripts.js")).runMigrationScripts(
+    spaceId,
+    contentfulAlias,
+    managementAccessToken,
+    isDryRun
+  );
 
 beforeEach(() => {
   jest.clearAllMocks();
@@ -23,7 +51,7 @@ describe("runMigrationScripts", () => {
     );
 
     expect(mockMigrateUp).toHaveBeenCalledWith(
-      path.dirname(__dirname),
+      path.dirname(path.dirname(fileURLToPath(import.meta.url))),
       "spaceId",
       "contentfulAlias",
       "managementAccessToken",
@@ -49,7 +77,7 @@ describe("runMigrationScripts", () => {
     }
 
     expect(mockMigrateUp).toHaveBeenCalledWith(
-      path.dirname(__dirname),
+      path.dirname(path.dirname(fileURLToPath(import.meta.url))),
       "spaceId",
       "contentfulAlias",
       "managementAccessToken",

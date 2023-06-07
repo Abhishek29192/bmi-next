@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Add brand logo field to page content type";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const page = migration.editContentType("page");
 
   page
@@ -17,7 +16,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   page.moveField("brandLogo").afterField("featuredImage");
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const page = migration.editContentType("page");
 
   page.deleteField("brandLogo");

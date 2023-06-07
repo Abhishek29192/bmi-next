@@ -1,38 +1,16 @@
-import { Brand } from "@bmi/contentful-types";
-import { EntryFields } from "contentful";
+import type { TypeDocument } from "@bmi/contentful-types";
+import type { Entry, EntrySkeletonType, EntrySys } from "contentful";
 
-export interface SysLink<T extends "Asset" | "Entry"> {
-  type: "Link";
-  linkType: T;
-  id: string;
-}
+export type ContentfulDocument = TypeDocument<
+  "WITH_ALL_LOCALES" | "WITHOUT_LINK_RESOLUTION",
+  string
+>;
 
-export type ContentfulDocument = {
-  title: {
-    [locale: string]: string;
-  };
-  asset: {
-    [locale: string]: {
-      sys: SysLink<"Asset">;
-    };
-  };
-  description?: {
-    [locale: string]: EntryFields.RichText;
-  };
-  assetType: {
-    [locale: string]: {
-      sys: SysLink<"Entry">;
-    };
-  };
-  brand?: {
-    [locale: string]: Brand;
-  };
-  featuredMedia?: {
-    [locale: string]: {
-      sys: SysLink<"Entry">;
-    };
-  };
-  noIndex?: {
-    [locale: string]: boolean;
+export type DeletedEntry = Omit<
+  Entry<EntrySkeletonType<Record<string, never>, string>>,
+  "sys" | "fields"
+> & {
+  sys: Omit<EntrySys, "type"> & {
+    type: "DeletedEntry";
   };
 };

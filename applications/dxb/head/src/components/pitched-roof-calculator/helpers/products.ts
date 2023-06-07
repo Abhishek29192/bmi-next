@@ -22,7 +22,7 @@ import {
   VergeOption,
   WidthBasedProduct,
   widthBasedProducts
-} from "../types/v2";
+} from "../types";
 
 // Function overloads to make it working correctly with products of different types
 export function transformClassificationAttributes(

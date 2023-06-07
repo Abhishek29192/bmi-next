@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Change the Navigation links field control";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const navigation = migration.editContentType("navigation");
 
   navigation.changeFieldControl("links", "builtin", "entryLinksEditor", {
@@ -11,7 +10,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   });
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const navigation = migration.editContentType("navigation");
 
   navigation.changeFieldControl("links", "builtin", "entryLinksEditor", {

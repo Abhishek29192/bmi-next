@@ -11,7 +11,7 @@ function get_note {
     echo ""
     return 0
   fi
-  note=$(echo "${notes}" | jq '.[] | select(.body | test("95883ff6-e265-4416-917c-77929cc9970b/sites/527b7de1-e2b0-46fe-91f3-fb65b841a3fd")?)')
+  note=$(echo "${notes}" | jq 'map(select(.body | contains("95883ff6-e265-4416-917c-77929cc9970b/sites/527b7de1-e2b0-46fe-91f3-fb65b841a3fd"))) | last')
   if [ -z "${note}" ]; then
     get_note $(($1 + 1))
     return 0

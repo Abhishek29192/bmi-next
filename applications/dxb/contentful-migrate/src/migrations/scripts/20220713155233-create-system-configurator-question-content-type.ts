@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Create System Configurator Question content type";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const systemConfiguratorQuestion = migration
     .createContentType("systemConfiguratorQuestion")
     .name("System Configurator Question")
@@ -86,6 +85,6 @@ export const up: MigrationFunction = (migration: Migration) => {
   );
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   migration.deleteContentType("systemConfiguratorQuestion");
 };

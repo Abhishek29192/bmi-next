@@ -156,7 +156,6 @@ exports[`RichText component closes dialog 1`] = `
       <img
         alt="Customer Support"
         class="embedded-asset"
-        data-main-image="true"
         decoding="async"
         draggable="false"
         loading="lazy"
@@ -356,7 +355,6 @@ exports[`RichText component renders correctly 1`] = `
       <img
         alt="Customer Support"
         class="embedded-asset"
-        data-main-image="true"
         decoding="async"
         draggable="false"
         loading="lazy"
@@ -545,7 +543,6 @@ exports[`RichText component renders when dialog clicked 1`] = `
       <img
         alt="Customer Support"
         class="embedded-asset"
-        data-main-image="true"
         decoding="async"
         draggable="false"
         loading="lazy"

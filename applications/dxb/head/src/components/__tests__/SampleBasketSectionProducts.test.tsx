@@ -2,12 +2,12 @@ import { ThemeProvider } from "@bmi-digital/components";
 import { fireEvent, render, screen } from "@testing-library/react";
 import * as Gatsby from "gatsby";
 import React from "react";
+import createPimImage from "../../__tests__/helpers/PimImageHelper";
 import {
   BasketContextProvider,
   Sample
 } from "../../contexts/SampleBasketContext";
 import { local } from "../../utils/storage";
-import createPimImage from "../../__tests__/helpers/PimImageHelper";
 import SampleBasketSectionProducts from "../SampleBasketSectionProducts";
 import { SiteContextProvider } from "../Site";
 
@@ -93,7 +93,7 @@ describe("SampleBasketSectionProducts component", () => {
       </ThemeProvider>
     );
 
-    fireEvent.click(screen.queryByText("sample-1"));
+    fireEvent.click(screen.queryByText("sample-1")!);
 
     expect(Gatsby.navigate).toBeCalledWith("/en/sample-1-details/");
   });

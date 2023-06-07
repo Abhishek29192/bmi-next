@@ -13,7 +13,7 @@ export type GetMicroCopy = (
 
 export const fallbackGetMicroCopy: GetMicroCopy = (path) => `MC: ${path}`;
 
-export const generateGetMicroCopy = (microCopy?: Data[]) => {
+export const generateGetMicroCopy = (microCopy?: Data[] | null) => {
   if (!microCopy) {
     return fallbackGetMicroCopy;
   }

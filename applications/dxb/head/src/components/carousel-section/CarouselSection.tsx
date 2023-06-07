@@ -12,14 +12,14 @@ import { ArrowForward as ArrowForwardIcon } from "@bmi-digital/components/icon";
 import ButtonBase, { ButtonBaseProps } from "@mui/material/ButtonBase";
 import { graphql } from "gatsby";
 import React, { useContext } from "react";
-import { Data as PromoData } from "../Promo";
 import { microCopy } from "../../constants/microCopies";
 import withGTM from "../../utils/google-tag-manager";
 import BrandLogo from "../BrandLogo";
 import Image from "../Image";
-import { Data as LinkData, getClickableActionFromUrl, getCTA } from "../Link";
+import { getClickableActionFromUrl, getCTA, Data as LinkData } from "../Link";
 import { Data as PageInfoData } from "../PageInfo";
 import { CalculatorContext } from "../PitchedRoofCalcualtor";
+import { Data as PromoData } from "../Promo";
 import { useSiteContext } from "../Site";
 import styles from "../styles/CarouselSection.module.scss";
 import Video from "../Video";
@@ -45,42 +45,39 @@ const parseSlides = (
 ): (TwoPaneCarouselSlide | VerticalRollerSlide)[] => {
   return slides
     .filter((slide) => slide.title)
-    .map((slide, index) => {
-      const {
-        title,
-        subtitle,
-        brandLogo,
-        featuredVideo,
-        featuredMedia,
-        ...rest
-      } = slide;
-      const cta = getCTA(rest, countryCode, linkLabel);
-      const brandLogoIcons = brandLogo ? (
-        <BrandLogo
-          brandName={brandLogo}
-          brandWhiteBox={variant === "vertical"}
-          data-testid={`carousel-section-slide-brand-logo-${index}`}
-        />
-      ) : undefined;
-      return {
-        title,
-        brandIcon: brandLogoIcons,
-        media: featuredVideo ? (
-          <Video
-            {...featuredVideo}
-            className={styles["video-preview-image"]}
-            data-testid={`carousel-section-slide-video-${index}`}
+    .map(
+      (
+        { title, subtitle, brandLogo, featuredVideo, featuredMedia, ...rest },
+        index
+      ) => {
+        const cta = getCTA(rest, countryCode, linkLabel);
+        const brandLogoIcons = brandLogo ? (
+          <BrandLogo
+            brandName={brandLogo}
+            brandWhiteBox={variant === "vertical"}
+            data-testid={`carousel-section-slide-brand-logo-${index}`}
           />
-        ) : featuredMedia ? (
-          <Image
-            {...featuredMedia}
-            data-testid={`carousel-section-slide-image-${index}`}
-          />
-        ) : undefined,
-        description: subtitle || undefined,
-        cta
-      };
-    });
+        ) : undefined;
+        return {
+          title,
+          brandIcon: brandLogoIcons,
+          media: featuredVideo ? (
+            <Video
+              {...featuredVideo}
+              className={styles["video-preview-image"]}
+              data-testid={`carousel-section-slide-video-${index}`}
+            />
+          ) : featuredMedia ? (
+            <Image
+              {...featuredMedia}
+              data-testid={`carousel-section-slide-image-${index}`}
+            />
+          ) : undefined,
+          description: subtitle || undefined,
+          cta
+        };
+      }
+    );
 };
 
 const CarouselSection = ({
@@ -134,7 +131,7 @@ const CarouselSection = ({
             link?.linkedPage,
             link?.url,
             countryCode,
-            null,
+            undefined,
             link.label,
             link?.type,
             () => {

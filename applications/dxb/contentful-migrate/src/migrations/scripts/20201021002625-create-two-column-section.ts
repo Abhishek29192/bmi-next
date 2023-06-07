@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Create content model for Two Column Section";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const twoColumnSection = migration
     .createContentType("twoColumnSection")
     .name("Two Column Section")
@@ -37,5 +36,5 @@ export const up: MigrationFunction = (migration: Migration) => {
   );
 };
 
-export const down: MigrationFunction = (migration: Migration) =>
+export const down: MigrationFunction = (migration) =>
   migration.deleteContentType("twoColumnSection");

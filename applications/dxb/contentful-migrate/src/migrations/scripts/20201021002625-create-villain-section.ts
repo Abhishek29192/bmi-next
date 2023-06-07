@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Create content model for Villain Section";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const villainSection = migration
     .createContentType("villainSection")
     .name("Villain Section")
@@ -34,5 +33,5 @@ export const up: MigrationFunction = (migration: Migration) => {
   villainSection.changeFieldControl("isReversed", "builtin", "boolean");
 };
 
-export const down: MigrationFunction = (migration: Migration) =>
+export const down: MigrationFunction = (migration) =>
   migration.deleteContentType("villainSection");

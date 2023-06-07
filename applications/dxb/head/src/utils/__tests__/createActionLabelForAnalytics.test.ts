@@ -13,7 +13,7 @@ describe("test createLabel functionality", () => {
       product.name,
       product.colour,
       product.textureFamily,
-      product.measurements.label
+      product.measurements?.label
     );
     expect(res).toEqual("product-name-red-smooth-6x7x8symbol");
   });
@@ -30,7 +30,7 @@ describe("test createLabel functionality", () => {
       product.name,
       product.colour,
       product.textureFamily,
-      product.measurements.label
+      product.measurements?.label
     );
     expect(res).toEqual("product-name");
   });
@@ -47,7 +47,7 @@ describe("test createLabel functionality", () => {
       product.name,
       product.colour,
       product.textureFamily,
-      product.measurements.label
+      product.measurements?.label
     );
     expect(res).toEqual(
       "product-name-180x10x10classification-feature-feature-unit-symbol"

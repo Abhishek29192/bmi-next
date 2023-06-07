@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Add teamSection as prep for move to simple page";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   //create team section (needs to be done here to get around migration run order)
   const teamSection = migration
     .createContentType("teamSection")
@@ -69,7 +68,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   });
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const teamPage = migration.editContentType("teamPage");
   teamPage.deleteField("teamSections");
 

@@ -1,35 +1,36 @@
 import {
   CompanyDetailProps,
-  GeocoderResult as GoogleGeocoderResult,
   Google,
   GoogleApi,
-  Grid,
+  GeocoderResult as GoogleGeocoderResult,
   LatLngLiteral as GoogleLatLngLiteral,
-  loadGoogleApi,
-  replaceSpaces,
+  Grid,
   Section,
-  Tabs
+  Tabs,
+  loadGoogleApi,
+  replaceSpaces
 } from "@bmi-digital/components";
 import { useLocation } from "@reach/router";
 import { graphql } from "gatsby";
 import React, { useEffect, useMemo, useReducer, useState } from "react";
 import { microCopy } from "../../constants/microCopies";
 import { pushToDataLayer } from "../../utils/google-tag-manager";
+import { Data as ContentfulImageData } from "../Image";
 import RichText, { RichTextData } from "../RichText";
 import {
-  Data as ServiceData,
   EntryTypeEnum,
+  Data as ServiceData,
   ServiceTypeFilter,
   ServiceTypesPrefixesEnum
 } from "../Service";
 import { Data as ServiceType } from "../ServiceType";
 import { useSiteContext } from "../Site";
 import {
-  createCompanyDetails,
   SearchLocationBlock,
   ServiceLocatorChips,
   ServiceLocatorMap,
-  ServiceLocatorResultList
+  ServiceLocatorResultList,
+  createCompanyDetails
 } from "./components";
 import {
   DEFAULT_LEVEL_ZOOM,
@@ -48,9 +49,11 @@ import {
 import styles from "./styles/ServiceLocatorSection.module.scss";
 import { MapTabPanel, ResultListTabPanel } from "./styles/styles";
 
-export type Service = ServiceData & {
+export type Service = Omit<ServiceData, "companyLogo"> & {
   distance?: number;
+  companyLogo?: ContentfulImageData;
 };
+
 export type Data = {
   __typename: "ContentfulServiceLocatorSection";
   type: EntryTypeEnum;
@@ -86,7 +89,6 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   } = data;
 
   const shouldEnableSearch = sectionType !== EntryTypeEnum.BRANCH_TYPE;
-  const shouldListCertification = sectionType === EntryTypeEnum.ROOFER_TYPE;
   const isBranchLocator = sectionType == EntryTypeEnum.BRANCH_TYPE;
 
   const { getMicroCopy, countryCode } = useSiteContext();
@@ -403,8 +405,8 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                 page={page}
                 pageCount={pageCount}
                 getCompanyDetails={getCompanyDetails}
-                shouldListCertification={shouldListCertification}
                 selectedRoofer={selectedRoofer}
+                shouldListCertification
               />
             </ResultListTabPanel>
           )}

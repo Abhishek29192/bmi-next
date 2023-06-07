@@ -1,27 +1,17 @@
-test_contentful-default-values:
-  extends: .test_yarn_workspace
+lint_contentful-default-values:
+  extends: .lint_yarn_workspace
   rules:
-    - !reference [.ingore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_main, rules, if]
-      changes:
-        - $ROOT_DIR/**/*
-        - jest/**/*
-        - yarn.lock
-        - applications/dxb/libraries/cms-consolidation-utility/**/*
-    - if: !reference [.run_for_changes_on_mr, rules, if]
-      changes:
-        - $ROOT_DIR/**/*
-        - jest/**/*
-        - yarn.lock
-        - applications/dxb/libraries/cms-consolidation-utility/**/*
+    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [ .run_for_changes_on_mr, rules ]
   variables:
+    ROOT_DIR: "applications/dxb/functions/contentful-default-values"
     WORKSPACE: "@bmi/contentful-default-values"
-    ROOT_DIR: "applications/functions/contentful-default-values"
 
 build_contentful-default-values:
   extends: .build_function
   rules:
-    - !reference [.ingore_release_mrs, rules]
+    - !reference [ .ignore_release_mrs, rules]
     - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - $ROOT_DIR/**/*
@@ -37,6 +27,26 @@ build_contentful-default-values:
   variables:
     WORKSPACE: "@bmi/contentful-default-values"
     ROOT_DIR: "applications/dxb/functions/contentful-default-values"
+
+test_contentful-default-values:
+  extends: .test_yarn_workspace
+  rules:
+    - !reference [ .ignore_release_mrs, rules]
+    - if: !reference [.run_for_changes_on_main, rules, if]
+      changes:
+        - $ROOT_DIR/**/*
+        - yarn.lock
+        - applications/dxb/libraries/cms-consolidation-utility/**/*
+    - if: !reference [.run_for_changes_on_mr, rules, if]
+      changes:
+        - $ROOT_DIR/**/*
+        - yarn.lock
+        - applications/dxb/libraries/cms-consolidation-utility/**/*
+  variables:
+    WORKSPACE: "@bmi/contentful-default-values"
+    ROOT_DIR: "applications/functions/contentful-default-values"
+  needs:
+    - build_contentful-default-values
 
 package_contentful-default-values:
   extends: .package_function

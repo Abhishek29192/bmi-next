@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Remove next best action card validation";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const cardCollectionSection = migration.editContentType(
     "cardCollectionSection"
   );
@@ -13,7 +12,7 @@ export const up: MigrationFunction = (migration: Migration) => {
     .validations([{ in: ["Highlight Card", "Story Card"] }]);
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const cardCollectionSection = migration.editContentType(
     "cardCollectionSection"
   );

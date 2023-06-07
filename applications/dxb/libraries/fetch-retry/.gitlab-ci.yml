@@ -1,26 +1,31 @@
-test_fetch-retry:
-  extends: .test_yarn_workspace
+lint_fetch-retry:
+  extends: .lint_yarn_workspace
   rules:
-    - !reference [.ingore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_main, rules, if]
-      changes:
-        - $ROOT_DIR/**/*
-        - jest/**/*
-        - yarn.lock
-    - if: !reference [.run_for_changes_on_mr, rules, if]
-      changes:
-        - $ROOT_DIR/**/*
-        - jest/**/*
-        - yarn.lock
+    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [ .run_for_changes_on_mr, rules ]
   variables:
-    WORKSPACE: "@bmi/fetch-retry"
     ROOT_DIR: "applications/dxb/libraries/fetch-retry"
+    WORKSPACE: "@bmi/fetch-retry"
 
 build_fetch-retry:
   extends: .build_yarn_workspace
   rules:
-    - !reference [.ingore_release_mrs, rules]
-    - !reference [.run_for_changes_on_main, rules]
+    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [ .run_for_changes_on_mr, rules ]
   variables:
     WORKSPACE: "@bmi/fetch-retry"
     ROOT_DIR: "applications/dxb/libraries/fetch-retry"
+
+test_fetch-retry:
+  extends: .test_yarn_workspace
+  rules:
+    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [ .run_for_changes_on_mr, rules ]
+  variables:
+    WORKSPACE: "@bmi/fetch-retry"
+    ROOT_DIR: "applications/dxb/libraries/fetch-retry"
+  needs:
+    - build_fetch-retry

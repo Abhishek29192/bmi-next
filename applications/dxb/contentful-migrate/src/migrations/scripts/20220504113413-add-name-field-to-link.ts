@@ -1,12 +1,11 @@
-import { internalName } from "../../variables/helpText/20210421160910";
-import { hyphenSymbol } from "../../variables/hyphenSymbol/20220504110700";
-import type Migration from "contentful-migration";
+import { internalName } from "../../variables/helpText/20210421160910.js";
+import { hyphenSymbol } from "../../variables/hyphenSymbol/20220504110700.js";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Add name field for link";
 const titleNotFound = "Untitled";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const link = migration.editContentType("link");
   link.createField("name").name("Name").type("Symbol").required(true);
   link.changeFieldControl("name", "builtin", "singleLine", {
@@ -35,7 +34,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   });
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const link = migration.editContentType("link");
   link.displayField("label");
   link.deleteField("name");

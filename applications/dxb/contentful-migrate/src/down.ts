@@ -1,4 +1,6 @@
-import { argv } from "process";
+import path from "node:path";
+import { argv } from "node:process";
+import { fileURLToPath, pathToFileURL } from "node:url";
 import { migrateDown } from "@bmi-digital/contentful-migration";
 import "dotenv/config";
 
@@ -23,7 +25,7 @@ export const main = async (script?: string) => {
   return await migrateDown(
     script,
     "scripts",
-    __dirname,
+    path.dirname(fileURLToPath(import.meta.url)),
     SPACE_ID,
     CONTENTFUL_ENVIRONMENT,
     MANAGEMENT_ACCESS_TOKEN,
@@ -32,7 +34,7 @@ export const main = async (script?: string) => {
 };
 
 // istanbul ignore if - can't override require.main
-if (require.main === module) {
+if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   main(argv[2]).catch((error) => {
     console.error(error);
   });

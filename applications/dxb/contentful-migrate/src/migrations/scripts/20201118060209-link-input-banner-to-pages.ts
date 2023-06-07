@@ -1,5 +1,4 @@
-import type Migration from "contentful-migration";
-import type { MigrationContext, MigrationFunction } from "contentful-migration";
+import type { MigrationFunction } from "contentful-migration";
 
 const pageContentTypes = [
   "page",
@@ -13,10 +12,7 @@ export const description =
   "Link input banner entity for the following pages: " +
   pageContentTypes.join(", ");
 
-export const up: MigrationFunction = async (
-  migration: Migration,
-  context?: MigrationContext
-) => {
+export const up: MigrationFunction = async (migration, context) => {
   let inputBannerRequest;
   try {
     inputBannerRequest = await context!.makeRequest({
@@ -72,7 +68,7 @@ export const up: MigrationFunction = async (
   });
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   pageContentTypes.forEach((contentType) => {
     const currentContentType = migration.editContentType(contentType);
 

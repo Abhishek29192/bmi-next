@@ -1,16 +1,13 @@
 import { mockRequest, mockResponse } from "@bmi-digital/fetch-mocks";
 import {
-  createSys,
-  Document as ContentfulDocument
+  createEntrySys,
+  createFullyPopulatedDocumentLocalisedUnlinked
 } from "@bmi/contentful-types";
-import {
-  ContentfulDocument as EsContentfulDocument,
-  createContentfulDocument as createEsContentfulDocument
-} from "@bmi/elasticsearch-types";
-import { Request, Response } from "@google-cloud/functions-framework";
-import { Entry } from "contentful";
+import { createContentfulDocument as createEsContentfulDocument } from "@bmi/elasticsearch-types";
+import type { ContentfulDocument as EsContentfulDocument } from "@bmi/elasticsearch-types";
 import createContentfulDeletedRequestBody from "./helpers/contentfulDeletedRequestBodyHelper";
-import createContentfulPublishedRequestBody from "./helpers/contentfulPublishedRequestBodyHelper";
+import type { Request, Response } from "@google-cloud/functions-framework";
+import type { ContentfulDocument } from "../types";
 
 const getEsClient = jest.fn();
 const index = jest.fn();
@@ -38,10 +35,10 @@ jest.mock("../helpers", () => ({
 
 const transformDocument: jest.Mock<
   Promise<EsContentfulDocument>,
-  [Entry<ContentfulDocument>]
+  [ContentfulDocument]
 > = jest.fn();
 jest.mock("../documentTransformer", () => ({
-  transformDocument: (document: Entry<ContentfulDocument>) =>
+  transformDocument: (document: ContentfulDocument) =>
     transformDocument(document)
 }));
 
@@ -72,7 +69,7 @@ describe("updateESDocumentsIndex", () => {
         authorization: "Bearer some-super-secret-token"
       },
       url: "http://localhost:9000",
-      body: createContentfulPublishedRequestBody()
+      body: createFullyPopulatedDocumentLocalisedUnlinked()
     });
     const response = mockResponse();
 
@@ -97,7 +94,7 @@ describe("updateESDocumentsIndex", () => {
         authorization: "Bearer invalid-token"
       },
       url: "http://localhost:9000",
-      body: createContentfulPublishedRequestBody()
+      body: createFullyPopulatedDocumentLocalisedUnlinked()
     });
     const response = mockResponse();
 
@@ -123,7 +120,7 @@ describe("updateESDocumentsIndex", () => {
         authorization: "Bearer some-super-secret-token"
       },
       url: "http://localhost:9000",
-      body: createContentfulPublishedRequestBody()
+      body: createFullyPopulatedDocumentLocalisedUnlinked()
     });
     const response = mockResponse();
 
@@ -173,13 +170,13 @@ describe("updateESDocumentsIndex", () => {
         authorization: "Bearer some-super-secret-token"
       },
       url: "http://localhost:9000",
-      body: createContentfulPublishedRequestBody({
-        sys: createSys({
+      body: createFullyPopulatedDocumentLocalisedUnlinked({
+        sys: createEntrySys({
           contentType: {
             sys: { type: "Link", linkType: "ContentType", id: "page" }
           }
         })
-      })
+      } as unknown as ContentfulDocument) // Force the compiler to allow a populated bad request without creating a whole new factory function
     });
     const response = mockResponse();
 
@@ -206,7 +203,7 @@ describe("updateESDocumentsIndex", () => {
         authorization: "Bearer some-super-secret-token"
       },
       url: "http://localhost:9000",
-      body: createContentfulPublishedRequestBody()
+      body: createFullyPopulatedDocumentLocalisedUnlinked()
     });
     const response = mockResponse();
 
@@ -229,7 +226,7 @@ describe("updateESDocumentsIndex", () => {
 
   it("should return status 400 when transformDocument throws error", async () => {
     const contentfulPublishedRequestBody =
-      createContentfulPublishedRequestBody();
+      createFullyPopulatedDocumentLocalisedUnlinked();
     checkEnvVariablesMissing.mockReturnValueOnce(false);
     checkAuthorization.mockReturnValueOnce(false);
     checkHttpMethod.mockReturnValueOnce(false);
@@ -260,7 +257,7 @@ describe("updateESDocumentsIndex", () => {
 
   it("should throw error when index into ES throws error", async () => {
     const contentfulPublishedRequestBody =
-      createContentfulPublishedRequestBody();
+      createFullyPopulatedDocumentLocalisedUnlinked();
     const transformedDocument = createEsContentfulDocument();
     checkEnvVariablesMissing.mockReturnValueOnce(false);
     checkAuthorization.mockReturnValueOnce(false);
@@ -292,7 +289,7 @@ describe("updateESDocumentsIndex", () => {
       contentfulPublishedRequestBody
     );
     expect(index).toHaveBeenCalledWith({
-      index: process.env.ES_INDEX_NAME_DOCUMENTS,
+      index: `${process.env.ES_INDEX_NAME_DOCUMENTS}_write`.toLowerCase(),
       id: transformedDocument.id,
       body: transformedDocument
     });
@@ -302,7 +299,7 @@ describe("updateESDocumentsIndex", () => {
 
   it("should return status 200 when index into ES is successful", async () => {
     const contentfulPublishedRequestBody =
-      createContentfulPublishedRequestBody();
+      createFullyPopulatedDocumentLocalisedUnlinked();
     const transformedDocument = createEsContentfulDocument();
     checkEnvVariablesMissing.mockReturnValueOnce(false);
     checkAuthorization.mockReturnValueOnce(false);
@@ -343,7 +340,7 @@ describe("updateESDocumentsIndex", () => {
       contentfulPublishedRequestBody
     );
     expect(index).toHaveBeenCalledWith({
-      index: process.env.ES_INDEX_NAME_DOCUMENTS,
+      index: `${process.env.ES_INDEX_NAME_DOCUMENTS}_write`.toLowerCase(),
       id: transformedDocument.id,
       body: transformedDocument
     });
@@ -378,7 +375,7 @@ describe("updateESDocumentsIndex", () => {
     expect(checkHttpMethod).toHaveBeenCalledWith(request, response);
     expect(getEsClient).toHaveBeenCalled();
     expect(mockDelete).toHaveBeenCalledWith({
-      index: process.env.ES_INDEX_NAME_DOCUMENTS,
+      index: `${process.env.ES_INDEX_NAME_DOCUMENTS}_write`.toLowerCase(),
       id: request.body.sys.id
     });
     expect(transformDocument).not.toHaveBeenCalled();
@@ -422,7 +419,7 @@ describe("updateESDocumentsIndex", () => {
     expect(checkHttpMethod).toHaveBeenCalledWith(request, response);
     expect(getEsClient).toHaveBeenCalled();
     expect(mockDelete).toHaveBeenCalledWith({
-      index: process.env.ES_INDEX_NAME_DOCUMENTS,
+      index: `${process.env.ES_INDEX_NAME_DOCUMENTS}_write`.toLowerCase(),
       id: request.body.sys.id
     });
     expect(response.sendStatus).toHaveBeenCalledWith(200);

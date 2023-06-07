@@ -3,12 +3,11 @@ import {
   getEntriesByContentType,
   unpublishEntry
 } from "@bmi-digital/contentful-migration";
-import type Migration from "contentful-migration";
-import type { MigrationContext, MigrationFunction } from "contentful-migration";
+import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Create content model for Service Types";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const serviceType = migration
     .createContentType("serviceType")
     .name("Service Type")
@@ -25,10 +24,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   serviceType.changeFieldControl("name", "builtin", "singleLine");
 };
 
-export const down: MigrationFunction = async (
-  migration: Migration,
-  context?: MigrationContext
-) => {
+export const down: MigrationFunction = async (migration, context) => {
   const serviceTypeContentType = migration.editContentType("serviceType");
 
   // delete entries of the service type conent type

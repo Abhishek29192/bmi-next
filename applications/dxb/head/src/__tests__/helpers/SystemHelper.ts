@@ -17,16 +17,16 @@ export const createSystem = (system?: Partial<System>): System => ({
       allowedToDownload: false
     }),
     createAsset({
-      mime: null
+      mime: undefined
     }),
     createAsset({
       fileSize: 1.7976931348623157e308
     }),
     createAsset({
-      format: null
+      format: undefined
     }),
     createAsset({
-      url: null
+      url: undefined
     })
   ],
   awardsAndCertificateImages: [
@@ -82,7 +82,7 @@ export const createSystem = (system?: Partial<System>): System => ({
   promotionalContent: "",
   shortDescription: "system-desc",
   systemBenefits: [],
-  systemReferences: null,
+  systemReferences: [],
   systemLayers: [],
   specification: createAsset({ assetType: "SPECIFICATION" }),
   uniqueSellingPropositions: [],

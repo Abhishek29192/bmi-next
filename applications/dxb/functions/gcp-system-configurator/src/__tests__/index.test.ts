@@ -1,6 +1,7 @@
 import { getMockReq, getMockRes } from "@jest-mock/express";
 import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
+import { BLOCKS } from "@contentful/rich-text-types";
 import { Answer, NextStep } from "../types";
 
 const contentfulDeliveryToken = "contentful-delivery-token";
@@ -62,12 +63,11 @@ describe("HTTP function:", () => {
                 nodeType: "text"
               }
             ],
-            nodeType: "paragraph",
+            nodeType: BLOCKS.PARAGRAPH,
             marks: [{ type: "bold" }]
           }
         ],
-
-        nodeType: "document"
+        nodeType: BLOCKS.DOCUMENT
       },
       links: {
         assets: {
@@ -565,7 +565,7 @@ describe("HTTP function:", () => {
             },
             title: "title",
             description: {
-              json: { data: {}, content: [], nodeType: "document" },
+              json: { data: {}, content: [], nodeType: BLOCKS.DOCUMENT },
               links: {
                 assets: {
                   block: []
@@ -646,7 +646,7 @@ describe("HTTP function:", () => {
             },
             title: "title",
             description: {
-              json: { data: {}, content: [], nodeType: "document" },
+              json: { data: {}, content: [], nodeType: BLOCKS.DOCUMENT },
               links: {
                 assets: {
                   block: []
@@ -665,7 +665,6 @@ describe("HTTP function:", () => {
                   content: [
                     {
                       data: {},
-                      marks: [],
                       content: [
                         {
                           data: {},
@@ -674,10 +673,10 @@ describe("HTTP function:", () => {
                           nodeType: "text"
                         }
                       ],
-                      nodeType: "paragraph"
+                      nodeType: BLOCKS.PARAGRAPH
                     }
                   ],
-                  nodeType: "document"
+                  nodeType: BLOCKS.DOCUMENT
                 },
                 links: {
                   assets: {
@@ -711,7 +710,6 @@ describe("HTTP function:", () => {
           content: [
             {
               data: {},
-              marks: [],
               content: [
                 {
                   data: {},
@@ -720,10 +718,10 @@ describe("HTTP function:", () => {
                   nodeType: "text"
                 }
               ],
-              nodeType: "paragraph"
+              nodeType: BLOCKS.PARAGRAPH
             }
           ],
-          nodeType: "document"
+          nodeType: BLOCKS.DOCUMENT
         }),
         references: []
       },
@@ -788,7 +786,7 @@ describe("HTTP function:", () => {
             },
             title: "title",
             description: {
-              json: { data: {}, content: [], nodeType: "document" },
+              json: { data: {}, content: [], nodeType: BLOCKS.DOCUMENT },
               links: {
                 assets: {
                   block: []
@@ -807,7 +805,6 @@ describe("HTTP function:", () => {
                   content: [
                     {
                       data: {},
-                      marks: [],
                       content: [
                         {
                           data: {},
@@ -816,10 +813,10 @@ describe("HTTP function:", () => {
                           nodeType: "text"
                         }
                       ],
-                      nodeType: "paragraph"
+                      nodeType: BLOCKS.PARAGRAPH
                     }
                   ],
-                  nodeType: "document"
+                  nodeType: BLOCKS.DOCUMENT
                 },
                 links: {
                   assets: {
@@ -863,7 +860,6 @@ describe("HTTP function:", () => {
           content: [
             {
               data: {},
-              marks: [],
               content: [
                 {
                   data: {},
@@ -872,10 +868,10 @@ describe("HTTP function:", () => {
                   nodeType: "text"
                 }
               ],
-              nodeType: "paragraph"
+              nodeType: BLOCKS.PARAGRAPH
             }
           ],
-          nodeType: "document"
+          nodeType: BLOCKS.DOCUMENT
         }),
         references: [
           {
@@ -949,7 +945,7 @@ describe("HTTP function:", () => {
             },
             title: "title",
             description: {
-              json: { data: {}, content: [], nodeType: "document" },
+              json: { data: {}, content: [], nodeType: BLOCKS.DOCUMENT },
               links: {
                 assets: {
                   block: []
@@ -968,7 +964,6 @@ describe("HTTP function:", () => {
                   content: [
                     {
                       data: {},
-                      marks: [],
                       content: [
                         {
                           data: {},
@@ -977,10 +972,10 @@ describe("HTTP function:", () => {
                           nodeType: "text"
                         }
                       ],
-                      nodeType: "paragraph"
+                      nodeType: BLOCKS.PARAGRAPH
                     }
                   ],
-                  nodeType: "document"
+                  nodeType: BLOCKS.DOCUMENT
                 },
                 links: {
                   assets: {
@@ -1018,7 +1013,7 @@ describe("HTTP function:", () => {
             },
             title: "title",
             description: {
-              json: { data: {}, content: [], nodeType: "document" },
+              json: { data: {}, content: [], nodeType: BLOCKS.DOCUMENT },
               links: {
                 assets: {
                   block: []
@@ -1037,7 +1032,6 @@ describe("HTTP function:", () => {
                   content: [
                     {
                       data: {},
-                      marks: [],
                       content: [
                         {
                           data: {},
@@ -1046,10 +1040,10 @@ describe("HTTP function:", () => {
                           nodeType: "text"
                         }
                       ],
-                      nodeType: "paragraph"
+                      nodeType: BLOCKS.PARAGRAPH
                     }
                   ],
-                  nodeType: "document"
+                  nodeType: BLOCKS.DOCUMENT
                 },
                 links: {
                   assets: {
@@ -1093,7 +1087,6 @@ describe("HTTP function:", () => {
           content: [
             {
               data: {},
-              marks: [],
               content: [
                 {
                   data: {},
@@ -1102,10 +1095,10 @@ describe("HTTP function:", () => {
                   nodeType: "text"
                 }
               ],
-              nodeType: "paragraph"
+              nodeType: BLOCKS.PARAGRAPH
             }
           ],
-          nodeType: "document"
+          nodeType: BLOCKS.DOCUMENT
         }),
         references: [
           {
@@ -1179,7 +1172,7 @@ describe("HTTP function:", () => {
             },
             title: "title",
             description: {
-              json: { data: {}, content: [], nodeType: "document" },
+              json: { data: {}, content: [], nodeType: BLOCKS.DOCUMENT },
               links: {
                 assets: {
                   block: []
@@ -1198,7 +1191,6 @@ describe("HTTP function:", () => {
                   content: [
                     {
                       data: {},
-                      marks: [],
                       content: [
                         {
                           data: {},
@@ -1207,10 +1199,10 @@ describe("HTTP function:", () => {
                           nodeType: "text"
                         }
                       ],
-                      nodeType: "paragraph"
+                      nodeType: BLOCKS.PARAGRAPH
                     }
                   ],
-                  nodeType: "document"
+                  nodeType: BLOCKS.DOCUMENT
                 },
                 links: {
                   assets: {
@@ -1251,7 +1243,6 @@ describe("HTTP function:", () => {
           content: [
             {
               data: {},
-              marks: [],
               content: [
                 {
                   data: {},
@@ -1260,10 +1251,10 @@ describe("HTTP function:", () => {
                   nodeType: "text"
                 }
               ],
-              nodeType: "paragraph"
+              nodeType: BLOCKS.PARAGRAPH
             }
           ],
-          nodeType: "document"
+          nodeType: BLOCKS.DOCUMENT
         }),
         references: [
           {
@@ -1337,7 +1328,7 @@ describe("HTTP function:", () => {
             },
             title: "title",
             description: {
-              json: { data: {}, content: [], nodeType: "document" },
+              json: { data: {}, content: [], nodeType: BLOCKS.DOCUMENT },
               links: {
                 assets: {
                   block: []
@@ -1364,10 +1355,10 @@ describe("HTTP function:", () => {
                           nodeType: "text"
                         }
                       ],
-                      nodeType: "paragraph"
+                      nodeType: BLOCKS.PARAGRAPH
                     }
                   ],
-                  nodeType: "document"
+                  nodeType: BLOCKS.DOCUMENT
                 },
                 links: null
               }
@@ -1401,10 +1392,10 @@ describe("HTTP function:", () => {
                   nodeType: "text"
                 }
               ],
-              nodeType: "paragraph"
+              nodeType: BLOCKS.PARAGRAPH
             }
           ],
-          nodeType: "document"
+          nodeType: BLOCKS.DOCUMENT
         })
       }
     });
@@ -1468,7 +1459,7 @@ describe("HTTP function:", () => {
             },
             title: "title",
             description: {
-              json: { data: {}, content: [], nodeType: "document" },
+              json: { data: {}, content: [], nodeType: BLOCKS.DOCUMENT },
               links: {
                 assets: {
                   block: []
@@ -1487,7 +1478,6 @@ describe("HTTP function:", () => {
                   content: [
                     {
                       data: {},
-                      marks: [],
                       content: [
                         {
                           data: {},
@@ -1496,10 +1486,10 @@ describe("HTTP function:", () => {
                           nodeType: "text"
                         }
                       ],
-                      nodeType: "paragraph"
+                      nodeType: BLOCKS.PARAGRAPH
                     }
                   ],
-                  nodeType: "document"
+                  nodeType: BLOCKS.DOCUMENT
                 },
                 links: {
                   assets: {
@@ -1543,7 +1533,6 @@ describe("HTTP function:", () => {
           content: [
             {
               data: {},
-              marks: [],
               content: [
                 {
                   data: {},
@@ -1552,10 +1541,10 @@ describe("HTTP function:", () => {
                   nodeType: "text"
                 }
               ],
-              nodeType: "paragraph"
+              nodeType: BLOCKS.PARAGRAPH
             }
           ],
-          nodeType: "document"
+          nodeType: BLOCKS.DOCUMENT
         }),
         references: [
           {
@@ -1749,7 +1738,7 @@ query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
             },
             title: "title",
             description: {
-              json: { data: {}, content: [], nodeType: "document" },
+              json: { data: {}, content: [], nodeType: BLOCKS.DOCUMENT },
               links: {
                 assets: {
                   block: []
@@ -1768,7 +1757,6 @@ query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
                   content: [
                     {
                       data: {},
-                      marks: [],
                       content: [
                         {
                           data: {},
@@ -1777,10 +1765,10 @@ query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
                           nodeType: "text"
                         }
                       ],
-                      nodeType: "paragraph"
+                      nodeType: BLOCKS.PARAGRAPH
                     }
                   ],
-                  nodeType: "document"
+                  nodeType: BLOCKS.DOCUMENT
                 },
                 links: {
                   assets: {
@@ -1824,7 +1812,6 @@ query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
           content: [
             {
               data: {},
-              marks: [],
               content: [
                 {
                   data: {},
@@ -1833,10 +1820,10 @@ query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
                   nodeType: "text"
                 }
               ],
-              nodeType: "paragraph"
+              nodeType: BLOCKS.PARAGRAPH
             }
           ],
-          nodeType: "document"
+          nodeType: BLOCKS.DOCUMENT
         }),
         references: [
           {
@@ -2030,7 +2017,7 @@ query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
             },
             title: "title",
             description: {
-              json: { data: {}, content: [], nodeType: "document" },
+              json: { data: {}, content: [], nodeType: BLOCKS.DOCUMENT },
               links: {
                 assets: {
                   block: []
@@ -2049,7 +2036,6 @@ query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
                   content: [
                     {
                       data: {},
-                      marks: [],
                       content: [
                         {
                           data: {},
@@ -2058,10 +2044,10 @@ query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
                           nodeType: "text"
                         }
                       ],
-                      nodeType: "paragraph"
+                      nodeType: BLOCKS.PARAGRAPH
                     }
                   ],
-                  nodeType: "document"
+                  nodeType: BLOCKS.DOCUMENT
                 },
                 links: {
                   assets: {
@@ -2105,7 +2091,6 @@ query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
           content: [
             {
               data: {},
-              marks: [],
               content: [
                 {
                   data: {},
@@ -2114,10 +2099,10 @@ query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
                   nodeType: "text"
                 }
               ],
-              nodeType: "paragraph"
+              nodeType: BLOCKS.PARAGRAPH
             }
           ],
-          nodeType: "document"
+          nodeType: BLOCKS.DOCUMENT
         }),
         references: [
           {
@@ -2308,7 +2293,7 @@ query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
             },
             title: "title",
             description: {
-              json: { data: {}, content: [], nodeType: "document" },
+              json: { data: {}, content: [], nodeType: BLOCKS.DOCUMENT },
               links: {
                 assets: {
                   block: []
@@ -2327,7 +2312,6 @@ query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
                   content: [
                     {
                       data: {},
-                      marks: [],
                       content: [
                         {
                           data: {},
@@ -2336,10 +2320,10 @@ query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
                           nodeType: "text"
                         }
                       ],
-                      nodeType: "paragraph"
+                      nodeType: BLOCKS.PARAGRAPH
                     }
                   ],
-                  nodeType: "document"
+                  nodeType: BLOCKS.DOCUMENT
                 },
                 links: {
                   assets: {
@@ -2383,7 +2367,6 @@ query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
           content: [
             {
               data: {},
-              marks: [],
               content: [
                 {
                   data: {},
@@ -2392,10 +2375,10 @@ query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
                   nodeType: "text"
                 }
               ],
-              nodeType: "paragraph"
+              nodeType: BLOCKS.PARAGRAPH
             }
           ],
-          nodeType: "document"
+          nodeType: BLOCKS.DOCUMENT
         }),
         references: [
           {

@@ -30,30 +30,33 @@ const SectionAccordion = ({
   items: readonly TitleWithContentData[];
 }) => {
   return (
-    <Accordion>
-      {items.length > 0 &&
-        items.map(({ title, name, content }) => {
-          const newTitle = title || name;
-          return (
-            <Accordion.Item key={title}>
-              <GTMAccordionSummary
-                gtm={{
-                  id: "selector-accordion1",
-                  label: newTitle,
-                  action: "Selector – Accordion"
-                }}
-              >
-                <Typography component="h3" variant="h6">
-                  {transformHyphens(newTitle)}
-                </Typography>
-              </GTMAccordionSummary>
-              <Accordion.Details>
-                <RichText document={content} hasNoBottomMargin />
-              </Accordion.Details>
-            </Accordion.Item>
-          );
-        })}
-    </Accordion>
+    <>
+      {items.length > 0 && (
+        <Accordion>
+          {items.map(({ title, name, content }) => {
+            const newTitle = title || name;
+            return (
+              <Accordion.Item key={title}>
+                <GTMAccordionSummary
+                  gtm={{
+                    id: "selector-accordion1",
+                    label: newTitle,
+                    action: "Selector – Accordion"
+                  }}
+                >
+                  <Typography component="h3" variant="h6">
+                    {transformHyphens(newTitle)}
+                  </Typography>
+                </GTMAccordionSummary>
+                <Accordion.Details>
+                  <RichText document={content} hasNoBottomMargin />
+                </Accordion.Details>
+              </Accordion.Item>
+            );
+          })}
+        </Accordion>
+      )}
+    </>
   );
 };
 

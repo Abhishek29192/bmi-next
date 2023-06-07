@@ -1,14 +1,10 @@
 import { isDryRun } from "@bmi-digital/contentful-migration";
-import { EntryProps, SysLink } from "contentful-management";
-import type Migration from "contentful-migration";
-import type { MigrationContext, MigrationFunction } from "contentful-migration";
+import type { EntryProps, SysLink } from "contentful-management";
+import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Migrate otherAreas to tabsOrAccordionSection";
 
-export const up: MigrationFunction = (
-  migration: Migration,
-  context?: MigrationContext
-) => {
+export const up: MigrationFunction = (migration, context) => {
   if (isDryRun) {
     return;
   }
@@ -72,10 +68,7 @@ export const up: MigrationFunction = (
   });
 };
 
-export const down: MigrationFunction = (
-  migration: Migration,
-  context?: MigrationContext
-) => {
+export const down: MigrationFunction = (migration, context) => {
   if (isDryRun) {
     return;
   }

@@ -1,10 +1,9 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description =
   "Edit validations System Configurator Answer and System Configurator Block content type";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const systemConfiguratorAnswer = migration.editContentType(
     "systemConfiguratorAnswer"
   );
@@ -84,7 +83,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   ]);
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const systemConfiguratorAnswer = migration.editContentType(
     "systemConfiguratorAnswer"
   );

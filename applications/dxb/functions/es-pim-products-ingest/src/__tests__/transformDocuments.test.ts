@@ -1,4 +1,3 @@
-import { createAssetType } from "@bmi/contentful-types";
 import {
   PimProductDocument,
   PimSystemDocument
@@ -14,7 +13,16 @@ import {
   Product,
   System
 } from "@bmi/pim-types";
-import { ProductDocumentNameMap } from "../types";
+import { ContentfulAssetType, ProductDocumentNameMap } from "../types";
+
+const createContentfulAssetType = (
+  contentfulAssetType?: Partial<ContentfulAssetType>
+): ContentfulAssetType => ({
+  code: "contentful asset type code",
+  name: "contentful asset type name",
+  pimCode: "pim-code",
+  ...contentfulAssetType
+});
 
 const transformDocuments = async (
   item: Product | System,
@@ -99,7 +107,9 @@ describe("transformDocuments", () => {
       approvalStatus: "approved",
       assets: [createAsset({ assetType: pimCode })]
     });
-    getAssetTypes.mockResolvedValueOnce([createAssetType({ pimCode })]);
+    getAssetTypes.mockResolvedValueOnce([
+      createContentfulAssetType({ pimCode })
+    ]);
 
     const transformedDocuments = await transformDocuments(product, locale);
 
@@ -115,7 +125,9 @@ describe("transformDocuments", () => {
       approvalStatus: "discontinued",
       assets: [createAsset({ assetType: pimCode })]
     });
-    getAssetTypes.mockResolvedValueOnce([createAssetType({ pimCode })]);
+    getAssetTypes.mockResolvedValueOnce([
+      createContentfulAssetType({ pimCode })
+    ]);
 
     const transformedDocuments = await transformDocuments(product, locale);
 
@@ -131,7 +143,9 @@ describe("transformDocuments", () => {
       approvalStatus: "unapproved",
       assets: [createAsset({ assetType: pimCode })]
     });
-    getAssetTypes.mockResolvedValueOnce([createAssetType({ pimCode })]);
+    getAssetTypes.mockResolvedValueOnce([
+      createContentfulAssetType({ pimCode })
+    ]);
 
     const transformedDocuments = await transformDocuments(product, locale);
 
@@ -146,7 +160,9 @@ describe("transformDocuments", () => {
       approvalStatus: "check",
       assets: [createAsset({ assetType: pimCode })]
     });
-    getAssetTypes.mockResolvedValueOnce([createAssetType({ pimCode })]);
+    getAssetTypes.mockResolvedValueOnce([
+      createContentfulAssetType({ pimCode })
+    ]);
 
     const transformedDocuments = await transformDocuments(product, locale);
 
@@ -156,7 +172,7 @@ describe("transformDocuments", () => {
 
   it("should throw error if getProductDocumentNameMap throws error", async () => {
     const locale = "en-US";
-    getAssetTypes.mockResolvedValueOnce([createAssetType()]);
+    getAssetTypes.mockResolvedValueOnce([createContentfulAssetType()]);
     getProductDocumentNameMap.mockRejectedValueOnce(Error("Expected error"));
 
     try {
@@ -174,7 +190,7 @@ describe("transformDocuments", () => {
 
   it("should return empty array when product has undefined assets and no variants", async () => {
     const locale = "en-US";
-    getAssetTypes.mockResolvedValueOnce([createAssetType()]);
+    getAssetTypes.mockResolvedValueOnce([createContentfulAssetType()]);
     getProductDocumentNameMap.mockResolvedValueOnce("Document name");
 
     const transformedDocuments = await transformDocuments(
@@ -190,7 +206,7 @@ describe("transformDocuments", () => {
 
   it("should return empty array when system has undefined assets", async () => {
     const locale = "en-US";
-    getAssetTypes.mockResolvedValueOnce([createAssetType()]);
+    getAssetTypes.mockResolvedValueOnce([createContentfulAssetType()]);
     getProductDocumentNameMap.mockResolvedValueOnce("Document name");
 
     const transformedDocuments = await transformDocuments(
@@ -206,7 +222,7 @@ describe("transformDocuments", () => {
 
   it("should return empty array when product has empty assets array and no variants", async () => {
     const locale = "en-US";
-    getAssetTypes.mockResolvedValueOnce([createAssetType()]);
+    getAssetTypes.mockResolvedValueOnce([createContentfulAssetType()]);
     getProductDocumentNameMap.mockResolvedValueOnce("Document name");
 
     const transformedDocuments = await transformDocuments(
@@ -222,7 +238,7 @@ describe("transformDocuments", () => {
 
   it("should return empty array when system has empty assets array", async () => {
     const locale = "en-US";
-    getAssetTypes.mockResolvedValueOnce([createAssetType()]);
+    getAssetTypes.mockResolvedValueOnce([createContentfulAssetType()]);
     getProductDocumentNameMap.mockResolvedValueOnce("Document name");
 
     const transformedDocuments = await transformDocuments(
@@ -239,7 +255,9 @@ describe("transformDocuments", () => {
   it("should return empty array when system does not have a URL", async () => {
     const locale = "en-US";
     const pimCode = "ASSEMBLY_INSTRUCTIONS";
-    getAssetTypes.mockResolvedValueOnce([createAssetType({ pimCode })]);
+    getAssetTypes.mockResolvedValueOnce([
+      createContentfulAssetType({ pimCode })
+    ]);
     getProductDocumentNameMap.mockResolvedValueOnce("Document name");
 
     const transformedDocuments = await transformDocuments(
@@ -258,7 +276,9 @@ describe("transformDocuments", () => {
   it("should return empty array when product asset type isn't found in asset types from Contentful", async () => {
     const locale = "en-US";
     getAssetTypes.mockResolvedValueOnce([
-      createAssetType({ pimCode: "ASSEMBLY_INSTRUCTIONS" })
+      createContentfulAssetType({
+        pimCode: "ASSEMBLY_INSTRUCTIONS"
+      })
     ]);
     getProductDocumentNameMap.mockResolvedValueOnce("Document name");
 
@@ -278,7 +298,9 @@ describe("transformDocuments", () => {
   it("should return empty array when product asset doesn't have a URL", async () => {
     const locale = "en-US";
     const pimCode = "ASSEMBLY_INSTRUCTIONS";
-    getAssetTypes.mockResolvedValueOnce([createAssetType({ pimCode })]);
+    getAssetTypes.mockResolvedValueOnce([
+      createContentfulAssetType({ pimCode })
+    ]);
     getProductDocumentNameMap.mockResolvedValueOnce("Document name");
 
     const transformedDocuments = await transformDocuments(
@@ -300,7 +322,9 @@ describe("transformDocuments", () => {
     const product = createProduct({
       assets: [createAsset({ assetType: pimCode, allowedToDownload: false })]
     });
-    getAssetTypes.mockResolvedValueOnce([createAssetType({ pimCode })]);
+    getAssetTypes.mockResolvedValueOnce([
+      createContentfulAssetType({ pimCode })
+    ]);
     getProductDocumentNameMap.mockResolvedValueOnce("Document name");
     getCategoryFilters.mockReturnValueOnce({
       BRAND: { code: "BMI", name: "BMI" }
@@ -360,7 +384,9 @@ describe("transformDocuments", () => {
     const product = createProduct({
       assets: [createAsset({ assetType: pimCode, fileSize: 41943041 })]
     });
-    getAssetTypes.mockResolvedValueOnce([createAssetType({ pimCode })]);
+    getAssetTypes.mockResolvedValueOnce([
+      createContentfulAssetType({ pimCode })
+    ]);
     getProductDocumentNameMap.mockResolvedValueOnce("Document name");
     getCategoryFilters.mockReturnValueOnce({
       BRAND: { code: "BMI", name: "BMI" }
@@ -420,7 +446,9 @@ describe("transformDocuments", () => {
     const product = createProduct({
       assets: [createAsset({ assetType: pimCode, fileSize: 0 })]
     });
-    getAssetTypes.mockResolvedValueOnce([createAssetType({ pimCode })]);
+    getAssetTypes.mockResolvedValueOnce([
+      createContentfulAssetType({ pimCode })
+    ]);
     getProductDocumentNameMap.mockResolvedValueOnce("Document name");
     getCategoryFilters.mockReturnValueOnce({
       BRAND: { code: "BMI", name: "BMI" }
@@ -480,7 +508,9 @@ describe("transformDocuments", () => {
     const product = createProduct({
       assets: [createAsset({ assetType: pimCode, fileSize: undefined })]
     });
-    getAssetTypes.mockResolvedValueOnce([createAssetType({ pimCode })]);
+    getAssetTypes.mockResolvedValueOnce([
+      createContentfulAssetType({ pimCode })
+    ]);
     getProductDocumentNameMap.mockResolvedValueOnce("Document name");
     getCategoryFilters.mockReturnValueOnce({
       BRAND: { code: "BMI", name: "BMI" }
@@ -502,7 +532,9 @@ describe("transformDocuments", () => {
     const product = createProduct({
       assets: [createAsset({ assetType: pimCode, realFileName: undefined })]
     });
-    getAssetTypes.mockResolvedValueOnce([createAssetType({ pimCode })]);
+    getAssetTypes.mockResolvedValueOnce([
+      createContentfulAssetType({ pimCode })
+    ]);
     getProductDocumentNameMap.mockResolvedValueOnce("Document name");
     getCategoryFilters.mockReturnValueOnce({
       BRAND: { code: "BMI", name: "BMI" }
@@ -568,7 +600,9 @@ describe("transformDocuments", () => {
       ],
       classifications: [createClassification()]
     });
-    getAssetTypes.mockResolvedValueOnce([createAssetType({ pimCode })]);
+    getAssetTypes.mockResolvedValueOnce([
+      createContentfulAssetType({ pimCode })
+    ]);
     getProductDocumentNameMap.mockResolvedValueOnce("Document name");
     getCategoryFilters.mockReturnValueOnce({
       BRAND: { code: "BMI", name: "BMI" }
@@ -620,7 +654,9 @@ describe("transformDocuments", () => {
       assets: [createAsset({ assetType: pimCode, allowedToDownload: false })],
       categories: undefined
     });
-    getAssetTypes.mockResolvedValueOnce([createAssetType({ pimCode })]);
+    getAssetTypes.mockResolvedValueOnce([
+      createContentfulAssetType({ pimCode })
+    ]);
     getProductDocumentNameMap.mockResolvedValueOnce("Document name");
     getClassificationsFilters.mockReturnValueOnce({
       "APPEARANCEATTRIBUTES.COLOUR": { code: "red", name: "red" }
@@ -674,7 +710,9 @@ describe("transformDocuments", () => {
       assets: [createAsset({ assetType: pimCode, allowedToDownload: false })],
       categories: undefined
     });
-    getAssetTypes.mockResolvedValueOnce([createAssetType({ pimCode })]);
+    getAssetTypes.mockResolvedValueOnce([
+      createContentfulAssetType({ pimCode })
+    ]);
     getProductDocumentNameMap.mockResolvedValueOnce("Document name");
 
     const transformedDocuments = await transformDocuments(system, locale);
@@ -717,7 +755,9 @@ describe("transformDocuments", () => {
       classifications: undefined,
       variantOptions: [createVariantOption({ classifications: undefined })]
     });
-    getAssetTypes.mockResolvedValueOnce([createAssetType({ pimCode })]);
+    getAssetTypes.mockResolvedValueOnce([
+      createContentfulAssetType({ pimCode })
+    ]);
     getProductDocumentNameMap.mockResolvedValueOnce("Document name");
     getCategoryFilters.mockReturnValueOnce({
       BRAND: { code: "BMI", name: "BMI" }
@@ -767,7 +807,9 @@ describe("transformDocuments", () => {
       assets: [createAsset({ assetType: pimCode, allowedToDownload: false })],
       classifications: undefined
     });
-    getAssetTypes.mockResolvedValueOnce([createAssetType({ pimCode })]);
+    getAssetTypes.mockResolvedValueOnce([
+      createContentfulAssetType({ pimCode })
+    ]);
     getProductDocumentNameMap.mockResolvedValueOnce("Document name");
     getCategoryFilters.mockReturnValueOnce({
       BRAND: { code: "BMI", name: "BMI" }
@@ -812,7 +854,7 @@ describe("transformDocuments", () => {
   it("should return PIM link document with product name and asset type as the title if productDocumentNameMap is 'Product name + asset type'", async () => {
     const locale = "en-US";
     const pimCode = "ASSEMBLY_INSTRUCTIONS";
-    const assetType = createAssetType({ pimCode });
+    const assetType = createContentfulAssetType({ pimCode });
     const product = createProduct({
       assets: [createAsset({ assetType: pimCode, allowedToDownload: false })]
     });
@@ -849,7 +891,9 @@ describe("transformDocuments", () => {
     const product = createProduct({
       assets: [asset]
     });
-    getAssetTypes.mockResolvedValueOnce([createAssetType({ pimCode })]);
+    getAssetTypes.mockResolvedValueOnce([
+      createContentfulAssetType({ pimCode })
+    ]);
     getProductDocumentNameMap.mockResolvedValueOnce("Document name");
     getCategoryFilters.mockReturnValueOnce({
       BRAND: { code: "BMI", name: "BMI" }
@@ -870,7 +914,7 @@ describe("transformDocuments", () => {
   it("should return PIM link document with product name and asset type as the title if productDocumentNameMap is 'Document name' but is undefined", async () => {
     const locale = "en-US";
     const pimCode = "ASSEMBLY_INSTRUCTIONS";
-    const assetType = createAssetType({ pimCode });
+    const assetType = createContentfulAssetType({ pimCode });
     const product = createProduct({
       assets: [
         createAsset({
@@ -904,7 +948,7 @@ describe("transformDocuments", () => {
     const locale = "en-US";
     const tag = "market__norway";
     const pimCode = "ASSEMBLY_INSTRUCTIONS";
-    const assetType = createAssetType({ pimCode });
+    const assetType = createContentfulAssetType({ pimCode });
     const product = createProduct({
       assets: [
         createAsset({
@@ -966,7 +1010,9 @@ describe("transformDocuments", () => {
     const product = createProduct({
       assets: [createAsset({ assetType: pimCode })]
     });
-    getAssetTypes.mockResolvedValueOnce([createAssetType({ pimCode })]);
+    getAssetTypes.mockResolvedValueOnce([
+      createContentfulAssetType({ pimCode })
+    ]);
     getProductDocumentNameMap.mockResolvedValueOnce("Document name");
     getCategoryFilters.mockReturnValueOnce({
       BRAND: { code: "BMI", name: "BMI" }
@@ -1032,7 +1078,9 @@ describe("transformDocuments", () => {
         })
       ]
     });
-    getAssetTypes.mockResolvedValueOnce([createAssetType({ pimCode })]);
+    getAssetTypes.mockResolvedValueOnce([
+      createContentfulAssetType({ pimCode })
+    ]);
     getProductDocumentNameMap.mockResolvedValueOnce("Document name");
     getCategoryFilters.mockReturnValueOnce({
       BRAND: { code: "BMI", name: "BMI" }
@@ -1065,7 +1113,9 @@ describe("transformDocuments", () => {
         })
       ]
     });
-    getAssetTypes.mockResolvedValueOnce([createAssetType({ pimCode })]);
+    getAssetTypes.mockResolvedValueOnce([
+      createContentfulAssetType({ pimCode })
+    ]);
     getProductDocumentNameMap.mockResolvedValueOnce("Document name");
     getCategoryFilters.mockReturnValueOnce({
       BRAND: { code: "BMI", name: "BMI" }
@@ -1098,7 +1148,9 @@ describe("transformDocuments", () => {
         })
       ]
     });
-    getAssetTypes.mockResolvedValueOnce([createAssetType({ pimCode })]);
+    getAssetTypes.mockResolvedValueOnce([
+      createContentfulAssetType({ pimCode })
+    ]);
     getProductDocumentNameMap.mockResolvedValueOnce("Document name");
     getCategoryFilters.mockReturnValueOnce({
       BRAND: { code: "BMI", name: "BMI" }
@@ -1131,7 +1183,9 @@ describe("transformDocuments", () => {
         })
       ]
     });
-    getAssetTypes.mockResolvedValueOnce([createAssetType({ pimCode })]);
+    getAssetTypes.mockResolvedValueOnce([
+      createContentfulAssetType({ pimCode })
+    ]);
     getProductDocumentNameMap.mockResolvedValueOnce("Document name");
     getCategoryFilters.mockReturnValueOnce({
       BRAND: { code: "BMI", name: "BMI" }
@@ -1164,7 +1218,9 @@ describe("transformDocuments", () => {
         })
       ]
     });
-    getAssetTypes.mockResolvedValueOnce([createAssetType({ pimCode })]);
+    getAssetTypes.mockResolvedValueOnce([
+      createContentfulAssetType({ pimCode })
+    ]);
     getProductDocumentNameMap.mockResolvedValueOnce("Document name");
     getCategoryFilters.mockReturnValueOnce({
       BRAND: { code: "BMI", name: "BMI" }
@@ -1196,7 +1252,9 @@ describe("transformDocuments", () => {
       ],
       classifications: [createClassification()]
     });
-    getAssetTypes.mockResolvedValueOnce([createAssetType({ pimCode })]);
+    getAssetTypes.mockResolvedValueOnce([
+      createContentfulAssetType({ pimCode })
+    ]);
     getProductDocumentNameMap.mockResolvedValueOnce("Document name");
     getCategoryFilters.mockReturnValueOnce({
       BRAND: { code: "BMI", name: "BMI" }
@@ -1248,7 +1306,9 @@ describe("transformDocuments", () => {
       assets: [createAsset({ assetType: pimCode })],
       categories: undefined
     });
-    getAssetTypes.mockResolvedValueOnce([createAssetType({ pimCode })]);
+    getAssetTypes.mockResolvedValueOnce([
+      createContentfulAssetType({ pimCode })
+    ]);
     getProductDocumentNameMap.mockResolvedValueOnce("Document name");
     getClassificationsFilters.mockReturnValueOnce({
       "APPEARANCEATTRIBUTES.COLOUR": { code: "red", name: "red" }
@@ -1302,7 +1362,9 @@ describe("transformDocuments", () => {
       assets: [createAsset({ assetType: pimCode })],
       categories: undefined
     });
-    getAssetTypes.mockResolvedValueOnce([createAssetType({ pimCode })]);
+    getAssetTypes.mockResolvedValueOnce([
+      createContentfulAssetType({ pimCode })
+    ]);
     getProductDocumentNameMap.mockResolvedValueOnce("Document name");
 
     const transformedDocuments = await transformDocuments(system, locale);
@@ -1345,7 +1407,9 @@ describe("transformDocuments", () => {
       classifications: undefined,
       variantOptions: [createVariantOption({ classifications: undefined })]
     });
-    getAssetTypes.mockResolvedValueOnce([createAssetType({ pimCode })]);
+    getAssetTypes.mockResolvedValueOnce([
+      createContentfulAssetType({ pimCode })
+    ]);
     getProductDocumentNameMap.mockResolvedValueOnce("Document name");
     getCategoryFilters.mockReturnValueOnce({
       BRAND: { code: "BMI", name: "BMI" }
@@ -1395,7 +1459,9 @@ describe("transformDocuments", () => {
       assets: [createAsset({ assetType: pimCode })],
       classifications: undefined
     });
-    getAssetTypes.mockResolvedValueOnce([createAssetType({ pimCode })]);
+    getAssetTypes.mockResolvedValueOnce([
+      createContentfulAssetType({ pimCode })
+    ]);
     getProductDocumentNameMap.mockResolvedValueOnce("Document name");
     getCategoryFilters.mockReturnValueOnce({
       BRAND: { code: "BMI", name: "BMI" }
@@ -1440,7 +1506,7 @@ describe("transformDocuments", () => {
   it("should return PIM document with product name and asset type as the title if productDocumentNameMap is 'Product name + asset type'", async () => {
     const locale = "en-US";
     const pimCode = "ASSEMBLY_INSTRUCTIONS";
-    const assetType = createAssetType({ pimCode });
+    const assetType = createContentfulAssetType({ pimCode });
     const product = createProduct({
       assets: [createAsset({ assetType: pimCode })]
     });
@@ -1476,7 +1542,9 @@ describe("transformDocuments", () => {
     const product = createProduct({
       assets: [asset]
     });
-    getAssetTypes.mockResolvedValueOnce([createAssetType({ pimCode })]);
+    getAssetTypes.mockResolvedValueOnce([
+      createContentfulAssetType({ pimCode })
+    ]);
     getProductDocumentNameMap.mockResolvedValueOnce("Document name");
     getCategoryFilters.mockReturnValueOnce({
       BRAND: { code: "BMI", name: "BMI" }
@@ -1497,7 +1565,7 @@ describe("transformDocuments", () => {
   it("should return PIM document with product name and asset type as the title if productDocumentNameMap is 'Document name' but is undefined", async () => {
     const locale = "en-US";
     const pimCode = "ASSEMBLY_INSTRUCTIONS";
-    const assetType = createAssetType({ pimCode });
+    const assetType = createContentfulAssetType({ pimCode });
     const product = createProduct({
       assets: [
         createAsset({
@@ -1530,7 +1598,7 @@ describe("transformDocuments", () => {
     const locale = "en-US";
     const tag = "market__norway";
     const pimCode = "ASSEMBLY_INSTRUCTIONS";
-    const assetType = createAssetType({ pimCode });
+    const assetType = createContentfulAssetType({ pimCode });
     const product = createProduct({
       assets: [
         createAsset({
@@ -1588,7 +1656,7 @@ describe("transformDocuments", () => {
   it("should return empty array when product does not have variants", async () => {
     const locale = "en-US";
     const pimCode = "ASSEMBLY_INSTRUCTIONS";
-    const assetType = createAssetType({ pimCode });
+    const assetType = createContentfulAssetType({ pimCode });
     getAssetTypes.mockResolvedValueOnce([assetType]);
     const product = createProduct({
       variantOptions: undefined
@@ -1601,7 +1669,7 @@ describe("transformDocuments", () => {
   it("should return an empty array when base product and variants do not have assets", async () => {
     const locale = "en-US";
     const pimCode = "ASSEMBLY_INSTRUCTIONS";
-    const assetType = createAssetType({ pimCode });
+    const assetType = createContentfulAssetType({ pimCode });
     getAssetTypes.mockResolvedValueOnce([assetType]);
     const product = createProduct({
       variantOptions: [createVariantOption({ assets: undefined })],
@@ -1615,7 +1683,7 @@ describe("transformDocuments", () => {
   it("should return assets of base product if variant does not have any assets", async () => {
     const locale = "en-US";
     const pimCode = "ASSEMBLY_INSTRUCTIONS";
-    const assetType = createAssetType({ pimCode });
+    const assetType = createContentfulAssetType({ pimCode });
     getAssetTypes.mockResolvedValueOnce([assetType]);
     const product = createProduct({
       variantOptions: [createVariantOption({ assets: undefined })],
@@ -1633,7 +1701,7 @@ describe("transformDocuments", () => {
     const locale = "en-US";
     const pimCode = "ASSEMBLY_INSTRUCTIONS";
     getProductDocumentNameMap.mockResolvedValue("Product name + asset type");
-    const assetType = createAssetType({
+    const assetType = createContentfulAssetType({
       pimCode,
       name: "ASSEMBLY INSTRUCTIONS"
     });
@@ -1659,7 +1727,7 @@ describe("transformDocuments", () => {
   it("should return validUntil field as timestamp", async () => {
     const locale = "en-US";
     const pimCode = "ASSEMBLY_INSTRUCTIONS";
-    const assetType = createAssetType({ pimCode });
+    const assetType = createContentfulAssetType({ pimCode });
     getAssetTypes.mockResolvedValueOnce([assetType]);
     const product = createProduct({
       assets: [

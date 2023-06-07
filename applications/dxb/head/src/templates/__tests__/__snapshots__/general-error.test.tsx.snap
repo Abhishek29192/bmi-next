@@ -248,6 +248,7 @@ exports[`General Error render correctly 1`] = `
                     role="tablist"
                   >
                     <a
+                      aria-label="string"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu"}"
@@ -379,13 +380,6 @@ exports[`General Error render correctly 1`] = `
                 target="_blank"
               >
                 string
-                <span
-                  class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                >
-                  <span
-                    class="Navigation-iconWrapper"
-                  />
-                </span>
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
@@ -963,6 +957,7 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
                     role="tablist"
                   >
                     <a
+                      aria-label="string"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu"}"
@@ -1094,13 +1089,6 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
                 target="_blank"
               >
                 string
-                <span
-                  class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                >
-                  <span
-                    class="Navigation-iconWrapper"
-                  />
-                </span>
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />

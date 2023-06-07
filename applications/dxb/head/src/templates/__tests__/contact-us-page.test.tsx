@@ -1,11 +1,14 @@
 import { replaceSpaces, ThemeProvider } from "@bmi-digital/components";
-import React from "react";
 import { screen } from "@testing-library/react";
+import React from "react";
+import { Data as PageInfoData } from "../../components/PageInfo";
+import { Data as PromoData } from "../../components/Promo";
+import { Data as SiteData } from "../../components/Site";
 import { createMockSiteData } from "../../test/mockSiteData";
 import { renderWithRouter } from "../../test/renderWithRouter";
 import createImageData from "../../__tests__/helpers/ImageDataHelper";
 import ContactUsPage, { Data } from "../contact-us-page";
-import { Data as SiteData } from "../../components/Site";
+import { SourceType } from "../../components/types/FormSectionTypes";
 
 describe("Contact us page", () => {
   const data: { contentfulContactUsPage: Data; contentfulSite: SiteData } = {
@@ -18,6 +21,7 @@ describe("Contact us page", () => {
       slug: "contact-us",
       path: "contact-us/",
       date: null,
+      rawDate: null,
       tags: [{ title: "Test page type tag", type: "Page type" }],
       nextBestActions: [
         {
@@ -166,7 +170,7 @@ describe("Contact us page", () => {
           ],
           submitText: "signmeup",
           successRedirect: null,
-          source: null
+          source: SourceType.Contentful
         }
       },
       seo: {
@@ -203,8 +207,9 @@ describe("Contact us page", () => {
               ],
               featuredMedia: null,
               featuredVideo: null,
-              date: null
-            },
+              date: null,
+              rawDate: null
+            } as PageInfoData,
             {
               __typename: "ContentfulPromo",
               id: "a6f7e167-7c2b-5336-8df1-24e14f7203b8",
@@ -229,7 +234,7 @@ describe("Contact us page", () => {
                   "https://i.ytimg.com/vi/TDNEwZbm_Nk/maxresdefault.jpg"
               },
               backgroundColor: null
-            }
+            } as PromoData
           ],
           justifyCenter: null,
           displaySingleRow: null

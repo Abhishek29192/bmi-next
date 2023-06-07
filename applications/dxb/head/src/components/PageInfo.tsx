@@ -1,10 +1,10 @@
 import { graphql } from "gatsby";
 import { Data as LinkData } from "../components/Link";
+import { Logo } from "./BrandLogo";
 import { Data as ImageData } from "./Image";
 import { Data as SampleBasketSectionData } from "./SampleBasketBase";
 import { TagData } from "./Tag";
 import { ContentfulVideoData } from "./Video";
-import { Logo } from "./BrandLogo";
 
 export type Data = {
   __typename:
@@ -20,6 +20,7 @@ export type Data = {
   slug: string;
   path: string;
   date: string | null;
+  rawDate: string | null;
   tags: TagData[] | null;
   // TODO: Move Video as option of Media.
   featuredMedia: ImageData | null;
@@ -90,6 +91,7 @@ export const query = graphql`
     }
     ... on ContentfulSimplePage {
       date
+      rawDate
     }
   }
   fragment PageInfoSlideFragment on ContentfulPage {

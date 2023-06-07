@@ -5853,6 +5853,11 @@
  from="/sites/default/files/2022-06/Shinglesd%C3%A6kning%20pa%CC%8A%20eksisterende%20tagpap_04.2022.pdf"
  to="https://www.bmigroup.com/dk/loesninger/hjaelpevaerktoejer/icopal-haandbog/?utm_source=bmigroupdanmark.dk&utm_medium=referral-redirect&utm_campaign=dxb-redirects/"
  status = 301
+ 
+[[redirects]]
+ from="/bc-30-protector-skaaner-din-ryg-og-miljoet"
+ to="https://www.bmigroup.com/dk/nyheder/bc-30-protector-letvaegtstagsten/?utm_source=bmigroupdanmark.dk&utm_medium=referral-redirect&utm_campaign=dxb-redirects/"
+ status = 301
 
 # General Denmark redirect
 

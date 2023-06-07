@@ -8,7 +8,7 @@ import {
 } from "@bmi-digital/components";
 import { ArrowForward as ArrowForwardIcon } from "@bmi-digital/components/icon";
 import Tab from "@mui/material/Tab";
-import { graphql, Link, withPrefix } from "gatsby";
+import { Link, graphql, withPrefix } from "gatsby";
 import React, { useMemo } from "react";
 import Image from "../components/Image";
 import { microCopy } from "../constants/microCopies";
@@ -20,9 +20,9 @@ import { getPathWithCountryCode } from "../utils/path";
 import Icon from "./Icon";
 import {
   Data as LinkData,
-  getCTA,
   NavigationData,
-  NavigationItem
+  NavigationItem,
+  getCTA
 } from "./Link";
 import { Data as PageInfoData } from "./PageInfo";
 import RichText, { RichTextData } from "./RichText";
@@ -127,7 +127,7 @@ const parseNavigation = (
 
       return result.concat({
         label,
-        icon: <Icon name={iconName} />,
+        ...(iconName && { icon: <Icon name={iconName} /> }),
         isLabelHidden,
         action
       });
@@ -177,7 +177,7 @@ const Header = ({
   disableSearch
 }: {
   navigationData: NavigationData;
-  utilitiesData: NavigationData;
+  utilitiesData: NavigationData | null;
   countryCode: string;
   activeLabel?: string;
   countryNavigationIntroduction?: RichTextData | null;

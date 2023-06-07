@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Make bodyTitle and bodyList fields optional";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const contentTopic = migration.editContentType("contentTopic");
 
   contentTopic.editField("bodyTitle").required(false);
@@ -21,7 +20,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   });
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const contentTopic = migration.editContentType("contentTopic");
 
   contentTopic.editField("bodyTitle").required(true);

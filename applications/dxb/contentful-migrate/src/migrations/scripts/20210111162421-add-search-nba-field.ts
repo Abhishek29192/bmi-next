@@ -1,10 +1,9 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description =
   "Add search page next best actions (nba) to resources content type";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const resources = migration.editContentType("resources");
 
   resources
@@ -29,7 +28,7 @@ export const up: MigrationFunction = (migration: Migration) => {
     });
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const resources = migration.editContentType("resources");
 
   resources.deleteField("searchPageNextBestActions");

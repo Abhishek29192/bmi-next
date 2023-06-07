@@ -9,12 +9,14 @@ import { graphql } from "gatsby";
 import React from "react";
 import BrandLogo from "../../components/BrandLogo";
 import Breadcrumbs from "../../components/Breadcrumbs";
+import { generateGetMicroCopy } from "../../components/MicroCopy";
 import Page from "../../components/Page";
 import RelatedSystems from "../../components/RelatedSystems";
 import ShareWidgetSection, {
   Data as ShareWidgetSectionData
 } from "../../components/ShareWidgetSection";
 import { Data as SiteData } from "../../components/Site";
+import { microCopy } from "../../constants/microCopies";
 import { System } from "../../types/pim";
 import withGTM from "../../utils/google-tag-manager";
 import { transformMediaSrc } from "../../utils/media";
@@ -48,6 +50,8 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
   const { contentfulSite, system } = data;
   const { countryCode, resources } = contentfulSite;
 
+  const getMicroCopy = generateGetMicroCopy(resources?.microCopy);
+
   const BreadcrumbSection = ({ location }: { location: "top" | "bottom" }) => (
     <Section
       backgroundColor="pearl"
@@ -79,6 +83,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
     label: "media",
     action: "media"
   });
+
   return (
     <Page
       brand={system.brand?.code}
@@ -111,6 +116,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
               thumbnailComponent={(props: ThumbnailProps) => (
                 <GTMThumbnail gtm={{ id: "media-gallery1" }} {...props} />
               )}
+              videoButtonLabel={getMicroCopy(microCopy.MEDIA_VIDEO)}
             />
           </Grid>
           {system && system.systemLayers && system.systemLayers.length > 0 && (

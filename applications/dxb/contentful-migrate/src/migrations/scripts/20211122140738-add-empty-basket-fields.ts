@@ -1,10 +1,9 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description =
   "Add empty basket fields on sample basket content type";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const sampleBasket = migration.editContentType("sampleBasket");
 
   sampleBasket
@@ -76,7 +75,7 @@ export const up: MigrationFunction = (migration: Migration) => {
     .afterField("browseProductsCTALabel");
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const sampleBasket = migration.editContentType("sampleBasket");
   sampleBasket.deleteField("emptyBasketMessage");
   sampleBasket.deleteField("browseProductsCTALabel");

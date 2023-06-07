@@ -1,10 +1,9 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description =
   "Add System Configurator Section content type to allowed sections on Simple Page";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const page = migration.editContentType("page");
   page.editField("sections").items({
     type: "Link",
@@ -37,7 +36,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   });
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const page = migration.editContentType("page");
   page.editField("sections").items({
     type: "Link",

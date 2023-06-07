@@ -1,10 +1,9 @@
-import { internalName } from "../../variables/helpText/20210421160910";
-import type Migration from "contentful-migration";
+import { internalName } from "../../variables/helpText/20210421160910.js";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Add name field for carousel section";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const carouselSection = migration.editContentType("carouselSection");
   carouselSection
     .createField("name")
@@ -28,7 +27,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   });
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const carouselSection = migration.editContentType("carouselSection");
   carouselSection.deleteField("name");
   carouselSection.displayField("title");

@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "remove un-used script fields from the site";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const site = migration.editContentType("site");
 
   site.deleteField("scriptHotJar");
@@ -11,7 +10,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   site.deleteField("scriptGOptLoad");
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const site = migration.editContentType("site");
 
   site.createField("scriptHotJar").name("HotJar ID").type("Symbol");

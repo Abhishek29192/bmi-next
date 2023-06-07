@@ -1,5 +1,5 @@
 import { LinkCard, LinkCardProps } from "@bmi-digital/components";
-import React, { useRef } from "react";
+import React, { MutableRefObject, useRef } from "react";
 import withGTM from "../../../utils/google-tag-manager";
 import { useScrollTo } from "./useScrollTo";
 
@@ -8,8 +8,13 @@ export const IntegratedLinkCard = ({
   children,
   ...rest
 }: LinkCardProps): JSX.Element => {
-  const linkCardElement = useRef<HTMLDivElement>(null);
-  const [setCardExpansionCompleted] = useScrollTo(isOpen, linkCardElement);
+  const linkCardElement = useRef<HTMLDivElement | undefined>(
+    undefined
+  ) as MutableRefObject<HTMLDivElement>;
+  const [setCardExpansionCompleted] = useScrollTo(
+    isOpen ?? false,
+    linkCardElement
+  );
 
   return (
     <LinkCard

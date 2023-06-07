@@ -1,7 +1,7 @@
 /* eslint-disable security/detect-object-injection */
-import { Filter as FirestoreFilter } from "@bmi/firestore-types";
-import { ProductFilter } from "../types/pim";
+import type { Filter as FirestoreFilter } from "@bmi/firestore-types";
 import { QUERY_FILTER_DELIMITER, replaceDotFiltersParameter } from "./filters";
+import type { ProductFilter } from "../types/pim";
 
 export interface IndexedItem<T = any> {
   [key: string]: T;
@@ -249,7 +249,7 @@ export const extractAllowedFeatures = (
 };
 
 export const extractAllowedCategories = (
-  allowedFilters: string[]
+  allowedFilters: string[] | null
 ): Map<string, string[]> => {
   if (!allowedFilters) {
     return new Map();

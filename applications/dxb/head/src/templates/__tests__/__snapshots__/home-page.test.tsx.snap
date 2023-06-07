@@ -339,6 +339,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                   >
                     <button
                       aria-controls="navigation-tabpanel-0"
+                      aria-label="Products"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Header-navItem css-1674q4i-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu","label":"Products"}"
@@ -366,6 +367,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                     </button>
                     <button
                       aria-controls="navigation-tabpanel-1"
+                      aria-label="Systems"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Header-navItem css-1674q4i-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu","label":"Systems"}"
@@ -393,6 +395,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                     </button>
                     <button
                       aria-controls="navigation-tabpanel-2"
+                      aria-label="Brands"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Header-navItem css-1674q4i-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu","label":"Brands"}"
@@ -420,6 +423,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                     </button>
                     <button
                       aria-controls="navigation-tabpanel-3"
+                      aria-label="Tips and Inspiration"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Header-navItem css-1674q4i-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu","label":"Tips and Inspiration"}"
@@ -447,6 +451,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                     </button>
                     <button
                       aria-controls="navigation-tabpanel-4"
+                      aria-label="Support"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Header-navItem css-1674q4i-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu","label":"Support"}"
@@ -474,6 +479,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                     </button>
                     <button
                       aria-controls="navigation-tabpanel-5"
+                      aria-label="Documentation"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Header-navItem css-1674q4i-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu","label":"Documentation"}"
@@ -827,13 +833,6 @@ exports[`Home Page Template render correctly with all data 1`] = `
                                 >
                                   All Stone Roofs
                                   <span
-                                    class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                                  >
-                                    <span
-                                      class="Navigation-iconWrapper"
-                                    />
-                                  </span>
-                                  <span
                                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                                   />
                                 </a>
@@ -1084,13 +1083,6 @@ exports[`Home Page Template render correctly with all data 1`] = `
                                 >
                                   All Shingle
                                   <span
-                                    class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                                  >
-                                    <span
-                                      class="Navigation-iconWrapper"
-                                    />
-                                  </span>
-                                  <span
                                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                                   />
                                 </a>
@@ -1206,13 +1198,6 @@ exports[`Home Page Template render correctly with all data 1`] = `
                                   target="_blank"
                                 >
                                    Roof ladder
-                                  <span
-                                    class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                                  >
-                                    <span
-                                      class="Navigation-iconWrapper"
-                                    />
-                                  </span>
                                   <span
                                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                                   />
@@ -1423,13 +1408,6 @@ exports[`Home Page Template render correctly with all data 1`] = `
                     >
                       Pitched Roof
                       <span
-                        class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                      >
-                        <span
-                          class="Navigation-iconWrapper"
-                        />
-                      </span>
-                      <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </a>
@@ -1443,13 +1421,6 @@ exports[`Home Page Template render correctly with all data 1`] = `
                       target="_blank"
                     >
                       Flat roof
-                      <span
-                        class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                      >
-                        <span
-                          class="Navigation-iconWrapper"
-                        />
-                      </span>
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
@@ -1465,13 +1436,6 @@ exports[`Home Page Template render correctly with all data 1`] = `
                     >
                       Membranes
                       <span
-                        class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                      >
-                        <span
-                          class="Navigation-iconWrapper"
-                        />
-                      </span>
-                      <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </a>
@@ -1485,13 +1449,6 @@ exports[`Home Page Template render correctly with all data 1`] = `
                       type="button"
                     >
                       Sealing systems
-                      <span
-                        class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                      >
-                        <span
-                          class="Navigation-iconWrapper"
-                        />
-                      </span>
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
@@ -1810,13 +1767,6 @@ exports[`Home Page Template render correctly with all data 1`] = `
                           >
                             All Inspiration
                             <span
-                              class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                            >
-                              <span
-                                class="Navigation-iconWrapper"
-                              />
-                            </span>
-                            <span
                               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                             />
                           </a>
@@ -1830,13 +1780,6 @@ exports[`Home Page Template render correctly with all data 1`] = `
                             type="button"
                           >
                             Homeowners
-                            <span
-                              class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                            >
-                              <span
-                                class="Navigation-iconWrapper"
-                              />
-                            </span>
                             <span
                               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                             />
@@ -1852,13 +1795,6 @@ exports[`Home Page Template render correctly with all data 1`] = `
                           >
                             Professionals
                             <span
-                              class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                            >
-                              <span
-                                class="Navigation-iconWrapper"
-                              />
-                            </span>
-                            <span
                               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                             />
                           </button>
@@ -1873,13 +1809,6 @@ exports[`Home Page Template render correctly with all data 1`] = `
                           >
                             Commercial building
                             <span
-                              class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                            >
-                              <span
-                                class="Navigation-iconWrapper"
-                              />
-                            </span>
-                            <span
                               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                             />
                           </button>
@@ -1893,13 +1822,6 @@ exports[`Home Page Template render correctly with all data 1`] = `
                             type="button"
                           >
                             Architect and engineer
-                            <span
-                              class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                            >
-                              <span
-                                class="Navigation-iconWrapper"
-                              />
-                            </span>
                             <span
                               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                             />
@@ -1985,13 +1907,6 @@ exports[`Home Page Template render correctly with all data 1`] = `
                           >
                             For Professionals
                             <span
-                              class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                            >
-                              <span
-                                class="Navigation-iconWrapper"
-                              />
-                            </span>
-                            <span
                               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                             />
                           </button>
@@ -2073,13 +1988,6 @@ exports[`Home Page Template render correctly with all data 1`] = `
                                 >
                                   Build houses
                                   <span
-                                    class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                                  >
-                                    <span
-                                      class="Navigation-iconWrapper"
-                                    />
-                                  </span>
-                                  <span
                                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                                   />
                                 </button>
@@ -2093,13 +2001,6 @@ exports[`Home Page Template render correctly with all data 1`] = `
                                   type="button"
                                 >
                                   Build cottage
-                                  <span
-                                    class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                                  >
-                                    <span
-                                      class="Navigation-iconWrapper"
-                                    />
-                                  </span>
                                   <span
                                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                                   />
@@ -2115,13 +2016,6 @@ exports[`Home Page Template render correctly with all data 1`] = `
                                 >
                                   Build terrace
                                   <span
-                                    class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                                  >
-                                    <span
-                                      class="Navigation-iconWrapper"
-                                    />
-                                  </span>
-                                  <span
                                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                                   />
                                 </button>
@@ -2135,13 +2029,6 @@ exports[`Home Page Template render correctly with all data 1`] = `
                                   type="button"
                                 >
                                   Build garage
-                                  <span
-                                    class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                                  >
-                                    <span
-                                      class="Navigation-iconWrapper"
-                                    />
-                                  </span>
                                   <span
                                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                                   />
@@ -2160,13 +2047,6 @@ exports[`Home Page Template render correctly with all data 1`] = `
                           >
                             Other construction tips
                             <span
-                              class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                            >
-                              <span
-                                class="Navigation-iconWrapper"
-                              />
-                            </span>
-                            <span
                               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                             />
                           </button>
@@ -2183,13 +2063,6 @@ exports[`Home Page Template render correctly with all data 1`] = `
                       type="button"
                     >
                       News
-                      <span
-                        class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                      >
-                        <span
-                          class="Navigation-iconWrapper"
-                        />
-                      </span>
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
@@ -2275,13 +2148,6 @@ exports[`Home Page Template render correctly with all data 1`] = `
                     >
                       Roof Calculator
                       <span
-                        class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                      >
-                        <span
-                          class="Navigation-iconWrapper"
-                        />
-                      </span>
-                      <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </button>
@@ -2296,13 +2162,6 @@ exports[`Home Page Template render correctly with all data 1`] = `
                     >
                       FAQs
                       <span
-                        class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                      >
-                        <span
-                          class="Navigation-iconWrapper"
-                        />
-                      </span>
-                      <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </a>
@@ -2316,13 +2175,6 @@ exports[`Home Page Template render correctly with all data 1`] = `
                       target="_blank"
                     >
                       Puja's test page
-                      <span
-                        class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                      >
-                        <span
-                          class="Navigation-iconWrapper"
-                        />
-                      </span>
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
@@ -2408,13 +2260,6 @@ exports[`Home Page Template render correctly with all data 1`] = `
                     >
                       All Documentation
                       <span
-                        class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                      >
-                        <span
-                          class="Navigation-iconWrapper"
-                        />
-                      </span>
-                      <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </button>
@@ -2429,13 +2274,6 @@ exports[`Home Page Template render correctly with all data 1`] = `
                     >
                       Test Doc Lib
                       <span
-                        class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                      >
-                        <span
-                          class="Navigation-iconWrapper"
-                        />
-                      </span>
-                      <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </button>
@@ -2449,13 +2287,6 @@ exports[`Home Page Template render correctly with all data 1`] = `
                       target="_blank"
                     >
                       What our roofers say
-                      <span
-                        class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                      >
-                        <span
-                          class="Navigation-iconWrapper"
-                        />
-                      </span>
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
@@ -2619,7 +2450,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
     data-testid="brand-colors-provider"
   >
     <div
-      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-nueu6n"
+      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-dpq035"
       data-test-class-name="hero"
       data-testid="hero"
     >
@@ -2636,7 +2467,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
               class="MuiBox-root css-i3pbo"
             />
             <div
-              class=" css-xi64lz"
+              class=" css-1gp2hrh"
             >
               <div
                 class="Carousel-opacity Carousel-swipeable css-1s5ge7u"
@@ -2796,7 +2627,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
         data-testid="carousel-hero-image-carousel"
       >
         <div
-          class=" css-xi64lz"
+          class=" css-1gp2hrh"
         >
           <div
             class="Carousel-swipeable css-1s5ge7u"
@@ -2942,7 +2773,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                         alt=""
                         aria-hidden="true"
                         role="presentation"
-                        src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                        src="data:image/svg+xml;charset=utf-8,%3Csvg%20height='720'%20width='948'%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E"
                         style="max-width: 100%; display: block; position: static;"
                       />
                     </div>
@@ -3031,7 +2862,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                         alt=""
                         aria-hidden="true"
                         role="presentation"
-                        src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                        src="data:image/svg+xml;charset=utf-8,%3Csvg%20height='720'%20width='948'%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E"
                         style="max-width: 100%; display: block; position: static;"
                       />
                     </div>
@@ -3135,7 +2966,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                             alt=""
                             aria-hidden="true"
                             role="presentation"
-                            src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                            src="data:image/svg+xml;charset=utf-8,%3Csvg%20height='720'%20width='948'%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E"
                             style="max-width: 100%; display: block; position: static;"
                           />
                         </div>

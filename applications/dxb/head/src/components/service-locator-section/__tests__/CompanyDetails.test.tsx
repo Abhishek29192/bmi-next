@@ -1,9 +1,9 @@
-import { SocialMediaLinks } from "@bmi-digital/components";
 import React from "react";
-import * as devLog from "../../../utils/devLog";
 import createService from "../../../__tests__/helpers/ServiceHelper";
+import * as devLog from "../../../utils/devLog";
 import { EntryTypeEnum } from "../../Service";
 import { createCompanyDetails } from "../components";
+import { SocialMediaLinks } from "../components/SocialMediaLinks/SocialMediaLinks";
 
 const { ROOFER_TYPE, BRANCH_TYPE, MERCHANT_TYPE } = EntryTypeEnum;
 
@@ -47,10 +47,6 @@ describe("createCompanyDetails", () => {
       "googleURLLatLng"
     );
     const faxObject = details.find((item) => item.label === "global.fax");
-    const directions = details.find(
-      (item) => item.label === "findARoofer.getDirectionsLabel"
-    );
-    expect(directions).toBeTruthy();
     expect(faxObject.label).toBeTruthy();
   });
   it("should return details array for sectionType = MERCHANT_TYPE", () => {
@@ -67,12 +63,8 @@ describe("createCompanyDetails", () => {
     const typeObject = details.find(
       (item) => item.label === "findARoofer.roofTypeLabel"
     );
-    const directions = details.find(
-      (item) => item.label === "findARoofer.getDirectionsLabel"
-    );
     expect(faxObject).toBeFalsy();
     expect(typeObject).toBeFalsy();
-    expect(directions).toBeTruthy();
   });
   it("should return empty details array for sectionType = undefined", () => {
     const service = createService();
@@ -92,7 +84,7 @@ describe("createCompanyDetails", () => {
     expect(details).toStrictEqual([]);
   });
 
-  describe("Service has empty fields tests", () => {
+  describe("When service contains empty fields", () => {
     it("should not return empty fields in company details", () => {
       const service = createService({
         phone: null,
@@ -121,7 +113,6 @@ describe("createCompanyDetails", () => {
       const certificationObject = details.find(
         (item) => item.type === "roofProLevel"
       );
-      const ctaObject = details.find((item) => item.type === "cta");
       const distanceObject = details.find((item) => item.type === "distance");
       const addressObject = details.find((item) => item.type === "address");
       expect(phoneObject).toBeUndefined();
@@ -133,7 +124,6 @@ describe("createCompanyDetails", () => {
 
       expect(addressObject).toBeTruthy();
       expect(distanceObject).toBeTruthy();
-      expect(ctaObject).toBeTruthy();
     });
   });
 
@@ -157,7 +147,7 @@ describe("createCompanyDetails", () => {
     });
   });
 
-  describe("when localsation returns undefined for requestd key", () => {
+  describe("when localisation returns undefined for requested key", () => {
     it("should label without localisation suffix", () => {
       const getMicroCopyMock = jest
         .fn()
@@ -171,6 +161,7 @@ describe("createCompanyDetails", () => {
         service,
         "en",
         getMicroCopyMock,
+
         false,
         "googleURLLatLng"
       );
@@ -183,41 +174,6 @@ describe("createCompanyDetails", () => {
     });
   });
 
-  describe("Service is null empty fields tests", () => {
-    it("should not return empty fields in company details", () => {
-      const details = createCompanyDetails(
-        BRANCH_TYPE,
-        null,
-        "en",
-        getMicroCopyMock,
-        false,
-        "googleURLLatLng"
-      );
-      const phoneObject = details.find((item) => item.type === "phone");
-      const email = details.find((item) => item.type === "email");
-      const websiteObject = details.find((item) => item.type === "website");
-      const faxObject = details.find((item) => item.label === "fax");
-      const serviceTypesObject = details.find(
-        (item) => item.type === "content"
-      );
-      const certificationObject = details.find(
-        (item) => item.type === "roofProLevel"
-      );
-      const ctaObject = details.find((item) => item.type === "cta");
-      const distanceObject = details.find((item) => item.type === "distance");
-      const addressObject = details.find((item) => item.type === "address");
-      expect(phoneObject).toBeUndefined();
-      expect(email).toBeUndefined();
-      expect(websiteObject).toBeUndefined();
-      expect(faxObject).toBeUndefined();
-      expect(serviceTypesObject).toBeUndefined();
-      expect(certificationObject).toBeUndefined();
-
-      expect(addressObject).toBeUndefined();
-      expect(distanceObject).toBeUndefined();
-      expect(ctaObject).toBeUndefined();
-    });
-  });
   describe("when service websiteLinkAsLabel set to true", () => {
     describe("and service entry type is ROOFER", () => {
       it("should return website text as microcopy text", () => {
@@ -321,14 +277,7 @@ describe("createCompanyDetails", () => {
             expect.objectContaining({
               type: "content",
               label: "findARoofer.socialMediaLabel",
-              text: (
-                <SocialMediaLinks
-                  facebook={channels.facebook}
-                  instagram={channels.instagram}
-                  linkedIn={channels.linkedIn}
-                  twitter={channels.twitter}
-                />
-              )
+              text: <SocialMediaLinks service={service} />
             })
           ])
         );

@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Add Promo to Navigation";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const navigation = migration.editContentType("navigation");
   navigation
     .createField("promo")
@@ -25,7 +24,7 @@ export const up: MigrationFunction = (migration: Migration) => {
   navigation.changeFieldControl("promo", "builtin", "entryLinkEditor");
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   const navigation = migration.editContentType("navigation");
   navigation.deleteField("promo");
 };

@@ -1,14 +1,13 @@
 import logger from "@bmi-digital/functions-logger";
 import { getEsClient } from "@bmi/functions-es-client";
-import { HttpFunction } from "@google-cloud/functions-framework";
-import { Entry } from "contentful";
 import { transformDocument } from "./documentTransformer";
 import {
   checkAuthorization,
   checkEnvVariablesMissing,
   checkHttpMethod
 } from "./helpers";
-import { ContentfulDocument } from "./types";
+import type { HttpFunction } from "@google-cloud/functions-framework";
+import type { ContentfulDocument, DeletedEntry } from "./types";
 
 export const updateESDocumentsIndex: HttpFunction = async (
   request,
@@ -22,7 +21,7 @@ export const updateESDocumentsIndex: HttpFunction = async (
     return;
   }
 
-  const body: Entry<ContentfulDocument> | undefined = request.body;
+  const body: ContentfulDocument | DeletedEntry | undefined = request.body;
 
   if (body?.sys?.contentType.sys.id !== "document") {
     logger.warning({
@@ -32,8 +31,10 @@ export const updateESDocumentsIndex: HttpFunction = async (
     return response.sendStatus(400);
   }
   const client = await getEsClient();
+  const indexName =
+    `${process.env.ES_INDEX_NAME_DOCUMENTS}_write`.toLowerCase();
 
-  if (body.sys.type === "Entry") {
+  if (isDocumentEntry(body)) {
     let esDocument;
     try {
       esDocument = await transformDocument(body);
@@ -42,7 +43,7 @@ export const updateESDocumentsIndex: HttpFunction = async (
     }
 
     const esResponse = await client.index({
-      index: process.env.ES_INDEX_NAME_DOCUMENTS!,
+      index: indexName,
       id: esDocument.id,
       body: esDocument
     });
@@ -54,7 +55,7 @@ export const updateESDocumentsIndex: HttpFunction = async (
   }
 
   const esResponse = await client.delete({
-    index: process.env.ES_INDEX_NAME_DOCUMENTS!,
+    index: indexName,
     id: request.body?.sys?.id
   });
   logger.info({
@@ -63,3 +64,7 @@ export const updateESDocumentsIndex: HttpFunction = async (
 
   response.sendStatus(200);
 };
+
+const isDocumentEntry = (
+  body: ContentfulDocument | DeletedEntry
+): body is ContentfulDocument => body.sys.type === "Entry";

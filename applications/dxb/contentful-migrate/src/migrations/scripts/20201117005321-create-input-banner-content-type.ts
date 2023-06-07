@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Create InputBanner Content Type";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const inputBanner = migration
     .createContentType("inputBanner")
     .name("Input Banner")
@@ -61,6 +60,6 @@ export const up: MigrationFunction = (migration: Migration) => {
   inputBanner.changeFieldControl("thankYouMessage", "builtin", "singleLine");
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   migration.deleteContentType("inputBanner");
 };

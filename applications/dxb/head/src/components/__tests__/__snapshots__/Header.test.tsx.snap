@@ -248,6 +248,7 @@ exports[`Header component renders correctly 1`] = `
                     role="tablist"
                   >
                     <a
+                      aria-label="Get in touch"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu"}"
@@ -262,6 +263,7 @@ exports[`Header component renders correctly 1`] = `
                       />
                     </a>
                     <a
+                      aria-label="About BMI"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu"}"
@@ -276,6 +278,7 @@ exports[`Header component renders correctly 1`] = `
                       />
                     </a>
                     <a
+                      aria-label="string"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu"}"
@@ -436,7 +439,7 @@ exports[`Header component renders correctly 1`] = `
                           alt=""
                           aria-hidden="true"
                           role="presentation"
-                          src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                          src="data:image/svg+xml;charset=utf-8,%3Csvg%20height='720'%20width='948'%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E"
                           style="max-width: 100%; display: block; position: static;"
                         />
                       </div>
@@ -497,7 +500,7 @@ exports[`Header component renders correctly 1`] = `
                           alt=""
                           aria-hidden="true"
                           role="presentation"
-                          src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                          src="data:image/svg+xml;charset=utf-8,%3Csvg%20height='720'%20width='948'%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E"
                           style="max-width: 100%; display: block; position: static;"
                         />
                       </div>
@@ -567,13 +570,6 @@ exports[`Header component renders correctly 1`] = `
                 target="_blank"
               >
                 string
-                <span
-                  class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                >
-                  <span
-                    class="Navigation-iconWrapper"
-                  />
-                </span>
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
@@ -928,6 +924,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                     role="tablist"
                   >
                     <a
+                      aria-label="Get in touch"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu"}"
@@ -942,6 +939,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                       />
                     </a>
                     <a
+                      aria-label="About BMI"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu"}"
@@ -956,6 +954,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                       />
                     </a>
                     <a
+                      aria-label="string"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu"}"
@@ -1116,7 +1115,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                           alt=""
                           aria-hidden="true"
                           role="presentation"
-                          src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                          src="data:image/svg+xml;charset=utf-8,%3Csvg%20height='720'%20width='948'%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E"
                           style="max-width: 100%; display: block; position: static;"
                         />
                       </div>
@@ -1177,7 +1176,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                           alt=""
                           aria-hidden="true"
                           role="presentation"
-                          src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                          src="data:image/svg+xml;charset=utf-8,%3Csvg%20height='720'%20width='948'%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E"
                           style="max-width: 100%; display: block; position: static;"
                         />
                       </div>
@@ -1247,13 +1246,6 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                 target="_blank"
               >
                 string
-                <span
-                  class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                >
-                  <span
-                    class="Navigation-iconWrapper"
-                  />
-                </span>
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
@@ -1359,8 +1351,6 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
   </header>
 </div>
 `;
-
-exports[`Header component renders without navigation props 1`] = `<div />`;
 
 exports[`Header component shows sample basket icon 1`] = `
 <div>
@@ -1610,6 +1600,7 @@ exports[`Header component shows sample basket icon 1`] = `
                     role="tablist"
                   >
                     <a
+                      aria-label="Get in touch"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu"}"
@@ -1624,6 +1615,7 @@ exports[`Header component shows sample basket icon 1`] = `
                       />
                     </a>
                     <a
+                      aria-label="About BMI"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu"}"
@@ -1638,6 +1630,7 @@ exports[`Header component shows sample basket icon 1`] = `
                       />
                     </a>
                     <a
+                      aria-label="string"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu"}"
@@ -1694,12 +1687,12 @@ exports[`Header component shows sample basket icon 1`] = `
                 type="button"
               >
                 <span
-                  class="MuiBadge-root css-anxmnr-MuiBadge-root"
+                  class="MuiBadge-root css-nde7kb-MuiBadge-root"
                   data-testid="shopping-cart-button-badge"
                 >
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium IconClasses-white css-1hwmxis-MuiSvgIcon-root"
                     data-testid="ShoppingCartOutlinedIcon"
                     focusable="false"
                     viewBox="0 0 24 24"
@@ -1832,7 +1825,7 @@ exports[`Header component shows sample basket icon 1`] = `
                           alt=""
                           aria-hidden="true"
                           role="presentation"
-                          src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                          src="data:image/svg+xml;charset=utf-8,%3Csvg%20height='720'%20width='948'%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E"
                           style="max-width: 100%; display: block; position: static;"
                         />
                       </div>
@@ -1893,7 +1886,7 @@ exports[`Header component shows sample basket icon 1`] = `
                           alt=""
                           aria-hidden="true"
                           role="presentation"
-                          src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                          src="data:image/svg+xml;charset=utf-8,%3Csvg%20height='720'%20width='948'%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E"
                           style="max-width: 100%; display: block; position: static;"
                         />
                       </div>
@@ -1963,13 +1956,6 @@ exports[`Header component shows sample basket icon 1`] = `
                 target="_blank"
               >
                 string
-                <span
-                  class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                >
-                  <span
-                    class="Navigation-iconWrapper"
-                  />
-                </span>
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
@@ -2483,6 +2469,7 @@ exports[`Header component toggles search 1`] = `
                     role="tablist"
                   >
                     <a
+                      aria-label="Get in touch"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu"}"
@@ -2497,6 +2484,7 @@ exports[`Header component toggles search 1`] = `
                       />
                     </a>
                     <a
+                      aria-label="About BMI"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu"}"
@@ -2511,6 +2499,7 @@ exports[`Header component toggles search 1`] = `
                       />
                     </a>
                     <a
+                      aria-label="string"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu"}"
@@ -2671,7 +2660,7 @@ exports[`Header component toggles search 1`] = `
                           alt=""
                           aria-hidden="true"
                           role="presentation"
-                          src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                          src="data:image/svg+xml;charset=utf-8,%3Csvg%20height='720'%20width='948'%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E"
                           style="max-width: 100%; display: block; position: static;"
                         />
                       </div>
@@ -2732,7 +2721,7 @@ exports[`Header component toggles search 1`] = `
                           alt=""
                           aria-hidden="true"
                           role="presentation"
-                          src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                          src="data:image/svg+xml;charset=utf-8,%3Csvg%20height='720'%20width='948'%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E"
                           style="max-width: 100%; display: block; position: static;"
                         />
                       </div>
@@ -2802,13 +2791,6 @@ exports[`Header component toggles search 1`] = `
                 target="_blank"
               >
                 string
-                <span
-                  class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                >
-                  <span
-                    class="Navigation-iconWrapper"
-                  />
-                </span>
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />

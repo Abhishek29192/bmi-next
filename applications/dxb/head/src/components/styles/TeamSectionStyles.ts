@@ -1,9 +1,13 @@
 import { Section, tabsClasses } from "@bmi-digital/components";
 import { styled } from "@mui/material/styles";
 
+type Classes = {
+  [key: string]: string;
+};
+
 export const PREFIX = "TeamSection";
 
-export const classes = {
+export const classes: Classes = {
   white: `${PREFIX}-white`,
   alabaster: `${PREFIX}-alabaster`,
   tabs: `${PREFIX}-tabs`,

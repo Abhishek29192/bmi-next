@@ -2,15 +2,11 @@ import {
   getEnabledNodeTypesValidations,
   getMessageFromEnabledNodeTypes
 } from "@bmi-digital/contentful-migration";
-import type Migration from "contentful-migration";
-import type { MigrationContext, MigrationFunction } from "contentful-migration";
+import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Add link entry to PLP";
 
-export const up: MigrationFunction = async (
-  migration: Migration,
-  context?: MigrationContext
-) => {
+export const up: MigrationFunction = async (migration, context) => {
   const productListerPage = migration.editContentType("productListerPage");
 
   const { enabledNodeTypesValidation } = await getEnabledNodeTypesValidations(
@@ -50,10 +46,7 @@ export const up: MigrationFunction = async (
   ]);
 };
 
-export const down: MigrationFunction = async (
-  migration: Migration,
-  context?: MigrationContext
-) => {
+export const down: MigrationFunction = async (migration, context) => {
   const leadBlockSection = migration.editContentType("productListerPage");
 
   const { enabledNodeTypesValidation } = await getEnabledNodeTypesValidations(

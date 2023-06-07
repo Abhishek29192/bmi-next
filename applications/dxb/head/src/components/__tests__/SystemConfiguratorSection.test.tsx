@@ -1,4 +1,5 @@
 import { ThemeProvider } from "@bmi-digital/components";
+import { BLOCKS } from "@contentful/rich-text-types";
 import * as ReactRouter from "@reach/router";
 import {
   createHistory,
@@ -8,9 +9,9 @@ import {
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import { ErrorBoundary } from "react-error-boundary";
+import createRelatedSystem from "../../__tests__/helpers/RelatedSystemHelper";
 import * as elasticSearch from "../../utils/elasticSearch";
 import * as GTM from "../../utils/google-tag-manager";
-import createRelatedSystem from "../../__tests__/helpers/RelatedSystemHelper";
 import { SiteContextProvider } from "../Site";
 import SystemConfiguratorSection, {
   AnswerData,
@@ -34,11 +35,11 @@ jest.mock("node-fetch", () => {
   return {
     ...original,
     __esModule: true,
-    default: (...config) => fetchMock(...config)
+    default: (...config: unknown[]) => fetchMock(...config)
   };
 });
 
-const getFetchResponse = (response) => ({
+const getFetchResponse = (response: unknown) => ({
   ok: true,
   json: () => response
 });
@@ -65,7 +66,7 @@ afterAll(() => {
 });
 
 const richTextRaw = {
-  nodeType: "document",
+  nodeType: BLOCKS.DOCUMENT,
   data: {},
   content: [
     {
@@ -81,7 +82,7 @@ const richTextRaw = {
       data: {}
     },
     {
-      nodeType: "paragraph",
+      nodeType: BLOCKS.PARAGRAPH,
       content: [
         {
           nodeType: "text",
@@ -213,7 +214,7 @@ describe("SystemConfiguratorSection component", () => {
               ...initialData,
               description: {
                 raw: JSON.stringify(richTextRaw),
-                references: null
+                references: []
               }
             }}
           />
@@ -324,7 +325,7 @@ describe("SystemConfiguratorSection component", () => {
         title: "No Result Title",
         content: {
           raw: JSON.stringify({
-            nodeType: "document",
+            nodeType: BLOCKS.DOCUMENT,
             data: {},
             content: [
               {
@@ -383,7 +384,7 @@ describe("SystemConfiguratorSection component", () => {
         title: "No Result Title",
         content: {
           raw: JSON.stringify({
-            nodeType: "document",
+            nodeType: BLOCKS.DOCUMENT,
             data: {},
             content: [
               {
@@ -442,7 +443,7 @@ describe("SystemConfiguratorSection component", () => {
         title: "No Result Title",
         content: {
           raw: JSON.stringify({
-            nodeType: "document",
+            nodeType: BLOCKS.DOCUMENT,
             data: {},
             content: [
               {

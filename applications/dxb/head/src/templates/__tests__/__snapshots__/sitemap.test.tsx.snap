@@ -270,6 +270,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
                     role="tablist"
                   >
                     <a
+                      aria-label="menuNavigationLinkLabel"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu"}"
@@ -401,13 +402,6 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
                 target="_blank"
               >
                 menuNavigationLinkLabel
-                <span
-                  class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                >
-                  <span
-                    class="Navigation-iconWrapper"
-                  />
-                </span>
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
@@ -1150,6 +1144,7 @@ exports[`Sitemap renders correctly 1`] = `
                     role="tablist"
                   >
                     <a
+                      aria-label="menuNavigationLinkLabel"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu"}"
@@ -1281,13 +1276,6 @@ exports[`Sitemap renders correctly 1`] = `
                 target="_blank"
               >
                 menuNavigationLinkLabel
-                <span
-                  class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                >
-                  <span
-                    class="Navigation-iconWrapper"
-                  />
-                </span>
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
@@ -2030,6 +2018,7 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
                     role="tablist"
                   >
                     <a
+                      aria-label="menuNavigationLinkLabel"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu"}"
@@ -2161,13 +2150,6 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
                 target="_blank"
               >
                 menuNavigationLinkLabel
-                <span
-                  class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                >
-                  <span
-                    class="Navigation-iconWrapper"
-                  />
-                </span>
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
@@ -2846,6 +2828,7 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
                     role="tablist"
                   >
                     <a
+                      aria-label="menuNavigationLinkLabel"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu"}"
@@ -2977,13 +2960,6 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
                 target="_blank"
               >
                 menuNavigationLinkLabel
-                <span
-                  class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                >
-                  <span
-                    class="Navigation-iconWrapper"
-                  />
-                </span>
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />

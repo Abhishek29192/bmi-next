@@ -12,8 +12,5 @@ module.exports = {
     ],
     "@babel/preset-typescript",
     "@babel/preset-react"
-  ],
-  plugins: [
-    ["@babel/plugin-proposal-private-property-in-object", { loose: true }]
   ]
 };

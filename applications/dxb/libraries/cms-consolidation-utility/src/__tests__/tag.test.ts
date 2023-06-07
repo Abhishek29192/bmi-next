@@ -1,3 +1,4 @@
+import createEntry from "./helpers/entryHelper";
 import type { Entry, Environment, Link } from "contentful-management";
 
 const createTag = async (environment: Partial<Environment>, market: string) =>
@@ -11,63 +12,6 @@ const mockEnvironment = (): Partial<Environment> => {
   env.createTag = jest.fn();
   return env;
 };
-
-const mockEntry = (): Partial<Entry> => ({
-  sys: {
-    space: {
-      sys: {
-        type: "Link",
-        linkType: "Space",
-        id: "123456"
-      }
-    },
-    id: "qwerty",
-    type: "Entry",
-    createdAt: "2022-03-10T14:30:26.308Z",
-    updatedAt: "2022-04-20T10:09:55.815Z",
-    environment: {
-      sys: {
-        id: "master",
-        type: "Link",
-        linkType: "Environment"
-      }
-    },
-    publishedVersion: 1,
-    publishedAt: "2022-03-10T14:39:01.851Z",
-    firstPublishedAt: "2022-03-10T14:39:01.851Z",
-    createdBy: {
-      sys: {
-        type: "Link",
-        linkType: "User",
-        id: "1234sdfg"
-      }
-    },
-    updatedBy: {
-      sys: {
-        type: "Link",
-        linkType: "User",
-        id: "3355sdfhgh"
-      }
-    },
-    publishedCounter: 1,
-    version: 3,
-    publishedBy: {
-      sys: {
-        type: "Link",
-        linkType: "User",
-        id: "234545645asdfgh"
-      }
-    },
-    contentType: {
-      sys: {
-        type: "Link",
-        linkType: "ContentType",
-        id: "page"
-      }
-    },
-    automationTags: []
-  }
-});
 
 beforeEach(() => {
   jest.clearAllMocks();
@@ -120,7 +64,7 @@ describe("createTag", () => {
 
 describe("tagEntity", () => {
   it("Adds a tag if a tag does not exist", async () => {
-    const entry = mockEntry();
+    const entry = createEntry();
     entry.metadata = { tags: [] };
 
     const market = "Norway";
@@ -145,7 +89,7 @@ describe("tagEntity", () => {
         id: "market__norway"
       }
     };
-    const entry = mockEntry();
+    const entry = createEntry();
     entry.metadata = { tags: [tag] };
     const market = "Norway";
 
@@ -162,7 +106,7 @@ describe("tagEntity", () => {
         id: "market__norway"
       }
     };
-    const entry = mockEntry();
+    const entry = createEntry();
     entry.metadata = { tags: [tag] };
     const market = "Norway";
 
@@ -174,7 +118,7 @@ describe("tagEntity", () => {
   });
 
   it("Does not add tags, if metadata is undefined", async () => {
-    const entry = mockEntry();
+    const entry = createEntry();
     entry.metadata = undefined;
     const market = "Norway";
 

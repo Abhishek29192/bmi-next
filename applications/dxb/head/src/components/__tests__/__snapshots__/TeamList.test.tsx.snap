@@ -35,7 +35,7 @@ exports[`TeamList component renders correctly 1`] = `
                       alt=""
                       aria-hidden="true"
                       role="presentation"
-                      src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                      src="data:image/svg+xml;charset=utf-8,%3Csvg%20height='720'%20width='948'%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E"
                       style="max-width: 100%; display: block; position: static;"
                     />
                   </div>
@@ -127,17 +127,9 @@ exports[`TeamList component renders correctly when incomplete 1`] = `
                 class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-10ncf94-MuiAvatar-root"
                 data-testid="profile-card-head-picture"
               >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiAvatar-fallback css-10mi8st-MuiSvgIcon-root-MuiAvatar-fallback"
-                  data-testid="PersonIcon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
-                  />
-                </svg>
+                <img
+                  style="object-fit: cover; object-position: center;"
+                />
               </div>
             </div>
             <div
@@ -199,7 +191,7 @@ exports[`TeamList component renders correctly with links 1`] = `
                       alt=""
                       aria-hidden="true"
                       role="presentation"
-                      src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                      src="data:image/svg+xml;charset=utf-8,%3Csvg%20height='720'%20width='948'%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E"
                       style="max-width: 100%; display: block; position: static;"
                     />
                   </div>
@@ -314,7 +306,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                       alt=""
                       aria-hidden="true"
                       role="presentation"
-                      src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                      src="data:image/svg+xml;charset=utf-8,%3Csvg%20height='720'%20width='948'%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E"
                       style="max-width: 100%; display: block; position: static;"
                     />
                   </div>
@@ -404,7 +396,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                       alt=""
                       aria-hidden="true"
                       role="presentation"
-                      src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                      src="data:image/svg+xml;charset=utf-8,%3Csvg%20height='720'%20width='948'%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E"
                       style="max-width: 100%; display: block; position: static;"
                     />
                   </div>
@@ -494,7 +486,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                       alt=""
                       aria-hidden="true"
                       role="presentation"
-                      src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                      src="data:image/svg+xml;charset=utf-8,%3Csvg%20height='720'%20width='948'%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E"
                       style="max-width: 100%; display: block; position: static;"
                     />
                   </div>
@@ -584,7 +576,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                       alt=""
                       aria-hidden="true"
                       role="presentation"
-                      src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                      src="data:image/svg+xml;charset=utf-8,%3Csvg%20height='720'%20width='948'%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E"
                       style="max-width: 100%; display: block; position: static;"
                     />
                   </div>
@@ -674,7 +666,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                       alt=""
                       aria-hidden="true"
                       role="presentation"
-                      src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                      src="data:image/svg+xml;charset=utf-8,%3Csvg%20height='720'%20width='948'%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E"
                       style="max-width: 100%; display: block; position: static;"
                     />
                   </div>
@@ -764,7 +756,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                       alt=""
                       aria-hidden="true"
                       role="presentation"
-                      src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                      src="data:image/svg+xml;charset=utf-8,%3Csvg%20height='720'%20width='948'%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E"
                       style="max-width: 100%; display: block; position: static;"
                     />
                   </div>
@@ -854,7 +846,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                       alt=""
                       aria-hidden="true"
                       role="presentation"
-                      src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                      src="data:image/svg+xml;charset=utf-8,%3Csvg%20height='720'%20width='948'%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E"
                       style="max-width: 100%; display: block; position: static;"
                     />
                   </div>
@@ -944,7 +936,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                       alt=""
                       aria-hidden="true"
                       role="presentation"
-                      src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                      src="data:image/svg+xml;charset=utf-8,%3Csvg%20height='720'%20width='948'%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E"
                       style="max-width: 100%; display: block; position: static;"
                     />
                   </div>
@@ -1034,7 +1026,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                       alt=""
                       aria-hidden="true"
                       role="presentation"
-                      src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                      src="data:image/svg+xml;charset=utf-8,%3Csvg%20height='720'%20width='948'%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E"
                       style="max-width: 100%; display: block; position: static;"
                     />
                   </div>

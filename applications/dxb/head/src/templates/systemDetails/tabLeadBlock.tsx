@@ -88,13 +88,7 @@ const TabLeadBlock = ({
           index="three"
           data-testid="tab-panel-lead-block-documents-and-downloads"
         >
-          <Section
-            className={styles["section"]}
-            backgroundColor="white"
-            data-testid="tab-system-documents-section"
-          >
-            <DocumentLeadBlock documents={system.documents} />
-          </Section>
+          <DocumentLeadBlock documents={system.documents} />
         </Tabs.TabPanel>
       )}
       {system.bim && (

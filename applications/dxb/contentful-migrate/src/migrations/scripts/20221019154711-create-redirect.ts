@@ -1,9 +1,8 @@
-import type Migration from "contentful-migration";
 import type { MigrationFunction } from "contentful-migration";
 
 export const description = "Create content model for redirects";
 
-export const up: MigrationFunction = (migration: Migration) => {
+export const up: MigrationFunction = (migration) => {
   const redirect = migration
     .createContentType("redirect")
     .name("Redirect")
@@ -26,6 +25,6 @@ export const up: MigrationFunction = (migration: Migration) => {
     .required(true);
 };
 
-export const down: MigrationFunction = (migration: Migration) => {
+export const down: MigrationFunction = (migration) => {
   migration.deleteContentType("redirect");
 };

@@ -6,7 +6,7 @@ import React from "react";
 import RichText, { RichTextData } from "../components/RichText";
 import TeamList, { Data as TeamMemberData } from "../components/TeamList";
 import withGTM from "../utils/google-tag-manager";
-import { classes, StyledSection, Title } from "./styles/TeamSectionStyles";
+import { StyledSection, Title, classes } from "./styles/TeamSectionStyles";
 
 export type Data = {
   __typename: "ContentfulTeamSection";
@@ -14,7 +14,7 @@ export type Data = {
   teamCategories: {
     title: string;
     description: RichTextData | null;
-    team_member: TeamMemberData;
+    team_member: TeamMemberData | null;
   }[];
   backgroundColor: "Alabaster" | "White" | null;
 };
@@ -44,7 +44,7 @@ const TeamSection = ({ data, className }: Props) => {
             className={classes.tabs}
             tabComponent={(props: TabProps) => (
               <GTMTab
-                gtm={{ id: "selector-tabs2", action: "Selector – Tabs" }}
+                gtm={{ id: "selector-tabs2", action: "Selector - Tabs" }}
                 {...props}
               />
             )}
@@ -62,7 +62,9 @@ const TeamSection = ({ data, className }: Props) => {
                       <RichText document={category.description} />
                     </div>
                   ) : null}
-                  <TeamList data={category.team_member} />
+                  {category.team_member ? (
+                    <TeamList data={category.team_member} />
+                  ) : null}
                 </Container>
               </Tabs.TabPanel>
             ))}

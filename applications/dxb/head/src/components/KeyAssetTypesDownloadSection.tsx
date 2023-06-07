@@ -54,9 +54,9 @@ const handleDownloadClick = async (
       throw new Error(response.statusText);
     }
 
-    const data = await response.json();
+    const data = (await response.json()) as { url: string };
 
-    await downloadAs(data.url, `BMI_${currentTime}.zip`);
+    downloadAs(data.url, `BMI_${currentTime}.zip`);
   } catch (error) {
     devLog("KeyAssetTypesDownloadSection", error);
   }
@@ -112,7 +112,7 @@ const KeyAssetTypesDownloadSection = ({ keyAssetDocuments }: Props) => {
 
                       const token = qaAuthToken
                         ? undefined
-                        : await executeRecaptcha();
+                        : await executeRecaptcha?.();
                       await handleDownloadClick(
                         documents,
                         documentDownloadEndpoint,

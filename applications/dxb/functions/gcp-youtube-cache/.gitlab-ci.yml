@@ -1,42 +1,52 @@
-test_gcp-youtube-cache:
-  extends: .test_function
+lint_gcp-youtube-cache:
+  extends: .lint_yarn_workspace
   rules:
-    - !reference [.ingore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_main, rules, if]
-      changes:
-        - $ROOT_DIR/**/*
-        - jest/**/*
-        - yarn.lock
-        - applications/dxb/libraries/functions-firestore/**/*
-    - if: !reference [.run_for_changes_on_mr, rules, if]
-      changes:
-        - $ROOT_DIR/**/*
-        - jest/**/*
-        - yarn.lock
-        - applications/dxb/libraries/functions-firestore/**/*
+    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [ .run_for_changes_on_mr, rules ]
   variables:
-    WORKSPACE: "@bmi/gcp-youtube-cache"
     ROOT_DIR: "applications/dxb/functions/gcp-youtube-cache"
+    WORKSPACE: "@bmi/gcp-youtube-cache"
 
 build_gcp-youtube-cache:
   extends: .build_function
   rules:
-    - !reference [.ingore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - !reference [  .ignore_release_mrs, rules ]
+    - if: !reference [ .run_for_changes_on_main, rules, if ]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
         - applications/dxb/libraries/functions-firestore/**/*
-    - if: !reference [.run_for_changes_on_mr, rules, if]
+    - if: !reference [ .run_for_changes_on_mr, rules, if ]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
         - applications/dxb/libraries/functions-firestore/**/*
-    - if: !reference [.run_for_preprod_release, rules, if]
-    - if: !reference [.run_for_prod_release, rules, if]
+    - if: !reference [ .run_for_preprod_release, rules, if ]
+    - if: !reference [ .run_for_prod_release, rules, if ]
   variables:
     WORKSPACE: "@bmi/gcp-youtube-cache"
     ROOT_DIR: "applications/dxb/functions/gcp-youtube-cache"
+
+test_gcp-youtube-cache:
+  extends: .test_function
+  rules:
+    - !reference [  .ignore_release_mrs, rules ]
+    - if: !reference [ .run_for_changes_on_main, rules, if ]
+      changes:
+        - $ROOT_DIR/**/*
+        - yarn.lock
+        - applications/dxb/libraries/functions-firestore/**/*
+    - if: !reference [ .run_for_changes_on_mr, rules, if ]
+      changes:
+        - $ROOT_DIR/**/*
+        - yarn.lock
+        - applications/dxb/libraries/functions-firestore/**/*
+  variables:
+    WORKSPACE: "@bmi/gcp-youtube-cache"
+    ROOT_DIR: "applications/dxb/functions/gcp-youtube-cache"
+  needs:
+    - build_gcp-youtube-cache
 
 package_gcp-youtube-cache:
   extends: .package_function
@@ -44,13 +54,13 @@ package_gcp-youtube-cache:
     - job: build_gcp-youtube-cache
       artifacts: true
   rules:
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - if: !reference [ .run_for_changes_on_main, rules, if ]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
         - applications/dxb/libraries/functions-firestore/**/*
-    - if: !reference [.run_for_preprod_release, rules, if]
-    - if: !reference [.run_for_prod_release, rules, if]
+    - if: !reference [ .run_for_preprod_release, rules, if ]
+    - if: !reference [ .run_for_prod_release, rules, if ]
   variables:
     FUNCTION_NAME: "gcp-youtube-cache"
     ROOT_DIR: "applications/dxb/functions/gcp-youtube-cache"
@@ -61,17 +71,17 @@ deploy_gcp-youtube-cache:
     - job: package_gcp-youtube-cache
       artifacts: true
   rules:
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - if: !reference [ .run_for_changes_on_main, rules, if ]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
         - applications/dxb/libraries/functions-firestore/**/*
       variables:
         GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_QA
-    - if: !reference [.run_for_preprod_release, rules, if]
+    - if: !reference [ .run_for_preprod_release, rules, if ]
       variables:
         GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PREPROD
-    - if: !reference [.run_for_prod_release, rules, if]
+    - if: !reference [ .run_for_prod_release, rules, if ]
       variables:
         GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PROD
   variables:

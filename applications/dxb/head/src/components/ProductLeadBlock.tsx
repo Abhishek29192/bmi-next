@@ -120,18 +120,21 @@ const ProductLeadBlock = ({
                       microCopy.PDP_LEAD_BLOCK_GUARANTEES_WARRANTIES
                     )}
                   </LeadBlock.Content.Heading>
-                  {product.guaranteesAndWarrantiesImages.length > 0 &&
-                    product.guaranteesAndWarrantiesImages.map((item, i) => (
-                      <img
-                        key={`guarantee-img-${i}`}
-                        src={item.url}
-                        alt={item.name}
-                        className={styles["image"]}
-                        data-testid={`guarantee-image${
-                          item.name ? `-${replaceSpaces(item.name)}` : ""
-                        }`}
-                      />
-                    ))}
+                  {product.guaranteesAndWarrantiesImages.length > 0 && (
+                    <div className={styles["imagesContainer"]}>
+                      {product.guaranteesAndWarrantiesImages.map((item, i) => (
+                        <img
+                          key={`guarantee-img-${i}`}
+                          src={item.url}
+                          alt={item.name}
+                          className={styles["image"]}
+                          data-testid={`guarantee-image${
+                            item.name ? `-${replaceSpaces(item.name)}` : ""
+                          }`}
+                        />
+                      ))}
+                    </div>
+                  )}
                   {product.guaranteesAndWarrantiesLinks.length > 0 &&
                     product.guaranteesAndWarrantiesLinks.map((item, i) => (
                       <div key={`link-${i}`}>
@@ -140,7 +143,7 @@ const ProductLeadBlock = ({
                             null,
                             item.url,
                             countryCode,
-                            null,
+                            undefined,
                             item.name
                           )}
                           gtm={{
@@ -167,15 +170,18 @@ const ProductLeadBlock = ({
                   <LeadBlock.Content.Heading>
                     {getMicroCopy(microCopy.PDP_LEAD_BLOCK_AWARDS_CERTIFICATES)}
                   </LeadBlock.Content.Heading>
-                  {product.awardsAndCertificateImages.length > 0 &&
-                    product.awardsAndCertificateImages.map((item, i) => (
-                      <img
-                        key={`award-img-${i}`}
-                        src={item.url}
-                        alt={item.name}
-                        className={styles["image"]}
-                      />
-                    ))}
+                  {product.awardsAndCertificateImages.length > 0 && (
+                    <div className={styles["imagesContainer"]}>
+                      {product.awardsAndCertificateImages.map((item, i) => (
+                        <img
+                          key={`award-img-${i}`}
+                          src={item.url}
+                          alt={item.name}
+                          className={styles["image"]}
+                        />
+                      ))}
+                    </div>
+                  )}
                   {product.awardsAndCertificateImages.length > 0 &&
                     product.awardsAndCertificateDocuments.length > 0 && <br />}
                   {product.awardsAndCertificateDocuments.length > 0 &&
@@ -292,10 +298,10 @@ const ProductLeadBlock = ({
             data-testid="documentsTab"
           >
             <div className={styles["document-library"]} ref={resultsElement}>
-              <DownloadList maxSize={documentDownloadMaxLimit * 1048576}>
+              <DownloadList maxSize={(documentDownloadMaxLimit ?? 0) * 1048576}>
                 <DocumentSimpleTableResults
                   documents={documents}
-                  headers={[displayBy, "download", "add"]}
+                  headers={["add", displayBy, "size", "actions"]}
                 />
                 <DocumentResultsFooter
                   page={page}
@@ -306,7 +312,7 @@ const ProductLeadBlock = ({
             </div>
           </Tabs.TabPanel>
         )}
-        {Boolean(product.bimIframeUrl) && (
+        {product.bimIframeUrl && (
           <Tabs.TabPanel
             heading={getMicroCopy(microCopy.PDP_LEAD_BLOCK_BIM)}
             index="four"
@@ -323,13 +329,20 @@ const ProductLeadBlock = ({
             <LeadBlock justifyContent="center">
               <LeadBlock.Content>
                 <LeadBlock.Content.Section>
-                  <MediaGallery media={transformImages(product.techDrawings)} />
+                  <MediaGallery
+                    media={transformImages(product.techDrawings)}
+                    videoButtonLabel={getMicroCopy(microCopy.MEDIA_VIDEO)}
+                    visualiserButtonLabel={getMicroCopy(microCopy.MEDIA_3D)}
+                    visualiserText={getMicroCopy(
+                      microCopy.MEDIA_VISUALIZER_TEXT
+                    )}
+                  />
                 </LeadBlock.Content.Section>
               </LeadBlock.Content>
             </LeadBlock>
           </Tabs.TabPanel>
         )}
-        {Boolean(product.specificationIframeUrl) && (
+        {product.specificationIframeUrl && (
           <Tabs.TabPanel
             heading={getMicroCopy(microCopy.PDP_LEAD_BLOCK_SPECIFICATION)}
             index="seven"
@@ -351,7 +364,7 @@ const ProductLeadBlock = ({
             />
           </Tabs.TabPanel>
         )}
-        {Boolean(product.fixingToolIframeUrl) && (
+        {product.fixingToolIframeUrl && (
           <Tabs.TabPanel
             heading={getMicroCopy(microCopy.PDP_LEAD_BLOCK_FIXING_TOOL)}
             index="six"
