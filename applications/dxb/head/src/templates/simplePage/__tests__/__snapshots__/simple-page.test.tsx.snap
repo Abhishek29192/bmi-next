@@ -563,7 +563,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
         />
       </button>
       <nav
-        class="css-12skhd1"
+        class="css-1vefvxn"
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
@@ -3513,7 +3513,7 @@ exports[`Simple page renders correctly with full data 1`] = `
         />
       </button>
       <nav
-        class="css-12skhd1"
+        class="css-1vefvxn"
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
@@ -5751,7 +5751,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                   data-testid="card-collection-grid-item-id"
                 >
                   <div
-                    class=" MuiBox-root css-mnk4x4"
+                    class=" MuiBox-root css-lww50j"
                   >
                     <div
                       class="OverviewCard-main"
@@ -5823,7 +5823,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       </div>
                     </div>
                     <div
-                      class="css-197a1cq"
+                      class="OverviewCard-clickable css-1cyx9t4"
                       data-testid="overview-card-body-footer"
                     />
                   </div>

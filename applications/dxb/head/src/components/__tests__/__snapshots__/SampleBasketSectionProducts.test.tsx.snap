@@ -6,7 +6,7 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
     class="SampleBasketSectionProducts"
   >
     <button
-      class="MuiButtonBase-root OverviewCard-clickable product-wrapper MuiBox-root css-1gkt1q6-MuiButtonBase-root"
+      class="MuiButtonBase-root OverviewCard-clickable product-wrapper MuiBox-root css-1kt3nqz-MuiButtonBase-root"
       tabindex="0"
       type="button"
     >
@@ -57,7 +57,7 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="css-197a1cq"
+        class="OverviewCard-clickable css-1cyx9t4"
         data-testid="overview-card-body-footer"
       >
         <button
@@ -91,7 +91,7 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
       />
     </button>
     <button
-      class="MuiButtonBase-root OverviewCard-clickable product-wrapper MuiBox-root css-1gkt1q6-MuiButtonBase-root"
+      class="MuiButtonBase-root OverviewCard-clickable product-wrapper MuiBox-root css-1kt3nqz-MuiButtonBase-root"
       tabindex="0"
       type="button"
     >
@@ -146,7 +146,7 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="css-197a1cq"
+        class="OverviewCard-clickable css-1cyx9t4"
         data-testid="overview-card-body-footer"
       >
         <button
@@ -180,7 +180,7 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
       />
     </button>
     <button
-      class="MuiButtonBase-root OverviewCard-clickable product-wrapper MuiBox-root css-1gkt1q6-MuiButtonBase-root"
+      class="MuiButtonBase-root OverviewCard-clickable product-wrapper MuiBox-root css-1kt3nqz-MuiButtonBase-root"
       tabindex="0"
       type="button"
     >
@@ -233,7 +233,7 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="css-197a1cq"
+        class="OverviewCard-clickable css-1cyx9t4"
         data-testid="overview-card-body-footer"
       >
         <button

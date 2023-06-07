@@ -148,18 +148,6 @@
     },
     {
       "path": "applications/dxb/scripts/contentful-roles"
-    },
-    {
-      "path": "applications/intouch/frontend/node_modules/rxjs"
-    },
-    {
-      "path": "applications/intouch/frontend/node_modules/subscriptions-transport-ws"
-    },
-    {
-      "path": "applications/intouch/api/gateway/node_modules/rxjs"
-    },
-    {
-      "path": "applications/intouch/api/gateway/node_modules/subscriptions-transport-ws"
     }
   ]
 }

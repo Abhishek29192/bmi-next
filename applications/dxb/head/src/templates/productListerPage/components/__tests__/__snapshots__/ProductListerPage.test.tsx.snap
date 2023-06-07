@@ -300,7 +300,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
           </svg>
         </button>
         <nav
-          class="css-12skhd1"
+          class="css-1vefvxn"
         >
           <div
             class="Navigation-navigationList Navigation-offset0"
@@ -1240,7 +1240,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
           </svg>
         </button>
         <nav
-          class="css-12skhd1"
+          class="css-1vefvxn"
         >
           <div
             class="Navigation-navigationList Navigation-offset0"
@@ -2220,7 +2220,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
           />
         </button>
         <nav
-          class="css-12skhd1"
+          class="css-1vefvxn"
         >
           <div
             class="Navigation-navigationList Navigation-offset0"
@@ -3419,7 +3419,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
           />
         </button>
         <nav
-          class="css-12skhd1"
+          class="css-1vefvxn"
         >
           <div
             class="Navigation-navigationList Navigation-offset0"
@@ -4570,7 +4570,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
           </svg>
         </button>
         <nav
-          class="css-12skhd1"
+          class="css-1vefvxn"
         >
           <div
             class="Navigation-navigationList Navigation-offset0"
@@ -5690,7 +5690,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
           </svg>
         </button>
         <nav
-          class="css-12skhd1"
+          class="css-1vefvxn"
         >
           <div
             class="Navigation-navigationList Navigation-offset0"
@@ -6655,7 +6655,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
           </svg>
         </button>
         <nav
-          class="css-12skhd1"
+          class="css-1vefvxn"
         >
           <div
             class="Navigation-navigationList Navigation-offset0"
@@ -7722,7 +7722,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
           </svg>
         </button>
         <nav
-          class="css-12skhd1"
+          class="css-1vefvxn"
         >
           <div
             class="Navigation-navigationList Navigation-offset0"
@@ -8685,7 +8685,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
           />
         </button>
         <nav
-          class="css-12skhd1"
+          class="css-1vefvxn"
         >
           <div
             class="Navigation-navigationList Navigation-offset0"
@@ -9857,7 +9857,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
           />
         </button>
         <nav
-          class="css-12skhd1"
+          class="css-1vefvxn"
         >
           <div
             class="Navigation-navigationList Navigation-offset0"
@@ -11029,7 +11029,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
           />
         </button>
         <nav
-          class="css-12skhd1"
+          class="css-1vefvxn"
         >
           <div
             class="Navigation-navigationList Navigation-offset0"
@@ -12214,7 +12214,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
           />
         </button>
         <nav
-          class="css-12skhd1"
+          class="css-1vefvxn"
         >
           <div
             class="Navigation-navigationList Navigation-offset0"
@@ -13413,7 +13413,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
           />
         </button>
         <nav
-          class="css-12skhd1"
+          class="css-1vefvxn"
         >
           <div
             class="Navigation-navigationList Navigation-offset0"
@@ -14803,7 +14803,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
           />
         </button>
         <nav
-          class="css-12skhd1"
+          class="css-1vefvxn"
         >
           <div
             class="Navigation-navigationList Navigation-offset0"
