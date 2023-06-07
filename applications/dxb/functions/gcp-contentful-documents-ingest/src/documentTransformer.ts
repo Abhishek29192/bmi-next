@@ -3,9 +3,9 @@ import { getContentfulClient } from "@bmi/functions-contentful-client";
 import { Asset, AssetFile, ContentfulClientApi } from "contentful";
 import type {
   TypeAssetType as AssetType,
+  TypeImage as Image,
   TypeAssetTypeSkeleton,
   TypeImage,
-  TypeImage as Image,
   TypeImageSkeleton
 } from "@bmi/contentful-types";
 import { ContentfulDocument } from "./types";
@@ -23,7 +23,6 @@ export const transformDocument = async (
     document.fields.featuredMedia &&
     (await getFeaturedMedia(client, document.fields.featuredMedia));
   const focalPoint = featuredMedia?.fields?.focalPoint?.focalPoint;
-
   const title = getTitle(document.fields.title);
   return {
     __typename: "ContentfulDocument",
@@ -55,8 +54,22 @@ export const transformDocument = async (
       }
     },
     BRAND: getBrand(document.fields.brand),
-    noIndex: !!document.fields.noIndex
+    noIndex: document.fields.noIndex
+      ? getnoIndex(document.fields.noIndex)
+      : !!document.fields.noIndex
   };
+};
+
+const getnoIndex = (
+  noIndex: ContentfulDocument["fields"]["noIndex"]
+): boolean => {
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- Enforced to exist in checkEnvVariablesMissing
+  const actualNoIndex = noIndex && noIndex[MARKET_LOCALE!];
+  if (!actualNoIndex) {
+    return false;
+  }
+
+  return actualNoIndex;
 };
 
 const getTitle = (title: ContentfulDocument["fields"]["title"]): string => {
