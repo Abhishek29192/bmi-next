@@ -4,17 +4,18 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
 <body>
   <div>
     <div
-      class="css-8uq5eg"
+      class="css-1gt6a7i"
     >
       <div
         class=" css-1u48ai"
       >
         <div
-          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-1g8jyxy-MuiPaper-root-MuiAccordion-root"
+          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-pegw90-MuiPaper-root-MuiAccordion-root"
+          data-testid="tech-table-accordion-item-product-base-code"
         >
           <div
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-n9ypml-MuiButtonBase-root-MuiAccordionSummary-root"
+            class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-hhpeon-MuiButtonBase-root-MuiAccordionSummary-root"
             data-gtm="{"id":"selector-accordion1","label":"product1","action":"Selector – Accordion"}"
             role="button"
             tabindex="0"
@@ -22,7 +23,52 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
             <div
               class="MuiAccordionSummary-content Accordion-summaryContent MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
             >
-              product name
+              <div>
+                <span
+                  aria-label="MC: documents.download.maxReached"
+                  class=""
+                  data-mui-internal-clone-element="true"
+                >
+                  <div
+                    class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                  >
+                    <label
+                      class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+                    >
+                      <span
+                        class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                      >
+                        <input
+                          aria-label="Select all documents for product name"
+                          class="PrivateSwitchBase-input css-1m9pwf3"
+                          data-indeterminate="false"
+                          name="product-base-code"
+                          type="checkbox"
+                        />
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="CheckBoxOutlineBlankIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </span>
+                    </label>
+                  </div>
+                </span>
+              </div>
+              <span
+                class="css-1oh4pbz"
+              >
+                product name
+              </span>
             </div>
             <div
               class="MuiAccordionSummary-expandIconWrapper css-yw020d-MuiAccordionSummary-expandIconWrapper"
@@ -345,55 +391,6 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-1g8jyxy-MuiPaper-root-MuiAccordion-root"
-        >
-          <div
-            aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-n9ypml-MuiButtonBase-root-MuiAccordionSummary-root"
-            data-gtm="{"id":"selector-accordion1","label":"product3","action":"Selector – Accordion"}"
-            role="button"
-            tabindex="0"
-          >
-            <div
-              class="MuiAccordionSummary-content Accordion-summaryContent MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
-            >
-              product3
-            </div>
-            <div
-              class="MuiAccordionSummary-expandIconWrapper css-yw020d-MuiAccordionSummary-expandIconWrapper"
-            >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                data-testid="ExpandMoreIcon"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div
-            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-bz4dnt-MuiCollapse-root"
-            style="min-height: 0px;"
-          >
-            <div
-              class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
-            >
-              <div
-                class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
-              >
-                <div
-                  class="MuiAccordion-region"
-                  role="region"
-                />
               </div>
             </div>
           </div>
@@ -408,17 +405,18 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
 <body>
   <div>
     <div
-      class="css-8uq5eg"
+      class="css-1gt6a7i"
     >
       <div
         class=" css-1u48ai"
       >
         <div
-          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-1g8jyxy-MuiPaper-root-MuiAccordion-root"
+          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-pegw90-MuiPaper-root-MuiAccordion-root"
+          data-testid="tech-table-accordion-item-product-base-code"
         >
           <div
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-n9ypml-MuiButtonBase-root-MuiAccordionSummary-root"
+            class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-hhpeon-MuiButtonBase-root-MuiAccordionSummary-root"
             data-gtm="{"id":"selector-accordion1","label":"product1","action":"Selector – Accordion"}"
             role="button"
             tabindex="0"
@@ -426,7 +424,52 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
             <div
               class="MuiAccordionSummary-content Accordion-summaryContent MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
             >
-              product name
+              <div>
+                <span
+                  aria-label="MC: documents.download.maxReached"
+                  class=""
+                  data-mui-internal-clone-element="true"
+                >
+                  <div
+                    class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                  >
+                    <label
+                      class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+                    >
+                      <span
+                        class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                      >
+                        <input
+                          aria-label="Select all documents for product name"
+                          class="PrivateSwitchBase-input css-1m9pwf3"
+                          data-indeterminate="false"
+                          name="product-base-code"
+                          type="checkbox"
+                        />
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="CheckBoxOutlineBlankIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </span>
+                    </label>
+                  </div>
+                </span>
+              </div>
+              <span
+                class="css-1oh4pbz"
+              >
+                product name
+              </span>
             </div>
             <div
               class="MuiAccordionSummary-expandIconWrapper css-yw020d-MuiAccordionSummary-expandIconWrapper"
@@ -753,55 +796,6 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
             </div>
           </div>
         </div>
-        <div
-          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-1g8jyxy-MuiPaper-root-MuiAccordion-root"
-        >
-          <div
-            aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-n9ypml-MuiButtonBase-root-MuiAccordionSummary-root"
-            data-gtm="{"id":"selector-accordion1","label":"product3","action":"Selector – Accordion"}"
-            role="button"
-            tabindex="0"
-          >
-            <div
-              class="MuiAccordionSummary-content Accordion-summaryContent MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
-            >
-              product3
-            </div>
-            <div
-              class="MuiAccordionSummary-expandIconWrapper css-yw020d-MuiAccordionSummary-expandIconWrapper"
-            >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                data-testid="ExpandMoreIcon"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div
-            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-bz4dnt-MuiCollapse-root"
-            style="min-height: 0px;"
-          >
-            <div
-              class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
-            >
-              <div
-                class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
-              >
-                <div
-                  class="MuiAccordion-region"
-                  role="region"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -812,17 +806,18 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when on
 <body>
   <div>
     <div
-      class="css-8uq5eg"
+      class="css-1gt6a7i"
     >
       <div
         class=" css-1u48ai"
       >
         <div
-          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-1g8jyxy-MuiPaper-root-MuiAccordion-root"
+          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-pegw90-MuiPaper-root-MuiAccordion-root"
+          data-testid="tech-table-accordion-item-product-base-code"
         >
           <div
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-n9ypml-MuiButtonBase-root-MuiAccordionSummary-root"
+            class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-hhpeon-MuiButtonBase-root-MuiAccordionSummary-root"
             data-gtm="{"id":"selector-accordion1","label":"product1","action":"Selector – Accordion"}"
             role="button"
             tabindex="0"
@@ -830,56 +825,52 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when on
             <div
               class="MuiAccordionSummary-content Accordion-summaryContent MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
             >
-              product name
-            </div>
-            <div
-              class="MuiAccordionSummary-expandIconWrapper css-yw020d-MuiAccordionSummary-expandIconWrapper"
-            >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                data-testid="ExpandMoreIcon"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div
-            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-bz4dnt-MuiCollapse-root"
-            style="min-height: 0px;"
-          >
-            <div
-              class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
-            >
-              <div
-                class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
-              >
-                <div
-                  class="MuiAccordion-region"
-                  role="region"
-                />
+              <div>
+                <span
+                  aria-label="MC: documents.download.maxReached"
+                  class=""
+                  data-mui-internal-clone-element="true"
+                >
+                  <div
+                    class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                  >
+                    <label
+                      class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+                    >
+                      <span
+                        class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                      >
+                        <input
+                          aria-label="Select all documents for product name"
+                          class="PrivateSwitchBase-input css-1m9pwf3"
+                          data-indeterminate="false"
+                          name="product-base-code"
+                          type="checkbox"
+                        />
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="CheckBoxOutlineBlankIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </span>
+                    </label>
+                  </div>
+                </span>
               </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-1g8jyxy-MuiPaper-root-MuiAccordion-root"
-        >
-          <div
-            aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-n9ypml-MuiButtonBase-root-MuiAccordionSummary-root"
-            data-gtm="{"id":"selector-accordion1","label":"product3","action":"Selector – Accordion"}"
-            role="button"
-            tabindex="0"
-          >
-            <div
-              class="MuiAccordionSummary-content Accordion-summaryContent MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
-            >
-              product3
+              <span
+                class="css-1oh4pbz"
+              >
+                product name
+              </span>
             </div>
             <div
               class="MuiAccordionSummary-expandIconWrapper css-yw020d-MuiAccordionSummary-expandIconWrapper"
