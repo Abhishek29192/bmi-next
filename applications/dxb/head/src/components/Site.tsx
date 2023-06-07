@@ -34,18 +34,18 @@ export const useSiteContext = () => React.useContext(SiteContext);
 export type Data = {
   node_locale: string;
   homePage: {
-    title: string;
-  };
+    title: string | null;
+  } | null;
   countryCode: string;
   footerMainNavigation: NavigationData | null;
   footerSecondaryNavigation: NavigationData | null;
-  menuNavigation: NavigationData;
+  menuNavigation: NavigationData | null;
   menuUtilities: NavigationData | null;
   resources: ResourcesData | null;
   headScripts: {
     headScripts: string;
   } | null;
-  regions: Region[];
+  regions: Region[] | null;
   pitchedRoofCalculatorConfig: CalculatorConfig | null;
   visualiserHouseTypes: HouseType[] | null;
 };

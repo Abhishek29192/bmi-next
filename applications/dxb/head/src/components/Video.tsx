@@ -5,7 +5,7 @@ import { useGTM } from "../utils/google-tag-manager";
 import Image, { Data as ContentfulImageData } from "./Image";
 
 export type Data = {
-  title: string;
+  title: string | null;
   label: string;
   subtitle: string | null;
   videoUrl: string;

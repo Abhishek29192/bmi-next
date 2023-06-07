@@ -73,7 +73,7 @@ describe("Brand Landing Page Template", () => {
       },
       slides: [slide],
       overlapCards: null,
-      sections: null,
+      sections: [],
       breadcrumbs: [
         {
           id: "breadcrumbsId",
@@ -88,7 +88,10 @@ describe("Brand Landing Page Template", () => {
   it("render correctly", () => {
     const { container } = renderWithRouter(
       <ThemeProvider>
-        <BrandLandingPage data={data} pageContext={null} />
+        <BrandLandingPage
+          data={data}
+          pageContext={{ variantCodeToPathMap: undefined }}
+        />
       </ThemeProvider>
     );
 
@@ -169,11 +172,13 @@ describe("Brand Landing Page Template", () => {
 
   it("render slide featuredMedia instead when no featuredVideo", () => {
     const newData = { ...data };
+    const featuredMedia = createImageData();
+
     newData.contentfulBrandLandingPage.slides = [
       {
         ...slide,
         featuredVideo: null,
-        featuredMedia: createImageData()
+        featuredMedia
       }
     ];
     const { container } = renderWithRouter(
@@ -186,11 +191,7 @@ describe("Brand Landing Page Template", () => {
     );
 
     expect(container).toMatchSnapshot();
-    expect(
-      screen.getByAltText(
-        newData.contentfulBrandLandingPage.featuredMedia.altText
-      )
-    ).toBeTruthy();
+    expect(screen.getByAltText(featuredMedia.altText)).toBeTruthy();
   });
 
   it("render linkLabel microcopy when slide is has other typename than ContentfulPromo", () => {
@@ -256,7 +257,7 @@ describe("Brand Landing Page Template", () => {
         cta: {
           __typename: "ContentfulLink",
           id: "cta_id",
-          label: null,
+          label: "",
           icon: null,
           isLabelHidden: false,
           url: null,
@@ -331,7 +332,7 @@ describe("Brand Landing Page Template", () => {
         subtitle: null,
         brandLogo: null,
         slug: "ContentfulSimplePageSlug",
-        path: null,
+        path: "",
         date: null,
         rawDate: null,
         tags: null,
@@ -446,7 +447,7 @@ describe("Brand Landing Page Template", () => {
       expect(
         screen
           .queryByTestId("hero-content-slide-text")
-          .textContent.endsWith("...")
+          ?.textContent?.endsWith("...")
       ).toBeFalsy();
       expect(container).toMatchSnapshot();
     });
@@ -490,7 +491,7 @@ describe("Brand Landing Page Template", () => {
       expect(
         screen
           .getByTestId("hero-content-slide-text")
-          .textContent.endsWith("...")
+          .textContent?.endsWith("...")
       ).toBeTruthy();
     });
   });
@@ -498,7 +499,10 @@ describe("Brand Landing Page Template", () => {
   it("render with Search form on hero section", async () => {
     const { container } = renderWithRouter(
       <ThemeProvider>
-        <BrandLandingPage data={data} pageContext={null} />
+        <BrandLandingPage
+          data={data}
+          pageContext={{ variantCodeToPathMap: undefined }}
+        />
       </ThemeProvider>
     );
     expect(container).toMatchSnapshot();

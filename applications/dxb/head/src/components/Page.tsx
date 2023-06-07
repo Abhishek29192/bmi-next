@@ -31,7 +31,7 @@ export type Data = {
   breadcrumbs: BreadcrumbsData | null;
   signupBlock: SignupBlockData | null;
   seo: SEOContentData | null;
-  path: string;
+  path: string | null;
 };
 
 type Context = {
@@ -41,7 +41,7 @@ type Context = {
 type Children = React.ReactNode | ((context: Context) => React.ReactNode);
 
 type Props = {
-  brand?: string;
+  brand?: string | null;
   children: Children;
   title: string;
   pageData: Data;

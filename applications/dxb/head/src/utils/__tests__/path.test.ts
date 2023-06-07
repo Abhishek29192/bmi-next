@@ -1,9 +1,7 @@
 const getPathWithCountryCode = async (
   countryCode: string,
-  path?: string | null,
-  ignoreCC?: boolean
-) =>
-  (await import("../path")).getPathWithCountryCode(countryCode, path, ignoreCC);
+  path?: string | null
+) => (await import("../path")).getPathWithCountryCode(countryCode, path);
 
 beforeEach(() => {
   delete process.env.GATSBY_DONT_USE_COUNTRY_CODE;

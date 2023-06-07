@@ -6,8 +6,8 @@ import {
 } from "@bmi/elasticsearch-types";
 import { BLOCKS } from "@contentful/rich-text-types";
 import {
-  RenderResult,
   fireEvent,
+  RenderResult,
   screen,
   waitFor
 } from "@testing-library/react";
@@ -88,8 +88,6 @@ const renderWithProviders = ({
     { route }
   );
 };
-
-jest.setTimeout(30000);
 
 describe("Document Library page", () => {
   beforeEach(() => {
