@@ -18,7 +18,8 @@ const {
   ContentfulContactUsPage,
   ContentfulDocumentLibraryPage: ContentfulDocumentLibraryPageCommon,
   ContentfulProductListerPage,
-  ContentfulSimplePage: ContentfulSimplePageCommon
+  ContentfulSimplePage: ContentfulSimplePageCommon,
+  ContentfulCookiePolicyPage
 } = ContentfulPage;
 
 /**
@@ -59,5 +60,6 @@ export default {
   SystemLayer: {
     relatedProducts: System.relatedProducts,
     relatedOptionalProducts: System.relatedOptionalProducts
-  }
+  },
+  ContentfulCookiePolicyPage
 };

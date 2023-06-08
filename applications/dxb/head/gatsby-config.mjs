@@ -65,6 +65,7 @@ const queries = [
               pageData.contentfulBrandLandingPage ||
               pageData.contentfulContactUsPage ||
               pageData.contentfulDocumentLibraryPage ||
+              pageData.contentfulCookiePolicyPage ||
               pageData.contentfulSimplePage;
 
             // If not one of the above pages or excluded then do not index

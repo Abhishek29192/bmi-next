@@ -5623,7 +5623,7 @@ exports[`Simple page renders correctly with full data 1`] = `
     </div>
     <div
       class="Section-root Section-white Section-noSpacing css-10chrh8"
-      data-testid="lead-block-section}"
+      data-testid="lead-block-section"
     >
       <div
         class=" css-ze8cyt"
