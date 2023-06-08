@@ -11,7 +11,7 @@ exports[`Brands component renders correctly 1`] = `
       data-testid="grid-item"
     >
       <div
-        class="OverviewCard-clickable MuiBox-root css-mnk4x4"
+        class="OverviewCard-clickable MuiBox-root css-lww50j"
       >
         <a
           class="MuiButtonBase-root OverviewCard-main css-10d1a0h-MuiButtonBase-root"
@@ -58,7 +58,7 @@ exports[`Brands component renders correctly 1`] = `
           />
         </a>
         <div
-          class="css-197a1cq"
+          class="OverviewCard-clickable css-1cyx9t4"
           data-testid="overview-card-body-footer"
         >
           <div
@@ -134,7 +134,7 @@ exports[`Brands component renders correctly 1`] = `
       data-testid="grid-item"
     >
       <div
-        class="OverviewCard-clickable MuiBox-root css-mnk4x4"
+        class="OverviewCard-clickable MuiBox-root css-lww50j"
       >
         <a
           class="MuiButtonBase-root OverviewCard-main css-10d1a0h-MuiButtonBase-root"
@@ -188,7 +188,7 @@ exports[`Brands component renders correctly 1`] = `
           />
         </a>
         <div
-          class="css-197a1cq"
+          class="OverviewCard-clickable css-1cyx9t4"
           data-testid="overview-card-body-footer"
         >
           <div
@@ -274,7 +274,7 @@ exports[`Brands component renders correctly for mobile 1`] = `
       data-testid="grid-item"
     >
       <div
-        class="OverviewCard-clickable MuiBox-root css-mnk4x4"
+        class="OverviewCard-clickable MuiBox-root css-lww50j"
       >
         <a
           class="MuiButtonBase-root OverviewCard-main css-10d1a0h-MuiButtonBase-root"
@@ -321,7 +321,7 @@ exports[`Brands component renders correctly for mobile 1`] = `
           />
         </a>
         <div
-          class="css-197a1cq"
+          class="OverviewCard-clickable css-1cyx9t4"
           data-testid="overview-card-body-footer"
         >
           <div
@@ -397,7 +397,7 @@ exports[`Brands component renders correctly for mobile 1`] = `
       data-testid="grid-item"
     >
       <div
-        class="OverviewCard-clickable MuiBox-root css-mnk4x4"
+        class="OverviewCard-clickable MuiBox-root css-lww50j"
       >
         <a
           class="MuiButtonBase-root OverviewCard-main css-10d1a0h-MuiButtonBase-root"
@@ -451,7 +451,7 @@ exports[`Brands component renders correctly for mobile 1`] = `
           />
         </a>
         <div
-          class="css-197a1cq"
+          class="OverviewCard-clickable css-1cyx9t4"
           data-testid="overview-card-body-footer"
         >
           <div

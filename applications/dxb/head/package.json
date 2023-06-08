@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "@aaronhayes/react-use-hubspot-form": "^2.1.1",
-    "@bmi-digital/components": "^1.33.7",
+    "@bmi-digital/components": "^1.33.9",
     "@bmi-digital/react-pdf-maker": "^1.6.0",
     "@bmi-digital/styles": "^1.6.0",
     "@bmi-digital/svg-import": "^1.6.0",
@@ -79,7 +79,6 @@
     "eslint-plugin-you-dont-need-lodash-underscore": "^6.12.0",
     "file-saver": "^2.0.5",
     "filesize": "^10.0.7",
-    "find-in-files": "^0.5.0",
     "gatsby": "^5.9.1",
     "gatsby-build-newrelic": "^1.1.17",
     "gatsby-cli": "^5.9.0",

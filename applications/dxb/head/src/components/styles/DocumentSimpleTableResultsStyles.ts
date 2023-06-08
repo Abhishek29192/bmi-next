@@ -1,12 +1,12 @@
 import { Table } from "@bmi-digital/components";
 import { ApprovalStatus } from "@bmi/pim-types";
 import { alpha } from "@mui/material";
-import { tooltipClasses } from "@mui/material/Tooltip";
 import { styled } from "@mui/material/styles";
 
 const PREFIX = "documentSimpleTableResultsStyles";
 export const classes = {
   tableHeader: `${PREFIX}-tableHeader`,
+  tableHeaderCentered: `${PREFIX}-tableHeaderCentered`,
   checked: `${PREFIX}-checked`
 };
 
@@ -14,6 +14,12 @@ export const StyledSimpleTableResults = styled("div")(({ theme }) => ({
   [`& .${classes.tableHeader}`]: {
     width: "92px",
     whiteSpace: "nowrap"
+  },
+  [`& .${classes.tableHeaderCentered}`]: {
+    textAlign: "center",
+    label: {
+      margin: 0
+    }
   },
   "abbr[title]::after": {
     content: "''",
@@ -52,10 +58,7 @@ export const StyledTitleTableCell = styled(Table.Cell)({
 export const ActionsContainer = styled("div")({
   display: "flex",
   width: "64px",
-  justifyContent: "space-between",
-  [`&& .${tooltipClasses.tooltip}.${tooltipClasses.tooltipPlacementLeft}`]: {
-    marginRight: "8px"
-  }
+  justifyContent: "space-between"
 });
 
 export const DocumentStatus = styled("p")<{ status: ApprovalStatus }>(

@@ -48,11 +48,19 @@ export const build: HttpFunction = async (_req, res) => {
 
   await waitFor(delayMilliseconds);
 
-  for (const indexEntity in ElasticsearchIndexes) {
-    await swapReadWriteAliases(`${ES_INDEX_PREFIX}_${indexEntity}`);
-  }
+  logger.debug({
+    message: `received request body: ${JSON.stringify(_req.body)}`
+  });
 
-  await swapReadWriteAliases(`${ES_INDEX_NAME_DOCUMENTS}`);
+  if (_req.body.isFullFetch === true) {
+    logger.debug({ message: "isFullFetch is true: swapping indexes" });
+
+    for (const indexEntity in ElasticsearchIndexes) {
+      await swapReadWriteAliases(`${ES_INDEX_PREFIX}_${indexEntity}`);
+    }
+
+    await swapReadWriteAliases(`${ES_INDEX_NAME_DOCUMENTS}`);
+  }
   await fetch(NETLIFY_BUILD_HOOK, { method: "POST" });
   res.sendStatus(200);
 };

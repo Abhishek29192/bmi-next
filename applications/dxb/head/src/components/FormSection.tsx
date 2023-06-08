@@ -21,8 +21,15 @@ import { ArrowForward as ArrowForwardIcon } from "@bmi-digital/components/icon";
 import logger from "@bmi-digital/functions-logger";
 import classNames from "classnames";
 import { graphql, navigate } from "gatsby";
+import uniqueId from "lodash-es/uniqueId";
 import fetch from "node-fetch";
-import React, { FormEvent, useCallback, useEffect, useState } from "react";
+import React, {
+  FormEvent,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState
+} from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import matchAll from "string.prototype.matchall";
 import { QA_AUTH_TOKEN } from "../constants/cookieConstants";
@@ -35,7 +42,7 @@ import { isRichText } from "../utils/isRichText";
 import { getPathWithCountryCode } from "../utils/path";
 import ControlledCheckboxGroup from "./CheckboxGroup";
 import HiddenInput from "./HiddenInput";
-import { Data as LinkData, isExternalUrl } from "./Link";
+import { isExternalUrl, Data as LinkData } from "./Link";
 import ProgressIndicator from "./ProgressIndicator";
 import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
 import RichText, { RichTextData } from "./RichText";
@@ -370,8 +377,14 @@ const HubspotForm = ({
   isDialog?: boolean;
   hasNoPadding?: boolean;
 }) => {
-  const hubSpotFormID = `bmi-hubspot-form-${id || "no-id"}`;
   const { hubSpotId } = useConfig();
+  const hubSpotFormID = useMemo(() => {
+    if (id) {
+      return `bmi-hubspot-form-${id}`;
+    }
+
+    return `bmi-hubspot-form-${uniqueId(replaceSpaces(title))}`;
+  }, [id, title]);
 
   // Uses the HS script to bring in the form. This will create an iframe regardless
   // of styling options, but will only _use_ the iframe if it's _not_ raw HTML (empty
@@ -454,6 +467,7 @@ const HubspotForm = ({
         </>
       )}
       <HubspotFormWrapper
+        data-testid={`hubspot-form-${replaceSpaces(title)}`}
         id={hubSpotFormID}
         className={classNames(isDialog && classes.dialog)}
       />

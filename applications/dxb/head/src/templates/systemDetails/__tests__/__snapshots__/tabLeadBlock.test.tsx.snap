@@ -633,7 +633,7 @@ exports[`TabLeadBlock tests should render 1`] = `
               class="tableContainer"
             >
               <div
-                class="DocumentSimpleTableResults css-qjwvo"
+                class="DocumentSimpleTableResults css-358n7x"
                 data-testid="document-simple-table-results"
               >
                 <div
@@ -651,10 +651,44 @@ exports[`TabLeadBlock tests should render 1`] = `
                         class="MuiTableRow-root MuiTableRow-head css-47w8l6-MuiTableRow-root"
                       >
                         <th
-                          class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableHeader css-1tbee56-MuiTableCell-root"
+                          class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableHeader documentSimpleTableResultsStyles-tableHeaderCentered css-1tbee56-MuiTableCell-root"
                           scope="col"
                         >
-                          MC: documentLibrary.headers.add
+                          <div
+                            class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                          >
+                            <label
+                              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+                            >
+                              <span
+                                aria-label="MC: documentLibrary.headers.add"
+                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                data-testid="document-table-select-all"
+                              >
+                                <input
+                                  class="PrivateSwitchBase-input css-1m9pwf3"
+                                  data-indeterminate="false"
+                                  name="add"
+                                  type="checkbox"
+                                  value="false"
+                                />
+                                <svg
+                                  aria-hidden="true"
+                                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                  data-testid="CheckBoxOutlineBlankIcon"
+                                  focusable="false"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                                  />
+                                </svg>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </span>
+                            </label>
+                          </div>
                         </th>
                         <th
                           class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
@@ -744,7 +778,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                           data-testid="document-table-title-pim-link-document-id"
                         >
                           <a
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"download1","label":"Download","action":"http://localhost/pim-link-document-id"}"
                             data-testid="document-table-download-application/pdf-button"
                             href="http://localhost/pim-link-document-id"
@@ -810,7 +844,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                           data-testid="document-table-actions-pim-link-document-id"
                         >
                           <div
-                            class="css-aphyn4"
+                            class="css-1kto1mf"
                           >
                             <div
                               aria-label="MC: document.library.download.tooltip.title"
@@ -932,7 +966,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                           data-testid="document-table-title-pim-link-document-id"
                         >
                           <a
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
                             data-testid="document-table-external-link-button"
                             href="http://localhost/pim-link-document-id"
                             rel="noopener noreferrer"
@@ -943,7 +977,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                               class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                             >
                               <svg
-                                class="css-dxpxcg"
+                                class="css-1y2quof"
                                 viewBox="0 0 32 32"
                                 xmlns="http://www.w3.org/2000/svg"
                               >
@@ -973,7 +1007,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                           data-testid="document-table-actions-pim-link-document-id"
                         >
                           <div
-                            class="css-aphyn4"
+                            class="css-1kto1mf"
                           >
                             <div
                               aria-label="MC: document.library.copyLink.tooltip.title"
@@ -1099,7 +1133,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
           class="tableContainer"
         >
           <div
-            class="DocumentSimpleTableResults css-qjwvo"
+            class="DocumentSimpleTableResults css-358n7x"
             data-testid="document-simple-table-results"
           >
             <div
@@ -1117,10 +1151,44 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                     class="MuiTableRow-root MuiTableRow-head css-47w8l6-MuiTableRow-root"
                   >
                     <th
-                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableHeader css-1tbee56-MuiTableCell-root"
+                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableHeader documentSimpleTableResultsStyles-tableHeaderCentered css-1tbee56-MuiTableCell-root"
                       scope="col"
                     >
-                      MC: documentLibrary.headers.add
+                      <div
+                        class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                      >
+                        <label
+                          class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+                        >
+                          <span
+                            aria-label="MC: documentLibrary.headers.add"
+                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                            data-testid="document-table-select-all"
+                          >
+                            <input
+                              class="PrivateSwitchBase-input css-1m9pwf3"
+                              data-indeterminate="false"
+                              name="add"
+                              type="checkbox"
+                              value="false"
+                            />
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                              data-testid="CheckBoxOutlineBlankIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                              />
+                            </svg>
+                            <span
+                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                            />
+                          </span>
+                        </label>
+                      </div>
                     </th>
                     <th
                       class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
@@ -1210,7 +1278,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                       data-testid="document-table-title-pim-link-document-id"
                     >
                       <a
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
                         data-gtm="{"id":"download1","label":"Download","action":"http://localhost/pim-link-document-id"}"
                         data-testid="document-table-download-application/pdf-button"
                         href="http://localhost/pim-link-document-id"
@@ -1276,7 +1344,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                       data-testid="document-table-actions-pim-link-document-id"
                     >
                       <div
-                        class="css-aphyn4"
+                        class="css-1kto1mf"
                       >
                         <div
                           aria-label="MC: document.library.download.tooltip.title"
@@ -1398,7 +1466,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                       data-testid="document-table-title-pim-link-document-id"
                     >
                       <a
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
                         data-testid="document-table-external-link-button"
                         href="http://localhost/pim-link-document-id"
                         rel="noopener noreferrer"
@@ -1409,7 +1477,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                           class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         >
                           <svg
-                            class="css-dxpxcg"
+                            class="css-1y2quof"
                             viewBox="0 0 32 32"
                             xmlns="http://www.w3.org/2000/svg"
                           >
@@ -1439,7 +1507,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                       data-testid="document-table-actions-pim-link-document-id"
                     >
                       <div
-                        class="css-aphyn4"
+                        class="css-1kto1mf"
                       >
                         <div
                           aria-label="MC: document.library.copyLink.tooltip.title"

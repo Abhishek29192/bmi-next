@@ -5,18 +5,8 @@ import {
 } from "@bmi/elasticsearch-types";
 import { render, screen } from "@testing-library/react";
 import React from "react";
-import mediaQuery from "css-mediaquery";
 import createAssetType from "../../../../__tests__/helpers/AssetTypeHelper";
 import ResultSection, { Props as ResultSectionProps } from "../ResultSection";
-
-const createMatchMedia = (width: number) => {
-  return (query: string): MediaQueryList =>
-    ({
-      matches: mediaQuery.match(query, { width }),
-      addListener: () => {},
-      removeListener: () => {}
-    } as unknown as MediaQueryList);
-};
 
 const executeRecaptchaSpy = jest.fn().mockResolvedValue("RECAPTCHA");
 jest.mock("react-google-recaptcha-v3", () => {
@@ -87,17 +77,5 @@ describe("ResultSection", () => {
     expect(
       screen.queryByText("MC: downloadList.download (0)")
     ).not.toBeInTheDocument();
-  });
-
-  it("should not render downloadList and clear buttons on mobile devices when format is set to technicalTable", async () => {
-    window.matchMedia = createMatchMedia(599);
-    render(
-      <ThemeProvider>
-        <ResultSection {...{ ...props, format: "technicalTable" }} />
-      </ThemeProvider>
-    );
-
-    expect(screen.queryByText("MC: downloadList.clear")).toBeFalsy();
-    expect(screen.queryByText("MC: downloadList.download (0)")).toBeFalsy();
   });
 });

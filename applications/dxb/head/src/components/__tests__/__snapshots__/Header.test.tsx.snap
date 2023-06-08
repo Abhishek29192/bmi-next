@@ -386,7 +386,7 @@ exports[`Header component renders correctly 1`] = `
         />
       </button>
       <nav
-        class="css-12skhd1"
+        class="css-1vefvxn"
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
@@ -1062,7 +1062,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
         />
       </button>
       <nav
-        class="css-12skhd1"
+        class="css-1vefvxn"
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
@@ -1772,7 +1772,7 @@ exports[`Header component shows sample basket icon 1`] = `
         />
       </button>
       <nav
-        class="css-12skhd1"
+        class="css-1vefvxn"
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
@@ -2607,7 +2607,7 @@ exports[`Header component toggles search 1`] = `
         />
       </button>
       <nav
-        class="css-12skhd1"
+        class="css-1vefvxn"
       >
         <div
           class="Navigation-navigationList Navigation-offset0"

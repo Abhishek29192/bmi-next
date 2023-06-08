@@ -11,7 +11,7 @@ exports[`DocumentSimpleTableResultsMobile component renders correctly 1`] = `
         class="css-1wnvnkz"
       >
         <a
-          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium document-simple-table-results-disableRipple css-186oh1r-MuiButtonBase-root-MuiButton-root"
           data-gtm="{"id":"download1","label":"Download","action":"http://doesnot-exist.com/fileName"}"
           data-testid="document-table-download-application/pdf-button"
           href="http://doesnot-exist.com/fileName"

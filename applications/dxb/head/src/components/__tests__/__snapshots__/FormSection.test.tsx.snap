@@ -14,7 +14,8 @@ exports[`FormSection component Hubspot FormSection component renders correctly 1
       >
         <div
           class=" css-n5y371"
-          id="bmi-hubspot-form-no-id"
+          data-testid="hubspot-form-Test-form"
+          id="bmi-hubspot-form-Test-form"
         />
       </div>
     </div>
@@ -36,7 +37,8 @@ exports[`FormSection component Hubspot FormSection component renders correctly w
       >
         <div
           class=" css-n5y371"
-          id="bmi-hubspot-form-no-id"
+          data-testid="hubspot-form-Test-form"
+          id="bmi-hubspot-form-Test-form"
         />
       </div>
     </div>
@@ -58,7 +60,8 @@ exports[`FormSection component Hubspot FormSection component test submit when pr
       >
         <div
           class=" css-n5y371"
-          id="bmi-hubspot-form-no-id"
+          data-testid="hubspot-form-Test-form"
+          id="bmi-hubspot-form-Test-form"
         />
       </div>
     </div>
@@ -820,7 +823,8 @@ exports[`FormSection component renders correctly for dialog 1`] = `
       >
         <div
           class="FormSection-dialog css-n5y371"
-          id="bmi-hubspot-form-no-id"
+          data-testid="hubspot-form-Test-form"
+          id="bmi-hubspot-form-Test-form"
         />
       </div>
     </div>

@@ -1564,9 +1564,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@bmi-digital/components@npm:^1.33.7":
-  version: 1.33.7
-  resolution: "@bmi-digital/components@npm:1.33.7"
+"@bmi-digital/components@npm:^1.33.9":
+  version: 1.33.9
+  resolution: "@bmi-digital/components@npm:1.33.9"
   dependencies:
     "@bmi-digital/use-dimensions": ^1.6.0
     "@emotion/react": ^11.10.8
@@ -1599,7 +1599,7 @@ __metadata:
     "@mui/styles": ^5.12.3
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
-  checksum: 913049f0191f696b7b901f9c591307bdbb8a86b18106ffbad1b2cacc9389a0aa3875a10dae1eb239481dc1e29556efc613999477619d314175b5c659d651960b
+  checksum: 0bdb54c63cc13e62a3eb0d0774ee013e69bce16297f76c2aba212aaf47cf7840654c84f10f67739797a4fb64eb67e4fa6c77706f1b197990cffed0d8b762f35f
   languageName: node
   linkType: hard
 
@@ -2127,7 +2127,7 @@ __metadata:
   dependencies:
     "@babel/core": ^7.21.8
     "@babel/plugin-proposal-decorators": ^7.21.0
-    "@bmi-digital/components": ^1.33.7
+    "@bmi-digital/components": ^1.33.9
     "@bmi-digital/react-pdf-maker": ^1.6.0
     "@bmi-digital/styles": ^1.6.0
     "@bmi/gatsby-plugin-material-ui": "workspace:*"
@@ -3063,7 +3063,7 @@ __metadata:
     "@aaronhayes/react-use-hubspot-form": ^2.1.1
     "@babel/core": ^7.21.8
     "@babel/plugin-proposal-decorators": ^7.21.0
-    "@bmi-digital/components": ^1.33.7
+    "@bmi-digital/components": ^1.33.9
     "@bmi-digital/react-pdf-maker": ^1.6.0
     "@bmi-digital/styles": ^1.6.0
     "@bmi-digital/svg-import": ^1.6.0
@@ -3125,7 +3125,6 @@ __metadata:
     eslint-plugin-you-dont-need-lodash-underscore: ^6.12.0
     file-saver: ^2.0.5
     filesize: ^10.0.7
-    find-in-files: ^0.5.0
     gatsby: ^5.9.1
     gatsby-build-newrelic: ^1.1.17
     gatsby-cli: ^5.9.0
@@ -15351,16 +15350,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"find-in-files@npm:^0.5.0":
-  version: 0.5.0
-  resolution: "find-in-files@npm:0.5.0"
-  dependencies:
-    find: ^0.1.5
-    q: ^1.0.1
-  checksum: a2388a929935d5d8d85b08456813b26d38ef7cd488279769dee7e9061d4e8843b1b0a54d4856e925eed113a781775767e2f7143539e048433f3276ec117eded0
-  languageName: node
-  linkType: hard
-
 "find-root@npm:^1.1.0":
   version: 1.1.0
   resolution: "find-root@npm:1.1.0"
@@ -15422,15 +15411,6 @@ __metadata:
   dependencies:
     semver-regex: ^4.0.5
   checksum: f1ef79d0850e0bd1eba03def02892d31feccdef75129c14b2a2d1cec563e2c51ad5a01f6a7a2d59ddbf9ecca1014ff8a6353ff2e2885e004f7a81ab1488899d4
-  languageName: node
-  linkType: hard
-
-"find@npm:^0.1.5":
-  version: 0.1.7
-  resolution: "find@npm:0.1.7"
-  dependencies:
-    traverse-chain: ~0.1.0
-  checksum: 0bd88c469caec00e6fa92768cece02d45758fb560cd1c52ef80e55ee4eb5e50b15d02dc7a788429771ac24b7f55b780b5ad4469b1d8028a6ebc88f1bb935152a
   languageName: node
   linkType: hard
 
@@ -24793,7 +24773,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"q@npm:^1.0.1, q@npm:^1.5.1":
+"q@npm:^1.5.1":
   version: 1.5.1
   resolution: "q@npm:1.5.1"
   checksum: 7855fbdba126cb7e92ef3a16b47ba998c0786ec7fface236e3eb0135b65df36429d91a86b1fff3ab0927b4ac4ee88a2c44527c7c3b8e2a37efbec9fe34803df4
@@ -28170,13 +28150,6 @@ __metadata:
   version: 0.0.3
   resolution: "tr46@npm:0.0.3"
   checksum: 047cb209a6b60c742f05c9d3ace8fa510bff609995c129a37ace03476a9b12db4dbf975e74600830ef0796e18882b2381fb5fb1f6b4f96b832c374de3ab91a11
-  languageName: node
-  linkType: hard
-
-"traverse-chain@npm:~0.1.0":
-  version: 0.1.0
-  resolution: "traverse-chain@npm:0.1.0"
-  checksum: 2b4fc19b52692c4970a18a777ba19ecbc1664f25b33815a5e5f06d0311e9e6a65ad2511b86e4ff0f0211ca0bf242a8ec3a902d8893c9d6a8f9d3ef4e658e2b24
   languageName: node
   linkType: hard
 
