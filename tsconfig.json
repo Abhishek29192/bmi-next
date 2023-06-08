@@ -9,16 +9,7 @@
       "path": "applications/dxb/contentful-migrate"
     },
     {
-      "path": "applications/dxb/csp-creator"
-    },
-    {
       "path": "applications/dxb/head"
-    },
-    {
-      "path": "applications/dxb/redirects-checker"
-    },
-    {
-      "path": "applications/dxb/redirects-editor"
     },
     {
       "path": "applications/dxb/webtools-contentful-migrate"

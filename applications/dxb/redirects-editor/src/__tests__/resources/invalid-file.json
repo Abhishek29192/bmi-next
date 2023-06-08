@@ -1,9 +1,0 @@
-{
-  "redirects": [
-    {
-      "from": "/from",
-      "to": "/to",
-      "status": "301"
-    }
-  ]
-}
