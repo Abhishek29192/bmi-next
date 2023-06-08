@@ -6,7 +6,7 @@ exports[`SampleBasketSectionProducts component render correctly on mobile device
     class="SampleBasketSectionProducts"
   >
     <button
-      class="MuiButtonBase-root OverviewCard-clickable product-wrapper MuiBox-root css-1gkt1q6-MuiButtonBase-root"
+      class="MuiButtonBase-root OverviewCard-clickable product-wrapper MuiBox-root css-1kt3nqz-MuiButtonBase-root"
       tabindex="0"
       type="button"
     >
@@ -21,7 +21,7 @@ exports[`SampleBasketSectionProducts component render correctly on mobile device
           style="object-fit: contain; object-position: center;"
         />
         <div
-          class="OverviewCard-body"
+          class="OverviewCard-body OverviewCard-noFooter"
         >
           <h4
             class="MuiTypography-root MuiTypography-h4 OverviewCard-title OverviewCard-noBrandLogo css-1x9euu8-MuiTypography-root"
@@ -81,7 +81,7 @@ exports[`SampleBasketSectionProducts component render correctly on mobile device
       />
     </button>
     <button
-      class="MuiButtonBase-root OverviewCard-clickable product-wrapper MuiBox-root css-1gkt1q6-MuiButtonBase-root"
+      class="MuiButtonBase-root OverviewCard-clickable product-wrapper MuiBox-root css-1kt3nqz-MuiButtonBase-root"
       tabindex="0"
       type="button"
     >
@@ -96,7 +96,7 @@ exports[`SampleBasketSectionProducts component render correctly on mobile device
           style="object-fit: contain; object-position: center;"
         />
         <div
-          class="OverviewCard-body"
+          class="OverviewCard-body OverviewCard-noFooter"
         >
           <h4
             class="MuiTypography-root MuiTypography-h4 OverviewCard-title OverviewCard-noBrandLogo css-1x9euu8-MuiTypography-root"
@@ -160,7 +160,7 @@ exports[`SampleBasketSectionProducts component render correctly on mobile device
       />
     </button>
     <button
-      class="MuiButtonBase-root OverviewCard-clickable product-wrapper MuiBox-root css-1gkt1q6-MuiButtonBase-root"
+      class="MuiButtonBase-root OverviewCard-clickable product-wrapper MuiBox-root css-1kt3nqz-MuiButtonBase-root"
       tabindex="0"
       type="button"
     >
@@ -175,7 +175,7 @@ exports[`SampleBasketSectionProducts component render correctly on mobile device
           style="object-fit: contain; object-position: center;"
         />
         <div
-          class="OverviewCard-body"
+          class="OverviewCard-body OverviewCard-noFooter"
         >
           <h4
             class="MuiTypography-root MuiTypography-h4 OverviewCard-title OverviewCard-noBrandLogo css-1x9euu8-MuiTypography-root"

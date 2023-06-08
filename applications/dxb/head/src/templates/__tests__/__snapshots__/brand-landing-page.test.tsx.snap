@@ -599,7 +599,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
         />
       </button>
       <nav
-        class="css-12skhd1"
+        class="css-1vefvxn"
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
@@ -4247,7 +4247,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
         />
       </button>
       <nav
-        class="css-12skhd1"
+        class="css-1vefvxn"
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
@@ -7665,7 +7665,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
         />
       </button>
       <nav
-        class="css-12skhd1"
+        class="css-1vefvxn"
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
@@ -11277,7 +11277,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
         />
       </button>
       <nav
-        class="css-12skhd1"
+        class="css-1vefvxn"
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
@@ -14919,7 +14919,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
         />
       </button>
       <nav
-        class="css-12skhd1"
+        class="css-1vefvxn"
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
@@ -18533,7 +18533,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
         />
       </button>
       <nav
-        class="css-12skhd1"
+        class="css-1vefvxn"
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
@@ -22177,7 +22177,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
         />
       </button>
       <nav
-        class="css-12skhd1"
+        class="css-1vefvxn"
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
@@ -25821,7 +25821,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
         />
       </button>
       <nav
-        class="css-12skhd1"
+        class="css-1vefvxn"
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
@@ -29477,7 +29477,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
         />
       </button>
       <nav
-        class="css-12skhd1"
+        class="css-1vefvxn"
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
@@ -33131,7 +33131,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
         />
       </button>
       <nav
-        class="css-12skhd1"
+        class="css-1vefvxn"
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
@@ -36787,7 +36787,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
         />
       </button>
       <nav
-        class="css-12skhd1"
+        class="css-1vefvxn"
       >
         <div
           class="Navigation-navigationList Navigation-offset0"

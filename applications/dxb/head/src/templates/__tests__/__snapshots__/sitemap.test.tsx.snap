@@ -378,7 +378,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
         />
       </button>
       <nav
-        class="css-12skhd1"
+        class="css-1vefvxn"
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
@@ -1252,7 +1252,7 @@ exports[`Sitemap renders correctly 1`] = `
         />
       </button>
       <nav
-        class="css-12skhd1"
+        class="css-1vefvxn"
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
@@ -2126,7 +2126,7 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
         />
       </button>
       <nav
-        class="css-12skhd1"
+        class="css-1vefvxn"
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
@@ -2936,7 +2936,7 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
         />
       </button>
       <nav
-        class="css-12skhd1"
+        class="css-1vefvxn"
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
