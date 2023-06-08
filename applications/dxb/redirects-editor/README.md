@@ -9,7 +9,7 @@ A CLI tool to update a redirects file with either the passed in redirect _or_ re
 To be able to use the CLI tool, it first needs to be built.
 
 ```bash
-yaml workspace @bmi/readirects-editor build
+yarn workspace @bmi/redirects-editor build
 ```
 
 ### Add single redirect via arguments

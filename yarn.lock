@@ -3443,6 +3443,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@bmi/redirects-website-ee@workspace:applications/redirects-website-ee":
+  version: 0.0.0-use.local
+  resolution: "@bmi/redirects-website-ee@workspace:applications/redirects-website-ee"
+  dependencies:
+    eslint: ^8.40.0
+    gatsby: ^5.9.1
+    gatsby-plugin-gatsby-cloud: ^5.9.0
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    toml: ^3.0.0
+    webpack: ^5.82.1
+  languageName: unknown
+  linkType: soft
+
 "@bmi/redirects-website-fr-monier@workspace:applications/redirects-website-fr-monier":
   version: 0.0.0-use.local
   resolution: "@bmi/redirects-website-fr-monier@workspace:applications/redirects-website-fr-monier"
@@ -3513,6 +3527,34 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@bmi/redirects-website-lt@workspace:applications/redirects-website-lt":
+  version: 0.0.0-use.local
+  resolution: "@bmi/redirects-website-lt@workspace:applications/redirects-website-lt"
+  dependencies:
+    eslint: ^8.40.0
+    gatsby: ^5.9.1
+    gatsby-plugin-gatsby-cloud: ^5.9.0
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    toml: ^3.0.0
+    webpack: ^5.82.1
+  languageName: unknown
+  linkType: soft
+
+"@bmi/redirects-website-lv@workspace:applications/redirects-website-lv":
+  version: 0.0.0-use.local
+  resolution: "@bmi/redirects-website-lv@workspace:applications/redirects-website-lv"
+  dependencies:
+    eslint: ^8.40.0
+    gatsby: ^5.9.1
+    gatsby-plugin-gatsby-cloud: ^5.9.0
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    toml: ^3.0.0
+    webpack: ^5.82.1
+  languageName: unknown
+  linkType: soft
+
 "@bmi/redirects-website-nl-icopal@workspace:applications/redirects-website-nl-icopal":
   version: 0.0.0-use.local
   resolution: "@bmi/redirects-website-nl-icopal@workspace:applications/redirects-website-nl-icopal"
@@ -3530,6 +3572,20 @@ __metadata:
 "@bmi/redirects-website-nl-monier@workspace:applications/redirects-website-nl-monier":
   version: 0.0.0-use.local
   resolution: "@bmi/redirects-website-nl-monier@workspace:applications/redirects-website-nl-monier"
+  dependencies:
+    eslint: ^8.40.0
+    gatsby: ^5.9.1
+    gatsby-plugin-gatsby-cloud: ^5.9.0
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    toml: ^3.0.0
+    webpack: ^5.82.1
+  languageName: unknown
+  linkType: soft
+
+"@bmi/redirects-website-no-ventex@workspace:applications/redirects-website-no-ventex":
+  version: 0.0.0-use.local
+  resolution: "@bmi/redirects-website-no-ventex@workspace:applications/redirects-website-no-ventex"
   dependencies:
     eslint: ^8.40.0
     gatsby: ^5.9.1

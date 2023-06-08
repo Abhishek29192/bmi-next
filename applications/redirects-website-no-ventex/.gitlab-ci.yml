@@ -1,0 +1,19 @@
+lint_redirects_website_no_ventex:
+  extends: .lint_yarn_workspace
+  rules:
+    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [ .run_for_changes_on_mr, rules ]
+  variables:
+    ROOT_DIR: "applications/dxb/redirects-website-no-ventex"
+    WORKSPACE: "@bmi/redirects-website-no-ventex"
+
+build_redirects_website_no_ventex:
+  extends: .build_yarn_workspace
+  rules:
+    - !reference [ .ignore_release_mrs, rules]
+    - !reference [.run_for_changes_on_mr, rules]
+    - !reference [.run_for_changes_on_main, rules]
+  variables:
+    ROOT_DIR: applications/redirects-website-no-ventex
+    WORKSPACE: "@bmi/redirects-website-no-ventex"
