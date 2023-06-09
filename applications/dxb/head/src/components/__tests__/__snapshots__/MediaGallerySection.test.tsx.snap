@@ -155,7 +155,7 @@ exports[`MediaGallerySection component renders correctly 1`] = `
                   />
                 </button>
                 <div
-                  class="css-1ojsfml"
+                  class="css-1e5dj63"
                   data-testid="thumbnail-scroller"
                   style="margin-right: 0%;"
                 >
