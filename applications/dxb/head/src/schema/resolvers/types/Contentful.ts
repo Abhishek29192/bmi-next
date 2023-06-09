@@ -54,8 +54,8 @@ export type ContentfulDocument = Node & {
 };
 
 export type FourOFourResponse = {
-  siteData: ContentfulSite;
-  errorPageData: ContentfulPromoCard;
+  siteData: ContentfulSite | null;
+  errorPageData: ContentfulPromoCard | null;
 };
 
 export type ContentfulTag = {
@@ -91,7 +91,7 @@ export type ContentfulSite = Node & {
 export type CTAType = {
   linkedPage: { path: string };
   url: string;
-  label: string;
+  label: string | null;
 };
 export type ContentfulPromoCard = Node & {
   id: string;

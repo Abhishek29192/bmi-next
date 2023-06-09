@@ -27,7 +27,7 @@ export type HomepageData = {
   __typename: "ContentfulHomePage";
   title: string;
   slides: readonly (SlideData | PageInfoData)[];
-  overlapCards: OverlapCardData;
+  overlapCards: OverlapCardData | null;
   brands: BrandData[];
   spaBrands: BrandData[];
   sections: SectionsData | null;

@@ -231,7 +231,7 @@ export type NavigationData = {
   label: string | null;
   link: Data | null;
   promos?: PromoData[] | null;
-  links: (NavigationData | NavigationItem | Data)[];
+  links: (NavigationData | NavigationItem | Data)[] | null;
 };
 
 export const renderDialog = (

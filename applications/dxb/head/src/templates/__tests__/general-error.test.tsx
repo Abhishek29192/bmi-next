@@ -20,6 +20,8 @@ describe("General Error", () => {
     dialogContent: null,
     hubSpotCTAID: null
   };
+  const errorGeneralTitle = "errorGeneralTitle";
+
   const data: { contentfulSite: SiteData } = {
     contentfulSite: {
       node_locale: "it",
@@ -71,8 +73,8 @@ describe("General Error", () => {
         errorGeneral: {
           __typename: "ContentfulPromo",
           id: "errorGeneralId",
-          title: "errorGeneralTitle",
-          name: null,
+          title: errorGeneralTitle,
+          name: "",
           subtitle: null,
           body: null,
           brandLogo: null,
@@ -128,10 +130,7 @@ describe("General Error", () => {
     expect(screen.getByTestId("footer")).toBeTruthy();
     expect(screen.getByTestId("brand-colors-provider")).toBeTruthy();
     expect(screen.getByTestId("promo-section")).toBeInTheDocument();
-    expect(
-      screen.queryAllByText(data.contentfulSite.resources.errorGeneral.title)
-        .length
-    ).toBe(2);
+    expect(screen.queryAllByText(errorGeneralTitle).length).toBe(2);
   });
 
   it("render correctly when errorGeneral is falsy", () => {
@@ -146,9 +145,6 @@ describe("General Error", () => {
 
     expect(container).toMatchSnapshot();
     expect(screen.getByTestId("promo-section")).toBeInTheDocument();
-    expect(
-      screen.queryAllByText(data.contentfulSite.resources.errorGeneral.title)
-        .length
-    ).toBe(0);
+    expect(screen.queryAllByText(errorGeneralTitle).length).toBe(0);
   });
 });

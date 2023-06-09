@@ -1,14 +1,14 @@
 import { replaceSpaces, ThemeProvider } from "@bmi-digital/components";
-import React from "react";
 import { screen } from "@testing-library/react";
-import { DataTypeEnum } from "../../components/Link";
+import React from "react";
+import createImageData from "../../__tests__/helpers/ImageDataHelper";
 import { Data as BrandData } from "../../components/Brands";
+import { DataTypeEnum } from "../../components/Link";
 import { Data as OverlapCardData } from "../../components/OverlapCards";
 import { Data as SlideData } from "../../components/Promo";
 import { Data as SectionsData } from "../../components/Sections";
 import { createMockSiteData } from "../../test/mockSiteData";
 import { renderWithRouter } from "../../test/renderWithRouter";
-import createImageData from "../../__tests__/helpers/ImageDataHelper";
 import HomePage, { Props as HomePageData } from "../home-page";
 
 let isSpaEnabled: boolean;
@@ -179,11 +179,13 @@ describe("Home Page Template", () => {
     },
     backgroundColor: null
   };
+  const title = "string";
+
   const data: HomePageData["data"] = {
     contentfulSite: createMockSiteData(),
     contentfulHomePage: {
       __typename: "ContentfulHomePage",
-      title: "title",
+      title,
       slides: [slide],
       overlapCards: overlapCardsData,
       brands: brandsData,
@@ -208,7 +210,10 @@ describe("Home Page Template", () => {
 
     const { container } = renderWithRouter(
       <ThemeProvider>
-        <HomePage data={data} pageContext={null} />
+        <HomePage
+          data={data}
+          pageContext={{ variantCodeToPathMap: undefined }}
+        />
       </ThemeProvider>
     );
 
@@ -226,7 +231,7 @@ describe("Home Page Template", () => {
     expect(screen.getAllByTestId("hero-content-slide-0").length).toEqual(1);
     expect(screen.getAllByTestId("hero-content-slide-text").length).toEqual(1);
     expect(screen.getByTestId("search-button")).toBeInTheDocument();
-    expect(screen.getByText(slide.title)).toBeInTheDocument();
+    expect(screen.getByText(slide.title as string)).toBeInTheDocument();
     expect(screen.getAllByTestId("overlap-card")).toHaveLength(3);
     expect(screen.getByTestId("brands")).toBeInTheDocument();
     expect(
@@ -237,9 +242,7 @@ describe("Home Page Template", () => {
       )
     ).toBeInTheDocument();
     expect(
-      screen.getByTestId(
-        `tabs-or-accordion-section-${data.contentfulHomePage.sections[0]["title"]}`
-      )
+      screen.getByTestId(`tabs-or-accordion-section-${title}`)
     ).toBeInTheDocument();
     expect(screen.queryByTestId("welcome-dialog")).not.toBeInTheDocument();
     expect(screen.getByTestId("overlap-cards-video")).toBeInTheDocument();
@@ -261,7 +264,10 @@ describe("Home Page Template", () => {
 
     renderWithRouter(
       <ThemeProvider>
-        <HomePage data={data} pageContext={null} />
+        <HomePage
+          data={data}
+          pageContext={{ variantCodeToPathMap: undefined }}
+        />
       </ThemeProvider>
     );
 
@@ -277,13 +283,16 @@ describe("Home Page Template", () => {
 
     renderWithRouter(
       <ThemeProvider>
-        <HomePage data={data} pageContext={null} />
+        <HomePage
+          data={data}
+          pageContext={{ variantCodeToPathMap: undefined }}
+        />
       </ThemeProvider>
     );
 
     expect(screen.getByTestId("brands")).toBeInTheDocument();
     expect(
-      screen.getByText(data.contentfulHomePage.brands[0].subtitle)
+      screen.getByText(brandsData[0].subtitle as string)
     ).toBeInTheDocument();
   });
 
@@ -293,13 +302,16 @@ describe("Home Page Template", () => {
 
     renderWithRouter(
       <ThemeProvider>
-        <HomePage data={data} pageContext={null} />
+        <HomePage
+          data={data}
+          pageContext={{ variantCodeToPathMap: undefined }}
+        />
       </ThemeProvider>
     );
 
     expect(screen.getByTestId("brands")).toBeInTheDocument();
     expect(
-      screen.getByText(data.contentfulHomePage.spaBrands[0].subtitle)
+      screen.getByText(spaBrandsData[0].subtitle as string)
     ).toBeInTheDocument();
   });
 
@@ -309,7 +321,10 @@ describe("Home Page Template", () => {
 
     renderWithRouter(
       <ThemeProvider>
-        <HomePage data={data} pageContext={null} />
+        <HomePage
+          data={data}
+          pageContext={{ variantCodeToPathMap: undefined }}
+        />
       </ThemeProvider>
     );
 
@@ -319,7 +334,10 @@ describe("Home Page Template", () => {
   it("render page with overlapCardsData", () => {
     renderWithRouter(
       <ThemeProvider>
-        <HomePage data={data} pageContext={null} />
+        <HomePage
+          data={data}
+          pageContext={{ variantCodeToPathMap: undefined }}
+        />
       </ThemeProvider>
     );
 
@@ -331,7 +349,10 @@ describe("Home Page Template", () => {
 
     renderWithRouter(
       <ThemeProvider>
-        <HomePage data={data} pageContext={null} />
+        <HomePage
+          data={data}
+          pageContext={{ variantCodeToPathMap: undefined }}
+        />
       </ThemeProvider>
     );
 
@@ -343,7 +364,10 @@ describe("Home Page Template", () => {
   it("render page with sections", () => {
     const { container } = renderWithRouter(
       <ThemeProvider>
-        <HomePage data={data} pageContext={null} />
+        <HomePage
+          data={data}
+          pageContext={{ variantCodeToPathMap: undefined }}
+        />
       </ThemeProvider>
     );
 
@@ -355,7 +379,7 @@ describe("Home Page Template", () => {
     data.contentfulHomePage.sections = null;
 
     const { container } = renderWithRouter(
-      <HomePage data={data} pageContext={null} />
+      <HomePage data={data} pageContext={{ variantCodeToPathMap: undefined }} />
     );
 
     // eslint-disable-next-line testing-library/no-container,testing-library/no-node-access

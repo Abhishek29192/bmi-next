@@ -37,15 +37,30 @@ import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
 import { getSearchTabUrl, setSearchTabUrl } from "../utils/filters";
 
+export type PageContext = {
+  variantCode?: string;
+  siteId: string;
+  countryCode: string;
+  categoryCode: string; // this is optional?
+  variantCodeToPathMap?: Record<string, string>;
+};
+
+type ResultType = "products" | "documents" | "pages";
+
+type Results = Record<
+  ResultType,
+  {
+    component: React.ElementType;
+    heading: string;
+    count?: number;
+    hasBeenDisplayed?: boolean;
+    icon?: React.ReactNode;
+  }
+>;
+
 export type Props = {
   // TODO: pageContext is/should be the same for all pages, same type
-  pageContext: {
-    variantCode?: string;
-    siteId: string;
-    countryCode: string;
-    categoryCode: string; // this is optional?
-    variantCodeToPathMap?: Record<string, string>;
-  };
+  pageContext: PageContext;
   data: {
     contentfulSite: SiteData;
     allContentfulAssetType: {
@@ -94,18 +109,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
   // It should not be possible to arrive at 0 results by interacting with filters
   // but this is an additional precaution as it's not expected.
   const [pageHasResults, setPageHasResults] = useState(false);
-  const [results, setResults] = useState<
-    Record<
-      "products" | "documents" | "pages",
-      {
-        component: React.ElementType;
-        heading: string;
-        count?: number;
-        hasBeenDisplayed?: boolean;
-        icon?: React.ReactNode;
-      }
-    >
-  >({
+  const [results, setResults] = useState<Results>({
     // TODO: Should be as array?
     products: {
       component: SearchTabPanelProducts,
@@ -151,7 +155,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
         getPagesCount(queryString)
       ]);
 
-      const newResults = {
+      const newResults: Results = {
         ...results,
         products: {
           ...results.products,
@@ -169,8 +173,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
 
       // Find first one that has some results and set it to display
       for (const tabKey in newResults) {
-        // eslint-disable-next-line security/detect-object-injection
-        const config = newResults[tabKey];
+        const config = newResults[tabKey as ResultType];
         if (config.count) {
           config.hasBeenDisplayed = true;
           break;
@@ -178,13 +181,12 @@ const SearchPage = ({ pageContext, data }: Props) => {
       }
 
       const urlTabKey = getSearchTabUrl();
-      if (urlTabKey && newResults[urlTabKey as string].count) {
-        newResults[urlTabKey as string].hasBeenDisplayed = true;
+      if (urlTabKey && newResults[urlTabKey as ResultType].count) {
+        newResults[urlTabKey as ResultType].hasBeenDisplayed = true;
       } else {
         // Find first one that has some results and set it to display
         for (const tabKey in newResults) {
-          // eslint-disable-next-line security/detect-object-injection
-          const config = newResults[tabKey];
+          const config = newResults[tabKey as ResultType];
           if (config.count) {
             config.hasBeenDisplayed = true;
             break;
@@ -231,24 +233,22 @@ const SearchPage = ({ pageContext, data }: Props) => {
   const tabIsLoading =
     Object.values(tabsLoading).some((isLoading) => isLoading) || pageIsLoading;
 
-  const handleTabChange = (tabKey) => {
+  const handleTabChange = (tabKey: ResultType) => {
     setResults({
       ...results,
       [tabKey]: {
-        // eslint-disable-next-line security/detect-object-injection
-        ...results[tabKey],
+        ...results[tabKey as ResultType],
         hasBeenDisplayed: true
       }
     });
     setSearchTabUrl(tabKey);
   };
 
-  const onTabCountChange = (tabKey, count) => {
+  const onTabCountChange = (tabKey: ResultType, count: number) => {
     const newResults = {
       ...results,
       [tabKey]: {
-        // eslint-disable-next-line security/detect-object-injection
-        ...results[tabKey],
+        ...results[tabKey as ResultType],
         count
       }
     };
@@ -256,7 +256,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
     setResults(newResults);
   };
 
-  const renderTabs = (): React.ReactElement[] => {
+  const renderTabs = (): (React.ReactElement | null)[] => {
     return Object.entries(results)
       .map(([tabKey, data]) => {
         if (!data.count) {
@@ -285,14 +285,16 @@ const SearchPage = ({ pageContext, data }: Props) => {
                 <Component
                   queryString={queryString}
                   pageContext={pageContext}
-                  onLoadingChange={(isLoading) =>
+                  onLoadingChange={(isLoading: boolean) =>
                     handleTabIsLoading(tabKey, isLoading)
                   }
                   initialFilters={searchFilters.filters}
                   extraData={{
                     allContentfulAssetType: allContentfulAssetType.nodes
                   }}
-                  onCountChange={(count) => onTabCountChange(tabKey, count)}
+                  onCountChange={(count: number) =>
+                    onTabCountChange(tabKey as ResultType, count)
+                  }
                 />
               </Container>
             ) : null}
@@ -306,7 +308,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
     const urlTab = getSearchTabUrl();
 
     const validKeys = Object.entries(results)
-      .filter(([tabKey, config]) => config.count)
+      .filter(([_tabKey, config]) => config.count)
       .map(([tabKey]) => tabKey);
 
     if (urlTab && validKeys.includes(urlTab)) {
@@ -321,7 +323,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
   return (
     <Page
       title={pageTitle}
-      pageData={{ breadcrumbs: null, signupBlock: null, seo: null, path: null }}
+      pageData={{ breadcrumbs: null, signupBlock: null, seo: null, path: "" }}
       siteData={contentfulSite}
       disableSearch={isClient && isDesktop}
       variantCodeToPathMap={pageContext?.variantCodeToPathMap}
@@ -361,14 +363,14 @@ const SearchPage = ({ pageContext, data }: Props) => {
           query={areTabsResolved ? queryString : ""}
           searchPageSearchTips={resources?.searchPageSearchTips}
           searchPageSidebarItems={resources?.searchPageSidebarItems}
-          handleSubmit={isPreviewMode && handleSubmit}
+          handleSubmit={(e) => isPreviewMode && handleSubmit(e)}
         />
       </Section>
       {pageHasResults && !pageIsLoading ? (
         <Tabs
           initialValue={initialTabKey}
           color="secondary"
-          onChange={handleTabChange}
+          onChange={(event) => handleTabChange(event as ResultType)}
         >
           {renderTabs()}
         </Tabs>
