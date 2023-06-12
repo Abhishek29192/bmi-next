@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "@aaronhayes/react-use-hubspot-form": "^2.1.1",
-    "@bmi-digital/components": "^1.33.10",
+    "@bmi-digital/components": "^1.34.0",
     "@bmi-digital/react-pdf-maker": "^1.6.0",
     "@bmi-digital/styles": "^1.6.0",
     "@bmi-digital/svg-import": "^1.6.0",

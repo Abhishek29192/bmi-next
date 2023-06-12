@@ -3392,7 +3392,7 @@ exports[`Document Library page should render DocumentCardsResults correctly if s
     data-testid="grid-item"
   >
     <div
-      class="OverviewCard-clickable MuiBox-root css-lww50j"
+      class="OverviewCard-clickable MuiBox-root css-8lfaij"
     >
       <a
         class="MuiButtonBase-root OverviewCard-main css-10d1a0h-MuiButtonBase-root"
