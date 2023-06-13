@@ -60,12 +60,8 @@ describe("product-filters tests", () => {
     });
   });
   describe("removePLPFilterPrefix tests", () => {
-    it("When null value is passed ", () => {
-      const result = removePLPFilterPrefix(null);
-      expect(result).toEqual("");
-    });
-    it("When undefined value is passed ", () => {
-      const result = removePLPFilterPrefix(undefined);
+    it("When empty string value is passed ", () => {
+      const result = removePLPFilterPrefix("");
       expect(result).toEqual("");
     });
     it("When string without any 'filterLabels.' prefix is passed ", () => {

@@ -47,7 +47,7 @@ export const transformMediaSrc = (
       case "ContentfulImage":
         return {
           media: <Image {...item} />,
-          thumbnail: item.image.thumbnail?.images.fallback.src,
+          thumbnail: item.image.thumbnail?.images.fallback?.src,
           caption: item.caption?.caption || undefined,
           altText: item.altText || undefined,
           isVideo: false

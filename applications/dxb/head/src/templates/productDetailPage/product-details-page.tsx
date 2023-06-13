@@ -46,7 +46,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
   const { resources } = contentfulSite;
   const pageData: PageData = {
     breadcrumbs: product.breadcrumbs,
-    signupBlock: resources.pdpSignupBlock,
+    signupBlock: resources?.pdpSignupBlock,
     seo: null,
     path: product.path
   };

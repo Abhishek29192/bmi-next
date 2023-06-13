@@ -134,11 +134,11 @@ const LeadBlockSection = ({
                     endIcon={<ArrowForwardIcon />}
                     gtm={{
                       id: "cta-click1",
-                      label: cta.label,
+                      label: cta?.label,
                       action:
-                        cta.type === "Dialog"
-                          ? "Form-modal" + cta.dialogContent.__typename
-                          : cta.url
+                        cta?.type === "Dialog"
+                          ? "Form-modal" + cta?.dialogContent?.__typename
+                          : cta?.url
                     }}
                   >
                     {children}
@@ -146,7 +146,7 @@ const LeadBlockSection = ({
                 )}
                 data-testid="system-lead-block-cta-action"
               >
-                {cta.label}
+                {cta?.label}
               </Link>
             )}
           </LeadBlock.Content.Section>

@@ -332,7 +332,7 @@ export const getProductAttributes = (
           },
           "measurements"
         );
-        const isSelected = key === selectedSize.label;
+        const isSelected = key === selectedSize?.label;
         if (!variant && !isSelected) {
           return acc;
         }
@@ -420,7 +420,7 @@ export const mapClassificationValues = (
 ) => {
   return [product.colour, product.textureFamily, product.measurements?.label]
     .filter(isDefined)
-    .filter((item) => item.trim().length > 0)
+    .filter((item) => item?.trim().length > 0)
     .join(", ");
 };
 

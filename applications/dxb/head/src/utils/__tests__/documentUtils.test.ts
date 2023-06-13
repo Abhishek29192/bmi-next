@@ -214,7 +214,7 @@ describe("downloadMultipleFiles", () => {
     const document = createPseudoZipDocument();
     await downloadMultipleFiles(document, "qaAuthToken", jest.fn());
 
-    expect(fetchMock.lastOptions().headers.authorization).toBe(
+    expect(fetchMock.lastOptions()!.headers!.authorization).toBe(
       "Bearer qaAuthToken"
     );
     process.env.GATSBY_DOCUMENT_DOWNLOAD_ENDPOIN = initialValue;

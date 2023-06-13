@@ -77,7 +77,7 @@ export const renderProducts = (
     );
     const textureFamily =
       surface &&
-      surface.features.find((el) => el.code.includes("textureFamily"));
+      surface.features?.find((el) => el.code.includes("textureFamily"));
     const surfaceValue =
       (textureFamily &&
         textureFamily.featureValues.map((feat) => feat.value).join(" | ")) ||
@@ -86,20 +86,20 @@ export const renderProducts = (
 
     return (
       <Grid
-        key={`${product.code}-${variant.code}`}
+        key={`${product?.code}-${variant.code}`}
         xs={12}
         md={6}
         lg={4}
         xl={filters.length ? 4 : 3}
       >
         <GTMOverviewCard
-          title={product.name}
+          title={product?.name}
           titleVariant="h5"
           subtitle={subTitle}
           subtitleVariant="h6"
           media={
             mainImage ? (
-              <img src={mainImage} alt={`${subTitle} ${product.name}`} />
+              <img src={mainImage} alt={`${subTitle} ${product?.name}`} />
             ) : (
               <DefaultImage />
             )
@@ -134,7 +134,7 @@ export const renderProducts = (
             value: sizeLabel
           }}
           surface={{
-            microCopy: (surfaceValue && surface.name) || "",
+            microCopy: (surfaceValue && surface?.name) || "",
             value: surfaceValue
           }}
         >

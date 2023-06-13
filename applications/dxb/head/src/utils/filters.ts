@@ -2,8 +2,8 @@ import queryString from "query-string";
 import { useEffect, useState } from "react";
 import { getPathWithCountryCode } from "../utils/path";
 import { removePLPFilterPrefix } from "./product-filters";
-import type { Filter } from "@bmi-digital/components";
 import type { ProductFilter } from "../types/pim";
+import type { Filter } from "@bmi-digital/components";
 
 export type URLFilter = {
   name: string;
@@ -198,7 +198,7 @@ const replaceHistoryState = ({
     }
   });
   typeof window !== "undefined" && window.dispatchEvent(event);
-  history.replaceState(null, null, `${pathname}?${search}`);
+  history.replaceState(null, "", `${pathname}?${search}`);
 };
 
 export const useSearchParams = (): string => {

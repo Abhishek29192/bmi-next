@@ -46,8 +46,8 @@ describe("AboutLeadBlock tests", () => {
   describe("should not render", () => {
     it("if no guaranteesAndWarranties assets", () => {
       const systemDetailsMockData = createSystem();
-      systemDetailsMockData.awardsAndCertificateDocuments = null;
-      systemDetailsMockData.awardsAndCertificateImages = null;
+      systemDetailsMockData.awardsAndCertificateDocuments = [];
+      systemDetailsMockData.awardsAndCertificateImages = [];
       const { container } = render(
         <ThemeProvider>
           <AboutLeadBlock
@@ -65,8 +65,8 @@ describe("AboutLeadBlock tests", () => {
 
     it("if no awardsAndCertificate images and document assets are provided", () => {
       const systemDetailsMockData = createSystem();
-      systemDetailsMockData.awardsAndCertificateImages = null;
-      systemDetailsMockData.awardsAndCertificateDocuments = null;
+      systemDetailsMockData.awardsAndCertificateImages = [];
+      systemDetailsMockData.awardsAndCertificateDocuments = [];
       const { container } = render(
         <ThemeProvider>
           <AboutLeadBlock
@@ -137,7 +137,10 @@ describe("AboutLeadBlock tests", () => {
       systemDetailsMockData.systemBenefits = null;
       const { container } = render(
         <ThemeProvider>
-          <AboutLeadBlock system={systemDetailsMockData} sidebarItem={null} />
+          <AboutLeadBlock
+            system={systemDetailsMockData}
+            sidebarItem={undefined}
+          />
         </ThemeProvider>
       );
 
@@ -182,7 +185,7 @@ describe("AboutLeadBlock tests", () => {
       const specificationButton = screen.getByTestId("specification-button");
       expect(specificationButton).toHaveAttribute(
         "href",
-        systemDetailsMockData.specification.url
+        systemDetailsMockData.specification!.url
       );
       expect(specificationButton).toHaveAttribute("target", "_blank");
       expect(specificationButton).toHaveAttribute("rel", "noopener noreferrer");
@@ -190,10 +193,10 @@ describe("AboutLeadBlock tests", () => {
 
     it("move up if no guaranteesAndWarranties assets and awardsAndCertificates assets", () => {
       const systemDetailsMockData = createSystem();
-      systemDetailsMockData.guaranteesAndWarrantiesImages = null;
-      systemDetailsMockData.guaranteesAndWarrantiesLinks = null;
-      systemDetailsMockData.awardsAndCertificateImages = null;
-      systemDetailsMockData.awardsAndCertificateDocuments = null;
+      systemDetailsMockData.guaranteesAndWarrantiesImages = [];
+      systemDetailsMockData.guaranteesAndWarrantiesLinks = [];
+      systemDetailsMockData.awardsAndCertificateImages = [];
+      systemDetailsMockData.awardsAndCertificateDocuments = [];
       const { container } = render(
         <ThemeProvider>
           <AboutLeadBlock

@@ -6,8 +6,8 @@ import {
 } from "@bmi/elasticsearch-types";
 import { BLOCKS } from "@contentful/rich-text-types";
 import {
-  fireEvent,
   RenderResult,
+  fireEvent,
   screen,
   waitFor
 } from "@testing-library/react";
@@ -519,7 +519,7 @@ describe("Document Library page", () => {
       await waitFor(() => {
         expect(window.history.replaceState).toBeCalledWith(
           null,
-          null,
+          "",
           `/?filters=${encodeURIComponent(mockSearchParams)}`
         );
       });
@@ -546,7 +546,7 @@ describe("Document Library page", () => {
       await waitFor(() => {
         expect(window.history.replaceState).toBeCalledWith(
           null,
-          null,
+          "",
           `/?${FILTER_KEY}=${encodeURIComponent(mockSearchParams)}`
         );
       });
@@ -556,7 +556,7 @@ describe("Document Library page", () => {
       await waitFor(() => {
         expect(window.history.replaceState).toBeCalledWith(
           null,
-          null,
+          "",
           `/?${FILTER_KEY}=%5B%5D`
         );
       });
@@ -586,7 +586,7 @@ describe("Document Library page", () => {
       expect(window.history.replaceState).toHaveBeenCalledTimes(1);
       expect(mockQueryES).toBeCalled();
       await waitFor(() => {
-        expect(window.history.replaceState).toBeCalledWith(null, null, mockUrl);
+        expect(window.history.replaceState).toBeCalledWith(null, "", mockUrl);
       });
     });
   });

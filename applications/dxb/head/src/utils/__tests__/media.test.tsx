@@ -1,10 +1,10 @@
 import React from "react";
-import Image from "../../components/Image";
-import Video from "../../components/Video";
 import createGalleryPimVideo from "../../__tests__/helpers/GalleryPimVideoHelper";
 import createGallerySectionImage from "../../__tests__/helpers/GallerySectionImageHelper";
 import createGallerySectionVideo from "../../__tests__/helpers/GallerySectionVideo";
 import createGatsbyImageData from "../../__tests__/helpers/GatsbyImageDataHelper";
+import Image from "../../components/Image";
+import Video from "../../components/Video";
 import { GallerySectionMedias, getJpgImage, transformMediaSrc } from "../media";
 
 describe("getJpgImage function", () => {
@@ -72,7 +72,7 @@ describe("transformMediaSrc function", () => {
   });
 
   it("should return correct object if typeName === ContentfulVideo and previewMedia is null", () => {
-    const video = createGallerySectionVideo({ previewMedia: null });
+    const video = createGallerySectionVideo({ previewMedia: undefined });
     const expectResult = transformMediaSrc([video]);
 
     expect(expectResult[0]).toEqual({
@@ -131,7 +131,7 @@ describe("transformMediaSrc function", () => {
             fileName: "file",
             url: "//images.asset.jpg"
           },
-          thumbnail: null
+          thumbnail: undefined
         },
         caption: {
           caption: "CAPTION"

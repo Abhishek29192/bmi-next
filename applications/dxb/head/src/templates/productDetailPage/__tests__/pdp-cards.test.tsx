@@ -1,11 +1,11 @@
 import { ThemeProvider } from "@bmi-digital/components";
 import { render } from "@testing-library/react";
 import React from "react";
+import createImageData from "../../../__tests__/helpers/ImageDataHelper";
 import { Data as PageInfoData } from "../../../components/PageInfo";
 import { Data as PromoData } from "../../../components/Promo";
 import { ContentfulVideoData } from "../../../components/Video";
 import { createMockSiteData } from "../../../test/mockSiteData";
-import createImageData from "../../../__tests__/helpers/ImageDataHelper";
 import { PdpCardsSection } from "../components/pdp-cards";
 
 const { resources: mockResources, countryCode } = createMockSiteData();
@@ -53,7 +53,7 @@ describe("PdpCardsSection", () => {
         <PdpCardsSection
           resources={{
             pdpCards: [card],
-            pdpCardsTitle: mockResources.pdpCardsTitle
+            pdpCardsTitle: mockResources!.pdpCardsTitle
           }}
           countryCode={countryCode}
         />
@@ -69,7 +69,7 @@ describe("PdpCardsSection", () => {
         <PdpCardsSection
           resources={{
             pdpCards: [card],
-            pdpCardsTitle: mockResources.pdpCardsTitle
+            pdpCardsTitle: mockResources!.pdpCardsTitle
           }}
           countryCode={countryCode}
         />

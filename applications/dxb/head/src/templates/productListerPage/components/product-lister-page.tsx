@@ -22,8 +22,8 @@ import Breadcrumbs, {
 } from "../../../components/Breadcrumbs";
 import FiltersSidebar from "../../../components/FiltersSidebar";
 import {
-  Data as LinkData,
-  getClickableActionFromUrl
+  getClickableActionFromUrl,
+  Data as LinkData
 } from "../../../components/Link";
 import Page, { Data as PageData } from "../../../components/Page";
 import { Data as PageInfoData } from "../../../components/PageInfo";
@@ -185,7 +185,10 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     Math.ceil(products.length / PAGE_SIZE)
   );
 
-  const handlePageChange = async (_, page) => {
+  const handlePageChange = async (
+    _: React.ChangeEvent<unknown>,
+    page: number
+  ) => {
     await fetchProducts(
       filters,
       pageContext.categoryCodes,
@@ -234,7 +237,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
     history.replaceState(
       null,
-      null,
+      "",
       `${location.pathname}?${queryString.stringify({
         filters: JSON.stringify(URLFilters)
       })}`
@@ -245,7 +248,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
   // Resets all selected filter values to nothing
   const handleClearFilters = () => {
-    history.replaceState(null, null, location.pathname);
+    history.replaceState(null, "", location.pathname);
     const newFilters = clearFilterValues(filters);
     onFiltersChange(newFilters);
   };
@@ -411,7 +414,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                     <LeadBlock.Card.Content>
                       {isFeaturesArrayExist && (
                         <IconList>
-                          {features.map((feature, index) => (
+                          {features?.map((feature, index) => (
                             <IconList.Item
                               key={index}
                               icon={BlueCheckIcon()}

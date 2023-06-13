@@ -161,7 +161,7 @@ describe("Search Page Template", () => {
       expect((window.history.replaceState as jest.Mock).mock.calls).toEqual([
         [
           null,
-          null,
+          "",
           "/?filters=%5B%7B%22name%22%3A%22filterName%22%2C%22value%22%3A%5B%22filterValue%22%5D%7D%5D&q=queryString"
         ]
       ])
@@ -207,7 +207,7 @@ describe("Search Page Template", () => {
     expect(consoleSpy.mock.calls).toContainEqual(["Filters can not be parsed"]);
     expect(window.history.replaceState).toBeCalledWith(
       null,
-      null,
+      "",
       "/?q=queryString"
     );
 
