@@ -170,8 +170,8 @@ export const getCountQuery = (fullQuery) => ({
 });
 
 export const getDocumentQueryObject = (
-  queryString,
-  pageSize,
+  queryString: string,
+  pageSize: number,
   page = 0,
   filters = []
 ) => {
@@ -274,19 +274,19 @@ export const getPageQueryObject = (
   // Filters in the query
   // TODO: this acts like it handles many filters but actually handles one. refactor
   const filtersQuery = filters
-    .filter(({ value }) => value.length)
+    .filter(({ value }) => value?.length)
     .map((filter) => {
-      const termQuery = (value) => ({
+      const termQuery = (value: string) => ({
         term: {
           ["tags.title.keyword"]: value
         }
       });
       const query =
-        filter.value.length === 1
+        filter.value?.length === 1
           ? termQuery(filter.value[0])
           : {
               bool: {
-                should: filter.value.map(termQuery)
+                should: filter.value?.map(termQuery)
               }
             };
 

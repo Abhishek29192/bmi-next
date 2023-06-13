@@ -22,6 +22,7 @@ import { devLog } from "../utils/devLog";
 import getCookie from "../utils/getCookie";
 import withGTM from "../utils/google-tag-manager";
 import useHasScrollbar from "../utils/useHasScrollbar";
+import { getFileUrlByDocumentType } from "../utils/documentUtils";
 import createAssetFileCountMap, {
   AssetUniqueFileCountMap,
   generateFileNamebyTitle
@@ -56,8 +57,8 @@ const GTMButton = withGTM<ButtonProps>(Button);
 export const handleDownloadClick = async (
   list: Record<string, any>,
   config: Config,
+  callback: () => void,
   token?: string,
-  callback?: () => void,
   qaAuthToken?: string
 ) => {
   const { isPreviewMode, documentDownloadEndpoint } = config;
@@ -69,9 +70,8 @@ export const handleDownloadClick = async (
   }
 
   if (isPreviewMode) {
-    alert("You cannot download documents on the preview enviornment.");
+    alert("You cannot download documents on the preview environment.");
     callback();
-
     return;
   }
 
@@ -125,25 +125,18 @@ export const handleDownloadClick = async (
 
     await downloadAs(data.url, `BMI_${currentTime}.zip`);
 
-    if (callback) {
-      callback();
-    }
+    callback();
   } catch (error) {
-    devLog(`DocumentResults: ${error.message}`);
+    if (typeof error === "object" && error instanceof Error) {
+      devLog(`DocumentResults: ${error.message}`);
+    }
   }
-};
-
-const extractUrl = (el) => {
-  return el.__typename === "PIMDocument" ||
-    el.__typename === "PIMSystemDocument"
-    ? el.url
-    : el.asset.file.url;
 };
 
 const getListOfUrl = (item: DocumentResultData[]) => {
   return item
     .map((el) => {
-      return extractUrl(el);
+      return getFileUrlByDocumentType(el);
     })
     .join(",");
 };
@@ -156,7 +149,7 @@ const getAction = (list: Record<string, DocumentResultData>) => {
           if (Array.isArray(item)) {
             return getListOfUrl(item);
           } else {
-            return extractUrl(item);
+            return getFileUrlByDocumentType(item);
           }
         }
       })
@@ -183,7 +176,7 @@ const DownloadDocumentsButton = () => {
 
   const handleButtonClick = async (list: DownloadListContextType["list"]) => {
     const token = qaAuthToken ? undefined : await executeRecaptcha?.();
-    await handleDownloadClick(list, config, token, resetList, qaAuthToken);
+    await handleDownloadClick(list, config, resetList, token, qaAuthToken);
   };
 
   return (
@@ -193,7 +186,7 @@ const DownloadDocumentsButton = () => {
         <GTMButton
           gtm={{
             id: "download3-button1",
-            label: props.children[0],
+            label: Array.isArray(props.children) ? props.children[0] : "",
             action: getAction(selectedDocuments)
           }}
           {...props}

@@ -355,8 +355,8 @@ describe("DocumentResultsFooter component", () => {
       await handleDownloadClick(
         list,
         { isPreviewMode: false, documentDownloadEndpoint: undefined } as Config,
-        token,
-        resetList
+        resetList,
+        token
       );
 
       expect(ClientDownloadUtils.downloadAs).toHaveBeenCalledTimes(0);
@@ -376,8 +376,8 @@ describe("DocumentResultsFooter component", () => {
           isPreviewMode: false,
           documentDownloadEndpoint: "GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT"
         } as Config,
-        token,
-        resetList
+        resetList,
+        token
       );
 
       await waitFor(() =>
@@ -429,8 +429,8 @@ describe("DocumentResultsFooter component", () => {
           isPreviewMode: false,
           documentDownloadEndpoint: "GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT"
         } as Config,
-        undefined,
         resetList,
+        undefined,
         qaAuthToken
       );
 
@@ -481,8 +481,8 @@ describe("DocumentResultsFooter component", () => {
           isPreviewMode: false,
           documentDownloadEndpoint: "GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT"
         } as Config,
-        token,
-        resetList
+        resetList,
+        token
       );
       expect(ClientDownloadUtils.downloadAs).toHaveBeenCalledTimes(0);
     });
@@ -496,13 +496,13 @@ describe("DocumentResultsFooter component", () => {
           isPreviewMode: true,
           documentDownloadEndpoint: "GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT"
         } as Config,
-        token,
-        resetList
+        resetList,
+        token
       );
 
       expect(ClientDownloadUtils.downloadAs).toHaveBeenCalledTimes(0);
       expect(window.alert).toHaveBeenCalledWith(
-        "You cannot download documents on the preview enviornment."
+        "You cannot download documents on the preview environment."
       );
       expect(resetList).toHaveBeenCalledTimes(1);
     });

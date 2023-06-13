@@ -615,7 +615,7 @@ const FormSection = ({
         navigate("/");
       }
     } catch (error) {
-      logger.error({ message: error.message });
+      logger.error({ message: (error as Error).message });
     }
 
     setIsSubmitting(false);
@@ -722,7 +722,7 @@ const FormSection = ({
         navigate("/");
       }
     } catch (error) {
-      logger.error({ message: error.message });
+      logger.error({ message: (error as Error).message });
     }
 
     setIsSubmitting(false);

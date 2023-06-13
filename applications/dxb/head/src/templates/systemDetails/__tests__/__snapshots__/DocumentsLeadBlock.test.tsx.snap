@@ -213,7 +213,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
                             type="button"
                           >
                             <svg
-                              class="false css-546mkb"
+                              class="css-546mkb"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >

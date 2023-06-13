@@ -38,62 +38,63 @@ describe("product-details-transforms tests", () => {
             });
             const result =
               getProductAttributesWithVariantCodeToPathMap(selfProduct);
-            const expectedResult = [
-              {
-                name: "Colour",
-                type: "thumbnails",
-                variants: [
-                  {
-                    label: "blue",
-                    isSelected: false,
-                    thumbnail: "http://localhost:8000/image-thumbnail.jpg",
-                    media: null,
-                    action: {
-                      linkComponent: Link,
-                      model: "routerLink",
-                      to: "/no/path-to-related-blue/"
-                    }
-                  },
-                  {
-                    label: "red",
-                    isSelected: true,
-                    thumbnail: "http://localhost:8000/image-thumbnail.jpg",
-                    media: null
-                  }
-                ]
-              },
-              {
-                name: "Texture Family",
-                type: "chips",
-                variants: [
-                  {
-                    label: "texture-family",
-                    isSelected: true
-                  }
-                ]
-              },
-              {
-                name: "Size",
-                type: "chips",
-                variants: [
-                  {
-                    label: "6x7x8symbol",
-                    isSelected: true
-                  }
-                ]
-              },
-              {
-                name: "variantattribute",
-                type: "chips",
-                variants: [
-                  {
-                    label: "variant-attribute",
-                    isSelected: true
-                  }
-                ]
-              }
-            ];
-            expect(result).toEqual(expectedResult);
+            expect(result).toMatchInlineSnapshot(`
+              [
+                {
+                  "name": "Colour",
+                  "type": "thumbnails",
+                  "variants": [
+                    {
+                      "action": {
+                        "linkComponent": [MockFunction],
+                        "model": "routerLink",
+                        "to": "/no/path-to-related-blue/",
+                      },
+                      "isSelected": false,
+                      "label": "blue",
+                      "media": null,
+                      "thumbnail": "http://localhost:8000/image-thumbnail.jpg",
+                    },
+                    {
+                      "isSelected": true,
+                      "label": "red",
+                      "media": null,
+                      "thumbnail": "http://localhost:8000/image-thumbnail.jpg",
+                    },
+                  ],
+                },
+                {
+                  "name": "Texture Family",
+                  "type": "chips",
+                  "variants": [
+                    {
+                      "isSelected": true,
+                      "label": "texture-family",
+                    },
+                  ],
+                },
+                {
+                  "name": "Size",
+                  "type": "chips",
+                  "variants": [
+                    {
+                      "isSelected": true,
+                      "label": "6x7x8symbol",
+                    },
+                  ],
+                },
+                {
+                  "name": "variantattribute",
+                  "type": "chips",
+                  "variants": [
+                    {
+                      "isSelected": true,
+                      "label": "variant-attribute",
+                    },
+                  ],
+                },
+              ]
+            `);
           });
         });
 
@@ -240,51 +241,54 @@ describe("product-details-transforms tests", () => {
               });
               const result =
                 getProductAttributesWithVariantCodeToPathMap(selfProduct);
-              const expectedResult = [
-                {
-                  name: "Colour",
-                  type: "thumbnails",
-                  variants: []
-                },
-                {
-                  name: "Texture Family",
-                  type: "chips",
-                  variants: [
-                    {
-                      label: "gloss",
-                      isSelected: false,
-                      action: {
-                        linkComponent: Link,
-                        model: "routerLink",
-                        to: "/no/path-to-related-texture-family-2/"
-                      }
-                    },
-                    { label: "matt", isSelected: true }
-                  ]
-                },
-                {
-                  name: "Size",
-                  type: "chips",
-                  variants: [
-                    {
-                      label: "6x7x8symbol",
-                      isSelected: true
-                    }
-                  ]
-                },
-                {
-                  name: "variantattribute",
-                  type: "chips",
-                  variants: [
-                    {
-                      label: "variant-attribute",
-                      isSelected: true
-                    }
-                  ]
-                }
-              ];
-
-              expect(result).toEqual(expectedResult);
+              expect(result).toMatchInlineSnapshot(`
+                [
+                  {
+                    "name": "Colour",
+                    "type": "thumbnails",
+                    "variants": [],
+                  },
+                  {
+                    "name": "Texture Family",
+                    "type": "chips",
+                    "variants": [
+                      {
+                        "action": {
+                          "linkComponent": [MockFunction],
+                          "model": "routerLink",
+                          "to": "/no/path-to-related-texture-family-2/",
+                        },
+                        "isSelected": false,
+                        "label": "gloss",
+                      },
+                      {
+                        "isSelected": true,
+                        "label": "matt",
+                      },
+                    ],
+                  },
+                  {
+                    "name": "Size",
+                    "type": "chips",
+                    "variants": [
+                      {
+                        "isSelected": true,
+                        "label": "6x7x8symbol",
+                      },
+                    ],
+                  },
+                  {
+                    "name": "variantattribute",
+                    "type": "chips",
+                    "variants": [
+                      {
+                        "isSelected": true,
+                        "label": "variant-attribute",
+                      },
+                    ],
+                  },
+                ]
+              `);
             });
           });
         });
@@ -312,52 +316,53 @@ describe("product-details-transforms tests", () => {
               });
               const result =
                 getProductAttributesWithVariantCodeToPathMap(selfProduct);
-              const expectedResult = [
-                {
-                  name: "Colour",
-                  type: "thumbnails",
-                  variants: []
-                },
-                {
-                  name: "Texture Family",
-                  type: "chips",
-                  variants: []
-                },
-                {
-                  name: "Size",
-                  type: "chips",
-                  variants: []
-                },
-                {
-                  name: "variantattribute",
-                  type: "chips",
-                  variants: [
-                    {
-                      label: "value-1",
-                      isSelected: false,
-                      action: {
-                        linkComponent: Link,
-                        model: "routerLink",
-                        to: "/no/p/name-hashed-related-code/"
-                      }
-                    },
-                    {
-                      label: "value-2",
-                      isSelected: false,
-                      action: {
-                        linkComponent: Link,
-                        model: "routerLink",
-                        to: "/no/path-to-related-variant-attrib-1/"
-                      }
-                    },
-                    {
-                      label: "variant-value-1",
-                      isSelected: true
-                    }
-                  ]
-                }
-              ];
-              expect(result).toEqual(expectedResult);
+              expect(result).toMatchInlineSnapshot(`
+                [
+                  {
+                    "name": "Colour",
+                    "type": "thumbnails",
+                    "variants": [],
+                  },
+                  {
+                    "name": "Texture Family",
+                    "type": "chips",
+                    "variants": [],
+                  },
+                  {
+                    "name": "Size",
+                    "type": "chips",
+                    "variants": [],
+                  },
+                  {
+                    "name": "variantattribute",
+                    "type": "chips",
+                    "variants": [
+                      {
+                        "action": {
+                          "linkComponent": [MockFunction],
+                          "model": "routerLink",
+                          "to": "/no/p/name-hashed-related-code/",
+                        },
+                        "isSelected": false,
+                        "label": "value-1",
+                      },
+                      {
+                        "action": {
+                          "linkComponent": [MockFunction],
+                          "model": "routerLink",
+                          "to": "/no/path-to-related-variant-attrib-1/",
+                        },
+                        "isSelected": false,
+                        "label": "value-2",
+                      },
+                      {
+                        "isSelected": true,
+                        "label": "variant-value-1",
+                      },
+                    ],
+                  },
+                ]
+              `);
             });
           });
         });

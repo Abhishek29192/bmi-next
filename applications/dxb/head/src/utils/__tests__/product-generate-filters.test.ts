@@ -8,9 +8,14 @@ describe("product-filters geterateFilters tests", () => {
       it("should return empty productFilters", () => {
         const categoryFilter = new Map<string, string[]>();
         categoryFilter.set("Category", []);
-        expect(generateFilters([], categoryFilter, null, new Map())).toEqual(
-          []
-        );
+        expect(
+          generateFilters(
+            [],
+            categoryFilter,
+            new Map<string, string[]>(),
+            new Map()
+          )
+        ).toEqual([]);
       });
     });
 

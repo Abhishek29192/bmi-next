@@ -161,7 +161,7 @@ export const DocumentTitle = (props: {
       gtm={{ id: "download1", label: "Download", action: mappedDocument.url }}
       action={{
         model: "download",
-        href: getDownloadLink(mappedDocument.url)
+        href: getDownloadLink(mappedDocument.url) || ""
       }}
       variant="text"
       startIcon={
@@ -190,7 +190,7 @@ export const CopyToClipboard = ({
 
   const saveToClipboard = async (): Promise<void> => {
     const downloadLink = getDownloadLink(url);
-    await navigator.clipboard.writeText(downloadLink);
+    await navigator.clipboard.writeText(downloadLink ?? "");
     setIsLinkCopied(true);
     setIsOpen(true);
   };
@@ -228,7 +228,7 @@ export const CopyToClipboard = ({
           size={size}
         >
           <ActionIcon
-            className={size === "large" && classes["actionIcon"]}
+            className={size === "large" ? classes["actionIcon"] : undefined}
             name="CopyContent"
           />
         </StyledButton>
@@ -299,7 +299,7 @@ export const DownloadDocumentButton = ({
           size={size}
         >
           <ActionIcon
-            className={size === "large" && classes["actionIcon"]}
+            className={size === "large" ? classes["actionIcon"] : undefined}
             name="Download"
           />
         </GTMButton>

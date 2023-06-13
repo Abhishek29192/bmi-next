@@ -740,7 +740,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                             target="_blank"
                           >
                             <svg
-                              class="false css-546mkb"
+                              class="css-546mkb"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -768,7 +768,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                             type="button"
                           >
                             <svg
-                              class="false css-546mkb"
+                              class="css-546mkb"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -916,7 +916,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                             target="_blank"
                           >
                             <svg
-                              class="false css-546mkb"
+                              class="css-546mkb"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -944,7 +944,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                             type="button"
                           >
                             <svg
-                              class="false css-546mkb"
+                              class="css-546mkb"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -1092,7 +1092,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                             target="_blank"
                           >
                             <svg
-                              class="false css-546mkb"
+                              class="css-546mkb"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -1120,7 +1120,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                             type="button"
                           >
                             <svg
-                              class="false css-546mkb"
+                              class="css-546mkb"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -1268,7 +1268,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                             target="_blank"
                           >
                             <svg
-                              class="false css-546mkb"
+                              class="css-546mkb"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -1296,7 +1296,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                             type="button"
                           >
                             <svg
-                              class="false css-546mkb"
+                              class="css-546mkb"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -2218,7 +2218,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                             target="_blank"
                           >
                             <svg
-                              class="false css-546mkb"
+                              class="css-546mkb"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -2246,7 +2246,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                             type="button"
                           >
                             <svg
-                              class="false css-546mkb"
+                              class="css-546mkb"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -2394,7 +2394,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                             target="_blank"
                           >
                             <svg
-                              class="false css-546mkb"
+                              class="css-546mkb"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -2422,7 +2422,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                             type="button"
                           >
                             <svg
-                              class="false css-546mkb"
+                              class="css-546mkb"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -3423,7 +3423,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                       target="_blank"
                     >
                       <svg
-                        class="false css-546mkb"
+                        class="css-546mkb"
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
@@ -3451,7 +3451,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                       type="button"
                     >
                       <svg
-                        class="false css-546mkb"
+                        class="css-546mkb"
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
@@ -3599,7 +3599,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                       target="_blank"
                     >
                       <svg
-                        class="false css-546mkb"
+                        class="css-546mkb"
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
@@ -3627,7 +3627,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                       type="button"
                     >
                       <svg
-                        class="false css-546mkb"
+                        class="css-546mkb"
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
@@ -3775,7 +3775,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                       target="_blank"
                     >
                       <svg
-                        class="false css-546mkb"
+                        class="css-546mkb"
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
@@ -3803,7 +3803,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                       type="button"
                     >
                       <svg
-                        class="false css-546mkb"
+                        class="css-546mkb"
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
@@ -3951,7 +3951,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                       target="_blank"
                     >
                       <svg
-                        class="false css-546mkb"
+                        class="css-546mkb"
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
@@ -3979,7 +3979,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                       type="button"
                     >
                       <svg
-                        class="false css-546mkb"
+                        class="css-546mkb"
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
@@ -4551,7 +4551,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                       target="_blank"
                     >
                       <svg
-                        class="false css-546mkb"
+                        class="css-546mkb"
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
@@ -4579,7 +4579,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                       type="button"
                     >
                       <svg
-                        class="false css-546mkb"
+                        class="css-546mkb"
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
@@ -4727,7 +4727,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                       target="_blank"
                     >
                       <svg
-                        class="false css-546mkb"
+                        class="css-546mkb"
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
@@ -4755,7 +4755,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                       type="button"
                     >
                       <svg
-                        class="false css-546mkb"
+                        class="css-546mkb"
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
@@ -4903,7 +4903,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                       target="_blank"
                     >
                       <svg
-                        class="false css-546mkb"
+                        class="css-546mkb"
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
@@ -4931,7 +4931,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                       type="button"
                     >
                       <svg
-                        class="false css-546mkb"
+                        class="css-546mkb"
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
@@ -5079,7 +5079,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                       target="_blank"
                     >
                       <svg
-                        class="false css-546mkb"
+                        class="css-546mkb"
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
@@ -5107,7 +5107,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                       type="button"
                     >
                       <svg
-                        class="false css-546mkb"
+                        class="css-546mkb"
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
