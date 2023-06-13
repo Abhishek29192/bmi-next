@@ -33,7 +33,7 @@ describe("createCompanyDetails", () => {
     const directions = details.find(
       (item) => item.label === "findARoofer.getDirectionsLabel"
     );
-    expect(typeObject.label).toBeTruthy();
+    expect(typeObject!.label).toBeTruthy();
     expect(directions).toBeUndefined();
   });
   it("should return details array for sectionType = BRANCH_TYPE", () => {
@@ -47,7 +47,7 @@ describe("createCompanyDetails", () => {
       "googleURLLatLng"
     );
     const faxObject = details.find((item) => item.label === "global.fax");
-    expect(faxObject.label).toBeTruthy();
+    expect(faxObject!.label).toBeTruthy();
   });
   it("should return details array for sectionType = MERCHANT_TYPE", () => {
     const service = createService();
@@ -198,7 +198,9 @@ describe("createCompanyDetails", () => {
         );
 
         expect(websiteLinkLabelObj).toBeTruthy();
-        expect(websiteLinkLabelObj["text"]).toEqual("findARoofer.websiteLabel");
+        expect(websiteLinkLabelObj!["text"]).toEqual(
+          "findARoofer.websiteLabel"
+        );
       });
     });
     describe("and service entry type is MERCHANT", () => {
@@ -221,7 +223,7 @@ describe("createCompanyDetails", () => {
         );
 
         expect(websiteLinkLabelObj).toBeTruthy();
-        expect(websiteLinkLabelObj["text"]).toEqual(
+        expect(websiteLinkLabelObj!["text"]).toEqual(
           "findAMerchant.websiteLabel"
         );
       });
@@ -246,7 +248,9 @@ describe("createCompanyDetails", () => {
         );
 
         expect(websiteLinkLabelObj).toBeTruthy();
-        expect(websiteLinkLabelObj["text"]).toEqual("findABranch.websiteLabel");
+        expect(websiteLinkLabelObj!["text"]).toEqual(
+          "findABranch.websiteLabel"
+        );
       });
     });
   });

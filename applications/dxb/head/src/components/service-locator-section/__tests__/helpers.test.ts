@@ -119,7 +119,7 @@ describe("helpers functions", () => {
         mockServiceB
       );
       expect(sortResult).toStrictEqual(
-        mockServiceA.distance - mockServiceB.distance
+        mockServiceA.distance! - mockServiceB.distance!
       );
     });
     describe("centre = null", () => {

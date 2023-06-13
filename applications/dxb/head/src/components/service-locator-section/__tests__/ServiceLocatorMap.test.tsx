@@ -85,7 +85,7 @@ describe("ServiceLocatorMap component", () => {
       selectedRoofer: selectedRooferMock
     });
     const title = screen.getByText(selectedRooferMock.name);
-    const summary = screen.getByText(selectedRooferMock.summary);
+    const summary = screen.getByText(selectedRooferMock.summary!);
     expect(title).toBeInTheDocument();
     expect(summary).toBeInTheDocument();
   });
@@ -94,12 +94,12 @@ describe("ServiceLocatorMap component", () => {
     renderWithGoogleProvider({
       selectedRoofer: {
         ...selectedRooferMock,
-        name: undefined,
-        summary: undefined
+        name: "",
+        summary: null
       }
     });
     const title = screen.queryByText(selectedRooferMock.name);
-    const summary = screen.queryByText(selectedRooferMock.summary);
+    const summary = screen.queryByText(selectedRooferMock.summary!);
     expect(title).toBeNull();
     expect(summary).toBeNull();
   });

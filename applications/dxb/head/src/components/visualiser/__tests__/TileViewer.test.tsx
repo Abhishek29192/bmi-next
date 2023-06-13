@@ -11,10 +11,10 @@ import tileModelMock from "./__mocks__/tileModel";
 
 const tile: PIMTile = {
   ...tileMock,
-  highDetailMeshRef: undefined,
-  diffuseMapRef: undefined,
-  normalMapRef: undefined,
-  metallicRoughnessMapRef: undefined
+  highDetailMeshRef: "",
+  diffuseMapRef: "",
+  normalMapRef: "",
+  metallicRoughnessMapRef: ""
 };
 
 const defaultProps = {
@@ -80,7 +80,7 @@ describe("HouseViewer", () => {
         }}
       />
     );
-    tileViewerInstance.controls.reset = resetControlsMock;
+    tileViewerInstance!.controls.reset = resetControlsMock;
 
     rerender(<TileViewer {...defaultProps} />);
     expect(resetControlsMock).toHaveBeenCalled();
@@ -107,7 +107,7 @@ describe("HouseViewer", () => {
     it("creates new scene if scene does not exist", () => {
       const tileViewer = new TileViewer(defaultProps);
       tileViewer.container = document.createElement("div");
-      tileViewer.scene = null;
+      tileViewer.scene = undefined;
       tileViewer.load();
       expect(tileViewer.scene).toBeTruthy();
     });
@@ -115,7 +115,7 @@ describe("HouseViewer", () => {
     it("creates new renderer if renderer does not exist", () => {
       const tileViewer = new TileViewer(defaultProps);
       tileViewer.container = document.createElement("div");
-      tileViewer.renderer = null;
+      tileViewer.renderer = undefined;
       tileViewer.load();
       expect(tileViewer.renderer).toBeTruthy();
     });
@@ -123,7 +123,7 @@ describe("HouseViewer", () => {
     it("create new OrbitControls if controls does not exist", () => {
       const tileViewer = new TileViewer(defaultProps);
       tileViewer.container = document.createElement("div");
-      tileViewer.controls = null;
+      tileViewer.controls = undefined;
       tileViewer.load();
       expect(tileViewer.controls).toBeTruthy();
     });
@@ -133,7 +133,7 @@ describe("HouseViewer", () => {
       const tileViewer = new TileViewer(defaultProps);
       tileViewer.container = document.createElement("div");
       tileViewer.load();
-      tileViewer.controls.dispatchEvent({ type: "change", target: <div /> });
+      tileViewer.controls!.dispatchEvent({ type: "change", target: <div /> });
       //First time - on background load, second time - before loadModel method and third time on change event
       await waitFor(() => expect(renderFrameSpy).toHaveBeenCalledTimes(3));
     });
@@ -146,9 +146,9 @@ describe("HouseViewer", () => {
       tileViewer.container = document.createElement("div");
       tileViewer.load();
 
-      expect(tileViewer.camera.position.x.toFixed(2)).toBe("-0.61");
-      expect(tileViewer.camera.position.y.toFixed(2)).toBe("2.55");
-      expect(tileViewer.camera.position.z.toFixed(2)).toBe("0.92");
+      expect(tileViewer.camera!.position.x.toFixed(2)).toBe("-0.61");
+      expect(tileViewer.camera!.position.y.toFixed(2)).toBe("2.55");
+      expect(tileViewer.camera!.position.z.toFixed(2)).toBe("0.92");
     });
 
     it("sets correct camera position if isLargeTile === false", async () => {
@@ -159,9 +159,9 @@ describe("HouseViewer", () => {
       tileViewer.container = document.createElement("div");
       tileViewer.load();
 
-      expect(tileViewer.camera.position.x.toFixed(2)).toBe("-0.31");
-      expect(tileViewer.camera.position.y.toFixed(2)).toBe("1.28");
-      expect(tileViewer.camera.position.z.toFixed(2)).toBe("0.46");
+      expect(tileViewer.camera!.position.x.toFixed(2)).toBe("-0.31");
+      expect(tileViewer.camera!.position.y.toFixed(2)).toBe("1.28");
+      expect(tileViewer.camera!.position.z.toFixed(2)).toBe("0.46");
     });
   });
 

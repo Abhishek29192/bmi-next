@@ -178,7 +178,7 @@ describe("Page component", () => {
     expect(
       document
         // eslint-disable-next-line testing-library/no-node-access -- head components can't be found with screen
-        .querySelector("[data-testid='meta-og-image']")
+        .querySelector("[data-testid='meta-og-image']")!
         .getAttribute("content")
     ).toContain("fm=jpg");
   });

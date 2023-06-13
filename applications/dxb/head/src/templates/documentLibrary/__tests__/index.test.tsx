@@ -513,7 +513,7 @@ describe("Document Library page", () => {
       });
       renderWithProviders({});
 
-      fireEvent.click(screen.queryByText("BMI Components"));
+      fireEvent.click(screen.queryByText("BMI Components")!);
       expect(mockQueryES).toBeCalledTimes(2);
 
       await waitFor(() => {
@@ -541,7 +541,7 @@ describe("Document Library page", () => {
         }
       });
       renderWithProviders({});
-      fireEvent.click(screen.queryByText("BMI Components"));
+      fireEvent.click(screen.queryByText("BMI Components")!);
       expect(mockQueryES).toBeCalled();
       await waitFor(() => {
         expect(window.history.replaceState).toBeCalledWith(
@@ -551,7 +551,7 @@ describe("Document Library page", () => {
         );
       });
 
-      fireEvent.click(screen.queryByText("BMI Components"));
+      fireEvent.click(screen.queryByText("BMI Components")!);
       expect(mockQueryES).toBeCalled();
       await waitFor(() => {
         expect(window.history.replaceState).toBeCalledWith(

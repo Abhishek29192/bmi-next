@@ -108,10 +108,10 @@ describe("Sitemap", () => {
     expect(screen.getByTestId("footer")).toBeTruthy();
     expect(screen.getByTestId("brand-colors-provider")).toBeTruthy();
     expect(screen.getAllByTestId("sitemap-section")).toHaveLength(4);
-    expect(screen.getByText(footerMainNavigation.label)).toBeTruthy();
-    expect(screen.getByText(footerSecondaryNavigation.label)).toBeTruthy();
-    expect(screen.getByText(menuNavigation.label)).toBeTruthy();
-    expect(screen.getByText(menuUtilities.label)).toBeTruthy();
+    expect(screen.getByText(footerMainNavigation.label!)).toBeTruthy();
+    expect(screen.getByText(footerSecondaryNavigation.label!)).toBeTruthy();
+    expect(screen.getByText(menuNavigation.label!)).toBeTruthy();
+    expect(screen.getByText(menuUtilities.label!)).toBeTruthy();
   });
 
   it("renders correctly when footerMainNavigation is falsy", () => {
@@ -135,10 +135,10 @@ describe("Sitemap", () => {
     expect(screen.getByTestId("footer")).toBeTruthy();
     expect(screen.getByTestId("brand-colors-provider")).toBeTruthy();
     expect(screen.getAllByTestId("sitemap-section")).toHaveLength(3);
-    expect(screen.queryByText(footerMainNavigation.label)).toBeFalsy();
-    expect(screen.getByText(footerSecondaryNavigation.label)).toBeTruthy();
-    expect(screen.getByText(menuNavigation.label)).toBeTruthy();
-    expect(screen.getByText(menuUtilities.label)).toBeTruthy();
+    expect(screen.queryByText(footerMainNavigation.label!)).toBeFalsy();
+    expect(screen.getByText(footerSecondaryNavigation.label!)).toBeTruthy();
+    expect(screen.getByText(menuNavigation.label!)).toBeTruthy();
+    expect(screen.getByText(menuUtilities.label!)).toBeTruthy();
   });
 
   it("renders correctly when footerSecondaryNavigation is falsy", () => {
@@ -162,10 +162,10 @@ describe("Sitemap", () => {
     expect(screen.getByTestId("footer")).toBeTruthy();
     expect(screen.getByTestId("brand-colors-provider")).toBeTruthy();
     expect(screen.getAllByTestId("sitemap-section")).toHaveLength(3);
-    expect(screen.getByText(footerMainNavigation.label)).toBeTruthy();
-    expect(screen.queryByText(footerSecondaryNavigation.label)).toBeFalsy();
-    expect(screen.getByText(menuNavigation.label)).toBeTruthy();
-    expect(screen.getByText(menuUtilities.label)).toBeTruthy();
+    expect(screen.getByText(footerMainNavigation.label!)).toBeTruthy();
+    expect(screen.queryByText(footerSecondaryNavigation.label!)).toBeFalsy();
+    expect(screen.getByText(menuNavigation.label!)).toBeTruthy();
+    expect(screen.getByText(menuUtilities.label!)).toBeTruthy();
   });
 
   it("renders correctly when menuNavigation is falsy", () => {
@@ -189,10 +189,10 @@ describe("Sitemap", () => {
     expect(screen.getByTestId("footer")).toBeTruthy();
     expect(screen.getByTestId("brand-colors-provider")).toBeTruthy();
     expect(screen.getAllByTestId("sitemap-section")).toHaveLength(3);
-    expect(screen.getByText(footerMainNavigation.label)).toBeTruthy();
-    expect(screen.getByText(footerSecondaryNavigation.label)).toBeTruthy();
-    expect(screen.queryByText(menuNavigation.label)).toBeFalsy();
-    expect(screen.getByText(menuUtilities.label)).toBeTruthy();
+    expect(screen.getByText(footerMainNavigation.label!)).toBeTruthy();
+    expect(screen.getByText(footerSecondaryNavigation.label!)).toBeTruthy();
+    expect(screen.queryByText(menuNavigation.label!)).toBeFalsy();
+    expect(screen.getByText(menuUtilities.label!)).toBeTruthy();
   });
 
   it("renders correctly when menuUtilities is falsy", () => {
@@ -216,10 +216,10 @@ describe("Sitemap", () => {
     expect(screen.getByTestId("footer")).toBeTruthy();
     expect(screen.getByTestId("brand-colors-provider")).toBeTruthy();
     expect(screen.getAllByTestId("sitemap-section")).toHaveLength(3);
-    expect(screen.getByText(footerMainNavigation.label)).toBeTruthy();
-    expect(screen.getByText(footerSecondaryNavigation.label)).toBeTruthy();
-    expect(screen.getByText(menuNavigation.label)).toBeTruthy();
-    expect(screen.queryByText(menuUtilities.label)).toBeFalsy();
+    expect(screen.getByText(footerMainNavigation.label!)).toBeTruthy();
+    expect(screen.getByText(footerSecondaryNavigation.label!)).toBeTruthy();
+    expect(screen.getByText(menuNavigation.label!)).toBeTruthy();
+    expect(screen.queryByText(menuUtilities.label!)).toBeFalsy();
   });
 
   it("cover test for pageContext optional chaining", () => {
@@ -243,9 +243,9 @@ describe("Sitemap", () => {
     expect(screen.getByTestId("footer")).toBeTruthy();
     expect(screen.getByTestId("brand-colors-provider")).toBeTruthy();
     expect(screen.getAllByTestId("sitemap-section")).toHaveLength(4);
-    expect(screen.getByText(footerMainNavigation.label)).toBeTruthy();
-    expect(screen.getByText(footerSecondaryNavigation.label)).toBeTruthy();
-    expect(screen.getByText(menuNavigation.label)).toBeTruthy();
-    expect(screen.getByText(menuUtilities.label)).toBeTruthy();
+    expect(screen.getByText(footerMainNavigation.label!)).toBeTruthy();
+    expect(screen.getByText(footerSecondaryNavigation.label!)).toBeTruthy();
+    expect(screen.getByText(menuNavigation.label!)).toBeTruthy();
+    expect(screen.getByText(menuUtilities.label!)).toBeTruthy();
   });
 });

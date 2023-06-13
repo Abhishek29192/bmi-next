@@ -43,16 +43,16 @@ jest.mock("../FormSection", () => {
 
   const HubSpotFormMock = (props: {
     onSuccess: () => void;
-    onFormReady?: (_, form: HTMLElement) => void;
+    onFormReady?: (_: unknown, form: HTMLElement) => void;
   }) => {
     const ref = useRef<HTMLFormElement>(null);
 
     useEffect(() => {
       // inserts content into iframe document
-      ref.current.innerHTML = renderToString(<HSForm />);
-      props.onFormReady?.({}, ref.current);
+      ref.current!.innerHTML = renderToString(<HSForm />);
+      props.onFormReady?.({}, ref.current!);
       // tracks submit event of iframe form
-      ref.current.onsubmit = props.onSuccess;
+      ref.current!.onsubmit = props.onSuccess;
     }, []);
 
     const HSForm = () => (

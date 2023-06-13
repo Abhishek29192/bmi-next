@@ -581,7 +581,7 @@ describe("ServiceLocatorSection component", () => {
     // eslint-disable-next-line testing-library/no-node-access -- data-testid can't be set
     const nameInput = baseElement.querySelector("#company-autocomplete");
 
-    fireEvent.change(nameInput, {
+    fireEvent.change(nameInput!, {
       target: { value: EntryTypeEnum.ROOFER_TYPE }
     });
 
@@ -590,7 +590,7 @@ describe("ServiceLocatorSection component", () => {
     // eslint-disable-next-line testing-library/no-node-access -- data-testid can't be set
     const option0 = baseElement.querySelector("#company-autocomplete-option-0");
 
-    fireEvent.click(option0);
+    fireEvent.click(option0!);
 
     expect(baseElement).toMatchSnapshot("Filtered main list");
   });
@@ -618,7 +618,7 @@ describe("ServiceLocatorSection component", () => {
     // eslint-disable-next-line testing-library/no-node-access -- data-testid can't be set
     const nameInput = baseElement.querySelector("#company-autocomplete");
 
-    fireEvent.change(nameInput, { target: { value: "r" } });
+    fireEvent.change(nameInput!, { target: { value: "r" } });
 
     expect(baseElement).toMatchSnapshot();
   });
@@ -653,7 +653,7 @@ describe("ServiceLocatorSection component", () => {
     // eslint-disable-next-line testing-library/no-node-access -- data-testid can't be set
     const nameInput = baseElement.querySelector("#company-autocomplete");
 
-    fireEvent.change(nameInput, {
+    fireEvent.change(nameInput!, {
       target: { value: EntryTypeEnum.ROOFER_TYPE }
     });
     const optionList = await screen.findByRole("listbox");
@@ -698,10 +698,10 @@ describe("ServiceLocatorSection component", () => {
     // eslint-disable-next-line testing-library/no-node-access -- data-testid can't be set
     const nameInput = baseElement.querySelector("#company-autocomplete");
 
-    fireEvent.change(nameInput, {
+    fireEvent.change(nameInput!, {
       target: { value: "" }
     });
-    fireEvent.keyDown(nameInput, { key: "Enter", code: "Enter" });
+    fireEvent.keyDown(nameInput!, { key: "Enter", code: "Enter" });
     expect(global.window["dataLayer"]).toHaveLength(0);
     delete global.window["dataLayer"];
   });
@@ -1349,8 +1349,8 @@ describe("ServiceLocatorSection component", () => {
       // eslint-disable-next-line testing-library/no-node-access -- data-testid can't be set
       const input = baseElement.querySelector("#company-autocomplete");
 
-      fireEvent.change(input, { target: { value: roofer1.name } });
-      fireEvent.keyDown(input, { key: "Enter", code: "Enter" });
+      fireEvent.change(input!, { target: { value: roofer1.name } });
+      fireEvent.keyDown(input!, { key: "Enter", code: "Enter" });
 
       expect(screen.getAllByText(roofer1.name)).toHaveLength(1);
       expect(screen.queryByText(roofer2.name)).toBeFalsy();

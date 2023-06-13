@@ -1,6 +1,6 @@
 import { createSystem, createSystemDocument } from "@bmi/firestore-types";
 import Systems from "../System";
-import { Context, Node } from "../types/Gatsby";
+import { Context, Node, ResolveArgs } from "../types/Gatsby";
 
 jest.mock("../../../utils/systems");
 
@@ -20,11 +20,13 @@ const context: Context = {
 
 const source: Node = {
   id: "source",
-  children: null,
+  children: [],
   parent: null,
-  internal: null,
+  internal: { type: "", contentDigest: "", owner: "" },
   relatedProducts: ["product-code-1"]
 };
+
+const args: ResolveArgs = { categoryCodes: [], allowFilterBy: [] };
 
 describe("ContentfulServiceLocatorSection resolver", () => {
   it("should contain specific type", () => {
@@ -37,7 +39,7 @@ describe("ContentfulServiceLocatorSection resolver", () => {
       expect(
         await Systems.relatedProducts.resolve(
           { ...source, relatedProducts: null },
-          null,
+          args,
           context
         )
       ).toEqual([]);
@@ -50,7 +52,7 @@ describe("ContentfulServiceLocatorSection resolver", () => {
         .mockResolvedValueOnce({ entries: products });
 
       expect(
-        await Systems.relatedProducts.resolve(source, null, context)
+        await Systems.relatedProducts.resolve(source, args, context)
       ).toEqual(products);
     });
 
@@ -61,7 +63,7 @@ describe("ContentfulServiceLocatorSection resolver", () => {
       jest.spyOn(console, "warn");
 
       expect(
-        await Systems.relatedProducts.resolve(source, null, context)
+        await Systems.relatedProducts.resolve(source, args, context)
       ).toEqual([]);
       // eslint-disable-next-line no-console
       expect(console.warn)
@@ -74,16 +76,16 @@ describe("ContentfulServiceLocatorSection resolver", () => {
 
   describe("resolve documents tests", () => {
     it("should not resolve documents if system documents are null", async () => {
-      const source = createSystem({ documents: null });
+      const source = createSystem({ documents: undefined });
 
-      expect(await Systems.documents.resolve(source, null, context)).toEqual(
+      expect(await Systems.documents.resolve(source, args, context)).toEqual(
         []
       );
     });
     it("should not resolve documents if system documents list is empty array", async () => {
       const source = createSystem({ documents: [] });
 
-      expect(await Systems.documents.resolve(source, null, context)).toEqual(
+      expect(await Systems.documents.resolve(source, args, context)).toEqual(
         []
       );
     });
@@ -95,7 +97,7 @@ describe("ContentfulServiceLocatorSection resolver", () => {
         .fn()
         .mockResolvedValueOnce({ entries: [{ pimCode: "BMI" }] });
 
-      expect(await Systems.documents.resolve(source, null, context)).toEqual(
+      expect(await Systems.documents.resolve(source, args, context)).toEqual(
         []
       );
     });
@@ -109,7 +111,7 @@ describe("ContentfulServiceLocatorSection resolver", () => {
         ]
       });
 
-      expect(await Systems.documents.resolve(source, null, context)).toEqual([
+      expect(await Systems.documents.resolve(source, args, context)).toEqual([
         {
           extension: "pdf",
           fileSize: 10,
@@ -132,17 +134,17 @@ describe("ContentfulServiceLocatorSection resolver", () => {
 
   describe("resolve relatedSystems tests", () => {
     it("should not resolve relatedSystems if systemReferences is null", async () => {
-      const source = createSystem({ systemReferences: null });
+      const source = createSystem({ systemReferences: undefined });
 
       expect(
-        await Systems.relatedSystems.resolve(source, null, context)
+        await Systems.relatedSystems.resolve(source, args, context)
       ).toEqual([]);
     });
     it("should not resolve relatedSystems if systemReferences are empty list", async () => {
       const source = createSystem({ systemReferences: [] });
 
       expect(
-        await Systems.relatedSystems.resolve(source, null, context)
+        await Systems.relatedSystems.resolve(source, args, context)
       ).toEqual([]);
     });
 
@@ -153,7 +155,7 @@ describe("ContentfulServiceLocatorSection resolver", () => {
         .mockResolvedValueOnce({ entries: [] });
 
       expect(
-        await Systems.relatedSystems.resolve(source, null, context)
+        await Systems.relatedSystems.resolve(source, args, context)
       ).toEqual([]);
     });
     it("should resolve relatedSystems if matching systems are found", async () => {
@@ -167,7 +169,7 @@ describe("ContentfulServiceLocatorSection resolver", () => {
       });
 
       expect(
-        await Systems.relatedSystems.resolve(source, null, context)
+        await Systems.relatedSystems.resolve(source, args, context)
       ).toEqual([
         {
           code: "test-reference",
@@ -208,7 +210,7 @@ describe("ContentfulServiceLocatorSection resolver", () => {
         });
 
         expect(
-          await Systems.relatedSystems.resolve(source, null, context)
+          await Systems.relatedSystems.resolve(source, args, context)
         ).toEqual([
           {
             code: "test-reference",
@@ -256,7 +258,7 @@ describe("ContentfulServiceLocatorSection resolver", () => {
         });
 
         expect(
-          await Systems.relatedSystems.resolve(source, null, context)
+          await Systems.relatedSystems.resolve(source, args, context)
         ).toEqual([
           {
             code: "test-reference",
@@ -287,7 +289,7 @@ describe("ContentfulServiceLocatorSection resolver", () => {
     it("should return video data from product", async () => {
       const source = createSystem();
 
-      const result = await Systems.videos.resolve(source, null, context);
+      const result = await Systems.videos.resolve(source, args, context);
 
       expect(result).toEqual([
         {

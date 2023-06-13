@@ -248,7 +248,7 @@ describe("DocumentSimpleTableResult", () => {
       renderWithProviders(
         <DownloadListContext.Provider
           value={{
-            size: selectedDocument.fileSize,
+            size: selectedDocument.fileSize!,
             list: { "1-selected_document": selectedDocument },
             updateList: updateListMock,
             resetList: jest.fn(),

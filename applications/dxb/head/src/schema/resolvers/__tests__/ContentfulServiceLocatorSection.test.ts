@@ -1,5 +1,5 @@
 import ContentfulServiceLocatorSection from "../ContentfulServiceLocatorSection";
-import { Context, Node } from "../types/Gatsby";
+import { Context, Node, ResolveArgs } from "../types/Gatsby";
 
 const context: Context = {
   nodeModel: {
@@ -12,11 +12,13 @@ const context: Context = {
   }
 };
 
+const args: ResolveArgs = { categoryCodes: [], allowFilterBy: [] };
+
 const source: Node = {
   id: "source",
-  children: null,
+  children: [],
   parent: null,
-  internal: null,
+  internal: { type: "", contentDigest: "", owner: "" },
   type: "type",
   node_locale: "en-GB"
 };
@@ -32,7 +34,7 @@ describe("ContentfulServiceLocatorSection resolver", () => {
     expect(
       await ContentfulServiceLocatorSection.services.resolve(
         source,
-        null,
+        args,
         context
       )
     ).toEqual([{ type: "ContentfulServiceLocatorSection" }]);
@@ -54,7 +56,7 @@ describe("ContentfulServiceLocatorSection resolver", () => {
     expect(
       await ContentfulServiceLocatorSection.services.resolve(
         source,
-        null,
+        args,
         context
       )
     ).toEqual([{ type: "ContentfulServiceLocatorSection" }]);
@@ -78,7 +80,7 @@ describe("ContentfulServiceLocatorSection resolver", () => {
     expect(
       await ContentfulServiceLocatorSection.services.resolve(
         source,
-        null,
+        args,
         context
       )
     ).toEqual([]);
