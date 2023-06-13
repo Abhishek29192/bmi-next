@@ -15,8 +15,8 @@ import { microCopy } from "../constants/microCopies";
 import withGTM from "../utils/google-tag-manager";
 import {
   Data as LinkData,
-  getClickableActionFromUrl,
-  NavigationData
+  NavigationData,
+  getClickableActionFromUrl
 } from "./Link";
 import { useSiteContext } from "./Site";
 
@@ -95,10 +95,10 @@ const LinkColumnsSection = ({ data }: { data: Data }) => {
             return (
               <ExpandableLinksTextCard
                 key={`${label}-${index}`}
-                title={label}
+                title={label || ""}
                 links={linksWithActions}
-                openButton={renderOpenButton(label)}
-                closeButton={renderCloseButton(label)}
+                openButton={renderOpenButton(label || "")}
+                closeButton={renderCloseButton(label || "")}
                 anchorLinkComponent={(props: AnchorLinkProps) => (
                   <GTMAnchorLink
                     gtm={{

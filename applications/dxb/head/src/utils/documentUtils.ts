@@ -96,8 +96,8 @@ export const downloadMultipleFiles = async (
         ? generateFilenameByRealFileName(assetFileCountMap, asset, index)
         : generateFileNamebyTitle(
             assetFileCountMap,
-            asset.title || asset.realFileName,
-            asset.extension,
+            asset.title || asset.realFileName || "",
+            asset.extension || "",
             index
           )
     }));
@@ -150,8 +150,8 @@ export const mapAssetToFileDownload = (
 
     return {
       url: "url" in data ? data.url : undefined,
-      format,
-      size,
+      format: format || "",
+      size: size || 0,
       assetTypeName: data.assetType.name,
       title: data.title,
       isLinkDocument: data.isLinkDocument,

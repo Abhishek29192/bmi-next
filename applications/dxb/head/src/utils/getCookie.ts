@@ -7,7 +7,7 @@ const getCookie = (name: string): string | undefined => {
   if (parts.length !== 2) {
     return undefined;
   }
-  const value = parts.pop().split(";").shift();
+  const value = parts.pop()?.split(";").shift();
   if (!value) {
     return undefined;
   }

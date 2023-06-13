@@ -21,10 +21,6 @@ const ProductTechnicalSpec = ({ product }: ProductTechnicalSpecProps) => {
   );
   const classifications = product.classifications;
 
-  if (!classifications || classifications.length === 0) {
-    return <NoTechSpecMessage />;
-  }
-
   if (classifications.length === 1) {
     const classification = classifications[0];
     return (
@@ -74,6 +70,7 @@ const ProductTechnicalSpec = ({ product }: ProductTechnicalSpecProps) => {
       </div>
     );
   }
+  return <NoTechSpecMessage />;
 };
 
 export default ProductTechnicalSpec;

@@ -285,7 +285,7 @@ describe("Link component", () => {
         "en",
         undefined,
         "ImALabel",
-        null,
+        undefined,
         undefined,
         { id: "foo1", label: "foo", action: "foo.com" }
       );
