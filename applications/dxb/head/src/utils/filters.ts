@@ -2,7 +2,6 @@ import queryString from "query-string";
 import { useEffect, useState } from "react";
 import { getPathWithCountryCode } from "../utils/path";
 import { removePLPFilterPrefix } from "./product-filters";
-import type { ProductFilter } from "../types/pim";
 import type { Filter } from "@bmi-digital/components";
 
 export type URLFilter = {
@@ -29,18 +28,15 @@ export enum SourceEnum {
 export const convertToURLFilters = (
   filters: readonly Filter[]
 ): URLProductFilter[] => {
-  return filters.reduce((carry, { name, value }) => {
+  return filters.reduce((carry: URLProductFilter[], { name, value }) => {
     if (value && value.length) {
-      carry.push({ name: removePLPFilterPrefix(name), value });
+      carry.push({
+        name: removePLPFilterPrefix(name),
+        value: Array.from(value)
+      });
     }
     return carry;
   }, []);
-};
-
-export const uniqueByCode = (uniqueObjects, object) => {
-  uniqueObjects.find((unique) => unique.code === object.code) ||
-    uniqueObjects.push(object);
-  return uniqueObjects;
 };
 
 export const sortAlphabeticallyBy =
@@ -60,9 +56,9 @@ export const sortAlphabeticallyBy =
 // eslint-disable-next-line security/detect-object-injection
 export const updateFilterValue = (
   filters,
-  filterName,
-  filterValue,
-  checked
+  filterName: string,
+  filterValue: string,
+  checked: boolean
 ) => {
   const addToArray = (array, value) => [...array, value];
   const removeFromArray = (array, value) => array.filter((v) => v !== value);
@@ -121,7 +117,9 @@ export const getUpdatedFilters = (filters: Filter[]): Filter[] => {
 
     return {
       ...filter,
-      value: [].concat(currentQueryFilterValue).filter(Boolean)
+      value: ([] as string[])
+        .concat(currentQueryFilterValue || [])
+        .filter(Boolean)
     };
   });
 
@@ -130,7 +128,7 @@ export const getUpdatedFilters = (filters: Filter[]): Filter[] => {
 
 export const setFiltersUrl = (newFilters: Filter[]): void => {
   const location = getWindowLocationFilters();
-  const newUrlFilterValues = convertToURLFilters(newFilters as ProductFilter[]);
+  const newUrlFilterValues = convertToURLFilters(newFilters);
   const newFilterNames = newFilters.map(({ name }) => name);
 
   const urlFilterValues = getURLFilterValues();
@@ -144,9 +142,9 @@ export const setFiltersUrl = (newFilters: Filter[]): void => {
     )?.value;
 
     if (index === -1) {
-      urlFilterValues.push({ name, value });
+      urlFilterValues.push({ name, value: value || [] });
     } else {
-      urlFilterValues[index as number] = { name, value };
+      urlFilterValues[index as number] = { name, value: value || [] };
     }
   });
 

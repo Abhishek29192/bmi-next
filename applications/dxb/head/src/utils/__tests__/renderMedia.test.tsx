@@ -12,12 +12,12 @@ const MockContainer = ({ children }: { children: React.ReactNode }) => {
 describe("renderMedia", () => {
   it("should return img if arg mainImage === true", () => {
     // eslint-disable-next-line testing-library/render-result-naming-convention
-    const image = renderMedia(mockImageSrc, mockAltText);
+    const image = renderMedia(mockImageSrc, mockAltText)!;
     expect(image.type).toEqual("img");
   });
   it("should return img if arg mainImage is empty string", () => {
     const view = renderMedia("", mockAltText);
-    expect(view).toEqual("");
+    expect(view).toBeUndefined();
   });
   it("should return img if arg mainImage === true and altText is undefined", () => {
     render(

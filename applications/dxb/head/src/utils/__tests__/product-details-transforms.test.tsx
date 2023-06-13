@@ -10,10 +10,11 @@ import {
   mapClassificationValues,
   transformImages
 } from "../product-details-transforms";
+import { Product } from "../../types/pim";
 
 describe("product-details-transforms tests", () => {
   describe("getProductAttributes tests", () => {
-    const getProductAttributesWithCommonParams = (product) =>
+    const getProductAttributesWithCommonParams = (product: Product) =>
       getProductAttributes(product, "no", {
         size: "Size",
         variantAttribute: "variantattribute"

@@ -136,9 +136,9 @@ const SearchTabPanelDocuments = (props: Props) => {
 
   const queryES = async (
     filters,
-    categoryCode,
-    page,
-    pageSize,
+    categoryCode: null,
+    page: number,
+    pageSize: number,
     searchQuery?: string
   ) => {
     if (isLoading) {
@@ -230,7 +230,10 @@ const SearchTabPanelDocuments = (props: Props) => {
   // PAGINATION
   // =======================================
 
-  const handlePageChange = (_: unknown, page: number) => {
+  const handlePageChange = (
+    _: React.ChangeEvent<HTMLElement>,
+    page: number
+  ) => {
     const scrollY = resultsElement.current
       ? resultsElement.current.offsetTop - 200
       : 0;

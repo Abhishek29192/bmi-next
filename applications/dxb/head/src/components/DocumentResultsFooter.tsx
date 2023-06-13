@@ -47,7 +47,7 @@ import {
 type Props = {
   page: number;
   count: number;
-  onPageChange?: (event: React.ChangeEvent<unknown>, page: number) => void;
+  onPageChange?: (event: React.ChangeEvent<HTMLElement>, page: number) => void;
   isDownloadButton?: boolean;
   sticky?: boolean;
 };
@@ -238,7 +238,7 @@ type StickyFooterProps = {
   showPagination: boolean;
   page: number;
   count: number;
-  onPageChange: (event: React.ChangeEvent<unknown>, page: number) => void;
+  onPageChange?: (event: React.ChangeEvent<HTMLElement>, page: number) => void;
 };
 
 const StickyFooter = (props: StickyFooterProps) => {

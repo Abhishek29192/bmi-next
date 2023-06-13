@@ -163,7 +163,40 @@ export const compileElasticSearchQuery = ({
 // Returns a query that allows us to query for total count
 // Size: 0 means no actual results will be returned
 // only interested in the query - pagination, aggregates, and sorting don't affect total count
-export const getCountQuery = (fullQuery) => ({
+export const getCountQuery = (fullQuery: {
+  size?: number;
+  from?: number;
+  sort?:
+    | { "assetType.name.keyword": string; "title.keyword": string }[]
+    | (
+        | string
+        | {
+            productScoringWeightInt: string;
+            variantScoringWeightInt?: undefined;
+            "name.keyword"?: undefined;
+          }
+        | {
+            variantScoringWeightInt: string;
+            productScoringWeightInt?: undefined;
+            "name.keyword"?: undefined;
+          }
+        | {
+            "name.keyword": string;
+            productScoringWeightInt?: undefined;
+            variantScoringWeightInt?: undefined;
+          }
+      )[]
+    | { "assetType.name.keyword": string; "title.keyword": string }[]
+    | { "assetType.name.keyword": string; "title.keyword": string }[];
+  aggs?: any;
+  query: any;
+  collapse?:
+    | { field: string }
+    | { field: string; inner_hits: { name: string } }
+    | { field: string }
+    | { field: string };
+  _source?: { excludes: string[] };
+}) => ({
   size: 0,
   query: fullQuery.query,
   aggs: fullQuery.aggs

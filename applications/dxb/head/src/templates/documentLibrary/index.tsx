@@ -170,7 +170,11 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
     await fetchDocuments(filters, page - 1);
   };
 
-  const handleFiltersChange = (filterName, filterValue, checked) => {
+  const handleFiltersChange = (
+    filterName: string,
+    filterValue: string,
+    checked: boolean
+  ) => {
     const newFilters: Filter[] = updateFilterValue(
       filters,
       filterName,

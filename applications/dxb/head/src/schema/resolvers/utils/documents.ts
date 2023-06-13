@@ -187,20 +187,21 @@ export const resolveDocumentsFiltersFromContentful = async (
     return [];
   }
 
-  let brandFilter: ProductFilter = undefined;
-  if (allowedFilters.some((filterName) => filterName === "Brand")) {
-    brandFilter = await generateBrandFilterFromDocuments(documents, context);
-  }
+  const brandFilter = allowedFilters.some(
+    (filterName) => filterName === "Brand"
+  )
+    ? await generateBrandFilterFromDocuments(documents, context)
+    : null;
 
-  let assetTypeFilter: ProductFilter = undefined;
-  if (allowedFilters.some((filterName) => filterName === "AssetType")) {
-    assetTypeFilter = await generateAssetTypeFilterFromDocuments(
-      assetTypes,
-      documents,
-      context
-    );
-  }
-  return [brandFilter, assetTypeFilter].filter(Boolean);
+  const assetTypeFilter = allowedFilters.some(
+    (filterName) => filterName === "AssetType"
+  )
+    ? await generateAssetTypeFilterFromDocuments(assetTypes, documents, context)
+    : null;
+
+  return [brandFilter, assetTypeFilter]
+    .flatMap((filter) => (filter ? [filter] : []))
+    .filter(Boolean);
 };
 
 const generateBrandFilterFromDocuments = async (
@@ -216,7 +217,12 @@ const generateBrandFilterFromDocuments = async (
     console.warn(
       `Please check enviroment variables 'SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!`
     );
-    return;
+    return {
+      filterCode: "",
+      label: "",
+      name: null,
+      options: []
+    };
   }
   const currSite = await context.nodeModel.findOne<ContentfulSite>(
     {
@@ -235,7 +241,12 @@ const generateBrandFilterFromDocuments = async (
     console.warn(
       `Site not found in contentful: for country code: '${marketCode}' and locale: '${localeCode}'.`
     );
-    return;
+    return {
+      filterCode: "",
+      label: "",
+      name: null,
+      options: []
+    };
   }
   const resource = await context.nodeModel.getNodeById({
     id: currSite.resources___NODE as string,
@@ -246,7 +257,12 @@ const generateBrandFilterFromDocuments = async (
     console.warn(
       `Resource not found: for site in contentful with id: '${currSite.contentful_id}'.`
     );
-    return;
+    return {
+      filterCode: "",
+      label: "",
+      name: null,
+      options: []
+    };
   }
 
   // MC access in consistently happens only via resource content type
@@ -266,7 +282,12 @@ const generateBrandFilterFromDocuments = async (
   ];
 
   if (allValues.length === 0) {
-    return;
+    return {
+      filterCode: "",
+      label: "",
+      name: null,
+      options: []
+    };
   }
   const filterLabel = (filterMicroCopies.find(
     (item) => item.key === microCopyKey
@@ -297,7 +318,12 @@ const generateAssetTypeFilterFromDocuments = async (
     console.warn(
       `Please check enviroment variables 'SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!`
     );
-    return;
+    return {
+      filterCode: "",
+      label: "",
+      name: null,
+      options: []
+    };
   }
   const currSite = await context.nodeModel.findOne<ContentfulSite>(
     {
@@ -316,7 +342,12 @@ const generateAssetTypeFilterFromDocuments = async (
     console.warn(
       `Site not found in contentful: for country code: '${marketCode}' and locale: '${localeCode}'.`
     );
-    return;
+    return {
+      filterCode: "",
+      label: "",
+      name: null,
+      options: []
+    };
   }
   const resource = await context.nodeModel.getNodeById({
     id: currSite.resources___NODE as string,
@@ -327,7 +358,12 @@ const generateAssetTypeFilterFromDocuments = async (
     console.warn(
       `Resource not found: for site in contentful with id: '${currSite.contentful_id}'.`
     );
-    return;
+    return {
+      filterCode: "",
+      label: "",
+      name: null,
+      options: []
+    };
   }
 
   // MC access in consistently happens only via resource content type
@@ -354,7 +390,12 @@ const generateAssetTypeFilterFromDocuments = async (
     .reduce(uniqueByCode, []);
 
   if (allValues.length === 0) {
-    return;
+    return {
+      filterCode: "",
+      label: "",
+      name: null,
+      options: []
+    };
   }
 
   const filterLabel = (filterMicroCopies.find(

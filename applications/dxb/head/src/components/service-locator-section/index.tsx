@@ -181,7 +181,10 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     [selectedRoofer, pagedFilteredRoofers, showResultList]
   );
 
-  const handlePageChange = (_, pageNumber: number) => {
+  const handlePageChange = (
+    _: React.ChangeEvent<HTMLElement>,
+    pageNumber: number
+  ) => {
     setPagedFilteredRoofers(() => {
       const start = (pageNumber - 1) * PAGE_SIZE;
       const end = start + PAGE_SIZE;

@@ -12,6 +12,7 @@ import {
 } from "@bmi-digital/components";
 import { Check as CheckIcon, Launch } from "@mui/icons-material";
 import React from "react";
+import { Asset } from "@bmi/pim-types";
 import { StyledBlueCheckIconInter } from "../../components/CommonIcons";
 import {
   getClickableActionFromUrl,
@@ -64,7 +65,7 @@ const AboutLeadBlock = ({ system, sidebarItem }: Props) => {
   const { isClient } = useIsClient();
   const { getMicroCopy, countryCode } = useSiteContext();
   const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
-  const isImageAsset = (asset) => {
+  const isImageAsset = (asset: Asset) => {
     return (
       asset.realFileName?.indexOf(".jpg") > -1 ||
       asset.realFileName?.indexOf(".png") > -1

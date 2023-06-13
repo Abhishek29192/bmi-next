@@ -188,7 +188,10 @@ const SearchTabPanelPages = (props: Props) => {
   // PAGINATION
   // =======================================
 
-  const handlePageChange = (_, page) => {
+  const handlePageChange = (
+    _: React.ChangeEvent<HTMLElement>,
+    page: number
+  ) => {
     const scrollY = resultsElement.current
       ? resultsElement.current.offsetTop - 200
       : 0;

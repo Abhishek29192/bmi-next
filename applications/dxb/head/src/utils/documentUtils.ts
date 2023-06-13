@@ -127,7 +127,7 @@ export const downloadMultipleFiles = async (
 
     await downloadAs(data.url, zipFileName);
   } catch (error) {
-    logger.error({ message: error.message });
+    logger.error({ message: (error as Error).message });
   }
 };
 

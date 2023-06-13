@@ -23,7 +23,7 @@ import {
 
 export type Data = {
   name: string;
-  brandCode: string;
+  brandCode?: string;
   nobb: string | null;
   images: readonly MediaData[];
   attributes: ProductOverviewPaneProps["attributes"] | null;
