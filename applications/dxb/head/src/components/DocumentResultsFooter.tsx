@@ -1,13 +1,15 @@
 import {
   Button,
   ButtonProps,
+  Container,
   DownloadList,
   DownloadListContext,
-  Pagination
+  DownloadListContextType,
+  Grid
 } from "@bmi-digital/components";
 import { Box } from "@mui/material";
-import { styled } from "@mui/material/styles";
 import classnames from "classnames";
+import { filesize } from "filesize";
 import fetch, { Response } from "node-fetch";
 import React, { useContext } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
@@ -19,32 +21,34 @@ import { downloadAs, getDownloadLink } from "../utils/client-download";
 import { devLog } from "../utils/devLog";
 import getCookie from "../utils/getCookie";
 import withGTM from "../utils/google-tag-manager";
+import useHasScrollbar from "../utils/useHasScrollbar";
 import createAssetFileCountMap, {
   AssetUniqueFileCountMap,
   generateFileNamebyTitle
 } from "./DocumentFileUtils";
-import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
 import { useSiteContext } from "./Site";
-import styles from "./styles/DocumentResultsFooter.module.scss";
-
-const PREFIX = "docResultsFooterStyles";
-const classes = {
-  paginationRoot: `${PREFIX}-paginationRoot`
-};
-
-const StyledPagination = styled(Pagination)({
-  [`&.${classes.paginationRoot}`]: {
-    "& ul": {
-      justifyContent: "flex-end"
-    }
-  }
-});
+import {
+  ButtonsWrapper,
+  ContentWrapper,
+  DocumentResultsFooterContainer,
+  ErrorMessage,
+  FilesSizeInfoSection,
+  MaxSizeLabel,
+  ResetSelectionBtn,
+  StickyContainer,
+  StyledErrorIcon,
+  StyledPagination,
+  StyledRecaptcha,
+  TotalSize,
+  classes
+} from "./styles/DocumentResultsFooterStyles";
 
 type Props = {
   page: number;
   count: number;
-  onPageChange: (event: React.ChangeEvent<unknown>, page: number) => void;
+  onPageChange?: (event: React.ChangeEvent<unknown>, page: number) => void;
   isDownloadButton?: boolean;
+  sticky?: boolean;
 };
 
 const GTMButton = withGTM<ButtonProps>(Button);
@@ -160,70 +164,175 @@ const getAction = (list: Record<string, DocumentResultData>) => {
   );
 };
 
+const DownloadDocumentsButton = () => {
+  const { executeRecaptcha } = useGoogleReCaptcha();
+  const { getMicroCopy } = useSiteContext();
+  const {
+    resetList,
+    size,
+    list: selectedDocuments,
+    count: selectedItemsCount,
+    remainingSize
+  } = useContext(DownloadListContext);
+  const config = useConfig();
+  const qaAuthToken = getCookie(QA_AUTH_TOKEN);
+  const downloadButtonLabel = selectedItemsCount
+    ? `${getMicroCopy(microCopy.DOWNLOAD_LIST_DOWNLOAD)} ({{count}})`
+    : getMicroCopy(microCopy.DOWNLOAD_LIST_DOWNLOAD);
+  const maxSizeExceeded = remainingSize <= 0;
+
+  const handleButtonClick = async (list: DownloadListContextType["list"]) => {
+    const token = qaAuthToken ? undefined : await executeRecaptcha?.();
+    await handleDownloadClick(list, config, token, resetList, qaAuthToken);
+  };
+
+  return (
+    <DownloadList.Button
+      disabled={!size || maxSizeExceeded}
+      component={(props: ButtonProps) => (
+        <GTMButton
+          gtm={{
+            id: "download3-button1",
+            label: props.children[0],
+            action: getAction(selectedDocuments)
+          }}
+          {...props}
+        />
+      )}
+      label={downloadButtonLabel}
+      onClick={handleButtonClick}
+      data-testid="document-table-download-button"
+    />
+  );
+};
+
 const DocumentResultsFooter = ({
   page,
   count,
   onPageChange,
+  sticky,
   isDownloadButton = true
 }: Props) => {
-  const { getMicroCopy } = useSiteContext();
-  const { resetList, list } = useContext(DownloadListContext);
-  const config = useConfig();
-  const { executeRecaptcha } = useGoogleReCaptcha();
-  const qaAuthToken = getCookie(QA_AUTH_TOKEN);
-  const displayPagination = count > 1;
+  const displayPagination = Boolean(count > 1 && onPageChange);
+
+  if (sticky) {
+    return (
+      <StickyFooter
+        showPagination={displayPagination}
+        page={page}
+        count={count}
+        onPageChange={onPageChange}
+      />
+    );
+  }
 
   return (
-    <div
-      className={styles["DocumentResultsFooter"]}
-      data-testid="document-results-footer"
-    >
+    <DocumentResultsFooterContainer data-testid="document-results-footer">
       {displayPagination && (
-        <StyledPagination
-          page={page}
-          onChange={onPageChange}
-          count={count}
-          className={classnames(styles["pagination"], classes.paginationRoot)}
-        />
+        <StyledPagination page={page} onChange={onPageChange} count={count} />
       )}
       {isDownloadButton && (
         <Box mt={4}>
-          <DownloadList.Clear
-            label={getMicroCopy(microCopy.DOWNLOAD_LIST_CLEAR)}
-            className={styles["clear-downloads"]}
-          />
-          <DownloadList.Button
-            component={(props: ButtonProps) => (
-              <GTMButton
-                gtm={{
-                  id: "download3-button1",
-                  label: props.children[0],
-                  action: getAction(list)
-                }}
-                {...props}
-              />
-            )}
-            label={`${getMicroCopy(
-              microCopy.DOWNLOAD_LIST_DOWNLOAD
-            )} ({{count}})`}
-            onClick={async (list) => {
-              const token = qaAuthToken
-                ? undefined
-                : await executeRecaptcha?.();
-              await handleDownloadClick(
-                list,
-                config,
-                token,
-                resetList,
-                qaAuthToken
-              );
-            }}
-            data-testid="document-table-download-button"
-          />
-          <RecaptchaPrivacyLinks />
+          <DocumentsFooterContent />
+          <StyledRecaptcha className={classes["recaptcha"]} />
         </Box>
       )}
-    </div>
+    </DocumentResultsFooterContainer>
+  );
+};
+
+type StickyFooterProps = {
+  showPagination: boolean;
+  page: number;
+  count: number;
+  onPageChange: (event: React.ChangeEvent<unknown>, page: number) => void;
+};
+
+const StickyFooter = (props: StickyFooterProps) => {
+  const hasScrollbar = useHasScrollbar();
+
+  return (
+    <>
+      {props.showPagination && (
+        <Container disableGutters>
+          <Grid container spacing={0} direction="row-reverse">
+            <Grid xs={12} md={12} lg={9}>
+              <StyledPagination
+                page={props.page}
+                count={props.count}
+                onChange={props.onPageChange}
+              />
+            </Grid>
+          </Grid>
+        </Container>
+      )}
+      <StickyContainer
+        data-testid="document-results-footer"
+        hasScrollGutter={hasScrollbar}
+      >
+        <Container disableGutters>
+          <Grid container direction="row-reverse">
+            <Grid xs={12} md={12} lg={9}>
+              <DocumentsFooterContent />
+            </Grid>
+          </Grid>
+        </Container>
+      </StickyContainer>
+      <Grid container direction="row-reverse">
+        <Grid xs={12} md={12} lg={9}>
+          <StyledRecaptcha className={classes["recaptcha"]} />
+        </Grid>
+      </Grid>
+    </>
+  );
+};
+
+const DocumentsFooterContent = () => {
+  const { getMicroCopy } = useSiteContext();
+  const config = useConfig();
+  const { remainingSize, size } = useContext(DownloadListContext);
+  const maxSizeExceeded = remainingSize <= 0;
+
+  return (
+    <ContentWrapper>
+      <ButtonsWrapper>
+        <DownloadDocumentsButton />
+        <ResetSelectionBtn
+          disabled={!size}
+          label={getMicroCopy(microCopy.DOWNLOAD_LIST_CLEAR)}
+          data-testid="document-results-footer-reset-button"
+        />
+      </ButtonsWrapper>
+      {size ? (
+        <FilesSizeInfoSection>
+          <TotalSize>
+            <span>
+              {getMicroCopy(microCopy.DOWNLOAD_LIST_TOTAL_SIZE_LABEL)}
+            </span>
+            <span
+              className={classnames(
+                classes.totalSizeValue,
+                maxSizeExceeded && classes.totalSizeExceeded
+              )}
+              data-testid="document-results-footer-total-size-value"
+            >
+              {filesize(size) as string}
+            </span>
+          </TotalSize>
+          <MaxSizeLabel data-testid="document-results-footer-max-size-value">
+            {getMicroCopy(microCopy.DOWNLOAD_LIST_MAX_SIZE, {
+              maxSize: `${config.documentDownloadMaxLimit} MB`
+            })}
+          </MaxSizeLabel>
+          {maxSizeExceeded && (
+            <ErrorMessage data-testid="document-results-footer-size-exceeded-error">
+              <StyledErrorIcon />
+              {getMicroCopy(microCopy.DOCUMENTS_DOWNLOAD_MAX_REACHED)}
+            </ErrorMessage>
+          )}
+        </FilesSizeInfoSection>
+      ) : null}
+    </ContentWrapper>
   );
 };
 

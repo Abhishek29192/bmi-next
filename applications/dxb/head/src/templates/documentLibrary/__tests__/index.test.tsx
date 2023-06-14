@@ -591,6 +591,23 @@ describe("Document Library page", () => {
     });
   });
 
+  it("should not render the table and documents footer during the initial loading", async () => {
+    renderWithProviders({});
+    expect(
+      screen.queryByTestId("document-simple-table-results")
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByTestId("document-results-footer")
+    ).not.toBeInTheDocument();
+
+    expect(
+      await screen.findByTestId("document-results-footer")
+    ).toBeInTheDocument();
+    expect(
+      screen.getByTestId("document-simple-table-results")
+    ).toBeInTheDocument();
+  });
+
   it("should show the correct documents after clicking the pagination", async () => {
     jest.spyOn(window, "scrollTo").mockImplementation();
     const mockESDocumentsList = Array.from(Array(count + 1)).map((_, index) =>

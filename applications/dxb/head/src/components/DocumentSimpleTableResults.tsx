@@ -164,9 +164,6 @@ const DocumentCells = ({
               >
                 <DownloadList.Checkbox
                   name={getUniqueId(document)}
-                  maxLimitReachedLabel={getMicroCopy(
-                    microCopy.DOCUMENTS_DOWNLOAD_MAX_REACHED
-                  )}
                   ariaLabel={`${getMicroCopy(
                     microCopy.DOCUMENT_LIBRARY_DOWNLOAD
                   )} ${

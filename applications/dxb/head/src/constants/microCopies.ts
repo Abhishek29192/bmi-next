@@ -76,6 +76,8 @@ export const microCopy = {
   DOCUMENT_DOWNLOAD_SECTION_DOCUMENT_TITLE:
     "documentDownloadSection.documentTitle",
   DOCUMENT_DOWNLOAD_SECTION_DOWNLOAD: "documentDownloadSection.download",
+  DOWNLOAD_LIST_TOTAL_SIZE_LABEL: "downloadList.totalSize.label",
+  DOWNLOAD_LIST_MAX_SIZE: "downloadList.maxSize",
 
   DOWNLOAD_LIST_CLEAR: "downloadList.clear",
   DOWNLOAD_LIST_DOWNLOAD: "downloadList.download",
