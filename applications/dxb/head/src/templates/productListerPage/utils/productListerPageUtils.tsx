@@ -1,3 +1,4 @@
+/* eslint-disable security/detect-object-injection */
 import {
   Filter,
   Grid,
@@ -6,7 +7,10 @@ import {
 } from "@bmi-digital/components";
 import { Link as GatsbyLink } from "gatsby";
 import React from "react";
-import type { Product as EsProduct } from "@bmi/elasticsearch-types";
+import type {
+  ClassificationField,
+  Product as EsProduct
+} from "@bmi/elasticsearch-types";
 import BrandLogo from "../../../components/BrandLogo";
 import DefaultImage from "../../../images/DefaultImage.svg";
 import { getSearchParams } from "../../../utils/filters";
@@ -14,8 +18,8 @@ import { enhanceColourFilterWithSwatches } from "../../../utils/filtersUI";
 import withGTM from "../../../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../../../utils/path";
 import { FooterAnchorLink } from "../styles";
-import type { Context as SiteContext } from "../../../components/Site";
 import type { PageContextType } from "../components/product-lister-page";
+import type { Context as SiteContext } from "../../../components/Site";
 
 //TODO: remove filter.name === "colour" condition when feature flag 'GATSBY_USE_LEGACY_FILTERS' is removed
 // JIRA : https://bmigroup.atlassian.net/browse/DXB-2789
@@ -34,16 +38,18 @@ export const resolveFilters = (filters: readonly Filter[]) => {
 
 const GTMOverviewCard = withGTM<OverviewCardProps>(OverviewCard);
 export const createSizeLabel = (product: EsProduct): string => {
-  if (!product["MEASUREMENTS$LENGTH"]) return;
-  const l = product["MEASUREMENTS$LENGTH"];
-  const w = product["MEASUREMENTS$WIDTH"];
+  const width: ClassificationField = product["MEASUREMENTS$WIDTH"];
+  const length: ClassificationField = product["MEASUREMENTS$LENGTH"];
+
+  if (!length || !width) return "";
+
   let res: string[] = [];
-  l.forEach((el, i) => {
-    const isSameUnit = el.name.split(" ")[1] === w[`${i}`].name.split(" ")[1];
+  length.forEach((el, i) => {
+    const isSameUnit = el.name.split(" ")[1] === width[i].name.split(" ")[1];
     if (isSameUnit) {
-      res = [...res, `${el.value}x${w[`${i}`].code}`];
+      res = [...res, `${el.value}x${width[i].code}`];
     } else {
-      res = [...res, `${el.code} x ${w[`${i}`].code}`];
+      res = [...res, `${el.code} x ${width[i].code}`];
     }
   });
   return res.join(" | ");
