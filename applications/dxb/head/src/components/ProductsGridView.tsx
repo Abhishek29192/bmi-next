@@ -62,7 +62,7 @@ const ProductsGridView = ({
         const uniqueClassifications = variant.subTitle || "";
         const moreOptionsAvailable =
           variant.all_variants?.length > 1 &&
-          getMicroCopy("plp.product.moreOptionsAvailable");
+          getMicroCopy(microCopy.PLP_PRODUCT_MORE_OPTIONS_AVAILABLE);
         return (
           <Grid key={`${product.code}-${variant.code}`} xs={12} md={6} lg={4}>
             <GTMOverviewCard

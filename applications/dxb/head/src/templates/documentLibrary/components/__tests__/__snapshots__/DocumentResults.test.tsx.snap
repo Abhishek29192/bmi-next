@@ -482,7 +482,7 @@ exports[`DocumentResults component cards: renders correctly 1`] = `
       data-testid="grid-item"
     >
       <div
-        class="OverviewCard-clickable MuiBox-root css-8lfaij"
+        class="OverviewCard-clickable MuiBox-root css-1a938px"
       >
         <a
           class="MuiButtonBase-root OverviewCard-main css-10d1a0h-MuiButtonBase-root"
