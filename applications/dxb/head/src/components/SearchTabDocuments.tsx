@@ -113,6 +113,7 @@ const SearchTabPanelDocuments = (props: Props) => {
   const isInitialLoad = useRef(true);
   const resultsElement = useRef<HTMLDivElement>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [initialLoading, setInitialLoading] = useState<boolean>(true);
   const [results, setResults] = useState([]);
   const [filters, setFilters] = useState([]);
   const [page, setPage] = useState(0);
@@ -170,6 +171,9 @@ const SearchTabPanelDocuments = (props: Props) => {
     }
 
     updateLoadingStatus(false);
+    if (initialLoading) {
+      setInitialLoading(false);
+    }
 
     return results;
   };
@@ -269,15 +273,16 @@ const SearchTabPanelDocuments = (props: Props) => {
             documents={results}
             headers={documentTableHeaders}
           />
-          <div>
-            <DocumentResultsFooter
-              page={page + 1}
-              count={pageCount}
-              onPageChange={handlePageChange}
-            />
-          </div>
         </Grid>
       </StyledGridContainer>
+      {!initialLoading && (
+        <DocumentResultsFooter
+          sticky
+          page={page + 1}
+          count={pageCount}
+          onPageChange={handlePageChange}
+        />
+      )}
     </DownloadList>
   );
 };

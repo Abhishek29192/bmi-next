@@ -252,6 +252,7 @@ describe("MobileDocumentTechnicalTableResults component", () => {
         <DownloadListContext.Provider
           value={{
             updateList: updateListMock,
+            size: 0,
             list: {},
             resetList: jest.fn(),
             count: 0,
@@ -301,6 +302,7 @@ describe("MobileDocumentTechnicalTableResults component", () => {
         <DownloadListContext.Provider
           value={{
             updateList: jest.fn(),
+            size: 10,
             list: { "base-product-code": [selectedDocument] },
             resetList: jest.fn(),
             count: 0,

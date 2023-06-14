@@ -12,6 +12,7 @@ import queryString from "query-string";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import BackToResults from "../../components/BackToResults";
 import Breadcrumbs from "../../components/Breadcrumbs";
+import DocumentResultsFooter from "../../components/DocumentResultsFooter";
 import Page, { Data as PageData } from "../../components/Page";
 import ProgressIndicator from "../../components/ProgressIndicator";
 import RichText from "../../components/RichText";
@@ -30,6 +31,7 @@ import {
   replaceDotFiltersParameter,
   updateFilterValue
 } from "../../utils/filters";
+import { ResultsSection, classes } from "./DocumentLibraryStyles";
 import { Format } from "./components/DocumentResults";
 import { DownloadListAlertBanner } from "./components/DownloadListAlertBanner";
 import FilterSection from "./components/FilterSection";
@@ -274,7 +276,11 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
           }}
         </DownloadListContext.Consumer>
         {!(resultsType === "Simple Archive" && source === "CMS") && (
-          <Section backgroundColor="white" id={`document-library-filters`}>
+          <ResultsSection
+            backgroundColor="white"
+            className={classes["resultsSection"]}
+            id={`document-library-filters`}
+          >
             <Grid container spacing={3} ref={resultsElement}>
               <Grid xs={12} md={12} lg={3}>
                 <FilterSection
@@ -291,14 +297,20 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
                     results={documents}
                     assetTypes={contentfulAssetTypes}
                     format={format}
-                    page={page}
-                    pageCount={pageCount}
-                    handlePageChange={handlePageChange}
                   />
                 ) : null}
               </Grid>
             </Grid>
-          </Section>
+            {!initialLoading && (
+              <DocumentResultsFooter
+                sticky={format !== "cards"}
+                onPageChange={handlePageChange}
+                page={page + 1}
+                count={pageCount}
+                isDownloadButton={format !== "cards"}
+              />
+            )}
+          </ResultsSection>
         )}
       </DownloadList>
       <Section

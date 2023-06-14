@@ -76,6 +76,7 @@ describe("DocumentResultsFooter component", () => {
             updateList: jest.fn(),
             resetList: jest.fn(),
             count: 4,
+            size: 30,
             remainingSize: Infinity,
             isLoading: false,
             setIsLoading: jest.fn()
@@ -92,6 +93,101 @@ describe("DocumentResultsFooter component", () => {
     expect(container).toMatchSnapshot();
   });
 
+  it("renders correctly if there are no selected documents", () => {
+    const handlePageChange = jest.fn();
+    render(
+      <ThemeProvider>
+        <DownloadListContext.Provider
+          value={{
+            list: {},
+            updateList: jest.fn(),
+            resetList: jest.fn(),
+            count: 0,
+            size: 0,
+            remainingSize: Infinity,
+            isLoading: false,
+            setIsLoading: jest.fn()
+          }}
+        >
+          <DocumentResultsFooter
+            page={1}
+            count={1}
+            onPageChange={handlePageChange}
+          />
+        </DownloadListContext.Provider>
+      </ThemeProvider>
+    );
+
+    expect(screen.getByTestId("document-results-footer")).toBeInTheDocument();
+    expect(
+      screen.queryByTestId("document-results-footer-total-size-value")
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByTestId("document-results-footer-max-size-value")
+    ).not.toBeInTheDocument();
+  });
+
+  it("renders correctly if there are selected documents", () => {
+    const handlePageChange = jest.fn();
+    render(
+      <ThemeProvider>
+        <DownloadListContext.Provider
+          value={{
+            list: { "test-document": createPimDocument() },
+            updateList: jest.fn(),
+            resetList: jest.fn(),
+            count: 1,
+            size: 10,
+            remainingSize: Infinity,
+            isLoading: false,
+            setIsLoading: jest.fn()
+          }}
+        >
+          <DocumentResultsFooter
+            page={1}
+            count={1}
+            onPageChange={handlePageChange}
+          />
+        </DownloadListContext.Provider>
+      </ThemeProvider>
+    );
+    expect(
+      screen.getByTestId("document-results-footer-total-size-value")
+    ).toBeInTheDocument();
+    expect(
+      screen.getByTestId("document-results-footer-max-size-value")
+    ).toBeInTheDocument();
+  });
+
+  it("renders correctly if the maximum allowed size is exceeded", () => {
+    const handlePageChange = jest.fn();
+    render(
+      <ThemeProvider>
+        <DownloadListContext.Provider
+          value={{
+            list: { "test-document": createPimDocument() },
+            updateList: jest.fn(),
+            resetList: jest.fn(),
+            count: 1,
+            size: 200,
+            remainingSize: 0,
+            isLoading: false,
+            setIsLoading: jest.fn()
+          }}
+        >
+          <DocumentResultsFooter
+            page={1}
+            count={1}
+            onPageChange={handlePageChange}
+          />
+        </DownloadListContext.Provider>
+      </ThemeProvider>
+    );
+    expect(
+      screen.getByTestId("document-results-footer-size-exceeded-error")
+    ).toBeInTheDocument();
+  });
+
   it("renders correctly if download item is array", () => {
     const handlePageChange = jest.fn();
     const customList = {
@@ -102,6 +198,7 @@ describe("DocumentResultsFooter component", () => {
       <ThemeProvider>
         <DownloadListContext.Provider
           value={{
+            size: 20,
             list: customList,
             updateList: jest.fn(),
             resetList: jest.fn(),
@@ -132,6 +229,7 @@ describe("DocumentResultsFooter component", () => {
             updateList: jest.fn(),
             resetList: jest.fn(),
             count: 4,
+            size: 0,
             remainingSize: Infinity,
             isLoading: false,
             setIsLoading: jest.fn()
@@ -159,6 +257,7 @@ describe("DocumentResultsFooter component", () => {
             updateList: jest.fn(),
             resetList: jest.fn(),
             count: 3,
+            size: 10,
             remainingSize: Infinity,
             isLoading: false,
             setIsLoading: jest.fn()
@@ -195,6 +294,7 @@ describe("DocumentResultsFooter component", () => {
             updateList: jest.fn(),
             resetList: jest.fn(),
             count: 3,
+            size: 10,
             remainingSize: Infinity,
             isLoading: false,
             setIsLoading: jest.fn()
@@ -214,6 +314,36 @@ describe("DocumentResultsFooter component", () => {
     );
     fireEvent.click(downloadButton);
     expect(executeRecaptcha).not.toHaveBeenCalled();
+  });
+
+  it("renders sticky footer", () => {
+    render(
+      <ThemeProvider>
+        <DownloadListContext.Provider
+          value={{
+            list,
+            updateList: jest.fn(),
+            resetList: jest.fn(),
+            count: 3,
+            size: 0,
+            remainingSize: Infinity,
+            isLoading: false,
+            setIsLoading: jest.fn()
+          }}
+        >
+          <DocumentResultsFooter
+            page={1}
+            count={1}
+            onPageChange={jest.fn()}
+            sticky
+          />
+        </DownloadListContext.Provider>
+      </ThemeProvider>
+    );
+
+    expect(screen.getByTestId("document-results-footer")).toHaveStyle({
+      position: "sticky"
+    });
   });
 
   describe("handleDownloadClick", () => {
@@ -389,6 +519,7 @@ describe("DocumentResultsFooter component", () => {
               updateList: jest.fn(),
               resetList: jest.fn(),
               count: 3,
+              size: 0,
               remainingSize: Infinity,
               isLoading: false,
               setIsLoading: jest.fn()
@@ -416,6 +547,7 @@ describe("DocumentResultsFooter component", () => {
               updateList: jest.fn(),
               resetList: jest.fn(),
               count: 26,
+              size: 0,
               remainingSize: Infinity,
               isLoading: false,
               setIsLoading: jest.fn()
@@ -429,6 +561,38 @@ describe("DocumentResultsFooter component", () => {
           </DownloadListContext.Provider>
         </ThemeProvider>
       );
+      expect(screen.getByTestId("pagination-root")).toBeInTheDocument();
+    });
+
+    it("should show pagination when page size is more than 25(PageCount>1) and the footer is sticky", () => {
+      const handlePageChange = jest.fn();
+
+      render(
+        <ThemeProvider>
+          <DownloadListContext.Provider
+            value={{
+              list,
+              updateList: jest.fn(),
+              resetList: jest.fn(),
+              count: 26,
+              size: 0,
+              remainingSize: Infinity,
+              isLoading: false,
+              setIsLoading: jest.fn()
+            }}
+          >
+            <DocumentResultsFooter
+              page={1}
+              count={2}
+              onPageChange={handlePageChange}
+              sticky
+            />
+          </DownloadListContext.Provider>
+        </ThemeProvider>
+      );
+      expect(screen.getByTestId("document-results-footer")).toHaveStyle({
+        position: "sticky"
+      });
       expect(screen.getByTestId("pagination-root")).toBeInTheDocument();
     });
   });

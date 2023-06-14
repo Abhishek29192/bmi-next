@@ -89,9 +89,6 @@ const MobileDocumentTechnicalTableResults = ({
               <div onClick={(e: React.MouseEvent) => e.stopPropagation()}>
                 <DownloadList.Checkbox
                   name={assets[0].productBaseCode}
-                  maxLimitReachedLabel={getMicroCopy(
-                    microCopy.DOCUMENTS_DOWNLOAD_MAX_REACHED
-                  )}
                   ariaLabel={`Select all documents for ${assets[0].productName}`}
                   disabled={getIsSelectionDisabled(assets)}
                   value={getSelectableDocuments(assets)}

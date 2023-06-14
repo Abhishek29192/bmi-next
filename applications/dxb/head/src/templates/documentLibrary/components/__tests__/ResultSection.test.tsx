@@ -1,8 +1,5 @@
 import { ThemeProvider } from "@bmi-digital/components";
-import {
-  createContentfulDocument,
-  createPimProductDocument
-} from "@bmi/elasticsearch-types";
+import { createPimProductDocument } from "@bmi/elasticsearch-types";
 import { render, screen } from "@testing-library/react";
 import React from "react";
 import createAssetType from "../../../../__tests__/helpers/AssetTypeHelper";
@@ -26,7 +23,6 @@ beforeEach(() => {
 });
 
 describe("ResultSection", () => {
-  const handlePageChange = jest.fn();
   const pimDocument = createPimProductDocument({
     id: `pim-doc-id`,
     url: `pim-doc-url`,
@@ -36,10 +32,7 @@ describe("ResultSection", () => {
   const props: ResultSectionProps = {
     results: [pimDocument],
     assetTypes: [assetType],
-    format: "simpleTable",
-    page: 1,
-    pageCount: 2,
-    handlePageChange
+    format: "simpleTable"
   };
 
   it("render correctly", () => {
@@ -57,25 +50,17 @@ describe("ResultSection", () => {
         screen.getByTestId(`document-table-row-${result.id}`)
       ).toBeInTheDocument();
     });
-    expect(
-      screen.getByTestId("document-results-footer-wrapper")
-    ).toBeInTheDocument();
-    expect(screen.getByTestId("document-results-footer")).toBeInTheDocument();
   });
 
-  it("does not trigger handleDownloadClick if format is set to cards", async () => {
+  it("renders correctly if there are no documents", () => {
     render(
       <ThemeProvider>
-        <ResultSection
-          {...props}
-          results={[createContentfulDocument()]}
-          format={"cards"}
-        />
+        <ResultSection {...props} results={[]} />
       </ThemeProvider>
     );
 
     expect(
-      screen.queryByText("MC: downloadList.download (0)")
-    ).not.toBeInTheDocument();
+      screen.getByText("MC: documentLibrary.noResults")
+    ).toBeInTheDocument();
   });
 });

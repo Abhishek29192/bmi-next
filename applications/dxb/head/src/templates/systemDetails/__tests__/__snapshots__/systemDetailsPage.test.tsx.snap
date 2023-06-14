@@ -3370,45 +3370,39 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                           class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-hsmwoy-MuiTableCell-root"
                           data-testid="document-table-add-pim-link-document-id"
                         >
-                          <span
-                            aria-label="MC: documents.download.maxReached"
-                            class=""
-                            data-mui-internal-clone-element="true"
+                          <div
+                            class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
                           >
-                            <div
-                              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                            <label
+                              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                             >
-                              <label
-                                class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+                              <span
+                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                               >
-                                <span
-                                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                <input
+                                  aria-label="MC: documentLibrary.download pim-link-document-title"
+                                  class="PrivateSwitchBase-input css-1m9pwf3"
+                                  data-indeterminate="false"
+                                  name="pim-link-document-id-pim-link-document-title"
+                                  type="checkbox"
+                                />
+                                <svg
+                                  aria-hidden="true"
+                                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                  data-testid="CheckBoxOutlineBlankIcon"
+                                  focusable="false"
+                                  viewBox="0 0 24 24"
                                 >
-                                  <input
-                                    aria-label="MC: documentLibrary.download pim-link-document-title"
-                                    class="PrivateSwitchBase-input css-1m9pwf3"
-                                    data-indeterminate="false"
-                                    name="pim-link-document-id-pim-link-document-title"
-                                    type="checkbox"
+                                  <path
+                                    d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
                                   />
-                                  <svg
-                                    aria-hidden="true"
-                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                    data-testid="CheckBoxOutlineBlankIcon"
-                                    focusable="false"
-                                    viewBox="0 0 24 24"
-                                  >
-                                    <path
-                                      d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                                    />
-                                  </svg>
-                                  <span
-                                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                                  />
-                                </span>
-                              </label>
-                            </div>
-                          </span>
+                                </svg>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </span>
+                            </label>
+                          </div>
                         </td>
                         <td
                           class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
@@ -3558,45 +3552,39 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                           class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-hsmwoy-MuiTableCell-root"
                           data-testid="document-table-add-pim-link-document-id"
                         >
-                          <span
-                            aria-label="MC: documents.download.maxReached"
-                            class=""
-                            data-mui-internal-clone-element="true"
+                          <div
+                            class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
                           >
-                            <div
-                              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                            <label
+                              class="MuiFormControlLabel-root Mui-disabled MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                             >
-                              <label
-                                class="MuiFormControlLabel-root Mui-disabled MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+                              <span
+                                aria-disabled="true"
+                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                tabindex="-1"
                               >
-                                <span
-                                  aria-disabled="true"
-                                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
-                                  tabindex="-1"
+                                <input
+                                  aria-label="MC: documentLibrary.download pim-link-document-title"
+                                  class="PrivateSwitchBase-input css-1m9pwf3"
+                                  data-indeterminate="false"
+                                  disabled=""
+                                  name="pim-link-document-id-pim-link-document-title"
+                                  type="checkbox"
+                                />
+                                <svg
+                                  aria-hidden="true"
+                                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                  data-testid="CheckBoxOutlineBlankIcon"
+                                  focusable="false"
+                                  viewBox="0 0 24 24"
                                 >
-                                  <input
-                                    aria-label="MC: documentLibrary.download pim-link-document-title"
-                                    class="PrivateSwitchBase-input css-1m9pwf3"
-                                    data-indeterminate="false"
-                                    disabled=""
-                                    name="pim-link-document-id-pim-link-document-title"
-                                    type="checkbox"
+                                  <path
+                                    d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
                                   />
-                                  <svg
-                                    aria-hidden="true"
-                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                    data-testid="CheckBoxOutlineBlankIcon"
-                                    focusable="false"
-                                    viewBox="0 0 24 24"
-                                  >
-                                    <path
-                                      d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                                    />
-                                  </svg>
-                                </span>
-                              </label>
-                            </div>
-                          </span>
+                                </svg>
+                              </span>
+                            </label>
+                          </div>
                         </td>
                         <td
                           class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
@@ -3688,35 +3676,41 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
               </div>
             </div>
             <div
-              class="DocumentResultsFooter"
+              class="css-x2mpkr"
               data-testid="document-results-footer"
             >
               <div
                 class="MuiBox-root css-h5fkc8"
               >
-                <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
-                  data-testid="anchor-link"
-                  type="button"
+                <div
+                  class="css-10h4yv9"
                 >
-                  <span>
-                    MC: downloadList.clear
-                  </span>
-                </a>
-                <button
-                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{"id":"download3-button1","label":"MC: downloadList.download (0)","action":"[]"}"
-                  data-testid="document-table-download-button"
-                  tabindex="0"
-                  type="button"
-                >
-                  MC: downloadList.download (0)
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                  />
-                </button>
+                  <div
+                    class="css-7q0w71"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+                      data-gtm="{"id":"download3-button1","label":"MC: downloadList.download","action":"[]"}"
+                      data-testid="document-table-download-button"
+                      disabled=""
+                      tabindex="-1"
+                      type="button"
+                    >
+                      MC: downloadList.download
+                    </button>
+                    <button
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-xc55i5-MuiButtonBase-root-MuiButton-root"
+                      data-testid="document-results-footer-reset-button"
+                      disabled=""
+                      tabindex="-1"
+                      type="button"
+                    >
+                      MC: downloadList.clear
+                    </button>
+                  </div>
+                </div>
                 <p
-                  class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 documentResultsFooter-recaptcha css-aoter2-MuiTypography-root"
                   data-testid="typography"
                 >
                   This site is protected by reCAPTCHA and the Google 
@@ -7718,45 +7712,39 @@ exports[`SystemDetailsPage template component should render 1`] = `
                           class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-hsmwoy-MuiTableCell-root"
                           data-testid="document-table-add-pim-link-document-id"
                         >
-                          <span
-                            aria-label="MC: documents.download.maxReached"
-                            class=""
-                            data-mui-internal-clone-element="true"
+                          <div
+                            class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
                           >
-                            <div
-                              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                            <label
+                              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                             >
-                              <label
-                                class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+                              <span
+                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                               >
-                                <span
-                                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                <input
+                                  aria-label="MC: documentLibrary.download pim-link-document-title"
+                                  class="PrivateSwitchBase-input css-1m9pwf3"
+                                  data-indeterminate="false"
+                                  name="pim-link-document-id-pim-link-document-title"
+                                  type="checkbox"
+                                />
+                                <svg
+                                  aria-hidden="true"
+                                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                  data-testid="CheckBoxOutlineBlankIcon"
+                                  focusable="false"
+                                  viewBox="0 0 24 24"
                                 >
-                                  <input
-                                    aria-label="MC: documentLibrary.download pim-link-document-title"
-                                    class="PrivateSwitchBase-input css-1m9pwf3"
-                                    data-indeterminate="false"
-                                    name="pim-link-document-id-pim-link-document-title"
-                                    type="checkbox"
+                                  <path
+                                    d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
                                   />
-                                  <svg
-                                    aria-hidden="true"
-                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                    data-testid="CheckBoxOutlineBlankIcon"
-                                    focusable="false"
-                                    viewBox="0 0 24 24"
-                                  >
-                                    <path
-                                      d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                                    />
-                                  </svg>
-                                  <span
-                                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                                  />
-                                </span>
-                              </label>
-                            </div>
-                          </span>
+                                </svg>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </span>
+                            </label>
+                          </div>
                         </td>
                         <td
                           class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
@@ -7906,45 +7894,39 @@ exports[`SystemDetailsPage template component should render 1`] = `
                           class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-hsmwoy-MuiTableCell-root"
                           data-testid="document-table-add-pim-link-document-id"
                         >
-                          <span
-                            aria-label="MC: documents.download.maxReached"
-                            class=""
-                            data-mui-internal-clone-element="true"
+                          <div
+                            class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
                           >
-                            <div
-                              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                            <label
+                              class="MuiFormControlLabel-root Mui-disabled MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                             >
-                              <label
-                                class="MuiFormControlLabel-root Mui-disabled MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+                              <span
+                                aria-disabled="true"
+                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                tabindex="-1"
                               >
-                                <span
-                                  aria-disabled="true"
-                                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
-                                  tabindex="-1"
+                                <input
+                                  aria-label="MC: documentLibrary.download pim-link-document-title"
+                                  class="PrivateSwitchBase-input css-1m9pwf3"
+                                  data-indeterminate="false"
+                                  disabled=""
+                                  name="pim-link-document-id-pim-link-document-title"
+                                  type="checkbox"
+                                />
+                                <svg
+                                  aria-hidden="true"
+                                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                  data-testid="CheckBoxOutlineBlankIcon"
+                                  focusable="false"
+                                  viewBox="0 0 24 24"
                                 >
-                                  <input
-                                    aria-label="MC: documentLibrary.download pim-link-document-title"
-                                    class="PrivateSwitchBase-input css-1m9pwf3"
-                                    data-indeterminate="false"
-                                    disabled=""
-                                    name="pim-link-document-id-pim-link-document-title"
-                                    type="checkbox"
+                                  <path
+                                    d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
                                   />
-                                  <svg
-                                    aria-hidden="true"
-                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                    data-testid="CheckBoxOutlineBlankIcon"
-                                    focusable="false"
-                                    viewBox="0 0 24 24"
-                                  >
-                                    <path
-                                      d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                                    />
-                                  </svg>
-                                </span>
-                              </label>
-                            </div>
-                          </span>
+                                </svg>
+                              </span>
+                            </label>
+                          </div>
                         </td>
                         <td
                           class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
@@ -8036,35 +8018,41 @@ exports[`SystemDetailsPage template component should render 1`] = `
               </div>
             </div>
             <div
-              class="DocumentResultsFooter"
+              class="css-x2mpkr"
               data-testid="document-results-footer"
             >
               <div
                 class="MuiBox-root css-h5fkc8"
               >
-                <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
-                  data-testid="anchor-link"
-                  type="button"
+                <div
+                  class="css-10h4yv9"
                 >
-                  <span>
-                    MC: downloadList.clear
-                  </span>
-                </a>
-                <button
-                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{"id":"download3-button1","label":"MC: downloadList.download (0)","action":"[]"}"
-                  data-testid="document-table-download-button"
-                  tabindex="0"
-                  type="button"
-                >
-                  MC: downloadList.download (0)
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                  />
-                </button>
+                  <div
+                    class="css-7q0w71"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+                      data-gtm="{"id":"download3-button1","label":"MC: downloadList.download","action":"[]"}"
+                      data-testid="document-table-download-button"
+                      disabled=""
+                      tabindex="-1"
+                      type="button"
+                    >
+                      MC: downloadList.download
+                    </button>
+                    <button
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-xc55i5-MuiButtonBase-root-MuiButton-root"
+                      data-testid="document-results-footer-reset-button"
+                      disabled=""
+                      tabindex="-1"
+                      type="button"
+                    >
+                      MC: downloadList.clear
+                    </button>
+                  </div>
+                </div>
                 <p
-                  class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 documentResultsFooter-recaptcha css-aoter2-MuiTypography-root"
                   data-testid="typography"
                 >
                   This site is protected by reCAPTCHA and the Google 
@@ -12070,45 +12058,39 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                             class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-hsmwoy-MuiTableCell-root"
                             data-testid="document-table-add-pim-link-document-id"
                           >
-                            <span
-                              aria-label="MC: documents.download.maxReached"
-                              class=""
-                              data-mui-internal-clone-element="true"
+                            <div
+                              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
                             >
-                              <div
-                                class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                              <label
+                                class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                               >
-                                <label
-                                  class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+                                <span
+                                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                                 >
-                                  <span
-                                    class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                  <input
+                                    aria-label="MC: documentLibrary.download pim-link-document-title"
+                                    class="PrivateSwitchBase-input css-1m9pwf3"
+                                    data-indeterminate="false"
+                                    name="pim-link-document-id-pim-link-document-title"
+                                    type="checkbox"
+                                  />
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                    data-testid="CheckBoxOutlineBlankIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
                                   >
-                                    <input
-                                      aria-label="MC: documentLibrary.download pim-link-document-title"
-                                      class="PrivateSwitchBase-input css-1m9pwf3"
-                                      data-indeterminate="false"
-                                      name="pim-link-document-id-pim-link-document-title"
-                                      type="checkbox"
+                                    <path
+                                      d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
                                     />
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                      data-testid="CheckBoxOutlineBlankIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                                      />
-                                    </svg>
-                                    <span
-                                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                                    />
-                                  </span>
-                                </label>
-                              </div>
-                            </span>
+                                  </svg>
+                                  <span
+                                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                  />
+                                </span>
+                              </label>
+                            </div>
                           </td>
                           <td
                             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
@@ -12258,45 +12240,39 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                             class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-hsmwoy-MuiTableCell-root"
                             data-testid="document-table-add-pim-link-document-id"
                           >
-                            <span
-                              aria-label="MC: documents.download.maxReached"
-                              class=""
-                              data-mui-internal-clone-element="true"
+                            <div
+                              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
                             >
-                              <div
-                                class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                              <label
+                                class="MuiFormControlLabel-root Mui-disabled MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                               >
-                                <label
-                                  class="MuiFormControlLabel-root Mui-disabled MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+                                <span
+                                  aria-disabled="true"
+                                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                  tabindex="-1"
                                 >
-                                  <span
-                                    aria-disabled="true"
-                                    class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
-                                    tabindex="-1"
+                                  <input
+                                    aria-label="MC: documentLibrary.download pim-link-document-title"
+                                    class="PrivateSwitchBase-input css-1m9pwf3"
+                                    data-indeterminate="false"
+                                    disabled=""
+                                    name="pim-link-document-id-pim-link-document-title"
+                                    type="checkbox"
+                                  />
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                    data-testid="CheckBoxOutlineBlankIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
                                   >
-                                    <input
-                                      aria-label="MC: documentLibrary.download pim-link-document-title"
-                                      class="PrivateSwitchBase-input css-1m9pwf3"
-                                      data-indeterminate="false"
-                                      disabled=""
-                                      name="pim-link-document-id-pim-link-document-title"
-                                      type="checkbox"
+                                    <path
+                                      d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
                                     />
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                      data-testid="CheckBoxOutlineBlankIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                                      />
-                                    </svg>
-                                  </span>
-                                </label>
-                              </div>
-                            </span>
+                                  </svg>
+                                </span>
+                              </label>
+                            </div>
                           </td>
                           <td
                             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
@@ -12388,35 +12364,41 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                 </div>
               </div>
               <div
-                class="DocumentResultsFooter"
+                class="css-x2mpkr"
                 data-testid="document-results-footer"
               >
                 <div
                   class="MuiBox-root css-h5fkc8"
                 >
-                  <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
-                    data-testid="anchor-link"
-                    type="button"
+                  <div
+                    class="css-10h4yv9"
                   >
-                    <span>
-                      MC: downloadList.clear
-                    </span>
-                  </a>
-                  <button
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{"id":"download3-button1","label":"MC: downloadList.download (0)","action":"[]"}"
-                    data-testid="document-table-download-button"
-                    tabindex="0"
-                    type="button"
-                  >
-                    MC: downloadList.download (0)
-                    <span
-                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                    />
-                  </button>
+                    <div
+                      class="css-7q0w71"
+                    >
+                      <button
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+                        data-gtm="{"id":"download3-button1","label":"MC: downloadList.download","action":"[]"}"
+                        data-testid="document-table-download-button"
+                        disabled=""
+                        tabindex="-1"
+                        type="button"
+                      >
+                        MC: downloadList.download
+                      </button>
+                      <button
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-xc55i5-MuiButtonBase-root-MuiButton-root"
+                        data-testid="document-results-footer-reset-button"
+                        disabled=""
+                        tabindex="-1"
+                        type="button"
+                      >
+                        MC: downloadList.clear
+                      </button>
+                    </div>
+                  </div>
                   <p
-                    class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1 documentResultsFooter-recaptcha css-aoter2-MuiTypography-root"
                     data-testid="typography"
                   >
                     This site is protected by reCAPTCHA and the Google 
@@ -16419,45 +16401,39 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                           class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-hsmwoy-MuiTableCell-root"
                           data-testid="document-table-add-pim-link-document-id"
                         >
-                          <span
-                            aria-label="MC: documents.download.maxReached"
-                            class=""
-                            data-mui-internal-clone-element="true"
+                          <div
+                            class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
                           >
-                            <div
-                              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                            <label
+                              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                             >
-                              <label
-                                class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+                              <span
+                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                               >
-                                <span
-                                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                <input
+                                  aria-label="MC: documentLibrary.download pim-link-document-title"
+                                  class="PrivateSwitchBase-input css-1m9pwf3"
+                                  data-indeterminate="false"
+                                  name="pim-link-document-id-pim-link-document-title"
+                                  type="checkbox"
+                                />
+                                <svg
+                                  aria-hidden="true"
+                                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                  data-testid="CheckBoxOutlineBlankIcon"
+                                  focusable="false"
+                                  viewBox="0 0 24 24"
                                 >
-                                  <input
-                                    aria-label="MC: documentLibrary.download pim-link-document-title"
-                                    class="PrivateSwitchBase-input css-1m9pwf3"
-                                    data-indeterminate="false"
-                                    name="pim-link-document-id-pim-link-document-title"
-                                    type="checkbox"
+                                  <path
+                                    d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
                                   />
-                                  <svg
-                                    aria-hidden="true"
-                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                    data-testid="CheckBoxOutlineBlankIcon"
-                                    focusable="false"
-                                    viewBox="0 0 24 24"
-                                  >
-                                    <path
-                                      d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                                    />
-                                  </svg>
-                                  <span
-                                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                                  />
-                                </span>
-                              </label>
-                            </div>
-                          </span>
+                                </svg>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </span>
+                            </label>
+                          </div>
                         </td>
                         <td
                           class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
@@ -16607,45 +16583,39 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                           class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-hsmwoy-MuiTableCell-root"
                           data-testid="document-table-add-pim-link-document-id"
                         >
-                          <span
-                            aria-label="MC: documents.download.maxReached"
-                            class=""
-                            data-mui-internal-clone-element="true"
+                          <div
+                            class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
                           >
-                            <div
-                              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                            <label
+                              class="MuiFormControlLabel-root Mui-disabled MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                             >
-                              <label
-                                class="MuiFormControlLabel-root Mui-disabled MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+                              <span
+                                aria-disabled="true"
+                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                tabindex="-1"
                               >
-                                <span
-                                  aria-disabled="true"
-                                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
-                                  tabindex="-1"
+                                <input
+                                  aria-label="MC: documentLibrary.download pim-link-document-title"
+                                  class="PrivateSwitchBase-input css-1m9pwf3"
+                                  data-indeterminate="false"
+                                  disabled=""
+                                  name="pim-link-document-id-pim-link-document-title"
+                                  type="checkbox"
+                                />
+                                <svg
+                                  aria-hidden="true"
+                                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                  data-testid="CheckBoxOutlineBlankIcon"
+                                  focusable="false"
+                                  viewBox="0 0 24 24"
                                 >
-                                  <input
-                                    aria-label="MC: documentLibrary.download pim-link-document-title"
-                                    class="PrivateSwitchBase-input css-1m9pwf3"
-                                    data-indeterminate="false"
-                                    disabled=""
-                                    name="pim-link-document-id-pim-link-document-title"
-                                    type="checkbox"
+                                  <path
+                                    d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
                                   />
-                                  <svg
-                                    aria-hidden="true"
-                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                    data-testid="CheckBoxOutlineBlankIcon"
-                                    focusable="false"
-                                    viewBox="0 0 24 24"
-                                  >
-                                    <path
-                                      d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                                    />
-                                  </svg>
-                                </span>
-                              </label>
-                            </div>
-                          </span>
+                                </svg>
+                              </span>
+                            </label>
+                          </div>
                         </td>
                         <td
                           class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
@@ -16737,35 +16707,41 @@ exports[`SystemDetailsPage template component should render without BrandProvide
               </div>
             </div>
             <div
-              class="DocumentResultsFooter"
+              class="css-x2mpkr"
               data-testid="document-results-footer"
             >
               <div
                 class="MuiBox-root css-h5fkc8"
               >
-                <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
-                  data-testid="anchor-link"
-                  type="button"
+                <div
+                  class="css-10h4yv9"
                 >
-                  <span>
-                    MC: downloadList.clear
-                  </span>
-                </a>
-                <button
-                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{"id":"download3-button1","label":"MC: downloadList.download (0)","action":"[]"}"
-                  data-testid="document-table-download-button"
-                  tabindex="0"
-                  type="button"
-                >
-                  MC: downloadList.download (0)
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                  />
-                </button>
+                  <div
+                    class="css-7q0w71"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+                      data-gtm="{"id":"download3-button1","label":"MC: downloadList.download","action":"[]"}"
+                      data-testid="document-table-download-button"
+                      disabled=""
+                      tabindex="-1"
+                      type="button"
+                    >
+                      MC: downloadList.download
+                    </button>
+                    <button
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-xc55i5-MuiButtonBase-root-MuiButton-root"
+                      data-testid="document-results-footer-reset-button"
+                      disabled=""
+                      tabindex="-1"
+                      type="button"
+                    >
+                      MC: downloadList.clear
+                    </button>
+                  </div>
+                </div>
                 <p
-                  class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 documentResultsFooter-recaptcha css-aoter2-MuiTypography-root"
                   data-testid="typography"
                 >
                   This site is protected by reCAPTCHA and the Google 
@@ -20727,45 +20703,39 @@ exports[`SystemDetailsPage template component should render without specificatio
                           class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-hsmwoy-MuiTableCell-root"
                           data-testid="document-table-add-pim-link-document-id"
                         >
-                          <span
-                            aria-label="MC: documents.download.maxReached"
-                            class=""
-                            data-mui-internal-clone-element="true"
+                          <div
+                            class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
                           >
-                            <div
-                              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                            <label
+                              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                             >
-                              <label
-                                class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+                              <span
+                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                               >
-                                <span
-                                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                <input
+                                  aria-label="MC: documentLibrary.download pim-link-document-title"
+                                  class="PrivateSwitchBase-input css-1m9pwf3"
+                                  data-indeterminate="false"
+                                  name="pim-link-document-id-pim-link-document-title"
+                                  type="checkbox"
+                                />
+                                <svg
+                                  aria-hidden="true"
+                                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                  data-testid="CheckBoxOutlineBlankIcon"
+                                  focusable="false"
+                                  viewBox="0 0 24 24"
                                 >
-                                  <input
-                                    aria-label="MC: documentLibrary.download pim-link-document-title"
-                                    class="PrivateSwitchBase-input css-1m9pwf3"
-                                    data-indeterminate="false"
-                                    name="pim-link-document-id-pim-link-document-title"
-                                    type="checkbox"
+                                  <path
+                                    d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
                                   />
-                                  <svg
-                                    aria-hidden="true"
-                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                    data-testid="CheckBoxOutlineBlankIcon"
-                                    focusable="false"
-                                    viewBox="0 0 24 24"
-                                  >
-                                    <path
-                                      d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                                    />
-                                  </svg>
-                                  <span
-                                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                                  />
-                                </span>
-                              </label>
-                            </div>
-                          </span>
+                                </svg>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </span>
+                            </label>
+                          </div>
                         </td>
                         <td
                           class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
@@ -20915,45 +20885,39 @@ exports[`SystemDetailsPage template component should render without specificatio
                           class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-hsmwoy-MuiTableCell-root"
                           data-testid="document-table-add-pim-link-document-id"
                         >
-                          <span
-                            aria-label="MC: documents.download.maxReached"
-                            class=""
-                            data-mui-internal-clone-element="true"
+                          <div
+                            class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
                           >
-                            <div
-                              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                            <label
+                              class="MuiFormControlLabel-root Mui-disabled MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                             >
-                              <label
-                                class="MuiFormControlLabel-root Mui-disabled MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+                              <span
+                                aria-disabled="true"
+                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                tabindex="-1"
                               >
-                                <span
-                                  aria-disabled="true"
-                                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
-                                  tabindex="-1"
+                                <input
+                                  aria-label="MC: documentLibrary.download pim-link-document-title"
+                                  class="PrivateSwitchBase-input css-1m9pwf3"
+                                  data-indeterminate="false"
+                                  disabled=""
+                                  name="pim-link-document-id-pim-link-document-title"
+                                  type="checkbox"
+                                />
+                                <svg
+                                  aria-hidden="true"
+                                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                  data-testid="CheckBoxOutlineBlankIcon"
+                                  focusable="false"
+                                  viewBox="0 0 24 24"
                                 >
-                                  <input
-                                    aria-label="MC: documentLibrary.download pim-link-document-title"
-                                    class="PrivateSwitchBase-input css-1m9pwf3"
-                                    data-indeterminate="false"
-                                    disabled=""
-                                    name="pim-link-document-id-pim-link-document-title"
-                                    type="checkbox"
+                                  <path
+                                    d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
                                   />
-                                  <svg
-                                    aria-hidden="true"
-                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                    data-testid="CheckBoxOutlineBlankIcon"
-                                    focusable="false"
-                                    viewBox="0 0 24 24"
-                                  >
-                                    <path
-                                      d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                                    />
-                                  </svg>
-                                </span>
-                              </label>
-                            </div>
-                          </span>
+                                </svg>
+                              </span>
+                            </label>
+                          </div>
                         </td>
                         <td
                           class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
@@ -21045,35 +21009,41 @@ exports[`SystemDetailsPage template component should render without specificatio
               </div>
             </div>
             <div
-              class="DocumentResultsFooter"
+              class="css-x2mpkr"
               data-testid="document-results-footer"
             >
               <div
                 class="MuiBox-root css-h5fkc8"
               >
-                <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
-                  data-testid="anchor-link"
-                  type="button"
+                <div
+                  class="css-10h4yv9"
                 >
-                  <span>
-                    MC: downloadList.clear
-                  </span>
-                </a>
-                <button
-                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{"id":"download3-button1","label":"MC: downloadList.download (0)","action":"[]"}"
-                  data-testid="document-table-download-button"
-                  tabindex="0"
-                  type="button"
-                >
-                  MC: downloadList.download (0)
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                  />
-                </button>
+                  <div
+                    class="css-7q0w71"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+                      data-gtm="{"id":"download3-button1","label":"MC: downloadList.download","action":"[]"}"
+                      data-testid="document-table-download-button"
+                      disabled=""
+                      tabindex="-1"
+                      type="button"
+                    >
+                      MC: downloadList.download
+                    </button>
+                    <button
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-xc55i5-MuiButtonBase-root-MuiButton-root"
+                      data-testid="document-results-footer-reset-button"
+                      disabled=""
+                      tabindex="-1"
+                      type="button"
+                    >
+                      MC: downloadList.clear
+                    </button>
+                  </div>
+                </div>
                 <p
-                  class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 documentResultsFooter-recaptcha css-aoter2-MuiTypography-root"
                   data-testid="typography"
                 >
                   This site is protected by reCAPTCHA and the Google 
@@ -25075,45 +25045,39 @@ exports[`SystemDetailsPage template component should render without systemLayers
                           class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-hsmwoy-MuiTableCell-root"
                           data-testid="document-table-add-pim-link-document-id"
                         >
-                          <span
-                            aria-label="MC: documents.download.maxReached"
-                            class=""
-                            data-mui-internal-clone-element="true"
+                          <div
+                            class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
                           >
-                            <div
-                              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                            <label
+                              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                             >
-                              <label
-                                class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+                              <span
+                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                               >
-                                <span
-                                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                <input
+                                  aria-label="MC: documentLibrary.download pim-link-document-title"
+                                  class="PrivateSwitchBase-input css-1m9pwf3"
+                                  data-indeterminate="false"
+                                  name="pim-link-document-id-pim-link-document-title"
+                                  type="checkbox"
+                                />
+                                <svg
+                                  aria-hidden="true"
+                                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                  data-testid="CheckBoxOutlineBlankIcon"
+                                  focusable="false"
+                                  viewBox="0 0 24 24"
                                 >
-                                  <input
-                                    aria-label="MC: documentLibrary.download pim-link-document-title"
-                                    class="PrivateSwitchBase-input css-1m9pwf3"
-                                    data-indeterminate="false"
-                                    name="pim-link-document-id-pim-link-document-title"
-                                    type="checkbox"
+                                  <path
+                                    d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
                                   />
-                                  <svg
-                                    aria-hidden="true"
-                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                    data-testid="CheckBoxOutlineBlankIcon"
-                                    focusable="false"
-                                    viewBox="0 0 24 24"
-                                  >
-                                    <path
-                                      d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                                    />
-                                  </svg>
-                                  <span
-                                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                                  />
-                                </span>
-                              </label>
-                            </div>
-                          </span>
+                                </svg>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </span>
+                            </label>
+                          </div>
                         </td>
                         <td
                           class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
@@ -25263,45 +25227,39 @@ exports[`SystemDetailsPage template component should render without systemLayers
                           class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-hsmwoy-MuiTableCell-root"
                           data-testid="document-table-add-pim-link-document-id"
                         >
-                          <span
-                            aria-label="MC: documents.download.maxReached"
-                            class=""
-                            data-mui-internal-clone-element="true"
+                          <div
+                            class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
                           >
-                            <div
-                              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                            <label
+                              class="MuiFormControlLabel-root Mui-disabled MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                             >
-                              <label
-                                class="MuiFormControlLabel-root Mui-disabled MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+                              <span
+                                aria-disabled="true"
+                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                tabindex="-1"
                               >
-                                <span
-                                  aria-disabled="true"
-                                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
-                                  tabindex="-1"
+                                <input
+                                  aria-label="MC: documentLibrary.download pim-link-document-title"
+                                  class="PrivateSwitchBase-input css-1m9pwf3"
+                                  data-indeterminate="false"
+                                  disabled=""
+                                  name="pim-link-document-id-pim-link-document-title"
+                                  type="checkbox"
+                                />
+                                <svg
+                                  aria-hidden="true"
+                                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                  data-testid="CheckBoxOutlineBlankIcon"
+                                  focusable="false"
+                                  viewBox="0 0 24 24"
                                 >
-                                  <input
-                                    aria-label="MC: documentLibrary.download pim-link-document-title"
-                                    class="PrivateSwitchBase-input css-1m9pwf3"
-                                    data-indeterminate="false"
-                                    disabled=""
-                                    name="pim-link-document-id-pim-link-document-title"
-                                    type="checkbox"
+                                  <path
+                                    d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
                                   />
-                                  <svg
-                                    aria-hidden="true"
-                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                    data-testid="CheckBoxOutlineBlankIcon"
-                                    focusable="false"
-                                    viewBox="0 0 24 24"
-                                  >
-                                    <path
-                                      d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                                    />
-                                  </svg>
-                                </span>
-                              </label>
-                            </div>
-                          </span>
+                                </svg>
+                              </span>
+                            </label>
+                          </div>
                         </td>
                         <td
                           class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
@@ -25393,35 +25351,41 @@ exports[`SystemDetailsPage template component should render without systemLayers
               </div>
             </div>
             <div
-              class="DocumentResultsFooter"
+              class="css-x2mpkr"
               data-testid="document-results-footer"
             >
               <div
                 class="MuiBox-root css-h5fkc8"
               >
-                <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
-                  data-testid="anchor-link"
-                  type="button"
+                <div
+                  class="css-10h4yv9"
                 >
-                  <span>
-                    MC: downloadList.clear
-                  </span>
-                </a>
-                <button
-                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{"id":"download3-button1","label":"MC: downloadList.download (0)","action":"[]"}"
-                  data-testid="document-table-download-button"
-                  tabindex="0"
-                  type="button"
-                >
-                  MC: downloadList.download (0)
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                  />
-                </button>
+                  <div
+                    class="css-7q0w71"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+                      data-gtm="{"id":"download3-button1","label":"MC: downloadList.download","action":"[]"}"
+                      data-testid="document-table-download-button"
+                      disabled=""
+                      tabindex="-1"
+                      type="button"
+                    >
+                      MC: downloadList.download
+                    </button>
+                    <button
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-xc55i5-MuiButtonBase-root-MuiButton-root"
+                      data-testid="document-results-footer-reset-button"
+                      disabled=""
+                      tabindex="-1"
+                      type="button"
+                    >
+                      MC: downloadList.clear
+                    </button>
+                  </div>
+                </div>
                 <p
-                  class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 documentResultsFooter-recaptcha css-aoter2-MuiTypography-root"
                   data-testid="typography"
                 >
                   This site is protected by reCAPTCHA and the Google 
@@ -29549,45 +29513,39 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                           class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-hsmwoy-MuiTableCell-root"
                           data-testid="document-table-add-pim-link-document-id"
                         >
-                          <span
-                            aria-label="MC: documents.download.maxReached"
-                            class=""
-                            data-mui-internal-clone-element="true"
+                          <div
+                            class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
                           >
-                            <div
-                              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                            <label
+                              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                             >
-                              <label
-                                class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+                              <span
+                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                               >
-                                <span
-                                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                <input
+                                  aria-label="MC: documentLibrary.download pim-link-document-title"
+                                  class="PrivateSwitchBase-input css-1m9pwf3"
+                                  data-indeterminate="false"
+                                  name="pim-link-document-id-pim-link-document-title"
+                                  type="checkbox"
+                                />
+                                <svg
+                                  aria-hidden="true"
+                                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                  data-testid="CheckBoxOutlineBlankIcon"
+                                  focusable="false"
+                                  viewBox="0 0 24 24"
                                 >
-                                  <input
-                                    aria-label="MC: documentLibrary.download pim-link-document-title"
-                                    class="PrivateSwitchBase-input css-1m9pwf3"
-                                    data-indeterminate="false"
-                                    name="pim-link-document-id-pim-link-document-title"
-                                    type="checkbox"
+                                  <path
+                                    d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
                                   />
-                                  <svg
-                                    aria-hidden="true"
-                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                    data-testid="CheckBoxOutlineBlankIcon"
-                                    focusable="false"
-                                    viewBox="0 0 24 24"
-                                  >
-                                    <path
-                                      d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                                    />
-                                  </svg>
-                                  <span
-                                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                                  />
-                                </span>
-                              </label>
-                            </div>
-                          </span>
+                                </svg>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </span>
+                            </label>
+                          </div>
                         </td>
                         <td
                           class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
@@ -29737,45 +29695,39 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                           class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-hsmwoy-MuiTableCell-root"
                           data-testid="document-table-add-pim-link-document-id"
                         >
-                          <span
-                            aria-label="MC: documents.download.maxReached"
-                            class=""
-                            data-mui-internal-clone-element="true"
+                          <div
+                            class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
                           >
-                            <div
-                              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                            <label
+                              class="MuiFormControlLabel-root Mui-disabled MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                             >
-                              <label
-                                class="MuiFormControlLabel-root Mui-disabled MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+                              <span
+                                aria-disabled="true"
+                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                tabindex="-1"
                               >
-                                <span
-                                  aria-disabled="true"
-                                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
-                                  tabindex="-1"
+                                <input
+                                  aria-label="MC: documentLibrary.download pim-link-document-title"
+                                  class="PrivateSwitchBase-input css-1m9pwf3"
+                                  data-indeterminate="false"
+                                  disabled=""
+                                  name="pim-link-document-id-pim-link-document-title"
+                                  type="checkbox"
+                                />
+                                <svg
+                                  aria-hidden="true"
+                                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                  data-testid="CheckBoxOutlineBlankIcon"
+                                  focusable="false"
+                                  viewBox="0 0 24 24"
                                 >
-                                  <input
-                                    aria-label="MC: documentLibrary.download pim-link-document-title"
-                                    class="PrivateSwitchBase-input css-1m9pwf3"
-                                    data-indeterminate="false"
-                                    disabled=""
-                                    name="pim-link-document-id-pim-link-document-title"
-                                    type="checkbox"
+                                  <path
+                                    d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
                                   />
-                                  <svg
-                                    aria-hidden="true"
-                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                    data-testid="CheckBoxOutlineBlankIcon"
-                                    focusable="false"
-                                    viewBox="0 0 24 24"
-                                  >
-                                    <path
-                                      d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                                    />
-                                  </svg>
-                                </span>
-                              </label>
-                            </div>
-                          </span>
+                                </svg>
+                              </span>
+                            </label>
+                          </div>
                         </td>
                         <td
                           class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
@@ -29867,35 +29819,41 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
               </div>
             </div>
             <div
-              class="DocumentResultsFooter"
+              class="css-x2mpkr"
               data-testid="document-results-footer"
             >
               <div
                 class="MuiBox-root css-h5fkc8"
               >
-                <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
-                  data-testid="anchor-link"
-                  type="button"
+                <div
+                  class="css-10h4yv9"
                 >
-                  <span>
-                    MC: downloadList.clear
-                  </span>
-                </a>
-                <button
-                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{"id":"download3-button1","label":"MC: downloadList.download (0)","action":"[]"}"
-                  data-testid="document-table-download-button"
-                  tabindex="0"
-                  type="button"
-                >
-                  MC: downloadList.download (0)
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                  />
-                </button>
+                  <div
+                    class="css-7q0w71"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+                      data-gtm="{"id":"download3-button1","label":"MC: downloadList.download","action":"[]"}"
+                      data-testid="document-table-download-button"
+                      disabled=""
+                      tabindex="-1"
+                      type="button"
+                    >
+                      MC: downloadList.download
+                    </button>
+                    <button
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-xc55i5-MuiButtonBase-root-MuiButton-root"
+                      data-testid="document-results-footer-reset-button"
+                      disabled=""
+                      tabindex="-1"
+                      type="button"
+                    >
+                      MC: downloadList.clear
+                    </button>
+                  </div>
+                </div>
                 <p
-                  class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 documentResultsFooter-recaptcha css-aoter2-MuiTypography-root"
                   data-testid="typography"
                 >
                   This site is protected by reCAPTCHA and the Google 
@@ -34023,45 +33981,39 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                           class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-hsmwoy-MuiTableCell-root"
                           data-testid="document-table-add-pim-link-document-id"
                         >
-                          <span
-                            aria-label="MC: documents.download.maxReached"
-                            class=""
-                            data-mui-internal-clone-element="true"
+                          <div
+                            class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
                           >
-                            <div
-                              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                            <label
+                              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                             >
-                              <label
-                                class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+                              <span
+                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                               >
-                                <span
-                                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                <input
+                                  aria-label="MC: documentLibrary.download pim-link-document-title"
+                                  class="PrivateSwitchBase-input css-1m9pwf3"
+                                  data-indeterminate="false"
+                                  name="pim-link-document-id-pim-link-document-title"
+                                  type="checkbox"
+                                />
+                                <svg
+                                  aria-hidden="true"
+                                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                  data-testid="CheckBoxOutlineBlankIcon"
+                                  focusable="false"
+                                  viewBox="0 0 24 24"
                                 >
-                                  <input
-                                    aria-label="MC: documentLibrary.download pim-link-document-title"
-                                    class="PrivateSwitchBase-input css-1m9pwf3"
-                                    data-indeterminate="false"
-                                    name="pim-link-document-id-pim-link-document-title"
-                                    type="checkbox"
+                                  <path
+                                    d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
                                   />
-                                  <svg
-                                    aria-hidden="true"
-                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                    data-testid="CheckBoxOutlineBlankIcon"
-                                    focusable="false"
-                                    viewBox="0 0 24 24"
-                                  >
-                                    <path
-                                      d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                                    />
-                                  </svg>
-                                  <span
-                                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                                  />
-                                </span>
-                              </label>
-                            </div>
-                          </span>
+                                </svg>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </span>
+                            </label>
+                          </div>
                         </td>
                         <td
                           class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
@@ -34211,45 +34163,39 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                           class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-hsmwoy-MuiTableCell-root"
                           data-testid="document-table-add-pim-link-document-id"
                         >
-                          <span
-                            aria-label="MC: documents.download.maxReached"
-                            class=""
-                            data-mui-internal-clone-element="true"
+                          <div
+                            class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
                           >
-                            <div
-                              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                            <label
+                              class="MuiFormControlLabel-root Mui-disabled MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                             >
-                              <label
-                                class="MuiFormControlLabel-root Mui-disabled MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+                              <span
+                                aria-disabled="true"
+                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                tabindex="-1"
                               >
-                                <span
-                                  aria-disabled="true"
-                                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
-                                  tabindex="-1"
+                                <input
+                                  aria-label="MC: documentLibrary.download pim-link-document-title"
+                                  class="PrivateSwitchBase-input css-1m9pwf3"
+                                  data-indeterminate="false"
+                                  disabled=""
+                                  name="pim-link-document-id-pim-link-document-title"
+                                  type="checkbox"
+                                />
+                                <svg
+                                  aria-hidden="true"
+                                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                  data-testid="CheckBoxOutlineBlankIcon"
+                                  focusable="false"
+                                  viewBox="0 0 24 24"
                                 >
-                                  <input
-                                    aria-label="MC: documentLibrary.download pim-link-document-title"
-                                    class="PrivateSwitchBase-input css-1m9pwf3"
-                                    data-indeterminate="false"
-                                    disabled=""
-                                    name="pim-link-document-id-pim-link-document-title"
-                                    type="checkbox"
+                                  <path
+                                    d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
                                   />
-                                  <svg
-                                    aria-hidden="true"
-                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                    data-testid="CheckBoxOutlineBlankIcon"
-                                    focusable="false"
-                                    viewBox="0 0 24 24"
-                                  >
-                                    <path
-                                      d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                                    />
-                                  </svg>
-                                </span>
-                              </label>
-                            </div>
-                          </span>
+                                </svg>
+                              </span>
+                            </label>
+                          </div>
                         </td>
                         <td
                           class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
@@ -34341,35 +34287,41 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
               </div>
             </div>
             <div
-              class="DocumentResultsFooter"
+              class="css-x2mpkr"
               data-testid="document-results-footer"
             >
               <div
                 class="MuiBox-root css-h5fkc8"
               >
-                <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
-                  data-testid="anchor-link"
-                  type="button"
+                <div
+                  class="css-10h4yv9"
                 >
-                  <span>
-                    MC: downloadList.clear
-                  </span>
-                </a>
-                <button
-                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{"id":"download3-button1","label":"MC: downloadList.download (0)","action":"[]"}"
-                  data-testid="document-table-download-button"
-                  tabindex="0"
-                  type="button"
-                >
-                  MC: downloadList.download (0)
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                  />
-                </button>
+                  <div
+                    class="css-7q0w71"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+                      data-gtm="{"id":"download3-button1","label":"MC: downloadList.download","action":"[]"}"
+                      data-testid="document-table-download-button"
+                      disabled=""
+                      tabindex="-1"
+                      type="button"
+                    >
+                      MC: downloadList.download
+                    </button>
+                    <button
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-xc55i5-MuiButtonBase-root-MuiButton-root"
+                      data-testid="document-results-footer-reset-button"
+                      disabled=""
+                      tabindex="-1"
+                      type="button"
+                    >
+                      MC: downloadList.clear
+                    </button>
+                  </div>
+                </div>
                 <p
-                  class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 documentResultsFooter-recaptcha css-aoter2-MuiTypography-root"
                   data-testid="typography"
                 >
                   This site is protected by reCAPTCHA and the Google 

@@ -1,6 +1,6 @@
 import React from "react";
-import DocumentResultsFooter from "../../../components/DocumentResultsFooter";
 import { useSiteContext } from "../../../components/Site";
+import { microCopy } from "../../../constants/microCopies";
 import { AssetType } from "../types";
 import DocumentResults, { DocumentResultData, Format } from "./DocumentResults";
 
@@ -8,41 +8,21 @@ export type Props = {
   results: DocumentResultData[];
   assetTypes: AssetType[];
   format: Format;
-  page: number;
-  pageCount: number;
-  handlePageChange: (_: any, page: any) => void;
 };
 
-const ResultSection = ({
-  results,
-  assetTypes,
-  format,
-  page,
-  pageCount,
-  handlePageChange
-}: Props) => {
+const ResultSection = ({ results, assetTypes, format }: Props) => {
   const { getMicroCopy } = useSiteContext();
 
   return (
     <>
       {results.length ? (
-        <>
-          <DocumentResults
-            data={results}
-            assetTypes={assetTypes}
-            format={format}
-          />
-          <div data-testid="document-results-footer-wrapper">
-            <DocumentResultsFooter
-              page={page + 1}
-              count={pageCount}
-              isDownloadButton={format !== "cards"}
-              onPageChange={handlePageChange}
-            />
-          </div>
-        </>
+        <DocumentResults
+          data={results}
+          assetTypes={assetTypes}
+          format={format}
+        />
       ) : (
-        getMicroCopy("documentLibrary.noResults")
+        getMicroCopy(microCopy.DOCUMENT_LIBRARY_NO_RESULTS)
       )}
     </>
   );

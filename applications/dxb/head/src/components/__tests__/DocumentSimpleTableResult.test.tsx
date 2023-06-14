@@ -1,6 +1,6 @@
 import { DownloadListContext, ThemeProvider } from "@bmi-digital/components";
 import { useMediaQuery } from "@mui/material";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import createAssetType from "../../__tests__/helpers/AssetTypeHelper";
 import createContentfulDocument from "../../__tests__/helpers/ContentfulDocumentHelper";
@@ -205,6 +205,7 @@ describe("DocumentSimpleTableResult", () => {
       const MockDownloadListProvider = ({ children }) => (
         <DownloadListContext.Provider
           value={{
+            size: 0,
             list: {},
             updateList,
             resetList: jest.fn(),
