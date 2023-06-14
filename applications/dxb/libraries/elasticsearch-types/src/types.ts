@@ -2,13 +2,13 @@ import type {
   ApprovalStatus,
   Asset,
   BaseProduct,
-  Category as PimCategory,
   Classification,
-  Image as PimImage,
   Mime,
+  Category as PimCategory,
+  Image as PimImage,
+  System as PimSystem,
   ProductReferenceType,
-  ReferenceTarget,
-  System as PimSystem
+  ReferenceTarget
 } from "@bmi/pim-types";
 
 export type Category = {
@@ -145,3 +145,9 @@ export type PimProductDocument = PimDocumentBase & {
   productBaseCode: string;
   productName: string;
 };
+
+export type ClassificationField = {
+  code: string;
+  value: string;
+  name: string;
+}[];
