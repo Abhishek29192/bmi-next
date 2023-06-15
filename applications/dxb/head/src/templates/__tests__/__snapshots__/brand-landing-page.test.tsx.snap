@@ -2450,7 +2450,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
     data-testid="brand-colors-provider"
   >
     <div
-      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-dpq035"
+      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-c3u99m"
       data-test-class-name="hero"
       data-testid="hero"
     >
@@ -6098,7 +6098,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
     data-testid="brand-colors-provider"
   >
     <div
-      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-dpq035"
+      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-c3u99m"
       data-test-class-name="hero"
       data-testid="hero"
     >
@@ -9516,7 +9516,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
     data-testid="brand-colors-provider"
   >
     <div
-      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-dpq035"
+      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-c3u99m"
       data-test-class-name="hero"
       data-testid="hero"
     >
@@ -13128,7 +13128,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
     data-testid="brand-colors-provider"
   >
     <div
-      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-dpq035"
+      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-c3u99m"
       data-test-class-name="hero"
       data-testid="hero"
     >
@@ -16770,7 +16770,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
     data-testid="brand-colors-provider"
   >
     <div
-      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-dpq035"
+      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-c3u99m"
       data-test-class-name="hero"
       data-testid="hero"
     >
@@ -20384,7 +20384,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
     data-testid="brand-colors-provider"
   >
     <div
-      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-dpq035"
+      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-c3u99m"
       data-test-class-name="hero"
       data-testid="hero"
     >
@@ -24028,7 +24028,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
     data-testid="brand-colors-provider"
   >
     <div
-      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-dpq035"
+      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-c3u99m"
       data-test-class-name="hero"
       data-testid="hero"
     >
@@ -27672,7 +27672,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
     data-testid="brand-colors-provider"
   >
     <div
-      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-dpq035"
+      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-c3u99m"
       data-test-class-name="hero"
       data-testid="hero"
     >
@@ -31328,7 +31328,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
     data-testid="brand-colors-provider"
   >
     <div
-      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-dpq035"
+      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-c3u99m"
       data-test-class-name="hero"
       data-testid="hero"
     >
@@ -34982,7 +34982,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
     data-testid="brand-colors-provider"
   >
     <div
-      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-dpq035"
+      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-c3u99m"
       data-test-class-name="hero"
       data-testid="hero"
     >
@@ -38638,7 +38638,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
     data-testid="brand-colors-provider"
   >
     <div
-      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-dpq035"
+      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-c3u99m"
       data-test-class-name="hero"
       data-testid="hero"
     >

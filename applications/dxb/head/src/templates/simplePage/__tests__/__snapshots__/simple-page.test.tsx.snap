@@ -5751,7 +5751,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                   data-testid="card-collection-grid-item-id"
                 >
                   <div
-                    class=" MuiBox-root css-8lfaij"
+                    class=" MuiBox-root css-1a938px"
                   >
                     <div
                       class="OverviewCard-main"

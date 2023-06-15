@@ -206,15 +206,14 @@ exports[`Search Page Template render correctly 1`] = `
         <div
           class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1xfmbiw-MuiContainer-root"
         >
-          <div>
+          <div
+            data-testid="language-selection-mobile"
+          >
             <div
               class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pn037-MuiGrid2-root"
               data-testid="grid-container"
             >
-              <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1n3tg82-MuiGrid2-root"
-                data-testid="grid-item"
-              >
+              <div>
                 <h6
                   class="MuiTypography-root MuiTypography-h6 css-1j4kt3i-MuiTypography-root"
                   data-testid="typography"

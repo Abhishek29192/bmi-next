@@ -131,7 +131,7 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
                   data-testid="grid-item"
                 >
                   <a
-                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-lx6wpa-MuiButtonBase-root"
+                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1j7ybbw-MuiButtonBase-root"
                     data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
                     href="/en/path/"
                     tabindex="0"
@@ -348,7 +348,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                   data-testid="grid-item"
                 >
                   <a
-                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-lx6wpa-MuiButtonBase-root"
+                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1j7ybbw-MuiButtonBase-root"
                     data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
                     href="/en/path/"
                     tabindex="0"
@@ -429,7 +429,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                   data-testid="grid-item"
                 >
                   <a
-                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-lx6wpa-MuiButtonBase-root"
+                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1j7ybbw-MuiButtonBase-root"
                     data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
                     href="/en/path/"
                     tabindex="0"
@@ -503,7 +503,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                   data-testid="grid-item"
                 >
                   <a
-                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-lx6wpa-MuiButtonBase-root"
+                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1j7ybbw-MuiButtonBase-root"
                     data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
                     href="/en/path/"
                     tabindex="0"
@@ -711,7 +711,7 @@ exports[`RelatedProducts component renders with correct gtmLabel 1`] = `
                   data-testid="grid-item"
                 >
                   <a
-                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-lx6wpa-MuiButtonBase-root"
+                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1j7ybbw-MuiButtonBase-root"
                     data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
                     href="/en/path/"
                     tabindex="0"
