@@ -13,10 +13,10 @@ import {
   INLINES,
   MARKS
 } from "@contentful/rich-text-types";
+import classnames from "classnames";
 import { graphql } from "gatsby";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import React from "react";
-import classnames from "classnames";
 import withGTM from "../utils/google-tag-manager";
 import EmbeddedAssetBlock from "./EmbeddedAssetBlock";
 import EmbeddedBlock from "./EmbeddedBlock";
@@ -163,7 +163,7 @@ const RichText = ({
   hasNoBottomMargin,
   ...rest
 }: {
-  document?: RichTextData;
+  document?: RichTextData | null;
   className?: string;
   hasNoBottomMargin?: boolean;
 } & Settings) => {

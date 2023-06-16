@@ -31,23 +31,25 @@ const EmbeddedTable = ({ fields }: Props) => {
             {head.map((cellValue, cellIndex) => (
               <Table.Cell key={cellIndex}>
                 {cellValue && cellValue.includes("[{")
-                  ? JSON.parse(cellValue).map((cellElement, cellElIndex) => {
-                      if (cellElement.attributes.link) {
+                  ? JSON.parse(cellValue).map(
+                      (cellElement, cellElIndex: number) => {
+                        if (cellElement.attributes.link) {
+                          return (
+                            <a
+                              rel="noreferrer"
+                              target="_blank"
+                              key={cellElIndex}
+                              href={cellElement.attributes.link}
+                            >
+                              {cellElement.insert}
+                            </a>
+                          );
+                        }
                         return (
-                          <a
-                            rel="noreferrer"
-                            target="_blank"
-                            key={cellElIndex}
-                            href={cellElement.attributes.link}
-                          >
-                            {cellElement.insert}
-                          </a>
+                          <span key={cellElIndex}>{cellElement.insert}</span>
                         );
                       }
-                      return (
-                        <span key={cellElIndex}>{cellElement.insert}</span>
-                      );
-                    })
+                    )
                   : cellValue}
               </Table.Cell>
             ))}
@@ -62,7 +64,7 @@ const EmbeddedTable = ({ fields }: Props) => {
                   <Table.Cell key={cellIndex}>
                     {cellValue && cellValue.includes("[{")
                       ? JSON.parse(cellValue).map(
-                          (cellElement, cellElIndex) => {
+                          (cellElement, cellElIndex: number) => {
                             if (cellElement.attributes.link) {
                               return (
                                 <a

@@ -330,37 +330,33 @@ export const getPageQueryObject = (
 };
 
 export const queryElasticSearch = async (query = {}, indexName: string) => {
+  if (process.env.GATSBY_DISABLE_SEARCH === "true") return;
+
   const url = `${process.env.GATSBY_ES_ENDPOINT}/${indexName}/_search`;
 
-  if (process.env.GATSBY_DISABLE_SEARCH === "true") {
-    return;
-  }
-  if (window.fetch) {
-    try {
-      const response = await fetch(url, {
-        method: "POST",
-        mode: "cors",
-        headers: {
-          authorization: `ApiKey ${btoa(
-            `${process.env.GATSBY_ES_API_KEY_ID}:${process.env.GATSBY_ES_API_KEY}`
-          )}`,
-          "content-type": "application/json"
-        },
-        body: JSON.stringify(query)
-      });
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        authorization: `ApiKey ${btoa(
+          `${process.env.GATSBY_ES_API_KEY_ID}:${process.env.GATSBY_ES_API_KEY}`
+        )}`,
+        "content-type": "application/json"
+      },
+      body: JSON.stringify(query)
+    });
 
-      const content = await response.json();
+    const content = await response.json();
 
-      if (!response.ok) {
-        devLog(`ERROR: ${response.status}, ${response.statusText}`);
-      }
-      return content;
-    } catch (error) {
-      devLog("Error fetching ES", error);
+    if (!response.ok) {
+      devLog(`ERROR: ${response.status}, ${response.statusText}`);
     }
-  } else {
-    devLog("NO fetch");
+    return content;
+  } catch (error) {
+    devLog("Error fetching ES", error);
   }
 };
+
 const sanitiseQueryString = (queryString: string) =>
   queryString.replace(/[^.,\s\p{L}\p{Nd}-]/gu, " ");

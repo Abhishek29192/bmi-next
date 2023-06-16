@@ -47,7 +47,7 @@ const getPagesFilters = (
   allContentfulAssetType: ReadonlyArray<{ name: string; pimCode: string }>,
   getMicroCopy
 ): Filter[] => {
-  const findLabel = (key) =>
+  const findLabel = (key: string) =>
     (allContentfulAssetType || []).find(({ pimCode }) => pimCode === key)?.name;
 
   return [
@@ -125,7 +125,7 @@ const SearchTabPanelDocuments = (props: Props) => {
   // Loading status
   // =======================================
 
-  const updateLoadingStatus = (isLoading) => {
+  const updateLoadingStatus = (isLoading: boolean) => {
     setIsLoading(isLoading);
     onLoadingChange && onLoadingChange(isLoading);
   };
@@ -207,7 +207,8 @@ const SearchTabPanelDocuments = (props: Props) => {
   };
 
   const handleFiltersChange =
-    (resetDownloadList) => (filterName, filterValue, checked) => {
+    (resetDownloadList) =>
+    (filterName: string, filterValue: string, checked: boolean) => {
       const newFilters = updateFilterValue(
         filters,
         filterName,
@@ -229,7 +230,7 @@ const SearchTabPanelDocuments = (props: Props) => {
   // PAGINATION
   // =======================================
 
-  const handlePageChange = (_, page) => {
+  const handlePageChange = (_: unknown, page: number) => {
     const scrollY = resultsElement.current
       ? resultsElement.current.offsetTop - 200
       : 0;
@@ -253,7 +254,7 @@ const SearchTabPanelDocuments = (props: Props) => {
     }));
   }, []);
 
-  const maxSize = documentDownloadMaxLimit * 1048576;
+  const maxSize = (documentDownloadMaxLimit || 0) * 1048576;
   return (
     <DownloadList maxSize={maxSize}>
       <StyledGridContainer container spacing={3} ref={resultsElement}>

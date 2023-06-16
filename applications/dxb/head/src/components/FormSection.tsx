@@ -233,7 +233,7 @@ const Input = ({
         <div>
           <Typography style={{ paddingBottom: "15px" }}>{label}</Typography>
           <RadioGroup name={name}>
-            {options.split(/, |,/).map((option, $i) => (
+            {options?.split(/, |,/).map((option, $i) => (
               <RadioGroup.Item key={$i} value={option}>
                 {option}
               </RadioGroup.Item>
@@ -255,7 +255,7 @@ const Input = ({
           <SelectMenuItem value={microCopy.FORM_NONE_SELECTION}>
             {getMicroCopy(microCopy.FORM_NONE_SELECTION)}
           </SelectMenuItem>
-          {options.split(/, |,/).map((option, $i) => {
+          {options?.split(/, |,/).map((option, $i) => {
             const [select, value] = option.split(/= |=/);
             return (
               <SelectMenuItem key={$i} value={value ? option : select}>
@@ -282,7 +282,7 @@ const Input = ({
           name={name}
           options={options}
           groupName={convertMarkdownLinksToAnchorLinks(label)}
-          isRequired={required}
+          isRequired={Boolean(required)}
           fieldIsRequiredError={getMicroCopy(
             microCopy.UPLOAD_FIELD_IS_REQUIRED
           )}
@@ -363,10 +363,10 @@ const HubspotForm = ({
   hasNoPadding,
   isDialog = false
 }: {
-  id: string;
+  id?: string;
   hubSpotFormGuid: string;
   backgroundColor: "pearl" | "white";
-  showTitle: boolean;
+  showTitle: boolean | null;
   title?: string;
   description?: RichTextData | React.ReactNode;
   onSuccess: FormSectionProps["onSuccess"];
@@ -417,7 +417,7 @@ const HubspotForm = ({
             sampleIdsInput.value = additionalValues["samples"];
           } else {
             const hiddenInput =
-              iframeElement.contentWindow?.document.querySelector<HTMLInputElement>(
+              iframeElement?.contentWindow?.document.querySelector<HTMLInputElement>(
                 'input[name="sample_ids"]'
               );
             hiddenInput && (hiddenInput.value = additionalValues["samples"]);
@@ -446,7 +446,14 @@ const HubspotForm = ({
     return () => {
       window.removeEventListener("message", handleMessage);
     };
-  }, [additionalValues, onSuccess]);
+  }, [
+    additionalValues,
+    hubSpotFormID,
+    isDialog,
+    onFormLoadError,
+    onFormReady,
+    onSuccess
+  ]);
 
   return (
     <Section
@@ -599,7 +606,10 @@ const FormSection = ({
       if (successRedirect) {
         navigate(
           successRedirect.url ||
-            getPathWithCountryCode(countryCode, successRedirect.linkedPage.path)
+            getPathWithCountryCode(
+              countryCode,
+              successRedirect.linkedPage?.path
+            )
         );
       } else {
         navigate("/");
@@ -647,7 +657,7 @@ const FormSection = ({
       }
     };
 
-    const getLegalOptions = (hsLegalFields) => {
+    const getLegalOptions = (hsLegalFields: { [key: string]: InputValue }) => {
       if (hsLegalFields["hs-legal-isLegitimateInterest"]) {
         return {
           legitimateInterest: {
@@ -703,7 +713,10 @@ const FormSection = ({
       if (successRedirect) {
         navigate(
           successRedirect.url ||
-            getPathWithCountryCode(countryCode, successRedirect.linkedPage.path)
+            getPathWithCountryCode(
+              countryCode,
+              successRedirect.linkedPage?.path
+            )
         );
       } else {
         navigate("/");
@@ -817,7 +830,6 @@ const FormSection = ({
     </Section>
   );
 };
-FormSection.Inputs = FormInputs;
 export default FormSection;
 
 export const query = graphql`

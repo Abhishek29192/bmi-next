@@ -141,7 +141,7 @@ const ProductOverview = ({
               <GTMThumbnail gtm={{ id: "thumbnail1" }} {...props} />
             )}
             nobbLabel={getMicroCopy(microCopy.PDP_NOBB_LABEL)}
-            attributes={attributes}
+            attributes={attributes || []}
           >
             {children}
           </ProductOverviewPane>

@@ -78,7 +78,7 @@ const TeamList = ({ data }: { data: Data | null }) => {
                           {...props}
                         />
                       )}
-                      icon={<Icon name={link.icon} />}
+                      icon={<Icon name={link.icon || ""} />}
                     >
                       {link.label}
                     </ProfileRow>
