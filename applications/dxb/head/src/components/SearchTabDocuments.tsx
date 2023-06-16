@@ -254,7 +254,7 @@ const SearchTabPanelDocuments = (props: Props) => {
     }));
   }, []);
 
-  const maxSize = (documentDownloadMaxLimit || 0) * 1048576;
+  const maxSize = (documentDownloadMaxLimit || 0) * 1000000;
   return (
     <DownloadList maxSize={maxSize}>
       <StyledGridContainer container spacing={3} ref={resultsElement}>

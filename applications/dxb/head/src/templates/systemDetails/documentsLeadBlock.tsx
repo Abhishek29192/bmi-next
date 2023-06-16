@@ -38,7 +38,7 @@ const DocumentsLeadBlock = ({ documents: initialDocuments }: Props) => {
     <LeadBlock.Card.Section className={styles["DocumentLeadBlock"]}>
       <LeadBlock.Card.Content>
         <div ref={resultsElement}>
-          <DownloadList maxSize={GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT * 1048576}>
+          <DownloadList maxSize={GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT * 1000000}>
             <div className={styles["tableContainer"]}>
               <DocumentSimpleTableResults
                 documents={documents}

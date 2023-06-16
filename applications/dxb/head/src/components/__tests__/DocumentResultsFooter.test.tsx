@@ -170,7 +170,7 @@ describe("DocumentResultsFooter component", () => {
             resetList: jest.fn(),
             count: 1,
             size: 200,
-            remainingSize: 0,
+            remainingSize: -0.1,
             isLoading: false,
             setIsLoading: jest.fn()
           }}

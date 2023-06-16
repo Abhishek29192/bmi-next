@@ -298,7 +298,7 @@ const ProductLeadBlock = ({
             data-testid="documentsTab"
           >
             <div className={styles["document-library"]} ref={resultsElement}>
-              <DownloadList maxSize={(documentDownloadMaxLimit ?? 0) * 1048576}>
+              <DownloadList maxSize={(documentDownloadMaxLimit ?? 0) * 1000000}>
                 <DocumentSimpleTableResults
                   documents={documents}
                   headers={["add", displayBy, "size", "actions"]}
