@@ -80,7 +80,9 @@ const CardCollectionItem = ({
 
   const CardButton = (props) => (
     <Link
-      component={GTMButtonBase}
+      component={(props: ButtonBaseProps) => (
+        <GTMButtonBase {...props} classes={{ root: styles["card-title"] }} />
+      )}
       data={link}
       gtm={{
         id: "cta-click1",

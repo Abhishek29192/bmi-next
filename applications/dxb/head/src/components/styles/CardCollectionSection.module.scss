@@ -29,9 +29,9 @@
     text-align: center;
   }
 
-  .date+.footer-button {
+  .date + .footer-button {
     margin-top: 24px;
-    
+
     @media (max-width: 1024px) {
       margin-top: 16px;
     }
@@ -45,5 +45,11 @@
     position: absolute;
     top: -9999px;
     left: -9999px;
+  }
+
+  .card-title {
+    font-family: "Effra Bold";
+    font-size: 1.35rem;
+    line-height: 1.2;
   }
 }
