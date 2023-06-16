@@ -2329,29 +2329,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@bmi/gatsby-plugin-meta-redirect@workspace:*, @bmi/gatsby-plugin-meta-redirect@workspace:applications/dxb/libraries/gatsby-plugin-meta-redirect":
-  version: 0.0.0-use.local
-  resolution: "@bmi/gatsby-plugin-meta-redirect@workspace:applications/dxb/libraries/gatsby-plugin-meta-redirect"
-  dependencies:
-    "@types/prettier": ^2.7.2
-    "@typescript-eslint/eslint-plugin": ^5.59.5
-    "@typescript-eslint/parser": ^5.59.5
-    eslint: ^8.40.0
-    eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
-    eslint-plugin-import: ^2.27.5
-    eslint-plugin-jest: ^27.2.1
-    eslint-plugin-jsx-a11y: ^6.7.1
-    eslint-plugin-prettier: ^4.2.1
-    eslint-plugin-react: ^7.32.2
-    eslint-plugin-react-hooks: ^4.6.0
-    eslint-plugin-security: ^1.7.1
-    eslint-plugin-you-dont-need-lodash-underscore: ^6.12.0
-    jest: ^29.5.0
-    prettier: ^2.8.8
-  languageName: unknown
-  linkType: soft
-
 "@bmi/gatsby-source-firestore@workspace:*, @bmi/gatsby-source-firestore@workspace:applications/dxb/libraries/gatsby-source-firestore":
   version: 0.0.0-use.local
   resolution: "@bmi/gatsby-source-firestore@workspace:applications/dxb/libraries/gatsby-source-firestore"
@@ -3051,7 +3028,6 @@ __metadata:
     "@bmi/gatsby-plugin-elasticsearch": "workspace:*"
     "@bmi/gatsby-plugin-leadoo": "workspace:*"
     "@bmi/gatsby-plugin-material-ui": "workspace:*"
-    "@bmi/gatsby-plugin-meta-redirect": "workspace:*"
     "@bmi/gatsby-source-firestore": "workspace:*"
     "@bmi/gatsby-source-hubspot-forms": "workspace:*"
     "@bmi/utils": "workspace:*"
@@ -3135,7 +3111,6 @@ __metadata:
     jest-environment-jsdom: ^29.5.0
     jest-preset-gatsby: ^1.0.134
     jsonfile: ^6.1.0
-    jszip: ^3.10.1
     lodash-es: ^4.17.21
     node-fetch: ^2.6.11
     prettier: ^2.8.8
@@ -17621,13 +17596,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"immediate@npm:~3.0.5":
-  version: 3.0.6
-  resolution: "immediate@npm:3.0.6"
-  checksum: f8ba7ede69bee9260241ad078d2d535848745ff5f6995c7c7cb41cfdc9ccc213f66e10fa5afb881f90298b24a3f7344b637b592beb4f54e582770cdce3f1f039
-  languageName: node
-  linkType: hard
-
 "immer@npm:^9.0.7":
   version: 9.0.17
   resolution: "immer@npm:9.0.17"
@@ -19790,18 +19758,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jszip@npm:^3.10.1":
-  version: 3.10.1
-  resolution: "jszip@npm:3.10.1"
-  dependencies:
-    lie: ~3.3.0
-    pako: ~1.0.2
-    readable-stream: ~2.3.6
-    setimmediate: ^1.0.5
-  checksum: 58e01ec9c4960383fb8b38dd5f67b83ccc1ec215bf74c8a5b32f42b6e5fb79fada5176842a11409c4051b5b94275044851814a31076bf49e1be218d3ef57c863
-  languageName: node
-  linkType: hard
-
 "just-diff-apply@npm:^5.2.0":
   version: 5.5.0
   resolution: "just-diff-apply@npm:5.5.0"
@@ -20151,15 +20107,6 @@ __metadata:
     proc-log: ^3.0.0
     semver: ^7.3.7
   checksum: 86ae55d8df4e224eb104c96704a90d315f13a516b907960d65a18a3e0555be42839fa103195d2b05b7b8ed960d78f5a8dd7bfd8b582f2575c1d96c4e29212b22
-  languageName: node
-  linkType: hard
-
-"lie@npm:~3.3.0":
-  version: 3.3.0
-  resolution: "lie@npm:3.3.0"
-  dependencies:
-    immediate: ~3.0.5
-  checksum: 56dd113091978f82f9dc5081769c6f3b947852ecf9feccaf83e14a123bc630c2301439ce6182521e5fbafbde88e88ac38314327a4e0493a1bea7e0699a7af808
   languageName: node
   linkType: hard
 
@@ -23414,7 +23361,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pako@npm:~1.0.2, pako@npm:~1.0.5":
+"pako@npm:~1.0.5":
   version: 1.0.11
   resolution: "pako@npm:1.0.11"
   checksum: 86dd99d8b34c3930345b8bbeb5e1cd8a05f608eeb40967b293f72fe469d0e9c88b783a8777e4cc7dc7c91ce54c5e93d88ff4b4f060e6ff18408fd21030d9ffbe

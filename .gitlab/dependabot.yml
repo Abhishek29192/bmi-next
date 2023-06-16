@@ -141,15 +141,6 @@ updates:
     schedule:
       interval: "weekly"
   ###################################
-  # gatsby-plugin-meta-redirect
-  ###################################
-  - package-ecosystem: "npm"
-    registries:
-      - npm-npmjs
-    directory: "/applications/dxb/libraries/gatsby-plugin-meta-redirect"
-    schedule:
-      interval: "weekly"
-  ###################################
   # utils
   ###################################
   - package-ecosystem: "npm"

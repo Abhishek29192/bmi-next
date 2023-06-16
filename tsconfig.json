@@ -120,9 +120,6 @@
       "path": "applications/dxb/libraries/gatsby-plugin-leadoo"
     },
     {
-      "path": "applications/dxb/libraries/gatsby-plugin-meta-redirect"
-    },
-    {
       "path": "applications/dxb/libraries/gatsby-source-firestore"
     },
     {
