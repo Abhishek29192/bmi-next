@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 apt-get update
-apt-get install -y jq
+apt-get install -y curl jq
+
 commit_time=$(date -u +%s --date="$(git show -s --format=%cd --date=iso-strict "${CI_COMMIT_SHA}")")
 
 function get_note {
@@ -12,7 +13,7 @@ function get_note {
     return 0
   fi
   note=$(echo "${notes}" | jq 'map(select(.body | contains("95883ff6-e265-4416-917c-77929cc9970b/sites/527b7de1-e2b0-46fe-91f3-fb65b841a3fd"))) | last')
-  if [ -z "${note}" ]; then
+  if [ -z "${note}" ] || [ "${note}" = "null" ]; then
     get_note $(($1 + 1))
     return 0
   fi
