@@ -69,7 +69,7 @@ const envConfig = (): Config => ({
   webToolsCalculatorApsisEndpoint:
     process.env.GATSBY_WEBTOOLS_CALCULATOR_APSIS_ENDPOINT,
   documentDownloadMaxLimit:
-    +process.env.GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT || 300,
+    +process.env.GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT || 100,
   googleApiKey: process.env.GATSBY_GOOGLE_API_KEY,
   esIndexNameSystem: process.env.GATSBY_ES_INDEX_NAME_SYSTEMS,
   esIndexNameProduct: process.env.GATSBY_ES_INDEX_NAME_PRODUCTS,

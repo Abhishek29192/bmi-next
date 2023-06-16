@@ -196,7 +196,7 @@ describe("ConfigProvider", () => {
     {
       key: "documentDownloadMaxLimit",
       env: "GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT",
-      defaultValue: 300,
+      defaultValue: 100,
       invalidValue: "not-a-number",
       customValue: 50
     },

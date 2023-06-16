@@ -36,7 +36,7 @@ const DocumentDownloadSection = ({
   const { documentDownloadMaxLimit } = useConfig();
   const documentsTable = useRef<HTMLDivElement>(null);
   const count = Math.ceil(allDocuments.length / DOCUMENTS_PER_PAGE);
-  const maxSize = (documentDownloadMaxLimit || 0) * 1048576;
+  const maxSize = (documentDownloadMaxLimit || 0) * 1000000;
 
   const handlePageChange = (_: React.ChangeEvent<unknown>, page: number) => {
     const scrollY = documentsTable.current

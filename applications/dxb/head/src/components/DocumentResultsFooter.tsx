@@ -179,7 +179,7 @@ const DownloadDocumentsButton = () => {
   const downloadButtonLabel = selectedItemsCount
     ? `${getMicroCopy(microCopy.DOWNLOAD_LIST_DOWNLOAD)} ({{count}})`
     : getMicroCopy(microCopy.DOWNLOAD_LIST_DOWNLOAD);
-  const maxSizeExceeded = remainingSize <= 0;
+  const maxSizeExceeded = remainingSize < 0;
 
   const handleButtonClick = async (list: DownloadListContextType["list"]) => {
     const token = qaAuthToken ? undefined : await executeRecaptcha?.();
@@ -291,7 +291,7 @@ const DocumentsFooterContent = () => {
   const { getMicroCopy } = useSiteContext();
   const config = useConfig();
   const { remainingSize, size } = useContext(DownloadListContext);
-  const maxSizeExceeded = remainingSize <= 0;
+  const maxSizeExceeded = remainingSize < 0;
 
   return (
     <ContentWrapper>

@@ -1,14 +1,14 @@
 import {
+  Checkbox,
   DownloadList,
   DownloadListContext,
-  Table,
-  Checkbox
+  Table
 } from "@bmi-digital/components";
 import { useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import classnames from "classnames";
 import { filesize } from "filesize";
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { microCopy } from "../constants/microCopies";
 import { Document, DocumentTableHeader, TitleField } from "../types/Document";
 import {
@@ -229,12 +229,16 @@ const DocumentSimpleTableResults = ({
       if (selectedDoc === filteredDocs.length) {
         return;
       }
-      filteredDocs.forEach((d) => updateList(getUniqueId(d), d));
+      filteredDocs.forEach((d) =>
+        updateList(getUniqueId(d), d, getFileSizeByDocumentType(d))
+      );
     } else {
       if (count === 0 || selectedDoc !== filteredDocs.length) {
         return;
       }
-      documents.forEach((d) => updateList(getUniqueId(d), false));
+      documents.forEach((d) =>
+        updateList(getUniqueId(d), false, getFileSizeByDocumentType(d))
+      );
     }
   };
   useEffect(() => {
