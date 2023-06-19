@@ -3092,7 +3092,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                   </svg>
                 </a>
                 <h6
-                  class="MuiTypography-root MuiTypography-subtitle1 css-h5v5bh-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-subtitle1 css-195monr-MuiTypography-root"
                   data-testid="brandLogoDescription"
                 >
                   Uh-oh. He don't look happy. He's been using spa brand X
