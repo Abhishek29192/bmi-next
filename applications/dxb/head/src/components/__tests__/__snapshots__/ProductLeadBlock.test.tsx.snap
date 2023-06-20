@@ -19,7 +19,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
             class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
           >
             <div
-              class="MuiTabs-root css-10dbxbh-MuiTabs-root"
+              class="MuiTabs-root css-6wm242-MuiTabs-root"
             >
               <div
                 class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
@@ -394,7 +394,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                 class="css-1qwqwtx"
               >
                 <div
-                  class="css-asoc7f"
+                  class="css-c1wgmr"
                 >
                   <h4
                     class="MuiTypography-root MuiTypography-h4 css-16mi5sh-MuiTypography-root"
@@ -466,7 +466,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               class="ProductTechnicalSpec"
             >
               <div
-                class="css-ya57aw"
+                class="css-1oyez8m"
               >
                 <table
                   class="MuiTable-root Table-evenColor css-wsrw3a-MuiTable-root"
@@ -532,7 +532,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
             data-testid="document-simple-table-results"
           >
             <div
-              class="css-ya57aw"
+              class="css-1oyez8m"
             >
               <table
                 class="MuiTable-root Table-rowNoColor css-wsrw3a-MuiTable-root"
@@ -1497,7 +1497,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
             class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
           >
             <div
-              class="MuiTabs-root css-10dbxbh-MuiTabs-root"
+              class="MuiTabs-root css-6wm242-MuiTabs-root"
             >
               <div
                 class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
@@ -1872,7 +1872,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                 class="css-1qwqwtx"
               >
                 <div
-                  class="css-asoc7f"
+                  class="css-c1wgmr"
                 >
                   <h4
                     class="MuiTypography-root MuiTypography-h4 css-16mi5sh-MuiTypography-root"
@@ -1944,7 +1944,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               class="ProductTechnicalSpec"
             >
               <div
-                class="css-ya57aw"
+                class="css-1oyez8m"
               >
                 <table
                   class="MuiTable-root Table-evenColor css-wsrw3a-MuiTable-root"
@@ -2010,7 +2010,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
             data-testid="document-simple-table-results"
           >
             <div
-              class="css-ya57aw"
+              class="css-1oyez8m"
             >
               <table
                 class="MuiTable-root Table-rowNoColor css-wsrw3a-MuiTable-root"
@@ -2623,7 +2623,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
             class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
           >
             <div
-              class="MuiTabs-root css-10dbxbh-MuiTabs-root"
+              class="MuiTabs-root css-6wm242-MuiTabs-root"
             >
               <div
                 class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
@@ -2982,7 +2982,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
                 class="css-1qwqwtx"
               >
                 <div
-                  class="css-asoc7f"
+                  class="css-c1wgmr"
                 >
                   <h4
                     class="MuiTypography-root MuiTypography-h4 css-16mi5sh-MuiTypography-root"
@@ -3054,7 +3054,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
               class="ProductTechnicalSpec"
             >
               <div
-                class="css-ya57aw"
+                class="css-1oyez8m"
               >
                 <table
                   class="MuiTable-root Table-evenColor css-wsrw3a-MuiTable-root"
@@ -3215,7 +3215,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
       data-testid="document-simple-table-results"
     >
       <div
-        class="css-ya57aw"
+        class="css-1oyez8m"
       >
         <table
           class="MuiTable-root Table-rowNoColor css-wsrw3a-MuiTable-root"
@@ -4272,7 +4272,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
           class="css-1qwqwtx"
         >
           <div
-            class="css-asoc7f"
+            class="css-c1wgmr"
           >
             <h4
               class="MuiTypography-root MuiTypography-h4 css-16mi5sh-MuiTypography-root"
@@ -4343,7 +4343,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
       data-testid="document-simple-table-results"
     >
       <div
-        class="css-ya57aw"
+        class="css-1oyez8m"
       >
         <table
           class="MuiTable-root Table-rowNoColor css-wsrw3a-MuiTable-root"

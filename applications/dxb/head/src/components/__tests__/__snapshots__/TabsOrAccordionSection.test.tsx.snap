@@ -31,11 +31,11 @@ exports[`TabsOrAccordionSection Accordion default to name if title is null 1`] =
             class=" css-1u48ai"
           >
             <div
-              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-1g8jyxy-MuiPaper-root-MuiAccordion-root"
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-19edt34-MuiPaper-root-MuiAccordion-root"
             >
               <div
                 aria-expanded="false"
-                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
+                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1bwzdu4-MuiButtonBase-root-MuiAccordionSummary-root"
                 data-gtm="{"id":"selector-accordion1","label":"name","action":"Selector – Accordion"}"
                 role="button"
                 tabindex="0"
@@ -138,11 +138,11 @@ exports[`TabsOrAccordionSection Accordion renders Correctly  1`] = `
             class=" css-1u48ai"
           >
             <div
-              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-1g8jyxy-MuiPaper-root-MuiAccordion-root"
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-19edt34-MuiPaper-root-MuiAccordion-root"
             >
               <div
                 aria-expanded="false"
-                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
+                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1bwzdu4-MuiButtonBase-root-MuiAccordionSummary-root"
                 data-gtm="{"id":"selector-accordion1","label":"hello","action":"Selector – Accordion"}"
                 role="button"
                 tabindex="0"
@@ -255,7 +255,7 @@ exports[`TabsOrAccordionSection Tabs default to name if title is null 1`] = `
                   class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                 >
                   <div
-                    class="MuiTabs-root css-10dbxbh-MuiTabs-root"
+                    class="MuiTabs-root css-6wm242-MuiTabs-root"
                   >
                     <div
                       class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
@@ -400,7 +400,7 @@ exports[`TabsOrAccordionSection Tabs renders Correctly  1`] = `
                   class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                 >
                   <div
-                    class="MuiTabs-root css-10dbxbh-MuiTabs-root"
+                    class="MuiTabs-root css-6wm242-MuiTabs-root"
                   >
                     <div
                       class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
@@ -545,7 +545,7 @@ exports[`TabsOrAccordionSection not render tab panel if item array is empty 1`] 
                   class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                 >
                   <div
-                    class="MuiTabs-root css-10dbxbh-MuiTabs-root"
+                    class="MuiTabs-root css-6wm242-MuiTabs-root"
                   >
                     <div
                       class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
@@ -654,7 +654,7 @@ exports[`TabsOrAccordionSection title attribute is rendered if both name and tit
                   class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                 >
                   <div
-                    class="MuiTabs-root css-10dbxbh-MuiTabs-root"
+                    class="MuiTabs-root css-6wm242-MuiTabs-root"
                   >
                     <div
                       class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"

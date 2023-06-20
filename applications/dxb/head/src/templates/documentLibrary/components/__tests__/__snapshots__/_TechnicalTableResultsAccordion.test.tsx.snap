@@ -10,12 +10,12 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
         class=" css-1u48ai"
       >
         <div
-          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-pegw90-MuiPaper-root-MuiAccordion-root"
+          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-q3x8p3-MuiPaper-root-MuiAccordion-root"
           data-testid="tech-table-accordion-item-product-base-code"
         >
           <div
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-hhpeon-MuiButtonBase-root-MuiAccordionSummary-root"
+            class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1luoz50-MuiButtonBase-root-MuiAccordionSummary-root"
             data-gtm="{"id":"selector-accordion1","label":"product1","action":"Selector – Accordion"}"
             role="button"
             tabindex="0"
@@ -405,12 +405,12 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
         class=" css-1u48ai"
       >
         <div
-          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-pegw90-MuiPaper-root-MuiAccordion-root"
+          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-q3x8p3-MuiPaper-root-MuiAccordion-root"
           data-testid="tech-table-accordion-item-product-base-code"
         >
           <div
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-hhpeon-MuiButtonBase-root-MuiAccordionSummary-root"
+            class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1luoz50-MuiButtonBase-root-MuiAccordionSummary-root"
             data-gtm="{"id":"selector-accordion1","label":"product1","action":"Selector – Accordion"}"
             role="button"
             tabindex="0"
@@ -800,12 +800,12 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when on
         class=" css-1u48ai"
       >
         <div
-          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-pegw90-MuiPaper-root-MuiAccordion-root"
+          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-q3x8p3-MuiPaper-root-MuiAccordion-root"
           data-testid="tech-table-accordion-item-product-base-code"
         >
           <div
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-hhpeon-MuiButtonBase-root-MuiAccordionSummary-root"
+            class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1luoz50-MuiButtonBase-root-MuiAccordionSummary-root"
             data-gtm="{"id":"selector-accordion1","label":"product1","action":"Selector – Accordion"}"
             role="button"
             tabindex="0"

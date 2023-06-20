@@ -2111,7 +2111,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -2164,7 +2164,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -2397,7 +2397,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
           >
             <nav
               aria-label="breadcrumbs"
-              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
             >
               <ol
                 class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -2450,7 +2450,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
           >
             <nav
               aria-label="breadcrumbs"
-              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
             >
               <ol
                 class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -5381,7 +5381,7 @@ exports[`Simple page renders correctly with full data 1`] = `
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -5466,7 +5466,7 @@ exports[`Simple page renders correctly with full data 1`] = `
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -5666,7 +5666,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                   class="css-1qwqwtx"
                 >
                   <div
-                    class="css-asoc7f"
+                    class="css-c1wgmr"
                   >
                     <h4
                       class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
@@ -5681,7 +5681,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                         class="css-cku69e"
                       >
                         <div
-                          class="css-1o92lqg"
+                          class="css-1uy5q6o"
                         >
                           <a
                             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink AnchorLink-black css-kan2f7-MuiTypography-root-MuiLink-root"
@@ -5992,7 +5992,7 @@ exports[`Simple page renders correctly with full data 1`] = `
           >
             <nav
               aria-label="breadcrumbs"
-              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
             >
               <ol
                 class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -6077,7 +6077,7 @@ exports[`Simple page renders correctly with full data 1`] = `
           >
             <nav
               aria-label="breadcrumbs"
-              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
             >
               <ol
                 class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"

@@ -107,7 +107,7 @@ exports[`MediaGallerySection component renders correctly 1`] = `
                 </div>
               </div>
               <div
-                class="css-16v98zi"
+                class="css-om0yxt"
                 data-testid="thumbnails-root"
               >
                 <button
