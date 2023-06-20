@@ -13,6 +13,7 @@ import DocumentSimpleTableResults, {
   Props,
   isPIMDocument
 } from "../DocumentSimpleTableResults";
+import { renderWithProviders } from "../../__tests__/renderWithProviders";
 
 jest.mock("@mui/material", () => ({
   ...(jest.requireActual("@mui/material") as any),
@@ -233,6 +234,37 @@ describe("DocumentSimpleTableResult", () => {
 
       fireEvent.click(selectAllCheckbox);
       expect(selectAllCheckbox).not.toHaveClass("Mui-checked");
+    });
+
+    it("should not select the same document twice", async () => {
+      const selectedDocument = createPimDocument({
+        id: "1",
+        productBaseCode: "selected-document",
+        productName: "selected document",
+        title: "selected document"
+      });
+      const documents = [createPimDocument(), selectedDocument];
+      const updateListMock = jest.fn();
+      renderWithProviders(
+        <DownloadListContext.Provider
+          value={{
+            size: selectedDocument.fileSize,
+            list: { "1-selected_document": selectedDocument },
+            updateList: updateListMock,
+            resetList: jest.fn(),
+            count: 0,
+            remainingSize: Infinity,
+            isLoading: false,
+            setIsLoading: jest.fn()
+          }}
+        >
+          <DocumentSimpleTableResults documents={documents} />
+        </DownloadListContext.Provider>
+      );
+
+      const selectAllCheckbox = screen.getByTestId("document-table-select-all");
+      fireEvent.click(selectAllCheckbox);
+      expect(updateListMock).toHaveBeenCalledTimes(1);
     });
   });
 });

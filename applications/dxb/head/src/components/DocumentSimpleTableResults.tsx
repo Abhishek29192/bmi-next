@@ -229,9 +229,13 @@ const DocumentSimpleTableResults = ({
       if (selectedDoc === filteredDocs.length) {
         return;
       }
-      filteredDocs.forEach((d) =>
-        updateList(getUniqueId(d), d, getFileSizeByDocumentType(d))
-      );
+      filteredDocs.forEach((d) => {
+        const documentId = getUniqueId(d);
+        // eslint-disable-next-line security/detect-object-injection
+        if (!list[documentId]) {
+          updateList(getUniqueId(d), d, getFileSizeByDocumentType(d));
+        }
+      });
     } else {
       if (count === 0 || selectedDoc !== filteredDocs.length) {
         return;
