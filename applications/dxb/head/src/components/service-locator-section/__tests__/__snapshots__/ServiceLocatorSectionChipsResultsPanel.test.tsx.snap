@@ -475,7 +475,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -483,7 +483,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
             role="tabpanel"
           >
             <div
-              class="map"
+              class="css-1003pyu"
             >
               <div
                 class="css-1b4gbon"

@@ -1425,7 +1425,7 @@ exports[`Sections component renders correctly 1`] = `
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
               data-testid="tabpanel-map"
               heading="findARoofer.mapLabel"
               hidden=""
@@ -1433,7 +1433,7 @@ exports[`Sections component renders correctly 1`] = `
               role="tabpanel"
             >
               <div
-                class="map"
+                class="css-1003pyu"
               >
                 <div
                   class="css-1b4gbon"
@@ -2126,7 +2126,7 @@ exports[`Sections component renders correctly 1`] = `
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
               data-testid="tabpanel-map"
               heading="findARoofer.mapLabel"
               hidden=""
@@ -2134,7 +2134,7 @@ exports[`Sections component renders correctly 1`] = `
               role="tabpanel"
             >
               <div
-                class="map"
+                class="css-1003pyu"
               >
                 <div
                   class="css-1b4gbon"
