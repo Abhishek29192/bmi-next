@@ -2450,7 +2450,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
     data-testid="brand-colors-provider"
   >
     <div
-      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-c3u99m"
+      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-prja05"
       data-test-class-name="hero"
       data-testid="hero"
     >
@@ -2602,7 +2602,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
               </div>
             </div>
             <div
-              class=" css-1gp2hrh"
+              class=" css-fctwmn"
             >
               <div
                 class="Carousel-opacity Carousel-swipeable css-1s5ge7u"
@@ -2614,7 +2614,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                 >
                   <div
                     class="react-swipeable-view-container"
-                    style="flex-direction: row; transition: transform 0.35s cubic-bezier(0.15, 0.3, 0.25, 1) 0s; direction: ltr; display: flex; will-change: transform; transform: translate(-100%, 0);"
+                    style="flex-direction: row; transition: transform 0.35s cubic-bezier(0.15, 0.3, 0.25, 1) 0s; direction: ltr; display: flex; will-change: transform; transform: translate(-200%, 0);"
                   >
                     <div
                       aria-hidden="false"
@@ -2799,7 +2799,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
         data-testid="carousel-hero-image-carousel"
       >
         <div
-          class=" css-1gp2hrh"
+          class=" css-fctwmn"
         >
           <div
             class="Carousel-swipeable css-1s5ge7u"
@@ -2811,7 +2811,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
             >
               <div
                 class="react-swipeable-view-container"
-                style="flex-direction: row; transition: transform 0.35s cubic-bezier(0.15, 0.3, 0.25, 1) 0s; direction: ltr; display: flex; will-change: transform; transform: translate(-100%, 0);"
+                style="flex-direction: row; transition: transform 0.35s cubic-bezier(0.15, 0.3, 0.25, 1) 0s; direction: ltr; display: flex; will-change: transform; transform: translate(-200%, 0);"
               >
                 <div
                   aria-hidden="false"
@@ -6098,7 +6098,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
     data-testid="brand-colors-provider"
   >
     <div
-      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-c3u99m"
+      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-prja05"
       data-test-class-name="hero"
       data-testid="hero"
     >
@@ -6250,7 +6250,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
               </div>
             </div>
             <div
-              class=" css-1gp2hrh"
+              class=" css-fctwmn"
             >
               <div
                 class="Carousel-opacity Carousel-swipeable css-1s5ge7u"
@@ -6442,7 +6442,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
         data-testid="carousel-hero-image-carousel"
       >
         <div
-          class=" css-1gp2hrh"
+          class=" css-fctwmn"
         >
           <div
             class="Carousel-swipeable css-1s5ge7u"
@@ -9516,7 +9516,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
     data-testid="brand-colors-provider"
   >
     <div
-      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-c3u99m"
+      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-prja05"
       data-test-class-name="hero"
       data-testid="hero"
     >
@@ -9668,7 +9668,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
               </div>
             </div>
             <div
-              class=" css-1gp2hrh"
+              class=" css-fctwmn"
             >
               <div
                 class="Carousel-opacity Carousel-swipeable css-1s5ge7u"
@@ -9680,7 +9680,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                 >
                   <div
                     class="react-swipeable-view-container"
-                    style="flex-direction: row; transition: transform 0.35s cubic-bezier(0.15, 0.3, 0.25, 1) 0s; direction: ltr; display: flex; will-change: transform; transform: translate(-100%, 0);"
+                    style="flex-direction: row; transition: transform 0.35s cubic-bezier(0.15, 0.3, 0.25, 1) 0s; direction: ltr; display: flex; will-change: transform; transform: translate(-200%, 0);"
                   >
                     <div
                       aria-hidden="false"
@@ -9877,7 +9877,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
         data-testid="carousel-hero-image-carousel"
       >
         <div
-          class=" css-1gp2hrh"
+          class=" css-fctwmn"
         >
           <div
             class="Carousel-swipeable css-1s5ge7u"
@@ -9889,7 +9889,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
             >
               <div
                 class="react-swipeable-view-container"
-                style="flex-direction: row; transition: transform 0.35s cubic-bezier(0.15, 0.3, 0.25, 1) 0s; direction: ltr; display: flex; will-change: transform; transform: translate(-100%, 0);"
+                style="flex-direction: row; transition: transform 0.35s cubic-bezier(0.15, 0.3, 0.25, 1) 0s; direction: ltr; display: flex; will-change: transform; transform: translate(-200%, 0);"
               >
                 <div
                   aria-hidden="false"
@@ -13128,7 +13128,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
     data-testid="brand-colors-provider"
   >
     <div
-      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-c3u99m"
+      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-prja05"
       data-test-class-name="hero"
       data-testid="hero"
     >
@@ -13280,7 +13280,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
               </div>
             </div>
             <div
-              class=" css-1gp2hrh"
+              class=" css-fctwmn"
             >
               <div
                 class="Carousel-opacity Carousel-swipeable css-1s5ge7u"
@@ -13470,7 +13470,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
         data-testid="carousel-hero-image-carousel"
       >
         <div
-          class=" css-1gp2hrh"
+          class=" css-fctwmn"
         >
           <div
             class="Carousel-swipeable css-1s5ge7u"
@@ -16770,7 +16770,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
     data-testid="brand-colors-provider"
   >
     <div
-      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-c3u99m"
+      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-prja05"
       data-test-class-name="hero"
       data-testid="hero"
     >
@@ -16922,7 +16922,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
               </div>
             </div>
             <div
-              class=" css-1gp2hrh"
+              class=" css-fctwmn"
             >
               <div
                 class="Carousel-opacity Carousel-swipeable css-1s5ge7u"
@@ -17114,7 +17114,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
         data-testid="carousel-hero-image-carousel"
       >
         <div
-          class=" css-1gp2hrh"
+          class=" css-fctwmn"
         >
           <div
             class="Carousel-swipeable css-1s5ge7u"
@@ -20384,7 +20384,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
     data-testid="brand-colors-provider"
   >
     <div
-      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-c3u99m"
+      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-prja05"
       data-test-class-name="hero"
       data-testid="hero"
     >
@@ -20536,7 +20536,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
               </div>
             </div>
             <div
-              class=" css-1gp2hrh"
+              class=" css-fctwmn"
             >
               <div
                 class="Carousel-opacity Carousel-swipeable css-1s5ge7u"
@@ -20728,7 +20728,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
         data-testid="carousel-hero-image-carousel"
       >
         <div
-          class=" css-1gp2hrh"
+          class=" css-fctwmn"
         >
           <div
             class="Carousel-swipeable css-1s5ge7u"
@@ -24028,7 +24028,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
     data-testid="brand-colors-provider"
   >
     <div
-      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-c3u99m"
+      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-prja05"
       data-test-class-name="hero"
       data-testid="hero"
     >
@@ -24180,7 +24180,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
               </div>
             </div>
             <div
-              class=" css-1gp2hrh"
+              class=" css-fctwmn"
             >
               <div
                 class="Carousel-opacity Carousel-swipeable css-1s5ge7u"
@@ -24372,7 +24372,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
         data-testid="carousel-hero-image-carousel"
       >
         <div
-          class=" css-1gp2hrh"
+          class=" css-fctwmn"
         >
           <div
             class="Carousel-swipeable css-1s5ge7u"
@@ -27672,7 +27672,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
     data-testid="brand-colors-provider"
   >
     <div
-      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-c3u99m"
+      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-prja05"
       data-test-class-name="hero"
       data-testid="hero"
     >
@@ -27824,7 +27824,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
               </div>
             </div>
             <div
-              class=" css-1gp2hrh"
+              class=" css-fctwmn"
             >
               <div
                 class="Carousel-opacity Carousel-swipeable css-1s5ge7u"
@@ -28028,7 +28028,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
         data-testid="carousel-hero-image-carousel"
       >
         <div
-          class=" css-1gp2hrh"
+          class=" css-fctwmn"
         >
           <div
             class="Carousel-swipeable css-1s5ge7u"
@@ -31328,7 +31328,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
     data-testid="brand-colors-provider"
   >
     <div
-      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-c3u99m"
+      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-prja05"
       data-test-class-name="hero"
       data-testid="hero"
     >
@@ -31480,7 +31480,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
               </div>
             </div>
             <div
-              class=" css-1gp2hrh"
+              class=" css-fctwmn"
             >
               <div
                 class="Carousel-opacity Carousel-swipeable css-1s5ge7u"
@@ -31682,7 +31682,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
         data-testid="carousel-hero-image-carousel"
       >
         <div
-          class=" css-1gp2hrh"
+          class=" css-fctwmn"
         >
           <div
             class="Carousel-swipeable css-1s5ge7u"
@@ -34982,7 +34982,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
     data-testid="brand-colors-provider"
   >
     <div
-      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-c3u99m"
+      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-prja05"
       data-test-class-name="hero"
       data-testid="hero"
     >
@@ -35134,7 +35134,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
               </div>
             </div>
             <div
-              class=" css-1gp2hrh"
+              class=" css-fctwmn"
             >
               <div
                 class="Carousel-opacity Carousel-swipeable css-1s5ge7u"
@@ -35338,7 +35338,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
         data-testid="carousel-hero-image-carousel"
       >
         <div
-          class=" css-1gp2hrh"
+          class=" css-fctwmn"
         >
           <div
             class="Carousel-swipeable css-1s5ge7u"
@@ -38638,7 +38638,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
     data-testid="brand-colors-provider"
   >
     <div
-      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-c3u99m"
+      class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-prja05"
       data-test-class-name="hero"
       data-testid="hero"
     >
@@ -38790,7 +38790,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
               </div>
             </div>
             <div
-              class=" css-1gp2hrh"
+              class=" css-fctwmn"
             >
               <div
                 class="Carousel-opacity Carousel-swipeable css-1s5ge7u"
@@ -38994,7 +38994,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
         data-testid="carousel-hero-image-carousel"
       >
         <div
-          class=" css-1gp2hrh"
+          class=" css-fctwmn"
         >
           <div
             class="Carousel-swipeable css-1s5ge7u"

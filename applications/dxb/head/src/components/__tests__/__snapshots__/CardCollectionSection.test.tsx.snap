@@ -344,7 +344,7 @@ exports[`CardCollectionSection component Renders correctly When Title rich text 
               </button>
             </div>
             <div
-              class="Carousel-wrapperGutter css-1gp2hrh"
+              class="Carousel-wrapperGutter css-fctwmn"
             >
               <div
                 class="Carousel-opacity Carousel-carouselGutter Carousel-slideConstantHeight css-1s5ge7u"
@@ -3551,7 +3551,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
               </button>
             </div>
             <div
-              class="Carousel-wrapperShowOffScreen Carousel-wrapperGutter css-1gp2hrh"
+              class="Carousel-wrapperShowOffScreen Carousel-wrapperGutter css-fctwmn"
             >
               <div
                 class="Carousel-opacity Carousel-carouselGutter Carousel-slideConstantHeight css-1s5ge7u"
