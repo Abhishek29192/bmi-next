@@ -249,11 +249,11 @@ const recaptchaContent_SE: RecaptchaPolicyContentType = {
 };
 
 const recaptchaContent_EE: RecaptchaPolicyContentType = {
-  startText: "See leht on kaitstud Google reCAPTCHA-ga ",
-  privacyPloicyText: "Privaatsuspoliitika",
+  startText: "See leht on kaitstud Google reCAPTCHA-ga. Rakenduvad Google ",
+  privacyPloicyText: "privaatsuspõhimõtted",
   andText: " ja ",
-  termsOfServiceText: "Lepingu tingimused",
-  endText: " rakenda.",
+  termsOfServiceText: "kasutustingimused",
+  endText: ".",
   privacyPolicyUrl: "https://policies.google.com/privacy?hl=et",
   termsOfServiceUrl: "https://policies.google.com/terms?hl=et"
 };
