@@ -441,7 +441,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -494,7 +494,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -612,7 +612,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     class="css-1qwqwtx"
                   >
                     <div
-                      class="css-asoc7f"
+                      class="css-c1wgmr"
                     >
                       <h4
                         class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
@@ -714,7 +714,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -767,7 +767,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -1381,7 +1381,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -1434,7 +1434,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -1552,7 +1552,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     class="css-1qwqwtx"
                   >
                     <div
-                      class="css-asoc7f"
+                      class="css-c1wgmr"
                     >
                       <h4
                         class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
@@ -1660,7 +1660,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -1713,7 +1713,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -2397,7 +2397,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -2450,7 +2450,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -2557,7 +2557,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     class="css-1qwqwtx"
                   >
                     <div
-                      class="css-asoc7f"
+                      class="css-c1wgmr"
                     >
                       <h4
                         class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
@@ -2658,12 +2658,12 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       class="Accordion-noInnerPadding css-1u48ai"
                     >
                       <div
-                        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-1g8jyxy-MuiPaper-root-MuiAccordion-root"
+                        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-19edt34-MuiPaper-root-MuiAccordion-root"
                       >
                         <div
                           aria-expanded="false"
                           aria-label="Colour"
-                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
+                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1bwzdu4-MuiButtonBase-root-MuiAccordionSummary-root"
                           data-gtm="{"id":"filter1","label":"Colour","action":"Selector – Filter"}"
                           role="button"
                           tabindex="0"
@@ -2856,7 +2856,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -2909,7 +2909,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -3596,7 +3596,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -3649,7 +3649,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -3756,7 +3756,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     class="css-1qwqwtx"
                   >
                     <div
-                      class="css-asoc7f"
+                      class="css-c1wgmr"
                     >
                       <h4
                         class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
@@ -3857,12 +3857,12 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       class="Accordion-noInnerPadding css-1u48ai"
                     >
                       <div
-                        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-1g8jyxy-MuiPaper-root-MuiAccordion-root"
+                        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-19edt34-MuiPaper-root-MuiAccordion-root"
                       >
                         <div
                           aria-expanded="false"
                           aria-label="Size"
-                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
+                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1bwzdu4-MuiButtonBase-root-MuiAccordionSummary-root"
                           data-gtm="{"id":"filter1","label":"Size","action":"Selector – Filter"}"
                           role="button"
                           tabindex="0"
@@ -4041,7 +4041,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -4094,7 +4094,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -4711,7 +4711,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -4764,7 +4764,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -4871,7 +4871,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     class="css-1qwqwtx"
                   >
                     <div
-                      class="css-asoc7f"
+                      class="css-c1wgmr"
                     >
                       <h4
                         class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
@@ -4972,12 +4972,12 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       class="Accordion-noInnerPadding css-1u48ai"
                     >
                       <div
-                        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-1g8jyxy-MuiPaper-root-MuiAccordion-root"
+                        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-19edt34-MuiPaper-root-MuiAccordion-root"
                       >
                         <div
                           aria-expanded="false"
                           aria-label="Colour"
-                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
+                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1bwzdu4-MuiButtonBase-root-MuiAccordionSummary-root"
                           data-gtm="{"id":"filter1","label":"Colour","action":"Selector – Filter"}"
                           role="button"
                           tabindex="0"
@@ -5164,7 +5164,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -5217,7 +5217,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -5831,7 +5831,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -5884,7 +5884,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -6002,7 +6002,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                     class="css-1qwqwtx"
                   >
                     <div
-                      class="css-asoc7f"
+                      class="css-c1wgmr"
                     >
                       <h4
                         class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
@@ -6106,7 +6106,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -6159,7 +6159,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -6796,7 +6796,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -6878,7 +6878,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -7025,7 +7025,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                     class="css-1qwqwtx"
                   >
                     <div
-                      class="css-asoc7f"
+                      class="css-c1wgmr"
                     >
                       <h4
                         class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
@@ -7129,7 +7129,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -7211,7 +7211,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -7863,7 +7863,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -7916,7 +7916,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -8023,7 +8023,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                     class="css-1qwqwtx"
                   >
                     <div
-                      class="css-asoc7f"
+                      class="css-c1wgmr"
                     >
                       <h4
                         class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
@@ -8125,7 +8125,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -8178,7 +8178,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -8838,7 +8838,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -8891,7 +8891,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -9009,7 +9009,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                     class="css-1qwqwtx"
                   >
                     <div
-                      class="css-asoc7f"
+                      class="css-c1wgmr"
                     >
                       <h4
                         class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
@@ -9110,12 +9110,12 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                       class="Accordion-noInnerPadding css-1u48ai"
                     >
                       <div
-                        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-1g8jyxy-MuiPaper-root-MuiAccordion-root"
+                        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-19edt34-MuiPaper-root-MuiAccordion-root"
                       >
                         <div
                           aria-expanded="false"
                           aria-label="Size"
-                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
+                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1bwzdu4-MuiButtonBase-root-MuiAccordionSummary-root"
                           data-gtm="{"id":"filter1","label":"Size","action":"Selector – Filter"}"
                           role="button"
                           tabindex="0"
@@ -9294,7 +9294,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -9347,7 +9347,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -10010,7 +10010,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -10063,7 +10063,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -10181,7 +10181,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
                     class="css-1qwqwtx"
                   >
                     <div
-                      class="css-asoc7f"
+                      class="css-c1wgmr"
                     >
                       <h4
                         class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
@@ -10282,12 +10282,12 @@ exports[`ProductListerPage template renders an default image if there is no imag
                       class="Accordion-noInnerPadding css-1u48ai"
                     >
                       <div
-                        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-1g8jyxy-MuiPaper-root-MuiAccordion-root"
+                        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-19edt34-MuiPaper-root-MuiAccordion-root"
                       >
                         <div
                           aria-expanded="false"
                           aria-label="Size"
-                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
+                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1bwzdu4-MuiButtonBase-root-MuiAccordionSummary-root"
                           data-gtm="{"id":"filter1","label":"Size","action":"Selector – Filter"}"
                           role="button"
                           tabindex="0"
@@ -10466,7 +10466,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -10519,7 +10519,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -11206,7 +11206,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -11259,7 +11259,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -11366,7 +11366,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                     class="css-1qwqwtx"
                   >
                     <div
-                      class="css-asoc7f"
+                      class="css-c1wgmr"
                     >
                       <h4
                         class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
@@ -11467,12 +11467,12 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                       class="Accordion-noInnerPadding css-1u48ai"
                     >
                       <div
-                        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-1g8jyxy-MuiPaper-root-MuiAccordion-root"
+                        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-19edt34-MuiPaper-root-MuiAccordion-root"
                       >
                         <div
                           aria-expanded="false"
                           aria-label="texture"
-                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
+                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1bwzdu4-MuiButtonBase-root-MuiAccordionSummary-root"
                           data-gtm="{"id":"filter1","label":"texture","action":"Selector – Filter"}"
                           role="button"
                           tabindex="0"
@@ -11651,7 +11651,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -11704,7 +11704,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -12391,7 +12391,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -12444,7 +12444,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -12551,7 +12551,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
                     class="css-1qwqwtx"
                   >
                     <div
-                      class="css-asoc7f"
+                      class="css-c1wgmr"
                     >
                       <h4
                         class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
@@ -12652,12 +12652,12 @@ exports[`ProductListerPage template test handle change url by click on filters a
                       class="Accordion-noInnerPadding css-1u48ai"
                     >
                       <div
-                        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-1g8jyxy-MuiPaper-root-MuiAccordion-root"
+                        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-19edt34-MuiPaper-root-MuiAccordion-root"
                       >
                         <div
                           aria-expanded="false"
                           aria-label="Colour"
-                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
+                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1bwzdu4-MuiButtonBase-root-MuiAccordionSummary-root"
                           data-gtm="{"id":"filter1","label":"Colour","action":"Selector – Filter"}"
                           role="button"
                           tabindex="0"
@@ -12850,7 +12850,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -12903,7 +12903,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -13590,7 +13590,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -13643,7 +13643,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -13750,7 +13750,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     class="css-1qwqwtx"
                   >
                     <div
-                      class="css-asoc7f"
+                      class="css-c1wgmr"
                     >
                       <h4
                         class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
@@ -13851,12 +13851,12 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       class="Accordion-noInnerPadding css-1u48ai"
                     >
                       <div
-                        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-1g8jyxy-MuiPaper-root-MuiAccordion-root"
+                        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-19edt34-MuiPaper-root-MuiAccordion-root"
                       >
                         <div
                           aria-expanded="false"
                           aria-label="Size"
-                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
+                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1bwzdu4-MuiButtonBase-root-MuiAccordionSummary-root"
                           data-gtm="{"id":"filter1","label":"Size","action":"Selector – Filter"}"
                           role="button"
                           tabindex="0"
@@ -14240,7 +14240,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -14293,7 +14293,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -14980,7 +14980,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -15033,7 +15033,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -15140,7 +15140,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     class="css-1qwqwtx"
                   >
                     <div
-                      class="css-asoc7f"
+                      class="css-c1wgmr"
                     >
                       <h4
                         class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
@@ -15241,12 +15241,12 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       class="Accordion-noInnerPadding css-1u48ai"
                     >
                       <div
-                        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-1g8jyxy-MuiPaper-root-MuiAccordion-root"
+                        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-19edt34-MuiPaper-root-MuiAccordion-root"
                       >
                         <div
                           aria-expanded="false"
                           aria-label="Size"
-                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
+                          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1bwzdu4-MuiButtonBase-root-MuiAccordionSummary-root"
                           data-gtm="{"id":"filter1","label":"Size","action":"Selector – Filter"}"
                           role="button"
                           tabindex="0"
@@ -15630,7 +15630,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -15683,7 +15683,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"

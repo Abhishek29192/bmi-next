@@ -16,7 +16,7 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
           class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
         >
           <div
-            class="MuiTabs-root css-10dbxbh-MuiTabs-root"
+            class="MuiTabs-root css-6wm242-MuiTabs-root"
           >
             <div
               class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
@@ -220,7 +220,7 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
                     class="css-1qwqwtx"
                   >
                     <div
-                      class="css-asoc7f"
+                      class="css-c1wgmr"
                     >
                       <h4
                         class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
@@ -264,7 +264,7 @@ exports[`TabLeadBlock tests should render 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
         >
           <div
-            class="MuiTabs-root css-10dbxbh-MuiTabs-root"
+            class="MuiTabs-root css-6wm242-MuiTabs-root"
           >
             <div
               class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
@@ -500,7 +500,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                     class="css-1qwqwtx"
                   >
                     <div
-                      class="css-asoc7f"
+                      class="css-c1wgmr"
                     >
                       <h4
                         class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
@@ -560,7 +560,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                     data-testid="technical-specification-classifications-table-wrapper"
                   >
                     <div
-                      class="css-ya57aw"
+                      class="css-1oyez8m"
                     >
                       <table
                         class="MuiTable-root Table-evenColor css-wsrw3a-MuiTable-root"
@@ -623,7 +623,7 @@ exports[`TabLeadBlock tests should render 1`] = `
       role="tabpanel"
     >
       <div
-        class="DocumentLeadBlock css-asoc7f"
+        class="DocumentLeadBlock css-c1wgmr"
       >
         <div
           class="css-eler5f"
@@ -637,7 +637,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                 data-testid="document-simple-table-results"
               >
                 <div
-                  class="css-ya57aw"
+                  class="css-1oyez8m"
                 >
                   <table
                     class="MuiTable-root Table-rowNoColor css-wsrw3a-MuiTable-root"
@@ -1117,7 +1117,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
   role="tabpanel"
 >
   <div
-    class="DocumentLeadBlock css-asoc7f"
+    class="DocumentLeadBlock css-c1wgmr"
   >
     <div
       class="css-eler5f"
@@ -1131,7 +1131,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
             data-testid="document-simple-table-results"
           >
             <div
-              class="css-ya57aw"
+              class="css-1oyez8m"
             >
               <table
                 class="MuiTable-root Table-rowNoColor css-wsrw3a-MuiTable-root"

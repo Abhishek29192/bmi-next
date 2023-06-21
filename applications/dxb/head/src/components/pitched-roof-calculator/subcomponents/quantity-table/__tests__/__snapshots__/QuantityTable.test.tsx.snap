@@ -6,7 +6,7 @@ exports[`QuantityTable component renders correctly 1`] = `
     class="css-1xy3nqy"
   >
     <div
-      class="css-ya57aw"
+      class="css-1oyez8m"
     >
       <table
         class="MuiTable-root Table-evenColor css-wsrw3a-MuiTable-root"
@@ -753,7 +753,7 @@ exports[`QuantityTable component renders correctly 1`] = `
       </table>
     </div>
     <div
-      class="css-ya57aw"
+      class="css-1oyez8m"
     >
       <table
         class="MuiTable-root Table-evenColor css-wsrw3a-MuiTable-root"
@@ -1417,7 +1417,7 @@ exports[`QuantityTable component renders correctly 1`] = `
       </table>
     </div>
     <div
-      class="css-ya57aw"
+      class="css-1oyez8m"
     >
       <table
         class="MuiTable-root Table-evenColor css-wsrw3a-MuiTable-root"

@@ -3,7 +3,7 @@
 exports[`DocumentsLeadBlock tests should render correctly 1`] = `
 <div>
   <div
-    class="DocumentLeadBlock css-asoc7f"
+    class="DocumentLeadBlock css-c1wgmr"
   >
     <div
       class="css-eler5f"
@@ -17,7 +17,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
             data-testid="document-simple-table-results"
           >
             <div
-              class="css-ya57aw"
+              class="css-1oyez8m"
             >
               <table
                 class="MuiTable-root Table-rowNoColor css-wsrw3a-MuiTable-root"
