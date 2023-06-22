@@ -16,7 +16,7 @@ describe("AssetsIframe", () => {
     expect(assetsIframe).toBeInTheDocument();
     expect(assetsIframe).toHaveAttribute("src", url);
     expect(assetsIframe).toHaveAttribute("title", title);
-    expect(assetsIframe).toHaveClass("assetsIframe my-class");
+    expect(assetsIframe).toHaveClass("my-class");
     expect(assetsIframe).toHaveAttribute("id", id);
   });
 });

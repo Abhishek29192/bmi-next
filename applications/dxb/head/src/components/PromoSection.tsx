@@ -12,7 +12,7 @@ import Link from "./Link";
 import { Data as PromoData } from "./Promo";
 import RichText from "./RichText";
 import { SectionsContext } from "./Sections";
-import styles from "./styles/PromoSection.module.scss";
+import { PromoSectionLink } from "./styles/PromoSectionStyles";
 import Video from "./Video";
 
 export type Data = PromoData;
@@ -52,7 +52,6 @@ const IntegratedPromoSection = ({ data }: { data: Data }) => {
           <Image {...featuredMedia} position="top left" />
         ) : undefined
       }
-      className={styles["PromoSection"]}
       backgroundColor={
         theme
           ? backgroundColorMap[theme.backgroundColor ?? "White"]
@@ -64,7 +63,7 @@ const IntegratedPromoSection = ({ data }: { data: Data }) => {
     >
       {body ? <RichText document={body} hasNoBottomMargin /> : subtitle}
       {cta && (
-        <div className={styles["link"]}>
+        <PromoSectionLink>
           <Link
             component={GTMButton}
             data={cta}
@@ -72,7 +71,7 @@ const IntegratedPromoSection = ({ data }: { data: Data }) => {
           >
             {cta.label}
           </Link>
-        </div>
+        </PromoSectionLink>
       )}
     </PromoSection>
   );

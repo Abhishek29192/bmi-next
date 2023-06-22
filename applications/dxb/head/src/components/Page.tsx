@@ -3,13 +3,13 @@ import { graphql, navigate } from "gatsby";
 import React from "react";
 import { ErrorBoundary, withErrorBoundary } from "react-error-boundary";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
-import "../../src/styles/fonts.module.scss";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { useConfig } from "../contexts/ConfigProvider";
 import { BasketContextProvider } from "../contexts/SampleBasketContext";
 import { Product } from "../types/pim";
 import { getPathWithCountryCode } from "../utils/path";
+import { globalStyles } from "../../src/styles/globalStyles";
 import BrandProvider from "./BrandProvider";
 import { Data as BreadcrumbsData } from "./Breadcrumbs";
 import ErrorFallback from "./ErrorFallback";
@@ -120,6 +120,7 @@ const Page = ({
 
   return (
     <>
+      {globalStyles}
       <Head
         htmlAttributes={{ lang: node_locale }}
         title={seoTitle}

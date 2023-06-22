@@ -3,14 +3,14 @@
 exports[`DocumentsLeadBlock tests should render correctly 1`] = `
 <div>
   <div
-    class="DocumentLeadBlock css-c1wgmr"
+    class="css-fh28tm"
   >
     <div
       class="css-eler5f"
     >
       <div>
         <div
-          class="tableContainer"
+          class="SystemDetailsLeadDocumentsBlockSectionStyles-tableContainer"
         >
           <div
             class="DocumentSimpleTableResults css-358n7x"

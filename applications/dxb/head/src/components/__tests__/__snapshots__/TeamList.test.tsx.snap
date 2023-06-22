@@ -257,7 +257,7 @@ exports[`TeamList component renders correctly with links 1`] = `
               data-testid="profile-card-footer"
             >
               <span
-                class="css-9m7ntb"
+                class="css-qsbrz0"
                 data-testid="profile-card-row"
               >
                 Contact us

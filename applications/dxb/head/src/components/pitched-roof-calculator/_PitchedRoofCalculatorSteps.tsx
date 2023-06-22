@@ -1,5 +1,3 @@
-import { AnchorLink } from "@bmi-digital/components";
-import { Grid } from "@mui/material";
 import React, { useContext, useEffect, useMemo, useState } from "react";
 import { microCopy } from "../../constants/microCopies";
 import { useConfig } from "../../contexts/ConfigProvider";
@@ -44,7 +42,6 @@ import {
   RoofV2 as Roof
 } from "./types/roof";
 import Guttering, { GutteringSelections } from "./_Guttering";
-import styles from "./_PitchedRoofCalculatorSteps.module.scss";
 import Results from "./_Results";
 import RoofDimensions from "./_RoofDimensions";
 import RoofSelection from "./_RoofSelection";
@@ -52,6 +49,10 @@ import TileOptions from "./_TileOptions";
 import TileSelection from "./_TileSelection";
 import UnderlaySelection from "./_UnderlaySelection";
 import VariantSelection from "./_VariantSelection";
+import {
+  StyledCalculationReportAnchor,
+  StyledResultsGrid
+} from "./_PitchedRoofCalculatorSteps.styles";
 
 export type PitchedRoofCalculatorStepsProps = {
   isDebugging?: boolean;
@@ -390,7 +391,7 @@ const PitchedRoofCalculatorSteps = ({
   };
 
   return (
-    <div className={styles["PitchedRoofCalculatorSteps"]}>
+    <div>
       <CalculatorStepper selected={selected} loading={loading}>
         <CalculatorStepper.Step
           key={CalculatorSteps.SelectRoof}
@@ -588,19 +589,18 @@ const PitchedRoofCalculatorSteps = ({
           key={CalculatorSteps.YourSolutionContains}
           title={getMicroCopy(microCopy.RESULTS_TITLE)}
           subtitle={
-            <Grid container className={styles["resultsSubTitle"]}>
+            <StyledResultsGrid container>
               {getMicroCopy(microCopy.RESULTS_SUBTITLE, {
                 contingency: CONTINGENCY_PERCENTAGE_TEXT
               })}
               {!isHubSpotFormAvailable && (
-                <AnchorLink
+                <StyledCalculationReportAnchor
                   action={{ href: "#print-calculations-report" }}
-                  className={styles["calculationReportAnchor"]}
                 >
                   {getMicroCopy(microCopy.RESULTS_DOWNLOAD_PDF_LABEL)}
-                </AnchorLink>
+                </StyledCalculationReportAnchor>
               )}
-            </Grid>
+            </StyledResultsGrid>
           }
           paragraph={
             <span>

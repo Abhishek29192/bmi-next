@@ -1,5 +1,4 @@
 import {
-  AnchorLink,
   Button,
   ButtonProps,
   Carousel,
@@ -26,7 +25,15 @@ import { Data as PageInfoData } from "./PageInfo";
 import { Data as PromoData } from "./Promo";
 import RichText, { RichTextData } from "./RichText";
 import { useSiteContext } from "./Site";
-import styles from "./styles/CardCollectionSection.module.scss";
+import {
+  CardCollectionSectionContainer,
+  classes,
+  StyledChips,
+  StyledClearAllButton,
+  StyledGroupChips,
+  StyledShowMoreGrid,
+  StyledTitle
+} from "./styles/CardCollectionSectionStyles";
 import { TagData } from "./Tag";
 import Video from "./Video";
 
@@ -81,7 +88,7 @@ const CardCollectionItem = ({
   const CardButton = (props) => (
     <Link
       component={(props: ButtonBaseProps) => (
-        <GTMButtonBase {...props} classes={{ root: styles["card-title"] }} />
+        <GTMButtonBase {...props} classes={{ root: "card-title" }} />
       )}
       data={link}
       gtm={{
@@ -121,15 +128,11 @@ const CardCollectionItem = ({
       buttonComponent={link ? CardButton : "div"}
       footer={
         <>
-          {date ? (
-            <Typography variant="h6" className={styles["date"]}>
-              {date}
-            </Typography>
-          ) : null}
+          {date ? <Typography variant="h6">{date}</Typography> : null}
           {link && transformedCardLabel ? (
             isFlat ? (
               <CardButton
-                className={styles["footer-button"]}
+                className="footer-button"
                 data-testid={"card-link"}
                 component={GTMButton}
                 variant="outlined"
@@ -139,7 +142,7 @@ const CardCollectionItem = ({
               </CardButton>
             ) : (
               <Button
-                className={styles["footer-button"]}
+                className={classes["footer-button"]}
                 data-testid={"card-link"}
                 component="span"
                 variant="outlined"
@@ -303,15 +306,14 @@ const CardCollectionSection = ({
   });
 
   return (
-    <div
-      className={styles["CardCollectionSection"]}
+    <CardCollectionSectionContainer
       data-testid={`card-collection-section-${replaceSpaces(title)}`}
     >
       <Section backgroundColor={cardType === "Story Card" ? "white" : "pearl"}>
         {title && (
-          <Typography className={styles["title"]} variant="h2" hasUnderline>
+          <StyledTitle variant="h2" hasUnderline>
             {title}
-          </Typography>
+          </StyledTitle>
         )}
         {description && <RichText document={description} />}
         {shouldDisplayGroups && (
@@ -319,8 +321,8 @@ const CardCollectionSection = ({
             <Typography variant="h4" component="h3">
               {getMicroCopy(microCopy.CARD_COLLECTION_GROUP_TITLE)}
             </Typography>
-            <div className={styles["group-chips"]}>
-              <div className={styles["chips"]}>
+            <StyledGroupChips>
+              <StyledChips>
                 {sortedGroupKeys.map((tagTitle, index) => {
                   const label =
                     tagTitle === "undefined"
@@ -351,10 +353,9 @@ const CardCollectionSection = ({
                     </GTMChip>
                   );
                 })}
-              </div>
-              <AnchorLink
+              </StyledChips>
+              <StyledClearAllButton
                 component="button"
-                className={styles["clear-all"]}
                 onClick={() => {
                   setActiveGroups({});
                 }}
@@ -363,8 +364,8 @@ const CardCollectionSection = ({
                 }
               >
                 {getMicroCopy(microCopy.GLOBAL_CLEAR_ALL)}
-              </AnchorLink>
-            </div>
+              </StyledClearAllButton>
+            </StyledGroupChips>
           </>
         )}
         {theme?.cardCollectionRowType === "single-row" || displaySingleRow ? (
@@ -407,7 +408,7 @@ const CardCollectionSection = ({
                   md={6}
                   lg={4}
                   xl={3}
-                  className={cardIsVisible ? styles["hidden"] : ""}
+                  className={cardIsVisible ? classes.hidden : ""}
                   data-testid={`card-collection-grid-item-${card.id}`}
                 >
                   <CardCollectionItem
@@ -419,11 +420,11 @@ const CardCollectionSection = ({
               );
             })}
             {sortedIterableCards.length > numberOfCardsToShow && (
-              <Grid xs={12} className={styles["show-more-block"]}>
+              <StyledShowMoreGrid xs={12}>
                 <Button variant="outlined" onClick={handleShowMoreClick}>
                   {getMicroCopy(microCopy.GLOBAL_SHOW_MORE)}
                 </Button>
-              </Grid>
+              </StyledShowMoreGrid>
             )}
           </Grid>
         )}
@@ -431,14 +432,14 @@ const CardCollectionSection = ({
           <Link
             component={Button}
             data={link}
-            className={styles["link"]}
+            className={classes.link}
             endIcon={<ArrowForwardIcon />}
           >
             {link.label}
           </Link>
         )}
       </Section>
-    </div>
+    </CardCollectionSectionContainer>
   );
 };
 

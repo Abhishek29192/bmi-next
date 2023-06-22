@@ -14,7 +14,7 @@ import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 import { maxDistanceTile, minDistanceTile } from "./constants/visualiser";
 import modelCache from "./ModelCache";
 import textureCache from "./TextureCache";
-import Viewer, { Props, State } from "./Viewer";
+import Viewer, { Props, State } from "./Viewer/Viewer";
 
 export default class TileViewer extends Viewer<Props, State> {
   tile?: GLTF;

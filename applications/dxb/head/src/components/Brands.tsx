@@ -12,7 +12,7 @@ import { microCopy } from "../constants/microCopies";
 import withGTM from "../utils/google-tag-manager";
 import BrandLogo, { Logo } from "./BrandLogo";
 import { useSiteContext } from "./Site";
-import styles from "./styles/Brands.module.scss";
+import { SectionElement } from "./styles/BrandsStyles";
 
 export type Data = {
   title: string;
@@ -37,11 +37,7 @@ const Brands = ({
   const GTMButton = withGTM<ButtonProps>(Button);
 
   return (
-    <Section
-      backgroundColor={"pearl"}
-      className={styles["Brands"]}
-      data-testid="brands"
-    >
+    <SectionElement backgroundColor={"pearl"} data-testid="brands">
       <Section.Title> {getMicroCopy(microCopy.HOMEPAGE_BRANDS)}</Section.Title>
       <Grid container justifyContent="center">
         {data.map((brand, index) => {
@@ -96,7 +92,7 @@ const Brands = ({
           );
         })}
       </Grid>
-    </Section>
+    </SectionElement>
   );
 };
 

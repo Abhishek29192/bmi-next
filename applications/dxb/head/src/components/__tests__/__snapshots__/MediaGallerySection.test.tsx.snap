@@ -3,7 +3,7 @@
 exports[`MediaGallerySection component renders correctly 1`] = `
 <div>
   <div
-    class="MediaGallerySection Section-root Section-alabaster css-10chrh8"
+    class="Section-root Section-alabaster css-10chrh8"
     data-testid="media-gallery-section-Lorem-ipsum"
   >
     <div
@@ -17,7 +17,7 @@ exports[`MediaGallerySection component renders correctly 1`] = `
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-lg-8 gridItem css-wuqcfn-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-lg-8 css-640u2w-MuiGrid2-root"
             data-testid="grid-item"
           >
             <h2
@@ -28,7 +28,7 @@ exports[`MediaGallerySection component renders correctly 1`] = `
             </h2>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 gridItem css-r7p5j6-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 css-1y7ikt3-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
@@ -280,7 +280,7 @@ exports[`MediaGallerySection component renders correctly 1`] = `
 exports[`MediaGallerySection component renders correctly with long description 1`] = `
 <div>
   <div
-    class="MediaGallerySection Section-root Section-alabaster css-10chrh8"
+    class="Section-root Section-alabaster css-10chrh8"
     data-testid="media-gallery-section-Lorem-ipsum"
   >
     <div
@@ -294,7 +294,7 @@ exports[`MediaGallerySection component renders correctly with long description 1
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-lg-8 gridItem css-wuqcfn-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-lg-8 css-640u2w-MuiGrid2-root"
             data-testid="grid-item"
           >
             <h2
@@ -304,7 +304,7 @@ exports[`MediaGallerySection component renders correctly with long description 1
               Lorem ipsum
             </h2>
             <div
-              class="description"
+              class="css-hix1c1"
             >
               <div
                 class="RichText-root RichText-no-bottom-margin css-1u73y0t"
@@ -325,7 +325,7 @@ exports[`MediaGallerySection component renders correctly with long description 1
             </div>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 gridItem css-r7p5j6-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 css-1y7ikt3-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div

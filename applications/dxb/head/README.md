@@ -131,7 +131,7 @@ Code:
         padding: 0;
       }
 
-      tr:first-child td input {
+      tr:first-of-type td input {
         font-weight: bold;
         text-align: center;
       }

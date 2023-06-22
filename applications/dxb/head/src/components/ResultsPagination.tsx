@@ -1,21 +1,10 @@
-import { Pagination } from "@bmi-digital/components";
-import { styled } from "@mui/material/styles";
 import classnames from "classnames";
 import React from "react";
-import styles from "./styles/ResultsPagination.module.scss";
-
-const PREFIX = "resultsPaginationStyles";
-const classes = {
-  paginationRoot: `${PREFIX}-paginationRoot`
-};
-
-const StyledPagination = styled(Pagination)(({ theme }) => ({
-  [`&.${classes.paginationRoot}`]: {
-    "& ul": {
-      justifyContent: "flex-end"
-    }
-  }
-}));
+import {
+  StyledPagination,
+  StyledPaginationWrapper,
+  classes
+} from "./styles/ResultsPagination.styles";
 
 type Props = {
   page: number;
@@ -26,14 +15,14 @@ type Props = {
 const ResultsPagination = ({ page, count, onPageChange }: Props) => {
   // const globalClasses = useGlobalResPaginationStyles();
   return count > 1 ? (
-    <div className={styles["ResultsPagination"]}>
+    <StyledPaginationWrapper>
       <StyledPagination
         page={page}
         onChange={onPageChange}
         count={count}
-        className={classnames(styles["pagination"], classes.paginationRoot)}
+        className={classnames(classes["pagination"], classes.paginationRoot)}
       />
-    </div>
+    </StyledPaginationWrapper>
   ) : null;
 };
 

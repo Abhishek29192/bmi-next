@@ -13,8 +13,7 @@ import protrusionTypes from "./calculation/protrusions";
 import { AnalyticsContext } from "./helpers/analytics";
 import { getFieldTypes, Type } from "./helpers/fieldTypes";
 import FieldContainer from "./subcomponents/_FieldContainer";
-import inputStyles from "./subcomponents/_InputTextField.module.scss";
-import styles from "./_Protrusions.module.scss";
+import { Root, StyledTitle, classes } from "./_Protrusions.styles";
 
 type SelectProtrusionProps = {
   id: string;
@@ -37,10 +36,10 @@ const SelectProtrusion = ({
   };
 
   return (
-    <FieldContainer className={styles["fieldsContainer"]}>
+    <Root>
       <Grid container justifyContent="center">
         {Object.entries(protrusionTypes).map(([type, { illustration }]) => (
-          <Grid key={type} xs={6} lg={2} className={styles["card"]}>
+          <Grid key={type} xs={6} lg={2} className={classes.card}>
             <CardInput
               name={`select-protrusion-${id}`}
               value={type}
@@ -59,7 +58,7 @@ const SelectProtrusion = ({
           </Grid>
         ))}
       </Grid>
-    </FieldContainer>
+    </Root>
   );
 };
 
@@ -108,12 +107,11 @@ const Input = ({
       helperText={helperText}
       rightAdornment={unit}
       fullWidth
-      className={inputStyles["InputTextField"]}
       InputProps={{
-        className: inputStyles["textField"]
+        className: classes.textField
       }}
       inputProps={{
-        className: inputStyles["numberInput"],
+        className: classes.numberInput,
         step: "any"
       }}
       errorText={error}
@@ -153,9 +151,9 @@ const ProtrusionDimensions = ({
   const isAddAnotherBtnDisabled = fields.some((field) => !values[field.name]);
 
   return (
-    <FieldContainer className={styles["fieldsContainer"]}>
-      <Grid container justifyContent="center" className={styles["dimensions"]}>
-        <DimensionsIllustration className={styles["dimensionsIllustration"]} />
+    <FieldContainer className={classes.fieldsContainer}>
+      <Grid container justifyContent="center" className={classes.dimensions}>
+        <DimensionsIllustration className={classes.dimensionsIllustration} />
         <Grid container justifyContent="center">
           {fields.map(({ name, type }: { name: string; type: Type }) => (
             <Grid key={`protrusion-${id}-${name}`} xs={12} lg={3}>
@@ -189,7 +187,7 @@ const ProtrusionDimensions = ({
         {onAddAnother ? (
           <Button
             variant="outlined"
-            className={styles["addAnotherButton"]}
+            className={classes.addAnotherButton}
             disabled={isAddAnotherBtnDisabled}
             onClick={() => {
               pushEvent({
@@ -255,7 +253,7 @@ const Protrusion = ({
   const { type } = values;
 
   return (
-    <div className={styles["protrusion"]}>
+    <div>
       <SelectProtrusion
         id={id}
         defaultValue={type}
@@ -359,10 +357,10 @@ const Protrusions = ({
   }, [protrusions]);
 
   return (
-    <div className={styles["Protrusions"]}>
-      <h6 className={styles["title"]}>
+    <div>
+      <StyledTitle>
         {getMicroCopy(microCopy.ROOF_DIMENSIONS_PROTRUSIONS_TITLE)}
-      </h6>
+      </StyledTitle>
       {protrusions.map(({ id, values }, i) => (
         <Protrusion
           key={id}

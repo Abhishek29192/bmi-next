@@ -15,7 +15,6 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
         data-testid="typography"
       >
         <div
-          class="SystemDetailsTechnicalSpec"
           data-testid="technical-specification-classifications-accordion-wrapper"
         >
           <div
@@ -72,7 +71,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
                       role="region"
                     >
                       <div
-                        class="MuiAccordionDetails-root accordion-details css-1r7u8wy-MuiAccordionDetails-root"
+                        class="MuiAccordionDetails-root css-el1vt3-MuiAccordionDetails-root"
                       >
                         <div
                           class="css-1oyez8m"
@@ -172,7 +171,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
                       role="region"
                     >
                       <div
-                        class="MuiAccordionDetails-root accordion-details css-1r7u8wy-MuiAccordionDetails-root"
+                        class="MuiAccordionDetails-root css-el1vt3-MuiAccordionDetails-root"
                       >
                         <div
                           class="css-1oyez8m"
@@ -244,7 +243,6 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
         data-testid="typography"
       >
         <div
-          class="SystemDetailsTechnicalSpec"
           data-testid="technical-specification-classifications-accordion-wrapper"
         >
           <div
@@ -301,7 +299,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
                       role="region"
                     >
                       <div
-                        class="MuiAccordionDetails-root accordion-details css-1r7u8wy-MuiAccordionDetails-root"
+                        class="MuiAccordionDetails-root css-el1vt3-MuiAccordionDetails-root"
                       >
                         <div
                           class="css-1oyez8m"
@@ -387,7 +385,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
                       role="region"
                     >
                       <div
-                        class="MuiAccordionDetails-root accordion-details css-1r7u8wy-MuiAccordionDetails-root"
+                        class="MuiAccordionDetails-root css-el1vt3-MuiAccordionDetails-root"
                       >
                         <div
                           class="css-1oyez8m"
@@ -445,7 +443,6 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when One 
         data-testid="typography"
       >
         <div
-          class="SystemDetailsTechnicalSpec"
           data-testid="technical-specification-classifications-table-wrapper"
         >
           <div
@@ -516,7 +513,6 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when One 
         data-testid="typography"
       >
         <div
-          class="SystemDetailsTechnicalSpec"
           data-testid="technical-specification-classifications-table-wrapper"
         >
           <div
@@ -606,7 +602,6 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
         data-testid="typography"
       >
         <div
-          class="SystemDetailsTechnicalSpec"
           data-testid="technical-specification-classifications-accordion-wrapper"
         >
           <div
@@ -663,7 +658,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
                       role="region"
                     >
                       <div
-                        class="MuiAccordionDetails-root accordion-details css-1r7u8wy-MuiAccordionDetails-root"
+                        class="MuiAccordionDetails-root css-el1vt3-MuiAccordionDetails-root"
                       >
                         <div
                           class="css-1oyez8m"
@@ -749,7 +744,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
                       role="region"
                     >
                       <div
-                        class="MuiAccordionDetails-root accordion-details css-1r7u8wy-MuiAccordionDetails-root"
+                        class="MuiAccordionDetails-root css-el1vt3-MuiAccordionDetails-root"
                       >
                         <div
                           class="css-1oyez8m"
@@ -807,7 +802,6 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
         data-testid="typography"
       >
         <div
-          class="SystemDetailsTechnicalSpec"
           data-testid="technical-specification-classifications-accordion-wrapper"
         >
           <div
@@ -864,7 +858,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
                       role="region"
                     >
                       <div
-                        class="MuiAccordionDetails-root accordion-details css-1r7u8wy-MuiAccordionDetails-root"
+                        class="MuiAccordionDetails-root css-el1vt3-MuiAccordionDetails-root"
                       >
                         <div
                           class="css-1oyez8m"
@@ -950,7 +944,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
                       role="region"
                     >
                       <div
-                        class="MuiAccordionDetails-root accordion-details css-1r7u8wy-MuiAccordionDetails-root"
+                        class="MuiAccordionDetails-root css-el1vt3-MuiAccordionDetails-root"
                       >
                         <div
                           class="css-1oyez8m"

@@ -201,7 +201,7 @@ exports[`ContactTopics component renders correctly 1`] = `
                   data-testid="grid-item"
                 >
                   <div
-                    class="BorderedItem"
+                    class="css-7vkmo"
                   />
                   <h5
                     class="MuiTypography-root MuiTypography-h5 css-y579gu-MuiTypography-root"

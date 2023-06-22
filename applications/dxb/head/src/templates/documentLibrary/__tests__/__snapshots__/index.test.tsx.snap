@@ -2554,10 +2554,10 @@ exports[`Document Library page renders correctly  1`] = `
     data-testid="brand-colors-provider"
   >
     <div
-      class="Scrim Scrim--light"
+      class="ScrimStyles-scrim--light css-1qqmo68"
     >
       <span
-        class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary ProgressIndicator ProgressIndicator--light css-1kcdtbk-MuiCircularProgress-root"
+        class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary ProgressIndicatorStyles-progressIndicator--light css-sbue0o-MuiCircularProgress-root"
         data-testid="progress-indicator"
         role="progressbar"
         style="width: 72px; height: 72px;"
@@ -3518,7 +3518,7 @@ exports[`Document Library page should render DocumentCardsResults correctly if s
             class="OverviewCard-brandLogo"
           >
             <svg
-              class="BrandLogo css-gn1fhj"
+              class=" css-1bpjlyv"
               data-testid="brand-logo"
               preserveAspectRatio="xMinYMin"
               viewBox="0 0 244 100"

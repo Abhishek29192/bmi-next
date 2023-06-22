@@ -7,7 +7,7 @@ import {
 } from "@bmi-digital/components";
 import classnames from "classnames";
 import React from "react";
-import styles from "./CardGroup.module.scss";
+import { classes } from "./CardGroup.styles";
 
 type RadioGroupProps = CardRadioGroupProps & WithFormControlProps<string>;
 type CheckboxGroupProps = CardCheckboxGroupProps &
@@ -17,8 +17,8 @@ const CardRadioGroup = (props: RadioGroupProps) => {
   return (
     <RadioGroup
       {...props}
-      className={styles["CardGroup"]}
-      gridContainerClassName={styles["gridContainer"]}
+      className={classes.root}
+      gridContainerClassName={classes.gridContainer}
     />
   );
 };
@@ -29,8 +29,8 @@ const CardCheckboxGroup = ({ className, ...rest }: CheckboxGroupProps) => {
   return (
     <CheckBoxGroup
       {...rest}
-      className={classnames(styles["CardGroup"], className)}
-      gridContainerClassName={styles["gridContainer"]}
+      className={classnames(classes.root, className)}
+      gridContainerClassName={classes.gridContainer}
     />
   );
 };

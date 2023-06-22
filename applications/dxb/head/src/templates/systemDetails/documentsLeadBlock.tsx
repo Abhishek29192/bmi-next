@@ -3,7 +3,10 @@ import React, { useRef, useState } from "react";
 import DocumentResultsFooter from "../../components/DocumentResultsFooter";
 import DocumentSimpleTableResults from "../../components/DocumentSimpleTableResults";
 import { SystemDocument } from "../../types/pim";
-import styles from "./styles/documentsLeadBlock.module.scss";
+import {
+  StyledDocumentLeadBlock,
+  classes
+} from "./styles/documentsLeadBlock.styles";
 
 type Props = {
   documents: readonly SystemDocument[];
@@ -35,11 +38,11 @@ const DocumentsLeadBlock = ({ documents: initialDocuments }: Props) => {
   };
 
   return (
-    <LeadBlock.Card.Section className={styles["DocumentLeadBlock"]}>
+    <StyledDocumentLeadBlock>
       <LeadBlock.Card.Content>
         <div ref={resultsElement}>
           <DownloadList maxSize={GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT * 1000000}>
-            <div className={styles["tableContainer"]}>
+            <div className={classes.tableContainer}>
               <DocumentSimpleTableResults
                 documents={documents}
                 headers={["add", "type", "title", "size", "actions"]}
@@ -53,7 +56,7 @@ const DocumentsLeadBlock = ({ documents: initialDocuments }: Props) => {
           </DownloadList>
         </div>
       </LeadBlock.Card.Content>
-    </LeadBlock.Card.Section>
+    </StyledDocumentLeadBlock>
   );
 };
 

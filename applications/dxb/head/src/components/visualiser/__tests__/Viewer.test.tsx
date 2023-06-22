@@ -1,8 +1,11 @@
 import { PerspectiveCamera, Vector3 } from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { fireEvent, screen, waitFor } from "@testing-library/react";
 import React from "react";
-import Viewer, { Props, State } from "../Viewer";
+import { ThemeProvider } from "@bmi-digital/components";
+import { render } from "@testing-library/react";
+import { renderWithProviders } from "../../../__tests__/renderWithProviders";
+import Viewer, { Props, State } from "../Viewer/Viewer";
 import tileMock from "./__mocks__/tile";
 import sidingMock from "./__mocks__/siding";
 
@@ -352,7 +355,7 @@ describe("Viewer component", () => {
   it("disables zoomIn button if isMinDistance returns true", () => {
     jest.spyOn(Viewer.prototype, "isMinDistance").mockReturnValue(true);
 
-    render(
+    renderWithProviders(
       <ViewerImpl
         tile={tileMock}
         options={{ contentSource: "" }}
@@ -361,13 +364,15 @@ describe("Viewer component", () => {
       />
     );
 
-    expect(screen.getByLabelText("Zoom in")).toHaveClass("disabled");
+    expect(screen.getByLabelText("Zoom in")).toHaveClass(
+      "Visualiser-disabled-icon"
+    );
   });
 
   it("disables zoomOut button if isMaxDistance returns true", () => {
     jest.spyOn(Viewer.prototype, "isMaxDistance").mockReturnValue(true);
 
-    render(
+    renderWithProviders(
       <ViewerImpl
         tile={tileMock}
         options={{ contentSource: "" }}
@@ -376,13 +381,15 @@ describe("Viewer component", () => {
       />
     );
 
-    expect(screen.getByLabelText("Zoom out")).toHaveClass("disabled");
+    expect(screen.getByLabelText("Zoom out")).toHaveClass(
+      "Visualiser-disabled-icon"
+    );
   });
 
   it("opens tooltip and disables rotate left button", () => {
     jest.spyOn(Viewer.prototype, "isMinAzimutAngle").mockReturnValue(true);
 
-    render(
+    renderWithProviders(
       <ViewerImpl
         tile={tileMock}
         options={{ contentSource: "" }}
@@ -392,13 +399,15 @@ describe("Viewer component", () => {
     );
 
     fireEvent.click(screen.getByLabelText("Open rotation menu"));
-    expect(screen.getByLabelText("Rotate left")).toHaveClass("disabled");
+    expect(screen.getByLabelText("Rotate left")).toHaveClass(
+      "Visualiser-disabled-icon"
+    );
   });
 
   it("opens tooltip and disables rotate right button", () => {
     jest.spyOn(Viewer.prototype, "isMaxAzimutAngle").mockReturnValue(true);
 
-    render(
+    renderWithProviders(
       <ViewerImpl
         tile={tileMock}
         options={{ contentSource: "" }}
@@ -408,13 +417,15 @@ describe("Viewer component", () => {
     );
 
     fireEvent.click(screen.getByLabelText("Open rotation menu"));
-    expect(screen.getByLabelText("Rotate right")).toHaveClass("disabled");
+    expect(screen.getByLabelText("Rotate right")).toHaveClass(
+      "Visualiser-disabled-icon"
+    );
   });
 
   it("opens tooltip and disables rotate top button", () => {
     jest.spyOn(Viewer.prototype, "isMinPolarAngle").mockReturnValue(true);
 
-    render(
+    renderWithProviders(
       <ViewerImpl
         tile={tileMock}
         options={{ contentSource: "" }}
@@ -424,13 +435,15 @@ describe("Viewer component", () => {
     );
 
     fireEvent.click(screen.getByLabelText("Open rotation menu"));
-    expect(screen.getByLabelText("Rotate top")).toHaveClass("disabled");
+    expect(screen.getByLabelText("Rotate top")).toHaveClass(
+      "Visualiser-disabled-icon"
+    );
   });
 
   it("opens tooltip and disables rotate bottom button", () => {
     jest.spyOn(Viewer.prototype, "isMaxPolarAngle").mockReturnValue(true);
 
-    render(
+    renderWithProviders(
       <ViewerImpl
         tile={tileMock}
         options={{ contentSource: "" }}
@@ -440,7 +453,9 @@ describe("Viewer component", () => {
     );
 
     fireEvent.click(screen.getByLabelText("Open rotation menu"));
-    expect(screen.getByLabelText("Rotate bottom")).toHaveClass("disabled");
+    expect(screen.getByLabelText("Rotate bottom")).toHaveClass(
+      "Visualiser-disabled-icon"
+    );
   });
 
   it("resets rotations", () => {
@@ -451,7 +466,7 @@ describe("Viewer component", () => {
       .spyOn(Viewer.prototype, "isCameraPositionPristine")
       .mockReturnValue(true);
 
-    render(
+    renderWithProviders(
       <ViewerImpl
         tile={tileMock}
         options={{ contentSource: "" }}
@@ -470,7 +485,7 @@ describe("Viewer component", () => {
       .spyOn(Viewer.prototype, "handleZoomIn")
       .mockImplementation(() => jest.fn());
 
-    render(
+    renderWithProviders(
       <ViewerImpl
         tile={tileMock}
         options={{ contentSource: "" }}
@@ -495,21 +510,25 @@ describe("Viewer component", () => {
     const loadModelSpy = jest.spyOn(ViewerImpl.prototype, "loadModel");
 
     const { rerender } = render(
-      <ViewerImpl
-        tile={tileMock}
-        options={{ contentSource: "" }}
-        siding={sidingMock}
-        setIsLoading={jest.fn()}
-      />
+      <ThemeProvider>
+        <ViewerImpl
+          tile={tileMock}
+          options={{ contentSource: "" }}
+          siding={sidingMock}
+          setIsLoading={jest.fn()}
+        />
+      </ThemeProvider>
     );
 
     rerender(
-      <ViewerImpl
-        tile={{ ...tileMock, code: "second_tile" }}
-        options={{ contentSource: "" }}
-        siding={sidingMock}
-        setIsLoading={jest.fn()}
-      />
+      <ThemeProvider>
+        <ViewerImpl
+          tile={{ ...tileMock, code: "second_tile" }}
+          options={{ contentSource: "" }}
+          siding={sidingMock}
+          setIsLoading={jest.fn()}
+        />
+      </ThemeProvider>
     );
 
     expect(loadModelSpy).toHaveBeenCalledTimes(1);

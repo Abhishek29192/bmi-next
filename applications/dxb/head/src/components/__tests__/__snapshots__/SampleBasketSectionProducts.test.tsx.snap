@@ -3,10 +3,10 @@
 exports[`SampleBasketSectionProducts component renders correctly 1`] = `
 <div>
   <div
-    class="SampleBasketSectionProducts"
+    class="css-1yyiycy"
   >
     <button
-      class="MuiButtonBase-root OverviewCard-clickable product-wrapper MuiBox-root css-1j7ybbw-MuiButtonBase-root"
+      class="MuiButtonBase-root OverviewCard-clickable SampleBasketSectionProducts-product-wrapper MuiBox-root css-1j7ybbw-MuiButtonBase-root"
       tabindex="0"
       type="button"
     >
@@ -16,7 +16,7 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
       >
         <img
           alt="sample-1"
-          class="product-image OverviewCard-headerPicture css-7mgsqw-Media"
+          class="SampleBasketSectionProducts-product-image OverviewCard-headerPicture css-7mgsqw-Media"
           src="http://localhost:8000/image-main-source.jpg"
           style="object-fit: contain; object-position: center;"
         />
@@ -32,23 +32,21 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
             data-testid="overview-card-body-description"
           >
             <div
-              class="product"
+              class="SampleBasketSectionProducts-product"
             >
-              <div
-                class="product-description"
-              >
+              <div>
                 <p
-                  class="MuiTypography-root MuiTypography-body1 product-title css-1o02bdp-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 SampleBasketSectionProducts-product-title css-1o02bdp-MuiTypography-root"
                   data-testid="typography"
                 >
                   sample-1
                 </p>
                 <p
-                  class="MuiTypography-root MuiTypography-body1 product-color css-1o02bdp-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 SampleBasketSectionProducts-product-color css-1o02bdp-MuiTypography-root"
                   data-testid="typography"
                 />
                 <p
-                  class="MuiTypography-root MuiTypography-body1 product-size css-1o02bdp-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 SampleBasketSectionProducts-product-size css-1o02bdp-MuiTypography-root"
                   data-testid="typography"
                 />
               </div>
@@ -61,7 +59,7 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
         data-testid="overview-card-body-footer"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium product-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium SampleBasketSectionProducts-product-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
           tabindex="0"
           type="button"
         >
@@ -91,7 +89,7 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
       />
     </button>
     <button
-      class="MuiButtonBase-root OverviewCard-clickable product-wrapper MuiBox-root css-1j7ybbw-MuiButtonBase-root"
+      class="MuiButtonBase-root OverviewCard-clickable SampleBasketSectionProducts-product-wrapper MuiBox-root css-1j7ybbw-MuiButtonBase-root"
       tabindex="0"
       type="button"
     >
@@ -101,7 +99,7 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
       >
         <img
           alt="sample-2"
-          class="product-image OverviewCard-headerPicture css-7mgsqw-Media"
+          class="SampleBasketSectionProducts-product-image OverviewCard-headerPicture css-7mgsqw-Media"
           src="http://localhost:8000/image-main-source.jpg"
           style="object-fit: contain; object-position: center;"
         />
@@ -117,25 +115,23 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
             data-testid="overview-card-body-description"
           >
             <div
-              class="product"
+              class="SampleBasketSectionProducts-product"
             >
-              <div
-                class="product-description"
-              >
+              <div>
                 <p
-                  class="MuiTypography-root MuiTypography-body1 product-title css-1o02bdp-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 SampleBasketSectionProducts-product-title css-1o02bdp-MuiTypography-root"
                   data-testid="typography"
                 >
                   sample-2
                 </p>
                 <p
-                  class="MuiTypography-root MuiTypography-body1 product-color css-1o02bdp-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 SampleBasketSectionProducts-product-color css-1o02bdp-MuiTypography-root"
                   data-testid="typography"
                 >
                   Red | Matte
                 </p>
                 <p
-                  class="MuiTypography-root MuiTypography-body1 product-size css-1o02bdp-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 SampleBasketSectionProducts-product-size css-1o02bdp-MuiTypography-root"
                   data-testid="typography"
                 >
                   10x20x30 mm
@@ -150,7 +146,7 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
         data-testid="overview-card-body-footer"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium product-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium SampleBasketSectionProducts-product-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
           tabindex="0"
           type="button"
         >
@@ -180,7 +176,7 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
       />
     </button>
     <button
-      class="MuiButtonBase-root OverviewCard-clickable product-wrapper MuiBox-root css-1j7ybbw-MuiButtonBase-root"
+      class="MuiButtonBase-root OverviewCard-clickable SampleBasketSectionProducts-product-wrapper MuiBox-root css-1j7ybbw-MuiButtonBase-root"
       tabindex="0"
       type="button"
     >
@@ -190,7 +186,7 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
       >
         <img
           alt="sample-3"
-          class="product-image OverviewCard-headerPicture css-7mgsqw-Media"
+          class="SampleBasketSectionProducts-product-image OverviewCard-headerPicture css-7mgsqw-Media"
           src="http://localhost:8000/image-main-source.jpg"
           style="object-fit: contain; object-position: center;"
         />
@@ -206,25 +202,23 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
             data-testid="overview-card-body-description"
           >
             <div
-              class="product"
+              class="SampleBasketSectionProducts-product"
             >
-              <div
-                class="product-description"
-              >
+              <div>
                 <p
-                  class="MuiTypography-root MuiTypography-body1 product-title css-1o02bdp-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 SampleBasketSectionProducts-product-title css-1o02bdp-MuiTypography-root"
                   data-testid="typography"
                 >
                   sample-3
                 </p>
                 <p
-                  class="MuiTypography-root MuiTypography-body1 product-color css-1o02bdp-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 SampleBasketSectionProducts-product-color css-1o02bdp-MuiTypography-root"
                   data-testid="typography"
                 >
                   Black
                 </p>
                 <p
-                  class="MuiTypography-root MuiTypography-body1 product-size css-1o02bdp-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 SampleBasketSectionProducts-product-size css-1o02bdp-MuiTypography-root"
                   data-testid="typography"
                 />
               </div>
@@ -237,7 +231,7 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
         data-testid="overview-card-body-footer"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium product-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium SampleBasketSectionProducts-product-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
           tabindex="0"
           type="button"
         >

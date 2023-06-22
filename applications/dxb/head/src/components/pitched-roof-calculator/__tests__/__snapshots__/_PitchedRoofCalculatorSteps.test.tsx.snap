@@ -2,9 +2,7 @@
 
 exports[`PitchedRoofCalculatorSteps component renders correctly 1`] = `
 <div>
-  <div
-    class="PitchedRoofCalculatorSteps"
-  >
+  <div>
     <div>
       <p>
         Step 

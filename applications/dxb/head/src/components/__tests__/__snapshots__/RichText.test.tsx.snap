@@ -92,7 +92,7 @@ exports[`RichText component closes dialog 1`] = `
       </a>
        
       <button
-        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLink embeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLinkStyles-embeddedLink embeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
         data-gtm="{"id":"cta-click1","label":"Aerodek Robust Plus","action":"product-category-page/product-sub-category-page/aerodek-robust-plus/"}"
         tabindex="0"
         type="button"
@@ -133,7 +133,7 @@ exports[`RichText component closes dialog 1`] = `
     </blockquote>
     <hr />
     <button
-      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLink embeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLinkStyles-embeddedLink embeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
       data-gtm="{"id":"cta-click1","label":"Support","action":"landing-page/"}"
       tabindex="0"
       type="button"
@@ -291,7 +291,7 @@ exports[`RichText component renders correctly 1`] = `
       </a>
        
       <button
-        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLink embeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLinkStyles-embeddedLink embeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
         data-gtm="{"id":"cta-click1","label":"Aerodek Robust Plus","action":"product-category-page/product-sub-category-page/aerodek-robust-plus/"}"
         tabindex="0"
         type="button"
@@ -332,7 +332,7 @@ exports[`RichText component renders correctly 1`] = `
     </blockquote>
     <hr />
     <button
-      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLink embeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLinkStyles-embeddedLink embeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
       data-gtm="{"id":"cta-click1","label":"Support","action":"landing-page/"}"
       tabindex="0"
       type="button"
@@ -479,7 +479,7 @@ exports[`RichText component renders when dialog clicked 1`] = `
       </a>
        
       <button
-        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLink embeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLinkStyles-embeddedLink embeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
         data-gtm="{"id":"cta-click1","label":"Aerodek Robust Plus","action":"product-category-page/product-sub-category-page/aerodek-robust-plus/"}"
         tabindex="0"
         type="button"
@@ -520,7 +520,7 @@ exports[`RichText component renders when dialog clicked 1`] = `
     </blockquote>
     <hr />
     <button
-      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLink embeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLinkStyles-embeddedLink embeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
       data-gtm="{"id":"cta-click1","label":"Support","action":"landing-page/"}"
       tabindex="0"
       type="button"

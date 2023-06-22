@@ -1,14 +1,17 @@
 import { Grid, Typography } from "@bmi-digital/components";
 import React from "react";
-import styles from "./OptionCard.module.scss";
+import {
+  StyledOptionCardContainer,
+  StyledTitle
+} from "./styles/OptionCardStyles";
 
 const OptionCard = ({ title, description, children }: any) => (
-  <div className={styles["OptionCard"]}>
+  <StyledOptionCardContainer>
     <Grid container spacing={3}>
       <Grid xs={12} md={6}>
-        <Typography variant={"h4"} hasUnderline className={styles["title"]}>
+        <StyledTitle variant={"h4"} hasUnderline>
           {title}
-        </Typography>
+        </StyledTitle>
         <Typography variant={"body2"}>{description}</Typography>
       </Grid>
       <Grid
@@ -23,7 +26,7 @@ const OptionCard = ({ title, description, children }: any) => (
         {children}
       </Grid>
     </Grid>
-  </div>
+  </StyledOptionCardContainer>
 );
 
 export default OptionCard;

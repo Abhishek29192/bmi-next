@@ -9,7 +9,7 @@ import {
   MediaGallery,
   replaceSpaces,
   Tabs,
-  Typography
+  useIsClient
 } from "@bmi-digital/components";
 import { Check as CheckIcon, Launch } from "@mui/icons-material";
 import { styled } from "@mui/material/styles";
@@ -28,7 +28,18 @@ import ProductTechnicalSpec from "./ProductTechnicalSpec";
 import { DocumentDisplayFormatType } from "./Resources";
 import RichText, { RichTextData } from "./RichText";
 import { useSiteContext } from "./Site";
-import styles from "./styles/ProductLeadBlock.module.scss";
+import {
+  classes,
+  StyledDocumentLibrary,
+  StyledDocumentSpan,
+  StyledImage,
+  StyledImagesContainer,
+  StyledProductLeadBlockTitle,
+  StyledProductDescription,
+  StyledProductLeadBlock,
+  StyledProductLeadTabIFrame,
+  StyledTabPanel
+} from "./styles/ProductLeadBlock.styles";
 
 const StyledBlueCheckIcon = styled(Icon)(({ theme }) => ({
   color: theme.colours.accent300
@@ -68,6 +79,7 @@ const ProductLeadBlock = ({
   pdpSpecificationDescription,
   documentDisplayFormat
 }: Props) => {
+  const { isClient } = useIsClient();
   const { documentDownloadMaxLimit } = useConfig();
   const { getMicroCopy, countryCode } = useSiteContext();
   const [page, setPage] = useState(1);
@@ -87,7 +99,7 @@ const ProductLeadBlock = ({
   };
   const displayBy = documentDisplayFormat === "Asset name" ? "title" : "type";
   return (
-    <div className={styles["ProductLeadBlock"]}>
+    <StyledProductLeadBlock>
       <Tabs
         initialValue="one"
         tabComponent={(props: TabProps) => (
@@ -105,11 +117,12 @@ const ProductLeadBlock = ({
           <LeadBlock>
             <LeadBlock.Content>
               <LeadBlock.Content.Section>
-                <Typography
-                  component="div"
-                  className={styles["productDescription"]}
-                  dangerouslySetInnerHTML={{ __html: product.description }}
-                />
+                {isClient && (
+                  <StyledProductDescription
+                    component="div"
+                    dangerouslySetInnerHTML={{ __html: product.description }}
+                  />
+                )}
               </LeadBlock.Content.Section>
 
               {(product.guaranteesAndWarrantiesImages.length > 0 ||
@@ -121,19 +134,18 @@ const ProductLeadBlock = ({
                     )}
                   </LeadBlock.Content.Heading>
                   {product.guaranteesAndWarrantiesImages.length > 0 && (
-                    <div className={styles["imagesContainer"]}>
+                    <StyledImagesContainer>
                       {product.guaranteesAndWarrantiesImages.map((item, i) => (
-                        <img
+                        <StyledImage
                           key={`guarantee-img-${i}`}
                           src={item.url}
                           alt={item.name}
-                          className={styles["image"]}
                           data-testid={`guarantee-image${
                             item.name ? `-${replaceSpaces(item.name)}` : ""
                           }`}
                         />
                       ))}
-                    </div>
+                    </StyledImagesContainer>
                   )}
                   {product.guaranteesAndWarrantiesLinks.length > 0 &&
                     product.guaranteesAndWarrantiesLinks.map((item, i) => (
@@ -153,7 +165,7 @@ const ProductLeadBlock = ({
                           }}
                           iconEnd
                           isExternal={isExternalUrl(item.url)}
-                          className={styles["inline-link"]}
+                          className={classes["inline-link"]}
                           data-testid={`guarantee-inline-link${
                             item.name ? `-${replaceSpaces(item.name)}` : ""
                           }`}
@@ -171,25 +183,21 @@ const ProductLeadBlock = ({
                     {getMicroCopy(microCopy.PDP_LEAD_BLOCK_AWARDS_CERTIFICATES)}
                   </LeadBlock.Content.Heading>
                   {product.awardsAndCertificateImages.length > 0 && (
-                    <div className={styles["imagesContainer"]}>
+                    <StyledImagesContainer>
                       {product.awardsAndCertificateImages.map((item, i) => (
-                        <img
+                        <StyledImage
                           key={`award-img-${i}`}
                           src={item.url}
                           alt={item.name}
-                          className={styles["image"]}
                         />
                       ))}
-                    </div>
+                    </StyledImagesContainer>
                   )}
                   {product.awardsAndCertificateImages.length > 0 &&
                     product.awardsAndCertificateDocuments.length > 0 && <br />}
                   {product.awardsAndCertificateDocuments.length > 0 &&
                     product.awardsAndCertificateDocuments.map((item, i) => (
-                      <span
-                        className={styles["document"]}
-                        key={`award-doc-${i}`}
-                      >
+                      <StyledDocumentSpan key={`award-doc-${i}`}>
                         <Button
                           variant="outlined"
                           action={{
@@ -202,7 +210,7 @@ const ProductLeadBlock = ({
                         >
                           {item.name}
                         </Button>
-                      </span>
+                      </StyledDocumentSpan>
                     ))}
                 </LeadBlock.Content.Section>
               )}
@@ -221,7 +229,7 @@ const ProductLeadBlock = ({
                       <IconList>
                         {product.productBenefits.map((feature, index) => (
                           <IconList.Item
-                            key={index}
+                            key={`product-benefits-${index}`}
                             icon={BlueCheckIcon()}
                             title={feature}
                             isCompact
@@ -297,7 +305,7 @@ const ProductLeadBlock = ({
             index="three"
             data-testid="documentsTab"
           >
-            <div className={styles["document-library"]} ref={resultsElement}>
+            <StyledDocumentLibrary ref={resultsElement}>
               <DownloadList maxSize={(documentDownloadMaxLimit ?? 0) * 1000000}>
                 <DocumentSimpleTableResults
                   documents={documents}
@@ -309,7 +317,7 @@ const ProductLeadBlock = ({
                   onPageChange={handlePageChange}
                 />
               </DownloadList>
-            </div>
+            </StyledDocumentLibrary>
           </Tabs.TabPanel>
         )}
         {product.bimIframeUrl && (
@@ -343,51 +351,47 @@ const ProductLeadBlock = ({
           </Tabs.TabPanel>
         )}
         {product.specificationIframeUrl && (
-          <Tabs.TabPanel
+          <StyledTabPanel
             heading={getMicroCopy(microCopy.PDP_LEAD_BLOCK_SPECIFICATION)}
             index="seven"
             data-testid="specification"
-            className={styles["tab-container"]}
           >
             {pdpSpecificationTitle && (
-              <Typography variant="h5" className={styles["heading"]}>
+              <StyledProductLeadBlockTitle variant="h5">
                 {pdpSpecificationTitle}
-              </Typography>
+              </StyledProductLeadBlockTitle>
             )}
             {pdpSpecificationDescription && (
               <RichText document={pdpSpecificationDescription} />
             )}
-            <AssetsIframe
+            <StyledProductLeadTabIFrame
               url={product.specificationIframeUrl}
-              className={styles["specification-tab-iframe"]}
               title={`${pdpSpecificationTitle} iFrame`}
             />
-          </Tabs.TabPanel>
+          </StyledTabPanel>
         )}
         {product.fixingToolIframeUrl && (
-          <Tabs.TabPanel
+          <StyledTabPanel
             heading={getMicroCopy(microCopy.PDP_LEAD_BLOCK_FIXING_TOOL)}
             index="six"
             data-testid="fixingTool"
-            className={styles["tab-container"]}
           >
             {pdpFixingToolTitle && (
-              <Typography variant="h5" className={styles["heading"]}>
+              <StyledProductLeadBlockTitle variant="h5">
                 {pdpFixingToolTitle}
-              </Typography>
+              </StyledProductLeadBlockTitle>
             )}
             {pdpFixingToolDescription && (
               <RichText document={pdpFixingToolDescription} />
             )}
-            <AssetsIframe
+            <StyledProductLeadTabIFrame
               url={product.fixingToolIframeUrl}
-              className={styles["fixing-tool-iframe"]}
               title={`${pdpFixingToolTitle} iFrame`}
             />
-          </Tabs.TabPanel>
+          </StyledTabPanel>
         )}
       </Tabs>
-    </div>
+    </StyledProductLeadBlock>
   );
 };
 export default ProductLeadBlock;

@@ -6,7 +6,7 @@ import { useAnalyticsContext } from "./helpers/analytics";
 import { CardRadioGroup } from "./subcomponents/card-group/CardGroup";
 import FieldContainer from "./subcomponents/_FieldContainer";
 import { Underlay } from "./types";
-import styles from "./_UnderlaySelection.module.scss";
+import { StyledCardRadioItemParagraph } from "./_UnderlaySelection.styles";
 
 type UnderlaySelectionRowProps = {
   // TODO: Type when importing from Contentful
@@ -59,9 +59,9 @@ const UnderlaySelectionRow = ({
             }
           >
             {underlay.shortDescription ? (
-              <CardRadioGroup.Item.Paragraph className={styles["description"]}>
+              <StyledCardRadioItemParagraph>
                 {underlay.shortDescription}
-              </CardRadioGroup.Item.Paragraph>
+              </StyledCardRadioItemParagraph>
             ) : null}
             <CardRadioGroup.Item.Paragraph>
               {getMicroCopy(microCopy.CALCULATOR_NOBB_LABEL)}:{" "}
@@ -88,7 +88,7 @@ const UnderlaySelection = ({ options, selected }: UnderlaySelectionProps) => {
   );
 
   return (
-    <div className={styles["UnderlaySelection"]}>
+    <div>
       {sortedOptions.length ? (
         <UnderlaySelectionRow options={sortedOptions} {...{ selected }} />
       ) : (

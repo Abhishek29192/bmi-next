@@ -16,7 +16,7 @@ import ProductFeaturesTable from "../../components/ProductFeaturesTable";
 import RichText from "../../components/RichText";
 import { Classification } from "../../types/pim";
 import withGTM from "../../utils/google-tag-manager";
-import styles from "./styles/technicalSpecificationLeadBlock.module.scss";
+import { StyledAccordionDetails } from "./styles/technicalSpecificationLeadBlock.styles";
 
 const GTMAccordionSummary = withGTM<AccordionSummaryProps>(Accordion.Summary);
 
@@ -34,10 +34,7 @@ const TechnicalSpecificationLeadBlock = ({
     if (technicalSpecClassifications.length === 1) {
       const classification = technicalSpecClassifications[0];
       return (
-        <div
-          className={styles["SystemDetailsTechnicalSpec"]}
-          data-testid="technical-specification-classifications-table-wrapper"
-        >
+        <div data-testid="technical-specification-classifications-table-wrapper">
           <ProductFeaturesTable
             key={`tech-spec-${classification.name}`}
             features={classification.features}
@@ -57,10 +54,7 @@ const TechnicalSpecificationLeadBlock = ({
 
     if (technicalSpecClassifications.length > 1) {
       return (
-        <div
-          className={styles["SystemDetailsTechnicalSpec"]}
-          data-testid="technical-specification-classifications-accordion-wrapper"
-        >
+        <div data-testid="technical-specification-classifications-accordion-wrapper">
           <Accordion
             noInnerPadding
             data-testid="technical-specification-classifications-accordion"
@@ -82,13 +76,13 @@ const TechnicalSpecificationLeadBlock = ({
                     >
                       <Typography variant="h6">{name}</Typography>
                     </GTMAccordionSummary>
-                    <Accordion.Details className={styles["accordion-details"]}>
+                    <StyledAccordionDetails>
                       <ProductFeaturesTable
                         features={features}
                         rowBgColorPattern="even"
                         hasNoBorder={true}
                       />
-                    </Accordion.Details>
+                    </StyledAccordionDetails>
                   </Accordion.Item>
                 );
               })}

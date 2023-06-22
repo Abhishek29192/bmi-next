@@ -1,19 +1,21 @@
-import { Typography } from "@bmi-digital/components";
 import React from "react";
-import styles from "./DescriptionCard.module.scss";
+import { Typography } from "@bmi-digital/components";
+import {
+  StyledDescriptionCard,
+  StyledHeader,
+  StyledDescription
+} from "./styles/DescriptionCardStyles";
 
-const DescriptionCard = ({ title, icon: Icon, children }: any) => (
-  <div className={styles["DescriptionCard"]}>
-    <div className={styles["header"]}>
-      <Icon className={styles["icon"]} />
-      <Typography variant={"h6"} hasUnderline className={styles["title"]}>
+const DescriptionCard = ({ title, icon: StyledIcon, children }: any) => (
+  <StyledDescriptionCard>
+    <StyledHeader>
+      <StyledIcon />
+      <Typography variant={"h6"} hasUnderline>
         {title}
       </Typography>
-    </div>
-    <Typography className={styles["description"]} variant={"body1"}>
-      {children}
-    </Typography>
-  </div>
+    </StyledHeader>
+    <StyledDescription variant={"body1"}>{children}</StyledDescription>
+  </StyledDescriptionCard>
 );
 
 export default DescriptionCard;

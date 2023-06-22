@@ -22,9 +22,9 @@ import withGTM from "../../utils/google-tag-manager";
 import { transformMediaSrc } from "../../utils/media";
 import { transformImages } from "../../utils/product-details-transforms";
 import LeadBlockSection from "./leadBlockSection";
-import styles from "./styles/systemDetailsPage.module.scss";
 import SystemLayersSection from "./systemLayersSection";
 import TabLeadBlock from "./tabLeadBlock";
+import { StyledImageGalarySection } from "./styles/systemDetailsPage.styles";
 
 type Props = {
   pageContext: {
@@ -102,15 +102,13 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
         uniqueSellingPropositions={system.uniqueSellingPropositions}
         brandLogo={<BrandLogo brandName={system.brand?.code} />}
       />
-      <Section
+      <StyledImageGalarySection
         backgroundColor="alabaster"
-        className={styles["imageGallery-systemLayers-section"]}
         data-testid="system-details-page-image-gallary-section"
       >
         <Grid container spacing={3}>
           <Grid xs={12} md={12} lg={8}>
             <MediaGallery
-              className={styles["gallery"]}
               media={media}
               layout="short"
               thumbnailComponent={(props: ThumbnailProps) => (
@@ -125,7 +123,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
             </Grid>
           )}
         </Grid>
-      </Section>
+      </StyledImageGalarySection>
       <TabLeadBlock
         system={system}
         aboutLeadBlockGenericContent={resources?.sdpSidebarItems?.[0]}

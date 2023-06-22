@@ -106,9 +106,6 @@ describe("BackToResults component", () => {
 
     expect(screen.getByTestId("back-to-results-button")).toBeInTheDocument();
     expect(screen.getByTestId("back-to-results-separator")).toBeInTheDocument();
-    expect(screen.getByTestId("back-to-results-separator")).toHaveClass(
-      "BackToResults--separator"
-    );
   });
 
   it("renders correctly when user's screen width is mobile", () => {
@@ -118,10 +115,6 @@ describe("BackToResults component", () => {
     });
 
     expect(screen.getByTestId("back-to-results-section")).toBeInTheDocument();
-    expect(screen.getByTestId("back-to-results-section")).toHaveClass(
-      "BackToResults"
-    );
-
     expect(screen.getByTestId("back-to-results-button")).toBeInTheDocument();
     expect(
       screen.queryByTestId("back-to-results-separator")

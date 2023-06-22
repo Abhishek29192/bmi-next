@@ -1,6 +1,5 @@
-import classnames from "classnames";
 import React from "react";
-import styles from "./styles/AssetsIframe.module.scss";
+import { AssetsIframeElement } from "./styles/AssetsIframeStyles";
 
 type Props = {
   url: string;
@@ -9,9 +8,9 @@ type Props = {
 };
 
 const AssetsIframe = ({ url, title, className, ...rest }: Props) => (
-  <iframe
+  <AssetsIframeElement
     data-testid="assets-iframe-element"
-    className={classnames(styles["assetsIframe"], className)}
+    className={className}
     src={url}
     title={title}
     {...rest}

@@ -1,6 +1,5 @@
 import classnames from "classnames";
 import React from "react";
-import styles from "./FlatRoofCalculator.module.scss";
 
 export type SectionProps = {
   lessMargin?: boolean;
@@ -17,10 +16,10 @@ const Section = ({
 }: SectionProps) => (
   <div
     className={classnames(
-      styles["section"],
-      lessMargin && styles["section--less-margin"],
-      xLessMargin && styles["section--x-less-margin"],
-      xxLessMargin && styles["section--xx-less-margin"],
+      "section",
+      lessMargin && "section--less-margin",
+      xLessMargin && "section--x-less-margin",
+      xxLessMargin && "section--xx-less-margin",
       className
     )}
     {...rest}

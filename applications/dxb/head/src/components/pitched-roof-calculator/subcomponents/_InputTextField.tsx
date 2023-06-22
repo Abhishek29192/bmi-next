@@ -1,8 +1,7 @@
-import { TextField } from "@bmi-digital/components";
 import React from "react";
 import { useSiteContext } from "../../Site";
 import { getFieldTypes, Type } from "../helpers/fieldTypes";
-import styles from "./_InputTextField.module.scss";
+import { classes, Root } from "./_InputTextField.styles";
 
 type InputTextFieldProps = {
   name: string;
@@ -24,7 +23,7 @@ const InputTextField = ({
   )[type];
 
   return (
-    <TextField
+    <Root
       name={name}
       type="number"
       variant="outlined"
@@ -34,12 +33,11 @@ const InputTextField = ({
       getValidationError={validator}
       rightAdornment={unit}
       fullWidth
-      className={styles["InputTextField"]}
       InputProps={{
-        className: styles["textField"]
+        className: classes.textField
       }}
       inputProps={{
-        className: styles["numberInput"],
+        className: classes.numberInput,
         step: "any"
       }}
     />

@@ -12,11 +12,9 @@ exports[`RelatedSystems component renders correctly when scoringweight equal & n
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
-        <div
-          class="RelatedSystems"
-        >
+        <div>
           <h2
-            class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1lgfm2o-MuiTypography-root"
             data-testid="typography"
           >
             MC: sdp.recommendedSystemsTitle
@@ -69,7 +67,7 @@ exports[`RelatedSystems component renders correctly when scoringweight equal & n
                   data-testid="overview-card-body-footer"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
@@ -128,7 +126,7 @@ exports[`RelatedSystems component renders correctly when scoringweight equal & n
                   data-testid="overview-card-body-footer"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
@@ -163,11 +161,9 @@ exports[`RelatedSystems component renders correctly with no systems 1`] = `
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
-        <div
-          class="RelatedSystems"
-        >
+        <div>
           <h2
-            class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1lgfm2o-MuiTypography-root"
             data-testid="typography"
           >
             MC: sdp.recommendedSystemsTitle
@@ -195,11 +191,9 @@ exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
-        <div
-          class="RelatedSystems"
-        >
+        <div>
           <h2
-            class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1lgfm2o-MuiTypography-root"
             data-testid="typography"
           >
             MC: sdp.recommendedSystemsTitle
@@ -252,7 +246,7 @@ exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
                   data-testid="overview-card-body-footer"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
@@ -311,7 +305,7 @@ exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
                   data-testid="overview-card-body-footer"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
@@ -346,11 +340,9 @@ exports[`RelatedSystems component renders correctly with scoringweight equal & n
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
-        <div
-          class="RelatedSystems"
-        >
+        <div>
           <h2
-            class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1lgfm2o-MuiTypography-root"
             data-testid="typography"
           >
             MC: sdp.recommendedSystemsTitle
@@ -403,7 +395,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal & n
                   data-testid="overview-card-body-footer"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
@@ -462,7 +454,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal & n
                   data-testid="overview-card-body-footer"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
@@ -497,11 +489,9 @@ exports[`RelatedSystems component renders correctly with scoringweight equal 1`]
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
-        <div
-          class="RelatedSystems"
-        >
+        <div>
           <h2
-            class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1lgfm2o-MuiTypography-root"
             data-testid="typography"
           >
             MC: sdp.recommendedSystemsTitle
@@ -554,7 +544,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal 1`]
                   data-testid="overview-card-body-footer"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
@@ -613,7 +603,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal 1`]
                   data-testid="overview-card-body-footer"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
@@ -648,11 +638,9 @@ exports[`RelatedSystems component renders correctly with systems 1`] = `
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
-        <div
-          class="RelatedSystems"
-        >
+        <div>
           <h2
-            class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1lgfm2o-MuiTypography-root"
             data-testid="typography"
           >
             MC: sdp.recommendedSystemsTitle
@@ -705,7 +693,7 @@ exports[`RelatedSystems component renders correctly with systems 1`] = `
                   data-testid="overview-card-body-footer"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
@@ -740,11 +728,9 @@ exports[`RelatedSystems component renders correctly without categories 1`] = `
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
-        <div
-          class="RelatedSystems"
-        >
+        <div>
           <h2
-            class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1lgfm2o-MuiTypography-root"
             data-testid="typography"
           >
             MC: sdp.recommendedSystemsTitle
@@ -797,7 +783,7 @@ exports[`RelatedSystems component renders correctly without categories 1`] = `
                   data-testid="overview-card-body-footer"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
@@ -832,11 +818,9 @@ exports[`RelatedSystems component renders systems correctly without classificati
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
-        <div
-          class="RelatedSystems"
-        >
+        <div>
           <h2
-            class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1lgfm2o-MuiTypography-root"
             data-testid="typography"
           >
             MC: sdp.recommendedSystemsTitle
@@ -889,7 +873,7 @@ exports[`RelatedSystems component renders systems correctly without classificati
                   data-testid="overview-card-body-footer"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
@@ -958,7 +942,7 @@ exports[`SystemCard renders correctly with related system 1`] = `
         data-testid="overview-card-body-footer"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
           tabindex="0"
           type="button"
         >
@@ -1022,7 +1006,7 @@ exports[`SystemCard renders correctly with system from elasticsearch 1`] = `
         data-testid="overview-card-body-footer"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
           tabindex="0"
           type="button"
         >

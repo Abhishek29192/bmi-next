@@ -4,7 +4,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
 <body>
   <div>
     <div
-      class="ServiceLocationSection Section-root Section-white css-10chrh8"
+      class="Section-root Section-white css-10chrh8"
       data-testid="service-locator-section-Main"
     >
       <div
@@ -20,15 +20,15 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
             Main
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-39zinx-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 search css-xrsztz-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 css-1p10s62-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
-                class="MuiAutocomplete-root company-autocomplete css-1h51icj-MuiAutocomplete-root"
+                class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -93,7 +93,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                 </div>
               </div>
               <p
-                class="MuiTypography-root MuiTypography-body1 and-or-label css-1o02bdp-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 css-bp02w2-MuiTypography-root"
                 data-testid="typography"
               >
                 <span>
@@ -152,13 +152,13 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
               data-testid="grid-item"
             >
               <div
-                class="filters"
+                class="css-gpp2b7"
               >
                 <div
-                  class="chips"
+                  class="css-b6h8js"
                 >
                   <h6
-                    class="MuiTypography-root MuiTypography-h6 chips-label css-1nuwz6u-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 css-1eu0cyt-MuiTypography-root"
                     data-testid="typography"
                   >
                     MC: findARoofer.filtersLabel
@@ -248,7 +248,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
             </div>
           </div>
           <div
-            class="Tabs-secondary Tabs-visibleUntillg tabs css-nxi0jm"
+            class="Tabs-secondary Tabs-visibleUntillg css-93lgkw"
             data-testid="tabs"
           >
             <div
@@ -314,18 +314,18 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
             </div>
             <div
               aria-labelledby="tab-list"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
+              class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-1jd7gq0"
               data-testid="tabpanel-list"
               heading="MC: findARoofer.listLabel"
               id="tabpanel-list"
               role="tabpanel"
             >
               <div
-                class=""
+                class="css-10klw3m"
                 data-testid="results-list-section"
               >
                 <div
-                  class="list"
+                  class="css-1rgic4w"
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -347,7 +347,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                         data-testid="typography"
                       >
                         <div
-                          class="subtitle"
+                          class="css-1upilqn"
                         >
                           address 1
                         </div>
@@ -492,7 +492,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
+              class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-r04fpi"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -500,7 +500,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
               role="tabpanel"
             >
               <div
-                class="css-1003pyu"
+                class="css-s53wko"
               >
                 <div
                   class="GoogleMap"
@@ -523,7 +523,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
 <body>
   <div>
     <div
-      class="ServiceLocationSection Section-root Section-white css-10chrh8"
+      class="Section-root Section-white css-10chrh8"
       data-testid="service-locator-section-Main"
     >
       <div
@@ -539,15 +539,15 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
             Main
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-39zinx-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 search css-xrsztz-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 css-1p10s62-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
-                class="MuiAutocomplete-root company-autocomplete css-1h51icj-MuiAutocomplete-root"
+                class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -612,7 +612,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                 </div>
               </div>
               <p
-                class="MuiTypography-root MuiTypography-body1 and-or-label css-1o02bdp-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 css-bp02w2-MuiTypography-root"
                 data-testid="typography"
               >
                 <span>
@@ -668,7 +668,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
             </div>
           </div>
           <div
-            class="Tabs-secondary Tabs-visibleUntillg tabs css-nxi0jm"
+            class="Tabs-secondary Tabs-visibleUntillg css-93lgkw"
             data-testid="tabs"
           >
             <div
@@ -734,18 +734,18 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
             </div>
             <div
               aria-labelledby="tab-list"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
+              class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-1jd7gq0"
               data-testid="tabpanel-list"
               heading="MC: findARoofer.listLabel"
               id="tabpanel-list"
               role="tabpanel"
             >
               <div
-                class=""
+                class="css-10klw3m"
                 data-testid="results-list-section"
               >
                 <div
-                  class="list"
+                  class="css-1rgic4w"
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root LinkCard-open css-13gj853-MuiPaper-root-MuiCard-root"
@@ -767,7 +767,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                         data-testid="typography"
                       >
                         <div
-                          class="subtitle"
+                          class="css-1upilqn"
                         >
                           address 1
                         </div>
@@ -904,7 +904,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                         data-testid="typography"
                       >
                         <div
-                          class="subtitle"
+                          class="css-1upilqn"
                         >
                           address 1
                         </div>
@@ -1026,7 +1026,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
+              class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-r04fpi"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -1034,7 +1034,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
               role="tabpanel"
             >
               <div
-                class="css-1003pyu"
+                class="css-s53wko"
               >
                 <div
                   class="GoogleMap"
@@ -1236,7 +1236,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
 <body>
   <div>
     <div
-      class="ServiceLocationSection Section-root Section-white css-10chrh8"
+      class="Section-root Section-white css-10chrh8"
       data-testid="service-locator-section-Main"
     >
       <div
@@ -1252,15 +1252,15 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
             Main
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-39zinx-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 search css-xrsztz-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 css-1p10s62-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
-                class="MuiAutocomplete-root company-autocomplete css-1h51icj-MuiAutocomplete-root"
+                class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -1325,7 +1325,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                 </div>
               </div>
               <p
-                class="MuiTypography-root MuiTypography-body1 and-or-label css-1o02bdp-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 css-bp02w2-MuiTypography-root"
                 data-testid="typography"
               >
                 <span>
@@ -1384,13 +1384,13 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
               data-testid="grid-item"
             >
               <div
-                class="filters"
+                class="css-gpp2b7"
               >
                 <div
-                  class="chips"
+                  class="css-b6h8js"
                 >
                   <h6
-                    class="MuiTypography-root MuiTypography-h6 chips-label css-1nuwz6u-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 css-1eu0cyt-MuiTypography-root"
                     data-testid="typography"
                   >
                     MC: findARoofer.filtersLabel
@@ -1480,7 +1480,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
             </div>
           </div>
           <div
-            class="Tabs-secondary Tabs-visibleUntillg tabs css-nxi0jm"
+            class="Tabs-secondary Tabs-visibleUntillg css-93lgkw"
             data-testid="tabs"
           >
             <div
@@ -1546,18 +1546,18 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
             </div>
             <div
               aria-labelledby="tab-list"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
+              class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-1jd7gq0"
               data-testid="tabpanel-list"
               heading="MC: findARoofer.listLabel"
               id="tabpanel-list"
               role="tabpanel"
             >
               <div
-                class=""
+                class="css-10klw3m"
                 data-testid="results-list-section"
               >
                 <div
-                  class="list"
+                  class="css-1rgic4w"
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -1579,7 +1579,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                         data-testid="typography"
                       >
                         <div
-                          class="subtitle"
+                          class="css-1upilqn"
                         >
                           address 1
                         </div>
@@ -1724,7 +1724,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
+              class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-r04fpi"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -1732,7 +1732,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
               role="tabpanel"
             >
               <div
-                class="css-1003pyu"
+                class="css-s53wko"
               >
                 <div
                   class="GoogleMap"
@@ -1755,7 +1755,7 @@ exports[`ServiceLocatorSection component close button 1`] = `
 <body>
   <div>
     <div
-      class="ServiceLocationSection Section-root Section-white css-10chrh8"
+      class="Section-root Section-white css-10chrh8"
       data-testid="service-locator-section-Main"
     >
       <div
@@ -1771,15 +1771,15 @@ exports[`ServiceLocatorSection component close button 1`] = `
             Main
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-39zinx-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 search css-xrsztz-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 css-1p10s62-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
-                class="MuiAutocomplete-root company-autocomplete css-1h51icj-MuiAutocomplete-root"
+                class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -1844,7 +1844,7 @@ exports[`ServiceLocatorSection component close button 1`] = `
                 </div>
               </div>
               <p
-                class="MuiTypography-root MuiTypography-body1 and-or-label css-1o02bdp-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 css-bp02w2-MuiTypography-root"
                 data-testid="typography"
               >
                 <span>
@@ -1900,7 +1900,7 @@ exports[`ServiceLocatorSection component close button 1`] = `
             </div>
           </div>
           <div
-            class="Tabs-secondary Tabs-visibleUntillg tabs css-nxi0jm"
+            class="Tabs-secondary Tabs-visibleUntillg css-93lgkw"
             data-testid="tabs"
           >
             <div
@@ -1966,18 +1966,18 @@ exports[`ServiceLocatorSection component close button 1`] = `
             </div>
             <div
               aria-labelledby="tab-list"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
+              class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-1jd7gq0"
               data-testid="tabpanel-list"
               heading="MC: findARoofer.listLabel"
               id="tabpanel-list"
               role="tabpanel"
             >
               <div
-                class=""
+                class="css-10klw3m"
                 data-testid="results-list-section"
               >
                 <div
-                  class="list"
+                  class="css-1rgic4w"
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -1999,7 +1999,7 @@ exports[`ServiceLocatorSection component close button 1`] = `
                         data-testid="typography"
                       >
                         <div
-                          class="subtitle"
+                          class="css-1upilqn"
                         >
                           address 1
                         </div>
@@ -2136,7 +2136,7 @@ exports[`ServiceLocatorSection component close button 1`] = `
                         data-testid="typography"
                       >
                         <div
-                          class="subtitle"
+                          class="css-1upilqn"
                         >
                           address 1
                         </div>
@@ -2258,7 +2258,7 @@ exports[`ServiceLocatorSection component close button 1`] = `
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
+              class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-r04fpi"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -2266,7 +2266,7 @@ exports[`ServiceLocatorSection component close button 1`] = `
               role="tabpanel"
             >
               <div
-                class="css-1003pyu"
+                class="css-s53wko"
               >
                 <div
                   class="GoogleMap"
@@ -2289,7 +2289,7 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
 <body>
   <div>
     <div
-      class="ServiceLocationSection Section-root Section-white css-10chrh8"
+      class="Section-root Section-white css-10chrh8"
       data-testid="service-locator-section-Main"
     >
       <div
@@ -2305,15 +2305,15 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
             Main
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-39zinx-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 search css-xrsztz-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 css-1p10s62-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
-                class="MuiAutocomplete-root Mui-expanded MuiAutocomplete-hasClearIcon company-autocomplete css-1h51icj-MuiAutocomplete-root"
+                class="MuiAutocomplete-root Mui-expanded MuiAutocomplete-hasClearIcon css-1h51icj-MuiAutocomplete-root"
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -2404,7 +2404,7 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
                 </div>
               </div>
               <p
-                class="MuiTypography-root MuiTypography-body1 and-or-label css-1o02bdp-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 css-bp02w2-MuiTypography-root"
                 data-testid="typography"
               >
                 <span>
@@ -2460,7 +2460,7 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
             </div>
           </div>
           <div
-            class="Tabs-secondary Tabs-visibleUntillg tabs css-nxi0jm"
+            class="Tabs-secondary Tabs-visibleUntillg css-93lgkw"
             data-testid="tabs"
           >
             <div
@@ -2526,18 +2526,18 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
             </div>
             <div
               aria-labelledby="tab-list"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
+              class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-1jd7gq0"
               data-testid="tabpanel-list"
               heading="MC: findARoofer.listLabel"
               id="tabpanel-list"
               role="tabpanel"
             >
               <div
-                class=""
+                class="css-10klw3m"
                 data-testid="results-list-section"
               >
                 <div
-                  class="list"
+                  class="css-1rgic4w"
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -2559,7 +2559,7 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
                         data-testid="typography"
                       >
                         <div
-                          class="subtitle"
+                          class="css-1upilqn"
                         >
                           address 1
                         </div>
@@ -2681,7 +2681,7 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
+              class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-r04fpi"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -2689,7 +2689,7 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
               role="tabpanel"
             >
               <div
-                class="css-1003pyu"
+                class="css-s53wko"
               >
                 <div
                   class="GoogleMap"
@@ -2724,7 +2724,7 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
 <body>
   <div>
     <div
-      class="ServiceLocationSection Section-root Section-white css-10chrh8"
+      class="Section-root Section-white css-10chrh8"
       data-testid="service-locator-section-Main"
     >
       <div
@@ -2740,7 +2740,7 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
             Main
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-39zinx-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -2748,13 +2748,13 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
               data-testid="grid-item"
             >
               <div
-                class="filters"
+                class="css-gpp2b7"
               >
                 <div
-                  class="chips"
+                  class="css-b6h8js"
                 >
                   <h6
-                    class="MuiTypography-root MuiTypography-h6 chips-label css-1nuwz6u-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 css-1eu0cyt-MuiTypography-root"
                     data-testid="typography"
                   >
                     MC: findABranch.filtersLabel
@@ -2796,7 +2796,7 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
             </div>
           </div>
           <div
-            class="Tabs-secondary Tabs-visibleUntillg tabs css-nxi0jm"
+            class="Tabs-secondary Tabs-visibleUntillg css-93lgkw"
             data-testid="tabs"
           >
             <div
@@ -2862,18 +2862,18 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
             </div>
             <div
               aria-labelledby="tab-list"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
+              class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-1jd7gq0"
               data-testid="tabpanel-list"
               heading="MC: findARoofer.listLabel"
               id="tabpanel-list"
               role="tabpanel"
             >
               <div
-                class=""
+                class="css-10klw3m"
                 data-testid="results-list-section"
               >
                 <div
-                  class="list"
+                  class="css-1rgic4w"
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -2895,7 +2895,7 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
                         data-testid="typography"
                       >
                         <div
-                          class="subtitle"
+                          class="css-1upilqn"
                         >
                           address 1
                         </div>
@@ -3038,7 +3038,7 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
+              class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-r04fpi"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -3046,7 +3046,7 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
               role="tabpanel"
             >
               <div
-                class="css-1003pyu"
+                class="css-s53wko"
               >
                 <div
                   class="GoogleMap"
@@ -3069,7 +3069,7 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
 <body>
   <div>
     <div
-      class="ServiceLocationSection Section-root Section-white css-10chrh8"
+      class="Section-root Section-white css-10chrh8"
       data-testid="service-locator-section-Main"
     >
       <div
@@ -3085,15 +3085,15 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
             Main
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-39zinx-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 search css-xrsztz-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 css-1p10s62-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
-                class="MuiAutocomplete-root company-autocomplete css-1h51icj-MuiAutocomplete-root"
+                class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -3158,7 +3158,7 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
                 </div>
               </div>
               <p
-                class="MuiTypography-root MuiTypography-body1 and-or-label css-1o02bdp-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 css-bp02w2-MuiTypography-root"
                 data-testid="typography"
               >
                 <span>
@@ -3217,13 +3217,13 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
               data-testid="grid-item"
             >
               <div
-                class="filters"
+                class="css-gpp2b7"
               >
                 <div
-                  class="chips"
+                  class="css-b6h8js"
                 >
                   <h6
-                    class="MuiTypography-root MuiTypography-h6 chips-label css-1nuwz6u-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 css-1eu0cyt-MuiTypography-root"
                     data-testid="typography"
                   >
                     MC: findAMerchant.filtersLabel
@@ -3265,7 +3265,7 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
             </div>
           </div>
           <div
-            class="Tabs-secondary Tabs-visibleUntillg tabs css-nxi0jm"
+            class="Tabs-secondary Tabs-visibleUntillg css-93lgkw"
             data-testid="tabs"
           >
             <div
@@ -3331,18 +3331,18 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
             </div>
             <div
               aria-labelledby="tab-list"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
+              class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-1jd7gq0"
               data-testid="tabpanel-list"
               heading="MC: findARoofer.listLabel"
               id="tabpanel-list"
               role="tabpanel"
             >
               <div
-                class=""
+                class="css-10klw3m"
                 data-testid="results-list-section"
               >
                 <div
-                  class="list"
+                  class="css-1rgic4w"
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -3364,7 +3364,7 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
                         data-testid="typography"
                       >
                         <div
-                          class="subtitle"
+                          class="css-1upilqn"
                         >
                           address 1
                         </div>
@@ -3486,7 +3486,7 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
+              class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-r04fpi"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -3494,7 +3494,7 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
               role="tabpanel"
             >
               <div
-                class="css-1003pyu"
+                class="css-s53wko"
               >
                 <div
                   class="GoogleMap"
@@ -3517,7 +3517,7 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
 <body>
   <div>
     <div
-      class="ServiceLocationSection Section-root Section-white css-10chrh8"
+      class="Section-root Section-white css-10chrh8"
       data-testid="service-locator-section-Main"
     >
       <div
@@ -3533,15 +3533,15 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
             Main
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-39zinx-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 search css-xrsztz-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 css-1p10s62-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
-                class="MuiAutocomplete-root company-autocomplete css-1h51icj-MuiAutocomplete-root"
+                class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -3606,7 +3606,7 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                 </div>
               </div>
               <p
-                class="MuiTypography-root MuiTypography-body1 and-or-label css-1o02bdp-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 css-bp02w2-MuiTypography-root"
                 data-testid="typography"
               >
                 <span>
@@ -3665,13 +3665,13 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
               data-testid="grid-item"
             >
               <div
-                class="filters"
+                class="css-gpp2b7"
               >
                 <div
-                  class="chips"
+                  class="css-b6h8js"
                 >
                   <h6
-                    class="MuiTypography-root MuiTypography-h6 chips-label css-1nuwz6u-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 css-1eu0cyt-MuiTypography-root"
                     data-testid="typography"
                   >
                     MC: findARoofer.filtersLabel
@@ -3713,7 +3713,7 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
             </div>
           </div>
           <div
-            class="Tabs-secondary Tabs-visibleUntillg tabs css-nxi0jm"
+            class="Tabs-secondary Tabs-visibleUntillg css-93lgkw"
             data-testid="tabs"
           >
             <div
@@ -3779,18 +3779,18 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
             </div>
             <div
               aria-labelledby="tab-list"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
+              class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-1jd7gq0"
               data-testid="tabpanel-list"
               heading="MC: findARoofer.listLabel"
               id="tabpanel-list"
               role="tabpanel"
             >
               <div
-                class=""
+                class="css-10klw3m"
                 data-testid="results-list-section"
               >
                 <div
-                  class="list"
+                  class="css-1rgic4w"
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -3812,7 +3812,7 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                         data-testid="typography"
                       >
                         <div
-                          class="subtitle"
+                          class="css-1upilqn"
                         >
                           address 1
                         </div>
@@ -3957,7 +3957,7 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
+              class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-r04fpi"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -3965,7 +3965,7 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
               role="tabpanel"
             >
               <div
-                class="css-1003pyu"
+                class="css-s53wko"
               >
                 <div
                   class="GoogleMap"
@@ -3987,7 +3987,7 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
 exports[`ServiceLocatorSection component renders correctly with NO service 1`] = `
 <div>
   <div
-    class="ServiceLocationSection Section-root Section-white css-10chrh8"
+    class="Section-root Section-white css-10chrh8"
     data-testid="service-locator-section-Main"
   >
     <div
@@ -4003,15 +4003,15 @@ exports[`ServiceLocatorSection component renders correctly with NO service 1`] =
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-39zinx-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 search css-xrsztz-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 css-1p10s62-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
-              class="MuiAutocomplete-root company-autocomplete css-1h51icj-MuiAutocomplete-root"
+              class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -4076,7 +4076,7 @@ exports[`ServiceLocatorSection component renders correctly with NO service 1`] =
               </div>
             </div>
             <p
-              class="MuiTypography-root MuiTypography-body1 and-or-label css-1o02bdp-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-bp02w2-MuiTypography-root"
               data-testid="typography"
             >
               <span>
@@ -4132,7 +4132,7 @@ exports[`ServiceLocatorSection component renders correctly with NO service 1`] =
           </div>
         </div>
         <div
-          class="Tabs-secondary Tabs-visibleUntillg tabs css-nxi0jm"
+          class="Tabs-secondary Tabs-visibleUntillg css-93lgkw"
           data-testid="tabs"
         >
           <div
@@ -4198,17 +4198,17 @@ exports[`ServiceLocatorSection component renders correctly with NO service 1`] =
           </div>
           <div
             aria-labelledby="tab-list"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
+            class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-1jd7gq0"
             data-testid="tabpanel-list"
             heading="MC: findARoofer.listLabel"
             id="tabpanel-list"
             role="tabpanel"
           >
             <div
-              class="no-results"
+              class="css-2znhqc"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4 no-results-heading css-1x9euu8-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4 css-u0svqn-MuiTypography-root"
                 data-testid="typography"
               >
                 MC: findARoofer.noResults.title
@@ -4223,7 +4223,7 @@ exports[`ServiceLocatorSection component renders correctly with NO service 1`] =
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
+            class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-r04fpi"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -4231,7 +4231,7 @@ exports[`ServiceLocatorSection component renders correctly with NO service 1`] =
             role="tabpanel"
           >
             <div
-              class="css-1003pyu"
+              class="css-s53wko"
             >
               <div
                 class="GoogleMap"
@@ -4252,7 +4252,7 @@ exports[`ServiceLocatorSection component renders correctly with NO service 1`] =
 exports[`ServiceLocatorSection component renders multiple services for Branches 1`] = `
 <div>
   <div
-    class="ServiceLocationSection Section-root Section-white css-10chrh8"
+    class="Section-root Section-white css-10chrh8"
     data-testid="service-locator-section-Main"
   >
     <div
@@ -4268,11 +4268,11 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-39zinx-MuiGrid2-root"
           data-testid="grid-container"
         />
         <div
-          class="Tabs-secondary Tabs-visibleUntillg tabs css-nxi0jm"
+          class="Tabs-secondary Tabs-visibleUntillg css-93lgkw"
           data-testid="tabs"
         >
           <div
@@ -4338,18 +4338,18 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
           </div>
           <div
             aria-labelledby="tab-list"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
+            class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-1jd7gq0"
             data-testid="tabpanel-list"
             heading="MC: findARoofer.listLabel"
             id="tabpanel-list"
             role="tabpanel"
           >
             <div
-              class=""
+              class="css-10klw3m"
               data-testid="results-list-section"
             >
               <div
-                class="list"
+                class="css-1rgic4w"
               >
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -4371,7 +4371,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                       data-testid="typography"
                     >
                       <div
-                        class="subtitle"
+                        class="css-1upilqn"
                       >
                         address 1
                       </div>
@@ -4529,7 +4529,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                       data-testid="typography"
                     >
                       <div
-                        class="subtitle"
+                        class="css-1upilqn"
                       >
                         address 1
                       </div>
@@ -4672,7 +4672,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
+            class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-r04fpi"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -4680,7 +4680,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
             role="tabpanel"
           >
             <div
-              class="css-1003pyu"
+              class="css-s53wko"
             >
               <div
                 class="GoogleMap"
@@ -4701,7 +4701,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
 exports[`ServiceLocatorSection component renders multiple services for Branches with invalid service type 1`] = `
 <div>
   <div
-    class="ServiceLocationSection Section-root Section-white css-10chrh8"
+    class="Section-root Section-white css-10chrh8"
     data-testid="service-locator-section-Main"
   >
     <div
@@ -4717,11 +4717,11 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-39zinx-MuiGrid2-root"
           data-testid="grid-container"
         />
         <div
-          class="Tabs-secondary Tabs-visibleUntillg tabs css-nxi0jm"
+          class="Tabs-secondary Tabs-visibleUntillg css-93lgkw"
           data-testid="tabs"
         >
           <div
@@ -4787,18 +4787,18 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
           </div>
           <div
             aria-labelledby="tab-list"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
+            class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-1jd7gq0"
             data-testid="tabpanel-list"
             heading="MC: findARoofer.listLabel"
             id="tabpanel-list"
             role="tabpanel"
           >
             <div
-              class=""
+              class="css-10klw3m"
               data-testid="results-list-section"
             >
               <div
-                class="list"
+                class="css-1rgic4w"
               >
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -4820,7 +4820,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                       data-testid="typography"
                     >
                       <div
-                        class="subtitle"
+                        class="css-1upilqn"
                       >
                         address 1
                       </div>
@@ -4978,7 +4978,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                       data-testid="typography"
                     >
                       <div
-                        class="subtitle"
+                        class="css-1upilqn"
                       >
                         address 1
                       </div>
@@ -5121,7 +5121,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
+            class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-r04fpi"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -5129,7 +5129,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
             role="tabpanel"
           >
             <div
-              class="css-1003pyu"
+              class="css-s53wko"
             >
               <div
                 class="GoogleMap"
@@ -5150,7 +5150,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
 exports[`ServiceLocatorSection component renders multiple services for Merchant 1`] = `
 <div>
   <div
-    class="ServiceLocationSection Section-root Section-white css-10chrh8"
+    class="Section-root Section-white css-10chrh8"
     data-testid="service-locator-section-Main"
   >
     <div
@@ -5166,15 +5166,15 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-39zinx-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 search css-xrsztz-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 css-1p10s62-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
-              class="MuiAutocomplete-root company-autocomplete css-1h51icj-MuiAutocomplete-root"
+              class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -5239,7 +5239,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
               </div>
             </div>
             <p
-              class="MuiTypography-root MuiTypography-body1 and-or-label css-1o02bdp-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-bp02w2-MuiTypography-root"
               data-testid="typography"
             >
               <span>
@@ -5295,7 +5295,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
           </div>
         </div>
         <div
-          class="Tabs-secondary Tabs-visibleUntillg tabs css-nxi0jm"
+          class="Tabs-secondary Tabs-visibleUntillg css-93lgkw"
           data-testid="tabs"
         >
           <div
@@ -5361,18 +5361,18 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
           </div>
           <div
             aria-labelledby="tab-list"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
+            class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-1jd7gq0"
             data-testid="tabpanel-list"
             heading="MC: findARoofer.listLabel"
             id="tabpanel-list"
             role="tabpanel"
           >
             <div
-              class=""
+              class="css-10klw3m"
               data-testid="results-list-section"
             >
               <div
-                class="list"
+                class="css-1rgic4w"
               >
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -5394,7 +5394,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                       data-testid="typography"
                     >
                       <div
-                        class="subtitle"
+                        class="css-1upilqn"
                       >
                         address 1
                       </div>
@@ -5531,7 +5531,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                       data-testid="typography"
                     >
                       <div
-                        class="subtitle"
+                        class="css-1upilqn"
                       >
                         address 1
                       </div>
@@ -5653,7 +5653,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
+            class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-r04fpi"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -5661,7 +5661,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
             role="tabpanel"
           >
             <div
-              class="css-1003pyu"
+              class="css-s53wko"
             >
               <div
                 class="GoogleMap"
@@ -5682,7 +5682,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
 exports[`ServiceLocatorSection component renders multiple services for Merchant with invalid service type 1`] = `
 <div>
   <div
-    class="ServiceLocationSection Section-root Section-white css-10chrh8"
+    class="Section-root Section-white css-10chrh8"
     data-testid="service-locator-section-Main"
   >
     <div
@@ -5698,15 +5698,15 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-39zinx-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 search css-xrsztz-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 css-1p10s62-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
-              class="MuiAutocomplete-root company-autocomplete css-1h51icj-MuiAutocomplete-root"
+              class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -5771,7 +5771,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
               </div>
             </div>
             <p
-              class="MuiTypography-root MuiTypography-body1 and-or-label css-1o02bdp-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-bp02w2-MuiTypography-root"
               data-testid="typography"
             >
               <span>
@@ -5827,7 +5827,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
           </div>
         </div>
         <div
-          class="Tabs-secondary Tabs-visibleUntillg tabs css-nxi0jm"
+          class="Tabs-secondary Tabs-visibleUntillg css-93lgkw"
           data-testid="tabs"
         >
           <div
@@ -5893,18 +5893,18 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
           </div>
           <div
             aria-labelledby="tab-list"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
+            class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-1jd7gq0"
             data-testid="tabpanel-list"
             heading="MC: findARoofer.listLabel"
             id="tabpanel-list"
             role="tabpanel"
           >
             <div
-              class=""
+              class="css-10klw3m"
               data-testid="results-list-section"
             >
               <div
-                class="list"
+                class="css-1rgic4w"
               >
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -5926,7 +5926,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                       data-testid="typography"
                     >
                       <div
-                        class="subtitle"
+                        class="css-1upilqn"
                       >
                         address 1
                       </div>
@@ -6063,7 +6063,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                       data-testid="typography"
                     >
                       <div
-                        class="subtitle"
+                        class="css-1upilqn"
                       >
                         address 1
                       </div>
@@ -6185,7 +6185,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
+            class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-r04fpi"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -6193,7 +6193,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
             role="tabpanel"
           >
             <div
-              class="css-1003pyu"
+              class="css-s53wko"
             >
               <div
                 class="GoogleMap"
@@ -6214,7 +6214,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
 exports[`ServiceLocatorSection component renders multiple services for Merchants 1`] = `
 <div>
   <div
-    class="ServiceLocationSection Section-root Section-white css-10chrh8"
+    class="Section-root Section-white css-10chrh8"
     data-testid="service-locator-section-Main"
   >
     <div
@@ -6230,15 +6230,15 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-39zinx-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 search css-xrsztz-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 css-1p10s62-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
-              class="MuiAutocomplete-root company-autocomplete css-1h51icj-MuiAutocomplete-root"
+              class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -6303,7 +6303,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
               </div>
             </div>
             <p
-              class="MuiTypography-root MuiTypography-body1 and-or-label css-1o02bdp-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-bp02w2-MuiTypography-root"
               data-testid="typography"
             >
               <span>
@@ -6359,7 +6359,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
           </div>
         </div>
         <div
-          class="Tabs-secondary Tabs-visibleUntillg tabs css-nxi0jm"
+          class="Tabs-secondary Tabs-visibleUntillg css-93lgkw"
           data-testid="tabs"
         >
           <div
@@ -6425,18 +6425,18 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
           </div>
           <div
             aria-labelledby="tab-list"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
+            class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-1jd7gq0"
             data-testid="tabpanel-list"
             heading="MC: findARoofer.listLabel"
             id="tabpanel-list"
             role="tabpanel"
           >
             <div
-              class=""
+              class="css-10klw3m"
               data-testid="results-list-section"
             >
               <div
-                class="list"
+                class="css-1rgic4w"
               >
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -6458,7 +6458,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
                       data-testid="typography"
                     >
                       <div
-                        class="subtitle"
+                        class="css-1upilqn"
                       >
                         address 1
                       </div>
@@ -6595,7 +6595,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
                       data-testid="typography"
                     >
                       <div
-                        class="subtitle"
+                        class="css-1upilqn"
                       >
                         address 1
                       </div>
@@ -6717,7 +6717,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
+            class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-r04fpi"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -6725,7 +6725,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
             role="tabpanel"
           >
             <div
-              class="css-1003pyu"
+              class="css-s53wko"
             >
               <div
                 class="GoogleMap"
@@ -6746,7 +6746,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
 exports[`ServiceLocatorSection component renders multiple services with ALL service type 1`] = `
 <div>
   <div
-    class="ServiceLocationSection Section-root Section-white css-10chrh8"
+    class="Section-root Section-white css-10chrh8"
     data-testid="service-locator-section-Main"
   >
     <div
@@ -6762,15 +6762,15 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-39zinx-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 search css-xrsztz-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 css-1p10s62-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
-              class="MuiAutocomplete-root company-autocomplete css-1h51icj-MuiAutocomplete-root"
+              class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -6835,7 +6835,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
               </div>
             </div>
             <p
-              class="MuiTypography-root MuiTypography-body1 and-or-label css-1o02bdp-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-bp02w2-MuiTypography-root"
               data-testid="typography"
             >
               <span>
@@ -6894,13 +6894,13 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
             data-testid="grid-item"
           >
             <div
-              class="filters"
+              class="css-gpp2b7"
             >
               <div
-                class="chips"
+                class="css-b6h8js"
               >
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 chips-label css-1nuwz6u-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 css-1eu0cyt-MuiTypography-root"
                   data-testid="typography"
                 >
                   MC: findARoofer.filtersLabel
@@ -7038,7 +7038,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
           </div>
         </div>
         <div
-          class="Tabs-secondary Tabs-visibleUntillg tabs css-nxi0jm"
+          class="Tabs-secondary Tabs-visibleUntillg css-93lgkw"
           data-testid="tabs"
         >
           <div
@@ -7104,18 +7104,18 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
           </div>
           <div
             aria-labelledby="tab-list"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
+            class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-1jd7gq0"
             data-testid="tabpanel-list"
             heading="MC: findARoofer.listLabel"
             id="tabpanel-list"
             role="tabpanel"
           >
             <div
-              class=""
+              class="css-10klw3m"
               data-testid="results-list-section"
             >
               <div
-                class="list"
+                class="css-1rgic4w"
               >
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -7137,7 +7137,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                       data-testid="typography"
                     >
                       <div
-                        class="subtitle"
+                        class="css-1upilqn"
                       >
                         address 1
                       </div>
@@ -7297,7 +7297,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                       data-testid="typography"
                     >
                       <div
-                        class="subtitle"
+                        class="css-1upilqn"
                       >
                         address 1
                       </div>
@@ -7442,7 +7442,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
+            class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-r04fpi"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -7450,7 +7450,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
             role="tabpanel"
           >
             <div
-              class="css-1003pyu"
+              class="css-s53wko"
             >
               <div
                 class="GoogleMap"
@@ -7471,7 +7471,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
 exports[`ServiceLocatorSection component renders multiple services with No service type 1`] = `
 <div>
   <div
-    class="ServiceLocationSection Section-root Section-white css-10chrh8"
+    class="Section-root Section-white css-10chrh8"
     data-testid="service-locator-section-Main"
   >
     <div
@@ -7487,15 +7487,15 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-39zinx-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 search css-xrsztz-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 css-1p10s62-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
-              class="MuiAutocomplete-root company-autocomplete css-1h51icj-MuiAutocomplete-root"
+              class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -7560,7 +7560,7 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
               </div>
             </div>
             <p
-              class="MuiTypography-root MuiTypography-body1 and-or-label css-1o02bdp-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-bp02w2-MuiTypography-root"
               data-testid="typography"
             >
               <span>
@@ -7616,7 +7616,7 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
           </div>
         </div>
         <div
-          class="Tabs-secondary Tabs-visibleUntillg tabs css-nxi0jm"
+          class="Tabs-secondary Tabs-visibleUntillg css-93lgkw"
           data-testid="tabs"
         >
           <div
@@ -7682,18 +7682,18 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
           </div>
           <div
             aria-labelledby="tab-list"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
+            class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-1jd7gq0"
             data-testid="tabpanel-list"
             heading="MC: findARoofer.listLabel"
             id="tabpanel-list"
             role="tabpanel"
           >
             <div
-              class=""
+              class="css-10klw3m"
               data-testid="results-list-section"
             >
               <div
-                class="list"
+                class="css-1rgic4w"
               >
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -7715,7 +7715,7 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
                       data-testid="typography"
                     >
                       <div
-                        class="subtitle"
+                        class="css-1upilqn"
                       >
                         address 1
                       </div>
@@ -7852,7 +7852,7 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
                       data-testid="typography"
                     >
                       <div
-                        class="subtitle"
+                        class="css-1upilqn"
                       >
                         address 1
                       </div>
@@ -7974,7 +7974,7 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
+            class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-r04fpi"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -7982,7 +7982,7 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
             role="tabpanel"
           >
             <div
-              class="css-1003pyu"
+              class="css-s53wko"
             >
               <div
                 class="GoogleMap"
@@ -8003,7 +8003,7 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
 exports[`ServiceLocatorSection component renders multiple services with multiple service type 1`] = `
 <div>
   <div
-    class="ServiceLocationSection Section-root Section-white css-10chrh8"
+    class="Section-root Section-white css-10chrh8"
     data-testid="service-locator-section-Main"
   >
     <div
@@ -8019,15 +8019,15 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-39zinx-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 search css-xrsztz-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 css-1p10s62-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
-              class="MuiAutocomplete-root company-autocomplete css-1h51icj-MuiAutocomplete-root"
+              class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -8092,7 +8092,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
               </div>
             </div>
             <p
-              class="MuiTypography-root MuiTypography-body1 and-or-label css-1o02bdp-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-bp02w2-MuiTypography-root"
               data-testid="typography"
             >
               <span>
@@ -8151,13 +8151,13 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
             data-testid="grid-item"
           >
             <div
-              class="filters"
+              class="css-gpp2b7"
             >
               <div
-                class="chips"
+                class="css-b6h8js"
               >
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 chips-label css-1nuwz6u-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 css-1eu0cyt-MuiTypography-root"
                   data-testid="typography"
                 >
                   MC: findARoofer.filtersLabel
@@ -8231,7 +8231,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
           </div>
         </div>
         <div
-          class="Tabs-secondary Tabs-visibleUntillg tabs css-nxi0jm"
+          class="Tabs-secondary Tabs-visibleUntillg css-93lgkw"
           data-testid="tabs"
         >
           <div
@@ -8297,18 +8297,18 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
           </div>
           <div
             aria-labelledby="tab-list"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
+            class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-1jd7gq0"
             data-testid="tabpanel-list"
             heading="MC: findARoofer.listLabel"
             id="tabpanel-list"
             role="tabpanel"
           >
             <div
-              class=""
+              class="css-10klw3m"
               data-testid="results-list-section"
             >
               <div
-                class="list"
+                class="css-1rgic4w"
               >
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -8330,7 +8330,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                       data-testid="typography"
                     >
                       <div
-                        class="subtitle"
+                        class="css-1upilqn"
                       >
                         address 1
                       </div>
@@ -8490,7 +8490,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                       data-testid="typography"
                     >
                       <div
-                        class="subtitle"
+                        class="css-1upilqn"
                       >
                         address 1
                       </div>
@@ -8635,7 +8635,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
+            class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-r04fpi"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -8643,7 +8643,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
             role="tabpanel"
           >
             <div
-              class="css-1003pyu"
+              class="css-s53wko"
             >
               <div
                 class="GoogleMap"
@@ -8664,7 +8664,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
 exports[`ServiceLocatorSection component renders multiple services with single service type 1`] = `
 <div>
   <div
-    class="ServiceLocationSection Section-root Section-white css-10chrh8"
+    class="Section-root Section-white css-10chrh8"
     data-testid="service-locator-section-Main"
   >
     <div
@@ -8680,15 +8680,15 @@ exports[`ServiceLocatorSection component renders multiple services with single s
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-39zinx-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 search css-xrsztz-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 css-1p10s62-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
-              class="MuiAutocomplete-root company-autocomplete css-1h51icj-MuiAutocomplete-root"
+              class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -8753,7 +8753,7 @@ exports[`ServiceLocatorSection component renders multiple services with single s
               </div>
             </div>
             <p
-              class="MuiTypography-root MuiTypography-body1 and-or-label css-1o02bdp-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-bp02w2-MuiTypography-root"
               data-testid="typography"
             >
               <span>
@@ -8809,7 +8809,7 @@ exports[`ServiceLocatorSection component renders multiple services with single s
           </div>
         </div>
         <div
-          class="Tabs-secondary Tabs-visibleUntillg tabs css-nxi0jm"
+          class="Tabs-secondary Tabs-visibleUntillg css-93lgkw"
           data-testid="tabs"
         >
           <div
@@ -8875,18 +8875,18 @@ exports[`ServiceLocatorSection component renders multiple services with single s
           </div>
           <div
             aria-labelledby="tab-list"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
+            class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-1jd7gq0"
             data-testid="tabpanel-list"
             heading="MC: findARoofer.listLabel"
             id="tabpanel-list"
             role="tabpanel"
           >
             <div
-              class=""
+              class="css-10klw3m"
               data-testid="results-list-section"
             >
               <div
-                class="list"
+                class="css-1rgic4w"
               >
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -8908,7 +8908,7 @@ exports[`ServiceLocatorSection component renders multiple services with single s
                       data-testid="typography"
                     >
                       <div
-                        class="subtitle"
+                        class="css-1upilqn"
                       >
                         address 1
                       </div>
@@ -9068,7 +9068,7 @@ exports[`ServiceLocatorSection component renders multiple services with single s
                       data-testid="typography"
                     >
                       <div
-                        class="subtitle"
+                        class="css-1upilqn"
                       >
                         address 1
                       </div>
@@ -9213,7 +9213,7 @@ exports[`ServiceLocatorSection component renders multiple services with single s
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
+            class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-r04fpi"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -9221,7 +9221,7 @@ exports[`ServiceLocatorSection component renders multiple services with single s
             role="tabpanel"
           >
             <div
-              class="css-1003pyu"
+              class="css-s53wko"
             >
               <div
                 class="GoogleMap"
@@ -9242,7 +9242,7 @@ exports[`ServiceLocatorSection component renders multiple services with single s
 exports[`ServiceLocatorSection component renders single service with No service type 1`] = `
 <div>
   <div
-    class="ServiceLocationSection Section-root Section-white css-10chrh8"
+    class="Section-root Section-white css-10chrh8"
     data-testid="service-locator-section-Main"
   >
     <div
@@ -9258,15 +9258,15 @@ exports[`ServiceLocatorSection component renders single service with No service 
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-39zinx-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 search css-xrsztz-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 css-1p10s62-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
-              class="MuiAutocomplete-root company-autocomplete css-1h51icj-MuiAutocomplete-root"
+              class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -9331,7 +9331,7 @@ exports[`ServiceLocatorSection component renders single service with No service 
               </div>
             </div>
             <p
-              class="MuiTypography-root MuiTypography-body1 and-or-label css-1o02bdp-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-bp02w2-MuiTypography-root"
               data-testid="typography"
             >
               <span>
@@ -9387,7 +9387,7 @@ exports[`ServiceLocatorSection component renders single service with No service 
           </div>
         </div>
         <div
-          class="Tabs-secondary Tabs-visibleUntillg tabs css-nxi0jm"
+          class="Tabs-secondary Tabs-visibleUntillg css-93lgkw"
           data-testid="tabs"
         >
           <div
@@ -9453,18 +9453,18 @@ exports[`ServiceLocatorSection component renders single service with No service 
           </div>
           <div
             aria-labelledby="tab-list"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
+            class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-1jd7gq0"
             data-testid="tabpanel-list"
             heading="MC: findARoofer.listLabel"
             id="tabpanel-list"
             role="tabpanel"
           >
             <div
-              class=""
+              class="css-10klw3m"
               data-testid="results-list-section"
             >
               <div
-                class="list"
+                class="css-1rgic4w"
               >
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -9486,7 +9486,7 @@ exports[`ServiceLocatorSection component renders single service with No service 
                       data-testid="typography"
                     >
                       <div
-                        class="subtitle"
+                        class="css-1upilqn"
                       >
                         address 1
                       </div>
@@ -9608,7 +9608,7 @@ exports[`ServiceLocatorSection component renders single service with No service 
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
+            class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-r04fpi"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -9616,7 +9616,7 @@ exports[`ServiceLocatorSection component renders single service with No service 
             role="tabpanel"
           >
             <div
-              class="css-1003pyu"
+              class="css-s53wko"
             >
               <div
                 class="GoogleMap"
@@ -9637,7 +9637,7 @@ exports[`ServiceLocatorSection component renders single service with No service 
 exports[`ServiceLocatorSection component renders single service with empty service type 1`] = `
 <div>
   <div
-    class="ServiceLocationSection Section-root Section-white css-10chrh8"
+    class="Section-root Section-white css-10chrh8"
     data-testid="service-locator-section-Main"
   >
     <div
@@ -9653,15 +9653,15 @@ exports[`ServiceLocatorSection component renders single service with empty servi
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-39zinx-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 search css-xrsztz-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 css-1p10s62-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
-              class="MuiAutocomplete-root company-autocomplete css-1h51icj-MuiAutocomplete-root"
+              class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -9726,7 +9726,7 @@ exports[`ServiceLocatorSection component renders single service with empty servi
               </div>
             </div>
             <p
-              class="MuiTypography-root MuiTypography-body1 and-or-label css-1o02bdp-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-bp02w2-MuiTypography-root"
               data-testid="typography"
             >
               <span>
@@ -9782,7 +9782,7 @@ exports[`ServiceLocatorSection component renders single service with empty servi
           </div>
         </div>
         <div
-          class="Tabs-secondary Tabs-visibleUntillg tabs css-nxi0jm"
+          class="Tabs-secondary Tabs-visibleUntillg css-93lgkw"
           data-testid="tabs"
         >
           <div
@@ -9848,18 +9848,18 @@ exports[`ServiceLocatorSection component renders single service with empty servi
           </div>
           <div
             aria-labelledby="tab-list"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
+            class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-1jd7gq0"
             data-testid="tabpanel-list"
             heading="MC: findARoofer.listLabel"
             id="tabpanel-list"
             role="tabpanel"
           >
             <div
-              class=""
+              class="css-10klw3m"
               data-testid="results-list-section"
             >
               <div
-                class="list"
+                class="css-1rgic4w"
               >
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -9881,7 +9881,7 @@ exports[`ServiceLocatorSection component renders single service with empty servi
                       data-testid="typography"
                     >
                       <div
-                        class="subtitle"
+                        class="css-1upilqn"
                       >
                         address 1
                       </div>
@@ -10003,7 +10003,7 @@ exports[`ServiceLocatorSection component renders single service with empty servi
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
+            class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-r04fpi"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -10011,7 +10011,7 @@ exports[`ServiceLocatorSection component renders single service with empty servi
             role="tabpanel"
           >
             <div
-              class="css-1003pyu"
+              class="css-s53wko"
             >
               <div
                 class="GoogleMap"
@@ -10032,7 +10032,7 @@ exports[`ServiceLocatorSection component renders single service with empty servi
 exports[`ServiceLocatorSection component renders single service with multiple service type 1`] = `
 <div>
   <div
-    class="ServiceLocationSection Section-root Section-white css-10chrh8"
+    class="Section-root Section-white css-10chrh8"
     data-testid="service-locator-section-Main"
   >
     <div
@@ -10048,15 +10048,15 @@ exports[`ServiceLocatorSection component renders single service with multiple se
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-39zinx-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 search css-xrsztz-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 css-1p10s62-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
-              class="MuiAutocomplete-root company-autocomplete css-1h51icj-MuiAutocomplete-root"
+              class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -10121,7 +10121,7 @@ exports[`ServiceLocatorSection component renders single service with multiple se
               </div>
             </div>
             <p
-              class="MuiTypography-root MuiTypography-body1 and-or-label css-1o02bdp-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-bp02w2-MuiTypography-root"
               data-testid="typography"
             >
               <span>
@@ -10180,13 +10180,13 @@ exports[`ServiceLocatorSection component renders single service with multiple se
             data-testid="grid-item"
           >
             <div
-              class="filters"
+              class="css-gpp2b7"
             >
               <div
-                class="chips"
+                class="css-b6h8js"
               >
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 chips-label css-1nuwz6u-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 css-1eu0cyt-MuiTypography-root"
                   data-testid="typography"
                 >
                   MC: findARoofer.filtersLabel
@@ -10228,7 +10228,7 @@ exports[`ServiceLocatorSection component renders single service with multiple se
           </div>
         </div>
         <div
-          class="Tabs-secondary Tabs-visibleUntillg tabs css-nxi0jm"
+          class="Tabs-secondary Tabs-visibleUntillg css-93lgkw"
           data-testid="tabs"
         >
           <div
@@ -10294,18 +10294,18 @@ exports[`ServiceLocatorSection component renders single service with multiple se
           </div>
           <div
             aria-labelledby="tab-list"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
+            class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-1jd7gq0"
             data-testid="tabpanel-list"
             heading="MC: findARoofer.listLabel"
             id="tabpanel-list"
             role="tabpanel"
           >
             <div
-              class=""
+              class="css-10klw3m"
               data-testid="results-list-section"
             >
               <div
-                class="list"
+                class="css-1rgic4w"
               >
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -10327,7 +10327,7 @@ exports[`ServiceLocatorSection component renders single service with multiple se
                       data-testid="typography"
                     >
                       <div
-                        class="subtitle"
+                        class="css-1upilqn"
                       >
                         address 1
                       </div>
@@ -10472,7 +10472,7 @@ exports[`ServiceLocatorSection component renders single service with multiple se
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
+            class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-r04fpi"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -10480,7 +10480,7 @@ exports[`ServiceLocatorSection component renders single service with multiple se
             role="tabpanel"
           >
             <div
-              class="css-1003pyu"
+              class="css-s53wko"
             >
               <div
                 class="GoogleMap"
@@ -10501,7 +10501,7 @@ exports[`ServiceLocatorSection component renders single service with multiple se
 exports[`ServiceLocatorSection component renders single service with single service type 1`] = `
 <div>
   <div
-    class="ServiceLocationSection Section-root Section-white css-10chrh8"
+    class="Section-root Section-white css-10chrh8"
     data-testid="service-locator-section-Main"
   >
     <div
@@ -10517,15 +10517,15 @@ exports[`ServiceLocatorSection component renders single service with single serv
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-39zinx-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 search css-xrsztz-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 css-1p10s62-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
-              class="MuiAutocomplete-root company-autocomplete css-1h51icj-MuiAutocomplete-root"
+              class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -10590,7 +10590,7 @@ exports[`ServiceLocatorSection component renders single service with single serv
               </div>
             </div>
             <p
-              class="MuiTypography-root MuiTypography-body1 and-or-label css-1o02bdp-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-bp02w2-MuiTypography-root"
               data-testid="typography"
             >
               <span>
@@ -10646,7 +10646,7 @@ exports[`ServiceLocatorSection component renders single service with single serv
           </div>
         </div>
         <div
-          class="Tabs-secondary Tabs-visibleUntillg tabs css-nxi0jm"
+          class="Tabs-secondary Tabs-visibleUntillg css-93lgkw"
           data-testid="tabs"
         >
           <div
@@ -10712,18 +10712,18 @@ exports[`ServiceLocatorSection component renders single service with single serv
           </div>
           <div
             aria-labelledby="tab-list"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
+            class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-1jd7gq0"
             data-testid="tabpanel-list"
             heading="MC: findARoofer.listLabel"
             id="tabpanel-list"
             role="tabpanel"
           >
             <div
-              class=""
+              class="css-10klw3m"
               data-testid="results-list-section"
             >
               <div
-                class="list"
+                class="css-1rgic4w"
               >
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -10745,7 +10745,7 @@ exports[`ServiceLocatorSection component renders single service with single serv
                       data-testid="typography"
                     >
                       <div
-                        class="subtitle"
+                        class="css-1upilqn"
                       >
                         address 1
                       </div>
@@ -10890,7 +10890,7 @@ exports[`ServiceLocatorSection component renders single service with single serv
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
+            class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-r04fpi"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -10898,7 +10898,7 @@ exports[`ServiceLocatorSection component renders single service with single serv
             role="tabpanel"
           >
             <div
-              class="css-1003pyu"
+              class="css-s53wko"
             >
               <div
                 class="GoogleMap"
@@ -10920,7 +10920,7 @@ exports[`ServiceLocatorSection component searches for a service: Filtered main l
 <body>
   <div>
     <div
-      class="ServiceLocationSection Section-root Section-white css-10chrh8"
+      class="Section-root Section-white css-10chrh8"
       data-testid="service-locator-section-Main"
     >
       <div
@@ -10936,15 +10936,15 @@ exports[`ServiceLocatorSection component searches for a service: Filtered main l
             Main
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-39zinx-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 search css-xrsztz-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 css-1p10s62-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
-                class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon company-autocomplete css-1h51icj-MuiAutocomplete-root"
+                class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon css-1h51icj-MuiAutocomplete-root"
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -11035,7 +11035,7 @@ exports[`ServiceLocatorSection component searches for a service: Filtered main l
                 </div>
               </div>
               <p
-                class="MuiTypography-root MuiTypography-body1 and-or-label css-1o02bdp-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 css-bp02w2-MuiTypography-root"
                 data-testid="typography"
               >
                 <span>
@@ -11091,7 +11091,7 @@ exports[`ServiceLocatorSection component searches for a service: Filtered main l
             </div>
           </div>
           <div
-            class="Tabs-secondary Tabs-visibleUntillg tabs css-nxi0jm"
+            class="Tabs-secondary Tabs-visibleUntillg css-93lgkw"
             data-testid="tabs"
           >
             <div
@@ -11157,18 +11157,18 @@ exports[`ServiceLocatorSection component searches for a service: Filtered main l
             </div>
             <div
               aria-labelledby="tab-list"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
+              class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-1jd7gq0"
               data-testid="tabpanel-list"
               heading="MC: findARoofer.listLabel"
               id="tabpanel-list"
               role="tabpanel"
             >
               <div
-                class=""
+                class="css-10klw3m"
                 data-testid="results-list-section"
               >
                 <div
-                  class="list"
+                  class="css-1rgic4w"
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -11190,7 +11190,7 @@ exports[`ServiceLocatorSection component searches for a service: Filtered main l
                         data-testid="typography"
                       >
                         <div
-                          class="subtitle"
+                          class="css-1upilqn"
                         >
                           address 1
                         </div>
@@ -11312,7 +11312,7 @@ exports[`ServiceLocatorSection component searches for a service: Filtered main l
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
+              class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-r04fpi"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -11320,7 +11320,7 @@ exports[`ServiceLocatorSection component searches for a service: Filtered main l
               role="tabpanel"
             >
               <div
-                class="css-1003pyu"
+                class="css-s53wko"
               >
                 <div
                   class="GoogleMap"
@@ -11343,7 +11343,7 @@ exports[`ServiceLocatorSection component searches for a service: Filtered option
 <body>
   <div>
     <div
-      class="ServiceLocationSection Section-root Section-white css-10chrh8"
+      class="Section-root Section-white css-10chrh8"
       data-testid="service-locator-section-Main"
     >
       <div
@@ -11359,16 +11359,16 @@ exports[`ServiceLocatorSection component searches for a service: Filtered option
             Main
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-39zinx-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 search css-xrsztz-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 css-1p10s62-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
                 aria-owns="company-autocomplete-listbox"
-                class="MuiAutocomplete-root Mui-expanded MuiAutocomplete-hasClearIcon company-autocomplete css-1h51icj-MuiAutocomplete-root"
+                class="MuiAutocomplete-root Mui-expanded MuiAutocomplete-hasClearIcon css-1h51icj-MuiAutocomplete-root"
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -11460,7 +11460,7 @@ exports[`ServiceLocatorSection component searches for a service: Filtered option
                 </div>
               </div>
               <p
-                class="MuiTypography-root MuiTypography-body1 and-or-label css-1o02bdp-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 css-bp02w2-MuiTypography-root"
                 data-testid="typography"
               >
                 <span>
@@ -11516,7 +11516,7 @@ exports[`ServiceLocatorSection component searches for a service: Filtered option
             </div>
           </div>
           <div
-            class="Tabs-secondary Tabs-visibleUntillg tabs css-nxi0jm"
+            class="Tabs-secondary Tabs-visibleUntillg css-93lgkw"
             data-testid="tabs"
           >
             <div
@@ -11582,18 +11582,18 @@ exports[`ServiceLocatorSection component searches for a service: Filtered option
             </div>
             <div
               aria-labelledby="tab-list"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
+              class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-1jd7gq0"
               data-testid="tabpanel-list"
               heading="MC: findARoofer.listLabel"
               id="tabpanel-list"
               role="tabpanel"
             >
               <div
-                class=""
+                class="css-10klw3m"
                 data-testid="results-list-section"
               >
                 <div
-                  class="list"
+                  class="css-1rgic4w"
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -11615,7 +11615,7 @@ exports[`ServiceLocatorSection component searches for a service: Filtered option
                         data-testid="typography"
                       >
                         <div
-                          class="subtitle"
+                          class="css-1upilqn"
                         >
                           address 1
                         </div>
@@ -11752,7 +11752,7 @@ exports[`ServiceLocatorSection component searches for a service: Filtered option
                         data-testid="typography"
                       >
                         <div
-                          class="subtitle"
+                          class="css-1upilqn"
                         >
                           address 1
                         </div>
@@ -11874,7 +11874,7 @@ exports[`ServiceLocatorSection component searches for a service: Filtered option
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
+              class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-r04fpi"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -11882,7 +11882,7 @@ exports[`ServiceLocatorSection component searches for a service: Filtered option
               role="tabpanel"
             >
               <div
-                class="css-1003pyu"
+                class="css-s53wko"
               >
                 <div
                   class="GoogleMap"
@@ -11936,7 +11936,7 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
 <body>
   <div>
     <div
-      class="ServiceLocationSection Section-root Section-white css-10chrh8"
+      class="Section-root Section-white css-10chrh8"
       data-testid="service-locator-section-Main"
     >
       <div
@@ -11952,15 +11952,15 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
             Main
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-39zinx-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 search css-xrsztz-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 css-1p10s62-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
-                class="MuiAutocomplete-root company-autocomplete css-1h51icj-MuiAutocomplete-root"
+                class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -12025,7 +12025,7 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
                 </div>
               </div>
               <p
-                class="MuiTypography-root MuiTypography-body1 and-or-label css-1o02bdp-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 css-bp02w2-MuiTypography-root"
                 data-testid="typography"
               >
                 <span>
@@ -12081,7 +12081,7 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
             </div>
           </div>
           <div
-            class="Tabs-secondary Tabs-visibleUntillg tabs css-nxi0jm"
+            class="Tabs-secondary Tabs-visibleUntillg css-93lgkw"
             data-testid="tabs"
           >
             <div
@@ -12147,18 +12147,18 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
             </div>
             <div
               aria-labelledby="tab-list"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
+              class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-1jd7gq0"
               data-testid="tabpanel-list"
               heading="MC: findARoofer.listLabel"
               id="tabpanel-list"
               role="tabpanel"
             >
               <div
-                class=""
+                class="css-10klw3m"
                 data-testid="results-list-section"
               >
                 <div
-                  class="list"
+                  class="css-1rgic4w"
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -12180,7 +12180,7 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
                         data-testid="typography"
                       >
                         <div
-                          class="subtitle"
+                          class="css-1upilqn"
                         >
                           address 1
                         </div>
@@ -12302,7 +12302,7 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
+              class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-r04fpi"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -12310,7 +12310,7 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
               role="tabpanel"
             >
               <div
-                class="css-1003pyu"
+                class="css-s53wko"
               >
                 <div
                   class="GoogleMap"
@@ -12333,7 +12333,7 @@ exports[`ServiceLocatorSection component selects service 1`] = `
 <body>
   <div>
     <div
-      class="ServiceLocationSection Section-root Section-white css-10chrh8"
+      class="Section-root Section-white css-10chrh8"
       data-testid="service-locator-section-Main"
     >
       <div
@@ -12349,15 +12349,15 @@ exports[`ServiceLocatorSection component selects service 1`] = `
             Main
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-39zinx-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 search css-xrsztz-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 css-1p10s62-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
-                class="MuiAutocomplete-root company-autocomplete css-1h51icj-MuiAutocomplete-root"
+                class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -12422,7 +12422,7 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                 </div>
               </div>
               <p
-                class="MuiTypography-root MuiTypography-body1 and-or-label css-1o02bdp-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 css-bp02w2-MuiTypography-root"
                 data-testid="typography"
               >
                 <span>
@@ -12478,7 +12478,7 @@ exports[`ServiceLocatorSection component selects service 1`] = `
             </div>
           </div>
           <div
-            class="Tabs-secondary Tabs-visibleUntillg tabs css-nxi0jm"
+            class="Tabs-secondary Tabs-visibleUntillg css-93lgkw"
             data-testid="tabs"
           >
             <div
@@ -12544,18 +12544,18 @@ exports[`ServiceLocatorSection component selects service 1`] = `
             </div>
             <div
               aria-labelledby="tab-list"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
+              class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-1jd7gq0"
               data-testid="tabpanel-list"
               heading="MC: findARoofer.listLabel"
               id="tabpanel-list"
               role="tabpanel"
             >
               <div
-                class=""
+                class="css-10klw3m"
                 data-testid="results-list-section"
               >
                 <div
-                  class="list"
+                  class="css-1rgic4w"
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root LinkCard-open css-13gj853-MuiPaper-root-MuiCard-root"
@@ -12577,7 +12577,7 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                         data-testid="typography"
                       >
                         <div
-                          class="subtitle"
+                          class="css-1upilqn"
                         >
                           address 1
                         </div>
@@ -12699,7 +12699,7 @@ exports[`ServiceLocatorSection component selects service 1`] = `
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
+              class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-r04fpi"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -12707,7 +12707,7 @@ exports[`ServiceLocatorSection component selects service 1`] = `
               role="tabpanel"
             >
               <div
-                class="css-1003pyu"
+                class="css-s53wko"
               >
                 <div
                   class="GoogleMap"
@@ -12888,7 +12888,7 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
 <body>
   <div>
     <div
-      class="ServiceLocationSection Section-root Section-white css-10chrh8"
+      class="Section-root Section-white css-10chrh8"
       data-testid="service-locator-section-Main"
     >
       <div
@@ -12904,15 +12904,15 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
             Main
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-39zinx-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 search css-xrsztz-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 css-1p10s62-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
-                class="MuiAutocomplete-root company-autocomplete css-1h51icj-MuiAutocomplete-root"
+                class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -12977,7 +12977,7 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
                 </div>
               </div>
               <p
-                class="MuiTypography-root MuiTypography-body1 and-or-label css-1o02bdp-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 css-bp02w2-MuiTypography-root"
                 data-testid="typography"
               >
                 <span>
@@ -13041,7 +13041,7 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
             </div>
           </div>
           <div
-            class="Tabs-secondary Tabs-visibleUntillg tabs css-nxi0jm"
+            class="Tabs-secondary Tabs-visibleUntillg css-93lgkw"
             data-testid="tabs"
           >
             <div
@@ -13107,18 +13107,18 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
             </div>
             <div
               aria-labelledby="tab-list"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
+              class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-1jd7gq0"
               data-testid="tabpanel-list"
               heading="MC: findARoofer.listLabel"
               id="tabpanel-list"
               role="tabpanel"
             >
               <div
-                class=""
+                class="css-10klw3m"
                 data-testid="results-list-section"
               >
                 <div
-                  class="list"
+                  class="css-1rgic4w"
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -13140,7 +13140,7 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
                         data-testid="typography"
                       >
                         <div
-                          class="subtitle"
+                          class="css-1upilqn"
                         >
                           address 1
                         </div>
@@ -13262,7 +13262,7 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
+              class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-r04fpi"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -13270,7 +13270,7 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
               role="tabpanel"
             >
               <div
-                class="css-1003pyu"
+                class="css-s53wko"
               >
                 <div
                   class="GoogleMap"
@@ -13293,7 +13293,7 @@ exports[`ServiceLocatorSection component when showDefaultResultList is false sho
 <body>
   <div>
     <div
-      class="ServiceLocationSection Section-root Section-white css-10chrh8"
+      class="Section-root Section-white css-10chrh8"
       data-testid="service-locator-section-Main"
     >
       <div
@@ -13309,15 +13309,15 @@ exports[`ServiceLocatorSection component when showDefaultResultList is false sho
             Main
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-39zinx-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 search css-xrsztz-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 css-1p10s62-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
-                class="MuiAutocomplete-root company-autocomplete css-1h51icj-MuiAutocomplete-root"
+                class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -13382,7 +13382,7 @@ exports[`ServiceLocatorSection component when showDefaultResultList is false sho
                 </div>
               </div>
               <p
-                class="MuiTypography-root MuiTypography-body1 and-or-label css-1o02bdp-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 css-bp02w2-MuiTypography-root"
                 data-testid="typography"
               >
                 <span>
@@ -13441,13 +13441,13 @@ exports[`ServiceLocatorSection component when showDefaultResultList is false sho
               data-testid="grid-item"
             >
               <div
-                class="filters"
+                class="css-gpp2b7"
               >
                 <div
-                  class="chips"
+                  class="css-b6h8js"
                 >
                   <h6
-                    class="MuiTypography-root MuiTypography-h6 chips-label css-1nuwz6u-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 css-1eu0cyt-MuiTypography-root"
                     data-testid="typography"
                   >
                     MC: findARoofer.filtersLabel
@@ -13489,7 +13489,7 @@ exports[`ServiceLocatorSection component when showDefaultResultList is false sho
             </div>
           </div>
           <div
-            class="Tabs-secondary Tabs-visibleUntillg tabs css-nxi0jm"
+            class="Tabs-secondary Tabs-visibleUntillg css-93lgkw"
             data-testid="tabs"
           >
             <div
@@ -13540,7 +13540,7 @@ exports[`ServiceLocatorSection component when showDefaultResultList is false sho
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
+              class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-r04fpi"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -13548,7 +13548,7 @@ exports[`ServiceLocatorSection component when showDefaultResultList is false sho
               role="tabpanel"
             >
               <div
-                class="css-1003pyu"
+                class="css-s53wko"
               >
                 <div
                   class="GoogleMap"
@@ -13571,7 +13571,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
 <body>
   <div>
     <div
-      class="ServiceLocationSection Section-root Section-white css-10chrh8"
+      class="Section-root Section-white css-10chrh8"
       data-testid="service-locator-section-Main"
     >
       <div
@@ -13587,15 +13587,15 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
             Main
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-39zinx-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 search css-xrsztz-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 css-1p10s62-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
-                class="MuiAutocomplete-root company-autocomplete css-1h51icj-MuiAutocomplete-root"
+                class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -13660,7 +13660,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                 </div>
               </div>
               <p
-                class="MuiTypography-root MuiTypography-body1 and-or-label css-1o02bdp-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 css-bp02w2-MuiTypography-root"
                 data-testid="typography"
               >
                 <span>
@@ -13668,7 +13668,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                 </span>
               </p>
               <div
-                class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon location-autocomplete css-1h51icj-MuiAutocomplete-root"
+                class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon css-1t7m83h-MuiAutocomplete-root"
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -13781,7 +13781,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
             </div>
           </div>
           <div
-            class="Tabs-secondary Tabs-visibleUntillg tabs css-nxi0jm"
+            class="Tabs-secondary Tabs-visibleUntillg css-93lgkw"
             data-testid="tabs"
           >
             <div
@@ -13847,18 +13847,18 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
             </div>
             <div
               aria-labelledby="tab-list"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
+              class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-1jd7gq0"
               data-testid="tabpanel-list"
               heading="MC: findARoofer.listLabel"
               id="tabpanel-list"
               role="tabpanel"
             >
               <div
-                class=""
+                class="css-10klw3m"
                 data-testid="results-list-section"
               >
                 <div
-                  class="list"
+                  class="css-1rgic4w"
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -13880,7 +13880,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                         data-testid="typography"
                       >
                         <div
-                          class="subtitle"
+                          class="css-1upilqn"
                         >
                           Helgerødveien 130, 3233 Sandefjord, Norway
                         </div>
@@ -14017,7 +14017,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                         data-testid="typography"
                       >
                         <div
-                          class="subtitle"
+                          class="css-1upilqn"
                         >
                           Lundvegen 8, 2316 Hamar, Norwa
                         </div>
@@ -14154,7 +14154,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                         data-testid="typography"
                       >
                         <div
-                          class="subtitle"
+                          class="css-1upilqn"
                         >
                           Vindheiavegen 27, 2406 Elverum, Norway
                         </div>
@@ -14276,7 +14276,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
+              class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-r04fpi"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -14284,7 +14284,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
               role="tabpanel"
             >
               <div
-                class="css-1003pyu"
+                class="css-s53wko"
               >
                 <div
                   class="GoogleMap"
@@ -14307,7 +14307,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
 <body>
   <div>
     <div
-      class="ServiceLocationSection Section-root Section-white css-10chrh8"
+      class="Section-root Section-white css-10chrh8"
       data-testid="service-locator-section-Main"
     >
       <div
@@ -14323,15 +14323,15 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
             Main
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-39zinx-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 search css-xrsztz-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 css-1p10s62-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
-                class="MuiAutocomplete-root company-autocomplete css-1h51icj-MuiAutocomplete-root"
+                class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -14396,7 +14396,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                 </div>
               </div>
               <p
-                class="MuiTypography-root MuiTypography-body1 and-or-label css-1o02bdp-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 css-bp02w2-MuiTypography-root"
                 data-testid="typography"
               >
                 <span>
@@ -14404,7 +14404,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                 </span>
               </p>
               <div
-                class="MuiAutocomplete-root location-autocomplete css-1h51icj-MuiAutocomplete-root"
+                class="MuiAutocomplete-root css-1t7m83h-MuiAutocomplete-root"
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -14491,7 +14491,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
             </div>
           </div>
           <div
-            class="Tabs-secondary Tabs-visibleUntillg tabs css-nxi0jm"
+            class="Tabs-secondary Tabs-visibleUntillg css-93lgkw"
             data-testid="tabs"
           >
             <div
@@ -14557,17 +14557,17 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
             </div>
             <div
               aria-labelledby="tab-list"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
+              class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-1jd7gq0"
               data-testid="tabpanel-list"
               heading="MC: findARoofer.listLabel"
               id="tabpanel-list"
               role="tabpanel"
             >
               <div
-                class="no-results"
+                class="css-2znhqc"
               >
                 <h4
-                  class="MuiTypography-root MuiTypography-h4 no-results-heading css-1x9euu8-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h4 css-u0svqn-MuiTypography-root"
                   data-testid="typography"
                 >
                   MC: findARoofer.noResults.title
@@ -14582,7 +14582,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
+              class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-r04fpi"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -14590,7 +14590,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
               role="tabpanel"
             >
               <div
-                class="css-1003pyu"
+                class="css-s53wko"
               >
                 <div
                   class="GoogleMap"
@@ -14613,7 +14613,7 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
 <body>
   <div>
     <div
-      class="ServiceLocationSection Section-root Section-white css-10chrh8"
+      class="Section-root Section-white css-10chrh8"
       data-testid="service-locator-section-Main"
     >
       <div
@@ -14629,15 +14629,15 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
             Main
           </h2>
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-39zinx-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 search css-xrsztz-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 css-1p10s62-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
-                class="MuiAutocomplete-root company-autocomplete css-1h51icj-MuiAutocomplete-root"
+                class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -14702,7 +14702,7 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
                 </div>
               </div>
               <p
-                class="MuiTypography-root MuiTypography-body1 and-or-label css-1o02bdp-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 css-bp02w2-MuiTypography-root"
                 data-testid="typography"
               >
                 <span>
@@ -14758,7 +14758,7 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
             </div>
           </div>
           <div
-            class="Tabs-secondary Tabs-visibleUntillg tabs css-nxi0jm"
+            class="Tabs-secondary Tabs-visibleUntillg css-93lgkw"
             data-testid="tabs"
           >
             <div
@@ -14824,18 +14824,18 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
             </div>
             <div
               aria-labelledby="tab-list"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
+              class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-1jd7gq0"
               data-testid="tabpanel-list"
               heading="MC: findARoofer.listLabel"
               id="tabpanel-list"
               role="tabpanel"
             >
               <div
-                class=""
+                class="css-10klw3m"
                 data-testid="results-list-section"
               >
                 <div
-                  class="list"
+                  class="css-1rgic4w"
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -14857,7 +14857,7 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
                         data-testid="typography"
                       >
                         <div
-                          class="subtitle"
+                          class="css-1upilqn"
                         >
                           address 1
                         </div>
@@ -15002,7 +15002,7 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
+              class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-r04fpi"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -15010,7 +15010,7 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
               role="tabpanel"
             >
               <div
-                class="css-1003pyu"
+                class="css-s53wko"
               >
                 <div
                   class="GoogleMap"

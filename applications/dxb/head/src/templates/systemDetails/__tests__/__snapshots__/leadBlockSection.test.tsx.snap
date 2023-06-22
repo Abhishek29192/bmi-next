@@ -3,7 +3,7 @@
 exports[`LeadBlockSection tests When user navigates with selected systems query string should render back to your selection button 1`] = `
 <div>
   <div
-    class="LeadBlockSection Section-root Section-white css-10chrh8"
+    class="Section-root Section-white css-1mk712f"
     data-testid="system-details-lead-block-section"
   >
     <div
@@ -25,7 +25,7 @@ exports[`LeadBlockSection tests When user navigates with selected systems query 
               data-testid="typography"
             >
               <svg
-                class="brandLogo"
+                class="SystemDetailsLeadBlockSectionStyles-ctaContainer"
                 data-testid="lead-block-brand-logo"
                 viewBox="0 0 154 100"
                 xml:space="preserve"
@@ -49,11 +49,11 @@ exports[`LeadBlockSection tests When user navigates with selected systems query 
               </h1>
             </p>
             <p
-              class="MuiTypography-root MuiTypography-body1 ctaContainer css-1218bho-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 SystemDetailsLeadBlockSectionStyles-ctaContainer css-1218bho-MuiTypography-root"
               data-testid="typography"
             >
               <a
-                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge backToYourSelectionBtn css-1ioi680-MuiButtonBase-root-MuiButton-root"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge SystemDetailsLeadBlockSectionStyles-backToYourSelectionBtn css-1ioi680-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"cta-click1","label":"MC: sdp.leadBlock.backToYourSelection","action":"system-configurator-page?referer=sys_details"}"
                 data-testid="system-lead-block-prev-page"
                 href="system-configurator-page?referer=sys_details"
@@ -81,7 +81,7 @@ exports[`LeadBlockSection tests When user navigates with selected systems query 
                 />
               </a>
               <button
-                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium quotationBtn css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium SystemDetailsLeadBlockSectionStyles-quotationBtn css-11nrv4h-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"cta-click1","label":"cta label","action":"https://www.external.co.uk"}"
                 data-testid="system-lead-block-cta-action"
                 tabindex="0"
@@ -119,7 +119,7 @@ exports[`LeadBlockSection tests When user navigates with selected systems query 
 exports[`LeadBlockSection tests should not render systemAttributes Card with empty uniqueSellingPropositions 1`] = `
 <div>
   <div
-    class="LeadBlockSection Section-root Section-white css-10chrh8"
+    class="Section-root Section-white css-1mk712f"
     data-testid="system-details-lead-block-section"
   >
     <div
@@ -141,7 +141,7 @@ exports[`LeadBlockSection tests should not render systemAttributes Card with emp
               data-testid="typography"
             >
               <svg
-                class="brandLogo"
+                class="SystemDetailsLeadBlockSectionStyles-ctaContainer"
                 data-testid="lead-block-brand-logo"
                 viewBox="0 0 154 100"
                 xml:space="preserve"
@@ -165,11 +165,11 @@ exports[`LeadBlockSection tests should not render systemAttributes Card with emp
               </h1>
             </p>
             <p
-              class="MuiTypography-root MuiTypography-body1 ctaContainer css-1218bho-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 SystemDetailsLeadBlockSectionStyles-ctaContainer css-1218bho-MuiTypography-root"
               data-testid="typography"
             >
               <button
-                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium quotationBtn css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium SystemDetailsLeadBlockSectionStyles-quotationBtn css-11nrv4h-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"cta-click1","label":"cta label","action":"https://www.external.co.uk"}"
                 data-testid="system-lead-block-cta-action"
                 tabindex="0"
@@ -207,7 +207,7 @@ exports[`LeadBlockSection tests should not render systemAttributes Card with emp
 exports[`LeadBlockSection tests should render 1`] = `
 <div>
   <div
-    class="LeadBlockSection Section-root Section-white css-10chrh8"
+    class="Section-root Section-white css-1mk712f"
     data-testid="system-details-lead-block-section"
   >
     <div
@@ -229,7 +229,7 @@ exports[`LeadBlockSection tests should render 1`] = `
               data-testid="typography"
             >
               <svg
-                class="brandLogo"
+                class="SystemDetailsLeadBlockSectionStyles-ctaContainer"
                 data-testid="lead-block-brand-logo"
                 viewBox="0 0 154 100"
                 xml:space="preserve"
@@ -253,11 +253,11 @@ exports[`LeadBlockSection tests should render 1`] = `
               </h1>
             </p>
             <p
-              class="MuiTypography-root MuiTypography-body1 ctaContainer css-1218bho-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 SystemDetailsLeadBlockSectionStyles-ctaContainer css-1218bho-MuiTypography-root"
               data-testid="typography"
             >
               <button
-                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium quotationBtn css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium SystemDetailsLeadBlockSectionStyles-quotationBtn css-11nrv4h-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"cta-click1","label":"cta label","action":"https://www.external.co.uk"}"
                 data-testid="system-lead-block-cta-action"
                 tabindex="0"
@@ -295,7 +295,7 @@ exports[`LeadBlockSection tests should render 1`] = `
 exports[`LeadBlockSection tests should render with uniqueSellingPropositions 1`] = `
 <div>
   <div
-    class="LeadBlockSection Section-root Section-white css-10chrh8"
+    class="Section-root Section-white css-1mk712f"
     data-testid="system-details-lead-block-section"
   >
     <div
@@ -317,7 +317,7 @@ exports[`LeadBlockSection tests should render with uniqueSellingPropositions 1`]
               data-testid="typography"
             >
               <svg
-                class="brandLogo"
+                class="SystemDetailsLeadBlockSectionStyles-ctaContainer"
                 data-testid="lead-block-brand-logo"
                 viewBox="0 0 154 100"
                 xml:space="preserve"
@@ -341,11 +341,11 @@ exports[`LeadBlockSection tests should render with uniqueSellingPropositions 1`]
               </h1>
             </p>
             <p
-              class="MuiTypography-root MuiTypography-body1 ctaContainer css-1218bho-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 SystemDetailsLeadBlockSectionStyles-ctaContainer css-1218bho-MuiTypography-root"
               data-testid="typography"
             >
               <button
-                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium quotationBtn css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium SystemDetailsLeadBlockSectionStyles-quotationBtn css-11nrv4h-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"cta-click1","label":"cta label","action":"https://www.external.co.uk"}"
                 data-testid="system-lead-block-cta-action"
                 tabindex="0"
@@ -374,7 +374,7 @@ exports[`LeadBlockSection tests should render with uniqueSellingPropositions 1`]
             </p>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 card css-1fx28h6-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 SystemDetailsLeadBlockSectionStyles-card css-1fx28h6-MuiGrid2-root"
             data-testid="system-attributes-card"
           >
             <div
@@ -387,7 +387,7 @@ exports[`LeadBlockSection tests should render with uniqueSellingPropositions 1`]
                   class="css-c1wgmr"
                 >
                   <div
-                    class="iconList"
+                    class="SystemDetailsLeadBlockSectionStyles-iconList"
                   >
                     <ul
                       class="css-1yuf2q3"

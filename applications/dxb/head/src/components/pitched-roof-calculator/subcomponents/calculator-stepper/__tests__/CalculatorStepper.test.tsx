@@ -143,7 +143,9 @@ describe("CalculatorStepper component", () => {
     );
 
     const form = screen.getByTestId("calculator-step-form");
-    expect(form.classList.contains("form--sm-padding")).toBeTruthy();
+    expect(
+      form.classList.contains("CalculatorStepper-form-sm-padding")
+    ).toBeTruthy();
   });
 
   it("renders correctly with md paddings", () => {
@@ -169,7 +171,9 @@ describe("CalculatorStepper component", () => {
     );
 
     const form = screen.getByTestId("calculator-step-form");
-    expect(form.classList.contains("form--md-padding")).toBeTruthy();
+    expect(
+      form.classList.contains("CalculatorStepper-form-md-padding")
+    ).toBeTruthy();
   });
 
   it("renders correctly with large paddings", () => {
@@ -195,7 +199,9 @@ describe("CalculatorStepper component", () => {
     );
 
     const form = screen.getByTestId("calculator-step-form");
-    expect(form.classList.contains("form--lg-padding")).toBeTruthy();
+    expect(
+      form.classList.contains("CalculatorStepper-form-lg-padding")
+    ).toBeTruthy();
   });
 
   it("renders correctly on mobile devices", () => {
