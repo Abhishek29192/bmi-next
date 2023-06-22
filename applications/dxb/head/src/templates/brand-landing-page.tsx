@@ -167,7 +167,7 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
                 </BackToResults>
               }
               heroes={[firstSlide, ...heroItems]}
-              hasSpaceBottom
+              hasSpaceBottomLarge
               isHeroKeyLine={Boolean(isBrandProviderEnabled && brandLogo)}
             >
               <Search
