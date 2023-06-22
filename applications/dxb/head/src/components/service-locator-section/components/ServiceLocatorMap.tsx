@@ -10,7 +10,6 @@ import { Close as CloseIcon } from "@mui/icons-material";
 import classnames from "classnames";
 import React from "react";
 import { microCopy } from "../../../constants/microCopies";
-import Image from "../../Image";
 import { useSiteContext } from "../../Site";
 import { calculateCentre } from "../helpers";
 import { Service } from "../index";
@@ -21,7 +20,8 @@ import {
   ProductDetailsCardBody,
   productDetailsCardClasses,
   ProductDetailsCardSummary,
-  StyledServiceLocatorMap
+  StyledServiceLocatorMap,
+  CompanyLogo
 } from "../styles/styles";
 
 export interface MapProps {
@@ -69,7 +69,7 @@ export const ServiceLocatorMap = ({
             <CardHeader
               avatar={
                 selectedRoofer.companyLogo && (
-                  <Image
+                  <CompanyLogo
                     className={companyLogoClasses.card}
                     {...selectedRoofer.companyLogo}
                   />
