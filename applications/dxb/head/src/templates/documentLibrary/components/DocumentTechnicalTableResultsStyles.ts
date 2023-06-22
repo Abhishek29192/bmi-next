@@ -25,13 +25,13 @@ export const Root = styled("div")(({ theme }) => ({
     "&:last-child": {
       borderBottom: "none"
     },
-    "&:first-child": {
+    "&:first-of-type": {
       borderTop: `1px solid ${theme.colours.storm}`,
       [theme.breakpoints.down("lg")]: {
         borderTop: 0
       }
     },
-    "&:nth-child(2n + 1)": {
+    "&:nth-of-type(2n + 1)": {
       backgroundColor: theme.colours.pearl
     }
   },
