@@ -5960,11 +5960,11 @@ exports[`Document Library page should render DocumentSimpleTableResults if sourc
 
 exports[`Document Library page should render DocumentTechnicalTableResults correctly if source === PIM and resultsType === Technical 1`] = `
 <div
-  class="css-1gt6a7i"
+  class="css-1blc44m"
   data-testid="tech-results-accordion"
 >
   <div
-    class="css-1gt6a7i"
+    class="css-1blc44m"
   >
     <div
       class=" css-1u48ai"
