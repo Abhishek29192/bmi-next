@@ -12,11 +12,11 @@ import {
 import { SVGImport } from "@bmi-digital/svg-import";
 import React from "react";
 import { microCopy } from "../../../constants/microCopies";
-import Image from "../../Image";
 import { useSiteContext } from "../../Site";
 import { getResultDataGtm } from "../helpers";
 import { Service } from "../index";
 import styles from "../styles/ServiceLocatorSection.module.scss";
+import { CompanyLogo } from "../styles/styles";
 import { GTMIntegratedLinkCard } from "./IntegratedLinkCard";
 
 interface ResultListProps {
@@ -69,12 +69,7 @@ export const ServiceLocatorResultList = ({
               isOpen={selectedRoofer?.id === service?.id}
               title={service.name}
               logo={
-                service.companyLogo && (
-                  <Image
-                    className={styles["company-logo"]}
-                    {...service.companyLogo}
-                  />
-                )
+                service.companyLogo && <CompanyLogo {...service.companyLogo} />
               }
               gtm={getResultDataGtm(service)}
               data-testid={"GTMIntegratedLinkCard-test-id"}

@@ -492,7 +492,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -500,7 +500,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
               role="tabpanel"
             >
               <div
-                class="map"
+                class="css-1003pyu"
               >
                 <div
                   class="GoogleMap"
@@ -1026,7 +1026,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -1034,7 +1034,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
               role="tabpanel"
             >
               <div
-                class="map"
+                class="css-1003pyu"
               >
                 <div
                   class="GoogleMap"
@@ -1046,7 +1046,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                     class="popup"
                   >
                     <div
-                      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root product-details-card css-6erhqq-MuiPaper-root-MuiCard-root"
+                      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1wkc2sf-MuiPaper-root-MuiCard-root"
                       data-testid="service-locator-service-details-card-roofer_id"
                     >
                       <div
@@ -1066,7 +1066,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                         >
                           <button
                             aria-label="MC: global.close"
-                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge product-details-card__close-button css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-mtw1qi-MuiButtonBase-root-MuiIconButton-root"
                             tabindex="0"
                             type="button"
                           >
@@ -1088,7 +1088,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                         </div>
                       </div>
                       <div
-                        class="MuiCardContent-root product-details-card-body css-46bh2p-MuiCardContent-root"
+                        class="MuiCardContent-root css-91qw9k-MuiCardContent-root"
                       >
                         <div
                           class="css-hvci11"
@@ -1211,7 +1211,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                               </div>
                             </dl>
                             <p
-                              class="MuiTypography-root MuiTypography-body1 product-details-card-summary css-1o02bdp-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-body1 css-10as8va-MuiTypography-root"
                               data-testid="typography"
                             >
                               roofer summary
@@ -1724,7 +1724,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -1732,7 +1732,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
               role="tabpanel"
             >
               <div
-                class="map"
+                class="css-1003pyu"
               >
                 <div
                   class="GoogleMap"
@@ -2258,7 +2258,7 @@ exports[`ServiceLocatorSection component close button 1`] = `
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -2266,7 +2266,7 @@ exports[`ServiceLocatorSection component close button 1`] = `
               role="tabpanel"
             >
               <div
-                class="map"
+                class="css-1003pyu"
               >
                 <div
                   class="GoogleMap"
@@ -2681,7 +2681,7 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -2689,7 +2689,7 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
               role="tabpanel"
             >
               <div
-                class="map"
+                class="css-1003pyu"
               >
                 <div
                   class="GoogleMap"
@@ -3038,7 +3038,7 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -3046,7 +3046,7 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
               role="tabpanel"
             >
               <div
-                class="map"
+                class="css-1003pyu"
               >
                 <div
                   class="GoogleMap"
@@ -3486,7 +3486,7 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -3494,7 +3494,7 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
               role="tabpanel"
             >
               <div
-                class="map"
+                class="css-1003pyu"
               >
                 <div
                   class="GoogleMap"
@@ -3957,7 +3957,7 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -3965,7 +3965,7 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
               role="tabpanel"
             >
               <div
-                class="map"
+                class="css-1003pyu"
               >
                 <div
                   class="GoogleMap"
@@ -4223,7 +4223,7 @@ exports[`ServiceLocatorSection component renders correctly with NO service 1`] =
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -4231,7 +4231,7 @@ exports[`ServiceLocatorSection component renders correctly with NO service 1`] =
             role="tabpanel"
           >
             <div
-              class="map"
+              class="css-1003pyu"
             >
               <div
                 class="GoogleMap"
@@ -4672,7 +4672,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -4680,7 +4680,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
             role="tabpanel"
           >
             <div
-              class="map"
+              class="css-1003pyu"
             >
               <div
                 class="GoogleMap"
@@ -5121,7 +5121,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -5129,7 +5129,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
             role="tabpanel"
           >
             <div
-              class="map"
+              class="css-1003pyu"
             >
               <div
                 class="GoogleMap"
@@ -5653,7 +5653,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -5661,7 +5661,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
             role="tabpanel"
           >
             <div
-              class="map"
+              class="css-1003pyu"
             >
               <div
                 class="GoogleMap"
@@ -6185,7 +6185,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -6193,7 +6193,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
             role="tabpanel"
           >
             <div
-              class="map"
+              class="css-1003pyu"
             >
               <div
                 class="GoogleMap"
@@ -6717,7 +6717,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -6725,7 +6725,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
             role="tabpanel"
           >
             <div
-              class="map"
+              class="css-1003pyu"
             >
               <div
                 class="GoogleMap"
@@ -7442,7 +7442,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -7450,7 +7450,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
             role="tabpanel"
           >
             <div
-              class="map"
+              class="css-1003pyu"
             >
               <div
                 class="GoogleMap"
@@ -7974,7 +7974,7 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -7982,7 +7982,7 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
             role="tabpanel"
           >
             <div
-              class="map"
+              class="css-1003pyu"
             >
               <div
                 class="GoogleMap"
@@ -8635,7 +8635,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -8643,7 +8643,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
             role="tabpanel"
           >
             <div
-              class="map"
+              class="css-1003pyu"
             >
               <div
                 class="GoogleMap"
@@ -9213,7 +9213,7 @@ exports[`ServiceLocatorSection component renders multiple services with single s
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -9221,7 +9221,7 @@ exports[`ServiceLocatorSection component renders multiple services with single s
             role="tabpanel"
           >
             <div
-              class="map"
+              class="css-1003pyu"
             >
               <div
                 class="GoogleMap"
@@ -9608,7 +9608,7 @@ exports[`ServiceLocatorSection component renders single service with No service 
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -9616,7 +9616,7 @@ exports[`ServiceLocatorSection component renders single service with No service 
             role="tabpanel"
           >
             <div
-              class="map"
+              class="css-1003pyu"
             >
               <div
                 class="GoogleMap"
@@ -10003,7 +10003,7 @@ exports[`ServiceLocatorSection component renders single service with empty servi
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -10011,7 +10011,7 @@ exports[`ServiceLocatorSection component renders single service with empty servi
             role="tabpanel"
           >
             <div
-              class="map"
+              class="css-1003pyu"
             >
               <div
                 class="GoogleMap"
@@ -10472,7 +10472,7 @@ exports[`ServiceLocatorSection component renders single service with multiple se
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -10480,7 +10480,7 @@ exports[`ServiceLocatorSection component renders single service with multiple se
             role="tabpanel"
           >
             <div
-              class="map"
+              class="css-1003pyu"
             >
               <div
                 class="GoogleMap"
@@ -10890,7 +10890,7 @@ exports[`ServiceLocatorSection component renders single service with single serv
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
+            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -10898,7 +10898,7 @@ exports[`ServiceLocatorSection component renders single service with single serv
             role="tabpanel"
           >
             <div
-              class="map"
+              class="css-1003pyu"
             >
               <div
                 class="GoogleMap"
@@ -11312,7 +11312,7 @@ exports[`ServiceLocatorSection component searches for a service: Filtered main l
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -11320,7 +11320,7 @@ exports[`ServiceLocatorSection component searches for a service: Filtered main l
               role="tabpanel"
             >
               <div
-                class="map"
+                class="css-1003pyu"
               >
                 <div
                   class="GoogleMap"
@@ -11874,7 +11874,7 @@ exports[`ServiceLocatorSection component searches for a service: Filtered option
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -11882,7 +11882,7 @@ exports[`ServiceLocatorSection component searches for a service: Filtered option
               role="tabpanel"
             >
               <div
-                class="map"
+                class="css-1003pyu"
               >
                 <div
                   class="GoogleMap"
@@ -12302,7 +12302,7 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -12310,7 +12310,7 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
               role="tabpanel"
             >
               <div
-                class="map"
+                class="css-1003pyu"
               >
                 <div
                   class="GoogleMap"
@@ -12699,7 +12699,7 @@ exports[`ServiceLocatorSection component selects service 1`] = `
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -12707,7 +12707,7 @@ exports[`ServiceLocatorSection component selects service 1`] = `
               role="tabpanel"
             >
               <div
-                class="map"
+                class="css-1003pyu"
               >
                 <div
                   class="GoogleMap"
@@ -12719,7 +12719,7 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                     class="popup"
                   >
                     <div
-                      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root product-details-card css-6erhqq-MuiPaper-root-MuiCard-root"
+                      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1wkc2sf-MuiPaper-root-MuiCard-root"
                       data-testid="service-locator-service-details-card-roofer_id"
                     >
                       <div
@@ -12739,7 +12739,7 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                         >
                           <button
                             aria-label="MC: global.close"
-                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge product-details-card__close-button css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-mtw1qi-MuiButtonBase-root-MuiIconButton-root"
                             tabindex="0"
                             type="button"
                           >
@@ -12761,7 +12761,7 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                         </div>
                       </div>
                       <div
-                        class="MuiCardContent-root product-details-card-body css-46bh2p-MuiCardContent-root"
+                        class="MuiCardContent-root css-91qw9k-MuiCardContent-root"
                       >
                         <div
                           class="css-hvci11"
@@ -12863,7 +12863,7 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                               </div>
                             </dl>
                             <p
-                              class="MuiTypography-root MuiTypography-body1 product-details-card-summary css-1o02bdp-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-body1 css-10as8va-MuiTypography-root"
                               data-testid="typography"
                             >
                               roofer summary
@@ -13262,7 +13262,7 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -13270,7 +13270,7 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
               role="tabpanel"
             >
               <div
-                class="map"
+                class="css-1003pyu"
               >
                 <div
                   class="GoogleMap"
@@ -13540,7 +13540,7 @@ exports[`ServiceLocatorSection component when showDefaultResultList is false sho
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -13548,7 +13548,7 @@ exports[`ServiceLocatorSection component when showDefaultResultList is false sho
               role="tabpanel"
             >
               <div
-                class="map"
+                class="css-1003pyu"
               >
                 <div
                   class="GoogleMap"
@@ -14276,7 +14276,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -14284,7 +14284,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
               role="tabpanel"
             >
               <div
-                class="map"
+                class="css-1003pyu"
               >
                 <div
                   class="GoogleMap"
@@ -14582,7 +14582,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -14590,7 +14590,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
               role="tabpanel"
             >
               <div
-                class="map"
+                class="css-1003pyu"
               >
                 <div
                   class="GoogleMap"
@@ -15002,7 +15002,7 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-hu18jb"
+              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
               data-testid="tabpanel-map"
               heading="MC: findARoofer.mapLabel"
               hidden=""
@@ -15010,7 +15010,7 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
               role="tabpanel"
             >
               <div
-                class="map"
+                class="css-1003pyu"
               >
                 <div
                   class="GoogleMap"

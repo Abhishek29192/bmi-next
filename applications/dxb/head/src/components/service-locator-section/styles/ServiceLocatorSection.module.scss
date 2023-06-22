@@ -3,71 +3,14 @@
 .ServiceLocationSection {
   .body {
     margin-bottom: 24px;
-    &+.controls{
+
+    & + .controls {
       margin-top: 0;
     }
   }
 
   .controls {
     margin-bottom: 12px;
-  }
-
-  .product-details-card {
-    border-radius: 0;
-
-    .product-details-card-body {
-      overflow-y: auto;
-    }
-
-    :global {
-      [class*="MuiCardHeader-root"] {
-        padding: 30px 30px 0;
-      }
-      [class*="MuiCardContent-root"] {
-        padding: 0 30px 12px;
-      }
-      [class*="MuiCardHeader-action"] {
-        margin-top: -24px;
-        margin-right: -24px;
-      }
-      [class*="MuiCardHeader-avatar"] {
-        margin-right: 0;
-      }
-      [class*="MuiCardHeader-title"] {
-        font-weight: bold;
-        margin-bottom: 6px;
-
-        @media (min-width: $breakpoint-lg) {
-          margin-bottom: 18px;
-        }
-      }
-    }
-
-    &--with_logo {
-      :global {
-        [class*="MuiCardHeader-root"] {
-          flex-wrap: wrap;
-          justify-content: space-between;
-        }
-
-        [class*="MuiCardHeader-content"] {
-          order: 3;
-          width: 100%;
-        }
-      }
-    }
-
-    &-summary{
-      margin-bottom: 18px;
-    }
-
-    .product-details-card__close-button {
-      color: $color-slate;
-
-      &:hover {
-        color: $color-charcoal;
-      }
-    }
   }
 
   .search {
@@ -197,33 +140,9 @@
     margin-bottom: 24px;
   }
 
-  .map {
-    height: calc(100vh - 48px); // Note: minus tab label height.
-
-    @media (min-width: $breakpoint-lg) {
-      height: 640px;
-    }
-  }
-
   .tab-panel + .tab-panel .map {
     @media (min-width: $breakpoint-lg) {
       margin: 0 0 0 24px;
-    }
-  }
-
-  .company-logo {
-    margin-bottom: 18px;
-    height: 40px;
-    img {
-      height: 40px;
-    }
-
-    &--card {
-      margin-bottom: 30px;
-      height: 60px;
-      img {
-        height: 60px;
-      }
     }
   }
 }
