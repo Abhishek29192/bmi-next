@@ -135,7 +135,7 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
       <Link component={Button} data={cta} data-testid="first-slide-cta">
         {cta.label}
       </Link>
-    ) : null
+    ) : undefined
   };
 
   return (

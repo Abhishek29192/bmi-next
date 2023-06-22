@@ -1,5 +1,5 @@
-import { Product } from "../../types/pim";
 import createProduct from "../../__tests__/helpers/ProductHelper";
+import { Product } from "../../types/pim";
 import { createSchemaOrgDataForPdpPage } from "../schemaOrgPDPpage";
 
 describe("createSchemaOrgDataForPdpPage", () => {
@@ -16,7 +16,7 @@ describe("createSchemaOrgDataForPdpPage", () => {
       classifications: [],
       code: "code",
       colour: null,
-      colourMicrocopy: null,
+      colourMicrocopy: undefined,
       colourFamily: null,
       description: "description",
       documents: [],
@@ -27,7 +27,7 @@ describe("createSchemaOrgDataForPdpPage", () => {
       groups: [],
       guaranteesAndWarrantiesImages: [],
       guaranteesAndWarrantiesLinks: [],
-      masterImage: undefined,
+      masterImage: null,
       hashedCode: "id",
       isSampleOrderAllowed: false,
       materials: null,
@@ -38,7 +38,7 @@ describe("createSchemaOrgDataForPdpPage", () => {
       specificationIframeUrl: null,
       techDrawings: [],
       textureFamily: null,
-      textureFamilyMicrocopy: null,
+      textureFamilyMicrocopy: undefined,
       variantAttribute: null,
       videos: [],
       weight: null,
@@ -49,7 +49,7 @@ describe("createSchemaOrgDataForPdpPage", () => {
       path: "/p/some-product-path",
       relatedProducts: [],
       productDocuments: [],
-      isVisualiserAvailable: null
+      isVisualiserAvailable: false
     };
 
     const result = createSchemaOrgDataForPdpPage(product, "no");

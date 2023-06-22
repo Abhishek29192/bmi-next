@@ -1,9 +1,9 @@
 import { ThemeProvider } from "@bmi-digital/components";
-import React from "react";
 import { screen } from "@testing-library/react";
+import React from "react";
 import {
-  Data as LinkData,
   DataTypeEnum,
+  Data as LinkData,
   NavigationData
 } from "../../components/Link";
 import { Data as SiteData } from "../../components/Site";

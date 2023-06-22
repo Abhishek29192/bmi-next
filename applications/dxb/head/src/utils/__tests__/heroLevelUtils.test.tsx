@@ -1,6 +1,6 @@
 import React from "react";
 import { Data as ContentfulImageData } from "../../components/Image";
-import { Data as LinkData, DataTypeEnum } from "../../components/Link";
+import { DataTypeEnum, Data as LinkData } from "../../components/Link";
 import Video, { ContentfulVideoData } from "../../components/Video";
 import { generateHeroLevel, generateHeroProps } from "../heroLevelUtils";
 
@@ -91,7 +91,7 @@ describe("generateHeroProps test", () => {
       })
     );
 
-    expect(result.media.props).toEqual({ ...featuredMedia, size: "cover" });
+    expect(result.media!.props).toEqual({ ...featuredMedia, size: "cover" });
 
     expect((result.cta as React.ReactElement).props).toEqual(
       expect.objectContaining({

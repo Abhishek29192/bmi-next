@@ -71,7 +71,7 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
     documentsFilters
   } = data.contentfulDocumentLibraryPage;
   const { documentDownloadMaxLimit, isPreviewMode } = useConfig();
-  const maxSize = documentDownloadMaxLimit * 1000000;
+  const maxSize = (documentDownloadMaxLimit || 0) * 1000000;
   // eslint-disable-next-line security/detect-object-injection
   const format: Format = resultTypeFormatMap[source][resultsType];
 
@@ -160,7 +160,10 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
     setFilters(newFilters);
   };
 
-  const handlePageChange = async (_, page) => {
+  const handlePageChange = async (
+    _: React.ChangeEvent<unknown>,
+    page: number
+  ) => {
     const scrollY = (resultsElement.current?.offsetTop || 200) - 200;
     window.scrollTo(0, scrollY);
     // TODO: DXB-4320 Don't query ES if we already have the documents for that page
@@ -179,7 +182,7 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
 
     history.replaceState(
       null,
-      null,
+      "",
       `${location.pathname}?${queryString.stringify({
         filters: JSON.stringify(URLFilters)
       })}`
@@ -189,7 +192,7 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
   };
 
   const handleClearFilters = () => {
-    history.replaceState(null, null, location.pathname);
+    history.replaceState(null, "", location.pathname);
     const newFilters = clearFilterValues(filters);
     onFiltersChange(newFilters);
   };
@@ -219,7 +222,7 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
       return;
     }
 
-    if (documentsFilters.filters) {
+    if (documentsFilters?.filters) {
       const { filters: initialFilters } = documentsFilters;
       if (queryParams?.filters?.length) {
         const updatedFilters = getURLFilters(initialFilters, queryParams);

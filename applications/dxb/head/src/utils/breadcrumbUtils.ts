@@ -21,7 +21,7 @@ export const checkIfActiveLabelInParentNode = (
   label: string,
   menuNavigation: NavigationData = {} as NavigationData
 ): string => {
-  if (!!label && !!menuNavigation.links.length) {
+  if (!!label && !!menuNavigation.links?.length) {
     const parentMenuNode: NavigationData | NavigationItem | Data =
       menuNavigation.links.find((i: NavigationData) => {
         const nestedLinks = i.links || [];
