@@ -16,28 +16,31 @@ We use [Gatsby](https://www.gatsbyjs.org/) to generate static website and it's d
 1. Go to [Contentful sign up](https://www.contentful.com/sign-up/)
 1. Sign up with your BMI (Google) account
 
-#### Create development space
-
-1. In the "burger" menu, click `Add a space`, under your personal organisation
-1. Select `Community space`
-1. Select `Web app only`
-1. Click `Continue`
-1. Enter a name for your space (such as `local`)
-1. Ensure `Empty space` is selected
-1. Click `Create space`
-1. Cick `Go to my space home`
-1. Go to `Settings > General settings`
-1. Click on the `Copy to clipboard` button next to `Space ID`
-1. Paste into `applications/dxb/head/.env.development` as `SPACE_ID`
-1. Set `ENVIRONMENT` as `master` in `applications/dxb/head/.env.development`
-1. Paste into `applications/dxb/contentful-migrate/.env.development` as `SPACE_ID`
-1. Set `CONTENTFUL_ENVIRONMENT` as `master` in `applications/dxb/contentful-migrate/.env.development`
-
-Once completed, you will have a space that can be used for your own development purposes and will have a `master` environment already created, so that you don't need to make changes or run your migration directly on DXB's Contentful account.
-
 #### Acquire access to DXB's Large Space
 
 Talk to one of the other devs to give you access to the DXB `Large Space` (which is actually the Norway space, but the `development` environment is used for QA).
+
+#### Acquire access to DXB's Sandpit Space
+
+Talk to one of the other devs to give you access to the DXB `Sandpit` space.
+
+#### Create development space
+
+As DXB uses enough content types to require a paid for space, we cannot use a free space as we once did. Instead, we need to create an environment within another space. As `Sandbox` is our space for training markets on how to use DXB, we can happily create _temporary_ environments for testing Contentful chagnes.
+
+1. Navigate to the `Sandpit` space's `master` environment
+1. Select `Settings > Environments`
+1. Click `Add environment`
+1. Set the `ID` to whatever you want your temporary environment to be called (e.g. `ben-test`)
+1. Ensure that `Clone new environment from` is set to the environment the `master` alias is pointing to
+1. Click `Add environment`
+1. Wait for the new environment to have been created, copied all the data from the `master` environment and is complete
+1. Set the new environment's ID as `ENVIRONMENT` in `applications/dxb/head/.env.development`
+1. Set the new environment's ID as `ENVIRONMENT` in `applications/dxb/contentful-migrate/.env.development`
+
+Once completed, you will have a space that can be used for your own development purposes.
+
+_N.B. We can only have 11 environments per space, so once you are done with it, please delete it so it doesn't impact our releases or other devs._
 
 #### Install custom apps
 
