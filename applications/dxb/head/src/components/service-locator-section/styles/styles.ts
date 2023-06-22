@@ -111,15 +111,20 @@ export const CompanyLogo = styled(Image)(({ theme }) => ({
   [`&.${companyLogoClasses.card}`]: {
     marginBottom: "30px",
     height: "60px",
+    maxWidth: "135px",
     img: {
       height: "60px"
     }
   }
 }));
 export const CloseBtn = styled(Button)(({ theme }) => ({
-  color: theme.colours.slate,
+  svg: {
+    color: theme.colours.slate
+  },
   "&:hover": {
-    color: theme.colours.charcoal
+    svg: {
+      color: theme.colours.charcoal
+    }
   }
 }));
 
