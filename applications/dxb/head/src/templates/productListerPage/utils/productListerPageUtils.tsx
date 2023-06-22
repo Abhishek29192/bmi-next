@@ -40,19 +40,44 @@ const GTMOverviewCard = withGTM<OverviewCardProps>(OverviewCard);
 export const createSizeLabel = (product: EsProduct): string => {
   const width: ClassificationField = product["MEASUREMENTS$WIDTH"];
   const length: ClassificationField = product["MEASUREMENTS$LENGTH"];
+  const height: ClassificationField = product["MEASUREMENTS$HEIGHT"];
+  const thickness: ClassificationField = product["MEASUREMENTS$THICKNESS"];
+  const measurementValues = [length, width, height, thickness].filter(Boolean);
+  if (measurementValues.length === 0) {
+    return "";
+  }
 
-  if (!length || !width) return "";
-
-  let res: string[] = [];
-  length.forEach((el, i) => {
-    const isSameUnit = el.name.split(" ")[1] === width[i].name.split(" ")[1];
-    if (isSameUnit) {
-      res = [...res, `${el.value}x${width[i].code}`];
-    } else {
-      res = [...res, `${el.code} x ${width[i].code}`];
-    }
+  const splitValue = (str: string): string[] => str.split(" ");
+  const sameUnit = measurementValues.every((value, i, arr) => {
+    return splitValue(value[0].name)[1] === splitValue(arr[0][0].name)[1];
   });
-  return res.join(" | ");
+  const unit = sameUnit ? splitValue(measurementValues[0][0].name)[1] : "";
+
+  return (
+    measurementValues
+      .map(
+        (unitValue) =>
+          splitValue(unitValue[0].name)[0] +
+          (!sameUnit ? splitValue(unitValue[0].name)[1] : "")
+      )
+      // Add extra space if units don't match
+      .join(sameUnit ? "x" : " x ") + unit
+  );
+};
+export const findSurface = (
+  product: EsProduct
+): { value: string; mc?: string } => {
+  const surface = product.classifications.find(
+    (cl) => cl.code === "appearanceAttributes"
+  );
+  const textureFamily =
+    surface &&
+    surface.features?.find((el) => el.code.includes("textureFamily"));
+  const surfaceValue =
+    (textureFamily &&
+      textureFamily.featureValues.map((feat) => feat.value).join(" | ")) ||
+    "";
+  return { value: surfaceValue, mc: textureFamily && textureFamily.name };
 };
 export const renderProducts = (
   products: EsProduct[],
@@ -68,22 +93,24 @@ export const renderProducts = (
       countryCode,
       pageContext.variantCodeToPathMap?.[variant.code] || variant.path
     )}${getSearchParams()}`;
-    const subTitle = variant.subTitle || "";
+    const subTitle = variant.subTitle;
     const moreOptionsAvailable =
       variant.all_variants?.length > 1 &&
       getMicroCopy("plp.product.moreOptionsAvailable");
-    const surface = variant.classifications.find(
-      (cl) => cl.code === "appearanceAttributes"
-    );
-    const textureFamily =
-      surface &&
-      surface.features?.find((el) => el.code.includes("textureFamily"));
-    const surfaceValue =
-      (textureFamily &&
-        textureFamily.featureValues.map((feat) => feat.value).join(" | ")) ||
-      "";
-    const sizeLabel = createSizeLabel(variant);
 
+    let sizeLabel: string[] = [];
+    let surface: string[] = [];
+    let surfaceMc: string | undefined = "";
+
+    variant.all_variants &&
+      variant.all_variants.forEach((v: EsProduct) => {
+        if (v._source) {
+          sizeLabel = [...sizeLabel, createSizeLabel(v._source)];
+          surface = [...surface, findSurface(v._source).value];
+          surfaceMc = findSurface(v._source).mc;
+        }
+      });
+    const uniqueSizeLabels = [...new Set(sizeLabel)].join(" | ");
     return (
       <Grid
         key={`${product?.code}-${variant.code}`}
@@ -130,12 +157,15 @@ export const renderProducts = (
           }
           moreOptionsAvailable={moreOptionsAvailable}
           size={{
-            microCopy: !!sizeLabel && getMicroCopy("pdp.overview.size"),
-            value: sizeLabel
+            microCopy: uniqueSizeLabels
+              ? getMicroCopy("pdp.overview.size")
+              : "",
+
+            value: uniqueSizeLabels
           }}
           surface={{
-            microCopy: (surfaceValue && surface?.name) || "",
-            value: surfaceValue
+            microCopy: surfaceMc,
+            value: [...new Set(surface)].join(" | ")
           }}
         >
           {variant.shortDescription}

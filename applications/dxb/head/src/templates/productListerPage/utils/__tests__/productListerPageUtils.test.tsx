@@ -1,56 +1,80 @@
-import { createProduct as createESProduct } from "@bmi/elasticsearch-types";
-import { createSizeLabel } from "../productListerPageUtils";
+import {
+  createProduct as createESProduct,
+  Product
+} from "@bmi/elasticsearch-types";
+import {
+  createAppearanceAttributesClassification,
+  createFeature,
+  createFeatureValue
+} from "@bmi/pim-types";
+import { createSizeLabel, findSurface } from "../productListerPageUtils";
 
-describe("productListerPageUtils", () => {
-  it("returns an empty string if length field dos not exist", () => {
-    const product = createESProduct({
-      MEASUREMENTS$LENGTH: undefined,
-      MEASUREMENTS$WIDTH: [{ name: "1000 mm", value: "1000", code: "1000mm" }]
-    });
-
-    const sizeLabel = createSizeLabel(product);
-    expect(sizeLabel).toBe("");
+const testProduct = createESProduct({
+  code: "test_product",
+  name: "Test"
+});
+describe("createSizeLabel", () => {
+  it("returns empty string when no measurement values are provided", () => {
+    const product = {} as Product;
+    const result = createSizeLabel(product);
+    expect(result).toEqual("");
   });
 
-  it("returns an empty string if width field dos not exist", () => {
-    const product = createESProduct({
-      MEASUREMENTS$WIDTH: undefined,
-      MEASUREMENTS$LENGTH: [{ name: "1000 mm", value: "1000", code: "1000mm" }]
-    });
+  it("returns the correct size label when measurement values are provided", () => {
+    const product = {
+      ...testProduct,
+      MEASUREMENTS$WIDTH: [{ name: "10 cm", value: "10cm", code: "10cm" }],
+      MEASUREMENTS$LENGTH: [{ name: "20 cm", value: "20cm", code: "20cm" }],
+      MEASUREMENTS$HEIGHT: [{ name: "30 cm", value: "30cm", code: "30cm" }],
+      MEASUREMENTS$THICKNESS: [{ name: "5 cm", value: "5 cm", code: "5 cm" }]
+    };
 
-    const sizeLabel = createSizeLabel(product);
-    expect(sizeLabel).toBe("");
+    const result = createSizeLabel(product);
+    expect(result).toEqual("20x10x30x5cm");
   });
 
-  it("returns currect label if both length and width fields have the same unit", () => {
-    const product = createESProduct({
-      MEASUREMENTS$LENGTH: [
-        { name: "100 mm", value: "100", code: "100mm" },
-        { name: "120 mm", value: "120", code: "120mm" }
-      ],
-      MEASUREMENTS$WIDTH: [
-        { name: "300 mm", value: "300", code: "300mm" },
-        { name: "320 mm", value: "320", code: "320mm" }
+  it("returns the correct size label when measurement values don't match", () => {
+    const product = {
+      ...testProduct,
+      MEASUREMENTS$WIDTH: [{ name: "10 cm", value: "10cm", code: "10cm" }],
+      MEASUREMENTS$LENGTH: [{ name: "20 m", value: "20m", code: "20m" }],
+      MEASUREMENTS$HEIGHT: [{ name: "30 mm", value: "30mm", code: "30mm" }]
+    };
+
+    const result = createSizeLabel(product);
+    expect(result).toEqual("20m x 10cm x 30mm");
+  });
+});
+
+describe("findSurface", () => {
+  it("returns empty value and mc when no surface is found", () => {
+    const product = {
+      ...testProduct,
+      classifications: []
+    };
+    const result = findSurface(product);
+    expect(result).toEqual({ value: "", mc: undefined });
+  });
+
+  it("returns the correct surface value and mc when surface is found", () => {
+    const product = {
+      ...testProduct,
+      classifications: [
+        createAppearanceAttributesClassification({
+          features: [
+            createFeature({
+              code: `appearanceAttributes.textureFamily`,
+              name: "Texture Family",
+              featureValues: [createFeatureValue({ value: "matte" })]
+            })
+          ]
+        })
       ]
+    } as Product;
+    const result = findSurface(product);
+    expect(result).toEqual({
+      value: "matte",
+      mc: "Texture Family"
     });
-
-    const sizeLabel = createSizeLabel(product);
-    expect(sizeLabel).toBe("100x300mm | 120x320mm");
-  });
-
-  it("returns currect label if length and width fields have different units", () => {
-    const product = createESProduct({
-      MEASUREMENTS$LENGTH: [
-        { name: "100 mm", value: "100", code: "100mm" },
-        { name: "120 mm", value: "120", code: "120mm" }
-      ],
-      MEASUREMENTS$WIDTH: [
-        { name: "30 cm", value: "30", code: "30cm" },
-        { name: "32 cm", value: "32", code: "32cm" }
-      ]
-    });
-
-    const sizeLabel = createSizeLabel(product);
-    expect(sizeLabel).toBe("100mm x 30cm | 120mm x 32cm");
   });
 });
