@@ -7216,15 +7216,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@puppeteer/browsers@npm:1.4.1":
-  version: 1.4.1
-  resolution: "@puppeteer/browsers@npm:1.4.1"
+"@puppeteer/browsers@npm:1.4.2":
+  version: 1.4.2
+  resolution: "@puppeteer/browsers@npm:1.4.2"
   dependencies:
     debug: 4.3.4
     extract-zip: 2.0.1
     progress: 2.0.3
     proxy-agent: 6.2.1
-    tar-fs: 2.1.1
+    tar-fs: 3.0.2
     unbzip2-stream: 1.4.3
     yargs: 17.7.1
   peerDependencies:
@@ -7234,7 +7234,7 @@ __metadata:
       optional: true
   bin:
     browsers: lib/cjs/main-cli.js
-  checksum: 4435a5881424e02e58a319778b47d3e7ac7932a1ad8768fdfd6e9a4e13e1addc34df8968099f644550dddb858c150124eaccea46e9d7a392f0afca4d0489b2f8
+  checksum: 1b1e41a92ae28e9bebec2ebfc2cda4056d2b08eb84177de0d1d867b01f5cb06c06179e74c2bc34372e6e2bc57d6bd361c2063f9992ef195fc2f7dc11103bae15
   languageName: node
   linkType: hard
 
@@ -10116,6 +10116,13 @@ __metadata:
   dependencies:
     deep-equal: ^2.0.5
   checksum: fff3175a22fd1f41fceb7ae0cd25f6594a0d7fba28c2335dd904538b80eb4e1040432564a3c643025cd2bb748f68d35aaabffb780b794da97ecfc748810b25ad
+  languageName: node
+  linkType: hard
+
+"b4a@npm:^1.6.4":
+  version: 1.6.4
+  resolution: "b4a@npm:1.6.4"
+  checksum: a0af707430c3643fd8d9418c732849d3626f1c9281489e021fcad969fb4808fb9f67b224de36b59c9c3b5a13d853482fee0c0eb53f7aec12d540fa67f63648b6
   languageName: node
   linkType: hard
 
@@ -15560,6 +15567,13 @@ __metadata:
   version: 1.2.0
   resolution: "fast-diff@npm:1.2.0"
   checksum: 2fbcb23957fb0bc920832a94ba627b860400f9cce45e1594e931dabf62e858369a58c6c2603e2ecc4f7679580f710b5b5b6e698a355a9a9bfcfd93c06c7c4350
+  languageName: node
+  linkType: hard
+
+"fast-fifo@npm:^1.1.0, fast-fifo@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "fast-fifo@npm:1.2.0"
+  checksum: c07b5305ad54d5d14777fc5a62f1935a0d57390383e75c254a35efc4a1f8c9fa02e9c4b944b0c7ee53f5b5b26e5569733a0db34130754d379960c26073bd576c
   languageName: node
   linkType: hard
 
@@ -25443,11 +25457,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"puppeteer-core@npm:20.7.2":
-  version: 20.7.2
-  resolution: "puppeteer-core@npm:20.7.2"
+"puppeteer-core@npm:20.7.3":
+  version: 20.7.3
+  resolution: "puppeteer-core@npm:20.7.3"
   dependencies:
-    "@puppeteer/browsers": 1.4.1
+    "@puppeteer/browsers": 1.4.2
     chromium-bidi: 0.4.12
     cross-fetch: 3.1.6
     debug: 4.3.4
@@ -25458,7 +25472,7 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 763bd6a5539702aeee19a3457b383c80c723f645dcce482113bcd2e3ea7979cd76307602607f2049af4e5bc1db5bc1bc3a888e5f48e766bcc75147370de54861
+  checksum: e3e8abf3ab0e61afe79ea4add50a3041e27a27895034f85b86cda9032c17378164317129d65e10344bb6a4774a712e052003466110b47493b85a65081b920391
   languageName: node
   linkType: hard
 
@@ -25487,13 +25501,13 @@ __metadata:
   linkType: hard
 
 "puppeteer@npm:^20.2.0":
-  version: 20.7.2
-  resolution: "puppeteer@npm:20.7.2"
+  version: 20.7.3
+  resolution: "puppeteer@npm:20.7.3"
   dependencies:
-    "@puppeteer/browsers": 1.4.1
+    "@puppeteer/browsers": 1.4.2
     cosmiconfig: 8.2.0
-    puppeteer-core: 20.7.2
-  checksum: 7badab8a2dfff3b8c7a020990595c3f9fd9b60964e43f44e2fddccea4130726ba1c2f2ba7c3eee99ed8de04267788c5e00dd0d4a480b586534f47bd65f5ce9b4
+    puppeteer-core: 20.7.3
+  checksum: 2d6b9a5da9a54d8bc4a1f7e56c65d7bd3e137279b78421c8989d8a6a71ad2090d5b256995ca381045073d28f65ba0d780657b702e3df476c5b9a1698a866facf
   languageName: node
   linkType: hard
 
@@ -25568,6 +25582,13 @@ __metadata:
   version: 1.2.3
   resolution: "queue-microtask@npm:1.2.3"
   checksum: 900a93d3cdae3acd7d16f642c29a642aea32c2026446151f0778c62ac089d4b8e6c986811076e1ae180a694cedf077d453a11b58ff0a865629a4f82ab558e102
+  languageName: node
+  linkType: hard
+
+"queue-tick@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "queue-tick@npm:1.0.1"
+  checksum: 0db998e2c9b15215317dbcf801e9b23e6bcde4044e115155dae34f8e7454b9a783f737c9a725528d677b7a66c775eb7a955cf144fe0b87f62b575ce5bfd515a9
   languageName: node
   linkType: hard
 
@@ -27989,6 +28010,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"streamx@npm:^2.15.0":
+  version: 2.15.0
+  resolution: "streamx@npm:2.15.0"
+  dependencies:
+    fast-fifo: ^1.1.0
+    queue-tick: ^1.0.1
+  checksum: 37ddd72bc5fcbb82b594950d368be68c8f8f624fcc18f65ffb4aacafca1eb2337af4d1c04f5009cedb3735ec6a0959ea11f54049087e3b7a017b4cbc306afbbc
+  languageName: node
+  linkType: hard
+
 "strict-uri-encode@npm:^2.0.0":
   version: 2.0.0
   resolution: "strict-uri-encode@npm:2.0.0"
@@ -28538,6 +28569,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tar-fs@npm:3.0.2":
+  version: 3.0.2
+  resolution: "tar-fs@npm:3.0.2"
+  dependencies:
+    mkdirp-classic: ^0.5.2
+    pump: ^3.0.0
+    tar-stream: ^3.1.0
+  checksum: 6c5b5da7cbe4af6ec62e2d4c94c9b405543b8dee25a6016c06b634f9aa92de301bb27f5f00e8026042363dbff78427bdcdb834b5601c3e6e4ae9487fc4f5469b
+  languageName: node
+  linkType: hard
+
 "tar-stream@npm:^2.1.4, tar-stream@npm:^2.2.0":
   version: 2.2.0
   resolution: "tar-stream@npm:2.2.0"
@@ -28548,6 +28590,17 @@ __metadata:
     inherits: ^2.0.3
     readable-stream: ^3.1.1
   checksum: 2f4c910b3ee7196502e1ff015a7ba321ec6ea837667220d7bcb8d0852d51cb04b87f7ae471008a6fb8f5b1a1b5078f62f3a82d30c706f20ada1238ac797e7692
+  languageName: node
+  linkType: hard
+
+"tar-stream@npm:^3.1.0":
+  version: 3.1.4
+  resolution: "tar-stream@npm:3.1.4"
+  dependencies:
+    b4a: ^1.6.4
+    fast-fifo: ^1.2.0
+    streamx: ^2.15.0
+  checksum: 3adfa6f6f11a740f70310b75c3b00162714dc61f4febbab278b18127cf7f1c9b2fca5c124aa303255313b03913bb81d9acb31b66e7ab129239e9247994320a40
   languageName: node
   linkType: hard
 
