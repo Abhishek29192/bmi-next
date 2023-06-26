@@ -201,15 +201,15 @@ const recaptchaContent_CN_ZH: RecaptchaPolicyContentType = {
 const recaptchaContent_HU: RecaptchaPolicyContentType = {
   startText: "Ezt a webhelyet a reCAPTCHA védi, és a Google ",
   privacyPloicyText: "adatvédelmi irányelvei",
-  andText: " és ",
+  andText: " valamint ",
   termsOfServiceText: "szolgáltatási feltételei",
-  endText: " érvényesek.",
+  endText: " vonatkoznak rá.",
   privacyPolicyUrl: "https://policies.google.com/privacy?hl=hu",
   termsOfServiceUrl: "https://policies.google.com/terms?hl=hu"
 };
 
 const recaptchaContent_CZ: RecaptchaPolicyContentType = {
-  startText: "Tato stránka je chráněna reCAPTCHA a platí ",
+  startText: "Tato stránka je chráněna nástrojem reCAPTCHA a platí ",
   privacyPloicyText: "zásady ochrany osobních údajů",
   andText: " a ",
   termsOfServiceText: "smluvní podmínky",
@@ -219,7 +219,7 @@ const recaptchaContent_CZ: RecaptchaPolicyContentType = {
 };
 
 const recaptchaContent_SK: RecaptchaPolicyContentType = {
-  startText: "Táto stránka je chránená reCAPTCHA a platia pre ňu ",
+  startText: "Táto stránka je chránená nástrojom reCAPTCHA a platia pre ňu ",
   privacyPloicyText: "Zásady ochrany osobných údajov",
   andText: " a ",
   termsOfServiceText: "zmluvné podmienky",
