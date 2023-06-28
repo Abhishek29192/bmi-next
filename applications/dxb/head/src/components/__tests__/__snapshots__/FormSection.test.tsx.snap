@@ -1993,21 +1993,12 @@ exports[`FormSection component test upload input with large file 1`] = `
                       >
                         fileName
                       </p>
-                      <div
-                        class="css-13fv5in"
+                      <p
+                        class="MuiTypography-root MuiTypography-body1 css-u3ssbz-MuiTypography-root"
+                        data-testid="typography"
                       >
-                        <span
-                          class="MuiLinearProgress-root MuiLinearProgress-colorPrimary MuiLinearProgress-indeterminate css-vgehtg-MuiLinearProgress-root"
-                          role="progressbar"
-                        >
-                          <span
-                            class="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Indeterminate css-1j02hlg-MuiLinearProgress-bar1"
-                          />
-                          <span
-                            class="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar2Indeterminate css-j86yej-MuiLinearProgress-bar2"
-                          />
-                        </span>
-                      </div>
+                        MC: errors.maxSize
+                      </p>
                     </div>
                     <button
                       aria-label="Remove file"

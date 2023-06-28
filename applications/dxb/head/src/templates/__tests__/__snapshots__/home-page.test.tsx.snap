@@ -2467,7 +2467,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
               class="MuiBox-root css-i3pbo"
             />
             <div
-              class=" css-fctwmn"
+              class=" css-13gnk0v"
             >
               <div
                 class="Carousel-opacity Carousel-swipeable css-1s5ge7u"
@@ -2627,7 +2627,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
         data-testid="carousel-hero-image-carousel"
       >
         <div
-          class=" css-fctwmn"
+          class=" css-13gnk0v"
         >
           <div
             class="Carousel-swipeable css-1s5ge7u"
