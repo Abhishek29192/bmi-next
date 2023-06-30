@@ -8,7 +8,7 @@ import {
 } from "@bmi-digital/components";
 import { Close as CloseIcon } from "@mui/icons-material";
 import classnames from "classnames";
-import React from "react";
+import React, { useState } from "react";
 import { microCopy } from "../../../constants/microCopies";
 import { useSiteContext } from "../../Site";
 import { calculateCentre } from "../helpers";
@@ -49,15 +49,18 @@ export const ServiceLocatorMap = ({
   getCompanyDetails
 }: MapProps): React.ReactElement => {
   const { getMicroCopy } = useSiteContext();
+  const [newCentre, setNewCentre] = useState<GoogleLatLngLiteral>();
 
   return (
     <StyledServiceLocatorMap>
       <GoogleMap
-        center={calculateCentre(centre, initialMapCentre)}
+        center={calculateCentre(newCentre ?? centre, initialMapCentre)}
         markers={markers}
         onMarkerClick={handleMarkerClick}
         zoom={zoom}
         selectedMarkerName={selectedRoofer && selectedRoofer.name}
+        passNewCenter={(c: google.maps.LatLng) => setNewCentre(c.toJSON())}
+        handleCloseCard={clearRooferAndResetMap}
       >
         {selectedRoofer && (
           <ProductDetailsCard

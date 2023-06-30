@@ -187,6 +187,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
       const end = start + PAGE_SIZE;
       return filteredRoofers.slice(start, end);
     });
+    setSelectedRoofer(null);
     setPage(pageNumber);
   };
 
