@@ -1,11 +1,15 @@
 import { mockResponses } from "@bmi-digital/fetch-mocks";
 import logger from "@bmi-digital/functions-logger";
+import React from "react";
 import {
   createContentfulDocument,
   createPimProductDocument as createESPimProductDocument,
   createPimProductDocument
 } from "@bmi/elasticsearch-types";
 import fetchMockJest from "fetch-mock-jest";
+import mediaQuery from "css-mediaquery";
+import { waitFor } from "@testing-library/react";
+import { screen, render } from "@testing-library/react";
 import createPimDocument, {
   createPseudoZipDocument
 } from "../../__tests__/helpers/PimDocumentHelper";
@@ -19,8 +23,10 @@ import {
   getIsLinkDocument,
   getProductStatus,
   getValidityDate,
-  mapAssetToFileDownload
+  mapAssetToFileDownload,
+  useShowMobileTable
 } from "../documentUtils";
+import { renderHookWithProviders } from "../../__tests__/renderHookWithProviders";
 
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => {
@@ -266,5 +272,61 @@ describe("mapAssetToFileDownload", () => {
       url: "http://localhost/pim-link-document-id",
       isLinkDocument: true
     });
+  });
+});
+
+describe("useShowMobileTable", () => {
+  const createMatchMedia = (width: number) => {
+    return (query: string): MediaQueryList =>
+      ({
+        matches: mediaQuery.match(query, { width }),
+        addListener: () => {},
+        removeListener: () => {}
+      } as unknown as MediaQueryList);
+  };
+
+  afterEach(() => {
+    window.matchMedia = createMatchMedia(1200);
+  });
+
+  it("returns true for devices smaller than 840px", () => {
+    window.matchMedia = createMatchMedia(839);
+    const { result } = renderHookWithProviders(useShowMobileTable);
+    expect(result.current.showMobileTable).toBeTruthy();
+  });
+
+  it("returns correct value if table's width is greater than container's width", async () => {
+    const { result } = renderHookWithProviders(useShowMobileTable);
+    render(
+      <div data-testid="container" ref={result.current.ref}>
+        Container
+      </div>
+    );
+    result.current.handleTableSizeChange("medium", 651);
+    const container = screen.getByTestId("container");
+    Object.defineProperty(container, "offsetWidth", { value: 650 });
+
+    await waitFor(() => expect(result.current.showMobileTable).toBeTruthy());
+  });
+
+  it("returns correct value on resize event", async () => {
+    const { result } = renderHookWithProviders(useShowMobileTable);
+    render(
+      <div data-testid="container" ref={result.current.ref}>
+        Container
+      </div>
+    );
+    result.current.handleTableSizeChange("medium", 651);
+    const container = screen.getByTestId("container");
+    Object.defineProperty(container, "offsetWidth", {
+      value: 650,
+      writable: true
+    });
+    await waitFor(() => expect(result.current.showMobileTable).toBeTruthy());
+
+    Object.defineProperty(container, "offsetWidth", { value: 655 });
+    const event = new Event("resize");
+    window.dispatchEvent(event);
+    await waitFor(() => expect(result.current.showMobileTable).toBeFalsy());
   });
 });

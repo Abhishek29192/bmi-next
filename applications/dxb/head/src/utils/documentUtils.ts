@@ -1,6 +1,10 @@
 import logger from "@bmi-digital/functions-logger";
 import fetch, { Response } from "node-fetch";
 import { IGoogleReCaptchaConsumerProps } from "react-google-recaptcha-v3";
+import { useState, useEffect } from "react";
+import { TableSize } from "@bmi-digital/components";
+import { useTheme } from "@mui/material/styles";
+import { useMediaQuery } from "@mui/material";
 import createAssetFileCountMap, {
   AssetUniqueFileCountMap,
   generateFilenameByRealFileName,
@@ -12,6 +16,7 @@ import { Document } from "../types/Document";
 import { PseudoZipPIMDocument } from "../types/pim";
 import { downloadAs } from "./client-download";
 import { formatDate, getCurrentTimeString } from "./dateUtils";
+import { useTrackedRef } from "./useTrackedRef";
 
 export const getIsLinkDocument = (document: Document): boolean =>
   "isLinkDocument" in document && document.isLinkDocument;
@@ -173,5 +178,50 @@ export const mapAssetToFileDownload = (
     isLinkDocument: false,
     productStatus: "-",
     validUntil: "-"
+  };
+};
+
+type UseShowMobileTableHook = () => {
+  showMobileTable: boolean;
+  handleTableSizeChange: (tableSize: TableSize, requiredWidth: number) => void;
+  ref: (newNode: HTMLDivElement) => void;
+};
+
+export const useShowMobileTable: UseShowMobileTableHook = () => {
+  const theme = useTheme();
+  const { ref, node: containerNode } = useTrackedRef<HTMLDivElement>();
+  const [desktopTableWidth, setDesktopTableWidth] = useState<
+    number | undefined
+  >(undefined);
+  const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
+  const [showDesktopTable, setShowDesktopTable] = useState<boolean>(!isMobile);
+
+  useEffect(() => {
+    if (!desktopTableWidth || !containerNode) {
+      return;
+    }
+    setShowDesktopTable(desktopTableWidth <= containerNode.offsetWidth);
+
+    const handleResize = () => {
+      setShowDesktopTable(desktopTableWidth <= containerNode.offsetWidth);
+    };
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, [desktopTableWidth, containerNode]);
+
+  const handleTableSizeChange = (
+    newTableSize: TableSize,
+    desktopTableWidth?: number
+  ) => {
+    if (newTableSize !== "normal") {
+      setDesktopTableWidth(desktopTableWidth);
+    }
+  };
+
+  return {
+    showMobileTable: isMobile || !showDesktopTable,
+    handleTableSizeChange,
+    ref
   };
 };
