@@ -4,8 +4,6 @@ import {
   DownloadListContext,
   Table
 } from "@bmi-digital/components";
-import { useMediaQuery } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
 import classnames from "classnames";
 import { filesize } from "filesize";
 import React, { useContext, useEffect, useState } from "react";
@@ -17,7 +15,8 @@ import {
   getIsLinkDocument,
   getProductStatus,
   getUniqueId,
-  getValidityDate
+  getValidityDate,
+  useShowMobileTable
 } from "../utils/documentUtils";
 import {
   CopyToClipboard,
@@ -206,14 +205,14 @@ const DocumentSimpleTableResults = ({
   headers = ["add", "typeCode", "title", "size", "actions"]
 }: Props): React.ReactElement => {
   const { getMicroCopy } = useSiteContext();
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
   const { list, updateList, count } = useContext(DownloadListContext);
   const [selectedAll, setSelectedAll] = useState(false);
   const [selectedDoc, setSelectedDoc] = useState(0);
+  const { showMobileTable, handleTableSizeChange, ref } = useShowMobileTable();
   const titleField =
     headers.includes("type") && !headers.includes("title") ? "type" : "title";
   const filteredDocs = documents.filter((d) => !getIsLinkDocument(d));
+
   const howManyIsAlreadySelected = (doc: Document[]): number => {
     let counts = 0;
     doc.forEach((d) => {
@@ -224,6 +223,7 @@ const DocumentSimpleTableResults = ({
     setSelectedDoc(counts);
     return counts;
   };
+
   const handleSelectAll = (selectedAll: boolean): void => {
     if (selectedAll) {
       if (selectedDoc === filteredDocs.length) {
@@ -245,6 +245,7 @@ const DocumentSimpleTableResults = ({
       );
     }
   };
+
   useEffect(() => {
     handleSelectAll(selectedAll);
   }, [selectedAll]);
@@ -262,13 +263,14 @@ const DocumentSimpleTableResults = ({
     setSelectedAll(!selectedAll);
   };
 
-  if (isMobile) {
+  if (showMobileTable) {
     return (
       <DocumentSimpleTableResultsMobile
         documents={documents}
         headers={headers}
         selectedDocuments={list}
         titleField={titleField}
+        ref={ref}
       />
     );
   }
@@ -277,8 +279,9 @@ const DocumentSimpleTableResults = ({
     <StyledSimpleTableResults
       className={classnames("DocumentSimpleTableResults")}
       data-testid="document-simple-table-results"
+      ref={ref}
     >
-      <Table rowBgColorPattern="none">
+      <Table rowBgColorPattern="none" onTableSizeChange={handleTableSizeChange}>
         <Table.Head>
           <Table.Row>
             {headers.map((header) => (
