@@ -50,6 +50,7 @@ type Props = {
   variantCodeToPathMap?: Record<string, string>;
   ogImageUrl?: string;
   variantProduct?: Product;
+  pageType?: string;
 };
 
 const Content = ({ children }: { children: Children }) => {
@@ -69,7 +70,8 @@ const Page = ({
   disableSearch,
   variantCodeToPathMap,
   ogImageUrl,
-  variantProduct
+  variantProduct,
+  pageType
 }: Props) => {
   const {
     node_locale,
@@ -117,7 +119,6 @@ const Page = ({
     variantProduct && variantProduct.seoTitle
       ? variantProduct.seoTitle
       : title || "";
-
   return (
     <>
       {globalStyles}
@@ -133,6 +134,8 @@ const Page = ({
         seo={seo}
         variantProduct={variantProduct}
         countryCode={countryCode}
+        pageType={pageType}
+        brandLogo={brand}
       />
       <SiteContextProvider value={siteContext}>
         <BasketContextProvider>

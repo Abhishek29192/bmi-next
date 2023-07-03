@@ -146,6 +146,7 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
       siteData={data.contentfulSite}
       variantCodeToPathMap={pageContext?.variantCodeToPathMap}
       ogImageUrl={featuredMedia?.image?.file.url}
+      pageType="brandPage"
     >
       {({ siteContext }) => {
         const heroItems = getHeroItemsWithContext(siteContext, slides);

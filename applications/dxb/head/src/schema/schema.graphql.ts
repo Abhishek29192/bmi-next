@@ -1112,6 +1112,7 @@ type ContentfulSeoContent implements ContentfulObject & Node @dontInfer {
   metaTitle: String
   metaDescription: String
   noIndex: Boolean
+  sameAs: String
 }
 
 type VideoRatio @dontInfer {

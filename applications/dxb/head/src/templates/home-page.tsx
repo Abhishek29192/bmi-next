@@ -77,6 +77,7 @@ const HomePage = ({ data, pageContext }: Props) => {
       ogImageUrl={
         !isSpaEnabled ? slides?.[0]?.featuredMedia?.image?.file.url : ""
       }
+      pageType="homePage"
     >
       {({ siteContext }) => {
         const { countryCode, getMicroCopy } = siteContext;
