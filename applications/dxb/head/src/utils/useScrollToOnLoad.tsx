@@ -32,7 +32,7 @@ export const useScrollToOnLoad = (skip?: boolean, wait = 0) => {
   }, [skip, wait]);
 
   const setRef = useCallback(
-    (node) => {
+    (node: HTMLDivElement | null) => {
       ref.current.node = node;
       scrollIfPossible();
     },

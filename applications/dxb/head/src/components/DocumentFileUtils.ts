@@ -50,14 +50,18 @@ export const generateFilenameByRealFileName = (
   asset: { extension: string | null; realFileName: string | null },
   index: number
 ): string => {
+  if (!asset.realFileName) {
+    return "";
+  }
   if (!assetFileCountMap.uniqueFileMap[asset.realFileName]) {
     return asset.realFileName;
   }
+  const extension = asset.extension || "";
   return assetFileCountMap.uniqueFileMap[asset.realFileName] === 1
     ? asset.realFileName
     : `${asset.realFileName.split(".").shift()}-${
         // eslint-disable-next-line security/detect-object-injection
         assetFileCountMap.fileIndexCount[index]
-      }.${asset.extension}`;
+      }.${extension}`;
 };
 export default createAssetFileCountMap;

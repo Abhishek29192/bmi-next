@@ -43,18 +43,21 @@ export const uniqueByCode = (uniqueObjects, object) => {
   return uniqueObjects;
 };
 
-export const sortAlphabeticallyBy = (propName) => (a, b) => {
-  // eslint-disable-next-line security/detect-object-injection
-  if (a[propName] < b[propName]) {
-    return -1;
-  }
-  // eslint-disable-next-line security/detect-object-injection
-  if (a[propName] > b[propName]) {
-    return 1;
-  }
-  return 0;
-};
+export const sortAlphabeticallyBy =
+  <T extends Record<string, unknown>>(propName: keyof T) =>
+  (a: T, b: T) => {
+    // eslint-disable-next-line security/detect-object-injection
+    if (a[propName] < b[propName]) {
+      return -1;
+    }
+    // eslint-disable-next-line security/detect-object-injection
+    if (a[propName] > b[propName]) {
+      return 1;
+    }
+    return 0;
+  };
 
+// eslint-disable-next-line security/detect-object-injection
 export const updateFilterValue = (
   filters,
   filterName,

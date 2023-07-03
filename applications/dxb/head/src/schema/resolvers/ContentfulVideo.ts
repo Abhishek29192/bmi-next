@@ -39,8 +39,8 @@ const getYoutubeDetailsFromYoutube = async (
   }
 
   const {
-    player: { embedHeight, embedWidth }
-  } = data.items[0];
+    player: { embedHeight, embedWidth } = { embedHeight: "0", embedWidth: "0" }
+  } = data.items[0] || {};
 
   if (!embedHeight || !embedWidth) {
     return null;
@@ -76,7 +76,7 @@ const getYoutubeDetailsFromCache = async (youtubeId: string) => {
 export default {
   videoRatio: {
     async resolve(source: Node) {
-      const youtubeId = getYoutubeId(source.youtubeId);
+      const youtubeId = getYoutubeId(source.youtubeId ?? "");
 
       if (process.env.ENABLE_YOUTUBE_CACHE === "true") {
         return await getYoutubeDetailsFromCache(youtubeId);
@@ -87,14 +87,14 @@ export default {
   },
   youtubeId: {
     async resolve(source: Node) {
-      return source.youtubeId.startsWith("https://")
+      return source.youtubeId?.startsWith("https://")
         ? source.youtubeId
         : `https://www.youtube.com/watch?v=${source.youtubeId}`;
     }
   },
   defaultYouTubePreviewImage: {
     async resolve(source: Node) {
-      return await getDefaultYoutubePreviewImage(source.youtubeId);
+      return await getDefaultYoutubePreviewImage(source.youtubeId ?? "");
     }
   }
 };

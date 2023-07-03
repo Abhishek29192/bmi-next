@@ -133,7 +133,7 @@ const ListItem = ({
           <ActionBtnWrapper>
             <CopyToClipboard
               id={document.id}
-              url={getFileUrlByDocumentType(document)}
+              url={getFileUrlByDocumentType(document) || ""}
               title={document.title}
             />
           </ActionBtnWrapper>

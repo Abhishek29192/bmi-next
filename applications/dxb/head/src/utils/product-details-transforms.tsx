@@ -170,10 +170,10 @@ export const getProductAttributes = (
     property: "colour" | "textureFamily" | "measurements" | "variantAttribute"
   ): RelatedVariant | undefined => {
     const mergedFilter: Filters = {
-      colour: selectedColour,
-      textureFamily: selectedTextureFamily,
+      colour: selectedColour ?? undefined,
+      textureFamily: selectedTextureFamily ?? undefined,
       measurements: selectedSize ? selectedSize.label : undefined,
-      variantAttribute: selectedVariantAttribute,
+      variantAttribute: selectedVariantAttribute ?? undefined,
       ...filter
     };
 

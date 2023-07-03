@@ -8,67 +8,32 @@ import type { Filter } from "@bmi-digital/components";
 
 describe("filters tests", () => {
   describe("sortAlphabeticallyBy tests", () => {
-    describe("When empty data is passed", () => {
-      it("returns empty result", () => {
-        const result = [].sort(sortAlphabeticallyBy("code"));
-        expect(result).toEqual([]);
-      });
-    });
-    describe("When empty key is passed", () => {
-      it("returns same result", () => {
-        const input = [
-          { code: "x" },
-          { code: "y" },
-          { code: "a" },
-          { code: "b" }
-        ];
-        const output = [
-          { code: "x" },
-          { code: "y" },
-          { code: "a" },
-          { code: "b" }
-        ];
-        const result = input.sort(sortAlphabeticallyBy(""));
-        expect(result).toEqual(output);
-      });
+    const input = [
+      { key: "c", doc_count: 3 },
+      { key: "b", doc_count: 2 },
+      { key: "a", doc_count: 1 },
+      { key: "c", doc_count: 4 }
+    ];
+
+    it("returns -1 when a[propName] is less than b[propName]", () => {
+      expect(sortAlphabeticallyBy("key")(input[1], input[0])).toEqual(-1);
     });
 
-    describe("When prop key does not exist in data", () => {
-      it("returns same result", () => {
-        const input = [
-          { code: "x" },
-          { code: "y" },
-          { code: "a" },
-          { code: "b" }
-        ];
-        const output = [
-          { code: "x" },
-          { code: "y" },
-          { code: "a" },
-          { code: "b" }
-        ];
-        const result = input.sort(sortAlphabeticallyBy("doesNotExist"));
-        expect(result).toEqual(output);
-      });
+    it("returns 1 when a[propName] is greater than b[propName]", () => {
+      expect(sortAlphabeticallyBy("key")(input[0], input[1])).toEqual(1);
     });
 
-    describe("When prop key does exists in data", () => {
-      it("returns sorted result", () => {
-        const input = [
-          { code: "x" },
-          { code: "y" },
-          { code: "a" },
-          { code: "b" }
-        ];
-        const output = [
-          { code: "a" },
-          { code: "b" },
-          { code: "x" },
-          { code: "y" }
-        ];
-        const result = input.sort(sortAlphabeticallyBy("code"));
-        expect(result).toEqual(output);
-      });
+    it("returns 0 when a[propName] is equal to b[propName]", () => {
+      expect(sortAlphabeticallyBy("key")(input[0], input[3])).toEqual(0);
+    });
+
+    it("sorts alphabetically by the prop value when called inside the sort method", () => {
+      expect(input.sort(sortAlphabeticallyBy("key"))).toEqual([
+        { key: "a", doc_count: 1 },
+        { key: "b", doc_count: 2 },
+        { key: "c", doc_count: 3 },
+        { key: "c", doc_count: 4 }
+      ]);
     });
   });
 

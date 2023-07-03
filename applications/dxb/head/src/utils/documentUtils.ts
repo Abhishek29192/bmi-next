@@ -28,9 +28,9 @@ export const getFileSizeByDocumentType = (document: Document): number => {
 };
 
 export const getFileUrlByDocumentType = (
-  document: Document
+  document?: Document
 ): string | undefined => {
-  if (document.__typename === "PIMDocumentWithPseudoZip") {
+  if (!document || document.__typename === "PIMDocumentWithPseudoZip") {
     return;
   }
 

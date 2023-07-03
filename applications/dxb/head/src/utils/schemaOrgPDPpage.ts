@@ -21,11 +21,11 @@ export const createSchemaOrgDataForPdpPage = (
       : undefined,
   // category: getCategory(baseProduct),
   color: variant.colour || undefined,
-  logo: variant.brand?.logo,
+  logo: variant.brand?.logo || undefined,
   material: variant.materials || undefined,
   weight: getWeight(variant),
-  width: asQuantitativeValue(variant.measurements?.width),
-  height: asQuantitativeValue(variant.measurements?.height),
+  width: asQuantitativeValue(variant.measurements?.width ?? undefined),
+  height: asQuantitativeValue(variant.measurements?.height ?? undefined),
   size: getSize(variant),
   image: variant.masterImage?.mainSource,
   productID: variant.code,
@@ -53,7 +53,7 @@ const getWeight = (product: Product): QuantitativeValue | undefined => {
     product.weight?.weightPerSqm ||
     product.weight?.weightPerPallet;
 
-  return asQuantitativeValue(weight);
+  return asQuantitativeValue(weight ?? undefined);
 };
 
 const asQuantitativeValue = (

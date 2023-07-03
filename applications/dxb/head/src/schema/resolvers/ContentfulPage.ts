@@ -45,7 +45,7 @@ export default pages.reduce(
             type: "contentfulSimplePageSubtitleTextNode"
           });
 
-          return longText.subtitle;
+          return longText?.subtitle;
         }
       }
     }

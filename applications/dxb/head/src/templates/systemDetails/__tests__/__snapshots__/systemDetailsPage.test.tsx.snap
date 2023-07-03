@@ -3500,7 +3500,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                                 target="_blank"
                               >
                                 <svg
-                                  class="false css-546mkb"
+                                  class="css-546mkb"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -3528,7 +3528,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                                 type="button"
                               >
                                 <svg
-                                  class="false css-546mkb"
+                                  class="css-546mkb"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -3658,7 +3658,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                                 type="button"
                               >
                                 <svg
-                                  class="false css-546mkb"
+                                  class="css-546mkb"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -7846,7 +7846,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                                 target="_blank"
                               >
                                 <svg
-                                  class="false css-546mkb"
+                                  class="css-546mkb"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -7874,7 +7874,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                                 type="button"
                               >
                                 <svg
-                                  class="false css-546mkb"
+                                  class="css-546mkb"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -8004,7 +8004,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                                 type="button"
                               >
                                 <svg
-                                  class="false css-546mkb"
+                                  class="css-546mkb"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -12196,7 +12196,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                                   target="_blank"
                                 >
                                   <svg
-                                    class="false css-546mkb"
+                                    class="css-546mkb"
                                     viewBox="0 0 24 24"
                                     xmlns="http://www.w3.org/2000/svg"
                                   >
@@ -12224,7 +12224,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                                   type="button"
                                 >
                                   <svg
-                                    class="false css-546mkb"
+                                    class="css-546mkb"
                                     viewBox="0 0 24 24"
                                     xmlns="http://www.w3.org/2000/svg"
                                   >
@@ -12354,7 +12354,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                                   type="button"
                                 >
                                   <svg
-                                    class="false css-546mkb"
+                                    class="css-546mkb"
                                     viewBox="0 0 24 24"
                                     xmlns="http://www.w3.org/2000/svg"
                                   >
@@ -16543,7 +16543,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                                 target="_blank"
                               >
                                 <svg
-                                  class="false css-546mkb"
+                                  class="css-546mkb"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -16571,7 +16571,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                                 type="button"
                               >
                                 <svg
-                                  class="false css-546mkb"
+                                  class="css-546mkb"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -16701,7 +16701,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                                 type="button"
                               >
                                 <svg
-                                  class="false css-546mkb"
+                                  class="css-546mkb"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -20849,7 +20849,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                                 target="_blank"
                               >
                                 <svg
-                                  class="false css-546mkb"
+                                  class="css-546mkb"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -20877,7 +20877,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                                 type="button"
                               >
                                 <svg
-                                  class="false css-546mkb"
+                                  class="css-546mkb"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -21007,7 +21007,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                                 type="button"
                               >
                                 <svg
-                                  class="false css-546mkb"
+                                  class="css-546mkb"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -25195,7 +25195,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                                 target="_blank"
                               >
                                 <svg
-                                  class="false css-546mkb"
+                                  class="css-546mkb"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -25223,7 +25223,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                                 type="button"
                               >
                                 <svg
-                                  class="false css-546mkb"
+                                  class="css-546mkb"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -25353,7 +25353,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                                 type="button"
                               >
                                 <svg
-                                  class="false css-546mkb"
+                                  class="css-546mkb"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -29667,7 +29667,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                                 target="_blank"
                               >
                                 <svg
-                                  class="false css-546mkb"
+                                  class="css-546mkb"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -29695,7 +29695,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                                 type="button"
                               >
                                 <svg
-                                  class="false css-546mkb"
+                                  class="css-546mkb"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -29825,7 +29825,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                                 type="button"
                               >
                                 <svg
-                                  class="false css-546mkb"
+                                  class="css-546mkb"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -34139,7 +34139,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                                 target="_blank"
                               >
                                 <svg
-                                  class="false css-546mkb"
+                                  class="css-546mkb"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -34167,7 +34167,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                                 type="button"
                               >
                                 <svg
-                                  class="false css-546mkb"
+                                  class="css-546mkb"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -34297,7 +34297,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                                 type="button"
                               >
                                 <svg
-                                  class="false css-546mkb"
+                                  class="css-546mkb"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >

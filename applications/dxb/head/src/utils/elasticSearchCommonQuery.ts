@@ -27,16 +27,19 @@ export const getUniqueBaseProductCount = (groupByVariant: boolean) => {
 export const generateUserSelectedFilterTerms = (filters: Filter[]) => {
   return (filters || [])
     .filter((filter) => (filter.value || []).length > 0)
-    .reduce((acc, currFilter) => {
-      const termsQuery = (name: string, value: readonly string[]) => ({
-        terms: {
-          // TODO: DXB-3449 - remove toUpperCase when PIM has completed BPN-1055
-          [`${removePLPFilterPrefix(name).toUpperCase()}.code.keyword`]: value
-        }
-      });
-      const query = termsQuery(currFilter.name, currFilter.value);
-      return [...acc, query];
-    }, []);
+    .reduce(
+      (acc: { terms: { [x: string]: readonly string[] } }[], currFilter) => {
+        const termsQuery = (name: string, value: readonly string[]) => ({
+          terms: {
+            // TODO: DXB-3449 - remove toUpperCase when PIM has completed BPN-1055
+            [`${removePLPFilterPrefix(name).toUpperCase()}.code.keyword`]: value
+          }
+        });
+        const query = termsQuery(currFilter.name, currFilter.value || []);
+        return [...acc, query];
+      },
+      []
+    );
 };
 
 export const generateAllowFiltersAggs = (allowFilterBy?: string[]) =>
