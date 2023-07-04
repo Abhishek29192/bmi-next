@@ -2,7 +2,7 @@ import logger from "@bmi-digital/functions-logger";
 import fetchRetry from "@bmi/fetch-retry";
 import { fetchData } from "@bmi/pim-api";
 import { PimTypes } from "@bmi/pim-types";
-import fetch, { Response } from "node-fetch";
+import { Response } from "node-fetch";
 import { getNumberOfDocuments } from "./contentful";
 import {
   createElasticSearchIndex,
@@ -11,6 +11,7 @@ import {
 } from "./elasticsearch";
 import { deleteFirestoreCollection } from "./firestore";
 import { FirestoreCollections } from "./firestoreCollections";
+import { generateGoogleSignedIdToken } from "./gcpAuth";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 
 const {
@@ -41,10 +42,13 @@ const triggerFullFetch = async (
       lastStartPage + numberOfPages
     } of ${type}.`
   });
+  const authToken = await generateGoogleSignedIdToken(FULL_FETCH_ENDPOINT!);
+
   const response = await fetchRetry(FULL_FETCH_ENDPOINT!, {
     method: "POST",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      Authorization: `bearer ${authToken}`
     },
     body: JSON.stringify({
       type: type,
@@ -195,17 +199,7 @@ const handleRequest: HttpFunction = async (req, res) => {
   await triggerDocumentsFullFetchBatch();
 
   try {
-    // Constants for setting up metadata server request
-    // See https://cloud.google.com/compute/docs/instances/verifying-instance-identity#request_signature
-    const tokenUrl = `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${BUILD_TRIGGER_ENDPOINT!}`;
-
-    // fetch the auth token
-    const tokenResponse = await fetch(tokenUrl, {
-      headers: {
-        "Metadata-Flavor": "Google"
-      }
-    });
-    const token = await tokenResponse.text();
+    const token = await generateGoogleSignedIdToken(BUILD_TRIGGER_ENDPOINT!);
 
     await fetchRetry(BUILD_TRIGGER_ENDPOINT!, {
       method: "POST",
