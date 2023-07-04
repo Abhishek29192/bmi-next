@@ -4,8 +4,8 @@ import { Node } from "../types/Gatsby";
 
 const source: Node = {
   id: "source",
-  internal: null,
-  children: null,
+  internal: { type: "", contentDigest: "", owner: "" },
+  children: [],
   parent: null,
   youtubeId: "youtubeId"
 };

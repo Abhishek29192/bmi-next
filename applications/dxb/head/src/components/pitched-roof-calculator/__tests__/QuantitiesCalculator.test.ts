@@ -1110,11 +1110,13 @@ describe("PitchedRoofCalculator QuantitiesCalculator", () => {
     expect(() => {
       calculator.addProduct(
         ProductCategory.Ventilation,
-        input.mainTileVariant,
+        input.mainTileVariant!,
         5
       );
     }).toThrow(
-      `Product of code: ${input.mainTileVariant.code} is being added to two different category`
+      `Product of code: ${
+        input.mainTileVariant!.code
+      } is being added to two different category`
     );
   });
 
@@ -1151,7 +1153,7 @@ describe("PitchedRoofCalculator QuantitiesCalculator", () => {
       calculator.addLineProducts(
         input.mainTileVariant,
         input.ridge,
-        input.mainTileVariant.hip
+        input.mainTileVariant!.hip
       );
     }).toThrow(`"lines" must be assigned before calling this function`);
   });
@@ -1241,7 +1243,7 @@ describe("PitchedRoofCalculator QuantitiesCalculator", () => {
     expect(calculations.results.get(vergeHalfLeftTile.code)).toBeTruthy();
     expect(calculations.results.get(vergeHalfRightTile.code)).toBeTruthy();
     expect(
-      calculations.results.get(input.mainTileVariant.halfTile.code)
+      calculations.results.get(input.mainTileVariant!.halfTile!.code)
     ).toBeUndefined();
   });
 
@@ -1267,7 +1269,7 @@ describe("PitchedRoofCalculator QuantitiesCalculator", () => {
     expect(calculations.results.get(vergeHalfLeftTile.code)).toBeUndefined();
     expect(calculations.results.get(vergeHalfRightTile.code)).toBeUndefined();
     expect(
-      calculations.results.get(input.mainTileVariant.halfTile.code)
+      calculations.results.get(input.mainTileVariant!.halfTile!.code)
     ).toBeTruthy();
   });
 
@@ -1288,7 +1290,7 @@ describe("PitchedRoofCalculator QuantitiesCalculator", () => {
     });
 
     expect(
-      calculations.results.get(input.mainTileVariant.halfTile.code)
+      calculations.results.get(input.mainTileVariant!.halfTile!.code)
     ).toBeUndefined();
   });
 
@@ -1309,7 +1311,7 @@ describe("PitchedRoofCalculator QuantitiesCalculator", () => {
     });
 
     expect(
-      calculations.results.get(input.mainTileVariant.halfTile.code)
+      calculations.results.get(input.mainTileVariant!.halfTile!.code)
     ).toBeUndefined();
   });
 
@@ -1334,7 +1336,7 @@ describe("PitchedRoofCalculator QuantitiesCalculator", () => {
     });
 
     expect(
-      calculations.results.get(input.mainTileVariant.halfTile.code)
+      calculations.results.get(input.mainTileVariant!.halfTile!.code)
     ).toBeTruthy();
   });
 
@@ -1345,8 +1347,8 @@ describe("PitchedRoofCalculator QuantitiesCalculator", () => {
     });
 
     expect(
-      calculations.results.get(input.mainTileVariant.code)
+      calculations.results.get(input.mainTileVariant!.code)
     ).toBeUndefined();
-    expect(calculations.results.get(input.underlay.code)).toBeTruthy();
+    expect(calculations.results.get(input.underlay!.code)).toBeTruthy();
   });
 });

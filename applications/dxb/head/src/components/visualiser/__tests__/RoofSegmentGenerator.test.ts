@@ -53,18 +53,18 @@ describe("generateSegment", () => {
 
   it("roof segment should have same position as roofMesh", () => {
     const segment = generateSegment(roofMesh, tileMesh, tileInfo, tileMaterial);
-    expect(segment.position.equals(roofMesh.position)).toBe(true);
+    expect(segment!.position.equals(roofMesh.position)).toBe(true);
   });
 
   it("roof segment should have same rotation as roofMesh", () => {
     const segment = generateSegment(roofMesh, tileMesh, tileInfo, tileMaterial);
-    expect(segment.rotation.equals(roofMesh.rotation)).toBe(true);
+    expect(segment!.rotation.equals(roofMesh.rotation)).toBe(true);
   });
 
   it("should render 100 primary tiles on roof", () => {
     const segment = generateSegment(roofMesh, tileMesh, tileInfo, tileMaterial);
 
-    const primaryTilesMesh = segment.getObjectByName(
+    const primaryTilesMesh = segment!.getObjectByName(
       "primaryTilesMesh"
     ) as InstancedMesh;
 
@@ -74,7 +74,7 @@ describe("generateSegment", () => {
   it("should render 10 end of primary row tiles on roof", () => {
     const segment = generateSegment(roofMesh, tileMesh, tileInfo, tileMaterial);
 
-    const endOfPrimaryRowTileMesh = segment.children.filter(
+    const endOfPrimaryRowTileMesh = segment!.children.filter(
       (seg) => seg.name === "endOfPrimaryRowTileMesh"
     )[0] as InstancedMesh;
 
@@ -82,11 +82,11 @@ describe("generateSegment", () => {
   });
 
   it("renders with one additional row", () => {
-    tileMesh.geometry.boundingBox.max.z = 0;
-    tileMesh.geometry.boundingBox.max.z = 1.7;
+    tileMesh.geometry.boundingBox!.max.z = 0;
+    tileMesh.geometry.boundingBox!.max.z = 1.7;
     const segment = generateSegment(roofMesh, tileMesh, tileInfo, tileMaterial);
 
-    const primaryTilesMesh = segment.getObjectByName(
+    const primaryTilesMesh = segment!.getObjectByName(
       "primaryTilesMesh"
     ) as InstancedMesh;
     expect(primaryTilesMesh.count).toBe(60);
@@ -100,10 +100,10 @@ describe("generateSegment", () => {
       tileMaterial
     );
 
-    const endOfSecondaryRow = segment.getObjectByName(
+    const endOfSecondaryRow = segment!.getObjectByName(
       "endOfSecondaryRowTileMesh"
     ) as InstancedMesh;
-    const startOfSecondaryRow = segment.getObjectByName(
+    const startOfSecondaryRow = segment!.getObjectByName(
       "startOfSecondaryRowTileMesh"
     ) as InstancedMesh;
     expect(endOfSecondaryRow).toBeTruthy();
@@ -118,7 +118,7 @@ describe("generateSegment", () => {
       tileMaterial
     );
 
-    const primaryTilesMesh = segment.getObjectByName(
+    const primaryTilesMesh = segment!.getObjectByName(
       "primaryTilesMesh"
     ) as InstancedMesh;
     expect(primaryTilesMesh.count).toBe(100);
@@ -133,7 +133,7 @@ describe("generateSegment", () => {
         tileMaterial
       );
 
-      const primaryTilesMesh = segment.getObjectByName(
+      const primaryTilesMesh = segment!.getObjectByName(
         "primaryTilesMesh"
       ) as InstancedMesh;
 
@@ -148,7 +148,7 @@ describe("generateSegment", () => {
         tileMaterial
       );
 
-      const primaryTilesMesh = segment.getObjectByName(
+      const primaryTilesMesh = segment!.getObjectByName(
         "primaryTilesMesh"
       ) as InstancedMesh;
 
@@ -163,7 +163,7 @@ describe("generateSegment", () => {
         tileMaterial
       );
 
-      const primaryTilesMesh = segment.getObjectByName(
+      const primaryTilesMesh = segment!.getObjectByName(
         "primaryTilesMesh"
       ) as InstancedMesh;
 
@@ -184,7 +184,7 @@ describe("generateSegment", () => {
         tileMaterial
       );
 
-      const primaryTilesMesh = segment.getObjectByName(
+      const primaryTilesMesh = segment!.getObjectByName(
         "primaryTilesMesh"
       ) as InstancedMesh;
 
@@ -199,7 +199,7 @@ describe("generateSegment", () => {
         tileMaterial
       );
 
-      const endOfPrimaryRowTileMesh = segment.children.filter(
+      const endOfPrimaryRowTileMesh = segment!.children.filter(
         (seg) => seg.name === "endOfPrimaryRowTileMesh"
       )[0] as InstancedMesh;
 

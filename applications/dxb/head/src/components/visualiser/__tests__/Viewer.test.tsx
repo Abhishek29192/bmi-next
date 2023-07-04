@@ -17,17 +17,17 @@ class ViewerImpl extends Viewer<Props, State> {
 function getRoundDistance(viewer: ViewerImpl) {
   return (
     Math.round(
-      viewer.camera.position.distanceTo(viewer.controls.target) * 100
+      viewer.camera!.position.distanceTo(viewer.controls!.target) * 100
     ) / 100
   );
 }
 
 function getRoundPolarAngle(viewer: ViewerImpl) {
-  return Math.round(viewer.controls.getPolarAngle() * 100) / 100;
+  return Math.round(viewer.controls!.getPolarAngle() * 100) / 100;
 }
 
 function getRoundAzimutAngle(viewer: ViewerImpl) {
-  return Math.round(viewer.controls.getAzimuthalAngle() * 100) / 100;
+  return Math.round(viewer.controls!.getAzimuthalAngle() * 100) / 100;
 }
 
 describe("Viewer methods", () => {
@@ -66,8 +66,8 @@ describe("Viewer methods", () => {
 
     describe('when it"s already max zoom distance', () => {
       beforeEach(() => {
-        viewer.camera.position.set(10, 0, 0);
-        viewer.controls.update();
+        viewer.camera!.position.set(10, 0, 0);
+        viewer.controls!.update();
       });
 
       it("should return true from isMaxDistance", () => {
@@ -91,8 +91,8 @@ describe("Viewer methods", () => {
 
     describe('when it"s already min zoom distance', () => {
       beforeEach(() => {
-        viewer.camera.position.set(0, 0, 0);
-        viewer.controls.update();
+        viewer.camera!.position.set(0, 0, 0);
+        viewer.controls!.update();
       });
 
       it("should return true from isMinDistance", () => {
@@ -116,8 +116,8 @@ describe("Viewer methods", () => {
 
     describe('when it"s already min azimut angle', () => {
       beforeEach(() => {
-        viewer.controls.minAzimuthAngle = 1.57;
-        viewer.controls.update();
+        viewer.controls!.minAzimuthAngle = 1.57;
+        viewer.controls!.update();
       });
 
       it("should return true from isMinAzimutAngle", () => {
@@ -141,8 +141,8 @@ describe("Viewer methods", () => {
 
     describe('when it"s already max azimut angle', () => {
       beforeEach(() => {
-        viewer.controls.maxAzimuthAngle = 1.57;
-        viewer.controls.update();
+        viewer.controls!.maxAzimuthAngle = 1.57;
+        viewer.controls!.update();
       });
 
       it("should return true from isMaxAzimutAngle", () => {
@@ -166,8 +166,8 @@ describe("Viewer methods", () => {
 
     describe('when it"s already min azimut angle', () => {
       beforeEach(() => {
-        viewer.controls.minPolarAngle = 1.57;
-        viewer.controls.update();
+        viewer.controls!.minPolarAngle = 1.57;
+        viewer.controls!.update();
       });
 
       it("should return true from isMinPolarAngel", () => {
@@ -191,8 +191,8 @@ describe("Viewer methods", () => {
 
     describe('when it"s already max polar angle', () => {
       beforeEach(() => {
-        viewer.controls.maxPolarAngle = 1.57;
-        viewer.controls.update();
+        viewer.controls!.maxPolarAngle = 1.57;
+        viewer.controls!.update();
       });
 
       it("should return true from isMaxPolarAngel", () => {
@@ -250,7 +250,7 @@ describe("Viewer methods", () => {
       viewer.setState({ cameraPosition: statePosition });
       viewer.handleResetRotation();
       expect(
-        viewer.camera.position.multiplyScalar(100).round().divideScalar(100)
+        viewer.camera!.position.multiplyScalar(100).round().divideScalar(100)
       ).toEqual({
         x: 1,
         y: 1,
@@ -281,16 +281,16 @@ describe("Viewer methods", () => {
     });
     describe("when there is saved position", () => {
       it("shouldn't save new position", () => {
-        viewer.camera.position.set(1, 1, 1);
+        viewer.camera!.position.set(1, 1, 1);
         viewer.saveCameraState();
-        viewer.camera.position.set(2, 2, 2);
+        viewer.camera!.position.set(2, 2, 2);
         viewer.saveCameraState();
         expect(viewer.state.cameraPosition).toEqual({ x: 1, y: 1, z: 1 });
       });
     });
     describe("when there is not saved position yet", () => {
       it("should save position to state", () => {
-        viewer.camera.position.set(1, 1, 1);
+        viewer.camera!.position.set(1, 1, 1);
         viewer.saveCameraState();
         expect(viewer.state.cameraPosition).toEqual({ x: 1, y: 1, z: 1 });
       });

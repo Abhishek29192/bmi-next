@@ -405,9 +405,7 @@ describe("ProductListerPage template", () => {
   });
 
   it("renders an default image if there is no image available", async () => {
-    pageData.initialProducts = [
-      { ...productWithVariantAndBase, images: undefined }
-    ];
+    pageData.initialProducts = [{ ...productWithVariantAndBase, images: [] }];
     pageData.contentfulProductListerPage.heroType = "Spotlight";
     const { baseElement } = renderWithStylesAndLocationProvider(
       pageData,
@@ -568,7 +566,7 @@ describe("ProductListerPage template", () => {
       pageContext
     );
     expect(baseElement).toMatchSnapshot();
-    fireEvent.click(screen.queryByText(color2Label));
+    fireEvent.click(screen.queryByText(color2Label)!);
     expect(window.history.replaceState).toHaveBeenCalledTimes(1);
     fireEvent.click(screen.getByText("MC: plp.filters.clearAll"));
     expect(window.history.replaceState).toHaveBeenCalledTimes(2);

@@ -1,5 +1,5 @@
 import ContentfulPage from "../ContentfulPage";
-import { Context, Node } from "../types/Gatsby";
+import { Context, Node, ResolveArgs } from "../types/Gatsby";
 
 jest.mock("../utils/path", () => ({
   resolvePath: jest
@@ -21,12 +21,14 @@ const context: Context = {
 
 const source: Node = {
   id: "source",
-  children: null,
+  children: [],
   parent: null,
-  internal: null,
+  internal: { type: "", contentDigest: "", owner: "" },
   subtitle: "source-subtitle",
   subtitle___NODE: "source-subtitle-node"
 };
+
+const args: ResolveArgs = { categoryCodes: [], allowFilterBy: [] };
 
 describe("ContentfulPage resolver", () => {
   it("should contain specific page types", () => {
@@ -43,7 +45,7 @@ describe("ContentfulPage resolver", () => {
     expect(
       await ContentfulPage["ContentfulSimplePage"].path.resolve(
         source,
-        null,
+        args,
         context
       )
     ).toBe("/path/to/some/page");
@@ -52,7 +54,7 @@ describe("ContentfulPage resolver", () => {
     expect(
       await ContentfulPage["ContentfulSimplePage"].breadcrumbs.resolve(
         source,
-        null,
+        args,
         context
       )
     ).toEqual([
@@ -63,7 +65,7 @@ describe("ContentfulPage resolver", () => {
     expect(
       await ContentfulPage["ContentfulContactUsPage"].subtitle.resolve(
         source,
-        null,
+        args,
         context
       )
     ).toBe("source-subtitle");
@@ -72,8 +74,8 @@ describe("ContentfulPage resolver", () => {
   it("should return null if no subtitle___NODE provided", async () => {
     expect(
       await ContentfulPage["ContentfulSimplePage"].subtitle.resolve(
-        { ...source, subtitle___NODE: null },
-        null,
+        { ...source, subtitle___NODE: undefined },
+        args,
         context
       )
     ).toBeNull();
@@ -83,7 +85,7 @@ describe("ContentfulPage resolver", () => {
     expect(
       await ContentfulPage["ContentfulSimplePage"].subtitle.resolve(
         source,
-        null,
+        args,
         context
       )
     ).toBe("subtitle");
