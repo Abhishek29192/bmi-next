@@ -68,7 +68,6 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
   const images = transformImages(
     [product.masterImage, ...product.galleryImages].filter(Boolean)
   );
-
   return (
     <Page
       brand={product.brand?.code}
