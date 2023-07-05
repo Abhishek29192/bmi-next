@@ -315,9 +315,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   MC: menu.mainTitle
                 </h6>
               </li>
-              <li
-                data-depth="0"
-              >
+              <li>
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-main-menu","label":"string"}"
@@ -1257,9 +1255,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   MC: menu.mainTitle
                 </h6>
               </li>
-              <li
-                data-depth="0"
-              >
+              <li>
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-main-menu","label":"string"}"
@@ -2239,9 +2235,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   MC: menu.mainTitle
                 </h6>
               </li>
-              <li
-                data-depth="0"
-              >
+              <li>
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-main-menu","label":"string"}"
@@ -3440,9 +3434,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   MC: menu.mainTitle
                 </h6>
               </li>
-              <li
-                data-depth="0"
-              >
+              <li>
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-main-menu","label":"string"}"
@@ -4593,9 +4585,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   MC: menu.mainTitle
                 </h6>
               </li>
-              <li
-                data-depth="0"
-              >
+              <li>
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-main-menu","label":"string"}"
@@ -5715,9 +5705,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                   MC: menu.mainTitle
                 </h6>
               </li>
-              <li
-                data-depth="0"
-              >
+              <li>
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-main-menu","label":"string"}"
@@ -6682,9 +6670,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                   MC: menu.mainTitle
                 </h6>
               </li>
-              <li
-                data-depth="0"
-              >
+              <li>
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-main-menu","label":"string"}"
@@ -7751,9 +7737,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                   MC: menu.mainTitle
                 </h6>
               </li>
-              <li
-                data-depth="0"
-              >
+              <li>
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-main-menu","label":"string"}"
@@ -8716,9 +8700,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                   MC: menu.mainTitle
                 </h6>
               </li>
-              <li
-                data-depth="0"
-              >
+              <li>
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-main-menu","label":"string"}"
@@ -9890,9 +9872,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
                   MC: menu.mainTitle
                 </h6>
               </li>
-              <li
-                data-depth="0"
-              >
+              <li>
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-main-menu","label":"string"}"
@@ -11064,9 +11044,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                   MC: menu.mainTitle
                 </h6>
               </li>
-              <li
-                data-depth="0"
-              >
+              <li>
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-main-menu","label":"string"}"
@@ -12251,9 +12229,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
                   MC: menu.mainTitle
                 </h6>
               </li>
-              <li
-                data-depth="0"
-              >
+              <li>
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-main-menu","label":"string"}"
@@ -13452,9 +13428,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                   MC: menu.mainTitle
                 </h6>
               </li>
-              <li
-                data-depth="0"
-              >
+              <li>
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-main-menu","label":"string"}"
@@ -14844,9 +14818,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                   MC: menu.mainTitle
                 </h6>
               </li>
-              <li
-                data-depth="0"
-              >
+              <li>
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-main-menu","label":"string"}"

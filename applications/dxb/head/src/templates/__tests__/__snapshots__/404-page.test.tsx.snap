@@ -614,9 +614,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                 MC: menu.mainTitle
               </h6>
             </li>
-            <li
-              data-depth="0"
-            >
+            <li>
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"Products"}"
@@ -683,9 +681,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                       class="Navigation-separator"
                     />
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <h6
                       class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
@@ -693,9 +689,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                       Select category
                     </h6>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Roof"}"
@@ -762,9 +756,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                             class="Navigation-separator"
                           />
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Stone Roofs"}"
@@ -831,9 +823,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                                   class="Navigation-separator"
                                 />
                               </li>
-                              <li
-                                data-depth="3"
-                              >
+                              <li>
                                 <a
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":"All Stone Roofs","action":"/en/roof-tiles/"}"
@@ -847,9 +837,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                                   />
                                 </a>
                               </li>
-                              <li
-                                data-depth="3"
-                              >
+                              <li>
                                 <a
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":"Roof tiles","action":"/en/roof-tiles/stone-roof-tiles/"}"
@@ -881,9 +869,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                                   />
                                 </a>
                               </li>
-                              <li
-                                data-depth="3"
-                              >
+                              <li>
                                 <a
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":"Concrete roof tiles","action":"/en/roof-tiles/betongtakstein/"}"
@@ -918,9 +904,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                             </ul>
                           </div>
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Steel Roof Tiles"}"
@@ -987,9 +971,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                                   class="Navigation-separator"
                                 />
                               </li>
-                              <li
-                                data-depth="3"
-                              >
+                              <li>
                                 <a
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":"Quadro Plus","action":"/en/aerodek-quadro-plus/"}"
@@ -1024,9 +1006,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                             </ul>
                           </div>
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Shingle"}"
@@ -1093,9 +1073,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                                   class="Navigation-separator"
                                 />
                               </li>
-                              <li
-                                data-depth="3"
-                              >
+                              <li>
                                 <a
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":"All Shingle","action":"/en/kontakt-oss/"}"
@@ -1109,9 +1087,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                                   />
                                 </a>
                               </li>
-                              <li
-                                data-depth="3"
-                              >
+                              <li>
                                 <a
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":"Type S","action":"/en/kontakt-oss/"}"
@@ -1146,9 +1122,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                             </ul>
                           </div>
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Flat Roof Accessories"}"
@@ -1215,9 +1189,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                                   class="Navigation-separator"
                                 />
                               </li>
-                              <li
-                                data-depth="3"
-                              >
+                              <li>
                                 <a
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":" Roof ladder","action":"/en/takstige/"}"
@@ -1240,9 +1212,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                       class="Navigation-separator"
                     />
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <h6
                       class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
@@ -1250,9 +1220,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                       Our Brands
                     </h6>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Icopal"}"
@@ -1279,9 +1247,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                       />
                     </a>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Zanda"}"
@@ -1308,9 +1274,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                       />
                     </a>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Monier"}"
@@ -1337,9 +1301,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                       />
                     </a>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"AeroDek"}"
@@ -1369,9 +1331,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                 </ul>
               </div>
             </li>
-            <li
-              data-depth="0"
-            >
+            <li>
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"Systems"}"
@@ -1438,9 +1398,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                       class="Navigation-separator"
                     />
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Pitched Roof"}"
@@ -1454,9 +1412,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                       />
                     </a>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Flat roof"}"
@@ -1470,9 +1426,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                       />
                     </a>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Membranes"}"
@@ -1486,9 +1440,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                       />
                     </a>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Sealing systems"}"
@@ -1505,9 +1457,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                 </ul>
               </div>
             </li>
-            <li
-              data-depth="0"
-            >
+            <li>
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"Brands"}"
@@ -1574,9 +1524,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                       class="Navigation-separator"
                     />
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Icopal","action":"/en/icopal-base/"}"
@@ -1608,9 +1556,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                       />
                     </a>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"AeroDek","action":"/en/aerodek-quadro-plus/"}"
@@ -1642,9 +1588,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                       />
                     </a>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Zanda","action":"/en/zanda-arktis/"}"
@@ -1679,9 +1623,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                 </ul>
               </div>
             </li>
-            <li
-              data-depth="0"
-            >
+            <li>
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"Tips and Inspiration"}"
@@ -1748,9 +1690,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                       class="Navigation-separator"
                     />
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Inspiration"}"
@@ -1817,9 +1757,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                             class="Navigation-separator"
                           />
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <a
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"All Inspiration","action":"/en/case-study-landing-page/"}"
@@ -1833,9 +1771,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                             />
                           </a>
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Homeowners"}"
@@ -1849,9 +1785,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                             />
                           </button>
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Professionals"}"
@@ -1865,9 +1799,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                             />
                           </button>
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Commercial building"}"
@@ -1881,9 +1813,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                             />
                           </button>
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Architect and engineer"}"
@@ -1900,9 +1830,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                       </ul>
                     </div>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Construction tips"}"
@@ -1969,9 +1897,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                             class="Navigation-separator"
                           />
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"For Professionals"}"
@@ -1985,9 +1911,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                             />
                           </button>
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"For the self-builder"}"
@@ -2054,9 +1978,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                                   class="Navigation-separator"
                                 />
                               </li>
-                              <li
-                                data-depth="3"
-                              >
+                              <li>
                                 <button
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":"Build houses"}"
@@ -2070,9 +1992,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                                   />
                                 </button>
                               </li>
-                              <li
-                                data-depth="3"
-                              >
+                              <li>
                                 <button
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":"Build cottage"}"
@@ -2086,9 +2006,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                                   />
                                 </button>
                               </li>
-                              <li
-                                data-depth="3"
-                              >
+                              <li>
                                 <button
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":"Build terrace"}"
@@ -2102,9 +2020,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                                   />
                                 </button>
                               </li>
-                              <li
-                                data-depth="3"
-                              >
+                              <li>
                                 <button
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":"Build garage"}"
@@ -2121,9 +2037,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                             </ul>
                           </div>
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Other construction tips"}"
@@ -2140,9 +2054,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                       </ul>
                     </div>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"News"}"
@@ -2159,9 +2071,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                 </ul>
               </div>
             </li>
-            <li
-              data-depth="0"
-            >
+            <li>
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"Support"}"
@@ -2228,9 +2138,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                       class="Navigation-separator"
                     />
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Roof Calculator"}"
@@ -2244,9 +2152,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                       />
                     </button>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"FAQs","action":"/en/ofte-stilte-sporsmal/"}"
@@ -2260,9 +2166,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                       />
                     </a>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Puja's test page","action":"/en/test-page-puja/"}"
@@ -2279,9 +2183,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                 </ul>
               </div>
             </li>
-            <li
-              data-depth="0"
-            >
+            <li>
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"Documentation"}"
@@ -2348,9 +2250,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                       class="Navigation-separator"
                     />
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"All Documentation"}"
@@ -2364,9 +2264,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                       />
                     </button>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Test Doc Lib"}"
@@ -2380,9 +2278,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                       />
                     </button>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"What our roofers say","action":"/en/simple-page-playground-gp/"}"
@@ -3625,9 +3521,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                 MC: menu.mainTitle
               </h6>
             </li>
-            <li
-              data-depth="0"
-            >
+            <li>
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"Products"}"
@@ -3694,9 +3588,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                       class="Navigation-separator"
                     />
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <h6
                       class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
@@ -3704,9 +3596,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                       Select category
                     </h6>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Roof"}"
@@ -3773,9 +3663,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                             class="Navigation-separator"
                           />
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Stone Roofs"}"
@@ -3842,9 +3730,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                                   class="Navigation-separator"
                                 />
                               </li>
-                              <li
-                                data-depth="3"
-                              >
+                              <li>
                                 <a
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":"All Stone Roofs","action":"/en/roof-tiles/"}"
@@ -3858,9 +3744,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                                   />
                                 </a>
                               </li>
-                              <li
-                                data-depth="3"
-                              >
+                              <li>
                                 <a
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":"Roof tiles","action":"/en/roof-tiles/stone-roof-tiles/"}"
@@ -3892,9 +3776,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                                   />
                                 </a>
                               </li>
-                              <li
-                                data-depth="3"
-                              >
+                              <li>
                                 <a
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":"Concrete roof tiles","action":"/en/roof-tiles/betongtakstein/"}"
@@ -3929,9 +3811,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                             </ul>
                           </div>
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Steel Roof Tiles"}"
@@ -3998,9 +3878,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                                   class="Navigation-separator"
                                 />
                               </li>
-                              <li
-                                data-depth="3"
-                              >
+                              <li>
                                 <a
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":"Quadro Plus","action":"/en/aerodek-quadro-plus/"}"
@@ -4035,9 +3913,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                             </ul>
                           </div>
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Shingle"}"
@@ -4104,9 +3980,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                                   class="Navigation-separator"
                                 />
                               </li>
-                              <li
-                                data-depth="3"
-                              >
+                              <li>
                                 <a
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":"All Shingle","action":"/en/kontakt-oss/"}"
@@ -4120,9 +3994,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                                   />
                                 </a>
                               </li>
-                              <li
-                                data-depth="3"
-                              >
+                              <li>
                                 <a
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":"Type S","action":"/en/kontakt-oss/"}"
@@ -4157,9 +4029,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                             </ul>
                           </div>
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Flat Roof Accessories"}"
@@ -4226,9 +4096,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                                   class="Navigation-separator"
                                 />
                               </li>
-                              <li
-                                data-depth="3"
-                              >
+                              <li>
                                 <a
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":" Roof ladder","action":"/en/takstige/"}"
@@ -4251,9 +4119,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                       class="Navigation-separator"
                     />
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <h6
                       class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
@@ -4261,9 +4127,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                       Our Brands
                     </h6>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Icopal"}"
@@ -4290,9 +4154,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                       />
                     </a>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Zanda"}"
@@ -4319,9 +4181,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                       />
                     </a>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Monier"}"
@@ -4348,9 +4208,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                       />
                     </a>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"AeroDek"}"
@@ -4380,9 +4238,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                 </ul>
               </div>
             </li>
-            <li
-              data-depth="0"
-            >
+            <li>
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"Systems"}"
@@ -4449,9 +4305,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                       class="Navigation-separator"
                     />
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Pitched Roof"}"
@@ -4465,9 +4319,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                       />
                     </a>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Flat roof"}"
@@ -4481,9 +4333,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                       />
                     </a>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Membranes"}"
@@ -4497,9 +4347,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                       />
                     </a>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Sealing systems"}"
@@ -4516,9 +4364,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                 </ul>
               </div>
             </li>
-            <li
-              data-depth="0"
-            >
+            <li>
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"Brands"}"
@@ -4585,9 +4431,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                       class="Navigation-separator"
                     />
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Icopal","action":"/en/icopal-base/"}"
@@ -4619,9 +4463,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                       />
                     </a>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"AeroDek","action":"/en/aerodek-quadro-plus/"}"
@@ -4653,9 +4495,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                       />
                     </a>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Zanda","action":"/en/zanda-arktis/"}"
@@ -4690,9 +4530,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                 </ul>
               </div>
             </li>
-            <li
-              data-depth="0"
-            >
+            <li>
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"Tips and Inspiration"}"
@@ -4759,9 +4597,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                       class="Navigation-separator"
                     />
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Inspiration"}"
@@ -4828,9 +4664,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                             class="Navigation-separator"
                           />
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <a
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"All Inspiration","action":"/en/case-study-landing-page/"}"
@@ -4844,9 +4678,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                             />
                           </a>
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Homeowners"}"
@@ -4860,9 +4692,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                             />
                           </button>
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Professionals"}"
@@ -4876,9 +4706,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                             />
                           </button>
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Commercial building"}"
@@ -4892,9 +4720,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                             />
                           </button>
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Architect and engineer"}"
@@ -4911,9 +4737,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                       </ul>
                     </div>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Construction tips"}"
@@ -4980,9 +4804,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                             class="Navigation-separator"
                           />
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"For Professionals"}"
@@ -4996,9 +4818,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                             />
                           </button>
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"For the self-builder"}"
@@ -5065,9 +4885,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                                   class="Navigation-separator"
                                 />
                               </li>
-                              <li
-                                data-depth="3"
-                              >
+                              <li>
                                 <button
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":"Build houses"}"
@@ -5081,9 +4899,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                                   />
                                 </button>
                               </li>
-                              <li
-                                data-depth="3"
-                              >
+                              <li>
                                 <button
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":"Build cottage"}"
@@ -5097,9 +4913,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                                   />
                                 </button>
                               </li>
-                              <li
-                                data-depth="3"
-                              >
+                              <li>
                                 <button
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":"Build terrace"}"
@@ -5113,9 +4927,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                                   />
                                 </button>
                               </li>
-                              <li
-                                data-depth="3"
-                              >
+                              <li>
                                 <button
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":"Build garage"}"
@@ -5132,9 +4944,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                             </ul>
                           </div>
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Other construction tips"}"
@@ -5151,9 +4961,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                       </ul>
                     </div>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"News"}"
@@ -5170,9 +4978,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                 </ul>
               </div>
             </li>
-            <li
-              data-depth="0"
-            >
+            <li>
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"Support"}"
@@ -5239,9 +5045,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                       class="Navigation-separator"
                     />
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Roof Calculator"}"
@@ -5255,9 +5059,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                       />
                     </button>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"FAQs","action":"/en/ofte-stilte-sporsmal/"}"
@@ -5271,9 +5073,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                       />
                     </a>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Puja's test page","action":"/en/test-page-puja/"}"
@@ -5290,9 +5090,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                 </ul>
               </div>
             </li>
-            <li
-              data-depth="0"
-            >
+            <li>
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"Documentation"}"
@@ -5359,9 +5157,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                       class="Navigation-separator"
                     />
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"All Documentation"}"
@@ -5375,9 +5171,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                       />
                     </button>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Test Doc Lib"}"
@@ -5391,9 +5185,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                       />
                     </button>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"What our roofers say","action":"/en/simple-page-playground-gp/"}"

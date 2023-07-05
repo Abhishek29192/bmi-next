@@ -578,9 +578,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                 MC: menu.mainTitle
               </h6>
             </li>
-            <li
-              data-depth="0"
-            >
+            <li>
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"Products"}"
@@ -647,9 +645,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       class="Navigation-separator"
                     />
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <h6
                       class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
@@ -657,9 +653,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       Select category
                     </h6>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Roof"}"
@@ -726,9 +720,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                             class="Navigation-separator"
                           />
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Stone Roofs"}"
@@ -795,21 +787,13 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                                   class="Navigation-separator"
                                 />
                               </li>
-                              <li
-                                data-depth="3"
-                              />
-                              <li
-                                data-depth="3"
-                              />
-                              <li
-                                data-depth="3"
-                              />
+                              <li />
+                              <li />
+                              <li />
                             </ul>
                           </div>
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Steel Roof Tiles"}"
@@ -876,15 +860,11 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                                   class="Navigation-separator"
                                 />
                               </li>
-                              <li
-                                data-depth="3"
-                              />
+                              <li />
                             </ul>
                           </div>
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Shingle"}"
@@ -951,18 +931,12 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                                   class="Navigation-separator"
                                 />
                               </li>
-                              <li
-                                data-depth="3"
-                              />
-                              <li
-                                data-depth="3"
-                              />
+                              <li />
+                              <li />
                             </ul>
                           </div>
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Flat Roof Accessories"}"
@@ -1029,9 +1003,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                                   class="Navigation-separator"
                                 />
                               </li>
-                              <li
-                                data-depth="3"
-                              />
+                              <li />
                             </ul>
                           </div>
                         </li>
@@ -1041,9 +1013,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       class="Navigation-separator"
                     />
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <h6
                       class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
@@ -1051,9 +1021,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       Our Brands
                     </h6>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Icopal"}"
@@ -1080,9 +1048,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       />
                     </a>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Zanda"}"
@@ -1109,9 +1075,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       />
                     </a>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Monier"}"
@@ -1138,9 +1102,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       />
                     </a>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"AeroDek"}"
@@ -1170,9 +1132,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                 </ul>
               </div>
             </li>
-            <li
-              data-depth="0"
-            >
+            <li>
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"Systems"}"
@@ -1239,9 +1199,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       class="Navigation-separator"
                     />
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Pitched Roof"}"
@@ -1255,9 +1213,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       />
                     </a>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Flat roof"}"
@@ -1271,9 +1227,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       />
                     </a>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Membranes"}"
@@ -1287,9 +1241,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       />
                     </a>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Sealing systems"}"
@@ -1306,9 +1258,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                 </ul>
               </div>
             </li>
-            <li
-              data-depth="0"
-            >
+            <li>
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"Brands"}"
@@ -1375,21 +1325,13 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       class="Navigation-separator"
                     />
                   </li>
-                  <li
-                    data-depth="1"
-                  />
-                  <li
-                    data-depth="1"
-                  />
-                  <li
-                    data-depth="1"
-                  />
+                  <li />
+                  <li />
+                  <li />
                 </ul>
               </div>
             </li>
-            <li
-              data-depth="0"
-            >
+            <li>
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"Tips and Inspiration"}"
@@ -1456,9 +1398,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       class="Navigation-separator"
                     />
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Inspiration"}"
@@ -1525,12 +1465,8 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                             class="Navigation-separator"
                           />
                         </li>
-                        <li
-                          data-depth="2"
-                        />
-                        <li
-                          data-depth="2"
-                        >
+                        <li />
+                        <li>
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Homeowners"}"
@@ -1544,9 +1480,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                             />
                           </button>
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Professionals"}"
@@ -1560,9 +1494,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                             />
                           </button>
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Commercial building"}"
@@ -1576,9 +1508,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                             />
                           </button>
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Architect and engineer"}"
@@ -1595,9 +1525,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       </ul>
                     </div>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Construction tips"}"
@@ -1664,9 +1592,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                             class="Navigation-separator"
                           />
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"For Professionals"}"
@@ -1680,9 +1606,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                             />
                           </button>
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"For the self-builder"}"
@@ -1749,9 +1673,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                                   class="Navigation-separator"
                                 />
                               </li>
-                              <li
-                                data-depth="3"
-                              >
+                              <li>
                                 <button
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":"Build houses"}"
@@ -1765,9 +1687,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                                   />
                                 </button>
                               </li>
-                              <li
-                                data-depth="3"
-                              >
+                              <li>
                                 <button
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":"Build cottage"}"
@@ -1781,9 +1701,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                                   />
                                 </button>
                               </li>
-                              <li
-                                data-depth="3"
-                              >
+                              <li>
                                 <button
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":"Build terrace"}"
@@ -1797,9 +1715,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                                   />
                                 </button>
                               </li>
-                              <li
-                                data-depth="3"
-                              >
+                              <li>
                                 <button
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":"Build garage"}"
@@ -1816,9 +1732,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                             </ul>
                           </div>
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Other construction tips"}"
@@ -1835,9 +1749,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       </ul>
                     </div>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"News"}"
@@ -1854,9 +1766,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                 </ul>
               </div>
             </li>
-            <li
-              data-depth="0"
-            >
+            <li>
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"Support"}"
@@ -1923,9 +1833,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       class="Navigation-separator"
                     />
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Roof Calculator"}"
@@ -1939,18 +1847,12 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       />
                     </button>
                   </li>
-                  <li
-                    data-depth="1"
-                  />
-                  <li
-                    data-depth="1"
-                  />
+                  <li />
+                  <li />
                 </ul>
               </div>
             </li>
-            <li
-              data-depth="0"
-            >
+            <li>
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"Documentation"}"
@@ -2017,9 +1919,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       class="Navigation-separator"
                     />
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"All Documentation"}"
@@ -2033,9 +1933,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       />
                     </button>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Test Doc Lib"}"
@@ -2049,9 +1947,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       />
                     </button>
                   </li>
-                  <li
-                    data-depth="1"
-                  />
+                  <li />
                 </ul>
               </div>
             </li>
@@ -3632,9 +3528,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                 MC: menu.mainTitle
               </h6>
             </li>
-            <li
-              data-depth="0"
-            >
+            <li>
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"Products"}"
@@ -3701,9 +3595,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       class="Navigation-separator"
                     />
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <h6
                       class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
@@ -3711,9 +3603,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       Select category
                     </h6>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Roof"}"
@@ -3780,9 +3670,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                             class="Navigation-separator"
                           />
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Stone Roofs"}"
@@ -3849,9 +3737,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                                   class="Navigation-separator"
                                 />
                               </li>
-                              <li
-                                data-depth="3"
-                              >
+                              <li>
                                 <a
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":"All Stone Roofs","action":"/en/roof-tiles/"}"
@@ -3865,9 +3751,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                                   />
                                 </a>
                               </li>
-                              <li
-                                data-depth="3"
-                              >
+                              <li>
                                 <a
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":"Roof tiles","action":"/en/roof-tiles/stone-roof-tiles/"}"
@@ -3899,9 +3783,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                                   />
                                 </a>
                               </li>
-                              <li
-                                data-depth="3"
-                              >
+                              <li>
                                 <a
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":"Concrete roof tiles","action":"/en/roof-tiles/betongtakstein/"}"
@@ -3936,9 +3818,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                             </ul>
                           </div>
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Steel Roof Tiles"}"
@@ -4005,9 +3885,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                                   class="Navigation-separator"
                                 />
                               </li>
-                              <li
-                                data-depth="3"
-                              >
+                              <li>
                                 <a
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":"Quadro Plus","action":"/en/aerodek-quadro-plus/"}"
@@ -4042,9 +3920,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                             </ul>
                           </div>
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Shingle"}"
@@ -4111,9 +3987,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                                   class="Navigation-separator"
                                 />
                               </li>
-                              <li
-                                data-depth="3"
-                              >
+                              <li>
                                 <a
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":"All Shingle","action":"/en/kontakt-oss/"}"
@@ -4127,9 +4001,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                                   />
                                 </a>
                               </li>
-                              <li
-                                data-depth="3"
-                              >
+                              <li>
                                 <a
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":"Type S","action":"/en/kontakt-oss/"}"
@@ -4164,9 +4036,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                             </ul>
                           </div>
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Flat Roof Accessories"}"
@@ -4233,9 +4103,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                                   class="Navigation-separator"
                                 />
                               </li>
-                              <li
-                                data-depth="3"
-                              >
+                              <li>
                                 <a
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":" Roof ladder","action":"/en/takstige/"}"
@@ -4258,9 +4126,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       class="Navigation-separator"
                     />
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <h6
                       class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
@@ -4268,9 +4134,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       Our Brands
                     </h6>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Icopal"}"
@@ -4297,9 +4161,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       />
                     </a>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Zanda"}"
@@ -4326,9 +4188,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       />
                     </a>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Monier"}"
@@ -4355,9 +4215,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       />
                     </a>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"AeroDek"}"
@@ -4387,9 +4245,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                 </ul>
               </div>
             </li>
-            <li
-              data-depth="0"
-            >
+            <li>
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"Systems"}"
@@ -4456,9 +4312,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       class="Navigation-separator"
                     />
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Pitched Roof"}"
@@ -4472,9 +4326,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       />
                     </a>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Flat roof"}"
@@ -4488,9 +4340,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       />
                     </a>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Membranes"}"
@@ -4504,9 +4354,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       />
                     </a>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Sealing systems"}"
@@ -4523,9 +4371,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                 </ul>
               </div>
             </li>
-            <li
-              data-depth="0"
-            >
+            <li>
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"Brands"}"
@@ -4592,9 +4438,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       class="Navigation-separator"
                     />
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Icopal","action":"/en/icopal-base/"}"
@@ -4626,9 +4470,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       />
                     </a>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"AeroDek","action":"/en/aerodek-quadro-plus/"}"
@@ -4660,9 +4502,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       />
                     </a>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Zanda","action":"/en/zanda-arktis/"}"
@@ -4697,9 +4537,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                 </ul>
               </div>
             </li>
-            <li
-              data-depth="0"
-            >
+            <li>
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"Tips and Inspiration"}"
@@ -4766,9 +4604,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       class="Navigation-separator"
                     />
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Inspiration"}"
@@ -4835,9 +4671,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                             class="Navigation-separator"
                           />
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <a
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"All Inspiration","action":"/en/case-study-landing-page/"}"
@@ -4851,9 +4685,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                             />
                           </a>
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Homeowners"}"
@@ -4867,9 +4699,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                             />
                           </button>
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Professionals"}"
@@ -4883,9 +4713,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                             />
                           </button>
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Commercial building"}"
@@ -4899,9 +4727,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                             />
                           </button>
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Architect and engineer"}"
@@ -4918,9 +4744,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       </ul>
                     </div>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Construction tips"}"
@@ -4987,9 +4811,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                             class="Navigation-separator"
                           />
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"For Professionals"}"
@@ -5003,9 +4825,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                             />
                           </button>
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"For the self-builder"}"
@@ -5072,9 +4892,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                                   class="Navigation-separator"
                                 />
                               </li>
-                              <li
-                                data-depth="3"
-                              >
+                              <li>
                                 <button
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":"Build houses"}"
@@ -5088,9 +4906,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                                   />
                                 </button>
                               </li>
-                              <li
-                                data-depth="3"
-                              >
+                              <li>
                                 <button
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":"Build cottage"}"
@@ -5104,9 +4920,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                                   />
                                 </button>
                               </li>
-                              <li
-                                data-depth="3"
-                              >
+                              <li>
                                 <button
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":"Build terrace"}"
@@ -5120,9 +4934,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                                   />
                                 </button>
                               </li>
-                              <li
-                                data-depth="3"
-                              >
+                              <li>
                                 <button
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":"Build garage"}"
@@ -5139,9 +4951,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                             </ul>
                           </div>
                         </li>
-                        <li
-                          data-depth="2"
-                        >
+                        <li>
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Other construction tips"}"
@@ -5158,9 +4968,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       </ul>
                     </div>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"News"}"
@@ -5177,9 +4985,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                 </ul>
               </div>
             </li>
-            <li
-              data-depth="0"
-            >
+            <li>
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"Support"}"
@@ -5246,9 +5052,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       class="Navigation-separator"
                     />
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Roof Calculator"}"
@@ -5262,9 +5066,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       />
                     </button>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"FAQs","action":"/en/ofte-stilte-sporsmal/"}"
@@ -5278,9 +5080,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       />
                     </a>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Puja's test page","action":"/en/test-page-puja/"}"
@@ -5297,9 +5097,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                 </ul>
               </div>
             </li>
-            <li
-              data-depth="0"
-            >
+            <li>
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"Documentation"}"
@@ -5366,9 +5164,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       class="Navigation-separator"
                     />
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"All Documentation"}"
@@ -5382,9 +5178,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       />
                     </button>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Test Doc Lib"}"
@@ -5398,9 +5192,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       />
                     </button>
                   </li>
-                  <li
-                    data-depth="1"
-                  >
+                  <li>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"What our roofers say","action":"/en/simple-page-playground-gp/"}"
