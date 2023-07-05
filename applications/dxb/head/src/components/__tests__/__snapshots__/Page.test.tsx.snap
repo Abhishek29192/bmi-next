@@ -401,7 +401,9 @@ exports[`Page component renders correctly 1`] = `
                 MC: menu.mainTitle
               </h6>
             </li>
-            <li>
+            <li
+              data-depth="0"
+            >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"Get in touch"}"
@@ -415,7 +417,9 @@ exports[`Page component renders correctly 1`] = `
                 />
               </a>
             </li>
-            <li>
+            <li
+              data-depth="0"
+            >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"About BMI","action":"/uk/landing-page/"}"
@@ -429,7 +433,9 @@ exports[`Page component renders correctly 1`] = `
                 />
               </a>
             </li>
-            <li>
+            <li
+              data-depth="0"
+            >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"string"}"

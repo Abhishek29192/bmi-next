@@ -614,7 +614,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                 MC: menu.mainTitle
               </h6>
             </li>
-            <li>
+            <li
+              data-depth="0"
+            >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"Products"}"
@@ -681,7 +683,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                       class="Navigation-separator"
                     />
                   </li>
-                  <li>
+                  <li
+                    data-depth="1"
+                  >
                     <h6
                       class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
@@ -689,7 +693,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                       Select category
                     </h6>
                   </li>
-                  <li>
+                  <li
+                    data-depth="1"
+                  >
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Roof"}"
@@ -756,7 +762,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                             class="Navigation-separator"
                           />
                         </li>
-                        <li>
+                        <li
+                          data-depth="2"
+                        >
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Stone Roofs"}"
@@ -823,7 +831,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                                   class="Navigation-separator"
                                 />
                               </li>
-                              <li>
+                              <li
+                                data-depth="3"
+                              >
                                 <a
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":"All Stone Roofs","action":"/en/roof-tiles/"}"
@@ -837,7 +847,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                                   />
                                 </a>
                               </li>
-                              <li>
+                              <li
+                                data-depth="3"
+                              >
                                 <a
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":"Roof tiles","action":"/en/roof-tiles/stone-roof-tiles/"}"
@@ -869,7 +881,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                                   />
                                 </a>
                               </li>
-                              <li>
+                              <li
+                                data-depth="3"
+                              >
                                 <a
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":"Concrete roof tiles","action":"/en/roof-tiles/betongtakstein/"}"
@@ -904,7 +918,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                             </ul>
                           </div>
                         </li>
-                        <li>
+                        <li
+                          data-depth="2"
+                        >
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Steel Roof Tiles"}"
@@ -971,7 +987,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                                   class="Navigation-separator"
                                 />
                               </li>
-                              <li>
+                              <li
+                                data-depth="3"
+                              >
                                 <a
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":"Quadro Plus","action":"/en/aerodek-quadro-plus/"}"
@@ -1006,7 +1024,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                             </ul>
                           </div>
                         </li>
-                        <li>
+                        <li
+                          data-depth="2"
+                        >
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Shingle"}"
@@ -1073,7 +1093,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                                   class="Navigation-separator"
                                 />
                               </li>
-                              <li>
+                              <li
+                                data-depth="3"
+                              >
                                 <a
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":"All Shingle","action":"/en/kontakt-oss/"}"
@@ -1087,7 +1109,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                                   />
                                 </a>
                               </li>
-                              <li>
+                              <li
+                                data-depth="3"
+                              >
                                 <a
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":"Type S","action":"/en/kontakt-oss/"}"
@@ -1122,7 +1146,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                             </ul>
                           </div>
                         </li>
-                        <li>
+                        <li
+                          data-depth="2"
+                        >
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Flat Roof Accessories"}"
@@ -1189,7 +1215,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                                   class="Navigation-separator"
                                 />
                               </li>
-                              <li>
+                              <li
+                                data-depth="3"
+                              >
                                 <a
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":" Roof ladder","action":"/en/takstige/"}"
@@ -1212,7 +1240,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                       class="Navigation-separator"
                     />
                   </li>
-                  <li>
+                  <li
+                    data-depth="1"
+                  >
                     <h6
                       class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
@@ -1220,7 +1250,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                       Our Brands
                     </h6>
                   </li>
-                  <li>
+                  <li
+                    data-depth="1"
+                  >
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Icopal"}"
@@ -1247,7 +1279,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                       />
                     </a>
                   </li>
-                  <li>
+                  <li
+                    data-depth="1"
+                  >
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Zanda"}"
@@ -1274,7 +1308,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                       />
                     </a>
                   </li>
-                  <li>
+                  <li
+                    data-depth="1"
+                  >
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Monier"}"
@@ -1301,7 +1337,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                       />
                     </a>
                   </li>
-                  <li>
+                  <li
+                    data-depth="1"
+                  >
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"AeroDek"}"
@@ -1331,7 +1369,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                 </ul>
               </div>
             </li>
-            <li>
+            <li
+              data-depth="0"
+            >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"Systems"}"
@@ -1398,7 +1438,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                       class="Navigation-separator"
                     />
                   </li>
-                  <li>
+                  <li
+                    data-depth="1"
+                  >
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Pitched Roof"}"
@@ -1412,7 +1454,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                       />
                     </a>
                   </li>
-                  <li>
+                  <li
+                    data-depth="1"
+                  >
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Flat roof"}"
@@ -1426,7 +1470,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                       />
                     </a>
                   </li>
-                  <li>
+                  <li
+                    data-depth="1"
+                  >
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Membranes"}"
@@ -1440,7 +1486,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                       />
                     </a>
                   </li>
-                  <li>
+                  <li
+                    data-depth="1"
+                  >
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Sealing systems"}"
@@ -1457,7 +1505,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                 </ul>
               </div>
             </li>
-            <li>
+            <li
+              data-depth="0"
+            >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"Brands"}"
@@ -1524,7 +1574,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                       class="Navigation-separator"
                     />
                   </li>
-                  <li>
+                  <li
+                    data-depth="1"
+                  >
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Icopal","action":"/en/icopal-base/"}"
@@ -1556,7 +1608,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                       />
                     </a>
                   </li>
-                  <li>
+                  <li
+                    data-depth="1"
+                  >
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"AeroDek","action":"/en/aerodek-quadro-plus/"}"
@@ -1588,7 +1642,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                       />
                     </a>
                   </li>
-                  <li>
+                  <li
+                    data-depth="1"
+                  >
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Zanda","action":"/en/zanda-arktis/"}"
@@ -1623,7 +1679,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                 </ul>
               </div>
             </li>
-            <li>
+            <li
+              data-depth="0"
+            >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"Tips and Inspiration"}"
@@ -1690,7 +1748,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                       class="Navigation-separator"
                     />
                   </li>
-                  <li>
+                  <li
+                    data-depth="1"
+                  >
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Inspiration"}"
@@ -1757,7 +1817,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                             class="Navigation-separator"
                           />
                         </li>
-                        <li>
+                        <li
+                          data-depth="2"
+                        >
                           <a
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"All Inspiration","action":"/en/case-study-landing-page/"}"
@@ -1771,7 +1833,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                             />
                           </a>
                         </li>
-                        <li>
+                        <li
+                          data-depth="2"
+                        >
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Homeowners"}"
@@ -1785,7 +1849,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                             />
                           </button>
                         </li>
-                        <li>
+                        <li
+                          data-depth="2"
+                        >
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Professionals"}"
@@ -1799,7 +1865,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                             />
                           </button>
                         </li>
-                        <li>
+                        <li
+                          data-depth="2"
+                        >
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Commercial building"}"
@@ -1813,7 +1881,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                             />
                           </button>
                         </li>
-                        <li>
+                        <li
+                          data-depth="2"
+                        >
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Architect and engineer"}"
@@ -1830,7 +1900,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                       </ul>
                     </div>
                   </li>
-                  <li>
+                  <li
+                    data-depth="1"
+                  >
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Construction tips"}"
@@ -1897,7 +1969,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                             class="Navigation-separator"
                           />
                         </li>
-                        <li>
+                        <li
+                          data-depth="2"
+                        >
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"For Professionals"}"
@@ -1911,7 +1985,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                             />
                           </button>
                         </li>
-                        <li>
+                        <li
+                          data-depth="2"
+                        >
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"For the self-builder"}"
@@ -1978,7 +2054,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                                   class="Navigation-separator"
                                 />
                               </li>
-                              <li>
+                              <li
+                                data-depth="3"
+                              >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":"Build houses"}"
@@ -1992,7 +2070,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                                   />
                                 </button>
                               </li>
-                              <li>
+                              <li
+                                data-depth="3"
+                              >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":"Build cottage"}"
@@ -2006,7 +2086,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                                   />
                                 </button>
                               </li>
-                              <li>
+                              <li
+                                data-depth="3"
+                              >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":"Build terrace"}"
@@ -2020,7 +2102,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                                   />
                                 </button>
                               </li>
-                              <li>
+                              <li
+                                data-depth="3"
+                              >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"nav-main-menu","label":"Build garage"}"
@@ -2037,7 +2121,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                             </ul>
                           </div>
                         </li>
-                        <li>
+                        <li
+                          data-depth="2"
+                        >
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"nav-main-menu","label":"Other construction tips"}"
@@ -2054,7 +2140,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                       </ul>
                     </div>
                   </li>
-                  <li>
+                  <li
+                    data-depth="1"
+                  >
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"News"}"
@@ -2071,7 +2159,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                 </ul>
               </div>
             </li>
-            <li>
+            <li
+              data-depth="0"
+            >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"Support"}"
@@ -2138,7 +2228,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                       class="Navigation-separator"
                     />
                   </li>
-                  <li>
+                  <li
+                    data-depth="1"
+                  >
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Roof Calculator"}"
@@ -2152,7 +2244,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                       />
                     </button>
                   </li>
-                  <li>
+                  <li
+                    data-depth="1"
+                  >
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"FAQs","action":"/en/ofte-stilte-sporsmal/"}"
@@ -2166,7 +2260,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                       />
                     </a>
                   </li>
-                  <li>
+                  <li
+                    data-depth="1"
+                  >
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Puja's test page","action":"/en/test-page-puja/"}"
@@ -2183,7 +2279,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                 </ul>
               </div>
             </li>
-            <li>
+            <li
+              data-depth="0"
+            >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"Documentation"}"
@@ -2250,7 +2348,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                       class="Navigation-separator"
                     />
                   </li>
-                  <li>
+                  <li
+                    data-depth="1"
+                  >
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"All Documentation"}"
@@ -2264,7 +2364,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                       />
                     </button>
                   </li>
-                  <li>
+                  <li
+                    data-depth="1"
+                  >
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"Test Doc Lib"}"
@@ -2278,7 +2380,9 @@ exports[`Home Page Template render correctly with all data 1`] = `
                       />
                     </button>
                   </li>
-                  <li>
+                  <li
+                    data-depth="1"
+                  >
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-main-menu","label":"What our roofers say","action":"/en/simple-page-playground-gp/"}"
