@@ -2358,10 +2358,10 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       data-testid="brand-colors-provider"
     >
       <div
-        class="Scrim Scrim--light"
+        class="ScrimStyles-scrim--light css-1qqmo68"
       >
         <span
-          class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary ProgressIndicator ProgressIndicator--light css-1kcdtbk-MuiCircularProgress-root"
+          class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary ProgressIndicatorStyles-progressIndicator--light css-sbue0o-MuiCircularProgress-root"
           data-testid="progress-indicator"
           role="progressbar"
           style="width: 72px; height: 72px;"
@@ -2760,7 +2760,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                                               class="css-k008qs"
                                             >
                                               <span
-                                                class="ColorSwatch"
+                                                class="css-hw44dl"
                                               />
                                               colour-1
                                             </div>
@@ -2808,7 +2808,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                                               class="css-k008qs"
                                             >
                                               <span
-                                                class="ColorSwatch"
+                                                class="css-hw44dl"
                                               />
                                               colour-2
                                             </div>
@@ -3559,10 +3559,10 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       data-testid="brand-colors-provider"
     >
       <div
-        class="Scrim Scrim--light"
+        class="ScrimStyles-scrim--light css-1qqmo68"
       >
         <span
-          class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary ProgressIndicator ProgressIndicator--light css-1kcdtbk-MuiCircularProgress-root"
+          class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary ProgressIndicatorStyles-progressIndicator--light css-sbue0o-MuiCircularProgress-root"
           data-testid="progress-indicator"
           role="progressbar"
           style="width: 72px; height: 72px;"
@@ -5075,7 +5075,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                                               class="css-k008qs"
                                             >
                                               <span
-                                                class="ColorSwatch"
+                                                class="css-hw44dl"
                                               />
                                               colour-1
                                             </div>
@@ -5120,7 +5120,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                                               class="css-k008qs"
                                             >
                                               <span
-                                                class="ColorSwatch"
+                                                class="css-hw44dl"
                                               />
                                               colour-2
                                             </div>
@@ -11183,10 +11183,10 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
       data-testid="brand-colors-provider"
     >
       <div
-        class="Scrim Scrim--light"
+        class="ScrimStyles-scrim--light css-1qqmo68"
       >
         <span
-          class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary ProgressIndicator ProgressIndicator--light css-1kcdtbk-MuiCircularProgress-root"
+          class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary ProgressIndicatorStyles-progressIndicator--light css-sbue0o-MuiCircularProgress-root"
           data-testid="progress-indicator"
           role="progressbar"
           style="width: 72px; height: 72px;"
@@ -12370,10 +12370,10 @@ exports[`ProductListerPage template test handle change url by click on filters a
       data-testid="brand-colors-provider"
     >
       <div
-        class="Scrim Scrim--light"
+        class="ScrimStyles-scrim--light css-1qqmo68"
       >
         <span
-          class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary ProgressIndicator ProgressIndicator--light css-1kcdtbk-MuiCircularProgress-root"
+          class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary ProgressIndicatorStyles-progressIndicator--light css-sbue0o-MuiCircularProgress-root"
           data-testid="progress-indicator"
           role="progressbar"
           style="width: 72px; height: 72px;"
@@ -12772,7 +12772,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
                                               class="css-k008qs"
                                             >
                                               <span
-                                                class="ColorSwatch"
+                                                class="css-hw44dl"
                                               />
                                               colour-1
                                             </div>
@@ -12820,7 +12820,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
                                               class="css-k008qs"
                                             >
                                               <span
-                                                class="ColorSwatch"
+                                                class="css-hw44dl"
                                               />
                                               colour-2
                                             </div>
@@ -13571,10 +13571,10 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
       data-testid="brand-colors-provider"
     >
       <div
-        class="Scrim Scrim--light"
+        class="ScrimStyles-scrim--light css-1qqmo68"
       >
         <span
-          class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary ProgressIndicator ProgressIndicator--light css-1kcdtbk-MuiCircularProgress-root"
+          class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary ProgressIndicatorStyles-progressIndicator--light css-sbue0o-MuiCircularProgress-root"
           data-testid="progress-indicator"
           role="progressbar"
           style="width: 72px; height: 72px;"
@@ -14157,11 +14157,11 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                   />
                 </div>
                 <div
-                  class="ResultsPagination"
+                  class="css-us2379"
                 >
                   <nav
                     aria-label="pagination navigation"
-                    class="MuiPagination-root MuiPagination-text pagination resultsPaginationStyles-paginationRoot css-1awzkgf-MuiPagination-root"
+                    class="MuiPagination-root MuiPagination-text resultsPaginationStyles-pagination resultsPaginationStyles-paginationRoot css-1awzkgf-MuiPagination-root"
                     data-testid="pagination-root"
                   >
                     <ul
@@ -14963,10 +14963,10 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
       data-testid="brand-colors-provider"
     >
       <div
-        class="Scrim Scrim--light"
+        class="ScrimStyles-scrim--light css-1qqmo68"
       >
         <span
-          class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary ProgressIndicator ProgressIndicator--light css-1kcdtbk-MuiCircularProgress-root"
+          class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary ProgressIndicatorStyles-progressIndicator--light css-sbue0o-MuiCircularProgress-root"
           data-testid="progress-indicator"
           role="progressbar"
           style="width: 72px; height: 72px;"
@@ -15549,11 +15549,11 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                   />
                 </div>
                 <div
-                  class="ResultsPagination"
+                  class="css-us2379"
                 >
                   <nav
                     aria-label="pagination navigation"
-                    class="MuiPagination-root MuiPagination-text pagination resultsPaginationStyles-paginationRoot css-1awzkgf-MuiPagination-root"
+                    class="MuiPagination-root MuiPagination-text resultsPaginationStyles-pagination resultsPaginationStyles-paginationRoot css-1awzkgf-MuiPagination-root"
                     data-testid="pagination-root"
                   >
                     <ul

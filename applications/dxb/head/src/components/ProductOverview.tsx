@@ -13,11 +13,13 @@ import { useConfig } from "../contexts/ConfigProvider";
 import DefaultImage from "../images/DefaultImage.svg";
 import withGTM from "../utils/google-tag-manager";
 import BrandLogo from "./BrandLogo";
-import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
 import { useSiteContext } from "./Site";
 import { VisualiserContext } from "./Visualiser";
-import styles from "./styles/ProductOverview.module.scss";
 import tilesSetData from "./visualiser/data/tiles.json";
+import {
+  StyledProductOverview,
+  StyledRecaptchaPrivacyLinks
+} from "./styles/ProductOverview.styles";
 
 export type Data = {
   name: string;
@@ -118,7 +120,7 @@ const ProductOverview = ({
   }
 
   return (
-    <div className={styles["ProductOverview"]} data-testid={"product-overview"}>
+    <StyledProductOverview data-testid={"product-overview"}>
       <Grid container spacing={3}>
         <Grid xs={12} md={12} lg={8}>
           <MediaGallery
@@ -145,14 +147,10 @@ const ProductOverview = ({
           >
             {children}
           </ProductOverviewPane>
-          {isRecaptchaShown && (
-            <RecaptchaPrivacyLinks
-              className={styles["keyAssetTypesDownload"]}
-            />
-          )}
+          {isRecaptchaShown && <StyledRecaptchaPrivacyLinks />}
         </Grid>
       </Grid>
-    </div>
+    </StyledProductOverview>
   );
 };
 

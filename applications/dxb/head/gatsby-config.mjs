@@ -385,19 +385,6 @@ const config = {
           }
         ]),
     ...elasticSearchPlugin,
-    {
-      resolve: `gatsby-plugin-sass`,
-      options: {
-        cssLoaderOptions: {
-          esModule: false,
-          modules: {
-            namedExport: false,
-            exportLocalsConvention: "asIs",
-            localIdentName: "[name]__[local]--[hash:base64:5]"
-          }
-        }
-      }
-    },
     `gatsby-plugin-image`,
     // `gatsby-plugin-offline`,
     `gatsby-plugin-remove-serviceworker`,

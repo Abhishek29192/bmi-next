@@ -1,29 +1,26 @@
-import {
-  Container,
-  Icopal as IcopalLogoSVG,
-  Typography
-} from "@bmi-digital/components";
-import Paper from "@mui/material/Paper";
 import { Link } from "gatsby";
 import React from "react";
-import styles from "./Header.module.scss";
+import {
+  StyledHeader,
+  StyledContainer,
+  StyledLogo,
+  StyledText
+} from "./styles/HeaderStyles";
 
 const BmiHeader = () => {
   return (
-    <Paper className={styles.Header} component="header" elevation={3} square>
-      <Container className={styles.container}>
+    <StyledHeader elevation={3} square>
+      <StyledContainer>
         <Link
           to={
             "/" + (typeof window !== "undefined" ? window.location.search : "")
           }
         >
-          <IcopalLogoSVG className={styles.logo} />
+          <StyledLogo />
         </Link>
-        <Typography variant="h5" className={styles.text}>
-          Bitumen Flat Roof Estimator
-        </Typography>
-      </Container>
-    </Paper>
+        <StyledText variant="h5">Bitumen Flat Roof Estimator</StyledText>
+      </StyledContainer>
+    </StyledHeader>
   );
 };
 

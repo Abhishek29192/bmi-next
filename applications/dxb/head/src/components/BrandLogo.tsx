@@ -43,7 +43,7 @@ import Logo, {
 } from "@bmi-digital/components/logo";
 import classnames from "classnames";
 import React from "react";
-import styles from "./styles/BrandLogo.module.scss";
+import { LogoComponent, classes } from "./styles/BrandLogoStyles";
 
 export type Logo =
   | "AeroDek"
@@ -191,13 +191,9 @@ const BrandLogo = ({
 }: Props) => {
   const iconLogo = getLogo(brandName);
   return iconLogo ? (
-    <Logo
+    <LogoComponent
+      className={classnames(className, [brandWhiteBox && classes.whiteBox])}
       source={iconLogo}
-      className={classnames(
-        styles["BrandLogo"],
-        className,
-        brandWhiteBox && styles["BrandLogo-whiteBox"]
-      )}
       boxed={brandWhiteBox}
       data-testid={"brand-logo"}
       {...props}

@@ -7,7 +7,8 @@ import {
   LeadBlock,
   replaceSpaces,
   transformHyphens,
-  Typography
+  Typography,
+  useIsClient
 } from "@bmi-digital/components";
 import { Check as CheckIcon, Launch } from "@mui/icons-material";
 import React from "react";
@@ -60,6 +61,7 @@ const LeadBlockCardContent = ({
 );
 
 const AboutLeadBlock = ({ system, sidebarItem }: Props) => {
+  const { isClient } = useIsClient();
   const { getMicroCopy, countryCode } = useSiteContext();
   const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
   const isImageAsset = (asset) => {
@@ -81,13 +83,15 @@ const AboutLeadBlock = ({ system, sidebarItem }: Props) => {
     <StyledLeadBlock>
       <LeadBlock.Content>
         <LeadBlock.Content.Section>
-          <Typography
-            component="div"
-            className={classes.description}
-            dangerouslySetInnerHTML={{
-              __html: transformHyphens(system.description) as string
-            }}
-          />
+          {isClient && (
+            <Typography
+              component="div"
+              className={classes.description}
+              dangerouslySetInnerHTML={{
+                __html: transformHyphens(system.description) as string
+              }}
+            />
+          )}
         </LeadBlock.Content.Section>
         {((system.guaranteesAndWarrantiesImages &&
           system.guaranteesAndWarrantiesImages.length > 0) ||

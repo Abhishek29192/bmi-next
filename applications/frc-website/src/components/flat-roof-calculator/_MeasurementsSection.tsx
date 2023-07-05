@@ -1,6 +1,5 @@
 import { Form, Grid, TextField } from "@bmi-digital/components";
 import React from "react";
-import styles from "./FlatRoofCalculator.module.scss";
 import { FormValues } from "./types/FormValues";
 import Field from "./_Field";
 import FormSection from "./_FormSection";
@@ -88,7 +87,7 @@ const MeasurementsSection = ({
                 </span>
               }
               fullWidth
-              inputProps={{ className: styles.input }}
+              inputProps={{ className: "input" }}
             />
           </Form.Row>
         </Grid>
@@ -111,7 +110,7 @@ const MeasurementsSection = ({
               )}
               rightAdornment={<span>mm</span>}
               fullWidth
-              inputProps={{ className: styles.input }}
+              inputProps={{ className: "input" }}
             />
           </Form.Row>
         </Grid>
@@ -130,7 +129,7 @@ const MeasurementsSection = ({
               )}
               rightAdornment={<span>m</span>}
               fullWidth
-              inputProps={{ className: styles.input }}
+              inputProps={{ className: "input" }}
             />
           </Form.Row>
         </Grid>
@@ -156,7 +155,7 @@ const MeasurementsSection = ({
               )}
               rightAdornment={<span>mm</span>}
               fullWidth
-              inputProps={{ className: styles.input }}
+              inputProps={{ className: "input" }}
             />
           </Form.Row>
         </Grid>
@@ -175,7 +174,7 @@ const MeasurementsSection = ({
               )}
               rightAdornment={<span>m</span>}
               fullWidth
-              inputProps={{ className: styles.input }}
+              inputProps={{ className: "input" }}
             />
           </Form.Row>
         </Grid>
@@ -199,7 +198,7 @@ const MeasurementsSection = ({
               )}
               rightAdornment={<span>mm</span>}
               fullWidth
-              inputProps={{ className: styles.input }}
+              inputProps={{ className: "input" }}
             />
           </Form.Row>
         </Grid>
@@ -219,7 +218,7 @@ const MeasurementsSection = ({
               )}
               rightAdornment={<span>m</span>}
               fullWidth
-              inputProps={{ className: styles.input }}
+              inputProps={{ className: "input" }}
             />
           </Form.Row>
         </Grid>
@@ -243,7 +242,7 @@ const MeasurementsSection = ({
               )}
               rightAdornment={<span>mm</span>}
               fullWidth
-              inputProps={{ className: styles.input }}
+              inputProps={{ className: "input" }}
             />
           </Form.Row>
         </Grid>
@@ -263,7 +262,7 @@ const MeasurementsSection = ({
               )}
               rightAdornment={<span>m</span>}
               fullWidth
-              inputProps={{ className: styles.input }}
+              inputProps={{ className: "input" }}
             />
           </Form.Row>
         </Grid>

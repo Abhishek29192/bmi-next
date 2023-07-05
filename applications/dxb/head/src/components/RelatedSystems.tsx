@@ -18,7 +18,11 @@ import { getPathWithCountryCode } from "../utils/path";
 import { renderMedia } from "../utils/renderMedia";
 import BrandLogo from "./BrandLogo";
 import { useSiteContext } from "./Site";
-import styles from "./styles/RelatedSystems.module.scss";
+import {
+  StyledLoadMoreWrapper,
+  StyledReadMoreButton,
+  StyledTitle
+} from "./styles/RelatedSystems.styles";
 
 export type SystemCardProps = {
   system: RelatedSystem | EsSystem;
@@ -77,12 +81,9 @@ export const SystemCard = ({
         }}
         gtm={gtm}
         footer={
-          <Button
-            className={styles["footer-read-more-button"]}
-            variant="outlined"
-          >
+          <StyledReadMoreButton variant="outlined">
             {getMicroCopy(microCopy.SDP_SYSTEM_READ_MORE)}
-          </Button>
+          </StyledReadMoreButton>
         }
         isHighlighted={isHighlighted}
         {...rest}
@@ -134,11 +135,11 @@ const SystemListing = ({
         })}
       </Grid>
       {numberShown < systems.length ? (
-        <div className={styles["load-more-wrapper"]}>
+        <StyledLoadMoreWrapper>
           <Button onClick={onLoadMore} variant="outlined" endIcon={<AddIcon />}>
             {getMicroCopy(microCopy.PDP_RELATED_PRODUCTS_SHOW_MORE)}
           </Button>
-        </div>
+        </StyledLoadMoreWrapper>
       ) : null}
     </>
   );
@@ -166,11 +167,11 @@ const RelatedSystems = ({
       backgroundColor={sectionBackgroundColor || "alabaster"}
       data-testid={`related-systems-section`}
     >
-      <div className={styles["RelatedSystems"]}>
-        <Section.Title className={styles["title"]}>
+      <div>
+        <StyledTitle>
           {sectionTitle ||
             getMicroCopy(microCopy.SDP_RECOMMENDED_SYSTEMS_TITLE)}
-        </Section.Title>
+        </StyledTitle>
         <SystemListing systems={systems} countryCode={countryCode} />
       </div>
     </Section>

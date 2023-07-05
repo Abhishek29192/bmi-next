@@ -16,7 +16,7 @@ import RichText from "./RichText";
 import { Data } from "./SampleBasketBase";
 import SampleBasketSectionProducts from "./SampleBasketSectionProducts";
 import { useSiteContext } from "./Site";
-import styles from "./styles/SampleBasketSection.module.scss";
+import { StyledCompleteButtonContainer } from "./styles/SampleBasketSection.styles";
 
 const formatSamples = (samples: SampleOrderElement[]) =>
   samples
@@ -82,11 +82,7 @@ const SampleBasketSection = ({
   );
   return (
     <>
-      <Section
-        backgroundColor="white"
-        className={styles["SampleBasketSection"]}
-        data-testid="sample-basket-section"
-      >
+      <Section backgroundColor="white" data-testid="sample-basket-section">
         <RichText document={description} />
         <SampleBasketSectionProducts />
         {!hasSamplesInTheBasket && <RichText document={emptyBasketMessage} />}
@@ -101,11 +97,11 @@ const SampleBasketSection = ({
           </Button>
         )}
         {!isCompleteFormShow && hasSamplesInTheBasket && (
-          <div className={styles["complete-button"]}>
+          <StyledCompleteButtonContainer>
             <Button endIcon={<ShoppingCart />} onClick={handleCompleteClick}>
               {getMicroCopy(microCopy.PDP_OVERVIEW_COMPLETE_SAMPLE_ORDER)}
             </Button>
-          </div>
+          </StyledCompleteButtonContainer>
         )}
       </Section>
       {isCompleteFormShow && hasSamplesInTheBasket && (

@@ -21,30 +21,30 @@ exports[`CalculatorModal component renders closed 1`] = `
       tabindex="0"
     />
     <div
-      class="CalculatorModal white"
+      class="CalculatorModal-white css-48rw0d"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="header pearl"
+        class="CalculatorModal-header CalculatorModal-pearl"
       >
         <div
           class="Container-fullWidth css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl headerContainer css-15p7r21-MuiContainer-root"
+            class="MuiContainer-root MuiContainer-maxWidthXl CalculatorModal-headerCentre css-15p7r21-MuiContainer-root"
           >
             <svg
-              class="headerSide logo css-gn1fhj"
+              class="CalculatorModal-headerSide CalculatorModal-logo css-gn1fhj"
             />
             <div
-              class="headerCentre"
+              class="CalculatorModal-headerCentre"
             >
               Some Central Content
             </div>
             <button
               aria-label="Close"
-              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge headerSide iconButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge CalculatorModal-headerSide CalculatorModal-iconButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
               tabindex="0"
               type="button"
             >
@@ -67,7 +67,7 @@ exports[`CalculatorModal component renders closed 1`] = `
         </div>
       </div>
       <div
-        class="content"
+        class="CalculatorModal-content"
       >
         <div
           class=" css-ze8cyt"
@@ -109,30 +109,30 @@ exports[`CalculatorModal component renders correctly 1`] = `
       tabindex="0"
     />
     <div
-      class="CalculatorModal white"
+      class="CalculatorModal-white css-48rw0d"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="header pearl"
+        class="CalculatorModal-header CalculatorModal-pearl"
       >
         <div
           class="Container-fullWidth css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl headerContainer css-15p7r21-MuiContainer-root"
+            class="MuiContainer-root MuiContainer-maxWidthXl CalculatorModal-headerCentre css-15p7r21-MuiContainer-root"
           >
             <svg
-              class="headerSide logo css-gn1fhj"
+              class="CalculatorModal-headerSide CalculatorModal-logo css-gn1fhj"
             />
             <div
-              class="headerCentre"
+              class="CalculatorModal-headerCentre"
             >
               Some Central Content
             </div>
             <button
               aria-label="Close"
-              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge headerSide iconButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge CalculatorModal-headerSide CalculatorModal-iconButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
               tabindex="0"
               type="button"
             >
@@ -155,7 +155,7 @@ exports[`CalculatorModal component renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="content"
+        class="CalculatorModal-content"
       >
         <div
           class=" css-ze8cyt"
@@ -198,21 +198,21 @@ exports[`CalculatorModal component renders with ariaDescribedby props 1`] = `
       tabindex="0"
     />
     <div
-      class="CalculatorModal white"
+      class="CalculatorModal-white css-48rw0d"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="header pearl"
+        class="CalculatorModal-header CalculatorModal-pearl"
       >
         <div
           class="Container-fullWidth css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl headerContainer css-15p7r21-MuiContainer-root"
+            class="MuiContainer-root MuiContainer-maxWidthXl CalculatorModal-headerCentre css-15p7r21-MuiContainer-root"
           >
             <svg
-              class="headerSide logo css-634maq"
+              class="CalculatorModal-headerSide CalculatorModal-logo css-634maq"
               viewBox="0 0 250 250"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -229,11 +229,11 @@ exports[`CalculatorModal component renders with ariaDescribedby props 1`] = `
               </g>
             </svg>
             <div
-              class="headerCentre"
+              class="CalculatorModal-headerCentre"
             />
             <button
               aria-label="Close"
-              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge headerSide iconButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge CalculatorModal-headerSide CalculatorModal-iconButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
               tabindex="0"
               type="button"
             >
@@ -256,7 +256,7 @@ exports[`CalculatorModal component renders with ariaDescribedby props 1`] = `
         </div>
       </div>
       <div
-        class="content"
+        class="CalculatorModal-content"
       >
         <div
           class=" css-ze8cyt"
@@ -299,21 +299,21 @@ exports[`CalculatorModal component renders with ariaLabelledby props 1`] = `
       tabindex="0"
     />
     <div
-      class="CalculatorModal white"
+      class="CalculatorModal-white css-48rw0d"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="header pearl"
+        class="CalculatorModal-header CalculatorModal-pearl"
       >
         <div
           class="Container-fullWidth css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl headerContainer css-15p7r21-MuiContainer-root"
+            class="MuiContainer-root MuiContainer-maxWidthXl CalculatorModal-headerCentre css-15p7r21-MuiContainer-root"
           >
             <svg
-              class="headerSide logo css-634maq"
+              class="CalculatorModal-headerSide CalculatorModal-logo css-634maq"
               viewBox="0 0 250 250"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -330,11 +330,11 @@ exports[`CalculatorModal component renders with ariaLabelledby props 1`] = `
               </g>
             </svg>
             <div
-              class="headerCentre"
+              class="CalculatorModal-headerCentre"
             />
             <button
               aria-label="Close"
-              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge headerSide iconButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge CalculatorModal-headerSide CalculatorModal-iconButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
               tabindex="0"
               type="button"
             >
@@ -357,7 +357,7 @@ exports[`CalculatorModal component renders with ariaLabelledby props 1`] = `
         </div>
       </div>
       <div
-        class="content"
+        class="CalculatorModal-content"
       >
         <div
           class=" css-ze8cyt"
@@ -399,21 +399,21 @@ exports[`CalculatorModal component renders with backdropProps 1`] = `
       tabindex="0"
     />
     <div
-      class="CalculatorModal white"
+      class="CalculatorModal-white css-48rw0d"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="header pearl"
+        class="CalculatorModal-header CalculatorModal-pearl"
       >
         <div
           class="Container-fullWidth css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl headerContainer css-15p7r21-MuiContainer-root"
+            class="MuiContainer-root MuiContainer-maxWidthXl CalculatorModal-headerCentre css-15p7r21-MuiContainer-root"
           >
             <svg
-              class="headerSide logo css-634maq"
+              class="CalculatorModal-headerSide CalculatorModal-logo css-634maq"
               viewBox="0 0 250 250"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -430,11 +430,11 @@ exports[`CalculatorModal component renders with backdropProps 1`] = `
               </g>
             </svg>
             <div
-              class="headerCentre"
+              class="CalculatorModal-headerCentre"
             />
             <button
               aria-label="Close"
-              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge headerSide iconButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge CalculatorModal-headerSide CalculatorModal-iconButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
               tabindex="0"
               type="button"
             >
@@ -457,7 +457,7 @@ exports[`CalculatorModal component renders with backdropProps 1`] = `
         </div>
       </div>
       <div
-        class="content"
+        class="CalculatorModal-content"
       >
         <div
           class=" css-ze8cyt"
@@ -499,21 +499,21 @@ exports[`CalculatorModal component renders with className 1`] = `
       tabindex="0"
     />
     <div
-      class="custom-class-name CalculatorModal white"
+      class="custom-class-name CalculatorModal-white css-48rw0d"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="header pearl"
+        class="CalculatorModal-header CalculatorModal-pearl"
       >
         <div
           class="Container-fullWidth css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl headerContainer css-15p7r21-MuiContainer-root"
+            class="MuiContainer-root MuiContainer-maxWidthXl CalculatorModal-headerCentre css-15p7r21-MuiContainer-root"
           >
             <svg
-              class="headerSide logo css-634maq"
+              class="CalculatorModal-headerSide CalculatorModal-logo css-634maq"
               viewBox="0 0 250 250"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -530,11 +530,11 @@ exports[`CalculatorModal component renders with className 1`] = `
               </g>
             </svg>
             <div
-              class="headerCentre"
+              class="CalculatorModal-headerCentre"
             />
             <button
               aria-label="Close"
-              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge headerSide iconButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge CalculatorModal-headerSide CalculatorModal-iconButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
               tabindex="0"
               type="button"
             >
@@ -557,7 +557,7 @@ exports[`CalculatorModal component renders with className 1`] = `
         </div>
       </div>
       <div
-        class="content custom-class-name"
+        class="CalculatorModal-content custom-class-name"
       >
         <div
           class=" css-ze8cyt"
@@ -599,21 +599,21 @@ exports[`CalculatorModal component renders with disablePortal 1`] = `
       tabindex="0"
     />
     <div
-      class="CalculatorModal white"
+      class="CalculatorModal-white css-48rw0d"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="header pearl"
+        class="CalculatorModal-header CalculatorModal-pearl"
       >
         <div
           class="Container-fullWidth css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl headerContainer css-15p7r21-MuiContainer-root"
+            class="MuiContainer-root MuiContainer-maxWidthXl CalculatorModal-headerCentre css-15p7r21-MuiContainer-root"
           >
             <svg
-              class="headerSide logo css-634maq"
+              class="CalculatorModal-headerSide CalculatorModal-logo css-634maq"
               viewBox="0 0 250 250"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -630,11 +630,11 @@ exports[`CalculatorModal component renders with disablePortal 1`] = `
               </g>
             </svg>
             <div
-              class="headerCentre"
+              class="CalculatorModal-headerCentre"
             />
             <button
               aria-label="Close"
-              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge headerSide iconButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge CalculatorModal-headerSide CalculatorModal-iconButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
               tabindex="0"
               type="button"
             >
@@ -657,7 +657,7 @@ exports[`CalculatorModal component renders with disablePortal 1`] = `
         </div>
       </div>
       <div
-        class="content"
+        class="CalculatorModal-content"
       >
         <div
           class=" css-ze8cyt"
@@ -699,21 +699,21 @@ exports[`CalculatorModal component renders with no logo 1`] = `
       tabindex="0"
     />
     <div
-      class="CalculatorModal white"
+      class="CalculatorModal-white css-48rw0d"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="header pearl"
+        class="CalculatorModal-header CalculatorModal-pearl"
       >
         <div
           class="Container-fullWidth css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl headerContainer css-15p7r21-MuiContainer-root"
+            class="MuiContainer-root MuiContainer-maxWidthXl CalculatorModal-headerCentre css-15p7r21-MuiContainer-root"
           >
             <svg
-              class="headerSide logo css-634maq"
+              class="CalculatorModal-headerSide CalculatorModal-logo css-634maq"
               viewBox="0 0 250 250"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -730,13 +730,13 @@ exports[`CalculatorModal component renders with no logo 1`] = `
               </g>
             </svg>
             <div
-              class="headerCentre"
+              class="CalculatorModal-headerCentre"
             >
               Some Central Content
             </div>
             <button
               aria-label="Close"
-              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge headerSide iconButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge CalculatorModal-headerSide CalculatorModal-iconButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
               tabindex="0"
               type="button"
             >
@@ -759,7 +759,7 @@ exports[`CalculatorModal component renders with no logo 1`] = `
         </div>
       </div>
       <div
-        class="content"
+        class="CalculatorModal-content"
       >
         <div
           class=" css-ze8cyt"
@@ -801,30 +801,30 @@ exports[`CalculatorModal component renders with pearl background 1`] = `
       tabindex="0"
     />
     <div
-      class="CalculatorModal pearl"
+      class="CalculatorModal-pearl css-48rw0d"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="header white"
+        class="CalculatorModal-header CalculatorModal-white"
       >
         <div
           class="Container-fullWidth css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl headerContainer css-15p7r21-MuiContainer-root"
+            class="MuiContainer-root MuiContainer-maxWidthXl CalculatorModal-headerCentre css-15p7r21-MuiContainer-root"
           >
             <svg
-              class="headerSide logo css-gn1fhj"
+              class="CalculatorModal-headerSide CalculatorModal-logo css-gn1fhj"
             />
             <div
-              class="headerCentre"
+              class="CalculatorModal-headerCentre"
             >
               Some Central Content
             </div>
             <button
               aria-label="Close"
-              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge headerSide iconButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge CalculatorModal-headerSide CalculatorModal-iconButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
               tabindex="0"
               type="button"
             >
@@ -847,7 +847,7 @@ exports[`CalculatorModal component renders with pearl background 1`] = `
         </div>
       </div>
       <div
-        class="content"
+        class="CalculatorModal-content"
       >
         <div
           class=" css-ze8cyt"

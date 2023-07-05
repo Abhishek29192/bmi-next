@@ -12,7 +12,10 @@ import { isValidEmail } from "../utils/emailUtils";
 import withGTM from "../utils/google-tag-manager";
 import FormSection, { Data as FormData } from "./FormSection";
 import { useSiteContext } from "./Site";
-import styles from "./styles/SignupBlock.module.scss";
+import {
+  StyledIntegratedSignupBlock,
+  classes
+} from "./styles/SignupBlock.styles";
 
 export type Data = {
   __typename: "ContentfulSignupBlock";
@@ -80,7 +83,7 @@ const IntegratedSignupBlock = ({
   };
 
   return (
-    <div className={styles["SignupBlock"]}>
+    <StyledIntegratedSignupBlock>
       <SignupBlock
         title={title}
         description={description?.description}
@@ -107,7 +110,7 @@ const IntegratedSignupBlock = ({
           onCloseClick={handleDialogClose}
           data-testid={"signup-block-dialog"}
         >
-          <Dialog.Title hasUnderline className={styles["dialogTitle"]}>
+          <Dialog.Title hasUnderline className={classes.dialogTitle}>
             {" "}
             {title}{" "}
           </Dialog.Title>
@@ -140,7 +143,7 @@ const IntegratedSignupBlock = ({
           />
         </Dialog>
       )}
-    </div>
+    </StyledIntegratedSignupBlock>
   );
 };
 

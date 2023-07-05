@@ -13,7 +13,10 @@ import withGTM from "../utils/google-tag-manager";
 import { getCTA } from "./Link";
 import { Data as PageInfoData } from "./PageInfo";
 import { useSiteContext } from "./Site";
-import styles from "./styles/SampleOrderSection.module.scss";
+import {
+  StyledSampleOrderContainer,
+  classes
+} from "./styles/SampleOrderSection.styles";
 
 const SampleOrderSection = ({
   isSampleOrderAllowed,
@@ -87,8 +90,8 @@ const SampleOrderSection = ({
 
   return (
     (isSampleOrderAllowed || basketHasProducts) && (
-      <div className={styles["SampleOrderSection"]}>
-        <div className={styles["container"]}>
+      <div>
+        <StyledSampleOrderContainer>
           <Section
             backgroundColor="white"
             spacing="none"
@@ -96,14 +99,13 @@ const SampleOrderSection = ({
             id={`sample-order`}
           >
             {basketHasProducts && (
-              <div className={styles["sample-message"]}>{sampleMessage()}</div>
+              <div className={classes["sample-message"]}>{sampleMessage()}</div>
             )}
 
-            <div className={styles["buttons-container"]}>
+            <div className={classes["buttons-container"]}>
               {isSampleOrderAllowed ? (
                 hasSampleInTheBasket ? (
                   <Button
-                    className={styles["remove-from-basket"]}
                     endIcon={<Remove />}
                     onClick={() => removeFromBasket(product)}
                     variant="text"
@@ -113,7 +115,6 @@ const SampleOrderSection = ({
                   </Button>
                 ) : !isBasketFull ? (
                   <GTMButton
-                    className={styles["add-to-basket"]}
                     endIcon={<Add />}
                     onClick={() => addToBasket(product)}
                     gtm={{
@@ -129,7 +130,7 @@ const SampleOrderSection = ({
               ) : undefined}
               {basketHasProducts && cta && cta.action && (
                 <Button
-                  className={styles["complete-order"]}
+                  className={classes["complete-order"]}
                   endIcon={<ShoppingCart />}
                   variant="outlined"
                   action={cta.action}
@@ -139,7 +140,7 @@ const SampleOrderSection = ({
               )}
             </div>
           </Section>
-        </div>
+        </StyledSampleOrderContainer>
       </div>
     )
   );

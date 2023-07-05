@@ -7,7 +7,7 @@ import {
   WebGLRenderer
 } from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import styles from "./styles/Viewer.module.scss";
+import { Canvas, Root } from "./styles/VisualiserStylesOld";
 import { Colour, Siding, Tile } from "./Types";
 
 export interface Props {
@@ -122,14 +122,13 @@ export default abstract class Viewer<
 
   render() {
     return (
-      <div className={styles["viewer"]}>
-        <div
-          className={styles["canvas"]}
+      <Root data-testid="viewer-old">
+        <Canvas
           ref={(r) => {
             this.container = r;
           }}
         />
-      </div>
+      </Root>
     );
   }
 }

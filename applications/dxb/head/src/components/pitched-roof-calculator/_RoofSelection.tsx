@@ -56,6 +56,9 @@ const RoofSelectionRow = ({
                   });
                   onChange(roof.id);
                 }}
+                onChange={() => {
+                  console.log("-- CardRadioGroup.Item changed --");
+                }}
               />
             </Grid>
           );

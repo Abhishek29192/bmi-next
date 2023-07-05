@@ -10,8 +10,8 @@ import classnames from "classnames";
 import React, { FormEvent, useEffect, useState } from "react";
 import RichText from "../components/RichText";
 import { getPathWithCountryCode } from "../utils/path";
-import styles from "./styles/SearchBlock.module.scss";
 import { Data as TitleWithContentData } from "./TitleWithContent";
+import { StyledSearchPageGrid, classes } from "./styles/SearchBlock.styles";
 
 export type QueryInput = Extract<string, InputValue>;
 
@@ -58,11 +58,9 @@ const SearchPageBlock = ({
   };
 
   return (
-    <Grid container spacing={3} className={styles["SearchBlock"]}>
+    <StyledSearchPageGrid>
       <Grid lg={8} xs={12}>
-        <div
-          className={classnames(styles["content"], styles["content--search"])}
-        >
+        <div className={classnames(classes["content-search"])}>
           <Search
             action={getPathWithCountryCode(countryCode, "search")}
             buttonText={buttonText}
@@ -77,18 +75,14 @@ const SearchPageBlock = ({
           />
         </div>
         {!isLoading && !hasResults && searchPageSearchTips && (
-          <div className={styles["content"]}>
+          <div className={classes.content}>
             <Typography variant="h5">{searchPageSearchTips.title}</Typography>
             <RichText document={searchPageSearchTips.content} />
           </div>
         )}
       </Grid>
       {!isLoading && !hasResults && searchPageSidebarItems && (
-        <Grid
-          lg={4}
-          xs={12}
-          className={classnames(styles["content"], styles["content--card"])}
-        >
+        <Grid lg={4} xs={12} className={classnames(classes["content-card"])}>
           <PostItCard color="pearl">
             <PostItCard.Section>
               <PostItCard.Heading hasUnderline>
@@ -104,7 +98,7 @@ const SearchPageBlock = ({
           </PostItCard>
         </Grid>
       )}
-    </Grid>
+    </StyledSearchPageGrid>
   );
 };
 

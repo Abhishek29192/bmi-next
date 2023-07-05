@@ -2,8 +2,8 @@ import { replaceSpaces, Section } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
 import { useHasOptanonBoxClosed } from "../utils/useHasOptanonBoxClosed";
+import { IframeSummary, Iframe } from "./styles/IframeSectionStyles";
 import RichText, { RichTextData } from "./RichText";
-import styles from "./styles/IframeSection.module.scss";
 
 type CookieTypeToClass = {
   [key: string]: string;
@@ -41,31 +41,28 @@ const IframeSection = ({ data }: Props) => {
   );
   return (
     <Section
-      className={styles["IframeSection"]}
       backgroundColor="pearl"
       data-testid={`iframe-section-${replaceSpaces(data.title)}`}
     >
-      {data.title && (
-        <Section.Title className={styles["title"]}>{data.title}</Section.Title>
-      )}
+      {data.title && <Section.Title>{data.title}</Section.Title>}
       {data.summary && (
-        <div className={styles["summary"]}>
+        <IframeSummary>
           <RichText document={data.summary} hasNoBottomMargin />
-        </div>
+        </IframeSummary>
       )}
       {hasAcceptedOptanonCookie && (
-        <iframe
+        <Iframe
           id={`iframe-section-${replaceSpaces(data.title)}-iframe`}
           key={`iframe-section-${replaceSpaces(data.title)}-iframe`}
           title={data.title || undefined}
-          className={`${styles["iFrame"]}${
+          className={`${
             cookieClasses.length > 0 ? ` optanon-category-${cookieClasses}` : ""
           }`}
           src={data.url}
           width="100%"
           height={data.height}
           data-testid={`iframe-section-${replaceSpaces(data.title)}-iframe`}
-        />
+        ></Iframe>
       )}
     </Section>
   );

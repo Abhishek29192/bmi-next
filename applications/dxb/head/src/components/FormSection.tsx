@@ -15,7 +15,8 @@ import {
   SelectMenuItem,
   TextField,
   Typography,
-  Upload
+  Upload,
+  useIsClient
 } from "@bmi-digital/components";
 import { ArrowForward as ArrowForwardIcon } from "@bmi-digital/components/icon";
 import logger from "@bmi-digital/functions-logger";
@@ -139,6 +140,7 @@ const Input = ({
   accept = ".pdf, .jpg, .jpeg, .png",
   maxSize
 }: Omit<InputType, "width">) => {
+  const { isClient } = useIsClient();
   const { gcpFormUploadEndpoint } = useConfig();
   const { getMicroCopy } = useSiteContext();
   const { executeRecaptcha } = useGoogleReCaptcha();
@@ -292,7 +294,9 @@ const Input = ({
       return (
         <>
           <Typography>
-            <span dangerouslySetInnerHTML={{ __html: label }}></span>
+            {isClient && (
+              <span dangerouslySetInnerHTML={{ __html: label }}></span>
+            )}
           </Typography>
           <HiddenInput name={name} value={label} />
         </>
@@ -301,7 +305,13 @@ const Input = ({
       return (
         <Checkbox
           name={name}
-          label={<span dangerouslySetInnerHTML={{ __html: label }}></span>}
+          label={
+            isClient ? (
+              <span dangerouslySetInnerHTML={{ __html: label }}></span>
+            ) : (
+              <span></span>
+            )
+          }
           isRequired={required}
         />
       );

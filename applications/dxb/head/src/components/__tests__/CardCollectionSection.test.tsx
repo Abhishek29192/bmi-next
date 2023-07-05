@@ -647,34 +647,34 @@ describe("CardCollectionSection component", () => {
     expect(renderedCards).toHaveLength(10);
     expect(
       screen.getByTestId(`card-collection-grid-item-${data.cards[0].id}`)
-    ).not.toHaveClass("hidden");
+    ).not.toHaveClass("CardCollectionSectionStyles-hidden");
     expect(
       screen.getByTestId(`card-collection-grid-item-${data.cards[1].id}`)
-    ).not.toHaveClass("hidden");
+    ).not.toHaveClass("CardCollectionSectionStyles-hidden");
     expect(
       screen.getByTestId(`card-collection-grid-item-${data.cards[2].id}`)
-    ).not.toHaveClass("hidden");
+    ).not.toHaveClass("CardCollectionSectionStyles-hidden");
     expect(
       screen.getByTestId(`card-collection-grid-item-${data.cards[3].id}`)
-    ).not.toHaveClass("hidden");
+    ).not.toHaveClass("CardCollectionSectionStyles-hidden");
     expect(
       screen.getByTestId(`card-collection-grid-item-${data.cards[4].id}`)
-    ).not.toHaveClass("hidden");
+    ).not.toHaveClass("CardCollectionSectionStyles-hidden");
     expect(
       screen.getByTestId(`card-collection-grid-item-${data.cards[5].id}`)
-    ).not.toHaveClass("hidden");
+    ).not.toHaveClass("CardCollectionSectionStyles-hidden");
     expect(
       screen.getByTestId(`card-collection-grid-item-${data.cards[6].id}`)
-    ).not.toHaveClass("hidden");
+    ).not.toHaveClass("CardCollectionSectionStyles-hidden");
     expect(
       screen.getByTestId(`card-collection-grid-item-${data.cards[7].id}`)
-    ).not.toHaveClass("hidden");
+    ).not.toHaveClass("CardCollectionSectionStyles-hidden");
     expect(
       screen.getByTestId(`card-collection-grid-item-${data.cards[8].id}`)
-    ).toHaveClass("hidden");
+    ).toHaveClass("CardCollectionSectionStyles-hidden");
     expect(
       screen.getByTestId(`card-collection-grid-item-${data.cards[9].id}`)
-    ).toHaveClass("hidden");
+    ).toHaveClass("CardCollectionSectionStyles-hidden");
 
     fireEvent.click(screen.getByText("MC: global.showMore"));
 

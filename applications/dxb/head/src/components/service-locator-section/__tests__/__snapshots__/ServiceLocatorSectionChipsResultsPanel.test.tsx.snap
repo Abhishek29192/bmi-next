@@ -3,7 +3,7 @@
 exports[`ServiceLocatorSection resulst list pannel component should render results list panel on page load if at list one chip exists in query params 1`] = `
 <div>
   <div
-    class="ServiceLocationSection Section-root Section-white css-10chrh8"
+    class="Section-root Section-white css-10chrh8"
     data-testid="service-locator-section-Main"
   >
     <div
@@ -19,15 +19,15 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
           Main
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-39zinx-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 search css-xrsztz-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 css-1p10s62-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
-              class="MuiAutocomplete-root company-autocomplete css-1h51icj-MuiAutocomplete-root"
+              class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -92,7 +92,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
               </div>
             </div>
             <p
-              class="MuiTypography-root MuiTypography-body1 and-or-label css-1o02bdp-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-bp02w2-MuiTypography-root"
               data-testid="typography"
             >
               <span>
@@ -151,13 +151,13 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
             data-testid="grid-item"
           >
             <div
-              class="filters"
+              class="css-gpp2b7"
             >
               <div
-                class="chips"
+                class="css-b6h8js"
               >
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 chips-label css-1nuwz6u-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 css-1eu0cyt-MuiTypography-root"
                   data-testid="typography"
                 >
                   MC: findARoofer.filtersLabel
@@ -231,7 +231,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
           </div>
         </div>
         <div
-          class="Tabs-secondary Tabs-visibleUntillg tabs css-nxi0jm"
+          class="Tabs-secondary Tabs-visibleUntillg css-93lgkw"
           data-testid="tabs"
         >
           <div
@@ -297,18 +297,18 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
           </div>
           <div
             aria-labelledby="tab-list"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
+            class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-1jd7gq0"
             data-testid="tabpanel-list"
             heading="MC: findARoofer.listLabel"
             id="tabpanel-list"
             role="tabpanel"
           >
             <div
-              class=""
+              class="css-10klw3m"
               data-testid="results-list-section"
             >
               <div
-                class="list"
+                class="css-1rgic4w"
               >
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -330,7 +330,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                       data-testid="typography"
                     >
                       <div
-                        class="subtitle"
+                        class="css-1upilqn"
                       >
                         address 1
                       </div>
@@ -475,7 +475,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
           </div>
           <div
             aria-labelledby="tab-map"
-            class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
+            class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-r04fpi"
             data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
@@ -483,7 +483,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
             role="tabpanel"
           >
             <div
-              class="css-1003pyu"
+              class="css-s53wko"
             >
               <div
                 class="css-1b4gbon"

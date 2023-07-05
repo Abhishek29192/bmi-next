@@ -3,7 +3,7 @@
 exports[`Brands component renders correctly 1`] = `
 <div>
   <div
-    class="Brands Section-root Section-pearl css-10chrh8"
+    class="Section-root Section-pearl css-1ct3z8u"
     data-testid="brands"
   >
     <div
@@ -40,7 +40,7 @@ exports[`Brands component renders correctly 1`] = `
                 tabindex="0"
               >
                 <svg
-                  class="BrandLogo BrandIntroCard-brandLogo css-gn1fhj"
+                  class="BrandIntroCard-brandLogo css-1bpjlyv"
                   data-testid="brandLogo"
                   preserveAspectRatio="xMinYMin"
                   viewBox="0 0 154 100"

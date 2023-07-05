@@ -4,10 +4,45 @@ import {
   Card,
   CardContent,
   Typography,
-  Button
+  Button,
+  Grid
 } from "@bmi-digital/components";
 import { styled } from "@mui/material";
 import Image from "../../Image";
+
+const PREFIX = "ServiceLocatorSection-module";
+
+export const classes = {
+  tabPanel: `${PREFIX}-tabPanel`
+};
+
+export const Body = styled("div")({
+  marginBottom: "24px"
+});
+
+export const Controls = styled(Grid)({
+  marginBottom: "12px",
+  marginTop: 0
+});
+
+export const StyledTabs = styled(Tabs)(({ theme }) => ({
+  marginLeft: "-16px",
+  marginRight: "-16px",
+
+  [`${theme.breakpoints.up("sm")}`]: {
+    marginLeft: "-24px",
+    marginRight: "-24px"
+  },
+  [`${theme.breakpoints.up("lg")}`]: {
+    marginLeft: 0,
+    marginRight: 0
+  },
+  [`.${classes.tabPanel}`]: {
+    ["> div"]: {
+      paddingTop: 0
+    }
+  }
+}));
 
 export const ResultListTabPanel = styled(Tabs.TabPanel)(({ theme }) => ({
   width: "100%",
@@ -33,7 +68,8 @@ export const MapTabPanel = styled(Tabs.TabPanel)(({ theme }) => ({
 export const StyledServiceLocatorMap = styled("div")(({ theme }) => ({
   height: "calc(100vh - 48px)",
   [theme.breakpoints!.up!("lg")]: {
-    height: "640px"
+    height: "640px",
+    margin: "0 0 0 24px"
   }
 }));
 
@@ -101,7 +137,7 @@ export const companyLogoClasses = {
   card: `${COMPANYLOGOPREFIX}-card`
 };
 
-export const CompanyLogo = styled(Image)(({ theme }) => ({
+export const CompanyLogo = styled(Image)({
   marginBottom: "18px",
   height: "40px",
   maxWidth: "91px",
@@ -116,7 +152,8 @@ export const CompanyLogo = styled(Image)(({ theme }) => ({
       height: "60px"
     }
   }
-}));
+});
+
 export const CloseBtn = styled(Button)(({ theme }) => ({
   svg: {
     color: theme.colours.slate

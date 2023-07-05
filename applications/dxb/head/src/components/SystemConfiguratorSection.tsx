@@ -37,8 +37,11 @@ import { SystemCard } from "./RelatedSystems";
 import RichText, { RichTextData } from "./RichText";
 import Scrim from "./Scrim";
 import { useSiteContext } from "./Site";
-import styles from "./styles/SystemConfiguratorSection.module.scss";
 import { Data as DefaultTitleWithContentData } from "./TitleWithContent";
+import {
+  StyledSectionDescription,
+  StyledSectionTitle
+} from "./styles/SystemConfiguratorSection.styles";
 
 export type Data = {
   __typename: "ContentfulSystemConfiguratorSection";
@@ -395,14 +398,13 @@ const SystemConfiguratorResult = ({
     <div ref={ref} data-testid="system-config-result">
       <Section
         backgroundColor="pearl"
-        className={styles["SystemConfigurator-result"]}
         data-testid={`system-configuration-section-${replaceSpaces(title)}`}
       >
-        <Section.Title className={styles["title"]}>{title}</Section.Title>
+        <StyledSectionTitle>{title}</StyledSectionTitle>
         {description && (
-          <div className={styles["description"]}>
+          <StyledSectionDescription>
             <RichText document={description} />
-          </div>
+          </StyledSectionDescription>
         )}
         {recommendedSystems.length > 0 &&
           recommendedSystemPimObjects.length > 0 && (
@@ -497,7 +499,6 @@ const SystemConfiguratorSection = ({ data }: { data: Data }) => {
       ) : null}
       <Section
         backgroundColor="white"
-        className={styles["SystemConfigurator"]}
         data-testid={`system-configuration-section-${replaceSpaces(title)}`}
       >
         <Section.Title>{title}</Section.Title>

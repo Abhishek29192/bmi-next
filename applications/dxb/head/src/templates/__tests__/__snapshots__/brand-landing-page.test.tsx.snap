@@ -2989,7 +2989,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
       </div>
     </div>
     <div
-      class="OverlapCards"
+      class="css-pybm82"
       data-testid="overlap-cards-wrapper"
     >
       <div
@@ -10227,7 +10227,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
       </div>
     </div>
     <div
-      class="OverlapCards"
+      class="css-pybm82"
       data-testid="overlap-cards-wrapper"
     >
       <div
@@ -13973,7 +13973,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
       </div>
     </div>
     <div
-      class="OverlapCards"
+      class="css-pybm82"
       data-testid="overlap-cards-wrapper"
     >
       <div
@@ -17721,7 +17721,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
       </div>
     </div>
     <div
-      class="OverlapCards"
+      class="css-pybm82"
       data-testid="overlap-cards-wrapper"
     >
       <div
@@ -21439,7 +21439,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
       </div>
     </div>
     <div
-      class="OverlapCards"
+      class="css-pybm82"
       data-testid="overlap-cards-wrapper"
     >
       <div
@@ -25187,7 +25187,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
       </div>
     </div>
     <div
-      class="OverlapCards"
+      class="css-pybm82"
       data-testid="overlap-cards-wrapper"
     >
       <div
@@ -28947,7 +28947,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
       </div>
     </div>
     <div
-      class="OverlapCards"
+      class="css-pybm82"
       data-testid="overlap-cards-wrapper"
     >
       <div
@@ -32705,7 +32705,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
       </div>
     </div>
     <div
-      class="OverlapCards"
+      class="css-pybm82"
       data-testid="overlap-cards-wrapper"
     >
       <div
@@ -36465,7 +36465,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
       </div>
     </div>
     <div
-      class="OverlapCards"
+      class="css-pybm82"
       data-testid="overlap-cards-wrapper"
     >
       <div
@@ -40225,7 +40225,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
       </div>
     </div>
     <div
-      class="OverlapCards"
+      class="css-pybm82"
       data-testid="overlap-cards-wrapper"
     >
       <div

@@ -102,7 +102,7 @@ export const StyledQuantityTableLarge = styled("div")(({ theme }) => ({
     "& td": {
       height: "100%"
     },
-    "& > td:not(:first-child)": {
+    "& > td:not(:first-of-type)": {
       padding: "45px 0 32px"
     }
   },
@@ -161,7 +161,7 @@ export const StyledQuantityTableMedium = styled("div")(({ theme }) => ({
     "& td": {
       height: "100%"
     },
-    "& > td:not(:first-child)": {
+    "& > td:not(:first-of-type)": {
       padding: "45px 0 32px"
     }
   },

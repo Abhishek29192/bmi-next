@@ -3,45 +3,49 @@
 exports[`CalculatorStepper component ignores footer when there are no buttons 1`] = `
 <div>
   <div
-    class="CalculatorStepper"
+    class="css-10klw3m"
   >
-    <form
-      class="form css-5f0zb2"
-      data-testid="calculator-step-form"
+    <div
+      class="css-1hn3j7m"
     >
-      <div
-        class="formContent"
+      <form
+        class=" css-5f0zb2"
+        data-testid="calculator-step-form"
       >
-        <h4
-          class="MuiTypography-root MuiTypography-h4 step-title css-1x9euu8-MuiTypography-root"
-          data-testid="typography"
-        >
-          This is the 2nd page
-        </h4>
-        <h6
-          class="MuiTypography-root MuiTypography-h6 computation css-1nuwz6u-MuiTypography-root"
-          data-testid="typography"
-        />
-        <p
-          class="MuiTypography-root MuiTypography-body1 subtitle css-1o02bdp-MuiTypography-root"
-          data-testid="typography"
-        >
-          Choose the closest to your roof shape
-        </p>
         <div
-          class="content"
+          class="css-1q5js3k"
         >
-          <div>
-            <p>
-              This is the Selecting a Roof Shape page.
-            </p>
+          <h4
+            class="MuiTypography-root MuiTypography-h4 css-1d5crmf-MuiTypography-root"
+            data-testid="typography"
+          >
+            This is the 2nd page
+          </h4>
+          <h6
+            class="MuiTypography-root MuiTypography-h6 css-xxckso-MuiTypography-root"
+            data-testid="typography"
+          />
+          <p
+            class="MuiTypography-root MuiTypography-body1 css-1wit2sk-MuiTypography-root"
+            data-testid="typography"
+          >
+            Choose the closest to your roof shape
+          </p>
+          <div
+            class="css-189b1kn"
+          >
+            <div>
+              <p>
+                This is the Selecting a Roof Shape page.
+              </p>
+            </div>
           </div>
+          <hr
+            class="MuiDivider-root MuiDivider-fullWidth css-2ra9v5-MuiDivider-root"
+          />
         </div>
-        <hr
-          class="MuiDivider-root MuiDivider-fullWidth hr css-9mgopn-MuiDivider-root"
-        />
-      </div>
-    </form>
+      </form>
+    </div>
   </div>
 </div>
 `;
@@ -49,32 +53,32 @@ exports[`CalculatorStepper component ignores footer when there are no buttons 1`
 exports[`CalculatorStepper component renders as a div 1`] = `
 <div>
   <div
-    class="CalculatorStepper"
+    class="css-10klw3m"
   >
     <div
-      class="form--lg-padding stepWithoutForm"
+      class="CalculatorStepper-form-lg-padding css-1hn3j7m"
     >
       <div
-        class="formContent"
+        class="css-1q5js3k"
       >
         <h4
-          class="MuiTypography-root MuiTypography-h4 step-title css-1x9euu8-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h4 css-1d5crmf-MuiTypography-root"
           data-testid="typography"
         >
           This is the 2nd page
         </h4>
         <h6
-          class="MuiTypography-root MuiTypography-h6 computation css-1nuwz6u-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h6 css-xxckso-MuiTypography-root"
           data-testid="typography"
         />
         <p
-          class="MuiTypography-root MuiTypography-body1 subtitle css-1o02bdp-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 css-1wit2sk-MuiTypography-root"
           data-testid="typography"
         >
           Choose the closest to your roof shape
         </p>
         <div
-          class="content"
+          class="css-189b1kn"
         >
           <div>
             <p>
@@ -84,10 +88,10 @@ exports[`CalculatorStepper component renders as a div 1`] = `
         </div>
       </div>
       <div
-        class="footer"
+        class="css-c818ci"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footerButton css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-184373x-MuiButtonBase-root-MuiButton-root"
           tabindex="0"
           type="button"
         >
@@ -112,10 +116,10 @@ exports[`CalculatorStepper component renders as a div 1`] = `
           />
         </button>
         <div
-          class="skipAndNextButtons"
+          class="css-zdpt2t"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium footerButton footerButton--link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-xssgkv-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
           >
@@ -125,7 +129,7 @@ exports[`CalculatorStepper component renders as a div 1`] = `
             />
           </button>
           <button
-            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium footerButton css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-80uv8r-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="submit"
           >
@@ -144,95 +148,99 @@ exports[`CalculatorStepper component renders as a div 1`] = `
 exports[`CalculatorStepper component renders correctly 1`] = `
 <div>
   <div
-    class="CalculatorStepper"
+    class="css-10klw3m"
   >
-    <form
-      class="form--lg-padding form css-5f0zb2"
-      data-testid="calculator-step-form"
+    <div
+      class="css-1hn3j7m"
     >
-      <div
-        class="formContent"
+      <form
+        class="CalculatorStepper-form-lg-padding css-5f0zb2"
+        data-testid="calculator-step-form"
       >
-        <h4
-          class="MuiTypography-root MuiTypography-h4 step-title css-1x9euu8-MuiTypography-root"
-          data-testid="typography"
-        >
-          This is the 2nd page
-        </h4>
-        <h6
-          class="MuiTypography-root MuiTypography-h6 computation css-1nuwz6u-MuiTypography-root"
-          data-testid="typography"
-        />
-        <p
-          class="MuiTypography-root MuiTypography-body1 subtitle css-1o02bdp-MuiTypography-root"
-          data-testid="typography"
-        >
-          Choose the closest to your roof shape
-        </p>
         <div
-          class="content"
+          class="css-1q5js3k"
         >
-          <div>
-            <p>
-              This is the Selecting a Roof Shape page.
-            </p>
+          <h4
+            class="MuiTypography-root MuiTypography-h4 css-1d5crmf-MuiTypography-root"
+            data-testid="typography"
+          >
+            This is the 2nd page
+          </h4>
+          <h6
+            class="MuiTypography-root MuiTypography-h6 css-xxckso-MuiTypography-root"
+            data-testid="typography"
+          />
+          <p
+            class="MuiTypography-root MuiTypography-body1 css-1wit2sk-MuiTypography-root"
+            data-testid="typography"
+          >
+            Choose the closest to your roof shape
+          </p>
+          <div
+            class="css-189b1kn"
+          >
+            <div>
+              <p>
+                This is the Selecting a Roof Shape page.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        class="footer"
-      >
-        <button
-          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footerButton css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
-          >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-              data-testid="ArrowBackIcon"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-              />
-            </svg>
-          </span>
-          Go Back
-          <span
-            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-          />
-        </button>
         <div
-          class="skipAndNextButtons"
+          class="css-c818ci"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium footerButton footerButton--link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-184373x-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
           >
-            Skip
+            <span
+              class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                data-testid="ArrowBackIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                />
+              </svg>
+            </span>
+            Go Back
             <span
               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
             />
           </button>
-          <button
-            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium footerButton css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-            tabindex="0"
-            type="submit"
+          <div
+            class="css-zdpt2t"
           >
-            Calculate
-            <span
-              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-            />
-          </button>
+            <button
+              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-xssgkv-MuiButtonBase-root-MuiButton-root"
+              tabindex="0"
+              type="button"
+            >
+              Skip
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </button>
+            <button
+              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-80uv8r-MuiButtonBase-root-MuiButton-root"
+              tabindex="0"
+              type="submit"
+            >
+              Calculate
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </button>
+          </div>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
   </div>
 </div>
 `;

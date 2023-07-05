@@ -1,7 +1,7 @@
 import { AlertBanner } from "@bmi-digital/components";
 import classnames from "classnames";
 import React from "react";
-import styles from "./_Alert.module.scss";
+import { Root, classes } from "./_Alert.styles";
 
 type AlertProps = {
   type?: "info" | "warning";
@@ -12,18 +12,12 @@ type AlertProps = {
 };
 
 const Alert = ({ type = "info", title, first, last, children }: AlertProps) => (
-  <div
-    className={classnames(
-      styles["Alert"],
-      first && styles[`Alert--first`],
-      last && styles[`Alert--last`]
-    )}
-  >
+  <Root className={classnames(first && classes.first, last && classes.last)}>
     <AlertBanner severity={type}>
       <AlertBanner.Title>{title}</AlertBanner.Title>
       {children}
     </AlertBanner>
-  </div>
+  </Root>
 );
 
 export default Alert;

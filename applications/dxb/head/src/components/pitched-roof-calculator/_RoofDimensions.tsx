@@ -3,7 +3,7 @@ import React from "react";
 import InputTextField from "./subcomponents/_InputTextField";
 import { DimensionsValues, RoofV2 as Roof } from "./types/roof";
 import Protrusions from "./_Protrusions";
-import styles from "./_RoofDimensions.module.scss";
+import { Root, classes } from "./_RoofDimensions.styles";
 
 export type RoofDimensionsProps = {
   dimensions: DimensionsValues;
@@ -13,9 +13,9 @@ export type RoofDimensionsProps = {
 const RoofDimensions = ({ dimensions, roof }: RoofDimensionsProps) => {
   const Illustration = roof.dimensionsIllustration;
   return (
-    <div className={styles["RoofDimensions"]}>
-      <div className={styles["form"]}>
-        <Illustration className={styles["illustration"]} />
+    <Root>
+      <div className={classes.form}>
+        <Illustration className={classes.illustration} />
         <Grid container spacing={3} justifyContent="center">
           {roof.fields.map(({ name, type }) => (
             <Grid key={name} xs={12} lg={3}>
@@ -29,7 +29,7 @@ const RoofDimensions = ({ dimensions, roof }: RoofDimensionsProps) => {
         </Grid>
       </div>
       <Protrusions defaultValue={dimensions.protrusions} />
-    </div>
+    </Root>
   );
 };
 

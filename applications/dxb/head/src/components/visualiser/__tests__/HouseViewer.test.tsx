@@ -1,4 +1,4 @@
-import { render, waitFor } from "@testing-library/react";
+import { waitFor } from "@testing-library/react";
 import React from "react";
 import {
   AxesHelper,
@@ -13,6 +13,7 @@ import {
   Texture,
   Vector3
 } from "three";
+import { renderWithProviders } from "../../../__tests__/renderWithProviders";
 import HouseViewer, { Props as HouseViewerProps } from "../HouseViewer";
 import loadTexture from "../TextureCache";
 import cacheModel from "../ModelCache";
@@ -174,7 +175,7 @@ describe("Visualiser HouseViewer", () => {
       const setLoadingSpy = jest.spyOn(HouseViewer.prototype, "setIsLoading");
       (cacheModel as jest.Mock).mockRejectedValue("Error");
 
-      render(<HouseViewer {...defaultProps} />);
+      renderWithProviders(<HouseViewer {...defaultProps} />);
       await waitFor(() => expect(setLoadingSpy).toHaveBeenCalledWith(false));
       setLoadingSpy.mockReset();
     });

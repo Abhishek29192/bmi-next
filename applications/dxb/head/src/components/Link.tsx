@@ -16,7 +16,7 @@ import { Data as PromoData } from "./Promo";
 import { SectionData, sectionsMap } from "./Sections";
 import { useSiteContext } from "./Site";
 import { VisualiserContext } from "./Visualiser";
-import styles from "./styles/Link.module.scss";
+import { StyledLinkDialog } from "./styles/Link.styles";
 
 const checkUrlAction = (url: string): boolean => {
   const actionUrls = ["mailto:", "tel:", "callto:"];
@@ -249,9 +249,9 @@ export const renderDialog = (
 
   return (
     <Dialog open={dialogIsOpen} onCloseClick={handleDialogCloseClick}>
-      <div className={styles["Link--dialog"]}>
+      <StyledLinkDialog>
         <Component data={data.dialogContent} id={sectionId} />
-      </div>
+      </StyledLinkDialog>
     </Dialog>
   );
 };

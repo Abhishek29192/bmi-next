@@ -50,7 +50,7 @@ exports[`Sections component renders alternate backgrounds for promos 1`] = `
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="PromoSection PromoSection-reversed Section-root Section-white css-1obptq1"
+      class="PromoSection-reversed Section-root Section-white css-1obptq1"
       data-testid="promo-section"
     >
       <div
@@ -98,7 +98,7 @@ exports[`Sections component renders alternate backgrounds for promos 1`] = `
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="PromoSection Section-root Section-alabaster css-1obptq1"
+      class=" Section-root Section-alabaster css-1obptq1"
       data-testid="promo-section"
     >
       <div
@@ -146,7 +146,7 @@ exports[`Sections component renders alternate backgrounds for promos 1`] = `
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="PromoSection PromoSection-reversed Section-root Section-white css-1obptq1"
+      class="PromoSection-reversed Section-root Section-white css-1obptq1"
       data-testid="promo-section"
     >
       <div
@@ -547,7 +547,7 @@ exports[`Sections component renders correctly 1`] = `
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="CardCollectionSection"
+      class="css-18aimy4"
       data-testid="card-collection-section-card-collection-section-title"
     >
       <div
@@ -561,7 +561,7 @@ exports[`Sections component renders correctly 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h2
-              class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h2 Typography-underline css-8cj2y3-MuiTypography-root"
               data-testid="typography"
             >
               card collection section title
@@ -588,7 +588,7 @@ exports[`Sections component renders correctly 1`] = `
                         class="OverviewCard-brandLogo"
                       >
                         <svg
-                          class="BrandLogo css-gn1fhj"
+                          class=" css-1bpjlyv"
                           data-testid="brand-logo"
                           preserveAspectRatio="xMinYMin"
                           viewBox="0 0 244 100"
@@ -662,7 +662,7 @@ exports[`Sections component renders correctly 1`] = `
               </div>
             </div>
             <a
-              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium link css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium CardCollectionSectionStyles-link css-11nrv4h-MuiButtonBase-root-MuiButton-root"
               data-gtm="{"id":"cta-click1","action":"/uk/contact-us/","label":"Contact us"}"
               href="/uk/contact-us/"
               tabindex="0"
@@ -697,7 +697,7 @@ exports[`Sections component renders correctly 1`] = `
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="CardCollectionSection"
+      class="css-18aimy4"
       data-testid="card-collection-section-card-section-title-2"
     >
       <div
@@ -711,7 +711,7 @@ exports[`Sections component renders correctly 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h2
-              class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h2 Typography-underline css-8cj2y3-MuiTypography-root"
               data-testid="typography"
             >
               card section title 2
@@ -807,7 +807,7 @@ exports[`Sections component renders correctly 1`] = `
                     data-testid="overview-card-body-footer"
                   >
                     <span
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       data-testid="card-link"
                       role="button"
                       tabindex="0"
@@ -835,7 +835,7 @@ exports[`Sections component renders correctly 1`] = `
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="PromoSection Section-root Section-alabaster css-1obptq1"
+      class=" Section-root Section-alabaster css-1obptq1"
       data-testid="promo-section"
     >
       <div
@@ -868,7 +868,7 @@ exports[`Sections component renders correctly 1`] = `
                   card section title 2
                 </h3>
                 <div
-                  class="link"
+                  class="css-wpz1t9"
                 >
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
@@ -946,7 +946,7 @@ exports[`Sections component renders correctly 1`] = `
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="PromoSection Section-root Section-alabaster css-1obptq1"
+      class=" Section-root Section-alabaster css-1obptq1"
       data-testid="promo-section"
     >
       <div
@@ -1042,7 +1042,7 @@ exports[`Sections component renders correctly 1`] = `
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="MediaGallerySection Section-root Section-alabaster css-10chrh8"
+      class="Section-root Section-alabaster css-10chrh8"
       data-testid="media-gallery-section-Gallery-title"
     >
       <div
@@ -1056,7 +1056,7 @@ exports[`Sections component renders correctly 1`] = `
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-lg-8 gridItem css-wuqcfn-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-lg-8 css-640u2w-MuiGrid2-root"
               data-testid="grid-item"
             >
               <h2
@@ -1067,7 +1067,7 @@ exports[`Sections component renders correctly 1`] = `
               </h2>
             </div>
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 gridItem css-r7p5j6-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 css-1y7ikt3-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
@@ -1195,7 +1195,7 @@ exports[`Sections component renders correctly 1`] = `
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="ServiceLocationSection Section-root Section-white css-10chrh8"
+      class="Section-root Section-white css-10chrh8"
       data-testid="service-locator-section-Find-A-Roofer"
     >
       <div
@@ -1205,15 +1205,15 @@ exports[`Sections component renders correctly 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-39zinx-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 search css-xrsztz-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 css-1p10s62-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
-                class="MuiAutocomplete-root company-autocomplete css-1h51icj-MuiAutocomplete-root"
+                class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -1278,7 +1278,7 @@ exports[`Sections component renders correctly 1`] = `
                 </div>
               </div>
               <p
-                class="MuiTypography-root MuiTypography-body1 and-or-label css-1o02bdp-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 css-bp02w2-MuiTypography-root"
                 data-testid="typography"
               >
                 <span>
@@ -1334,7 +1334,7 @@ exports[`Sections component renders correctly 1`] = `
             </div>
           </div>
           <div
-            class="Tabs-secondary Tabs-visibleUntillg tabs css-nxi0jm"
+            class="Tabs-secondary Tabs-visibleUntillg css-93lgkw"
             data-testid="tabs"
           >
             <div
@@ -1400,17 +1400,17 @@ exports[`Sections component renders correctly 1`] = `
             </div>
             <div
               aria-labelledby="tab-list"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
+              class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-1jd7gq0"
               data-testid="tabpanel-list"
               heading="findARoofer.listLabel"
               id="tabpanel-list"
               role="tabpanel"
             >
               <div
-                class="no-results"
+                class="css-2znhqc"
               >
                 <h4
-                  class="MuiTypography-root MuiTypography-h4 no-results-heading css-1x9euu8-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h4 css-u0svqn-MuiTypography-root"
                   data-testid="typography"
                 >
                   findARoofer.noResults.title
@@ -1425,7 +1425,7 @@ exports[`Sections component renders correctly 1`] = `
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
+              class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-r04fpi"
               data-testid="tabpanel-map"
               heading="findARoofer.mapLabel"
               hidden=""
@@ -1433,7 +1433,7 @@ exports[`Sections component renders correctly 1`] = `
               role="tabpanel"
             >
               <div
-                class="css-1003pyu"
+                class="css-s53wko"
               >
                 <div
                   class="css-1b4gbon"
@@ -1474,7 +1474,7 @@ exports[`Sections component renders correctly 1`] = `
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="ServiceLocationSection Section-root Section-white css-10chrh8"
+      class="Section-root Section-white css-10chrh8"
       data-testid="service-locator-section-Find-A-Roofer"
     >
       <div
@@ -1484,15 +1484,15 @@ exports[`Sections component renders correctly 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 controls css-12pcoqc-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-39zinx-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 search css-xrsztz-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 css-1p10s62-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
-                class="MuiAutocomplete-root company-autocomplete css-1h51icj-MuiAutocomplete-root"
+                class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -1557,7 +1557,7 @@ exports[`Sections component renders correctly 1`] = `
                 </div>
               </div>
               <p
-                class="MuiTypography-root MuiTypography-body1 and-or-label css-1o02bdp-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 css-bp02w2-MuiTypography-root"
                 data-testid="typography"
               >
                 <span>
@@ -1616,13 +1616,13 @@ exports[`Sections component renders correctly 1`] = `
               data-testid="grid-item"
             >
               <div
-                class="filters"
+                class="css-gpp2b7"
               >
                 <div
-                  class="chips"
+                  class="css-b6h8js"
                 >
                   <h6
-                    class="MuiTypography-root MuiTypography-h6 chips-label css-1nuwz6u-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 css-1eu0cyt-MuiTypography-root"
                     data-testid="typography"
                   >
                     findARoofer.filtersLabel
@@ -1664,7 +1664,7 @@ exports[`Sections component renders correctly 1`] = `
             </div>
           </div>
           <div
-            class="Tabs-secondary Tabs-visibleUntillg tabs css-nxi0jm"
+            class="Tabs-secondary Tabs-visibleUntillg css-93lgkw"
             data-testid="tabs"
           >
             <div
@@ -1730,18 +1730,18 @@ exports[`Sections component renders correctly 1`] = `
             </div>
             <div
               aria-labelledby="tab-list"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-1jd7gq0"
+              class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-1jd7gq0"
               data-testid="tabpanel-list"
               heading="findARoofer.listLabel"
               id="tabpanel-list"
               role="tabpanel"
             >
               <div
-                class=""
+                class="css-10klw3m"
                 data-testid="results-list-section"
               >
                 <div
-                  class="list"
+                  class="css-1rgic4w"
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -1763,7 +1763,7 @@ exports[`Sections component renders correctly 1`] = `
                         data-testid="typography"
                       >
                         <div
-                          class="subtitle"
+                          class="css-1upilqn"
                         >
                           address 1
                         </div>
@@ -1952,7 +1952,7 @@ exports[`Sections component renders correctly 1`] = `
                         data-testid="typography"
                       >
                         <div
-                          class="subtitle"
+                          class="css-1upilqn"
                         >
                           address 1
                         </div>
@@ -2126,7 +2126,7 @@ exports[`Sections component renders correctly 1`] = `
             </div>
             <div
               aria-labelledby="tab-map"
-              class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-r04fpi"
+              class="Tabs-tabPanel Tabs-tabPanelBox ServiceLocatorSection-module-tabPanel MuiBox-root css-r04fpi"
               data-testid="tabpanel-map"
               heading="findARoofer.mapLabel"
               hidden=""
@@ -2134,7 +2134,7 @@ exports[`Sections component renders correctly 1`] = `
               role="tabpanel"
             >
               <div
-                class="css-1003pyu"
+                class="css-s53wko"
               >
                 <div
                   class="css-1b4gbon"
@@ -2175,7 +2175,7 @@ exports[`Sections component renders correctly 1`] = `
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="VideoSection Section-root css-10chrh8"
+      class="Section-root css-10chrh8"
       data-testid="video-section-Section-title"
     >
       <div
@@ -2185,7 +2185,7 @@ exports[`Sections component renders correctly 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 heading Typography-underline css-1gn4sxn-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
             data-testid="typography"
           >
             Section title
@@ -2201,7 +2201,7 @@ exports[`Sections component renders correctly 1`] = `
             </p>
           </div>
           <div
-            class="video"
+            class="css-178yklu"
           >
             <div
               class="YoutubeVideo-inline css-1tx8gw7"

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./styles/Scrim.module.scss";
+import { StyledScrim, classes } from "./styles/Scrim.styles";
 
 const Scrim = ({
   children,
@@ -8,9 +8,9 @@ const Scrim = ({
   children: React.ReactNode;
   theme: "light" | "dark";
 }) => (
-  <div className={[styles["Scrim"], styles[`Scrim--${theme}`]].join(" ")}>
+  <StyledScrim className={[classes[`scrim--${theme}`]].join(" ")}>
     {children}
-  </div>
+  </StyledScrim>
 );
 
 export default Scrim;

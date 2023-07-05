@@ -1,9 +1,4 @@
-import {
-  Button,
-  replaceSpaces,
-  Section,
-  Typography
-} from "@bmi-digital/components";
+import { Button, replaceSpaces, Typography } from "@bmi-digital/components";
 import React, {
   useCallback,
   useContext,
@@ -14,7 +9,6 @@ import React, {
 import { microCopy } from "../../constants/microCopies";
 import { devLog } from "../../utils/devLog";
 import { useIsMobileDevice } from "../../utils/useIsMobileDevice";
-import FormSection from "../FormSection";
 import ProgressIndicator from "../ProgressIndicator";
 import RichText from "../RichText";
 import { useSiteContext } from "../Site";
@@ -37,7 +31,17 @@ import {
 import { Line, LinesMap, Measurements } from "./types/roof";
 import { GutteringSelections } from "./_Guttering";
 import { createPdf } from "./_PDF";
-import styles from "./_Results.module.scss";
+import {
+  StyledFieldContainer,
+  StyledFormSection,
+  StyledFormSectionTypographyHelp,
+  StyledNeedHelpSection,
+  StyledNeedHelpSectionTitle,
+  StyledPrintReportSection,
+  StyledResetLinkButton,
+  StyledSpinnerContainer,
+  StyledTypographyHelp
+} from "./_Results.styles";
 
 type PrintReportSectionProps = {
   results: ResultsObject;
@@ -180,21 +184,20 @@ const PrintReportSection = ({
   };
 
   return isHubSpotFormAvailable ? (
-    <FormSection
+    <StyledFormSection
       id="webtool-calculator-form-id"
       backgroundColor="white"
       onSuccess={openPdfReport}
       onFormReady={onFormReady}
       onFormLoadError={onFormLoadError}
-      className={styles["FormSection"]}
       data={{
         __typename: "ContentfulFormSection",
         hubSpotFormGuid: hubSpotFormId,
         showTitle: true,
         description: (
-          <Typography className={styles["help"]}>
+          <StyledFormSectionTypographyHelp>
             {getMicroCopy(microCopy.RESULTS_EMAIL_HELP)}
-          </Typography>
+          </StyledFormSectionTypographyHelp>
         ),
         title: getMicroCopy(microCopy.RESULTS_EMAIL_TITLE),
         source: SourceType.HubSpot,
@@ -205,38 +208,34 @@ const PrintReportSection = ({
       }}
     />
   ) : (
-    <div
-      className={styles["printReportSection"]}
-      id="print-calculations-report"
-    >
+    <StyledPrintReportSection id="print-calculations-report">
       <div>
         <Typography variant="h4" hasUnderline>
           {getMicroCopy(microCopy.RESULTS_EMAIL_TITLE)}
         </Typography>
-        <Typography className={styles["help"]}>
+        <StyledTypographyHelp>
           {getMicroCopy(microCopy.RESULTS_DOWNLOAD_PDF_HELP)}
-        </Typography>
+        </StyledTypographyHelp>
         <Button onClick={openPdfReport}>
           {getMicroCopy(microCopy.RESULTS_DOWNLOAD_PDF_LABEL)}
         </Button>
       </div>
-      <Section
+      <StyledNeedHelpSection
         spacing="none"
         backgroundColor="pearl"
         hasNoPadding
-        className={styles["needHelpSection"]}
         data-testid={`print-calculcation-report${replaceSpaces(
           needHelpSection.title
         )}`}
       >
         {needHelpSection.title && (
-          <Section.Title className={styles["needHelpTitle"]}>
+          <StyledNeedHelpSectionTitle>
             {needHelpSection.title}
-          </Section.Title>
+          </StyledNeedHelpSectionTitle>
         )}
         <RichText document={needHelpSection.content} />
-      </Section>
-    </div>
+      </StyledNeedHelpSection>
+    </StyledPrintReportSection>
   );
 };
 
@@ -293,7 +292,18 @@ const Results = ({
     });
 
     return quantitiesCalculator.getResultsRowsByCategory();
-  }, []);
+  }, [
+    guttering?.downPipeConnectors,
+    guttering?.downPipes,
+    guttering?.gutteringHook,
+    guttering?.gutteringVariant,
+    measurements,
+    tileOptions.ridge,
+    tileOptions.ventilationHoods,
+    tileOptions.verge,
+    underlay,
+    variant
+  ]);
 
   const [tileRows, setTileRows] = useState(results.tiles);
   const [fixingRows, setFixingRows] = useState(results.fixings);
@@ -323,7 +333,7 @@ const Results = ({
       quantity: getMicroCopy(microCopy.RESULTS_TABLE_QUANTITY),
       remove: getMicroCopy(microCopy.RESULTS_TABLE_REMOVE)
     }),
-    []
+    [getMicroCopy]
   );
 
   const deleteRow =
@@ -373,15 +383,14 @@ const Results = ({
   return (
     <>
       {loading && (
-        <div className={styles["spinnerContainer"]}>
+        <StyledSpinnerContainer>
           <ProgressIndicator size={40} />
-        </div>
+        </StyledSpinnerContainer>
       )}
-      <div className={styles["Results"]}>
+      <div>
         {tileRows.length ? (
-          <FieldContainer
+          <StyledFieldContainer
             title={getMicroCopy(microCopy.RESULTS_CATEGORIES_TITLES)}
-            className={styles["fieldContainer"]}
           >
             <QuantityTable
               onDelete={deleteRow(setTileRows)}
@@ -389,12 +398,11 @@ const Results = ({
               rows={tileRows}
               {...tableLabels}
             />
-          </FieldContainer>
+          </StyledFieldContainer>
         ) : null}
         {fixingRows.length ? (
-          <FieldContainer
+          <StyledFieldContainer
             title={getMicroCopy(microCopy.RESULTS_CATEGORIES_FIXINGS)}
-            className={styles["fieldContainer"]}
           >
             <QuantityTable
               onDelete={deleteRow(setFixingRows)}
@@ -402,12 +410,11 @@ const Results = ({
               rows={fixingRows}
               {...tableLabels}
             />
-          </FieldContainer>
+          </StyledFieldContainer>
         ) : null}
         {ventilationRows.length ? (
-          <FieldContainer
+          <StyledFieldContainer
             title={getMicroCopy(microCopy.RESULTS_CATEGORIES_VENTILATION)}
-            className={styles["fieldContainer"]}
           >
             <QuantityTable
               onDelete={deleteRow(setVentilationRows)}
@@ -415,12 +422,11 @@ const Results = ({
               rows={ventilationRows}
               {...tableLabels}
             />
-          </FieldContainer>
+          </StyledFieldContainer>
         ) : null}
         {sealingRows.length ? (
-          <FieldContainer
+          <StyledFieldContainer
             title={getMicroCopy(microCopy.RESULTS_CATEGORIES_SEALING)}
-            className={styles["fieldContainer"]}
           >
             <QuantityTable
               onDelete={deleteRow(setSealingRows)}
@@ -428,12 +434,11 @@ const Results = ({
               rows={sealingRows}
               {...tableLabels}
             />
-          </FieldContainer>
+          </StyledFieldContainer>
         ) : null}
         {accessoryRows.length ? (
-          <FieldContainer
+          <StyledFieldContainer
             title={getMicroCopy(microCopy.RESULTS_CATEGORIES_ACCESSORIES)}
-            className={styles["fieldContainer"]}
           >
             <QuantityTable
               onDelete={deleteRow(setAccessoryRows)}
@@ -441,12 +446,11 @@ const Results = ({
               rows={accessoryRows}
               {...tableLabels}
             />
-          </FieldContainer>
+          </StyledFieldContainer>
         ) : null}
         {updatedProducts?.length ? (
-          <FieldContainer
+          <StyledFieldContainer
             title={getMicroCopy(microCopy.RESULTS_EDITED_PRODUCTS_TITLE)}
-            className={styles["fieldContainer"]}
           >
             <QuantityTable
               onDelete={deleteRow(setUpdatedProducts, true)}
@@ -454,7 +458,7 @@ const Results = ({
               rows={updatedProducts}
               {...tableLabels}
             />
-          </FieldContainer>
+          </StyledFieldContainer>
         ) : null}
         {updatedProducts ? (
           <Alert
@@ -465,16 +469,16 @@ const Results = ({
             first
           >
             {getMicroCopy(microCopy.RESULTS_ALERTS_QUANTITIES_UPDATED_TEXT)}{" "}
-            <Button
+            <StyledResetLinkButton
               onClick={resetProducts}
-              classes={{
-                root: styles["resetLink"],
-                text: styles["resetLink--text"]
-              }}
+              // classes={{
+              //   root: styles["resetLink"],
+              //   text: styles["resetLink--text"]
+              // }}
               variant="text"
             >
               {getMicroCopy(microCopy.RESULTS_ALERTS_QUANTITIES_RESET_BUTTON)}
-            </Button>
+            </StyledResetLinkButton>
             .
           </Alert>
         ) : (

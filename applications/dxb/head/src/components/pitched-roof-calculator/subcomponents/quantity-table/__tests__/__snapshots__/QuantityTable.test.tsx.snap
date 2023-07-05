@@ -805,7 +805,7 @@ exports[`QuantityTable component renders correctly 1`] = `
           class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
         >
           <div
-            class="css-1wvfec1"
+            class="css-x44arp"
           >
             <tr
               class="MuiTableRow-root quantityTableStyles-mediumTableRow css-wgfdj2-MuiTableRow-root"
@@ -1491,7 +1491,7 @@ exports[`QuantityTable component renders correctly 1`] = `
           class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
         >
           <div
-            class="css-1lkdjya"
+            class="css-sb0x6z"
           >
             <tr
               class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"

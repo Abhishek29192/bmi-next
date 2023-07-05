@@ -3,7 +3,7 @@
 exports[`CardCollectionSection component Card label doesn't render button if cardLabel and link label are not provided 1`] = `
 <div>
   <div
-    class="CardCollectionSection"
+    class="css-18aimy4"
     data-testid="card-collection-section-test-title"
   >
     <div
@@ -17,7 +17,7 @@ exports[`CardCollectionSection component Card label doesn't render button if car
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-8cj2y3-MuiTypography-root"
             data-testid="typography"
           >
             test title
@@ -79,7 +79,7 @@ exports[`CardCollectionSection component Card label doesn't render button if car
             </div>
           </div>
           <button
-            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium link css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium CardCollectionSectionStyles-link css-11nrv4h-MuiButtonBase-root-MuiButton-root"
             data-gtm="{"id":"cta-visualiser1","action":"visualiser","label":"Visualiser"}"
             tabindex="0"
             type="button"
@@ -115,7 +115,7 @@ exports[`CardCollectionSection component Card label renders as name if title is 
 <body>
   <div>
     <div
-      class="CardCollectionSection"
+      class="css-18aimy4"
       data-testid="card-collection-section-test-title"
     >
       <div
@@ -129,7 +129,7 @@ exports[`CardCollectionSection component Card label renders as name if title is 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h2
-              class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h2 Typography-underline css-8cj2y3-MuiTypography-root"
               data-testid="typography"
             >
               test title
@@ -223,7 +223,7 @@ exports[`CardCollectionSection component Card label renders as name if title is 
               </div>
             </div>
             <button
-              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium link css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium CardCollectionSectionStyles-link css-11nrv4h-MuiButtonBase-root-MuiButton-root"
               data-gtm="{"id":"cta-visualiser1","action":"visualiser","label":"Visualiser"}"
               tabindex="0"
               type="button"
@@ -260,7 +260,7 @@ exports[`CardCollectionSection component Renders correctly When Title rich text 
 <body>
   <div>
     <div
-      class="CardCollectionSection"
+      class="css-18aimy4"
       data-testid="card-collection-section-test-title"
     >
       <div
@@ -274,7 +274,7 @@ exports[`CardCollectionSection component Renders correctly When Title rich text 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h2
-              class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h2 Typography-underline css-8cj2y3-MuiTypography-root"
               data-testid="typography"
             >
               test title
@@ -296,10 +296,10 @@ exports[`CardCollectionSection component Renders correctly When Title rich text 
               MC: cardCollection.groupTitle
             </h3>
             <div
-              class="group-chips"
+              class="css-1t22xmr"
             >
               <div
-                class="chips"
+                class="css-ijcfq2"
               >
                 <div
                   class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-colorWhite Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
@@ -334,7 +334,7 @@ exports[`CardCollectionSection component Renders correctly When Title rich text 
               </div>
               <button
                 aria-disabled="true"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-h03s9s-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button Anchorlink AnchorLink-disabled css-1pcyfln-MuiTypography-root-MuiLink-root"
                 data-testid="anchor-link"
                 type="button"
               >
@@ -407,13 +407,13 @@ exports[`CardCollectionSection component Renders correctly When Title rich text 
                               data-testid="overview-card-body-footer"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 1 June 2021
                               </h6>
                               <span
-                                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                                 data-testid="card-link"
                                 role="button"
                                 tabindex="0"
@@ -448,7 +448,7 @@ exports[`CardCollectionSection component Renders correctly When dialogContent li
 <body>
   <div>
     <div
-      class="CardCollectionSection"
+      class="css-18aimy4"
       data-testid="card-collection-section-test-title"
     >
       <div
@@ -462,7 +462,7 @@ exports[`CardCollectionSection component Renders correctly When dialogContent li
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h2
-              class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h2 Typography-underline css-8cj2y3-MuiTypography-root"
               data-testid="typography"
             >
               test title
@@ -484,10 +484,10 @@ exports[`CardCollectionSection component Renders correctly When dialogContent li
               MC: cardCollection.groupTitle
             </h3>
             <div
-              class="group-chips"
+              class="css-1t22xmr"
             >
               <div
-                class="chips"
+                class="css-ijcfq2"
               >
                 <div
                   class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-colorWhite Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
@@ -522,7 +522,7 @@ exports[`CardCollectionSection component Renders correctly When dialogContent li
               </div>
               <button
                 aria-disabled="true"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-h03s9s-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button Anchorlink AnchorLink-disabled css-1pcyfln-MuiTypography-root-MuiLink-root"
                 data-testid="anchor-link"
                 type="button"
               >
@@ -573,13 +573,13 @@ exports[`CardCollectionSection component Renders correctly When dialogContent li
                     data-testid="overview-card-body-footer"
                   >
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       1 June 2021
                     </h6>
                     <span
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       data-testid="card-link"
                       role="button"
                       tabindex="0"
@@ -598,7 +598,7 @@ exports[`CardCollectionSection component Renders correctly When dialogContent li
               </div>
             </div>
             <a
-              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium link css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium CardCollectionSectionStyles-link css-11nrv4h-MuiButtonBase-root-MuiButton-root"
               data-gtm="{"id":"cta-click1","action":"https://www.external.co.uk","label":"string"}"
               href="https://www.external.co.uk"
               rel="noopener noreferrer"
@@ -637,7 +637,7 @@ exports[`CardCollectionSection component Renders correctly When entry-hyperlink 
 <body>
   <div>
     <div
-      class="CardCollectionSection"
+      class="css-18aimy4"
       data-testid="card-collection-section-test-title"
     >
       <div
@@ -651,7 +651,7 @@ exports[`CardCollectionSection component Renders correctly When entry-hyperlink 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h2
-              class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h2 Typography-underline css-8cj2y3-MuiTypography-root"
               data-testid="typography"
             >
               test title
@@ -668,10 +668,10 @@ exports[`CardCollectionSection component Renders correctly When entry-hyperlink 
               MC: cardCollection.groupTitle
             </h3>
             <div
-              class="group-chips"
+              class="css-1t22xmr"
             >
               <div
-                class="chips"
+                class="css-ijcfq2"
               >
                 <div
                   class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-colorWhite Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
@@ -706,7 +706,7 @@ exports[`CardCollectionSection component Renders correctly When entry-hyperlink 
               </div>
               <button
                 aria-disabled="true"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-h03s9s-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button Anchorlink AnchorLink-disabled css-1pcyfln-MuiTypography-root-MuiLink-root"
                 data-testid="anchor-link"
                 type="button"
               >
@@ -757,13 +757,13 @@ exports[`CardCollectionSection component Renders correctly When entry-hyperlink 
                     data-testid="overview-card-body-footer"
                   >
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       1 June 2021
                     </h6>
                     <span
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       data-testid="card-link"
                       role="button"
                       tabindex="0"
@@ -793,7 +793,7 @@ exports[`CardCollectionSection component Renders correctly When heading 2 is pre
 <body>
   <div>
     <div
-      class="CardCollectionSection"
+      class="css-18aimy4"
       data-testid="card-collection-section-test-title"
     >
       <div
@@ -807,7 +807,7 @@ exports[`CardCollectionSection component Renders correctly When heading 2 is pre
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h2
-              class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h2 Typography-underline css-8cj2y3-MuiTypography-root"
               data-testid="typography"
             >
               test title
@@ -829,10 +829,10 @@ exports[`CardCollectionSection component Renders correctly When heading 2 is pre
               MC: cardCollection.groupTitle
             </h3>
             <div
-              class="group-chips"
+              class="css-1t22xmr"
             >
               <div
-                class="chips"
+                class="css-ijcfq2"
               >
                 <div
                   class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-colorWhite Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
@@ -867,7 +867,7 @@ exports[`CardCollectionSection component Renders correctly When heading 2 is pre
               </div>
               <button
                 aria-disabled="true"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-h03s9s-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button Anchorlink AnchorLink-disabled css-1pcyfln-MuiTypography-root-MuiLink-root"
                 data-testid="anchor-link"
                 type="button"
               >
@@ -918,13 +918,13 @@ exports[`CardCollectionSection component Renders correctly When heading 2 is pre
                     data-testid="overview-card-body-footer"
                   >
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       1 June 2021
                     </h6>
                     <span
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       data-testid="card-link"
                       role="button"
                       tabindex="0"
@@ -954,7 +954,7 @@ exports[`CardCollectionSection component Renders correctly When heading 3 is pre
 <body>
   <div>
     <div
-      class="CardCollectionSection"
+      class="css-18aimy4"
       data-testid="card-collection-section-test-title"
     >
       <div
@@ -968,7 +968,7 @@ exports[`CardCollectionSection component Renders correctly When heading 3 is pre
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h2
-              class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h2 Typography-underline css-8cj2y3-MuiTypography-root"
               data-testid="typography"
             >
               test title
@@ -990,10 +990,10 @@ exports[`CardCollectionSection component Renders correctly When heading 3 is pre
               MC: cardCollection.groupTitle
             </h3>
             <div
-              class="group-chips"
+              class="css-1t22xmr"
             >
               <div
-                class="chips"
+                class="css-ijcfq2"
               >
                 <div
                   class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-colorWhite Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
@@ -1028,7 +1028,7 @@ exports[`CardCollectionSection component Renders correctly When heading 3 is pre
               </div>
               <button
                 aria-disabled="true"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-h03s9s-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button Anchorlink AnchorLink-disabled css-1pcyfln-MuiTypography-root-MuiLink-root"
                 data-testid="anchor-link"
                 type="button"
               >
@@ -1079,13 +1079,13 @@ exports[`CardCollectionSection component Renders correctly When heading 3 is pre
                     data-testid="overview-card-body-footer"
                   >
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       1 June 2021
                     </h6>
                     <span
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       data-testid="card-link"
                       role="button"
                       tabindex="0"
@@ -1115,7 +1115,7 @@ exports[`CardCollectionSection component Renders correctly When heading 4 is pre
 <body>
   <div>
     <div
-      class="CardCollectionSection"
+      class="css-18aimy4"
       data-testid="card-collection-section-test-title"
     >
       <div
@@ -1129,7 +1129,7 @@ exports[`CardCollectionSection component Renders correctly When heading 4 is pre
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h2
-              class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h2 Typography-underline css-8cj2y3-MuiTypography-root"
               data-testid="typography"
             >
               test title
@@ -1151,10 +1151,10 @@ exports[`CardCollectionSection component Renders correctly When heading 4 is pre
               MC: cardCollection.groupTitle
             </h3>
             <div
-              class="group-chips"
+              class="css-1t22xmr"
             >
               <div
-                class="chips"
+                class="css-ijcfq2"
               >
                 <div
                   class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-colorWhite Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
@@ -1189,7 +1189,7 @@ exports[`CardCollectionSection component Renders correctly When heading 4 is pre
               </div>
               <button
                 aria-disabled="true"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-h03s9s-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button Anchorlink AnchorLink-disabled css-1pcyfln-MuiTypography-root-MuiLink-root"
                 data-testid="anchor-link"
                 type="button"
               >
@@ -1240,13 +1240,13 @@ exports[`CardCollectionSection component Renders correctly When heading 4 is pre
                     data-testid="overview-card-body-footer"
                   >
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       1 June 2021
                     </h6>
                     <span
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       data-testid="card-link"
                       role="button"
                       tabindex="0"
@@ -1276,7 +1276,7 @@ exports[`CardCollectionSection component Renders correctly When heading 5 is pre
 <body>
   <div>
     <div
-      class="CardCollectionSection"
+      class="css-18aimy4"
       data-testid="card-collection-section-test-title"
     >
       <div
@@ -1290,7 +1290,7 @@ exports[`CardCollectionSection component Renders correctly When heading 5 is pre
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h2
-              class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h2 Typography-underline css-8cj2y3-MuiTypography-root"
               data-testid="typography"
             >
               test title
@@ -1312,10 +1312,10 @@ exports[`CardCollectionSection component Renders correctly When heading 5 is pre
               MC: cardCollection.groupTitle
             </h3>
             <div
-              class="group-chips"
+              class="css-1t22xmr"
             >
               <div
-                class="chips"
+                class="css-ijcfq2"
               >
                 <div
                   class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-colorWhite Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
@@ -1350,7 +1350,7 @@ exports[`CardCollectionSection component Renders correctly When heading 5 is pre
               </div>
               <button
                 aria-disabled="true"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-h03s9s-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button Anchorlink AnchorLink-disabled css-1pcyfln-MuiTypography-root-MuiLink-root"
                 data-testid="anchor-link"
                 type="button"
               >
@@ -1401,13 +1401,13 @@ exports[`CardCollectionSection component Renders correctly When heading 5 is pre
                     data-testid="overview-card-body-footer"
                   >
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       1 June 2021
                     </h6>
                     <span
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       data-testid="card-link"
                       role="button"
                       tabindex="0"
@@ -1437,7 +1437,7 @@ exports[`CardCollectionSection component Renders correctly When heading 6 is pre
 <body>
   <div>
     <div
-      class="CardCollectionSection"
+      class="css-18aimy4"
       data-testid="card-collection-section-test-title"
     >
       <div
@@ -1451,7 +1451,7 @@ exports[`CardCollectionSection component Renders correctly When heading 6 is pre
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h2
-              class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h2 Typography-underline css-8cj2y3-MuiTypography-root"
               data-testid="typography"
             >
               test title
@@ -1473,10 +1473,10 @@ exports[`CardCollectionSection component Renders correctly When heading 6 is pre
               MC: cardCollection.groupTitle
             </h3>
             <div
-              class="group-chips"
+              class="css-1t22xmr"
             >
               <div
-                class="chips"
+                class="css-ijcfq2"
               >
                 <div
                   class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-colorWhite Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
@@ -1511,7 +1511,7 @@ exports[`CardCollectionSection component Renders correctly When heading 6 is pre
               </div>
               <button
                 aria-disabled="true"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-h03s9s-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button Anchorlink AnchorLink-disabled css-1pcyfln-MuiTypography-root-MuiLink-root"
                 data-testid="anchor-link"
                 type="button"
               >
@@ -1562,13 +1562,13 @@ exports[`CardCollectionSection component Renders correctly When heading 6 is pre
                     data-testid="overview-card-body-footer"
                   >
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       1 June 2021
                     </h6>
                     <span
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       data-testid="card-link"
                       role="button"
                       tabindex="0"
@@ -1598,7 +1598,7 @@ exports[`CardCollectionSection component Renders correctly When text length = 0 
 <body>
   <div>
     <div
-      class="CardCollectionSection"
+      class="css-18aimy4"
       data-testid="card-collection-section-test-title"
     >
       <div
@@ -1612,7 +1612,7 @@ exports[`CardCollectionSection component Renders correctly When text length = 0 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h2
-              class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h2 Typography-underline css-8cj2y3-MuiTypography-root"
               data-testid="typography"
             >
               test title
@@ -1632,10 +1632,10 @@ exports[`CardCollectionSection component Renders correctly When text length = 0 
               MC: cardCollection.groupTitle
             </h3>
             <div
-              class="group-chips"
+              class="css-1t22xmr"
             >
               <div
-                class="chips"
+                class="css-ijcfq2"
               >
                 <div
                   class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-colorWhite Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
@@ -1670,7 +1670,7 @@ exports[`CardCollectionSection component Renders correctly When text length = 0 
               </div>
               <button
                 aria-disabled="true"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-h03s9s-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button Anchorlink AnchorLink-disabled css-1pcyfln-MuiTypography-root-MuiLink-root"
                 data-testid="anchor-link"
                 type="button"
               >
@@ -1721,13 +1721,13 @@ exports[`CardCollectionSection component Renders correctly When text length = 0 
                     data-testid="overview-card-body-footer"
                   >
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       1 June 2021
                     </h6>
                     <span
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       data-testid="card-link"
                       role="button"
                       tabindex="0"
@@ -1757,7 +1757,7 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
 <body>
   <div>
     <div
-      class="CardCollectionSection"
+      class="css-18aimy4"
       data-testid="card-collection-section-test-title"
     >
       <div
@@ -1771,7 +1771,7 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h2
-              class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h2 Typography-underline css-8cj2y3-MuiTypography-root"
               data-testid="typography"
             >
               test title
@@ -1783,10 +1783,10 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
               MC: cardCollection.groupTitle
             </h3>
             <div
-              class="group-chips"
+              class="css-1t22xmr"
             >
               <div
-                class="chips"
+                class="css-ijcfq2"
               >
                 <div
                   class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-colorWhite Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
@@ -1851,7 +1851,7 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
               </div>
               <button
                 aria-disabled="true"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-h03s9s-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button Anchorlink AnchorLink-disabled css-1pcyfln-MuiTypography-root-MuiLink-root"
                 data-testid="anchor-link"
                 type="button"
               >
@@ -1937,13 +1937,13 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                     data-testid="overview-card-body-footer"
                   >
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       1 June 2021
                     </h6>
                     <span
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       data-testid="card-link"
                       role="button"
                       tabindex="0"
@@ -1998,13 +1998,13 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                     data-testid="overview-card-body-footer"
                   >
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       2 June 2021
                     </h6>
                     <span
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       data-testid="card-link"
                       role="button"
                       tabindex="0"
@@ -2059,13 +2059,13 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                     data-testid="overview-card-body-footer"
                   >
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       3 June 2021
                     </h6>
                     <span
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       data-testid="card-link"
                       role="button"
                       tabindex="0"
@@ -2095,7 +2095,7 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
 <body>
   <div>
     <div
-      class="CardCollectionSection"
+      class="css-18aimy4"
       data-testid="card-collection-section-test-title"
     >
       <div
@@ -2109,7 +2109,7 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h2
-              class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h2 Typography-underline css-8cj2y3-MuiTypography-root"
               data-testid="typography"
             >
               test title
@@ -2121,10 +2121,10 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
               MC: cardCollection.groupTitle
             </h3>
             <div
-              class="group-chips"
+              class="css-1t22xmr"
             >
               <div
-                class="chips"
+                class="css-ijcfq2"
               >
                 <div
                   class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-colorWhite Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
@@ -2189,7 +2189,7 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
               </div>
               <button
                 aria-disabled="true"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-h03s9s-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button Anchorlink AnchorLink-disabled css-1pcyfln-MuiTypography-root-MuiLink-root"
                 data-testid="anchor-link"
                 type="button"
               >
@@ -2240,13 +2240,13 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                     data-testid="overview-card-body-footer"
                   >
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       3 June 2021
                     </h6>
                     <span
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       data-testid="card-link"
                       role="button"
                       tabindex="0"
@@ -2301,13 +2301,13 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                     data-testid="overview-card-body-footer"
                   >
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       2 June 2021
                     </h6>
                     <span
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       data-testid="card-link"
                       role="button"
                       tabindex="0"
@@ -2362,13 +2362,13 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                     data-testid="overview-card-body-footer"
                   >
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       1 June 2021
                     </h6>
                     <span
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       data-testid="card-link"
                       role="button"
                       tabindex="0"
@@ -2433,7 +2433,7 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
 <body>
   <div>
     <div
-      class="CardCollectionSection"
+      class="css-18aimy4"
       data-testid="card-collection-section-test-title"
     >
       <div
@@ -2447,7 +2447,7 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h2
-              class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h2 Typography-underline css-8cj2y3-MuiTypography-root"
               data-testid="typography"
             >
               test title
@@ -2459,10 +2459,10 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
               MC: cardCollection.groupTitle
             </h3>
             <div
-              class="group-chips"
+              class="css-1t22xmr"
             >
               <div
-                class="chips"
+                class="css-ijcfq2"
               >
                 <div
                   class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-colorWhite Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
@@ -2527,7 +2527,7 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
               </div>
               <button
                 aria-disabled="true"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-h03s9s-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button Anchorlink AnchorLink-disabled css-1pcyfln-MuiTypography-root-MuiLink-root"
                 data-testid="anchor-link"
                 type="button"
               >
@@ -2578,13 +2578,13 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                     data-testid="overview-card-body-footer"
                   >
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       1 June 2021
                     </h6>
                     <span
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       data-testid="card-link"
                       role="button"
                       tabindex="0"
@@ -2639,13 +2639,13 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                     data-testid="overview-card-body-footer"
                   >
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       2 June 2021
                     </h6>
                     <span
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       data-testid="card-link"
                       role="button"
                       tabindex="0"
@@ -2700,13 +2700,13 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                     data-testid="overview-card-body-footer"
                   >
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       3 June 2021
                     </h6>
                     <span
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       data-testid="card-link"
                       role="button"
                       tabindex="0"
@@ -2771,7 +2771,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
 <body>
   <div>
     <div
-      class="CardCollectionSection"
+      class="css-18aimy4"
       data-testid="card-collection-section-test-title"
     >
       <div
@@ -2785,7 +2785,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h2
-              class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h2 Typography-underline css-8cj2y3-MuiTypography-root"
               data-testid="typography"
             >
               test title
@@ -2797,10 +2797,10 @@ exports[`CardCollectionSection component single & multiple row display renders c
               MC: cardCollection.groupTitle
             </h3>
             <div
-              class="group-chips"
+              class="css-1t22xmr"
             >
               <div
-                class="chips"
+                class="css-ijcfq2"
               >
                 <div
                   class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-colorWhite Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
@@ -2865,7 +2865,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
               </div>
               <button
                 aria-disabled="true"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-h03s9s-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button Anchorlink AnchorLink-disabled css-1pcyfln-MuiTypography-root-MuiLink-root"
                 data-testid="anchor-link"
                 type="button"
               >
@@ -2916,13 +2916,13 @@ exports[`CardCollectionSection component single & multiple row display renders c
                     data-testid="overview-card-body-footer"
                   >
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       1 June 2021
                     </h6>
                     <span
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       data-testid="card-link"
                       role="button"
                       tabindex="0"
@@ -2977,13 +2977,13 @@ exports[`CardCollectionSection component single & multiple row display renders c
                     data-testid="overview-card-body-footer"
                   >
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       2 June 2021
                     </h6>
                     <span
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       data-testid="card-link"
                       role="button"
                       tabindex="0"
@@ -3038,13 +3038,13 @@ exports[`CardCollectionSection component single & multiple row display renders c
                     data-testid="overview-card-body-footer"
                   >
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       3 June 2021
                     </h6>
                     <span
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       data-testid="card-link"
                       role="button"
                       tabindex="0"
@@ -3109,7 +3109,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
 <body>
   <div>
     <div
-      class="CardCollectionSection"
+      class="css-18aimy4"
       data-testid="card-collection-section-test-title"
     >
       <div
@@ -3123,7 +3123,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h2
-              class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h2 Typography-underline css-8cj2y3-MuiTypography-root"
               data-testid="typography"
             >
               test title
@@ -3135,10 +3135,10 @@ exports[`CardCollectionSection component single & multiple row display renders c
               MC: cardCollection.groupTitle
             </h3>
             <div
-              class="group-chips"
+              class="css-1t22xmr"
             >
               <div
-                class="chips"
+                class="css-ijcfq2"
               >
                 <div
                   class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-colorWhite Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
@@ -3203,7 +3203,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
               </div>
               <button
                 aria-disabled="true"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-h03s9s-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button Anchorlink AnchorLink-disabled css-1pcyfln-MuiTypography-root-MuiLink-root"
                 data-testid="anchor-link"
                 type="button"
               >
@@ -3254,13 +3254,13 @@ exports[`CardCollectionSection component single & multiple row display renders c
                     data-testid="overview-card-body-footer"
                   >
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       1 June 2021
                     </h6>
                     <span
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       data-testid="card-link"
                       role="button"
                       tabindex="0"
@@ -3315,13 +3315,13 @@ exports[`CardCollectionSection component single & multiple row display renders c
                     data-testid="overview-card-body-footer"
                   >
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       2 June 2021
                     </h6>
                     <span
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       data-testid="card-link"
                       role="button"
                       tabindex="0"
@@ -3376,13 +3376,13 @@ exports[`CardCollectionSection component single & multiple row display renders c
                     data-testid="overview-card-body-footer"
                   >
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                       data-testid="typography"
                     >
                       3 June 2021
                     </h6>
                     <span
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       data-testid="card-link"
                       role="button"
                       tabindex="0"
@@ -3447,7 +3447,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
 <body>
   <div>
     <div
-      class="CardCollectionSection"
+      class="css-18aimy4"
       data-testid="card-collection-section-test-title"
     >
       <div
@@ -3461,7 +3461,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h2
-              class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h2 Typography-underline css-8cj2y3-MuiTypography-root"
               data-testid="typography"
             >
               test title
@@ -3473,10 +3473,10 @@ exports[`CardCollectionSection component single & multiple row display renders c
               MC: cardCollection.groupTitle
             </h3>
             <div
-              class="group-chips"
+              class="css-1t22xmr"
             >
               <div
-                class="chips"
+                class="css-ijcfq2"
               >
                 <div
                   class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-colorWhite Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
@@ -3541,7 +3541,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
               </div>
               <button
                 aria-disabled="true"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button clear-all Anchorlink AnchorLink-disabled css-h03s9s-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button Anchorlink AnchorLink-disabled css-1pcyfln-MuiTypography-root-MuiLink-root"
                 data-testid="anchor-link"
                 type="button"
               >
@@ -3614,13 +3614,13 @@ exports[`CardCollectionSection component single & multiple row display renders c
                               data-testid="overview-card-body-footer"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 1 June 2021
                               </h6>
                               <span
-                                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                                 data-testid="card-link"
                                 role="button"
                                 tabindex="0"
@@ -3688,13 +3688,13 @@ exports[`CardCollectionSection component single & multiple row display renders c
                               data-testid="overview-card-body-footer"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 2 June 2021
                               </h6>
                               <span
-                                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                                 data-testid="card-link"
                                 role="button"
                                 tabindex="0"
@@ -3762,13 +3762,13 @@ exports[`CardCollectionSection component single & multiple row display renders c
                               data-testid="overview-card-body-footer"
                             >
                               <h6
-                                class="MuiTypography-root MuiTypography-h6 date css-1nuwz6u-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h6  css-1nuwz6u-MuiTypography-root"
                                 data-testid="typography"
                               >
                                 3 June 2021
                               </h6>
                               <span
-                                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                                 data-testid="card-link"
                                 role="button"
                                 tabindex="0"

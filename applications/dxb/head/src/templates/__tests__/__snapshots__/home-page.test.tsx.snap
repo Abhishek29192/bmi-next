@@ -2817,7 +2817,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
       </div>
     </div>
     <div
-      class="OverlapCards"
+      class="css-pybm82"
       data-testid="overlap-cards-wrapper"
     >
       <div
@@ -3143,7 +3143,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
       </div>
     </div>
     <div
-      class="Brands Section-root Section-pearl css-10chrh8"
+      class="Section-root Section-pearl css-1ct3z8u"
       data-testid="brands"
     >
       <div
@@ -3182,7 +3182,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                   target="_blank"
                 >
                   <svg
-                    class="BrandLogo BrandIntroCard-brandLogo css-gn1fhj"
+                    class="BrandIntroCard-brandLogo css-1bpjlyv"
                     data-testid="brandLogo"
                     preserveAspectRatio="xMinYMin"
                     viewBox="0 0 154 100"

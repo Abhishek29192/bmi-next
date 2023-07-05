@@ -2,7 +2,9 @@
   "extends": "../../tsconfig.common.json",
   "compilerOptions": {
     "noEmit": true,
-    "outDir": "dist"
+    "outDir": "dist",
+    "strict": true,
+    "jsx": "react"
   },
   "references": []
 }

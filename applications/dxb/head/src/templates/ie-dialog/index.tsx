@@ -6,7 +6,11 @@ import React from "react";
 import { Head } from "../../components/Head";
 import RichText, { RichTextData } from "../../components/RichText";
 import { Data as SiteData } from "../../components/Site";
-import styles from "./styles/ie-dialog.module.scss";
+import {
+  StyledIEDialog,
+  StyledIEDialogWrapper,
+  classes
+} from "./styles/ie-dialog.styles";
 
 export type Data = {
   ieDialogTitle?: string | null;
@@ -37,17 +41,17 @@ const IEDialog = ({ data }: { data: { contentfulSite: SiteData } }) => {
         htmlAttributes={{ lang: data.contentfulSite.node_locale }}
         countryCode={data.contentfulSite.countryCode}
       />
-      <div className={styles["IEDialog-wrapper"]}>
-        <div className={styles["IEDialog"]}>
-          <Dialog.Title hasUnderline className={styles["IEDialog-title"]}>
-            <ErrorOutlineOutlined className={styles["IEDialog-icon"]} />
+      <StyledIEDialogWrapper>
+        <StyledIEDialog>
+          <Dialog.Title hasUnderline className={classes["IEDialog-title"]}>
+            <ErrorOutlineOutlined className={classes["IEDialog-icon"]} />
             {ieDialogData.ieDialogTitle}
           </Dialog.Title>
-          <Dialog.Content className={styles["IEDialog-body"]}>
+          <Dialog.Content className={classes["IEDialog-body"]}>
             <RichText document={ieDialogData.ieDialogBody} />
           </Dialog.Content>
 
-          <div className={styles["IEDialog-actions"]}>
+          <div className={classes["IEDialog-actions"]}>
             <Button
               action={{
                 model: "htmlLink",
@@ -60,8 +64,8 @@ const IEDialog = ({ data }: { data: { contentfulSite: SiteData } }) => {
               {ieDialogData.ieDialogActionLabel}
             </Button>
           </div>
-        </div>
-      </div>
+        </StyledIEDialog>
+      </StyledIEDialogWrapper>
     </>
   );
 };

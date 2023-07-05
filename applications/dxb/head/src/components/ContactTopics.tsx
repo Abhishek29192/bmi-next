@@ -25,7 +25,7 @@ import withGTM from "../utils/google-tag-manager";
 import ContactDetails, { Data as ContactDetailsData } from "./ContactDetails";
 import RichText from "./RichText";
 import { Data as TitleWithContentData } from "./TitleWithContent";
-import borderedItemStyles from "./styles/BorderedItem.module.scss";
+import { BorderItemElement } from "./styles/BorderedItemStyles";
 import { BodyTitle, FooterTitle } from "./styles/ContactTopicsStyles";
 
 const StyledEmojiOutlinedIcon = styled(EmojiObjectsOutlinedIcon)(
@@ -94,7 +94,7 @@ const Body = ({ bodyTitle, bodyList }: BodyProps) => {
 
 // TODO: Component for HR?
 const BorderedItem = () => {
-  return <div className={borderedItemStyles["BorderedItem"]} />;
+  return <BorderItemElement />;
 };
 
 const Footer = ({

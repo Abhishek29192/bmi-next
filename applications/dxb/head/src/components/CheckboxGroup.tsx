@@ -1,4 +1,4 @@
-import { Typography, withFormControl } from "@bmi-digital/components";
+import { withFormControl } from "@bmi-digital/components";
 import {
   CheckboxProps,
   FormControl,
@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import { convertMarkdownLinksToAnchorLinks } from "./FormSection";
-import styles from "./styles/CheckboxGroup.module.scss";
+import { CheckboxGroupComponent } from "./styles/CheckboxGroupStyles";
 
 type Props = CheckboxProps & {
   options?: string;
@@ -42,10 +42,10 @@ const CheckboxGroup = ({
   };
   return (
     <FormControl error={!!error}>
-      <Typography className={styles["CheckboxGroup-heading"]}>
+      <CheckboxGroupComponent>
         {isRequired && <span>*</span>}
         {groupName}
-      </Typography>
+      </CheckboxGroupComponent>
       {options?.split(/, |,/).map((option: string, $i: number) => (
         <FormControl key={$i} disabled={disabled} fullWidth>
           <FormControlLabel

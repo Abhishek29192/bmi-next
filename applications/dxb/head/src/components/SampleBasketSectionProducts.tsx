@@ -18,7 +18,10 @@ import {
 import { getPathWithCountryCode } from "../utils/path";
 import Image from "./Image";
 import { useSiteContext } from "./Site";
-import styles from "./styles/SampleBasketSectionProducts.module.scss";
+import {
+  StyledSampleBasketSection,
+  classes
+} from "./styles/SampleBasketSectionProducts.styles";
 
 const SampleBasketSectionProducts = () => {
   const { basketState, basketDispatch } = useBasketContext();
@@ -39,7 +42,7 @@ const SampleBasketSectionProducts = () => {
           }
         }}
         focalPoint={{ x: 0, y: 0 }}
-        className={styles["product-image"]}
+        className={classes["product-image"]}
       />
     );
 
@@ -57,7 +60,7 @@ const SampleBasketSectionProducts = () => {
 
     return (
       <OverviewCard
-        className={styles["product-wrapper"]}
+        className={classes["product-wrapper"]}
         key={sample.path}
         media={media}
         hasChildrenWithoutMargin
@@ -67,7 +70,7 @@ const SampleBasketSectionProducts = () => {
         footer={
           !isMobile && (
             <Button
-              className={styles["product-button"]}
+              className={classes["product-button"]}
               endIcon={<Remove />}
               onClick={handleRemove}
               variant="outlined"
@@ -78,23 +81,23 @@ const SampleBasketSectionProducts = () => {
         }
         data-testid={"shopping-cart-product"}
       >
-        <div className={styles["product"]}>
-          <div className={styles["product-description"]}>
-            <Typography className={styles["product-title"]}>
+        <div className={classes["product"]}>
+          <div className={classes["product-description"]}>
+            <Typography className={classes["product-title"]}>
               {sample.name}
             </Typography>
-            <Typography className={styles["product-color"]}>
+            <Typography className={classes["product-color"]}>
               {[sample.colour, sample.textureFamily]
                 .filter(isDefined)
                 .join(" | ")}
             </Typography>
-            <Typography className={styles["product-size"]}>
+            <Typography className={classes["product-size"]}>
               {sample.measurements}
             </Typography>
           </div>
           {isMobile && (
             <Button
-              className={styles["product-button"]}
+              className={classes["product-button"]}
               onClick={handleRemove}
               variant="outlined"
               isIconButton
@@ -107,9 +110,7 @@ const SampleBasketSectionProducts = () => {
     );
   });
 
-  return (
-    <div className={styles["SampleBasketSectionProducts"]}>{sampleCards}</div>
-  );
+  return <StyledSampleBasketSection>{sampleCards}</StyledSampleBasketSection>;
 };
 
 export default SampleBasketSectionProducts;

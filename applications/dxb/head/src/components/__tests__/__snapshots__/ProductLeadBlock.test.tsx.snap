@@ -3,7 +3,7 @@
 exports[`ProductLeadBlock tests renders correctly when document display format is by asset name 1`] = `
 <div>
   <div
-    class="ProductLeadBlock"
+    class="css-45tbs1"
   >
     <div
       class=" css-nxi0jm"
@@ -213,7 +213,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               data-testid="typography"
             >
               <div
-                class="MuiTypography-root MuiTypography-body1 productDescription css-1o02bdp-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 css-poa7q6-MuiTypography-root"
                 data-testid="typography"
               >
                 Description
@@ -230,24 +230,24 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                 MC: pdp.leadBlock.guaranteesWarranties
               </h5>
               <div
-                class="imagesContainer"
+                class="css-19feoyb"
               >
                 <img
                   alt="asset-1"
-                  class="image"
+                  class="css-1pw6h9q"
                   data-testid="guarantee-image-asset-1"
                   src="http://localhost:8000/asset-real-file-name.jpg"
                 />
                 <img
                   alt="asset-2"
-                  class="image"
+                  class="css-1pw6h9q"
                   data-testid="guarantee-image-asset-2"
                   src="http://localhost:8000/asset-real-file-name.jpg"
                 />
               </div>
               <div>
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways ProductLeadBlockStyles-inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                   data-gtm="{"id":"cta-click1","label":"link-1","action":"http://localhost:8000/"}"
                   data-testid="guarantee-inline-link-link-1"
                   type="button"
@@ -271,7 +271,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               </div>
               <div>
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways ProductLeadBlockStyles-inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                   data-gtm="{"id":"cta-click1","label":"link-2","action":"http://localhost:8000/"}"
                   data-testid="guarantee-inline-link-link-2"
                   type="button"
@@ -305,22 +305,22 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                 MC: pdp.leadBlock.awardsCertificates
               </h5>
               <div
-                class="imagesContainer"
+                class="css-19feoyb"
               >
                 <img
                   alt="asset-name"
-                  class="image"
+                  class="css-1pw6h9q"
                   src="http://localhost:8000/asset-real-file-name.jpg"
                 />
                 <img
                   alt="asset-name"
-                  class="image"
+                  class="css-1pw6h9q"
                   src="http://localhost:8000/asset-real-file-name.jpg"
                 />
               </div>
               <br />
               <span
-                class="document"
+                class="css-1scur04"
               >
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
@@ -351,7 +351,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                 </a>
               </span>
               <span
-                class="document"
+                class="css-1scur04"
               >
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
@@ -463,54 +463,50 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
             data-testid="grid-item"
           >
             <div
-              class="ProductTechnicalSpec"
+              class="css-1oyez8m"
             >
-              <div
-                class="css-1oyez8m"
+              <table
+                class="MuiTable-root Table-evenColor css-wsrw3a-MuiTable-root"
+                data-testid="table"
               >
-                <table
-                  class="MuiTable-root Table-evenColor css-wsrw3a-MuiTable-root"
-                  data-testid="table"
+                <thead
+                  class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
+                  data-testid="table-head"
                 >
-                  <thead
-                    class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
-                    data-testid="table-head"
+                  <tr
+                    class="MuiTableRow-root MuiTableRow-head css-47w8l6-MuiTableRow-root"
                   >
-                    <tr
-                      class="MuiTableRow-root MuiTableRow-head css-47w8l6-MuiTableRow-root"
+                    <th
+                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
+                      scope="col"
                     >
-                      <th
-                        class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
-                        scope="col"
-                      >
-                        appearanceAttributes
-                      </th>
-                      <th
-                        class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
-                        scope="col"
-                      />
-                    </tr>
-                  </thead>
-                  <tbody
-                    class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
+                      appearanceAttributes
+                    </th>
+                    <th
+                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
+                      scope="col"
+                    />
+                  </tr>
+                </thead>
+                <tbody
+                  class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
+                >
+                  <tr
+                    class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
                   >
-                    <tr
-                      class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
+                    <td
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
                     >
-                      <td
-                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
-                      >
-                        classification-feature-name
-                      </td>
-                      <td
-                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
-                      >
-                        classification-feature-value
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+                      classification-feature-name
+                    </td>
+                    <td
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
+                    >
+                      classification-feature-value
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
@@ -525,7 +521,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
         role="tabpanel"
       >
         <div
-          class="document-library"
+          class="css-xuhmcu"
         >
           <div
             class="DocumentSimpleTableResults css-358n7x"
@@ -1378,7 +1374,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
         role="tabpanel"
       >
         <iframe
-          class="assetsIframe"
+          class="css-3djrpw"
           data-testid="assets-iframe-element"
           src="http://bimIframUrl"
           title="BIM iFrame"
@@ -1427,7 +1423,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
       </div>
       <div
         aria-labelledby="tab-seven"
-        class="Tabs-tabPanel Tabs-tabPanelBox tab-container MuiBox-root css-923awc"
+        class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-vkaddv"
         data-testid="specification"
         heading="MC: pdp.leadBlock.specification"
         hidden=""
@@ -1435,7 +1431,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
         role="tabpanel"
       >
         <iframe
-          class="assetsIframe specification-tab-iframe"
+          class="css-b1pvwo"
           data-testid="assets-iframe-element"
           src="http://specificationIframeUrl"
           title="undefined iFrame"
@@ -1443,7 +1439,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
       </div>
       <div
         aria-labelledby="tab-six"
-        class="Tabs-tabPanel Tabs-tabPanelBox tab-container MuiBox-root css-923awc"
+        class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-vkaddv"
         data-testid="fixingTool"
         heading="MC: pdp.leadBlock.fixingTool"
         hidden=""
@@ -1451,7 +1447,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
         role="tabpanel"
       >
         <iframe
-          class="assetsIframe fixing-tool-iframe"
+          class="css-b1pvwo"
           data-testid="assets-iframe-element"
           src="http://fixingToolIframeUrl"
           title="undefined iFrame"
@@ -1465,7 +1461,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
 exports[`ProductLeadBlock tests renders correctly when document display format is by asset type 1`] = `
 <div>
   <div
-    class="ProductLeadBlock"
+    class="css-45tbs1"
   >
     <div
       class=" css-nxi0jm"
@@ -1675,7 +1671,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               data-testid="typography"
             >
               <div
-                class="MuiTypography-root MuiTypography-body1 productDescription css-1o02bdp-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 css-poa7q6-MuiTypography-root"
                 data-testid="typography"
               >
                 Description
@@ -1692,24 +1688,24 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                 MC: pdp.leadBlock.guaranteesWarranties
               </h5>
               <div
-                class="imagesContainer"
+                class="css-19feoyb"
               >
                 <img
                   alt="asset-name"
-                  class="image"
+                  class="css-1pw6h9q"
                   data-testid="guarantee-image-asset-name"
                   src="http://localhost:8000/asset-real-file-name.jpg"
                 />
                 <img
                   alt="asset-name"
-                  class="image"
+                  class="css-1pw6h9q"
                   data-testid="guarantee-image-asset-name"
                   src="http://localhost:8000/asset-real-file-name.jpg"
                 />
               </div>
               <div>
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways ProductLeadBlockStyles-inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                   data-gtm="{"id":"cta-click1","label":"asset-name","action":"http://localhost:8000/"}"
                   data-testid="guarantee-inline-link-asset-name"
                   type="button"
@@ -1733,7 +1729,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               </div>
               <div>
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways ProductLeadBlockStyles-inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                   data-gtm="{"id":"cta-click1","label":"asset-name","action":"http://localhost:8000/"}"
                   data-testid="guarantee-inline-link-asset-name"
                   type="button"
@@ -1767,22 +1763,22 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                 MC: pdp.leadBlock.awardsCertificates
               </h5>
               <div
-                class="imagesContainer"
+                class="css-19feoyb"
               >
                 <img
                   alt="asset-name"
-                  class="image"
+                  class="css-1pw6h9q"
                   src="http://localhost:8000/asset-real-file-name.jpg"
                 />
                 <img
                   alt="asset-name"
-                  class="image"
+                  class="css-1pw6h9q"
                   src="http://localhost:8000/asset-real-file-name.jpg"
                 />
               </div>
               <br />
               <span
-                class="document"
+                class="css-1scur04"
               >
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
@@ -1813,7 +1809,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                 </a>
               </span>
               <span
-                class="document"
+                class="css-1scur04"
               >
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
@@ -1925,54 +1921,50 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
             data-testid="grid-item"
           >
             <div
-              class="ProductTechnicalSpec"
+              class="css-1oyez8m"
             >
-              <div
-                class="css-1oyez8m"
+              <table
+                class="MuiTable-root Table-evenColor css-wsrw3a-MuiTable-root"
+                data-testid="table"
               >
-                <table
-                  class="MuiTable-root Table-evenColor css-wsrw3a-MuiTable-root"
-                  data-testid="table"
+                <thead
+                  class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
+                  data-testid="table-head"
                 >
-                  <thead
-                    class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
-                    data-testid="table-head"
+                  <tr
+                    class="MuiTableRow-root MuiTableRow-head css-47w8l6-MuiTableRow-root"
                   >
-                    <tr
-                      class="MuiTableRow-root MuiTableRow-head css-47w8l6-MuiTableRow-root"
+                    <th
+                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
+                      scope="col"
                     >
-                      <th
-                        class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
-                        scope="col"
-                      >
-                        appearanceAttributes
-                      </th>
-                      <th
-                        class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
-                        scope="col"
-                      />
-                    </tr>
-                  </thead>
-                  <tbody
-                    class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
+                      appearanceAttributes
+                    </th>
+                    <th
+                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
+                      scope="col"
+                    />
+                  </tr>
+                </thead>
+                <tbody
+                  class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
+                >
+                  <tr
+                    class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
                   >
-                    <tr
-                      class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
+                    <td
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
                     >
-                      <td
-                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
-                      >
-                        classification-feature-name
-                      </td>
-                      <td
-                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
-                      >
-                        classification-feature-value
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+                      classification-feature-name
+                    </td>
+                    <td
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
+                    >
+                      classification-feature-value
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
@@ -1987,7 +1979,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
         role="tabpanel"
       >
         <div
-          class="document-library"
+          class="css-xuhmcu"
         >
           <div
             class="DocumentSimpleTableResults css-358n7x"
@@ -2496,7 +2488,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
         role="tabpanel"
       >
         <iframe
-          class="assetsIframe"
+          class="css-3djrpw"
           data-testid="assets-iframe-element"
           src="http://bimIframUrl"
           title="BIM iFrame"
@@ -2545,7 +2537,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
       </div>
       <div
         aria-labelledby="tab-seven"
-        class="Tabs-tabPanel Tabs-tabPanelBox tab-container MuiBox-root css-923awc"
+        class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-vkaddv"
         data-testid="specification"
         heading="MC: pdp.leadBlock.specification"
         hidden=""
@@ -2553,7 +2545,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
         role="tabpanel"
       >
         <iframe
-          class="assetsIframe specification-tab-iframe"
+          class="css-b1pvwo"
           data-testid="assets-iframe-element"
           src="http://specificationIframeUrl"
           title="undefined iFrame"
@@ -2561,7 +2553,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
       </div>
       <div
         aria-labelledby="tab-six"
-        class="Tabs-tabPanel Tabs-tabPanelBox tab-container MuiBox-root css-923awc"
+        class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-vkaddv"
         data-testid="fixingTool"
         heading="MC: pdp.leadBlock.fixingTool"
         hidden=""
@@ -2569,7 +2561,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
         role="tabpanel"
       >
         <iframe
-          class="assetsIframe fixing-tool-iframe"
+          class="css-b1pvwo"
           data-testid="assets-iframe-element"
           src="http://fixingToolIframeUrl"
           title="undefined iFrame"
@@ -2583,7 +2575,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
 exports[`ProductLeadBlock tests renders correctly when productDocuments is empty array 1`] = `
 <div>
   <div
-    class="ProductLeadBlock"
+    class="css-45tbs1"
   >
     <div
       class=" css-nxi0jm"
@@ -2777,7 +2769,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
               data-testid="typography"
             >
               <div
-                class="MuiTypography-root MuiTypography-body1 productDescription css-1o02bdp-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 css-poa7q6-MuiTypography-root"
                 data-testid="typography"
               >
                 Description
@@ -2794,24 +2786,24 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
                 MC: pdp.leadBlock.guaranteesWarranties
               </h5>
               <div
-                class="imagesContainer"
+                class="css-19feoyb"
               >
                 <img
                   alt="asset-name"
-                  class="image"
+                  class="css-1pw6h9q"
                   data-testid="guarantee-image-asset-name"
                   src="http://localhost:8000/asset-real-file-name.jpg"
                 />
                 <img
                   alt="asset-name"
-                  class="image"
+                  class="css-1pw6h9q"
                   data-testid="guarantee-image-asset-name"
                   src="http://localhost:8000/asset-real-file-name.jpg"
                 />
               </div>
               <div>
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways ProductLeadBlockStyles-inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                   data-gtm="{"id":"cta-click1","label":"asset-name","action":"http://localhost:8000/"}"
                   data-testid="guarantee-inline-link-asset-name"
                   type="button"
@@ -2835,7 +2827,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
               </div>
               <div>
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways ProductLeadBlockStyles-inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                   data-gtm="{"id":"cta-click1","label":"asset-name","action":"http://localhost:8000/"}"
                   data-testid="guarantee-inline-link-asset-name"
                   type="button"
@@ -2869,22 +2861,22 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
                 MC: pdp.leadBlock.awardsCertificates
               </h5>
               <div
-                class="imagesContainer"
+                class="css-19feoyb"
               >
                 <img
                   alt="asset-name"
-                  class="image"
+                  class="css-1pw6h9q"
                   src="http://localhost:8000/asset-real-file-name.jpg"
                 />
                 <img
                   alt="asset-name"
-                  class="image"
+                  class="css-1pw6h9q"
                   src="http://localhost:8000/asset-real-file-name.jpg"
                 />
               </div>
               <br />
               <span
-                class="document"
+                class="css-1scur04"
               >
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
@@ -2915,7 +2907,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
                 </a>
               </span>
               <span
-                class="document"
+                class="css-1scur04"
               >
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
@@ -3027,54 +3019,50 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
             data-testid="grid-item"
           >
             <div
-              class="ProductTechnicalSpec"
+              class="css-1oyez8m"
             >
-              <div
-                class="css-1oyez8m"
+              <table
+                class="MuiTable-root Table-evenColor css-wsrw3a-MuiTable-root"
+                data-testid="table"
               >
-                <table
-                  class="MuiTable-root Table-evenColor css-wsrw3a-MuiTable-root"
-                  data-testid="table"
+                <thead
+                  class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
+                  data-testid="table-head"
                 >
-                  <thead
-                    class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
-                    data-testid="table-head"
+                  <tr
+                    class="MuiTableRow-root MuiTableRow-head css-47w8l6-MuiTableRow-root"
                   >
-                    <tr
-                      class="MuiTableRow-root MuiTableRow-head css-47w8l6-MuiTableRow-root"
+                    <th
+                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
+                      scope="col"
                     >
-                      <th
-                        class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
-                        scope="col"
-                      >
-                        appearanceAttributes
-                      </th>
-                      <th
-                        class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
-                        scope="col"
-                      />
-                    </tr>
-                  </thead>
-                  <tbody
-                    class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
+                      appearanceAttributes
+                    </th>
+                    <th
+                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
+                      scope="col"
+                    />
+                  </tr>
+                </thead>
+                <tbody
+                  class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
+                >
+                  <tr
+                    class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
                   >
-                    <tr
-                      class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
+                    <td
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
                     >
-                      <td
-                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
-                      >
-                        classification-feature-name
-                      </td>
-                      <td
-                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
-                      >
-                        classification-feature-value
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+                      classification-feature-name
+                    </td>
+                    <td
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
+                    >
+                      classification-feature-value
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
@@ -3089,7 +3077,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
         role="tabpanel"
       >
         <iframe
-          class="assetsIframe"
+          class="css-3djrpw"
           data-testid="assets-iframe-element"
           src="http://bimIframUrl"
           title="BIM iFrame"
@@ -3138,7 +3126,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
       </div>
       <div
         aria-labelledby="tab-seven"
-        class="Tabs-tabPanel Tabs-tabPanelBox tab-container MuiBox-root css-923awc"
+        class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-vkaddv"
         data-testid="specification"
         heading="MC: pdp.leadBlock.specification"
         hidden=""
@@ -3146,7 +3134,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
         role="tabpanel"
       >
         <iframe
-          class="assetsIframe specification-tab-iframe"
+          class="css-b1pvwo"
           data-testid="assets-iframe-element"
           src="http://specificationIframeUrl"
           title="undefined iFrame"
@@ -3154,7 +3142,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
       </div>
       <div
         aria-labelledby="tab-six"
-        class="Tabs-tabPanel Tabs-tabPanelBox tab-container MuiBox-root css-923awc"
+        class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-vkaddv"
         data-testid="fixingTool"
         heading="MC: pdp.leadBlock.fixingTool"
         hidden=""
@@ -3162,7 +3150,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
         role="tabpanel"
       >
         <iframe
-          class="assetsIframe fixing-tool-iframe"
+          class="css-b1pvwo"
           data-testid="assets-iframe-element"
           src="http://fixingToolIframeUrl"
           title="undefined iFrame"
@@ -3184,7 +3172,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
   role="tabpanel"
 >
   <div
-    class="document-library"
+    class="css-xuhmcu"
   >
     <div
       class="DocumentSimpleTableResults css-358n7x"
@@ -4051,7 +4039,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
         data-testid="typography"
       >
         <div
-          class="MuiTypography-root MuiTypography-body1 productDescription css-1o02bdp-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 css-poa7q6-MuiTypography-root"
           data-testid="typography"
         >
           Description
@@ -4068,24 +4056,24 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
           MC: pdp.leadBlock.guaranteesWarranties
         </h5>
         <div
-          class="imagesContainer"
+          class="css-19feoyb"
         >
           <img
             alt="asset-1"
-            class="image"
+            class="css-1pw6h9q"
             data-testid="guarantee-image-asset-1"
             src="http://localhost:8000/asset-real-file-name.jpg"
           />
           <img
             alt="asset-2"
-            class="image"
+            class="css-1pw6h9q"
             data-testid="guarantee-image-asset-2"
             src="http://localhost:8000/asset-real-file-name.jpg"
           />
         </div>
         <div>
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways ProductLeadBlockStyles-inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
             data-gtm="{"id":"cta-click1","label":"link-1","action":"http://localhost:8000/"}"
             data-testid="guarantee-inline-link-link-1"
             type="button"
@@ -4109,7 +4097,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
         </div>
         <div>
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways ProductLeadBlockStyles-inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
             data-gtm="{"id":"cta-click1","label":"link-2","action":"http://localhost:8000/"}"
             data-testid="guarantee-inline-link-link-2"
             type="button"
@@ -4143,22 +4131,22 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
           MC: pdp.leadBlock.awardsCertificates
         </h5>
         <div
-          class="imagesContainer"
+          class="css-19feoyb"
         >
           <img
             alt="asset-name"
-            class="image"
+            class="css-1pw6h9q"
             src="http://localhost:8000/asset-real-file-name.jpg"
           />
           <img
             alt="asset-name"
-            class="image"
+            class="css-1pw6h9q"
             src="http://localhost:8000/asset-real-file-name.jpg"
           />
         </div>
         <br />
         <span
-          class="document"
+          class="css-1scur04"
         >
           <a
             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
@@ -4189,7 +4177,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
           </a>
         </span>
         <span
-          class="document"
+          class="css-1scur04"
         >
           <a
             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
@@ -4296,7 +4284,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
   role="tabpanel"
 >
   <div
-    class="document-library"
+    class="css-xuhmcu"
   >
     <div
       class="DocumentSimpleTableResults css-358n7x"
@@ -5144,7 +5132,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
 exports[`ProductLeadBlock tests should render the fixing tool tab 1`] = `
 <div
   aria-labelledby="tab-six"
-  class="Tabs-tabPanel Tabs-tabPanelBox tab-container MuiBox-root css-923awc"
+  class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-vkaddv"
   data-testid="fixingTool"
   heading="MC: pdp.leadBlock.fixingTool"
   hidden=""
@@ -5152,7 +5140,7 @@ exports[`ProductLeadBlock tests should render the fixing tool tab 1`] = `
   role="tabpanel"
 >
   <iframe
-    class="assetsIframe fixing-tool-iframe"
+    class="css-b1pvwo"
     data-testid="assets-iframe-element"
     src="https://monier.service.bouwconnect.nl/"
     title="undefined iFrame"
@@ -5163,7 +5151,7 @@ exports[`ProductLeadBlock tests should render the fixing tool tab 1`] = `
 exports[`ProductLeadBlock tests should render the fixing tool tab with title and iframe 1`] = `
 <div
   aria-labelledby="tab-six"
-  class="Tabs-tabPanel Tabs-tabPanelBox tab-container MuiBox-root css-923awc"
+  class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-vkaddv"
   data-testid="fixingTool"
   heading="MC: pdp.leadBlock.fixingTool"
   hidden=""
@@ -5171,13 +5159,13 @@ exports[`ProductLeadBlock tests should render the fixing tool tab with title and
   role="tabpanel"
 >
   <h5
-    class="MuiTypography-root MuiTypography-h5 heading css-1lhxn1g-MuiTypography-root"
+    class="MuiTypography-root MuiTypography-h5 css-ulrehz-MuiTypography-root"
     data-testid="typography"
   >
     Fixing tool title
   </h5>
   <iframe
-    class="assetsIframe fixing-tool-iframe"
+    class="css-b1pvwo"
     data-testid="assets-iframe-element"
     src="https://monier.service.bouwconnect.nl/"
     title="Fixing tool title iFrame"
@@ -5188,7 +5176,7 @@ exports[`ProductLeadBlock tests should render the fixing tool tab with title and
 exports[`ProductLeadBlock tests should render the specification tab 1`] = `
 <div
   aria-labelledby="tab-seven"
-  class="Tabs-tabPanel Tabs-tabPanelBox tab-container MuiBox-root css-923awc"
+  class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-vkaddv"
   data-testid="specification"
   heading="MC: pdp.leadBlock.specification"
   hidden=""
@@ -5196,13 +5184,13 @@ exports[`ProductLeadBlock tests should render the specification tab 1`] = `
   role="tabpanel"
 >
   <h5
-    class="MuiTypography-root MuiTypography-h5 heading css-1lhxn1g-MuiTypography-root"
+    class="MuiTypography-root MuiTypography-h5 css-ulrehz-MuiTypography-root"
     data-testid="typography"
   >
     Specification title
   </h5>
   <iframe
-    class="assetsIframe specification-tab-iframe"
+    class="css-b1pvwo"
     data-testid="assets-iframe-element"
     src="https://monier.service.bouwconnect.nl/"
     title="Specification title iFrame"

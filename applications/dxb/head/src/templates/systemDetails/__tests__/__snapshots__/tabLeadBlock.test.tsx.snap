@@ -3,7 +3,7 @@
 exports[`TabLeadBlock tests should not render technical Specification tab 1`] = `
 <div>
   <div
-    class="sdpTabLeadBlock css-nxi0jm"
+    class="css-1xf8n4r"
     data-testid="tabs"
   >
     <div
@@ -102,7 +102,7 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
       role="tabpanel"
     >
       <div
-        class="section Section-root Section-white css-10chrh8"
+        class="Section-root Section-white css-10chrh8"
         data-testid="tab-system-about-lead-block-section"
       >
         <div
@@ -112,7 +112,7 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-d6me72-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-oqlz5y-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -251,7 +251,7 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
 exports[`TabLeadBlock tests should render 1`] = `
 <div>
   <div
-    class="sdpTabLeadBlock css-nxi0jm"
+    class="css-1xf8n4r"
     data-testid="tabs"
   >
     <div
@@ -382,7 +382,7 @@ exports[`TabLeadBlock tests should render 1`] = `
       role="tabpanel"
     >
       <div
-        class="section Section-root Section-white css-10chrh8"
+        class="Section-root Section-white css-10chrh8"
         data-testid="tab-system-about-lead-block-section"
       >
         <div
@@ -392,7 +392,7 @@ exports[`TabLeadBlock tests should render 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-d6me72-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-oqlz5y-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -534,7 +534,7 @@ exports[`TabLeadBlock tests should render 1`] = `
       role="tabpanel"
     >
       <div
-        class="section Section-root Section-white css-10chrh8"
+        class="Section-root Section-white css-10chrh8"
         data-testid="tab-system-tech-spec-lead-block-section"
       >
         <div
@@ -556,7 +556,6 @@ exports[`TabLeadBlock tests should render 1`] = `
                   data-testid="typography"
                 >
                   <div
-                    class="SystemDetailsTechnicalSpec"
                     data-testid="technical-specification-classifications-table-wrapper"
                   >
                     <div
@@ -623,14 +622,14 @@ exports[`TabLeadBlock tests should render 1`] = `
       role="tabpanel"
     >
       <div
-        class="DocumentLeadBlock css-c1wgmr"
+        class="css-fh28tm"
       >
         <div
           class="css-eler5f"
         >
           <div>
             <div
-              class="tableContainer"
+              class="SystemDetailsLeadDocumentsBlockSectionStyles-tableContainer"
             >
               <div
                 class="DocumentSimpleTableResults css-358n7x"
@@ -1117,14 +1116,14 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
   role="tabpanel"
 >
   <div
-    class="DocumentLeadBlock css-c1wgmr"
+    class="css-fh28tm"
   >
     <div
       class="css-eler5f"
     >
       <div>
         <div
-          class="tableContainer"
+          class="SystemDetailsLeadDocumentsBlockSectionStyles-tableContainer"
         >
           <div
             class="DocumentSimpleTableResults css-358n7x"
@@ -1608,11 +1607,9 @@ exports[`TabLeadBlock tests should render the bimIframe tab 1`] = `
   id="tabpanel-four"
   role="tabpanel"
 >
-  <div
-    class="bimLeadBlock"
-  >
+  <div>
     <div
-      class="section Section-root Section-pearl css-10chrh8"
+      class="Section-root Section-pearl css-10chrh8"
       data-testid="tab-system-bim-lead-block-section"
     >
       <div
@@ -1641,7 +1638,7 @@ exports[`TabLeadBlock tests should render the bimIframe tab 1`] = `
               />
             </div>
             <iframe
-              class="assetsIframe bmiIframe"
+              class="css-busmfs"
               data-testid="bmi-iframe"
               src="http://nowhere.com"
               title="BIM_CODE"

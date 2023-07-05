@@ -4,9 +4,7 @@ import {
   GoogleApi,
   GeocoderResult as GoogleGeocoderResult,
   LatLngLiteral as GoogleLatLngLiteral,
-  Grid,
   Section,
-  Tabs,
   loadGoogleApi,
   replaceSpaces
 } from "@bmi-digital/components";
@@ -46,8 +44,15 @@ import {
   getTypesFromServices,
   sortServices
 } from "./helpers";
-import styles from "./styles/ServiceLocatorSection.module.scss";
-import { MapTabPanel, ResultListTabPanel } from "./styles/styles";
+
+import {
+  classes,
+  Body,
+  Controls,
+  MapTabPanel,
+  ResultListTabPanel,
+  StyledTabs
+} from "./styles/styles";
 
 export type Service = Omit<ServiceData, "companyLogo"> & {
   distance?: number;
@@ -347,7 +352,6 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   return (
     <Section
       backgroundColor="white"
-      className={styles["ServiceLocationSection"]}
       data-testid={`service-locator-section-${replaceSpaces(label)}`}
     >
       <GoogleApi.Provider value={googleApi}>
@@ -355,16 +359,11 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
           <Section.Title>{label}</Section.Title>
         )}
         {body && (
-          <div className={styles["body"]}>
+          <Body>
             <RichText document={body} />
-          </div>
+          </Body>
         )}
-        <Grid
-          container
-          spacing={3}
-          alignItems="flex-end"
-          className={styles["controls"]}
-        >
+        <Controls container spacing={3} alignItems="flex-end">
           {shouldEnableSearch && (
             <SearchLocationBlock
               autocompleteLabel={nameSearchLabelKey}
@@ -383,17 +382,16 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
               microCopyPrefix={microCopyPrefix}
             />
           )}
-        </Grid>
-        <Tabs
+        </Controls>
+        <StyledTabs
           initialValue="list"
-          className={styles["tabs"]}
           color="secondary"
           visibleUntil="lg"
           variant="fullWidth"
         >
           {showResultList && (
             <ResultListTabPanel
-              className={styles["tab-panel"]}
+              className={classes.tabPanel}
               heading={getMicroCopy(microCopy.FIND_A_ROOFER_LIST_LABEL)}
               index="list"
             >
@@ -411,7 +409,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
             </ResultListTabPanel>
           )}
           <MapTabPanel
-            className={styles["tab-panel"]}
+            className={classes.tabPanel}
             heading={getMicroCopy(microCopy.FIND_A_ROOFER_MAP_LABEL)}
             index="map"
           >
@@ -426,7 +424,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
               getCompanyDetails={getCompanyDetails}
             />
           </MapTabPanel>
-        </Tabs>
+        </StyledTabs>
       </GoogleApi.Provider>
     </Section>
   );

@@ -11,7 +11,7 @@ import { devLog } from "../utils/devLog";
 import getCookie from "../utils/getCookie";
 import withGTM from "../utils/google-tag-manager";
 import Icon from "./Icon";
-import styles from "./styles/KeyAssetTypesDownloadSection.module.scss";
+import { StyledKeyAssetTypeSectionContainer } from "./styles/KeyAssetTypesDownloadSection.styles";
 
 type Props = {
   keyAssetDocuments: KeyAssetDocument[];
@@ -68,7 +68,7 @@ const KeyAssetTypesDownloadSection = ({ keyAssetDocuments }: Props) => {
   const qaAuthToken = getCookie(QA_AUTH_TOKEN);
 
   return (
-    <div className={styles["container"]}>
+    <StyledKeyAssetTypeSectionContainer>
       {keyAssetDocuments.map(({ assetType, documents }) => {
         return (
           <div key={assetType}>
@@ -129,7 +129,7 @@ const KeyAssetTypesDownloadSection = ({ keyAssetDocuments }: Props) => {
           </div>
         );
       })}
-    </div>
+    </StyledKeyAssetTypeSectionContainer>
   );
 };
 

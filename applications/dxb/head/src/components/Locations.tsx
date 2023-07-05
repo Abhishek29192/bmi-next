@@ -1,10 +1,10 @@
-import { Button, Grid } from "@bmi-digital/components";
+import { Grid } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React, { useState } from "react";
 import { microCopy } from "../constants/microCopies";
 import ContactDetails, { Data as ContactDetailsData } from "./ContactDetails";
 import { useSiteContext } from "./Site";
-import styles from "./styles/Locations.module.scss";
+import { LocationsSection, LocationsButton } from "./styles/LocationsStyles";
 
 export type Data = ContactDetailsData[];
 
@@ -29,20 +29,19 @@ const Locations = ({ data }: { data: Data }) => {
   );
 
   return (
-    <div className={styles["Locations"]}>
+    <LocationsSection>
       {locationCards}
       {numberVisible < data.length ? (
-        <Button
-          className={styles["button"]}
+        <LocationsButton
           variant="outlined"
           onClick={() =>
             setNumberVisible((prevNum) => prevNum + LOCATIONS_PER_PAGE)
           }
         >
           {showMoreText}
-        </Button>
+        </LocationsButton>
       ) : null}
-    </div>
+    </LocationsSection>
   );
 };
 

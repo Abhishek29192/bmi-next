@@ -3,7 +3,6 @@ import {
   ButtonProps,
   IconList,
   LeadBlock,
-  Section,
   Typography
 } from "@bmi-digital/components";
 import {
@@ -23,7 +22,10 @@ import {
   SYSTEM_CONFIG_QUERY_KEY_SELECTED_SYSTEM
 } from "../../constants/queryConstants";
 import withGTM from "../../utils/google-tag-manager";
-import styles from "./styles/leadBlockSection.module.scss";
+import {
+  StyledSystemDetailsLeadBlockSection,
+  classes
+} from "./styles/leadBlockSection.styles";
 
 const BlueCheckIcon = () => {
   return <StyledBlueCheckIconInter source={CheckIcon} />;
@@ -68,9 +70,8 @@ const LeadBlockSection = ({
   );
   const backToYourSelectionBtnHref = `${prevPagePath}?referer=${referer}`;
   return (
-    <Section
+    <StyledSystemDetailsLeadBlockSection
       backgroundColor="white"
-      className={styles["LeadBlockSection"]}
       data-testid="system-details-lead-block-section"
     >
       <LeadBlock>
@@ -78,7 +79,7 @@ const LeadBlockSection = ({
           {brandLogo && (
             <LeadBlock.Content.Section>
               {React.cloneElement(brandLogo, {
-                className: styles["brandLogo"],
+                className: classes.brandLogo,
                 "data-testid":
                   brandLogo.props["data-testid"] || "lead-block-brand-logo"
               })}
@@ -102,12 +103,12 @@ const LeadBlockSection = ({
               </Typography>
             </LeadBlock.Content.Section>
           )}
-          <LeadBlock.Content.Section className={styles["ctaContainer"]}>
+          <LeadBlock.Content.Section className={classes.ctaContainer}>
             {selectedSystemId && prevPagePath && (
               <GTMButton
                 variant="text"
                 size="large"
-                className={styles["backToYourSelectionBtn"]}
+                className={classes.backToYourSelectionBtn}
                 action={{
                   model: "htmlLink",
                   href: backToYourSelectionBtnHref,
@@ -130,7 +131,7 @@ const LeadBlockSection = ({
                 component={({ children, ...rest }) => (
                   <GTMButton
                     {...rest}
-                    className={styles["quotationBtn"]}
+                    className={classes.quotationBtn}
                     endIcon={<ArrowForwardIcon />}
                     gtm={{
                       id: "cta-click1",
@@ -153,12 +154,12 @@ const LeadBlockSection = ({
         </LeadBlock.Content>
         {uniqueSellingPropositions && uniqueSellingPropositions.length > 0 && (
           <LeadBlock.Card
-            className={styles["card"]}
+            className={classes.card}
             color="pearl"
             data-testid="system-attributes-card"
           >
             <LeadBlock.Card.Section>
-              <div className={styles["iconList"]}>
+              <div className={classes.iconList}>
                 <IconList>
                   {uniqueSellingPropositions.map((value, id) => (
                     <IconList.Item
@@ -174,7 +175,7 @@ const LeadBlockSection = ({
           </LeadBlock.Card>
         )}
       </LeadBlock>
-    </Section>
+    </StyledSystemDetailsLeadBlockSection>
   );
 };
 

@@ -15,7 +15,10 @@ import {
   VentilationHood,
   VergeOption
 } from "./types";
-import styles from "./_TileOptions.module.scss";
+import {
+  StyledCardCheckboxGroup,
+  StyledCardCheckboxNoneItem
+} from "./_TileOptions.styles";
 
 type VergeOptionsProps = {
   selected?: string;
@@ -57,10 +60,9 @@ const VergeOptions = ({ selected, verge }: VergeOptionsProps) => {
             });
           }}
         />
-        <CardRadioGroup.Item
+        <StyledCardCheckboxNoneItem
           value="none"
           title={getMicroCopy(microCopy.TILE_OPTIONS_VERGE_NONE_LABEL)}
-          className={styles["noneOption"]}
           onClick={() => {
             pushEvent({
               event: "dxb.button_click",
@@ -157,7 +159,7 @@ const VentilationHoodOptions = ({
       title={getMicroCopy(microCopy.TILE_OPTIONS_VENTILATION_HOOD_TITLE)}
       help={getMicroCopy(microCopy.TILE_OPTIONS_VENTILATION_HOOD_HELP)}
     >
-      <CardCheckboxGroup
+      <StyledCardCheckboxGroup
         name="ventilation"
         defaultValue={selected}
         isRequired
@@ -167,7 +169,6 @@ const VentilationHoodOptions = ({
         noneLabel={getMicroCopy(
           microCopy.TILE_OPTIONS_VENTILATION_HOOD_NONE_LABEL
         )}
-        className={styles["ventilationHoodSelection"]}
       >
         {options.map(({ name, mainImage, externalProductCode }) => (
           <CardCheckboxGroup.Item
@@ -192,7 +193,7 @@ const VentilationHoodOptions = ({
             </CardCheckboxGroup.Item.Paragraph>
           </CardCheckboxGroup.Item>
         ))}
-      </CardCheckboxGroup>
+      </StyledCardCheckboxGroup>
     </FieldContainer>
   );
 };
@@ -214,7 +215,7 @@ const TileOptions = ({ variant, selections }: TileOptionsProps) => {
       : selections?.ventilationHoods?.map((v) => v.externalProductCode);
 
   return (
-    <div className={styles["TileOptions"]}>
+    <div>
       <VergeOptions selected={selectedVerge} verge={variant.vergeOption} />
       <RidgeOptions
         selected={selections?.ridge?.externalProductCode}

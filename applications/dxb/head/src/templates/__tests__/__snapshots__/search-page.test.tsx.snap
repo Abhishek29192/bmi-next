@@ -2708,15 +2708,15 @@ exports[`Search Page Template render correctly 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 SearchBlock css-1qxu916-MuiGrid2-root"
-            data-testid="grid-container"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row css-174i3wv-MuiGrid2-root"
+            data-testid="grid-item"
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 Grid-item css-wuqcfn-MuiGrid2-root"
               data-testid="grid-item"
             >
               <div
-                class="content content--search"
+                class="SearchPageBlock-content-search"
               >
                 <form
                   action="/en/search/"

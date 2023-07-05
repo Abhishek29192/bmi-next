@@ -3,7 +3,7 @@
 exports[`SystemConfiguratorSection component When returning from valid referer highlights last selected system 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section-root Section-white css-10chrh8"
+    class="Section-root Section-white css-10chrh8"
     data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
@@ -202,7 +202,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
     data-testid="system-config-result"
   >
     <div
-      class="SystemConfigurator-result Section-root Section-pearl css-10chrh8"
+      class="Section-root Section-pearl css-10chrh8"
       data-testid="system-configuration-section-Result-Title"
     >
       <div
@@ -212,13 +212,13 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-trnnr7-MuiTypography-root"
             data-testid="typography"
           >
             Result Title
           </h2>
           <div
-            class="description"
+            class="css-1xn3edc"
           >
             <div
               class="RichText-root css-1u73y0t"
@@ -280,7 +280,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
                   data-testid="overview-card-body-footer"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
@@ -306,7 +306,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
 exports[`SystemConfiguratorSection component When returning from valid referer removes query string from path 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section-root Section-white css-10chrh8"
+    class="Section-root Section-white css-10chrh8"
     data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
@@ -505,7 +505,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
     data-testid="system-config-result"
   >
     <div
-      class="SystemConfigurator-result Section-root Section-pearl css-10chrh8"
+      class="Section-root Section-pearl css-10chrh8"
       data-testid="system-configuration-section-Result-Title"
     >
       <div
@@ -515,13 +515,13 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-trnnr7-MuiTypography-root"
             data-testid="typography"
           >
             Result Title
           </h2>
           <div
-            class="description"
+            class="css-1xn3edc"
           >
             <div
               class="RichText-root css-1u73y0t"
@@ -583,7 +583,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
                   data-testid="overview-card-body-footer"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
@@ -609,7 +609,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
 exports[`SystemConfiguratorSection component redirect to 404 page if no matches to pimSystem code 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section-root Section-white css-10chrh8"
+    class="Section-root Section-white css-10chrh8"
     data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
@@ -808,7 +808,7 @@ exports[`SystemConfiguratorSection component redirect to 404 page if no matches 
     data-testid="system-config-result"
   >
     <div
-      class="SystemConfigurator-result Section-root Section-pearl css-10chrh8"
+      class="Section-root Section-pearl css-10chrh8"
       data-testid="system-configuration-section-Result-Title"
     >
       <div
@@ -818,13 +818,13 @@ exports[`SystemConfiguratorSection component redirect to 404 page if no matches 
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-trnnr7-MuiTypography-root"
             data-testid="typography"
           >
             Result Title
           </h2>
           <div
-            class="description"
+            class="css-1xn3edc"
           >
             <div
               class="RichText-root css-1u73y0t"
@@ -853,7 +853,7 @@ exports[`SystemConfiguratorSection component redirect to 404 page if no matches 
 exports[`SystemConfiguratorSection component renders System Configurator Block with initial question and answer data 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section-root Section-white css-10chrh8"
+    class="Section-root Section-white css-10chrh8"
     data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
@@ -1049,7 +1049,7 @@ exports[`SystemConfiguratorSection component renders System Configurator Block w
 exports[`SystemConfiguratorSection component renders a no result section when answer clicked 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section-root Section-white css-10chrh8"
+    class="Section-root Section-white css-10chrh8"
     data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
@@ -1287,7 +1287,7 @@ exports[`SystemConfiguratorSection component renders a no result section when an
 exports[`SystemConfiguratorSection component renders a result section when answer clicked 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section-root Section-white css-10chrh8"
+    class="Section-root Section-white css-10chrh8"
     data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
@@ -1486,7 +1486,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
     data-testid="system-config-result"
   >
     <div
-      class="SystemConfigurator-result Section-root Section-pearl css-10chrh8"
+      class="Section-root Section-pearl css-10chrh8"
       data-testid="system-configuration-section-Result-Title"
     >
       <div
@@ -1496,13 +1496,13 @@ exports[`SystemConfiguratorSection component renders a result section when answe
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-trnnr7-MuiTypography-root"
             data-testid="typography"
           >
             Result Title
           </h2>
           <div
-            class="description"
+            class="css-1xn3edc"
           >
             <div
               class="RichText-root css-1u73y0t"
@@ -1564,7 +1564,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
                   data-testid="overview-card-body-footer"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
@@ -1590,7 +1590,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
 exports[`SystemConfiguratorSection component renders an expanded panel when previous panel is clicked 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section-root Section-white css-10chrh8"
+    class="Section-root Section-white css-10chrh8"
     data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
@@ -1963,7 +1963,7 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
 exports[`SystemConfiguratorSection component renders correctly 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section-root Section-white css-10chrh8"
+    class="Section-root Section-white css-10chrh8"
     data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
@@ -2159,7 +2159,7 @@ exports[`SystemConfiguratorSection component renders correctly 1`] = `
 exports[`SystemConfiguratorSection component renders next question and answer block when answer clicked 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section-root Section-white css-10chrh8"
+    class="Section-root Section-white css-10chrh8"
     data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
@@ -2532,7 +2532,7 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
 exports[`SystemConfiguratorSection component renders no result section while ignoring assets other than image 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section-root Section-white css-10chrh8"
+    class="Section-root Section-white css-10chrh8"
     data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
@@ -2757,7 +2757,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
 exports[`SystemConfiguratorSection component renders no result section while ignoring invalid asset references 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section-root Section-white css-10chrh8"
+    class="Section-root Section-white css-10chrh8"
     data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
@@ -2982,7 +2982,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
 exports[`SystemConfiguratorSection component renders no result section with the correct image url 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section-root Section-white css-10chrh8"
+    class="Section-root Section-white css-10chrh8"
     data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
@@ -3228,7 +3228,7 @@ exports[`SystemConfiguratorSection component renders no result section with the 
 exports[`SystemConfiguratorSection component renders only max of 4 recommendedSystems 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section-root Section-white css-10chrh8"
+    class="Section-root Section-white css-10chrh8"
     data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
@@ -3427,7 +3427,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
     data-testid="system-config-result"
   >
     <div
-      class="SystemConfigurator-result Section-root Section-pearl css-10chrh8"
+      class="Section-root Section-pearl css-10chrh8"
       data-testid="system-configuration-section-Result-Title"
     >
       <div
@@ -3437,13 +3437,13 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-trnnr7-MuiTypography-root"
             data-testid="typography"
           >
             Result Title
           </h2>
           <div
-            class="description"
+            class="css-1xn3edc"
           >
             <div
               class="RichText-root css-1u73y0t"
@@ -3510,7 +3510,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                   data-testid="overview-card-body-footer"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
@@ -3563,7 +3563,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                   data-testid="overview-card-body-footer"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
@@ -3616,7 +3616,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                   data-testid="overview-card-body-footer"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
@@ -3669,7 +3669,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                   data-testid="overview-card-body-footer"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
@@ -3689,7 +3689,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
 exports[`SystemConfiguratorSection component renders only the recommendedSystems that match the pimSystem list from contentful 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section-root Section-white css-10chrh8"
+    class="Section-root Section-white css-10chrh8"
     data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
@@ -3888,7 +3888,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
     data-testid="system-config-result"
   >
     <div
-      class="SystemConfigurator-result Section-root Section-pearl css-10chrh8"
+      class="Section-root Section-pearl css-10chrh8"
       data-testid="system-configuration-section-Result-Title"
     >
       <div
@@ -3898,13 +3898,13 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-trnnr7-MuiTypography-root"
             data-testid="typography"
           >
             Result Title
           </h2>
           <div
-            class="description"
+            class="css-1xn3edc"
           >
             <div
               class="RichText-root css-1u73y0t"
@@ -3971,7 +3971,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
                   data-testid="overview-card-body-footer"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
@@ -4030,7 +4030,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
                   data-testid="overview-card-body-footer"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
@@ -4056,7 +4056,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
 exports[`SystemConfiguratorSection component renders skipping a block with only one answer 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section-root Section-white css-10chrh8"
+    class="Section-root Section-white css-10chrh8"
     data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
@@ -4553,7 +4553,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
 exports[`SystemConfiguratorSection component renders toggled closed configurator panel 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section-root Section-white css-10chrh8"
+    class="Section-root Section-white css-10chrh8"
     data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
@@ -4926,7 +4926,7 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
 exports[`SystemConfiguratorSection component renders with description rich text 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section-root Section-white css-10chrh8"
+    class="Section-root Section-white css-10chrh8"
     data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div
@@ -5138,10 +5138,10 @@ exports[`SystemConfiguratorSection component renders with description rich text 
 exports[`SystemConfiguratorSection component throws error 1`] = `
 <div>
   <div
-    class="Scrim Scrim--light"
+    class="ScrimStyles-scrim--light css-1qqmo68"
   >
     <span
-      class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary ProgressIndicator ProgressIndicator--light css-1kcdtbk-MuiCircularProgress-root"
+      class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary ProgressIndicatorStyles-progressIndicator--light css-sbue0o-MuiCircularProgress-root"
       data-testid="progress-indicator"
       role="progressbar"
       style="width: 72px; height: 72px;"
@@ -5162,7 +5162,7 @@ exports[`SystemConfiguratorSection component throws error 1`] = `
     </span>
   </div>
   <div
-    class="SystemConfigurator Section-root Section-white css-10chrh8"
+    class="Section-root Section-white css-10chrh8"
     data-testid="system-configuration-section-System-Configurator-Section-Title"
   >
     <div

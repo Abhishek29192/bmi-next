@@ -3,7 +3,6 @@ import queryString from "query-string";
 import React, { useMemo, useState } from "react";
 import { calculateQuantities } from "./calculations/calculateQuantities";
 import { getSystem } from "./calculations/getSystem";
-import styles from "./FlatRoofCalculator.module.scss";
 import {
   CalculatorData,
   CalculatorDataProduct,
@@ -15,6 +14,7 @@ import { FieldsDisplay } from "./types/FieldsDisplay";
 import { FormValues } from "./types/FormValues";
 import InputView from "./_InputView";
 import ResultsView from "./_ResultsView";
+import StyledFlatRoofCalculator from "./styles/FlatRoofCalculatorStyles";
 
 export const getProduct = (
   productReference: ProductReference,
@@ -253,9 +253,9 @@ const FlatRoofCalculator = ({
   );
 
   return (
-    <div id="flat-roof-calculator" className={styles["FlatRoofCalculator"]}>
+    <StyledFlatRoofCalculator id="flat-roof-calculator">
       {systemName ? resultView : inputView}
-    </div>
+    </StyledFlatRoofCalculator>
   );
 };
 

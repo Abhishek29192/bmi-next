@@ -8,7 +8,7 @@ import { getCTA } from "./Link";
 import { Data as PageInfoData } from "./PageInfo";
 import { Data as PromoData } from "./Promo";
 import { useSiteContext } from "./Site";
-import styles from "./styles/OverlapCards.module.scss";
+import { OverlapCardsSection } from "./styles/OverlapCardsStyles";
 import Video from "./Video";
 
 type Card =
@@ -30,7 +30,7 @@ const IntegratedOverlapCards = ({ data }: { data?: Data }) => {
   const GTMButton = withGTM<ButtonBaseProps>(ButtonBase, { action: "to" });
 
   return (
-    <div className={styles["OverlapCards"]} data-testid="overlap-cards-wrapper">
+    <OverlapCardsSection data-testid="overlap-cards-wrapper">
       <Container>
         <Grid spacing={3} container justifyContent="center">
           {data?.map(
@@ -72,7 +72,7 @@ const IntegratedOverlapCards = ({ data }: { data?: Data }) => {
           )}
         </Grid>
       </Container>
-    </div>
+    </OverlapCardsSection>
   );
 };
 

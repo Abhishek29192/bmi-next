@@ -285,7 +285,7 @@ exports[`FormSection component renders correctly 1`] = `
                 class="MuiFormControl-root css-1nrlq1o-MuiFormControl-root"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-body1 CheckboxGroup-heading css-1o02bdp-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 css-7ca4x2-MuiTypography-root"
                   data-testid="typography"
                 >
                   CheckboxGroup
@@ -1493,7 +1493,7 @@ exports[`FormSection component test multiply options in a checkbox group 1`] = `
                 class="MuiFormControl-root css-1nrlq1o-MuiFormControl-root"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-body1 CheckboxGroup-heading css-1o02bdp-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 css-7ca4x2-MuiTypography-root"
                   data-testid="typography"
                 >
                   Pizza
@@ -1710,7 +1710,7 @@ exports[`FormSection component test multiply options in a checkbox group without
                 class="MuiFormControl-root css-1nrlq1o-MuiFormControl-root"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-body1 CheckboxGroup-heading css-1o02bdp-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 css-7ca4x2-MuiTypography-root"
                   data-testid="typography"
                 >
                   Pizza

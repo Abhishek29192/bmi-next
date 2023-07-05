@@ -3,7 +3,7 @@
 exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
 <div>
   <div
-    class="ProductOverview"
+    class="css-xsxu0k"
     data-testid="product-overview"
   >
     <div
@@ -198,7 +198,7 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
           </p>
         </div>
         <p
-          class="MuiTypography-root MuiTypography-body1 keyAssetTypesDownload css-1o02bdp-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 css-1bm6nw4-MuiTypography-root"
           data-testid="typography"
         >
           This site is protected by reCAPTCHA and the Google 
@@ -236,7 +236,7 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
 exports[`ProductOverview component renders correctly without Recaptcha 1`] = `
 <div>
   <div
-    class="ProductOverview"
+    class="css-xsxu0k"
     data-testid="product-overview"
   >
     <div
@@ -439,7 +439,7 @@ exports[`ProductOverview component renders correctly without Recaptcha 1`] = `
 exports[`ProductOverview component renders with default image if there are no images, videos nor visualiser media 1`] = `
 <div>
   <div
-    class="ProductOverview"
+    class="css-xsxu0k"
     data-testid="product-overview"
   >
     <div
@@ -491,7 +491,7 @@ exports[`ProductOverview component renders with default image if there are no im
           </p>
         </div>
         <p
-          class="MuiTypography-root MuiTypography-body1 keyAssetTypesDownload css-1o02bdp-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 css-1bm6nw4-MuiTypography-root"
           data-testid="typography"
         >
           This site is protected by reCAPTCHA and the Google 

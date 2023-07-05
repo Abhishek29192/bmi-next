@@ -2570,7 +2570,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
     </div>
   </div>
   <div
-    class="SignupBlock"
+    class="css-1orozkz"
   >
     <div
       class="ColorPair-blue800 css-1pt14k0"
@@ -5886,7 +5886,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       class="css-eler5f"
                     >
                       <div
-                        class="css-cku69e"
+                        class="css-4o3oci"
                       >
                         <div
                           class="css-1uy5q6o"
@@ -5917,7 +5917,7 @@ exports[`Simple page renders correctly with full data 1`] = `
       style="margin-top: -150px; padding-top: 150px;"
     >
       <div
-        class="CardCollectionSection"
+        class="css-18aimy4"
         data-testid="card-collection-section-ContentfulCardCollectionSectionTitle"
       >
         <div
@@ -5931,7 +5931,7 @@ exports[`Simple page renders correctly with full data 1`] = `
               class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
             >
               <h2
-                class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h2 Typography-underline css-8cj2y3-MuiTypography-root"
                 data-testid="typography"
               >
                 ContentfulCardCollectionSectionTitle
@@ -6333,7 +6333,7 @@ exports[`Simple page renders correctly with full data 1`] = `
     </div>
   </div>
   <div
-    class="SignupBlock"
+    class="css-1orozkz"
   >
     <div
       class="ColorPair-blue800 css-1pt14k0"
