@@ -401,7 +401,9 @@ exports[`Header component renders correctly 1`] = `
                 MC: menu.mainTitle
               </h6>
             </li>
-            <li>
+            <li
+              data-depth="0"
+            >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"Get in touch"}"
@@ -420,10 +422,12 @@ exports[`Header component renders correctly 1`] = `
             </li>
             <div
               class="Navigation-navigationList Navigation-footer"
-              data-testid="navigation-list-root"
+              data-testid="footer"
             >
               <ul>
-                <li>
+                <li
+                  data-depth="1"
+                >
                   <div
                     class="Navigation-image"
                   >
@@ -476,7 +480,9 @@ exports[`Header component renders correctly 1`] = `
                     </div>
                   </div>
                 </li>
-                <li>
+                <li
+                  data-depth="1"
+                >
                   <h6
                     class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                     data-testid="typography"
@@ -484,7 +490,9 @@ exports[`Header component renders correctly 1`] = `
                     cardTitle1
                   </h6>
                 </li>
-                <li>
+                <li
+                  data-depth="1"
+                >
                   <div
                     class="Navigation-image"
                   >
@@ -537,7 +545,9 @@ exports[`Header component renders correctly 1`] = `
                     </div>
                   </div>
                 </li>
-                <li>
+                <li
+                  data-depth="1"
+                >
                   <h6
                     class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                     data-testid="typography"
@@ -547,7 +557,9 @@ exports[`Header component renders correctly 1`] = `
                 </li>
               </ul>
             </div>
-            <li>
+            <li
+              data-depth="0"
+            >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"About BMI","action":"/gb/landing-page/"}"
@@ -561,7 +573,9 @@ exports[`Header component renders correctly 1`] = `
                 />
               </a>
             </li>
-            <li>
+            <li
+              data-depth="0"
+            >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"string"}"
@@ -1077,7 +1091,9 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                 MC: menu.mainTitle
               </h6>
             </li>
-            <li>
+            <li
+              data-depth="0"
+            >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"Get in touch"}"
@@ -1096,10 +1112,12 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
             </li>
             <div
               class="Navigation-navigationList Navigation-footer"
-              data-testid="navigation-list-root"
+              data-testid="footer"
             >
               <ul>
-                <li>
+                <li
+                  data-depth="1"
+                >
                   <div
                     class="Navigation-image"
                   >
@@ -1152,7 +1170,9 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                     </div>
                   </div>
                 </li>
-                <li>
+                <li
+                  data-depth="1"
+                >
                   <h6
                     class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                     data-testid="typography"
@@ -1160,7 +1180,9 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                     cardTitle1
                   </h6>
                 </li>
-                <li>
+                <li
+                  data-depth="1"
+                >
                   <div
                     class="Navigation-image"
                   >
@@ -1213,7 +1235,9 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                     </div>
                   </div>
                 </li>
-                <li>
+                <li
+                  data-depth="1"
+                >
                   <h6
                     class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                     data-testid="typography"
@@ -1223,7 +1247,9 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                 </li>
               </ul>
             </div>
-            <li>
+            <li
+              data-depth="0"
+            >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"About BMI","action":"/grp/landing-page/"}"
@@ -1237,7 +1263,9 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                 />
               </a>
             </li>
-            <li>
+            <li
+              data-depth="0"
+            >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"string"}"
@@ -1787,7 +1815,9 @@ exports[`Header component shows sample basket icon 1`] = `
                 MC: menu.mainTitle
               </h6>
             </li>
-            <li>
+            <li
+              data-depth="0"
+            >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"Get in touch"}"
@@ -1806,10 +1836,12 @@ exports[`Header component shows sample basket icon 1`] = `
             </li>
             <div
               class="Navigation-navigationList Navigation-footer"
-              data-testid="navigation-list-root"
+              data-testid="footer"
             >
               <ul>
-                <li>
+                <li
+                  data-depth="1"
+                >
                   <div
                     class="Navigation-image"
                   >
@@ -1862,7 +1894,9 @@ exports[`Header component shows sample basket icon 1`] = `
                     </div>
                   </div>
                 </li>
-                <li>
+                <li
+                  data-depth="1"
+                >
                   <h6
                     class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                     data-testid="typography"
@@ -1870,7 +1904,9 @@ exports[`Header component shows sample basket icon 1`] = `
                     cardTitle1
                   </h6>
                 </li>
-                <li>
+                <li
+                  data-depth="1"
+                >
                   <div
                     class="Navigation-image"
                   >
@@ -1923,7 +1959,9 @@ exports[`Header component shows sample basket icon 1`] = `
                     </div>
                   </div>
                 </li>
-                <li>
+                <li
+                  data-depth="1"
+                >
                   <h6
                     class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                     data-testid="typography"
@@ -1933,7 +1971,9 @@ exports[`Header component shows sample basket icon 1`] = `
                 </li>
               </ul>
             </div>
-            <li>
+            <li
+              data-depth="0"
+            >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"About BMI","action":"/gb/landing-page/"}"
@@ -1947,7 +1987,9 @@ exports[`Header component shows sample basket icon 1`] = `
                 />
               </a>
             </li>
-            <li>
+            <li
+              data-depth="0"
+            >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"string"}"
@@ -2622,7 +2664,9 @@ exports[`Header component toggles search 1`] = `
                 MC: menu.mainTitle
               </h6>
             </li>
-            <li>
+            <li
+              data-depth="0"
+            >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"Get in touch"}"
@@ -2641,10 +2685,12 @@ exports[`Header component toggles search 1`] = `
             </li>
             <div
               class="Navigation-navigationList Navigation-footer"
-              data-testid="navigation-list-root"
+              data-testid="footer"
             >
               <ul>
-                <li>
+                <li
+                  data-depth="1"
+                >
                   <div
                     class="Navigation-image"
                   >
@@ -2697,7 +2743,9 @@ exports[`Header component toggles search 1`] = `
                     </div>
                   </div>
                 </li>
-                <li>
+                <li
+                  data-depth="1"
+                >
                   <h6
                     class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                     data-testid="typography"
@@ -2705,7 +2753,9 @@ exports[`Header component toggles search 1`] = `
                     cardTitle1
                   </h6>
                 </li>
-                <li>
+                <li
+                  data-depth="1"
+                >
                   <div
                     class="Navigation-image"
                   >
@@ -2758,7 +2808,9 @@ exports[`Header component toggles search 1`] = `
                     </div>
                   </div>
                 </li>
-                <li>
+                <li
+                  data-depth="1"
+                >
                   <h6
                     class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1nuwz6u-MuiTypography-root"
                     data-testid="typography"
@@ -2768,7 +2820,9 @@ exports[`Header component toggles search 1`] = `
                 </li>
               </ul>
             </div>
-            <li>
+            <li
+              data-depth="0"
+            >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"About BMI","action":"/gb/landing-page/"}"
@@ -2782,7 +2836,9 @@ exports[`Header component toggles search 1`] = `
                 />
               </a>
             </li>
-            <li>
+            <li
+              data-depth="0"
+            >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"string"}"

@@ -393,7 +393,9 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
                 MC: menu.mainTitle
               </h6>
             </li>
-            <li>
+            <li
+              data-depth="0"
+            >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"menuNavigationLinkLabel"}"
@@ -1267,7 +1269,9 @@ exports[`Sitemap renders correctly 1`] = `
                 MC: menu.mainTitle
               </h6>
             </li>
-            <li>
+            <li
+              data-depth="0"
+            >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"menuNavigationLinkLabel"}"
@@ -2141,7 +2145,9 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
                 MC: menu.mainTitle
               </h6>
             </li>
-            <li>
+            <li
+              data-depth="0"
+            >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"menuNavigationLinkLabel"}"
@@ -2951,7 +2957,9 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
                 MC: menu.mainTitle
               </h6>
             </li>
-            <li>
+            <li
+              data-depth="0"
+            >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-main-menu","label":"menuNavigationLinkLabel"}"
