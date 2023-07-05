@@ -78,7 +78,7 @@ exports[`Brands component renders correctly 1`] = `
                 type="button"
               >
                 <svg
-                  class="document-simple-table-results-actionIcon css-546mkb"
+                  class="document-simple-table-results-actionIcon css-afm3c7"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -111,7 +111,7 @@ exports[`Brands component renders correctly 1`] = `
                 target="_blank"
               >
                 <svg
-                  class="document-simple-table-results-actionIcon css-546mkb"
+                  class="document-simple-table-results-actionIcon css-afm3c7"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -208,7 +208,7 @@ exports[`Brands component renders correctly 1`] = `
                 type="button"
               >
                 <svg
-                  class="document-simple-table-results-actionIcon css-546mkb"
+                  class="document-simple-table-results-actionIcon css-afm3c7"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -241,7 +241,7 @@ exports[`Brands component renders correctly 1`] = `
                 target="_blank"
               >
                 <svg
-                  class="document-simple-table-results-actionIcon css-546mkb"
+                  class="document-simple-table-results-actionIcon css-afm3c7"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -341,7 +341,7 @@ exports[`Brands component renders correctly for mobile 1`] = `
                 type="button"
               >
                 <svg
-                  class="document-simple-table-results-actionIcon css-546mkb"
+                  class="document-simple-table-results-actionIcon css-afm3c7"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -374,7 +374,7 @@ exports[`Brands component renders correctly for mobile 1`] = `
                 target="_blank"
               >
                 <svg
-                  class="document-simple-table-results-actionIcon css-546mkb"
+                  class="document-simple-table-results-actionIcon css-afm3c7"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -471,7 +471,7 @@ exports[`Brands component renders correctly for mobile 1`] = `
                 type="button"
               >
                 <svg
-                  class="document-simple-table-results-actionIcon css-546mkb"
+                  class="document-simple-table-results-actionIcon css-afm3c7"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -504,7 +504,7 @@ exports[`Brands component renders correctly for mobile 1`] = `
                 target="_blank"
               >
                 <svg
-                  class="document-simple-table-results-actionIcon css-546mkb"
+                  class="document-simple-table-results-actionIcon css-afm3c7"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                 >

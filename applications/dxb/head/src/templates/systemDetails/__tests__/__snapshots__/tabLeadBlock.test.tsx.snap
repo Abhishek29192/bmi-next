@@ -785,9 +785,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                               <svg
                                 class="download-icon css-z6lod7"
                                 fill="none"
-                                height="48"
                                 viewBox="0 0 48 48"
-                                width="48"
                                 xmlns="http://www.w3.org/2000/svg"
                               >
                                 <path
@@ -852,7 +850,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                                 target="_blank"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="css-afm3c7"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -880,7 +878,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                                 type="button"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="css-afm3c7"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -960,7 +958,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                               class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                             >
                               <svg
-                                class="css-1y2quof"
+                                class="css-bwy9pl"
                                 fill="none"
                                 viewBox="0 0 48 48"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -1010,7 +1008,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                                 type="button"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="css-afm3c7"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -1279,9 +1277,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                           <svg
                             class="download-icon css-z6lod7"
                             fill="none"
-                            height="48"
                             viewBox="0 0 48 48"
-                            width="48"
                             xmlns="http://www.w3.org/2000/svg"
                           >
                             <path
@@ -1346,7 +1342,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                             target="_blank"
                           >
                             <svg
-                              class="css-546mkb"
+                              class="css-afm3c7"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -1374,7 +1370,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                             type="button"
                           >
                             <svg
-                              class="css-546mkb"
+                              class="css-afm3c7"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -1454,7 +1450,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                           class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         >
                           <svg
-                            class="css-1y2quof"
+                            class="css-bwy9pl"
                             fill="none"
                             viewBox="0 0 48 48"
                             xmlns="http://www.w3.org/2000/svg"
@@ -1504,7 +1500,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                             type="button"
                           >
                             <svg
-                              class="css-546mkb"
+                              class="css-afm3c7"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >
