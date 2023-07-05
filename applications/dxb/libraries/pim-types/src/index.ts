@@ -7,7 +7,8 @@ import createClassification, {
   createFeatureValue,
   createGeneralInformationClassification,
   createMeasurementsClassification,
-  createScoringWeightAttributesClassification
+  createScoringWeightAttributesClassification,
+  createSystemAttributesClassification
 } from "./ClassificationHelper";
 import createIgnorableClassifications from "./createIgnorableClassifications";
 import createImage from "./ImageHelper";
@@ -68,6 +69,7 @@ export {
   createIgnorableClassifications,
   createScoringWeightAttributesClassification,
   createAppearanceAttributesClassification,
+  createSystemAttributesClassification,
   createGeneralInformationClassification,
   createMeasurementsClassification,
   createImage,

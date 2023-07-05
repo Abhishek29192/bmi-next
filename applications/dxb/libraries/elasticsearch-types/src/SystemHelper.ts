@@ -16,6 +16,7 @@ const createSystem = (esSystem?: Partial<System>): System => ({
   name: "name",
   path: "/s/code-name-hashed-code",
   scoringWeight: 1,
+  systemAttributes: ["Product, Product & Workmanship, System"],
   shortDescription: "Short description",
   type: "systemWsDTO",
   ...esSystem
