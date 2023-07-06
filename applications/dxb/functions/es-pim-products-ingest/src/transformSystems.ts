@@ -98,31 +98,27 @@ const getScoringWeight = (classifications?: readonly PimClassification[]) =>
 const getSystemAttributes = (
   classifications?: readonly PimClassification[]
 ) => {
-  if (classifications === undefined) {
+  if (classifications === undefined || classifications.length === 0) {
     return undefined;
   }
 
-  if (classifications.length === 0) {
-    return undefined;
-  }
-
-  const sytemAttributes = classifications.filter(
+  const sytemAttributes = classifications.find(
     (classification) => classification.code === "systemAttributes"
   );
 
-  if (sytemAttributes.length === 0) {
+  if (sytemAttributes === undefined) {
     return undefined;
   }
 
-  return sytemAttributes
-    .map(({ features }) =>
-      features
-        ? features.map(({ featureValues }) =>
-            featureValues.map(({ value }) => value)
-          )
-        : []
-    )
-    .flat(2);
+  const { features } = sytemAttributes;
+
+  return features === undefined
+    ? []
+    : features.map(({ code, featureValues, name }) => ({
+        code,
+        name,
+        values: featureValues.map(({ value }) => value)
+      }));
 };
 
 export const transformSystem = (system: PimSystem): EsSystem | undefined => {
