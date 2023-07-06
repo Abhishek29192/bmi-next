@@ -11,32 +11,26 @@ export const classes = {
   disableRipple: `${PREFIX}-disableRipple`
 };
 
-export const ActionIcon = styled(Icon)(({ theme }) => ({
-  "&, & path": {
-    fill: theme.colours.inter
-  },
-  display: "block",
-  width: "24px",
-  height: "24px",
-  "&:hover": {
-    cursor: "pointer"
-  }
-}));
-
-export const ExternalLinkIcon = styled(Icon)(({ theme }) => ({
-  fill: theme.colours.inter,
-  width: "24px",
-  height: "24px",
-  padding: "4px",
-  boxSizing: "content-box"
-}));
-
-export const StyledDocumentIcon = styled(Icon)({
+export const StyledIcon = styled(Icon)({
   width: "32px",
   height: "32px",
   minHeight: "32px",
   minWidth: "32px"
 });
+
+export const ActionIcon = styled(StyledIcon)(({ theme }) => ({
+  "&, & path": {
+    fill: theme.colours.inter
+  },
+  "&:hover": {
+    cursor: "pointer"
+  }
+}));
+
+export const ExternalLinkIcon = styled(StyledIcon)(({ theme }) => ({
+  fill: theme.colours.inter,
+  boxSizing: "content-box"
+}));
 
 export const StyledButton = styled(Button)<IconButtonProps>(({ size }) => ({
   alignItems: "center",

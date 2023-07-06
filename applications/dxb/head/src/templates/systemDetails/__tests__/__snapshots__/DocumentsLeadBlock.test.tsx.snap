@@ -163,7 +163,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
                           class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         >
                           <svg
-                            class="css-1y2quof"
+                            class="css-bwy9pl"
                             fill="none"
                             viewBox="0 0 48 48"
                             xmlns="http://www.w3.org/2000/svg"
@@ -213,7 +213,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
                             type="button"
                           >
                             <svg
-                              class="css-546mkb"
+                              class="css-afm3c7"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >

@@ -3570,7 +3570,7 @@ exports[`Document Library page should render DocumentCardsResults correctly if s
               type="button"
             >
               <svg
-                class="document-simple-table-results-actionIcon css-546mkb"
+                class="document-simple-table-results-actionIcon css-afm3c7"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -3603,7 +3603,7 @@ exports[`Document Library page should render DocumentCardsResults correctly if s
               target="_blank"
             >
               <svg
-                class="document-simple-table-results-actionIcon css-546mkb"
+                class="document-simple-table-results-actionIcon css-afm3c7"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -3767,9 +3767,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                 <svg
                   class="download-icon css-z6lod7"
                   fill="none"
-                  height="48"
                   viewBox="0 0 48 48"
-                  width="48"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
@@ -3834,7 +3832,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                   target="_blank"
                 >
                   <svg
-                    class="css-546mkb"
+                    class="css-afm3c7"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -3862,7 +3860,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                   type="button"
                 >
                   <svg
-                    class="css-546mkb"
+                    class="css-afm3c7"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -4027,9 +4025,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                 <svg
                   class="download-icon css-z6lod7"
                   fill="none"
-                  height="48"
                   viewBox="0 0 48 48"
-                  width="48"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
@@ -4094,7 +4090,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                   target="_blank"
                 >
                   <svg
-                    class="css-546mkb"
+                    class="css-afm3c7"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -4122,7 +4118,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                   type="button"
                 >
                   <svg
-                    class="css-546mkb"
+                    class="css-afm3c7"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -4287,9 +4283,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                 <svg
                   class="download-icon css-z6lod7"
                   fill="none"
-                  height="48"
                   viewBox="0 0 48 48"
-                  width="48"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
@@ -4354,7 +4348,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                   target="_blank"
                 >
                   <svg
-                    class="css-546mkb"
+                    class="css-afm3c7"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -4382,7 +4376,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                   type="button"
                 >
                   <svg
-                    class="css-546mkb"
+                    class="css-afm3c7"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -4547,9 +4541,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                 <svg
                   class="download-icon css-z6lod7"
                   fill="none"
-                  height="48"
                   viewBox="0 0 48 48"
-                  width="48"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
@@ -4614,7 +4606,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                   target="_blank"
                 >
                   <svg
-                    class="css-546mkb"
+                    class="css-afm3c7"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -4642,7 +4634,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                   type="button"
                 >
                   <svg
-                    class="css-546mkb"
+                    class="css-afm3c7"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -4807,9 +4799,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                 <svg
                   class="download-icon css-z6lod7"
                   fill="none"
-                  height="48"
                   viewBox="0 0 48 48"
-                  width="48"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
@@ -4874,7 +4864,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                   target="_blank"
                 >
                   <svg
-                    class="css-546mkb"
+                    class="css-afm3c7"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -4902,7 +4892,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                   type="button"
                 >
                   <svg
-                    class="css-546mkb"
+                    class="css-afm3c7"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -5067,9 +5057,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                 <svg
                   class="download-icon css-z6lod7"
                   fill="none"
-                  height="48"
                   viewBox="0 0 48 48"
-                  width="48"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
@@ -5134,7 +5122,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                   target="_blank"
                 >
                   <svg
-                    class="css-546mkb"
+                    class="css-afm3c7"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -5162,7 +5150,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                   type="button"
                 >
                   <svg
-                    class="css-546mkb"
+                    class="css-afm3c7"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -5327,9 +5315,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                 <svg
                   class="download-icon css-z6lod7"
                   fill="none"
-                  height="48"
                   viewBox="0 0 48 48"
-                  width="48"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
@@ -5394,7 +5380,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                   target="_blank"
                 >
                   <svg
-                    class="css-546mkb"
+                    class="css-afm3c7"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -5422,7 +5408,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                   type="button"
                 >
                   <svg
-                    class="css-546mkb"
+                    class="css-afm3c7"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -5599,9 +5585,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                 <svg
                   class="download-icon css-z6lod7"
                   fill="none"
-                  height="48"
                   viewBox="0 0 48 48"
-                  width="48"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
@@ -5682,7 +5666,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                   target="_blank"
                 >
                   <svg
-                    class="css-546mkb"
+                    class="css-afm3c7"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -5710,7 +5694,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                   type="button"
                 >
                   <svg
-                    class="css-546mkb"
+                    class="css-afm3c7"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -5887,9 +5871,7 @@ exports[`Document Library page should render DocumentSimpleTableResults if sourc
                 <svg
                   class="download-icon css-z6lod7"
                   fill="none"
-                  height="48"
                   viewBox="0 0 48 48"
-                  width="48"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
@@ -5970,7 +5952,7 @@ exports[`Document Library page should render DocumentSimpleTableResults if sourc
                   target="_blank"
                 >
                   <svg
-                    class="css-546mkb"
+                    class="css-afm3c7"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -5998,7 +5980,7 @@ exports[`Document Library page should render DocumentSimpleTableResults if sourc
                   type="button"
                 >
                   <svg
-                    class="css-546mkb"
+                    class="css-afm3c7"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -6134,9 +6116,7 @@ exports[`Document Library page should render DocumentTechnicalTableResults corre
                       <svg
                         class="download-icon css-z6lod7"
                         fill="none"
-                        height="48"
                         viewBox="0 0 48 48"
-                        width="48"
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
@@ -6209,7 +6189,7 @@ exports[`Document Library page should render DocumentTechnicalTableResults corre
                           target="_blank"
                         >
                           <svg
-                            class="css-546mkb"
+                            class="css-afm3c7"
                             viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg"
                           >
@@ -6241,7 +6221,7 @@ exports[`Document Library page should render DocumentTechnicalTableResults corre
                           type="button"
                         >
                           <svg
-                            class="css-546mkb"
+                            class="css-afm3c7"
                             viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg"
                           >

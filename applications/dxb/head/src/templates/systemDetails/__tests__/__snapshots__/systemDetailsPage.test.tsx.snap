@@ -3532,9 +3532,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                               <svg
                                 class="download-icon css-z6lod7"
                                 fill="none"
-                                height="48"
                                 viewBox="0 0 48 48"
-                                width="48"
                                 xmlns="http://www.w3.org/2000/svg"
                               >
                                 <path
@@ -3599,7 +3597,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                                 target="_blank"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="css-afm3c7"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -3627,7 +3625,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                                 type="button"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="css-afm3c7"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -3707,7 +3705,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                               class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                             >
                               <svg
-                                class="css-1y2quof"
+                                class="css-bwy9pl"
                                 fill="none"
                                 viewBox="0 0 48 48"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -3757,7 +3755,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                                 type="button"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="css-afm3c7"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -7975,9 +7973,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               <svg
                                 class="download-icon css-z6lod7"
                                 fill="none"
-                                height="48"
                                 viewBox="0 0 48 48"
-                                width="48"
                                 xmlns="http://www.w3.org/2000/svg"
                               >
                                 <path
@@ -8042,7 +8038,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                                 target="_blank"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="css-afm3c7"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -8070,7 +8066,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                                 type="button"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="css-afm3c7"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -8150,7 +8146,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                             >
                               <svg
-                                class="css-1y2quof"
+                                class="css-bwy9pl"
                                 fill="none"
                                 viewBox="0 0 48 48"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -8200,7 +8196,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                                 type="button"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="css-afm3c7"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -12422,9 +12418,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                                 <svg
                                   class="download-icon css-z6lod7"
                                   fill="none"
-                                  height="48"
                                   viewBox="0 0 48 48"
-                                  width="48"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
                                   <path
@@ -12489,7 +12483,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                                   target="_blank"
                                 >
                                   <svg
-                                    class="css-546mkb"
+                                    class="css-afm3c7"
                                     viewBox="0 0 24 24"
                                     xmlns="http://www.w3.org/2000/svg"
                                   >
@@ -12517,7 +12511,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                                   type="button"
                                 >
                                   <svg
-                                    class="css-546mkb"
+                                    class="css-afm3c7"
                                     viewBox="0 0 24 24"
                                     xmlns="http://www.w3.org/2000/svg"
                                   >
@@ -12597,7 +12591,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                                 class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                               >
                                 <svg
-                                  class="css-1y2quof"
+                                  class="css-bwy9pl"
                                   fill="none"
                                   viewBox="0 0 48 48"
                                   xmlns="http://www.w3.org/2000/svg"
@@ -12647,7 +12641,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                                   type="button"
                                 >
                                   <svg
-                                    class="css-546mkb"
+                                    class="css-afm3c7"
                                     viewBox="0 0 24 24"
                                     xmlns="http://www.w3.org/2000/svg"
                                   >
@@ -16866,9 +16860,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               <svg
                                 class="download-icon css-z6lod7"
                                 fill="none"
-                                height="48"
                                 viewBox="0 0 48 48"
-                                width="48"
                                 xmlns="http://www.w3.org/2000/svg"
                               >
                                 <path
@@ -16933,7 +16925,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                                 target="_blank"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="css-afm3c7"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -16961,7 +16953,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                                 type="button"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="css-afm3c7"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -17041,7 +17033,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                             >
                               <svg
-                                class="css-1y2quof"
+                                class="css-bwy9pl"
                                 fill="none"
                                 viewBox="0 0 48 48"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -17091,7 +17083,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                                 type="button"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="css-afm3c7"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -21269,9 +21261,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                               <svg
                                 class="download-icon css-z6lod7"
                                 fill="none"
-                                height="48"
                                 viewBox="0 0 48 48"
-                                width="48"
                                 xmlns="http://www.w3.org/2000/svg"
                               >
                                 <path
@@ -21336,7 +21326,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                                 target="_blank"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="css-afm3c7"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -21364,7 +21354,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                                 type="button"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="css-afm3c7"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -21444,7 +21434,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                               class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                             >
                               <svg
-                                class="css-1y2quof"
+                                class="css-bwy9pl"
                                 fill="none"
                                 viewBox="0 0 48 48"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -21494,7 +21484,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                                 type="button"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="css-afm3c7"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -25712,9 +25702,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                               <svg
                                 class="download-icon css-z6lod7"
                                 fill="none"
-                                height="48"
                                 viewBox="0 0 48 48"
-                                width="48"
                                 xmlns="http://www.w3.org/2000/svg"
                               >
                                 <path
@@ -25779,7 +25767,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                                 target="_blank"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="css-afm3c7"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -25807,7 +25795,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                                 type="button"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="css-afm3c7"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -25887,7 +25875,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                               class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                             >
                               <svg
-                                class="css-1y2quof"
+                                class="css-bwy9pl"
                                 fill="none"
                                 viewBox="0 0 48 48"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -25937,7 +25925,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                                 type="button"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="css-afm3c7"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -30281,9 +30269,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                               <svg
                                 class="download-icon css-z6lod7"
                                 fill="none"
-                                height="48"
                                 viewBox="0 0 48 48"
-                                width="48"
                                 xmlns="http://www.w3.org/2000/svg"
                               >
                                 <path
@@ -30348,7 +30334,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                                 target="_blank"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="css-afm3c7"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -30376,7 +30362,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                                 type="button"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="css-afm3c7"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -30456,7 +30442,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                               class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                             >
                               <svg
-                                class="css-1y2quof"
+                                class="css-bwy9pl"
                                 fill="none"
                                 viewBox="0 0 48 48"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -30506,7 +30492,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                                 type="button"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="css-afm3c7"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -34850,9 +34836,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                               <svg
                                 class="download-icon css-z6lod7"
                                 fill="none"
-                                height="48"
                                 viewBox="0 0 48 48"
-                                width="48"
                                 xmlns="http://www.w3.org/2000/svg"
                               >
                                 <path
@@ -34917,7 +34901,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                                 target="_blank"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="css-afm3c7"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -34945,7 +34929,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                                 type="button"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="css-afm3c7"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -35025,7 +35009,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                               class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                             >
                               <svg
-                                class="css-1y2quof"
+                                class="css-bwy9pl"
                                 fill="none"
                                 viewBox="0 0 48 48"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -35075,7 +35059,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                                 type="button"
                               >
                                 <svg
-                                  class="css-546mkb"
+                                  class="css-afm3c7"
                                   viewBox="0 0 24 24"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >

@@ -160,9 +160,7 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
                   <svg
                     class="download-icon css-z6lod7"
                     fill="none"
-                    height="48"
                     viewBox="0 0 48 48"
-                    width="48"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
@@ -227,7 +225,7 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
                     target="_blank"
                   >
                     <svg
-                      class="css-546mkb"
+                      class="css-afm3c7"
                       viewBox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg"
                     >
@@ -255,7 +253,7 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
                     type="button"
                   >
                     <svg
-                      class="css-546mkb"
+                      class="css-afm3c7"
                       viewBox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg"
                     >
@@ -342,9 +340,7 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
                   <svg
                     class="download-icon css-z6lod7"
                     fill="none"
-                    height="48"
                     viewBox="0 0 48 48"
-                    width="48"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
@@ -409,7 +405,7 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
                     target="_blank"
                   >
                     <svg
-                      class="css-546mkb"
+                      class="css-afm3c7"
                       viewBox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg"
                     >
@@ -437,7 +433,7 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
                     type="button"
                   >
                     <svg
-                      class="css-546mkb"
+                      class="css-afm3c7"
                       viewBox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg"
                     >
@@ -545,7 +541,7 @@ exports[`DocumentResults component cards: renders correctly 1`] = `
                 type="button"
               >
                 <svg
-                  class="document-simple-table-results-actionIcon css-546mkb"
+                  class="document-simple-table-results-actionIcon css-afm3c7"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -578,7 +574,7 @@ exports[`DocumentResults component cards: renders correctly 1`] = `
                 target="_blank"
               >
                 <svg
-                  class="document-simple-table-results-actionIcon css-546mkb"
+                  class="document-simple-table-results-actionIcon css-afm3c7"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -715,9 +711,7 @@ exports[`DocumentResults component technicalTable: renders correctly 1`] = `
                         <svg
                           class="download-icon css-z6lod7"
                           fill="none"
-                          height="48"
                           viewBox="0 0 48 48"
-                          width="48"
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
@@ -790,7 +784,7 @@ exports[`DocumentResults component technicalTable: renders correctly 1`] = `
                             target="_blank"
                           >
                             <svg
-                              class="css-546mkb"
+                              class="css-afm3c7"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -822,7 +816,7 @@ exports[`DocumentResults component technicalTable: renders correctly 1`] = `
                             type="button"
                           >
                             <svg
-                              class="css-546mkb"
+                              class="css-afm3c7"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >

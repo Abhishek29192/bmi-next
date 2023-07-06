@@ -26,7 +26,7 @@ import {
   ActionIcon,
   ExternalLinkIcon,
   StyledButton,
-  StyledDocumentIcon,
+  StyledIcon,
   Title,
   TitleButton,
   TooltipPopper,
@@ -94,7 +94,7 @@ export const MultipleAssetToFileDownload = ({
       accessibilityLabel="Download"
       startIcon={
         document.format && (
-          <StyledDocumentIcon name={"FileZIP"} className={"download-icon"} />
+          <StyledIcon name={"FileZIP"} className={"download-icon"} />
         )
       }
       data-testid={`document-table-download-zip-button`}
@@ -165,7 +165,7 @@ export const DocumentTitle = (props: {
       }}
       variant="text"
       startIcon={
-        <StyledDocumentIcon
+        <StyledIcon
           // eslint-disable-next-line security/detect-object-injection
           name={fileIconsMap[mappedDocument.format] || "FileUniversal"}
           className="download-icon"
