@@ -95,6 +95,36 @@ const getScoringWeight = (classifications?: readonly PimClassification[]) =>
       )?.featureValues[0].value || "0"
   );
 
+const getSystemAttributes = (
+  classifications?: readonly PimClassification[]
+) => {
+  if (classifications === undefined) {
+    return undefined;
+  }
+
+  if (classifications.length === 0) {
+    return undefined;
+  }
+
+  const sytemAttributes = classifications.filter(
+    (classification) => classification.code === "systemAttributes"
+  );
+
+  if (sytemAttributes.length === 0) {
+    return undefined;
+  }
+
+  return sytemAttributes
+    .map(({ features }) =>
+      features
+        ? features.map(({ featureValues }) =>
+            featureValues.map(({ value }) => value)
+          )
+        : []
+    )
+    .flat(2);
+};
+
 export const transformSystem = (system: PimSystem): EsSystem | undefined => {
   const { approvalStatus, type, code, name, shortDescription } = system;
   if (!name || approvalStatus !== "approved") {
@@ -105,10 +135,12 @@ export const transformSystem = (system: PimSystem): EsSystem | undefined => {
   const groupedImages = groupImages(system.images || []);
   const path = `/s/${generateUrl([name, hashedCode])}`;
   const scoringWeight = getScoringWeight(system.classifications);
+  const systemAttributes = getSystemAttributes(system.classifications);
   logger.info({
     message: `System brand: ${brand}`
   });
-  return {
+
+  const builtSystem = {
     approvalStatus,
     brand,
     code,
@@ -118,7 +150,12 @@ export const transformSystem = (system: PimSystem): EsSystem | undefined => {
     name,
     path,
     scoringWeight,
+    ...(systemAttributes && {
+      systemAttributes
+    }),
     shortDescription,
     type
   };
+
+  return builtSystem;
 };

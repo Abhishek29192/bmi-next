@@ -1,8 +1,12 @@
+/* eslint-disable jest/no-focused-tests */
 import {
   Category,
+  Classification,
   createClassification,
   createImage,
   createSystem,
+  createFeature,
+  createFeatureValue,
   System
 } from "@bmi/pim-types";
 import { transformSystem } from "../transformSystems";
@@ -19,6 +23,8 @@ beforeEach(() => {
   jest.clearAllMocks();
   jest.resetModules();
 });
+
+const { PIM_CLASSIFICATION_CATALOGUE_NAMESPACE } = process.env;
 
 describe("transformSystem", () => {
   it("should return undefined if system doesn't have a name", () => {
@@ -427,6 +433,66 @@ describe("transformSystem", () => {
     expect(generateHashFromString).toHaveBeenCalledWith(code, undefined);
     expect(generateUrl).toHaveBeenCalledWith([name, "hashed-system-code"]);
   });
+
+  describe("systemattributes", () => {
+    it("should transform system to object without systemattributes", () => {
+      const system = createSystem({ classifications: [] });
+
+      const { code, name } = system;
+      generateHashFromString.mockReturnValueOnce("hashed-system-code");
+      generateUrl.mockReturnValueOnce("generated-url");
+
+      const transformedSystem = transformSystem(system);
+
+      expect(transformedSystem).toEqual(
+        expect.not.objectContaining({
+          systemAttributes: getSystemAttributesDefaultValues()
+        })
+      );
+      expect(generateHashFromString).toHaveBeenCalledWith(code, undefined);
+      expect(generateUrl).toHaveBeenCalledWith([name, "hashed-system-code"]);
+    });
+  });
+
+  it("should transform system to object with systemattributes", () => {
+    const system = createSystem({
+      classifications: [createSystemAttributesClassification()]
+    });
+    const { code, name } = system;
+    generateHashFromString.mockReturnValueOnce("hashed-system-code");
+    generateUrl.mockReturnValueOnce("generated-url");
+
+    const transformedSystem = transformSystem(system);
+
+    expect(transformedSystem).toEqual(
+      expect.objectContaining({
+        systemAttributes: getSystemAttributesDefaultValues()
+      })
+    );
+    expect(generateHashFromString).toHaveBeenCalledWith(code, undefined);
+    expect(generateUrl).toHaveBeenCalledWith([name, "hashed-system-code"]);
+  });
+
+  it("should transform system to object without classification features systemattributes", () => {
+    const system = createSystem({
+      classifications: [
+        createSystemAttributesClassification({ features: undefined })
+      ]
+    });
+    const { code, name } = system;
+    generateHashFromString.mockReturnValueOnce("hashed-system-code");
+    generateUrl.mockReturnValueOnce("generated-url");
+
+    const transformedSystem = transformSystem(system);
+
+    expect(transformedSystem).toEqual(
+      expect.objectContaining({
+        systemAttributes: []
+      })
+    );
+    expect(generateHashFromString).toHaveBeenCalledWith(code, undefined);
+    expect(generateUrl).toHaveBeenCalledWith([name, "hashed-system-code"]);
+  });
 });
 
 const getBrand = (system: System) =>
@@ -448,3 +514,35 @@ const getScoringWeight = (system: System) =>
           "scoringWeightAttributes.scoringweight"
       )!.featureValues[0].value
   );
+
+export const createSystemAttributesClassification = (
+  classification?: Partial<Classification>
+): Classification =>
+  createClassification({
+    features: [
+      createFeature({
+        code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/systemAttributes.roofBuildUp`,
+        featureValues: [
+          createFeatureValue({
+            value:
+              "Combines self-adhesive/heat activated and torch applied installation techniques"
+          })
+        ]
+      }),
+      createFeature({
+        code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/systemAttributes.KeyFeatures`,
+        featureValues: [
+          createFeatureValue({ value: "Robust and waterproof steel" })
+        ]
+      })
+    ],
+    ...classification,
+    code: "systemAttributes"
+  });
+
+const getSystemAttributesDefaultValues = () => {
+  return [
+    "Combines self-adhesive/heat activated and torch applied installation techniques",
+    "Robust and waterproof steel"
+  ];
+};

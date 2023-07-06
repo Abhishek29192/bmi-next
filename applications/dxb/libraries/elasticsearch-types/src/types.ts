@@ -65,6 +65,7 @@ export type System = {
   name: string;
   path: string;
   scoringWeight: number;
+  systemAttributes?: string[];
   shortDescription?: string;
   type?: string;
 };
