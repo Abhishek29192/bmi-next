@@ -16,7 +16,15 @@ const createSystem = (esSystem?: Partial<System>): System => ({
   name: "name",
   path: "/s/code-name-hashed-code",
   scoringWeight: 1,
-  systemAttributes: ["Product, Product & Workmanship, System"],
+  systemAttributes: [
+    {
+      code: "bmiSystemsClassificationCatalog/1.0/systemAttributes.roofBuildUp",
+      name: "Roof build-up",
+      values: [
+        "Combines self-adhesive/heat activated and torch applied installation techniques"
+      ]
+    }
+  ],
   shortDescription: "Short description",
   type: "systemWsDTO",
   ...esSystem

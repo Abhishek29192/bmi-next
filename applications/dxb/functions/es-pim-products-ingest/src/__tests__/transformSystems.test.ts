@@ -522,17 +522,12 @@ export const createSystemAttributesClassification = (
     features: [
       createFeature({
         code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/systemAttributes.roofBuildUp`,
+        name: "Roof build-up",
         featureValues: [
           createFeatureValue({
             value:
               "Combines self-adhesive/heat activated and torch applied installation techniques"
           })
-        ]
-      }),
-      createFeature({
-        code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/systemAttributes.KeyFeatures`,
-        featureValues: [
-          createFeatureValue({ value: "Robust and waterproof steel" })
         ]
       })
     ],
@@ -542,7 +537,12 @@ export const createSystemAttributesClassification = (
 
 const getSystemAttributesDefaultValues = () => {
   return [
-    "Combines self-adhesive/heat activated and torch applied installation techniques",
-    "Robust and waterproof steel"
+    {
+      code: "bmiClassificationCatalog/1.0/systemAttributes.roofBuildUp",
+      name: "Roof build-up",
+      values: [
+        "Combines self-adhesive/heat activated and torch applied installation techniques"
+      ]
+    }
   ];
 };

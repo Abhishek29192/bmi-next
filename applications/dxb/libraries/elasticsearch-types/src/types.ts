@@ -55,6 +55,12 @@ export type Image = {
   altText?: string;
 };
 
+type systemAttribute = {
+  name: string;
+  code: string;
+  values: string[];
+};
+
 export type System = {
   approvalStatus: PimSystem["approvalStatus"];
   brand?: PimCategory;
@@ -65,7 +71,7 @@ export type System = {
   name: string;
   path: string;
   scoringWeight: number;
-  systemAttributes?: string[];
+  systemAttributes?: systemAttribute[];
   shortDescription?: string;
   type?: string;
 };
