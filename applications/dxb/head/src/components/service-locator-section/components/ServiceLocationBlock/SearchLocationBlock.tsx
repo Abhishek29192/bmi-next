@@ -42,7 +42,7 @@ export const SearchLocationBlock = ({
           label={autocompleteLabel}
           noOptionsText={getMicroCopy(microCopy.FIND_A_ROOFER_NO_RESULTS_LABEL)}
           onChange={handleAutocompleteOnChange}
-          filterOptions={getFilterOptions()}
+          filterOptions={getFilterOptions}
           options={options}
           freeSolo
           startAdornmentIcon="HardHatHead"
