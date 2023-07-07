@@ -503,7 +503,7 @@ type FormSectionProps = {
   onSuccess?: () => void;
   onFormReady?: (
     event: MessageEvent,
-    hsForm: HTMLIFrameElement | HTMLFormElement
+    hsForm?: HTMLIFrameElement | HTMLFormElement
   ) => void;
   onFormLoadError?: () => void;
   className?: string;

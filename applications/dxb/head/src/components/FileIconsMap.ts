@@ -1,18 +1,19 @@
-import { Format } from "./types";
-import { IconName } from "./Icon";
+interface FileIconsMap {
+  [key: string]: string;
+}
 
-const fileIconsMap: Record<Format, IconName> = {
-  "application/pdf": "FilePDF",
-  "application/zip": "FileZIP",
+const fileIconsMap: FileIconsMap = {
+  "application/zip": "ZipFile",
+  "application/pdf": "PDFFile",
+  "image/jpg": "JPGFile",
+  "image/jpeg": "JPEGFile",
+  "image/png": "PNGFile",
+  "image/svg+xml": "SVGFile",
   "application/vnd.openxmlformats-officedocument.wordprocessingml.document":
-    "FileDOCX",
-  "image/jpg": "FileJPG",
-  "image/jpeg": "FileJPEG",
-  "image/png": "FilePNG",
-  "image/svg+xml": "FileSVG",
-  "text/plain": "FileTXT",
+    "WordFile",
+  "text/plain": "TextFile",
   "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet":
-    "FileXLSX"
+    "ExcelFile"
 };
 
 export default fileIconsMap;

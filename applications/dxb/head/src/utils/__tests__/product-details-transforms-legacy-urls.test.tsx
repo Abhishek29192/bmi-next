@@ -6,10 +6,11 @@ import createMeasurements from "../../__tests__/helpers/MeasurementsHelper";
 import createProduct from "../../__tests__/helpers/ProductHelper";
 import createRelatedVariant from "../../__tests__/helpers/RelatedVariantHelper";
 import { getProductAttributes } from "../product-details-transforms";
+import { Product } from "../../types/pim";
 
 describe("product-details-transforms tests", () => {
   describe("getProductAttributes with variantCodeToPathMap tests", () => {
-    const getProductAttributesWithVariantCodeToPathMap = (product) =>
+    const getProductAttributesWithVariantCodeToPathMap = (product: Product) =>
       getProductAttributes(
         product,
         "no",

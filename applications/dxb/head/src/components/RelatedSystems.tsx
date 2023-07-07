@@ -33,7 +33,7 @@ export type SystemCardProps = {
   "data-testid"?: string;
 };
 
-const getSystemUrl = (countryCode, path) =>
+const getSystemUrl = (countryCode: string, path: string) =>
   getPathWithCountryCode(countryCode, path);
 
 export const SystemCard = ({

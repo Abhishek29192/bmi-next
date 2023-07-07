@@ -13,8 +13,9 @@ type Props = {
 };
 
 const DOCUMENTS_PER_PAGE = 24;
-const GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT =
-  +process.env.GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT || 100;
+const GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT = +(
+  process.env.GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT || 100
+);
 
 const DocumentsLeadBlock = ({ documents: initialDocuments }: Props) => {
   const resultsElement = useRef<HTMLDivElement>(null);
@@ -28,7 +29,10 @@ const DocumentsLeadBlock = ({ documents: initialDocuments }: Props) => {
   );
   const [documents, setDocuments] = useState(filteredDocuments.slice(0, 24));
   const count = Math.ceil(filteredDocuments.length / DOCUMENTS_PER_PAGE);
-  const handlePageChange = (_, page) => {
+  const handlePageChange = (
+    _: React.ChangeEvent<HTMLElement>,
+    page: number
+  ) => {
     const scrollY = resultsElement.current
       ? resultsElement.current.offsetTop - 200
       : 0;

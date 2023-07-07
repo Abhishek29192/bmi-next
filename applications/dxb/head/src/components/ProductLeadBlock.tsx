@@ -51,15 +51,17 @@ const BlueCheckIcon = () => {
 
 type Props = {
   product: Product;
-  sidebarItems?: {
-    title: React.ReactNode;
-    content: RichTextData;
-  }[];
+  sidebarItems?:
+    | {
+        title: React.ReactNode;
+        content: RichTextData;
+      }[]
+    | null;
   pdpFixingToolTitle?: string | null;
   pdpFixingToolDescription?: RichTextData | null;
   pdpSpecificationTitle?: string | null;
   pdpSpecificationDescription?: RichTextData | null;
-  documentDisplayFormat?: DocumentDisplayFormatType;
+  documentDisplayFormat?: DocumentDisplayFormatType | null;
 };
 
 const DOCUMENTS_PER_PAGE = 24;

@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useReducer } from "react";
 import { useIsClient } from "@bmi-digital/components";
+import { Measurements } from "@bmi/firestore-types";
 import { useSiteContext } from "../components/Site";
 import { Product } from "../types/pim";
 import { local } from "../utils/storage";
@@ -18,7 +19,7 @@ export interface Sample {
   path: Product["path"];
   colour: Product["colour"];
   textureFamily: Product["textureFamily"];
-  measurements: Product["measurements"]["label"] | null;
+  measurements?: Measurements["label"];
   image?: string;
 }
 

@@ -25,6 +25,7 @@ describe("ContentfulImage resolver", () => {
   it("should contain specific type", () => {
     expect(ContentfulImage.focalPoint.type).toBe("FocalPoint");
   });
+
   it("should return null if source without image___NODE and focalPoint___NODE", async () => {
     expect(
       await ContentfulImage.focalPoint.resolve(
@@ -34,6 +35,18 @@ describe("ContentfulImage resolver", () => {
       )
     ).toBeNull();
   });
+
+  it("returns null if image file details are undefined", async () => {
+    context.nodeModel.getNodeById = jest.fn().mockResolvedValue({
+      file: {
+        details: {}
+      }
+    });
+    expect(
+      await ContentfulImage.focalPoint.resolve(source, args, context)
+    ).toBeNull();
+  });
+
   it("should return null if no focalPoint found", async () => {
     context.nodeModel.getNodeById = jest.fn().mockResolvedValue({
       file: {

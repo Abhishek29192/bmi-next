@@ -651,7 +651,7 @@ describe("SystemConfiguratorSection component", () => {
 
       expect(window.history.replaceState).toHaveBeenLastCalledWith(
         null,
-        null,
+        "",
         "/jest-test-page"
       );
       expect(container).toMatchSnapshot();

@@ -166,7 +166,7 @@ export interface NodeModel {
 
   getNodesByIds: (
     args: {
-      ids: string[];
+      ids?: string[];
       type?: string | GraphQLOutputType;
     },
     pageDependencies?: PageDependencies

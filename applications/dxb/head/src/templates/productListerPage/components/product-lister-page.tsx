@@ -15,7 +15,13 @@ import { styled } from "@mui/material/styles";
 import { useLocation } from "@reach/router";
 import { graphql } from "gatsby";
 import queryString from "query-string";
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, {
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  useCallback
+} from "react";
 import type { Product as ESProduct } from "@bmi/elasticsearch-types";
 import Breadcrumbs, {
   Data as BreadcrumbsData
@@ -226,7 +232,11 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     setFilters(newFilters);
   };
 
-  const handleFiltersChange = (filterName, filterValue, checked) => {
+  const handleFiltersChange = (
+    filterName: string,
+    filterValue: string,
+    checked: boolean
+  ) => {
     const newFilters: ProductFilter[] = updateFilterValue(
       filters,
       filterName,
@@ -253,69 +263,75 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     onFiltersChange(newFilters);
   };
 
-  const fetchProducts = async (filters, categoryCodes, page, pageSize) => {
-    if (isLoading) {
-      devLog("Already loading...");
-      return;
-    }
+  const fetchProducts = useCallback(
+    async (filters, categoryCodes, page, pageSize) => {
+      if (isLoading) {
+        devLog("Already loading...");
+        return;
+      }
 
-    if (isPreviewMode) {
-      alert("You cannot search on the preview environment.");
-      return;
-    }
+      if (isPreviewMode) {
+        alert("You cannot search on the preview environment.");
+        return;
+      }
 
-    setIsLoading(true);
+      setIsLoading(true);
 
-    const query = compileElasticSearchQuery({
-      allowFilterBy: data.plpFilters.allowFilterBy,
-      categoryCodes,
-      filters, //these are updated filters with user's selection from UI!
-      groupByVariant: process.env.GATSBY_GROUP_BY_VARIANT === "true",
-      page,
-      pageSize
-    });
+      const query = compileElasticSearchQuery({
+        allowFilterBy: data.plpFilters.allowFilterBy,
+        categoryCodes,
+        filters, //these are updated filters with user's selection from UI!
+        groupByVariant: process.env.GATSBY_GROUP_BY_VARIANT === "true",
+        page,
+        pageSize
+      });
 
-    // TODO: If no query returned, empty query, show default results?
-    // TODO: Handle if no response
-    const results = await queryElasticSearch(query, ES_INDEX_NAME);
+      // TODO: If no query returned, empty query, show default results?
+      // TODO: Handle if no response
+      const results = await queryElasticSearch(query, ES_INDEX_NAME);
 
-    if (results && results.hits) {
-      const { hits } = results;
-      const uniqueBaseProductsCount =
-        results.aggregations?.unique_base_products_count?.value || 0;
-      const newPageCount = Math.ceil(uniqueBaseProductsCount / PAGE_SIZE);
-      const variants = (() => {
-        if ((page + 1) * PAGE_SIZE > uniqueBaseProductsCount) {
-          return hits.hits.slice(0, uniqueBaseProductsCount - page * PAGE_SIZE);
-        }
-        return hits.hits;
-      })();
+      if (results && results.hits) {
+        const { hits } = results;
+        const uniqueBaseProductsCount =
+          results.aggregations?.unique_base_products_count?.value || 0;
+        const newPageCount = Math.ceil(uniqueBaseProductsCount / PAGE_SIZE);
+        const variants = (() => {
+          if ((page + 1) * PAGE_SIZE > uniqueBaseProductsCount) {
+            return hits.hits.slice(
+              0,
+              uniqueBaseProductsCount - page * PAGE_SIZE
+            );
+          }
+          return hits.hits;
+        })();
 
-      setPageCount(newPageCount);
-      setPage(newPageCount < page ? 0 : page);
-      setProducts(
-        variants.map((hit) => ({
-          ...hit._source,
-          all_variants: hit.inner_hits.all_variants.hits.hits || []
-        }))
-      );
-    }
+        setPageCount(newPageCount);
+        setPage(newPageCount < page ? 0 : page);
+        setProducts(
+          variants.map((hit) => ({
+            ...hit._source,
+            all_variants: hit.inner_hits.all_variants.hits.hits || []
+          }))
+        );
+      }
 
-    if (results && results.aggregations) {
-      // TODO: Remove 'GATSBY_USE_LEGACY_FILTERS' branch of code
-      // JIRA : https://bmigroup.atlassian.net/browse/DXB-2789
-      const newFilters = disableFiltersFromAggregations(
-        filters,
-        results.aggregations
-      );
+      if (results && results.aggregations) {
+        // TODO: Remove 'GATSBY_USE_LEGACY_FILTERS' branch of code
+        // JIRA : https://bmigroup.atlassian.net/browse/DXB-2789
+        const newFilters = disableFiltersFromAggregations(
+          filters,
+          results.aggregations
+        );
 
-      setFilters(newFilters);
-    }
+        setFilters(newFilters);
+      }
 
-    setIsLoading(false);
+      setIsLoading(false);
 
-    return results;
-  };
+      return results;
+    },
+    [data.plpFilters.allowFilterBy, isLoading, isPreviewMode]
+  );
 
   useEffect(() => {
     if (queryParams?.filters?.length) {
@@ -346,7 +362,15 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
         devLog("could not resolve 'data.plpFilters'");
       }
     }
-  }, [location.search]);
+  }, [
+    data.plpFilters,
+    fetchProducts,
+    filters,
+    location.search,
+    pageContext.categoryCodes,
+    queryParams.filters,
+    resolvedFilters
+  ]);
 
   // NOTE: We wouldn't expect this to change, even if the data somehow came back incorrect,
   // maybe pointless for this value to rely on it as more will break.

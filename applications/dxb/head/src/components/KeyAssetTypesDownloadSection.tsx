@@ -14,7 +14,7 @@ import Icon from "./Icon";
 import { StyledKeyAssetTypeSectionContainer } from "./styles/KeyAssetTypesDownloadSection.styles";
 
 type Props = {
-  keyAssetDocuments: KeyAssetDocument[];
+  keyAssetDocuments: KeyAssetDocument[] | null;
 };
 
 const GTMButton = withGTM<

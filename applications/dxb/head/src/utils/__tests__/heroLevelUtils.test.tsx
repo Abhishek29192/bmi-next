@@ -47,6 +47,9 @@ const featureVideo: ContentfulVideoData = {
 };
 
 describe("generateHeroLevel test", () => {
+  it("returns undefined if heroType is null", () => {
+    expect(generateHeroLevel(null, mockBreadCrumbs)).toBeUndefined();
+  });
   it("test hero utils with levels types", () => {
     expect(generateHeroLevel("Level 1", mockBreadCrumbs)).toBe(1);
     expect(generateHeroLevel("Level 2", mockBreadCrumbs)).toBe(2);
