@@ -160,18 +160,14 @@ export const getResultDataGtm = (
   };
 };
 
-export const getFilterOptions = () => {
-  return (options, { inputValue }) => {
-    if (inputValue.length > 2) {
-      return options.filter((option) =>
-        option.toLowerCase().includes(inputValue.toLowerCase())
-      );
-    }
-    // @todo Returning `false` from this function is the *only* way
-    // this works to hide the dropdown but is not typed as such in
-    // MaterialUI.
-    return false as any;
-  };
+export const getFilterOptions = (options, { inputValue }) => {
+  if (inputValue.length < 2) {
+    return [];
+  }
+
+  return options.filter((option) =>
+    option.toLowerCase().includes(inputValue.toLowerCase())
+  );
 };
 
 export const calculateCentre = (
