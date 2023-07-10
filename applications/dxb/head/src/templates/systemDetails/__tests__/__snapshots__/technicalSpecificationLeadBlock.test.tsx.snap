@@ -10,9 +10,8 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
       class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
       data-testid="grid-item"
     >
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-        data-testid="typography"
+      <div
+        class="css-1yjvs5a"
       >
         <div
           data-testid="technical-specification-classifications-accordion-wrapper"
@@ -222,7 +221,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
             </div>
           </div>
         </div>
-      </p>
+      </div>
     </div>
   </div>
 </div>
@@ -238,9 +237,8 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
       class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
       data-testid="grid-item"
     >
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-        data-testid="typography"
+      <div
+        class="css-1yjvs5a"
       >
         <div
           data-testid="technical-specification-classifications-accordion-wrapper"
@@ -422,7 +420,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
             </div>
           </div>
         </div>
-      </p>
+      </div>
     </div>
   </div>
 </div>
@@ -438,9 +436,8 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when One 
       class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
       data-testid="grid-item"
     >
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-        data-testid="typography"
+      <div
+        class="css-1yjvs5a"
       >
         <div
           data-testid="technical-specification-classifications-table-wrapper"
@@ -492,7 +489,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when One 
             </table>
           </div>
         </div>
-      </p>
+      </div>
     </div>
   </div>
 </div>
@@ -508,9 +505,8 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when One 
       class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
       data-testid="grid-item"
     >
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-        data-testid="typography"
+      <div
+        class="css-1yjvs5a"
       >
         <div
           data-testid="technical-specification-classifications-table-wrapper"
@@ -562,7 +558,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when One 
             </table>
           </div>
         </div>
-      </p>
+      </div>
     </div>
   </div>
 </div>
@@ -578,9 +574,8 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when no c
       class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
       data-testid="grid-item"
     >
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-        data-testid="typography"
+      <div
+        class="css-1yjvs5a"
       />
     </div>
   </div>
@@ -597,9 +592,8 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
       class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
       data-testid="grid-item"
     >
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-        data-testid="typography"
+      <div
+        class="css-1yjvs5a"
       >
         <div
           data-testid="technical-specification-classifications-accordion-wrapper"
@@ -781,7 +775,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
             </div>
           </div>
         </div>
-      </p>
+      </div>
     </div>
   </div>
 </div>
@@ -797,9 +791,8 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
       class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
       data-testid="grid-item"
     >
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-        data-testid="typography"
+      <div
+        class="css-1yjvs5a"
       >
         <div
           data-testid="technical-specification-classifications-accordion-wrapper"
@@ -981,7 +974,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
             </div>
           </div>
         </div>
-      </p>
+      </div>
     </div>
     <div
       class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"

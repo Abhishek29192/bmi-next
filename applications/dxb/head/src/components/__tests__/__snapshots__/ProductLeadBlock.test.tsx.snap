@@ -208,9 +208,8 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
             class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
             data-testid="grid-item"
           >
-            <p
-              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-              data-testid="typography"
+            <div
+              class="css-1yjvs5a"
             >
               <div
                 class="MuiTypography-root MuiTypography-body1 css-poa7q6-MuiTypography-root"
@@ -218,10 +217,9 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               >
                 Description
               </div>
-            </p>
-            <p
-              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-              data-testid="typography"
+            </div>
+            <div
+              class="css-1yjvs5a"
             >
               <h5
                 class="MuiTypography-root MuiTypography-h5 css-ulrehz-MuiTypography-root"
@@ -293,10 +291,9 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                   </svg>
                 </a>
               </div>
-            </p>
-            <p
-              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-              data-testid="typography"
+            </div>
+            <div
+              class="css-1yjvs5a"
             >
               <h5
                 class="MuiTypography-root MuiTypography-h5 css-ulrehz-MuiTypography-root"
@@ -381,7 +378,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                   />
                 </a>
               </span>
-            </p>
+            </div>
           </div>
           <div
             class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
@@ -1277,9 +1274,8 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
             class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
             data-testid="grid-item"
           >
-            <p
-              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-              data-testid="typography"
+            <div
+              class="css-1yjvs5a"
             >
               <div
                 class="css-2bw4l8"
@@ -1297,7 +1293,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                   />
                 </div>
               </div>
-            </p>
+            </div>
           </div>
         </div>
       </div>
@@ -1546,9 +1542,8 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
             class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
             data-testid="grid-item"
           >
-            <p
-              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-              data-testid="typography"
+            <div
+              class="css-1yjvs5a"
             >
               <div
                 class="MuiTypography-root MuiTypography-body1 css-poa7q6-MuiTypography-root"
@@ -1556,10 +1551,9 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               >
                 Description
               </div>
-            </p>
-            <p
-              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-              data-testid="typography"
+            </div>
+            <div
+              class="css-1yjvs5a"
             >
               <h5
                 class="MuiTypography-root MuiTypography-h5 css-ulrehz-MuiTypography-root"
@@ -1631,10 +1625,9 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                   </svg>
                 </a>
               </div>
-            </p>
-            <p
-              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-              data-testid="typography"
+            </div>
+            <div
+              class="css-1yjvs5a"
             >
               <h5
                 class="MuiTypography-root MuiTypography-h5 css-ulrehz-MuiTypography-root"
@@ -1719,7 +1712,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                   />
                 </a>
               </span>
-            </p>
+            </div>
           </div>
           <div
             class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
@@ -2331,9 +2324,8 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
             class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
             data-testid="grid-item"
           >
-            <p
-              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-              data-testid="typography"
+            <div
+              class="css-1yjvs5a"
             >
               <div
                 class="css-2bw4l8"
@@ -2351,7 +2343,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                   />
                 </div>
               </div>
-            </p>
+            </div>
           </div>
         </div>
       </div>
@@ -2584,9 +2576,8 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
             class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
             data-testid="grid-item"
           >
-            <p
-              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-              data-testid="typography"
+            <div
+              class="css-1yjvs5a"
             >
               <div
                 class="MuiTypography-root MuiTypography-body1 css-poa7q6-MuiTypography-root"
@@ -2594,10 +2585,9 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
               >
                 Description
               </div>
-            </p>
-            <p
-              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-              data-testid="typography"
+            </div>
+            <div
+              class="css-1yjvs5a"
             >
               <h5
                 class="MuiTypography-root MuiTypography-h5 css-ulrehz-MuiTypography-root"
@@ -2669,10 +2659,9 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
                   </svg>
                 </a>
               </div>
-            </p>
-            <p
-              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-              data-testid="typography"
+            </div>
+            <div
+              class="css-1yjvs5a"
             >
               <h5
                 class="MuiTypography-root MuiTypography-h5 css-ulrehz-MuiTypography-root"
@@ -2757,7 +2746,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
                   />
                 </a>
               </span>
-            </p>
+            </div>
           </div>
           <div
             class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
@@ -2920,9 +2909,8 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
             class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
             data-testid="grid-item"
           >
-            <p
-              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-              data-testid="typography"
+            <div
+              class="css-1yjvs5a"
             >
               <div
                 class="css-2bw4l8"
@@ -2940,7 +2928,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
                   />
                 </div>
               </div>
-            </p>
+            </div>
           </div>
         </div>
       </div>
@@ -3734,9 +3722,8 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
       class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
       data-testid="grid-item"
     >
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-        data-testid="typography"
+      <div
+        class="css-1yjvs5a"
       >
         <div
           class="MuiTypography-root MuiTypography-body1 css-poa7q6-MuiTypography-root"
@@ -3744,10 +3731,9 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
         >
           Description
         </div>
-      </p>
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-        data-testid="typography"
+      </div>
+      <div
+        class="css-1yjvs5a"
       >
         <h5
           class="MuiTypography-root MuiTypography-h5 css-ulrehz-MuiTypography-root"
@@ -3819,10 +3805,9 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
             </svg>
           </a>
         </div>
-      </p>
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-        data-testid="typography"
+      </div>
+      <div
+        class="css-1yjvs5a"
       >
         <h5
           class="MuiTypography-root MuiTypography-h5 css-ulrehz-MuiTypography-root"
@@ -3907,7 +3892,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
             />
           </a>
         </span>
-      </p>
+      </div>
     </div>
     <div
       class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
@@ -4796,9 +4781,8 @@ exports[`ProductLeadBlock tests should render the technical draws tab 1`] = `
       class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
       data-testid="grid-item"
     >
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-        data-testid="typography"
+      <div
+        class="css-1yjvs5a"
       >
         <div
           class="css-2bw4l8"
@@ -4816,7 +4800,7 @@ exports[`ProductLeadBlock tests should render the technical draws tab 1`] = `
             />
           </div>
         </div>
-      </p>
+      </div>
     </div>
   </div>
 </div>
