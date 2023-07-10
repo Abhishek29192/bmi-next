@@ -119,9 +119,8 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               >
-                <p
-                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                  data-testid="typography"
+                <div
+                  class="css-1yjvs5a"
                 >
                   <div
                     class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-description css-1o02bdp-MuiTypography-root"
@@ -129,10 +128,9 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
                   >
                     system-desc
                   </div>
-                </p>
-                <p
-                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                  data-testid="typography"
+                </div>
+                <div
+                  class="css-1yjvs5a"
                 >
                   <h6
                     class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -146,10 +144,9 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
                     data-testid="guarantee-image-asset-name"
                     src="http://localhost:8000/asset-real-file-name.pdf"
                   />
-                </p>
-                <p
-                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                  data-testid="typography"
+                </div>
+                <div
+                  class="css-1yjvs5a"
                 >
                   <h6
                     class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -167,10 +164,9 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
                     class="AboutLeadBlock-image"
                     src="http://localhost:8000/asset-real-file-name.pdf"
                   />
-                </p>
-                <p
-                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                  data-testid="typography"
+                </div>
+                <div
+                  class="css-1yjvs5a"
                 >
                   <h6
                     class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -207,7 +203,7 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
                   </a>
-                </p>
+                </div>
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
@@ -399,9 +395,8 @@ exports[`TabLeadBlock tests should render 1`] = `
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               >
-                <p
-                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                  data-testid="typography"
+                <div
+                  class="css-1yjvs5a"
                 >
                   <div
                     class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-description css-1o02bdp-MuiTypography-root"
@@ -409,10 +404,9 @@ exports[`TabLeadBlock tests should render 1`] = `
                   >
                     system-desc
                   </div>
-                </p>
-                <p
-                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                  data-testid="typography"
+                </div>
+                <div
+                  class="css-1yjvs5a"
                 >
                   <h6
                     class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -426,10 +420,9 @@ exports[`TabLeadBlock tests should render 1`] = `
                     data-testid="guarantee-image-asset-name"
                     src="http://localhost:8000/asset-real-file-name.pdf"
                   />
-                </p>
-                <p
-                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                  data-testid="typography"
+                </div>
+                <div
+                  class="css-1yjvs5a"
                 >
                   <h6
                     class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -447,10 +440,9 @@ exports[`TabLeadBlock tests should render 1`] = `
                     class="AboutLeadBlock-image"
                     src="http://localhost:8000/asset-real-file-name.pdf"
                   />
-                </p>
-                <p
-                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                  data-testid="typography"
+                </div>
+                <div
+                  class="css-1yjvs5a"
                 >
                   <h6
                     class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -487,7 +479,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
                   </a>
-                </p>
+                </div>
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
@@ -551,9 +543,8 @@ exports[`TabLeadBlock tests should render 1`] = `
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               >
-                <p
-                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                  data-testid="typography"
+                <div
+                  class="css-1yjvs5a"
                 >
                   <div
                     data-testid="technical-specification-classifications-table-wrapper"
@@ -605,7 +596,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                       </table>
                     </div>
                   </div>
-                </p>
+                </div>
               </div>
             </div>
           </div>
@@ -1572,9 +1563,8 @@ exports[`TabLeadBlock tests should render the bimIframe tab 1`] = `
               >
                 BIM_CODE
               </h2>
-              <p
-                class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                data-testid="typography"
+              <div
+                class="css-1yjvs5a"
               />
             </div>
             <iframe

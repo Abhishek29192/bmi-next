@@ -5847,9 +5847,8 @@ exports[`Simple page renders correctly with full data 1`] = `
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
               data-testid="grid-item"
             >
-              <p
-                class="MuiTypography-root MuiTypography-body1 css-1n96ef8-MuiTypography-root"
-                data-testid="typography"
+              <div
+                class="css-1i3mc0y"
               >
                 <div
                   class="RichText-root RichText-no-bottom-margin css-1u73y0t"
@@ -5861,7 +5860,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                     test rich text
                   </p>
                 </div>
-              </p>
+              </div>
             </div>
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"

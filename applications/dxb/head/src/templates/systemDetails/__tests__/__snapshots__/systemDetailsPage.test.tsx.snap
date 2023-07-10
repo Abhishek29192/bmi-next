@@ -2878,13 +2878,11 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
             class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
             data-testid="grid-item"
           >
-            <p
-              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-              data-testid="typography"
+            <div
+              class="css-1yjvs5a"
             />
-            <p
-              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-              data-testid="typography"
+            <div
+              class="css-1yjvs5a"
             >
               <h1
                 class="MuiTypography-root MuiTypography-h1 Typography-underline css-1v05vzk-MuiTypography-root"
@@ -2892,10 +2890,9 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
               >
                 system-Name
               </h1>
-            </p>
-            <p
-              class="MuiTypography-root MuiTypography-body1 SystemDetailsLeadBlockSectionStyles-ctaContainer css-1218bho-MuiTypography-root"
-              data-testid="typography"
+            </div>
+            <div
+              class="SystemDetailsLeadBlockSectionStyles-ctaContainer css-1yjvs5a"
             >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge SystemDetailsLeadBlockSectionStyles-backToYourSelectionBtn css-1ioi680-MuiButtonBase-root-MuiButton-root"
@@ -2952,7 +2949,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </a>
-            </p>
+            </div>
           </div>
         </div>
       </div>
@@ -3146,9 +3143,8 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               >
-                <p
-                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                  data-testid="typography"
+                <div
+                  class="css-1yjvs5a"
                 >
                   <div
                     class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-description css-1o02bdp-MuiTypography-root"
@@ -3156,10 +3152,9 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                   >
                     system-desc
                   </div>
-                </p>
-                <p
-                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                  data-testid="typography"
+                </div>
+                <div
+                  class="css-1yjvs5a"
                 >
                   <h6
                     class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -3173,10 +3168,9 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                     data-testid="guarantee-image-asset-name"
                     src="http://localhost:8000/asset-real-file-name.pdf"
                   />
-                </p>
-                <p
-                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                  data-testid="typography"
+                </div>
+                <div
+                  class="css-1yjvs5a"
                 >
                   <h6
                     class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -3194,10 +3188,9 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                     class="AboutLeadBlock-image"
                     src="http://localhost:8000/asset-real-file-name.pdf"
                   />
-                </p>
-                <p
-                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                  data-testid="typography"
+                </div>
+                <div
+                  class="css-1yjvs5a"
                 >
                   <h6
                     class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -3234,7 +3227,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
                   </a>
-                </p>
+                </div>
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
@@ -3298,9 +3291,8 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               >
-                <p
-                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                  data-testid="typography"
+                <div
+                  class="css-1yjvs5a"
                 >
                   <div
                     data-testid="technical-specification-classifications-table-wrapper"
@@ -3352,7 +3344,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                       </table>
                     </div>
                   </div>
-                </p>
+                </div>
               </div>
             </div>
           </div>
@@ -7319,13 +7311,11 @@ exports[`SystemDetailsPage template component should render 1`] = `
             class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
             data-testid="grid-item"
           >
-            <p
-              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-              data-testid="typography"
+            <div
+              class="css-1yjvs5a"
             />
-            <p
-              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-              data-testid="typography"
+            <div
+              class="css-1yjvs5a"
             >
               <h1
                 class="MuiTypography-root MuiTypography-h1 Typography-underline css-1v05vzk-MuiTypography-root"
@@ -7333,10 +7323,9 @@ exports[`SystemDetailsPage template component should render 1`] = `
               >
                 system-Name
               </h1>
-            </p>
-            <p
-              class="MuiTypography-root MuiTypography-body1 SystemDetailsLeadBlockSectionStyles-ctaContainer css-1218bho-MuiTypography-root"
-              data-testid="typography"
+            </div>
+            <div
+              class="SystemDetailsLeadBlockSectionStyles-ctaContainer css-1yjvs5a"
             >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium SystemDetailsLeadBlockSectionStyles-quotationBtn css-11nrv4h-MuiButtonBase-root-MuiButton-root"
@@ -7365,7 +7354,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </a>
-            </p>
+            </div>
           </div>
         </div>
       </div>
@@ -7559,9 +7548,8 @@ exports[`SystemDetailsPage template component should render 1`] = `
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               >
-                <p
-                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                  data-testid="typography"
+                <div
+                  class="css-1yjvs5a"
                 >
                   <div
                     class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-description css-1o02bdp-MuiTypography-root"
@@ -7569,10 +7557,9 @@ exports[`SystemDetailsPage template component should render 1`] = `
                   >
                     system-desc
                   </div>
-                </p>
-                <p
-                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                  data-testid="typography"
+                </div>
+                <div
+                  class="css-1yjvs5a"
                 >
                   <h6
                     class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -7586,10 +7573,9 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     data-testid="guarantee-image-asset-name"
                     src="http://localhost:8000/asset-real-file-name.pdf"
                   />
-                </p>
-                <p
-                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                  data-testid="typography"
+                </div>
+                <div
+                  class="css-1yjvs5a"
                 >
                   <h6
                     class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -7607,10 +7593,9 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     class="AboutLeadBlock-image"
                     src="http://localhost:8000/asset-real-file-name.pdf"
                   />
-                </p>
-                <p
-                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                  data-testid="typography"
+                </div>
+                <div
+                  class="css-1yjvs5a"
                 >
                   <h6
                     class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -7647,7 +7632,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
                   </a>
-                </p>
+                </div>
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
@@ -7711,9 +7696,8 @@ exports[`SystemDetailsPage template component should render 1`] = `
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               >
-                <p
-                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                  data-testid="typography"
+                <div
+                  class="css-1yjvs5a"
                 >
                   <div
                     data-testid="technical-specification-classifications-table-wrapper"
@@ -7765,7 +7749,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                       </table>
                     </div>
                   </div>
-                </p>
+                </div>
               </div>
             </div>
           </div>
@@ -11736,13 +11720,11 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
               data-testid="grid-item"
             >
-              <p
-                class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                data-testid="typography"
+              <div
+                class="css-1yjvs5a"
               />
-              <p
-                class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                data-testid="typography"
+              <div
+                class="css-1yjvs5a"
               >
                 <h1
                   class="MuiTypography-root MuiTypography-h1 Typography-underline css-1v05vzk-MuiTypography-root"
@@ -11750,10 +11732,9 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                 >
                   system-Name
                 </h1>
-              </p>
-              <p
-                class="MuiTypography-root MuiTypography-body1 SystemDetailsLeadBlockSectionStyles-ctaContainer css-1218bho-MuiTypography-root"
-                data-testid="typography"
+              </div>
+              <div
+                class="SystemDetailsLeadBlockSectionStyles-ctaContainer css-1yjvs5a"
               >
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium SystemDetailsLeadBlockSectionStyles-quotationBtn css-11nrv4h-MuiButtonBase-root-MuiButton-root"
@@ -11782,7 +11763,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </a>
-              </p>
+              </div>
             </div>
           </div>
         </div>
@@ -11976,9 +11957,8 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                   class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                   data-testid="grid-item"
                 >
-                  <p
-                    class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                    data-testid="typography"
+                  <div
+                    class="css-1yjvs5a"
                   >
                     <div
                       class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-description css-1o02bdp-MuiTypography-root"
@@ -11986,10 +11966,9 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                     >
                       system-desc
                     </div>
-                  </p>
-                  <p
-                    class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                    data-testid="typography"
+                  </div>
+                  <div
+                    class="css-1yjvs5a"
                   >
                     <h6
                       class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -12003,10 +11982,9 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                       data-testid="guarantee-image-asset-name"
                       src="http://localhost:8000/asset-real-file-name.pdf"
                     />
-                  </p>
-                  <p
-                    class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                    data-testid="typography"
+                  </div>
+                  <div
+                    class="css-1yjvs5a"
                   >
                     <h6
                       class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -12024,10 +12002,9 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                       class="AboutLeadBlock-image"
                       src="http://localhost:8000/asset-real-file-name.pdf"
                     />
-                  </p>
-                  <p
-                    class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                    data-testid="typography"
+                  </div>
+                  <div
+                    class="css-1yjvs5a"
                   >
                     <h6
                       class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -12064,7 +12041,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </a>
-                  </p>
+                  </div>
                 </div>
                 <div
                   class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
@@ -12128,9 +12105,8 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                   class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                   data-testid="grid-item"
                 >
-                  <p
-                    class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                    data-testid="typography"
+                  <div
+                    class="css-1yjvs5a"
                   >
                     <div
                       data-testid="technical-specification-classifications-table-wrapper"
@@ -12182,7 +12158,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                         </table>
                       </div>
                     </div>
-                  </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -16150,13 +16126,11 @@ exports[`SystemDetailsPage template component should render without BrandProvide
             class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
             data-testid="grid-item"
           >
-            <p
-              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-              data-testid="typography"
+            <div
+              class="css-1yjvs5a"
             />
-            <p
-              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-              data-testid="typography"
+            <div
+              class="css-1yjvs5a"
             >
               <h1
                 class="MuiTypography-root MuiTypography-h1 Typography-underline css-1v05vzk-MuiTypography-root"
@@ -16164,10 +16138,9 @@ exports[`SystemDetailsPage template component should render without BrandProvide
               >
                 system-Name
               </h1>
-            </p>
-            <p
-              class="MuiTypography-root MuiTypography-body1 SystemDetailsLeadBlockSectionStyles-ctaContainer css-1218bho-MuiTypography-root"
-              data-testid="typography"
+            </div>
+            <div
+              class="SystemDetailsLeadBlockSectionStyles-ctaContainer css-1yjvs5a"
             >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium SystemDetailsLeadBlockSectionStyles-quotationBtn css-11nrv4h-MuiButtonBase-root-MuiButton-root"
@@ -16196,7 +16169,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </a>
-            </p>
+            </div>
           </div>
         </div>
       </div>
@@ -16390,9 +16363,8 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               >
-                <p
-                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                  data-testid="typography"
+                <div
+                  class="css-1yjvs5a"
                 >
                   <div
                     class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-description css-1o02bdp-MuiTypography-root"
@@ -16400,10 +16372,9 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                   >
                     system-desc
                   </div>
-                </p>
-                <p
-                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                  data-testid="typography"
+                </div>
+                <div
+                  class="css-1yjvs5a"
                 >
                   <h6
                     class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -16417,10 +16388,9 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     data-testid="guarantee-image-asset-name"
                     src="http://localhost:8000/asset-real-file-name.pdf"
                   />
-                </p>
-                <p
-                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                  data-testid="typography"
+                </div>
+                <div
+                  class="css-1yjvs5a"
                 >
                   <h6
                     class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -16438,10 +16408,9 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     class="AboutLeadBlock-image"
                     src="http://localhost:8000/asset-real-file-name.pdf"
                   />
-                </p>
-                <p
-                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                  data-testid="typography"
+                </div>
+                <div
+                  class="css-1yjvs5a"
                 >
                   <h6
                     class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -16478,7 +16447,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
                   </a>
-                </p>
+                </div>
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
@@ -16542,9 +16511,8 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               >
-                <p
-                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                  data-testid="typography"
+                <div
+                  class="css-1yjvs5a"
                 >
                   <div
                     data-testid="technical-specification-classifications-table-wrapper"
@@ -16596,7 +16564,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                       </table>
                     </div>
                   </div>
-                </p>
+                </div>
               </div>
             </div>
           </div>
@@ -20563,13 +20531,11 @@ exports[`SystemDetailsPage template component should render without specificatio
             class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
             data-testid="grid-item"
           >
-            <p
-              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-              data-testid="typography"
+            <div
+              class="css-1yjvs5a"
             />
-            <p
-              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-              data-testid="typography"
+            <div
+              class="css-1yjvs5a"
             >
               <h1
                 class="MuiTypography-root MuiTypography-h1 Typography-underline css-1v05vzk-MuiTypography-root"
@@ -20577,10 +20543,9 @@ exports[`SystemDetailsPage template component should render without specificatio
               >
                 system-Name
               </h1>
-            </p>
-            <p
-              class="MuiTypography-root MuiTypography-body1 SystemDetailsLeadBlockSectionStyles-ctaContainer css-1218bho-MuiTypography-root"
-              data-testid="typography"
+            </div>
+            <div
+              class="SystemDetailsLeadBlockSectionStyles-ctaContainer css-1yjvs5a"
             >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium SystemDetailsLeadBlockSectionStyles-quotationBtn css-11nrv4h-MuiButtonBase-root-MuiButton-root"
@@ -20609,7 +20574,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </a>
-            </p>
+            </div>
           </div>
         </div>
       </div>
@@ -20803,9 +20768,8 @@ exports[`SystemDetailsPage template component should render without specificatio
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               >
-                <p
-                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                  data-testid="typography"
+                <div
+                  class="css-1yjvs5a"
                 >
                   <div
                     class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-description css-1o02bdp-MuiTypography-root"
@@ -20813,10 +20777,9 @@ exports[`SystemDetailsPage template component should render without specificatio
                   >
                     system-desc
                   </div>
-                </p>
-                <p
-                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                  data-testid="typography"
+                </div>
+                <div
+                  class="css-1yjvs5a"
                 >
                   <h6
                     class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -20830,10 +20793,9 @@ exports[`SystemDetailsPage template component should render without specificatio
                     data-testid="guarantee-image-asset-name"
                     src="http://localhost:8000/asset-real-file-name.pdf"
                   />
-                </p>
-                <p
-                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                  data-testid="typography"
+                </div>
+                <div
+                  class="css-1yjvs5a"
                 >
                   <h6
                     class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -20851,7 +20813,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                     class="AboutLeadBlock-image"
                     src="http://localhost:8000/asset-real-file-name.pdf"
                   />
-                </p>
+                </div>
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
@@ -20915,9 +20877,8 @@ exports[`SystemDetailsPage template component should render without specificatio
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               >
-                <p
-                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                  data-testid="typography"
+                <div
+                  class="css-1yjvs5a"
                 >
                   <div
                     data-testid="technical-specification-classifications-table-wrapper"
@@ -20969,7 +20930,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                       </table>
                     </div>
                   </div>
-                </p>
+                </div>
               </div>
             </div>
           </div>
@@ -24936,13 +24897,11 @@ exports[`SystemDetailsPage template component should render without systemLayers
             class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
             data-testid="grid-item"
           >
-            <p
-              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-              data-testid="typography"
+            <div
+              class="css-1yjvs5a"
             />
-            <p
-              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-              data-testid="typography"
+            <div
+              class="css-1yjvs5a"
             >
               <h1
                 class="MuiTypography-root MuiTypography-h1 Typography-underline css-1v05vzk-MuiTypography-root"
@@ -24950,10 +24909,9 @@ exports[`SystemDetailsPage template component should render without systemLayers
               >
                 system-Name
               </h1>
-            </p>
-            <p
-              class="MuiTypography-root MuiTypography-body1 SystemDetailsLeadBlockSectionStyles-ctaContainer css-1218bho-MuiTypography-root"
-              data-testid="typography"
+            </div>
+            <div
+              class="SystemDetailsLeadBlockSectionStyles-ctaContainer css-1yjvs5a"
             >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium SystemDetailsLeadBlockSectionStyles-quotationBtn css-11nrv4h-MuiButtonBase-root-MuiButton-root"
@@ -24982,7 +24940,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </a>
-            </p>
+            </div>
           </div>
         </div>
       </div>
@@ -25176,9 +25134,8 @@ exports[`SystemDetailsPage template component should render without systemLayers
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               >
-                <p
-                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                  data-testid="typography"
+                <div
+                  class="css-1yjvs5a"
                 >
                   <div
                     class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-description css-1o02bdp-MuiTypography-root"
@@ -25186,10 +25143,9 @@ exports[`SystemDetailsPage template component should render without systemLayers
                   >
                     system-desc
                   </div>
-                </p>
-                <p
-                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                  data-testid="typography"
+                </div>
+                <div
+                  class="css-1yjvs5a"
                 >
                   <h6
                     class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -25203,10 +25159,9 @@ exports[`SystemDetailsPage template component should render without systemLayers
                     data-testid="guarantee-image-asset-name"
                     src="http://localhost:8000/asset-real-file-name.pdf"
                   />
-                </p>
-                <p
-                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                  data-testid="typography"
+                </div>
+                <div
+                  class="css-1yjvs5a"
                 >
                   <h6
                     class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -25224,10 +25179,9 @@ exports[`SystemDetailsPage template component should render without systemLayers
                     class="AboutLeadBlock-image"
                     src="http://localhost:8000/asset-real-file-name.pdf"
                   />
-                </p>
-                <p
-                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                  data-testid="typography"
+                </div>
+                <div
+                  class="css-1yjvs5a"
                 >
                   <h6
                     class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -25264,7 +25218,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
                   </a>
-                </p>
+                </div>
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
@@ -25328,9 +25282,8 @@ exports[`SystemDetailsPage template component should render without systemLayers
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               >
-                <p
-                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                  data-testid="typography"
+                <div
+                  class="css-1yjvs5a"
                 >
                   <div
                     data-testid="technical-specification-classifications-table-wrapper"
@@ -25382,7 +25335,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                       </table>
                     </div>
                   </div>
-                </p>
+                </div>
               </div>
             </div>
           </div>
@@ -29349,13 +29302,11 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
             class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
             data-testid="grid-item"
           >
-            <p
-              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-              data-testid="typography"
+            <div
+              class="css-1yjvs5a"
             />
-            <p
-              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-              data-testid="typography"
+            <div
+              class="css-1yjvs5a"
             >
               <h1
                 class="MuiTypography-root MuiTypography-h1 Typography-underline css-1v05vzk-MuiTypography-root"
@@ -29363,10 +29314,9 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
               >
                 system-Name
               </h1>
-            </p>
-            <p
-              class="MuiTypography-root MuiTypography-body1 SystemDetailsLeadBlockSectionStyles-ctaContainer css-1218bho-MuiTypography-root"
-              data-testid="typography"
+            </div>
+            <div
+              class="SystemDetailsLeadBlockSectionStyles-ctaContainer css-1yjvs5a"
             >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium SystemDetailsLeadBlockSectionStyles-quotationBtn css-11nrv4h-MuiButtonBase-root-MuiButton-root"
@@ -29395,7 +29345,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </a>
-            </p>
+            </div>
           </div>
         </div>
       </div>
@@ -29715,9 +29665,8 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               >
-                <p
-                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                  data-testid="typography"
+                <div
+                  class="css-1yjvs5a"
                 >
                   <div
                     class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-description css-1o02bdp-MuiTypography-root"
@@ -29725,10 +29674,9 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                   >
                     system-desc
                   </div>
-                </p>
-                <p
-                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                  data-testid="typography"
+                </div>
+                <div
+                  class="css-1yjvs5a"
                 >
                   <h6
                     class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -29742,10 +29690,9 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                     data-testid="guarantee-image-asset-name"
                     src="http://localhost:8000/asset-real-file-name.pdf"
                   />
-                </p>
-                <p
-                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                  data-testid="typography"
+                </div>
+                <div
+                  class="css-1yjvs5a"
                 >
                   <h6
                     class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -29763,10 +29710,9 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                     class="AboutLeadBlock-image"
                     src="http://localhost:8000/asset-real-file-name.pdf"
                   />
-                </p>
-                <p
-                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                  data-testid="typography"
+                </div>
+                <div
+                  class="css-1yjvs5a"
                 >
                   <h6
                     class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -29803,7 +29749,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
                   </a>
-                </p>
+                </div>
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
@@ -29867,9 +29813,8 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               >
-                <p
-                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                  data-testid="typography"
+                <div
+                  class="css-1yjvs5a"
                 >
                   <div
                     data-testid="technical-specification-classifications-table-wrapper"
@@ -29921,7 +29866,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                       </table>
                     </div>
                   </div>
-                </p>
+                </div>
               </div>
             </div>
           </div>
@@ -33888,13 +33833,11 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
             class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
             data-testid="grid-item"
           >
-            <p
-              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-              data-testid="typography"
+            <div
+              class="css-1yjvs5a"
             />
-            <p
-              class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-              data-testid="typography"
+            <div
+              class="css-1yjvs5a"
             >
               <h1
                 class="MuiTypography-root MuiTypography-h1 Typography-underline css-1v05vzk-MuiTypography-root"
@@ -33902,10 +33845,9 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
               >
                 system-Name
               </h1>
-            </p>
-            <p
-              class="MuiTypography-root MuiTypography-body1 SystemDetailsLeadBlockSectionStyles-ctaContainer css-1218bho-MuiTypography-root"
-              data-testid="typography"
+            </div>
+            <div
+              class="SystemDetailsLeadBlockSectionStyles-ctaContainer css-1yjvs5a"
             >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium SystemDetailsLeadBlockSectionStyles-quotationBtn css-11nrv4h-MuiButtonBase-root-MuiButton-root"
@@ -33934,7 +33876,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </a>
-            </p>
+            </div>
           </div>
         </div>
       </div>
@@ -34254,9 +34196,8 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               >
-                <p
-                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                  data-testid="typography"
+                <div
+                  class="css-1yjvs5a"
                 >
                   <div
                     class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-description css-1o02bdp-MuiTypography-root"
@@ -34264,10 +34205,9 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                   >
                     system-desc
                   </div>
-                </p>
-                <p
-                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                  data-testid="typography"
+                </div>
+                <div
+                  class="css-1yjvs5a"
                 >
                   <h6
                     class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -34281,10 +34221,9 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                     data-testid="guarantee-image-asset-name"
                     src="http://localhost:8000/asset-real-file-name.pdf"
                   />
-                </p>
-                <p
-                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                  data-testid="typography"
+                </div>
+                <div
+                  class="css-1yjvs5a"
                 >
                   <h6
                     class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -34302,10 +34241,9 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                     class="AboutLeadBlock-image"
                     src="http://localhost:8000/asset-real-file-name.pdf"
                   />
-                </p>
-                <p
-                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                  data-testid="typography"
+                </div>
+                <div
+                  class="css-1yjvs5a"
                 >
                   <h6
                     class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -34342,7 +34280,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
                   </a>
-                </p>
+                </div>
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
@@ -34406,9 +34344,8 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
                 data-testid="grid-item"
               >
-                <p
-                  class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-                  data-testid="typography"
+                <div
+                  class="css-1yjvs5a"
                 >
                   <div
                     data-testid="technical-specification-classifications-table-wrapper"
@@ -34460,7 +34397,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                       </table>
                     </div>
                   </div>
-                </p>
+                </div>
               </div>
             </div>
           </div>
