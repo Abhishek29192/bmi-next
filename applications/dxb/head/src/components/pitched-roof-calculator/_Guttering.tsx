@@ -37,9 +37,9 @@ const GutteringSelection = ({ selected, gutters }: GutteringSelectionProps) => {
       >
         {options.map(({ name, mainImage, baseProduct }) => (
           <CardRadioGroup.Item
-            key={baseProduct.code}
-            value={baseProduct.code}
-            title={baseProduct.name}
+            key={baseProduct?.code}
+            value={baseProduct?.code ?? ""}
+            title={baseProduct?.name}
             imageSource={mainImage}
             onClick={() => {
               pushEvent({

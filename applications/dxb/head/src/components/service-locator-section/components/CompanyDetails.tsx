@@ -72,7 +72,7 @@ export const createCompanyDetails: Props = (
     }
   };
 
-  const getSocialMedia = (): CompanyDetailProps => {
+  const getSocialMedia = (): CompanyDetailProps | undefined => {
     const socialMedia = [
       service.facebook,
       service.linkedIn,
@@ -100,7 +100,7 @@ export const createCompanyDetails: Props = (
       case BRANCH_TYPE:
         return localization.branchWebsiteLabel;
       default:
-        return null;
+        return undefined;
     }
   };
 

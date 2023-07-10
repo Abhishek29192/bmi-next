@@ -69,7 +69,7 @@ const KeyAssetTypesDownloadSection = ({ keyAssetDocuments }: Props) => {
 
   return (
     <StyledKeyAssetTypeSectionContainer>
-      {keyAssetDocuments.map(({ assetType, documents }) => {
+      {keyAssetDocuments?.map(({ assetType, documents }) => {
         return (
           <div key={assetType}>
             <GTMButton

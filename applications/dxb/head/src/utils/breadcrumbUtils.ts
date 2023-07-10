@@ -18,7 +18,7 @@ export const updateBreadcrumbTitleFromContentful = (
 };
 
 export const checkIfActiveLabelInParentNode = (
-  label: string,
+  label?: string,
   menuNavigation: NavigationData = {} as NavigationData
 ): string => {
   if (!!label && !!menuNavigation.links?.length) {

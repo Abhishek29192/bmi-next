@@ -38,7 +38,7 @@ const SampleBasketDialog = ({
   maximumSamples,
   toggleCart
 }: {
-  title: string;
+  title?: string | null;
   basketAction?: ClickableAction;
   maximumSamples: number | null;
   toggleCart?: () => void;

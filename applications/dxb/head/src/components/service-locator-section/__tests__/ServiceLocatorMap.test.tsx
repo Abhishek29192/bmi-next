@@ -3,6 +3,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import { MapProps, ServiceLocatorMap } from "../components";
 import { imageData, selectedRooferMock } from "../__mocks__/markers";
+import createService from "../../../__tests__/helpers/ServiceHelper";
 
 jest.mock("@bmi-digital/components", () => {
   const originalModule = jest.requireActual("@bmi-digital/components");
@@ -22,7 +23,7 @@ jest.mock("@bmi-digital/components", () => {
 });
 
 const renderWithGoogleProvider = ({
-  selectedRoofer = null,
+  selectedRoofer = createService(),
   clearRooferAndResetMap = jest.fn(),
   getCompanyDetails = jest.fn(),
   initialMapCentre = { lat: 60.47202, lon: 8.468945 },
@@ -49,11 +50,13 @@ const renderWithGoogleProvider = ({
 
 describe("ServiceLocatorMap component", () => {
   it("should not render popup with card if user didn't select a roofer in list", () => {
-    renderWithGoogleProvider({});
-    const popupCloseBtn = screen.queryByRole("button", {
-      name: "MC: global.close"
+    renderWithGoogleProvider({
+      selectedRoofer: undefined
     });
-    expect(popupCloseBtn).not.toBeInTheDocument();
+    const popupCard = screen.queryByTestId(
+      "service-locator-service-details-card"
+    );
+    expect(popupCard).not.toBeInTheDocument();
   });
 
   it("should render company logo inside card", () => {

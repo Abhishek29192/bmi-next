@@ -16,7 +16,7 @@ import { Service } from "./index";
 
 export const getTypesFromServices = (services: Service[]): ServiceType[] => {
   return uniqBy(
-    services.reduce((acc, service) => {
+    services.reduce<ServiceType[]>((acc, service) => {
       if (service.serviceTypes) {
         return [...acc, ...service.serviceTypes];
       }
@@ -30,7 +30,7 @@ export const getRooferTypes = (
   uniqueRoofTypeByData: ServiceType[],
   allQueries: string[]
 ): ServiceType[] => {
-  return uniqueRoofTypeByData.reduce((types, type) => {
+  return uniqueRoofTypeByData.reduce<ServiceType[]>((types, type) => {
     allQueries.find(
       (query) => query.toLowerCase() === type.name.toLowerCase()
     ) && types.push(type);
@@ -45,17 +45,27 @@ export const createMarker = (selectedRoofer: Service | null) => {
       lat: service.location.lat,
       lng: service.location.lon
     },
-    isActive: selectedRoofer && selectedRoofer.id === service.id,
+    isActive: selectedRoofer?.id === service.id,
     data: service,
     "data-gtm": JSON.stringify(getResultDataGtm(service, true))
   });
 };
 
+export const getDistanceSort = (
+  centre: LatLngLiteral | null,
+  serviceA: Service,
+  serviceB: Service
+): number => {
+  const distanceSort = centre
+    ? (serviceA.distance ?? 0) - (serviceB.distance ?? 0)
+    : 0;
+
+  return distanceSort;
+};
+
 export const sortServices = (centre: LatLngLiteral | null) => {
   return (serviceA: Service, serviceB: Service): number => {
-    const distanceSort = centre ? serviceA.distance - serviceB.distance : 0;
-
-    if (distanceSort === 0) {
+    if (getDistanceSort(centre, serviceA, serviceB) === 0) {
       const serviceNameA = serviceA.name.toLowerCase();
       const serviceNameB = serviceB.name.toLowerCase();
 
@@ -67,7 +77,7 @@ export const sortServices = (centre: LatLngLiteral | null) => {
       }
     }
 
-    return distanceSort;
+    return getDistanceSort(centre, serviceA, serviceB);
   };
 };
 
@@ -95,10 +105,7 @@ export const typeFilter = (
 
   if (isSomeChipSelected) {
     // eslint-disable-next-line security/detect-object-injection
-    return (
-      typeData?.length &&
-      typeData.some((filter) => activeFilters[filter.name] === true)
-    );
+    return typeData?.some((filter) => activeFilters[filter.name]) || false;
   }
   // service's types are null hence return true
   return true;
