@@ -11,6 +11,12 @@ module.exports = {
       parserOptions: {
         sourceType: "module"
       }
+    },
+    {
+      files: ["**/*.test.ts", "**/*.test.tsx"],
+      rules: {
+        "@typescript-eslint/no-non-null-assertion": "off"
+      }
     }
   ]
 };
