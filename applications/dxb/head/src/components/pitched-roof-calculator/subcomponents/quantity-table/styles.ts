@@ -1,4 +1,5 @@
 import { styled } from "@mui/material/styles";
+import { tableCellClasses, tableClasses } from "@mui/material";
 
 const PREFIX = "quantityTableStyles";
 export const classes = {
@@ -27,6 +28,9 @@ export const classes = {
 };
 
 export const StyledQuantityTable = styled("div")(({ theme }) => ({
+  [`& .${tableClasses.root}`]: {
+    height: "max-content"
+  },
   [`& .${classes.header}`]: {
     minWidth: "100px",
     textAlign: "center"
@@ -51,9 +55,12 @@ export const StyledQuantityTable = styled("div")(({ theme }) => ({
     cursor: "pointer"
   },
   [`& .${classes.largeDescription}`]: {
-    marginLeft: "10px",
+    marginLeft: "32px",
     alignSelf: "center",
     wordBreak: "break-all"
+  },
+  [`&& .${tableCellClasses.body}`]: {
+    padding: "16px"
   }
 }));
 
@@ -72,12 +79,11 @@ export const StyledQuantityTableLarge = styled("div")(({ theme }) => ({
   [`& .${classes.smallCell}`]: { width: "10%" },
   [`& .${classes.cellRow}`]: {
     display: "flex",
-    flexDirection: "row",
-    marginBottom: "10px"
+    flexDirection: "row"
   },
   [`& .${classes.picture}`]: {
-    height: "80px",
-    width: "80px",
+    height: "70px",
+    width: "70px",
     mixBlendMode: "multiply"
   },
   [`& .${classes.boldText}`]: {
@@ -97,23 +103,15 @@ export const StyledQuantityTableLarge = styled("div")(({ theme }) => ({
     fill: theme.colours.inter,
     cursor: "pointer"
   },
-  [`& .${classes.mediumTableRow}`]: {
-    verticalAlign: "top",
-    "& td": {
-      height: "100%"
-    },
-    "& > td:not(:first-of-type)": {
-      padding: "45px 0 32px"
-    }
-  },
   [`& .${classes.largeDescription}`]: {
-    marginLeft: "10px",
+    marginLeft: "32px",
     alignSelf: "center",
     wordBreak: "break-all"
   },
   [`& .${classes.largeCell}`]: {
     textAlign: "center",
-    width: "17.5%"
+    width: "17.5%",
+    verticalAlign: "middle"
   },
   [`& .${classes.iteratorCellLarge}`]: {
     minWidth: "170px",
@@ -138,8 +136,7 @@ export const StyledQuantityTableMedium = styled("div")(({ theme }) => ({
   },
   [`& .${classes.cellRow}`]: {
     display: "flex",
-    flexDirection: "row",
-    marginBottom: "10px"
+    flexDirection: "row"
   },
   [`& .${classes.picture}`]: {
     height: "80px",
@@ -160,9 +157,6 @@ export const StyledQuantityTableMedium = styled("div")(({ theme }) => ({
     verticalAlign: "top",
     "& td": {
       height: "100%"
-    },
-    "& > td:not(:first-of-type)": {
-      padding: "45px 0 32px"
     }
   },
   [`& .${classes.iteratorCellMedium}`]: {
@@ -173,12 +167,18 @@ export const StyledQuantityTableMedium = styled("div")(({ theme }) => ({
       textAlign: "center"
     }
   },
-  [`& .${classes.mediumCell}`]: {
+  [`&& .${classes.mediumCell}`]: {
     marginLeft: "10px",
-    textAlign: "center"
+    textAlign: "left",
+    verticalAlign: "middle",
+    "&:not(:first-of-type)": {
+      verticalAlign: "unset",
+      padding: "45px 16px 32px"
+    }
   },
   [`& .${classes.mediumCellBasketIconWrapper}`]: {
     height: "100%",
+    width: "max-content",
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
@@ -187,11 +187,10 @@ export const StyledQuantityTableMedium = styled("div")(({ theme }) => ({
   [`& .${classes.cellMediumRow}`]: {
     display: "flex",
     flexDirection: "row",
-    marginBottom: "10px",
     minWidth: "30%"
   },
   [`& .${classes.largeDescription}`]: {
-    marginLeft: "10px",
+    marginLeft: "32px",
     alignSelf: "center",
     wordBreak: "break-all"
   }
@@ -211,7 +210,7 @@ export const StyledQuantityTableSmall = styled("div")(({ theme }) => ({
   },
   [`& .${classes.smallDescription}`]: {
     wordBreak: "break-all",
-    margin: "10px"
+    margin: "32px"
   },
   [`& .${classes.boldText}`]: {
     marginTop: "3px",
@@ -221,7 +220,8 @@ export const StyledQuantityTableSmall = styled("div")(({ theme }) => ({
   [`& .${classes.cellRowLast}`]: {
     justifyContent: "space-between",
     alignItems: "center",
-    display: "fex"
+    display: "flex",
+    marginBottom: 0
   },
   [`& .${classes.iteratorCellSmall}`]: {
     maxWidth: "170px",

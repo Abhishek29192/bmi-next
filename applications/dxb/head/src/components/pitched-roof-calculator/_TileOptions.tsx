@@ -16,8 +16,9 @@ import {
   VergeOption
 } from "./types";
 import {
+  StyledCardCheckboxNoneItem,
   StyledCardCheckboxGroup,
-  StyledCardCheckboxNoneItem
+  classes
 } from "./_TileOptions.styles";
 
 type VergeOptionsProps = {
@@ -169,6 +170,7 @@ const VentilationHoodOptions = ({
         noneLabel={getMicroCopy(
           microCopy.TILE_OPTIONS_VENTILATION_HOOD_NONE_LABEL
         )}
+        gridContainerClassName={classes.ventilationHoodsGrid}
       >
         {options.map(({ name, mainImage, externalProductCode }) => (
           <CardCheckboxGroup.Item

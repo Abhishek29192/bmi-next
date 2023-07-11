@@ -3,7 +3,7 @@
 exports[`QuantityTable component renders correctly 1`] = `
 <div>
   <div
-    class="css-1xy3nqy"
+    class="css-oq8s0h"
   >
     <div
       class="css-1oyez8m"
@@ -36,7 +36,7 @@ exports[`QuantityTable component renders correctly 1`] = `
           class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
         >
           <div
-            class="css-lqtj8e"
+            class="css-ukiqru"
           >
             <tr
               class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
@@ -100,7 +100,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                       class="quantityTableStyles-iteratorCellSmall"
                     >
                       <div
-                        class="css-l441l2"
+                        class="css-53osab"
                       >
                         <button
                           aria-label="Down"
@@ -124,7 +124,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                           />
                         </button>
                         <div
-                          class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                          class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
                           data-testid="up-down-simple-numeric-input-text-field"
                         >
                           <div
@@ -135,6 +135,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                               class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
                               data-testid="up-down-simple-numeric-input-text-field-input"
                               id=":r0:"
+                              name="1232342346789"
                               type="text"
                               value="43"
                             />
@@ -242,7 +243,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                       class="quantityTableStyles-iteratorCellSmall"
                     >
                       <div
-                        class="css-l441l2"
+                        class="css-53osab"
                       >
                         <button
                           aria-label="Down"
@@ -266,7 +267,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                           />
                         </button>
                         <div
-                          class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                          class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
                           data-testid="up-down-simple-numeric-input-text-field"
                         >
                           <div
@@ -277,6 +278,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                               class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
                               data-testid="up-down-simple-numeric-input-text-field-input"
                               id=":r1:"
+                              name="123456789"
                               type="text"
                               value="43"
                             />
@@ -384,7 +386,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                       class="quantityTableStyles-iteratorCellSmall"
                     >
                       <div
-                        class="css-l441l2"
+                        class="css-53osab"
                       >
                         <button
                           aria-label="Down"
@@ -408,7 +410,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                           />
                         </button>
                         <div
-                          class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                          class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
                           data-testid="up-down-simple-numeric-input-text-field"
                         >
                           <div
@@ -419,6 +421,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                               class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
                               data-testid="up-down-simple-numeric-input-text-field-input"
                               id=":r2:"
+                              name="123452346789"
                               type="text"
                               value="43"
                             />
@@ -526,7 +529,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                       class="quantityTableStyles-iteratorCellSmall"
                     >
                       <div
-                        class="css-l441l2"
+                        class="css-53osab"
                       >
                         <button
                           aria-label="Down"
@@ -550,7 +553,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                           />
                         </button>
                         <div
-                          class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                          class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
                           data-testid="up-down-simple-numeric-input-text-field"
                         >
                           <div
@@ -561,6 +564,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                               class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
                               data-testid="up-down-simple-numeric-input-text-field-input"
                               id=":r3:"
+                              name="12345677889"
                               type="text"
                               value="43"
                             />
@@ -668,7 +672,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                       class="quantityTableStyles-iteratorCellSmall"
                     >
                       <div
-                        class="css-l441l2"
+                        class="css-53osab"
                       >
                         <button
                           aria-label="Down"
@@ -692,7 +696,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                           />
                         </button>
                         <div
-                          class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                          class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
                           data-testid="up-down-simple-numeric-input-text-field"
                         >
                           <div
@@ -703,6 +707,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                               class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
                               data-testid="up-down-simple-numeric-input-text-field-input"
                               id=":r4:"
+                              name="123456789"
                               type="text"
                               value="43"
                             />
@@ -805,7 +810,7 @@ exports[`QuantityTable component renders correctly 1`] = `
           class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
         >
           <div
-            class="css-x44arp"
+            class="css-thu0r0"
           >
             <tr
               class="MuiTableRow-root quantityTableStyles-mediumTableRow css-wgfdj2-MuiTableRow-root"
@@ -831,7 +836,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                   class="quantityTableStyles-iteratorCellMedium"
                 >
                   <div
-                    class="css-l441l2"
+                    class="css-53osab"
                   >
                     <button
                       aria-label="Down"
@@ -855,7 +860,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                       />
                     </button>
                     <div
-                      class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                      class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
                       data-testid="up-down-simple-numeric-input-text-field"
                     >
                       <div
@@ -866,6 +871,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                           class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
                           data-testid="up-down-simple-numeric-input-text-field-input"
                           id=":r5:"
+                          name="1232342346789"
                           type="text"
                           value="43"
                         />
@@ -952,7 +958,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                   class="quantityTableStyles-iteratorCellMedium"
                 >
                   <div
-                    class="css-l441l2"
+                    class="css-53osab"
                   >
                     <button
                       aria-label="Down"
@@ -976,7 +982,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                       />
                     </button>
                     <div
-                      class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                      class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
                       data-testid="up-down-simple-numeric-input-text-field"
                     >
                       <div
@@ -987,6 +993,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                           class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
                           data-testid="up-down-simple-numeric-input-text-field-input"
                           id=":r6:"
+                          name="123456789"
                           type="text"
                           value="43"
                         />
@@ -1073,7 +1080,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                   class="quantityTableStyles-iteratorCellMedium"
                 >
                   <div
-                    class="css-l441l2"
+                    class="css-53osab"
                   >
                     <button
                       aria-label="Down"
@@ -1097,7 +1104,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                       />
                     </button>
                     <div
-                      class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                      class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
                       data-testid="up-down-simple-numeric-input-text-field"
                     >
                       <div
@@ -1108,6 +1115,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                           class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
                           data-testid="up-down-simple-numeric-input-text-field-input"
                           id=":r7:"
+                          name="123452346789"
                           type="text"
                           value="43"
                         />
@@ -1194,7 +1202,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                   class="quantityTableStyles-iteratorCellMedium"
                 >
                   <div
-                    class="css-l441l2"
+                    class="css-53osab"
                   >
                     <button
                       aria-label="Down"
@@ -1218,7 +1226,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                       />
                     </button>
                     <div
-                      class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                      class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
                       data-testid="up-down-simple-numeric-input-text-field"
                     >
                       <div
@@ -1229,6 +1237,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                           class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
                           data-testid="up-down-simple-numeric-input-text-field-input"
                           id=":r8:"
+                          name="12345677889"
                           type="text"
                           value="43"
                         />
@@ -1315,7 +1324,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                   class="quantityTableStyles-iteratorCellMedium"
                 >
                   <div
-                    class="css-l441l2"
+                    class="css-53osab"
                   >
                     <button
                       aria-label="Down"
@@ -1339,7 +1348,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                       />
                     </button>
                     <div
-                      class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                      class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
                       data-testid="up-down-simple-numeric-input-text-field"
                     >
                       <div
@@ -1350,6 +1359,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                           class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
                           data-testid="up-down-simple-numeric-input-text-field-input"
                           id=":r9:"
+                          name="123456789"
                           type="text"
                           value="43"
                         />
@@ -1491,7 +1501,7 @@ exports[`QuantityTable component renders correctly 1`] = `
           class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
         >
           <div
-            class="css-sb0x6z"
+            class="css-1ffl19j"
           >
             <tr
               class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
@@ -1541,7 +1551,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                   class="quantityTableStyles-iteratorCellLarge"
                 >
                   <div
-                    class="css-l441l2"
+                    class="css-53osab"
                   >
                     <button
                       aria-label="Down"
@@ -1565,7 +1575,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                       />
                     </button>
                     <div
-                      class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                      class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
                       data-testid="up-down-simple-numeric-input-text-field"
                     >
                       <div
@@ -1576,6 +1586,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                           class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
                           data-testid="up-down-simple-numeric-input-text-field-input"
                           id=":ra:"
+                          name="1232342346789"
                           type="text"
                           value="43"
                         />
@@ -1671,7 +1682,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                   class="quantityTableStyles-iteratorCellLarge"
                 >
                   <div
-                    class="css-l441l2"
+                    class="css-53osab"
                   >
                     <button
                       aria-label="Down"
@@ -1695,7 +1706,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                       />
                     </button>
                     <div
-                      class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                      class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
                       data-testid="up-down-simple-numeric-input-text-field"
                     >
                       <div
@@ -1706,6 +1717,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                           class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
                           data-testid="up-down-simple-numeric-input-text-field-input"
                           id=":rb:"
+                          name="123456789"
                           type="text"
                           value="43"
                         />
@@ -1801,7 +1813,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                   class="quantityTableStyles-iteratorCellLarge"
                 >
                   <div
-                    class="css-l441l2"
+                    class="css-53osab"
                   >
                     <button
                       aria-label="Down"
@@ -1825,7 +1837,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                       />
                     </button>
                     <div
-                      class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                      class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
                       data-testid="up-down-simple-numeric-input-text-field"
                     >
                       <div
@@ -1836,6 +1848,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                           class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
                           data-testid="up-down-simple-numeric-input-text-field-input"
                           id=":rc:"
+                          name="123452346789"
                           type="text"
                           value="43"
                         />
@@ -1931,7 +1944,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                   class="quantityTableStyles-iteratorCellLarge"
                 >
                   <div
-                    class="css-l441l2"
+                    class="css-53osab"
                   >
                     <button
                       aria-label="Down"
@@ -1955,7 +1968,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                       />
                     </button>
                     <div
-                      class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                      class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
                       data-testid="up-down-simple-numeric-input-text-field"
                     >
                       <div
@@ -1966,6 +1979,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                           class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
                           data-testid="up-down-simple-numeric-input-text-field-input"
                           id=":rd:"
+                          name="12345677889"
                           type="text"
                           value="43"
                         />
@@ -2061,7 +2075,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                   class="quantityTableStyles-iteratorCellLarge"
                 >
                   <div
-                    class="css-l441l2"
+                    class="css-53osab"
                   >
                     <button
                       aria-label="Down"
@@ -2085,7 +2099,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                       />
                     </button>
                     <div
-                      class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+                      class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
                       data-testid="up-down-simple-numeric-input-text-field"
                     >
                       <div
@@ -2096,6 +2110,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                           class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
                           data-testid="up-down-simple-numeric-input-text-field-input"
                           id=":re:"
+                          name="123456789"
                           type="text"
                           value="43"
                         />

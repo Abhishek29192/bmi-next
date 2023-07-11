@@ -3,7 +3,7 @@
 exports[`UpDownSimpleNumericInput component renders correctly 1`] = `
 <div>
   <div
-    class="css-l441l2"
+    class="css-53osab"
   >
     <button
       aria-label="Down"
@@ -27,7 +27,7 @@ exports[`UpDownSimpleNumericInput component renders correctly 1`] = `
       />
     </button>
     <div
-      class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+      class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
       data-testid="up-down-simple-numeric-input-text-field"
     >
       <div
@@ -38,6 +38,7 @@ exports[`UpDownSimpleNumericInput component renders correctly 1`] = `
           class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
           data-testid="up-down-simple-numeric-input-text-field-input"
           id=":r0:"
+          name="Counter"
           type="text"
           value="0"
         />
@@ -71,11 +72,11 @@ exports[`UpDownSimpleNumericInput component renders correctly 1`] = `
 exports[`UpDownSimpleNumericInput component renders variant with buttons on the side 1`] = `
 <div>
   <div
-    class="locked-xs css-l441l2"
+    class="locked-xs css-53osab"
     data-testid="up-down-simple-numeric-input-buttons-wrapper"
   >
     <div
-      class="MuiFormControl-root MuiTextField-root input css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+      class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
       data-testid="up-down-simple-numeric-input-text-field"
     >
       <div
@@ -86,6 +87,7 @@ exports[`UpDownSimpleNumericInput component renders variant with buttons on the 
           class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
           data-testid="up-down-simple-numeric-input-text-field-input"
           id=":r1:"
+          name="Counter"
           type="text"
           value="0"
         />
@@ -140,7 +142,7 @@ exports[`UpDownSimpleNumericInput component renders variant with buttons on the 
 exports[`UpDownSimpleNumericInput component renders variant with step set to a pre-defined value 1`] = `
 <div>
   <div
-    class="css-l441l2"
+    class="css-53osab"
   >
     <button
       aria-label="Down"
@@ -164,7 +166,7 @@ exports[`UpDownSimpleNumericInput component renders variant with step set to a p
       />
     </button>
     <div
-      class="MuiFormControl-root MuiTextField-root input in-middle css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
+      class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
       data-testid="up-down-simple-numeric-input-text-field"
     >
       <div
@@ -175,6 +177,7 @@ exports[`UpDownSimpleNumericInput component renders variant with step set to a p
           class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
           data-testid="up-down-simple-numeric-input-text-field-input"
           id=":r2:"
+          name="Counter"
           type="text"
           value="0"
         />

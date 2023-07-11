@@ -21,7 +21,7 @@ exports[`PitchedRoofCalculator component renders closed 1`] = `
       tabindex="0"
     />
     <div
-      class="ContainerDialog-bg-pearl ContainerDialog-width-xl PitchedRoofCalculator-root css-1f6thf"
+      class="ContainerDialog-bg-pearl ContainerDialog-width-xl css-1xksff6"
       data-testid="container-dialog-root"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
@@ -122,7 +122,7 @@ exports[`PitchedRoofCalculator component renders correctly 1`] = `
       tabindex="0"
     />
     <div
-      class="ContainerDialog-bg-pearl ContainerDialog-width-xl PitchedRoofCalculator-root css-1f6thf"
+      class="ContainerDialog-bg-pearl ContainerDialog-width-xl css-1xksff6"
       data-testid="container-dialog-root"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"

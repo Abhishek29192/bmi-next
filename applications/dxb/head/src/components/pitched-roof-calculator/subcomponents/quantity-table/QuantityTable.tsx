@@ -284,8 +284,8 @@ const QuantityTable = ({
 }: Props) => {
   const theme = useTheme();
   const displayIfSmall = useMediaQuery(theme.breakpoints.between("xs", "sm"));
-  const displayIfMedium = useMediaQuery(theme.breakpoints.between("sm", "md"));
-  const displayIfLarge = useMediaQuery(theme.breakpoints.up("md"));
+  const displayIfMedium = useMediaQuery(theme.breakpoints.between("sm", 1024));
+  const displayIfLarge = useMediaQuery(theme.breakpoints.up(1024));
 
   return (
     <StyledQuantityTable>
