@@ -1,41 +1,20 @@
-import { styled } from "@mui/material/styles";
+import { styled, alpha } from "@mui/material/styles";
+import { Button, CardInput, Typography } from "@bmi-digital/components";
 import FieldContainer from "./subcomponents/_FieldContainer";
 
 const PREFIX = "Protrusions";
 
 export const classes = {
-  card: `${PREFIX}-card`,
-  addAnotherButton: `${PREFIX}-addAnotherButton`,
   textField: `${PREFIX}-InputTextField-textField`,
-  numberInput: `${PREFIX}-InputTextField-numberInput`,
-  fieldsContainer: `${PREFIX}-fieldsContainer`,
-  dimensions: `${PREFIX}-fieldsContainer-dimensions`,
+  numericInput: `${PREFIX}-InputTextField-numericInput`,
   dimensionsIllustration: `${PREFIX}-fieldsContainer-dimensionsIllustration`
 };
 
 export const Root = styled(FieldContainer)(({ theme }) => ({
-  [`.${classes.card}`]: {
-    [theme.breakpoints.down("xs")]: {
-      width: "200px",
-      maxWidth: "unset",
-      flexBasis: "unset",
-      padding: "0",
-      margin: "8px"
-    }
-  },
-  [`.${classes.addAnotherButton}`]: {
-    marginLeft: "24px",
-
-    "&:disabled": {
-      border: "1px solid rgba($color-cyan-500, 0.38)",
-      color: `rgba(${theme.colours.cyan500}, 0.38)`
-    }
-  },
   [`.${classes.textField}`]: {
     backgroundColor: theme.colours.white
   },
-
-  [`.${classes.numberInput}`]: {
+  [`.${classes.numericInput}`]: {
     appearance: "textfield",
     ["&::-webkit-inner-spin-button"]: {
       appearance: "none"
@@ -43,36 +22,57 @@ export const Root = styled(FieldContainer)(({ theme }) => ({
     ["&::-webkit-outer-spin-button"]: {
       appearance: "none"
     }
-  },
-  [`.${classes.fieldsContainer}`]: {
-    width: "100%",
-    marginBottom: "32px"
-  },
-  [`.${classes.dimensions}`]: {
-    width: "66%",
-    marginBottom: "48px",
-
-    [theme.breakpoints.down("sm")]: {
-      marginBottom: "24px"
-    },
-
-    [theme.breakpoints.down("lg")]: {
-      width: "100%"
-    }
-  },
-  [`.${classes.dimensionsIllustration}`]: {
-    margin: "50px 0 20px",
-    maxHeight: "160px",
-    width: "auto",
-
-    [theme.breakpoints.down("sm")]: {
-      marginTop: "20px"
-    }
   }
 }));
 
-export const StyledTitle = styled("h6")(({ theme }) => ({
+export const StyledCard = styled(CardInput)({
+  "& svg": {
+    height: "120px",
+    width: "150px"
+  }
+});
+
+export const AddAnotherButton = styled(Button)(({ theme }) => ({
+  marginLeft: "24px",
+
+  "&:disabled": {
+    border: `1px solid ${alpha(theme.colours.cyan500, 0.38)}`,
+    color: alpha(theme.colours.cyan500, 0.38)
+  }
+}));
+
+export const StyledFieldContainer = styled(FieldContainer)({
+  width: "100%",
+  marginBottom: "32px"
+});
+
+export const DimensionsContainer = styled(StyledFieldContainer)(
+  ({ theme }) => ({
+    width: "66%",
+    margin: "0 auto 32px",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    [theme.breakpoints.down("lg")]: {
+      width: "100%"
+    },
+
+    [`.${classes.dimensionsIllustration}`]: {
+      marginBottom: "20px",
+      maxHeight: "160px",
+      width: "auto"
+    }
+  })
+);
+
+export const ProtrusionWrapper = styled("div")({
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center"
+});
+
+export const StyledTitle = styled(Typography)({
   textAlign: "center",
   fontSize: "1.125rem",
   marginBottom: "24px"
-}));
+});

@@ -2,9 +2,9 @@ import {
   FormContext,
   Typography,
   withFormControl,
-  WithFormControlProps
+  WithFormControlProps,
+  Grid
 } from "@bmi-digital/components";
-import { Grid } from "@mui/material";
 import React, { useContext } from "react";
 import { microCopy } from "../../constants/microCopies";
 import { useSiteContext } from "../Site";

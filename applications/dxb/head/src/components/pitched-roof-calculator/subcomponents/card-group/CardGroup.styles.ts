@@ -1,30 +1,32 @@
-import { styled } from "@mui/material/styles";
+import { styled, css } from "@mui/material/styles";
+import {
+  CardRadioGroup,
+  ThemeOptions,
+  CardCheckboxGroup
+} from "@bmi-digital/components";
 
-const PREFIX = "CardRadioGroup";
+const PREFIX = "CardGroup";
 
 export const classes = {
-  root: `${PREFIX}-root`,
   gridContainer: `${PREFIX}-gridContainer`
 };
 
-export const Root = styled("div")(({ theme }) => ({
-  [`.${classes.root}`]: {
-    width: "100%"
-  },
-  [`.${classes.gridContainer}`]: {
+const getSharedStyled = (theme: ThemeOptions) =>
+  css({
     width: "100%",
-    display: "flex",
-    justifyContent: "center",
-    flexWrap: "wrap",
-    margin: "-8px 0",
-    [`& > div`]: {
-      [theme.breakpoints.down("xs")]: {
-        width: "200px",
-        maxWidth: "unset",
-        flexBasis: "unset",
-        padding: "0",
-        margin: "8px"
-      }
+
+    [`.${classes.gridContainer}`]: {
+      width: "100%",
+      display: "flex",
+      justifyContent: "center",
+      flexWrap: "wrap",
+      margin: "-8px 0"
     }
-  }
-}));
+  });
+
+export const StyledCardRadioGroup = styled(CardRadioGroup)(({ theme }) =>
+  getSharedStyled(theme)
+);
+export const StyledCardCheckboxGroup = styled(CardCheckboxGroup)(({ theme }) =>
+  getSharedStyled(theme)
+);

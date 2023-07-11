@@ -20,43 +20,54 @@ export const classes = {
   "form-lg-padding": `${PREFIX}-form-lg-padding`
 };
 
-export const Root = styled("div")(({ theme }) => ({
+export const Root = styled("div")({
   height: "100%"
-}));
+});
 
-export const StyledHR = styled(Divider)(({ theme }) => ({
+export const StyledHR = styled(Divider)({
   marginTop: "52px"
-}));
+});
 
 export const StyledStepTitle = styled(Typography)(({ theme }) => ({
-  marginTop: "48px",
+  marginTop: "30px",
   textAlign: "center",
   [theme.breakpoints.down("sm")]: {
-    marginTop: "36px"
+    marginTop: "18px"
   }
 }));
 
 export const StyledContent = styled("div")(({ theme }) => ({
-  padding: "64px"
+  padding: "64px 0",
+  [theme.breakpoints.down("sm")]: {
+    padding: "48px 0"
+  }
 }));
 
-export const StyledComputation = styled(Typography)(({ theme }) => ({
+export const StyledComputation = styled(Typography)({
   textAlign: "center",
-  padding: "1rem"
-}));
+  padding: "1rem",
 
-export const StyledSubTitle = styled(Typography)(({ theme }) => ({
+  [`&+.${classes.subtitle}`]: {
+    marginTop: 0
+  }
+});
+
+export const StyledSubTitle = styled(Typography)({
   marginTop: "1rem",
   textAlign: "center"
-}));
+});
 
-export const StyledFormContent = styled("div")(({ theme }) => ({
-  overflow: "hidden auto",
-  padding: "0 32px 32px",
+export const StyledForm = styled(Form)({
   height: "100%"
-}));
+});
 
-export const StyledForm = styled("div")(({ theme }) => ({
+export const StyledFormContent = styled("div")({
+  overflow: "hidden auto",
+  padding: "0 30px",
+  height: "100%"
+});
+
+export const StepWrapper = styled("div")(({ theme }) => ({
   height: "100%",
 
   [`.${classes["form-sm-padding"]}`]: {
@@ -64,7 +75,7 @@ export const StyledForm = styled("div")(({ theme }) => ({
     ["& .formContent"]: {
       paddingBottom: "0"
     },
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down("lg")]: {
       paddingBottom: "76px"
     }
   },
@@ -73,7 +84,7 @@ export const StyledForm = styled("div")(({ theme }) => ({
     ["& .formContent"]: {
       paddingBottom: "0"
     },
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down("lg")]: {
       paddingBottom: "132px"
     }
   },
@@ -82,24 +93,19 @@ export const StyledForm = styled("div")(({ theme }) => ({
     ["& .formContent"]: {
       paddingBottom: "0"
     },
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down("lg")]: {
       paddingBottom: "188px"
     }
-  },
-  [`.${classes.formContent}`]: {
-    overflow: "hidden auto",
-    padding: "0 32px 32px",
-    height: "100%"
   }
 }));
 
-export const StyledSpinnerContainer = styled("div")(({ theme }) => ({
+export const StyledSpinnerContainer = styled("div")({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
   width: "100%",
   height: "calc(100vh - 100px)" /* container margins and paddings */
-}));
+});
 
 export const StyledFooter = styled("div")(({ theme }) => ({
   padding: "24px 30px",
@@ -111,31 +117,37 @@ export const StyledFooter = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
-  zIndex: 2,
-  borderTop: `1px solid ${theme.colours.alabaster}`
+  zIndex: 3,
+  borderTop: `1px solid ${theme.colours.alabaster}`,
+
+  [theme.breakpoints.down("lg")]: {
+    flexDirection: "column",
+    padding: "16px 24px"
+  }
 }));
 
-//skipAndNextButtons
-
-export const StyledSkipAndNextButtons = styled("div")(({ theme }) => ({
-  marginLeft: "auto"
-}));
-
-export const StyledFooterBackButton = styled(Button)(({ theme }) => ({
-  height: "44px"
-}));
-
-export const StyledFooterBackButtonLink = styled(Button)(({ theme }) => ({
+export const FooterButton = styled(Button)(({ theme }) => ({
   height: "44px",
+  [theme.breakpoints.down("lg")]: {
+    width: "100%",
+    "&:not(:first-of-type)": {
+      marginTop: "12px"
+    }
+  }
+}));
+
+export const StyledSkipAndNextButtons = styled("div")({
+  marginLeft: "auto"
+});
+
+export const StyledFooterBackButtonLink = styled(FooterButton)(({ theme }) => ({
   marginRight: "60px",
 
-  [theme.breakpoints.down("md")]: {
+  [theme.breakpoints.down("lg")]: {
     marginRight: "0"
   }
 }));
 
-export const StyledFormSubmitButton = styled(Form.SubmitButton)(
-  ({ theme }) => ({
-    height: "44px"
-  })
-);
+export const StyledFormSubmitButton = styled(Form.SubmitButton)({
+  height: "44px"
+});

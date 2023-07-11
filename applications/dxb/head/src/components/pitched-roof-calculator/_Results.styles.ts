@@ -32,26 +32,31 @@ export const StyledFieldContainer = styled(FieldContainer)(({ theme }) => ({
 export const StyledPrintReportSection = styled("div")(({ theme }) => ({
   display: "flex",
   justifyContent: "space-between",
-  padding: "50px 0 30px",
-  "&:first-of-type": {
+  paddingTop: "54px",
+  "&>div": {
     width: "564px",
     paddingRight: "24px",
     maxWidth: "55%",
 
-    [theme.breakpoints.down("lg")]: {
+    [theme.breakpoints.down("md")]: {
       width: "100%",
       maxWidth: "unset",
       paddingRight: "0"
     }
+  },
+
+  [theme.breakpoints.down("md")]: {
+    paddingTop: "30px",
+    flexDirection: "column"
   }
 }));
 
-export const StyledTypographyHelp = styled(Typography)(({ theme }) => ({
+export const StyledTypographyHelp = styled(Typography)({
   margin: "24px 0 36px"
-}));
+});
 
-export const StyledFormSection = styled(FormSection)(({ theme }) => ({
-  h2: {
+export const StyledFormSection = styled(FormSection)({
+  "&& h2": {
     marginBottom: "24px",
     fontSize: "1.35rem",
     textAlign: "center",
@@ -60,7 +65,7 @@ export const StyledFormSection = styled(FormSection)(({ theme }) => ({
       content: "none"
     }
   }
-}));
+});
 
 export const StyledFormSectionTypographyHelp = styled(Typography)(
   ({ theme }) => ({
@@ -74,9 +79,18 @@ export const StyledFormSectionTypographyHelp = styled(Typography)(
 );
 
 export const StyledNeedHelpSection = styled(Section)(({ theme }) => ({
-  padding: "30px 30px 20px",
-  width: "448px",
-  maxWidth: "40%"
+  ["&&"]: {
+    padding: "30px",
+    width: "448px",
+    maxWidth: "40%",
+
+    [theme.breakpoints.down("md")]: {
+      width: "100%",
+      maxWidth: "unset",
+      padding: "30px 16px",
+      marginTop: "32px"
+    }
+  }
 }));
 
 export const StyledNeedHelpSectionTitle = styled(Section.Title)(

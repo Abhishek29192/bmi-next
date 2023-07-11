@@ -89,7 +89,6 @@ const PitchedRoofCalculator = ({
           onClose();
         }}
         maxWidth="xl"
-        className={classes.root}
         containerClassName={classes.dialogContent}
         allowOverflow={false}
         onBackdropClick={() => {

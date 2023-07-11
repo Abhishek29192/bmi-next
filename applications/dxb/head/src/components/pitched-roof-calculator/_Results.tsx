@@ -174,7 +174,7 @@ const PrintReportSection = ({
     setHubSpotForm(hsForm);
     const styles = document.createElement("style");
     // Hides file input inside the iframe form.
-    styles.textContent = ".hs_file {  display: none; }";
+    styles.textContent = ".hs_file, .hs-fieldtype-file {  display: none; }";
     hsForm.contentDocument.head.appendChild(styles);
   };
 
@@ -221,7 +221,6 @@ const PrintReportSection = ({
         </Button>
       </div>
       <StyledNeedHelpSection
-        spacing="none"
         backgroundColor="pearl"
         hasNoPadding
         data-testid={`print-calculcation-report${replaceSpaces(

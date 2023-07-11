@@ -1,5 +1,4 @@
 import { Typography } from "@bmi-digital/components";
-import classnames from "classnames";
 import React from "react";
 import { Root, StyledHead, StyledHelp } from "./_FieldContainer.styles";
 
@@ -17,7 +16,7 @@ const FieldContainer = ({
   className
 }: FieldContainerProps) => {
   return (
-    <Root className={classnames(className)}>
+    <Root className={className}>
       {title || help ? (
         <StyledHead>
           {title ? <Typography variant="h6">{title}</Typography> : null}

@@ -2,19 +2,23 @@ import { styled } from "@mui/material/styles";
 import { Typography } from "@bmi-digital/components";
 
 export const Root = styled("div")(({ theme }) => ({
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  flexWrap: "wrap",
-  marginBottom: "64px"
+  marginBottom: "64px",
+  [theme.breakpoints.down("sm")]: {
+    marginBottom: "48px"
+  },
+
+  "&:last-of-type": {
+    marginBottom: 0
+  }
 }));
 
-export const StyledHead = styled("div")(({ theme }) => ({
+export const StyledHead = styled("div")({
   marginBottom: "24px",
   textAlign: "center"
-}));
+});
 
-export const StyledHelp = styled(Typography)(({ theme }) => ({
-  marginTop: "24px",
+export const StyledHelp = styled(Typography)({
+  marginTop: "18px",
+  fontSize: "18px",
   textAlign: "center"
-}));
+});

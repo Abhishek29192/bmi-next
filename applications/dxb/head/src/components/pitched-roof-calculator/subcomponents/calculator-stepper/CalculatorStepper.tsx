@@ -1,4 +1,3 @@
-import { Form } from "@bmi-digital/components";
 import { ArrowBack as ArrowBackIcon } from "@bmi-digital/components/icon";
 import { useMediaQuery, useTheme } from "@mui/material";
 import classnames from "classnames";
@@ -9,9 +8,8 @@ import {
   StyledComputation,
   StyledContent,
   StyledFooter,
-  StyledFooterBackButton,
   StyledFooterBackButtonLink,
-  StyledForm,
+  StepWrapper,
   StyledFormContent,
   StyledFormSubmitButton,
   StyledHR,
@@ -19,7 +17,9 @@ import {
   StyledSpinnerContainer,
   StyledStepTitle,
   StyledSubTitle,
-  classes
+  classes,
+  StyledForm,
+  FooterButton
 } from "./CalculatorStepper.styles";
 
 export type Props = {
@@ -83,17 +83,17 @@ const Step = ({
   children
 }: StepProps) => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 
   const backButton = backLabel ? (
-    <StyledFooterBackButton
+    <FooterButton
       variant="outlined"
       onClick={backButtonOnClick}
       accessibilityLabel="Back"
       startIcon={<ArrowBackIcon />}
     >
       {backLabel}
-    </StyledFooterBackButton>
+    </FooterButton>
   ) : null;
 
   const link = linkLabel ? (
@@ -103,7 +103,7 @@ const Step = ({
   ) : null;
 
   const nextButton = nextLabel ? (
-    <StyledFormSubmitButton accessibilityLabel="Next">
+    <StyledFormSubmitButton accessibilityLabel="Next" component={FooterButton}>
       {nextLabel}
     </StyledFormSubmitButton>
   ) : null;
@@ -135,11 +135,17 @@ const Step = ({
 
   const content = (
     <>
-      <StyledFormContent>
+      <StyledFormContent className={classes["formContent"]}>
         <StyledStepTitle variant="h4">{title}</StyledStepTitle>
-        <StyledComputation variant="h6">{paragraph}</StyledComputation>
-        <StyledSubTitle variant="body1">{subtitle}</StyledSubTitle>
-        <StyledContent>{children}</StyledContent>
+        {paragraph && (
+          <StyledComputation variant="h6">{paragraph}</StyledComputation>
+        )}
+        {subtitle && (
+          <StyledSubTitle variant="body1" className={classes["subtitle"]}>
+            {subtitle}
+          </StyledSubTitle>
+        )}
+        <StyledContent className={classes["content"]}>{children}</StyledContent>
         {!footer ? <StyledHR /> : null}
       </StyledFormContent>
       {footer ? footer : null}
@@ -153,17 +159,19 @@ const Step = ({
   );
 
   return isForm ? (
-    <StyledForm>
-      <Form
+    <StepWrapper>
+      <StyledForm
         data-testid="calculator-step-form"
         onSubmit={nextButtonOnClick}
         className={paddingClasses}
       >
         {content}
-      </Form>
-    </StyledForm>
+      </StyledForm>
+    </StepWrapper>
   ) : (
-    <StyledForm className={paddingClasses}>{content}</StyledForm>
+    <StepWrapper>
+      <div className={paddingClasses}>{content}</div>
+    </StepWrapper>
   );
 };
 

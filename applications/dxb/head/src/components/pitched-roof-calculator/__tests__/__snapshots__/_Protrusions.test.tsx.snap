@@ -2,22 +2,27 @@
 
 exports[`PitchedRoofCalculator Protrusions component renders correctly 1`] = `
 <div>
-  <div>
+  <div
+    class="css-9voaen"
+  >
     <h6
-      class="css-ot5vfr"
+      class="MuiTypography-root MuiTypography-h6 css-13jwtux-MuiTypography-root"
+      data-testid="typography"
     >
       MC: roofDimensions.protrusions.title
     </h6>
-    <div>
+    <div
+      class="css-dvxtzn"
+    >
       <div
-        class="css-1bs5fr9"
+        class="css-1ggkt9k"
       >
         <div
           class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-1a8bzh9-MuiGrid2-root"
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-6 MuiGrid2-grid-lg-2 Protrusions-card css-10sqo8t-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-6 MuiGrid2-grid-lg-2 Grid-item css-10sqo8t-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
@@ -97,7 +102,7 @@ exports[`PitchedRoofCalculator Protrusions component renders correctly 1`] = `
             </div>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-6 MuiGrid2-grid-lg-2 Protrusions-card css-10sqo8t-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-6 MuiGrid2-grid-lg-2 Grid-item css-10sqo8t-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
@@ -187,7 +192,7 @@ exports[`PitchedRoofCalculator Protrusions component renders correctly 1`] = `
             </div>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-6 MuiGrid2-grid-lg-2 Protrusions-card css-10sqo8t-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-6 MuiGrid2-grid-lg-2 Grid-item css-10sqo8t-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div

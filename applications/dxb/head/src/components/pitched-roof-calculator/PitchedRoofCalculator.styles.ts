@@ -1,6 +1,6 @@
 import { styled } from "@mui/material/styles";
 import { ContainerDialog, Logo } from "@bmi-digital/components";
-import { LinearProgress } from "@mui/material";
+import { LinearProgress, iconButtonClasses } from "@mui/material";
 
 const PREFIX = "PitchedRoofCalculator";
 
@@ -12,10 +12,9 @@ export const classes = {
 };
 
 export const StyledContainerDialog = styled(ContainerDialog)(({ theme }) => ({
-  [`.${classes.root}`]: {
-    position: "relative",
-    height: "100%"
-  },
+  position: "relative",
+  height: "100%",
+
   [`.${classes.dialogContent}`]: {
     padding: "0",
     overflow: "auto"
@@ -26,9 +25,16 @@ export const StyledContainerDialog = styled(ContainerDialog)(({ theme }) => ({
   [`.${classes.modalHeader}`]: {
     display: "flex",
     padding: "10px 30px",
-    justifyContent: "space-between !important",
+    justifyContent: "space-between",
     alignItems: "center",
     background: "#fcfcfc",
+
+    [`.${iconButtonClasses.root}`]: {
+      width: "24px",
+      height: "24px",
+      margin: 0
+    },
+
     [theme.breakpoints.down("sm")]: {
       padding: "10px 18px"
     }

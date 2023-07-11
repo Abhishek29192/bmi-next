@@ -1,4 +1,3 @@
-import { effraBoldFont, effraRegularFont } from "@bmi-digital/components";
 import {
   Canvas,
   Document,
@@ -13,6 +12,8 @@ import {
 import React from "react";
 import { isElement } from "react-is";
 import { microCopy, MicroCopyValues } from "../../constants/microCopies";
+import EffraBold from "./fonts/Effra_Bd.ttf";
+import EffraNormal from "./fonts/Effra_Rg.ttf";
 import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constants";
 import { ResultsObject, ResultsRow } from "./types";
 
@@ -474,8 +475,8 @@ const PdfDocument = ({ results, area, getMicroCopy }: PdfDocumentProps) => (
 export const getPDF = (props: PdfDocumentProps) =>
   pdf(<PdfDocument {...props} />, undefined, {
     Effra: {
-      normal: effraRegularFont,
-      bold: effraBoldFont
+      normal: window.location.origin + "/" + EffraNormal,
+      bold: window.location.origin + "/" + EffraBold
     }
   });
 
