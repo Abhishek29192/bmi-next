@@ -33,6 +33,15 @@ export const StyledSampleOrderContainer = styled("div")(({ theme }) => ({
     margin: "0 -16px",
     padding: "0 8px",
     boxSizing: "content-box",
+    "& button": {
+      whiteSpace: "nowrap",
+      fontSize: "18px",
+      flexGrow: 1,
+      margin: "8px",
+      [theme.breakpoints.down("lg")]: {
+        fontSize: "16px"
+      }
+    },
     "& button:nth-of-type(2)": {
       marginLeft: "16px"
     },
