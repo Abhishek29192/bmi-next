@@ -505,31 +505,6 @@ deploy_gatsby_cloud_portugal:
   variables:
     DXB_MARKET_ID: "PT"
 
-migrate_content_malaysia:
-  extends: .migrate_content
-  rules:
-    - if: "$CI_COMMIT_TAG"
-  variables:
-    DXB_MARKET_ID: "MY"
-
-update_mc_malaysia:
-  extends: .update_mc
-  needs:
-    - !reference [.update_mc, needs]
-    - migrate_content_malaysia
-  variables:
-    DXB_MARKET_ID: "MY"
-
-deploy_gatsby_cloud_malaysia:
-  extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
-  needs:
-    - migrate_content_malaysia
-    - update_mc_malaysia
-  variables:
-    DXB_MARKET_ID: "MY"
-
 migrate_content_space_1:
   extends: .migrate_content
   rules:
@@ -744,7 +719,15 @@ update_mc_space_7:
     DXB_MARKET_ID: "space_7"
     IS_CONSOLIDATED: "true"
 
-# TODO: Add Malaysia here when consolidated
+deploy_gatsby_cloud_malaysia:
+  extends: .deploy_gatsby_cloud
+  rules:
+    - if: "$CI_COMMIT_TAG"
+  needs:
+    - migrate_content_space_7
+    - update_mc_space_7
+  variables:
+    DXB_MARKET_ID: "MY"
 
 deploy_gatsby_cloud_china:
   extends: .deploy_gatsby_cloud
