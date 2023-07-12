@@ -353,7 +353,11 @@ export const microCopy = {
 
   MEDIA_VIDEO: "media.video",
   MEDIA_3D: "media.3d",
-  MEDIA_VISUALIZER_TEXT: "media.visualizer_text"
+  MEDIA_VISUALIZER_TEXT: "media.visualizer_text",
+
+  GOOD_BETTER_BEST_LABEL_GOOD: "goodBetterBest.label.good",
+  GOOD_BETTER_BEST_LABEL_BETTER: "goodBetterBest.label.better",
+  GOOD_BETTER_BEST_LABEL_BEST: "goodBetterBest.label.best"
 } as const;
 
 export type MicroCopyObj = typeof microCopy;
