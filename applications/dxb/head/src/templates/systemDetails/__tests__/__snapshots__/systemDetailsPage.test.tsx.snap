@@ -2296,7 +2296,9 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                       class="OverviewCard-text css-kl66ak"
                       data-testid="overview-card-body-description"
                     >
-                      related-short-desc
+                      <div>
+                        related-short-desc
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -5130,7 +5132,9 @@ exports[`SystemDetailsPage template component should render 1`] = `
                       class="OverviewCard-text css-kl66ak"
                       data-testid="overview-card-body-description"
                     >
-                      related-short-desc
+                      <div>
+                        related-short-desc
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -7968,7 +7972,9 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                         class="OverviewCard-text css-kl66ak"
                         data-testid="overview-card-body-description"
                       >
-                        related-short-desc
+                        <div>
+                          related-short-desc
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -10803,7 +10809,9 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                       class="OverviewCard-text css-kl66ak"
                       data-testid="overview-card-body-description"
                     >
-                      related-short-desc
+                      <div>
+                        related-short-desc
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -13598,7 +13606,9 @@ exports[`SystemDetailsPage template component should render without specificatio
                       class="OverviewCard-text css-kl66ak"
                       data-testid="overview-card-body-description"
                     >
-                      related-short-desc
+                      <div>
+                        related-short-desc
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -16432,7 +16442,9 @@ exports[`SystemDetailsPage template component should render without systemLayers
                       class="OverviewCard-text css-kl66ak"
                       data-testid="overview-card-body-description"
                     >
-                      related-short-desc
+                      <div>
+                        related-short-desc
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -19392,7 +19404,9 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                       class="OverviewCard-text css-kl66ak"
                       data-testid="overview-card-body-description"
                     >
-                      related-short-desc
+                      <div>
+                        related-short-desc
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -22352,7 +22366,9 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                       class="OverviewCard-text css-kl66ak"
                       data-testid="overview-card-body-description"
                     >
-                      related-short-desc
+                      <div>
+                        related-short-desc
+                      </div>
                     </div>
                   </div>
                 </div>

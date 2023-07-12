@@ -18,10 +18,13 @@ const createSystem = (esSystem?: Partial<System>): System => ({
   scoringWeight: 1,
   systemAttributes: [
     {
-      code: "bmiSystemsClassificationCatalog/1.0/systemAttributes.roofBuildUp",
-      name: "Roof build-up",
+      code: "bmiSystemsClassificationCatalog/1.0/systemAttributes.KeyFeatures",
+      name: "Key Features",
       values: [
-        "Combines self-adhesive/heat activated and torch applied installation techniques"
+        "Robust and waterproof steel",
+        "1000 year warranty",
+        "Best system on the globe",
+        "No other systems like this"
       ]
     }
   ],

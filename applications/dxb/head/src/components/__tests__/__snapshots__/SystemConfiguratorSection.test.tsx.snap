@@ -271,7 +271,9 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
                       class="OverviewCard-text css-kl66ak"
                       data-testid="overview-card-body-description"
                     >
-                      efgh description
+                      <div>
+                        efgh description
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -574,7 +576,9 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
                       class="OverviewCard-text css-kl66ak"
                       data-testid="overview-card-body-description"
                     >
-                      efgh description
+                      <div>
+                        efgh description
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1555,7 +1559,9 @@ exports[`SystemConfiguratorSection component renders a result section when answe
                       class="OverviewCard-text css-kl66ak"
                       data-testid="overview-card-body-description"
                     >
-                      efgh description
+                      <div>
+                        efgh description
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -3501,7 +3507,9 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                       class="OverviewCard-text css-kl66ak"
                       data-testid="overview-card-body-description"
                     >
-                      related-short-desc
+                      <div>
+                        related-short-desc
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -3554,7 +3562,9 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                       class="OverviewCard-text css-kl66ak"
                       data-testid="overview-card-body-description"
                     >
-                      related-short-desc
+                      <div>
+                        related-short-desc
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -3607,7 +3617,9 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                       class="OverviewCard-text css-kl66ak"
                       data-testid="overview-card-body-description"
                     >
-                      related-short-desc
+                      <div>
+                        related-short-desc
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -3660,7 +3672,9 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                       class="OverviewCard-text css-kl66ak"
                       data-testid="overview-card-body-description"
                     >
-                      related-short-desc
+                      <div>
+                        related-short-desc
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -3962,7 +3976,9 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
                       class="OverviewCard-text css-kl66ak"
                       data-testid="overview-card-body-description"
                     >
-                      related-short-desc
+                      <div>
+                        related-short-desc
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -4021,7 +4037,9 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
                       class="OverviewCard-text css-kl66ak"
                       data-testid="overview-card-body-description"
                     >
-                      related-short-desc
+                      <div>
+                        related-short-desc
+                      </div>
                     </div>
                   </div>
                 </div>

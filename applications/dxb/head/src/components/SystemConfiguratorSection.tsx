@@ -50,6 +50,7 @@ export type Data = {
   label: string;
   description: RichTextData | null;
   question: QuestionData;
+  systemProperties: string[];
 };
 
 export type NextStepData = {
@@ -88,6 +89,7 @@ export type TitleWithContentData = DefaultTitleWithContentData & {
 export type ResultData = EntryData & {
   __typename: "ContentfulSystemConfiguratorResult";
   recommendedSystems: string[] | null;
+  systemProperties: string[];
 };
 
 type SystemConfiguratorSectionState = {
@@ -344,7 +346,8 @@ const SystemConfiguratorNoResult = ({
 const SystemConfiguratorResult = ({
   title,
   description,
-  recommendedSystems
+  recommendedSystems,
+  systemProperties
 }: ResultData) => {
   const maxDisplay = 4;
   const ref = useScrollToOnLoad(false, ACCORDION_TRANSITION);
@@ -421,6 +424,7 @@ const SystemConfiguratorResult = ({
                     data-testid={system.code}
                     key={`${system.code}-${id}`}
                     system={system}
+                    systemPropertiesToDisplay={systemProperties}
                     countryCode={countryCode}
                     gtm={{
                       id: "system-configurator01-results",
@@ -465,7 +469,8 @@ const SystemConfiguratorSection = ({ data }: { data: Data }) => {
     );
   }, [location.search]);
 
-  const { title, description, __typename, question, locale } = data;
+  const { title, description, __typename, question, locale, systemProperties } =
+    data;
   const [state, setState] = useState<SystemConfiguratorSectionState>({
     locale: locale,
     isLoading: false,
@@ -518,7 +523,12 @@ const SystemConfiguratorSection = ({ data }: { data: Data }) => {
           </SystemConfiguratorContext.Provider>
         ) : null}
       </Section>
-      {state.result && <SystemConfiguratorResult {...state.result} />}
+      {state.result && (
+        <SystemConfiguratorResult
+          {...state.result}
+          systemProperties={systemProperties}
+        />
+      )}
       {state.noResult && <SystemConfiguratorNoResult {...state.noResult} />}
     </>
   );
@@ -538,6 +548,7 @@ export const query = graphql`
     question {
       ...SystemConfiguratorQuestionFragment
     }
+    systemProperties
   }
   fragment SystemConfiguratorQuestionFragment on ContentfulSystemConfiguratorQuestion {
     __typename
