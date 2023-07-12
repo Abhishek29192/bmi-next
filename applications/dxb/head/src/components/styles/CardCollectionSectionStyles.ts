@@ -1,5 +1,6 @@
 import { styled } from "@mui/material/styles";
 import { AnchorLink, Grid, Typography } from "@bmi-digital/components";
+import ButtonBase from "@mui/material/ButtonBase";
 
 const PREFIX = "CardCollectionSectionStyles";
 
@@ -17,13 +18,14 @@ export const CardCollectionSectionContainer = styled("div")(({ theme }) => ({
     position: "absolute",
     top: "-9999px",
     left: "-9999px"
-  },
-
-  [`&.${classes["card-title"]}`]: {
-    fontFamily: "Effra Bold",
-    fontSize: "1.35rem",
-    lineHeight: "1.2"
   }
+}));
+
+export const StyledButtonBaseTitle = styled(ButtonBase)(() => ({
+  fontFamily: "Effra Bold",
+  fontSize: "1.35rem",
+  lineHeight: "1.2",
+  textAlign: "left"
 }));
 
 export const StyledGroupChips = styled("div")(() => ({

@@ -13,7 +13,7 @@ import {
   withClickable
 } from "@bmi-digital/components";
 import { ArrowForward as ArrowForwardIcon } from "@bmi-digital/components/icon";
-import ButtonBase, { ButtonBaseProps } from "@mui/material/ButtonBase";
+import { ButtonBaseProps } from "@mui/material/ButtonBase";
 import { graphql } from "gatsby";
 import React, { memo, useMemo, useState } from "react";
 import { microCopy } from "../constants/microCopies";
@@ -32,7 +32,8 @@ import {
   StyledClearAllButton,
   StyledGroupChips,
   StyledShowMoreGrid,
-  StyledTitle
+  StyledTitle,
+  StyledButtonBaseTitle
 } from "./styles/CardCollectionSectionStyles";
 import { TagData } from "./Tag";
 import Video from "./Video";
@@ -81,15 +82,15 @@ const CardCollectionItem = ({
     : link?.label;
   transformedCardLabel = transformHyphens(transformedCardLabel);
   const GTMButton = withGTM<ButtonProps>(Button);
-  const GTMButtonBase = withGTM<ButtonBaseProps>(withClickable(ButtonBase));
+  const GTMButtonBase = withGTM<ButtonBaseProps>(
+    withClickable(StyledButtonBaseTitle)
+  );
 
   const date = "date" in card && card.date ? card.date : undefined;
 
   const CardButton = (props) => (
     <Link
-      component={(props: ButtonBaseProps) => (
-        <GTMButtonBase {...props} classes={{ root: "card-title" }} />
-      )}
+      component={(props: ButtonBaseProps) => <GTMButtonBase {...props} />}
       data={link}
       gtm={{
         id: "cta-click1",
