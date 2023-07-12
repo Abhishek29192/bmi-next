@@ -363,9 +363,6 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
       }
     }
   }, [
-    data.plpFilters,
-    fetchProducts,
-    filters,
     location.search,
     pageContext.categoryCodes,
     queryParams.filters,
