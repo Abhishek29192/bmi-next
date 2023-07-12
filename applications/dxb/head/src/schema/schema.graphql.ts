@@ -548,6 +548,9 @@ type ContentfulResources implements ContentfulObject & Node @dontInfer {
   pdpSpecificationDescription: ContentfulRichText
   sdpSpecificationNotesCta: ContentfulSpecificationNotesWithCta @link(from: "sdpSpecificationNotesCta___NODE")
   documentDisplayFormat: String
+  gbbGoodIndicator: String
+  gbbBetterIndicator: String
+  gbbBestIndicator: String
 }
 
 union ContentfulContactDetailsOrTitleWithContent =
