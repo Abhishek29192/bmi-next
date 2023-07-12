@@ -126,6 +126,9 @@
       "path": "applications/dxb/libraries/pim-api"
     },
     {
+      "path": "applications/dxb/libraries/pim-transformation"
+    },
+    {
       "path": "applications/dxb/libraries/pim-types"
     },
     {

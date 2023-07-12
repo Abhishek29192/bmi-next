@@ -3,31 +3,12 @@ import { Product, System } from "@bmi/firestore-types";
 import { getFirestore } from "@bmi/functions-firestore";
 import { SystemLayer } from "@bmi/pim-types";
 import { DeleteItem, Message, ObjType } from "@bmi/pub-sub-types";
-
-import { transformProduct } from "./productTransformer";
-import { transformSystem } from "./systemTransformer";
-
-import type { EventFunction } from "@google-cloud/functions-framework/build/src/functions";
+import { transformProduct, transformSystem } from "@bmi/pim-transformation";
+import { CODE_TYPES, COLLECTIONS } from "./constants";
+import type { EventFunction } from "@google-cloud/functions-framework";
 
 const { FIRESTORE_ROOT_COLLECTION, ENABLE_SAMPLE_ORDERING } = process.env;
 const db = getFirestore();
-
-// TODO: I think these should start with "/", but was easier for them not to
-export const COLLECTIONS = {
-  CATEGORIES: "root/categories",
-  PRODUCTS: "root/products",
-  SYSTEMS: "root/systems"
-};
-
-export const OBJECT_TYPES = {
-  VARIANT_OPTIONS: "variantOptions",
-  SYSTEM_LAYERS: "systemLayers"
-};
-
-export const CODE_TYPES = {
-  VARIANT_CODES: "variantCodes",
-  LAYER_CODES: "layerCodes"
-};
 
 const updateDocument = (
   updatedItem: System | Product,

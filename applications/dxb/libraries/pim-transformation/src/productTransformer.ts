@@ -24,10 +24,6 @@ import type {
   VariantOption
 } from "@bmi/pim-types";
 import {
-  productIgnorableAttributes,
-  productIgnorableClassfications
-} from "./ignorableFeatureCodes";
-import {
   filterClassifications,
   getAwardAndCertificateAsset,
   getBim,
@@ -40,7 +36,11 @@ import {
   mapClassification,
   mapDocuments,
   mapImages
-} from "./transformerUtils";
+} from "./transformerUtils.js";
+import {
+  productIgnorableAttributes,
+  productIgnorableClassfications
+} from "./ignorableFeatureCodes.js";
 
 export const transformProduct = (product: PimProduct): Product[] => {
   if (

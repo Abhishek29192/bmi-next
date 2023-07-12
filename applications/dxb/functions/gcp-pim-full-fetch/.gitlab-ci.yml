@@ -1,9 +1,5 @@
 lint_gcp-pim-full-fetch:
-  extends: .lint_yarn_workspace
-  rules:
-    - !reference [ .ignore_release_mrs, rules ]
-    - !reference [ .run_for_changes_on_main, rules ]
-    - !reference [ .run_for_changes_on_mr, rules ]
+  extends: .lint_function
   variables:
     ROOT_DIR: "applications/dxb/functions/gcp-pim-full-fetch"
     WORKSPACE: "@bmi/gcp-pim-full-fetch"
@@ -11,19 +7,19 @@ lint_gcp-pim-full-fetch:
 build_gcp-pim-full-fetch:
   extends: .build_function
   rules:
-    - !reference [  .ignore_release_mrs, rules ]
-    - if: !reference [ .run_for_changes_on_main, rules, if ]
+    - !reference [.ignore_release_mrs, rules]
+    - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
         - applications/dxb/libraries/pim-api/**/*
-    - if: !reference [ .run_for_changes_on_mr, rules, if ]
+    - if: !reference [.run_for_changes_on_mr, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
         - applications/dxb/libraries/pim-api/**/*
-    - if: !reference [ .run_for_preprod_release, rules, if ]
-    - if: !reference [ .run_for_prod_release, rules, if ]
+    - if: !reference [.run_for_preprod_release, rules, if]
+    - if: !reference [.run_for_prod_release, rules, if]
   variables:
     WORKSPACE: "@bmi/gcp-pim-full-fetch"
     ROOT_DIR: "applications/dxb/functions/gcp-pim-full-fetch"
@@ -31,13 +27,13 @@ build_gcp-pim-full-fetch:
 test_gcp-pim-full-fetch:
   extends: .test_function
   rules:
-    - !reference [  .ignore_release_mrs, rules ]
-    - if: !reference [ .run_for_changes_on_main, rules, if ]
+    - !reference [.ignore_release_mrs, rules]
+    - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
         - applications/dxb/libraries/pim-api/**/*
-    - if: !reference [ .run_for_changes_on_mr, rules, if ]
+    - if: !reference [.run_for_changes_on_mr, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
@@ -54,13 +50,13 @@ package_gcp-pim-full-fetch:
     - job: build_gcp-pim-full-fetch
       artifacts: true
   rules:
-    - if: !reference [ .run_for_changes_on_main, rules, if ]
+    - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
         - applications/dxb/libraries/pim-api/**/*
-    - if: !reference [ .run_for_preprod_release, rules, if ]
-    - if: !reference [ .run_for_prod_release, rules, if ]
+    - if: !reference [.run_for_preprod_release, rules, if]
+    - if: !reference [.run_for_prod_release, rules, if]
   variables:
     FUNCTION_NAME: "gcp-pim-full-fetch"
     ROOT_DIR: "applications/dxb/functions/gcp-pim-full-fetch"
@@ -71,17 +67,17 @@ deploy_gcp-pim-full-fetch:
     - job: package_gcp-pim-full-fetch
       artifacts: true
   rules:
-    - if: !reference [ .run_for_changes_on_main, rules, if ]
+    - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
         - applications/dxb/libraries/pim-api/**/*
       variables:
         GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_QA
-    - if: !reference [ .run_for_preprod_release, rules, if ]
+    - if: !reference [.run_for_preprod_release, rules, if]
       variables:
         GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PREPROD
-    - if: !reference [ .run_for_prod_release, rules, if ]
+    - if: !reference [.run_for_prod_release, rules, if]
       variables:
         GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PROD
   variables:

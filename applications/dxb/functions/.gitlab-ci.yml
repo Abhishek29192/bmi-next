@@ -21,10 +21,17 @@ include:
   - local: "/applications/dxb/functions/gcp-url-generator/.gitlab-ci.yml"
   - local: "/applications/dxb/functions/gcp-youtube-cache/.gitlab-ci.yml"
 
+.lint_function:
+  extends: .lint_yarn_workspace
+  rules:
+    - !reference [.ignore_release_mrs, rules]
+    - !reference [.run_for_changes_on_main, rules]
+    - !reference [.run_for_changes_on_mr, rules]
+
 .test_function:
   extends: .test_yarn_workspace
   rules:
-    - !reference [ .ignore_release_mrs, rules]
+    - !reference [.ignore_release_mrs, rules]
     - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - $ROOT_DIR/**/*
@@ -37,7 +44,7 @@ include:
 .build_function:
   extends: .build_function_yarn_workspace
   rules:
-    - !reference [ .ignore_release_mrs, rules]
+    - !reference [.ignore_release_mrs, rules]
     - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - $ROOT_DIR/**/*

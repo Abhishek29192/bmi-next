@@ -26,7 +26,7 @@ export const createElasticSearchIndex = async (index: string) => {
   const response = await client.indices.create({
     index
   });
-  logger.debug(response);
+  logger.debug({ message: `received response: ${response}` });
 
   logger.info({
     message: `Success creating index: ${index}`
@@ -111,7 +111,7 @@ export const createIndexAlias = async (
             )}`
           });
         }
-        logger.debug(response);
+        logger.debug({ message: `Response: ${response}` });
       })
     );
   } catch (e) {
@@ -127,7 +127,7 @@ export const createIndexAlias = async (
       name: indexAliasNameLower
     });
 
-    logger.debug(response);
+    logger.debug({ message: `Response: ${response}` });
 
     logger.info({
       message: `Success creating alias '${indexAliasNameLower}' on write index '${index}'`

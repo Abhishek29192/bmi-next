@@ -5,7 +5,13 @@
   },
   "references": [
     {
+      "path": "../../libraries/pim-transformation"
+    },
+    {
       "path": "../../libraries/utils"
+    },
+    {
+      "path": "../../libraries/firestore-types"
     },
     {
       "path": "../../libraries/pim-types"
