@@ -3,7 +3,7 @@
 exports[`OverlapCards component IntegratedOverlapCards component renders correctly 1`] = `
 <div>
   <div
-    class="css-pybm82"
+    class="css-19sh6o8"
     data-testid="overlap-cards-wrapper"
   >
     <div
@@ -334,7 +334,7 @@ exports[`OverlapCards component IntegratedOverlapCards component renders correct
 exports[`OverlapCards component renders correctly 1`] = `
 <div>
   <div
-    class="css-pybm82"
+    class="css-19sh6o8"
     data-testid="overlap-cards-wrapper"
   >
     <div
