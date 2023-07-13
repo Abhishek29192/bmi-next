@@ -874,7 +874,7 @@ update_mc_space_11:
     DXB_MARKET_ID: "space_11"
     IS_CONSOLIDATED: "true"
 
-deploy_gatsby_cloud_portugal_pt:
+deploy_gatsby_cloud_portugal:
   extends: .deploy_gatsby_cloud
   rules:
     - if: "$CI_COMMIT_TAG"
