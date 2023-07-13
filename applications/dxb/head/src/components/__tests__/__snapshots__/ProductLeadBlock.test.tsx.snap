@@ -718,7 +718,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                         >
                           <a
                             aria-label="Download Pim Document"
-                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
+                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
                             data-gtm="{"id":"download1","label":"Download","action":"http://pimDocument"}"
                             data-testid="document-table-actions-download-id-1"
                             href="http://pimdocument/"
@@ -727,7 +727,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                             target="_blank"
                           >
                             <svg
-                              class="css-afm3c7"
+                              class="document-simple-table-results-actionIconSmall css-afm3c7"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -749,13 +749,13 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                         >
                           <button
                             aria-label="Copy Pim Document"
-                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
+                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
                             data-testid="document-table-actions-copy-url-id-1"
                             tabindex="0"
                             type="button"
                           >
                             <svg
-                              class="css-afm3c7"
+                              class="document-simple-table-results-actionIconSmall css-afm3c7"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -888,7 +888,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                         >
                           <a
                             aria-label="Download Pim Document"
-                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
+                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
                             data-gtm="{"id":"download1","label":"Download","action":"http://pimDocument"}"
                             data-testid="document-table-actions-download-id-2"
                             href="http://pimdocument/"
@@ -897,7 +897,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                             target="_blank"
                           >
                             <svg
-                              class="css-afm3c7"
+                              class="document-simple-table-results-actionIconSmall css-afm3c7"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -919,13 +919,13 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                         >
                           <button
                             aria-label="Copy Pim Document"
-                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
+                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
                             data-testid="document-table-actions-copy-url-id-2"
                             tabindex="0"
                             type="button"
                           >
                             <svg
-                              class="css-afm3c7"
+                              class="document-simple-table-results-actionIconSmall css-afm3c7"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -1058,7 +1058,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                         >
                           <a
                             aria-label="Download Pim Document"
-                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
+                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
                             data-gtm="{"id":"download1","label":"Download","action":"http://pimDocument"}"
                             data-testid="document-table-actions-download-id-3"
                             href="http://pimdocument/"
@@ -1067,7 +1067,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                             target="_blank"
                           >
                             <svg
-                              class="css-afm3c7"
+                              class="document-simple-table-results-actionIconSmall css-afm3c7"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -1089,13 +1089,13 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                         >
                           <button
                             aria-label="Copy Pim Document"
-                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
+                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
                             data-testid="document-table-actions-copy-url-id-3"
                             tabindex="0"
                             type="button"
                           >
                             <svg
-                              class="css-afm3c7"
+                              class="document-simple-table-results-actionIconSmall css-afm3c7"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -1228,7 +1228,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                         >
                           <a
                             aria-label="Download Pim Document"
-                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
+                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
                             data-gtm="{"id":"download1","label":"Download","action":"http://pimDocument"}"
                             data-testid="document-table-actions-download-id-3"
                             href="http://pimdocument/"
@@ -1237,7 +1237,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                             target="_blank"
                           >
                             <svg
-                              class="css-afm3c7"
+                              class="document-simple-table-results-actionIconSmall css-afm3c7"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -1259,13 +1259,13 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                         >
                           <button
                             aria-label="Copy Pim Document"
-                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
+                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
                             data-testid="document-table-actions-copy-url-id-3"
                             tabindex="0"
                             type="button"
                           >
                             <svg
-                              class="css-afm3c7"
+                              class="document-simple-table-results-actionIconSmall css-afm3c7"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -2164,7 +2164,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                         >
                           <a
                             aria-label="Download Pim Document"
-                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
+                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
                             data-gtm="{"id":"download1","label":"Download","action":"http://pimDocument"}"
                             data-testid="document-table-actions-download-pim-document"
                             href="http://pimdocument/"
@@ -2173,7 +2173,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                             target="_blank"
                           >
                             <svg
-                              class="css-afm3c7"
+                              class="document-simple-table-results-actionIconSmall css-afm3c7"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -2195,13 +2195,13 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                         >
                           <button
                             aria-label="Copy Pim Document"
-                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
+                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
                             data-testid="document-table-actions-copy-url-pim-document"
                             tabindex="0"
                             type="button"
                           >
                             <svg
-                              class="css-afm3c7"
+                              class="document-simple-table-results-actionIconSmall css-afm3c7"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -2334,7 +2334,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                         >
                           <a
                             aria-label="Download Pim Document"
-                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
+                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
                             data-gtm="{"id":"download1","label":"Download","action":"http://pimDocument"}"
                             data-testid="document-table-actions-download-pim-document"
                             href="http://pimdocument/"
@@ -2343,7 +2343,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                             target="_blank"
                           >
                             <svg
-                              class="css-afm3c7"
+                              class="document-simple-table-results-actionIconSmall css-afm3c7"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -2365,13 +2365,13 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                         >
                           <button
                             aria-label="Copy Pim Document"
-                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
+                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
                             data-testid="document-table-actions-copy-url-pim-document"
                             tabindex="0"
                             type="button"
                           >
                             <svg
-                              class="css-afm3c7"
+                              class="document-simple-table-results-actionIconSmall css-afm3c7"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -3348,7 +3348,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                   >
                     <a
                       aria-label="Download Pim Document"
-                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
                       data-gtm="{"id":"download1","label":"Download","action":"http://pimDocument"}"
                       data-testid="document-table-actions-download-id-1"
                       href="http://pimdocument/"
@@ -3357,7 +3357,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                       target="_blank"
                     >
                       <svg
-                        class="css-afm3c7"
+                        class="document-simple-table-results-actionIconSmall css-afm3c7"
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
@@ -3379,13 +3379,13 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                   >
                     <button
                       aria-label="Copy Pim Document"
-                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
                       data-testid="document-table-actions-copy-url-id-1"
                       tabindex="0"
                       type="button"
                     >
                       <svg
-                        class="css-afm3c7"
+                        class="document-simple-table-results-actionIconSmall css-afm3c7"
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
@@ -3518,7 +3518,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                   >
                     <a
                       aria-label="Download Pim Document"
-                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
                       data-gtm="{"id":"download1","label":"Download","action":"http://pimDocument"}"
                       data-testid="document-table-actions-download-id-2"
                       href="http://pimdocument/"
@@ -3527,7 +3527,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                       target="_blank"
                     >
                       <svg
-                        class="css-afm3c7"
+                        class="document-simple-table-results-actionIconSmall css-afm3c7"
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
@@ -3549,13 +3549,13 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                   >
                     <button
                       aria-label="Copy Pim Document"
-                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
                       data-testid="document-table-actions-copy-url-id-2"
                       tabindex="0"
                       type="button"
                     >
                       <svg
-                        class="css-afm3c7"
+                        class="document-simple-table-results-actionIconSmall css-afm3c7"
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
@@ -3688,7 +3688,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                   >
                     <a
                       aria-label="Download Pim Document"
-                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
                       data-gtm="{"id":"download1","label":"Download","action":"http://pimDocument"}"
                       data-testid="document-table-actions-download-id-3"
                       href="http://pimdocument/"
@@ -3697,7 +3697,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                       target="_blank"
                     >
                       <svg
-                        class="css-afm3c7"
+                        class="document-simple-table-results-actionIconSmall css-afm3c7"
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
@@ -3719,13 +3719,13 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                   >
                     <button
                       aria-label="Copy Pim Document"
-                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
                       data-testid="document-table-actions-copy-url-id-3"
                       tabindex="0"
                       type="button"
                     >
                       <svg
-                        class="css-afm3c7"
+                        class="document-simple-table-results-actionIconSmall css-afm3c7"
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
@@ -3858,7 +3858,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                   >
                     <a
                       aria-label="Download Pim Document"
-                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
                       data-gtm="{"id":"download1","label":"Download","action":"http://pimDocument"}"
                       data-testid="document-table-actions-download-id-3"
                       href="http://pimdocument/"
@@ -3867,7 +3867,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                       target="_blank"
                     >
                       <svg
-                        class="css-afm3c7"
+                        class="document-simple-table-results-actionIconSmall css-afm3c7"
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
@@ -3889,13 +3889,13 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                   >
                     <button
                       aria-label="Copy Pim Document"
-                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
                       data-testid="document-table-actions-copy-url-id-3"
                       tabindex="0"
                       type="button"
                     >
                       <svg
-                        class="css-afm3c7"
+                        class="document-simple-table-results-actionIconSmall css-afm3c7"
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
@@ -4449,7 +4449,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                   >
                     <a
                       aria-label="Download Pim Document"
-                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
                       data-gtm="{"id":"download1","label":"Download","action":"http://pimDocument"}"
                       data-testid="document-table-actions-download-id-1"
                       href="http://pimdocument/"
@@ -4458,7 +4458,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                       target="_blank"
                     >
                       <svg
-                        class="css-afm3c7"
+                        class="document-simple-table-results-actionIconSmall css-afm3c7"
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
@@ -4480,13 +4480,13 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                   >
                     <button
                       aria-label="Copy Pim Document"
-                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
                       data-testid="document-table-actions-copy-url-id-1"
                       tabindex="0"
                       type="button"
                     >
                       <svg
-                        class="css-afm3c7"
+                        class="document-simple-table-results-actionIconSmall css-afm3c7"
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
@@ -4619,7 +4619,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                   >
                     <a
                       aria-label="Download Pim Document"
-                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
                       data-gtm="{"id":"download1","label":"Download","action":"http://pimDocument"}"
                       data-testid="document-table-actions-download-id-2"
                       href="http://pimdocument/"
@@ -4628,7 +4628,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                       target="_blank"
                     >
                       <svg
-                        class="css-afm3c7"
+                        class="document-simple-table-results-actionIconSmall css-afm3c7"
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
@@ -4650,13 +4650,13 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                   >
                     <button
                       aria-label="Copy Pim Document"
-                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
                       data-testid="document-table-actions-copy-url-id-2"
                       tabindex="0"
                       type="button"
                     >
                       <svg
-                        class="css-afm3c7"
+                        class="document-simple-table-results-actionIconSmall css-afm3c7"
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
@@ -4789,7 +4789,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                   >
                     <a
                       aria-label="Download Pim Document"
-                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
                       data-gtm="{"id":"download1","label":"Download","action":"http://pimDocument"}"
                       data-testid="document-table-actions-download-id-3"
                       href="http://pimdocument/"
@@ -4798,7 +4798,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                       target="_blank"
                     >
                       <svg
-                        class="css-afm3c7"
+                        class="document-simple-table-results-actionIconSmall css-afm3c7"
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
@@ -4820,13 +4820,13 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                   >
                     <button
                       aria-label="Copy Pim Document"
-                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
                       data-testid="document-table-actions-copy-url-id-3"
                       tabindex="0"
                       type="button"
                     >
                       <svg
-                        class="css-afm3c7"
+                        class="document-simple-table-results-actionIconSmall css-afm3c7"
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
@@ -4959,7 +4959,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                   >
                     <a
                       aria-label="Download Pim Document"
-                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
                       data-gtm="{"id":"download1","label":"Download","action":"http://pimDocument"}"
                       data-testid="document-table-actions-download-id-3"
                       href="http://pimdocument/"
@@ -4968,7 +4968,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                       target="_blank"
                     >
                       <svg
-                        class="css-afm3c7"
+                        class="document-simple-table-results-actionIconSmall css-afm3c7"
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
@@ -4990,13 +4990,13 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                   >
                     <button
                       aria-label="Copy Pim Document"
-                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
                       data-testid="document-table-actions-copy-url-id-3"
                       tabindex="0"
                       type="button"
                     >
                       <svg
-                        class="css-afm3c7"
+                        class="document-simple-table-results-actionIconSmall css-afm3c7"
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >

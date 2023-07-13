@@ -176,7 +176,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                         >
                           <a
                             aria-label="Download pim document title"
-                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
+                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
                             data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                             data-testid="document-table-actions-download-pim-document-id"
                             href="http://localhost:9000/document.pdf"
@@ -185,7 +185,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                             target="_blank"
                           >
                             <svg
-                              class="css-afm3c7"
+                              class="document-simple-table-results-actionIconSmall css-afm3c7"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -211,13 +211,13 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                         >
                           <button
                             aria-label="Copy pim document title"
-                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
+                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
                             data-testid="document-table-actions-copy-url-pim-document-id"
                             tabindex="0"
                             type="button"
                           >
                             <svg
-                              class="css-afm3c7"
+                              class="document-simple-table-results-actionIconSmall css-afm3c7"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -315,7 +315,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                         >
                           <a
                             aria-label="Download pim document title"
-                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
+                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
                             data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                             data-testid="document-table-actions-download-pim-document-id"
                             href="http://localhost:9000/document.pdf"
@@ -324,7 +324,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                             target="_blank"
                           >
                             <svg
-                              class="css-afm3c7"
+                              class="document-simple-table-results-actionIconSmall css-afm3c7"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -350,13 +350,13 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                         >
                           <button
                             aria-label="Copy pim document title"
-                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
+                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
                             data-testid="document-table-actions-copy-url-pim-document-id"
                             tabindex="0"
                             type="button"
                           >
                             <svg
-                              class="css-afm3c7"
+                              class="document-simple-table-results-actionIconSmall css-afm3c7"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -559,7 +559,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
                         >
                           <a
                             aria-label="Download pim document title"
-                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
+                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
                             data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                             data-testid="document-table-actions-download-pim-document-id"
                             href="http://localhost:9000/document.pdf"
@@ -568,7 +568,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
                             target="_blank"
                           >
                             <svg
-                              class="css-afm3c7"
+                              class="document-simple-table-results-actionIconSmall css-afm3c7"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -594,13 +594,13 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
                         >
                           <button
                             aria-label="Copy pim document title"
-                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
+                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
                             data-testid="document-table-actions-copy-url-pim-document-id"
                             tabindex="0"
                             type="button"
                           >
                             <svg
-                              class="css-afm3c7"
+                              class="document-simple-table-results-actionIconSmall css-afm3c7"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -698,7 +698,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
                         >
                           <a
                             aria-label="Download pim document title"
-                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
+                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
                             data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                             data-testid="document-table-actions-download-pim-document-id"
                             href="http://localhost:9000/document.pdf"
@@ -707,7 +707,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
                             target="_blank"
                           >
                             <svg
-                              class="css-afm3c7"
+                              class="document-simple-table-results-actionIconSmall css-afm3c7"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -733,13 +733,13 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
                         >
                           <button
                             aria-label="Copy pim document title"
-                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
+                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
                             data-testid="document-table-actions-copy-url-pim-document-id"
                             tabindex="0"
                             type="button"
                           >
                             <svg
-                              class="css-afm3c7"
+                              class="document-simple-table-results-actionIconSmall css-afm3c7"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >

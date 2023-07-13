@@ -11,7 +11,7 @@ import { Box } from "@mui/material";
 import classnames from "classnames";
 import { filesize } from "filesize";
 import fetch, { Response } from "node-fetch";
-import React, { useContext } from "react";
+import React, { useContext, useMemo } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { QA_AUTH_TOKEN } from "../constants/cookieConstants";
 import { microCopy } from "../constants/microCopies";
@@ -51,8 +51,6 @@ type Props = {
   isDownloadButton?: boolean;
   sticky?: boolean;
 };
-
-const GTMButton = withGTM<ButtonProps>(Button);
 
 export const handleDownloadClick = async (
   list: Record<string, any>,
@@ -174,24 +172,37 @@ const DownloadDocumentsButton = () => {
     : getMicroCopy(microCopy.DOWNLOAD_LIST_DOWNLOAD);
   const maxSizeExceeded = remainingSize < 0;
 
-  const handleButtonClick = async (list: DownloadListContextType["list"]) => {
-    const token = qaAuthToken ? undefined : await executeRecaptcha?.();
-    await handleDownloadClick(list, config, resetList, token, qaAuthToken);
-  };
+  const handleButtonClick = useMemo(
+    () => async (list: DownloadListContextType["list"]) => {
+      const token = qaAuthToken ? undefined : await executeRecaptcha?.();
+      await handleDownloadClick(list, config, resetList, token, qaAuthToken);
+    },
+    [config, executeRecaptcha, qaAuthToken, resetList]
+  );
 
-  return (
-    <DownloadList.Button
-      disabled={!size || maxSizeExceeded}
-      component={(props: ButtonProps) => (
+  const DownloadButton = useMemo(() => {
+    const documentAction = getAction(selectedDocuments);
+    const gtmButton = (props: ButtonProps) => {
+      const GTMButton = withGTM<ButtonProps>(Button);
+      return (
         <GTMButton
           gtm={{
             id: "download3-button1",
             label: Array.isArray(props.children) ? props.children[0] : "",
-            action: getAction(selectedDocuments)
+            action: documentAction
           }}
           {...props}
         />
-      )}
+      );
+    };
+    gtmButton.displayName = "Document-Download-Button";
+    return gtmButton;
+  }, [selectedDocuments]);
+
+  return (
+    <DownloadList.Button
+      disabled={!size || maxSizeExceeded}
+      component={DownloadButton}
       label={downloadButtonLabel}
       onClick={handleButtonClick}
       data-testid="document-table-download-button"
