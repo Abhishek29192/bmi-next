@@ -391,7 +391,6 @@ const config = {
     {
       resolve: `gatsby-plugin-webpack-bundle-analyser-v2`,
       options: {
-        devMode: true,
         disable: process.env.CI === "true"
       }
     },
