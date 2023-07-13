@@ -405,31 +405,6 @@ deploy_gatsby_cloud_unitedkingdom:
   variables:
     DXB_MARKET_ID: "UK"
 
-migrate_content_southafrica:
-  extends: .migrate_content
-  rules:
-    - if: "$CI_COMMIT_TAG"
-  variables:
-    DXB_MARKET_ID: "ZA"
-
-update_mc_southafrica:
-  extends: .update_mc
-  needs:
-    - !reference [.update_mc, needs]
-    - migrate_content_southafrica
-  variables:
-    DXB_MARKET_ID: "ZA"
-
-deploy_gatsby_cloud_southafrica:
-  extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
-  needs:
-    - migrate_content_southafrica
-    - update_mc_southafrica
-  variables:
-    DXB_MARKET_ID: "ZA"
-
 migrate_content_turkey:
   extends: .migrate_content
   rules:
@@ -521,7 +496,16 @@ update_mc_space_1:
     DXB_MARKET_ID: "space_1"
     IS_CONSOLIDATED: "true"
 
-# TODO: Move South Africa, Sweden and Germany here when consolidated
+# TODO: Move  Sweden and Germany here when consolidated
+deploy_gatsby_cloud_southafrica:
+  extends: .deploy_gatsby_cloud
+  rules:
+    - if: "$CI_COMMIT_TAG"
+  needs:
+    - migrate_content_space_7
+    - update_mc_space_7
+  variables:
+    DXB_MARKET_ID: "ZA"
 
 migrate_content_space_2:
   extends: .migrate_content
