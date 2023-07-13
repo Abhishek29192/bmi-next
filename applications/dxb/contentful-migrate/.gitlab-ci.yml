@@ -455,31 +455,6 @@ deploy_gatsby_cloud_spain:
   variables:
     DXB_MARKET_ID: "ES"
 
-migrate_content_portugal:
-  extends: .migrate_content
-  rules:
-    - if: "$CI_COMMIT_TAG"
-  variables:
-    DXB_MARKET_ID: "PT"
-
-update_mc_portugal:
-  extends: .update_mc
-  needs:
-    - !reference [.update_mc, needs]
-    - migrate_content_portugal
-  variables:
-    DXB_MARKET_ID: "PT"
-
-deploy_gatsby_cloud_portugal:
-  extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
-  needs:
-    - migrate_content_portugal
-    - update_mc_portugal
-  variables:
-    DXB_MARKET_ID: "PT"
-
 migrate_content_space_1:
   extends: .migrate_content
   rules:
@@ -899,7 +874,15 @@ update_mc_space_11:
     DXB_MARKET_ID: "space_11"
     IS_CONSOLIDATED: "true"
 
-# TODO: Add Portugal here when consolidated
+deploy_gatsby_cloud_portugal:
+  extends: .deploy_gatsby_cloud
+  rules:
+    - if: "$CI_COMMIT_TAG"
+  needs:
+    - migrate_content_space_11
+    - update_mc_space_11
+  variables:
+    DXB_MARKET_ID: "PT"
 
 deploy_gatsby_cloud_bulgaria:
   extends: .deploy_gatsby_cloud
