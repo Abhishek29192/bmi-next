@@ -33,7 +33,9 @@ export const StyledSampleOrderContainer = styled("div")(({ theme }) => ({
     margin: "0 -16px",
     padding: "0 8px",
     boxSizing: "content-box",
+
     "& button": {
+      width: "100%",
       whiteSpace: "nowrap",
       fontSize: "18px",
       flexGrow: 1,
@@ -42,24 +44,14 @@ export const StyledSampleOrderContainer = styled("div")(({ theme }) => ({
         fontSize: "16px"
       }
     },
-    "& button:nth-of-type(2)": {
-      marginLeft: "16px"
-    },
 
     [theme.breakpoints.down("lg")]: {
       //original media query!!
       //@media (max-width: 1300px) {
       flexDirection: "column",
-      margin: "0 -16px",
+      margin: "auto",
       boxSizing: "border-box",
-      width: "auto",
-      "& button": {
-        whiteSpace: "normal"
-      },
-      "& button:last-child": {
-        marginLeft: "0",
-        marginBottom: "24px"
-      }
+      width: "auto"
     }
   },
   [`.${classes["complete-order"]}`]: {

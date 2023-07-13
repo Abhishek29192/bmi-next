@@ -3,17 +3,17 @@ interface FileIconsMap {
 }
 
 const fileIconsMap: FileIconsMap = {
-  "application/zip": "ZipFile",
-  "application/pdf": "PDFFile",
-  "image/jpg": "JPGFile",
-  "image/jpeg": "JPEGFile",
-  "image/png": "PNGFile",
-  "image/svg+xml": "SVGFile",
+  "application/zip": "FileZip",
+  "application/pdf": "FilePDF",
+  "image/jpg": "FileJPG",
+  "image/jpeg": "FileJPEG",
+  "image/png": "FilePNG",
+  "image/svg+xml": "FileSVG",
   "application/vnd.openxmlformats-officedocument.wordprocessingml.document":
-    "WordFile",
-  "text/plain": "TextFile",
+    "FileDOCX",
+  "text/plain": "FileTXT",
   "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet":
-    "ExcelFile"
+    "FileXLSX"
 };
 
 export default fileIconsMap;
