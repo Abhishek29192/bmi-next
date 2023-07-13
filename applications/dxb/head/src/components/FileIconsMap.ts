@@ -3,7 +3,7 @@ interface FileIconsMap {
 }
 
 const fileIconsMap: FileIconsMap = {
-  "application/zip": "FileZip",
+  "application/zip": "FileZIP",
   "application/pdf": "FilePDF",
   "image/jpg": "FileJPG",
   "image/jpeg": "FileJPEG",
