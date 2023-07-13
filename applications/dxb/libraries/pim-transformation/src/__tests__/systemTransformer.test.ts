@@ -11,7 +11,7 @@ import {
   createSystemReference,
   System
 } from "@bmi/pim-types";
-import { transformSystem } from "../systemTransformer";
+import { transformSystem } from "../systemTransformer.js";
 
 jest.mock("@bmi-digital/functions-logger");
 

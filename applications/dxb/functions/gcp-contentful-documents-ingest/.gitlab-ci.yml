@@ -1,9 +1,5 @@
 lint_gcp-contentful-documents-ingest:
-  extends: .lint_yarn_workspace
-  rules:
-    - !reference [ .ignore_release_mrs, rules ]
-    - !reference [ .run_for_changes_on_main, rules ]
-    - !reference [ .run_for_changes_on_mr, rules ]
+  extends: .lint_function
   variables:
     ROOT_DIR: "applications/dxb/functions/gcp-contentful-documents-ingest"
     WORKSPACE: "@bmi/gcp-contentful-documents-ingest"

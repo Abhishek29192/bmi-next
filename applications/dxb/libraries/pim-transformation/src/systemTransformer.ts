@@ -11,7 +11,7 @@ import {
 } from "@bmi/firestore-types";
 import { System as PimSystem } from "@bmi/pim-types";
 import { generateHashFromString, generateUrl } from "@bmi/utils";
-import { systemIgnorableAttributes } from "./ignorableFeatureCodes";
+import { systemIgnorableAttributes } from "./ignorableFeatureCodes.js";
 import {
   filterClassifications,
   getAwardAndCertificateAsset,
@@ -25,7 +25,7 @@ import {
   mapClassification,
   mapDocuments,
   mapImages
-} from "./transformerUtils";
+} from "./transformerUtils.js";
 
 export const transformSystem = (system: PimSystem): System[] => {
   if (system.approvalStatus !== "approved") {
