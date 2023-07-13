@@ -5,7 +5,7 @@ import {
   isImageAsset,
   isLinkAsset,
   mapDocuments
-} from "../transformerUtils";
+} from "../transformerUtils.js";
 
 describe("transformUtils tests", () => {
   describe("getCategories", () => {

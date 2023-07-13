@@ -8,6 +8,9 @@
       "path": "../../libraries/functions-firestore"
     },
     {
+      "path": "../../libraries/pim-transformation"
+    },
+    {
       "path": "../../libraries/utils"
     },
     {

@@ -15,7 +15,7 @@
     "lint": "eslint \"**/*.{js,ts,tsx}\""
   },
   "dependencies": {
-    "@bmi-digital/functions-logger": "^1.6.0",
+    "@bmi-digital/functions-logger": "^1.7.5",
     "@bmi/functions-firestore": "workspace:*",
     "@google-cloud/functions-framework": "^3.2.0",
     "googleapis": "^118.0.0",

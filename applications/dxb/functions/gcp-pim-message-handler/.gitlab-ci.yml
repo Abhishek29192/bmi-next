@@ -1,9 +1,5 @@
 lint_gcp-pim-message-handler:
-  extends: .lint_yarn_workspace
-  rules:
-    - !reference [ .ignore_release_mrs, rules ]
-    - !reference [ .run_for_changes_on_main, rules ]
-    - !reference [ .run_for_changes_on_mr, rules ]
+  extends: .lint_function
   variables:
     ROOT_DIR: "applications/dxb/functions/gcp-pim-message-handler"
     WORKSPACE: "@bmi/gcp-pim-message-handler"
@@ -11,19 +7,19 @@ lint_gcp-pim-message-handler:
 build_gcp-pim-message-handler:
   extends: .build_function
   rules:
-    - !reference [  .ignore_release_mrs, rules ]
-    - if: !reference [ .run_for_changes_on_main, rules, if ]
+    - !reference [.ignore_release_mrs, rules]
+    - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
         - applications/dxb/libraries/pim-api/**/*
-    - if: !reference [ .run_for_changes_on_mr, rules, if ]
+    - if: !reference [.run_for_changes_on_mr, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
         - applications/dxb/libraries/pim-api/**/*
-    - if: !reference [ .run_for_preprod_release, rules, if ]
-    - if: !reference [ .run_for_prod_release, rules, if ]
+    - if: !reference [.run_for_preprod_release, rules, if]
+    - if: !reference [.run_for_prod_release, rules, if]
   variables:
     WORKSPACE: "@bmi/gcp-pim-message-handler"
     ROOT_DIR: "applications/dxb/functions/gcp-pim-message-handler"
@@ -31,13 +27,13 @@ build_gcp-pim-message-handler:
 test_gcp-pim-message-handler:
   extends: .test_function
   rules:
-    - !reference [  .ignore_release_mrs, rules ]
-    - if: !reference [ .run_for_changes_on_main, rules, if ]
+    - !reference [.ignore_release_mrs, rules]
+    - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
         - applications/dxb/libraries/pim-api/**/*
-    - if: !reference [ .run_for_changes_on_mr, rules, if ]
+    - if: !reference [.run_for_changes_on_mr, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
@@ -54,13 +50,13 @@ package_gcp-pim-message-handler:
     - job: build_gcp-pim-message-handler
       artifacts: true
   rules:
-    - if: !reference [ .run_for_changes_on_main, rules, if ]
+    - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
         - applications/dxb/libraries/pim-api/**/*
-    - if: !reference [ .run_for_preprod_release, rules, if ]
-    - if: !reference [ .run_for_prod_release, rules, if ]
+    - if: !reference [.run_for_preprod_release, rules, if]
+    - if: !reference [.run_for_prod_release, rules, if]
   variables:
     FUNCTION_NAME: "gcp-pim-message-handler"
     ROOT_DIR: "applications/dxb/functions/gcp-pim-message-handler"
@@ -71,17 +67,17 @@ deploy_gcp-pim-message-handler:
     - job: package_gcp-pim-message-handler
       artifacts: true
   rules:
-    - if: !reference [ .run_for_changes_on_main, rules, if ]
+    - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
         - applications/dxb/libraries/pim-api/**/*
       variables:
         GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_QA
-    - if: !reference [ .run_for_preprod_release, rules, if ]
+    - if: !reference [.run_for_preprod_release, rules, if]
       variables:
         GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PREPROD
-    - if: !reference [ .run_for_prod_release, rules, if ]
+    - if: !reference [.run_for_prod_release, rules, if]
       variables:
         GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PROD
   variables:

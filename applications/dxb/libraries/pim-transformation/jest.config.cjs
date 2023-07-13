@@ -1,6 +1,6 @@
 "use strict";
 
-const sharedConfig = require("../../../../jest.config");
+const sharedConfig = require("../../../../jest.config.cjs");
 
 // eslint-disable-next-line no-unused-vars
 const { projects, ...extendedConfig } = sharedConfig;
@@ -8,9 +8,9 @@ const { projects, ...extendedConfig } = sharedConfig;
 module.exports = {
   ...extendedConfig,
   rootDir: "../../../../",
-  roots: ["<rootDir>/applications/dxb/functions/gcp-url-generator/src"],
+  roots: ["<rootDir>/applications/dxb/libraries/fetch-retry/src"],
   collectCoverageFrom: [
-    "<rootDir>/applications/dxb/functions/gcp-firestore-writer/src/**/*.{ts,tsx,js}"
+    "<rootDir>/applications/dxb/libraries/fetch-retry/src/**/*.{ts,tsx,js}"
   ],
   testEnvironment: "node"
 };

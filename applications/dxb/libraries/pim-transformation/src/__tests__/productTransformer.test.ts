@@ -17,7 +17,7 @@ import {
 jest.mock("@bmi-digital/functions-logger");
 
 const transformProduct = async (product: Product) =>
-  (await import("../productTransformer")).transformProduct(product);
+  (await import("../productTransformer.js")).transformProduct(product);
 
 beforeEach(() => {
   process.env.ENABLE_SAMPLE_ORDERING = "true";

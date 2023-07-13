@@ -255,6 +255,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const microCopyPrefix = getMicroCopyPrefix(sectionType);
 
   const handleAutocompleteOnChange = (_, inputValue) => {
+    setSelectedRoofer(null);
     setShowResultList(true);
     setActiveSearchString(inputValue || "");
     if (inputValue) {
@@ -271,6 +272,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     setUserAction(true);
     setShowResultList(true);
     updateActiveFilters({ serviceType: serviceType });
+    setSelectedRoofer(null);
   };
 
   const initialise = async () => {
