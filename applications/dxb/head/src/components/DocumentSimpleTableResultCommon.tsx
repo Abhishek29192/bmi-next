@@ -228,7 +228,9 @@ export const CopyToClipboard = ({
           size={size}
         >
           <ActionIcon
-            className={size === "large" ? classes["actionIcon"] : undefined}
+            className={
+              size === "small" ? classes["actionIconSmall"] : undefined
+            }
             name="CopyContent"
           />
         </StyledButton>
@@ -299,7 +301,9 @@ export const DownloadDocumentButton = ({
           size={size}
         >
           <ActionIcon
-            className={size === "large" ? classes["actionIcon"] : undefined}
+            className={
+              size === "small" ? classes["actionIconSmall"] : undefined
+            }
             name="Download"
           />
         </GTMButton>

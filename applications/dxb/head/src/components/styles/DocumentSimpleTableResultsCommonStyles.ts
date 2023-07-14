@@ -7,7 +7,7 @@ import Icon from "../Icon";
 const PREFIX = "document-simple-table-results";
 
 export const classes = {
-  actionIcon: `${PREFIX}-actionIcon`,
+  actionIconSmall: `${PREFIX}-actionIconSmall`,
   disableRipple: `${PREFIX}-disableRipple`
 };
 
@@ -38,9 +38,11 @@ export const StyledButton = styled(Button)<IconButtonProps>(({ size }) => ({
   justifyContent: "center",
   width: size === "large" ? "60px" : "unset !important",
   height: size === "large" ? "60px" : "unset !important",
-  [`.${classes["actionIcon"]}`]: {
-    height: "32px",
-    width: "32px"
+  [`.${classes["actionIconSmall"]}`]: {
+    width: "24px",
+    height: "24px",
+    minHeight: "24px",
+    minWidth: "24px"
   }
 }));
 

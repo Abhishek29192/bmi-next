@@ -1833,9 +1833,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@bmi-digital/components@npm:^1.40.0":
-  version: 1.40.0
-  resolution: "@bmi-digital/components@npm:1.40.0"
+"@bmi-digital/components@npm:^1.41.0":
+  version: 1.41.0
+  resolution: "@bmi-digital/components@npm:1.41.0"
   dependencies:
     "@bmi-digital/use-dimensions": ^1.6.0
     "@emotion/react": ^11.10.8
@@ -1868,7 +1868,7 @@ __metadata:
     "@mui/styles": ^5.12.3
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
-  checksum: 31021b3e3095e3baa2bcafbfc468148351e5b4be755c11748332314fa60345e034465566269d8667b9765005a7127c0a800e73e75aa7513988781ffa83e1047e
+  checksum: 0d07b8ba4ae0c2b12775fc3993fae4302087be853d4c8ba2a9837c31c6c1b04fb281ef8ce0688ec7349b57e7179933e843712df752be5b49a2d556d17b700db6
   languageName: node
   linkType: hard
 
@@ -2382,7 +2382,7 @@ __metadata:
   dependencies:
     "@babel/core": ^7.21.8
     "@babel/plugin-proposal-decorators": ^7.21.0
-    "@bmi-digital/components": ^1.40.0
+    "@bmi-digital/components": ^1.41.0
     "@bmi-digital/react-pdf-maker": ^1.6.0
     "@bmi-digital/styles": ^1.6.0
     "@bmi/gatsby-plugin-material-ui": "workspace:*"
@@ -3302,7 +3302,7 @@ __metadata:
     "@aaronhayes/react-use-hubspot-form": ^2.1.1
     "@babel/core": ^7.21.8
     "@babel/plugin-proposal-decorators": ^7.21.0
-    "@bmi-digital/components": ^1.40.0
+    "@bmi-digital/components": ^1.41.0
     "@bmi-digital/react-pdf-maker": ^1.6.0
     "@bmi-digital/styles": ^1.6.0
     "@bmi-digital/svg-import": ^1.6.0
