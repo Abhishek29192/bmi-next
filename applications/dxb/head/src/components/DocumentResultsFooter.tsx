@@ -51,7 +51,7 @@ type Props = {
   isDownloadButton?: boolean;
   sticky?: boolean;
 };
-
+const GTMButton = withGTM<ButtonProps>(Button);
 export const handleDownloadClick = async (
   list: Record<string, any>,
   config: Config,
@@ -180,29 +180,23 @@ const DownloadDocumentsButton = () => {
     [config, executeRecaptcha, qaAuthToken, resetList]
   );
 
-  const DownloadButton = useMemo(() => {
-    const documentAction = getAction(selectedDocuments);
-    const gtmButton = (props: ButtonProps) => {
-      const GTMButton = withGTM<ButtonProps>(Button);
-      return (
-        <GTMButton
-          gtm={{
-            id: "download3-button1",
-            label: Array.isArray(props.children) ? props.children[0] : "",
-            action: documentAction
-          }}
-          {...props}
-        />
-      );
-    };
-    gtmButton.displayName = "Document-Download-Button";
-    return gtmButton;
+  const memoisedDocumentAction = useMemo(() => {
+    return getAction(selectedDocuments);
   }, [selectedDocuments]);
 
   return (
     <DownloadList.Button
       disabled={!size || maxSizeExceeded}
-      component={DownloadButton}
+      component={(props: ButtonProps) => (
+        <GTMButton
+          gtm={{
+            id: "download3-button1",
+            label: Array.isArray(props.children) ? props.children[0] : "",
+            action: memoisedDocumentAction
+          }}
+          {...props}
+        />
+      )}
       label={downloadButtonLabel}
       onClick={handleButtonClick}
       data-testid="document-table-download-button"
