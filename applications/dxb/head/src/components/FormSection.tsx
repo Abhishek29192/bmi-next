@@ -111,11 +111,11 @@ export const convertMarkdownLinksToAnchorLinks = (
     return source;
   }
 
-  return matches.filter(Boolean).map((el) => {
+  return matches.filter(Boolean).map((el, index) => {
     const [match, label, link] = el;
     const { index: offset, input } = el;
     return (
-      <>
+      <div key={`hubspot-markdown-link${index}`}>
         {input.substring(0, offset)}
         <AnchorLink
           action={{ model: "htmlLink", href: link }}
@@ -126,7 +126,7 @@ export const convertMarkdownLinksToAnchorLinks = (
           {label}
         </AnchorLink>
         {input.substring(offset + match.length)}
-      </>
+      </div>
     );
   });
 };
@@ -373,7 +373,7 @@ const HubspotForm = ({
   hasNoPadding,
   isDialog = false
 }: {
-  id?: string;
+  id: string;
   hubSpotFormGuid: string;
   backgroundColor: "pearl" | "white";
   showTitle: boolean | null;
@@ -389,7 +389,7 @@ const HubspotForm = ({
 }) => {
   const { hubSpotId } = useConfig();
   const hubSpotFormID = useMemo(() => {
-    if (id) {
+    if (id.length > 0) {
       return `bmi-hubspot-form-${id}`;
     }
 
@@ -493,7 +493,7 @@ const HubspotForm = ({
 };
 
 type FormSectionProps = {
-  id?: string;
+  id: string;
   data: Data;
   backgroundColor: "pearl" | "white";
   additionalValues?: Record<string, string>;

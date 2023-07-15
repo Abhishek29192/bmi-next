@@ -15,7 +15,7 @@ exports[`FormSection component Hubspot FormSection component renders correctly 1
         <div
           class=" css-n5y371"
           data-testid="hubspot-form-Test-form"
-          id="bmi-hubspot-form-Test-form"
+          id="bmi-hubspot-form-form-1"
         />
       </div>
     </div>
@@ -38,7 +38,7 @@ exports[`FormSection component Hubspot FormSection component renders correctly w
         <div
           class=" css-n5y371"
           data-testid="hubspot-form-Test-form"
-          id="bmi-hubspot-form-Test-form"
+          id="bmi-hubspot-form-form-1"
         />
       </div>
     </div>
@@ -61,7 +61,7 @@ exports[`FormSection component Hubspot FormSection component test submit when pr
         <div
           class=" css-n5y371"
           data-testid="hubspot-form-Test-form"
-          id="bmi-hubspot-form-Test-form"
+          id="bmi-hubspot-form-form-1"
         />
       </div>
     </div>
@@ -824,7 +824,7 @@ exports[`FormSection component renders correctly for dialog 1`] = `
         <div
           class="FormSection-dialog css-n5y371"
           data-testid="hubspot-form-Test-form"
-          id="bmi-hubspot-form-Test-form"
+          id="bmi-hubspot-form-section-1"
         />
       </div>
     </div>
@@ -889,18 +889,20 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
                   <span
                     class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-srszrw-MuiTypography-root"
                   >
-                    I agree with BMI's 
-                    <a
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
-                      data-testid="label-Data-Protection-Policy-anchor-link"
-                      href="https://google.co.uk"
-                      rel="noopener"
-                      target="_blank"
-                    >
-                      <span>
-                        Data Protection Policy
-                      </span>
-                    </a>
+                    <div>
+                      I agree with BMI's 
+                      <a
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                        data-testid="label-Data-Protection-Policy-anchor-link"
+                        href="https://google.co.uk"
+                        rel="noopener"
+                        target="_blank"
+                      >
+                        <span>
+                          Data Protection Policy
+                        </span>
+                      </a>
+                    </div>
                   </span>
                 </label>
               </div>
@@ -942,17 +944,19 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
                   <span
                     class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-srszrw-MuiTypography-root"
                   >
-                    I agree with BMI's 
-                    <a
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
-                      data-testid="label-Another-Data-Protection-Policy-anchor-link"
-                      href="https://www.bmigroup.com"
-                      target="_blank"
-                    >
-                      <span>
-                        Another Data Protection Policy
-                      </span>
-                    </a>
+                    <div>
+                      I agree with BMI's 
+                      <a
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                        data-testid="label-Another-Data-Protection-Policy-anchor-link"
+                        href="https://www.bmigroup.com"
+                        target="_blank"
+                      >
+                        <span>
+                          Another Data Protection Policy
+                        </span>
+                      </a>
+                    </div>
                   </span>
                 </label>
               </div>
