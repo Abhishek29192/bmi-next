@@ -10,8 +10,8 @@ type MobileFiltersProps = {
   handleDrawerToggle: () => void;
   clearFilters: () => void;
   filtersComponent: React.ReactNode;
-  documentsCount?: number;
-  isTechnicalTable: boolean;
+  resultsNumber?: number;
+  showDocumentCount: boolean;
 };
 
 const MobileFilters = ({
@@ -19,8 +19,8 @@ const MobileFilters = ({
   handleDrawerToggle,
   clearFilters,
   filtersComponent,
-  documentsCount,
-  isTechnicalTable
+  resultsNumber,
+  showDocumentCount
 }: MobileFiltersProps): JSX.Element => {
   const { getMicroCopy } = useSiteContext();
   return (
@@ -56,22 +56,20 @@ const MobileFilters = ({
           </Button>
         </div>
         <div className={"filterContainer"}>{filtersComponent}</div>
-        {!!documentsCount && (
-          <Button
-            className={"showBtn"}
-            variant="contained"
-            onClick={handleDrawerToggle}
-            data-testid="filters-show-all-results-btn"
-          >
-            {!isTechnicalTable
-              ? `${getMicroCopy(
-                  "filterLabels.Show.World.Btn"
-                )} ${documentsCount} ${getMicroCopy(
-                  "filterLabels.Result.World.Btn"
-                )}`
-              : getMicroCopy("filterLabels.Show.All.Result.Btn")}
-          </Button>
-        )}
+        <Button
+          className={"showBtn"}
+          variant="contained"
+          onClick={handleDrawerToggle}
+          data-testid="filters-show-all-results-btn"
+        >
+          {showDocumentCount
+            ? `${getMicroCopy(
+                "filterLabels.Show.World.Btn"
+              )} ${resultsNumber} ${getMicroCopy(
+                "filterLabels.Result.World.Btn"
+              )}`
+            : getMicroCopy("filterLabels.Show.All.Result.Btn")}
+        </Button>
       </>
     </StyledDrawer>
   );

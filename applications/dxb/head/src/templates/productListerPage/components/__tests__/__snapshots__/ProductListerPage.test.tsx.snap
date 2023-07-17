@@ -600,9 +600,8 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-erfmfi-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 css-c19gfw-MuiGrid2-root"
                 data-testid="grid-item"
-                style="padding-top: 60px;"
               >
                 <div
                   class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-c2cved-MuiGrid2-root"
@@ -1466,9 +1465,8 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-erfmfi-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 css-c19gfw-MuiGrid2-root"
                 data-testid="grid-item"
-                style="padding-top: 60px;"
               >
                 <div
                   class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-c2cved-MuiGrid2-root"
@@ -2380,11 +2378,12 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 data-testid="grid-item"
               >
                 <div
+                  class="css-v1c1u9"
                   data-testid="filter-sidebar-main"
                 >
                   <div
+                    class="FilterMobileStyles-filterBox"
                     data-testid="filter-sidebar-header"
-                    style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;"
                   >
                     <h5
                       class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
@@ -2573,9 +2572,8 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 </div>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-9 Grid-item css-hwt01p-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-9 css-6w58vq-MuiGrid2-root"
                 data-testid="grid-item"
-                style="padding-top: 60px;"
               >
                 <div
                   class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-c2cved-MuiGrid2-root"
@@ -3490,11 +3488,12 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 data-testid="grid-item"
               >
                 <div
+                  class="css-v1c1u9"
                   data-testid="filter-sidebar-main"
                 >
                   <div
+                    class="FilterMobileStyles-filterBox"
                     data-testid="filter-sidebar-header"
-                    style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;"
                   >
                     <h5
                       class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
@@ -3669,9 +3668,8 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 </div>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-9 Grid-item css-hwt01p-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-9 css-6w58vq-MuiGrid2-root"
                 data-testid="grid-item"
-                style="padding-top: 60px;"
               >
                 <div
                   class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-c2cved-MuiGrid2-root"
@@ -4525,11 +4523,12 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 data-testid="grid-item"
               >
                 <div
+                  class="css-v1c1u9"
                   data-testid="filter-sidebar-main"
                 >
                   <div
+                    class="FilterMobileStyles-filterBox"
                     data-testid="filter-sidebar-header"
-                    style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;"
                   >
                     <h5
                       class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
@@ -4712,9 +4711,8 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 </div>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-9 Grid-item css-hwt01p-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-9 css-6w58vq-MuiGrid2-root"
                 data-testid="grid-item"
-                style="padding-top: 60px;"
               >
                 <div
                   class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-c2cved-MuiGrid2-root"
@@ -5572,9 +5570,8 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-erfmfi-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 css-c19gfw-MuiGrid2-root"
                 data-testid="grid-item"
-                style="padding-top: 60px;"
               >
                 <div
                   class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-c2cved-MuiGrid2-root"
@@ -6515,9 +6512,8 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-erfmfi-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 css-c19gfw-MuiGrid2-root"
                 data-testid="grid-item"
-                style="padding-top: 60px;"
               >
                 <div
                   class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-c2cved-MuiGrid2-root"
@@ -7433,9 +7429,8 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-erfmfi-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 css-c19gfw-MuiGrid2-root"
                 data-testid="grid-item"
-                style="padding-top: 60px;"
               >
                 <div
                   class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-c2cved-MuiGrid2-root"
@@ -8334,11 +8329,12 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                 data-testid="grid-item"
               >
                 <div
+                  class="css-v1c1u9"
                   data-testid="filter-sidebar-main"
                 >
                   <div
+                    class="FilterMobileStyles-filterBox"
                     data-testid="filter-sidebar-header"
-                    style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;"
                   >
                     <h5
                       class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
@@ -8513,9 +8509,8 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                 </div>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-9 Grid-item css-hwt01p-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-9 css-6w58vq-MuiGrid2-root"
                 data-testid="grid-item"
-                style="padding-top: 60px;"
               >
                 <div
                   class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-c2cved-MuiGrid2-root"
@@ -9417,11 +9412,12 @@ exports[`ProductListerPage template renders an default image if there is no imag
                 data-testid="grid-item"
               >
                 <div
+                  class="css-v1c1u9"
                   data-testid="filter-sidebar-main"
                 >
                   <div
+                    class="FilterMobileStyles-filterBox"
                     data-testid="filter-sidebar-header"
-                    style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;"
                   >
                     <h5
                       class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
@@ -9596,9 +9592,8 @@ exports[`ProductListerPage template renders an default image if there is no imag
                 </div>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-9 Grid-item css-hwt01p-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-9 css-6w58vq-MuiGrid2-root"
                 data-testid="grid-item"
-                style="padding-top: 60px;"
               >
                 <div
                   class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-c2cved-MuiGrid2-root"
@@ -10513,11 +10508,12 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                 data-testid="grid-item"
               >
                 <div
+                  class="css-v1c1u9"
                   data-testid="filter-sidebar-main"
                 >
                   <div
+                    class="FilterMobileStyles-filterBox"
                     data-testid="filter-sidebar-header"
-                    style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;"
                   >
                     <h5
                       class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
@@ -10692,9 +10688,8 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                 </div>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-9 Grid-item css-hwt01p-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-9 css-6w58vq-MuiGrid2-root"
                 data-testid="grid-item"
-                style="padding-top: 60px;"
               >
                 <div
                   class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-c2cved-MuiGrid2-root"
@@ -11609,11 +11604,12 @@ exports[`ProductListerPage template test handle change url by click on filters a
                 data-testid="grid-item"
               >
                 <div
+                  class="css-v1c1u9"
                   data-testid="filter-sidebar-main"
                 >
                   <div
+                    class="FilterMobileStyles-filterBox"
                     data-testid="filter-sidebar-header"
-                    style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;"
                   >
                     <h5
                       class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
@@ -11802,9 +11798,8 @@ exports[`ProductListerPage template test handle change url by click on filters a
                 </div>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-9 Grid-item css-hwt01p-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-9 css-6w58vq-MuiGrid2-root"
                 data-testid="grid-item"
-                style="padding-top: 60px;"
               >
                 <div
                   class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-c2cved-MuiGrid2-root"
@@ -12719,11 +12714,12 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                 data-testid="grid-item"
               >
                 <div
+                  class="css-v1c1u9"
                   data-testid="filter-sidebar-main"
                 >
                   <div
+                    class="FilterMobileStyles-filterBox"
                     data-testid="filter-sidebar-header"
-                    style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;"
                   >
                     <h5
                       class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
@@ -12898,9 +12894,8 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                 </div>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-9 Grid-item css-hwt01p-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-9 css-6w58vq-MuiGrid2-root"
                 data-testid="grid-item"
-                style="padding-top: 60px;"
               >
                 <div
                   class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-c2cved-MuiGrid2-root"
@@ -14020,11 +14015,12 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                 data-testid="grid-item"
               >
                 <div
+                  class="css-v1c1u9"
                   data-testid="filter-sidebar-main"
                 >
                   <div
+                    class="FilterMobileStyles-filterBox"
                     data-testid="filter-sidebar-header"
-                    style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;"
                   >
                     <h5
                       class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
@@ -14199,9 +14195,8 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                 </div>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-9 Grid-item css-hwt01p-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-9 css-6w58vq-MuiGrid2-root"
                 data-testid="grid-item"
-                style="padding-top: 60px;"
               >
                 <div
                   class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-c2cved-MuiGrid2-root"

@@ -219,6 +219,7 @@ const SearchTabPanelPages = (props: Props) => {
             filters={filters}
             onFiltersChange={handleFiltersChange}
             onClearFilters={clearFilters}
+            numberOfResults={results.length}
           />
         </Grid>
       ) : null}

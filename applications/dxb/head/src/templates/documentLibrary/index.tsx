@@ -294,7 +294,7 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
                   filters={filters}
                   handleFiltersChange={handleFiltersChange}
                   clearFilters={handleClearFilters}
-                  documentsCount={mobileShowAllDocuments}
+                  resultsNumber={mobileShowAllDocuments}
                   isTechnicalTable={resultsType === "Technical"}
                 />
               </Grid>
