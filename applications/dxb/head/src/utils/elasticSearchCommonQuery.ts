@@ -8,7 +8,8 @@ export const getCollapseVariantsByBaseProductCodeQuery = (
     collapse: {
       field: groupByVariant ? "code.keyword" : "baseProduct.code.keyword",
       inner_hits: {
-        name: "all_variants"
+        name: "all_variants",
+        size: 100 // by default ES returns first 3 hits. Increase it to 100 to be consistent with other product queries
       }
     }
   };
