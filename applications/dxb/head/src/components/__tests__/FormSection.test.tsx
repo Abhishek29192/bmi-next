@@ -889,6 +889,18 @@ describe("FormSection component", () => {
       expect(container).toMatchSnapshot();
     });
 
+    it("generates hubspot form id using the title when empty id passed", () => {
+      render(
+        <ThemeProvider>
+          <FormSection id="" data={dataHubSpot} backgroundColor="white" />
+        </ThemeProvider>
+      );
+      expect(screen.getByTestId("hubspot-form-Test-form")).toHaveAttribute(
+        "id",
+        "bmi-hubspot-form-Test-form"
+      );
+    });
+
     it("renders correctly with sampleIds", () => {
       const sampleIds =
         "0945848_test_prod_variant1, 0945849_test_prod_variant2";
