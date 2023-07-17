@@ -405,31 +405,6 @@ deploy_gatsby_cloud_unitedkingdom:
   variables:
     DXB_MARKET_ID: "UK"
 
-migrate_content_turkey:
-  extends: .migrate_content
-  rules:
-    - if: "$CI_COMMIT_TAG"
-  variables:
-    DXB_MARKET_ID: "TR"
-
-update_mc_turkey:
-  extends: .update_mc
-  needs:
-    - !reference [.update_mc, needs]
-    - migrate_content_turkey
-  variables:
-    DXB_MARKET_ID: "TR"
-
-deploy_gatsby_cloud_turkey:
-  extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
-  needs:
-    - migrate_content_turkey
-    - update_mc_turkey
-  variables:
-    DXB_MARKET_ID: "TR"
-
 migrate_content_spain:
   extends: .migrate_content
   rules:
@@ -498,7 +473,16 @@ update_mc_space_2:
     DXB_MARKET_ID: "space_2"
     IS_CONSOLIDATED: "true"
 
-# TODO: Move Finland and Turkey here when consolidated
+# TODO: Move Finland when consolidated
+deploy_gatsby_cloud_turkey:
+  extends: .deploy_gatsby_cloud
+  rules:
+    - if: "$CI_COMMIT_TAG"
+  needs:
+    - migrate_content_space_2
+    - update_mc_space_2
+  variables:
+    DXB_MARKET_ID: "TR"
 
 deploy_gatsby_belgium:
   extends: .deploy_gatsby_cloud
