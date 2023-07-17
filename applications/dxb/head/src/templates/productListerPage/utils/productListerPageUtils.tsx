@@ -18,6 +18,7 @@ import { enhanceColourFilterWithSwatches } from "../../../utils/filtersUI";
 import withGTM from "../../../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../../../utils/path";
 import { FooterAnchorLink } from "../styles";
+import groupBy from "../../../utils/groupBy";
 import type { PageContextType } from "../components/product-lister-page";
 import type { Context as SiteContext } from "../../../components/Site";
 
@@ -102,14 +103,28 @@ export const renderProducts = (
     let surface: string[] = [];
     let surfaceMc: string | undefined = "";
 
-    variant.all_variants &&
-      variant.all_variants.forEach((v: EsProduct) => {
+    if (variant.all_variants) {
+      const variantsGroupByColor: { [p: string]: EsProduct[] } = groupBy(
+        variant.all_variants,
+        (v: EsProduct) =>
+          v._source &&
+          v._source.APPEARANCEATTRIBUTES$COLOUR &&
+          v._source.APPEARANCEATTRIBUTES$COLOUR[0].code
+      );
+      const filteredVariants = variant.APPEARANCEATTRIBUTES$COLOUR
+        ? variantsGroupByColor[variant.APPEARANCEATTRIBUTES$COLOUR[0].code]
+        : variant.all_variants;
+
+      filteredVariants.forEach((v: EsProduct) => {
         if (v._source) {
           sizeLabel = [...sizeLabel, createSizeLabel(v._source)];
           surface = [...surface, findSurface(v._source).value];
           surfaceMc = findSurface(v._source).mc;
         }
       });
+    }
+
+    sizeLabel = sizeLabel.filter(Boolean);
     const uniqueSizeLabels = [...new Set(sizeLabel)].join(" | ");
     return (
       <Grid
