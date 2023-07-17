@@ -116,6 +116,7 @@ const IntegratedSignupBlock = ({
           </Dialog.Title>
           <Dialog.Content>
             <FormSection
+              id="sign-form"
               data={signupDialogContent}
               backgroundColor="white"
               isDialog

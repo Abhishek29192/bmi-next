@@ -3421,18 +3421,20 @@ exports[`Sections component renders correctly 1`] = `
                     <span
                       class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-srszrw-MuiTypography-root"
                     >
-                      I agree with BMI's 
-                      <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
-                        data-testid="label-Data-Protection-Policy-anchor-link"
-                        href="https://google.co.uk"
-                        rel="noopener"
-                        target="_blank"
-                      >
-                        <span>
-                          Data Protection Policy
-                        </span>
-                      </a>
+                      <div>
+                        I agree with BMI's 
+                        <a
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          data-testid="label-Data-Protection-Policy-anchor-link"
+                          href="https://google.co.uk"
+                          rel="noopener"
+                          target="_blank"
+                        >
+                          <span>
+                            Data Protection Policy
+                          </span>
+                        </a>
+                      </div>
                     </span>
                   </label>
                 </div>

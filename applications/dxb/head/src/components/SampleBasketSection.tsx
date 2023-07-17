@@ -107,6 +107,7 @@ const SampleBasketSection = ({
       {isCompleteFormShow && hasSamplesInTheBasket && (
         <Section data-testid="sample-basket-section-with-samples">
           <FormSection
+            id="sample-basket-form"
             data={checkoutFormSection}
             backgroundColor="pearl"
             additionalValues={{
