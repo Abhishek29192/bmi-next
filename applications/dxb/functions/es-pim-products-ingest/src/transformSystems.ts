@@ -122,7 +122,14 @@ const getSystemAttributes = (
 };
 
 export const transformSystem = (system: PimSystem): EsSystem | undefined => {
-  const { approvalStatus, type, code, name, shortDescription } = system;
+  const {
+    approvalStatus,
+    type,
+    code,
+    name,
+    shortDescription,
+    classifications
+  } = system;
   if (!name || approvalStatus !== "approved") {
     return undefined;
   }
@@ -130,13 +137,17 @@ export const transformSystem = (system: PimSystem): EsSystem | undefined => {
   const hashedCode = generateHashFromString(code);
   const groupedImages = groupImages(system.images || []);
   const path = `/s/${generateUrl([name, hashedCode])}`;
-  const scoringWeight = getScoringWeight(system.classifications);
-  const systemAttributes = getSystemAttributes(system.classifications);
+  const scoringWeight = getScoringWeight(classifications);
+  const systemAttributes = getSystemAttributes(classifications);
   logger.info({
     message: `System brand: ${brand}`
   });
 
-  const builtSystem = {
+  logger.info({
+    message: `System attributes: ${systemAttributes} and System Classifications:${classifications}`
+  });
+
+  const transformedSystem = {
     approvalStatus,
     brand,
     code,
@@ -153,5 +164,9 @@ export const transformSystem = (system: PimSystem): EsSystem | undefined => {
     type
   };
 
-  return builtSystem;
+  logger.info({
+    message: `Transformed System: ${transformedSystem}`
+  });
+
+  return transformedSystem;
 };

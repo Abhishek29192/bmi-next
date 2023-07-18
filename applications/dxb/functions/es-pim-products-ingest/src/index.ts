@@ -55,6 +55,7 @@ export const handleMessage: MessageFunction = async (data, context) => {
     if (itemType === "PRODUCTS") {
       return transformProduct(item);
     }
+    logger.info({ message: `Tranforming System type` });
     return [transformSystem(item)].filter(isDefined);
   };
 
