@@ -68,7 +68,8 @@ module.exports = {
       "peek-readable",
       "token-types",
       // Dependencies of file-type end
-      "@bmi-digital/functions-logger"
+      "@bmi-digital/functions-logger",
+      "@bmi-digital/use-dimensions"
     ].join("|")})/)`
   ],
   setupFiles: ["<rootDir>/jest/src/setEnvVars.ts"],
