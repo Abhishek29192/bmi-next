@@ -35,6 +35,7 @@ variables:
   SAST_EXCLUDED_ANALYZERS: flawfinder spotbugs
   TRANSFER_METER_FREQUENCY: 5s
   GET_SOURCES_ATTEMPTS: 3
+  GIT_DEPTH: 1
 
 .ignore_release_mrs:
   rules:
