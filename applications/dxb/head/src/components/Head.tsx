@@ -156,13 +156,6 @@ export const Head = ({
       )}
 
       {isScriptOnetrustEnabled && (
-        <script
-          src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"
-          type="text/javascript"
-          data-domain-script={oneTrustId}
-        />
-      )}
-      {isScriptOnetrustEnabled && (
         <script type="text/javascript">{`
               function OptanonWrapper() { 
                   console.log("OptanonWrapper called");
