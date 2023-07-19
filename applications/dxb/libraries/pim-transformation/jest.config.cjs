@@ -8,9 +8,23 @@ const { projects, ...extendedConfig } = sharedConfig;
 module.exports = {
   ...extendedConfig,
   rootDir: "../../../../",
-  roots: ["<rootDir>/applications/dxb/libraries/fetch-retry/src"],
+  extensionsToTreatAsEsm: [".ts"],
+  moduleNameMapper: {
+    "^(\\.{1,2}/.*)\\.js$": "$1"
+  },
+  transform: {
+    "^.+\\.(mt|t)s$": [
+      "ts-jest",
+      {
+        useESM: true,
+        isolatedModules: true
+      }
+    ],
+    "^.+\\.(js|jsx|mjs)$": "babel-jest"
+  },
+  roots: ["<rootDir>/applications/dxb/libraries/pim-transformation/src"],
   collectCoverageFrom: [
-    "<rootDir>/applications/dxb/libraries/fetch-retry/src/**/*.{ts,tsx,js}"
+    "<rootDir>/applications/dxb/libraries/pim-transformation/src/**/*.{ts,tsx,js}"
   ],
   testEnvironment: "node"
 };

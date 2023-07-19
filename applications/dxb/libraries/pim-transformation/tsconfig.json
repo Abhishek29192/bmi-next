@@ -2,7 +2,9 @@
   "extends": "../../../../tsconfig.common.json",
   "compilerOptions": {
     "composite": true,
-    "outDir": "dist"
+    "outDir": "dist",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext"
   },
   "references": [
     {

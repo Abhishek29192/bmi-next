@@ -13,6 +13,7 @@ import {
   createVariantOption,
   Product
 } from "@bmi/pim-types";
+import { jest } from "@jest/globals";
 
 jest.mock("@bmi-digital/functions-logger");
 

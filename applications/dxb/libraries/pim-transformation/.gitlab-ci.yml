@@ -1,31 +1,31 @@
-lint_fetch-retry:
+lint_pim-transformation:
   extends: .lint_yarn_workspace
   rules:
     - !reference [ .ignore_release_mrs, rules ]
     - !reference [ .run_for_changes_on_main, rules ]
     - !reference [ .run_for_changes_on_mr, rules ]
   variables:
-    ROOT_DIR: "applications/dxb/libraries/fetch-retry"
-    WORKSPACE: "@bmi/fetch-retry"
+    ROOT_DIR: "applications/dxb/libraries/pim-transformation"
+    WORKSPACE: "@bmi/pim-transformation"
 
-build_fetch-retry:
+build_pim-transformation:
   extends: .build_yarn_workspace
   rules:
     - !reference [ .ignore_release_mrs, rules ]
     - !reference [ .run_for_changes_on_main, rules ]
     - !reference [ .run_for_changes_on_mr, rules ]
   variables:
-    WORKSPACE: "@bmi/fetch-retry"
-    ROOT_DIR: "applications/dxb/libraries/fetch-retry"
+    WORKSPACE: "@bmi/pim-transformation"
+    ROOT_DIR: "applications/dxb/libraries/pim-transformation"
 
-test_fetch-retry:
+test_pim-transformation:
   extends: .test_yarn_workspace
   rules:
     - !reference [ .ignore_release_mrs, rules ]
     - !reference [ .run_for_changes_on_main, rules ]
     - !reference [ .run_for_changes_on_mr, rules ]
   variables:
-    WORKSPACE: "@bmi/fetch-retry"
-    ROOT_DIR: "applications/dxb/libraries/fetch-retry"
+    WORKSPACE: "@bmi/pim-transformation"
+    ROOT_DIR: "applications/dxb/libraries/pim-transformation"
   needs:
-    - build_fetch-retry
+    - build_pim-transformation
