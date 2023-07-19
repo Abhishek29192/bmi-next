@@ -1,6 +1,6 @@
 "use strict";
 
-const sharedConfig = require("../../../../jest.config.cjs");
+const sharedConfig = require("../../../../jest.config.js");
 
 // eslint-disable-next-line no-unused-vars
 const { projects, ...extendedConfig } = sharedConfig;
