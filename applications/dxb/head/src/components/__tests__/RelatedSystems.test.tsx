@@ -3,7 +3,7 @@ import {
   createSystem as createEsSystem,
   System as EsSystem
 } from "@bmi/elasticsearch-types";
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import React from "react";
 import createPimImage from "../../__tests__/helpers/PimImageHelper";
 import createRelatedSystem from "../../__tests__/helpers/RelatedSystemHelper";
@@ -115,17 +115,24 @@ describe("SystemCard", () => {
     const system: EsSystem = createEsSystem();
     const gtm = { id: "gtm-id" };
 
-    const { container } = render(
+    render(
       <ThemeProvider>
         <SystemCard
           system={system}
+          systemPropertiesToDisplay={["Key Features"]}
           countryCode="en"
           path={system.path}
           gtm={gtm}
         />
       </ThemeProvider>
     );
-    expect(container).toMatchSnapshot();
+    const systemPropertyContainer = screen.getByTestId("systemProperties");
+
+    const propertyValues = system.systemAttributes[0].values.slice(0, 3);
+
+    propertyValues.forEach((val) =>
+      expect(within(systemPropertyContainer).getByText(val)).toBeInTheDocument()
+    );
   });
 
   it("renders correctly with related system", () => {

@@ -107,7 +107,8 @@ const createAnswer = (answer?: Partial<AnswerData>): AnswerData => ({
       id: "result1",
       title: "Result1",
       description: null,
-      recommendedSystems: ["System_1", "System_2"]
+      recommendedSystems: ["System_1", "System_2"],
+      systemProperties: ["Key Features"]
     }
   },
   ...answer
@@ -129,7 +130,8 @@ const initialData: Data = {
   label: "System Configurator Section Label",
   description: null,
   locale: "en-US",
-  question: initialQuestion
+  question: initialQuestion,
+  systemProperties: ["Key Features"]
 };
 
 const question: QuestionData = {

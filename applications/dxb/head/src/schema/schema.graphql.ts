@@ -1225,6 +1225,7 @@ type ContentfulSystemConfiguratorSection implements ContentfulObject & Node @don
   label: String
   title: String
   description: ContentfulRichText
+  systemProperties: [String]
   question: ContentfulSystemConfiguratorQuestion! @link(from: "question___NODE")
 }
 `;

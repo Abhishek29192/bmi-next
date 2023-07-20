@@ -7,6 +7,8 @@ import {
   Section,
   SectionBackgroundColor
 } from "@bmi-digital/components";
+import { CheckMark as CheckMarkIcon } from "@bmi-digital/components/icon";
+import uniqueId from "lodash-es/uniqueId";
 import { System as EsSystem } from "@bmi/elasticsearch-types";
 import { Add as AddIcon } from "@mui/icons-material";
 import { graphql, Link } from "gatsby";
@@ -21,11 +23,14 @@ import { useSiteContext } from "./Site";
 import {
   StyledLoadMoreWrapper,
   StyledReadMoreButton,
-  StyledTitle
+  StyledTitle,
+  StyledSystemPropertyContainer,
+  StyledSystemPropertyItem
 } from "./styles/RelatedSystems.styles";
 
 export type SystemCardProps = {
   system: RelatedSystem | EsSystem;
+  systemPropertiesToDisplay?: string[];
   countryCode: string;
   path: string;
   gtm: GTM;
@@ -36,8 +41,48 @@ export type SystemCardProps = {
 const getSystemUrl = (countryCode: string, path: string) =>
   getPathWithCountryCode(countryCode, path);
 
+const isEsSystem = (system: RelatedSystem | EsSystem): system is EsSystem =>
+  Object.keys(system).includes("systemAttributes");
+
+const getFilteredSystemPropertyValuesList = (
+  system: RelatedSystem | EsSystem,
+  systemPropertiesToDisplay: string[]
+) => {
+  if (!isEsSystem(system)) {
+    return null;
+  }
+
+  let filteredSystemAttributes = system.systemAttributes || [];
+
+  if (systemPropertiesToDisplay && systemPropertiesToDisplay.length !== 0) {
+    filteredSystemAttributes = filteredSystemAttributes.filter(
+      (attr) =>
+        systemPropertiesToDisplay.includes(attr.code) ||
+        systemPropertiesToDisplay.includes(attr.name)
+    );
+  }
+
+  const topThreePropertiesToDisplay = filteredSystemAttributes
+    .reduce((acc, curSystemAttrObj) => {
+      return [...acc, ...curSystemAttrObj.values];
+    }, [])
+    .slice(0, 3);
+
+  return (
+    <StyledSystemPropertyContainer data-testid="systemProperties">
+      {topThreePropertiesToDisplay.map((attrVal) => (
+        <StyledSystemPropertyItem key={uniqueId()}>
+          <CheckMarkIcon />
+          {attrVal}
+        </StyledSystemPropertyItem>
+      ))}
+    </StyledSystemPropertyContainer>
+  );
+};
+
 export const SystemCard = ({
   system,
+  systemPropertiesToDisplay = [],
   countryCode,
   path,
   gtm,
@@ -88,7 +133,13 @@ export const SystemCard = ({
         isHighlighted={isHighlighted}
         {...rest}
       >
-        {system.shortDescription}
+        <div>
+          {system.shortDescription}
+          {getFilteredSystemPropertyValuesList(
+            system,
+            systemPropertiesToDisplay
+          )}
+        </div>
       </GTMOverviewCard>
     </Grid>
   );
