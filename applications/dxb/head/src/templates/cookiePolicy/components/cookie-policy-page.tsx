@@ -1,12 +1,12 @@
 import {
-  Container,
   HeroProps,
   Section,
   SpotlightHeroProps,
-  TableOfContent
+  TableOfContent,
+  useIsClient
 } from "@bmi-digital/components";
 import { styled } from "@mui/material/styles";
-import { graphql } from "gatsby";
+import { graphql, Script } from "gatsby";
 import React from "react";
 import BackToResults from "../../../components/BackToResults";
 import Breadcrumbs, {
@@ -27,6 +27,7 @@ import {
   generateHeroProps
 } from "../../../utils/heroLevelUtils";
 import { renderHero } from "../../../utils/heroTypesUI";
+import ProgressIndicator from "../../../components/ProgressIndicator";
 
 export type Data = Pick<
   PageInfoData,
@@ -49,7 +50,22 @@ export type Props = {
     variantCodeToPathMap?: Record<string, string>;
   };
 };
-export const StyledOnetrustContainer = styled(Container)(({ theme }) => ({
+
+export const StyledSpinner = styled("div")(({ theme }) => ({
+  backgroundColor: theme.colours.white,
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  height: "calc(100vh - 100px)" /* container margins and paddings */
+}));
+
+const Loading = () => (
+  <StyledSpinner>
+    <ProgressIndicator size={40} />
+  </StyledSpinner>
+);
+
+export const StyledOnetrustContainer = styled("div")(({ theme }) => ({
   backgroundColor: theme.colours.white,
   padding: "0 !important",
   [`& > div`]: {
@@ -58,6 +74,7 @@ export const StyledOnetrustContainer = styled(Container)(({ theme }) => ({
 }));
 
 const CookiePolicyPage = ({ data, pageContext }: Props) => {
+  const { isClient } = useIsClient();
   const { title, subtitle, leadBlock, sections, heroType, breadcrumbs, seo } =
     data.contentfulCookiePolicyPage;
   const enhancedBreadcrumbs = updateBreadcrumbTitleFromContentful(
@@ -94,6 +111,7 @@ const CookiePolicyPage = ({ data, pageContext }: Props) => {
   };
 
   const isHeroKeyLine = Boolean(isBrandProviderEnabled);
+
   return (
     <Page
       brand={null}
@@ -108,13 +126,14 @@ const CookiePolicyPage = ({ data, pageContext }: Props) => {
       })}
       <TableOfContent>
         {leadBlock && <LeadBlockSection data={leadBlock} />}
-
-        <Section backgroundColor="white">
-          <StyledOnetrustContainer
-            id="ot-sdk-cookie-policy"
-            data-testid="ot-sdk-cookie-policy"
-          />
-        </Section>
+        {isClient && (
+          <Section backgroundColor="white">
+            <StyledOnetrustContainer
+              id="ot-sdk-cookie-policy"
+              data-testid="ot-sdk-cookie-policy"
+            />
+          </Section>
+        )}
         {sections && <Sections data={sections} startIndex={+!!leadBlock} />}
         <Section
           backgroundColor="alabaster"
@@ -129,7 +148,24 @@ const CookiePolicyPage = ({ data, pageContext }: Props) => {
           </BackToResults>
         </Section>
       </TableOfContent>
+      {!isClient && <Loading />}
     </Page>
+  );
+};
+
+export const Head = () => {
+  const { oneTrustId } = useConfig();
+  return (
+    <>
+      {Boolean(oneTrustId) && (
+        <Script
+          src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"
+          type="text/javascript"
+          data-domain-script={oneTrustId}
+          strategy="post-hydrate"
+        />
+      )}
+    </>
   );
 };
 
