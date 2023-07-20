@@ -64,9 +64,9 @@ const ProductsGridView = ({
           variant.all_variants?.length > 1 &&
           getMicroCopy(microCopy.PLP_PRODUCT_MORE_OPTIONS_AVAILABLE);
         return (
-          <Grid key={`${product.code}-${variant.code}`} xs={12} md={6} lg={4}>
+          <Grid key={`${product?.code}-${variant.code}`} xs={12} md={6} lg={4}>
             <GTMOverviewCard
-              title={product.name}
+              title={product?.name}
               titleVariant="h5"
               subtitle={uniqueClassifications}
               subtitleVariant="h6"
@@ -74,7 +74,7 @@ const ProductsGridView = ({
                 mainImage ? (
                   <img
                     src={mainImage}
-                    alt={`${uniqueClassifications} ${product.name}`}
+                    alt={`${uniqueClassifications} ${product?.name}`}
                   />
                 ) : (
                   <DefaultImage />

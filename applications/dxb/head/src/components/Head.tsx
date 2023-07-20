@@ -16,7 +16,7 @@ import { Data as SiteData } from "./Site";
 
 interface HeadProps {
   htmlAttributes: HelmetProps["htmlAttributes"];
-  title: string;
+  title?: string | null;
   defer?: boolean;
   ogImageUrl?: string;
   scripts?: Pick<SiteData, "headScripts">;

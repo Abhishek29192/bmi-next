@@ -52,6 +52,7 @@ const IntegratedSignupBlock = ({
   const onSuccess = () => {
     setFormSubmitted(true);
   };
+
   const onFormReady = (_, hsForm: HTMLFormElement) => {
     setEmail(hsForm.querySelector<HTMLInputElement>("input[type=email]").value);
     hsForm.querySelector<HTMLInputElement>("input[type=email]").oninput = (

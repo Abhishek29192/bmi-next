@@ -26,6 +26,7 @@ import DocumentResultsFooter from "./DocumentResultsFooter";
 import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
 import { useSiteContext } from "./Site";
 import { StyledGridContainer } from "./styles/SearchTabDocumentsStyles";
+import type { GetMicroCopy } from "./MicroCopy";
 
 const PAGE_SIZE = 24;
 const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_DOCUMENTS;
@@ -45,7 +46,7 @@ const documentTableHeaders: DocumentTableHeader[] = [
 const getPagesFilters = (
   aggregations: Aggregations,
   allContentfulAssetType: ReadonlyArray<{ name: string; pimCode: string }>,
-  getMicroCopy
+  getMicroCopy: GetMicroCopy
 ): Filter[] => {
   const findLabel = (key: string) =>
     (allContentfulAssetType || []).find(({ pimCode }) => pimCode === key)?.name;

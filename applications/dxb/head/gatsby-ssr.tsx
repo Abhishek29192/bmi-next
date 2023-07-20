@@ -5,13 +5,13 @@ import { ConfigProvider } from "./src/contexts/ConfigProvider";
 import type { GatsbySSR } from "gatsby";
 import "./src/styles/global.css";
 
-export const modifyTheme = (theme: ThemeOptions) => {
+export const modifyTheme = (theme: ThemeOptions): ThemeOptions => {
   return {
     ...theme,
     components: {
       MuiCssBaseline: {
         styleOverrides: `
-              ${theme.components.MuiCssBaseline.styleOverrides}
+              ${theme.components?.MuiCssBaseline?.styleOverrides}
               body { background-color: ${theme.colours.alabasterA} !important}  `
       }
     }

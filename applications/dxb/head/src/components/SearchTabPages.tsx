@@ -22,6 +22,7 @@ import {
 import PageSummaryCard from "./PageSummaryCard";
 import ResultsPagination from "./ResultsPagination";
 import { useSiteContext } from "./Site";
+import type { GetMicroCopy } from "./MicroCopy";
 
 const PAGE_SIZE = 24;
 const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_PAGES;
@@ -31,7 +32,7 @@ const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_PAGES;
 // one field, "title", which is both the key and the label
 const getPagesFilters = (
   aggregations: Aggregations,
-  getMicroCopy
+  getMicroCopy: GetMicroCopy
 ): Filter[] => {
   // TODO: At the moment the tags seem to only be "group" tags
   return [
