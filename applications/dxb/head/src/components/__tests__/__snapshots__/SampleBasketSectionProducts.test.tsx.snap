@@ -6,7 +6,7 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
     class="css-1yyiycy"
   >
     <button
-      class="MuiButtonBase-root OverviewCard-clickable SampleBasketSectionProducts-product-wrapper MuiBox-root css-1j7ybbw-MuiButtonBase-root"
+      class="MuiButtonBase-root OverviewCard-clickable SampleBasketSectionProducts-product-wrapper MuiBox-root css-1byzjay-MuiButtonBase-root"
       tabindex="0"
       type="button"
     >
@@ -89,7 +89,7 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
       />
     </button>
     <button
-      class="MuiButtonBase-root OverviewCard-clickable SampleBasketSectionProducts-product-wrapper MuiBox-root css-1j7ybbw-MuiButtonBase-root"
+      class="MuiButtonBase-root OverviewCard-clickable SampleBasketSectionProducts-product-wrapper MuiBox-root css-1byzjay-MuiButtonBase-root"
       tabindex="0"
       type="button"
     >
@@ -176,7 +176,7 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
       />
     </button>
     <button
-      class="MuiButtonBase-root OverviewCard-clickable SampleBasketSectionProducts-product-wrapper MuiBox-root css-1j7ybbw-MuiButtonBase-root"
+      class="MuiButtonBase-root OverviewCard-clickable SampleBasketSectionProducts-product-wrapper MuiBox-root css-1byzjay-MuiButtonBase-root"
       tabindex="0"
       type="button"
     >
