@@ -10,15 +10,7 @@ import {
 import { local } from "../../utils/storage";
 import SampleBasketSectionProducts from "../SampleBasketSectionProducts";
 import { SiteContextProvider } from "../Site";
-
-const getSiteContext = () => ({
-  countryCode: "en",
-  getMicroCopy: (microCopy: string) => `MC: ${microCopy}`,
-  node_locale: "en-GB",
-  homePage: {
-    title: "Home page title"
-  }
-});
+import { getMockSiteContext } from "./utils/SiteContextProvider";
 
 const samples: Sample[] = [
   {
@@ -85,7 +77,7 @@ describe("SampleBasketSectionProducts component", () => {
 
     render(
       <ThemeProvider>
-        <SiteContextProvider value={getSiteContext()}>
+        <SiteContextProvider value={getMockSiteContext()}>
           <BasketContextProvider>
             <SampleBasketSectionProducts />
           </BasketContextProvider>

@@ -8,6 +8,7 @@ import {
   ThumbnailProps
 } from "@bmi-digital/components";
 import React, { useContext } from "react";
+import { GoodBetterBest } from "@bmi/pim-types";
 import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
 import DefaultImage from "../images/DefaultImage.svg";
@@ -20,6 +21,7 @@ import {
   StyledProductOverview,
   StyledRecaptchaPrivacyLinks
 } from "./styles/ProductOverview.styles";
+import GoodBetterBestIndicator from "./GoodBetterBestIndicator";
 
 export type Data = {
   name: string;
@@ -31,6 +33,7 @@ export type Data = {
   isRecaptchaShown?: boolean;
   videos?: MediaData[];
   isNavigationToVisualiserAvailable: boolean;
+  goodBetterBest?: GoodBetterBest;
 };
 
 type Props = {
@@ -58,7 +61,8 @@ const ProductOverview = ({
     isRecaptchaShown,
     videos = [],
     variantCode,
-    isNavigationToVisualiserAvailable
+    isNavigationToVisualiserAvailable,
+    goodBetterBest
   },
   children
 }: Props) => {
@@ -132,6 +136,7 @@ const ProductOverview = ({
             videoButtonLabel={getMicroCopy(microCopy.MEDIA_VIDEO)}
             visualiserButtonLabel={getMicroCopy(microCopy.MEDIA_3D)}
             visualiserText={getMicroCopy(microCopy.MEDIA_VISUALIZER_TEXT)}
+            tag={<GoodBetterBestIndicator indicatorType={goodBetterBest} />}
           />
         </Grid>
         <Grid xs={12} md={12} lg={4}>

@@ -8,7 +8,8 @@ import type {
   Image as PimImage,
   System as PimSystem,
   ProductReferenceType,
-  ReferenceTarget
+  ReferenceTarget,
+  GoodBetterBest
 } from "@bmi/pim-types";
 
 export type Category = {
@@ -45,6 +46,7 @@ export type Product = {
   productReferences?: ProductReference[];
   visualiserAssets?: readonly Asset[];
   keywords?: string[];
+  goodBetterBest?: GoodBetterBest;
 } & {
   [extractedFilter: string]: any;
 };

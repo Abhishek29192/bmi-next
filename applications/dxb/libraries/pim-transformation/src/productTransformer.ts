@@ -62,6 +62,7 @@ export const transformProduct = (product: PimProduct): Product[] => {
         ...(product.images || [])
       ]);
 
+      const { goodBetterBest } = product;
       const mergedClassifications = mergeClassifications(
         product.classifications || [],
         variant.classifications || []
@@ -283,6 +284,7 @@ export const transformProduct = (product: PimProduct): Product[] => {
           (asset) => asset.assetType === "FIXING_TOOL"
         )?.url,
         galleryImages: mapImages(groupedImages, "GALLERY"),
+        goodBetterBest,
         groups: getGroups(product.categories || []),
         guaranteesAndWarrantiesImages: getGuaranteesAndWarrantiesAsset(
           GuaranteesAndWarrantiesAssetType.Images,

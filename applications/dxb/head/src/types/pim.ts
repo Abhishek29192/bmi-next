@@ -217,6 +217,7 @@ export type RelatedProduct = Pick<
   | "textureFamily"
   | "name"
   | "path"
+  | "goodBetterBest"
 > & {
   groups: readonly FirestoreCategoryGroup[];
 };

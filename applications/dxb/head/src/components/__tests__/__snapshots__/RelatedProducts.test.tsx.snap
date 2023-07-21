@@ -173,6 +173,9 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
                           </b>
                         </div>
                       </div>
+                      <div
+                        class="css-iicyj8"
+                      />
                     </div>
                     <div
                       class="OverviewCard-clickable css-1cyx9t4"
@@ -388,6 +391,9 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                           </b>
                         </div>
                       </div>
+                      <div
+                        class="css-iicyj8"
+                      />
                     </div>
                     <div
                       class="OverviewCard-clickable css-1cyx9t4"
@@ -462,6 +468,9 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                           data-testid="overview-card-body-description"
                         />
                       </div>
+                      <div
+                        class="css-iicyj8"
+                      />
                     </div>
                     <div
                       class="OverviewCard-clickable css-1cyx9t4"
@@ -536,6 +545,9 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                           data-testid="overview-card-body-description"
                         />
                       </div>
+                      <div
+                        class="css-iicyj8"
+                      />
                     </div>
                     <div
                       class="OverviewCard-clickable css-1cyx9t4"
@@ -749,6 +761,9 @@ exports[`RelatedProducts component renders with correct gtmLabel 1`] = `
                           </b>
                         </div>
                       </div>
+                      <div
+                        class="css-iicyj8"
+                      />
                     </div>
                     <div
                       class="OverviewCard-clickable css-1cyx9t4"

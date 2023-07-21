@@ -3,6 +3,7 @@ import { ThemeProvider } from "@bmi-digital/components";
 import React from "react";
 import { fallbackGetMicroCopy } from "../components/MicroCopy";
 import { SiteContextProvider } from "../components/Site";
+import { getMockSiteContext } from "../components/__tests__/utils/SiteContextProvider";
 
 type RenderHookWithProviders = <P, R>(
   customHook: (...args: P[]) => R
@@ -15,8 +16,7 @@ export const renderHookWithProviders: RenderHookWithProviders = (
     <ThemeProvider>
       <SiteContextProvider
         value={{
-          countryCode: "no",
-          node_locale: "no-NB",
+          ...getMockSiteContext("no", "no-NB"),
           homePage: {
             title: ""
           },

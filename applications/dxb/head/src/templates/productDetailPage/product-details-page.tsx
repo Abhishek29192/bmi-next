@@ -101,6 +101,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                   nobb: product.externalProductCode,
                   images,
                   videos: transformMediaSrc(product.videos),
+                  goodBetterBest: product.goodBetterBest,
                   attributes: getProductAttributes(
                     product,
                     pageContext.countryCode,
@@ -237,6 +238,7 @@ export const pageQuery = graphql`
       galleryImages {
         ...PIMImageFragment
       }
+      goodBetterBest
       guaranteesAndWarrantiesImages {
         ...PIMAssetFragment
       }

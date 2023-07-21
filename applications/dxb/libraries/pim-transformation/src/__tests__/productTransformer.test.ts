@@ -11,6 +11,7 @@ import {
   createImage,
   createProduct,
   createVariantOption,
+  GoodBetterBest,
   Product
 } from "@bmi/pim-types";
 import { jest } from "@jest/globals";
@@ -291,6 +292,7 @@ describe("transformProduct", () => {
           ],
           "fixingToolIframeUrl": undefined,
           "galleryImages": [],
+          "goodBetterBest": undefined,
           "groups": [
             {
               "code": "parent-category-code",
@@ -597,6 +599,7 @@ describe("transformProduct", () => {
           ],
           "fixingToolIframeUrl": undefined,
           "galleryImages": [],
+          "goodBetterBest": undefined,
           "groups": [
             {
               "code": "parent-category-code",
@@ -1388,6 +1391,7 @@ describe("transformProduct", () => {
               "thumbnail": "http://localhost:8000",
             },
           ],
+          "goodBetterBest": undefined,
           "groups": [
             {
               "code": "parent-category",
@@ -2217,6 +2221,7 @@ describe("transformProduct", () => {
               "thumbnail": "http://localhost:8000",
             },
           ],
+          "goodBetterBest": undefined,
           "groups": [
             {
               "code": "parent-category",
@@ -3049,6 +3054,7 @@ describe("transformProduct", () => {
               "thumbnail": "http://localhost:8000",
             },
           ],
+          "goodBetterBest": undefined,
           "groups": [
             {
               "code": "parent-category",
@@ -3881,6 +3887,7 @@ describe("transformProduct", () => {
               "thumbnail": "http://localhost:8000",
             },
           ],
+          "goodBetterBest": undefined,
           "groups": [
             {
               "code": "parent-category",
@@ -4861,6 +4868,7 @@ describe("transformProduct", () => {
               "thumbnail": "http://localhost:8000",
             },
           ],
+          "goodBetterBest": undefined,
           "groups": [
             {
               "code": "parent-category",
@@ -5750,6 +5758,7 @@ describe("transformProduct", () => {
               "thumbnail": "http://localhost:8000",
             },
           ],
+          "goodBetterBest": undefined,
           "groups": [
             {
               "code": "parent-category",
@@ -6661,6 +6670,7 @@ describe("transformProduct", () => {
               "thumbnail": "http://localhost:8000",
             },
           ],
+          "goodBetterBest": undefined,
           "groups": [
             {
               "code": "parent-category",
@@ -10255,6 +10265,7 @@ describe("transformProduct", () => {
               "thumbnail": "http://localhost:8000",
             },
           ],
+          "goodBetterBest": undefined,
           "groups": [
             {
               "code": "parent-category",
@@ -11215,6 +11226,7 @@ describe("transformProduct", () => {
               "thumbnail": "http://localhost:8000",
             },
           ],
+          "goodBetterBest": undefined,
           "groups": [
             {
               "code": "parent-category",
@@ -12559,5 +12571,23 @@ describe("transformProduct", () => {
     const transformedProduct = await transformProduct(product);
     expect(transformedProduct[0].documents.length).toBe(1);
     expect(transformedProduct[0].documents[0].assetType).toBe("AWARDS");
+  });
+
+  it("returns variants with goodBetterBest field", async () => {
+    const product = createProduct({
+      goodBetterBest: GoodBetterBest.good,
+      variantOptions: [createProduct(), createProduct()]
+    });
+    const transformedProducts = await transformProduct(product);
+    expect(transformedProducts).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          goodBetterBest: GoodBetterBest.good
+        }),
+        expect.objectContaining({
+          goodBetterBest: GoodBetterBest.good
+        })
+      ])
+    );
   });
 });

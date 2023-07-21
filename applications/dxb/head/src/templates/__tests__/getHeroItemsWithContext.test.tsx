@@ -7,16 +7,16 @@ import { Context as SiteContext } from "../../components/Site";
 import Video, { ContentfulVideoData } from "../../components/Video";
 import { microCopy } from "../../constants/microCopies";
 import { getHeroItemsWithContext } from "../helpers/getHeroItemsWithContext";
+import { getMockSiteContext } from "../../components/__tests__/utils/SiteContextProvider";
 import type { Data as PageInfoData } from "../../components/PageInfo";
 
 const context: SiteContext = {
-  countryCode: "no",
+  ...getMockSiteContext("no", "no"),
   getMicroCopy: jest.fn(),
   homePage: {
     title: "hi"
-  },
-  node_locale: "no"
-} as SiteContext;
+  }
+};
 
 beforeEach(() => {
   jest.resetAllMocks();

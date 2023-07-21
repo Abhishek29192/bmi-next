@@ -77,6 +77,9 @@ exports[`SampleBasketSection component renders correctly 1`] = `
                   </div>
                 </div>
               </div>
+              <div
+                class="css-iicyj8"
+              />
             </div>
             <div
               class="OverviewCard-clickable css-1cyx9t4"
@@ -225,6 +228,9 @@ exports[`SampleBasketSection component should render form after complete button 
                   </div>
                 </div>
               </div>
+              <div
+                class="css-iicyj8"
+              />
             </div>
             <div
               class="OverviewCard-clickable css-1cyx9t4"

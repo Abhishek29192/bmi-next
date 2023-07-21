@@ -19,6 +19,7 @@ export interface Sample {
   path: Product["path"];
   colour: Product["colour"];
   textureFamily: Product["textureFamily"];
+  goodBetterBest?: Product["goodBetterBest"];
   measurements?: Measurements["label"];
   image?: string;
 }
@@ -38,7 +39,8 @@ export const createSample = (product: Product): Sample => ({
   colour: product.colour,
   textureFamily: product.textureFamily,
   measurements: product.measurements?.label,
-  image: product.masterImage?.mainSource
+  image: product.masterImage?.mainSource,
+  goodBetterBest: product.goodBetterBest
 });
 
 export type BasketAction =

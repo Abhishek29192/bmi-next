@@ -23,6 +23,7 @@ import {
   StyledLoadMoreWrapper,
   StyledReadMoreAnchor
 } from "./styles/RelatedProducts.styles";
+import GoodBetterBestIndicator from "./GoodBetterBestIndicator";
 
 /**
  * Groups resolved product category paths by the 2nd last category in the path
@@ -94,6 +95,11 @@ const ProductListing = ({
                   renderMedia(product.masterImage?.mainSource, altText) || (
                     <DefaultImage />
                   )
+                }
+                tag={
+                  <GoodBetterBestIndicator
+                    indicatorType={product.goodBetterBest}
+                  />
                 }
                 brandImageSource={brandLogo}
                 action={{
@@ -207,6 +213,7 @@ export const query = graphql`
     colour
     colourFamily
     externalProductCode
+    goodBetterBest
     masterImage {
       ...PIMImageFragment
     }

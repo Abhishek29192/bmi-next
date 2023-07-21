@@ -53,6 +53,9 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
             </div>
           </div>
         </div>
+        <div
+          class="css-iicyj8"
+        />
       </div>
       <div
         class="OverviewCard-clickable css-1cyx9t4"
@@ -140,6 +143,9 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
             </div>
           </div>
         </div>
+        <div
+          class="css-iicyj8"
+        />
       </div>
       <div
         class="OverviewCard-clickable css-1cyx9t4"
@@ -225,6 +231,9 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
             </div>
           </div>
         </div>
+        <div
+          class="css-iicyj8"
+        />
       </div>
       <div
         class="OverviewCard-clickable css-1cyx9t4"

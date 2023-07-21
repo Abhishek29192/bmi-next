@@ -15,6 +15,7 @@ import { getPathWithCountryCode } from "../utils/path";
 import BrandLogo from "./BrandLogo";
 import { useSiteContext } from "./Site";
 import { FooterAnchorLink } from "./styles/ProductGridViewStyles";
+import GoodBetterBestIndicator from "./GoodBetterBestIndicator";
 
 export type Props = {
   products: ReadonlyArray<ESProduct>;
@@ -70,6 +71,11 @@ const ProductsGridView = ({
               titleVariant="h5"
               subtitle={uniqueClassifications}
               subtitleVariant="h6"
+              tag={
+                <GoodBetterBestIndicator
+                  indicatorType={variant.goodBetterBest}
+                />
+              }
               media={
                 mainImage ? (
                   <img
