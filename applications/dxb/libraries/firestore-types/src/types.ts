@@ -4,7 +4,8 @@ import type {
   Category as PimCategory,
   CategoryImage as PimCategoryImage,
   CategoryType,
-  Mime as PimMime
+  Mime as PimMime,
+  GoodBetterBest
 } from "@bmi/pim-types";
 
 export type System = {
@@ -95,6 +96,7 @@ export type Product = {
   filters: readonly Filter[];
   fixingToolIframeUrl?: string;
   galleryImages: readonly Image[];
+  goodBetterBest?: GoodBetterBest;
   groups: readonly CategoryGroup[];
   guaranteesAndWarrantiesImages: readonly Asset[];
   guaranteesAndWarrantiesLinks: readonly Asset[];

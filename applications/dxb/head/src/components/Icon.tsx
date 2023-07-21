@@ -28,6 +28,7 @@ import IconComponent, {
   Folder,
   FolderZip,
   HardHatHead,
+  Heart,
   IconProps,
   Instagram,
   LinkedIn,
@@ -42,6 +43,8 @@ import IconComponent, {
   SelectRoof,
   SelectTile,
   SelectWallColour,
+  Star,
+  ThumbUp,
   Tile,
   TileColour,
   Twitter,
@@ -124,6 +127,8 @@ const getIcon = (icon: string) => {
       return Facebook;
     case "Folder":
       return Folder;
+    case "Heart":
+      return Heart;
     case "LinkedIn":
       return LinkedIn;
     case "Twitter":
@@ -182,12 +187,16 @@ const getIcon = (icon: string) => {
       return Tile;
     case "TileColour":
       return TileColour;
+    case "ThumbUp":
+      return ThumbUp;
     case "SelectRoof":
       return SelectRoof;
     case "SelectTile":
       return SelectTile;
     case "SelectWallColour":
       return SelectWallColour;
+    case "Star":
+      return Star;
     case "CertificationFlatRoof":
       return CertificationFlatRoof;
     case "CertificationOtherTraining":

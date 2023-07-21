@@ -860,6 +860,7 @@ type Product implements Node @dontInfer {
   filters: [Filter]!
   fixingToolIframeUrl: String
   galleryImages: [PIMImage]!
+  goodBetterBest: String
   groups: [CategoryGroup]!
   guaranteesAndWarrantiesImages: [PIMAsset]!
   guaranteesAndWarrantiesLinks: [PIMAsset]!

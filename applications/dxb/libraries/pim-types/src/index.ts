@@ -53,7 +53,8 @@ import {
   SystemLayer,
   SystemReference,
   SystemsApiResponse,
-  VariantOption
+  VariantOption,
+  GoodBetterBest
 } from "./types";
 import createVariantOption, {
   createFullyPopulatedVariantOption
@@ -101,6 +102,7 @@ export {
   FeatureCode,
   FeatureUnit,
   FeatureValue,
+  GoodBetterBest,
   Image,
   ImageAssetType,
   ImageMime,

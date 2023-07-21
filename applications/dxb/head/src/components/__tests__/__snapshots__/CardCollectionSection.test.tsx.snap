@@ -375,8 +375,8 @@ exports[`CardCollectionSection component Renders correctly When Title rich text 
                         >
                           <a
                             class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rozdm9-MuiButtonBase-root"
-                            data-gtm="{"id":"cta-click1","label":"test - a string","action":"/no/"}"
-                            href="/no/"
+                            data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
+                            href="/en/"
                             tabindex="0"
                             type="button"
                           >
@@ -541,8 +541,8 @@ exports[`CardCollectionSection component Renders correctly When dialogContent li
               >
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rozdm9-MuiButtonBase-root"
-                  data-gtm="{"id":"cta-click1","label":"test - a string","action":"/no/"}"
-                  href="/no/"
+                  data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
+                  href="/en/"
                   tabindex="0"
                   type="button"
                 >
@@ -725,8 +725,8 @@ exports[`CardCollectionSection component Renders correctly When entry-hyperlink 
               >
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rozdm9-MuiButtonBase-root"
-                  data-gtm="{"id":"cta-click1","label":"test - a string","action":"/no/"}"
-                  href="/no/"
+                  data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
+                  href="/en/"
                   tabindex="0"
                   type="button"
                 >
@@ -886,8 +886,8 @@ exports[`CardCollectionSection component Renders correctly When heading 2 is pre
               >
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rozdm9-MuiButtonBase-root"
-                  data-gtm="{"id":"cta-click1","label":"test - a string","action":"/no/"}"
-                  href="/no/"
+                  data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
+                  href="/en/"
                   tabindex="0"
                   type="button"
                 >
@@ -1047,8 +1047,8 @@ exports[`CardCollectionSection component Renders correctly When heading 3 is pre
               >
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rozdm9-MuiButtonBase-root"
-                  data-gtm="{"id":"cta-click1","label":"test - a string","action":"/no/"}"
-                  href="/no/"
+                  data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
+                  href="/en/"
                   tabindex="0"
                   type="button"
                 >
@@ -1208,8 +1208,8 @@ exports[`CardCollectionSection component Renders correctly When heading 4 is pre
               >
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rozdm9-MuiButtonBase-root"
-                  data-gtm="{"id":"cta-click1","label":"test - a string","action":"/no/"}"
-                  href="/no/"
+                  data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
+                  href="/en/"
                   tabindex="0"
                   type="button"
                 >
@@ -1369,8 +1369,8 @@ exports[`CardCollectionSection component Renders correctly When heading 5 is pre
               >
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rozdm9-MuiButtonBase-root"
-                  data-gtm="{"id":"cta-click1","label":"test - a string","action":"/no/"}"
-                  href="/no/"
+                  data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
+                  href="/en/"
                   tabindex="0"
                   type="button"
                 >
@@ -1530,8 +1530,8 @@ exports[`CardCollectionSection component Renders correctly When heading 6 is pre
               >
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rozdm9-MuiButtonBase-root"
-                  data-gtm="{"id":"cta-click1","label":"test - a string","action":"/no/"}"
-                  href="/no/"
+                  data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
+                  href="/en/"
                   tabindex="0"
                   type="button"
                 >
@@ -1689,8 +1689,8 @@ exports[`CardCollectionSection component Renders correctly When text length = 0 
               >
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rozdm9-MuiButtonBase-root"
-                  data-gtm="{"id":"cta-click1","label":"test - a string","action":"/no/"}"
-                  href="/no/"
+                  data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
+                  href="/en/"
                   tabindex="0"
                   type="button"
                 >
@@ -1905,8 +1905,8 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
               >
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rozdm9-MuiButtonBase-root"
-                  data-gtm="{"id":"cta-click1","label":"test - a string","action":"/no/"}"
-                  href="/no/"
+                  data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
+                  href="/en/"
                   tabindex="0"
                   type="button"
                 >
@@ -1966,8 +1966,8 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
               >
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rozdm9-MuiButtonBase-root"
-                  data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/no/"}"
-                  href="/no/"
+                  data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/en/"}"
+                  href="/en/"
                   tabindex="0"
                   type="button"
                 >
@@ -2027,8 +2027,8 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
               >
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rozdm9-MuiButtonBase-root"
-                  data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/no/"}"
-                  href="/no/"
+                  data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/en/"}"
+                  href="/en/"
                   tabindex="0"
                   type="button"
                 >
@@ -2208,8 +2208,8 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
               >
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rozdm9-MuiButtonBase-root"
-                  data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/no/"}"
-                  href="/no/"
+                  data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/en/"}"
+                  href="/en/"
                   tabindex="0"
                   type="button"
                 >
@@ -2269,8 +2269,8 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
               >
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rozdm9-MuiButtonBase-root"
-                  data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/no/"}"
-                  href="/no/"
+                  data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/en/"}"
+                  href="/en/"
                   tabindex="0"
                   type="button"
                 >
@@ -2330,8 +2330,8 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
               >
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rozdm9-MuiButtonBase-root"
-                  data-gtm="{"id":"cta-click1","label":"test - a string","action":"/no/"}"
-                  href="/no/"
+                  data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
+                  href="/en/"
                   tabindex="0"
                   type="button"
                 >
@@ -2546,8 +2546,8 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
               >
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rozdm9-MuiButtonBase-root"
-                  data-gtm="{"id":"cta-click1","label":"test - a string","action":"/no/"}"
-                  href="/no/"
+                  data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
+                  href="/en/"
                   tabindex="0"
                   type="button"
                 >
@@ -2607,8 +2607,8 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
               >
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rozdm9-MuiButtonBase-root"
-                  data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/no/"}"
-                  href="/no/"
+                  data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/en/"}"
+                  href="/en/"
                   tabindex="0"
                   type="button"
                 >
@@ -2668,8 +2668,8 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
               >
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rozdm9-MuiButtonBase-root"
-                  data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/no/"}"
-                  href="/no/"
+                  data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/en/"}"
+                  href="/en/"
                   tabindex="0"
                   type="button"
                 >
@@ -2884,8 +2884,8 @@ exports[`CardCollectionSection component single & multiple row display renders c
               >
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rozdm9-MuiButtonBase-root"
-                  data-gtm="{"id":"cta-click1","label":"test - a string","action":"/no/"}"
-                  href="/no/"
+                  data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
+                  href="/en/"
                   tabindex="0"
                   type="button"
                 >
@@ -2945,8 +2945,8 @@ exports[`CardCollectionSection component single & multiple row display renders c
               >
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rozdm9-MuiButtonBase-root"
-                  data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/no/"}"
-                  href="/no/"
+                  data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/en/"}"
+                  href="/en/"
                   tabindex="0"
                   type="button"
                 >
@@ -3006,8 +3006,8 @@ exports[`CardCollectionSection component single & multiple row display renders c
               >
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rozdm9-MuiButtonBase-root"
-                  data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/no/"}"
-                  href="/no/"
+                  data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/en/"}"
+                  href="/en/"
                   tabindex="0"
                   type="button"
                 >
@@ -3222,8 +3222,8 @@ exports[`CardCollectionSection component single & multiple row display renders c
               >
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rozdm9-MuiButtonBase-root"
-                  data-gtm="{"id":"cta-click1","label":"test - a string","action":"/no/"}"
-                  href="/no/"
+                  data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
+                  href="/en/"
                   tabindex="0"
                   type="button"
                 >
@@ -3283,8 +3283,8 @@ exports[`CardCollectionSection component single & multiple row display renders c
               >
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rozdm9-MuiButtonBase-root"
-                  data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/no/"}"
-                  href="/no/"
+                  data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/en/"}"
+                  href="/en/"
                   tabindex="0"
                   type="button"
                 >
@@ -3344,8 +3344,8 @@ exports[`CardCollectionSection component single & multiple row display renders c
               >
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rozdm9-MuiButtonBase-root"
-                  data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/no/"}"
-                  href="/no/"
+                  data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/en/"}"
+                  href="/en/"
                   tabindex="0"
                   type="button"
                 >
@@ -3582,8 +3582,8 @@ exports[`CardCollectionSection component single & multiple row display renders c
                         >
                           <a
                             class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rozdm9-MuiButtonBase-root"
-                            data-gtm="{"id":"cta-click1","label":"test - a string","action":"/no/"}"
-                            href="/no/"
+                            data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
+                            href="/en/"
                             tabindex="0"
                             type="button"
                           >
@@ -3656,8 +3656,8 @@ exports[`CardCollectionSection component single & multiple row display renders c
                         >
                           <a
                             class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rozdm9-MuiButtonBase-root"
-                            data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/no/"}"
-                            href="/no/"
+                            data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/en/"}"
+                            href="/en/"
                             tabindex="0"
                             type="button"
                           >
@@ -3730,8 +3730,8 @@ exports[`CardCollectionSection component single & multiple row display renders c
                         >
                           <a
                             class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rozdm9-MuiButtonBase-root"
-                            data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/no/"}"
-                            href="/no/"
+                            data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/en/"}"
+                            href="/en/"
                             tabindex="0"
                             type="button"
                           >

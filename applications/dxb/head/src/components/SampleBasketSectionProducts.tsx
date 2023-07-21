@@ -22,6 +22,7 @@ import {
   StyledSampleBasketSection,
   classes
 } from "./styles/SampleBasketSectionProducts.styles";
+import GoodBetterBestIndicator from "./GoodBetterBestIndicator";
 
 const SampleBasketSectionProducts = () => {
   const { basketState, basketDispatch } = useBasketContext();
@@ -67,6 +68,7 @@ const SampleBasketSectionProducts = () => {
         onClick={() =>
           navigate(getPathWithCountryCode(countryCode, sample.path))
         }
+        tag={<GoodBetterBestIndicator indicatorType={sample.goodBetterBest} />}
         footer={
           !isMobile && (
             <Button

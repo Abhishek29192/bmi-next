@@ -12,6 +12,7 @@ import {
   createProduct as createPimProduct,
   createScoringWeightAttributesClassification,
   createVariantOption,
+  GoodBetterBest,
   Product
 } from "@bmi/pim-types";
 
@@ -1675,5 +1676,23 @@ describe("transformProduct", () => {
       process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL =
         originalEnablePdpVariantAttributeUrl;
     });
+  });
+
+  it("returns variants with goodBetterBest field", async () => {
+    const product = createPimProduct({
+      goodBetterBest: GoodBetterBest.good,
+      variantOptions: [createPimProduct(), createPimProduct()]
+    });
+    const transformedProducts = await transformProduct(product);
+    expect(transformedProducts).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          goodBetterBest: GoodBetterBest.good
+        }),
+        expect.objectContaining({
+          goodBetterBest: GoodBetterBest.good
+        })
+      ])
+    );
   });
 });

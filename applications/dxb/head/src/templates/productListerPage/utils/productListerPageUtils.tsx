@@ -18,6 +18,7 @@ import { enhanceColourFilterWithSwatches } from "../../../utils/filtersUI";
 import withGTM from "../../../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../../../utils/path";
 import { FooterAnchorLink } from "../styles";
+import GoodBetterBestIndicator from "../../../components/GoodBetterBestIndicator";
 import groupBy from "../../../utils/groupBy";
 import type { PageContextType } from "../components/product-lister-page";
 import type { Context as SiteContext } from "../../../components/Site";
@@ -139,6 +140,9 @@ export const renderProducts = (
           titleVariant="h5"
           subtitle={subTitle}
           subtitleVariant="h6"
+          tag={
+            <GoodBetterBestIndicator indicatorType={variant.goodBetterBest} />
+          }
           media={
             mainImage ? (
               <img src={mainImage} alt={`${subTitle} ${product?.name}`} />

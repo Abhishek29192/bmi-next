@@ -10,6 +10,7 @@ import { BasketContextProvider } from "../contexts/SampleBasketContext";
 import { Product } from "../types/pim";
 import { getPathWithCountryCode } from "../utils/path";
 import { globalStyles } from "../../src/styles/globalStyles";
+import { getGoodBetterBestIcons } from "../utils/getGoodBetterBestIcons";
 import BrandProvider from "./BrandProvider";
 import { Data as BreadcrumbsData } from "./Breadcrumbs";
 import ErrorFallback from "./ErrorFallback";
@@ -104,7 +105,8 @@ const Page = ({
     homePage: siteData.homePage,
     getMicroCopy,
     gatsbyReCaptchaKey,
-    reCaptchaNet
+    reCaptchaNet,
+    goodBetterBestIconsConfig: getGoodBetterBestIcons(resources)
   };
 
   const microCopyContext = resources?.microCopy?.reduce(

@@ -51,6 +51,9 @@ exports[`ProductsGridView component renders correctly when not empty 1`] = `
             short-description
           </div>
         </div>
+        <div
+          class="css-iicyj8"
+        />
       </div>
       <div
         class="OverviewCard-clickable css-1cyx9t4"
@@ -126,6 +129,9 @@ exports[`ProductsGridView component renders correctly when not empty with filter
             short-description
           </div>
         </div>
+        <div
+          class="css-iicyj8"
+        />
       </div>
       <div
         class="OverviewCard-clickable css-1cyx9t4"

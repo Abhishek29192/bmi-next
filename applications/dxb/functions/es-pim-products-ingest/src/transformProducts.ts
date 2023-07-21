@@ -165,6 +165,7 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
           combinedClassifications
         )}`
       });
+      const { goodBetterBest } = product;
       const indexedFeatures = indexFeatures(
         PIM_CLASSIFICATION_CATALOGUE_NAMESPACE,
         combinedClassifications
@@ -262,6 +263,7 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
             }))
           : [],
         classifications: combinedClassifications,
+        goodBetterBest,
         measurementValue,
         productScoringWeightInt:
           scoringWeight && Number.isFinite(Number.parseInt(scoringWeight))

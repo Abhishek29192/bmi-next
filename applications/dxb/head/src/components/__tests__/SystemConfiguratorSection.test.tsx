@@ -18,6 +18,7 @@ import SystemConfiguratorSection, {
   Data,
   QuestionData
 } from "../SystemConfiguratorSection";
+import { getMockSiteContext } from "./utils/SiteContextProvider";
 
 let executeRecaptchaMock = jest.fn();
 jest.mock("react-google-recaptcha-v3", () => {
@@ -141,14 +142,6 @@ const question: QuestionData = {
   description: null,
   answers: [answer1, answer2]
 };
-const getSiteContext = (countryCode = "no", nodeLocale = "en-GB") => ({
-  countryCode: countryCode,
-  getMicroCopy: (microCopy: string) => `MC: ${microCopy}`,
-  node_locale: nodeLocale,
-  homePage: {
-    title: "Home page title"
-  }
-});
 
 const pimSystem = {
   _source: {
@@ -273,7 +266,7 @@ describe("SystemConfiguratorSection component", () => {
 
     const { container } = render(
       <ThemeProvider>
-        <SiteContextProvider value={getSiteContext()}>
+        <SiteContextProvider value={getMockSiteContext("no")}>
           <LocationProvider>
             <SystemConfiguratorSection data={initialData} />
           </LocationProvider>
@@ -636,7 +629,7 @@ describe("SystemConfiguratorSection component", () => {
       window.history.replaceState = jest.fn();
       const { container } = render(
         <ThemeProvider>
-          <SiteContextProvider value={getSiteContext()}>
+          <SiteContextProvider value={getMockSiteContext("no")}>
             <LocationProvider history={history}>
               <SystemConfiguratorSection data={initialData} />
             </LocationProvider>
@@ -675,7 +668,7 @@ describe("SystemConfiguratorSection component", () => {
       window.history.replaceState = jest.fn();
       const { container } = render(
         <ThemeProvider>
-          <SiteContextProvider value={getSiteContext()}>
+          <SiteContextProvider value={getMockSiteContext("no")}>
             <LocationProvider history={history}>
               <SystemConfiguratorSection data={initialData} />
             </LocationProvider>
@@ -726,7 +719,7 @@ describe("SystemConfiguratorSection component", () => {
 
     const { container } = render(
       <ThemeProvider>
-        <SiteContextProvider value={getSiteContext()}>
+        <SiteContextProvider value={getMockSiteContext("no")}>
           <LocationProvider>
             <SystemConfiguratorSection data={initialData} />
           </LocationProvider>
@@ -795,7 +788,7 @@ describe("SystemConfiguratorSection component", () => {
 
     const { container } = render(
       <ThemeProvider>
-        <SiteContextProvider value={getSiteContext()}>
+        <SiteContextProvider value={getMockSiteContext("no")}>
           <LocationProvider>
             <SystemConfiguratorSection data={initialData} />
           </LocationProvider>
@@ -839,7 +832,7 @@ describe("SystemConfiguratorSection component", () => {
     });
     const { container } = render(
       <ThemeProvider>
-        <SiteContextProvider value={getSiteContext()}>
+        <SiteContextProvider value={getMockSiteContext("no")}>
           <LocationProvider>
             <SystemConfiguratorSection data={initialData} />
           </LocationProvider>

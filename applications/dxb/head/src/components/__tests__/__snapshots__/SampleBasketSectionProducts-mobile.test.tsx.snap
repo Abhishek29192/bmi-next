@@ -73,6 +73,9 @@ exports[`SampleBasketSectionProducts component render correctly on mobile device
             </div>
           </div>
         </div>
+        <div
+          class="css-iicyj8"
+        />
       </div>
       <span
         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -150,6 +153,9 @@ exports[`SampleBasketSectionProducts component render correctly on mobile device
             </div>
           </div>
         </div>
+        <div
+          class="css-iicyj8"
+        />
       </div>
       <span
         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -225,6 +231,9 @@ exports[`SampleBasketSectionProducts component render correctly on mobile device
             </div>
           </div>
         </div>
+        <div
+          class="css-iicyj8"
+        />
       </div>
       <span
         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"

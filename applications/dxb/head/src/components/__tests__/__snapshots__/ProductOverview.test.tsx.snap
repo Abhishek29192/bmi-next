@@ -19,6 +19,10 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
           data-testid="media-gallery-root"
         >
           <div
+            class="css-1qqpsay"
+            data-testid="media-gallery-tag"
+          />
+          <div
             class=" css-79elbk"
             data-testid="media-gallery-media-wrapper"
           >
@@ -252,6 +256,10 @@ exports[`ProductOverview component renders correctly without Recaptcha 1`] = `
           data-testid="media-gallery-root"
         >
           <div
+            class="css-1qqpsay"
+            data-testid="media-gallery-tag"
+          />
+          <div
             class=" css-79elbk"
             data-testid="media-gallery-media-wrapper"
           >
@@ -454,6 +462,10 @@ exports[`ProductOverview component renders with default image if there are no im
           class="css-2bw4l8"
           data-testid="media-gallery-root"
         >
+          <div
+            class="css-1qqpsay"
+            data-testid="media-gallery-tag"
+          />
           <div
             class=" css-79elbk"
             data-testid="media-gallery-media-wrapper"
