@@ -592,6 +592,15 @@ update_mc_space_6:
     IS_CONSOLIDATED: "true"
 
 # TODO: Add UK and Group here when consolidated
+deploy_gatsby_cloud_group:
+  extends: .deploy_gatsby_cloud
+  rules:
+    - if: "$CI_COMMIT_TAG"
+  needs:
+    - migrate_content_space_6
+    - update_mc_space_6
+  variables:
+    DXB_MARKET_ID: "GROUP"
 
 deploy_gatsby_cloud_bosnia:
   extends: .deploy_gatsby_cloud
@@ -854,31 +863,6 @@ deploy_gatsby_cloud_estonia:
     - update_mc_space_11
   variables:
     DXB_MARKET_ID: "EE"
-
-migrate_content_group:
-  extends: .migrate_content
-  rules:
-    - if: "$CI_COMMIT_TAG"
-  variables:
-    DXB_MARKET_ID: "GROUP"
-
-update_mc_group:
-  extends: .update_mc
-  needs:
-    - !reference [.update_mc, needs]
-    - migrate_content_group
-  variables:
-    DXB_MARKET_ID: "GROUP"
-
-deploy_gatsby_cloud_group:
-  extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
-  needs:
-    - migrate_content_group
-    - update_mc_group
-  variables:
-    DXB_MARKET_ID: "GROUP"
 
 migrate_content_sandpit:
   extends: .migrate_content
