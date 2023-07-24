@@ -63,7 +63,11 @@ import {
 } from "../../../utils/heroLevelUtils";
 import { renderHero } from "../../../utils/heroTypesUI";
 import { removePLPFilterPrefix } from "../../../utils/product-filters";
-import { FeaturesLink, ProductListWrapperGrid } from "../styles";
+import {
+  FeaturesLink,
+  ProductListWrapperGrid,
+  ProductListGrid
+} from "../styles";
 import {
   renderProducts,
   resolveFilters
@@ -162,7 +166,6 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
   const [isLoading, setIsLoading] = useState(false);
   const [products, setProducts] = useState(initialProducts);
-
   const resultsElement = useRef<HTMLDivElement>(null);
 
   const location = useLocation();
@@ -488,11 +491,10 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                   />
                 </Grid>
               ) : null}
-              <Grid
+              <ProductListGrid
                 xs={12}
                 md={12}
                 lg={filters.length ? 9 : 12}
-                style={{ paddingTop: 60 }}
                 ref={resultsElement}
               >
                 <ProductListWrapperGrid container spacing={3}>
@@ -514,7 +516,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                   onPageChange={handlePageChange}
                   count={pageCount}
                 />
-              </Grid>
+              </ProductListGrid>
             </Grid>
           </Section>
           <Section

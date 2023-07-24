@@ -90,6 +90,7 @@ type Props = {
   extraData?: {
     allContentfulAssetType: ReadonlyArray<{ name: string; pimCode: string }>;
   };
+  count?: number;
 };
 
 export const getCount = async (queryString: string) => {
@@ -269,6 +270,7 @@ const SearchTabPanelDocuments = (props: Props) => {
                 filters={filters}
                 onFiltersChange={handleFiltersChange(resetList)}
                 onClearFilters={clearFilters}
+                numberOfResults={props.count}
               />
             )}
           </DownloadListContext.Consumer>

@@ -295,6 +295,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
                   onCountChange={(count: number) =>
                     onTabCountChange(tabKey as ResultType, count)
                   }
+                  count={count}
                 />
               </Container>
             ) : null}
