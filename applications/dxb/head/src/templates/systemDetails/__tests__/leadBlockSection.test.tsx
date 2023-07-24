@@ -6,8 +6,10 @@ import {
 } from "@reach/router";
 import { render, screen } from "@testing-library/react";
 import React from "react";
+import { GoodBetterBest } from "@bmi/pim-types";
 import { Data as LinkData, DataTypeEnum } from "../../../components/Link";
 import LeadBlockSection from "../leadBlockSection";
+import { renderWithProviders } from "../../../__tests__/renderWithProviders";
 
 const leadBlockSectionName = "lead Block section";
 const uniqueSellingPropositions = ["feature 1", "feature 2"];
@@ -99,6 +101,38 @@ describe("LeadBlockSection tests", () => {
     expect(sectionName).toBeInTheDocument();
     expect(ctaLabelElement).toBeInTheDocument();
     expect(systemAttributesContent).toBeFalsy();
+  });
+
+  it("renders correctly with Good/Better/Best indicator if provided", () => {
+    renderWithProviders(
+      <LocationProvider>
+        <LeadBlockSection
+          name={leadBlockSectionName}
+          cta={linkData}
+          brandLogo={<Icopal />}
+          goodBetterBest={GoodBetterBest.best}
+        />
+      </LocationProvider>
+    );
+
+    expect(
+      screen.getByText("MC: goodBetterBest.label.best")
+    ).toBeInTheDocument();
+  });
+
+  it("renders correctly with description if provided", () => {
+    renderWithProviders(
+      <LocationProvider>
+        <LeadBlockSection
+          name={leadBlockSectionName}
+          cta={linkData}
+          brandLogo={<Icopal />}
+          promotionalContent="Description text"
+        />
+      </LocationProvider>
+    );
+
+    expect(screen.getByText("Description text")).toBeInTheDocument();
   });
 
   describe("When user navigates with selected systems query string", () => {

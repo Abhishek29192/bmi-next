@@ -2,8 +2,7 @@ import {
   Button,
   ButtonProps,
   IconList,
-  LeadBlock,
-  Typography
+  LeadBlock
 } from "@bmi-digital/components";
 import {
   ArrowBack as ArrowBackIcon,
@@ -12,6 +11,7 @@ import {
 import { Check as CheckIcon } from "@mui/icons-material";
 import { useLocation } from "@reach/router";
 import React, { useEffect, useState } from "react";
+import { GoodBetterBest } from "@bmi/pim-types";
 import { StyledBlueCheckIconInter } from "../../components/CommonIcons";
 import Link, { Data as LinkData } from "../../components/Link";
 import { useSiteContext } from "../../components/Site";
@@ -23,7 +23,10 @@ import {
 } from "../../constants/queryConstants";
 import withGTM from "../../utils/google-tag-manager";
 import {
+  Description,
+  StyledGoodBetterBestIndicator,
   StyledSystemDetailsLeadBlockSection,
+  StyledTitle,
   classes
 } from "./styles/leadBlockSection.styles";
 
@@ -37,6 +40,7 @@ type Props = {
   promotionalContent?: string;
   uniqueSellingPropositions?: readonly string[];
   brandLogo?: React.ReactElement;
+  goodBetterBest?: GoodBetterBest;
 };
 
 const LeadBlockSection = ({
@@ -44,7 +48,8 @@ const LeadBlockSection = ({
   cta,
   promotionalContent,
   uniqueSellingPropositions,
-  brandLogo
+  brandLogo,
+  goodBetterBest
 }: Props) => {
   const { getMicroCopy } = useSiteContext();
   const [selectedSystemId, setSelectedSystemId] = useState("");
@@ -87,22 +92,23 @@ const LeadBlockSection = ({
           )}
 
           <LeadBlock.Content.Section>
-            <Typography
+            <StyledTitle
               variant="h1"
               hasUnderline
               data-testid="system-lead-block-title"
             >
               {name}
-            </Typography>
+            </StyledTitle>
+            {goodBetterBest && (
+              <StyledGoodBetterBestIndicator indicatorType={goodBetterBest} />
+            )}
+            {promotionalContent && (
+              <Description variant="body2" data-testid="system-lead-block-desc">
+                {promotionalContent}
+              </Description>
+            )}
           </LeadBlock.Content.Section>
 
-          {promotionalContent && (
-            <LeadBlock.Content.Section>
-              <Typography variant="body2" data-testid="system-lead-block-desc">
-                {promotionalContent}
-              </Typography>
-            </LeadBlock.Content.Section>
-          )}
           <LeadBlock.Content.Section className={classes.ctaContainer}>
             {selectedSystemId && prevPagePath && (
               <GTMButton

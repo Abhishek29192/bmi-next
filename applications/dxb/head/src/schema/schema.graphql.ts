@@ -726,6 +726,7 @@ type System implements Node @dontInfer {
   code: String!
   description: String
   documents: [PIMSystemDocument]!
+  goodBetterBest: String
   guaranteesAndWarrantiesImages: [PIMAsset]!
   guaranteesAndWarrantiesLinks: [PIMAsset]!
   keyFeatures: KeyFeatures

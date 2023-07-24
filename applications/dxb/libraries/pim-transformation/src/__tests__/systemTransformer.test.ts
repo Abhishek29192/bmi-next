@@ -9,6 +9,7 @@ import {
   createSystem,
   createSystemLayer,
   createSystemReference,
+  GoodBetterBest,
   System
 } from "@bmi/pim-types";
 import { jest } from "@jest/globals";
@@ -247,6 +248,7 @@ describe("transformSystem", () => {
               "thumbnail": "http://localhost:8000",
             },
           ],
+          "goodBetterBest": undefined,
           "guaranteesAndWarrantiesImages": [],
           "guaranteesAndWarrantiesLinks": [],
           "hashedCode": "1853176582",
@@ -502,6 +504,7 @@ describe("transformSystem", () => {
               "thumbnail": "http://localhost:8000",
             },
           ],
+          "goodBetterBest": undefined,
           "guaranteesAndWarrantiesImages": [],
           "guaranteesAndWarrantiesLinks": [],
           "hashedCode": "1853176582",
@@ -1050,6 +1053,7 @@ describe("transformSystem", () => {
               "thumbnail": "http://localhost:8000",
             },
           ],
+          "goodBetterBest": undefined,
           "guaranteesAndWarrantiesImages": [],
           "guaranteesAndWarrantiesLinks": [],
           "hashedCode": "1853176582",
@@ -1118,5 +1122,17 @@ describe("transformSystem", () => {
         },
       ]
     `);
+  });
+
+  it("returns transformed system with goodBetterBest field", () => {
+    const system = createSystem({ goodBetterBest: GoodBetterBest.best });
+    const transformedSystems = transformSystem(system);
+    expect(transformedSystems).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          goodBetterBest: GoodBetterBest.best
+        })
+      ])
+    );
   });
 });

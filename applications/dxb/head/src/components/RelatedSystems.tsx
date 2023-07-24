@@ -27,6 +27,7 @@ import {
   StyledSystemPropertyContainer,
   StyledSystemPropertyItem
 } from "./styles/RelatedSystems.styles";
+import GoodBetterBestIndicator from "./GoodBetterBestIndicator";
 
 export type SystemCardProps = {
   system: RelatedSystem | EsSystem;
@@ -110,6 +111,7 @@ export const SystemCard = ({
         titleVariant="h5"
         imageSize="contain"
         media={renderMedia(mainImage, system.name)}
+        tag={<GoodBetterBestIndicator indicatorType={system.goodBetterBest} />}
         brandImageSource={
           <BrandLogo
             brandName={
@@ -240,6 +242,7 @@ export const query = graphql`
     galleryImages {
       ...PIMImageFragment
     }
+    goodBetterBest
     masterImage {
       ...PIMImageFragment
     }
