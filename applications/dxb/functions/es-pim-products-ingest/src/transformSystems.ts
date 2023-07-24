@@ -128,7 +128,8 @@ export const transformSystem = (system: PimSystem): EsSystem | undefined => {
     code,
     name,
     shortDescription,
-    classifications
+    classifications,
+    goodBetterBest
   } = system;
   if (!name || approvalStatus !== "approved") {
     return undefined;
@@ -151,6 +152,7 @@ export const transformSystem = (system: PimSystem): EsSystem | undefined => {
     approvalStatus,
     brand,
     code,
+    goodBetterBest,
     hashedCode,
     masterImage: mapImages(groupedImages, "MASTER_IMAGE")?.[0],
     galleryImages: mapImages(groupedImages, "GALLERY"),

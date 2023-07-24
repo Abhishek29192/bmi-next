@@ -73,6 +73,7 @@ export const transformSystem = (system: PimSystem): System[] => {
       code,
       description: system.longDescription,
       documents: mapSystemDocuments(system),
+      goodBetterBest: system.goodBetterBest,
       guaranteesAndWarrantiesImages: getGuaranteesAndWarrantiesAsset(
         GuaranteesAndWarrantiesAssetType.Images,
         system.assets

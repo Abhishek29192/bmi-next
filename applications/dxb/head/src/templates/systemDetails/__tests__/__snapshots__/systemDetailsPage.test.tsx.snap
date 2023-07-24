@@ -973,7 +973,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
               class="css-1yjvs5a"
             >
               <h1
-                class="MuiTypography-root MuiTypography-h1 Typography-underline css-1v05vzk-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h1 Typography-underline css-1ojvxyg-MuiTypography-root"
                 data-testid="system-lead-block-title"
               >
                 system-Name
@@ -1988,6 +1988,9 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                       </div>
                     </div>
                   </div>
+                  <div
+                    class="css-iicyj8"
+                  />
                 </div>
                 <div
                   class="OverviewCard-clickable css-1cyx9t4"
@@ -3524,7 +3527,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
               class="css-1yjvs5a"
             >
               <h1
-                class="MuiTypography-root MuiTypography-h1 Typography-underline css-1v05vzk-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h1 Typography-underline css-1ojvxyg-MuiTypography-root"
                 data-testid="system-lead-block-title"
               >
                 system-Name
@@ -4511,6 +4514,9 @@ exports[`SystemDetailsPage template component should render 1`] = `
                       </div>
                     </div>
                   </div>
+                  <div
+                    class="css-iicyj8"
+                  />
                 </div>
                 <div
                   class="OverviewCard-clickable css-1cyx9t4"
@@ -6051,7 +6057,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                 class="css-1yjvs5a"
               >
                 <h1
-                  class="MuiTypography-root MuiTypography-h1 Typography-underline css-1v05vzk-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h1 Typography-underline css-1ojvxyg-MuiTypography-root"
                   data-testid="system-lead-block-title"
                 >
                   system-Name
@@ -7038,6 +7044,9 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                         </div>
                       </div>
                     </div>
+                    <div
+                      class="css-iicyj8"
+                    />
                   </div>
                   <div
                     class="OverviewCard-clickable css-1cyx9t4"
@@ -8575,7 +8584,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
               class="css-1yjvs5a"
             >
               <h1
-                class="MuiTypography-root MuiTypography-h1 Typography-underline css-1v05vzk-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h1 Typography-underline css-1ojvxyg-MuiTypography-root"
                 data-testid="system-lead-block-title"
               >
                 system-Name
@@ -9562,6 +9571,9 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                       </div>
                     </div>
                   </div>
+                  <div
+                    class="css-iicyj8"
+                  />
                 </div>
                 <div
                   class="OverviewCard-clickable css-1cyx9t4"
@@ -11098,7 +11110,7 @@ exports[`SystemDetailsPage template component should render without specificatio
               class="css-1yjvs5a"
             >
               <h1
-                class="MuiTypography-root MuiTypography-h1 Typography-underline css-1v05vzk-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h1 Typography-underline css-1ojvxyg-MuiTypography-root"
                 data-testid="system-lead-block-title"
               >
                 system-Name
@@ -12046,6 +12058,9 @@ exports[`SystemDetailsPage template component should render without specificatio
                       </div>
                     </div>
                   </div>
+                  <div
+                    class="css-iicyj8"
+                  />
                 </div>
                 <div
                   class="OverviewCard-clickable css-1cyx9t4"
@@ -13582,7 +13597,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
               class="css-1yjvs5a"
             >
               <h1
-                class="MuiTypography-root MuiTypography-h1 Typography-underline css-1v05vzk-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h1 Typography-underline css-1ojvxyg-MuiTypography-root"
                 data-testid="system-lead-block-title"
               >
                 system-Name
@@ -14569,6 +14584,9 @@ exports[`SystemDetailsPage template component should render without systemLayers
                       </div>
                     </div>
                   </div>
+                  <div
+                    class="css-iicyj8"
+                  />
                 </div>
                 <div
                   class="OverviewCard-clickable css-1cyx9t4"
@@ -16105,7 +16123,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
               class="css-1yjvs5a"
             >
               <h1
-                class="MuiTypography-root MuiTypography-h1 Typography-underline css-1v05vzk-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h1 Typography-underline css-1ojvxyg-MuiTypography-root"
                 data-testid="system-lead-block-title"
               >
                 system-Name
@@ -17218,6 +17236,9 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                       </div>
                     </div>
                   </div>
+                  <div
+                    class="css-iicyj8"
+                  />
                 </div>
                 <div
                   class="OverviewCard-clickable css-1cyx9t4"
@@ -18754,7 +18775,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
               class="css-1yjvs5a"
             >
               <h1
-                class="MuiTypography-root MuiTypography-h1 Typography-underline css-1v05vzk-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h1 Typography-underline css-1ojvxyg-MuiTypography-root"
                 data-testid="system-lead-block-title"
               >
                 system-Name
@@ -19867,6 +19888,9 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                       </div>
                     </div>
                   </div>
+                  <div
+                    class="css-iicyj8"
+                  />
                 </div>
                 <div
                   class="OverviewCard-clickable css-1cyx9t4"

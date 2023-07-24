@@ -19,6 +19,7 @@ export type System = {
   description?: string;
   documents: readonly SystemDocument[];
   galleryImages: readonly Image[];
+  goodBetterBest?: GoodBetterBest;
   guaranteesAndWarrantiesImages: readonly Asset[];
   guaranteesAndWarrantiesLinks: readonly Asset[];
   hashedCode: string;

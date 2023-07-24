@@ -1,6 +1,7 @@
 /* eslint-disable security/detect-object-injection */
 import React from "react";
 import { GoodBetterBest } from "@bmi/pim-types";
+import classnames from "classnames";
 import { microCopy, MicroCopyValues } from "../constants/microCopies";
 import { GoodBetterBestIcons } from "../types/GoodBetterBest";
 import {
@@ -14,6 +15,7 @@ import { IconName } from "./Icon";
 
 type Props = {
   indicatorType?: GoodBetterBest;
+  className?: string;
 };
 
 const iconsMap: Record<GoodBetterBestIcons, IconName> = {
@@ -28,7 +30,7 @@ const labelsMap: Record<GoodBetterBest, MicroCopyValues> = {
   [GoodBetterBest.best]: microCopy.GOOD_BETTER_BEST_LABEL_BEST
 };
 
-const GoodBetterBestIndicator = ({ indicatorType }: Props) => {
+const GoodBetterBestIndicator = ({ indicatorType, className }: Props) => {
   const { getMicroCopy, goodBetterBestIconsConfig } = useSiteContext();
 
   if (!indicatorType) {
@@ -37,7 +39,7 @@ const GoodBetterBestIndicator = ({ indicatorType }: Props) => {
 
   return (
     <IndicatorWrapper
-      className={classes[indicatorType.toLowerCase()]}
+      className={classnames(classes[indicatorType.toLowerCase()], className)}
       data-testid={`goodBetterBest-indicator-${indicatorType}`}
     >
       <StyledIcon

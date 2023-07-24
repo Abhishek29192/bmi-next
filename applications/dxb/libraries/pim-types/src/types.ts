@@ -48,6 +48,7 @@ export type System = {
   systemLayers?: SystemLayer[];
   systemReferences?: SystemReference[];
   description?: HTML;
+  goodBetterBest?: GoodBetterBest;
 };
 
 export type ApprovalStatus =

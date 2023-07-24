@@ -101,6 +101,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
         promotionalContent={system.promotionalContent}
         uniqueSellingPropositions={system.uniqueSellingPropositions}
         brandLogo={<BrandLogo brandName={system.brand?.code} />}
+        goodBetterBest={system.goodBetterBest}
       />
       <StyledImageGalarySection
         backgroundColor="alabaster"
@@ -173,6 +174,7 @@ export const systemQuery = graphql`
       documents {
         ...PIMSystemDocumentFragment
       }
+      goodBetterBest
       guaranteesAndWarrantiesImages {
         ...PIMAssetFragment
       }
