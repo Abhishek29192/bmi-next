@@ -37,7 +37,8 @@ export const IndicatorWrapper = styled("div")(({ theme }) => ({
 export const StyledTypography = styled(Typography)({
   fontSize: "14px",
   fontWeight: 700,
-  textTransform: "uppercase"
+  textTransform: "uppercase",
+  lineHeight: "16px"
 });
 
 export const StyledIcon = styled(Icon)({
