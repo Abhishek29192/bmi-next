@@ -9,7 +9,8 @@ export const classes = {
   "product-title": `${PREFIX}-product-title`,
   "product-color": `${PREFIX}-product-color`,
   "product-size": `${PREFIX}-product-size`,
-  "product-button": `${PREFIX}-product-button`
+  "product-button": `${PREFIX}-product-button`,
+  "product-description": `${PREFIX}-product-description`
 };
 
 export const StyledSampleBasketSection = styled("div")(({ theme }) => ({

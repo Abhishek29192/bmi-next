@@ -33,7 +33,7 @@ afterEach(() => {
 const render = (props: Partial<RoofSelectionProps> = {}) => {
   const finalProps = { ...defaultProps, ...props };
 
-  const Wrapper: React.FC = ({ children }: { children: React.ReactNode }) => (
+  const Wrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => (
     <ThemeProvider>
       <MicroCopy.Provider values={en}>{children}</MicroCopy.Provider>
     </ThemeProvider>

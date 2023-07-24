@@ -34,7 +34,9 @@ exports[`SampleBasketSectionProducts component render correctly on mobile device
             <div
               class="SampleBasketSectionProducts-product"
             >
-              <div>
+              <div
+                class="SampleBasketSectionProducts-product-description"
+              >
                 <p
                   class="MuiTypography-root MuiTypography-body1 SampleBasketSectionProducts-product-title css-1o02bdp-MuiTypography-root"
                   data-testid="typography"
@@ -110,7 +112,9 @@ exports[`SampleBasketSectionProducts component render correctly on mobile device
             <div
               class="SampleBasketSectionProducts-product"
             >
-              <div>
+              <div
+                class="SampleBasketSectionProducts-product-description"
+              >
                 <p
                   class="MuiTypography-root MuiTypography-body1 SampleBasketSectionProducts-product-title css-1o02bdp-MuiTypography-root"
                   data-testid="typography"
@@ -190,7 +194,9 @@ exports[`SampleBasketSectionProducts component render correctly on mobile device
             <div
               class="SampleBasketSectionProducts-product"
             >
-              <div>
+              <div
+                class="SampleBasketSectionProducts-product-description"
+              >
                 <p
                   class="MuiTypography-root MuiTypography-body1 SampleBasketSectionProducts-product-title css-1o02bdp-MuiTypography-root"
                   data-testid="typography"

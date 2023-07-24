@@ -25,7 +25,7 @@ interface HeadProps {
   variantProduct?: Product;
   countryCode?: string;
   pageType?: string;
-  brandLogo?: string;
+  brandLogo?: string | null;
 }
 
 export const Head = ({

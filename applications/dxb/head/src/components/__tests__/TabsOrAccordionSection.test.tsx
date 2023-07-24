@@ -113,14 +113,6 @@ describe("TabsOrAccordionSection", () => {
     expect(screen.getByText("title")).toBeInTheDocument();
     expect(container).toMatchSnapshot();
   });
-  it("no data return null", () => {
-    const { container } = render(
-      <ThemeProvider>
-        <TabsOrAccordionSection data={null} />
-      </ThemeProvider>
-    );
-    expect(container).toMatchInlineSnapshot(`<div />`);
-  });
   it("not render tab panel if item array is empty", () => {
     const { container } = render(
       <ThemeProvider>

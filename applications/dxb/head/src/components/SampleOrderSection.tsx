@@ -71,7 +71,9 @@ const SampleOrderSection = ({
         ).length > 0
       );
     }
-    setIsBasketFull(basketState?.products?.length >= maximumSamples);
+    setIsBasketFull(
+      maximumSamples ? basketState?.products?.length >= maximumSamples : false
+    );
     setBasketHasProducts(basketState?.products?.length > 0);
   }, [basketState, maximumSamples, product]);
   const cta =
