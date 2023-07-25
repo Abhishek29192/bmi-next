@@ -76,6 +76,7 @@ export type System = {
   systemAttributes?: systemAttribute[];
   shortDescription?: string;
   type?: string;
+  goodBetterBest?: GoodBetterBest;
 };
 
 export type ContentfulAssetType = {

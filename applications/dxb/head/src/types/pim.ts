@@ -291,6 +291,7 @@ export type RelatedSystem = Pick<
   | "path"
   | "scoringWeight"
   | "shortDescription"
+  | "goodBetterBest"
 > & {
   brand: Pick<Brand, "code"> | null;
 };

@@ -40,7 +40,7 @@ exports[`LeadBlockSection tests When user navigates with selected systems query 
               class="css-1yjvs5a"
             >
               <h1
-                class="MuiTypography-root MuiTypography-h1 Typography-underline css-1v05vzk-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h1 Typography-underline css-1ojvxyg-MuiTypography-root"
                 data-testid="system-lead-block-title"
               >
                 lead Block section
@@ -153,7 +153,7 @@ exports[`LeadBlockSection tests should not render systemAttributes Card with emp
               class="css-1yjvs5a"
             >
               <h1
-                class="MuiTypography-root MuiTypography-h1 Typography-underline css-1v05vzk-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h1 Typography-underline css-1ojvxyg-MuiTypography-root"
                 data-testid="system-lead-block-title"
               >
                 lead Block section
@@ -238,7 +238,7 @@ exports[`LeadBlockSection tests should render 1`] = `
               class="css-1yjvs5a"
             >
               <h1
-                class="MuiTypography-root MuiTypography-h1 Typography-underline css-1v05vzk-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h1 Typography-underline css-1ojvxyg-MuiTypography-root"
                 data-testid="system-lead-block-title"
               >
                 lead Block section
@@ -323,7 +323,7 @@ exports[`LeadBlockSection tests should render with uniqueSellingPropositions 1`]
               class="css-1yjvs5a"
             >
               <h1
-                class="MuiTypography-root MuiTypography-h1 Typography-underline css-1v05vzk-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h1 Typography-underline css-1ojvxyg-MuiTypography-root"
                 data-testid="system-lead-block-title"
               >
                 lead Block section

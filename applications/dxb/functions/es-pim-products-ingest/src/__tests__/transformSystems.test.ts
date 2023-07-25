@@ -7,7 +7,8 @@ import {
   createSystem,
   createFeature,
   createFeatureValue,
-  System
+  System,
+  GoodBetterBest
 } from "@bmi/pim-types";
 import { transformSystem } from "../transformSystems";
 
@@ -72,6 +73,7 @@ describe("transformSystem", () => {
       brand,
       code,
       hashedCode: "hashed-system-code",
+      goodBetterBest: undefined,
       galleryImages: [
         {
           altText: "name",
@@ -105,6 +107,7 @@ describe("transformSystem", () => {
       brand: undefined,
       approvalStatus,
       type,
+      goodBetterBest: undefined,
       galleryImages: [
         {
           altText: "name",
@@ -139,6 +142,7 @@ describe("transformSystem", () => {
       brand: undefined,
       approvalStatus,
       type,
+      goodBetterBest: undefined,
       galleryImages: [
         {
           altText: "name",
@@ -180,6 +184,7 @@ describe("transformSystem", () => {
       brand: brandCategory,
       approvalStatus,
       type,
+      goodBetterBest: undefined,
       galleryImages: [
         {
           altText: "name",
@@ -221,6 +226,7 @@ describe("transformSystem", () => {
       brand: undefined,
       approvalStatus,
       type,
+      goodBetterBest: undefined,
       galleryImages: [
         {
           altText: "name",
@@ -255,6 +261,7 @@ describe("transformSystem", () => {
       brand,
       approvalStatus,
       type,
+      goodBetterBest: undefined,
       galleryImages: [
         {
           altText: "name",
@@ -291,6 +298,7 @@ describe("transformSystem", () => {
       brand,
       approvalStatus,
       type,
+      goodBetterBest: undefined,
       galleryImages: [
         {
           altText: "name",
@@ -325,6 +333,7 @@ describe("transformSystem", () => {
       brand,
       approvalStatus,
       type,
+      goodBetterBest: undefined,
       masterImage: {
         altText: "name",
         mainSource: "http://localhost:8000",
@@ -361,6 +370,7 @@ describe("transformSystem", () => {
       approvalStatus,
       type,
       galleryImages: [],
+      goodBetterBest: undefined,
       masterImage: undefined,
       code,
       name,
@@ -392,6 +402,7 @@ describe("transformSystem", () => {
       brand,
       approvalStatus,
       type,
+      goodBetterBest: undefined,
       masterImage: {
         altText: undefined,
         mainSource: undefined,
@@ -422,6 +433,7 @@ describe("transformSystem", () => {
       approvalStatus,
       type,
       galleryImages: [],
+      goodBetterBest: undefined,
       masterImage: undefined,
       code,
       name,
@@ -492,6 +504,16 @@ describe("transformSystem", () => {
     );
     expect(generateHashFromString).toHaveBeenCalledWith(code, undefined);
     expect(generateUrl).toHaveBeenCalledWith([name, "hashed-system-code"]);
+  });
+
+  it("should transform system to object with goodBetterBest field", () => {
+    const system = createSystem({ goodBetterBest: GoodBetterBest.best });
+    const transformedSystem = transformSystem(system);
+    expect(transformedSystem).toEqual(
+      expect.objectContaining({
+        goodBetterBest: GoodBetterBest.best
+      })
+    );
   });
 });
 
