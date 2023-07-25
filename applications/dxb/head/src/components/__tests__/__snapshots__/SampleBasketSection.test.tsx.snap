@@ -54,7 +54,9 @@ exports[`SampleBasketSection component renders correctly 1`] = `
                   <div
                     class="SampleBasketSectionProducts-product"
                   >
-                    <div>
+                    <div
+                      class="SampleBasketSectionProducts-product-description"
+                    >
                       <p
                         class="MuiTypography-root MuiTypography-body1 SampleBasketSectionProducts-product-title css-1o02bdp-MuiTypography-root"
                         data-testid="typography"
@@ -205,7 +207,9 @@ exports[`SampleBasketSection component should render form after complete button 
                   <div
                     class="SampleBasketSectionProducts-product"
                   >
-                    <div>
+                    <div
+                      class="SampleBasketSectionProducts-product-description"
+                    >
                       <p
                         class="MuiTypography-root MuiTypography-body1 SampleBasketSectionProducts-product-title css-1o02bdp-MuiTypography-root"
                         data-testid="typography"

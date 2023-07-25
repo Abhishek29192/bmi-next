@@ -71,6 +71,7 @@ const FiltersSidebar = ({
                 typeof label !== "string" &&
                 typeof label !== "number" &&
                 typeof label !== "boolean" &&
+                label &&
                 "props" in label &&
                 label.props
                   ? label.props?.children[1]

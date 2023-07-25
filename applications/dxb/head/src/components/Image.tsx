@@ -5,7 +5,7 @@ import React from "react";
 type ImageData = {
   file: {
     fileName: string;
-    url: string;
+    url?: string;
   };
   gatsbyImageData?: IGatsbyImageData;
   thumbnail?: IGatsbyImageData;

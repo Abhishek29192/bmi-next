@@ -24,7 +24,7 @@ export type GallerySectionImage = Omit<ImageData, "image"> & {
 export type GallerySectionVideo = Omit<VideoData, "previewMedia"> & {
   __typename: "ContentfulVideo";
   previewMedia: VideoData["previewMedia"] & {
-    image: VideoData["previewMedia"]["image"];
+    image: ImageData["image"];
   };
 };
 
@@ -56,7 +56,7 @@ export const transformMediaSrc = (
         return {
           media: <Video {...item} />,
           thumbnail:
-            item.previewMedia?.image?.thumbnail?.images.fallback.src ||
+            item.previewMedia?.image?.thumbnail?.images.fallback?.src ||
             item.defaultYouTubePreviewImage,
           caption: item.subtitle || undefined,
           altText: item.label,
@@ -66,7 +66,7 @@ export const transformMediaSrc = (
         return {
           media: <Video {...item} />,
           thumbnail: item.defaultYouTubePreviewImage,
-          caption: item.title,
+          caption: item.title || undefined,
           isVideo: true
         };
     }
