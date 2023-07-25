@@ -10,6 +10,11 @@ import { devLog } from "../../utils/devLog";
 import DocumentResultsFooter, {
   handleDownloadClick
 } from "../DocumentResultsFooter";
+import * as utils from "../../utils/documentUtils";
+import {
+  DocumentListProvider,
+  DocumentContext
+} from "../../contexts/DocumentContext";
 
 jest.mock("../../utils/devLog");
 
@@ -594,6 +599,117 @@ describe("DocumentResultsFooter component", () => {
         position: "sticky"
       });
       expect(screen.getByTestId("pagination-root")).toBeInTheDocument();
+    });
+  });
+
+  describe("Select all checkbox", () => {
+    const downloadListProps = {
+      list,
+      updateList: jest.fn(),
+      resetList: jest.fn(),
+      count: 26,
+      size: 0,
+      remainingSize: Infinity,
+      isLoading: false,
+      setIsLoading: jest.fn()
+    };
+
+    const footerProps = {
+      page: 1,
+      count: 2,
+      onPageChange: jest.fn(),
+      sticky: true
+    };
+
+    it("should render select all when mobile view", () => {
+      jest.spyOn(utils, "useShowMobileTable").mockReturnValueOnce({
+        showMobileTable: true,
+        handleTableSizeChange: jest.fn(),
+        ref: null
+      });
+
+      render(
+        <ThemeProvider>
+          <DownloadListContext.Provider
+            value={{
+              ...downloadListProps
+            }}
+          >
+            <DocumentListProvider>
+              <DocumentResultsFooter {...footerProps} />
+            </DocumentListProvider>
+          </DownloadListContext.Provider>
+        </ThemeProvider>
+      );
+
+      expect(
+        screen.getByTestId("document-table-select-all-footer-checkbox")
+      ).toBeInTheDocument();
+    });
+
+    it("should hide select all when desktop", () => {
+      jest.spyOn(utils, "useShowMobileTable").mockReturnValueOnce({
+        showMobileTable: false,
+        handleTableSizeChange: jest.fn(),
+        ref: null
+      });
+
+      render(
+        <ThemeProvider>
+          <DownloadListContext.Provider
+            value={{
+              ...downloadListProps
+            }}
+          >
+            <DocumentListProvider>
+              <DocumentResultsFooter {...footerProps} />
+            </DocumentListProvider>
+          </DownloadListContext.Provider>
+        </ThemeProvider>
+      );
+
+      expect(
+        screen.queryByTestId("document-table-select-all-footer-checkbox")
+      ).not.toBeInTheDocument();
+    });
+
+    it("should select all table checkbox", () => {
+      jest.spyOn(utils, "useShowMobileTable").mockReturnValueOnce({
+        showMobileTable: true,
+        handleTableSizeChange: jest.fn(),
+        ref: null
+      });
+
+      const selectedAllState = {
+        isSelectedAll: false,
+        docsCount: 0
+      };
+
+      const setSelectAllState = jest.fn();
+
+      render(
+        <ThemeProvider>
+          <DownloadListContext.Provider
+            value={{
+              ...downloadListProps
+            }}
+          >
+            <DocumentContext.Provider
+              value={{ selectedAllState, setSelectAllState }}
+            >
+              <DocumentResultsFooter {...footerProps} />
+            </DocumentContext.Provider>
+          </DownloadListContext.Provider>
+        </ThemeProvider>
+      );
+
+      const checkbox = screen.queryByTestId(
+        "document-table-select-all-footer-checkbox"
+      );
+
+      fireEvent.click(checkbox);
+
+      expect(setSelectAllState).toHaveBeenCalled();
     });
   });
 });

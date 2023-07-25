@@ -7,6 +7,7 @@ import createContentfulDocument from "../../__tests__/helpers/ContentfulDocument
 import createPimDocument, {
   createPseudoZipDocument
 } from "../../__tests__/helpers/PimDocumentHelper";
+import { DocumentListProvider } from "../../contexts/DocumentContext";
 import createPimSystemDocument from "../../__tests__/helpers/PimSystemDocumentHelper";
 import { ProductDocument as PIMDocument } from "../../types/pim";
 import DocumentSimpleTableResults, {
@@ -43,7 +44,9 @@ const renderDocumentResults = (props?: Partial<Props>) => {
   };
   return render(
     <ThemeProvider>
-      <DocumentSimpleTableResults {...defaultProps} {...props} />
+      <DocumentListProvider>
+        <DocumentSimpleTableResults {...defaultProps} {...props} />
+      </DocumentListProvider>
     </ThemeProvider>
   );
 };
@@ -223,7 +226,9 @@ describe("DocumentSimpleTableResult", () => {
       render(
         <ThemeProvider>
           <MockDownloadListProvider>
-            <DocumentSimpleTableResults documents={documents} />
+            <DocumentListProvider>
+              <DocumentSimpleTableResults documents={documents} />
+            </DocumentListProvider>
           </MockDownloadListProvider>
         </ThemeProvider>
       );
@@ -258,7 +263,9 @@ describe("DocumentSimpleTableResult", () => {
             setIsLoading: jest.fn()
           }}
         >
-          <DocumentSimpleTableResults documents={documents} />
+          <DocumentListProvider>
+            <DocumentSimpleTableResults documents={documents} />
+          </DocumentListProvider>
         </DownloadListContext.Provider>
       );
 

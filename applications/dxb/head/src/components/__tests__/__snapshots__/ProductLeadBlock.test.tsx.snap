@@ -1296,7 +1296,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                 class="css-10h4yv9"
               >
                 <div
-                  class="css-7q0w71"
+                  class="css-179cxs2"
                 >
                   <button
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
@@ -2402,7 +2402,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                 class="css-10h4yv9"
               >
                 <div
-                  class="css-7q0w71"
+                  class="css-179cxs2"
                 >
                   <button
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
@@ -3926,7 +3926,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
           class="css-10h4yv9"
         >
           <div
-            class="css-7q0w71"
+            class="css-179cxs2"
           >
             <button
               class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
@@ -5027,7 +5027,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
           class="css-10h4yv9"
         >
           <div
-            class="css-7q0w71"
+            class="css-179cxs2"
           >
             <button
               class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"

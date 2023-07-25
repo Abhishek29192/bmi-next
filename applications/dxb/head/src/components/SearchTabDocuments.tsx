@@ -9,6 +9,7 @@ import FiltersSidebar from "../components/FiltersSidebar";
 import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
 import { DocumentTableHeader } from "../types/Document";
+import { DocumentListProvider } from "../contexts/DocumentContext";
 import { devLog } from "../utils/devLog";
 import {
   Aggregations,
@@ -262,34 +263,36 @@ const SearchTabPanelDocuments = (props: Props) => {
   const maxSize = (documentDownloadMaxLimit || 0) * 1000000;
   return (
     <DownloadList maxSize={maxSize}>
-      <StyledGridContainer container spacing={3} ref={resultsElement}>
-        <Grid xs={12} md={12} lg={3}>
-          <DownloadListContext.Consumer>
-            {({ resetList }) => (
-              <FiltersSidebar
-                filters={filters}
-                onFiltersChange={handleFiltersChange(resetList)}
-                onClearFilters={clearFilters}
-                numberOfResults={props.count}
-              />
-            )}
-          </DownloadListContext.Consumer>
-        </Grid>
-        <Grid xs={12} md={12} lg={9} sx={{ pt: { lg: 0 } }}>
-          <DocumentSimpleTableResults
-            documents={results}
-            headers={documentTableHeaders}
+      <DocumentListProvider>
+        <StyledGridContainer container spacing={3} ref={resultsElement}>
+          <Grid xs={12} md={12} lg={3}>
+            <DownloadListContext.Consumer>
+              {({ resetList }) => (
+                <FiltersSidebar
+                  filters={filters}
+                  onFiltersChange={handleFiltersChange(resetList)}
+                  onClearFilters={clearFilters}
+                  numberOfResults={props.count}
+                />
+              )}
+            </DownloadListContext.Consumer>
+          </Grid>
+          <Grid xs={12} md={12} lg={9} sx={{ pt: { lg: 0 } }}>
+            <DocumentSimpleTableResults
+              documents={results}
+              headers={documentTableHeaders}
+            />
+          </Grid>
+        </StyledGridContainer>
+        {!initialLoading && (
+          <DocumentResultsFooter
+            sticky
+            page={page + 1}
+            count={pageCount}
+            onPageChange={handlePageChange}
           />
-        </Grid>
-      </StyledGridContainer>
-      {!initialLoading && (
-        <DocumentResultsFooter
-          sticky
-          page={page + 1}
-          count={pageCount}
-          onPageChange={handlePageChange}
-        />
-      )}
+        )}
+      </DocumentListProvider>
     </DownloadList>
   );
 };

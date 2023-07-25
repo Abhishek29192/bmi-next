@@ -6,6 +6,7 @@ import {
   ContentfulDocument as DocumentData,
   DocumentTableHeader
 } from "../types/Document";
+import { DocumentListProvider } from "../contexts/DocumentContext";
 import DocumentResultsFooter from "./DocumentResultsFooter";
 import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
 import RichText, { RichTextData } from "./RichText";
@@ -69,15 +70,17 @@ const DocumentDownloadSection = ({
           data-testid={"document-download-section-table"}
         >
           <DownloadList maxSize={maxSize}>
-            <DocumentSimpleTableResults
-              documents={documents}
-              headers={TABLE_HEADERS}
-            />
-            <DocumentResultsFooter
-              page={page}
-              count={count}
-              onPageChange={handlePageChange}
-            />
+            <DocumentListProvider>
+              <DocumentSimpleTableResults
+                documents={documents}
+                headers={TABLE_HEADERS}
+              />
+              <DocumentResultsFooter
+                page={page}
+                count={count}
+                onPageChange={handlePageChange}
+              />
+            </DocumentListProvider>
           </DownloadList>
         </div>
       )}
