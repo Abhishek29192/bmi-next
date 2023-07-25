@@ -111,3 +111,10 @@ export type ContentfulPromoCard = Node & {
   resources___NODE: string[];
   metadata: ContentfulTag;
 };
+
+export type ContentfulDocumentDownloadSection = Omit<Node, "description"> & {
+  __typename: "ContentfulDocumentDownloadSection";
+  title: string | null;
+  description: RichTextData | null;
+  documents___NODE: string[];
+};

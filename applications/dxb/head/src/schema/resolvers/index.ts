@@ -1,3 +1,4 @@
+import ContentfulDocumentDownloadSection from "./ContentfulDocumentDownloadSection";
 import ContentfulDocumentLibraryPage from "./ContentfulDocumentLibraryPage";
 import ContentfulFormSection from "./ContentfulFormSection";
 import ContentfulHomePage from "./ContentfulHomePage";
@@ -30,6 +31,7 @@ const {
 export default {
   ContentfulBrandLandingPage,
   ContentfulContactUsPage,
+  ContentfulDocumentDownloadSection,
   ContentfulDocumentLibraryPage: {
     ...ContentfulDocumentLibraryPage,
     ...ContentfulDocumentLibraryPageCommon
