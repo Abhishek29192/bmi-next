@@ -11,7 +11,8 @@ export const classes: Classes = {
   white: `${PREFIX}-white`,
   alabaster: `${PREFIX}-alabaster`,
   tabs: `${PREFIX}-tabs`,
-  tabPanel: `${PREFIX}-tabPanel`
+  tabPanel: `${PREFIX}-tabPanel`,
+  description: `${PREFIX}-description`
 };
 
 export const StyledSection = styled(Section)(({ theme }) => ({
@@ -32,9 +33,18 @@ export const StyledSection = styled(Section)(({ theme }) => ({
     [`.${classes.tabPanel} > div`]: {
       backgroundColor: theme.colours.alabaster
     }
+  },
+  [`& .${classes.description}`]: {
+    marginBottom: "24px"
   }
 }));
 
-export const Title = styled(Section.Title)(({ theme }) => ({
-  marginBottom: 30
-}));
+export const TeamCategoryContainer = styled("div")({
+  margin: "0 auto",
+  paddingBottom: "24px",
+  width: "100%",
+
+  "&:last-of-type": {
+    paddingBottom: 0
+  }
+});
