@@ -57,6 +57,9 @@ export const Head = ({
       (variantProduct.seoDescription || variantProduct.description)) ||
     (seo && seo.metaDescription);
 
+  const correctGatsbySiteUrl: string = process.env.GATSBY_SITE_URL.endsWith("/")
+    ? process.env.GATSBY_SITE_URL.slice(0, -1)
+    : process.env.GATSBY_SITE_URL;
   return (
     <Helmet
       htmlAttributes={htmlAttributes}
@@ -86,7 +89,7 @@ export const Head = ({
       {htmlAttributes?.lang && (
         <link
           rel="alternate"
-          href={`${process.env.GATSBY_SITE_URL}${getPathWithCountryCode(
+          href={`${correctGatsbySiteUrl}${getPathWithCountryCode(
             countryCode,
             path
           )}`}
@@ -95,7 +98,7 @@ export const Head = ({
       )}
       <link
         rel="alternate"
-        href={`${process.env.GATSBY_SITE_URL}${getPathWithCountryCode(
+        href={`${correctGatsbySiteUrl}${getPathWithCountryCode(
           countryCode,
           path
         )}`}
