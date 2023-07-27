@@ -33,6 +33,7 @@ export interface Config {
   isGatsbyDisabledElasticSearch: boolean;
   oneTrustId?: string;
   isSampleOrderingEnabled: boolean;
+  renderTeamCategoriesAsRows: boolean;
 }
 
 const envConfig = (): Config => ({
@@ -84,6 +85,9 @@ const envConfig = (): Config => ({
   oneTrustId: process.env.GATSBY_ONETRUST_ID,
   isSampleOrderingEnabled: convertStrToBool(
     process.env.GATSBY_ENABLE_SAMPLE_ORDERING
+  ),
+  renderTeamCategoriesAsRows: convertStrToBool(
+    process.env.GATSBY_TEAM_CATEGORIES_AS_ROWS
   )
 });
 
