@@ -609,7 +609,9 @@ exports[`FormSection component renders correctly 1`] = `
                     MC: form.upload.supportedFormats: .pdf, .jpg, .jpeg, .png. MC: form.upload.maxSize: 5.2MB
                   </p>
                 </div>
-                <div />
+                <div
+                  data-testid="upload-files-list"
+                />
               </div>
             </div>
             <div
@@ -1972,7 +1974,9 @@ exports[`FormSection component test upload input with large file 1`] = `
                     MC: form.upload.supportedFormats: .pdf, .jpg, .jpeg, .png. MC: form.upload.maxSize: 1MB
                   </p>
                 </div>
-                <div>
+                <div
+                  data-testid="upload-files-list"
+                >
                   <div
                     class="css-1yhtgkl"
                     data-testid="test-file"
@@ -2170,7 +2174,9 @@ exports[`FormSection component test upload input with no maxSize 1`] = `
                     MC: form.upload.supportedFormats: .pdf, .jpg, .jpeg, .png. MC: form.upload.maxSize: 1MB
                   </p>
                 </div>
-                <div />
+                <div
+                  data-testid="upload-files-list"
+                />
               </div>
             </div>
           </div>
@@ -2313,7 +2319,9 @@ exports[`FormSection component test upload input with small file 1`] = `
                     MC: form.upload.supportedFormats: .pdf, .jpg, .jpeg, .png. MC: form.upload.maxSize: 1MB
                   </p>
                 </div>
-                <div>
+                <div
+                  data-testid="upload-files-list"
+                >
                   <div
                     class="css-1yhtgkl"
                     data-testid="test-file"

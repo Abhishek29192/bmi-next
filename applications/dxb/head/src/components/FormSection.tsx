@@ -87,6 +87,7 @@ type InputTypes =
 export type InputWidthType = "full" | "half";
 
 export type InputType = {
+  formId?: string;
   label: string;
   name: string;
   options?: string;
@@ -132,6 +133,7 @@ export const convertMarkdownLinksToAnchorLinks = (
 };
 
 const Input = ({
+  formId,
   label,
   name,
   options,
@@ -186,6 +188,7 @@ const Input = ({
       return (
         <Upload
           id={name}
+          formId={formId}
           name={name}
           buttonLabel={label}
           isRequired={required}
@@ -343,20 +346,24 @@ const Input = ({
 };
 
 type FormInputs = {
+  formId?: string;
   inputs: InputType[];
 };
 
-export const FormInputs = ({ inputs }: FormInputs) => {
-  return (
-    <>
-      {inputs.map(({ width, name, ...props }, $i) => (
-        <Grid key={$i} xs={12} md={width === "full" ? 12 : 6}>
-          <Input name={name} data-testid={`form-input-${name}`} {...props} />
-        </Grid>
-      ))}
-    </>
-  );
-};
+export const FormInputs = ({ formId, inputs }: FormInputs) => (
+  <>
+    {inputs.map(({ width, name, ...props }) => (
+      <Grid key={`${formId}-${name}`} xs={12} md={width === "full" ? 12 : 6}>
+        <Input
+          formId={formId}
+          name={name}
+          data-testid={`form-input-${name}`}
+          {...props}
+        />
+      </Grid>
+    ))}
+  </>
+);
 
 const HubspotForm = ({
   id,
@@ -787,7 +794,7 @@ const FormSection = ({
           data-testid={dataTestId}
         >
           <Grid container spacing={3}>
-            <FormInputs inputs={inputs} />
+            <FormInputs formId={id} inputs={inputs} />
           </Grid>
           <Form.ButtonWrapper>
             <Form.SubmitButton

@@ -3232,7 +3232,9 @@ exports[`Sections component renders correctly 1`] = `
                       form.upload.supportedFormats: .pdf, .jpg, .jpeg, .png. form.upload.maxSize: 5.2MB
                     </p>
                   </div>
-                  <div />
+                  <div
+                    data-testid="upload-files-list"
+                  />
                 </div>
               </div>
               <div
