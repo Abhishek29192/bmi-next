@@ -338,6 +338,7 @@ describe("Sections component", () => {
         title: "Team Section - alabaster",
         teamCategories: [
           {
+            id: "team-category-id-1",
             title: "Team Category 1",
             description: {
               raw: contentMock,
@@ -368,6 +369,7 @@ describe("Sections component", () => {
         title: "Team Section - undefined colour (2 categories)",
         teamCategories: [
           {
+            id: "team-category-id-1",
             title: "Team Category 1",
             description: {
               raw: contentMock,
@@ -391,6 +393,7 @@ describe("Sections component", () => {
             ]
           },
           {
+            id: "team-category-id-2",
             title: "Team Category 2",
             description: null,
             team_member: [
