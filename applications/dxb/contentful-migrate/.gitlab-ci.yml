@@ -205,31 +205,6 @@ deploy_gatsby_cloud_one_page_qa:
     DXB_MARKET_ID: "NO"
     ROOT_DIR: "applications/dxb/contentful-migrate"
 
-migrate_content_norway:
-  extends: .migrate_content
-  rules:
-    - if: "$CI_COMMIT_TAG"
-  variables:
-    DXB_MARKET_ID: "NO"
-
-update_mc_norway:
-  extends: .update_mc
-  needs:
-    - !reference [.update_mc, needs]
-    - migrate_content_norway
-  variables:
-    DXB_MARKET_ID: "NO"
-
-deploy_gatsby_cloud_norway:
-  extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
-  needs:
-    - migrate_content_norway
-    - update_mc_norway
-  variables:
-    DXB_MARKET_ID: "NO"
-
 migrate_content_italy:
   extends: .migrate_content
   rules:
@@ -659,7 +634,16 @@ update_mc_space_8:
     DXB_MARKET_ID: "space_8"
     IS_CONSOLIDATED: "true"
 
-# TODO: Add Norway here when consolidated
+deploy_gatsby_cloud_norway:
+  extends: .deploy_gatsby_cloud
+  rules:
+    - if: "$CI_COMMIT_TAG"
+  needs:
+    - migrate_content_space_8
+    - update_mc_space_8
+  variables:
+    DXB_MARKET_ID: "NO"
+
 deploy_gatsby_cloud_spain:
   extends: .deploy_gatsby_cloud
   rules:
