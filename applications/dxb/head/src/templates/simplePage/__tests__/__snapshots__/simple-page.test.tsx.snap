@@ -2459,7 +2459,7 @@ exports[`Simple page renders correctly with full data 1`] = `
               >
                 <div
                   class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-3 css-1riydk5-MuiGrid2-root"
-                  data-testid="card-collection-grid-item-id"
+                  data-testid="card-collection-grid-item-visible-id"
                 >
                   <div
                     class=" MuiBox-root css-8upnc"

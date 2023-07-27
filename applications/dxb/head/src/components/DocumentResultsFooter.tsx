@@ -240,7 +240,10 @@ const DocumentResultsFooter = ({
       {isDownloadButton && (
         <Box mt={4}>
           <DocumentsFooterContent />
-          <StyledRecaptcha className={classes["recaptcha"]} />
+          <StyledRecaptcha
+            className={classes["recaptcha"]}
+            testId="document-results-footer-recaptcha"
+          />
         </Box>
       )}
     </DocumentResultsFooterContainer>
@@ -286,7 +289,10 @@ const StickyFooter = (props: StickyFooterProps) => {
       </StickyContainer>
       <Grid container direction="row-reverse">
         <Grid xs={12} md={12} lg={9}>
-          <StyledRecaptcha className={classes["recaptcha"]} />
+          <StyledRecaptcha
+            className={classes["recaptcha"]}
+            testId="document-results-footer-recaptcha"
+          />
         </Grid>
       </Grid>
     </>

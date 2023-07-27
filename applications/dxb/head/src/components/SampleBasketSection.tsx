@@ -92,13 +92,18 @@ const SampleBasketSection = ({
             endIcon={<ArrowForwardIcon />}
             variant="outlined"
             action={basketCta.action}
+            data-testid="sample-basket-section-browse-product"
           >
             {browseProductsCTALabel}
           </Button>
         )}
         {!isCompleteFormShow && hasSamplesInTheBasket && (
           <StyledCompleteButtonContainer>
-            <Button endIcon={<ShoppingCart />} onClick={handleCompleteClick}>
+            <Button
+              endIcon={<ShoppingCart />}
+              onClick={handleCompleteClick}
+              data-testid="sample-basket-section-complete-order"
+            >
               {getMicroCopy(microCopy.PDP_OVERVIEW_COMPLETE_SAMPLE_ORDER)}
             </Button>
           </StyledCompleteButtonContainer>

@@ -1056,7 +1056,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                 </div>
                 <p
                   class="MuiTypography-root MuiTypography-body1 documentResultsFooter-recaptcha css-aoter2-MuiTypography-root"
-                  data-testid="typography"
+                  data-testid="document-results-footer-recaptcha"
                 >
                   This site is protected by reCAPTCHA and the Google 
                   <a
@@ -1548,7 +1548,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
             </div>
             <p
               class="MuiTypography-root MuiTypography-body1 documentResultsFooter-recaptcha css-aoter2-MuiTypography-root"
-              data-testid="typography"
+              data-testid="document-results-footer-recaptcha"
             >
               This site is protected by reCAPTCHA and the Google 
               <a

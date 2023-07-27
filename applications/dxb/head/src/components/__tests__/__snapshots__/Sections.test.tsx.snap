@@ -572,7 +572,7 @@ exports[`Sections component renders correctly 1`] = `
             >
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-3 css-1riydk5-MuiGrid2-root"
-                data-testid="card-collection-grid-item-00000000-0000-0000-0000-000000000000"
+                data-testid="card-collection-grid-item-visible-00000000-0000-0000-0000-000000000000"
               >
                 <div
                   class="OverviewCard-flat MuiBox-root css-8upnc"
@@ -722,7 +722,7 @@ exports[`Sections component renders correctly 1`] = `
             >
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-3 css-1riydk5-MuiGrid2-root"
-                data-testid="card-collection-grid-item-00000000-0000-0000-0000-000000000000"
+                data-testid="card-collection-grid-item-visible-00000000-0000-0000-0000-000000000000"
               >
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rozdm9-MuiButtonBase-root"
