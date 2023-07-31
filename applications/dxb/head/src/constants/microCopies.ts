@@ -81,6 +81,8 @@ export const microCopy = {
 
   DOWNLOAD_LIST_CLEAR: "downloadList.clear",
   DOWNLOAD_LIST_DOWNLOAD: "downloadList.download",
+  DOWNLOAD_LIST_SELECTALL: "downloadList.selectAll",
+  DOWNLOAD_LIST_SELECTALL_CHECKBOX: "downloadList.footer.checkbox",
   DOWNLOAD_LIST_INFO_TITLE: "downloadList.info.title",
   DOWNLOAD_LIST_INFO_MESSAGE: "downloadList.info.message",
 

@@ -1,6 +1,7 @@
 import {
   Button,
   ButtonProps,
+  Checkbox,
   Container,
   DownloadList,
   DownloadListContext,
@@ -22,15 +23,22 @@ import { devLog } from "../utils/devLog";
 import getCookie from "../utils/getCookie";
 import withGTM from "../utils/google-tag-manager";
 import useHasScrollbar from "../utils/useHasScrollbar";
-import { getFileUrlByDocumentType } from "../utils/documentUtils";
+import { DocumentContext } from "../contexts/DocumentContext";
+import {
+  getFileUrlByDocumentType,
+  useShowMobileTable
+} from "../utils/documentUtils";
 import createAssetFileCountMap, {
   AssetUniqueFileCountMap,
   generateFileNamebyTitle
 } from "./DocumentFileUtils";
 import { useSiteContext } from "./Site";
 import {
-  ButtonsWrapper,
   ContentWrapper,
+  ButtonsWrapper,
+  FooterBottomWrapper,
+  SelectAllCheckboxWrapper,
+  SelectAllCheckboxLabel,
   DocumentResultsFooterContainer,
   ErrorMessage,
   FilesSizeInfoSection,
@@ -289,7 +297,42 @@ const DocumentsFooterContent = () => {
   const { getMicroCopy } = useSiteContext();
   const config = useConfig();
   const { remainingSize, size } = useContext(DownloadListContext);
+  const { showMobileTable } = useShowMobileTable();
   const maxSizeExceeded = remainingSize < 0;
+
+  const { selectedAllState, setSelectAllState } = useContext(DocumentContext);
+
+  const getMobileViewJSX = (children: React.ReactNode) => {
+    if (!showMobileTable) {
+      return <>{children}</>;
+    }
+
+    return (
+      <FooterBottomWrapper>
+        <SelectAllCheckboxWrapper>
+          <SelectAllCheckboxLabel>
+            {getMicroCopy(microCopy.DOWNLOAD_LIST_SELECTALL)}
+          </SelectAllCheckboxLabel>
+          <Checkbox
+            data-testid={`document-table-select-all-footer-checkbox`}
+            name="add"
+            aria-label={getMicroCopy(
+              microCopy.DOWNLOAD_LIST_SELECTALL_CHECKBOX
+            )}
+            value={selectedAllState.isSelectedAll}
+            checked={selectedAllState.isSelectedAll}
+            onChange={() =>
+              setSelectAllState((prevState) => ({
+                ...prevState,
+                isSelectedAll: !selectedAllState.isSelectedAll
+              }))
+            }
+          />
+        </SelectAllCheckboxWrapper>
+        {children}
+      </FooterBottomWrapper>
+    );
+  };
 
   return (
     <ContentWrapper>
@@ -301,35 +344,39 @@ const DocumentsFooterContent = () => {
           data-testid="document-results-footer-reset-button"
         />
       </ButtonsWrapper>
-      {size ? (
-        <FilesSizeInfoSection>
-          <TotalSize>
-            <span>
-              {getMicroCopy(microCopy.DOWNLOAD_LIST_TOTAL_SIZE_LABEL)}
-            </span>
-            <span
-              className={classnames(
-                classes.totalSizeValue,
-                maxSizeExceeded && classes.totalSizeExceeded
+      {getMobileViewJSX(
+        <>
+          {size ? (
+            <FilesSizeInfoSection>
+              <TotalSize>
+                <span>
+                  {getMicroCopy(microCopy.DOWNLOAD_LIST_TOTAL_SIZE_LABEL)}
+                </span>
+                <span
+                  className={classnames(
+                    classes.totalSizeValue,
+                    maxSizeExceeded && classes.totalSizeExceeded
+                  )}
+                  data-testid="document-results-footer-total-size-value"
+                >
+                  {filesize(size) as string}
+                </span>
+              </TotalSize>
+              <MaxSizeLabel data-testid="document-results-footer-max-size-value">
+                {getMicroCopy(microCopy.DOWNLOAD_LIST_MAX_SIZE, {
+                  maxSize: `${config.documentDownloadMaxLimit} MB`
+                })}
+              </MaxSizeLabel>
+              {maxSizeExceeded && (
+                <ErrorMessage data-testid="document-results-footer-size-exceeded-error">
+                  <StyledErrorIcon />
+                  {getMicroCopy(microCopy.DOCUMENTS_DOWNLOAD_MAX_REACHED)}
+                </ErrorMessage>
               )}
-              data-testid="document-results-footer-total-size-value"
-            >
-              {filesize(size) as string}
-            </span>
-          </TotalSize>
-          <MaxSizeLabel data-testid="document-results-footer-max-size-value">
-            {getMicroCopy(microCopy.DOWNLOAD_LIST_MAX_SIZE, {
-              maxSize: `${config.documentDownloadMaxLimit} MB`
-            })}
-          </MaxSizeLabel>
-          {maxSizeExceeded && (
-            <ErrorMessage data-testid="document-results-footer-size-exceeded-error">
-              <StyledErrorIcon />
-              {getMicroCopy(microCopy.DOCUMENTS_DOWNLOAD_MAX_REACHED)}
-            </ErrorMessage>
-          )}
-        </FilesSizeInfoSection>
-      ) : null}
+            </FilesSizeInfoSection>
+          ) : null}
+        </>
+      )}
     </ContentWrapper>
   );
 };

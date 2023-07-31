@@ -245,7 +245,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
               class="css-10h4yv9"
             >
               <div
-                class="css-7q0w71"
+                class="css-179cxs2"
               >
                 <button
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"

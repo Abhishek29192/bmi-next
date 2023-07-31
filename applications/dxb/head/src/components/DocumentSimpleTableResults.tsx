@@ -6,9 +6,10 @@ import {
 } from "@bmi-digital/components";
 import classnames from "classnames";
 import { filesize } from "filesize";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { microCopy } from "../constants/microCopies";
 import { Document, DocumentTableHeader, TitleField } from "../types/Document";
+import { DocumentContext } from "../contexts/DocumentContext";
 import {
   getFileSizeByDocumentType,
   getFileUrlByDocumentType,
@@ -16,7 +17,8 @@ import {
   getProductStatus,
   getUniqueId,
   getValidityDate,
-  useShowMobileTable
+  useShowMobileTable,
+  getCurrentlySelectedDocumentsCount
 } from "../utils/documentUtils";
 import {
   CopyToClipboard,
@@ -38,6 +40,10 @@ import {
 export type Props = {
   documents: readonly Document[];
   headers?: DocumentTableHeader[];
+};
+
+export type Mutable<Type> = {
+  -readonly [Key in keyof Type]: Type[Key];
 };
 
 const PIM_TYPES = ["PIMDocument", "PIMSystemDocument"];
@@ -205,62 +211,56 @@ const DocumentSimpleTableResults = ({
   headers = ["add", "typeCode", "title", "size", "actions"]
 }: Props): React.ReactElement => {
   const { getMicroCopy } = useSiteContext();
+
   const { list, updateList, count } = useContext(DownloadListContext);
-  const [selectedAll, setSelectedAll] = useState(false);
-  const [selectedDoc, setSelectedDoc] = useState(0);
+  const filteredDocs = documents.filter(
+    (document) => !getIsLinkDocument(document)
+  );
+
   const { showMobileTable, handleTableSizeChange, ref } = useShowMobileTable();
   const titleField =
     headers.includes("type") && !headers.includes("title") ? "type" : "title";
-  const filteredDocs = documents.filter((d) => !getIsLinkDocument(d));
 
-  const howManyIsAlreadySelected = (doc: Document[]): number => {
-    let counts = 0;
-    doc.forEach((d) => {
-      if (list[getUniqueId(d)]) {
-        counts = counts + 1;
-      }
-    });
-    setSelectedDoc(counts);
-    return counts;
-  };
+  const { selectedAllState, setSelectAllState } = useContext(DocumentContext);
+
+  useEffect(() => {
+    handleSelectAll(selectedAllState.isSelectedAll);
+  }, [selectedAllState.isSelectedAll]);
+
+  useEffect(() => {
+    const currentSelectedDocsCount = getCurrentlySelectedDocumentsCount(
+      filteredDocs,
+      list
+    );
+
+    setSelectAllState((prevState) => ({
+      ...prevState,
+      isSelectedAll:
+        currentSelectedDocsCount === filteredDocs.length ? true : false,
+      docsCount: currentSelectedDocsCount
+    }));
+  }, [list, documents]);
 
   const handleSelectAll = (selectedAll: boolean): void => {
     if (selectedAll) {
-      if (selectedDoc === filteredDocs.length) {
+      if (selectedAllState.docsCount === filteredDocs.length) {
         return;
       }
       filteredDocs.forEach((d) => {
         const documentId = getUniqueId(d);
         // eslint-disable-next-line security/detect-object-injection
         if (!list[documentId]) {
-          updateList(getUniqueId(d), d, getFileSizeByDocumentType(d));
+          updateList(documentId, d, getFileSizeByDocumentType(d));
         }
       });
     } else {
-      if (count === 0 || selectedDoc !== filteredDocs.length) {
+      if (count === 0 || selectedAllState.docsCount !== filteredDocs.length) {
         return;
       }
       documents.forEach((d) =>
         updateList(getUniqueId(d), false, getFileSizeByDocumentType(d))
       );
     }
-  };
-
-  useEffect(() => {
-    handleSelectAll(selectedAll);
-  }, [selectedAll]);
-
-  useEffect(() => {
-    const alreadySelected = howManyIsAlreadySelected(filteredDocs);
-    if (alreadySelected === filteredDocs.length) {
-      setSelectedAll(true);
-    } else {
-      setSelectedAll(false);
-    }
-  }, [list, documents]);
-
-  const setSelectAll = () => {
-    setSelectedAll(!selectedAll);
   };
 
   if (showMobileTable) {
@@ -299,9 +299,14 @@ const DocumentSimpleTableResults = ({
                     aria-label={`${getMicroCopy(
                       `documentLibrary.headers.add`
                     )}`}
-                    value={selectedAll}
-                    checked={selectedAll}
-                    onChange={setSelectAll}
+                    value={selectedAllState.isSelectedAll}
+                    checked={selectedAllState.isSelectedAll}
+                    onChange={() =>
+                      setSelectAllState((prevState) => ({
+                        ...prevState,
+                        isSelectedAll: !selectedAllState.isSelectedAll
+                      }))
+                    }
                     disabled={!filteredDocs.length}
                   />
                 ) : (

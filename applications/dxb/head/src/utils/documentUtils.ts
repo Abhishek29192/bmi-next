@@ -225,3 +225,15 @@ export const useShowMobileTable: UseShowMobileTableHook = () => {
     ref
   };
 };
+
+export const getCurrentlySelectedDocumentsCount = (
+  docs: Document[],
+  list: Record<string, any>
+): number => {
+  const docsCount = docs.reduce(
+    (sumCount, curDoc) => (list[getUniqueId(curDoc)] ? sumCount + 1 : sumCount),
+    0
+  );
+
+  return docsCount;
+};

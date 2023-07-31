@@ -104,8 +104,25 @@ export const ButtonsWrapper = styled("div")(({ theme }) => ({
 
   [theme.breakpoints.down("lg")]: {
     width: "100%",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    paddingBottom: "10px"
   }
+}));
+
+export const FooterBottomWrapper = styled("div")(({ theme }) => ({
+  display: "flex",
+  borderTop: `1px solid ${theme.colours.storm}`,
+  justifyContent: "space-between",
+  paddingTop: "10px"
+}));
+
+export const SelectAllCheckboxWrapper = styled("div")(() => ({
+  display: "flex",
+  alignItems: "center"
+}));
+
+export const SelectAllCheckboxLabel = styled("span")(() => ({
+  marginRight: "5px"
 }));
 
 export const TotalSize = styled("div")(({ theme }) => ({
@@ -126,16 +143,10 @@ export const TotalSize = styled("div")(({ theme }) => ({
   }
 }));
 
-export const FilesSizeInfoSection = styled("div")(({ theme }) => ({
+export const FilesSizeInfoSection = styled("div")(() => ({
   display: "flex",
   flexDirection: "column",
-  alignItems: "end",
-
-  [theme.breakpoints.down("lg")]: {
-    paddingTop: "16px",
-    marginTop: "16px",
-    borderTop: `1px solid ${theme.colours.storm}`
-  }
+  alignItems: "end"
 }));
 
 export const MaxSizeLabel = styled(Typography)(({ theme }) => ({

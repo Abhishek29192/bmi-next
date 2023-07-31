@@ -17,6 +17,7 @@ import Tab, { TabProps } from "@mui/material/Tab";
 import React, { useRef, useState } from "react";
 import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
+import { DocumentListProvider } from "../contexts/DocumentContext";
 import { Product } from "../types/pim";
 import withGTM from "../utils/google-tag-manager";
 import { transformImages } from "../utils/product-details-transforms";
@@ -309,15 +310,17 @@ const ProductLeadBlock = ({
           >
             <StyledDocumentLibrary ref={resultsElement}>
               <DownloadList maxSize={(documentDownloadMaxLimit ?? 0) * 1000000}>
-                <DocumentSimpleTableResults
-                  documents={documents}
-                  headers={["add", displayBy, "size", "actions"]}
-                />
-                <DocumentResultsFooter
-                  page={page}
-                  count={count}
-                  onPageChange={handlePageChange}
-                />
+                <DocumentListProvider>
+                  <DocumentSimpleTableResults
+                    documents={documents}
+                    headers={["add", displayBy, "size", "actions"]}
+                  />
+                  <DocumentResultsFooter
+                    page={page}
+                    count={count}
+                    onPageChange={handlePageChange}
+                  />
+                </DocumentListProvider>
               </DownloadList>
             </StyledDocumentLibrary>
           </Tabs.TabPanel>

@@ -13,7 +13,7 @@ exports[`DocumentResultsFooter component renders correctly 1`] = `
         class="css-10h4yv9"
       >
         <div
-          class="css-7q0w71"
+          class="css-179cxs2"
         >
           <button
             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
@@ -40,7 +40,7 @@ exports[`DocumentResultsFooter component renders correctly 1`] = `
           </button>
         </div>
         <div
-          class="css-m0fmxb"
+          class="css-vqe3zw"
         >
           <div
             class="css-12wvte8"
@@ -111,7 +111,7 @@ exports[`DocumentResultsFooter component renders correctly if download item is a
         class="css-10h4yv9"
       >
         <div
-          class="css-7q0w71"
+          class="css-179cxs2"
         >
           <button
             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
@@ -138,7 +138,7 @@ exports[`DocumentResultsFooter component renders correctly if download item is a
           </button>
         </div>
         <div
-          class="css-m0fmxb"
+          class="css-vqe3zw"
         >
           <div
             class="css-12wvte8"
