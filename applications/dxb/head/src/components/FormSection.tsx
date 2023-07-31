@@ -187,7 +187,7 @@ const Input = ({
     case "upload":
       return (
         <Upload
-          id={name}
+          id={`${formId}-${name}`}
           formId={formId}
           name={name}
           buttonLabel={label}
