@@ -8,15 +8,8 @@ jest.unstable_mockModule("../migrationScripts.js", () => ({
   runMigrationScripts: (
     spaceId: string,
     contentfulAlias: string,
-    managementAccessToken: string,
-    isDryRun: boolean
-  ) =>
-    mockRunMigrationScripts(
-      spaceId,
-      contentfulAlias,
-      managementAccessToken,
-      isDryRun
-    )
+    managementAccessToken: string
+  ) => mockRunMigrationScripts(spaceId, contentfulAlias, managementAccessToken)
 }));
 
 const main = async () => (await import("../up.js")).main();
@@ -82,8 +75,7 @@ describe("main", () => {
     expect(mockRunMigrationScripts).toHaveBeenCalledWith(
       process.env.SPACE_ID,
       process.env.CONTENTFUL_ENVIRONMENT,
-      process.env.MANAGEMENT_ACCESS_TOKEN,
-      false
+      process.env.MANAGEMENT_ACCESS_TOKEN
     );
   });
 
@@ -93,47 +85,7 @@ describe("main", () => {
     expect(mockRunMigrationScripts).toHaveBeenCalledWith(
       process.env.SPACE_ID,
       process.env.CONTENTFUL_ENVIRONMENT,
-      process.env.MANAGEMENT_ACCESS_TOKEN,
-      false
-    );
-  });
-
-  it("should pass dry run as false if MIGRATION_DRY_RUN is not set", async () => {
-    delete process.env.MIGRATION_DRY_RUN;
-
-    await main();
-
-    expect(mockRunMigrationScripts).toHaveBeenCalledWith(
-      process.env.SPACE_ID,
-      process.env.CONTENTFUL_ENVIRONMENT,
-      process.env.MANAGEMENT_ACCESS_TOKEN,
-      false
-    );
-  });
-
-  it("should pass dry run as false if MIGRATION_DRY_RUN is set to false", async () => {
-    process.env.MIGRATION_DRY_RUN = "false";
-
-    await main();
-
-    expect(mockRunMigrationScripts).toHaveBeenCalledWith(
-      process.env.SPACE_ID,
-      process.env.CONTENTFUL_ENVIRONMENT,
-      process.env.MANAGEMENT_ACCESS_TOKEN,
-      false
-    );
-  });
-
-  it("should pass dry run as true if MIGRATION_DRY_RUN is set to true", async () => {
-    process.env.MIGRATION_DRY_RUN = "true";
-
-    await main();
-
-    expect(mockRunMigrationScripts).toHaveBeenCalledWith(
-      process.env.SPACE_ID,
-      process.env.CONTENTFUL_ENVIRONMENT,
-      process.env.MANAGEMENT_ACCESS_TOKEN,
-      true
+      process.env.MANAGEMENT_ACCESS_TOKEN
     );
   });
 

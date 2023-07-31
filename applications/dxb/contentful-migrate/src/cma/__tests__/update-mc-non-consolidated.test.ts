@@ -21,7 +21,7 @@ const envMock = {
     waitProcessing: jest.fn()
   })
 };
-jest.mock("@bmi/utils", () => {
+jest.unstable_mockModule("@bmi/utils", () => {
   return {
     getEnvironment: jest.fn().mockReturnValue(envMock),
     waitFor: jest.fn()

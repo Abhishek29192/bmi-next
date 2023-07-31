@@ -48,7 +48,7 @@
     :versions: []
     :when: 2022-06-21 15:05:00.716826000 Z
 - - :approve
-  - "@bmi/dxb-contentful-migrate"
+  - "@bmi/contentful-migrate"
   - :who: Benjamin Sproule
     :why: Our own project
     :versions: []
