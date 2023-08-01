@@ -569,7 +569,7 @@ exports[`FormSection component renders correctly 1`] = `
               >
                 <div>
                   <label
-                    for="upload"
+                    for="form-1-upload"
                   >
                     <span
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-fullWidth MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-fullWidth css-jjjt4a-MuiButtonBase-root-MuiButton-root"
@@ -597,8 +597,8 @@ exports[`FormSection component renders correctly 1`] = `
                   <input
                     accept=".pdf, .jpg, .jpeg, .png"
                     class="Upload-input"
-                    data-testid="upload"
-                    id="upload"
+                    data-testid="form-1-upload"
+                    id="form-1-upload"
                     multiple=""
                     type="file"
                   />
@@ -1934,7 +1934,7 @@ exports[`FormSection component test upload input with large file 1`] = `
               >
                 <div>
                   <label
-                    for="upload"
+                    for="form-1-upload"
                   >
                     <span
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-fullWidth MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-fullWidth css-jjjt4a-MuiButtonBase-root-MuiButton-root"
@@ -1962,8 +1962,8 @@ exports[`FormSection component test upload input with large file 1`] = `
                   <input
                     accept=".pdf, .jpg, .jpeg, .png"
                     class="Upload-input"
-                    data-testid="upload"
-                    id="upload"
+                    data-testid="form-1-upload"
+                    id="form-1-upload"
                     multiple=""
                     type="file"
                   />
@@ -2134,7 +2134,7 @@ exports[`FormSection component test upload input with no maxSize 1`] = `
               >
                 <div>
                   <label
-                    for="upload"
+                    for="form-1-upload"
                   >
                     <span
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-fullWidth MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-fullWidth css-jjjt4a-MuiButtonBase-root-MuiButton-root"
@@ -2162,8 +2162,8 @@ exports[`FormSection component test upload input with no maxSize 1`] = `
                   <input
                     accept=".pdf, .jpg, .jpeg, .png"
                     class="Upload-input"
-                    data-testid="upload"
-                    id="upload"
+                    data-testid="form-1-upload"
+                    id="form-1-upload"
                     multiple=""
                     type="file"
                   />
@@ -2279,7 +2279,7 @@ exports[`FormSection component test upload input with small file 1`] = `
               >
                 <div>
                   <label
-                    for="upload"
+                    for="form-1-upload"
                   >
                     <span
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-fullWidth MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-fullWidth css-jjjt4a-MuiButtonBase-root-MuiButton-root"
@@ -2307,8 +2307,8 @@ exports[`FormSection component test upload input with small file 1`] = `
                   <input
                     accept=".pdf, .jpg, .jpeg, .png"
                     class="Upload-input"
-                    data-testid="upload"
-                    id="upload"
+                    data-testid="form-1-upload"
+                    id="form-1-upload"
                     multiple=""
                     type="file"
                   />

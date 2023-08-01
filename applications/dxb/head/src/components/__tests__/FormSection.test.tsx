@@ -29,6 +29,8 @@ const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
     </ThemeProvider>
   );
 };
+
+const formId = "form-1";
 const submitText = "Submit";
 const data: Data = {
   __typename: "ContentfulFormSection",
@@ -187,7 +189,7 @@ describe("FormSection component", () => {
   it("renders correctly", () => {
     const { container } = render(
       <ThemeProvider>
-        <FormSection id="form-1" data={data} backgroundColor="white" />
+        <FormSection id={formId} data={data} backgroundColor="white" />
       </ThemeProvider>
     );
 
@@ -198,7 +200,7 @@ describe("FormSection component", () => {
     render(
       <ThemeProvider>
         <FormSection
-          id="form-1"
+          id={formId}
           data={data}
           backgroundColor="white"
           gtmOverride={{
@@ -231,7 +233,7 @@ describe("FormSection component", () => {
     };
     const { container } = render(
       <ThemeProvider>
-        <FormSection id="form-1" data={specificData} backgroundColor="white" />
+        <FormSection id={formId} data={specificData} backgroundColor="white" />
       </ThemeProvider>
     );
 
@@ -259,7 +261,7 @@ describe("FormSection component", () => {
     };
     const { container } = render(
       <ThemeProvider>
-        <FormSection id="form-1" data={specificData} backgroundColor="white" />
+        <FormSection id={formId} data={specificData} backgroundColor="white" />
       </ThemeProvider>
     );
 
@@ -287,10 +289,10 @@ describe("FormSection component", () => {
     };
     const { container } = render(
       <ThemeProvider>
-        <FormSection id="form-1" data={specificData} backgroundColor="white" />
+        <FormSection id={formId} data={specificData} backgroundColor="white" />
       </ThemeProvider>
     );
-    const upload = screen.getByTestId("upload");
+    const upload = screen.getByTestId(`${formId}-upload`);
     fireEvent.change(upload, {
       target: {
         files: [{ name: "fileName", size: 10485761, type: "pdf" }]
@@ -314,10 +316,10 @@ describe("FormSection component", () => {
     };
     const { container } = render(
       <ThemeProvider>
-        <FormSection id="form-1" data={specificData} backgroundColor="white" />
+        <FormSection id={formId} data={specificData} backgroundColor="white" />
       </ThemeProvider>
     );
-    const upload = screen.getByTestId("upload");
+    const upload = screen.getByTestId(`${formId}-upload`);
     fireEvent.change(upload, {
       target: {
         files: [{ name: "fileName", size: 200, type: "pdf" }]
@@ -341,7 +343,7 @@ describe("FormSection component", () => {
     };
     const { container } = render(
       <ThemeProvider>
-        <FormSection id="form-1" data={specificData} backgroundColor="white" />
+        <FormSection id={formId} data={specificData} backgroundColor="white" />
       </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
@@ -353,7 +355,7 @@ describe("FormSection component", () => {
       <ThemeProvider>
         <ConfigProvider configOverride={{ isPreviewMode: true }}>
           <FormSection
-            id="form-1"
+            id={formId}
             data={data}
             backgroundColor="white"
             data-testid={"test-form"}
@@ -388,7 +390,7 @@ describe("FormSection component", () => {
       >
         <MockSiteContext>
           <FormSection
-            id="form-1"
+            id={formId}
             data={specificData}
             backgroundColor="white"
             onSuccess={onSuccess}
@@ -460,7 +462,7 @@ describe("FormSection component", () => {
       >
         <MockSiteContext>
           <FormSection
-            id="form-1"
+            id={formId}
             data={specificData}
             backgroundColor="white"
             onSuccess={onSuccess}
@@ -525,7 +527,7 @@ describe("FormSection component", () => {
       >
         <MockSiteContext>
           <FormSection
-            id="form-1"
+            id={formId}
             data={specificData}
             backgroundColor="white"
             onSuccess={jest.fn()}
@@ -597,7 +599,7 @@ describe("FormSection component", () => {
       >
         <MockSiteContext>
           <FormSection
-            id="form-1"
+            id={formId}
             data={specificData}
             backgroundColor="white"
             onSuccess={jest.fn()}
@@ -653,7 +655,7 @@ describe("FormSection component", () => {
     const { container } = render(
       <MockSiteContext>
         <FormSection
-          id="form-1"
+          id={formId}
           data={specificData}
           backgroundColor="white"
           data-testid={"test-form"}
@@ -688,7 +690,7 @@ describe("FormSection component", () => {
     };
     const { container } = render(
       <ThemeProvider>
-        <FormSection id="form-1" data={specificData} backgroundColor="white" />
+        <FormSection id={formId} data={specificData} backgroundColor="white" />
       </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
@@ -714,7 +716,7 @@ describe("FormSection component", () => {
     };
     const { container } = render(
       <ThemeProvider>
-        <FormSection id="form-1" data={specificData} backgroundColor="white" />
+        <FormSection id={formId} data={specificData} backgroundColor="white" />
       </ThemeProvider>
     );
     const externalLink = screen.getByTestId(
@@ -771,7 +773,7 @@ describe("FormSection component", () => {
       >
         <MockSiteContext>
           <FormSection
-            id="form-1"
+            id={formId}
             data={{ ...data, inputs: specificData }}
             backgroundColor="white"
             onSuccess={jest.fn()}
@@ -836,7 +838,7 @@ describe("FormSection component", () => {
       >
         <MockSiteContext>
           <FormSection
-            id="form-1"
+            id={formId}
             data={{ ...data, inputs: specificData }}
             backgroundColor="white"
             onSuccess={jest.fn()}
@@ -878,7 +880,7 @@ describe("FormSection component", () => {
     it("renders correctly", () => {
       const { container } = render(
         <ThemeProvider>
-          <FormSection id="form-1" data={dataHubSpot} backgroundColor="white" />
+          <FormSection id={formId} data={dataHubSpot} backgroundColor="white" />
         </ThemeProvider>
       );
 
@@ -915,7 +917,7 @@ describe("FormSection component", () => {
       const { container } = render(
         <ThemeProvider>
           <FormSection
-            id="form-1"
+            id={formId}
             data={dataHubSpot}
             sampleIds={sampleIds}
             backgroundColor="white"
@@ -932,7 +934,7 @@ describe("FormSection component", () => {
       jest.spyOn(window, "alert").mockImplementation();
       const { container } = render(
         <ThemeProvider>
-          <FormSection id="form-1" data={dataHubSpot} backgroundColor="white" />
+          <FormSection id={formId} data={dataHubSpot} backgroundColor="white" />
         </ThemeProvider>
       );
       expect(container).toMatchSnapshot();
@@ -943,7 +945,7 @@ describe("FormSection component", () => {
     render(
       <ThemeProvider>
         <FormSection
-          id="form-1"
+          id={formId}
           data={dataHubSpot}
           backgroundColor="white"
           onSuccess={onSuccess}
@@ -972,7 +974,7 @@ describe("FormSection component", () => {
     render(
       <ThemeProvider>
         <FormSection
-          id="form-1"
+          id={formId}
           data={dataHubSpot}
           backgroundColor="white"
           onFormReady={onFormReady}
@@ -995,7 +997,7 @@ describe("FormSection component", () => {
     render(
       <ThemeProvider>
         <FormSection
-          id="form-1"
+          id={formId}
           data={dataHubSpot}
           backgroundColor="white"
           onFormLoadError={onFormLoadError}

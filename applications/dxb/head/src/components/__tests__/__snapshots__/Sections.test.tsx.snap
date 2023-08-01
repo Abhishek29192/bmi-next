@@ -3192,7 +3192,7 @@ exports[`Sections component renders correctly 1`] = `
                 >
                   <div>
                     <label
-                      for="files"
+                      for="section-15-files"
                     >
                       <span
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-fullWidth MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-fullWidth css-jjjt4a-MuiButtonBase-root-MuiButton-root"
@@ -3220,8 +3220,8 @@ exports[`Sections component renders correctly 1`] = `
                     <input
                       accept=".pdf, .jpg, .jpeg, .png"
                       class="Upload-input"
-                      data-testid="files"
-                      id="files"
+                      data-testid="section-15-files"
+                      id="section-15-files"
                       multiple=""
                       type="file"
                     />
