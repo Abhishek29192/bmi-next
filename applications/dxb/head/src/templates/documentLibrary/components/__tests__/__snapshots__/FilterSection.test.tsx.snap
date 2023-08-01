@@ -8,6 +8,7 @@ exports[`FilterSection render correctly 1`] = `
   >
     <div
       class="FilterSectionStyles-filterBox"
+      data-testid="filter-sidebar-header"
     >
       <h5
         class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"

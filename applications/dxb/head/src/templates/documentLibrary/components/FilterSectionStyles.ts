@@ -48,7 +48,17 @@ export const StyledDrawer = styled(Drawer)(({ theme }) => ({
   },
 
   "& .showBtn": {
-    margin: "24px 16px"
+    width: "100%"
+  },
+
+  "& .showBtn-box": {
+    padding: "24px 16px",
+    width: filterWidth,
+    background: theme.colours.white,
+    position: "fixed",
+    bottom: 0,
+    left: 0,
+    zIndex: 100
   },
 
   "& .top-box": {
@@ -70,6 +80,7 @@ export const StyledDrawer = styled(Drawer)(({ theme }) => ({
 
   "& .filterContainer": {
     paddingTop: "60px",
+    paddingBottom: "88px",
     div: {
       maxHeight: "100%"
     }
