@@ -13,6 +13,13 @@ import { SiteContextProvider } from "../Site";
 import { SourceType } from "../types/FormSectionTypes";
 import { getMockSiteContext } from "./utils/SiteContextProvider";
 
+// Replace react-player/lazy with react-player
+// Fix Segmentation Fault when using 'react-player/lazy' in tests
+// Learn more: https://github.com/cookpete/react-player/issues/1391
+jest.mock("react-player/lazy", () => {
+  return jest.requireActual("react-player/lazy");
+});
+
 const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
   return (
     <ThemeProvider>
