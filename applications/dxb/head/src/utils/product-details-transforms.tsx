@@ -7,7 +7,10 @@ import { Image, Measurements, Product, RelatedVariant } from "../types/pim";
 import { getPathWithCountryCode } from "./path";
 
 // Returns an array of all the values of a certain prop
-const getAllValues = (product: Product, propName: keyof RelatedVariant) => {
+export const getAllValues = (
+  product: Product,
+  propName: keyof RelatedVariant
+) => {
   const allValuesArray = [
     // eslint-disable-next-line security/detect-object-injection
     product[propName],
@@ -20,29 +23,7 @@ const getAllValues = (product: Product, propName: keyof RelatedVariant) => {
       if (
         !allValues.find((v) => {
           if (propName === "measurements") {
-            const valueAsMeasurement = value as Measurements;
-            const vAsMeasurement = v as Measurements;
-            if (
-              vAsMeasurement &&
-              valueAsMeasurement &&
-              vAsMeasurement.label.length > 0 &&
-              valueAsMeasurement.label.length > 0
-            ) {
-              return (
-                valueAsMeasurement.length?.value ===
-                  vAsMeasurement.length?.value &&
-                valueAsMeasurement.width?.value ===
-                  vAsMeasurement.width?.value &&
-                valueAsMeasurement.length?.value ===
-                  vAsMeasurement.length?.value &&
-                valueAsMeasurement.thickness?.value ===
-                  vAsMeasurement.thickness?.value &&
-                valueAsMeasurement.volume?.value ===
-                  vAsMeasurement.volume?.value
-              );
-            } else {
-              return valueAsMeasurement.label.length > 0;
-            }
+            return v.label === value.label;
           } else {
             return v === value;
           }
@@ -74,10 +55,18 @@ const getAllValues = (product: Product, propName: keyof RelatedVariant) => {
       const lengthValueA = a["length"]?.value || 0;
       const lengthValueB = b["length"]?.value || 0;
 
+      const volumeValueA = a["volume"]?.value || 0;
+      const volumeValueB = b["volume"]?.value || 0;
+
+      const thicknessValueA = a["thickness"]?.value || 0;
+      const thicknessValueB = b["thickness"]?.value || 0;
+
       return (
         lengthValueA - lengthValueB ||
         heightValueA - heightValueB ||
-        widthValueA - widthValueB
+        widthValueA - widthValueB ||
+        thicknessValueA - thicknessValueB ||
+        volumeValueA - volumeValueB
       );
     }
     return a < b ? -1 : 1;

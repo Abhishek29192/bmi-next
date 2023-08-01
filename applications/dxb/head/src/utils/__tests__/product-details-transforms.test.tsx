@@ -6,11 +6,158 @@ import createMeasurements from "../../__tests__/helpers/MeasurementsHelper";
 import createProduct from "../../__tests__/helpers/ProductHelper";
 import createRelatedVariant from "../../__tests__/helpers/RelatedVariantHelper";
 import {
+  getAllValues,
   getProductAttributes,
   mapClassificationValues,
   transformImages
 } from "../product-details-transforms";
-import { Product } from "../../types/pim";
+import { Product, RelatedVariant } from "../../types/pim";
+
+describe("getAllValues tests", () => {
+  const createSampleProduct = (
+    product1?: Partial<RelatedVariant>,
+    product2?: Partial<RelatedVariant>
+  ): Product => {
+    return createProduct({
+      relatedVariants: [
+        createRelatedVariant(product1),
+        createRelatedVariant(product2)
+      ]
+    });
+  };
+
+  it("should return an empty array if the property is missing", () => {
+    const product = createSampleProduct({ colour: "Blue" });
+    const result = getAllValues(
+      product,
+      "missingProperty" as keyof RelatedVariant
+    );
+    expect(result).toEqual([]);
+  });
+
+  it("should return an array with unique values of the given property", () => {
+    const product = createSampleProduct({ colour: "Blue" });
+    const result = getAllValues(product, "colour");
+    expect(result).toEqual(["Blue", "colour"]);
+  });
+
+  it("should return an empty array if propName is undefined", () => {
+    const product = createSampleProduct({ colour: "Blue" }, { colour: "Red" });
+    const result = getAllValues(product, undefined);
+    expect(result).toEqual([]);
+  });
+
+  it("should return an array of values from the provided product property", () => {
+    const product = createSampleProduct({ colour: "Red" });
+    const result = getAllValues(product, "colour");
+
+    expect(result).toEqual(expect.arrayContaining(["Red", "colour"]));
+  });
+
+  it("should handle cases where product.relatedVariants is undefined", () => {
+    const product = createSampleProduct({ colour: "Red" });
+    const productWithoutRelatedVariants: Product = {
+      ...product,
+      relatedVariants: undefined
+    };
+    const result = getAllValues(productWithoutRelatedVariants, "measurements");
+    const measurement = createMeasurements();
+
+    expect(result).toEqual([measurement]);
+  });
+
+  it("should handle cases where product.relatedVariants is an empty array", () => {
+    const product = createSampleProduct({ colour: "Red" });
+    const productWithEmptyRelatedVariants: Product = {
+      ...product,
+      relatedVariants: []
+    };
+    const result = getAllValues(
+      productWithEmptyRelatedVariants,
+      "measurements"
+    );
+    const measurement = createMeasurements();
+
+    expect(result).toEqual(expect.arrayContaining([measurement]));
+  });
+
+  it("should return an array containing only unique values from the provided product property", () => {
+    const product = createSampleProduct({ colour: "Red" });
+    const result = getAllValues(product, "colour");
+
+    expect(new Set(result).size).toBe(result.length);
+  });
+
+  it("should filter out values from measurements if the label length is 0", () => {
+    const measurement = createMeasurements({
+      label: "measurement1",
+      length: { value: "10", unit: "mm" }
+    });
+
+    const variantOne = createRelatedVariant({
+      measurements: createMeasurements({
+        label: "measurement1",
+        height: {
+          value: "10",
+          unit: "mm"
+        }
+      })
+    });
+
+    const variantTwo = createRelatedVariant({
+      measurements: createMeasurements({
+        label: "",
+        height: {
+          value: "20",
+          unit: "mm"
+        }
+      })
+    });
+    const product = createProduct({
+      measurements: measurement,
+      relatedVariants: [{ ...variantOne }, { ...variantTwo }]
+    });
+    const result = getAllValues(product, "measurements");
+
+    expect(result).toEqual(expect.arrayContaining([product.measurements]));
+  });
+
+  it('should sort the result in ascending order when propName is "measurements"', () => {
+    const variantOne = createRelatedVariant({
+      measurements: createMeasurements({
+        label: "measurement2",
+        length: {
+          value: "20",
+          unit: "mm"
+        }
+      })
+    });
+    const variantTwo = createRelatedVariant({
+      measurements: createMeasurements({
+        label: "measurement3",
+        length: {
+          value: "5",
+          unit: "mm"
+        }
+      })
+    });
+    const product = createProduct({
+      measurements: createMeasurements({
+        label: "measurement1",
+        length: { value: "10", unit: "mm" }
+      }),
+      relatedVariants: [{ ...variantOne }, { ...variantTwo }]
+    });
+
+    const result = getAllValues(product, "measurements");
+
+    result.forEach((result: any) => {
+      const currentLength = +result?.height?.value || 0;
+      const nextLength = +result?.height?.value || 0;
+      expect(currentLength).toBeLessThanOrEqual(nextLength);
+    });
+  });
+});
 
 describe("product-details-transforms tests", () => {
   describe("getProductAttributes tests", () => {
