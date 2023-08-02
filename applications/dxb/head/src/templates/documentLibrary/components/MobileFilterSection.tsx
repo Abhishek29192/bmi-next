@@ -56,20 +56,22 @@ const MobileFilters = ({
           </Button>
         </div>
         <div className={"filterContainer"}>{filtersComponent}</div>
-        <Button
-          className={"showBtn"}
-          variant="contained"
-          onClick={handleDrawerToggle}
-          data-testid="filters-show-all-results-btn"
-        >
-          {showDocumentCount
-            ? `${getMicroCopy(
-                "filterLabels.Show.World.Btn"
-              )} ${resultsNumber} ${getMicroCopy(
-                "filterLabels.Result.World.Btn"
-              )}`
-            : getMicroCopy("filterLabels.Show.All.Result.Btn")}
-        </Button>
+        <div className={"showBtn-box"}>
+          <Button
+            className={"showBtn"}
+            variant="contained"
+            onClick={handleDrawerToggle}
+            data-testid="filters-show-all-results-btn"
+          >
+            {showDocumentCount
+              ? `${getMicroCopy(
+                  "filterLabels.Show.World.Btn"
+                )} ${resultsNumber} ${getMicroCopy(
+                  "filterLabels.Result.World.Btn"
+                )}`
+              : getMicroCopy("filterLabels.Show.All.Result.Btn")}
+          </Button>
+        </div>
       </>
     </StyledDrawer>
   );

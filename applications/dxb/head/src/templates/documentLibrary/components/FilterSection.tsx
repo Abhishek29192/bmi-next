@@ -10,6 +10,7 @@ import {
   Filters,
   Typography
 } from "@bmi-digital/components";
+import { GlobalStyles } from "@mui/material";
 import { Filter } from "@bmi-digital/components/icon";
 import React, { useState, useMemo } from "react";
 import { useMediaQuery, useTheme } from "@mui/material";
@@ -54,6 +55,7 @@ const DocumentLibraryFilter = ({
       })),
     [filters, isMobile]
   );
+
   const filtersComponent = (
     <DownloadListContext.Consumer>
       {() => (
@@ -86,50 +88,62 @@ const DocumentLibraryFilter = ({
     </DownloadListContext.Consumer>
   );
 
+  const mobileView = (
+    <>
+      <GlobalStyles
+        styles={{
+          html: {
+            height: "100vh",
+            overflow: "hidden"
+          },
+          body: {
+            paddingRight: "0 !important",
+            height: "100vh"
+          }
+        }}
+      />
+      <Button
+        variant="opaqueOutlined"
+        onClick={handleDrawerToggle}
+        className={classes.filterBtn}
+        data-testid="filters-mobile-btn"
+      >
+        <StyledFilterIcon source={Filter} />
+        {getMicroCopy("documentLibrary.filters.title")}
+      </Button>
+      <div data-testid="mobile-filters">
+        <MobileFilters
+          isOpenMobileFilters={isOpenMobileFilters}
+          clearFilters={clearFilters}
+          handleDrawerToggle={handleDrawerToggle}
+          filtersComponent={filtersComponent}
+          resultsNumber={resultsNumber}
+          showDocumentCount={!isTechnicalTable}
+        />
+      </div>
+    </>
+  );
+
+  const desktopView = (
+    <>
+      <div className={classes.filterBox} data-testid="filter-sidebar-header">
+        <Typography variant="h5">
+          {getMicroCopy("documentLibrary.filters.title")}
+        </Typography>
+        <Button
+          variant="text"
+          onClick={clearFilters}
+          data-testid="filters-clear-all"
+        >
+          {getMicroCopy("documentLibrary.filters.clearAll")}
+        </Button>
+      </div>
+      {filtersComponent}
+    </>
+  );
   return (
     <Root data-testid="document-library-filters">
-      <div className={classes.filterBox}>
-        {isMobile ? (
-          <Button
-            variant="opaqueOutlined"
-            onClick={handleDrawerToggle}
-            className={classes.filterBtn}
-            data-testid="filters-mobile-btn"
-          >
-            <StyledFilterIcon source={Filter} />
-            {getMicroCopy("documentLibrary.filters.title")}
-          </Button>
-        ) : (
-          <>
-            <Typography variant="h5">
-              {getMicroCopy("documentLibrary.filters.title")}
-            </Typography>
-            <Button
-              variant="text"
-              onClick={clearFilters}
-              data-testid="filters-clear-all"
-            >
-              {getMicroCopy("documentLibrary.filters.clearAll")}
-            </Button>
-          </>
-        )}
-      </div>
-      <>
-        {isMobile ? (
-          <div data-testid="mobile-filters">
-            <MobileFilters
-              isOpenMobileFilters={isOpenMobileFilters}
-              clearFilters={clearFilters}
-              handleDrawerToggle={handleDrawerToggle}
-              filtersComponent={filtersComponent}
-              resultsNumber={resultsNumber}
-              showDocumentCount={!isTechnicalTable}
-            />
-          </div>
-        ) : (
-          filtersComponent
-        )}
-      </>
+      {isMobile ? mobileView : desktopView}
     </Root>
   );
 };
